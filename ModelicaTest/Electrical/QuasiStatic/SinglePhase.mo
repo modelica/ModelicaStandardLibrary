@@ -4,26 +4,26 @@ package SinglePhase "Single phase quasi static package"
   model SerialConnection "Example of serial connections"
     extends Modelica.Icons.Example;
     output Modelica.SIunits.ComplexVoltage v = voltageSensor.y "Total voltage";
-    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0))                                                  annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0))                                                  annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-50,-20})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance impedance(Z_ref(re=1, im=1)) annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance admittance(Y_ref(re=0.5, im=0.5)) annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor variableResistor annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor variableConductor annotation (Placement(transformation(extent={{0,20},{20,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor conductor(G_ref=1) annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground ground annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance impedance(Z_ref(re=1, im=1)) annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance admittance(Y_ref(re=0.5, im=0.5)) annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor variableResistor annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor variableConductor annotation (Placement(transformation(extent={{0,20},{20,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor conductor(G_ref=1) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-90,10})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor variableCapacitor annotation (Placement(transformation(extent={{30,20},{50,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor variableInductor annotation (Placement(transformation(extent={{60,20},{80,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance variableImpedance annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor variableCapacitor annotation (Placement(transformation(extent={{30,20},{50,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor variableInductor annotation (Placement(transformation(extent={{60,20},{80,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance variableImpedance annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
           origin={70,-40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance variableAdmittance annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance variableAdmittance annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
           origin={40,-40})));
@@ -33,7 +33,7 @@ package SinglePhase "Single phase quasi static package"
     Modelica.Blocks.Sources.Constant const3(k=1/100/Modelica.Constants.pi) annotation (Placement(transformation(extent={{100,50},{80,70}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const4(k(re=0.5, im=0.5))   annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const5(k(re=1, im=1)) annotation (Placement(transformation(extent={{-30,-90},{-10,-70}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor voltageSensor annotation (Placement(transformation(
           extent={{-10,10},{10,-10}},
           rotation=270,
           origin={-20,-20})));
@@ -75,21 +75,21 @@ package SinglePhase "Single phase quasi static package"
   model Ideal "Ideal components"
     extends Modelica.Icons.Example;
     output Modelica.SIunits.ComplexCurrent I = currentSensor.y "Current";
-    Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle idle annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle idle annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-50,10})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short short annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch idealCommutingSwitch annotation (Placement(transformation(extent={{30,20},{50,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch idealIntermediateSwitch annotation (Placement(transformation(extent={{60,20},{80,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch idealOpeningSwitch annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch idealClosingSwitch annotation (Placement(transformation(extent={{-10,20},{10,40}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance impedance(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short short annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch idealCommutingSwitch annotation (Placement(transformation(extent={{30,20},{50,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealIntermediateSwitch idealIntermediateSwitch annotation (Placement(transformation(extent={{60,20},{80,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealOpeningSwitch idealOpeningSwitch annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealClosingSwitch idealClosingSwitch annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance impedance(
       alpha_ref=0.004,
       useHeatPort=true,
       Z_ref(re=2, im=2),
       T_ref=293.15)     annotation (Placement(transformation(extent={{80,-10},{60,10}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource voltageSource(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource voltageSource(
       gamma(start=0, fixed=true),
       f=50,
       phi=0,
@@ -97,12 +97,12 @@ package SinglePhase "Single phase quasi static package"
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-90,10})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance admittance(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance admittance(
       Y_ref(re=0.5, im=0.5),
       useHeatPort=true,
       T_ref=293.15,
       alpha_ref=0.004)  annotation (Placement(transformation(extent={{80,-30},{60,-10}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(transformation(extent={{-100,-60},{-80,-40}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground ground annotation (Placement(transformation(extent={{-100,-60},{-80,-40}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep1(startTime=0.2) annotation (Placement(transformation(extent={{-32,70},{-12,90}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep2(startTime=0.4) annotation (Placement(transformation(extent={{70,70},{50,90}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep3(startTime=0.6) annotation (Placement(transformation(extent={{100,50},{80,70}})));
@@ -113,17 +113,17 @@ package SinglePhase "Single phase quasi static package"
       duration=1,
       offset=293.15,
       startTime=0) annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance variableImpedance(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance variableImpedance(
       useHeatPort=true,
       T_ref=293.15,
       alpha_ref=0.004) annotation (Placement(transformation(extent={{30,10},{10,-10}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance variableAdmittance(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance variableAdmittance(
       useHeatPort=true,
       T_ref=293.15,
       alpha_ref=0.004) annotation (Placement(transformation(extent={{10,-10},{-10,-30}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const_admittance(k(re=0.5, im=0.5)) annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const_impedance(k(re=2, im=2)) annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor annotation (Placement(transformation(extent={{-60,-30},{-80,-10}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor annotation (Placement(transformation(extent={{-60,-30},{-80,-10}})));
   equation
 
     connect(voltageSource.pin_p, short.pin_p) annotation (Line(points={{-90,20},{-90,20},{-90,30},{-80,30}}, color={85,170,255}));
@@ -165,7 +165,7 @@ package SinglePhase "Single phase quasi static package"
     output Modelica.SIunits.Current iLL = impedanceL.abs_i "Inductor current";
     output Modelica.SIunits.Voltage vCC = impedanceC.abs_v "Inductor voltage";
 
-    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource voltageSource(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepVoltageSource voltageSource(
       gamma(start=0, fixed=true),
       duration=1,
       V=1,
@@ -175,12 +175,12 @@ package SinglePhase "Single phase quasi static package"
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-60,40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1) annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor inductor(L=1) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-30,40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepCurrentSource currentSource(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepCurrentSource currentSource(
       gamma(start=0, fixed=true),
       startTime=0,
       duration=1,
@@ -190,12 +190,12 @@ package SinglePhase "Single phase quasi static package"
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-60,-40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1) annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor capacitor(C=1) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-30,-40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-90,-80},{-70,-60}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource               constantSource(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-90,-80},{-70,-60}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource               constantSource(
       gamma(start=0, fixed=true),
       V=1,
       f=1,
@@ -204,11 +204,11 @@ package SinglePhase "Single phase quasi static package"
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={20,40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance impedanceL annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance impedanceL annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={50,40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV1
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundV1
                                                                          annotation (Placement(transformation(extent={{-10,0},{10,20}})));
     Modelica.ComplexBlocks.Sources.ComplexRampPhasor complexRampL(
       magnitude1=100,
@@ -217,7 +217,7 @@ package SinglePhase "Single phase quasi static package"
       startTime=0,
       duration=1,
       phi=1.5707963267949) annotation (Placement(transformation(extent={{92,30},{72,50}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource               currentCurrent(
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource               currentCurrent(
       gamma(start=0, fixed=true),
       I=1,
       f=1,
@@ -225,12 +225,12 @@ package SinglePhase "Single phase quasi static package"
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={20,-40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance
                                                                     impedanceC     annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={50,-40})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundI1
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundI1
                                                                          annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
     Modelica.ComplexBlocks.Sources.ComplexRampPhasor complexRampC(
       useLogRamp=true,

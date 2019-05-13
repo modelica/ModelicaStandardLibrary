@@ -120,11 +120,11 @@ in the declaration as in the example at the beginning.
 <strong>Complex units</strong> are also included in Modelica.SIunits. A complex unit is declared as:
 </p>
 <pre>
-  <strong>model</strong> QuasiStationaryMachine
+  <strong>model</strong> QuasiStaticMachine
     <strong>parameter</strong> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400)
        \"Nominal complex power\";
    ...
-   <strong>end</strong> QuasiStationaryMachine;
+   <strong>end</strong> QuasiStaticMachine;
 </pre>
 </html>"));
 

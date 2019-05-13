@@ -23,6 +23,14 @@ convertClass("Modelica.SIunits.FluxiodQuantum",
               "Modelica.SIunits.FluxoidQuantum");
 convertClass("Modelica.Media.Incompressible.TableBased.Polynomials_Temp",
               "Modelica.Math.Polynomials");
+convertClass("Modelica.Electrical.QuasiStationary",
+              "Modelica.Electrical.QuasiStatic");
+convertClass("Modelica.Electrical.Machines.Icons.QuasiStationaryMachine",
+              "Modelica.Electrical.Machines.Icons.QuasiStaticMachine");
+convertClass("Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer",
+              "Modelica.Electrical.Machines.Icons.QuasiStaticTransformer");
+convertClass("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines",
+              "Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines");
 
 // Change renamed elements of classes
 // mue -> mu
@@ -44,7 +52,10 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
 
 convertElement({"Modelica.Mechanics.Rotational.Sources.SignTorque"},
                 "tau_constant", "tau_nominal");
-
+convertElement({"Modelica.Electrical.Machines.BasicMachines.Components.InductorDC",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"},
+                "quasiStationary", "quasiStatic");
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor",
                 "variableResistor", "variableConductor");
 

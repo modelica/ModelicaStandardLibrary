@@ -113,7 +113,7 @@ see example
       <td valign=\"top\">[Raabe2012]</td>
       <td valign=\"top\">N. Raabe,
         &quot;<a href=\"http://www.ep.liu.se/ecp/076/016/ecp12076016.pdf\">
-        An approach for modelling quasi-stationary magnetic circuits</a>,&quot;
+        An approach for modelling quasi-static magnetic circuits</a>,&quot;
         <em>Modelica Conference</em>,
         pp. 167-172, 2012.</td>
     </tr>
@@ -176,8 +176,8 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <p>
-A general introduction into <strong>quasi static</strong> (quasi stationary) phasor can be found in
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview\">Modelica.Electrical.QuasiStationary</a>.
+A general introduction into <strong>quasi static</strong> (quasi-static) phasor can be found in
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview\">Modelica.Electrical.QuasiStatic</a>.
 </p>
 
 <p>
@@ -195,7 +195,7 @@ This user's guide gives a short introduction to the underlying
       extends Modelica.Icons.Example;
       output Modelica.SIunits.Current deviation = feedback.y "Deviation of transient and quasi static current";
       FluxTubes.Basic.Ground ground_mQS annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource
         sourceQS(
         f=50,
         V=230,
@@ -205,7 +205,7 @@ This user's guide gives a short introduction to the underlying
             origin={-80,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor
+      Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor
         rQS(R_ref=7.5) "Inductor coil resistance" annotation (Placement(transformation(extent={{-40,-50},
                 {-20,-30}})));
       FluxTubes.Basic.ElectroMagneticConverter coilQS(N=600) "Inductor coil" annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
@@ -229,7 +229,7 @@ This user's guide gives a short introduction to the underlying
             extent={{-10,-10},{10,10}},
             rotation=270)));
 
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundQS
+      Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundQS
         annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
 
       Modelica.Magnetic.FluxTubes.Basic.Ground ground_m
@@ -274,7 +274,7 @@ This user's guide gives a short introduction to the underlying
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
             transformation(extent={{-90,10},{-70,30}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor
         currentSensorQS
         annotation (Placement(transformation(extent={{-70,-30},{-50,-50}})));
       Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar annotation (
@@ -381,7 +381,7 @@ This model compares a transient-linear magnetic circuit with a quasi static magn
       extends Modelica.Icons.Example;
       output Modelica.SIunits.Current deviation = feedback.y "Deviation of transient and quasi static current";
       FluxTubes.Basic.Ground ground_mQS annotation (Placement(transformation(extent={{80,-90},{100,-70}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource
         sourceQS(
         f=50,
         V=230,
@@ -391,7 +391,7 @@ This model compares a transient-linear magnetic circuit with a quasi static magn
             origin={-90,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor
+      Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor
         rQS(R_ref=7.5) "Inductor coil resistance"
                                    annotation (Placement(transformation(extent={{-50,-50},
                 {-30,-30}})));
@@ -420,7 +420,7 @@ This model compares a transient-linear magnetic circuit with a quasi static magn
             extent={{-10,-10},{10,10}},
             rotation=270)));
 
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground
+      Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground
         groundQS
         annotation (Placement(transformation(extent={{-100,
                 -90},{-80,-70}})));
@@ -472,7 +472,7 @@ This model compares a transient-linear magnetic circuit with a quasi static magn
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
             transformation(extent={{-100,10},{-80,30}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor
         currentSensorQS
         annotation (Placement(transformation(extent={{-80,-30},
                 {-60,-50}})));
@@ -1014,9 +1014,9 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
       constant Complex j=Complex(0, 1);
       FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{90,90},{110,110}}), iconTransformation(extent={{90,90},{110,110}})));
       FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port" annotation (Placement(transformation(extent={{110,-110},{90,-90}}), iconTransformation(extent={{110,-110},{90,-90}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p
+      Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin pin_p
       "Positive electric pin" annotation (Placement(transformation(extent={{-90,90},{-110,110}}), iconTransformation(extent={{-90,90},{-110,110}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n
+      Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin pin_n
       "Negative electric pin"   annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
       Modelica.SIunits.ComplexVoltage v "Voltage";
       Modelica.SIunits.ComplexCurrent i(re(start=0, stateSelect=StateSelect.prefer),
@@ -1848,7 +1848,7 @@ is the complex magnetic flux <code>Phi</code>.</p>
 
     connector PositiveMagneticPort "Positive quasi-static magnetic port"
       extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort;
-      Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
+      Modelica.Electrical.QuasiStatic.Types.Reference reference "Reference";
       annotation (
         defaultComponentName="port_p",
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -1892,7 +1892,7 @@ The symbol is also designed such way to look different than the
 
     connector NegativeMagneticPort "Negative quasi-static magnetic port"
       extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort;
-      Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
+      Modelica.Electrical.QuasiStatic.Types.Reference reference "Reference";
       annotation (
         defaultComponentName="port_n",
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,

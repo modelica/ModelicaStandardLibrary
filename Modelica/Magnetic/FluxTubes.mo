@@ -1410,8 +1410,8 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
       "Two models of a reluctance actuator of different modelling depth and their comparison and usage"
       extends Modelica.Icons.ExamplesPackage;
 
-      model ComparisonQuasiStationary
-        "Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary"
+      model ComparisonQuasiStatic
+        "Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-static"
 
         extends Modelica.Icons.Example;
 
@@ -1533,7 +1533,7 @@ The magnetic flux through the armature and the actuator's static inductance both
 As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
 </html>"));
-      end ComparisonQuasiStationary;
+      end ComparisonQuasiStatic;
 
       model ComparisonPullInStroke
         "Pull-in stroke of both solenoid models after a voltage step at time t=0"
@@ -2671,7 +2671,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 lineColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
-Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> for a general description of this actuator. Unlike in that simple magnetic network model, the coil is split into two lumped elements here. This enables for more realistic modelling of the radial leakage flux between armature and yoke (leakage permeance G_mLeakRad). Especially for large air gaps, the influence of this leakage flux on the actuator's inductance and its electromagnetic force is rather strong. Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary\">ComparisonQuasiStationary</a> for a comparison of both models with FEA-based results included as reference.
+Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> for a general description of this actuator. Unlike in that simple magnetic network model, the coil is split into two lumped elements here. This enables for more realistic modelling of the radial leakage flux between armature and yoke (leakage permeance G_mLeakRad). Especially for large air gaps, the influence of this leakage flux on the actuator's inductance and its electromagnetic force is rather strong. Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStatic\">ComparisonQuasiStatic</a> for a comparison of both models with FEA-based results included as reference.
 </p>
 
 <p>
@@ -2694,7 +2694,7 @@ As an example of a reluctance actuator, a simple axis-symmetric lifting magnet w
 </p>
 
 <p>
-The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary\">ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
+The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStatic\">ComparisonQuasiStatic</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
 </html>"));
     end SolenoidActuator;
@@ -7825,7 +7825,7 @@ In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; rea
 </pre>
 <p>This reaction can possibly be neglected for</p>
 <ul>
-<li>modelling of electromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),</li>
+<li>modelling of electromagnetic actuators under quasi-static conditions (slow current change, slow armature motion),</li>
 <li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
 <li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
 </ul>

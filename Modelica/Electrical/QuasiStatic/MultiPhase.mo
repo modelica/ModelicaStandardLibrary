@@ -1,4 +1,4 @@
-within Modelica.Electrical.QuasiStationary;
+within Modelica.Electrical.QuasiStatic;
 package MultiPhase "Multiphase AC components"
   extends Modelica.Icons.Package;
 
@@ -17,7 +17,7 @@ package MultiPhase "Multiphase AC components"
         "Load capacitance";
       output Modelica.SIunits.ComplexCurrent i[m]={resistor.i, inductor.i, capacitor.i}
         "Phase currents";
-      QuasiStationary.MultiPhase.Sources.VoltageSource voltageSource(
+      QuasiStatic.MultiPhase.Sources.VoltageSource voltageSource(
         m=m,
         f=f,
         V=fill(V, m),
@@ -26,50 +26,50 @@ package MultiPhase "Multiphase AC components"
             origin={-80,-20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.MultiPhase.Basic.Star star(m=m) annotation (Placement(
+      QuasiStatic.MultiPhase.Basic.Star star(m=m) annotation (Placement(
             transformation(
             origin={-80,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
+      QuasiStatic.SinglePhase.Basic.Ground ground annotation (Placement(
             transformation(extent={{-90,-90},{-70,-70}})));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
+      QuasiStatic.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
         annotation (Placement(transformation(extent={{0,40},{20,60}})));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p2(k=2, m=m)
+      QuasiStatic.MultiPhase.Basic.PlugToPin_p plugToPin_p2(k=2, m=m)
         annotation (Placement(transformation(extent={{0,0},{20,20}})));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p3(k=3, m=m)
+      QuasiStatic.MultiPhase.Basic.PlugToPin_p plugToPin_p3(k=3, m=m)
         annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
-      QuasiStationary.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
+      QuasiStatic.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
         annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
-      QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
+      QuasiStatic.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
         annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=R) annotation (
+      QuasiStatic.SinglePhase.Basic.Resistor resistor(R_ref=R) annotation (
           Placement(transformation(extent={{30,-40},{50,-20}})));
-      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=C) annotation (
+      QuasiStatic.SinglePhase.Basic.Capacitor capacitor(C=C) annotation (
           Placement(transformation(extent={{30,0},{50,20}})));
-      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=L) annotation (
+      QuasiStatic.SinglePhase.Basic.Inductor inductor(L=L) annotation (
           Placement(transformation(extent={{30,40},{50,60}})));
-      QuasiStationary.MultiPhase.Basic.Star star2(m=m) annotation (Placement(
+      QuasiStatic.MultiPhase.Basic.Star star2(m=m) annotation (Placement(
             transformation(
             origin={90,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_n plugToPin_n1(m=m, k=1)
+      QuasiStatic.MultiPhase.Basic.PlugToPin_n plugToPin_n1(m=m, k=1)
         annotation (Placement(transformation(
             origin={70,50},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_n plugToPin_n2(k=2, m=m)
+      QuasiStatic.MultiPhase.Basic.PlugToPin_n plugToPin_n2(k=2, m=m)
         annotation (Placement(transformation(
             origin={70,10},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_n plugToPin_n3(k=3, m=m)
+      QuasiStatic.MultiPhase.Basic.PlugToPin_n plugToPin_n3(k=3, m=m)
         annotation (Placement(transformation(
             origin={70,-30},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor0
+      QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor0
         annotation (Placement(transformation(
             origin={-30,-60},
             extent={{-10,-10},{10,10}},
@@ -145,7 +145,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
         "Load capacitance";
       output Modelica.SIunits.ComplexCurrent i[m]={resistor.i, inductor.i, capacitor.i}
         "Phase currents";
-      QuasiStationary.MultiPhase.Sources.VoltageSource voltageSource(
+      QuasiStatic.MultiPhase.Sources.VoltageSource voltageSource(
         m=m,
         f=f,
         V=fill(V_LL, m),
@@ -154,49 +154,49 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
             origin={-80,-20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.MultiPhase.Basic.Star star(m=m) annotation (Placement(
+      QuasiStatic.MultiPhase.Basic.Star star(m=m) annotation (Placement(
             transformation(
             origin={-80,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
+      QuasiStatic.SinglePhase.Basic.Ground ground annotation (Placement(
             transformation(extent={{-90,-90},{-70,-70}})));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
+      QuasiStatic.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
         annotation (Placement(transformation(extent={{2,70},{22,90}})));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p2(k=2, m=m)
+      QuasiStatic.MultiPhase.Basic.PlugToPin_p plugToPin_p2(k=2, m=m)
         annotation (Placement(transformation(extent={{0,0},{20,20}})));
-      QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p3(k=3, m=m)
+      QuasiStatic.MultiPhase.Basic.PlugToPin_p plugToPin_p3(k=3, m=m)
         annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
-      QuasiStationary.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
+      QuasiStatic.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
         annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
-      QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
+      QuasiStatic.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
         annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=R) annotation (
+      QuasiStatic.SinglePhase.Basic.Resistor resistor(R_ref=R) annotation (
           Placement(transformation(
             origin={60,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=C) annotation (
+      QuasiStatic.SinglePhase.Basic.Capacitor capacitor(C=C) annotation (
           Placement(transformation(
             origin={30,32},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Inductor inductor(L=L) annotation (
+      QuasiStatic.SinglePhase.Basic.Inductor inductor(L=L) annotation (
           Placement(transformation(
             origin={30,-38},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor12
+      QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor12
         annotation (Placement(transformation(
             origin={30,62},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor23
+      QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor23
         annotation (Placement(transformation(
             origin={30,-8},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor31
+      QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor31
         annotation (Placement(transformation(
             origin={60,-10},
             extent={{-10,-10},{10,10}},
@@ -452,7 +452,7 @@ This example shows an unsymmetrical load, in the upper with neutral connection (
       final parameter Modelica.SIunits.ActivePower P=3*R*IRMS^2 "Total active power";
       final parameter Modelica.SIunits.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total reactive power";
       final parameter Modelica.SIunits.ApparentPower S=3*Z*IRMS^2 "Total apparent power";
-      Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource sineVoltage(
+      Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource sineVoltage(
         final m=m,
         f=f,
         V=fill(VRMS, m),
@@ -461,31 +461,31 @@ This example shows an unsymmetrical load, in the upper with neutral connection (
             origin={-20,-30},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star star(final m=m) annotation (
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star star(final m=m) annotation (
           Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
             origin={-20,-70})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
+      Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground ground annotation (Placement(
             transformation(
             origin={-20,-100},
             extent={{-10,-10},{10,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor resistor(m=m, R_ref=fill(R, m))
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor resistor(m=m, R_ref=fill(R, m))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-20})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor inductor(m=m, L=fill(L, m))
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor inductor(m=m, L=fill(L, m))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-50})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starLoad(m=m) annotation (
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star starLoad(m=m) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-80})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor
+      Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentQuasiRMSSensor
         currentQuasiRMSSensor(m=m) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=90,
@@ -498,7 +498,7 @@ This example shows an unsymmetrical load, in the upper with neutral connection (
             rotation=270,
             origin={-80,10})));
 
-      Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(m=m)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -510,7 +510,7 @@ This example shows an unsymmetrical load, in the upper with neutral connection (
             extent={{10,-10},{-10,10}},
             rotation=270,
             origin={-80,-60})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
         annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
@@ -520,20 +520,20 @@ This example shows an unsymmetrical load, in the upper with neutral connection (
       Modelica.Blocks.Math.Feedback feedbackP
         annotation (Placement(transformation(extent={{80,-10},{100,10}})));
       Modelica.Blocks.Sources.RealExpression realExpression(y=
-        Modelica.Electrical.QuasiStationary.MultiPhase.Functions.activePower(
+        Modelica.Electrical.QuasiStatic.MultiPhase.Functions.activePower(
             voltageQuasiRMSSensor.v, currentQuasiRMSSensor.i)) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={90,-30})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.AronSensor aronSensor annotation (
+      Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.AronSensor aronSensor annotation (
           Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
             origin={20,40})));
       Modelica.Blocks.Math.Feedback feedbackPAron
         annotation (Placement(transformation(extent={{80,30},{100,50}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReactivePowerSensor
+      Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.ReactivePowerSensor
         reactivePowerSensor annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
@@ -598,12 +598,12 @@ This example shows an unsymmetrical load, in the upper with neutral connection (
               {70,50},{50,50},{50,62}}, color={0,0,127}));
       annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info="<html>
 <p>
-Test quasistationary multiphase sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
+Test quasi-static multiphase sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
 </html>"));
     end TestSensors;
     annotation (Documentation(info="<html>
-Examples to demonstrate the usage of quasistationary electric components.
+Examples to demonstrate the usage of quasi-static electric components.
 </html>"));
   end Examples;
 
@@ -614,7 +614,7 @@ Examples to demonstrate the usage of quasistationary electric components.
       parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
-      QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n annotation (
+      QuasiStatic.SinglePhase.Interfaces.NegativePin pin_n annotation (
           Placement(transformation(extent={{90,-10},{110,10}})));
       PlugToPins_p plugToPins_p(final m=m) annotation (Placement(transformation(
               extent={{-80,-10},{-60,10}})));
@@ -648,9 +648,9 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar\">MultiStar</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
 </p>
 </html>"));
     end Star;
@@ -696,9 +696,9 @@ Delta (polygon) connection of a multi phase circuit.
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar\">MultiStar</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
 </p></html>"));
     end Delta;
 
@@ -710,16 +710,16 @@ Delta (polygon) connection of a multi phase circuit.
           m) "Number of base systems";
       final parameter Integer mBasic=integer(m/mSystems)
         "Phase number of base systems";
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug
         plug_p(final m=m) annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug
         starpoints(final m=mSystems) annotation (Placement(transformation(
               extent={{90,-10},{110,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p
         plugToPins_p(final m=m) annotation (Placement(transformation(extent={{-80,
                 -10},{-60,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n
         plugToPins_n(final m=mSystems)
         annotation (Placement(transformation(extent={{80,-10},{60,10}})));
     equation
@@ -768,9 +768,9 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
 </p></html>"));
     end MultiStar;
 
@@ -782,16 +782,16 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
           m) "Number of base systems";
       final parameter Integer mBasic=integer(m/mSystems)
         "Phase number of base systems";
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug
         plug_p(final m=m) annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug
         plug_n(final m=m) annotation (Placement(transformation(extent={{90,-10},
                 {110,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p
         plugToPins_p(final m=m) annotation (Placement(transformation(extent={{-80,
                 -10},{-60,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n
         plugToPins_n(final m=m) annotation (Placement(transformation(extent={{
                 80,-10},{60,10}})));
     equation
@@ -828,9 +828,9 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar\">MultiStar</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.MultiStar\">MultiStar</a>
 </p>
 </html>"));
     end MultiDelta;
@@ -903,7 +903,7 @@ Multi star points are connected by resistors. This model is required to operate 
         final max=m) = 1 "Phase index";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
             transformation(extent={{-30,-10},{-10,10}})));
-      QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p annotation (
+      QuasiStatic.SinglePhase.Interfaces.PositivePin pin_p annotation (
           Placement(transformation(extent={{10,-10},{30,10}})));
     equation
       Connections.branch(plug_p.reference, pin_p.reference);
@@ -933,9 +933,9 @@ Connects the single phase (positive) pin <code>k</code> of the multi phase (posi
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p\">PlutToPins_p</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p\">PlutToPins_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
 </p>
 </html>"));
     end PlugToPin_p;
@@ -947,7 +947,7 @@ Connects the single phase (positive) pin <code>k</code> of the multi phase (posi
         final max=m) = 1 "Phase index";
       Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
             transformation(extent={{-30,-10},{-10,10}})));
-      QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n annotation (
+      QuasiStatic.SinglePhase.Interfaces.NegativePin pin_n annotation (
           Placement(transformation(extent={{10,-10},{30,10}})));
     equation
       Connections.branch(plug_n.reference, pin_n.reference);
@@ -977,9 +977,9 @@ Connects the single phase (negative) pin <code>k</code> of the multi phase (nega
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p\">PlugToPin_p</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p\">PlutToPins_p</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPin_p\">PlugToPin_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p\">PlutToPins_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
 </p>
 </html>"));
     end PlugToPin_n;
@@ -988,7 +988,7 @@ Connects the single phase (negative) pin <code>k</code> of the multi phase (nega
       parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
             transformation(extent={{-30,-10},{-10,10}})));
-      QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p[m] annotation (
+      QuasiStatic.SinglePhase.Interfaces.PositivePin pin_p[m] annotation (
           Placement(transformation(extent={{10,-10},{30,10}})));
       PlugToPin_p plugToPin_p[m](each final m=m, final k={j for j in 1:m})
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -1021,9 +1021,9 @@ Connects all <code>m</code> single phase (positive) pins of the multi phase (pos
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p\">PlugToPin_p</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPin_p\">PlugToPin_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
 </p>
 </html>"));
     end PlugToPins_p;
@@ -1032,7 +1032,7 @@ Connects all <code>m</code> single phase (positive) pins of the multi phase (pos
       parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
             transformation(extent={{-30,-10},{-10,10}})));
-      QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n[m] annotation (
+      QuasiStatic.SinglePhase.Interfaces.NegativePin pin_n[m] annotation (
           Placement(transformation(extent={{10,-10},{30,10}})));
       PlugToPin_n plugToPin_n[m](each final m=m, final k={j for j in 1:m})
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -1065,9 +1065,9 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p\">PlugToPin_p</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p\">PlugToPins_p</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPin_p\">PlugToPin_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p\">PlugToPins_p</a>
 </p>
 </html>"));
     end PlugToPins_n;
@@ -1083,7 +1083,7 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
-      QuasiStationary.SinglePhase.Basic.Resistor resistor[m](
+      QuasiStatic.SinglePhase.Basic.Resistor resistor[m](
         final R_ref=R_ref,
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
@@ -1114,7 +1114,7 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
 <p>
 The linear resistor connects the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">single phase Resistors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor\">single phase Resistors</a>.
 </p>
 
 <p>
@@ -1125,18 +1125,18 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Resistor;
@@ -1152,7 +1152,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
         "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
-      QuasiStationary.SinglePhase.Basic.Conductor conductor[m](
+      QuasiStatic.SinglePhase.Basic.Conductor conductor[m](
         final G_ref=G_ref,
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
@@ -1183,7 +1183,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 <p>
 The linear resistor connects the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">single phase Conductors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor\">single phase Conductors</a>.
 </p>
 
 <p>
@@ -1194,18 +1194,18 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Conductor;
@@ -1214,7 +1214,7 @@ A linear temperature dependency of the conductances for enabled heat ports is al
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Capacitance C[m](start=fill(1, m))
         "Capacitances";
-      QuasiStationary.SinglePhase.Basic.Capacitor capacitor[m](final C=C)
+      QuasiStatic.SinglePhase.Basic.Capacitor capacitor[m](final C=C)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(plugToPins_p.pin_p, capacitor.pin_p) annotation (Line(points={{-68,
@@ -1239,23 +1239,23 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 <p>
 The linear capacitor connects the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">single phase Capacitors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">single phase Capacitors</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Capacitor;
@@ -1264,7 +1264,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Inductance L[m](start=fill(1, m))
         "Inductances";
-      QuasiStationary.SinglePhase.Basic.Inductor inductor[m](final L=L)
+      QuasiStatic.SinglePhase.Basic.Inductor inductor[m](final L=L)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
 
@@ -1301,29 +1301,29 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
 <p>
 The linear inductor connects the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">single phase Inductors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor\">single phase Inductors</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Inductor;
 
     model MutualInductor "Linear mutual inductor"
-      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort;
+      extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       parameter Real epsilon=1e-9 "Relative accuracy tolerance of matrix symmetry";
       parameter Modelica.SIunits.Inductance L[m, m] "Mutual inductance matrix";
@@ -1409,7 +1409,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
         annotation(Dialog(enable=frequencyDependent));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance impedance[m](
+      Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance impedance[m](
         final Z_ref=Z_ref,
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
@@ -1443,12 +1443,12 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
               lineColor={0,0,255})}), Documentation(info="<html>
 <p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor
 in each phase.<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/RX_impedance.png\"></p>
 
 <p>
 The linear impedance connects the voltage <code><u>v</u></code> with the
 current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code> in each phase, using <code>m</code>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">singlephase impedances</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance\">singlephase impedances</a>.
 The resistive
 components are modeled temperature dependent, so the real parts <code>R_actual = real(<u>Z</u>)</code> are determined from
 the actual operating temperatures and the reference input resistances <code>real(Z_ref)</code>.
@@ -1467,18 +1467,18 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Impedance;
@@ -1496,7 +1496,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
         annotation(Dialog(enable=frequencyDependent));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance admittance[m](
+      Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance admittance[m](
         final Y_ref=Y_ref,
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
@@ -1531,12 +1531,12 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 
 <p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
 in each phase.<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/GB_admittance.png\"></p>
 
 <p>
 The linear admittance connects the voltage <code><u>v</u></code> with the
 current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code> in each phase, using <code>m</code>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">singlephase admittances</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance\">singlephase admittances</a>.
 The resistive
 components are modeled temperature dependent, so the real parts <code>G_actual = real(<u>Y</u>)</code> are determined from
 the actual operating temperatures and the reference input conductances <code>real(Y_ref)</code>.
@@ -1556,17 +1556,17 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Admittance;
@@ -1588,7 +1588,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
             extent={{-20,-20},{20,20}},
             rotation=270,
             origin={0,120})));
-      QuasiStationary.SinglePhase.Basic.VariableResistor variableResistor[m](
+      QuasiStatic.SinglePhase.Basic.VariableResistor variableResistor[m](
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         each final useHeatPort=useHeatPort,
@@ -1623,7 +1623,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <p>
 The linear resistors connect the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">single phase variable Resistors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">single phase variable Resistors</a>.
 The resistances <code>R</code> are given as <code>m</code> input signals.
 </p>
 
@@ -1635,18 +1635,18 @@ A linear temperature dependency of the resistances is also taken into account.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end VariableResistor;
@@ -1668,7 +1668,7 @@ A linear temperature dependency of the resistances is also taken into account.
             extent={{-20,-20},{20,20}},
             rotation=270,
             origin={0,120})));
-      QuasiStationary.SinglePhase.Basic.VariableConductor variableConductor[m](
+      QuasiStatic.SinglePhase.Basic.VariableConductor variableConductor[m](
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         each final useHeatPort=useHeatPort,
@@ -1701,7 +1701,7 @@ A linear temperature dependency of the resistances is also taken into account.
 <p>
 The linear resistors connect the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">single phase variable Conductors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor\">single phase variable Conductors</a>.
 The conductances <code>G</code> are given as <code>m</code> input signals.
 </p>
 
@@ -1713,18 +1713,18 @@ A linear temperature dependency of the conductances is also taken into account.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">VariableConductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor\">VariableConductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end VariableConductor;
@@ -1739,7 +1739,7 @@ A linear temperature dependency of the conductances is also taken into account.
             extent={{-20,-20},{20,20}},
             rotation=270,
             origin={0,120})));
-      QuasiStationary.SinglePhase.Basic.VariableCapacitor variableCapacitor[m]
+      QuasiStatic.SinglePhase.Basic.VariableCapacitor variableCapacitor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableCapacitor.pin_p, plugToPins_p.pin_p) annotation (Line(
@@ -1768,24 +1768,24 @@ A linear temperature dependency of the conductances is also taken into account.
 <p>
 The linear capacitors connect the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">single phase variable Capacitors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor\">single phase variable Capacitors</a>.
 The capacitances <code>C</code> are given as <code>m</code> input signals.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">VariableCapacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor\">VariableCapacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end VariableCapacitor;
@@ -1800,7 +1800,7 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
             extent={{-20,-20},{20,20}},
             rotation=270,
             origin={0,120})));
-      QuasiStationary.SinglePhase.Basic.VariableInductor variableInductor[m]
+      QuasiStatic.SinglePhase.Basic.VariableInductor variableInductor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableInductor.pin_p, plugToPins_p.pin_p) annotation (Line(
@@ -1838,24 +1838,24 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
 <p>
 The linear inductors connect the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">single phase variable Inductors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor\">single phase variable Inductors</a>.
 The inductances <code>L</code> are given as <code>m</code> input signals.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end VariableInductor;
@@ -1920,13 +1920,13 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
         Documentation(info="<html>
 <p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor
 in each phase.<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/RX_impedance.png\"></p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/RX_impedance.png\"></p>
 
 <p>
 The linear impedance connects the complex voltage <code><u>v</u></code> with the
 complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code> in each phase,
 using <code>m</code>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance\">
 variable singlephase impedances</a>.
 The impedances <code>Z_ref = R_ref + j*X_ref</code> are given as complex input signals, representing the
 resistive and reactive components of the input impedances. The resistive
@@ -1953,17 +1953,17 @@ singularities due to the actual structure of the connected network.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end VariableImpedance;
@@ -2026,13 +2026,13 @@ singularities due to the actual structure of the connected network.
         Documentation(info="<html>
 <p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
 in each phase.<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/GB_admittance.png\"></p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/GB_admittance.png\"></p>
 
 <p>
 The linear admittance connects the complex voltage <code><u>v</u></code> with the
 complex current <code><u>i</u></code> by <code><u>v</u>*<u>Y</u> = <u>i</u></code> in each phase,
 using <code>m</code>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance\">
 variable singlephase admittances</a>.
 The admittances <code>Y_ref = G_ref + j*B_ref</code> are given as complex input signals, representing the
 resistive and reactive components of the input admittances. The resistive
@@ -2059,17 +2059,17 @@ singularities due to the actual structure of the connected network.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
 </p>
 </html>"));
     end VariableAdmittance;
@@ -2082,13 +2082,13 @@ singularities due to the actual structure of the connected network.
             fillPattern=FillPattern.Solid,
             extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
               {100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
-<p>This package hosts basic models for quasi stationary multiphase circuits.
-Quasi stationary theory can be found in the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+<p>This package hosts basic models for quasi-static multiphase circuits.
+Quasi-static theory can be found in the
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic\">SinglePhase.Basic</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic\">SinglePhase.Basic</a>
 
 </html>"));
   end Basic;
@@ -2099,7 +2099,7 @@ Quasi stationary theory can be found in the
     model Idle "Idle branch"
       extends Interfaces.TwoPlug;
 
-      QuasiStationary.SinglePhase.Ideal.Idle idle[m] annotation (Placement(
+      QuasiStatic.SinglePhase.Ideal.Idle idle[m] annotation (Placement(
             transformation(extent={{-10,-10},{10,10}})));
 
     equation
@@ -2122,13 +2122,13 @@ Quasi stationary theory can be found in the
               textString="m=%m")}), Documentation(info="<html>
 <p>
 This model describes <em>m</em> simple idle branches considering the complex currents <em><u>i</u></em> = 0;
-it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle\">single phase idle branches</a>.
+it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">single phase idle branches</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle\">Idle</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.Short\">Short</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">Idle</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Ideal.Short\">Short</a>
 </p>
 </html>"));
     end Idle;
@@ -2136,7 +2136,7 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Sing
     model Short "Short cut branch"
       extends Interfaces.TwoPlug;
 
-      QuasiStationary.SinglePhase.Ideal.Short short[m] annotation (Placement(
+      QuasiStatic.SinglePhase.Ideal.Short short[m] annotation (Placement(
             transformation(extent={{-10,-10},{10,10}})));
 
     equation
@@ -2160,13 +2160,13 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Sing
                            Documentation(info="<html>
 <p>
 This model describes <em>m</em> simple short branches considering the complex voltages <em><u>v</u></em> = 0;
-it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short\">single phase short branches</a>.
+it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">single phase short branches</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short\">Short</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.Idle\">Idle</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">Short</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Ideal.Idle\">Idle</a>
 </p>
 </html>"));
     end Short;
@@ -2185,29 +2185,29 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Sing
             origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug
         plug_p(final m=m) annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug
         plug_n2(final m=m) annotation (Placement(transformation(extent={{90,-10},
                 {110,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug
         plug_n1(final m=m) annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch
+      Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch
         idealCommutingSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
             transformation(extent={{-10,-10},{10,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p
         plugToPins_p(final m=m) annotation (Placement(transformation(extent={{-90,
                 -10},{-70,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n
         plugToPins_n1(final m=m) annotation (Placement(transformation(
             origin={80,60},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n
         plugToPins_n2(final m=m) annotation (Placement(transformation(
             origin={80,0},
             extent={{-10,-10},{10,10}},
@@ -2244,11 +2244,11 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Sing
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}), Documentation(info="<html>
 <p>
-Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch).
+Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch).
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"));
     end IdealCommutingSwitch;
@@ -2267,33 +2267,33 @@ This switch is only intended to be used for structural changes, not fast switchi
             origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug
         plug_p1(final m=m) annotation (Placement(transformation(extent={{-110,30},{-90,50}}), iconTransformation(extent={{-110,30},{-90,50}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug
         plug_p2(final m=m) annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug
         plug_n2(final m=m) annotation (Placement(transformation(extent={{90,-10},
                 {110,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug
         plug_n1(final m=m) annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch
+      Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealIntermediateSwitch
         idealIntermediateSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
             transformation(extent={{-10,-10},{10,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p
         plugToPins_p1(final m=m) annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n
         plugToPins_n1(final m=m) annotation (Placement(transformation(
             origin={80,60},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p
         plugToPins_p2(final m=m) annotation (Placement(transformation(extent={{
                 -90,-10},{-70,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n
         plugToPins_n2(final m=m) annotation (Placement(transformation(
             origin={80,0},
             extent={{-10,-10},{10,10}},
@@ -2337,17 +2337,17 @@ This switch is only intended to be used for structural changes, not fast switchi
                   textString="m=%m")}), Documentation(info=
              "<html>
 <p>
-Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch).
+Contains m ideal intermediate switches (Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealIntermediateSwitch).
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"));
     end IdealIntermediateSwitch;
 
     model IdealOpeningSwitch "Multiphase ideal opener"
-      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
+      extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
@@ -2360,7 +2360,7 @@ This switch is only intended to be used for structural changes, not fast switchi
             origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch
+      Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealOpeningSwitch
         idealOpeningSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
@@ -2391,17 +2391,17 @@ This switch is only intended to be used for structural changes, not fast switchi
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}), Documentation(info="<html>
 <p>
-Contains m ideal opening switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch).
+Contains m ideal opening switches (Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealOpeningSwitch).
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"));
     end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Multiphase ideal closer"
-      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
+      extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
@@ -2414,7 +2414,7 @@ This switch is only intended to be used for structural changes, not fast switchi
             origin={0,120},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch
+      Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealClosingSwitch
         idealClosingSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
@@ -2444,11 +2444,11 @@ This switch is only intended to be used for structural changes, not fast switchi
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}), Documentation(info="<html>
 <p>
-Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch).
+Contains m ideal closing switches (Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealClosingSwitch).
 </p>
 <p>
 <strong>Use with care:</strong>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasi-static formulation.
 </p>
 </html>"));
     end IdealClosingSwitch;
@@ -2460,13 +2460,13 @@ This switch is only intended to be used for structural changes, not fast switchi
           Line(origin={10,34}, points={{30,-40},{30,-60}}),
           Line(origin={10,34}, points={{30,-60},{80,-60}})}), Documentation(
           info="<html>
-<p>This package hosts ideal models for quasi stationary multiphase circuits.
-Quasi stationary theory can be found in the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+<p>This package hosts ideal models for quasi-static multiphase circuits.
+Quasi-static theory can be found in the
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal\">SinglePhase.Ideal</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal\">SinglePhase.Ideal</a>
 
 </html>"));
   end Ideal;
@@ -2496,9 +2496,9 @@ Quasi stationary theory can be found in the
       "Calculate active power of complex input voltage and current"
       extends Modelica.Icons.Function;
       input Modelica.SIunits.ComplexVoltage v[:]
-        "QuasiStationary voltage phasors";
+        "QuasiStatic voltage phasors";
       input Modelica.SIunits.ComplexCurrent i[size(v, 1)]
-        "QuasiStationary current phasors";
+        "QuasiStatic current phasors";
       output Modelica.SIunits.Power p "Active power";
     algorithm
       p := sum(Modelica.ComplexMath.real({v[k]*Modelica.ComplexMath.conj(i[k])
@@ -2506,13 +2506,13 @@ Quasi stationary theory can be found in the
       annotation (Inline=true, Documentation(info="<html>
 <p>
 Calculates instantaneous power from multiphase voltages and currents.
-In quasistationary operation, instantaneous power equals active power;
+In quasi-static operation, instantaneous power equals active power;
 </p>
 </html>"));
     end activePower;
   end Functions;
 
-  package Blocks "Blocks for quasi stationary multi phase systems"
+  package Blocks "Blocks for quasi-static multi phase systems"
     extends Modelica.Icons.Package;
 
     block QuasiRMS
@@ -2521,7 +2521,7 @@ In quasistationary operation, instantaneous power equals active power;
       Modelica.ComplexBlocks.Interfaces.ComplexInput u[m]
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     equation
-      y = Modelica.Electrical.QuasiStationary.MultiPhase.Functions.quasiRMS(u);
+      y = Modelica.Electrical.QuasiStatic.MultiPhase.Functions.quasiRMS(u);
 
       annotation (defaultComponentName="rms", Documentation(info="<html>
 <p>
@@ -2830,7 +2830,7 @@ Transformation of space phasor to m phase values (voltages or currents).
 
     model ReferenceSensor "Sensor of reference angle gamma"
       extends
-        Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor;
+        Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.AbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput y "Reference angle" annotation (
           Placement(transformation(extent={{100,-10},{120,10}})));
     equation
@@ -2847,15 +2847,15 @@ This sensor can be used to measure the reference angle.
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.ReferenceSensor\">SinglePhase.Sensors.ReferenceSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.ReferenceSensor\">SinglePhase.Sensors.ReferenceSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
 </html>"));
@@ -2885,21 +2885,21 @@ This sensor can be used to measure the reference angle.
 
 <p>
 This sensor can be used to measure the frequency of the reference system, using <em>one</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.FrequencySensor\">single phase FrequencySensor</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.FrequencySensor\">single phase FrequencySensor</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.FrequencySensor\">SinglePhase.Sensors.FrequencySensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.FrequencySensor\">SinglePhase.Sensors.FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
 </html>"));
@@ -2907,7 +2907,7 @@ This sensor can be used to measure the frequency of the reference system, using 
 
     model PotentialSensor "Potential sensor"
       extends Interfaces.AbsoluteSensor;
-      QuasiStationary.SinglePhase.Sensors.PotentialSensor potentialSensor[m]
+      QuasiStatic.SinglePhase.Sensors.PotentialSensor potentialSensor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Basic.PlugToPins_p plugToPins_p(final m=m) annotation (Placement(
             transformation(extent={{-80,-10},{-60,10}})));
@@ -2932,21 +2932,21 @@ This sensor can be used to measure the frequency of the reference system, using 
 
 <p>
 This sensor can be used to measure <em>m</em> complex potentials, using <em>m</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">single phase PotentialSensors</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor\">single phase PotentialSensors</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor\">SinglePhase.Sensors.PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor\">SinglePhase.Sensors.PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
 </html>"));
@@ -2954,7 +2954,7 @@ This sensor can be used to measure <em>m</em> complex potentials, using <em>m</e
 
     model VoltageSensor "Voltage sensor"
       extends Interfaces.RelativeSensor;
-      QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor[m]
+      QuasiStatic.SinglePhase.Sensors.VoltageSensor voltageSensor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.SIunits.Voltage abs_y[m]=Modelica.ComplexMath.'abs'(y)
         "Magnitude of complex voltage";
@@ -2976,21 +2976,21 @@ This sensor can be used to measure <em>m</em> complex potentials, using <em>m</e
 
 <p>
 This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor\">single phase VoltageSensors</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">single phase VoltageSensors</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor\">SinglePhase.Sensors.VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">SinglePhase.Sensors.VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
 </html>"));
@@ -2999,7 +2999,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
     model VoltageQuasiRMSSensor
       "Continuous quasi voltage RMS sensor for multi phase system"
       extends Modelica.Icons.RotationalSensor;
-      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
+      extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput V
         "Continuous quasi average RMS of current" annotation (Placement(
@@ -3012,7 +3012,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
             origin={0,-110})));
       SinglePhase.Sensors.VoltageSensor voltageSensor[m] annotation (Placement(
             transformation(extent={{-10,-10},{10,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(
+      Modelica.Electrical.QuasiStatic.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -3052,22 +3052,22 @@ value of a multi phase voltage system, by averaging the phase RMS voltage phasor
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 </html>"));
     end VoltageQuasiRMSSensor;
 
     model CurrentSensor "Current Sensor"
       extends Interfaces.RelativeSensor;
-      QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor[m]
+      QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.SIunits.Current abs_y[m]=Modelica.ComplexMath.'abs'(y)
         "Magnitude of complex current";
@@ -3088,21 +3088,21 @@ value of a multi phase voltage system, by averaging the phase RMS voltage phasor
 
 <p>
 This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor\">single phase CurrentSensors</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">single phase CurrentSensors</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor\">SinglePhase.Sensors.CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">SinglePhase.Sensors.CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
 </html>"));
@@ -3111,7 +3111,7 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
     model CurrentQuasiRMSSensor
       "Continuous quasi current RMS sensor for multi phase system"
       extends Modelica.Icons.RotationalSensor;
-      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
+      extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I
         "Continuous quasi average RMS of current" annotation (Placement(
@@ -3122,10 +3122,10 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-110})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor
         currentSensor[m] annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(
+      Modelica.Electrical.QuasiStatic.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -3165,14 +3165,14 @@ value of a multi phase current system, by averaging the phase RMS current phasor
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 </html>"));
     end CurrentQuasiRMSSensor;
@@ -3211,7 +3211,7 @@ value of a multi phase current system, by averaging the phase RMS current phasor
             origin={0,-70},
             extent={{-10,10},{10,-10}},
             rotation=90)));
-      QuasiStationary.SinglePhase.Sensors.PowerSensor powerSensor[m]
+      QuasiStatic.SinglePhase.Sensors.PowerSensor powerSensor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.ComplexBlocks.ComplexMath.Sum sum(final nin=m) annotation (
           Placement(transformation(
@@ -3260,21 +3260,21 @@ value of a multi phase current system, by averaging the phase RMS current phasor
 
 <p>
 This sensor can be used to measure <em>m</em> complex apparent power values, using <em>m</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">single phase PowerSensors</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">single phase PowerSensors</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor\">SinglePhase.Sensors.PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">SinglePhase.Sensors.PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
 </html>"));
@@ -3287,16 +3287,16 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
     import Modelica.ComplexMath.'abs';
     import Modelica.ComplexMath.arg;
     parameter Integer m(min=1) = 3 "Number of phases";
-    Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug pc(final m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug pc(final m=m)
         "Positive plug, current path"
       annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug nc(final m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug nc(final m=m)
         "Negative plug, current path"
       annotation (Placement(transformation(extent={{110,-10},{90,10}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug pv(final m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug pv(final m=m)
         "Positive plug, voltage path"
       annotation (Placement(transformation(extent={{-10,110},{10,90}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug nv(final m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug nv(final m=m)
         "Negative plug, voltage path"
       annotation (Placement(transformation(extent={{10,-110},{-10,-90}})));
     Modelica.ComplexBlocks.Interfaces.ComplexOutput i[m](
@@ -3380,15 +3380,15 @@ The internal resistance of each current path is zero, the internal resistance of
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.MultiSensor\">SinglePhase.Sensors.MultiSensor</a>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor\">SinglePhase.Sensors.MultiSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.ReferenceSensor\">ReferenceSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.FrequencySensor\">FrequencySensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageQuasiRMSSensor\">VoltageQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentQuasiRMSSensor\">CurrentQuasiRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>
 </p>
 </html>",          revisions="<html>
 <ul>
@@ -3401,22 +3401,22 @@ The internal resistance of each current path is zero, the internal resistance of
       import Modelica;
       extends Modelica.Icons.RotationalSensor;
       final parameter Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Modelica.Blocks.Interfaces.RealOutput power "active power" annotation (
           Placement(transformation(
             origin={0,-110},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p plugToPins_p(final m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p plugToPins_p(final m=m)
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n plugToPins_n(final m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n plugToPins_n(final m=m)
         annotation (Placement(transformation(extent={{80,-10},{60,10}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor powerSensor1
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor powerSensor1
         annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor powerSensor3
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor powerSensor3
         annotation (Placement(transformation(extent={{20,-30},{40,-50}})));
       Modelica.Blocks.Math.Add add annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -3495,22 +3495,22 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
       import Modelica;
       extends Modelica.Icons.RotationalSensor;
       final parameter Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Modelica.Blocks.Interfaces.RealOutput reactivePower "reactive power"
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p plugToPins_p(final m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p plugToPins_p(final m=m)
         annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n plugToPins_n(final m=m)
+      Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n plugToPins_n(final m=m)
         annotation (Placement(transformation(extent={{80,20},{60,40}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor powerSensor1
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor powerSensor1
         annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor powerSensor2
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor powerSensor2
         annotation (Placement(transformation(extent={{10,40},{30,20}})));
       Modelica.Blocks.Math.Add3 add(
         final k1=1/sqrt(3),
@@ -3519,7 +3519,7 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={0,-80})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor powerSensor3
+      Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor powerSensor3
         annotation (Placement(transformation(extent={{30,-10},{50,10}})));
       Modelica.ComplexBlocks.ComplexMath.ComplexToReal complexToReal1(final
           useConjugateInput=false) annotation (Placement(transformation(
@@ -3606,13 +3606,13 @@ Thomas M&uuml;hl: Elektrische Messtechnik. Springer Vieweg.
 </html>"));
     end ReactivePowerSensor;
     annotation (Documentation(info="<html>
-<p>This package hosts sensors for quasi stationary multiphase circuits.
-Quasi stationary theory can be found in the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+<p>This package hosts sensors for quasi-static multiphase circuits.
+Quasi-static theory can be found in the
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sensors\">SinglePhase.Sensors</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors\">SinglePhase.Sensors</a>
 
 </html>"));
   end Sensors;
@@ -3645,16 +3645,16 @@ Quasi stationary theory can be found in the
 This model describes <em>m</em> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts
 (defaults are
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">single phase VoltageSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">single phase VoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
 </html>"));
     end VoltageSource;
@@ -3686,23 +3686,23 @@ This model describes <em>m</em> constant voltage sources, specifying the complex
 This model describes <em>m</em> variable voltage sources, with <em>m</em> complex signal inputs,
 specifying the complex voltages by the complex RMS voltage components.
 Additionally, the frequency of the voltage source is defined by a real signal input.
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource\">single phase VariableVoltageSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableVoltageSource\">single phase VariableVoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
 </html>"));
     end VariableVoltageSource;
 
     model ReferenceVoltageSource
       "Variable multiphase AC voltage with reference angle input"
-      extends Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource;
+      extends Electrical.QuasiStatic.MultiPhase.Interfaces.ReferenceSource;
       import Modelica.Constants.pi;
       Modelica.Blocks.Interfaces.RealInput gamma
         "Reference angle of voltage source" annotation (Placement(
@@ -3725,16 +3725,16 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
 </p>
 </html>"), Icon(graphics={
             Line(points={{-70,30},{-70,10}}, color={85,170,255}),
@@ -3796,7 +3796,7 @@ whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Sources/FrequencySweepSource.png\"
+<p><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Sources/FrequencySweepSource.png\"
      alt=\"FrequencySweepSource.png\"></p>
 
 </html>"));
@@ -3827,16 +3827,16 @@ way that on a logarithmic frequency scale, the frequency curve appears linear.</
 This model describes <em>m</em> constant current sources, specifying the complex currents by the RMS currents and the phase shifts
 (defaults are
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">SinglePhase.CurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource\">SinglePhase.CurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
 </html>"));
     end CurrentSource;
@@ -3874,23 +3874,23 @@ This model describes <em>m</em> constant current sources, specifying the complex
 This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
 </p>
 </html>"));
     end VariableCurrentSource;
 
     model ReferenceCurrentSource
       "Variable multiphase AC current with reference angle input"
-      extends Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource;
+      extends Electrical.QuasiStatic.MultiPhase.Interfaces.ReferenceSource;
       import Modelica.Constants.pi;
       Modelica.Blocks.Interfaces.RealInput gamma
         "Reference angle of current source" annotation (Placement(
@@ -3926,16 +3926,16 @@ Additionally, the frequency of the current source is defined by a real signal in
 This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
 </p>
 </html>"));
     end ReferenceCurrentSource;
@@ -3995,19 +3995,19 @@ whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Sources/FrequencySweepSource.png\"
+<p><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Sources/FrequencySweepSource.png\"
      alt=\"FrequencySweepSource.png\"></p>
 
 </html>"));
     end FrequencySweepCurrentSource;
     annotation (Documentation(info="<html>
-<p>This package hosts sources for quasi stationary multiphase circuits.
-Quasi stationary theory can be found in the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+<p>This package hosts sources for quasi-static multiphase circuits.
+Quasi-static theory can be found in the
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources\">SinglePhase.Sources</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources\">SinglePhase.Sources</a>
 
 </html>"));
   end Sources;
@@ -4017,31 +4017,31 @@ Quasi stationary theory can be found in the
 
     connector Plug "Quasi-static polyphase plug"
       parameter Integer m=3 "Number of phases";
-      QuasiStationary.SinglePhase.Interfaces.Pin pin[m] "Pins of plug";
+      QuasiStatic.SinglePhase.Interfaces.Pin pin[m] "Pins of plug";
       annotation (Documentation(info="<html>
 
 <p>
-This multiphase plug contains a vector of <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">single phase pins</a>.
-The <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive</a> and
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">negative plug</a> are
+This multiphase plug contains a vector of <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">single phase pins</a>.
+The <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">positive</a> and
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">negative plug</a> are
 derived from this base connector.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">Pin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
 </p>
 </html>"));
     end Plug;
 
     connector PositivePlug "Positive quasi-static polyphase plug"
       extends Plug;
-      QuasiStationary.Types.Reference reference "Reference";
+      QuasiStatic.Types.Reference reference "Reference";
       annotation (
         Icon(graphics={Ellipse(
               extent={{-100,100},{100,-100}},
@@ -4059,25 +4059,25 @@ derived from this base connector.
         Documentation(info="<html>
 
 <p>
-The positive plug is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">negative plug</a>.
+The positive plug is based on <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi-static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">negative plug</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">Pin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
 </p>
 </html>"));
     end PositivePlug;
 
     connector NegativePlug "Negative quasi-static polyphase plug"
       extends Plug;
-      QuasiStationary.Types.Reference reference;
+      QuasiStatic.Types.Reference reference;
       annotation (
         Icon(graphics={Ellipse(
               extent={{-100,100},{100,-100}},
@@ -4095,18 +4095,18 @@ Additionally the reference angle is specified in the connector. The time derivat
         Documentation(info="<html>
 
 <p>
-The negative plug is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive plug</a>.
+The negative plug is based on <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi-static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">positive plug</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">Pin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
 </p>
 </html>"));
     end NegativePlug;
@@ -4166,16 +4166,16 @@ Additionally the reference angle is specified in the connector. The time derivat
         annotation (Line(points={{72,0},{86,0},{100,0}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>
-This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive</a>
-and <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">negative plug</a> and defines the complex voltage differences as well as the complex currents (into the positive plug). A <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p\">positive</a> and
-a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n\">negative adapter</a> are used to give easy access to the single pins of both plugs. Additionally, the angular velocity of the quasi stationary system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
+This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">positive</a>
+and <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">negative plug</a> and defines the complex voltage differences as well as the complex currents (into the positive plug). A <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p\">positive</a> and
+a <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n\">negative adapter</a> are used to give easy access to the single pins of both plugs. Additionally, the angular velocity of the quasi-static system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>,
 </p>
 </html>"));
     end TwoPlug;
@@ -4249,15 +4249,15 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
 
 <p>
 The absolute sensor partial model relies on the a
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive plug</a> to measure the complex potential. Additionally this model contains a proper icon and a definition of the angular velocity.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">positive plug</a> to measure the complex potential. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor\">RelativeSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor\">SinglePhase.Interfaces.RelativeSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.RelativeSensor\">RelativeSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensor\">SinglePhase.Interfaces.RelativeSensor</a>
 </p>
 
 </html>"));
@@ -4284,15 +4284,15 @@ The absolute sensor partial model relies on the a
               textString="%name")}), Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> to measure the complex voltages, currents or power. Additionally this model contains a proper icon and a definition of the angular velocity.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> to measure the complex voltages, currents or power. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor\">SinglePhase.Interfaces.RelativeSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensor\">SinglePhase.Interfaces.RelativeSensor</a>
 </p>
 
 </html>"));
@@ -4323,24 +4323,24 @@ The relative sensor partial model relies on the
         Documentation(info="<html>
 <p>
 The source partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source\">SinglePhase.Interfaces.Source</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Source\">SinglePhase.Interfaces.Source</a>.
 </p>
 </html>"));
     end Source;
 
     partial model ReferenceSource
       "Partial of voltage or current source with reference input"
-      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort;
+      extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.OnePort;
       import Modelica.Constants.pi;
     equation
       Connections.root(plug_p.reference);
@@ -4360,17 +4360,17 @@ The source partial model relies on the
                   lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 The source partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source\">SinglePhase.Interfaces.Source</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Source\">SinglePhase.Interfaces.Source</a>.
 </p>
 </html>"));
     end ReferenceSource;
@@ -4400,14 +4400,14 @@ The source partial model relies on the
           fillColor={170,213,255},
           fillPattern=FillPattern.Solid,
           extent={{-20,-74},{0,-54}})}), Documentation(info="<html>
-<p>This package hosts models for quasi stationary multi phase circuits.
-Quasi stationary theory can be found in
-[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Vaske1973</a>]
+<p>This package hosts models for quasi-static multi phase circuits.
+Quasi-static theory can be found in
+[<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Vaske1973</a>]
 and other
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase\">SinglePhase</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase\">SinglePhase</a>
 
 </html>"));
 end MultiPhase;

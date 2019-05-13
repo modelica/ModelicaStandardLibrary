@@ -1,4 +1,4 @@
-within Modelica.Electrical.QuasiStationary;
+within Modelica.Electrical.QuasiStatic;
 package UsersGuide "User's guide"
   extends Modelica.Icons.Information;
 
@@ -17,29 +17,29 @@ The purely sinusoidal voltage
 <p>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img1.png\"
+ src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img1.png\"
  alt=\"v=\\sqrt{2}V_{\\mathrm{RMS}}\\cos(\\omega t+\\varphi_{v})\">
 </p>
 
 <p>
 in the time domain can be represented by a complex
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Glossar\">rms</a> phasor
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Glossar\">rms</a> phasor
 </p>
 
 <p>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img2.png\"
+ src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img2.png\"
  alt=\"\\underline{v}=V_{\\mathrm{RMS}}e^{j\\varphi_{v}}.\">
 </p>
 
-<p>For these quasi stationary
+<p>For these quasi-static
 phasor the following relationship applies:</p>
 
 <p>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/img3.png\"
+ src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img3.png\"
  alt=\"\\begin{displaymath}
 v=\\mathrm{Re}(\\sqrt{2}\\underline{v}e^{j\\omega t})\\end{displaymath}\">
 </p>
@@ -51,7 +51,7 @@ This equation is also illustrated in Fig. 1.
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Introduction/phasor_voltage.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/phasor_voltage.png\"
            alt=\"phasor_voltage.png\">
     </td>
   </tr>
@@ -70,11 +70,11 @@ The explanation given for sinusoidal voltages can certainly also be applied
 to sinusoidal currents.</p>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power\">
           Power</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ReferenceSystem\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem\">
           Reference system</a>
 
 </html>"));
@@ -86,7 +86,7 @@ to sinusoidal currents.</p>
       annotation (Documentation(info="<html>
 <p>
 A simple
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance\">
           example</a> of a series connection of a resistor, an inductor and a capacitor
 as depicted in Fig. 1 should be explained in the following. For various frequencies,
 the voltage drops across the resistor, the inductor and the capacitor should be determined.
@@ -95,7 +95,7 @@ the voltage drops across the resistor, the inductor and the capacitor should be 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/resonance_circuit.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/resonance_circuit.png\"
            alt=\"resonance_circuit.png\">
     </td>
   </tr>
@@ -109,7 +109,7 @@ The voltage drop across the resistor
 <p>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img1.png\"
+ src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img1.png\"
  alt=\"
 \\underline{v}_{r}=R\\underline{i}\">
 </p>
@@ -121,7 +121,7 @@ and the inductor
 <p>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img2.png\"
+ src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img2.png\"
  alt=\"
 \\underline{v}_{l}=j\\omega L\\underline{i}\">
 </p>
@@ -133,7 +133,7 @@ and the capacitor
 <p>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img3.png\"
+ src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img3.png\"
  alt=\"
 \\underline{v}_{l}=j\\omega L\\underline{i}\">
 </p>
@@ -145,7 +145,7 @@ add up to the total voltage
 <p>
 <img
  border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img4.png\"
+ src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img4.png\"
  alt=\"
 \\underline{v}=\\underline{v}_{r}+\\underline{v}_{l}\">
 </p>
@@ -157,7 +157,7 @@ as illustrated in the phasor diagram of Fig. 2.
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/phasor_diagram.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/phasor_diagram.png\"
            alt=\"phasor_diagram.png\">
     </td>
   </tr>
@@ -168,16 +168,16 @@ as illustrated in the phasor diagram of Fig. 2.
 
 <p>
 <img border=\"0\"
- src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img5.png\"
+ src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/ACCircuit/img5.png\"
  alt=\"img5.png\">
 </p>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction\">
           Introduction</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power\">
           Power</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ReferenceSystem\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem\">
           Reference system</a>
 
 </html>"));
@@ -195,9 +195,9 @@ Yet, there is instantaneous power exchanged with connecting network.
 </p>
 
 The
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance\">
           series resonance circuit</a> which was also addressed in the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>
 will be investigated.
 
@@ -207,9 +207,9 @@ will be investigated.
 The instantaneous voltage and current are in phase:
 </p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/v_r.png\"
                    alt=\"v_r.png\"><br>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/i_r.png\"
                    alt=\"i_r.png\">
 </p>
 
@@ -217,7 +217,7 @@ The instantaneous voltage and current are in phase:
 Therefore, the instantaneous power is
 </p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_r.png\"
                    alt=\"power_r.png\">
 </p>
 
@@ -226,7 +226,7 @@ Therefore, the instantaneous power is
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_resistor.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_resistor.png\"
            alt=\"power_resistor.png\">
     </td>
   </tr>
@@ -235,7 +235,7 @@ Therefore, the instantaneous power is
 
 <p>Real power of the resistor is the average of instantaneous power:</p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/p_r.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/p_r.png\"
                    alt=\"p_r.png\">
 </p>
 
@@ -245,9 +245,9 @@ Therefore, the instantaneous power is
 The instantaneous voltage leads the current by a quarter of the period:
 </p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/v_l.png\"
                    alt=\"v_l.png\"><br>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/i_l.png\"
                    alt=\"i_l.png\">
 </p>
 
@@ -255,7 +255,7 @@ The instantaneous voltage leads the current by a quarter of the period:
 Therefore, the instantaneous power is
 </p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_l.png\"
                    alt=\"power_l.png\">
 </p>
 
@@ -264,7 +264,7 @@ Therefore, the instantaneous power is
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_inductor.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_inductor.png\"
            alt=\"power_inductor.png\">
     </td>
   </tr>
@@ -273,7 +273,7 @@ Therefore, the instantaneous power is
 
 <p>Reactive power of the inductor is:</p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_l.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/q_l.png\"
                    alt=\"q_l.png\">
 </p>
 
@@ -283,9 +283,9 @@ Therefore, the instantaneous power is
 The instantaneous voltage lags the current by a quarter of the period:
 </p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/v_c.png\"
                    alt=\"v_c.png\"><br>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/i_c.png\"
                    alt=\"i_c.png\">
 </p>
 
@@ -293,7 +293,7 @@ The instantaneous voltage lags the current by a quarter of the period:
 Therefore, the instantaneous power is
 </p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_c.png\"
                    alt=\"power_c.png\">
 </p>
 
@@ -302,7 +302,7 @@ Therefore, the instantaneous power is
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_capacitor.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_capacitor.png\"
            alt=\"power_capacitor.png\">
     </td>
   </tr>
@@ -311,7 +311,7 @@ Therefore, the instantaneous power is
 
 <p>Reactive power of the capacitor is:</p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_c.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/q_c.png\"
                    alt=\"q_c.png\">
 </p>
 
@@ -319,7 +319,7 @@ Therefore, the instantaneous power is
 
 <p>For an arbitrary component with two pins, real and reactive power can be determined by the complex phasors:</p>
 <p>
-<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/s.png\"
+<img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/s.png\"
                    alt=\"s.png\">
 </p>
 
@@ -328,11 +328,11 @@ In this equation <sup>*</sup> represents the conjugate complex operator
 </p>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction\">
           Introduction</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ReferenceSystem\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem\">
           Reference system</a>
 </html>"));
     end Power;
@@ -360,11 +360,11 @@ Overconstrained Equation Operators for Connection Graphs have to be taken into a
 </p>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction\">
           Introduction</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power\">
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power\">
           Power</a>
 
 </html>"));
@@ -372,7 +372,7 @@ Overconstrained Equation Operators for Connection Graphs have to be taken into a
 
     annotation (Documentation(info="<html>
 <p>
-The <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
+The <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
 library addresses the analysis of electrical circuits with purely sinusoidal
 voltages and currents. The main characteristics of the library are:
 </p>
@@ -389,33 +389,33 @@ voltages and currents. The main characteristics of the library are:
       since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
   <li>The connectors contain the real and the imaginary part of the voltage and the current
-      <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">RMS phasors</a></li>
+      <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction\">RMS phasors</a></li>
 
 </ul>
 
 <p>
-The main intention of this library is the modeling of quasi stationary behavior
+The main intention of this library is the modeling of quasi-static behavior
 of single and multi phase
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">AC circuits</a>
-with fixed and variable frequency. Quasi stationary theory and applications can be
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">AC circuits</a>
+with fixed and variable frequency. Quasi-static theory and applications can be
 found in
-[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Dorf1993</a>],
-[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Burton1994</a>],
-[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Landolt1936</a>],
-[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Philippow1967</a>],
-[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Weyh1967</a>],
-[<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Vaske1973</a>].
+[<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Dorf1993</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Burton1994</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Landolt1936</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Philippow1967</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Weyh1967</a>],
+[<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Vaske1973</a>].
 </p>
 
 <h4>Note</h4>
 <p>
 A general electrical circuit can be a DC circuit, an AC circuit with periodic sinusoidal or non-sinusoidal voltages and currents
 or a transient circuit without particular waveform of voltages and currents.
-Therefore a coupling model between a quasi stationary circuit and a general (transient) electrical circuit
+Therefore a coupling model between a quasi-static circuit and a general (transient) electrical circuit
 has to be designed carefully taking the specific application into account.
-As an example, you may look at the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter\">
+As an example, you may look at the <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter\">
 ideal AC DC converter</a>, which is used in the
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Rectifier\">rectifier example</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.Rectifier\">rectifier example</a>.
 </p>
 
 </html>"));
@@ -432,22 +432,22 @@ ideal AC DC converter</a>, which is used in the
     <li>Added frequency sweep voltage and current sources, see
         <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2442\">#2442</a>
     <ul>
-        <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
-        <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
-        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
-        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
+        <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
+        <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
+        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
+        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
     </ul></li>
     <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
     <li>Fixed missing <code>final useConjugateInput = false</code>, see
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2251\">#2251</a>
     <ul>
-      <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents\">MultiPhase.Blocks.SymmetricalComponents</a></li>
-      <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.FromSymmetricalComponents\">MultiPhase.Blocks.FromSymmetricalComponents</a></li>
-      <li><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase\">MultiPhase.Blocks.SingleToMultiPhase</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Blocks.SymmetricalComponents\">MultiPhase.Blocks.SymmetricalComponents</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Blocks.FromSymmetricalComponents\">MultiPhase.Blocks.FromSymmetricalComponents</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Blocks.SingleToMultiPhase\">MultiPhase.Blocks.SingleToMultiPhase</a></li>
     </ul></li>
 <li>Updated icons of inductors and transformer models, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2210\">#2210</a></li>
-<li>Added polar and power quantities in ideal quasi stationary transformer model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2173\">#2173</a></li>
+<li>Added polar and power quantities in ideal quasi-static transformer model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2173\">#2173</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2202\">#2202</a></li>

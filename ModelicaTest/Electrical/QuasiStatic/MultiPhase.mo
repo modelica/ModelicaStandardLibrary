@@ -5,34 +5,34 @@ package MultiPhase "Multi phase quasi static package"
     extends Modelica.Icons.Example;
     parameter Integer m = 3 "Number of phases";
     output Modelica.SIunits.ComplexVoltage v[m] = voltageSensor.y "Total voltage";
-    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0), m=m)                                             annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0), m=m)                                             annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-50,-20})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance impedance(Z_ref=fill(Complex(1,1),m), m=m)
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground ground annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance impedance(Z_ref=fill(Complex(1,1),m), m=m)
                                                                              annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance admittance(Y_ref=fill(Complex(0.5,0.5),m), m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance admittance(Y_ref=fill(Complex(0.5,0.5),m), m=m)
                                                                                                     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor variableResistor(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableResistor variableResistor(m=m)
                                                                                            annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor variableConductor(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableConductor variableConductor(m=m)
                                                                                              annotation (Placement(transformation(extent={{0,20},{20,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor conductor(G_ref=fill(1,m), m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Conductor conductor(G_ref=fill(1,m), m=m)
                                                                                               annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-90,10})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor variableCapacitor(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableCapacitor variableCapacitor(m=m)
                                                                                              annotation (Placement(transformation(extent={{30,20},{50,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor variableInductor(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableInductor variableInductor(m=m)
                                                                                            annotation (Placement(transformation(extent={{60,20},{80,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance variableImpedance(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance variableImpedance(m=m)
                                                                                              annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
           origin={70,-40})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance variableAdmittance(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance variableAdmittance(m=m)
                                                                                                annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
@@ -43,7 +43,7 @@ package MultiPhase "Multi phase quasi static package"
     Modelica.Blocks.Sources.Constant const3[m](k=fill(1/100/Modelica.Constants.pi,m)) annotation (Placement(transformation(extent={{100,50},{80,70}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const4[m](k=fill(Complex(0.5,0.5),m)) annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const5[m](k=fill(Complex(1,1),m)) annotation (Placement(transformation(extent={{-30,-90},{-10,-70}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor voltageSensor(m=m) annotation (Placement(transformation(
+    Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.VoltageSensor voltageSensor(m=m) annotation (Placement(transformation(
           extent={{-10,10},{10,-10}},
           rotation=270,
           origin={-20,-20})));
@@ -54,7 +54,7 @@ package MultiPhase "Multi phase quasi static package"
       duration=1,
       offset=10,
       startTime=0) annotation (Placement(transformation(extent={{-100,-30},{-80,-10}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star star(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star star(m=m)
                                                                    annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
           rotation=90,
@@ -94,33 +94,33 @@ package MultiPhase "Multi phase quasi static package"
     extends Modelica.Icons.Example;
     parameter Integer m = 3 "Number of phases";
     output Modelica.SIunits.ComplexCurrent I[m] = currentSensor.y "Current";
-    Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.Idle idle(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Ideal.Idle idle(m=m)
                                                                    annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-50,10})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.Short short(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Ideal.Short short(m=m)
                                                                      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealCommutingSwitch idealCommutingSwitch(m=m,
+    Modelica.Electrical.QuasiStatic.MultiPhase.Ideal.IdealCommutingSwitch idealCommutingSwitch(m=m,
       Ron=fill(1E-5, m),
       Goff=fill(1E-5, m))                                                                          annotation (Placement(transformation(extent={{30,20},{50,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealIntermediateSwitch idealIntermediateSwitch(m=m,
+    Modelica.Electrical.QuasiStatic.MultiPhase.Ideal.IdealIntermediateSwitch idealIntermediateSwitch(m=m,
       Ron=fill(1E-5, m),
       Goff=fill(1E-5, m))                                                                             annotation (Placement(transformation(extent={{60,20},{80,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealOpeningSwitch idealOpeningSwitch(m=m,
+    Modelica.Electrical.QuasiStatic.MultiPhase.Ideal.IdealOpeningSwitch idealOpeningSwitch(m=m,
       Ron=fill(1E-5, m),
       Goff=fill(1E-5, m))                                                                      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealClosingSwitch idealClosingSwitch(m=m,
+    Modelica.Electrical.QuasiStatic.MultiPhase.Ideal.IdealClosingSwitch idealClosingSwitch(m=m,
       Ron=fill(1E-5, m),
       Goff=fill(1E-5, m))                                                                      annotation (Placement(transformation(extent={{-10,20},{10,40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance impedance(
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Impedance impedance(
       useHeatPort=true,
       m=m,
       T_ref=fill(293.15, m),
       alpha_ref=fill(0.004, m),
       Z_ref=fill(Complex(2, 2), m))
                         annotation (Placement(transformation(extent={{80,-10},{60,10}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource voltageSource(
+    Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource voltageSource(
       gamma(start=0, fixed=true),
       f=50,
       m=m,
@@ -130,14 +130,14 @@ package MultiPhase "Multi phase quasi static package"
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-90,10})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance admittance(
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Admittance admittance(
       useHeatPort=true,
       m=m,
       T_ref=fill(293.15, m),
       alpha_ref=fill(0.004, m),
       Y_ref=fill(Complex(0.5, 0.5), m))
                         annotation (Placement(transformation(extent={{80,-30},{60,-10}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground ground annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep1[m](startTime=fill(0.2, m)) annotation (Placement(transformation(extent={{-32,70},{-12,90}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep2[m](startTime=fill(0.4, m)) annotation (Placement(transformation(extent={{70,70},{50,90}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep3[m](startTime=fill(0.6, m)) annotation (Placement(transformation(extent={{100,50},{80,70}})));
@@ -148,13 +148,13 @@ package MultiPhase "Multi phase quasi static package"
       duration=fill(1, m),
       offset=fill(293.15, m),
       startTime=fill(0, m)) annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance variableImpedance(
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableImpedance variableImpedance(
       useHeatPort=true,
       m=m,
       T_ref=fill(293.15, m),
       alpha_ref=fill(0.004, m))
                        annotation (Placement(transformation(extent={{30,10},{10,-10}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance variableAdmittance(
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.VariableAdmittance variableAdmittance(
       useHeatPort=true,
       m=m,
       T_ref=fill(293.15, m),
@@ -162,8 +162,8 @@ package MultiPhase "Multi phase quasi static package"
                        annotation (Placement(transformation(extent={{10,-10},{-10,-30}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const_admittance[m](k=fill(Complex(0.5, 0.5), m)) annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
     Modelica.ComplexBlocks.Sources.ComplexConstant const_impedance[m](k=fill(Complex(2, 2), m)) annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensor annotation (Placement(transformation(extent={{-60,-30},{-80,-10}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star star(m=m)
+    Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.CurrentSensor currentSensor annotation (Placement(transformation(extent={{-60,-30},{-80,-10}})));
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star star(m=m)
                                                                    annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -208,27 +208,27 @@ package MultiPhase "Multi phase quasi static package"
     output Modelica.SIunits.Current iL[3] = inductor.abs_i "Inductor current";
     output Modelica.SIunits.Voltage vC[3] = capacitor.abs_v "Inductor voltage";
 
-    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource voltageSource(
+    Modelica.Electrical.QuasiStatic.MultiPhase.Sources.FrequencySweepVoltageSource voltageSource(
       gamma(start=0, fixed=true),
       startTime=0,
       duration=1,
       V=fill(1, 3),
       fStart=0.01,
       fStop=100) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor  inductor(L=fill(1, 3))  annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starV annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource currentSource(
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor  inductor(L=fill(1, 3))  annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star starV annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundV annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
+    Modelica.Electrical.QuasiStatic.MultiPhase.Sources.FrequencySweepCurrentSource currentSource(
       gamma(start=0, fixed=true),
       startTime=0,
       duration=1,
       I=fill(1, 3),
       fStart=0.01,
       fStop=100) annotation (Placement(transformation(extent={{-20,-60},{-40,-40}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor capacitor(C=fill(1, 3)) annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-    Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starI
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Capacitor capacitor(C=fill(1, 3)) annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star starI
                                                                    annotation (Placement(transformation(extent={{-20,-90},{-40,-70}})));
-    Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-70,-100},{-50,-80}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundI annotation (Placement(transformation(extent={{-70,-100},{-50,-80}})));
   equation
     connect(voltageSource.plug_p, inductor.plug_p) annotation (Line(points={{-40,50},{-50,50},{-50,80},{-40,80}}, color={85,170,255}));
     connect(inductor.plug_n, voltageSource.plug_n) annotation (Line(points={{-20,80},{-10,80},{-10,50},{-20,50}}, color={85,170,255}));
