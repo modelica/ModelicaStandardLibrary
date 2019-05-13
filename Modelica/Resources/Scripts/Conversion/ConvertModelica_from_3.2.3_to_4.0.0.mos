@@ -31,6 +31,8 @@ convertClass("Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer",
               "Modelica.Electrical.Machines.Icons.QuasiStaticTransformer");
 convertClass("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines",
               "Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines");
+convertClass("Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer",
+              "Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer");
 
 // Change renamed elements of classes
 // mue -> mu

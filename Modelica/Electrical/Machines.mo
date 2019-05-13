@@ -11637,17 +11637,6 @@ Partial model of transformer core with 3 windings; saturation function flux vers
 Ideal transformer with 3 windings: no magnetizing current.
 </html>"));
       end IdealCore;
-
-      partial model BasicTransformer "Partial model of three-phase transformer"
-        extends Machines.Interfaces.PartialBasicTransformer;
-        extends Modelica.Icons.ObsoleteModel;
-        annotation (Documentation(info="<html>
-Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
-Circuit layout (vector group) of primary and secondary windings have to be defined.<br>
-Exactly the same as Interfaces.PartialBasicTransformer, included for compatibility reasons.
-</html>"),
-        obsolete = "Obsolete model - use Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer instead");
-      end BasicTransformer;
       annotation (Documentation(info="<html>
 This package contains components for modeling electrical machines, specially three-phase induction machines, based on space phasor theory.
 These models use package SpacePhasors.
