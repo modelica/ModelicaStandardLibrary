@@ -8028,7 +8028,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Thomas Beutlich</strong></td>
-   <td>ESI ITI GmbH, Germany</td>
+   <td>previously at:<br>ESI ITI GmbH, Germany</td>
    <td>Modelica.Blocks.Sources.CombiTimeTable<br>
                       Modelica.Blocks.Tables</td>
 </tr>
