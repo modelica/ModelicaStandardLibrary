@@ -33,7 +33,7 @@ in the time domain can be represented by a complex
  alt=\"\\underline{v}=V_{\\mathrm{RMS}}e^{j\\varphi_{v}}.\">
 </p>
 
-<p>For these quasi stationary
+<p>For these quasi-static
 phasor the following relationship applies:</p>
 
 <p>
@@ -394,10 +394,10 @@ voltages and currents. The main characteristics of the library are:
 </ul>
 
 <p>
-The main intention of this library is the modeling of quasi stationary behavior
+The main intention of this library is the modeling of quasi-static behavior
 of single and multi phase
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">AC circuits</a>
-with fixed and variable frequency. Quasi stationary theory and applications can be
+with fixed and variable frequency. Quasi-static theory and applications can be
 found in
 [<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Dorf1993</a>],
 [<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Burton1994</a>],
@@ -411,7 +411,7 @@ found in
 <p>
 A general electrical circuit can be a DC circuit, an AC circuit with periodic sinusoidal or non-sinusoidal voltages and currents
 or a transient circuit without particular waveform of voltages and currents.
-Therefore a coupling model between a quasi stationary circuit and a general (transient) electrical circuit
+Therefore a coupling model between a quasi-static circuit and a general (transient) electrical circuit
 has to be designed carefully taking the specific application into account.
 As an example, you may look at the <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter\">
 ideal AC DC converter</a>, which is used in the
@@ -447,7 +447,7 @@ ideal AC DC converter</a>, which is used in the
       <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Blocks.SingleToMultiPhase\">MultiPhase.Blocks.SingleToMultiPhase</a></li>
     </ul></li>
 <li>Updated icons of inductors and transformer models, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2210\">#2210</a></li>
-<li>Added polar and power quantities in ideal quasi stationary transformer model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2173\">#2173</a></li>
+<li>Added polar and power quantities in ideal quasi-static transformer model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2173\">#2173</a></li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2202\">#2202</a></li>

@@ -335,12 +335,12 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
           points={{40,-40},{50,-40}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>
-This example demonstrates coupling a quasi stationary circuit with a DC circuit.
+This example demonstrates coupling a quasi-static circuit with a DC circuit.
 The QS voltage is rectified (using an
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter\">
 ideal AC DC converter</a>), loaded by a variable load conductor.
 The <em>conversionFactor = DC voltage / AC rms voltage</em> in this case is the root mean square of a rectified sine, i.e., 1.
-You may compare the quasi stationary results with that of a fully transient model (using a
+You may compare the quasi-static results with that of a fully transient model (using a
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.GraetzRectifier\">
 Graetz rectifier</a>), plotting:
 </p>
@@ -357,7 +357,7 @@ It can be seen that at the DC side the current is represented by its averaged va
 </p>
 <h4>Note</h4>
 <p>
-The quasi stationary model needs a grounding at the QS side as well as the DC side,
+The quasi-static model needs a grounding at the QS side as well as the DC side,
 whereas the transient model may have only one ground since AC side and DC side are connected via the diodes.
 </p>
 </html>"), experiment(StopTime=1.0, Interval=0.0001));
@@ -1049,7 +1049,7 @@ The capacitance <code>C</code> is given as input signal.
 
 <h4>Note</h4>
 <p>
-The abstraction of a variable capacitor at quasi stationary operation assumes:
+The abstraction of a variable capacitor at quasi-static operation assumes:
 </p>
 
 <p>
@@ -1120,7 +1120,7 @@ branch current <code><u>i</u></code> by <code><u>v</u> = j*&omega;*L*<u>i</u></c
 
 <h4>Note</h4>
 <p>
-The abstraction of a variable inductor at quasi stationary operation assumes:
+The abstraction of a variable inductor at quasi-static operation assumes:
 </p>
 
 <p>
@@ -1348,8 +1348,8 @@ singularities due to the actual structure of the connected network.
             fillPattern=FillPattern.Solid,
             extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
               {100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
-<p>This package hosts basic models for quasi stationary single phase circuits.
-Quasi stationary theory for single phase circuits can be found in the
+<p>This package hosts basic models for quasi-static single phase circuits.
+Quasi-static theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -1950,8 +1950,8 @@ where <code>n</code> is a real number called the turns ratio.</p>
           Line(origin={10,34}, points={{30,-40},{30,-60}}),
           Line(origin={10,34}, points={{30,-60},{80,-60}})}), Documentation(
           info="<html>
-<p>This package hosts ideal models for quasi stationary single phase circuits.
-Quasi stationary theory for single phase circuits can be found in the
+<p>This package hosts ideal models for quasi-static single phase circuits.
+Quasi-static theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -2295,8 +2295,8 @@ The internal resistance of the current path is zero, the internal resistance of 
 </html>"));
   end MultiSensor;
     annotation (Documentation(info="<html>
-<p>This package hosts sensors for quasi stationary single phase circuits.
-Quasi stationary theory for single phase circuits can be found in the
+<p>This package hosts sensors for quasi-static single phase circuits.
+Quasi-static theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -2563,8 +2563,8 @@ way that on a logarithmic frequency scale, the frequency curve appears linear.</
 </html>"));
     end FrequencySweepCurrentSource;
     annotation (Documentation(info="<html>
-<p>This package hosts sources for quasi stationary single phase circuits.
-Quasi stationary theory for single phase circuits can be found in the
+<p>This package hosts sources for quasi-static single phase circuits.
+Quasi-static theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -2622,7 +2622,7 @@ derived from this base connector.
 
 <p>
 The positive pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">Pin</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi-static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
 </p>
 
 <h4>See also</h4>
@@ -2658,7 +2658,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 
 <p>
 The negative pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">Pin</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi-static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
 </p>
 
 <h4>See also</h4>
@@ -2703,7 +2703,7 @@ Additionally the reference angle is specified in the connector. The time derivat
       annotation (Documentation(info="<html>
 <p>
 This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">positive</a>
-and <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi stationary system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
+and <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi-static system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
 </p>
 
 <h4>See also</h4>
@@ -3008,8 +3008,8 @@ This is a so called Graetz-bridge, a single phase rectifier built from 4 diodes.
     end GraetzRectifier;
 
     annotation (Documentation(info="<html>
-<p>This package hosts utilities for test examples of quasi stationary single phase circuits.
-Quasi stationary theory for single phase circuits can be found in the
+<p>This package hosts utilities for test examples of quasi-static single phase circuits.
+Quasi-static theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -3024,8 +3024,8 @@ Quasi stationary theory for single phase circuits can be found in the
           fillPattern=FillPattern.Solid,
           extent={{-20,-20},{20,20}})}, coordinateSystem(extent={{-100,-100},{
             100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
-<p>This package hosts models for quasi stationary single phase circuits.
-Quasi stationary theory for single phase circuits can be found in the
+<p>This package hosts models for quasi-static single phase circuits.
+Quasi-static theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>

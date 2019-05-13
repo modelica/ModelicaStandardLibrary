@@ -231,7 +231,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>SpacePhasor</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
-<tr><td><strong>quasi<br>stationary<br>single phase</strong></td>
+<tr><td><strong>quasi-static<br>single phase</strong></td>
    <td>complex electrical potential</td>
    <td>complex electrical current</td>
    <td></td>
@@ -240,8 +240,8 @@ variables is explained in section \"Connector Equations\" below):
      <br>Pin, PositivePin, NegativePin</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticSinglePhasePins.png\"></td></tr>
 
-<tr><td><strong>quasi<br>stationary<br>multi-phase</strong></td>
-   <td colspan=\"3\">vector of quasi stationary single phase pins</td>
+<tr><td><strong>quasi-static<br>multi-phase</strong></td>
+   <td colspan=\"3\">vector of quasi-static single phase pins</td>
    <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces\">Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticMultiPhasePlugs.png\"></td></tr>

@@ -2175,12 +2175,12 @@ This package contains components for modeling electrical machines, specially thr
             fillPattern=FillPattern.Solid,
             points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{
                 60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
-This package contains components for modeling quasi stationary electrical induction machines, based on space phasor theory:
+This package contains components for modeling quasi-static electrical induction machines, based on space phasor theory:
 <ul>
-<li>package AsynchronousInductionMachines: quasi stationary models of three phase asynchronous induction machines</li>
-<li>package SynchronousInductionMachines: quasi stationary models of three phase synchronous induction machines</li>
-<li>package Transformers: quasi stationary three-phase transformers (see detailed documentation in subpackage)</li>
-<li>package Components: components for quasi stationary modeling machines and transformers</li>
+<li>package AsynchronousInductionMachines: quasi-static models of three phase asynchronous induction machines</li>
+<li>package SynchronousInductionMachines: quasi-static models of three phase synchronous induction machines</li>
+<li>package Transformers: quasi-static three-phase transformers (see detailed documentation in subpackage)</li>
+<li>package Components: components for quasi-static modeling machines and transformers</li>
 </ul>
 </html>"));
   end BasicMachines;
@@ -2417,13 +2417,13 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
     end PartialBasicTransformer;
     annotation (Documentation(info="<html>
 <p>
-This package contains the quasi stationary space phasor connector and partial models for quasi stationary machine models.
+This package contains the quasi-static space phasor connector and partial models for quasi-static machine models.
 </p>
 </html>"));
   end Interfaces;
 
   package SpacePhasors
-    "Space phasor components for quasi stationary electric machines"
+    "Space phasor components for quasi-static electric machines"
     extends Modelica.Icons.Package;
     package Blocks
       extends Modelica.Icons.Package;
@@ -2472,7 +2472,7 @@ This package contains the quasi stationary space phasor connector and partial mo
                 extent={{-12,-74},{64,-86}},
                 textString="zero")}),
           Documentation(info="<html>
-Transformation of quasi stationary multi phase values (voltages or currents) to space phasor and zero sequence value.
+Transformation of quasi-static multi phase values (voltages or currents) to space phasor and zero sequence value.
 </html>"));
       end ToSpacePhasor;
 
@@ -2517,7 +2517,7 @@ Transformation of quasi stationary multi phase values (voltages or currents) to 
               Text(
                 extent={{-62,-74},{14,-86}},
                 textString="zero")}), Documentation(info="<html>
-Transformation of space phasor and zero sequence value to quasi stationary multi phase values (voltages or currents).
+Transformation of space phasor and zero sequence value to quasi-static multi phase values (voltages or currents).
 </html>"));
       end FromSpacePhasor;
     end Blocks;
@@ -2553,14 +2553,14 @@ Transformation of space phasor and zero sequence value to quasi stationary multi
 <p>
 Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
-<p>This package hosts models for quasi stationary induction machines and transformers.
+<p>This package hosts models for quasi-static induction machines and transformers.
 </p>
 <h4>Please note</h4>
 <p>
-Quasi stationary DC machines are still operated with Dc voltage and current, whereas the quasi stationary induction machines and transformers
-are operated with sinusoidal voltages and currents represented by time phasors. Quasi stationary theory can be found in the
+Quasi-static DC machines are still operated with Dc voltage and current, whereas the quasi-static induction machines and transformers
+are operated with sinusoidal voltages and currents represented by time phasors. Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
-Quasi stationary DC machine models therefore are part of the
+Quasi-static DC machine models therefore are part of the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines\">machines library</a>.
 </p>
 </html>"));

@@ -2082,8 +2082,8 @@ singularities due to the actual structure of the connected network.
             fillPattern=FillPattern.Solid,
             extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
               {100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
-<p>This package hosts basic models for quasi stationary multiphase circuits.
-Quasi stationary theory can be found in the
+<p>This package hosts basic models for quasi-static multiphase circuits.
+Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -2460,8 +2460,8 @@ This switch is only intended to be used for structural changes, not fast switchi
           Line(origin={10,34}, points={{30,-40},{30,-60}}),
           Line(origin={10,34}, points={{30,-60},{80,-60}})}), Documentation(
           info="<html>
-<p>This package hosts ideal models for quasi stationary multiphase circuits.
-Quasi stationary theory can be found in the
+<p>This package hosts ideal models for quasi-static multiphase circuits.
+Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -2512,7 +2512,7 @@ In quasi-static operation, instantaneous power equals active power;
     end activePower;
   end Functions;
 
-  package Blocks "Blocks for quasi stationary multi phase systems"
+  package Blocks "Blocks for quasi-static multi phase systems"
     extends Modelica.Icons.Package;
 
     block QuasiRMS
@@ -3606,8 +3606,8 @@ Thomas M&uuml;hl: Elektrische Messtechnik. Springer Vieweg.
 </html>"));
     end ReactivePowerSensor;
     annotation (Documentation(info="<html>
-<p>This package hosts sensors for quasi stationary multiphase circuits.
-Quasi stationary theory can be found in the
+<p>This package hosts sensors for quasi-static multiphase circuits.
+Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -4001,8 +4001,8 @@ way that on a logarithmic frequency scale, the frequency curve appears linear.</
 </html>"));
     end FrequencySweepCurrentSource;
     annotation (Documentation(info="<html>
-<p>This package hosts sources for quasi stationary multiphase circuits.
-Quasi stationary theory can be found in the
+<p>This package hosts sources for quasi-static multiphase circuits.
+Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -4060,7 +4060,7 @@ derived from this base connector.
 
 <p>
 The positive plug is based on <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">negative plug</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi-static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">negative plug</a>.
 </p>
 
 <h4>See also</h4>
@@ -4096,7 +4096,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 
 <p>
 The negative plug is based on <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">positive plug</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi-static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">positive plug</a>.
 </p>
 
 <h4>See also</h4>
@@ -4168,7 +4168,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 <p>
 This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">positive</a>
 and <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">negative plug</a> and defines the complex voltage differences as well as the complex currents (into the positive plug). A <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_p\">positive</a> and
-a <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n\">negative adapter</a> are used to give easy access to the single pins of both plugs. Additionally, the angular velocity of the quasi stationary system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
+a <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPins_n\">negative adapter</a> are used to give easy access to the single pins of both plugs. Additionally, the angular velocity of the quasi-static system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
 </p>
 
 <h4>See also</h4>
@@ -4400,8 +4400,8 @@ The source partial model relies on the
           fillColor={170,213,255},
           fillPattern=FillPattern.Solid,
           extent={{-20,-74},{0,-54}})}), Documentation(info="<html>
-<p>This package hosts models for quasi stationary multi phase circuits.
-Quasi stationary theory can be found in
+<p>This package hosts models for quasi-static multi phase circuits.
+Quasi-static theory can be found in
 [<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Vaske1973</a>]
 and other
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.

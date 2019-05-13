@@ -161,7 +161,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 2.3.0, 2010-02-16 (Anton Haumer)</h5>
 <ul>
-  <li>Included quasi stationary DC machine models</li>
+  <li>Included quasi-static DC machine models</li>
 </ul>
 
 <h5>Version 2.2.0, 2010-02-10 (Anton Haumer)</h5>

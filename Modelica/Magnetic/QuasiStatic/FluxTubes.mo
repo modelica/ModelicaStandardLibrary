@@ -176,7 +176,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <p>
-A general introduction into <strong>quasi static</strong> (quasi stationary) phasor can be found in
+A general introduction into <strong>quasi static</strong> (quasi-static) phasor can be found in
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview\">Modelica.Electrical.QuasiStatic</a>.
 </p>
 
