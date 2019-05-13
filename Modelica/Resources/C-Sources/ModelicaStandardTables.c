@@ -480,7 +480,7 @@ static size_t key_strlen(_In_z_ const char *s);
   /* Special strlen for key consisting of concatenated names of file and table */
 #endif
 
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
 #define READ_RESULT TableShare*
 #else
 #define READ_RESULT double*
@@ -564,7 +564,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
                                                   int timeEvents,
                                                   int verbose) {
     CombiTimeTable* tableID;
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
     TableShare* file = NULL;
     char* keyFile = NULL;
 #endif
@@ -575,7 +575,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
 
     /* Read table from file before any other heap allocation */
     if (TABLESOURCE_FILE == source) {
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
         file = readTable(fileName, tableName, &nRowFile, &nColFile, verbose, 0);
         if (NULL != file) {
             keyFile = file->key;
@@ -594,7 +594,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
 
     tableID = (CombiTimeTable*)calloc(1, sizeof(CombiTimeTable));
     if (NULL == tableID) {
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
         if (NULL != file) {
             MUTEX_LOCK();
             if (--file->refCount == 0) {
@@ -626,7 +626,7 @@ void* ModelicaStandardTables_CombiTimeTable_init2(_In_z_ const char* fileName,
 
     switch (tableID->source) {
         case TABLESOURCE_FILE:
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
             tableID->key = keyFile;
 #else
             {
@@ -1730,7 +1730,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
                                                 int extrapolation,
                                                 int verbose) {
     CombiTable1D* tableID;
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
     TableShare* file = NULL;
     char* keyFile = NULL;
 #endif
@@ -1741,7 +1741,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
 
     /* Read table from file before any other heap allocation */
     if (TABLESOURCE_FILE == source) {
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
         file = readTable(fileName, tableName, &nRowFile, &nColFile, verbose, 0);
         if (NULL != file) {
             keyFile = file->key;
@@ -1760,7 +1760,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
 
     tableID = (CombiTable1D*)calloc(1, sizeof(CombiTable1D));
     if (NULL == tableID) {
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
         if (NULL != file) {
             MUTEX_LOCK();
             if (--file->refCount == 0) {
@@ -1787,7 +1787,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
 
     switch (tableID->source) {
         case TABLESOURCE_FILE:
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
             tableID->key = keyFile;
 #else
             {
@@ -2363,7 +2363,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
                                                 int extrapolation,
                                                 int verbose) {
     CombiTable2D* tableID;
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
     TableShare* file = NULL;
     char* keyFile = NULL;
 #endif
@@ -2374,7 +2374,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
 
     /* Read table from file before any other heap allocation */
     if (TABLESOURCE_FILE == source) {
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
         file = readTable(fileName, tableName, &nRowFile, &nColFile, verbose, 0);
         if (NULL != file) {
             keyFile = file->key;
@@ -2393,7 +2393,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
 
     tableID = (CombiTable2D*)calloc(1, sizeof(CombiTable2D));
     if (NULL == tableID) {
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
         if (NULL != file) {
             MUTEX_LOCK();
             if (--file->refCount == 0) {
@@ -2419,7 +2419,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
 
     switch (tableID->source) {
         case TABLESOURCE_FILE:
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
             tableID->key = keyFile;
 #else
             {
