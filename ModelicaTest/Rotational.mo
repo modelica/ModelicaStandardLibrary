@@ -1618,7 +1618,7 @@ they were not deleted yet.")}));
       phi(fixed=true, start=0),
       w(fixed=true, start=100))
       annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
-    Modelica.Mechanics.Rotational.Sources.SignTorque signTorque(tau_constant=-100,
+    Modelica.Mechanics.Rotational.Sources.SignTorque signTorque(tau_nominal=-100,
         w0=1) annotation (Placement(transformation(extent={{40,-40},{20,-20}})));
     Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque eddyCurrentTorque(
       tau_nominal=100,
