@@ -62,8 +62,8 @@ For an example see parameter \"n\" in model
 <p>
 Type <strong>Color</strong> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.
-{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given in the range 0 .. 255.
+{r, g, b} are the \"red\", \"green\" and \"blue\" color parts.
+Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
 </p>
 </html>"));
   type RealColor =
@@ -92,7 +92,7 @@ Note, r g, b are given in the range 0 .. 255.
 Type <strong>RealColor</strong> is a Real vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given in the range 0 .. 255.
+Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
 </p>
 </html>"));
   type SpecularCoefficient = Modelica.Icons.TypeReal(min=0)
@@ -153,8 +153,8 @@ Additionally, external shapes can be specified as (not all options might be supp
 </p>
 
 <ul>
-<li> <strong>\"1\", \"2\", ...</strong><br>
-     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
+<li> <strong>\"1\", \"2\",&nbsp;&hellip;</strong><br>
+     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\",&nbsp;&hellip;
      The DXF-files must be found either in the current directory or in the directory where
      the Shape instance is stored that references the DXF file.
      This (very limited) option should not be used for new models. Example:<br>

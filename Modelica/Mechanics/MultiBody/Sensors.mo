@@ -1829,7 +1829,7 @@ signal can be easily obtained by connecting the
 block
 <a href=\"modelica://Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
 to \"distance\" (this block performs analytic differentiation
-of the input signal using the der(..) operator).
+of the input signal using the der(&hellip;) operator).
 </p>
 <p>
 In the following figure the animation of a Distance

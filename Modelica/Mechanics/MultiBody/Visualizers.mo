@@ -82,8 +82,8 @@ Additionally, <strong>external shapes</strong> can be specified as (not all opti
 </p>
 
 <ul>
-<li> <strong>\"1\", \"2\", ...</strong><br>
-     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
+<li> <strong>\"1\", \"2\",&nbsp;&hellip;</strong><br>
+     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\",&nbsp;&hellip;
      The DXF-files must be found either in the current directory or in the directory where
      the Shape instance is stored that references the DXF file.
      This (very limited) option should not be used for new models. Example:<br>
@@ -156,7 +156,7 @@ width = height = 2*radiusOfGearWheel.</td>
 Parameter <strong>color</strong> is a vector with 3 elements,
 {r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
 {r,&nbsp;g,&nbsp;b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;..&nbsp;255,
+Note, r, g and b are given as Integer[3] in the ranges 0&nbsp;&hellip;&nbsp;255,
 respectively. The predefined type
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
@@ -321,8 +321,8 @@ Additionally, <strong>external shapes</strong> can be specified as (not all opti
 </p>
 
 <ul>
-<li> <strong>\"1\", \"2\", ...</strong><br>
-     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
+<li> <strong>\"1\", \"2\",&nbsp;&hellip;</strong><br>
+     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\",&nbsp;&hellip;
      The DXF-files must be found either in the current directory or in the directory where
      the Shape instance is stored that references the DXF file.
      This (very limited) option should not be used for new models. Example:<br>
@@ -396,7 +396,7 @@ width = height = 2*radiusOfGearWheel.</td>
 Parameter <strong>color</strong> is a vector with 3 elements,
 {r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
 {r,&nbsp;g,&nbsp;b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;..&nbsp;255,
+Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;&hellip;&nbsp;255,
 respectively. The predefined type
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
@@ -1793,7 +1793,7 @@ The color is selected from the colorMap by interpolation so that
 This package contains functions to operate on colors.
 Note, a color is represented as a Real array with 3 elements where
 the elements are the red, green, blue values of the RGB color model.
-Every element must be in the range 0..255.
+Every element must be in the range 0&nbsp;&hellip;&nbsp;255.
 The type of a color is Real and not Integer in order that a color
 can be used with less problems in a model, since in a model an Integer
 type could only be used in a when-clause. Typical declaration of a color value:
@@ -1904,8 +1904,8 @@ model where an <strong>Arrow</strong> instance is used, e.g., in the form
 <p>
 Variable <strong>color</strong> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of the shape.
-{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given in the range 0 .. 255.
+{r, g, b} are the \"red\", \"green\" and \"blue\" color parts.
+Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
 The predefined type <strong>MultiBody.Types.Color</strong> contains
 a menu definition of the colors used in the MultiBody
 library (will be replaced by a color editor).
@@ -2047,8 +2047,8 @@ model where an <strong>Arrow</strong> instance is used, e.g., in the form
 <p>
 Variable <strong>color</strong> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of the shape.
-{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given in the range 0 .. 255.
+{r, g, b} are the \"red\", \"green\" and \"blue\" color parts.
+Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
 The predefined type <strong>MultiBody.Types.Color</strong> contains
 a menu definition of the colors used in the MultiBody
 library (will be replaced by a color editor).
@@ -2121,8 +2121,8 @@ Additionally, <strong>external shapes</strong> can be specified as (not all opti
 </p>
 
 <ul>
-<li> <strong>\"1\", \"2\", ...</strong><br>
-     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
+<li> <strong>\"1\", \"2\",&nbsp;&hellip;</strong><br>
+     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\",&nbsp;&hellip;
      The DXF-files must be found either in the current directory or in the directory where
      the Shape instance is stored that references the DXF file.
      This (very limited) option should not be used for new models. Example:<br>
@@ -2196,7 +2196,7 @@ width = height = 2*radiusOfGearWheel.</td>
 Parameter <strong>color</strong> is a vector with 3 elements,
 {r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
 {r,&nbsp;g,&nbsp;b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;..&nbsp;255,
+Note, r, g, b are given as Integer[3] in the ranges 0&nbsp;&hellip;&nbsp;255,
 respectively. The predefined type
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
 definition of the colors used in the MultiBody library together with a color editor.
@@ -2907,7 +2907,7 @@ the predefined type <strong>MultiBody.Types.Color</strong>.
 This is a vector with 3 elements,
 {r, g, b}, and specifies the color of the shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
+Note, r g, b are given as Integer[3] in the ranges 0&nbsp;&hellip;&nbsp;255,
 respectively.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},

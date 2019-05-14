@@ -3066,8 +3066,8 @@ given in
 <p>
 Colors in all animation parts are defined via parameter <strong>color</strong>.
 This is an Integer vector with 3 elements, {r, g, b}, and specifies the
-color of the shape. {r,g,b} are the \"red\", \"green\" and \"blue\" color parts,
-given in the ranges 0 .. 255, respectively. The predefined type
+color of the shape. {r, g, b} are the \"red\", \"green\" and \"blue\" color parts,
+given in the ranges 0&nbsp;&hellip;&nbsp;255, respectively. The predefined type
 <strong>MultiBody.Types.Color</strong> contains a menu
 definition of the colors used in the MultiBody library
 (this will be replaced by a color editor).

@@ -71,7 +71,7 @@ equation
     Documentation(info="<html>
 <p>
 Demonstrates how a RollingWheelSet (two wheels rigidly coupled together) is rolling
-on ground when pulled by an external force..
+on ground when pulled by an external force.
 </p>
 </html>"));
 end RollingWheelSetPulling;

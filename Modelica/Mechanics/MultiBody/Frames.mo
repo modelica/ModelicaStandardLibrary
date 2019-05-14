@@ -1018,7 +1018,7 @@ Computes the orientation object from a transformation matrix T and
 the derivative der(T) of the transformation matrix.
 Usually, it is more efficient to use function \"from_T\" instead, where
 the angular velocity has to be given as input argument. Only if this
-is not possible or too difficult to compute, use function from_T2(..).
+is not possible or too difficult to compute, use function from_T2(&hellip;).
 </p>
 
 <h4>See also</h4>
@@ -3604,7 +3604,7 @@ y = Internal.<strong>maxWithoutEvent</strong>(u1, u2)
 <p>
 Function <strong>maxWithoutEvent</strong> returns the maximum of its two
 input arguments. This functions is used instead of the Modelica
-built-in function \"max\" or an if-statement with \"noEvent(..)\",
+built-in function \"max\" or an if-statement with \"noEvent(&hellip;)\",
 in order that the function can be differentiated by providing
 the first and second derivatives with additional functions.
 Note, from a strict mathematical point of view the derivatives

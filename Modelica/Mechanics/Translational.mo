@@ -326,7 +326,7 @@ diagram and is therefore less convenient to use.
 
       annotation (Documentation(info="<html>
 <p>
-Only a few components of the Translational library use the der(..) operator
+Only a few components of the Translational library use the der(&hellip;) operator
 and are therefore candidates to have states. Most important, component <a href=\"modelica://Modelica.Mechanics.Translational.Components.Mass\">Mass</a>
 defines the absolute position and the absolute velocity of this
 component as candidate for states. In the \"Advanced\" menu the built-in StateSelect
@@ -1065,10 +1065,10 @@ omega_res&nbsp;=&nbsp;sqrt(c&nbsp;/&nbsp;m)
 with:
 </p>
 
-<blockquote><pre>
-c ... spring stiffness
-m ... mass
-</pre></blockquote>
+<blockquote>
+  c &hellip; spring stiffness and<br>
+  m &hellip; mass.
+</blockquote>
 
 <p>
 To make sure that the system is initially at rest the initial
@@ -1228,12 +1228,12 @@ to see the difference.
 <li> The same model is also available by modeling the system with a Mass and
      a SupportFriction model. The SupportFriction model defines the friction characteristic
      with a table. The table is constructed with function
-     Examples.Utilities.GenerateStribeckFrictionTable(..) to generate the
+     Examples.Utilities.GenerateStribeckFrictionTable(&hellip;) to generate the
      same friction characteristic as with stop1.
      The simulation results of stop1 and of model mass are therefore identical.</li>
 <li> Model stop2 gives an example for a hard stop. However there
      can arise some problems with the used modeling approach (use of
-     <strong>reinit</strong>(..), convergence problems). In this case use the ElastoGap
+     <strong>reinit</strong>(&hellip;), convergence problems). In this case use the ElastoGap
      to model a stop (see example Preload).</li>
 </ol>
 </html>"),
@@ -1861,14 +1861,15 @@ force law in a target system between two masses.
         end for;
         annotation (Documentation(info="<html>
 <p>
-Returns a table with the friction characteristic table[nTable,2] = [0, f1; ....; v_max, fn], where the first
-column is the velocity v in the range 0..v_max and the second column is the friction force
-according to the Stribeck curve:
+Returns a table with the friction characteristic
+table[nTable,&nbsp;2]&nbsp;=&nbsp;[0,&nbsp;f1;&nbsp;&hellip;;&nbsp;v_max,&nbsp;fn],
+where the first column is the velocity&nbsp;v in the range 0&nbsp;&hellip;&nbsp;v_max
+and the second column is the friction force according to the Stribeck curve:
 </p>
-<pre>
-  F_Coulomb + F_prop*v + F_Stribeck*exp(-fexp*v);
-</pre>
 
+<blockquote><pre>
+f = F_Coulomb + F_prop*v + F_Stribeck*exp(-fexp*v);
+</pre></blockquote>
 </html>"));
       end GenerateStribeckFrictionTable;
 
@@ -3143,12 +3144,12 @@ distributions:
         frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
 </pre>
 <p>
-   Typical values of coefficients of friction:
+   Typical values of coefficients of friction <strong>mu</strong>:
 </p>
-<pre>
-      dry operation   :  <strong>mu</strong> = 0.2 .. 0.4
-      operating in oil:  <strong>mu</strong> = 0.05 .. 0.1
-</pre>
+<ul>
+  <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
+  <li>0.05&nbsp;&hellip;&nbsp;0.1 when operating in oil.</li>
+</ul>
 <p>
     The positive part of the friction characteristic <strong>mu</strong>(v),
     v >= 0, is defined via table mu_pos (first column = v,

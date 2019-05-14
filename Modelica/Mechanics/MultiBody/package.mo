@@ -385,7 +385,7 @@ the Frame connector.
 <pre>
   <strong>connector</strong> Frame
      ...
-     <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"..\");
+     <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
   <strong>end</strong> Frame;
 </pre>
 <p>
@@ -747,11 +747,11 @@ This is shown in the next figure, where this option is selected for spring3.fram
 <p>
 Note, if this flag is not set to <strong>true</strong>, a translation error will occur.
 Due to the usage of overdetermined connectors in the MultiBody library, the error
-message will be something like: .
+message will be something like:
 </p>
 
 <blockquote><p>
-\"The overdetermined connectors &lt;...&gt; are connected but do not have any root defined\"
+\"The overdetermined connectors &lt;&hellip;&gt; are connected but do not have any root defined\"
 </p></blockquote>
 
 <p>
