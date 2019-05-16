@@ -4072,7 +4072,7 @@ to speed to achieve constant current and torque.</p>
           p=2,
           Jr=0.29,
           Js=0.29,
-          useDamperCage=true,
+          final useDamperCage=true,
           statorCoreParameters(VRef=100),
           strayLoadParameters(IRef=100),
           brushParameters(ILinear=0.01),
