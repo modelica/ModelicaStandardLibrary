@@ -14,17 +14,17 @@ package ControlledTankSystem
       maxLevel=0.9*tank1.height,
       minLevel=0.01)
       annotation (Placement(transformation(extent={{-60,-20},{-20,20}})));
-    Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton start(
-                                                           reset={stop.on,shut.on},
-        buttonTimeTable={20,280})
+    Modelica.Blocks.Sources.RadioButtonSource start(
+      reset={stop.on,shut.on},
+      buttonTimeTable={20,280})
       annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
-    Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton stop(
-                                                          reset={start.on,shut.on},
-        buttonTimeTable={220,650})
+    Modelica.Blocks.Sources.RadioButtonSource stop(
+      reset={start.on,shut.on},
+      buttonTimeTable={220,650})
       annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
-    Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton shut(
-                                                          reset={start.on,stop.on},
-        buttonTimeTable={700})
+    Modelica.Blocks.Sources.RadioButtonSource shut(
+      reset={start.on,stop.on},
+      buttonTimeTable={700})
       annotation (Placement(transformation(extent={{-100,-40},{-80,-20}})));
     Modelica.Fluid.Valves.ValveDiscrete valve1(                     redeclare
         package Medium = Medium,
@@ -414,41 +414,5 @@ This example is based on
                                              annotation (Line(points={{93.5,0},
               {119,0}}));
     end NormalOperation;
-
-    block RadioButton
-      "Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true"
-
-      parameter Modelica.SIunits.Time buttonTimeTable[:]
-        "Time instants where button is pressed";
-      input Boolean reset[:]={false}
-        "Reset button to false, if an element of reset becomes true"
-        annotation (Dialog(group="Time varying expressions"));
-
-      Modelica.Blocks.Interfaces.BooleanOutput on(start=false, fixed=true)
-        annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-    protected
-      Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable, y(start=false, fixed=true));
-    initial equation
-      pre(reset) = fill(false, size(reset, 1));
-    algorithm
-      when pre(reset) then
-         on := false;
-      end when;
-
-      when change(table.y) then
-         on := true;
-      end when;
-      annotation (Icon(
-          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics={Rectangle(
-              extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({192,192,192}, if on then {0,255,0} else {192,192,192}),
-              fillPattern=FillPattern.Solid,
-              lineColor={128,128,128},
-              lineThickness=0.5), Text(
-              extent={{-80,-40},{80,40}},
-              textString="%name")},
-          interaction={OnMouseDownSetBoolean(on, true)}));
-    end RadioButton;
   end Utilities;
 end ControlledTankSystem;
