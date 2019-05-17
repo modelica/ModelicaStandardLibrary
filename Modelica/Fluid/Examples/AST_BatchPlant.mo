@@ -2236,8 +2236,12 @@ The steam is condensed in the condenser K1 and cooled
 afterwards in the cooling tank B6. The concentrated
  solution is also led to a cooling tank B7. The cooled
 fluids are pumped back to the charging vessels by the
-pumps P1 and P2. Be-tween the tanks several valves are
+pumps P1 and P2. Between the tanks several valves are
 present that are regulated by a central control system.
+</p>
+<p>
+This case study is described in more detail in this
+<a href=\"https://www.modelica.org/events/modelica2006/Proceedings/sessions/Session6b3.pdf\">Modelica Conference 2006 paper</a>.
 </p>
 </html>"));
 end AST_BatchPlant;
