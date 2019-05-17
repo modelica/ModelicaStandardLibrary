@@ -29,7 +29,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
 </html>"));
   end AirSteam;
 
-  package simpleMoistAir = AirSteam(reference_X={0.03,0.97})
+  package SimpleMoistAir = AirSteam(reference_X={0.03,0.97})
     "Moist air without condensation";
 
   package FlueGasLambdaOnePlus
