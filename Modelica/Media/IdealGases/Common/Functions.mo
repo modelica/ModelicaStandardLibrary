@@ -95,7 +95,7 @@ package Functions
     input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     input Real dT(unit="K/s") "Temperature derivative";
-    output Real h_der(unit="J/(K.s)") "Derivative of specific enthalpy at temperature T";
+    output Real h_der(unit="J/(kg.s)") "Derivative of specific enthalpy at temperature T";
   algorithm
     h_der := dT*Modelica.Media.IdealGases.Common.Functions.cp_T(
                      data,T);
