@@ -2911,7 +2911,7 @@ The precise semantics is:
     Modelica.Blocks.Interfaces.BooleanOutput on(start=false,fixed=true)
       annotation (Placement(transformation(extent={{100,-15},{130,15}})));
   protected
-    Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
+    Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable, y(start=false, fixed=true));
     parameter Integer nReset=size(reset, 1);
     Boolean pre_reset[nReset];
   initial equation
