@@ -176,7 +176,7 @@ package Functions
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
       7]*T))));
-    annotation (Inline=true, derivative(zeroDerivative=data) = s0_Tlow_der);
+    annotation (Inline=true, smoothOrder=2);
   end s0_Tlow;
 
   function s0_Tlow_der "Compute derivative of specific entropy, low T region"
