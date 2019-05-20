@@ -2192,6 +2192,94 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_4_0_0 "Version 4.0.0 (mmm dd, yyyy)"
+  extends Modelica.Icons.ReleaseNotes;
+
+ annotation (Documentation(info="<html>
+<p>
+Version 4.0.0 is ...
+Short Overview:
+</p>
+
+<ul>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">xxx issues (including pull requests)</a>
+    have been addressed for this release.</li>
+<li><strong>xx</strong> component models and blocks, <strong>xx</strong> example models and <strong>xx</strong> functions are newly included.</li>
+</ul>
+
+<p>
+The exact difference between package Modelica version 4.0.0 and version 3.2.3 is
+summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/DifferencesTo323.html\">comparison table</a>.
+</p>
+
+<p><br>
+The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+<tr><td> </td>
+    <td>
+    </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>new components</strong></font> have been added
+to <font color=\"blue\"><strong>existing</strong></font> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Sources</strong></td></tr>
+<tr><td width=\"150\">DrivingResistance</td>
+    <td> Translational driving resistances, summarizing air drag, rolling and inclination resistances.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and will be
+<font color=\"blue\"><strong>removed</strong></font> in a future release:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font>
+have been <font color=\"blue\"><strong>improved</strong></font> in a
+<font color=\"blue\"><strong>backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+
+</html>"));
+end Version_4_0_0;
+
 class Version_3_2_3 "Version 3.2.3 (January 23, 2019)"
   extends Modelica.Icons.ReleaseNotes;
 
