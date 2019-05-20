@@ -6416,9 +6416,9 @@ and plot gasForce.press over gasForce.s_rel.
       Modelica.Mechanics.MultiBody.Joints.Universal universal(
         w_a(fixed=true),
         w_b(fixed=true),
-        n_a={1,0,0},
+        n_a={0,0,1},
         n_b={0,1,0},
-        phi_a(fixed=true, start=-1.5707963267949),
+        phi_a(fixed=true, start=0),
         phi_b(fixed=true, start=3.1415926535898))
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit init(
