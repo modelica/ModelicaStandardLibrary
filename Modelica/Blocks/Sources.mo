@@ -118,12 +118,12 @@ variable <strong>y</strong> is both a variable and a connector.
 
   end BooleanExpression;
 
-  block Clock "Generate actual time signal"
+  block ContinuousClock "Generate actual time signal"
     extends Interfaces.SignalSource;
 
   equation
     y = offset + (if time < startTime then 0 else time - startTime);
-    annotation (
+    annotation (defaultComponentName="clock",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -206,11 +206,11 @@ The Real output y is a clock signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Clock.png\"
-     alt=\"Clock.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/ContinuousClock.png\"
+     alt=\"ContinuousClock.png\">
 </p>
 </html>"));
-  end Clock;
+  end ContinuousClock;
 
   block Constant "Generate constant signal of type Real"
     parameter Real k(start=1) "Constant output value"

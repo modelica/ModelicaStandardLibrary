@@ -31,7 +31,7 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
             Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock
+    Modelica.Blocks.Sources.ContinuousClock clock
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
@@ -54,7 +54,7 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
             Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock
+    Modelica.Blocks.Sources.ContinuousClock clock
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -77,9 +77,9 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
             Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -99,7 +99,7 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
             2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0; 35,
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
-    Modelica.Blocks.Sources.Clock clock
+    Modelica.Blocks.Sources.ContinuousClock clock
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
@@ -123,7 +123,7 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock
+    Modelica.Blocks.Sources.ContinuousClock clock
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(const.y, t_new.u1[1]) annotation (Line(
@@ -143,9 +143,9 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
             2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0; 35,
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock2.y, t_new.u2[1]) annotation (Line(
@@ -166,7 +166,7 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
             35, 3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0;
             45, 0, 0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
-    Modelica.Blocks.Sources.Clock clock
+    Modelica.Blocks.Sources.ContinuousClock clock
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
@@ -191,7 +191,7 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
           smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock
+    Modelica.Blocks.Sources.ContinuousClock clock
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(const.y, t_new.u1[1]) annotation (Line(
@@ -212,9 +212,9 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
             35, 3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0;
             45, 0, 0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -230,9 +230,9 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v4.mat")));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -248,9 +248,9 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -266,9 +266,9 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -297,9 +297,9 @@ package CombiTable2Dv "Test models for Modelica.Blocks.Tables.CombiTable2Dv"
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -349,7 +349,7 @@ double mydummyfunc(double dummy_in) {
     Modelica.Blocks.Tables.CombiTable2Dv combiTable2D1DT(
       table=transpose([1,1;2,4;3,9;4,16]),
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,30},{-75,50}})));
-    Modelica.Blocks.Sources.Clock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
+    Modelica.Blocks.Sources.ContinuousClock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
     Modelica.Blocks.Tables.CombiTable1Ds combiTable1D(
       table=[2,4;3,9;4,16],
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,0},{-75,20}})));
@@ -405,7 +405,7 @@ double mydummyfunc(double dummy_in) {
       table=[1,1;2,4;3,9;4,16]) annotation(Placement(transformation(extent={{-95,60},{-75,80}})));
     Modelica.Blocks.Tables.CombiTable2Dv combiTable2D1DT(
       table=transpose([1,1;2,4;3,9;4,16])) annotation(Placement(transformation(extent={{-95,30},{-75,50}})));
-    Modelica.Blocks.Sources.Clock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
+    Modelica.Blocks.Sources.ContinuousClock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
     Modelica.Blocks.Tables.CombiTable1Ds combiTable1D(
       table=[2,4;3,9;4,16]) annotation(Placement(transformation(extent={{-95,0},{-75,20}})));
     Modelica.Blocks.Tables.CombiTable2Dv combiTable2D(
@@ -485,7 +485,7 @@ double mydummyfunc(double dummy_in) {
     Modelica.Blocks.Tables.CombiTable2Dv combiTable2D1DT(
       table=transpose([1,1;2,4;3,9;4,16]),
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,30},{-75,50}})));
-    Modelica.Blocks.Sources.Clock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
+    Modelica.Blocks.Sources.ContinuousClock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
     Modelica.Blocks.Tables.CombiTable1Ds combiTable1D(
       table=[2,4;3,9;4,16],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,0},{-75,20}})));
@@ -769,9 +769,9 @@ double mydummyfunc(double dummy_in) {
     extends Test0(t_new(
       table=[0,0,1;0.5,1,2],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -786,9 +786,9 @@ double mydummyfunc(double dummy_in) {
     extends Test0(t_new(
       table=[0,0.5;0,1;1,2],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -803,9 +803,9 @@ double mydummyfunc(double dummy_in) {
     extends Test0(t_new(
       table=[0,0,0.5,1;0.5,1,2,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -820,9 +820,9 @@ double mydummyfunc(double dummy_in) {
     extends Test0(t_new(
       table=[0,0.5;0,1;0.5,2;1,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -837,9 +837,9 @@ double mydummyfunc(double dummy_in) {
     extends Test0(t_new(
       table=[0,0,1;0,0,1;1,1,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -854,9 +854,9 @@ double mydummyfunc(double dummy_in) {
     extends Test0(t_new(
       table=[0,0,0.5,1;0,1,2,1;1,1,1,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -871,9 +871,9 @@ double mydummyfunc(double dummy_in) {
     extends Test0(t_new(
       table=[0,0,1;0,1,1;0.5,2,1;1,1,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(
@@ -889,9 +889,9 @@ double mydummyfunc(double dummy_in) {
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
-    Modelica.Blocks.Sources.Clock clock1
+    Modelica.Blocks.Sources.ContinuousClock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    Modelica.Blocks.Sources.Clock clock2
+    Modelica.Blocks.Sources.ContinuousClock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
     connect(clock1.y, t_new.u1[1]) annotation (Line(

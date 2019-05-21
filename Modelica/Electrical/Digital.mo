@@ -166,7 +166,7 @@ the library and has the following content:
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          D.Sources.Clock CLK(period=20, startTime=0, width=50) annotation (Placement(transformation(
+          D.Sources.DigitalClock CLK(period=20, startTime=0, width=50) annotation (Placement(transformation(
                   extent={{-80,-56},{-60,-36}})));
           D.Sources.Table D0(
             y0=L.'0',
@@ -227,7 +227,7 @@ the library and has the following content:
           D.Examples.Utilities.JKFF FF
                          annotation (Placement(transformation(extent={{-10,-40},{70,
                     40}})));
-          D.Sources.Clock CLK(period=10, startTime=0, width=50) annotation (Placement(transformation(
+          D.Sources.DigitalClock CLK(period=10, startTime=0, width=50) annotation (Placement(transformation(
                   extent={{-80,-10},{-60,10}})));
           D.Sources.Table J(
             y0=L.'0',
@@ -359,7 +359,7 @@ The simulation stop time should be 5 seconds.
             annotation (Placement(transformation(extent={{-60,-18},{-20,22}})));
           D.Sources.Set Enable(x=L.'1') annotation (Placement(transformation(
                   extent={{-90,6},{-70,26}})));
-          D.Sources.Clock CLK(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={{
+          D.Sources.DigitalClock CLK(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={{
                     -90,-22},{-70,-2}})));
         equation
           connect(Adder1.s, s.x[1])
@@ -543,7 +543,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1) annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}})));
-          D.Sources.Clock Clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
+          D.Sources.DigitalClock Clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}})));
           D.Examples.Utilities.Counter3 Counter
             annotation (Placement(transformation(extent={{-30,-40},{50,40}})));
@@ -566,7 +566,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1) annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}})));
-          D.Sources.Clock Clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
+          D.Sources.DigitalClock Clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}})));
           D.Examples.Utilities.Counter Counter(n=4)
             annotation (Placement(transformation(extent={{-30,-40},{50,40}})));
@@ -3872,7 +3872,7 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
                   40}})}));
         end Pulse;
 
-        model Clock "Digital Clock Source"
+        model DigitalClock "Digital Clock Source"
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter SI.Time startTime(start=0)
@@ -3894,9 +3894,9 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
             t_i =  time;
           end when;
           y =  if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
-          annotation (Documentation(info="<html>
+          annotation (defaultComponentName="clock", Documentation(info="<html>
 <p>
-The clock source forms pulses between the  <em>'0'</em> value (forcing 0) and the <em>'1'</em> value (forcing 1).
+The clock source forms pulses between the <em>'0'</em> value (forcing 0) and the <em>'1'</em> value (forcing 1).
 The pulse length <em>width</em> is specified in percent of the period length <em>period</em>.
 The number of periods is unlimited. The first pulse starts at startTime.
 </p>
@@ -3922,7 +3922,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
             Line(points={{50,0},{90,0}}, color={127,0,127}),
             Line(points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{
                   -6,80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}})}));
-        end Clock;
+        end DigitalClock;
         annotation (Documentation(info="<html>
 <p>The sources are not taken from Standard Logic. They were added since they turned out to be quite useful, since such sources are often needed. For a better optical overview the colour green was chosen for the sources.</p>
 </html>"));

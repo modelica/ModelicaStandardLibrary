@@ -8,7 +8,7 @@ package CombiTable1Ds "Test models for Modelica.Blocks.Tables.CombiTable1Ds"
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Continuous.Der d_t_new
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
-    Modelica.Blocks.Sources.Clock clock
+    Modelica.Blocks.Sources.ContinuousClock clock
       annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
   equation
     connect(t_new.y[1], d_t_new.u) annotation (Line(
