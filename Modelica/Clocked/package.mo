@@ -26,7 +26,7 @@ rate is defined at one location with a clock:
 </p>
 
 <p>
-<img src=\"modelica://Modelica_Synchronous/Resources/Images/SimpleSampledSystem.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/SimpleSampledSystem.png\">
 </p>
 
 <p>
@@ -59,7 +59,7 @@ revisions="<html>
     <td>
     <table border=0>
     <tr><td>
-         <img src=\"modelica://Modelica_Synchronous/Resources/Images/dlr_logo.png\">
+         <img src=\"modelica://Modelica/Resources/Images/Clocked/dlr_logo.png\">
     </td><td valign=\"bottom\">
     Initial version implemented by M. Otter and B. Thiele released as <i>Modelica_Synchronous</i> (version 0.9) library.<br>
          <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>

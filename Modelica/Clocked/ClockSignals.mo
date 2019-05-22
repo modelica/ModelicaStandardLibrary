@@ -722,9 +722,9 @@ then sub-samples the resulting clock signal with a factor of 3:<br>
 
 <table border=0 cellspacing=0 cellpadding=2>
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica_Synchronous/Resources/Images/ClockSignals/SubSample_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SubSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica_Synchronous/Resources/Images/ClockSignals/SubSample_Result.png\"></td>
+                        <img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SubSample_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>
@@ -860,9 +860,9 @@ then super-samples the resulting clock with a factor of 3:<br>
 
 <table border=0 cellspacing=0 cellpadding=2>
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica_Synchronous/Resources/Images/ClockSignals/SuperSample_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SuperSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica_Synchronous/Resources/Images/ClockSignals/SuperSample_Result.png\"></td>
+                        <img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SuperSample_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>
@@ -982,9 +982,9 @@ then shifts it with shiftCounter = 4 and resolution = 3:<br>
 
 <table border=0 cellspacing=0 cellpadding=2>
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica_Synchronous/Resources/Images/ClockSignals/ShiftSample_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/ShiftSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica_Synchronous/Resources/Images/ClockSignals/ShiftSample_Result.png\"></td>
+                        <img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/ShiftSample_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

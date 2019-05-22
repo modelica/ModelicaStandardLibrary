@@ -1593,7 +1593,7 @@ The Integer output y is a step signal. The signal is defined in terms of clock t
 </p>
 
 <p>
-<img src=\"modelica://Modelica_Synchronous/Resources/Images/IntegerSignals/TickBasedSources_Step.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/IntegerSignals/TickBasedSources_Step.png\">
 </p>
 
 <h4>Example</h4>
