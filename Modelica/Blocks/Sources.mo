@@ -123,7 +123,7 @@ variable <strong>y</strong> is both a variable and a connector.
 
   equation
     y = offset + (if time < startTime then 0 else time - startTime);
-    annotation (defaultComponentName="clock",
+    annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={

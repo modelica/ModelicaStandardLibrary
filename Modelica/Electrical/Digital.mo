@@ -3894,7 +3894,7 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
             t_i =  time;
           end when;
           y =  if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
-          annotation (defaultComponentName="clock", Documentation(info="<html>
+          annotation (Documentation(info="<html>
 <p>
 The clock source forms pulses between the <em>'0'</em> value (forcing 0) and the <em>'1'</em> value (forcing 1).
 The pulse length <em>width</em> is specified in percent of the period length <em>period</em>.
