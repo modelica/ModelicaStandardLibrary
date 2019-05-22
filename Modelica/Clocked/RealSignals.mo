@@ -32,7 +32,7 @@ This block samples the continuous-time, Real input signal u and provides it as
 clocked output signal y. The clock of the output signal is inferred
 (that is, it needs to be defined somewhere else in the clocked partition).
 If this is not desired, use block
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SampleClocked\">SampleClocked</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleClocked\">SampleClocked</a>
 instead, to explicitly assign a clock to the output signal.
 </p>
 
@@ -53,7 +53,7 @@ occur.
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.Sample1\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.Sample1\">example</a>
 samples a sine signal with a periodic clock of 20 ms period:<br>
 </p>
 
@@ -71,7 +71,7 @@ samples a sine signal with a periodic clock of 20 ms period:<br>
 
 <p>
 <br>In the following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.Sample2\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.Sample2\">example</a>
 the continuous-time input signal contains a discontinuous value change at the 0.1 s
 clock tick. It can be seen that the Sample block samples the left limit of the
 step signal:<br>
@@ -91,7 +91,7 @@ step signal:<br>
 
 <p>
 <br>In the following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.Sample3\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.Sample3\">example</a>
 a direct feedthrough in the continuous-time and in the clocked partition is present.
 Without a time-delay, this would result in an algebraic loop. However, since block
 Sample samples the left limit of a continuous-time signal, sampling introduces a
@@ -165,7 +165,7 @@ is the left limit of hold.y (= the red, continuous-time signal).
             initialScale=0.06)),
         Documentation(info="<html>
 This block is similar to the
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Sample\">Sample</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Sample</a>
 block. The only difference is that a clock signal is provided via a second
 input and the output is associated to this clock.
 </p>
@@ -173,7 +173,7 @@ input and the output is associated to this clock.
 <p>
 Note, it does not make much sense to vectorize this block, because then
 also the clock input is vectorized. Instead, if the input signal is a vector, use block
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SampleVectorizedAndClocked\">SampleVectorizedAndClocked</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked\">SampleVectorizedAndClocked</a>
 that has a <b>vector</b> Real input and output, as well as a <b>scalar</b> clock input.
 </p>
 
@@ -181,7 +181,7 @@ that has a <b>vector</b> Real input and output, as well as a <b>scalar</b> clock
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.SampleClocked\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.SampleClocked\">example</a>
 samples a sine signal with a periodic clock of 20 ms period:<br>
 </p>
 
@@ -249,7 +249,7 @@ samples a sine signal with a periodic clock of 20 ms period:<br>
         Documentation(info="<html>
 <p>
 This block is similar to the
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SampleClocked\">SampleClocked</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleClocked\">SampleClocked</a>
 block. The only difference is that the continuous-time input signal is a vector: All input
 signals are sampled and are associated with the
 scalar clock signal provided via the second input.
@@ -259,7 +259,7 @@ scalar clock signal provided via the second input.
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.SampleVectorizedAndClocked\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked\">example</a>
 has a vector as input, consisting of two different sine signals. These
 signals are sampled with a periodic clock of 20 ms period:<br>
 </p>
@@ -416,7 +416,7 @@ signals are sampled with a periodic clock of 20 ms period:<br>
             initialScale=0.06)),
         Documentation(info="<html>
 This block is similar to the
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Sample\">Sample</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Sample</a>
 block. The only difference is that after the sampling of the input signal,
 simulated real-world effects are applied on the sampled signal. In particular:
 </p>
@@ -436,7 +436,7 @@ simulated real-world effects are applied on the sampled signal. In particular:
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.SampleWithADeffects\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.SampleWithADeffects\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and adds the following effects:
 </p>
 <ul>
@@ -520,7 +520,7 @@ this parameter is displayed below the icon.
 
 <p>
 The following
-<a href=\"modelica://Modelica_Synchronous.Examples.Elementary.RealSignals.Hold\">example</a>
+<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.Hold\">example</a>
 samples a sine signal with a periodic clock of 20 ms period and delays it for 2 sample periods.
 The resulting signal is hold with the Hold block. As a result, the clock of hold.u starts
 ticking at 40 ms. The output hold.y of the block is a continuous-time signal that is present
@@ -681,7 +681,7 @@ to -1.0 (= the value of parameter hold.y_start).<br>
               textString="%shiftCounter/%resolution")}),
         Documentation(info="<html>
 This block is similar to the
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Hold\">Hold</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Hold\">Hold</a>
 block. The only difference is that simulated real-world effects are applied on the
 clocked input signal u before transforming the signal to a continuous-time signal
 with a zero-order hold. In particular:
@@ -706,7 +706,7 @@ with a zero-order hold. In particular:
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.HoldWithDAeffects1\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1\">example</a>
 samples a sine signal with an amplitude of 2.0 with a periodic clock of 20 ms period
 and delays it for 2 sample periods.
 The resulting signal is hold with the HoldWithDAeffects block. As a result, the clock of hold.u starts
@@ -740,7 +740,7 @@ the following effects are added to the hold block:</p>
 If the hold output is delayed by one sample period, then the <b>previous</b>(..) value of the
 input is output, and the first tick is delayed by one sample period,
 as shown by the
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.HoldWithDAeffects2\">modified example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2\">modified example</a>
 from above:<br>
 </p>
 
@@ -879,7 +879,7 @@ then the sub-sampling factor is defined by Integer parameter <b>factor</b>.
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.SubSample\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.SubSample\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and
 then sub-samples the resulting clocked signal with a factor of 3:<br>
 </p>
@@ -1023,7 +1023,7 @@ then the super-sampling factor is defined by Integer parameter <b>factor</b>.
 <p>
 For control applications this block introduces unnecessary \"vibrations\".
 In such a case it is better to use block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a>
+<a href=\"Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a>
 instead.
 </p>
 
@@ -1031,7 +1031,7 @@ instead.
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.SuperSample\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.SuperSample\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and
 then super-samples the resulting clocked signal with a factor of 3:<br>
 </p>
@@ -1178,7 +1178,7 @@ then the super-sampling factor is defined by Integer parameter <b>factor</b>.
 
 <p>
 For control applications, this block is better suited as block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.SuperSample\">SuperSample</a>
+<a href=\"Modelica.Clocked.RealSignals.Sampler.SuperSample\">SuperSample</a>
 since it does not induce \"vibrations\".
 </p>
 
@@ -1186,7 +1186,7 @@ since it does not induce \"vibrations\".
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.SuperSampleInterpolated\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.SuperSampleInterpolated\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and
 then super-samples the resulting clocked signal with a factor of 3
 and interpolates the result linearly:<br>
@@ -1310,7 +1310,7 @@ the operator returns the value of u from the last tick of the clock of u.
 
 <p>
 Note, for
-<a href=\"Modelica_Synchronous.ClockSignals.Clocks.EventClock\">EventClock</a>s
+<a href=\"Modelica.Clocked.ClockSignals.Clocks.EventClock\">EventClock</a>s
 there is the restriction that
 block <b>ShiftSample</b> can only shift the number of ticks of the EventClock clock,
 but cannot introduce new ticks, due to the restriction of operator <b>superSample</b> on
@@ -1321,7 +1321,7 @@ EventClocks.
 Also note, that this block does not simply shift the signal in time,
 since only the value of u from the last tick of the clock of u is used for the output.
 If a time-delayed clock is desired, use instead block
-<a href=\"modelica://Modelica_Synchronous.RealSignals.NonPeriodic.FractionalDelay\">NonPeriodic.FractionalDelay</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay\">NonPeriodic.FractionalDelay</a>
 where the input signal is delayed by a time period and old values of u are stored in a buffer.
 If the time delay is less than one period, the two blocks, ShiftSample and FractionalDelay,
 give the same result.
@@ -1331,7 +1331,7 @@ give the same result.
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.ShiftSample\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.ShiftSample\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and
 then shifts it with shiftCounter = 4 and resolution = 3:<br>
 </p>
@@ -1460,7 +1460,7 @@ available value of u.
 
 <p>
 Note, for
-<a href=\"Modelica_Synchronous.ClockSignals.Clocks.EventClock\">EventClock</a>s
+<a href=\"Modelica.Clocked.ClockSignals.Clocks.EventClock\">EventClock</a>s
 there is the restriction that
 block <b>BackSample</b> can only shift the number of ticks of the EventClock clock,
 but cannot introduce new ticks, due to the restriction of operator <b>superSample</b> on
@@ -1480,7 +1480,7 @@ block cannot be used to recover the input signal of ShiftSample
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.BackSample\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.BackSample\">example</a>
 samples a sine signal with a periodic clock of 20 ms period,
 shift-samples it with shiftCounter = 4 and resolution = 3 and then back-samples it with backCounter=4 and resolution = 3:<br>
 </p>
@@ -1589,7 +1589,7 @@ and provides u as output signal y.
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.AssignClock\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.AssignClock\">example</a>
 shows a discrete counter. In order to execute the counter with a sample period of 20ms an AssignClock block is used. Due to clock inference all equations within the blocks are deduced to be active at the clock ticks given by the periodicClock block.
 <br>
 </p>
@@ -1716,7 +1716,7 @@ and provides u as vector output signal y.
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.AssignClockVectorized\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockVectorized\">example</a>
 shows two discrete counters. In order to execute the counters with a sample period of 20ms an AssignClockVectorized block is used. Due to clock inference all equations within the blocks are deduced to be active at the clock ticks given by the periodicClock block.
 <br>
 </p>
@@ -1877,7 +1877,7 @@ For signal interpolation an <i>upsample</i> should be followed by an appropriate
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.UpSample1\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.UpSample1\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and
 then upsamples the resulting clocked signal with a factor of 3:<br>
 </p>
@@ -1902,7 +1902,7 @@ clocks of their outputs is faster than the clocks of their inputs.
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.UpSample2\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.UpSample2\">example</a>
 samples a sine signal with a periodic clock of 20 ms period,
 upsamples the resulting clocked signal with a factor of 3
 and applies varies filters on this signal:<br>
@@ -1939,7 +1939,7 @@ block FIR2 using FIR coefficients {1/3, 2/3, 1, 2/3, 1/3}, then
 the result is a linearly interpolated super-sampled signal
 (see signal FIR2.y in figure \"simulation result 2\").
 The same result can be achieved with block
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a>
 (see signal superSampleIpo1.y in figure \"simulation result 2\").
 The only difference are the first clock ticks, since the FIR2 signal is
 initialized a bit differently.
@@ -2014,7 +2014,7 @@ A particular use-case in which that block might be useful is the combination of 
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.AssignClockToTriggerHold\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold\">example</a>
 samples a sine signal with a periodic clock of 20 ms period. After that a continuous time Boolean trigger signal is generated at every clock tick of that sampled signal. The generated signal is used as trigger signal for an \"old-style\" <a href=\"Modelica.Blocks.Discrete.TriggeredSampler\">TriggeredSampler</a>  block from the Modelica.Blocks.Discrete package:<br>
 </p>
 
@@ -2094,7 +2094,7 @@ This block creates a Boolean, continuous time, square-wave output. Whenever the 
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.AssignClockToSquareWaveHold\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToSquareWaveHold\">example</a>
 samples a sine signal with a periodic clock of 20 ms period. After that a Boolean, continuous time, square-wave signal is generated that changes its value at every clock tick of the sampled signal:<br>
 </p>
 
@@ -2190,13 +2190,13 @@ While of much higher quality than the rand() function supplied by
 most C libraries, the theoretical properties are much the same
 as for a single linear congruential generator of large modulus.
 For more details, see the underlying function
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Utilities.Internal.random\">Internal.random</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random\">Internal.random</a>.
 </p>
 
 <h4>Example</h4>
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.UniformNoise\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise\">example</a>
 samples zero signal with a periodic clock of 20 ms period, and adds
 noise in the range from -0.1 .. 0.1:<br>
 </p>
@@ -2724,75 +2724,75 @@ the following blocks are provided:<br>&nbsp;
     <th align=\"left\"><b>Description</b></th></tr>
 
 <tr><td valign=\"top\" rowspan=\"4\">continuous-time &rarr; clocked</td>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Sample\">Sample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Sample</a></td>
       <td>Sample a continuous-time signal.</td>
     </tr>
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SampleClocked\">SampleClocked</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleClocked\">SampleClocked</a></td>
       <td>Sample and associate a clock to the sampled <b>scalar</b> signal.</td>
     </tr>
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SampleVectorizedAndClocked\">SampleVectorizedAndClocked</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked\">SampleVectorizedAndClocked</a></td>
       <td>Sample an input vector and associate a clock to the sampled <b>vector</b> signal.</td>
     </tr>
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SampleWithADeffects\">SampleWithADeffects</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects\">SampleWithADeffects</a></td>
       <td>Sample with (simulated) Analog-Digital converter effects including noise.</td>
     </tr>
 
 <tr><td valign=\"top\" rowspan=\"2\">clocked &rarr; continuous-time</td>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Hold\">Hold</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Hold\">Hold</a></td>
       <td>Hold a clocked signal with zero-order hold.</td>
     </tr>
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.HoldWithDAeffects\">HoldWithDAeffects</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects\">HoldWithDAeffects</a></td>
       <td>Hold with (simulated) Digital-Analog converter effects and computational delay.</td>
     </tr>
 
 <tr><td valign=\"top\" rowspan=\"5\">clocked &rarr; clocked</td>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SubSample\">SubSample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SubSample\">SubSample</a></td>
       <td>Sub-sample a signal (output clock is slower as input clock). </td>
     </tr>
 
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SuperSample\">SuperSample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSample\">SuperSample</a></td>
       <td>Super-sample a signal (output clock is faster as input clock). </td>
     </tr>
 
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a></td>
       <td>Super-sample a signal with linear interpolation (output clock is faster as input clock). </td>
     </tr>
 
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.ShiftSample\">ShiftSample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.ShiftSample\">ShiftSample</a></td>
       <td>Shift a signal (output clock is delayed with respect to input clock).  </td>
     </tr>
 
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.BackSample\">BackSample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.BackSample\">BackSample</a></td>
       <td>Shift a signal and start the output clock before the input clock with a start value.  </td>
     </tr>
 
 
 <tr><td valign=\"top\" rowspan=\"2\">within clocked partition</td>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.AssignClock\">AssignClock</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.AssignClock\">AssignClock</a></td>
       <td>Assign a clock to a clocked <b>scalar</b> signal.</td>
     </tr>
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.AssignClockVectorized\">AssignClockVectorized</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized\">AssignClockVectorized</a></td>
       <td>Assign a clock to a clocked <b>vector</b> signal.</td>
     </tr>
 </table>
 
 <p>
 Additionally, package
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Utilities\">Utilities</a></td>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities\">Utilities</a></td>
 contains utility blocks that are used as building blocks for user-relevant blocks.
 Especially, block
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Utilities.UpSample\">UpSample</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">UpSample</a>
 can be used in combination with a
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Periodic.FIRbyCoefficients\">FIR filter</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients\">FIR filter</a>
 block to model super-sampling with interpolation and filtering.
 </p>
 </html>"));
@@ -2989,14 +2989,14 @@ y is set to parameter y_start.
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
-This block delays a signal. Similar to the <a href=\"Modelica_Synchronous.RealSignals.Sampler.ShiftSample\">ShiftSample</a> block the first activation of the clock of the output y is delayed by <b>shiftCounter</b>/<b>resolution</b>*interval(u) relative to the input u (interval(u) is the sample period of the clock associated to input u). However, in contrast to ShiftSample, the block provides a buffer for the input values and truly delays the input signal.
+This block delays a signal. Similar to the <a href=\"Modelica.Clocked.RealSignals.Sampler.ShiftSample\">ShiftSample</a> block the first activation of the clock of the output y is delayed by <b>shiftCounter</b>/<b>resolution</b>*interval(u) relative to the input u (interval(u) is the sample period of the clock associated to input u). However, in contrast to ShiftSample, the block provides a buffer for the input values and truly delays the input signal.
 </p>
 
 <h4>Example</h4>
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.FractionalDelay\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay\">example</a>
 shows how a sample sine signal is delayed.
 <br>
 </p>
@@ -3023,7 +3023,7 @@ The parameter values <b>shiftCounter</b>=3 and <b>resolution</b>=2 are visible a
 This package contains blocks that can be utilized for periodic and non-periodic
 clocks. These blocks usually utilize the duration of the last interval for the computation of the
 output signal. For example, the coefficients of the
-<a href=\"Modelica_Synchronous.RealSignals.NonPeriodic.PI\">PI</a>
+<a href=\"Modelica.Clocked.RealSignals.NonPeriodic.PI\">PI</a>
 block are computed from the coefficients of a continuous-time PI block
 and from the duration of the last interval.
 </p>
@@ -3363,7 +3363,7 @@ u and past u values that are taken into account.
 
 <p>
 This block could also be implemented with block
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Periodic.FIRbyCoefficients\">FIRbyCoefficients</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients\">FIRbyCoefficients</a>
 by using the coefficients a = fill(1/n, n). However, block <i>MovingAverage</i> is
 a more efficient implementation since it can be implemented recursively,
 contrary to a general FIR filter.
@@ -3620,7 +3620,7 @@ The Real output y is a step signal:
 
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.TimeBasedStep\">Modelica_Synchronous.Examples.Elementary.RealSignals.TimeBasedStep</a>.
+See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedStep</a>.
 <br>
 </p>
 
@@ -3780,7 +3780,7 @@ The Real output y is a ramp signal:
 
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.TimeBasedRamp\">Modelica_Synchronous.Examples.Elementary.RealSignals.TimeBasedRamp</a>.
+See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRamp\">Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRamp</a>.
 <br>
 </p>
 </html>"));
@@ -3947,7 +3947,7 @@ See model <a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.TimeBas
 
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica_Synchronous.Examples.Elementary.RealSignals.TimeBasedSine\">Modelica_Synchronous.Examples.Elementary.RealSignals.TimeBasedSine</a>.
+See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSine\">Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSine</a>.
 <br>
 </p>
 </html>"));

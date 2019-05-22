@@ -53,10 +53,10 @@ then only one of the clocks can be defined with PeriodicRealClock.
 
 <p>
 For an introduction to clocks see
-<a href=\"modelica://Modelica_Synchronous.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
+<a href=\"modelica://Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
 If exact, integer based, time synchronization with absolute period definitions is
 desired, use block
-<a href=\"modelica://Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock\">PeriodicExactClock</a>
+<a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock\">PeriodicExactClock</a>
 to generate a periodic clock signal.
 </p>
 
@@ -68,7 +68,7 @@ to the current clock tick. This is performed by setting parameter <b>useSolver</
 = <b>true</b> and defining the integration method as String with
 parameter <b>solver</b>. Both parameters are in tab <b>Advanced</b>.
 For an example, see
-<a href=\"modelica://Modelica_Synchronous.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
 </html>"));
     end PeriodicRealClock;
@@ -139,7 +139,7 @@ For an example, see
 This component generates a periodic clock that starts ticking when
 the simulation starts. The <b>period</b> is defined as the product
 of a resolution, defined with enumeration
-<a href=\"modelica://Modelica_Synchronous.Types.Resolution\">Resolution</a>,
+<a href=\"modelica://Modelica.Clocked.Types.Resolution\">Resolution</a>,
 and Integer parameter <b>factor</b>. Internally, the period is
 represented as a rational number. All clocks with rational number definitions
 are exactly time synchronized to each other.
@@ -158,7 +158,7 @@ Example:
 
 <p>
 For an introduction to clocks see
-<a href=\"modelica://Modelica_Synchronous.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
+<a href=\"modelica://Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
 </p>
 
 <p>
@@ -168,7 +168,7 @@ to the current clock tick. This is performed by setting parameter <b>useSolver</
 = <b>true</b> and defining the integration method as String with
 parameter <b>solver</b>. Both parameters are in tab <b>Advanced</b>.
 For an example, see
-<a href=\"modelica://Modelica_Synchronous.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
 </html>"));
     end PeriodicExactClock;
@@ -203,7 +203,7 @@ clock signal <b>y</b> ticks.
 
 <p>
 For an introduction to clocks see
-<a href=\"modelica://Modelica_Synchronous.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
+<a href=\"modelica://Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
 </p>
 
 <p>
@@ -213,7 +213,7 @@ to the current clock tick. This is performed by setting parameter <b>useSolver</
 = <b>true</b> and defining the integration method as String with
 parameter <b>solver</b>. Both parameters are in tab <b>Advanced</b>.
 For an example, see
-<a href=\"modelica://Modelica_Synchronous.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
 </html>"));
     end EventClock;
@@ -376,7 +376,7 @@ For an example, see
               color = {0,0,127})}),
           Documentation(info="<html>
     For a simple example cf. the 
-    <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.ClockSignals.RotationalSample\">rotational sampling example</a>.
+    <a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample\">rotational sampling example</a>.
     </html>"));
       end RotationalClock;
 
@@ -577,7 +577,7 @@ For an example, see
               textString = "∧")}),
           Documentation(info="<html>
 For a simple example cf. the 
-<a href=\"modelica://Modelica_Synchronous.Examples.Elementary.ClockSignals.LogicalSample\">logical sampling example</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample\">logical sampling example</a>.
 </html>"));
       end ConjunctiveClock;
 
@@ -595,7 +595,7 @@ For a simple example cf. the
               textString = "∨")}),
           Documentation(info="<html>
 For a simple example cf. the 
-<a href=\"modelica://Modelica_Synchronous.Examples.Elementary.ClockSignals.LogicalSample\">logical sampling example</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample\">logical sampling example</a>.
 </html>"));
       end DisjunctiveClock;
 
@@ -605,7 +605,7 @@ For a simple example cf. the
 <p>
 This package contains blocks that generate clock signals. For an introduction
 to clocks see
-<a href=\"modelica://Modelica_Synchronous.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
+<a href=\"modelica://Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
 </p>
 </html>"));
   end Clocks;
@@ -715,7 +715,7 @@ The clock y is factor-times slower than the clock u. The first activation of clo
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.ClockSignals.SubSample\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample\">example</a>
 generates a periodic clock of 20 ms period, and
 then sub-samples the resulting clock signal with a factor of 3:<br>
 </p>
@@ -853,7 +853,7 @@ Clock y is factor-times faster than clock u. The first activation of clock y coi
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.ClockSignals.SuperSample\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample\">example</a>
 generates a periodic clock of 20 ms period, and
 then super-samples the resulting clock with a factor of 3:<br>
 </p>
@@ -975,7 +975,7 @@ and clock y starts at the second clock tick of cBase.
 
 <p>
 The following
-<a href=\"Modelica_Synchronous.Examples.Elementary.ClockSignals.ShiftSample\">example</a>
+<a href=\"Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample\">example</a>
 generates a periodic clock of 20 ms period, and
 then shifts it with shiftCounter = 4 and resolution = 3:<br>
 </p>
@@ -1221,7 +1221,7 @@ construct clock blocks.
 This package contains blocks that transform a clock signal, by
 sub-, super-, and shift-sampling a clock. For an introduction
 to clocks see
-<a href=\"modelica://Modelica_Synchronous.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
+<a href=\"modelica://Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
 </p>
 </html>"));
 end ClockSignals;

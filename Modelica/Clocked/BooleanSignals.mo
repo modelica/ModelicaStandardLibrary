@@ -30,11 +30,11 @@ package BooleanSignals "Library of clocked blocks for Boolean signals"
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Sample\">RealSignals.Sampler.Sample</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">RealSignals.Sampler.Sample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block examples there exist two elementary examples, <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.Sample1\">Sample1</a> and
-<a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.Sample2\">Sample2</a>, for this Boolean block.
+Analog to the corresponding Real signal block examples there exist two elementary examples, <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample1\">Sample1</a> and
+<a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample2\">Sample2</a>, for this Boolean block.
 </p>
 </html>"));
     end Sample;
@@ -83,10 +83,10 @@ Analog to the corresponding Real signal block examples there exist two elementar
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SampleClocked\">RealSignals.Sampler.SampleClocked</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleClocked\">RealSignals.Sampler.SampleClocked</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.SampleClocked\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.SampleClocked\">example</a> for this Boolean block.
 </p>
 </html>"));
     end SampleClocked;
@@ -142,10 +142,10 @@ Analog to the corresponding Real signal block example there exists an elementary
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SampleVectorizedAndClocked\">RealSignals.Sampler.SampleVectorizedAndClocked</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked\">RealSignals.Sampler.SampleVectorizedAndClocked</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.SampleVectorizedAndClocked\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.SampleVectorizedAndClocked\">example</a> for this Boolean block.
 </p>
 </html>"));
     end SampleVectorizedAndClocked;
@@ -219,12 +219,12 @@ Analog to the corresponding Real signal block example there exists an elementary
               textString="%name")}),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Hold\">RealSignals.Sampler.Hold</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Hold\">RealSignals.Sampler.Hold</a>).
 </p>
 
 <p>
 Analog to the corresponding Real signal block example there exists an elementary
-<a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.Hold\">example</a> for this Boolean block.
+<a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.Hold\">example</a> for this Boolean block.
 </p>
 
 
@@ -331,10 +331,10 @@ Analog to the corresponding Real signal block example there exists an elementary
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SubSample\">RealSignals.Sampler.SubSample</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SubSample\">RealSignals.Sampler.SubSample</a>).
 /p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.SubSample\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.SubSample\">example</a> for this Boolean block.
 </p>
 </html>"));
     end SubSample;
@@ -445,10 +445,10 @@ Analog to the corresponding Real signal block example there exists an elementary
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.SuperSample\">RealSignals.Sampler.SuperSample</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSample\">RealSignals.Sampler.SuperSample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.SuperSample\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.SuperSample\">example</a> for this Boolean block.
 </p>
 </html>"));
     end SuperSample;
@@ -531,10 +531,10 @@ Analog to the corresponding Real signal block example there exists an elementary
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.ShiftSample\">RealSignals.Sampler.ShiftSample</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.ShiftSample\">RealSignals.Sampler.ShiftSample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.ShiftSample\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.ShiftSample\">example</a> for this Boolean block.
 </p>
 </html>"));
     end ShiftSample;
@@ -620,10 +620,10 @@ Analog to the corresponding Real signal block example there exists an elementary
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.BackSample\">RealSignals.Sampler.BackSample</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.BackSample\">RealSignals.Sampler.BackSample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.BackSample\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.BackSample\">example</a> for this Boolean block.
 </p>
 </html>"));
     end BackSample;
@@ -708,10 +708,10 @@ Analog to the corresponding Real signal block example there exists an elementary
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.AssignClock\">RealSignals.Sampler.AssignClock</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.AssignClock\">RealSignals.Sampler.AssignClock</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.AssignClock\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClock\">example</a> for this Boolean block.
 </p>
 </html>"));
     end AssignClock;
@@ -798,10 +798,10 @@ Analog to the corresponding Real signal block example there exists an elementary
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.AssignClockVectorized\">RealSignals.Sampler.AssignClockVectorized</a>).
+This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized\">RealSignals.Sampler.AssignClockVectorized</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.AssignClockVectorized\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClockVectorized\">example</a> for this Boolean block.
 </p>
 </html>"));
     end AssignClockVectorized;
@@ -929,10 +929,10 @@ Analog to the corresponding Real signal block example there exists an elementary
           Documentation(info="<html>
 <p>
 This block for Boolean signals works similarly as the corresponding block for Real signals (see
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Utilities.UpSample\">RealSignals.Sampler.Utilities.UpSample</a>).
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">RealSignals.Sampler.Utilities.UpSample</a>).
 </p>
 <p>
-Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.BooleanSignals.UpSample\">example</a> for this Boolean block.
+Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.UpSample\">example</a> for this Boolean block.
 </p>
 </html>"));
       end UpSample;
@@ -995,7 +995,7 @@ Analog to the corresponding Real signal block example there exists an elementary
             Documentation(info="<html>
 <p>
 This block for Boolean signals works similarly as the corresponding block for Real signals (see
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Utilities.AssignClockToTriggerHold\">RealSignals.Sampler.Utilities.AssignClockToTriggerHold</a>).
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold\">RealSignals.Sampler.Utilities.AssignClockToTriggerHold</a>).
 </p>
 </html>"));
         end AssignClockToTriggerHold;
@@ -1051,7 +1051,7 @@ This block for Boolean signals works similarly as the corresponding block for Re
             Documentation(info="<html>
 <p>
 This block for Boolean signals works similarly as the corresponding block for Real signals (see
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold\">RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold</a>).
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold\">RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold</a>).
 </p>
 </html>"));
         end AssignClockToSquareWaveHold;
@@ -1077,57 +1077,57 @@ the following blocks are provided:<br>&nbsp;
     <th align=\"left\"><b>Description</b></th></tr>
 
 <tr><td valign=\"top\" rowspan=\"3\">continuous-time &rarr; clocked</td>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.Sample\">Sample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Sample\">Sample</a></td>
       <td>Sample a continuous-time signal.</td>
     </tr>
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked\">SampleClocked</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SampleClocked\">SampleClocked</a></td>
       <td>Sample and associate a clock to the sampled <b>scalar</b> signal.</td>
     </tr>
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.SampleVectorizedAndClocked\">SampleVectorizedAndClocked</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked\">SampleVectorizedAndClocked</a></td>
       <td>Sample an input vector and associate a clock to the sampled <b>vector</b> signal.</td>
     </tr>
 
 <tr><td valign=\"top\">clocked &rarr; continuous-time</td>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.Hold\">Hold</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Hold\">Hold</a></td>
       <td>Hold a clocked signal with zero-order hold.</td>
     </tr>
 
 <tr><td valign=\"top\" rowspan=\"4\">clocked &rarr; clocked</td>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.SubSample\">SubSample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SubSample\">SubSample</a></td>
       <td>Sub-sample a signal (output clock is slower as input clock). </td>
     </tr>
 
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.SuperSample\">SuperSample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SuperSample\">SuperSample</a></td>
       <td>Super-sample a signal (output clock is faster as input clock). </td>
     </tr>
 
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.ShiftSample\">ShiftSample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.ShiftSample\">ShiftSample</a></td>
       <td>Shift a signal (output clock is delayed with respect to input clock).  </td>
     </tr>
 
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.BackSample\">BackSample</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.BackSample\">BackSample</a></td>
       <td>Shift a signal and start the output clock before the input clock with a start value.  </td>
     </tr>
 
 
 <tr><td valign=\"top\" rowspan=\"2\">within clocked partition</td>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.AssignClock\">AssignClock</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.AssignClock\">AssignClock</a></td>
       <td>Assign a clock to a clocked <b>scalar</b> signal.</td>
     </tr>
     <tr>
-      <td><a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.AssignClockVectorized\">AssignClockVectorized</a></td>
+      <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized\">AssignClockVectorized</a></td>
       <td>Assign a clock to a clocked <b>vector</b> signal.</td>
     </tr>
 </table>
 
 <p>
 Additionally, package
-<a href=\"modelica://Modelica_Synchronous.BooleanSignals.Sampler.Utilities\">Utilities</a></td>
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Utilities\">Utilities</a></td>
 contains utility blocks that are used as building blocks for user-relevant blocks.
 </p>
 </html>"));
@@ -1528,7 +1528,7 @@ The Boolean output y is a step signal:
 
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica_Synchronous.Examples.Elementary.BooleanSignals.TimeBasedStep\">Modelica_Synchronous.Examples.Elementary.BooleanSignals.TimeBasedStep</a>.
+See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep</a>.
 <br>
 </p>
 </html>"));
@@ -1698,7 +1698,7 @@ The Boolean output y is a pulse signal:
 </p>
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica_Synchronous.Examples.Elementary.BooleanSignals.TimeBasedPulse\">Modelica_Synchronous.Examples.Elementary.BooleanSignals.TimeBasedPulse</a>.
+See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse</a>.
 <br>
 </p>
 </html>"));
@@ -1860,7 +1860,7 @@ The Boolean output y is a step signal. The signal is defined in terms of clock t
 
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica_Synchronous.Examples.Elementary.BooleanSignals.TickBasedStep\">Modelica_Synchronous.Examples.Elementary.BooleanSignals.TickBasedStep</a>.
+See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep</a>.
 </p>
 </html>"));
     end Step;
@@ -2032,7 +2032,7 @@ The Boolean output y is a pulse signal:
 </p>
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica_Synchronous.Examples.Elementary.BooleanSignals.TickBasedPulse\">Modelica_Synchronous.Examples.Elementary.BooleanSignals.TickBasedPulse</a>.
+See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse</a>.
 </p>
 </html>"));
       end Pulse;

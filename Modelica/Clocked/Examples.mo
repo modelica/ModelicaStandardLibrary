@@ -373,7 +373,7 @@ taken into account the actual sample period.
         Documentation(info="<html>
 <p>
 This is the same model as
-<a href=\"modelica://Modelica_Synchronous.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">ClockedWithDiscreteController</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">ClockedWithDiscreteController</a>.
 The only difference is that the clock is defined with an exact periodic clock and not with
 a Real periodic clock.
 </p>
@@ -594,7 +594,7 @@ of block <b>periodicClock</b> and then selecting
         Documentation(info="<html>
 <p>
 This is the same model as
-<a href=\"modelica://Modelica_Synchronous.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">ClockedWithDiscreteController</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">ClockedWithDiscreteController</a>.
 The only difference is that real world effects like limitation, value discretization, noise
 and computing time are taken into account.
 </p>
@@ -608,7 +608,7 @@ This package shows the same example in different variants.
 </p>
 
 <p>
-Model <a href=\"modelica://Modelica_Synchronous.Examples.SimpleControlledDrive.Continuous\">SimpleControlledDrive.Continuous</a>
+Model <a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive.Continuous\">SimpleControlledDrive.Continuous</a>
 is the <b>continuous-time</b> model from which the sampled-data versions are derived.
 The model consists of a reference controller (\"ramp\"), a feedback controller
 (\"feedback\" and \"PI\") and a plant (\"torque\", \"load\" and \"speed\").
@@ -1181,10 +1181,10 @@ This package shows the same example in different variants.
 </p>
 
 <p>
-Model <a href=\"modelica://Modelica_Synchronous.Examples.CascadeControlledDrive.Continuous\">CascadeControlledDrive.Continuous</a>
+Model <a href=\"modelica://Modelica.Clocked.Examples.CascadeControlledDrive.Continuous\">CascadeControlledDrive.Continuous</a>
 is the <b>continuous-time</b> model from which the sampled-data versions are derived.
 The \"CascadeControlledDrive\" example adds another position control cascade to the
-<a href=\"modelica://Modelica_Synchronous.Examples.SimpleControlledDrive\">SimpleControlledDrive</a>
+<a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive\">SimpleControlledDrive</a>
 example. This model demonstrates a control system with two cascaded control loops.
 The goal is to control the angle of the load inertia.
 </p>
@@ -1346,7 +1346,7 @@ precisely time-synchronized to each other.
 Since a long time, Modelica is used to model advanced nonlinear control systems.
 Especially, Modelica allows a semi-automatic treatment of inverse nonlinear
 plant models. In the fundamental article (Looye et.al. 2005, see
-<a href=\"modelica://Modelica_Synchronous.UsersGuide.Literature\">Literature</a> or
+<a href=\"modelica://Modelica.Clocked.UsersGuide.Literature\">Literature</a> or
 <a href=\"https://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Download</a>)
 this approach is described and several controller structures are presented to
 utilize an inverse plant model in the controller. This approach is attractive
@@ -1387,7 +1387,7 @@ its temperature T(t) in [K].
 The concentration c(t) is the signal to be primarily controlled
 and the temperature T(t) is the signal that is measured.
 These equations are collected together in input/output block
-<a href=\"modelica://Modelica_Synchronous.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit\">Utilities.ComponentsMixingUnit.MixingUnit</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit\">Utilities.ComponentsMixingUnit.MixingUnit</a>.
 </p>
 
 <p>
@@ -1411,7 +1411,7 @@ to be primarily controlled (here: \"c\") to the actuator input
 <a href=\"modelica://Modelica.Blocks.Math.InverseBlockConstraints\">Modelica.Blocks.Math.InverseBlockConstraints</a>
 that allows connecting an external input to an output
 in the pre-filter design block
-<a href=\"modelica://Modelica_Synchronous.Examples.Systems.Utilities.ComponentsMixingUnit.FilterOrder\">Utilities.ComponentsMixingUnit.FilterOrder</a>:
+<a href=\"modelica://Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.FilterOrder\">Utilities.ComponentsMixingUnit.FilterOrder</a>:
 </p>
 
 <p>
@@ -1612,7 +1612,7 @@ of this controller are defined by <code>sample1</code>, <code>sample2</code> and
 event-based clock that ticks every 180° rotation of the crankshaft angle. The
 speed controller therefore is automatically executed every half-rotation of the
 engine's crankshaft. To produce respective clock ticks,
-<a href=\"modelica://Modelica_Synchronous.ClockSignals.Clocks.Rotational.RotationalClock\">rotationalClock</a>
+<a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock\">rotationalClock</a>
 bookeeps the angular of the last time a half-rotation of
 the crankshaft has been recognized (<code>angular_offset</code>). Given
 <code>angular_offset</code>, the event-condition for half-rotations is:
@@ -2462,7 +2462,7 @@ simplified realistic applications.
     extends Modelica.Icons.ExamplesPackage;
 
     package ClockSignals
-      "Examples that are used for the documentation of the Modelica_Synchronous.ClockSignals sub-library"
+      "Examples that are used for the documentation of the Modelica.Clocked.ClockSignals sub-library"
       extends Modelica.Icons.ExamplesPackage;
 
       model SubSample "Example of a SubSample block for Clock signals"
@@ -2470,13 +2470,13 @@ simplified realistic applications.
              Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-56,24},{-44,36}})));
-      Modelica_Synchronous.ClockSignals.Sampler.SubSample subSample(
+      Modelica.Clocked.ClockSignals.Sampler.SubSample subSample(
                              factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked sample1
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked sample1
           annotation (Placement(transformation(extent={{16,52},{28,64}})));
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
           offset=0.1,
@@ -2500,7 +2500,7 @@ simplified realistic applications.
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.ClockSignals.Sampler.SubSample\">Modelica_Synchronous.ClockSignals.Sampler.SubSample</a>.
+<a href=\"Modelica.Clocked.ClockSignals.Sampler.SubSample\">Modelica.Clocked.ClockSignals.Sampler.SubSample</a>.
 </p>
 </html>"));
       end SubSample;
@@ -2510,13 +2510,13 @@ Example used to generate a figure for the documentation of block
              Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-56,24},{-44,36}})));
-      Modelica_Synchronous.ClockSignals.Sampler.SuperSample superSample(
+      Modelica.Clocked.ClockSignals.Sampler.SuperSample superSample(
             factor=3)
         annotation (Placement(transformation(extent={{-26,24},{-14,36}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked sample1
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked sample1
           annotation (Placement(transformation(extent={{10,56},{22,68}})));
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
           offset=0.1,
@@ -2540,7 +2540,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.ClockSignals.Sampler.SuperSample\">Modelica_Synchronous.ClockSignals.Sampler.SuperSample</a>.
+<a href=\"Modelica.Clocked.ClockSignals.Sampler.SuperSample\">Modelica.Clocked.ClockSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
       end SuperSample;
@@ -2550,13 +2550,13 @@ Example used to generate a figure for the documentation of block
              Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-56,24},{-44,36}})));
-        Modelica_Synchronous.ClockSignals.Sampler.ShiftSample shiftSample(
+        Modelica.Clocked.ClockSignals.Sampler.ShiftSample shiftSample(
           shiftCounter=4, resolution=3)
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked sample1
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked sample1
           annotation (Placement(transformation(extent={{14,54},{26,66}})));
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
           offset=0.1,
@@ -2580,7 +2580,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.ClockSignals.Sampler.ShiftSample\">Modelica_Synchronous.ClockSignals.Sampler.ShiftSample</a>.
+<a href=\"Modelica.Clocked.ClockSignals.Sampler.ShiftSample\">Modelica.Clocked.ClockSignals.Sampler.ShiftSample</a>.
 </p>
 </html>"));
       end ShiftSample;
@@ -2735,7 +2735,7 @@ Example used to generate a figure for the documentation of block
     Both receive the very same clock inputs, produced by two rotational clocks
     with slightly shifted input angle waves (sine and cosine respectively). The
     configuration and results of the rotational clocks are explained in the
-    <a href=\"modelica://Modelica_Synchronous.Examples.Elementary.ClockSignals.RotationalSample\">rotational clocks example</a>.
+    <a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample\">rotational clocks example</a>.
     The generated clocked signals of the disjunctive and conjunctive clock are
     therefore:
     <p>
@@ -2746,14 +2746,14 @@ Example used to generate a figure for the documentation of block
 <p>
 This package contains models that have been used to produce
 the figures in the documentation of the
-<a href=\"modelica://Modelica_Synchronous.ClockSignals\">Modelica_Synchronous.ClockSignals</a>
+<a href=\"modelica://Modelica.Clocked.ClockSignals\">Modelica.Clocked.ClockSignals</a>
 sub-library.
 </p>
 </html>"));
     end ClockSignals;
 
     package RealSignals
-      "Examples that are used for the documentation of the Modelica_Synchronous.RealSignals sub-library"
+      "Examples that are used for the documentation of the Modelica.Clocked.RealSignals sub-library"
       extends Modelica.Icons.ExamplesPackage;
       model Sample1 "Example of a Sample block for Real signals"
          extends Modelica.Icons.Example;
@@ -2786,7 +2786,7 @@ sub-library.
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.Sample\">Modelica_Synchronous.RealSignals.Sampler.Sample</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.Sample\">Modelica.Clocked.RealSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample1;
@@ -2820,7 +2820,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.Sample\">Modelica_Synchronous.RealSignals.Sampler.Sample</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.Sample\">Modelica.Clocked.RealSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample2;
@@ -2830,20 +2830,20 @@ Example used to generate a figure for the documentation of block
         import Modelica_Synchronous =
                Modelica.Clocked;
        extends Modelica.Icons.Example;
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked sample1
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked sample1
           annotation (Placement(transformation(extent={{-52,24},{-40,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-76,-6},{-64,6}})));
       Modelica.Blocks.Sources.Step step(startTime=0.04)
         annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
         Modelica.Blocks.Math.Gain gain(k=1.2)
           annotation (Placement(transformation(extent={{-8,20},{12,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.Hold hold
+        Modelica.Clocked.RealSignals.Sampler.Hold hold
           annotation (Placement(transformation(extent={{20,24},{32,36}})));
         Modelica.Blocks.Math.Feedback feedback
           annotation (Placement(transformation(extent={{-36,20},{-16,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.Sample sample2
+        Modelica.Clocked.RealSignals.Sampler.Sample sample2
           annotation (Placement(transformation(extent={{6,-6},{-6,6}})));
       equation
         connect(step.y, sample1.u)
@@ -2875,7 +2875,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.Sample\">Modelica_Synchronous.RealSignals.Sampler.Sample</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.Sample\">Modelica.Clocked.RealSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample3;
@@ -2889,11 +2889,11 @@ Example used to generate a figure for the documentation of block
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
       equation
         connect(sine.y, sample.u) annotation (Line(
@@ -2909,7 +2909,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.SampleClocked\">Modelica_Synchronous.RealSignals.Sampler.SampleClocked</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.SampleClocked\">Modelica.Clocked.RealSignals.Sampler.SampleClocked</a>.
 </p>
 </html>"));
       end SampleClocked;
@@ -2925,11 +2925,11 @@ Example used to generate a figure for the documentation of block
         offset=0.1,
         startTime=0)
           annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleVectorizedAndClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked
                                                         sample(n=2)
           annotation (Placement(transformation(extent={{-14,24},{-2,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-28,-6},{-16,6}})));
         Modelica.Blocks.Sources.Sine sine1(startTime=0, freqHz=3)
           annotation (Placement(transformation(extent={{-80,-2},{-60,18}})));
@@ -2950,7 +2950,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.SampleVectorizedAndClocked\">Modelica_Synchronous.RealSignals.Sampler.SampleVectorizedAndClocked</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked</a>.
 </p>
 </html>"));
       end SampleVectorizedAndClocked;
@@ -2965,20 +2965,20 @@ Example used to generate a figure for the documentation of block
           startTime=0,
           amplitude=0.95)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleWithADeffects
+        Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects
                                                         sample(
           noisy=true,
           limited=true,
           quantized=true,
           yMax=0.8,
           redeclare
-            Modelica_Synchronous.RealSignals.Sampler.Utilities.Internal.UniformNoise
+            Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise
             noise(noiseMax=0.2))
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.RealSignals.Sampler.AssignClock assignClock
+        Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            resolution=Modelica_Synchronous.Types.Resolution.ms, factor=20)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            resolution=Modelica.Clocked.Types.Resolution.ms, factor=20)
           annotation (Placement(transformation(extent={{-42,-2},{-30,10}})));
       equation
         connect(sine.y, sample.u) annotation (Line(
@@ -2997,7 +2997,7 @@ Example used to generate a figure for the documentation of block
           Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.SampleWithADeffects\">Modelica_Synchronous.RealSignals.Sampler.SampleWithADeffects</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects\">Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects</a>.
 </p>
 </html>"));
       end SampleWithADeffects;
@@ -3011,15 +3011,15 @@ Example used to generate a figure for the documentation of block
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-52,24},{-40,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-      Modelica_Synchronous.RealSignals.Sampler.Hold hold(y_start=-1.0)
+      Modelica.Clocked.RealSignals.Sampler.Hold hold(y_start=-1.0)
         annotation (Placement(transformation(extent={{-8,24},{4,36}})));
-      Modelica_Synchronous.RealSignals.Sampler.ShiftSample shiftSample(
+      Modelica.Clocked.RealSignals.Sampler.ShiftSample shiftSample(
           shiftCounter=2)
         annotation (Placement(transformation(extent={{-30,24},{-18,36}})));
       equation
@@ -3042,7 +3042,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.Hold\">Modelica_Synchronous.RealSignals.Sampler.Hold</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.Hold\">Modelica.Clocked.RealSignals.Sampler.Hold</a>.
 </p>
 </html>"));
       end Hold;
@@ -3057,13 +3057,13 @@ Example used to generate a figure for the documentation of block
           startTime=0,
         amplitude=2)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-52,24},{-40,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-      Modelica_Synchronous.RealSignals.Sampler.HoldWithDAeffects
+      Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects
                                                     hold(
         computationalDelay=true,
         shiftCounter=1,
@@ -3072,7 +3072,7 @@ Example used to generate a figure for the documentation of block
         limited=true,
         yMax=1.9)
         annotation (Placement(transformation(extent={{-8,24},{4,36}})));
-      Modelica_Synchronous.RealSignals.Sampler.ShiftSample shiftSample(
+      Modelica.Clocked.RealSignals.Sampler.ShiftSample shiftSample(
           shiftCounter=2)
         annotation (Placement(transformation(extent={{-30,24},{-18,36}})));
       equation
@@ -3095,7 +3095,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.HoldWithDAeffects\">Modelica_Synchronous.RealSignals.Sampler.HoldWithDAeffects</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects\">Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects</a>.
 </p>
 </html>"));
       end HoldWithDAeffects1;
@@ -3110,13 +3110,13 @@ Example used to generate a figure for the documentation of block
           startTime=0,
         amplitude=2)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-52,24},{-40,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-      Modelica_Synchronous.RealSignals.Sampler.HoldWithDAeffects
+      Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects
                                                     hold(
         computationalDelay=true,
         shiftCounter=1,
@@ -3125,7 +3125,7 @@ Example used to generate a figure for the documentation of block
         yMax=1.9,
         resolution=1)
         annotation (Placement(transformation(extent={{-8,24},{4,36}})));
-      Modelica_Synchronous.RealSignals.Sampler.ShiftSample shiftSample(
+      Modelica.Clocked.RealSignals.Sampler.ShiftSample shiftSample(
           shiftCounter=2)
         annotation (Placement(transformation(extent={{-30,24},{-18,36}})));
       equation
@@ -3148,7 +3148,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.HoldWithDAeffects\">Modelica_Synchronous.RealSignals.Sampler.HoldWithDAeffects</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects\">Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects</a>.
 </p>
 </html>"));
       end HoldWithDAeffects2;
@@ -3162,13 +3162,13 @@ Example used to generate a figure for the documentation of block
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica_Synchronous.RealSignals.Sampler.SubSample subSample(
+      Modelica.Clocked.RealSignals.Sampler.SubSample subSample(
           inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
       equation
@@ -3188,7 +3188,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.SubSample\">Modelica_Synchronous.RealSignals.Sampler.SubSample</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.SubSample\">Modelica.Clocked.RealSignals.Sampler.SubSample</a>.
 </p>
 </html>"));
       end SubSample;
@@ -3202,13 +3202,13 @@ Example used to generate a figure for the documentation of block
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica_Synchronous.RealSignals.Sampler.SuperSample superSample(inferFactor=false,
+      Modelica.Clocked.RealSignals.Sampler.SuperSample superSample(inferFactor=false,
             factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
       equation
@@ -3229,7 +3229,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.SuperSample\">Modelica_Synchronous.RealSignals.Sampler.SuperSample</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.SuperSample\">Modelica.Clocked.RealSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
       end SuperSample;
@@ -3244,13 +3244,13 @@ Example used to generate a figure for the documentation of block
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica_Synchronous.RealSignals.Sampler.SuperSampleInterpolated superSampleIpo(
+      Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated superSampleIpo(
           inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
       equation
@@ -3271,7 +3271,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.SuperSampleInterpolated\">Modelica_Synchronous.RealSignals.Sampler.SuperSampleInterpolated</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated</a>.
 </p>
 </html>"));
       end SuperSampleInterpolated;
@@ -3285,13 +3285,13 @@ Example used to generate a figure for the documentation of block
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-        Modelica_Synchronous.RealSignals.Sampler.ShiftSample shiftSample1(
+        Modelica.Clocked.RealSignals.Sampler.ShiftSample shiftSample1(
             shiftCounter=4, resolution=3)
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
       equation
@@ -3311,7 +3311,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.ShiftSample\">Modelica_Synchronous.RealSignals.Sampler.ShiftSample</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.ShiftSample\">Modelica.Clocked.RealSignals.Sampler.ShiftSample</a>.
 </p>
 </html>"));
       end ShiftSample;
@@ -3325,16 +3325,16 @@ Example used to generate a figure for the documentation of block
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-        Modelica_Synchronous.RealSignals.Sampler.ShiftSample shiftSample1(
+        Modelica.Clocked.RealSignals.Sampler.ShiftSample shiftSample1(
             shiftCounter=4, resolution=3)
           annotation (Placement(transformation(extent={{-26,24},{-14,36}})));
-      Modelica_Synchronous.RealSignals.Sampler.BackSample backSample1(
+      Modelica.Clocked.RealSignals.Sampler.BackSample backSample1(
         backCounter=4,
         resolution=3,
         y_start=0.5)
@@ -3359,7 +3359,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.BackSample\">Modelica_Synchronous.RealSignals.Sampler.BackSample</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.BackSample\">Modelica.Clocked.RealSignals.Sampler.BackSample</a>.
 </p>
 </html>"));
       end BackSample;
@@ -3369,12 +3369,12 @@ Example used to generate a figure for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-42,0},{-30,12}})));
-      Modelica_Synchronous.RealSignals.Sampler.AssignClock assignClock1
+      Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-26,22},{-14,34}})));
-      Modelica_Synchronous.RealSignals.NonPeriodic.UnitDelay unitDelay1
+      Modelica.Clocked.RealSignals.NonPeriodic.UnitDelay unitDelay1
         annotation (Placement(transformation(extent={{-38,48},{-58,68}})));
       Modelica.Blocks.Math.Add add
         annotation (Placement(transformation(extent={{-58,18},{-38,38}})));
@@ -3403,7 +3403,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.AssignClock\">Modelica_Synchronous.RealSignals.Sampler.AssignClock</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.AssignClock\">Modelica.Clocked.RealSignals.Sampler.AssignClock</a>.
 </p>
 </html>"));
       end AssignClock;
@@ -3414,23 +3414,23 @@ Example used to generate a figure for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-54,-50},{-42,-38}})));
-      Modelica_Synchronous.RealSignals.NonPeriodic.UnitDelay unitDelay1
+      Modelica.Clocked.RealSignals.NonPeriodic.UnitDelay unitDelay1
         annotation (Placement(transformation(extent={{-38,58},{-58,78}})));
       Modelica.Blocks.Math.Add add
         annotation (Placement(transformation(extent={{-58,28},{-38,48}})));
       Modelica.Blocks.Sources.Constant const(k=1)
         annotation (Placement(transformation(extent={{-92,22},{-72,42}})));
-      Modelica_Synchronous.RealSignals.Sampler.AssignClockVectorized
+      Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized
         assignClock1(n=2)
         annotation (Placement(transformation(extent={{-24,18},{-12,30}})));
       Modelica.Blocks.Math.Add add1
         annotation (Placement(transformation(extent={{-58,2},{-38,22}})));
       Modelica.Blocks.Sources.Constant const1(k=2)
         annotation (Placement(transformation(extent={{-92,-10},{-72,10}})));
-      Modelica_Synchronous.RealSignals.NonPeriodic.UnitDelay unitDelay2
+      Modelica.Clocked.RealSignals.NonPeriodic.UnitDelay unitDelay2
         annotation (Placement(transformation(extent={{-38,-28},{-58,-8}})));
       equation
       connect(add.u2, const.y) annotation (Line(
@@ -3467,7 +3467,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.AssignClockVectorized\">Modelica_Synchronous.RealSignals.Sampler.AssignClockVectorized</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized</a>.
 </p>
 </html>"));
       end AssignClockVectorized;
@@ -3477,19 +3477,19 @@ Example used to generate a figure for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
-      Modelica_Synchronous.RealSignals.Sampler.Utilities.UpSample upSample1
+      Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample upSample1
         annotation (Placement(transformation(extent={{-26,34},{-14,46}})));
-      Modelica_Synchronous.RealSignals.Sampler.Utilities.UpSample upSample2(
+      Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample upSample2(
           inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-26,14},{-14,26}})));
       Modelica.Blocks.Math.Add add
@@ -3520,7 +3520,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.Utilities.UpSample\">Modelica_Synchronous.RealSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
       end UpSample1;
@@ -3531,26 +3531,26 @@ Example used to generate a figure for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
-      Modelica_Synchronous.RealSignals.Sampler.Utilities.UpSample upSample(
+      Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample upSample(
             inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
-        Modelica_Synchronous.RealSignals.Sampler.SuperSampleInterpolated
+        Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated
           superSampleIpo(inferFactor=false, factor=3)
           annotation (Placement(transformation(extent={{12,-44},{24,-32}})));
-        Modelica_Synchronous.RealSignals.Periodic.FIRbyCoefficients FIR2(a={1/3,2/3,1,
+        Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients FIR2(a={1/3,2/3,1,
               2/3,1/3}, cBufStart={0,0,0,0})
           annotation (Placement(transformation(extent={{6,-14},{26,6}})));
-        Modelica_Synchronous.RealSignals.Periodic.FIRbyCoefficients FIR1(a={1,1,1},
+        Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients FIR1(a={1,1,1},
             cBufStart={0,0})
           annotation (Placement(transformation(extent={{6,20},{26,40}})));
       equation
@@ -3580,7 +3580,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.Utilities.UpSample\">Modelica_Synchronous.RealSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
       end UpSample2;
@@ -3591,19 +3591,19 @@ Example used to generate a figure for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
       Modelica.Blocks.Discrete.TriggeredSampler triggeredSampler
         annotation (Placement(transformation(extent={{10,40},{30,60}})));
-      Modelica_Synchronous.RealSignals.Sampler.Utilities.AssignClockToTriggerHold
+      Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold
         clockToTrigger
         annotation (Placement(transformation(extent={{-20,20},{0,40}})));
       equation
@@ -3629,7 +3629,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.Utilities.AssignClockToTriggerHold\">Modelica_Synchronous.RealSignals.Sampler.Utilities.AssignClockToTriggerHold</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold\">Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold</a>.
 </p>
 </html>"));
       end AssignClockToTriggerHold;
@@ -3640,17 +3640,17 @@ Example used to generate a figure for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
-      Modelica_Synchronous.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold
+      Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold
         clockToSquareWave
         annotation (Placement(transformation(extent={{-24,20},{-4,40}})));
       equation
@@ -3670,7 +3670,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold\">Modelica_Synchronous.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold\">Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold</a>.
 </p>
 </html>"));
       end AssignClockToSquareWaveHold;
@@ -3680,13 +3680,13 @@ Example used to generate a figure for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica_Synchronous.RealSignals.Sampler.Utilities.Internal.UniformNoise
+      Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise
         uniformNoise
         annotation (Placement(transformation(extent={{-26,20},{-6,40}})));
       Modelica.Blocks.Sources.Constant const(k=0)
@@ -3708,7 +3708,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.Sampler.Utilities.Internal.UniformNoise\">Modelica_Synchronous.RealSignals.Sampler.Utilities.Internal.UniformNoise</a>.
+<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise\">Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise</a>.
 </p>
 </html>"));
       end UniformNoise;
@@ -3719,17 +3719,17 @@ Example used to generate a figure for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.RealSignals.Sampler.SampleClocked
+        Modelica.Clocked.RealSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
-      Modelica_Synchronous.RealSignals.NonPeriodic.FractionalDelay
+      Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay
         fractionalDelay(shift=3, resolution=2)
         annotation (Placement(transformation(extent={{-26,20},{-6,40}})));
       equation
@@ -3749,7 +3749,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica_Synchronous.RealSignals.NonPeriodic.FractionalDelay\">Modelica_Synchronous.RealSignals.NonPeriodic.FractionalDelay</a>.
+<a href=\"Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay\">Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay</a>.
 </p>
 </html>"));
       end FractionalDelay;
@@ -3759,12 +3759,12 @@ Example used to generate a figure for the documentation of block
         import Modelica_Synchronous =
                Modelica.Clocked;
          extends Modelica.Icons.Example;
-      Modelica_Synchronous.RealSignals.TimeBasedSources.Step
+      Modelica.Clocked.RealSignals.TimeBasedSources.Step
                                                     step(startTime=0.2)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-      Modelica_Synchronous.RealSignals.Sampler.AssignClock assignClock1
+      Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-70,-18},{-58,-6}})));
       equation
@@ -3781,7 +3781,7 @@ Example used to generate a figure for the documentation of block
                 {{-100,-100},{100,100}})), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.RealSignals.TimeBasedSources.Step\">Modelica_Synchronous.RealSignals.TimeBasedSources.Step</a>.
+<a href=\"Modelica.Clocked.RealSignals.TimeBasedSources.Step\">Modelica.Clocked.RealSignals.TimeBasedSources.Step</a>.
 </p>
 </html>"));
       end TimeBasedStep;
@@ -3791,12 +3791,12 @@ Example for block
         import Modelica_Synchronous =
                Modelica.Clocked;
          extends Modelica.Icons.Example;
-      Modelica_Synchronous.RealSignals.Sampler.AssignClock assignClock1
+      Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-70,-18},{-58,-6}})));
-      Modelica_Synchronous.RealSignals.TickBasedSources.Step step(startTick=3)
+      Modelica.Clocked.RealSignals.TickBasedSources.Step step(startTick=3)
         annotation (Placement(transformation(extent={{-66,20},{-46,40}})));
       equation
 
@@ -3812,7 +3812,7 @@ Example for block
                 {{-100,-100},{100,100}})), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.RealSignals.TickBasedSources.Step\">Modelica_Synchronous.RealSignals.TickBasedSources.Step</a>.
+<a href=\"Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
       end TickBasedStep;
@@ -3822,12 +3822,12 @@ Example for block
         import Modelica_Synchronous =
                Modelica.Clocked;
          extends Modelica.Icons.Example;
-      Modelica_Synchronous.RealSignals.Sampler.AssignClock assignClock1
+      Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-70,-18},{-58,-6}})));
-      Modelica_Synchronous.RealSignals.TimeBasedSources.Sine
+      Modelica.Clocked.RealSignals.TimeBasedSources.Sine
                                                     sine(freqHz=2)
         annotation (Placement(transformation(extent={{-66,20},{-46,40}})));
       equation
@@ -3844,7 +3844,7 @@ Example for block
                 {{-100,-100},{100,100}})), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.RealSignals.TimeBasedSources.Sine\">Modelica_Synchronous.RealSignals.TimeBasedSources.Sine</a>.
+<a href=\"Modelica.Clocked.RealSignals.TimeBasedSources.Sine\">Modelica.Clocked.RealSignals.TimeBasedSources.Sine</a>.
 </p>
 </html>"));
       end TimeBasedSine;
@@ -3854,12 +3854,12 @@ Example for block
         import Modelica_Synchronous =
                Modelica.Clocked;
          extends Modelica.Icons.Example;
-      Modelica_Synchronous.RealSignals.Sampler.AssignClock assignClock1
+      Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-70,-18},{-58,-6}})));
-      Modelica_Synchronous.RealSignals.TickBasedSources.Sine sine(
+      Modelica.Clocked.RealSignals.TickBasedSources.Sine sine(
         periodTicks=10,
         periodOffset=2,
           startTick=4)
@@ -3883,7 +3883,7 @@ Example for block
                 {{-100,-100},{100,100}})), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.RealSignals.TickBasedSources.Step\">Modelica_Synchronous.RealSignals.TickBasedSources.Step</a>.
+<a href=\"Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
       end TickBasedSine;
@@ -3893,12 +3893,12 @@ Example for block
         import Modelica_Synchronous =
                Modelica.Clocked;
          extends Modelica.Icons.Example;
-      Modelica_Synchronous.RealSignals.Sampler.AssignClock assignClock1
+      Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-70,-18},{-58,-6}})));
-      Modelica_Synchronous.RealSignals.TimeBasedSources.Ramp
+      Modelica.Clocked.RealSignals.TimeBasedSources.Ramp
                                                     ramp(duration=0.5)
         annotation (Placement(transformation(extent={{-72,20},{-52,40}})));
       equation
@@ -3915,7 +3915,7 @@ Example for block
                 {{-100,-100},{100,100}})), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.RealSignals.TimeBasedSources.Ramp\">Modelica_Synchronous.RealSignals.TimeBasedSources.Ramp</a>.
+<a href=\"Modelica.Clocked.RealSignals.TimeBasedSources.Ramp\">Modelica.Clocked.RealSignals.TimeBasedSources.Ramp</a>.
 </p>
 </html>"));
       end TimeBasedRamp;
@@ -3925,12 +3925,12 @@ Example for block
         import Modelica_Synchronous =
                Modelica.Clocked;
          extends Modelica.Icons.Example;
-      Modelica_Synchronous.RealSignals.Sampler.AssignClock assignClock1
+      Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-70,-18},{-58,-6}})));
-      Modelica_Synchronous.RealSignals.TickBasedSources.Ramp ramp(
+      Modelica.Clocked.RealSignals.TickBasedSources.Ramp ramp(
         height=1,
         durationTicks=3,
         startTick=2,
@@ -3950,7 +3950,7 @@ Example for block
                 {{-100,-100},{100,100}})), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.RealSignals.TickBasedSources.Ramp\">Modelica_Synchronous.RealSignals.TickBasedSources.Ramp</a>.
+<a href=\"Modelica.Clocked.RealSignals.TickBasedSources.Ramp\">Modelica.Clocked.RealSignals.TickBasedSources.Ramp</a>.
 </p>
 </html>"));
       end TickBasedRamp;
@@ -3958,30 +3958,30 @@ Example for block
 <p>
 This package contains models that have been used to produce
 the figures in the documentation of the
-<a href=\"modelica://Modelica_Synchronous.RealSignals\">Modelica_Synchronous.RealSignals</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals\">Modelica.Clocked.RealSignals</a>
 sub-library.
 </p>
 </html>"));
     end RealSignals;
 
     package IntegerSignals
-      "Examples that are used for the documentation of the Modelica_Synchronous.IntegerSignals sub-library"
+      "Examples that are used for the documentation of the Modelica.Clocked.IntegerSignals sub-library"
       extends Modelica.Icons.ExamplesPackage;
 
       model Sample1 "Example of a Sample block for Integer signals"
         import Modelica_Synchronous =
                Modelica.Clocked;
        extends Modelica.Icons.Example;
-        Modelica_Synchronous.IntegerSignals.Sampler.AssignClock
+        Modelica.Clocked.IntegerSignals.Sampler.AssignClock
                                                              assignClock
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-42,-2},{-30,10}})));
       Modelica.Blocks.Sources.IntegerStep
                                    step(startTime=0.1)
         annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.Sample sample
+      Modelica.Clocked.IntegerSignals.Sampler.Sample sample
         annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
       equation
         connect(periodicClock.y, assignClock.clock) annotation (Line(
@@ -4000,7 +4000,7 @@ sub-library.
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.Sample\">Modelica_Synchronous.IntegerSignals.Sampler.Sample</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.Sample\">Modelica.Clocked.IntegerSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample1;
@@ -4010,19 +4010,19 @@ Elementary example for the documentation of block
         import Modelica_Synchronous =
                Modelica.Clocked;
        extends Modelica.Icons.Example;
-        Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked
+        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
                                                                sample1
           annotation (Placement(transformation(extent={{-60,24},{-48,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-76,-6},{-64,6}})));
       Modelica.Blocks.Sources.IntegerStep
                                    step(startTime=0.04)
         annotation (Placement(transformation(extent={{-96,20},{-76,40}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.Hold
+        Modelica.Clocked.IntegerSignals.Sampler.Hold
                                                       hold
           annotation (Placement(transformation(extent={{22,24},{34,36}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.Sample
+        Modelica.Clocked.IntegerSignals.Sampler.Sample
                                                         sample2
           annotation (Placement(transformation(extent={{6,-6},{-6,6}})));
       Modelica.Blocks.MathInteger.Sum sum1(k={1,-1}, nu=2)
@@ -4066,7 +4066,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.Sample\">Modelica_Synchronous.IntegerSignals.Sampler.Sample</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.Sample\">Modelica.Clocked.IntegerSignals.Sampler.Sample</a>.
 </p>
 </html>"),Icon(coordinateSystem(
               preserveAspectRatio=false,
@@ -4083,11 +4083,11 @@ Elementary example for the documentation of block
         Modelica.Blocks.Sources.IntegerStep
                                      step(startTime=0.1, offset=1)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked
+        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
       equation
       connect(periodicClock.y, sample.clock) annotation (Line(
@@ -4103,7 +4103,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked\">Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.SampleClocked\">Modelica.Clocked.IntegerSignals.Sampler.SampleClocked</a>.
 </p>
 </html>"));
       end SampleClocked;
@@ -4117,11 +4117,11 @@ Elementary example for the documentation of block
         Modelica.Blocks.Sources.IntegerStep
                                      step2(offset=1, startTime=0.04)
           annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.SampleVectorizedAndClocked
+        Modelica.Clocked.IntegerSignals.Sampler.SampleVectorizedAndClocked
                                                         sample(n=2)
           annotation (Placement(transformation(extent={{-14,24},{-2,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-28,-6},{-16,6}})));
         Modelica.Blocks.Sources.IntegerStep
                                      step1(startTime=0.08)
@@ -4143,7 +4143,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.SampleVectorizedAndClocked\">Modelica_Synchronous.IntegerSignals.Sampler.SampleVectorizedAndClocked</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.IntegerSignals.Sampler.SampleVectorizedAndClocked</a>.
 </p>
 </html>"));
       end SampleVectorizedAndClocked;
@@ -4156,16 +4156,16 @@ Elementary example for the documentation of block
         Modelica.Blocks.Sources.IntegerTable table(table=[0,1; 0.05,2; 0.1,0; 0.15,-1;
               0.2,3])
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked
+        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-52,24},{-40,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.Hold
+      Modelica.Clocked.IntegerSignals.Sampler.Hold
                                                     hold(y_start=-1)
         annotation (Placement(transformation(extent={{-8,24},{4,36}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.ShiftSample
+      Modelica.Clocked.IntegerSignals.Sampler.ShiftSample
                                                            shiftSample(
           shiftCounter=2)
         annotation (Placement(transformation(extent={{-30,24},{-18,36}})));
@@ -4189,7 +4189,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.Hold\">Modelica_Synchronous.IntegerSignals.Sampler.Hold</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.Hold\">Modelica.Clocked.IntegerSignals.Sampler.Hold</a>.
 </p>
 </html>"));
       end Hold;
@@ -4199,13 +4199,13 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked
+        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.SubSample
+      Modelica.Clocked.IntegerSignals.Sampler.SubSample
                                                          subSample(
           inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
@@ -4229,7 +4229,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.SubSample\">Modelica_Synchronous.IntegerSignals.Sampler.SubSample</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.SubSample\">Modelica.Clocked.IntegerSignals.Sampler.SubSample</a>.
 </p>
 </html>"));
       end SubSample;
@@ -4239,13 +4239,13 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked
+        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.SuperSample superSample(inferFactor=false,
+      Modelica.Clocked.IntegerSignals.Sampler.SuperSample superSample(inferFactor=false,
             factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Blocks.Sources.IntegerTable table(table=[0,1; 0.05,2; 0.1,0; 0.15,-1;
@@ -4268,7 +4268,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.SuperSample\">Modelica_Synchronous.IntegerSignals.Sampler.SuperSample</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.SuperSample\">Modelica.Clocked.IntegerSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
       end SuperSample;
@@ -4278,13 +4278,13 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked
+        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.ShiftSample shiftSample1(
+        Modelica.Clocked.IntegerSignals.Sampler.ShiftSample shiftSample1(
             shiftCounter=4, resolution=3)
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Blocks.Sources.IntegerTable table(table=[0,1; 0.025,2; 0.05,
@@ -4307,7 +4307,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.ShiftSample\">Modelica_Synchronous.IntegerSignals.Sampler.ShiftSample</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.ShiftSample\">Modelica.Clocked.IntegerSignals.Sampler.ShiftSample</a>.
 </p>
 </html>"));
       end ShiftSample;
@@ -4317,16 +4317,16 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked
+        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.ShiftSample shiftSample1(
+        Modelica.Clocked.IntegerSignals.Sampler.ShiftSample shiftSample1(
             shiftCounter=4, resolution=3)
           annotation (Placement(transformation(extent={{-18,24},{-6,36}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.BackSample backSample1(
+      Modelica.Clocked.IntegerSignals.Sampler.BackSample backSample1(
         backCounter=4,
         resolution=3,
         y_start=1)
@@ -4354,7 +4354,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.BackSample\">Modelica_Synchronous.IntegerSignals.Sampler.BackSample</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.BackSample\">Modelica.Clocked.IntegerSignals.Sampler.BackSample</a>.
 </p>
 </html>"));
       end BackSample;
@@ -4364,12 +4364,12 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-42,0},{-30,12}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.AssignClock assignClock1
+      Modelica.Clocked.IntegerSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-26,22},{-14,34}})));
-      Modelica_Synchronous.IntegerSignals.NonPeriodic.UnitDelay unitDelay1
+      Modelica.Clocked.IntegerSignals.NonPeriodic.UnitDelay unitDelay1
         annotation (Placement(transformation(extent={{-38,48},{-58,68}})));
       Modelica.Blocks.Sources.IntegerConstant
                                        const(k=1)
@@ -4399,7 +4399,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.AssignClock\">Modelica_Synchronous.IntegerSignals.Sampler.AssignClock</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.AssignClock\">Modelica.Clocked.IntegerSignals.Sampler.AssignClock</a>.
 </p>
 </html>"));
       end AssignClock;
@@ -4410,21 +4410,21 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-54,-50},{-42,-38}})));
-      Modelica_Synchronous.IntegerSignals.NonPeriodic.UnitDelay unitDelay1
+      Modelica.Clocked.IntegerSignals.NonPeriodic.UnitDelay unitDelay1
         annotation (Placement(transformation(extent={{-38,58},{-58,78}})));
       Modelica.Blocks.Sources.IntegerConstant
                                        const(k=1)
         annotation (Placement(transformation(extent={{-92,22},{-72,42}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.AssignClockVectorized
+      Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized
         assignClock1(n=2)
         annotation (Placement(transformation(extent={{-24,18},{-12,30}})));
       Modelica.Blocks.Sources.IntegerConstant
                                        const1(k=2)
         annotation (Placement(transformation(extent={{-92,-10},{-72,10}})));
-      Modelica_Synchronous.IntegerSignals.NonPeriodic.UnitDelay unitDelay2
+      Modelica.Clocked.IntegerSignals.NonPeriodic.UnitDelay unitDelay2
         annotation (Placement(transformation(extent={{-38,-28},{-58,-8}})));
       Modelica.Blocks.MathInteger.Sum sum1(nu=2)
         annotation (Placement(transformation(extent={{-54,32},{-42,44}})));
@@ -4465,7 +4465,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.AssignClockVectorized\">Modelica_Synchronous.IntegerSignals.Sampler.AssignClockVectorized</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized</a>.
 </p>
 </html>"));
       end AssignClockVectorized;
@@ -4475,15 +4475,15 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.SampleClocked
+        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.Utilities.UpSample upSample1
+      Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample upSample1
         annotation (Placement(transformation(extent={{-26,34},{-14,46}})));
-      Modelica_Synchronous.IntegerSignals.Sampler.Utilities.UpSample upSample2(
+      Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample upSample2(
           inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-26,14},{-14,26}})));
         Modelica.Blocks.Sources.IntegerTable table(table=[0,1; 0.025,2; 0.05,
@@ -4517,7 +4517,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.IntegerSignals.Sampler.Utilities.UpSample\">Modelica_Synchronous.IntegerSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
       end UpSample;
@@ -4528,15 +4528,15 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.IntegerSignals.TimeBasedSources.Step step(
+        Modelica.Clocked.IntegerSignals.TimeBasedSources.Step step(
           height=3,
           offset=1,
           startTime=0.2)
           annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-60,-8},{-48,4}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.AssignClock assignClock1
+        Modelica.Clocked.IntegerSignals.Sampler.AssignClock assignClock1
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
       equation
         connect(step.y, assignClock1.u) annotation (Line(
@@ -4552,7 +4552,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.IntegerSignals.TimeBasedSources.Step\">Modelica_Synchronous.IntegerSignals.TimeBasedSources.Step</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.TimeBasedSources.Step\">Modelica.Clocked.IntegerSignals.TimeBasedSources.Step</a>.
 </p>
 </html>"));
       end TimeBasedStep;
@@ -4563,12 +4563,12 @@ Example for block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-60,-8},{-48,4}})));
-        Modelica_Synchronous.IntegerSignals.Sampler.AssignClock assignClock1
+        Modelica.Clocked.IntegerSignals.Sampler.AssignClock assignClock1
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
-      Modelica_Synchronous.IntegerSignals.TickBasedSources.Step step(
+      Modelica.Clocked.IntegerSignals.TickBasedSources.Step step(
         height=3,
         offset=1,
           startTick=3)
@@ -4587,7 +4587,7 @@ Example for block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.IntegerSignals.TickBasedSources.Step\">Modelica_Synchronous.IntegerSignals.TickBasedSources.Step</a>.
+<a href=\"Modelica.Clocked.IntegerSignals.TickBasedSources.Step\">Modelica.Clocked.IntegerSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
       end TickBasedStep;
@@ -4595,30 +4595,30 @@ Example for block
 <p>
 This package contains models that have been used to produce
 the figures in the documentation of the
-<a href=\"modelica://Modelica_Synchronous.IntegerSignals\">Modelica_Synchronous.IntegerSignals</a>
+<a href=\"modelica://Modelica.Clocked.IntegerSignals\">Modelica.Clocked.IntegerSignals</a>
 sub-library.
 </p>
 </html>"));
     end IntegerSignals;
 
     package BooleanSignals
-      "Examples that are used for the documentation of the Modelica_Synchronous.BooleanSignals sub-library"
+      "Examples that are used for the documentation of the Modelica.Clocked.BooleanSignals sub-library"
       extends Modelica.Icons.ExamplesPackage;
 
       model Sample1 "Example of a Sample block for Boolean signals"
         import Modelica_Synchronous =
                Modelica.Clocked;
        extends Modelica.Icons.Example;
-        Modelica_Synchronous.BooleanSignals.Sampler.AssignClock
+        Modelica.Clocked.BooleanSignals.Sampler.AssignClock
                                                              assignClock
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-42,-2},{-30,10}})));
       Modelica.Blocks.Sources.BooleanStep
                                    step(startTime=0.1)
         annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.Sample sample
+      Modelica.Clocked.BooleanSignals.Sampler.Sample sample
         annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
       equation
         connect(periodicClock.y, assignClock.clock) annotation (Line(
@@ -4637,7 +4637,7 @@ sub-library.
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.Sample\">Modelica_Synchronous.BooleanSignals.Sampler.Sample</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample1;
@@ -4647,19 +4647,19 @@ Elementary example for the documentation of block
         import Modelica_Synchronous =
                Modelica.Clocked;
        extends Modelica.Icons.Example;
-        Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked
+        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
                                                                sample1
           annotation (Placement(transformation(extent={{-60,24},{-48,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-76,-6},{-64,6}})));
       Modelica.Blocks.Sources.BooleanStep
                                    step(startTime=0.04)
         annotation (Placement(transformation(extent={{-96,20},{-76,40}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.Hold
+        Modelica.Clocked.BooleanSignals.Sampler.Hold
                                                       hold
           annotation (Placement(transformation(extent={{22,24},{34,36}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.Sample
+        Modelica.Clocked.BooleanSignals.Sampler.Sample
                                                         sample2
           annotation (Placement(transformation(extent={{6,-6},{-6,6}})));
         Modelica.Blocks.Sources.BooleanConstant integerConstant(k=true)
@@ -4701,7 +4701,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.Sample\">Modelica_Synchronous.BooleanSignals.Sampler.Sample</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
 </p>
 </html>"),Icon(coordinateSystem(
               preserveAspectRatio=false,
@@ -4718,11 +4718,11 @@ Elementary example for the documentation of block
         Modelica.Blocks.Sources.BooleanStep
                                      step(startTime=0.1)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked
+        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
       equation
       connect(periodicClock.y, sample.clock) annotation (Line(
@@ -4738,7 +4738,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked\">Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.SampleClocked\">Modelica.Clocked.BooleanSignals.Sampler.SampleClocked</a>.
 </p>
 </html>"));
       end SampleClocked;
@@ -4752,11 +4752,11 @@ Elementary example for the documentation of block
         Modelica.Blocks.Sources.BooleanStep
                                      step2(startTime=0.04)
           annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.SampleVectorizedAndClocked
+        Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked
                                                         sample(n=2)
           annotation (Placement(transformation(extent={{-14,24},{-2,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-28,-6},{-16,6}})));
         Modelica.Blocks.Sources.BooleanStep
                                      step1(startTime=0.08)
@@ -4778,7 +4778,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.SampleVectorizedAndClocked\">Modelica_Synchronous.BooleanSignals.Sampler.SampleVectorizedAndClocked</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked</a>.
 </p>
 </html>"));
       end SampleVectorizedAndClocked;
@@ -4790,16 +4790,16 @@ Elementary example for the documentation of block
 
         Modelica.Blocks.Sources.BooleanTable table(table={0.05,0.15})
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked
+        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-52,24},{-40,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.Hold
+      Modelica.Clocked.BooleanSignals.Sampler.Hold
                                                     hold(y_start=false)
         annotation (Placement(transformation(extent={{-8,24},{4,36}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.ShiftSample
+      Modelica.Clocked.BooleanSignals.Sampler.ShiftSample
                                                            shiftSample(
           shiftCounter=2)
         annotation (Placement(transformation(extent={{-30,24},{-18,36}})));
@@ -4823,7 +4823,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.Hold\">Modelica_Synchronous.BooleanSignals.Sampler.Hold</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.Hold\">Modelica.Clocked.BooleanSignals.Sampler.Hold</a>.
 </p>
 </html>"));
       end Hold;
@@ -4833,13 +4833,13 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked
+        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.SubSample
+      Modelica.Clocked.BooleanSignals.Sampler.SubSample
                                                          subSample(
           inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
@@ -4862,7 +4862,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.SubSample\">Modelica_Synchronous.BooleanSignals.Sampler.SubSample</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.SubSample\">Modelica.Clocked.BooleanSignals.Sampler.SubSample</a>.
 </p>
 </html>"));
       end SubSample;
@@ -4872,13 +4872,13 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked
+        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.SuperSample superSample(inferFactor=false,
+      Modelica.Clocked.BooleanSignals.Sampler.SuperSample superSample(inferFactor=false,
             factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Blocks.Sources.BooleanTable table(table={0.05,0.15})
@@ -4900,7 +4900,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.SuperSample\">Modelica_Synchronous.BooleanSignals.Sampler.SuperSample</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.SuperSample\">Modelica.Clocked.BooleanSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
       end SuperSample;
@@ -4910,13 +4910,13 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked
+        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.ShiftSample shiftSample1(
+        Modelica.Clocked.BooleanSignals.Sampler.ShiftSample shiftSample1(
             shiftCounter=4, resolution=3)
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Blocks.Sources.BooleanTable table(table={0.05,0.15})
@@ -4938,7 +4938,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.ShiftSample\">Modelica_Synchronous.BooleanSignals.Sampler.ShiftSample</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.ShiftSample\">Modelica.Clocked.BooleanSignals.Sampler.ShiftSample</a>.
 </p>
 </html>"));
       end ShiftSample;
@@ -4948,16 +4948,16 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked
+        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-46,24},{-34,36}})));
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.ShiftSample shiftSample1(
+        Modelica.Clocked.BooleanSignals.Sampler.ShiftSample shiftSample1(
             shiftCounter=4, resolution=3)
           annotation (Placement(transformation(extent={{-18,24},{-6,36}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.BackSample backSample1(
+      Modelica.Clocked.BooleanSignals.Sampler.BackSample backSample1(
         backCounter=4,
         resolution=3,
         y_start=true)
@@ -4984,7 +4984,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.BackSample\">Modelica_Synchronous.BooleanSignals.Sampler.BackSample</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.BackSample\">Modelica.Clocked.BooleanSignals.Sampler.BackSample</a>.
 </p>
 </html>"));
       end BackSample;
@@ -4994,12 +4994,12 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-42,0},{-30,12}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.AssignClock assignClock1
+      Modelica.Clocked.BooleanSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-26,22},{-14,34}})));
-      Modelica_Synchronous.BooleanSignals.NonPeriodic.UnitDelay unitDelay1
+      Modelica.Clocked.BooleanSignals.NonPeriodic.UnitDelay unitDelay1
         annotation (Placement(transformation(extent={{-38,48},{-58,68}})));
       Modelica.Blocks.Logical.Xor xor
         annotation (Placement(transformation(extent={{-59,18},{-39,38}})));
@@ -5028,7 +5028,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.AssignClock\">Modelica_Synchronous.BooleanSignals.Sampler.AssignClock</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.AssignClock\">Modelica.Clocked.BooleanSignals.Sampler.AssignClock</a>.
 </p>
 </html>"));
       end AssignClock;
@@ -5039,15 +5039,15 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-54,-50},{-42,-38}})));
-      Modelica_Synchronous.BooleanSignals.NonPeriodic.UnitDelay unitDelay1
+      Modelica.Clocked.BooleanSignals.NonPeriodic.UnitDelay unitDelay1
         annotation (Placement(transformation(extent={{-38,58},{-58,78}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.AssignClockVectorized
+      Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized
         assignClock1(n=2)
         annotation (Placement(transformation(extent={{-24,18},{-12,30}})));
-      Modelica_Synchronous.BooleanSignals.NonPeriodic.UnitDelay unitDelay2(y_start=
+      Modelica.Clocked.BooleanSignals.NonPeriodic.UnitDelay unitDelay2(y_start=
             true)
         annotation (Placement(transformation(extent={{-38,-28},{-58,-8}})));
       Modelica.Blocks.Logical.Xor xor
@@ -5093,7 +5093,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.AssignClockVectorized\">Modelica_Synchronous.BooleanSignals.Sampler.AssignClockVectorized</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized</a>.
 </p>
 </html>"));
       end AssignClockVectorized;
@@ -5103,15 +5103,15 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock periodicClock(
-            factor=20, resolution=Modelica_Synchronous.Types.Resolution.ms)
+        Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
+            factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.SampleClocked
+        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
                                                         sample
           annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.Utilities.UpSample upSample1
+      Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample upSample1
         annotation (Placement(transformation(extent={{-26,34},{-14,46}})));
-      Modelica_Synchronous.BooleanSignals.Sampler.Utilities.UpSample upSample2(
+      Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample upSample2(
           inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-26,14},{-14,26}})));
         Modelica.Blocks.Sources.BooleanTable table1(table={0.05,0.15})
@@ -5144,7 +5144,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica_Synchronous.BooleanSignals.Sampler.Utilities.UpSample\">Modelica_Synchronous.BooleanSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
       end UpSample;
@@ -5155,13 +5155,13 @@ Elementary example for the documentation of block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.BooleanSignals.TimeBasedSources.Step step(
+        Modelica.Clocked.BooleanSignals.TimeBasedSources.Step step(
           startTime=0.2)
           annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-60,-8},{-48,4}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.AssignClock assignClock1
+        Modelica.Clocked.BooleanSignals.Sampler.AssignClock assignClock1
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
       equation
         connect(periodicClock1.y, assignClock1.clock) annotation (Line(
@@ -5177,7 +5177,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.BooleanSignals.TimeBasedSources.Step\">Modelica_Synchronous.BooleanSignals.TimeBasedSources.Step</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.TimeBasedSources.Step\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Step</a>.
 </p>
 </html>"));
       end TimeBasedStep;
@@ -5188,12 +5188,12 @@ Example for block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-60,-8},{-48,4}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.AssignClock assignClock1
+        Modelica.Clocked.BooleanSignals.Sampler.AssignClock assignClock1
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
-      Modelica_Synchronous.BooleanSignals.TickBasedSources.Step step(startTick=
+      Modelica.Clocked.BooleanSignals.TickBasedSources.Step step(startTick=
               3)
         annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
       equation
@@ -5210,7 +5210,7 @@ Example for block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.BooleanSignals.TickBasedSources.Step\">Modelica_Synchronous.BooleanSignals.TickBasedSources.Step</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.TickBasedSources.Step\">Modelica.Clocked.BooleanSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
       end TickBasedStep;
@@ -5221,15 +5221,15 @@ Example for block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-        Modelica_Synchronous.BooleanSignals.TimeBasedSources.Pulse pulse(
+        Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse pulse(
           width=50,
           period=0.4,
           startTime=0.1)
           annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-60,-8},{-48,4}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.AssignClock assignClock1
+        Modelica.Clocked.BooleanSignals.Sampler.AssignClock assignClock1
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
       equation
         connect(periodicClock1.y, assignClock1.clock) annotation (Line(
@@ -5245,7 +5245,7 @@ Example for block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.BooleanSignals.TimeBasedSources.Pulse\">Modelica_Synchronous.BooleanSignals.TimeBasedSources.Pulse</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse</a>.
 </p>
 </html>"));
       end TimeBasedPulse;
@@ -5256,12 +5256,12 @@ Example for block
                Modelica.Clocked;
          extends Modelica.Icons.Example;
 
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-60,-8},{-48,4}})));
-        Modelica_Synchronous.BooleanSignals.Sampler.AssignClock assignClock1
+        Modelica.Clocked.BooleanSignals.Sampler.AssignClock assignClock1
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
-        Modelica_Synchronous.BooleanSignals.TickBasedSources.Pulse pulse(
+        Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse pulse(
           widthTicks=2,
           periodTicks=4,
           startTick=2)
@@ -5280,7 +5280,7 @@ Example for block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica_Synchronous.BooleanSignals.TickBasedSources.Pulse\">Modelica_Synchronous.BooleanSignals.TickBasedSources.Pulse</a>.
+<a href=\"Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse\">Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse</a>.
 </p>
 </html>"));
       end TickBasedPulse;
@@ -5288,7 +5288,7 @@ Example for block
 <p>
 This package contains models that have been used to produce
 the figures in the documentation of the
-<a href=\"modelica://Modelica_Synchronous.BooleanSignals\">Modelica_Synchronous.BooleanSignals</a>
+<a href=\"modelica://Modelica.Clocked.BooleanSignals\">Modelica.Clocked.BooleanSignals</a>
 sub-library.
 </p>
 </html>"));
@@ -5305,7 +5305,7 @@ simulated.
   end Elementary;
 annotation (Documentation(info="<html>
 <p>
-This package contains examples to demonstrate the usage of package Modelica_Synchronous.
+This package contains examples to demonstrate the usage of package Modelica.Clocked.
 </p>
 </html>"));
 end Examples;

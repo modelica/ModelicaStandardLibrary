@@ -985,16 +985,16 @@ form of a PID controller by using the backward rectangular approximation (also c
     model TestPIDController
       import Modelica_Synchronous =
              Modelica.Clocked;
-     extends Modelica_Synchronous.WorkInProgress.Icons.OperatesOnlyPartially;
-      Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock
+     extends Modelica.Clocked.WorkInProgress.Icons.OperatesOnlyPartially;
+      Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
                                periodicRealClock(period=0.1)
         annotation (Placement(transformation(extent={{-36,-16},{-24,-4}})));
-      Modelica_Synchronous.WorkInProgress.Incubate.PID
+      Modelica.Clocked.WorkInProgress.Incubate.PID
                                PI1
         annotation (Placement(transformation(extent={{28,0},{48,20}})));
       Modelica.Blocks.Sources.Step step(startTime=0.19)
         annotation (Placement(transformation(extent={{-82,0},{-62,20}})));
-      Modelica_Synchronous.RealSignals.Sampler.SampleClocked        sample1
+      Modelica.Clocked.RealSignals.Sampler.SampleClocked        sample1
         annotation (Placement(transformation(extent={{-8,4},{4,16}})));
       Modelica_LinearSystems2.Controller.Sampler sampler(blockType=
             Modelica_LinearSystems2.Controller.Types.BlockTypeWithGlobalDefault.Discrete)
@@ -1043,27 +1043,27 @@ form of a PID controller by using the backward rectangular approximation (also c
       "FIR filter defined by filter order, cut-off frequency and window-type"
       import Modelica_Synchronous =
              Modelica.Clocked;
-      extends Modelica_Synchronous.RealSignals.Interfaces.PartialClockedSISO;
+      extends Modelica.Clocked.RealSignals.Interfaces.PartialClockedSISO;
       parameter
-        Modelica_Synchronous.WorkInProgress.Incubate.Types.FIR_FilterType
+        Modelica.Clocked.WorkInProgress.Incubate.Types.FIR_FilterType
                                                       filterType=
-          Modelica_Synchronous.WorkInProgress.Incubate.Types.FIR_FilterType.LowPass
+          Modelica.Clocked.WorkInProgress.Incubate.Types.FIR_FilterType.LowPass
         "Type of filter";
       parameter Integer order(min=1) = 2 "Order of filter";
       parameter Modelica.SIunits.Frequency f_cut=1 "Cut-off frequency";
-      parameter Modelica_Synchronous.WorkInProgress.Incubate.Types.FIR_Window
-                                                  window= Modelica_Synchronous.WorkInProgress.Incubate.Types.FIR_Window.Kaiser
+      parameter Modelica.Clocked.WorkInProgress.Incubate.Types.FIR_Window
+                                                  window= Modelica.Clocked.WorkInProgress.Incubate.Types.FIR_Window.Kaiser
         "Type of window";
       parameter Real beta=2.12 "Beta-Parameter for Kaiser-window"
-          annotation(Dialog(enable = window == Modelica_Synchronous.Types.FIR_Window.Kaiser));
-      final output Real a[order+1]=Modelica_Synchronous.WorkInProgress.Incubate.Internal.FIR_coefficients(
+          annotation(Dialog(enable = window == Modelica.Clocked.Types.FIR_Window.Kaiser));
+      final output Real a[order+1]=Modelica.Clocked.WorkInProgress.Incubate.Internal.FIR_coefficients(
           filterType,
           order,
           f_cut,
           interval(u),
           window,
           beta);
-      Modelica_Synchronous.RealSignals.Periodic.FIRbyCoefficients FIRbyCoefficients1(final a=a)
+      Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients FIRbyCoefficients1(final a=a)
         annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
     equation
       connect(FIRbyCoefficients1.u, u)
@@ -1118,7 +1118,7 @@ and of its past values (= FIR filter):
 <p>
 where y(i) and u(i) are the values of y and u at clock tick i and
 a[:] are the filter coefficients. Contrary to block
-<a href=\"modelica://Modelica_Synchronous.RealSignals.Periodic.FIRbyCoefficients\">FIRbyCoefficients</a>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients\">FIRbyCoefficients</a>
 this block computes the filter coefficients a[:] by design parameters
 (filter order, cut-off frequency, filter window)
 </p>
