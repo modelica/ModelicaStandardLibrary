@@ -18,7 +18,7 @@ are becoming obsolete and instead Modelica_Synchronous should be utilized.
 
 <p>
 In the following
-<a href=\"modelica://Modelica_Synchronous.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">example</a>
+<a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController\">example</a>
 a simple sampled data system is shown, where the borders of the
 discrete-time partition are marked by the sample and hold operators, a clocked PI
 controller is used in the partition and the sample
@@ -33,17 +33,17 @@ rate is defined at one location with a clock:
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pdf\">Modelica_Synchronous.pdf</a>
+<li> <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica.Clocked.pdf\">Modelica.Clocked.pdf</a>
      is a slide set that provides an overview of the Library
      (the pdf file was generated from the
-      <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx\">PowerPoint presentation</a>).
+      <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica.Clocked.pptx\">PowerPoint presentation</a>).
       </li>
-<li> <a href=\"modelica://Modelica_Synchronous.UsersGuide.GettingStarted\">Getting started</a>
+<li> <a href=\"modelica://Modelica.Clocked.UsersGuide.GettingStarted\">Getting started</a>
      provides an overview of the Library
-     inside the <a href=\"modelica://Modelica_Synchronous.UsersGuide\">User's Guide</a>.</li>
-<li><a href=\"modelica://Modelica_Synchronous.UsersGuide.ReleaseNotes\">Release Notes</a>
+     inside the <a href=\"modelica://Modelica.Clocked.UsersGuide\">User's Guide</a>.</li>
+<li><a href=\"modelica://Modelica.Clocked.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the changes of new versions of this package.</li>
-<li> <a href=\"modelica://Modelica_Synchronous.UsersGuide.Contact\">Contact</a>
+<li> <a href=\"modelica://Modelica.Clocked.UsersGuide.Contact\">Contact</a>
      gives author and acknowledgement information for this library.</li>
 </ul>
 <p>
@@ -71,7 +71,7 @@ revisions="<html>
     
 <tr><td> 2019 </td><td>The <i>Modelica_Synchronous</i> library is included as <i>Modelica.Clocked</i> in the Modelica Standard Library 4.0.0.</td></tr>
 
-<tr><td></td><td>see <a href=\"modelica://Modelica_Synchronous.UsersGuide.ReleaseNotes\">Release Notes</a>.</td></tr>
+<tr><td></td><td>see <a href=\"modelica://Modelica.Clocked.UsersGuide.ReleaseNotes\">Release Notes</a>.</td></tr>
 
 </table>
 </html>"),

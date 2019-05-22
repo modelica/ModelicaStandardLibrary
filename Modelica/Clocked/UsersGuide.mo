@@ -33,10 +33,10 @@ A <b>Clock</b> type is a base data type (introduced in Modelica 3.3, additionall
 
 <p>
 Similarly to RealInput, RealOutput etc., clock input and output connectors, called ClockInput and ClockOutput, are defined in sublibrary
-<a href=\"modelica://Modelica_Synchronous.ClockSignals.Interfaces\">ClockSignal.Interfaces</a>
+<a href=\"modelica://Modelica.Clocked.ClockSignals.Interfaces\">ClockSignal.Interfaces</a>
 in order to propagate clocks via connections. A clock signal can be generated with
 one of the blocks of sublibrary
-<a href=\"modelica://Modelica_Synchronous.ClockSignals.Clocks\">ClockSignals.Clocks</a>:
+<a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks\">ClockSignals.Clocks</a>:
 </p>
 
 <p>
@@ -50,7 +50,7 @@ by default visualized with dotted grey lines.
 
 <p>
 With the blocks of sublibrary
-<a href=\"modelica://Modelica_Synchronous.ClockSignals.Sampler\">ClockSignals.Sampler</a>
+<a href=\"modelica://Modelica.Clocked.ClockSignals.Sampler\">ClockSignals.Sampler</a>
 a clock signal can be sub-sampled, super-sampled, or shift-sampled to generate
 a new clock signal. For example, with the following model, a periodic clock signal of 0.1 s
 is sub-sampled with a factor 3 and therefore a clock signal with a period of 0.3 s
@@ -80,7 +80,7 @@ The possible integration methods are tool dependent. It is expected that
 at least the solvers \"External\" (= use the integrator selected in the
 simulation environment) and \"ExplicitEuler\" (= explicit Euler method)
 are supported by every tool. For an example, see
-<a href=\"modelica://Modelica_Synchronous.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
 
 <p>
@@ -142,7 +142,7 @@ a Modelica sampled-data system, by automatically discretizing
 this model and providing it as a clocked partition. This allows
 a convenient definition of certain nonlinear control systems,
 see example
-<a href=\"modelica://Modelica_Synchronous.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
+<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 Several practical details to use nonlinear inverse plant models in
 a control system are discussed in the following reference:</i>
 </p>
@@ -207,17 +207,17 @@ Version 0.93.0 is backward compatible to version 0.92.1
 <p>Enhancements:</p>
 <ul>
 <li>Uses latest version of Modelica Standard Library (v3.2.3) (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/37\">#37</a>).</li>
-<li>New blocks for event clocks that generate a clock tick each time an observed input angle changed (subpackage <a href=\"modelica://Modelica_Synchronous.ClockSignals.Clocks.Rotational\">ClockSignals.Clocks.Rotational</a>) (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/34\">#34</a>, <a href=\"https://github.com/modelica/Modelica_Synchronous/issues/36\">#36</a>).</li>
+<li>New blocks for event clocks that generate a clock tick each time an observed input angle changed (subpackage <a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks.Rotational\">ClockSignals.Clocks.Rotational</a>) (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/34\">#34</a>, <a href=\"https://github.com/modelica/Modelica_Synchronous/issues/36\">#36</a>).</li>
 <li>Improved engine-throttle control example using the new rotational event clocks  (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/34\">#32</a>, <a href=\"https://github.com/modelica/Modelica_Synchronous/issues/36\">#33</a>).</li>
 <li>Utilizing `SolverMethod` from the (tool-specific) ModelicaServices library (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/20\">#20</a>).</li>
 <li>Improved icons.</li>
 </ul>
 <p>Bug fixes:</p>
 <ul>
-<li>Added tolerance for numeric comparisons <a href=\"modelica://Modelica_Synchronous.BooleanSignals.TimeBasedSources.Pulse\">BooleanSignals.TimeBasedSources.Pulse</a> (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/9\">#9</a>).</li>
+<li>Added tolerance for numeric comparisons <a href=\"modelica://Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse\">BooleanSignals.TimeBasedSources.Pulse</a> (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/9\">#9</a>).</li>
 <li>Fixed overconstrained initial systems for several examples (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/10\">#10</a>, <a href=\"https://github.com/modelica/Modelica_Synchronous/issues/11\">#11</a>).</li>
-<li>Fixed comparison against Real in <a href=\"modelica://Modelica_Synchronous.BooleanSignals.TickBasedSources.Pulse\">BooleanSignals.TickBasedSources.Pulse</a> (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/12\">#12</a>).</li>
-<li>Fixed too slow sampling in <a href=\"modelica://Modelica_Synchronous.Examples.CascadeControlledDrive\">CascadeControlledDrive</a> examples (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/30\">#30</a>).</li>
+<li>Fixed comparison against Real in <a href=\"modelica://Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse\">BooleanSignals.TickBasedSources.Pulse</a> (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/12\">#12</a>).</li>
+<li>Fixed too slow sampling in <a href=\"modelica://Modelica.Clocked.Examples.CascadeControlledDrive\">CascadeControlledDrive</a> examples (<a href=\"https://github.com/modelica/Modelica_Synchronous/issues/30\">#30</a>).</li>
 </ul>
 
 <p>Other (minor) fixes and improvements.</p>
@@ -286,7 +286,7 @@ Changes with respect to version 0.9:
      (nearly all elements of the library are documented now).</li>
 <li> Simple examples have been added for many
      blocks of the library in the new package
-     <a href=\"modelica://Modelica_Synchronous.Examples.Elementary\">Examples.Elementary</a>.
+     <a href=\"modelica://Modelica.Clocked.Examples.Elementary\">Examples.Elementary</a>.
      These blocks have been used to generate the figures in the documentation of
      many blocks. Furthermore, they are used for testing these blocks.</li>
 </ul>
@@ -380,18 +380,18 @@ to precisely define and synchronize sampled data systems with different sampling
 the library and has the following content:
 </p>
 <ol>
-<li><a href=\"modelica://Modelica_Synchronous.UsersGuide.GettingStarted\">Getting started</a>
+<li><a href=\"modelica://Modelica.Clocked.UsersGuide.GettingStarted\">Getting started</a>
     contains an introduction to the most important features and how
     to use them at hand of examples.</li>
-<li><a href=\"modelica://Modelica_Synchronous.UsersGuide.Literature\">Literature</a>
+<li><a href=\"modelica://Modelica.Clocked.UsersGuide.Literature\">Literature</a>
     provides references that have been used to design and implement this
     library.</li>
-<li><a href=\"modelica://Modelica_Synchronous.UsersGuide.ReleaseNotes\">Release Notes</a>
+<li><a href=\"modelica://Modelica.Clocked.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the differences between different versions of this library.</li>
-<li><a href=\"modelica://Modelica_Synchronous.UsersGuide.Requirements\">Requirements</a>
+<li><a href=\"modelica://Modelica.Clocked.UsersGuide.Requirements\">Requirements</a>
     sketches the requirements on a Modelica tool, in order that this library
     can be utilized.</li>
-<li><a href=\"modelica://Modelica_Synchronous.UsersGuide.Contact\">Contact</a>
+<li><a href=\"modelica://Modelica.Clocked.UsersGuide.Contact\">Contact</a>
     provides information about the authors of the library as well as
     acknowledgments.</li>
 </ol>
