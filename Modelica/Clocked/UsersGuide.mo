@@ -5,7 +5,7 @@ package UsersGuide "User's Guide"
     extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-In this section, a first introduction to the Modelica_Synchronous
+In this section, a first introduction to the Modelica.Clocked
 library is given at hand of several examples.
 <br>
 (needs still to be provided).
@@ -17,7 +17,7 @@ library is given at hand of several examples.
     extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-A central element of the Modelica_Synchronous library is a <b>clock</b>.
+A central element of the Modelica.Clocked library is a <b>clock</b>.
 Below, the most important information for clocks is summarized.
 For more details, see the Modelica Language Specification,
 Chapter 16 (for Modelica Language Version &ge; 3.3).
@@ -328,7 +328,7 @@ Modelica Conference 2012.
     annotation (Documentation(info="<html>
 <p>
 This section summarizes the changes that have been performed
-on the Modelica_Synchronous library.
+on the Modelica.Clocked library.
 </p>
 </html>"));
   end ReleaseNotes;
@@ -375,7 +375,7 @@ able to support this library.
   end Contact;
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-Library <b>Modelica_Synchronous</b> is a Modelica package
+Library <b>Modelica.Clocked</b> is a Modelica package
 to precisely define and synchronize sampled data systems with different sampling rates. This package contains the <b>user's guide</b> for
 the library and has the following content:
 </p>

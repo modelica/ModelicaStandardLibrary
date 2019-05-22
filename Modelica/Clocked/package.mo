@@ -9,11 +9,10 @@ extends Modelica.Icons.Package;
     dateModified = "2019-04-03 17:30:00Z",
   Documentation(info="<html>
 <p>
-Library <b>Modelica_Synchronous</b> is a Modelica package
+Library <b>Modelica.Clocked</b> is a Modelica package
 to precisely define and synchronize sampled data systems with different sampling rates.
 The library has elements to define periodic clocks and event clocks that trigger elements to sample, sub-sample, super-sample, or shift-sample partitions synchronously. Optionally, quantization effects, computational delay or noise can be simulated. Continuous-time equations can be automatically discretized and utilized in a sampled data system. The sample rate of
-a partition need to be defined only at one location. All Modelica libraries designed so far for sampled systems, such as Modelica.Blocks.Discrete or Modelica_LinearSystems2.Controller
-are becoming obsolete and instead Modelica_Synchronous should be utilized.
+a partition need to be defined only at one location.
 </p>
 
 <p>
@@ -33,10 +32,10 @@ rate is defined at one location with a clock:
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica.Clocked.pdf\">Modelica.Clocked.pdf</a>
+<li> <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pdf\">Modelica_Synchronous.pdf</a>
      is a slide set that provides an overview of the Library
      (the pdf file was generated from the
-      <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica.Clocked.pptx\">PowerPoint presentation</a>).
+      <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx\">PowerPoint presentation</a>).
       </li>
 <li> <a href=\"modelica://Modelica.Clocked.UsersGuide.GettingStarted\">Getting started</a>
      provides an overview of the Library
@@ -66,9 +65,9 @@ revisions="<html>
     </td></tr>
     </table>
 </td></tr>
-    
+
 <tr><td></td><td>Several releases as <i>Modelica_Synchronous</i> library.</td></tr>
-    
+
 <tr><td> 2019 </td><td>The <i>Modelica_Synchronous</i> library is included as <i>Modelica.Clocked</i> in the Modelica Standard Library 4.0.0.</td></tr>
 
 <tr><td></td><td>see <a href=\"modelica://Modelica.Clocked.UsersGuide.ReleaseNotes\">Release Notes</a>.</td></tr>

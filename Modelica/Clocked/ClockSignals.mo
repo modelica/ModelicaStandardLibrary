@@ -150,7 +150,7 @@ Example:
 </p>
 
 <pre>
-  import M = Modelica_Synchronous;
+  import M = Modelica.Clocked;
   M.Clocks.PeriodicExactClock periodicClock(factor=10,
                                             resolution=M.Types.Resolution.ms);
   // Clock ticks every 1/100 seconds
@@ -375,7 +375,7 @@ For an example, see
               points = {{-100,60},{-90,60},{-80,60}},
               color = {0,0,127})}),
           Documentation(info="<html>
-    For a simple example cf. the 
+    For a simple example cf. the
     <a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample\">rotational sampling example</a>.
     </html>"));
       end RotationalClock;
@@ -576,7 +576,7 @@ For an example, see
               textStyle = {TextStyle.Bold},
               textString = "∧")}),
           Documentation(info="<html>
-For a simple example cf. the 
+For a simple example cf. the
 <a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample\">logical sampling example</a>.
 </html>"));
       end ConjunctiveClock;
@@ -594,7 +594,7 @@ For a simple example cf. the
               textStyle = {TextStyle.Bold},
               textString = "∨")}),
           Documentation(info="<html>
-For a simple example cf. the 
+For a simple example cf. the
 <a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample\">logical sampling example</a>.
 </html>"));
       end DisjunctiveClock;
