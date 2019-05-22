@@ -983,8 +983,6 @@ form of a PID controller by using the backward rectangular approximation (also c
     end PID;
 
     model TestPIDController
-      import Modelica_Synchronous =
-             Modelica.Clocked;
      extends Modelica.Clocked.WorkInProgress.Icons.OperatesOnlyPartially;
       Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
                                periodicRealClock(period=0.1)
@@ -1041,8 +1039,6 @@ form of a PID controller by using the backward rectangular approximation (also c
 
     block FIRbyWindow
       "FIR filter defined by filter order, cut-off frequency and window-type"
-      import Modelica_Synchronous =
-             Modelica.Clocked;
       extends Modelica.Clocked.RealSignals.Interfaces.PartialClockedSISO;
       parameter
         Modelica.Clocked.WorkInProgress.Incubate.Types.FIR_FilterType

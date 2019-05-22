@@ -56,7 +56,7 @@ The following values are possible:<br>&nbsp;
 annotation (Documentation(info="<html>
 <p>
 This package contains type definitions utilized
-in blocks of the Modelica_Synchronous package.
+in blocks of the Modelica.Clocked package.
 </p>
 </html>"));
 end Types;

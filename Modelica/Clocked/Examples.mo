@@ -1,6 +1,6 @@
 ﻿within Modelica.Clocked;
 package Examples
-  "Library of examples to demonstrate the usage of package Modelica_Synchronous"
+  "Library of examples to demonstrate the usage of package Modelica.Clocked"
   extends Modelica.Icons.ExamplesPackage;
 
   package SimpleControlledDrive
@@ -1366,7 +1366,7 @@ to re-import the sampled data system to Modelica.
 
 <p>
 The synchronous features of Modelica 3.3 together with the
-Modelica_Synchronous library offer now completely new possibilities,
+Modelica.Clocked library offer now completely new possibilities,
 so that the inverse model can be designed and evaluated as sampled data
 system within Modelica and a Modelica simulation environment.
 This approach is shown at hand of a simple example using
@@ -1593,7 +1593,7 @@ Obviously, the concentration follows reasonably well the desired one. By using a
       Documentation(info="<html>
 <p>
 This example shows how to model a non-periodic synchronous sampled data systems
-with the <code>Modelica_Synchronous library</code>. This is demonstrated at hand
+with the <code>Modelica.Clocked library</code>. This is demonstrated at hand
 of a closed-loop throttle control synchronized to the crankshaft angle of an
 internal combustion engine. This system has the following properties:
 <ul>
@@ -2466,8 +2466,6 @@ simplified realistic applications.
       extends Modelica.Icons.ExamplesPackage;
 
       model SubSample "Example of a SubSample block for Clock signals"
-      import Modelica_Synchronous =
-             Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -2506,8 +2504,6 @@ Example used to generate a figure for the documentation of block
       end SubSample;
 
       model SuperSample "Example of a SuperSample block for Clock signals"
-      import Modelica_Synchronous =
-             Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -2546,8 +2542,6 @@ Example used to generate a figure for the documentation of block
       end SuperSample;
 
       model ShiftSample "Example of a ShiftSample block for Clock signals"
-      import Modelica_Synchronous =
-             Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -2827,8 +2821,6 @@ Example used to generate a figure for the documentation of block
 
       model Sample3
         "Example of a Sample block for Real signals with direct feed-through in the continuous-time and the clocked partition"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
        extends Modelica.Icons.Example;
         Modelica.Clocked.RealSignals.Sampler.SampleClocked sample1
           annotation (Placement(transformation(extent={{-52,24},{-40,36}})));
@@ -2881,8 +2873,6 @@ Example used to generate a figure for the documentation of block
       end Sample3;
 
       model SampleClocked "Example of a SampleClocked block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -2916,8 +2906,6 @@ Example used to generate a figure for the documentation of block
 
       model SampleVectorizedAndClocked
         "Example of a SampleVectorizedAndClocked block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine2(
@@ -2957,8 +2945,6 @@ Example used to generate a figure for the documentation of block
 
       model SampleWithADeffects
         "Example of a SampleWithADeffects block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -3003,8 +2989,6 @@ Example used to generate a figure for the documentation of block
       end SampleWithADeffects;
 
       model Hold "Example of a Hold block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -3049,8 +3033,6 @@ Example used to generate a figure for the documentation of block
 
       model HoldWithDAeffects1
         "Example of a HoldWithDAeffects block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -3102,8 +3084,6 @@ Example used to generate a figure for the documentation of block
 
       model HoldWithDAeffects2
         "Example of a HoldWithDAeffects block for Real signals (with a computational delay of one sample period)"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -3154,8 +3134,6 @@ Example used to generate a figure for the documentation of block
       end HoldWithDAeffects2;
 
       model SubSample "Example of a SubSample block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -3194,8 +3172,6 @@ Example used to generate a figure for the documentation of block
       end SubSample;
 
       model SuperSample "Example of a SuperSample block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -3236,8 +3212,6 @@ Example used to generate a figure for the documentation of block
 
       model SuperSampleInterpolated
         "Example of a SuperSampleInterpolated block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -3277,8 +3251,6 @@ Example used to generate a figure for the documentation of block
       end SuperSampleInterpolated;
 
       model ShiftSample "Example of a ShiftSample block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -3317,8 +3289,6 @@ Example used to generate a figure for the documentation of block
       end ShiftSample;
 
       model BackSample "Example of a BackSample block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine(freqHz=2,
@@ -3365,8 +3335,6 @@ Example used to generate a figure for the documentation of block
       end BackSample;
 
       model AssignClock "Example of a AssignClock block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -3410,8 +3378,6 @@ Example used to generate a figure for the documentation of block
 
       model AssignClockVectorized
         "Example of a AssignClockVectorized block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -3473,8 +3439,6 @@ Example used to generate a figure for the documentation of block
       end AssignClockVectorized;
 
       model UpSample1 "Example of an UpSample block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -3527,8 +3491,6 @@ Example used to generate a figure for the documentation of block
 
       model UpSample2
         "Example of an UpSample block for Real signals combined with FIR filter blocks"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -3587,8 +3549,6 @@ Example used to generate a figure for the documentation of block
 
       model AssignClockToTriggerHold
         "Example of an AssignClockToTriggerHold block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -3636,8 +3596,6 @@ Example used to generate a figure for the documentation of block
 
       model AssignClockToSquareWaveHold
         "Example of an AssignClockToSquareWaveHold block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -3676,8 +3634,6 @@ Example used to generate a figure for the documentation of block
       end AssignClockToSquareWaveHold;
 
       model UniformNoise "Example of a UniformNoise block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.RealSignals.Sampler.SampleClocked
@@ -3715,8 +3671,6 @@ Example used to generate a figure for the documentation of block
 
       model FractionalDelay
         "Example of a FractionalDelay block for Real signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -3756,8 +3710,6 @@ Example used to generate a figure for the documentation of block
 
       model TimeBasedStep
         "Example of using the clocked simulation time based Step source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
       Modelica.Clocked.RealSignals.TimeBasedSources.Step
                                                     step(startTime=0.2)
@@ -3788,8 +3740,6 @@ Example for block
 
       model TickBasedStep
         "Example of using the clocked tick based Step source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
       Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
@@ -3819,8 +3769,6 @@ Example for block
 
       model TimeBasedSine
         "Example of using the clocked time based Sine source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
       Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
@@ -3851,8 +3799,6 @@ Example for block
 
       model TickBasedSine
         "Example of using the clocked tick based Sine source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
       Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
@@ -3890,8 +3836,6 @@ Example for block
 
       model TimeBasedRamp
         "Example of using the clocked time based Ramp source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
       Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
@@ -3922,8 +3866,6 @@ Example for block
 
       model TickBasedRamp
         "Example of using the clocked tick based Ramp source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
       Modelica.Clocked.RealSignals.Sampler.AssignClock assignClock1
         annotation (Placement(transformation(extent={{-24,24},{-12,36}})));
@@ -3969,8 +3911,6 @@ sub-library.
       extends Modelica.Icons.ExamplesPackage;
 
       model Sample1 "Example of a Sample block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
        extends Modelica.Icons.Example;
         Modelica.Clocked.IntegerSignals.Sampler.AssignClock
                                                              assignClock
@@ -4007,8 +3947,6 @@ Elementary example for the documentation of block
 
       model Sample2
         "Example of a Sample block for Integer signals with direct feed-through in the continuous-time and the clocked partition"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
        extends Modelica.Icons.Example;
         Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
                                                                sample1
@@ -4076,8 +4014,6 @@ Elementary example for the documentation of block
 
       model SampleClocked
         "Example of a SampleClocked block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.IntegerStep
@@ -4110,8 +4046,6 @@ Elementary example for the documentation of block
 
       model SampleVectorizedAndClocked
         "Example of a SampleVectorizedAndClocked block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.IntegerStep
@@ -4149,8 +4083,6 @@ Elementary example for the documentation of block
       end SampleVectorizedAndClocked;
 
       model Hold "Example of a Hold block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.IntegerTable table(table=[0,1; 0.05,2; 0.1,0; 0.15,-1;
@@ -4195,8 +4127,6 @@ Elementary example for the documentation of block
       end Hold;
 
       model SubSample "Example of a SubSample block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
@@ -4235,8 +4165,6 @@ Elementary example for the documentation of block
       end SubSample;
 
       model SuperSample "Example of a SuperSample block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
@@ -4274,8 +4202,6 @@ Elementary example for the documentation of block
       end SuperSample;
 
       model ShiftSample "Example of a ShiftSample block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
@@ -4313,8 +4239,6 @@ Elementary example for the documentation of block
       end ShiftSample;
 
       model BackSample "Example of a BackSample block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
@@ -4360,8 +4284,6 @@ Elementary example for the documentation of block
       end BackSample;
 
       model AssignClock "Example of an AssignClock block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -4406,8 +4328,6 @@ Elementary example for the documentation of block
 
       model AssignClockVectorized
         "Example of an AssignClockVectorized block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -4471,8 +4391,6 @@ Elementary example for the documentation of block
       end AssignClockVectorized;
 
       model UpSample "Example of an UpSample block for Integer signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -4524,8 +4442,6 @@ Elementary example for the documentation of block
 
       model TimeBasedStep
         "Example of using the clocked simulation time based Integer Step source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.IntegerSignals.TimeBasedSources.Step step(
@@ -4559,8 +4475,6 @@ Example for block
 
       model TickBasedStep
         "Example of using the clocked simulation tick/sample based Integer Step source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
       Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
@@ -4606,8 +4520,6 @@ sub-library.
       extends Modelica.Icons.ExamplesPackage;
 
       model Sample1 "Example of a Sample block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
        extends Modelica.Icons.Example;
         Modelica.Clocked.BooleanSignals.Sampler.AssignClock
                                                              assignClock
@@ -4644,8 +4556,6 @@ Elementary example for the documentation of block
 
       model Sample2
         "Example of a Sample block for Boolean signals with direct feed-through in the continuous-time and the clocked partition"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
        extends Modelica.Icons.Example;
         Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
                                                                sample1
@@ -4711,8 +4621,6 @@ Elementary example for the documentation of block
 
       model SampleClocked
         "Example of a SampleClocked block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.BooleanStep
@@ -4745,8 +4653,6 @@ Elementary example for the documentation of block
 
       model SampleVectorizedAndClocked
         "Example of a SampleVectorizedAndClocked block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.BooleanStep
@@ -4784,8 +4690,6 @@ Elementary example for the documentation of block
       end SampleVectorizedAndClocked;
 
       model Hold "Example of a Hold block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.BooleanTable table(table={0.05,0.15})
@@ -4829,8 +4733,6 @@ Elementary example for the documentation of block
       end Hold;
 
       model SubSample "Example of a SubSample block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
@@ -4868,8 +4770,6 @@ Elementary example for the documentation of block
       end SubSample;
 
       model SuperSample "Example of a SuperSample block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
@@ -4906,8 +4806,6 @@ Elementary example for the documentation of block
       end SuperSample;
 
       model ShiftSample "Example of a ShiftSample block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
@@ -4944,8 +4842,6 @@ Elementary example for the documentation of block
       end ShiftSample;
 
       model BackSample "Example of a BackSample block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
@@ -4990,8 +4886,6 @@ Elementary example for the documentation of block
       end BackSample;
 
       model AssignClock "Example of an AssignClock block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -5035,8 +4929,6 @@ Elementary example for the documentation of block
 
       model AssignClockVectorized
         "Example of an AssignClockVectorized block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -5099,8 +4991,6 @@ Elementary example for the documentation of block
       end AssignClockVectorized;
 
       model UpSample "Example of an UpSample block for Boolean signals"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
@@ -5151,8 +5041,6 @@ Elementary example for the documentation of block
 
       model TimeBasedStep
         "Example of using the clocked simulation time based Boolean Step source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.BooleanSignals.TimeBasedSources.Step step(
@@ -5184,8 +5072,6 @@ Example for block
 
       model TickBasedStep
         "Example of using the clocked simulation tick/sample based Boolean Step source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
       Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
@@ -5217,8 +5103,6 @@ Example for block
 
       model TimeBasedPulse
         "Example of using the clocked simulation time based Boolean Pulse source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
         Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse pulse(
@@ -5252,8 +5136,6 @@ Example for block
 
       model TickBasedPulse
         "Example of using the clock tick based Boolean Pulse source block"
-        import Modelica_Synchronous =
-               Modelica.Clocked;
          extends Modelica.Icons.Example;
 
       Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock
@@ -5297,7 +5179,7 @@ sub-library.
 <p>
 This package contains models that have been used to produce
 the figures in the documentation of the various blocks of
-the Modelica_Synchronous library. As a result, all the examples
+the Modelica.Clocked library. As a result, all the examples
 shown in the block documentations can be easily inspected and
 simulated.
 </p>
