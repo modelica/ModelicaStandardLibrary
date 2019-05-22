@@ -33,10 +33,10 @@ rate is defined at one location with a clock:
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <a href=\"modelica://Modelica_Synchronous/Resources/Documentation/Modelica_Synchronous.pdf\">Modelica_Synchronous.pdf</a>
+<li> <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pdf\">Modelica_Synchronous.pdf</a>
      is a slide set that provides an overview of the Library
      (the pdf file was generated from the
-      <a href=\"modelica://Modelica_Synchronous/Resources/Documentation/Modelica_Synchronous.pptx\">PowerPoint presentation</a>).
+      <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx\">PowerPoint presentation</a>).
       </li>
 <li> <a href=\"modelica://Modelica_Synchronous.UsersGuide.GettingStarted\">Getting started</a>
      provides an overview of the Library
