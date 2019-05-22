@@ -28,7 +28,7 @@ A <b>Clock</b> type is a base data type (introduced in Modelica 3.3, additionall
 </p>
 
 <p>
-<img src=\"modelica://Modelica_Synchronous/Resources/Images/Clocks/clockSignals.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clockSignals.png\">
 </p>
 
 <p>
@@ -40,7 +40,7 @@ one of the blocks of sublibrary
 </p>
 
 <p>
-<img src=\"modelica://Modelica_Synchronous/Resources/Images/Clocks/clocks.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clocks.png\">
 </p>
 
 <p>
@@ -58,8 +58,8 @@ is generated:
 </p>
 
 <p>
-<img src=\"modelica://Modelica_Synchronous/Resources/Images/Clocks/subSampledClockExample.png\"><br>
-<img src=\"modelica://Modelica_Synchronous/Resources/Images/Clocks/subSampledClockResult.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockExample.png\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockResult.png\">
 </p>
 
 <p>
