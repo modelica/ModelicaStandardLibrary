@@ -1700,17 +1700,17 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
     model Vehicle1d "1-dimensional vehicle with driving resistances"
       extends Modelica.Icons.Example;
       import Modelica.Constants.g_n;
-      parameter Real cW=0.5 "Drag resistance coefficient";
+      parameter Real cw=0.5 "Drag resistance coefficient";
       parameter Modelica.SIunits.Density rho=1.18 "Density of air";
       parameter Modelica.SIunits.Area A=1 "Cross section of vehicle";
       parameter Modelica.SIunits.Velocity vWind=0 "Constant wind velocity";
-      parameter Real cR=0.1 "Rolling resistance coefficient";
+      parameter Real cr=0.1 "Rolling resistance coefficient";
       parameter Modelica.SIunits.Mass m=100 "Mass of vehicle";
       parameter Real inclination=0 "Inclination = tan(angle)";
       parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nom. speed";
-      final parameter Modelica.SIunits.Force FDrag=cW*A*rho*(vNom - vWind)^2/2 "Drag resistance";
+      final parameter Modelica.SIunits.Force FDrag=cw*A*rho*(vNom - vWind)^2/2 "Drag resistance";
       final parameter Modelica.SIunits.Angle alfa=atan(inclination) "Inclination angle";
-      final parameter Modelica.SIunits.Force FRoll=cR*m*g_n*cos(alfa) "Roll resistance";
+      final parameter Modelica.SIunits.Force FRoll=cr*m*g_n*cos(alfa) "Roll resistance";
       final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alfa) "Grav resistance";
       Modelica.Mechanics.Translational.Components.Mass mass(
         m=m,
@@ -1721,10 +1721,10 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.Translational.Sources.DrivingResistance
         drivingResistance(
-        CW=cW,
+        cw=cw,
         A=A,
-        VWind=vWind,
-        CR=cR,
+        vWindConstant=vWind,
+        crConstant=cr,
         m=m,
         useInclinationInput=true)
         annotation (Placement(transformation(extent={{70,-10},{50,10}})));
@@ -1744,8 +1744,8 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       connect(combiTimeTable.y[1], gain.u)
         annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
       connect(combiTimeTable.y[2], drivingResistance.inclination) annotation (
-          Line(points={{-59,0},{-50,0},{-50,-20},{80,-20},{80,0},{72,0}}, color
-            ={0,0,127}));
+          Line(points={{-59,0},{-50,0},{-50,-20},{80,-20},{80,0},{72,0}}, color=
+             {0,0,127}));
       annotation (experiment(StopTime=60, Interval=0.01), Documentation(info="<html>
 <p>
 Starting at 5 s, a vehicle is accelerated by double nominal force until it nearly reaches nominal speed, then driven by nominal force. 
@@ -5003,7 +5003,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
     end EddyCurrentForce;
 
     model DrivingResistance "Simple model of driving resistances"
-      parameter Real CW(start=0.5) "Drag resistance coefficient"
+      parameter Real cw(start=0.5) "Drag resistance coefficient"
         annotation(Dialog(group="Drag resistance"));
       parameter Modelica.SIunits.Density rho=1.18 "Density of air"
         annotation(Dialog(group="Drag resistance"));
@@ -5011,18 +5011,18 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         annotation(Dialog(group="Drag resistance"));
       parameter Boolean useWindInput=false "Use wind input?"
         annotation(Dialog(group="Drag resistance"));
-      parameter Modelica.SIunits.Velocity VWind=0 "Constant wind velocity"
+      parameter Modelica.SIunits.Velocity vWindConstant=0 "Constant wind velocity"
         annotation(Dialog(group="Drag resistance", enable=not useWindInput));
-      parameter Boolean usecRInput=false "Use cR input?"
+      parameter Boolean usecrInput=false "Use cr input?"
         annotation(Dialog(group="Rolling resistance"));
-      parameter Real CR(start=0.1) "Constant rolling resistance coefficient"
+      parameter Real crConstant(start=0.1) "Constant rolling resistance coefficient"
         annotation(Dialog(group="Rolling resistance", enable=not usecRInput));
       parameter Modelica.SIunits.Velocity vReg=1e-3 "Speed for regularization around 0"
         annotation(Dialog(group="Rolling resistance"));
       parameter Modelica.SIunits.Mass m(start=1000) "Mass of vehicle";
       parameter Modelica.SIunits.Acceleration g=Modelica.Constants.g_n "Gravitational acceleration";
       parameter Boolean useInclinationInput=false "Use inclination input?";
-      parameter Real Inclination=0 "Constant inclination = tan(angle)"
+      parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
         annotation(Dialog(enable=not useInclinationInput));
       Modelica.SIunits.Velocity v = der(flange.s) "Velocity of flange";
       Modelica.SIunits.Velocity vRel = v - vWind1 "Relative speed";
@@ -5039,35 +5039,35 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
       Modelica.Blocks.Interfaces.RealInput inclination if useInclinationInput
         "Inclination=tan(angle)"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.RealInput cR if usecRInput
+      Modelica.Blocks.Interfaces.RealInput cr if usecrInput
         "Rolling resistance coefficient"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
     protected
       Modelica.Blocks.Interfaces.RealInput vWind1 "Internal wind speed"
         annotation (Placement(transformation(extent={{-64,56},{-56,64}})));
-      Modelica.Blocks.Sources.Constant constWindSpeed(k=VWind) if not
+      Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not
         useWindInput annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-90,80})));
       Modelica.Blocks.Interfaces.RealInput inclination1 "Internal inclination"
         annotation (Placement(transformation(extent={{-62,-2},{-58,2}})));
-      Modelica.Blocks.Sources.Constant constInclination(k=Inclination) if not
+      Modelica.Blocks.Sources.Constant constInclination(k=inclinationConstant) if not
         useInclinationInput annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-90,30})));
-      Modelica.Blocks.Interfaces.RealInput cR1
+      Modelica.Blocks.Interfaces.RealInput cr1
         "Internal rolling resistance coefficient"
         annotation (Placement(transformation(extent={{-64,-64},{-56,-56}})));
-      Modelica.Blocks.Sources.Constant constcR(k=CR) if not usecRInput
+      Modelica.Blocks.Sources.Constant constcr(k=crConstant) if not usecrInput
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-90,-30})));
     equation
-      fDrag=CW*A*rho*abs(vRel)*vRel/2;
-      fRoll=cR1*m*g*cos(alfa)*(if abs(v)<vReg then v/vReg else sign(v));
+      fDrag=cw*A*rho*abs(vRel)*vRel/2;
+      fRoll=cr1*m*g*cos(alfa)*(if abs(v)<vReg then v/vReg else sign(v));
       fGrav=m*g*sin(alfa);
       flange.f=fDrag + fRoll + fGrav;
       connect(vWind, vWind1)
@@ -5078,11 +5078,11 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         annotation (Line(points={{-120,0},{-60,0}}, color={0,0,127}));
       connect(inclination1, constInclination.y) annotation (Line(points={{-60,0},{-70,
               0},{-70,30},{-79,30}}, color={0,0,127}));
-      connect(cR, cR1)
+      connect(cr,cr1)
         annotation (Line(points={{-120,-60},{-60,-60}}, color={0,0,127}));
-      connect(cR1, cR1)
+      connect(cr1,cr1)
         annotation (Line(points={{-60,-60},{-60,-60}}, color={0,0,127}));
-      connect(cR1, constcR.y) annotation (Line(points={{-60,-60},{-70,-60},{-70,-30},
+      connect(cr1,constcr. y) annotation (Line(points={{-60,-60},{-70,-60},{-70,-30},
               {-79,-30}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
             Rectangle(
