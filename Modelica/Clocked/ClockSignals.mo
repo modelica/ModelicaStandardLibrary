@@ -75,11 +75,11 @@ For an example, see
 
     block PeriodicExactClock
       "Generates a periodic clock signal with a period defined by an Integer number with resolution"
-      import R = Modelica.Clocked.Types.Resolution;
+      import Modelica.Clocked.Types.Resolution;
 
       parameter Integer factor(min=0)
         "Sample factor with respect to resolution"                               annotation(Evaluate=true);
-      parameter Clocked.Types.Resolution resolution=R.ms "Clock resolution"
+      parameter Clocked.Types.Resolution resolution=Resolution.ms "Clock resolution"
         annotation (Evaluate=true, __Dymola_editText=false);
       extends Clocked.ClockSignals.Interfaces.PartialPeriodicClock;
     protected
@@ -96,7 +96,7 @@ For an example, see
       // Using subSample works reliably up to 2^31 years according to the standard.
       //
       // There is no similar issue with the else-branch.
-      if resolution < R.s then
+      if resolution < Resolution.s then
          c = subSample(Clock(factor), resolutionFactor);
       else
          c = Clock(factor, resolutionFactor);
@@ -150,9 +150,10 @@ Example:
 </p>
 
 <pre>
-  import M = Modelica.Clocked;
-  M.Clocks.PeriodicExactClock periodicClock(factor=10,
-                                            resolution=M.Types.Resolution.ms);
+  import Modelica.Clocked.ClockSignals.Clocks;
+  import Modelica.Clocked.Types;
+  Clocks.PeriodicExactClock periodicClock(factor=10,
+                                          resolution=Types.Resolution.ms);
   // Clock ticks every 1/100 seconds
 </pre>
 

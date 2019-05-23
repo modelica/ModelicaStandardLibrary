@@ -315,7 +315,7 @@ taken into account the actual sample period.
         T=0.1,
         k=110) annotation (Placement(transformation(extent={{-14,0},{6,20}})));
     Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(factor=100,
-          resolution=Clocked.Types.Resolution.ms)
+          resolution=Modelica.Clocked.Types.Resolution.ms)
         annotation (Placement(transformation(extent={{-100,-46},{-88,-34}})));
     equation
       connect(speed.flange, load.flange_b)       annotation (Line(
@@ -1076,10 +1076,10 @@ defined by the super-sampling factor defined at the \"super\" block.
       Clocked.RealSignals.Sampler.SuperSample super(inferFactor=true)
         annotation (Placement(transformation(extent={{-28,4},{-16,16}})));
       Clocked.ClockSignals.Clocks.PeriodicExactClock slowClock(factor=10,
-          resolution=Clocked.Types.Resolution.ms)
+          resolution=Modelica.Clocked.Types.Resolution.ms)
         annotation (Placement(transformation(extent={{-128,-74},{-116,-62}})));
       Clocked.ClockSignals.Clocks.PeriodicExactClock fastClock(factor=2,
-          resolution=Clocked.Types.Resolution.ms)
+          resolution=Modelica.Clocked.Types.Resolution.ms)
         annotation (Placement(transformation(extent={{22,-76},{34,-64}})));
     equation
       connect(speed.flange, load.flange_b)       annotation (Line(
@@ -1204,10 +1204,10 @@ precisely time-synchronized to each other.
     model ControlledMixingUnit
       "Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller"
        extends Modelica.Icons.Example;
-    import SI = Modelica.SIunits;
-      parameter SI.Frequency freq = 1/300 "Critical frequency of filter";
+      import Modelica.SIunits;
+      parameter SIunits.Frequency freq = 1/300 "Critical frequency of filter";
       parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
-      parameter SI.Temperature T0 = 308.5 "Nominal temperature";
+      parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
       parameter Real a1_inv =  0.2674;
       parameter Real a21_inv = 1.815;
       parameter Real a22_inv = 0.4682;
@@ -1220,7 +1220,7 @@ precisely time-synchronized to each other.
       parameter Real u0 = -0.0224;
       final parameter Real c_start(unit="mol/l") = c0*(1-x10);
       final parameter Real c_inv_start(unit="mol/l") = c0*(1-x10_inv);
-      final parameter SI.Temperature T_start = T0*(1+x20);
+      final parameter SIunits.Temperature T_start = T0*(1+x20);
       final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72);
       final parameter Real T_c_start = T0*(1+u0);
       parameter Real pro=1.5 "Deviations of plant to inverse plant parameters";
@@ -1239,8 +1239,7 @@ precisely time-synchronized to each other.
         k0=k0_inv,
         eps=eps,
         c(start=c_start, fixed=true),
-        T(
-          start=T_start,
+        T(start=T_start,
           fixed=true,
           stateSelect=StateSelect.always),
         T_c(start=T_c_start))
@@ -2152,7 +2151,7 @@ initial equation
         extends Modelica.Icons.Package;
         model MixingUnit
           "Mixing unit demo from Foellinger, Nichtlineare Regelungen II, p. 280"
-        import SI = Modelica.SIunits;
+          import Modelica.SIunits;
           Modelica.Blocks.Interfaces.RealInput T_c(unit="K")
             "Cooling temperature"
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -2162,7 +2161,7 @@ initial equation
             "Temperature in mixing unit"
             annotation (Placement(transformation(extent={{100,-80},{140,-40}})));
           parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
-          parameter SI.Temperature T0 = 308.5 "Nominal temperature";
+          parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
           parameter Real a1 = 0.2674;
           parameter Real a21 = 1.815;
           parameter Real a22 = 0.4682;
@@ -2171,7 +2170,7 @@ initial equation
           parameter Real eps = 34.2894;
           Real gamma "Reaction speed";
         protected
-          parameter SI.Time tau0 = 60;
+          parameter SIunits.Time tau0 = 60;
           parameter Real wk0 = k0/c0;
           parameter Real weps = eps*T0;
           parameter Real wa11 = a1/tau0;
@@ -2227,12 +2226,12 @@ initial equation
         end MixingUnit;
 
         model MixingUnitWithContinuousControl
-           extends Modelica.Icons.Example;
-        import SI = Modelica.SIunits;
+          extends Modelica.Icons.Example;
+          import Modelica.SIunits;
 
-          parameter SI.Frequency freq = 1/300 "Critical frequency of filter";
+          parameter SIunits.Frequency freq = 1/300 "Critical frequency of filter";
           parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
-          parameter SI.Temperature T0 = 308.5 "Nominal temperature";
+          parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
           parameter Real a1_inv =  0.2674;
           parameter Real a21_inv = 1.815;
           parameter Real a22_inv = 0.4682;
@@ -2247,7 +2246,7 @@ initial equation
 
           final parameter Real c_start(unit="mol/l") = c0*(1-x10);
           final parameter Real c_inv_start(unit="mol/l") = c0*(1-x10_inv);
-          final parameter SI.Temperature T_start = T0*(1+x20);
+          final parameter SIunits.Temperature T_start = T0*(1+x20);
           final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72);
           final parameter Real T_c_start = T0*(1+u0);
 
@@ -2761,7 +2760,7 @@ sub-library.
         Clocked.RealSignals.Sampler.AssignClock assignClock
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(factor=20,
-            resolution=Clocked.Types.Resolution.ms)
+            resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-42,-2},{-30,10}})));
       equation
         connect(sine.y, sample.u) annotation (Line(
@@ -2793,7 +2792,7 @@ Example used to generate a figure for the documentation of block
         Clocked.RealSignals.Sampler.AssignClock assignClock
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(factor=20,
-            resolution=Clocked.Types.Resolution.ms)
+            resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-42,-2},{-30,10}})));
       Modelica.Blocks.Sources.Step step(startTime=0.1)
         annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3912,8 +3911,7 @@ sub-library.
 
       model Sample1 "Example of a Sample block for Integer signals"
        extends Modelica.Icons.Example;
-        Modelica.Clocked.IntegerSignals.Sampler.AssignClock
-                                                             assignClock
+        Modelica.Clocked.IntegerSignals.Sampler.AssignClock  assignClock
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
@@ -3948,8 +3946,7 @@ Elementary example for the documentation of block
       model Sample2
         "Example of a Sample block for Integer signals with direct feed-through in the continuous-time and the clocked partition"
        extends Modelica.Icons.Example;
-        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked
-                                                               sample1
+        Modelica.Clocked.IntegerSignals.Sampler.SampleClocked  sample1
           annotation (Placement(transformation(extent={{-60,24},{-48,36}})));
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
@@ -3957,11 +3954,9 @@ Elementary example for the documentation of block
       Modelica.Blocks.Sources.IntegerStep
                                    step(startTime=0.04)
         annotation (Placement(transformation(extent={{-96,20},{-76,40}})));
-        Modelica.Clocked.IntegerSignals.Sampler.Hold
-                                                      hold
+        Modelica.Clocked.IntegerSignals.Sampler.Hold  hold
           annotation (Placement(transformation(extent={{22,24},{34,36}})));
-        Modelica.Clocked.IntegerSignals.Sampler.Sample
-                                                        sample2
+        Modelica.Clocked.IntegerSignals.Sampler.Sample  sample2
           annotation (Placement(transformation(extent={{6,-6},{-6,6}})));
       Modelica.Blocks.MathInteger.Sum sum1(k={1,-1}, nu=2)
         annotation (Placement(transformation(extent={{-26,22},{-14,34}})));
@@ -4094,11 +4089,9 @@ Elementary example for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-      Modelica.Clocked.IntegerSignals.Sampler.Hold
-                                                    hold(y_start=-1)
+      Modelica.Clocked.IntegerSignals.Sampler.Hold  hold(y_start=-1)
         annotation (Placement(transformation(extent={{-8,24},{4,36}})));
-      Modelica.Clocked.IntegerSignals.Sampler.ShiftSample
-                                                           shiftSample(
+      Modelica.Clocked.IntegerSignals.Sampler.ShiftSample  shiftSample(
           shiftCounter=2)
         annotation (Placement(transformation(extent={{-30,24},{-18,36}})));
       equation
@@ -4135,8 +4128,7 @@ Elementary example for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica.Clocked.IntegerSignals.Sampler.SubSample
-                                                         subSample(
+      Modelica.Clocked.IntegerSignals.Sampler.SubSample  subSample(
           inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Blocks.Sources.IntegerTable table(table=[0,1; 0.05,2; 0.1,0; 0.15,-1;
@@ -4521,8 +4513,7 @@ sub-library.
 
       model Sample1 "Example of a Sample block for Boolean signals"
        extends Modelica.Icons.Example;
-        Modelica.Clocked.BooleanSignals.Sampler.AssignClock
-                                                             assignClock
+        Modelica.Clocked.BooleanSignals.Sampler.AssignClock  assignClock
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
@@ -4557,8 +4548,7 @@ Elementary example for the documentation of block
       model Sample2
         "Example of a Sample block for Boolean signals with direct feed-through in the continuous-time and the clocked partition"
        extends Modelica.Icons.Example;
-        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked
-                                                               sample1
+        Modelica.Clocked.BooleanSignals.Sampler.SampleClocked  sample1
           annotation (Placement(transformation(extent={{-60,24},{-48,36}})));
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
@@ -4566,11 +4556,9 @@ Elementary example for the documentation of block
       Modelica.Blocks.Sources.BooleanStep
                                    step(startTime=0.04)
         annotation (Placement(transformation(extent={{-96,20},{-76,40}})));
-        Modelica.Clocked.BooleanSignals.Sampler.Hold
-                                                      hold
+        Modelica.Clocked.BooleanSignals.Sampler.Hold  hold
           annotation (Placement(transformation(extent={{22,24},{34,36}})));
-        Modelica.Clocked.BooleanSignals.Sampler.Sample
-                                                        sample2
+        Modelica.Clocked.BooleanSignals.Sampler.Sample  sample2
           annotation (Placement(transformation(extent={{6,-6},{-6,6}})));
         Modelica.Blocks.Sources.BooleanConstant integerConstant(k=true)
           annotation (Placement(transformation(extent={{-38,51},{-18,71}})));
@@ -4700,11 +4688,9 @@ Elementary example for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-      Modelica.Clocked.BooleanSignals.Sampler.Hold
-                                                    hold(y_start=false)
+      Modelica.Clocked.BooleanSignals.Sampler.Hold  hold(y_start=false)
         annotation (Placement(transformation(extent={{-8,24},{4,36}})));
-      Modelica.Clocked.BooleanSignals.Sampler.ShiftSample
-                                                           shiftSample(
+      Modelica.Clocked.BooleanSignals.Sampler.ShiftSample  shiftSample(
           shiftCounter=2)
         annotation (Placement(transformation(extent={{-30,24},{-18,36}})));
       equation
@@ -4741,8 +4727,7 @@ Elementary example for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-62,-6},{-50,6}})));
-      Modelica.Clocked.BooleanSignals.Sampler.SubSample
-                                                         subSample(
+      Modelica.Clocked.BooleanSignals.Sampler.SubSample  subSample(
           inferFactor=false, factor=3)
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Blocks.Sources.BooleanTable table(table={0.05,0.15})
