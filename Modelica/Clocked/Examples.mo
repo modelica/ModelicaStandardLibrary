@@ -1636,7 +1636,7 @@ to beeing satisfied, i.e., the state when the clock last ticked.
       package ComponentsThrottleControl
         extends Modelica.Icons.Package;
         block ThrottleBody "Basic throttle body equations"
-          extends Modelica.Blocks.Interfaces.BlockIcon;
+          extends Modelica.Blocks.Icons.Block;
 
         parameter Real P_0 = 1 "Atmospheric pressure, bar";
         protected
@@ -1676,7 +1676,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
         end ThrottleBody;
 
         block IntakeManifold "Dynamics of the intake manifold"
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
           parameter Real RTVmRatio = 0.41328
             "RT/V_m TODO: What are sensible individual values of R,T, and V_m! (took same value like SIMULINK example for comparison reasons)";
           parameter Real P_0 = 0.543
@@ -1700,7 +1700,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
         end IntakeManifold;
 
         block TorqueGeneration
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
           parameter Real AFR = 14.6
             "air-fuel ratio (took same value like SIMULINK example for comparison reasons)";
           parameter Real sigma = 15.0
@@ -1939,7 +1939,7 @@ initial equation
 
         block CylinderAirCharge
           "Integrates the air mass flow into a cylinder. After the charge for one cylinder is complete, resets the mass to 0"
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
 
           Modelica.Blocks.Interfaces.RealOutput m_a
             "Mass of an cylinder air charge (g)"
@@ -1969,7 +1969,7 @@ initial equation
 
         block InductionToPowerDelay
           "Accounts for the induction-to-power stroke lag"
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
           Modelica.Blocks.Interfaces.RealInput m_a
             "Mass of cylinder air charge (g)"
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
