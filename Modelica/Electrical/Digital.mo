@@ -32,7 +32,7 @@ package Digital
 <ul>
 <li> Wrong identifiers x0 and Tdel in HalfAdder example fixed.</li>
 <li> Experiment command in FlipFlop example deleted.</li>
-<li> Known issue: Pulse source causes a warning in Dymola. It is recommended to use Clock source.</li>
+<li> Known issue: Pulse source causes a warning in Dymola. It is recommended to use DigitalClock source.</li>
 </ul>
 <h4>Version 1.0.4, 2004-09-30</h4>
 <ul>
@@ -49,7 +49,7 @@ package Digital
 <li> Icons for gates and sources improved.</li>
 <li> New examples added.</li>
 <li> Internal names for signals and ports unified.</li>
-<li> Simple Clock source added in addition to Pulse source (for convenience reasons).</li>
+<li> Simple DigitalClock source added in addition to Pulse source (for convenience reasons).</li>
 </ul>
 <h4>Version 1.0.2, 2004-09-13</h4>
 <ul>
@@ -543,14 +543,14 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1) annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}})));
-          D.Sources.DigitalClock Clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
+          D.Sources.DigitalClock clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}})));
           D.Examples.Utilities.Counter3 Counter
             annotation (Placement(transformation(extent={{-30,-40},{50,40}})));
         equation
           connect(Enable.y, Counter.enable) annotation (Line(
               points={{-50,28},{-30,28}}, color={127,0,127}));
-          connect(Clock.y, Counter.count) annotation (Line(
+          connect(clock.y, Counter.count) annotation (Line(
               points={{-50,-28},{-30,-28}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
@@ -566,7 +566,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1) annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}})));
-          D.Sources.DigitalClock Clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
+          D.Sources.DigitalClock clock(period=1, startTime=0, width=50) annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}})));
           D.Examples.Utilities.Counter Counter(n=4)
             annotation (Placement(transformation(extent={{-30,-40},{50,40}})));
@@ -581,7 +581,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(Enable.y, Counter.enable) annotation (Line(
               points={{-50,28},{-30,28}}, color={127,0,127}));
-          connect(Clock.y, Counter.count) annotation (Line(
+          connect(clock.y, Counter.count) annotation (Line(
               points={{-50,-28},{-30,-28}}, color={127,0,127}));
           connect(Q0.x[1], Counter.q[1]) annotation (Line(points={{71,-30},{58,-30},
                   {58,-24},{50,-24}}, color={127,0,127}));
