@@ -1687,7 +1687,7 @@ distribution have good statistical properties.
       Utilities.UniformDensity
                         uniformDensity(u_min=-4, u_max=4)
         annotation (Placement(transformation(extent={{10,20},{30,40}})));
-      Modelica.Blocks.Sources.Clock clock
+      Modelica.Blocks.Sources.ContinuousClock clock
     annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
       Modelica.Blocks.Sources.Constant const(k=-10)
     annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
