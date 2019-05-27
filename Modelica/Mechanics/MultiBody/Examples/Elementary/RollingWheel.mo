@@ -4,10 +4,10 @@ model RollingWheel
    extends Modelica.Icons.Example;
 
   Modelica.Mechanics.MultiBody.Parts.RollingWheel wheel1(
-    wheelRadius=0.3,
-    wheelMass=2,
-    wheel_I_axis=0.06,
-    wheel_I_long=0.12,
+    radius=0.3,
+    m=2,
+    I_axis=0.06,
+    I_long=0.12,
     hollowFraction=0.6,
     x(start=0.2),
     y(start=0.2),

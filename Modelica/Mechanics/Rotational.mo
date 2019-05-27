@@ -5068,7 +5068,7 @@ no rolling resistance. This component defines the kinematic constraint:
 </p>
 
 <pre>
-   (flangeR.phi - internalSupportR.phi)*wheelRadius = (flangeT.s - internalSupportT.s);
+   (flangeR.phi - internalSupportR.phi) * radius = (flangeT.s - internalSupportT.s);
 </pre>
 </html>"));
     end IdealRollingWheel;

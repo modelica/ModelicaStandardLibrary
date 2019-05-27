@@ -3402,7 +3402,7 @@ November 3-4, 2003, pp. 149-158</p>
         "Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis"
         annotation (Placement(transformation(extent={{-16,-16},{16,16}})));
 
-      parameter SI.Radius wheelRadius "Wheel radius";
+      parameter SI.Radius radius "Wheel radius";
       parameter StateSelect stateSelect=StateSelect.always
         "Priority to use generalized coordinates as states" annotation(HideResult=true,Evaluate=true);
 
@@ -3426,11 +3426,10 @@ November 3-4, 2003, pp. 149-158</p>
       SI.Force f_n "Contact force acting on wheel in normal direction";
       SI.Force f_lat "Contact force acting on wheel in lateral direction";
       SI.Force f_long "Contact force acting on wheel in longitudinal direction";
-      SI.Position err "|r_road_0 - frame_a.r_0| - wheelRadius (must be zero; used for checking)";
+      SI.Position err "|r_road_0 - frame_a.r_0| - radius (must be zero; used for checking)";
   protected
       Real e_axis_0[3] "Unit vector along wheel axis, resolved in world frame";
-      SI.Position delta_0[3](start={0,0,-wheelRadius})
-        "Distance vector from wheel center to contact point";
+      SI.Position delta_0[3](start={0,0,-radius}) "Distance vector from wheel center to contact point";
 
        // Coordinate system at contact point
       Real e_n_0[3]
@@ -3477,10 +3476,10 @@ November 3-4, 2003, pp. 149-158</p>
       0 = delta_0*e_long_0;
 
       // One holonomic positional constraint equation (no penetration in to the ground)
-      0 = wheelRadius - delta_0*cross(e_long_0, e_axis_0);
+      0 = radius - delta_0*cross(e_long_0, e_axis_0);
 
       // only for testing
-      err = Modelica.Math.Vectors.length(delta_0) - wheelRadius;
+      err = Modelica.Math.Vectors.length(delta_0) - radius;
 
       // Slip velocities
       v_0 = der(frame_a.r_0);
@@ -3557,8 +3556,8 @@ To work properly, the gravity acceleration vector g of the world must point in t
       parameter Boolean animation=true
       "= true, if animation of wheel set shall be enabled";
 
-      parameter SI.Radius wheelRadius "Radius of one wheel";
-      parameter SI.Distance wheelDistance "Distance between the two wheels";
+      parameter SI.Radius radius "Radius of one wheel";
+      parameter SI.Distance track "Distance between the two wheels (= axle track)";
 
       parameter StateSelect stateSelect = StateSelect.default
       "Priority to use the generalized coordinates as states";
@@ -3585,14 +3584,13 @@ To work properly, the gravity acceleration vector g of the world must point in t
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame2
       "Frame fixed in center point of right wheel (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{64,16},{96,-16}})));
-      Modelica.Mechanics.MultiBody.Parts.Fixed fixed(                 r={0,0,
-            wheelRadius}, animation=animation)
-                          annotation (Placement(transformation(
+      Modelica.Mechanics.MultiBody.Parts.Fixed fixed(
+        r={0,0,radius}, animation=animation) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={0,-90})));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(                 r={
-            0,wheelDistance/2,0}, animation=animation)
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(
+        r={0,track/2,0}, animation=animation)
         annotation (Placement(transformation(extent={{-10,-10},{-30,10}})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic1(animation=
             animation) annotation (Placement(transformation(
@@ -3609,8 +3607,8 @@ To work properly, the gravity acceleration vector g of the world must point in t
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={0,-22})));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(                 r={
-            0,-wheelDistance/2,0}, animation=animation)
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
+        r={0,-track/2,0}, animation=animation)
         annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(
         n={0,1,0},
@@ -3623,11 +3621,10 @@ To work properly, the gravity acceleration vector g of the world must point in t
         animation=animation)
         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel
-      rolling1(                             radius=wheelRadius)
+      rolling1(radius=radius)
         annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
       Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel
-      rolling2(                             radius=wheelRadius,
-          lateralSlidingConstraint=false)
+      rolling2(radius=radius, lateralSlidingConstraint=false)
         annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis1
       "1-dim. rotational flange that drives the joint"
@@ -3639,7 +3636,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
         annotation (Placement(transformation(extent={{-10,38},{10,58}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b support
       "Support of 1D axes" annotation (Placement(transformation(extent={{-10,70},
-              {10,90}}),       iconTransformation(extent={{-10,70},{10,90}})));
+              {10,90}}), iconTransformation(extent={{-10,70},{10,90}})));
     equation
       prismatic1.s  = x;
       prismatic2.s  = y;

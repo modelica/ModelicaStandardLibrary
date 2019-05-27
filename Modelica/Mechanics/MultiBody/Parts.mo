@@ -2562,10 +2562,10 @@ November 3-4, 2003, pp. 149-158
     parameter Boolean animation=true
       "= true, if animation of wheel shall be enabled";
 
-    parameter SI.Radius wheelRadius "Radius of wheel";
-    parameter SI.Mass wheelMass "Mass of wheel";
-    parameter SI.Inertia wheel_I_axis "Inertia along the wheel axis";
-    parameter SI.Inertia wheel_I_long "Inertia perpendicular to the wheel axis";
+    parameter SI.Radius radius "Radius of wheel";
+    parameter SI.Mass m "Mass of wheel";
+    parameter SI.Inertia I_axis "Inertia along the wheel axis";
+    parameter SI.Inertia I_long "Inertia perpendicular to the wheel axis";
     parameter StateSelect stateSelect=StateSelect.always
       "Priority to use generalized coordinates as states"
       annotation (HideResult=true, Evaluate=true);
@@ -2602,8 +2602,8 @@ November 3-4, 2003, pp. 149-158
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
-      "Color of wheel" annotation (Dialog(
+    parameter Types.Color color={30,30,30} "Color of wheel"
+      annotation (Dialog(
         colorSelector=true,
         tab="Animation",
         group="if animation = true",
@@ -2611,10 +2611,10 @@ November 3-4, 2003, pp. 149-158
 
     Modelica.Mechanics.MultiBody.Parts.Body body(
       final r_CM={0,0,0},
-      final m=wheelMass,
-      final I_11=wheel_I_long,
-      final I_22=wheel_I_axis,
-      final I_33=wheel_I_long,
+      final m=m,
+      final I_11=I_long,
+      final I_22=I_axis,
+      final I_33=I_long,
       final I_21=0,
       final I_31=0,
       final I_32=0,
@@ -2624,8 +2624,8 @@ November 3-4, 2003, pp. 149-158
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
       "Frame fixed in wheel center point (y-axis: along wheel axis, z-axis: upwards)"
       annotation (Placement(transformation(extent={{-16,-16},{16,16}})));
-    Modelica.Mechanics.MultiBody.Joints.RollingWheel rollingWheel(wheelRadius=
-          wheelRadius, stateSelect=StateSelect.avoid)
+    Modelica.Mechanics.MultiBody.Joints.RollingWheel rollingWheel(
+      radius=radius, stateSelect=StateSelect.avoid)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Mechanics.MultiBody.Visualizers.FixedShape fixedShape(
       final animation=animation,
@@ -2633,9 +2633,9 @@ November 3-4, 2003, pp. 149-158
       final lengthDirection={0,1,0},
       final widthDirection={1,0,0},
       final length=2*width,
-      final width=2*wheelRadius,
-      final height=2*wheelRadius,
-      final color=wheelColor,
+      final width=2*radius,
+      final height=2*radius,
+      final color=color,
       final extra=hollowFraction,
       final shapeType="pipe") if animation
       annotation (Placement(transformation(extent={{20,20},{40,40}})));
@@ -2713,11 +2713,11 @@ To work properly, the gravity acceleration vector g of the world must point in t
     parameter Boolean animation=true
       "= true, if animation of wheel set shall be enabled";
 
-    parameter SI.Radius wheelRadius "Radius of one wheel";
-    parameter SI.Mass wheelMass "Mass of one wheel";
-    parameter SI.Inertia wheel_I_axis "Inertia along one wheel axis";
-    parameter SI.Inertia wheel_I_long "Inertia perpendicular to one wheel axis";
-    parameter SI.Distance wheelDistance "Distance between the two wheels";
+    parameter SI.Radius R_wheel "Radius of one wheel";
+    parameter SI.Mass m_wheel "Mass of one wheel";
+    parameter SI.Inertia I_wheelAxis "Inertia along one wheel axis";
+    parameter SI.Inertia I_wheelLong "Inertia perpendicular to one wheel axis";
+    parameter SI.Distance track "Distance between the two wheels (= axle track)";
     parameter StateSelect stateSelect=StateSelect.always
       "Priority to use the generalized coordinates as states";
 
@@ -2750,7 +2750,8 @@ To work properly, the gravity acceleration vector g of the world must point in t
       fixed=true,
       stateSelect=stateSelect) "Derivative of theta 2";
 
-    parameter SI.Distance wheelWidth=0.01 "Width of one wheel" annotation (
+    parameter SI.Distance width_wheel=0.01 "Width of one wheel"
+      annotation (
         Dialog(
         tab="Animation",
         group="if animation = true",
@@ -2761,8 +2762,8 @@ To work properly, the gravity acceleration vector g of the world must point in t
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
-      "Color of wheels" annotation (Dialog(
+    parameter Types.Color color={30,30,30} "Color of wheels"
+      annotation (Dialog(
         colorSelector=true,
         tab="Animation",
         group="if animation = true",
@@ -2781,10 +2782,10 @@ To work properly, the gravity acceleration vector g of the world must point in t
       final I_31=0,
       final I_32=0,
       animation=false,
-      final m=wheelMass,
-      final I_11=wheel_I_long,
-      final I_22=wheel_I_axis,
-      final I_33=wheel_I_long) annotation (Placement(transformation(
+      final m=m_wheel,
+      final I_11=I_wheelLong,
+      final I_22=I_wheelAxis,
+      final I_33=I_wheelLong) annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
           rotation=-90,
           origin={60,30})));
@@ -2792,14 +2793,13 @@ To work properly, the gravity acceleration vector g of the world must point in t
       final animation=animation,
       final lengthDirection={0,1,0},
       final widthDirection={1,0,0},
-      final color=wheelColor,
+      final color=color,
       final extra=hollowFraction,
       final shapeType="pipe",
-      final r_shape={0,-wheelWidth,0},
-      final length=2*wheelWidth,
-      final width=2*wheelRadius,
-      final height=2*wheelRadius) if animation annotation (Placement(
-          transformation(
+      final r_shape={0,-width_wheel,0},
+      final length=2*width_wheel,
+      final width=2*R_wheel,
+      final height=2*R_wheel) if animation annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
           rotation=90,
           origin={60,-38})));
@@ -2809,10 +2809,10 @@ To work properly, the gravity acceleration vector g of the world must point in t
       final I_31=0,
       final I_32=0,
       animation=false,
-      final m=wheelMass,
-      final I_11=wheel_I_long,
-      final I_22=wheel_I_axis,
-      final I_33=wheel_I_long) annotation (Placement(transformation(
+      final m=m_wheel,
+      final I_11=I_wheelLong,
+      final I_22=I_wheelAxis,
+      final I_33=I_wheelLong) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-60,30})));
@@ -2820,14 +2820,13 @@ To work properly, the gravity acceleration vector g of the world must point in t
       final animation=animation,
       final lengthDirection={0,1,0},
       final widthDirection={1,0,0},
-      final color=wheelColor,
+      final color=color,
       final extra=hollowFraction,
       final shapeType="pipe",
-      final r_shape={0,-wheelWidth,0},
-      final length=2*wheelWidth,
-      final width=2*wheelRadius,
-      final height=2*wheelRadius) if animation annotation (Placement(
-          transformation(
+      final r_shape={0,-width_wheel,0},
+      final length=2*width_wheel,
+      final width=2*R_wheel,
+      final height=2*R_wheel) if animation annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=-90,
           origin={-60,-40})));
@@ -2839,8 +2838,8 @@ To work properly, the gravity acceleration vector g of the world must point in t
       annotation (Placement(transformation(extent={{90,90},{110,110}})));
     Modelica.Mechanics.MultiBody.Joints.RollingWheelSet wheelSetJoint(
       animation=false,
-      wheelRadius=wheelRadius,
-      wheelDistance=wheelDistance,
+      radius=R_wheel,
+      track=track,
       stateSelect=StateSelect.default,
       x(fixed=false),
       y(fixed=false),
