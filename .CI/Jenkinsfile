@@ -172,11 +172,13 @@ def autotools(CC, CPPFLAGS, config, nostatic, dotest) {
   make --output-sync -j${numPhysicalCPU()}
   make install
   """
-  sh label: "Test $CC", script: """
-  export CC=$CC
-  cd .CI/Test
-  ${dotest ? "./test.sh $nostatic" : ""}
-  """
+  if (dotest) {
+    sh label: "Test $CC", script: """
+    export CC=$CC
+    cd .CI/Test
+    ./test.sh $nostatic
+    """
+  }
 }
 
 def makefile(CC, dotest) {
