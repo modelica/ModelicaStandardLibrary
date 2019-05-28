@@ -118,7 +118,7 @@ variable <strong>y</strong> is both a variable and a connector.
 
   end BooleanExpression;
 
-  block ContinuousClock "Generate actual time signal"
+  block ContinuousClock "Generate current time signal"
     extends Interfaces.SignalSource;
 
   equation
