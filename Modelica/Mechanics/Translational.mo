@@ -1697,7 +1697,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
 </html>"));
     end EddyCurrentBrake;
 
-    model Vehicle1d "1-dimensional vehicle with driving resistances"
+    model Vehicle1D "One-dimensional vehicle with driving resistances"
       extends Modelica.Icons.Example;
       import Modelica.Constants.g_n;
       parameter Real cw=0.5 "Drag resistance coefficient";
@@ -1753,7 +1753,7 @@ Between 20 s and 25 s, an inclination of 5% occurs and driving force is increase
 At 50 s, the driving force is set to zero, causing the vehicle to decelerate due to the driving resistances.
 </p>
 </html>"));
-    end Vehicle1d;
+    end Vehicle1D;
 
     model GenerationOfFMUs
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
@@ -5107,7 +5107,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
             coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
-Drag resistance: fDrag = cW*rho*A*(v - vWind)^2/2<br>
+Drag resistance: fDrag = cw*rho*A*(v - vWind)^2/2<br>
 Wind speed is measured in the same direction as velocity of flange.<br>
 Wind speed is either constant or prescribed by the input vWind.
 </p>
@@ -5116,8 +5116,8 @@ Inclination is either constant or prescribed by the input inclination = tan(incl
 Positive inclination means driving upwards, negative inclination means driving downwards. 
 </p>
 <p>
-Roll resistance: fRoll = cR*m*g*cos(alfa)<br>
-Rolling resistance coeffcient is either constant or prescribed by the input cR.<br>
+Roll resistance: fRoll = cr*m*g*cos(alfa)<br>
+Rolling resistance coeffcient is either constant or prescribed by the input cr.<br>
 Rolling resistance has a linear crossover from positive to negative speed.
 </p>
 <p>
