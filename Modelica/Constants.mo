@@ -26,29 +26,32 @@ package Constants
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
 
   // Constants of nature
-  // (name, value, description from http://physics.nist.gov/cuu/Constants/index.html, data from 2014)
+  // (name, value, description from https://www.bipm.org/en/CGPM/db/26/1/, effective from May 20, 2019)
+  // The values for c, q, h, k, N_A are exact and part of the basis of the SI-system
+  // Note that the elementary charge uses the common alternate name q since e was taken.
+  // The values for F, R, sigma, mue_0, epsilson_0 are also exact.
+  // Note that T_zero is not exact, instead the triple point of water is 273.16 K.
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
   final constant Real G(final unit="m3/(kg.s2)") = 6.67408e-11
-    "Newtonian constant of gravitation (previous value: 6.6742e-11)";
-  final constant SI.FaradayConstant F = 9.648533289e4
-    "Faraday constant, C/mol (previous value: 9.64853399e4)";
-  final constant Real h(final unit="J.s") = 6.626070040e-34
-    "Planck constant (previous value: 6.6260693e-34)";
-  final constant Real k(final unit="J/K") = 1.38064852e-23
-    "Boltzmann constant (previous value: 1.3806505e-23)";
-  final constant Real R(final unit="J/(mol.K)") = 8.3144598
-    "Molar gas constant (previous value: 8.314472)";
-  final constant Real sigma(final unit="W/(m2.K4)") = 5.670367e-8
-    "Stefan-Boltzmann constant (previous value: 5.670400e-8)";
-  final constant Real N_A(final unit="1/mol") = 6.022140857e23
-    "Avogadro constant (previous value: 6.0221415e23)";
+    "Newtonian constant of gravitation";
+  final constant SI.ElectricCharge q = 1.602176634e-19 "Elementary charge";
+  final constant SI.FaradayConstant F = q*N_A
+    "Faraday constant, C/mol";
+  final constant Real h(final unit="J.s") = 6.62607015e-34
+    "Planck constant";
+  final constant Real k(final unit="J/K") = 1.380649e-23
+    "Boltzmann constant";
+  final constant Real R(final unit="J/(mol.K)") = k*N_A
+    "Molar gas constant";
+  final constant Real sigma(final unit="W/(m2.K4)") = 2*pi^5*k^4/(15*h^3*c^2)
+    "Stefan-Boltzmann constant ";
+  final constant Real N_A(final unit="1/mol") = 6.02214076e23
+    "Avogadro constant";
   final constant Real mu_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
   final constant Real epsilon_0(final unit="F/m") = 1/(mu_0*c*c)
     "Electric constant";
-  final constant Modelica.SIunits.ElectricCharge q = Modelica.Constants.F/Modelica.Constants.N_A
-      "Elementary charge (electron charge without sign) = 1.602177e-19 C";
   final constant NonSI.Temperature_degC T_zero=-273.15
     "Absolute zero temperature";
   annotation (
@@ -56,16 +59,21 @@ package Constants
 <p>
 This package provides often needed constants from mathematics, machine
 dependent constants and constants from nature. The latter constants
-(name, value, description) are from the following source:
+(name, value, description) are from the following source (based on the second source):
 </p>
-
 <dl>
-<dt>Peter J. Mohr, David B. Newell, and Barry N. Taylor:</dt>
-<dd><strong>CODATA Recommended Values of the Fundamental Physical Constants: 2014</strong>.
-<a href= \"http://dx.doi.org/10.5281/zenodo.22826\">http://dx.doi.org/10.5281/zenodo.22826</a>, 2015. See also <a href=
-\"http://physics.nist.gov/cuu/Constants/index.html\">http://physics.nist.gov/cuu/Constants/index.html</a></dd>
+<dt>Michael Stock, Richard Davis, Estefan&iacute;a de Mirand&eacute;s and Martin J T Milton:</dt>
+<dd><b>The revision of the SI-the result of three decades of progress in metrology</b> in Metrologia, Volume 56, Number 2.
+<a href= \"https://iopscience.iop.org/article/10.1088/1681-7575/ab0013/pdf\">https://iopscience.iop.org/article/10.1088/1681-7575/ab0013/pdf</a>, 2019.
+</dd>
 </dl>
-
+<dl>
+<dt>D B Newell, F Cabiati, J Fischer, K Fujii, S G Karshenboim, H S Margolis , E de Mirand&eacute;s, P J Mohr, F Nez, K Pachucki, T J Quinn, B N Taylor, M Wang, B M Wood and Z Zhang:</dt>
+<dd><b>The CODATA 2017 values of h, e, k, and NA for the revision of the SI</b> in Metrologia, Volume 55, Number 1.
+<a href= \"https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf\">https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf</a>, 2017.
+</dd>
+</dl>
+<p>BIPM is Bureau International des Poids et Mesures (they publish the SI-standard).<p>
 <p>CODATA is the Committee on Data for Science and Technology.</p>
 
 <dl>
@@ -83,6 +91,9 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
+<li><em>Mar 25, 2019</em>
+       by Hans Olsson:<br>
+       Constants updated according to 2017 CODATA values and new SI-standard.</li>
 <li><em>Nov 4, 2015</em>
        by Thomas Beutlich:<br>
        Constants updated according to 2014 CODATA values.</li>
