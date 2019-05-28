@@ -4732,9 +4732,9 @@ blocks of Modelica.Blocks.Source.
     model LinearSpeedDependentForce "Linear dependency of force versus speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       parameter Modelica.SIunits.Force f_nominal
-        "Nominal force (if negative, force is acting as load)";
+        "Nominal force (if negative, force is acting as load in positive direction of motion)";
       parameter Boolean ForceDirection=true
-        "Same direction of force in both directions of movement";
+        "Same direction of force in both directions of motion";
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
       Modelica.SIunits.Velocity v
@@ -4765,9 +4765,9 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       "Quadratic dependency of force versus speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       parameter Modelica.SIunits.Force f_nominal
-        "Nominal force (if negative, force is acting as load)";
+        "Nominal force (if negative, force is acting as load in positive direction of motion)";
       parameter Boolean ForceDirection=true
-        "Same direction of force in both directions of movement";
+        "Same direction of force in both directions of motion";
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
       Modelica.SIunits.Velocity v
@@ -4798,7 +4798,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
     model ConstantForce "Constant force, not dependent on speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       parameter Modelica.SIunits.Force f_constant
-        "Nominal force (if negative, force is acting as load)";
+        "Nominal force (if negative, force is acting as load in positive direction of motion)";
     equation
       f = -f_constant;
       annotation (
