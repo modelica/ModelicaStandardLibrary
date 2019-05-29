@@ -178,8 +178,8 @@ extends Modelica.Icons.ExamplesPackage;
       crConstant=0.25,
       A=1,
       vReg=0.1,
-      m=mass6.m,
-      useInclinationInput=true)
+      Fn=mass6.m*Modelica.Constants.g_n,
+      enableInclinationInput=true)
       annotation (Placement(transformation(extent={{40,-80},{20,-60}})));
     Modelica.Blocks.Sources.Step step(
       height=-0.2,

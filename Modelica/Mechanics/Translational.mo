@@ -1725,7 +1725,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         A=A,
         vWindConstant=vWind,
         crConstant=cr,
-        m=m,
+        Fn=m*g_n,
         enableInclinationInput=true)
         annotation (Placement(transformation(extent={{70,-10},{50,10}})));
       Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,0,0; 5,0,0;
@@ -5019,8 +5019,9 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         annotation(Dialog(group="Rolling resistance", enable=not usecRInput));
       parameter Modelica.SIunits.Velocity vReg=1e-3 "Speed for regularization around 0"
         annotation(Dialog(group="Rolling resistance"));
-      parameter Modelica.SIunits.Mass m(start=1000) "Mass of vehicle";
-      parameter Modelica.SIunits.Acceleration g=Modelica.Constants.g_n "Gravitational acceleration";
+      parameter Modelica.SIunits.Force Fn
+                                         "Normal (gravitational) force"
+        annotation(Dialog(group="Rolling resistance"));
       parameter Boolean enableInclinationInput=false "Enable signal input for inclination";
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
         annotation(Dialog(enable=not useInclinationInput));
@@ -5066,9 +5067,9 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
             rotation=0,
             origin={-90,-30})));
     equation
-      fDrag=cw*A*rho*abs(vRel)*vRel/2;
-      fRoll=cr1*m*g*cos(alfa)*(if abs(v)<vReg then v/vReg else sign(v));
-      fGrav=m*g*sin(alfa);
+      fDrag=cw*A*rho*vRel^2/2*sign(v);
+      fRoll=cr1*Fn*cos(alfa)*(if abs(v)<vReg then v/vReg else sign(v));
+      fGrav=Fn*sin(alfa);
       flange.f=fDrag + fRoll + fGrav;
       connect(vWind, vWind1)
         annotation (Line(points={{-120,60},{-60,60}}, color={0,0,127}));
