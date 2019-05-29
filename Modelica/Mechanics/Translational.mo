@@ -1706,12 +1706,17 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       parameter Modelica.SIunits.Velocity vWind=0 "Constant wind velocity";
       parameter Real cr=0.1 "Rolling resistance coefficient";
       parameter Modelica.SIunits.Mass m=100 "Mass of vehicle";
-      parameter Real inclination=0 "Inclination = tan(angle)";
-      parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nom. speed";
-      final parameter Modelica.SIunits.Force FDrag=cw*A*rho*(vNom - vWind)^2/2 "Drag resistance";
-      final parameter Modelica.SIunits.Angle alfa=atan(inclination) "Inclination angle";
-      final parameter Modelica.SIunits.Force FRoll=cr*m*g_n*cos(alfa) "Roll resistance";
-      final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alfa) "Grav resistance";
+      //Check nominal force
+      parameter Real inclination=0 "Constant inclination = tan(angle)";
+      parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nominal speed";
+      final parameter Modelica.SIunits.Force FDrag=cw*A*rho*(vNom - vWind)^2/2 "Drag resistance"
+        annotation(Dialog(enable=false));
+      final parameter Modelica.SIunits.Angle alpha=atan(inclination) "Inclination angle"
+        annotation(Dialog(enable=false));
+      final parameter Modelica.SIunits.Force FRoll=cr*m*g_n*cos(alpha) "Roll resistance"
+        annotation(Dialog(enable=false));
+      final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alpha) "Grav resistance"
+        annotation(Dialog(enable=false));
       Modelica.Mechanics.Translational.Components.Mass mass(
         m=m,
         s(fixed=true),
@@ -5012,22 +5017,21 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
       parameter Boolean enableWindInput=false "Enable signal input for wind speed"
         annotation(Dialog(group="Drag resistance"));
       parameter Modelica.SIunits.Velocity vWindConstant=0 "Constant wind velocity"
-        annotation(Dialog(group="Drag resistance", enable=not useWindInput));
+        annotation(Dialog(group="Drag resistance", enable=not enableWindInput));
       parameter Boolean enablecrInput=false "Enable signal input for cr"
         annotation(Dialog(group="Rolling resistance"));
-      parameter Real crConstant(start=0.1) "Constant rolling resistance coefficient"
-        annotation(Dialog(group="Rolling resistance", enable=not usecRInput));
+      parameter Real crConstant=0.1 "Constant rolling resistance coefficient"
+        annotation(Dialog(group="Rolling resistance", enable=not enablecrInput));
       parameter Modelica.SIunits.Velocity vReg=1e-3 "Speed for regularization around 0"
         annotation(Dialog(group="Rolling resistance"));
-      parameter Modelica.SIunits.Force Fn
-                                         "Normal (gravitational) force"
+      parameter Modelica.SIunits.Force Fn "Normal (gravitational) force"
         annotation(Dialog(group="Rolling resistance"));
       parameter Boolean enableInclinationInput=false "Enable signal input for inclination";
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
-        annotation(Dialog(enable=not useInclinationInput));
+        annotation(Dialog(enable=not enableInclinationInput));
       Modelica.SIunits.Velocity v = der(flange.s) "Velocity of flange";
       Modelica.SIunits.Velocity vRel = v - vWind1 "Relative speed";
-      Modelica.SIunits.Angle alfa = atan(inclination1) "Inclination angle";
+      Modelica.SIunits.Angle alpha = atan(inclination1) "Inclination angle";
       Modelica.SIunits.Force fDrag "Drag resistance";
       Modelica.SIunits.Force fRoll "Rolling resistance";
       Modelica.SIunits.Force fGrav "Gravitational resistance";
@@ -5068,8 +5072,8 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
             origin={-90,-30})));
     equation
       fDrag=cw*A*rho*vRel^2/2*sign(v);
-      fRoll=cr1*Fn*cos(alfa)*(if abs(v)<vReg then v/vReg else sign(v));
-      fGrav=Fn*sin(alfa);
+      fRoll=cr1*Fn*cos(alpha)*(if abs(v)<vReg then v/vReg else sign(v));
+      fGrav=Fn*sin(alpha);
       flange.f=fDrag + fRoll + fGrav;
       connect(vWind, vWind1)
         annotation (Line(points={{-120,60},{-60,60}}, color={0,0,127}));
