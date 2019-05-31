@@ -5071,7 +5071,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
             rotation=0,
             origin={-90,-30})));
     equation
-      fDrag=cw*A*rho*vRel^2/2*sign(v);
+      fDrag=cw*A*rho*abs(vRel)*vRel/2;
       fRoll=cr1*Fn*cos(alpha)*(if abs(v)<vReg then v/vReg else sign(v));
       fGrav=Fn*sin(alpha);
       flange.f=fDrag + fRoll + fGrav;
