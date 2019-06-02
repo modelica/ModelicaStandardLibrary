@@ -1697,6 +1697,69 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
 </html>"));
     end EddyCurrentBrake;
 
+    model Vehicle1D "One-dimensional vehicle with driving resistances"
+      extends Modelica.Icons.Example;
+      import Modelica.Constants.g_n;
+      parameter Real cw=0.5 "Drag resistance coefficient";
+      parameter Modelica.SIunits.Density rho=1.18 "Density of air";
+      parameter Modelica.SIunits.Area A=1 "Cross section of vehicle";
+      parameter Modelica.SIunits.Velocity vWind=0 "Constant wind velocity";
+      parameter Real cr=0.1 "Rolling resistance coefficient";
+      parameter Modelica.SIunits.Mass m=100 "Mass of vehicle";
+      //Check nominal force
+      parameter Real inclination=0 "Constant inclination = tan(angle)";
+      parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nominal speed";
+      final parameter Modelica.SIunits.Force FDrag=cw*A*rho*(vNom - vWind)^2/2 "Drag resistance"
+        annotation(Dialog(enable=false));
+      final parameter Modelica.SIunits.Angle alpha=atan(inclination) "Inclination angle"
+        annotation(Dialog(enable=false));
+      final parameter Modelica.SIunits.Force FRoll=cr*m*g_n*cos(alpha) "Roll resistance"
+        annotation(Dialog(enable=false));
+      final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alpha) "Grav resistance"
+        annotation(Dialog(enable=false));
+      Modelica.Mechanics.Translational.Components.Mass mass(
+        m=m,
+        s(fixed=true),
+        v(fixed=true))
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+      Modelica.Mechanics.Translational.Sources.Force force
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      Modelica.Mechanics.Translational.Sources.DrivingResistance
+        drivingResistance(
+        cw=cw,
+        A=A,
+        vWindConstant=vWind,
+        crConstant=cr,
+        Fn=m*g_n,
+        enableInclinationInput=true)
+        annotation (Placement(transformation(extent={{70,-10},{50,10}})));
+      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,0,0; 5,0,0;
+            5,2,0; 10.8,2,0; 10.8,1,0; 20,1,0; 20,1.4,0.05; 25,1.4,0.05; 25,1,0;
+            50,1,0; 50,0,0; 60,0,0], extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Modelica.Blocks.Math.Gain gain(k=FDrag + FRoll + FGrav)
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    equation
+      connect(mass.flange_b, drivingResistance.flange)
+        annotation (Line(points={{40,0},{50,0}}, color={0,127,0}));
+      connect(force.flange, mass.flange_a)
+        annotation (Line(points={{10,0},{20,0}},   color={0,127,0}));
+      connect(gain.y, force.f)
+        annotation (Line(points={{-19,0},{-12,0}}, color={0,0,127}));
+      connect(combiTimeTable.y[1], gain.u)
+        annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
+      connect(combiTimeTable.y[2], drivingResistance.inclination) annotation (
+          Line(points={{-59,0},{-50,0},{-50,-20},{80,-20},{80,0},{72,0}}, color=
+             {0,0,127}));
+      annotation (experiment(StopTime=60, Interval=0.01), Documentation(info="<html>
+<p>
+Starting at 5 s, a vehicle is accelerated by double nominal force until it nearly reaches nominal speed, then driven by nominal force. 
+Between 20 s and 25 s, an inclination of 5% occurs and driving force is increased by 40% temprorarily. 
+At 50 s, the driving force is set to zero, causing the vehicle to decelerate due to the driving resistances.
+</p>
+</html>"));
+    end Vehicle1D;
+
     model GenerationOfFMUs
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
       extends Modelica.Icons.Example;
@@ -4943,6 +5006,130 @@ If the heatPort is not used (useHeatPort = false), the operational temperature r
 However, the speed v_nominal at which the maximum torque occurs is adapted from reference temperature TRef to the operational temperature.</p>
 </html>"));
     end EddyCurrentForce;
+
+    model DrivingResistance "Simple model of driving resistances"
+      parameter Real cw(start=0.5) "Drag resistance coefficient"
+        annotation(Dialog(group="Drag resistance"));
+      parameter Modelica.SIunits.Density rho=1.18 "Density of air"
+        annotation(Dialog(group="Drag resistance"));
+      parameter Modelica.SIunits.Area A(start=1) "Cross section of vehicle"
+        annotation(Dialog(group="Drag resistance"));
+      parameter Boolean enableWindInput=false "Enable signal input for wind speed"
+        annotation(Dialog(group="Drag resistance"));
+      parameter Modelica.SIunits.Velocity vWindConstant=0 "Constant wind velocity"
+        annotation(Dialog(group="Drag resistance", enable=not enableWindInput));
+      parameter Boolean enablecrInput=false "Enable signal input for cr"
+        annotation(Dialog(group="Rolling resistance"));
+      parameter Real crConstant=0.1 "Constant rolling resistance coefficient"
+        annotation(Dialog(group="Rolling resistance", enable=not enablecrInput));
+      parameter Modelica.SIunits.Velocity vReg=1e-3 "Speed for regularization around 0"
+        annotation(Dialog(group="Rolling resistance"));
+      parameter Modelica.SIunits.Force Fn "Normal (gravitational) force"
+        annotation(Dialog(group="Rolling resistance"));
+      parameter Boolean enableInclinationInput=false "Enable signal input for inclination";
+      parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
+        annotation(Dialog(enable=not enableInclinationInput));
+      Modelica.SIunits.Velocity v = der(flange.s) "Velocity of flange";
+      Modelica.SIunits.Velocity vRel = v - vWind1 "Relative speed";
+      Modelica.SIunits.Angle alpha = atan(inclination1) "Inclination angle";
+      Modelica.SIunits.Force fDrag "Drag resistance";
+      Modelica.SIunits.Force fRoll "Rolling resistance";
+      Modelica.SIunits.Force fGrav "Gravitational resistance";
+      Modelica.Mechanics.Translational.Interfaces.Flange_b flange
+        "Flange of component"
+        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+      Modelica.Blocks.Interfaces.RealInput vWind(unit="m/s") if enableWindInput
+        "Wind speed"
+        annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+      Modelica.Blocks.Interfaces.RealInput inclination if enableInclinationInput
+        "Inclination=tan(angle)"
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+      Modelica.Blocks.Interfaces.RealInput cr if enablecrInput
+        "Rolling resistance coefficient"
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
+    protected
+      Modelica.Blocks.Interfaces.RealInput vWind1 "Internal wind speed"
+        annotation (Placement(transformation(extent={{-64,56},{-56,64}})));
+      Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not enableWindInput
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-90,80})));
+      Modelica.Blocks.Interfaces.RealInput inclination1 "Internal inclination"
+        annotation (Placement(transformation(extent={{-62,-2},{-58,2}})));
+      Modelica.Blocks.Sources.Constant constInclination(k=inclinationConstant) if not enableInclinationInput
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-90,30})));
+      Modelica.Blocks.Interfaces.RealInput cr1
+        "Internal rolling resistance coefficient"
+        annotation (Placement(transformation(extent={{-64,-64},{-56,-56}})));
+      Modelica.Blocks.Sources.Constant constcr(k=crConstant) if not enablecrInput
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-90,-30})));
+    equation
+      fDrag=cw*A*rho*abs(vRel)*vRel/2;
+      fRoll=cr1*Fn*cos(alpha)*(if abs(v)<vReg then v/vReg else sign(v));
+      fGrav=Fn*sin(alpha);
+      flange.f=fDrag + fRoll + fGrav;
+      connect(vWind, vWind1)
+        annotation (Line(points={{-120,60},{-60,60}}, color={0,0,127}));
+      connect(vWind1, constWindSpeed.y) annotation (Line(points={{-60,60},{-70,60},{
+              -70,80},{-79,80}}, color={0,0,127}));
+      connect(inclination, inclination1)
+        annotation (Line(points={{-120,0},{-60,0}}, color={0,0,127}));
+      connect(inclination1, constInclination.y) annotation (Line(points={{-60,0},{-70,
+              0},{-70,30},{-79,30}}, color={0,0,127}));
+      connect(cr,cr1)
+        annotation (Line(points={{-120,-60},{-60,-60}}, color={0,0,127}));
+      connect(cr1,cr1)
+        annotation (Line(points={{-60,-60},{-60,-60}}, color={0,0,127}));
+      connect(cr1,constcr. y) annotation (Line(points={{-60,-60},{-70,-60},{-70,-30},
+              {-79,-30}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Rectangle(
+              extent={{-100,60},{-90,-60}},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-90,0},{-40,40},{-40,-40},{-90,0}},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-40,10},{90,-10}},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.HorizontalCylinder),
+            Text(
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255})}),                                Diagram(
+            coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+Drag resistance: fDrag = cw*rho*A*(v - vWind)^2/2<br>
+Wind speed is measured in the same direction as velocity of flange.<br>
+Wind speed is either constant or prescribed by the input vWind.
+</p>
+<p>
+Inclination is either constant or prescribed by the input inclination = tan(inclination angle).<br>
+Positive inclination means driving upwards, negative inclination means driving downwards. 
+</p>
+<p>
+Roll resistance: fRoll = cr*m*g*cos(alfa)<br>
+Rolling resistance coeffcient is either constant or prescribed by the input cr.<br>
+Rolling resistance has a linear crossover from positive to negative speed.
+</p>
+<p>
+Grav resistance: fGrav = m*g*sin(alfa)
+</p>
+</html>"));
+    end DrivingResistance;
     annotation (Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical translational drive trains.
