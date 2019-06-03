@@ -1728,10 +1728,12 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         drivingResistance(
         cw=cw,
         A=A,
+        useWindInput=false,
         vWindConstant=vWind,
+        usecrInput=false,
         crConstant=cr,
         Fn=m*g_n,
-        useInclinationInput=true)
+        useInclinationInput=false)
         annotation (Placement(transformation(extent={{70,-10},{50,10}})));
       Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,0,0; 5,0,0;
             5,2,0; 10.8,2,0; 10.8,1,0; 20,1,0; 20,1.4,0.05; 25,1.4,0.05; 25,1,0;
@@ -5026,9 +5028,11 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         annotation(Dialog(group="Rolling resistance"));
       parameter SI.Force Fn "Normal (gravitational) force"
         annotation(Dialog(group="Rolling resistance"));
-      parameter Boolean useInclinationInput=false "Enable signal input for inclination";
+      parameter Boolean useInclinationInput=false "Enable signal input for inclination"
+        annotation(Dialog(group="Inclination resistance"));
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
-        annotation(Dialog(enable=not useInclinationInput));
+        annotation(Dialog(group="Inclination resistance", enable=not useInclinationInput));
+
       SI.Velocity v = der(flange.s) "Velocity of flange";
       SI.Velocity vRel = v - vWind1 "Relative speed";
       SI.Angle alpha = atan(inclination1) "Inclination angle";
