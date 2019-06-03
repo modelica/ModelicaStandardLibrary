@@ -86,3 +86,10 @@ convertModifiers({"Modelica.Blocks.Nonlinear.Limiter",
                   {"limitsAtInit"}, fill("", 0), true);
 convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
                   {"deadZoneAtInit"}, fill("", 0), true);
+
+convertElement({"Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle"},
+                "vMaxExt", "vLimExt");
+convertElement({"Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle"},
+                "useConstantMaximumVoltage", "useConstantVoltageLimit");
+convertElement({"Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle"},
+                "vMax", "vLim");
