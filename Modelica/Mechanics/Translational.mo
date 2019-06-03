@@ -5078,7 +5078,6 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
       connect(inclination, internalInclination) annotation (Line(points={{-120,0},{-60,0}}, color={0,0,127}));
       connect(internalInclination, constInclination.y) annotation (Line(points={{-60,0},{-70,0},{-70,30},{-79,30}}, color={0,0,127}));
       connect(cr, internalcr) annotation (Line(points={{-120,-60},{-60,-60}}, color={0,0,127}));
-      connect(internalcr, internalcr) annotation (Line(points={{-60,-60},{-60,-60}}, color={0,0,127}));
       connect(internalcr, constcr.y) annotation (Line(points={{-60,-60},{-70,-60},{-70,-30},{-79,-30}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
             Rectangle(
