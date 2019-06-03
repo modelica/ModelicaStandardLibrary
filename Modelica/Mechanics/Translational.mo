@@ -5031,7 +5031,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
         annotation(Dialog(group="Inclination resistance", enable=not useInclinationInput));
       SI.Velocity v = der(flange.s) "Velocity of flange";
-      SI.Velocity vRel=v - internalvWind "Relative velocity";
+      SI.Velocity vAir=v - internalvWind "Resultant air velocity";
       SI.Angle alpha=atan(internalInclination) "Inclination angle";
       SI.Force fDrag "Drag resistance";
       SI.Force fRoll "Rolling resistance";
@@ -5068,7 +5068,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
             rotation=0,
             origin={-90,-30})));
     equation
-      fDrag=cw*A*rho*abs(vRel)*vRel/2;
+      fDrag=cw*A*rho*abs(vAir)*vAir/2;
       fRoll=internalcr*Fn*cos(alpha)*(if abs(v) < vReg then v/vReg else sign(v));
       fGrav=Fn*sin(alpha);
       flange.f=fDrag + fRoll + fGrav;
