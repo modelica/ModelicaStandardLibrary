@@ -2876,8 +2876,8 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-90,40})));
-          Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM[
-            m](each useConstantDutyCycle=false, each f=f) annotation (Placement(
+          Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM[m](
+               each useConstantDutyCycle=false, each f=f) annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-40,-20})));
@@ -2991,8 +2991,8 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-90,40})));
-          Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM[
-            m](each useConstantDutyCycle=false, each f=f) annotation (Placement(
+          Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM[m](
+               each useConstantDutyCycle=false, each f=f) annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-40,-20})));
@@ -3299,20 +3299,50 @@ Please note that the filter has a settle time depending on the filter parameters
 
         model ChopperStepDown_R "Step down chopper with resistive load"
           extends
-            Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.ChopperStepDown;
+            Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.ChopperStepDown(signalPWM(
+                useConstantDutyCycle=false));
           extends Modelica.Icons.Example;
           parameter Modelica.SIunits.Resistance R=V0/ILoad "Load resistance";
+          parameter Modelica.SIunits.Capacitance C=20e-6 "Smoothing capacitance";
           Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={40,10})));
+          Analog.Basic.Capacitor                     capacitor(C=C, v(fixed=
+                  true, start=0))  annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={0,0})));
+          Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
+            voltageToDutyCycle(
+            reciprocal=false,
+            useBipolarVoltage=false,
+            vLim=Vsource) annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={-70,-60})));
+          Blocks.Sources.Ramp vRef(
+            height=V0,
+            duration=0.05,
+            offset=0,
+            startTime=0.025)
+            annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
         equation
           connect(resistor.n, currentSensor.p) annotation (Line(
               points={{40,-3.55271e-15},{40,-10},{30,-10}},
                                                color={0,0,255}));
           connect(resistor.p, voltageSensor.p) annotation (Line(points={{40,20},{40,30},
                   {60,30},{60,20}}, color={0,0,255}));
+          connect(inductor.n, capacitor.p)
+            annotation (Line(points={{-12,10},{0,10}}, color={0,0,255}));
+          connect(chopperStepDown.dc_n2, capacitor.n) annotation (Line(points={
+                  {-40,-6},{-32,-6},{-32,-10},{0,-10}}, color={0,0,255}));
+          connect(voltageToDutyCycle.dutyCycle, signalPWM.dutyCycle)
+            annotation (Line(points={{-70,-49},{-70,-40},{-42,-40}}, color={0,0,
+                  127}));
+          connect(voltageToDutyCycle.v, vRef.y) annotation (Line(points={{-70,
+                  -72},{-70,-80},{79,-80}}, color={0,0,127}));
           annotation (
             experiment(
               StopTime=0.1,
@@ -3331,20 +3361,52 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
 
         model ChopperStepUp_R "Step up chopper with resistive load"
           extends
-            Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.ChopperStepUp;
+            Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.ChopperStepUp(signalPWM(
+                useConstantDutyCycle=false));
           extends Modelica.Icons.Example;
           parameter Modelica.SIunits.Resistance R=V0/ILoad "Load resistance";
+          parameter Modelica.SIunits.Capacitance C=20e-6 "Smoothing capacitance";
           Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={40,10})));
+          Analog.Basic.Capacitor                     capacitor(C=C, v(fixed=
+                  true, start=Vsource))
+                                   annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={0,0})));
+          Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
+            voltageToDutyCycle(
+            reciprocal=true,
+            useBipolarVoltage=false,
+            vLim=Vsource) annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={-70,-60})));
+          Blocks.Sources.Ramp vRef(
+            height=V0 - Vsource,
+            duration=0.05,
+            offset=Vsource,
+            startTime=0.025)
+            annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
         equation
           connect(resistor.n, currentSensor.p) annotation (Line(
               points={{40,-3.55271e-15},{40,-10},{30,-10}},
                                                color={0,0,255}));
           connect(resistor.p, voltageSensor.p) annotation (Line(points={{40,20},{40,30},
                   {60,30},{60,20}}, color={0,0,255}));
+          connect(chopperStepUp.dc_p2, capacitor.p) annotation (Line(points={{
+                  -20,6},{-10,6},{-10,10},{1.77636e-15,10}}, color={0,0,255}));
+          connect(chopperStepUp.dc_n2, capacitor.n) annotation (Line(points={{
+                  -20,-6},{-10,-6},{-10,-10},{-1.77636e-15,-10}}, color={0,0,
+                  255}));
+          connect(voltageToDutyCycle.dutyCycle, signalPWM.dutyCycle)
+            annotation (Line(points={{-70,-49},{-70,-40},{-42,-40}}, color={0,0,
+                  127}));
+          connect(vRef.y, voltageToDutyCycle.v) annotation (Line(points={{79,
+                  -80},{-70,-80},{-70,-72}}, color={0,0,127}));
           annotation (
             experiment(
               StopTime=0.1,
@@ -3537,11 +3599,10 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           extends Modelica.Electrical.PowerConverters.Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
           parameter Modelica.SIunits.Voltage Vsource=60 "Source voltage";
-          parameter Modelica.SIunits.Inductance L=20e-3 "Source inductance";
-          parameter Modelica.SIunits.Capacitance C=20e-6 "Smoothing capacitance";
+          parameter Modelica.SIunits.Inductance L=25e-3 "Source inductance";
           parameter Real dutyCycle=0.20 "Duty cycle";
           parameter Modelica.SIunits.Current ILoad=1.2 "Load current";
-          parameter Modelica.SIunits.Voltage V0=Vsource*dutyCycle "No-load voltage";
+          parameter Modelica.SIunits.Voltage V0=Vsource*dutyCycle "No-load output voltage";
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(final V=Vsource)
             annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
@@ -3561,12 +3622,12 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
                 transformation(extent={{-90,-40},{-70,-20}})));
           PowerConverters.DCDC.Control.SignalPWM signalPWM(final
               constantDutyCycle=dutyCycle, final f=f) annotation (Placement(
-                transformation(extent={{-10,-10},{10,10}}, origin={-50,-40})));
+                transformation(extent={{-10,-10},{10,10}}, origin={-30,-40})));
           Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={20,-40})));
+                rotation=0,
+                origin={90,-40})));
           Modelica.Blocks.Math.Mean meanVoltage(f=f, x0=0) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -3574,11 +3635,6 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           Modelica.Electrical.Analog.Basic.Inductor inductor(i(fixed=true,
                 start=0), final L=L)
             annotation (Placement(transformation(extent={{-32,0},{-12,20}})));
-          Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=C, v(fixed=
-                  true, start=V0)) annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={0,0})));
         equation
           connect(constantVoltage.p, chopperStepDown.dc_p1) annotation (Line(
               points={{-80,10},{-70,10},{-70,6},{-60,6}}, color={0,0,255}));
@@ -3592,17 +3648,15 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           connect(voltageSensor.v, meanVoltage.u) annotation (Line(
               points={{71,10},{78,10}}, color={0,0,127}));
           connect(currentSensor.i, meanCurrent.u) annotation (Line(
-              points={{20,-21},{20,-28}},   color={0,0,127}));
+              points={{20,-21},{20,-40},{78,-40}},
+                                            color={0,0,127}));
           connect(signalPWM.fire, chopperStepDown.fire_p) annotation (Line(
-              points={{-56,-29},{-56,-12}}, color={255,0,255}));
+              points={{-36,-29},{-36,-20},{-56,-20},{-56,-12}},
+                                            color={255,0,255}));
           connect(chopperStepDown.dc_p2, inductor.p)
             annotation (Line(points={{-40,6},{-32,6},{-32,10}}, color={0,0,255}));
-          connect(chopperStepDown.dc_n2, capacitor.n) annotation (Line(points={{-40,-6},
-                  {-32,-6},{-32,-10},{0,-10}}, color={0,0,255}));
           connect(chopperStepDown.dc_n2, currentSensor.n) annotation (Line(points={{-40,
                   -6},{-32,-6},{-32,-10},{10,-10}}, color={0,0,255}));
-          connect(inductor.n, capacitor.p)
-            annotation (Line(points={{-12,10},{0,10}}, color={0,0,255}));
           connect(inductor.n, voltageSensor.p) annotation (Line(points={{-12,10},{0,10},
                   {0,30},{60,30},{60,20}}, color={0,0,255}));
           annotation (Documentation(
@@ -3616,10 +3670,9 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
           parameter Modelica.SIunits.Voltage Vsource=60 "Source voltage";
           parameter Modelica.SIunits.Inductance L=25e-3 "Source inductance";
-          parameter Modelica.SIunits.Capacitance C=20e-6 "Smoothing capacitance";
           parameter Real dutyCycle=0.20 "Duty cycle";
           parameter Modelica.SIunits.Current ILoad=1.2 "Load current";
-          parameter Modelica.SIunits.Voltage V0=Vsource/(1 - dutyCycle) "No-load voltage";
+          parameter Modelica.SIunits.Voltage V0=Vsource/(1 - dutyCycle) "No-load output voltage";
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(final V=Vsource)
             annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
@@ -3642,8 +3695,8 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={20,-40})));
+                rotation=0,
+                origin={90,-40})));
           Modelica.Blocks.Math.Mean meanVoltage(f=f, x0=0) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -3651,11 +3704,6 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           Modelica.Electrical.Analog.Basic.Inductor inductor(i(fixed=true,
                 start=0), final L=L)
             annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
-          Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=C, v(fixed=
-                  true, start=V0)) annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={0,0})));
         equation
           connect(constantVoltage.n, chopperStepUp.dc_n1) annotation (Line(points={{-80,
                   -10},{-50,-10},{-50,-6},{-40,-6}}, color={0,0,255}));
@@ -3667,19 +3715,16 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           connect(voltageSensor.v, meanVoltage.u) annotation (Line(
               points={{71,10},{78,10}}, color={0,0,127}));
           connect(currentSensor.i, meanCurrent.u) annotation (Line(
-              points={{20,-21},{20,-28}},   color={0,0,127}));
+              points={{20,-21},{20,-40},{78,-40}},
+                                            color={0,0,127}));
           connect(signalPWM.fire, chopperStepUp.fire_p)
             annotation (Line(points={{-36,-29},{-36,-12}}, color={255,0,255}));
           connect(constantVoltage.p, inductor.p)
             annotation (Line(points={{-80,10},{-70,10}}, color={0,0,255}));
           connect(inductor.n, chopperStepUp.dc_p1)
             annotation (Line(points={{-50,10},{-50,6},{-40,6}}, color={0,0,255}));
-          connect(chopperStepUp.dc_n2, capacitor.n) annotation (Line(points={{-20,-6},{-10,
-                  -6},{-10,-10},{0,-10}}, color={0,0,255}));
           connect(chopperStepUp.dc_n2, currentSensor.n) annotation (Line(points={{-20,-6},
                   {-10,-6},{-10,-10},{10,-10}}, color={0,0,255}));
-          connect(chopperStepUp.dc_p2, capacitor.p) annotation (Line(points={{-20,6},{-10,
-                  6},{-10,10},{0,10}}, color={0,0,255}));
           connect(chopperStepUp.dc_p2, voltageSensor.p) annotation (Line(points={{-20,6},
                   {-10,6},{-10,10},{0,10},{0,30},{60,30},{60,20}}, color={0,0,255}));
           annotation (Documentation(
@@ -5749,14 +5794,14 @@ General information about AC/DC converters can be found at the
         Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM svPWM(
           f=f,
           startTime=startTime,
-          uMax=uMax) if pwmType == Modelica.Electrical.PowerConverters.Types.PWMType.SVPWM
+          uMax=uMax) if pwmType == PowerConverters.Types.PWMType.SVPWM
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
         Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM
           intersectivePWM(
           f=f,
           startTime=startTime,
           uMax=uMax,
-          refType=refType) if pwmType == Modelica.Electrical.PowerConverters.Types.PWMType.Intersective
+          refType=refType) if pwmType == PowerConverters.Types.PWMType.Intersective
           annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
       equation
         connect(u, svPWM.u) annotation (Line(points={{-120,0},{-60,0},{-60,40},{-12,40}},
@@ -6462,31 +6507,24 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
       end SignalPWM;
 
       block VoltageToDutyCycle "Linearly transforms voltage to duty cycle"
+        parameter Boolean reciprocal = false
+          "Enables reciprocal formula between voltage and duty cycle";
         parameter Boolean useBipolarVoltage = true
-          "Enables bipolar input voltage range";
-        parameter Boolean useConstantMaximumVoltage=true
-          "Enables constant maximum voltage";
-        parameter Modelica.SIunits.Voltage vMax=0
-          "Maximum voltage range mapped to dutyCycle = 1"
+          "Enables bipolar input voltage range"
+          annotation(Dialog(enable=not reciprocal));
+        parameter Boolean useConstantVoltageLimit=true
+          "Enables constant voltage limit";
+        parameter Modelica.SIunits.Voltage vLim(min=Modelica.Constants.small)
+          "Voltage range limit mapped to dutyCycle = 1 resp. 0"
           annotation(Dialog(enable=useConstantMaximumVoltage));
-
         Modelica.Blocks.Interfaces.RealInput v "Voltage" annotation (Placement(
               transformation(extent={{-140,-20},{-100,20}}), iconTransformation(
                 extent={{-140,-20},{-100,20}})));
         Modelica.Blocks.Interfaces.RealOutput dutyCycle "Duty cycle" annotation (
             Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(
                 extent={{100,-10},{120,10}})));
-        Blocks.Math.Division divisionUnipolar if not useBipolarVoltage
-          annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-        Blocks.Math.Division divisionBipolar if useBipolarVoltage
-          annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
-        Modelica.Blocks.Math.Add add(k1=0.5, k2=1) if useBipolarVoltage
-          annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
-        Modelica.Blocks.Sources.Constant offset(final k=0.5) if useBipolarVoltage
-          "Offset of 0.5 in case of bipolar operation"
-          annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
-        Blocks.Interfaces.RealInput vMaxExt if not useConstantMaximumVoltage
-          "External maximum voltage" annotation (
+        Modelica.Blocks.Interfaces.RealInput vLimExt if not useConstantVoltageLimit "External voltage limit"
+          annotation (
             Placement(transformation(
               extent={{-20,-20},{20,20}},
               rotation=270,
@@ -6494,37 +6532,29 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
               extent={{-20,-20},{20,20}},
               rotation=270,
               origin={0,120})));
-        Blocks.Sources.Constant vMaxConst(final k=vMax) if useConstantMaximumVoltage
-          "Offset of 0.5 in case of bipolar operation"
+        Modelica.Blocks.Sources.Constant vLimConst(final k=vLim) if useConstantVoltageLimit "Constant voltage limit"
           annotation (Placement(transformation(extent={{40,70},{20,90}})));
       protected
-        Blocks.Interfaces.RealInput vMaxInt "External maximum voltage" annotation (
-            Placement(transformation(
+        Modelica.Blocks.Interfaces.RealInput vLimInt "Voltage limit"
+          annotation (Placement(transformation(
               extent={{-4,-4},{4,4}},
               rotation=180,
               origin={0,80})));
       equation
-        connect(divisionBipolar.y, add.u1) annotation (Line(points={{-19,-30},{-10,-30},
-                {-10,-44},{-2,-44}}, color={0,0,127}));
-        connect(offset.y, add.u2) annotation (Line(
-            points={{-19,-70},{-10,-70},{-10,-56},{-2,-56}},  color={0,0,127}));
-        connect(divisionUnipolar.y, dutyCycle) annotation (Line(points={{-19,30},{40,30},
-                {40,0},{110,0}}, color={0,0,127}));
-        connect(add.y, dutyCycle) annotation (Line(
-            points={{21,-50},{40,-50},{40,0},{110,0}},  color={0,0,127}));
-        connect(v, divisionUnipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
-                36},{-42,36}}, color={0,0,127}));
-        connect(v, divisionBipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
-                -24},{-42,-24}}, color={0,0,127}));
-        connect(vMaxExt, vMaxInt)
+        if not reciprocal then
+          if not useBipolarVoltage then
+            dutyCycle = max(min(v,vLimInt), 0)/vLimInt;
+          else
+            dutyCycle = (max(min(v,vLimInt), -vLimInt)/vLimInt + 1)/2;
+          end if;
+        else
+          dutyCycle = 1 - vLimInt/max(v, vLimInt);
+        end if;
+        connect(vLimExt,vLimInt)
           annotation (Line(points={{0,120},{0,80}}, color={0,0,127}));
-        connect(vMaxInt, divisionUnipolar.u2) annotation (Line(points={{0,80},{-60,80},
-                {-60,24},{-42,24}}, color={0,0,127}));
-        connect(vMaxInt, vMaxConst.y)
+        connect(vLimInt,vLimConst. y)
           annotation (Line(points={{0,80},{19,80}}, color={0,0,127}));
-        connect(vMaxInt, divisionBipolar.u2) annotation (Line(points={{0,80},{-60,80},
-                {-60,-36},{-42,-36}}, color={0,0,127}));
-        annotation (defaultComponentName="adaptor", Icon(graphics={
+        annotation (Icon(graphics={
               Rectangle(
                 extent={{-100,100},{100,-100}},
                 fillColor={255,255,255},
@@ -6543,7 +6573,14 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
                 fillPattern=FillPattern.Solid), Text(extent={{
                     -150,-120},{150,-160}}, textString = "%name", lineColor = {0, 0, 255})}),
           Documentation(info="<html>
-This model linearly transforms the input voltage signal into a duty cycle. For the unipolar case the input voltage range is between zero and <code>vMax</code>. In case of bipolar input the input voltage is in the range between <code>-vMax</code> and <code>vMax</code>.
+<p>
+Transforms the input voltage signal into a duty cycle:
+<ul>
+<li><code>reciprocal = false and useBipolarVoltage = false: v/vLim = dutyCycle</code></li>
+<li><code>reciprocal = false and useBipolarVoltage = true : v/vLim = 2*dutyCycle - 1</code></li>
+<li><code>reciprocal = true:                                v/vLim = 1/(1 - dutyCycle)</code></li>
+</ul>
+</p>
 </html>"));
       end VoltageToDutyCycle;
       annotation (Documentation(info="<html>
