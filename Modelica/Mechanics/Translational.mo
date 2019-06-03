@@ -5014,7 +5014,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         annotation(Dialog(group="Drag resistance"));
       parameter SI.Area A(start=1) "Cross section of vehicle"
         annotation(Dialog(group="Drag resistance"));
-      parameter Boolean useWindInput=false "Enable signal input for wind speed"
+      parameter Boolean useWindInput=false "Enable signal input for wind velocity"
         annotation(Dialog(group="Drag resistance"));
       parameter SI.Velocity vWindConstant=0 "Constant wind velocity"
         annotation(Dialog(group="Drag resistance", enable=not useWindInput));
@@ -5022,16 +5022,16 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         annotation(Dialog(group="Rolling resistance"));
       parameter Real crConstant=0.1 "Constant rolling resistance coefficient"
         annotation(Dialog(group="Rolling resistance", enable=not usecrInput));
-      parameter SI.Velocity vReg=1e-3 "Speed for regularization around 0"
+      parameter SI.Velocity vReg=1e-3 "Velocity for regularization around 0"
         annotation(Dialog(group="Rolling resistance"));
       parameter SI.Force Fn "Normal (gravitational) force"
         annotation(Dialog(group="Rolling resistance"));
       parameter Boolean useInclinationInput=false "Enable signal input for inclination"
-            annotation(Dialog(group="Inclination resistance"));
+        annotation(Dialog(group="Inclination resistance"));
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
         annotation(Dialog(group="Inclination resistance", enable=not useInclinationInput));
       SI.Velocity v = der(flange.s) "Velocity of flange";
-      SI.Velocity vRel=v - internalvWind "Relative speed";
+      SI.Velocity vRel=v - internalvWind "Relative velocity";
       SI.Angle alpha=atan(internalInclination) "Inclination angle";
       SI.Force fDrag "Drag resistance";
       SI.Force fRoll "Rolling resistance";
@@ -5040,7 +5040,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         "Flange of component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Modelica.Blocks.Interfaces.RealInput vWind(unit="m/s") if useWindInput
-        "Wind speed"
+        "Wind velocity"
         annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
       Modelica.Blocks.Interfaces.RealInput inclination if useInclinationInput
         "Inclination=tan(angle)"
@@ -5049,7 +5049,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         "Rolling resistance coefficient"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
     protected
-      Modelica.Blocks.Interfaces.RealInput internalvWind "Internal wind speed" annotation (Placement(transformation(extent={{-64,56},{-56,64}})));
+      Modelica.Blocks.Interfaces.RealInput internalvWind "Internal wind velocity" annotation (Placement(transformation(extent={{-64,56},{-56,64}})));
       Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not useWindInput
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
