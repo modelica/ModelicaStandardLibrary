@@ -1728,12 +1728,10 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         drivingResistance(
         cw=cw,
         A=A,
-        useWindInput=false,
         vWindConstant=vWind,
-        usecrInput=false,
         crConstant=cr,
         Fn=m*g_n,
-        useInclinationInput=false)
+        useInclinationInput=true)
         annotation (Placement(transformation(extent={{70,-10},{50,10}})));
       Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,0,0; 5,0,0;
             5,2,0; 10.8,2,0; 10.8,1,0; 20,1,0; 20,1.4,0.05; 25,1.4,0.05; 25,1,0;
