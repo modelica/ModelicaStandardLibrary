@@ -5010,7 +5010,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
     model DrivingResistance "Simple model of driving resistances"
       parameter Real cw(start=0.5) "Drag resistance coefficient"
         annotation(Dialog(group="Drag resistance"));
-      parameter SI.Density rho=1.18 "Density of air"
+      parameter SI.Density rho=1.2 "Density of air"
         annotation(Dialog(group="Drag resistance"));
       parameter SI.Area A(start=1) "Cross section of vehicle"
         annotation(Dialog(group="Drag resistance"));
