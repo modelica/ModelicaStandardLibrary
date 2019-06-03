@@ -1731,7 +1731,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         vWindConstant=vWind,
         crConstant=cr,
         Fn=m*g_n,
-        enableInclinationInput=true)
+        useInclinationInput=true)
         annotation (Placement(transformation(extent={{70,-10},{50,10}})));
       Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,0,0; 5,0,0;
             5,2,0; 10.8,2,0; 10.8,1,0; 20,1,0; 20,1.4,0.05; 25,1.4,0.05; 25,1,0;
@@ -5014,21 +5014,21 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         annotation(Dialog(group="Drag resistance"));
       parameter SI.Area A(start=1) "Cross section of vehicle"
         annotation(Dialog(group="Drag resistance"));
-      parameter Boolean enableWindInput=false "Enable signal input for wind speed"
+      parameter Boolean useWindInput=false "Enable signal input for wind speed"
         annotation(Dialog(group="Drag resistance"));
       parameter SI.Velocity vWindConstant=0 "Constant wind velocity"
-        annotation(Dialog(group="Drag resistance", enable=not enableWindInput));
-      parameter Boolean enablecrInput=false "Enable signal input for cr"
+        annotation(Dialog(group="Drag resistance", enable=not useWindInput));
+      parameter Boolean usecrInput=false "Enable signal input for cr"
         annotation(Dialog(group="Rolling resistance"));
       parameter Real crConstant=0.1 "Constant rolling resistance coefficient"
-        annotation(Dialog(group="Rolling resistance", enable=not enablecrInput));
+        annotation(Dialog(group="Rolling resistance", enable=not usecrInput));
       parameter SI.Velocity vReg=1e-3 "Speed for regularization around 0"
         annotation(Dialog(group="Rolling resistance"));
       parameter SI.Force Fn "Normal (gravitational) force"
         annotation(Dialog(group="Rolling resistance"));
-      parameter Boolean enableInclinationInput=false "Enable signal input for inclination";
+      parameter Boolean useInclinationInput=false "Enable signal input for inclination";
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
-        annotation(Dialog(enable=not enableInclinationInput));
+        annotation(Dialog(enable=not useInclinationInput));
       SI.Velocity v = der(flange.s) "Velocity of flange";
       SI.Velocity vRel = v - vWind1 "Relative speed";
       SI.Angle alpha = atan(inclination1) "Inclination angle";
@@ -5038,26 +5038,26 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
       Modelica.Mechanics.Translational.Interfaces.Flange_b flange
         "Flange of component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Blocks.Interfaces.RealInput vWind(unit="m/s") if enableWindInput
+      Modelica.Blocks.Interfaces.RealInput vWind(unit="m/s") if useWindInput
         "Wind speed"
         annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
-      Modelica.Blocks.Interfaces.RealInput inclination if enableInclinationInput
+      Modelica.Blocks.Interfaces.RealInput inclination if useInclinationInput
         "Inclination=tan(angle)"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.RealInput cr if enablecrInput
+      Modelica.Blocks.Interfaces.RealInput cr if usecrInput
         "Rolling resistance coefficient"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
     protected
       Modelica.Blocks.Interfaces.RealInput vWind1 "Internal wind speed"
         annotation (Placement(transformation(extent={{-64,56},{-56,64}})));
-      Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not enableWindInput
+      Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not useWindInput
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-90,80})));
       Modelica.Blocks.Interfaces.RealInput inclination1 "Internal inclination"
         annotation (Placement(transformation(extent={{-62,-2},{-58,2}})));
-      Modelica.Blocks.Sources.Constant constInclination(k=inclinationConstant) if not enableInclinationInput
+      Modelica.Blocks.Sources.Constant constInclination(k=inclinationConstant) if not useInclinationInput
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
@@ -5065,7 +5065,7 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
       Modelica.Blocks.Interfaces.RealInput cr1
         "Internal rolling resistance coefficient"
         annotation (Placement(transformation(extent={{-64,-64},{-56,-56}})));
-      Modelica.Blocks.Sources.Constant constcr(k=crConstant) if not enablecrInput
+      Modelica.Blocks.Sources.Constant constcr(k=crConstant) if not usecrInput
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
