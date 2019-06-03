@@ -5101,22 +5101,59 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
             coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
-Drag resistance: fDrag = cw*rho*A*(v - vWind)^2/2<br>
-Wind speed is measured in the same direction as velocity of flange.<br>
-Wind speed is either constant or prescribed by the input vWind.
+Model of driving resistances of a ground vehicle.
+It comprises the aerodynamic drag, the rolling resistance and
+the inclination resistance (caused by the road grade).
+For all particular resistances, significant variables
+can be either given by a parameter or input by a time-variable signal.
 </p>
+
 <p>
-Inclination is either constant or prescribed by the input inclination = tan(inclination angle).<br>
-Positive inclination means driving upwards, negative inclination means driving downwards. 
+<strong>Drag resistance</strong>
 </p>
+<blockquote>
+<pre>
+fDrag = cw*rho*A*(v - vWind)^2/2
+</pre>
+</blockquote>
 <p>
-Roll resistance: fRoll = cr*m*g*cos(alfa)<br>
-Rolling resistance coeffcient is either constant or prescribed by the input cr.<br>
+Wind speed is measured in the same direction as velocity of <code>flange</code>.
+Wind speed is either constant or prescribed by the input <code>vWind</code>.
+</p>
+
+<p>
+<strong>Rolling resistance</strong>
+</p>
+<blockquote>
+<pre>
+fRoll = cr*m*g*cos(alpha)
+</pre>
+</blockquote>
+<p>
+Rolling resistance coeffcient&nbsp;<var>cr</var> is either constant
+or prescribed by the input <code>cr</code>.
 Rolling resistance has a linear crossover from positive to negative speed.
 </p>
 <p>
-Grav resistance: fGrav = m*g*sin(alfa)
+The inclination&nbsp;<var>&alpha;</var> is either constant or prescribed by
+the input <code>inclination</code> = tan(inclination angle).
+This corresponds to the road rise over running distance of 100&nbsp;m which,
+in general, is written in as a&nbsp;percentage.
+For example for a road rising by 10&nbsp;m over 100&nbsp;m the
+grade&nbsp;=&nbsp;10&nbsp;% and, thus, the parameter
+<code>inclinationConstant&nbsp;=&nbsp;0.1</code>.
+Positive inclination means driving uphill, negative inclination means
+driving downhill.
 </p>
+
+<p>
+<strong>Inclination resistance</strong>
+</p>
+<blockquote>
+<pre>
+fGrav = m*g*sin(alpha)
+</pre>
+</blockquote>
 </html>"));
     end DrivingResistance;
     annotation (Documentation(info="<html>
