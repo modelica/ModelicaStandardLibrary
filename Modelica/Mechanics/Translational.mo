@@ -5010,31 +5010,31 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
     model DrivingResistance "Simple model of driving resistances"
       parameter Real cw(start=0.5) "Drag resistance coefficient"
         annotation(Dialog(group="Drag resistance"));
-      parameter Modelica.SIunits.Density rho=1.18 "Density of air"
+      parameter SI.Density rho=1.18 "Density of air"
         annotation(Dialog(group="Drag resistance"));
-      parameter Modelica.SIunits.Area A(start=1) "Cross section of vehicle"
+      parameter SI.Area A(start=1) "Cross section of vehicle"
         annotation(Dialog(group="Drag resistance"));
       parameter Boolean enableWindInput=false "Enable signal input for wind speed"
         annotation(Dialog(group="Drag resistance"));
-      parameter Modelica.SIunits.Velocity vWindConstant=0 "Constant wind velocity"
+      parameter SI.Velocity vWindConstant=0 "Constant wind velocity"
         annotation(Dialog(group="Drag resistance", enable=not enableWindInput));
       parameter Boolean enablecrInput=false "Enable signal input for cr"
         annotation(Dialog(group="Rolling resistance"));
       parameter Real crConstant=0.1 "Constant rolling resistance coefficient"
         annotation(Dialog(group="Rolling resistance", enable=not enablecrInput));
-      parameter Modelica.SIunits.Velocity vReg=1e-3 "Speed for regularization around 0"
+      parameter SI.Velocity vReg=1e-3 "Speed for regularization around 0"
         annotation(Dialog(group="Rolling resistance"));
-      parameter Modelica.SIunits.Force Fn "Normal (gravitational) force"
+      parameter SI.Force Fn "Normal (gravitational) force"
         annotation(Dialog(group="Rolling resistance"));
       parameter Boolean enableInclinationInput=false "Enable signal input for inclination";
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
         annotation(Dialog(enable=not enableInclinationInput));
-      Modelica.SIunits.Velocity v = der(flange.s) "Velocity of flange";
-      Modelica.SIunits.Velocity vRel = v - vWind1 "Relative speed";
-      Modelica.SIunits.Angle alpha = atan(inclination1) "Inclination angle";
-      Modelica.SIunits.Force fDrag "Drag resistance";
-      Modelica.SIunits.Force fRoll "Rolling resistance";
-      Modelica.SIunits.Force fGrav "Gravitational resistance";
+      SI.Velocity v = der(flange.s) "Velocity of flange";
+      SI.Velocity vRel = v - vWind1 "Relative speed";
+      SI.Angle alpha = atan(inclination1) "Inclination angle";
+      SI.Force fDrag "Drag resistance";
+      SI.Force fRoll "Rolling resistance";
+      SI.Force fGrav "Gravitational resistance";
       Modelica.Mechanics.Translational.Interfaces.Flange_b flange
         "Flange of component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
