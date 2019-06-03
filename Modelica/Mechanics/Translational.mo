@@ -5028,11 +5028,9 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
         annotation(Dialog(group="Rolling resistance"));
       parameter SI.Force Fn "Normal (gravitational) force"
         annotation(Dialog(group="Rolling resistance"));
-      parameter Boolean useInclinationInput=false "Enable signal input for inclination"
-        annotation(Dialog(group="Inclination resistance"));
+      parameter Boolean useInclinationInput=false "Enable signal input for inclination";
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
-        annotation(Dialog(group="Inclination resistance", enable=not useInclinationInput));
-
+        annotation(Dialog(enable=not useInclinationInput));
       SI.Velocity v = der(flange.s) "Velocity of flange";
       SI.Velocity vRel = v - vWind1 "Relative speed";
       SI.Angle alpha = atan(inclination1) "Inclination angle";
