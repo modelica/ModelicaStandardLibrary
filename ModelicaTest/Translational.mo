@@ -174,11 +174,11 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
     Modelica.Mechanics.Translational.Sources.DrivingResistance
       drivingResistance(
+      m=mass6.m,
       cw=0.5,
       crConstant=0.25,
       A=1,
       vReg=0.1,
-      Fn=mass6.m*Modelica.Constants.g_n,
       useInclinationInput=true)
       annotation (Placement(transformation(extent={{40,-80},{20,-60}})));
     Modelica.Blocks.Sources.Step step(

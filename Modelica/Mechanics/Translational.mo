@@ -690,12 +690,12 @@ combination). In this case the system is not at rest.
             Text(
               extent={{-60,-84},{-40,-94}},
               lineColor={255,0,0},
-              textString=" 0.5 m
- (1 m) "), Text(
+              textString=" 0.5 m (1 m) "),
+           Text(
               extent={{20,-84},{40,-94}},
               lineColor={255,0,0},
-              textString=" 1 m
- (1 m) "), Text(
+              textString=" 1 m (1 m) "),
+           Text(
               extent={{-20,-84},{0,-94}},
               textString="  1 m  "),
             Text(
@@ -1716,7 +1716,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       final parameter Modelica.SIunits.Force FRoll=cr*m*g_n*cos(alpha) "Roll resistance"
         annotation(Dialog(enable=false));
       final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alpha) "Grav resistance"
-        annotation(Dialog(enable=false));
+      annotation(Dialog(enable=false));
       Modelica.Mechanics.Translational.Components.Mass mass(
         m=m,
         s(fixed=true),
@@ -1726,11 +1726,11 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.Mechanics.Translational.Sources.DrivingResistance
         drivingResistance(
+        m=m,
         cw=cw,
         A=A,
         vWindConstant=vWind,
         crConstant=cr,
-        Fn=m*g_n,
         useInclinationInput=true)
         annotation (Placement(transformation(extent={{70,-10},{50,10}})));
       Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,0,0; 5,0,0;
@@ -5008,6 +5008,8 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
     end EddyCurrentForce;
 
     model DrivingResistance "Simple model of driving resistances"
+      parameter SI.Mass m "Total mass of vehicle";
+      parameter SI.Acceleration g=Modelica.Constants.g_n "Gravitational constant";
       parameter Real cw(start=0.5) "Drag resistance coefficient"
         annotation(Dialog(group="Drag resistance"));
       parameter SI.Density rho=1.2 "Density of air"
@@ -5023,8 +5025,6 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
       parameter Real crConstant=0.1 "Constant rolling resistance coefficient"
         annotation(Dialog(group="Rolling resistance", enable=not usecrInput));
       parameter SI.Velocity vReg=1e-3 "Velocity for regularization around 0"
-        annotation(Dialog(group="Rolling resistance"));
-      parameter SI.Force Fn "Normal (gravitational) force"
         annotation(Dialog(group="Rolling resistance"));
       parameter Boolean useInclinationInput=false "Enable signal input for inclination"
         annotation(Dialog(group="Inclination resistance"));
@@ -5061,43 +5061,71 @@ However, the speed v_nominal at which the maximum torque occurs is adapted from 
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-90,30})));
-      Modelica.Blocks.Interfaces.RealInput internalcr "Internal rolling resistance coefficient" annotation (Placement(transformation(extent={{-64,-64},{-56,-56}})));
-      Modelica.Blocks.Sources.Constant constcr(k=crConstant) if not usecrInput
+      Modelica.Blocks.Interfaces.RealInput internalCr "Internal rolling resistance coefficient" annotation (Placement(transformation(extent={{-64,-64},{-56,-56}})));
+      Modelica.Blocks.Sources.Constant constCr(k=crConstant) if not usecrInput
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-90,-30})));
     equation
       fDrag=cw*A*rho*abs(vAir)*vAir/2;
-      fRoll=internalcr*Fn*cos(alpha)*(if abs(v) < vReg then v/vReg else sign(v));
-      fGrav=Fn*sin(alpha);
+      fRoll=internalCr*m*g*cos(alpha)*(if abs(v) < vReg then v/vReg else sign(v));
+      fGrav=m*g*sin(alpha);
       flange.f=fDrag + fRoll + fGrav;
       connect(vWind, internalvWind) annotation (Line(points={{-120,60},{-60,60}}, color={0,0,127}));
       connect(internalvWind, constWindSpeed.y) annotation (Line(points={{-60,60},{-70,60},{-70,80},{-79,80}}, color={0,0,127}));
       connect(inclination, internalInclination) annotation (Line(points={{-120,0},{-60,0}}, color={0,0,127}));
       connect(internalInclination, constInclination.y) annotation (Line(points={{-60,0},{-70,0},{-70,30},{-79,30}}, color={0,0,127}));
-      connect(cr, internalcr) annotation (Line(points={{-120,-60},{-60,-60}}, color={0,0,127}));
-      connect(internalcr, constcr.y) annotation (Line(points={{-60,-60},{-70,-60},{-70,-30},{-79,-30}}, color={0,0,127}));
+      connect(cr,internalCr)  annotation (Line(points={{-120,-60},{-60,-60}}, color={0,0,127}));
+      connect(internalCr,constCr. y) annotation (Line(points={{-60,-60},{-70,-60},{-70,-30},{-79,-30}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-            Rectangle(
-              extent={{-100,60},{-90,-60}},
-              lineColor={0,127,0},
-              fillColor={160,215,160},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-90,0},{-40,40},{-40,-40},{-90,0}},
-              lineColor={0,127,0},
-              fillColor={160,215,160},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-40,10},{90,-10}},
-              lineColor={0,127,0},
-              fillColor={160,215,160},
-              fillPattern=FillPattern.HorizontalCylinder),
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255})}),                                Diagram(
+              lineColor={0,0,255}),
+            Ellipse(
+              extent={{-58,-48},{-38,-68}},
+              lineColor={0,127,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={160,215,160}),
+            Ellipse(
+              extent={{8,-24},{28,-44}},
+              lineColor={0,127,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={160,215,160}),
+            Ellipse(
+              extent={{-140,-20},{-20,-140}},
+              lineColor={0,0,0},
+              startAngle=340,
+              endAngle=360),
+            Line(points={{-80,-80},{80,-80}}, color={0,0,0}),
+            Line(points={{-80,-80},{80,-22}}, color={0,0,0}),
+            Polygon(
+              points={{-36,0},{-4,10},{-4,4},{36,4},{36,-4},{-4,-4},{-4,-10},{-36,
+                  0}},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Solid,
+              origin={56,12},
+              rotation=20),
+            Polygon(
+              points={{-60,-22},{60,-22},{58,-4},{28,0},{14.5307,22.3799},{-40,
+                  22},{-56,-2},{-60,-22}},
+              lineColor={0,127,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={160,215,160},
+              origin={-26,-22},
+              rotation=20),                                                        Polygon(
+              points={{-4.5,4},{15.5,10},{15.5,-2},{-4.5,4}},
+              fillColor={95,127,95},
+              fillPattern=FillPattern.Solid,
+              lineColor={95,127,95},
+              origin={-8.5,32},
+              rotation=200),                     Line(
+              points={{-5.5,-18},{34.5,-18}},
+              color={95,127,95},
+              origin={-19.5,4},
+              rotation=200)}),                                       Diagram(
             coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
@@ -5107,7 +5135,6 @@ the inclination resistance (caused by the road grade).
 For all particular resistances, significant variables
 can be either given by a parameter or input by a time-variable signal.
 </p>
-
 <p>
 <strong>Drag resistance</strong>
 </p>
@@ -5120,7 +5147,6 @@ fDrag = cw*rho*A*(v - vWind)^2/2
 Wind speed is measured in the same direction as velocity of <code>flange</code>.
 Wind speed is either constant or prescribed by the input <code>vWind</code>.
 </p>
-
 <p>
 <strong>Rolling resistance</strong>
 </p>
@@ -5132,20 +5158,19 @@ fRoll = cr*m*g*cos(alpha)
 <p>
 Rolling resistance coeffcient&nbsp;<var>cr</var> is either constant
 or prescribed by the input <code>cr</code>.
-Rolling resistance has a linear crossover from positive to negative speed.
+Rolling resistance has a linear crossover from positive to negative speed within <code>[-vReg, vReg]</code>.
 </p>
 <p>
-The inclination&nbsp;<var>&alpha;</var> is either constant or prescribed by
+The inclination angle&nbsp;<var>&alpha;</var> is either constant or prescribed by
 the input <code>inclination</code> = tan(inclination angle).
 This corresponds to the road rise over running distance of 100&nbsp;m which,
-in general, is written in as a&nbsp;percentage.
+in general, is written as a&nbsp;percentage.
 For example for a road rising by 10&nbsp;m over 100&nbsp;m the
 grade&nbsp;=&nbsp;10&nbsp;% and, thus, the parameter
 <code>inclinationConstant&nbsp;=&nbsp;0.1</code>.
 Positive inclination means driving uphill, negative inclination means
 driving downhill.
 </p>
-
 <p>
 <strong>Inclination resistance</strong>
 </p>
