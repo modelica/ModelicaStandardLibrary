@@ -1712,6 +1712,123 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
 </html>"));
     end EddyCurrentBrake;
 
+    model Vehicle1D "One-dimensional vehicle with driving resistances"
+      extends Modelica.Icons.Example;
+      import Modelica.Constants.g_n;
+      parameter Modelica.SIunits.Mass m=100 "Mass of vehicle";
+      parameter Modelica.SIunits.Length D=0.5 "Diameter of wheel";
+      parameter Modelica.SIunits.Area A=1 "Cross section of vehicle";
+      parameter Real cw=0.5 "Drag resistance coefficient";
+      parameter Modelica.SIunits.Density rho=1.18 "Density of air";
+      parameter Modelica.SIunits.Velocity vWind=0 "Constant wind velocity";
+      parameter Real cr=0.01 "Rolling resistance coefficient";
+      //Check nominal force
+      parameter Real inclination=0 "Constant inclination = tan(angle)";
+      parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nominal speed";
+      final parameter Modelica.SIunits.Force FDrag=cw*A*rho*(vNom - vWind)^2/2 "Drag resistance"
+        annotation(Dialog(enable=false));
+      final parameter Modelica.SIunits.Angle alpha=atan(inclination) "Inclination angle"
+        annotation(Dialog(enable=false));
+      final parameter Modelica.SIunits.Force FRoll=cr*m*g_n*cos(alpha) "Roll resistance"
+        annotation(Dialog(enable=false));
+      final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alpha) "Grav resistance"
+      annotation(Dialog(enable=false));
+      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,0,0; 5,0,0;
+            5,5.6,0; 10.8,5.6,0; 10.8,1,0; 20,1,0; 20,2.8,0.05; 25,2.8,0.05; 25,
+            1,0; 50,1,0; 50,-5,0; 55,-5,0; 55,0,0; 60,0,0],
+                                     extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Modelica.Blocks.Math.Gain gain(k=(FDrag + FRoll + FGrav)*D/2)
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      Components.Vehicle1D vehicle1D(m=m, J=0,
+        D=D,
+        A=A,
+        cw=cw,
+        vWindConstant=vWind,
+        crConstant=cr,
+        useInclinationInput=true,
+        s(fixed=true),
+        v(fixed=true))
+        annotation (Placement(transformation(extent={{30,-10},{50,10}})));
+      Rotational.Sources.Torque torque
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      Components.Vehicle1D vehicle1D1(
+        m=m,
+        J=0,
+        D=D,
+        A=A,
+        cw=cw,
+        vWindConstant=vWind,
+        crConstant=cr,
+        useInclinationInput=true,
+        s(fixed=true),
+        v(fixed=true))
+        annotation (Placement(transformation(extent={{30,40},{50,60}})));
+      Rotational.Sources.Torque torque1
+        annotation (Placement(transformation(extent={{0,40},{20,60}})));
+      Components.Vehicle1D vehicle1D2(
+        m=m,
+        J=0,
+        D=D,
+        A=A,
+        cw=cw,
+        vWindConstant=vWind,
+        crConstant=cr,
+        useInclinationInput=true,
+        s(fixed=false),
+        v(fixed=false))
+        annotation (Placement(transformation(extent={{70,40},{90,60}})));
+      Blocks.Math.Gain          gain1(k=2)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-10,30})));
+      Modelica.Mechanics.Translational.Sensors.MultiSensor multiSensor
+        annotation (Placement(transformation(extent={{60,84},{80,64}})));
+    equation
+      connect(combiTimeTable.y[1], gain.u)
+        annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
+      connect(combiTimeTable.y[2], vehicle1D.inclination) annotation (Line(points={{-59,0},
+              {-50,0},{-50,-20},{34,-20},{34,-12}},        color={0,0,127}));
+      connect(gain.y, torque.tau)
+        annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
+      connect(torque.flange, vehicle1D.flangeR)
+        annotation (Line(points={{20,0},{30,0}}, color={0,0,0}));
+      connect(torque1.flange, vehicle1D1.flangeR)
+        annotation (Line(points={{20,50},{30,50}}, color={0,0,0}));
+      connect(vehicle1D.inclination, vehicle1D1.inclination) annotation (Line(
+            points={{34,-12},{34,-20},{60,-20},{60,30},{34,30},{34,38}}, color=
+              {0,0,127}));
+      connect(vehicle1D1.inclination, vehicle1D2.inclination) annotation (Line(
+            points={{34,38},{34,30},{74,30},{74,38}}, color={0,0,127}));
+      connect(gain.y, gain1.u)
+        annotation (Line(points={{-19,0},{-10,0},{-10,18}}, color={0,0,127}));
+      connect(gain1.y, torque1.tau)
+        annotation (Line(points={{-10,41},{-10,50},{-2,50}}, color={0,0,127}));
+      connect(vehicle1D1.flangeT, multiSensor.flange_a)
+        annotation (Line(points={{50,50},{50,74},{60,74}}, color={0,127,0}));
+      connect(multiSensor.flange_b, vehicle1D2.flangeT)
+        annotation (Line(points={{80,74},{90,74},{90,50}}, color={0,127,0}));
+      annotation (experiment(StopTime=60, Interval=0.01), Documentation(info="<html>
+<p>
+A vehicle is accelerated and decelerated by a driving torque. 
+Nominal torque is defined as the sum of driving resistances at nominal speed times wheel radius. 
+</p>
+<p>
+Starting at 5 s, a vehicle is accelerated by a multiple of nominal torque until it nearly reaches nominal speed, then driven by nominal torque. 
+Between 20 s and 25 s, an inclination of 5% occurs and driving torque is increased to a multiple of nominal torque temporarily. 
+Between 50 s and 55 s, the driving torque is set below zero, causing the vehicle to decelerate. 
+After 55 s, the vehicle decelerates due to the driving resistances.
+</p>
+<p>
+Coupling a trailer with the same data but without drive, the driving torque has to be doubled to achieve the same acceleration and velocity. 
+Force and power between the two vehicles is measured. 
+</p>
+<p>
+Note: Since the trailer <code>vehicle1D2</code> is coupled tightly with the second vehicle <code>vehicle1D1</code>, initilization of the trailer has to be removed.
+</p>
+</html>"));
+    end Vehicle1D;
+
     model GenerationOfFMUs
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
       extends Modelica.Icons.Example;
@@ -3279,6 +3396,295 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 <p>Couples rotational and translational motion, like an ideal rolling wheel, specifying the wheel radius.</p>
 </html>"));
     end IdealRollingWheel;
+
+    model Vehicle1D "Simple one-dimensional vehicle model"
+      parameter SI.Mass m "Total mass of vehicle";
+      parameter SI.Acceleration g=Modelica.Constants.g_n "Gravitational constant";
+      parameter SI.Inertia J "Total rotational inertia of drive train";
+      parameter SI.Length D "Wheel diameter";
+      parameter SI.Area A(start=1) "Cross section of vehicle"
+        annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
+      parameter Real cw(start=0.5) "Drag resistance coefficient"
+        annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
+      parameter SI.Density rho=1.2 "Density of air"
+        annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
+      parameter Boolean useWindInput=false "Enable signal input for wind velocity"
+        annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
+      parameter SI.Velocity vWindConstant=0 "Constant wind velocity"
+        annotation(Dialog(tab="Driving resistances", group="Drag resistance", enable=not useWindInput));
+      parameter Boolean usecrInput=false "Enable signal input for cr"
+        annotation(Dialog(tab="Driving resistances", group="Rolling resistance"));
+      parameter Real crConstant(start=0.01) "Constant rolling resistance coefficient"
+        annotation(Dialog(tab="Driving resistances", group="Rolling resistance", enable=not usecrInput));
+      parameter SI.Velocity vReg=1e-3 "Velocity for regularization around 0"
+        annotation(Dialog(tab="Driving resistances", group="Rolling resistance"));
+      parameter Boolean useInclinationInput=false "Enable signal input for inclination"
+        annotation(Dialog(tab="Driving resistances", group="Inclination resistance"));
+      parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
+        annotation(Dialog(tab="Driving resistances", group="Inclination resistance", enable=not useInclinationInput));
+      SI.Position s(displayUnit="km", start=0)=mass.s "Position of vehicle";
+      SI.Velocity v(displayUnit="km/h", start=0)=mass.v "Velocity of vehicle";
+      SI.Acceleration a=mass.a "Acceleration of vehicle";
+      Modelica.Mechanics.Translational.Interfaces.Flange_b flangeT "Translational flange"
+        annotation (Placement(transformation(extent={{90,10},{110,-10}})));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flangeR "Rotational flange"
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Rotational.Sensors.MultiSensor rotationalMultiSensor annotation (Placement(
+            transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=0,
+            origin={-70,60})));
+      Rotational.Components.Inertia inertia(final J=J)
+        annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
+      IdealRollingWheel idealRollingWheel(final radius=D/2)
+        annotation (Placement(transformation(extent={{-10,50},{10,70}})));
+      Mass mass(final m=m) annotation (Placement(transformation(extent={{30,50},
+                {50,70}})));
+      Modelica.Blocks.Interfaces.RealInput vWind(unit="m/s") if useWindInput
+        "Wind velocity"
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={60,-120})));
+      Modelica.Blocks.Interfaces.RealInput inclination if useInclinationInput
+        "Inclination=tan(angle)"
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={-60,-120})));
+      Modelica.Blocks.Interfaces.RealInput cr if usecrInput
+        "Rolling resistance coefficient"
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={0,-120})));
+      Sources.QuadraticSpeedDependentForce dragForce(
+        final useSupport=true,
+        final f_nominal=-cw*A*rho*vRef^2/2,
+        final ForceDirection=false,
+        final v_nominal=vRef)
+        annotation (Placement(transformation(extent={{50,-30},{70,-10}})));
+      Sources.Speed windSpeed(s(fixed=true))  annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={60,-60})));
+      Sources.Force gravForce
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-40,30})));
+      Sources.SignForce rollForce(
+        final useForceInput=true,
+        final f_nominal=0,
+        final reg=Modelica.Blocks.Types.Regularization.Linear,
+        final v0=vReg) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={20,10})));
+      Blocks.Math.Atan atan annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-60,-60})));
+      Blocks.Math.Sin sin annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-60,-20})));
+      Blocks.Math.Cos cos annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-40,-40})));
+      Blocks.Math.Gain rollForceGain(final k=-m*g) annotation (Placement(
+            transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-60,10})));
+      Blocks.Math.Product product annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={0,-10})));
+      Blocks.Math.Gain gravForceGain(final k=-m*g) annotation (Placement(
+            transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={0,-60})));
+
+      Blocks.Continuous.Integrator energy(final k=1)
+        annotation (Placement(transformation(extent={{-60,80},{-40,100}})));
+    protected
+      constant SI.Velocity vRef=1 "Reference velocity for air drag";
+      Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not useWindInput
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={40,-90})));
+      Modelica.Blocks.Interfaces.RealInput internalInclination "Internal inclination"
+        annotation (Placement(transformation(extent={{-4,-4},{4,4}},
+            rotation=90,
+            origin={-60,-90})));
+      Modelica.Blocks.Sources.Constant constInclination(k=inclinationConstant) if not useInclinationInput
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={-80,-90})));
+      Modelica.Blocks.Interfaces.RealInput internalCr
+        "Internal rolling resistance coefficient"
+        annotation (Placement(transformation(extent={{-4,-4},{4,4}},
+            rotation=90,
+            origin={0,-90})));
+      Modelica.Blocks.Sources.Constant constCr(k=crConstant) if not usecrInput
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={-22,-90})));
+    equation
+      connect(idealRollingWheel.flangeT, mass.flange_a)
+        annotation (Line(points={{10,60},{30,60}},
+                                                 color={0,127,0}));
+      connect(internalCr, cr)
+        annotation (Line(points={{0,-90},{0,-120}}, color={0,0,127}));
+      connect(internalCr, constCr.y)
+        annotation (Line(points={{0,-90},{-11,-90}}, color={0,0,127}));
+      connect(constInclination.y, internalInclination)
+        annotation (Line(points={{-69,-90},{-60,-90}}, color={0,0,127}));
+      connect(inclination, internalInclination)
+        annotation (Line(points={{-60,-120},{-60,-90}}, color={0,0,127}));
+      connect(constWindSpeed.y, windSpeed.v_ref)
+        annotation (Line(points={{51,-90},{60,-90},{60,-72}}, color={0,0,127}));
+      connect(vWind, windSpeed.v_ref)
+        annotation (Line(points={{60,-120},{60,-72}}, color={0,0,127}));
+      connect(dragForce.support, windSpeed.flange)
+        annotation (Line(points={{60,-30},{60,-50}}, color={0,127,0}));
+      connect(mass.flange_b, flangeT) annotation (Line(points={{50,60},{90,60},
+              {90,0},{100,0}},
+                        color={0,127,0}));
+      connect(atan.u, internalInclination)
+        annotation (Line(points={{-60,-72},{-60,-90}}, color={0,0,127}));
+      connect(sin.u, atan.y)
+        annotation (Line(points={{-60,-32},{-60,-49}}, color={0,0,127}));
+      connect(atan.y, cos.u)
+        annotation (Line(points={{-60,-49},{-60,-40},{-52,-40}}, color={0,0,127}));
+      connect(rollForceGain.u, sin.y)
+        annotation (Line(points={{-60,-2},{-60,-9}}, color={0,0,127}));
+      connect(cos.y, product.u1)
+        annotation (Line(points={{-29,-40},{-6,-40},{-6,-22}}, color={0,0,127}));
+      connect(gravForceGain.u, internalCr) annotation (Line(points={{-6.66134e-16,-72},
+              {-6.66134e-16,-82},{0,-82},{0,-90}}, color={0,0,127}));
+      connect(gravForceGain.y, product.u2) annotation (Line(points={{8.88178e-16,-49},
+              {8.88178e-16,-40},{6,-40},{6,-22}}, color={0,0,127}));
+      connect(rollForceGain.y, gravForce.f)
+        annotation (Line(points={{-60,21},{-60,30},{-52,30}}, color={0,0,127}));
+      connect(product.y, rollForce.force)
+        annotation (Line(points={{0,1},{0,10},{8,10}}, color={0,0,127}));
+      connect(mass.flange_b, dragForce.flange) annotation (Line(points={{50,60},
+              {90,60},{90,-20},{70,-20}},
+                                      color={0,127,0}));
+      connect(mass.flange_b, rollForce.flange) annotation (Line(points={{50,60},
+              {90,60},{90,10},{30,10}},
+                                    color={0,127,0}));
+      connect(mass.flange_b, gravForce.flange) annotation (Line(points={{50,60},
+              {90,60},{90,30},{-30,30}},
+                                     color={0,127,0}));
+      connect(inertia.flange_b, idealRollingWheel.flangeR)
+        annotation (Line(points={{-30,60},{-10,60}}, color={0,0,0}));
+      connect(flangeR, rotationalMultiSensor.flange_a)
+        annotation (Line(points={{-100,0},{-80,0},{-80,60}}, color={0,0,0}));
+      connect(rotationalMultiSensor.flange_b, inertia.flange_a)
+        annotation (Line(points={{-60,60},{-50,60}}, color={0,0,0}));
+      connect(rotationalMultiSensor.power, energy.u) annotation (Line(points={{
+              -76,71},{-76,90},{-62,90}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+        Line(points={{-80,-70},{80,-70}}, color={0,0,0}),
+        Line(points={{-80,0},{85.607,-1.19754}},
+                                          color={0,0,0}, origin={-3,-49}, rotation=15),
+        Ellipse(extent={{-130,-120},{-30,-20}}, lineColor={0,0,0}, startAngle=0, endAngle=15),
+        Polygon(points={{-70,15},{-70,-25},{50,-25},{50,15},{38,25},{-60,25},{-70,15}},
+              lineColor={0,127,0}, fillColor={160,215,160}, fillPattern=FillPattern.Solid, origin={0,
+                  -9},                                                                                      rotation=15),
+        Line(points={{-40,0},{40,0}}, color={95,127,95}, origin={-40,32}, rotation=15),
+        Polygon(points={{15,0},{-15,10},{-15,-10},{15,0}}, lineColor={95,127,95}, fillColor={95,127,95},
+                fillPattern =                                                                                        FillPattern.Solid, origin={11,
+                  46},                                                                                                                                  rotation=15),
+        Text(extent={{-150,100},{150,60}}, textString="%name", lineColor={0,0,255}),
+        Polygon(points={{-20,0},{0,10},{0,4},{20,4},{20,-4},{0,-4},{0,-10},{-20,0}}, lineColor={0,127,0}, fillColor={160,215,160},
+                fillPattern =                                                                                                                  FillPattern.Solid, origin={68,
+                  18},                                                                                                                                                           rotation=15),
+        Text(extent={{-80,-80},{-40,-100}},                    lineColor={0,0,
+                  255},
+              textString="inc."),
+        Text(extent={{-20,-80},{20,-100}},                     lineColor={0,0,
+                  255},
+              textString="cr"),
+        Text(extent={{30,-80},{90,-100}},                      lineColor={0,0,
+                  255},
+              textString="wind"),
+        Ellipse(extent={{-50,-34},{-26,-58}},lineColor={0,127,0}, fillPattern=FillPattern.Sphere, fillColor={160,215,160}),
+        Ellipse(extent={{20,-16},{44,-40}},  lineColor={0,127,0}, fillPattern=FillPattern.Sphere, fillColor={160,215,160})}),
+        Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+This is a simple model of a ground vehicle, comprising the mass, the aerodynamic drag, the rolling resistance and
+the inclination resistance (caused by the road grade).
+For all particular resistances, significant variables can be either given by a parameter or input by a time-variable signal.
+</p>
+<p>
+The vehicle can be driven at the rotational flange <code>flangeR</code>, e.g. by an electric motor and a gearbox. 
+It is possible to use the vehicle as a passive trailer, leaving the rotational flange <code>flangeR</code> unconnected.
+</p>
+<p>
+At the translational flange <code>flangeT</code> the vehicle can be coupled with another vehicle, 
+e.g. as a trailer or to pull a trailer. 
+It is possible to leave the translational flange <code>flangeT</code> unconnected.
+</p>
+<p>
+For convenience, the <code>rotationalMultiSensor</code> provides torque, angular velocity and power delivered to the vehicle at the rotational flange <code>flangeR</code>. 
+Furthermore, the consumption of mechanical energy is integrated from power (<code>energy.y</code>).
+</p>
+<p>
+The velocity <code>v</code> and the driving distance <code>s</code> of the vehicle are provided as variables; 
+the vehicle can be initialzed using these variables.
+</p>
+<p>
+<strong>Mass and inertia</strong>
+</p>
+<p>
+The translational vehicle mass and the rotational inertias (e.g. the wheels) are accelerated when the vehicle is accelerated. 
+The rotational inertias <code>J</code> can be expressed as an equivalent additional mass <code>mEq = J/r<sup>2</sup></code>, 
+where <code>r</code> is the wheel radius, but only the vehicle mass influences rolling resistance and inclination resistance. 
+The vehicle mass includes transported load, passengers and driver. 
+</p>
+<p>
+<strong>Drag resistance</strong>
+</p>
+<blockquote>
+<pre>
+fDrag = cw*rho*A*(v - vWind)^2/2
+</pre>
+</blockquote>
+<p>
+Wind speed is measured in the same direction as velocity of <code>flange</code>.
+Wind speed is either constant or prescribed by the input <code>vWind</code>.
+</p>
+<p>
+<strong>Rolling resistance</strong>
+</p>
+<blockquote>
+<pre>
+fRoll = cr*m*g*cos(alpha)
+</pre>
+</blockquote>
+<p>
+Rolling resistance coeffcient&nbsp;<var>cr</var> is either constant
+or prescribed by the input <code>cr</code>.
+Rolling resistance has a crossover from positive to negative speed within <code>[-vReg, vReg]</code>.
+</p>
+<p>
+The inclination angle&nbsp;<var>&alpha;</var> is either constant or prescribed by
+the input <code>inclination</code> = tan(inclination angle).
+This corresponds to the road rise over running distance of 100&nbsp;m which,
+in general, is written as a&nbsp;percentage.
+For example for a road rising by 10&nbsp;m over 100&nbsp;m the
+grade&nbsp;=&nbsp;10&nbsp;% and, thus, the parameter
+<code>inclinationConstant&nbsp;=&nbsp;0.1</code>.
+Positive inclination means driving uphill, negative inclination means
+driving downhill.
+</p>
+<p>
+<strong>Inclination resistance</strong>
+</p>
+<blockquote>
+<pre>
+fGrav = m*g*sin(alpha)
+</pre>
+</blockquote>
+</html>"));
+    end Vehicle1D;
 
     model InitializeFlange
       "Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)"
@@ -4856,36 +5262,54 @@ Negative force brakes in positive direction of movement, but accelerates in reve
     model SignForce "Constant force changing sign with speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       import Modelica.Constants.pi;
+      parameter Boolean useForceInput=false "Enable signal input for force";
       parameter Modelica.SIunits.Force f_nominal
-        "Nominal force (if negative, force is acting as load)";
+        "Nominal force (if negative, force is acting as load)"
+        annotation(Dialog(enable=not useForceInput));
       parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
         "Type of regularization" annotation(Evaluate=true);
       parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
         "Regularization below v0";
-    Modelica.SIunits.Velocity v
+      Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
-
+      Blocks.Interfaces.RealInput force(unit="N") if useForceInput
+        "external force"
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=0,
+            origin={-120,0})));
+    protected
+      Blocks.Sources.Constant constForce(k=f_nominal) if  not useForceInput
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-80,30})));
+      Blocks.Interfaces.RealInput internalForce "Internal force" annotation (
+          Placement(transformation(
+            extent={{-4,-4},{4,4}},
+            rotation=0,
+            origin={-80,0})));
     equation
       v = der(s);
       if reg==Modelica.Blocks.Types.Regularization.Exp then
-        f = -f_nominal*(2/(1 + Modelica.Math.exp(-v/(0.01*v0)))-1);
+        f = -internalForce*(2/(1 + Modelica.Math.exp(-v/(0.01*v0)))-1);
       elseif reg==Modelica.Blocks.Types.Regularization.Sine then
-        f = -f_nominal*smooth(1, (if abs(v)>=v0 then sign(v) else Modelica.Math.sin(pi/2*v/v0)));
+        f = -internalForce*smooth(1, (if abs(v)>=v0 then sign(v) else Modelica.Math.sin(pi/2*v/v0)));
       elseif reg==Modelica.Blocks.Types.Regularization.Linear then
-        f = -f_nominal*(if abs(v)>=v0 then sign(v) else (v/v0));
+        f = -internalForce*(if abs(v)>=v0 then sign(v) else (v/v0));
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
-        f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - Modelica.Math.cos(pi/2*v/v0)));
+        f = -internalForce*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - Modelica.Math.cos(pi/2*v/v0)));
       end if;
+      connect(force, internalForce)
+        annotation (Line(points={{-120,0},{-80,0}}, color={0,0,127}));
+      connect(constForce.y, internalForce)
+        annotation (Line(points={{-80,19},{-80,0}}, color={0,0,127}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
               Line(points={{0,66},{0,-20}}, color={192,192,192}),
               Line(points={{-75,24},{75,24}},
                                             color={192,192,192}),
-            Line(points={{-74,-12},{-8,-12},{-6,-10},{6,58},{8,60},{74,60}}),
-              Text(
-                extent={{-120,-50},{120,-20}},
-              textString="%f_nominal")}),                                       Documentation(info="<html>
+            Line(points={{-74,-12},{-8,-12},{-6,-10},{6,58},{8,60},{74,60}})}), Documentation(info="<html>
 <p>Model of constant force which changes sign with direction of movement.</p>
 <p>Please note:<br>
 Positive force accelerates in both directions of movement.<br>
