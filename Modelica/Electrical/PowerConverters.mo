@@ -3802,9 +3802,11 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               rotation=270,
               origin={0,-120})));
         parameter Modelica.SIunits.Angle firingAngleMax(
-          min=0,
-          max=Modelica.Constants.pi) = Modelica.Constants.pi
+          min=0, max=pi) = Modelica.Constants.pi
           "Maximum firing angle";
+        parameter Modelica.SIunits.Angle firingAngleMin(
+          min=0, max=pi) = 0
+          "Minimum firing angle";
         Modelica.Blocks.Sources.Constant constantconstantFiringAngle(final k=
               constantFiringAngle) if useConstantFiringAngle annotation (
             Placement(transformation(
@@ -3815,28 +3817,28 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
              zeros(m)) annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
-              origin={-60,10})));
+              origin={-60,-20})));
         Modelica.Blocks.Logical.LessThreshold negativeThreshold[m](threshold=
               zeros(m)) annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
-              origin={60,10})));
+              origin={60,-20})));
         Modelica.Blocks.Logical.Timer timerPositive[m] annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
-              origin={-60,40})));
+              origin={-60,10})));
         Modelica.Blocks.Logical.Timer timerNegative[m] annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
-              origin={60,40})));
+              origin={60,10})));
         Modelica.Blocks.Logical.Greater greaterPositive[m] annotation (
             Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=270,
               origin={-60,80})));
-        Modelica.Blocks.Logical.Greater negativeEqual[m] annotation (Placement(
+        Modelica.Blocks.Logical.Greater greaterNegative[m] annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
@@ -3861,8 +3863,9 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={0,40})));
-        Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=max(Modelica.Constants.pi,
-              firingAngleMax), final uMin=0) annotation (Placement(
+        Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=min(firingAngleMax, pi),
+            final uMin=max(firingAngleMin, 0))
+                                             annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
@@ -3880,26 +3883,33 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
         Modelica.Blocks.Routing.RealPassThrough realPassThrough[m] if not
           useFilter "Pass through in case filter is off"
           annotation (Placement(transformation(extent={{-90,-60},{-70,-40}})));
+        Blocks.Math.Gain gainPositive[m](each final k=2*f) annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=270,
+              origin={-60,40})));
+        Blocks.Math.Gain gainNegative[m](each final k=2*f) annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=270,
+              origin={60,40})));
       equation
+        assert(firingAngleMax>firingAngleMin,
+          "Signal2mPulse: firingAngleMax has to be greater than firingAngleMin");
         connect(positiveThreshold.y, timerPositive.u) annotation (Line(
-            points={{-60,21},{-60,28}}, color={255,0,255}));
+            points={{-60,-9},{-60,-2}}, color={255,0,255}));
         connect(negativeThreshold.y, timerNegative.u) annotation (Line(
-            points={{60,21},{60,28}}, color={255,0,255}));
-        connect(timerPositive.y, greaterPositive.u1) annotation (Line(
-            points={{-60,51},{-60,68}}, color={0,0,127}));
-        connect(negativeEqual.u1, timerNegative.y) annotation (Line(
-            points={{60,68},{60,51}}, color={0,0,127}));
+            points={{60,-9},{60,-2}}, color={255,0,255}));
         connect(greaterPositive.y, fire_p) annotation (Line(
             points={{-60,91},{-60,110}}, color={255,0,255}));
-        connect(negativeEqual.y, fire_n) annotation (Line(
-            points={{60,91},{60,110}}, color={255,0,255}));
+        connect(greaterNegative.y, fire_n)
+          annotation (Line(points={{60,91},{60,110}}, color={255,0,255}));
         connect(gain.y, replicator.u) annotation (Line(
             points={{0,21},{0,28}}, color={0,0,127}));
         connect(replicator.y, greaterPositive.u2) annotation (Line(
             points={{0,51},{0,60},{-52,60},{-52,68}}, color={0,0,127}));
-        connect(replicator.y, negativeEqual.u2) annotation (Line(
-            points={{0,51},{0,60},{52,60},{52,
-                68}}, color={0,0,127}));
+        connect(replicator.y, greaterNegative.u2)
+          annotation (Line(points={{0,51},{0,60},{52,60},{52,68}}, color={0,0,127}));
         connect(limiter.y, gain.u) annotation (Line(
             points={{0,-9},{0,-2}}, color={0,0,127}));
         connect(firingAngle, limiter.u) annotation (Line(
@@ -3909,16 +3919,24 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
         connect(v, filter.u) annotation (Line(
             points={{-120,0},{-100,0},{-100,-80},{-92,-80}}, color={0,0,127}));
         connect(filter.y, positiveThreshold.u) annotation (Line(
-            points={{-69,-80},{-60,-80},{-60,-2}}, color={0,0,127}));
+            points={{-69,-80},{-60,-80},{-60,-32}},color={0,0,127}));
         connect(filter.y, negativeThreshold.u) annotation (Line(
-            points={{-69,-80},{-60,-80},{-60,-50},{-52,-50},{-52,-50},{60,-50},
-                {60,-2}}, color={0,0,127}));
+            points={{-69,-80},{-60,-80},{-60,-50},{60,-50},{60,-32}},
+                          color={0,0,127}));
         connect(realPassThrough.u, v) annotation (Line(
             points={{-92,-50},{-100,-50},{-100,0},{-120,0}}, color={0,0,127}));
         connect(realPassThrough.y, positiveThreshold.u) annotation (Line(
-            points={{-69,-50},{-60,-50},{-60,-2}}, color={0,0,127}));
+            points={{-69,-50},{-60,-50},{-60,-32}},color={0,0,127}));
         connect(realPassThrough.y, negativeThreshold.u) annotation (Line(
-            points={{-69,-50},{-56,-50},{-56,-50},{60,-50},{60,-2}}, color={0,0,127}));
+            points={{-69,-50},{60,-50},{60,-32}},                    color={0,0,127}));
+        connect(greaterNegative.u1, gainNegative.y)
+          annotation (Line(points={{60,68},{60,51}}, color={0,0,127}));
+        connect(gainNegative.u, timerNegative.y)
+          annotation (Line(points={{60,28},{60,21}}, color={0,0,127}));
+        connect(greaterPositive.u1, gainPositive.y)
+          annotation (Line(points={{-60,68},{-60,51}}, color={0,0,127}));
+        connect(gainPositive.u, timerPositive.y)
+          annotation (Line(points={{-60,28},{-60,21}}, color={0,0,127}));
         annotation (defaultComponentName="adaptor",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
