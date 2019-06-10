@@ -3853,7 +3853,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={60,110})));
-        Modelica.Blocks.Math.Gain gain(final k=1/2/pi/f) annotation (Placement(
+        Modelica.Blocks.Math.Gain gain(final k=1/pi)     annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
