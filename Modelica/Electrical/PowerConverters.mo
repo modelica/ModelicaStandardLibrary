@@ -3838,8 +3838,8 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               extent={{10,10},{-10,-10}},
               rotation=270,
               origin={-60,80})));
-        Modelica.Blocks.Logical.Greater lessNegative[m] annotation (Placement(
-              transformation(
+        Modelica.Blocks.Logical.Greater greaterNegative[m] annotation (
+            Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={60,80})));
@@ -3902,14 +3902,14 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
             points={{60,-9},{60,-2}}, color={255,0,255}));
         connect(greaterPositive.y, fire_p) annotation (Line(
             points={{-60,91},{-60,110}}, color={255,0,255}));
-        connect(lessNegative.y, fire_n)
+        connect(greaterNegative.y, fire_n)
           annotation (Line(points={{60,91},{60,110}}, color={255,0,255}));
         connect(gain.y, replicator.u) annotation (Line(
             points={{0,21},{0,28}}, color={0,0,127}));
         connect(replicator.y, greaterPositive.u2) annotation (Line(
             points={{0,51},{0,60},{-52,60},{-52,68}}, color={0,0,127}));
-        connect(replicator.y, lessNegative.u2)
-          annotation (Line(points={{0,51},{0,60},{52,60},{52,68}}, color={0,0,127}));
+        connect(replicator.y, greaterNegative.u2) annotation (Line(points={{0,
+                51},{0,60},{52,60},{52,68}}, color={0,0,127}));
         connect(limiter.y, gain.u) annotation (Line(
             points={{0,-9},{0,-2}}, color={0,0,127}));
         connect(firingAngle, limiter.u) annotation (Line(
@@ -3933,7 +3933,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           annotation (Line(points={{-60,21},{-60,28}}, color={0,0,127}));
         connect(gainPositive.y, greaterPositive.u1)
           annotation (Line(points={{-60,51},{-60,68}}, color={0,0,127}));
-        connect(gainNegative.y, lessNegative.u1)
+        connect(gainNegative.y, greaterNegative.u1)
           annotation (Line(points={{60,51},{60,68}}, color={0,0,127}));
         connect(timerNegative.y, gainNegative.u)
           annotation (Line(points={{60,21},{60,28}}, color={0,0,127}));
