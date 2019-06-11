@@ -225,7 +225,7 @@ For an example, see
    input angle changed."
         extends ClockSignals.Interfaces.PartialClock;
 
-        Modelica.Blocks.Interfaces.RealInput angle(unit = "rad")
+        Modelica.Blocks.Interfaces.RealInput angle(quantity="Angle", unit = "rad")
           "Input angle observed for generating clock ticks."
           annotation (Placement(transformation(extent = {{-140,-20},{-100,20}})));
         Modelica.Blocks.Interfaces.IntegerOutput direction
@@ -252,7 +252,7 @@ For an example, see
    changed for a rotational-interval given as variable input."
         extends PartialRotationalClock;
 
-        Modelica.Blocks.Interfaces.RealInput trigger_interval(unit = "rad")
+        Modelica.Blocks.Interfaces.RealInput trigger_interval(quantity="Angle", unit = "rad")
           "Rotational-interval the input angle must be changed to trigger the next
      clock tick."
           annotation (Placement(transformation(extent = {{-140,40},{-100,80}})));
