@@ -1639,11 +1639,11 @@ to beeing satisfied, i.e., the state when the clock last ticked.
 
         parameter Real P_0 = 1 "Atmospheric pressure, bar";
         protected
-          Real m_ai(start=0, fixed=true) "mass, g";
-          Real f_Theta "auxiliary variable";
-          Real g_Pm "auxiliary variable";
+          Real m_ai(start=0, fixed=true) "Mass, g";
+          Real f_Theta "Auxiliary variable";
+          Real g_Pm "Auxiliary variable";
         public
-          Modelica.Blocks.Interfaces.RealInput Theta "throttle angle, degrees"
+          Modelica.Blocks.Interfaces.RealInput Theta "Throttle angle, degrees"
             annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
           Modelica.Blocks.Interfaces.RealInput Pm
             "Intake manifold presure, bar"
@@ -1701,9 +1701,9 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
         block TorqueGeneration
         extends Modelica.Blocks.Icons.Block;
           parameter Real AFR = 14.6
-            "air-fuel ratio (took same value like SIMULINK example for comparison reasons)";
+            "Air-fuel ratio (took same value like SIMULINK example for comparison reasons)";
           parameter Real sigma = 15.0
-            "spark advance, BTDC (took same value like SIMULINK example for comparison reasons)";
+            "Spark advance, BTDC (took same value like SIMULINK example for comparison reasons)";
           Modelica.Blocks.Interfaces.RealInput m_a
             "Mass of air charge in cylinder (delayed of 180deg crankshaft rotation) (g) "
             annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
@@ -1729,7 +1729,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
           Modelica.Blocks.Interfaces.RealInput N "Measured speed, (rad/s)"
                                                                           annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
           Modelica.Blocks.Interfaces.RealOutput Theta(start=8.9)
-            "throttle angle, degrees"                                                      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+            "Throttle angle, degrees"                                                      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
         protected
           Real x_d(start=8.973, fixed=true);
         /*
@@ -1996,7 +1996,7 @@ initial equation
         model Engine2 "Internal combustion engine"
 
         public
-          Modelica.Blocks.Interfaces.RealInput Theta "throttle angle, degrees"
+          Modelica.Blocks.Interfaces.RealInput Theta "Throttle angle, degrees"
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
           Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.ThrottleBody
             throttleBody
