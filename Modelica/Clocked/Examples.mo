@@ -1648,7 +1648,7 @@ to beeing satisfied, i.e., the state when the clock last ticked.
           Modelica.Blocks.Interfaces.RealInput Pm
             "Intake manifold presure, bar"
             annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
-          Modelica.Blocks.Interfaces.RealOutput m_ai_dot
+          Modelica.Blocks.Interfaces.RealOutput m_ai_der
             "Mass flow rate of air into manifold (g/s)"
             annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
@@ -1670,7 +1670,7 @@ to beeing satisfied, i.e., the state when the clock last ticked.
         /*
 g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
 */
-        m_ai_dot = der(m_ai);
+        m_ai_der = der(m_ai);
           annotation (Diagram(graphics));
         end ThrottleBody;
 
@@ -1680,20 +1680,20 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
             "RT/V_m TODO: What are sensible individual values of R,T, and V_m! (took same value like SIMULINK example for comparison reasons)";
           parameter Real P_0 = 0.543
             "Initial value for P_m, (bar) (took same value like SIMULINK example for comparison reasons)";
-          Modelica.Blocks.Interfaces.RealInput m_ai_dot
+          Modelica.Blocks.Interfaces.RealInput m_ai_der
             "Mass flow rate of air into manifold (g/s) "
             annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
           Modelica.Blocks.Interfaces.RealInput N "Engine speed (rad/sec)"
             annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
-          Modelica.Blocks.Interfaces.RealOutput m_ao_dot
+          Modelica.Blocks.Interfaces.RealOutput m_ao_der
             "Mass flow rate of air out of manifold (g/s)"
             annotation (Placement(transformation(extent={{100,50},{120,70}})));
           Modelica.Blocks.Interfaces.RealOutput P_m(start=P_0, fixed=true)
             "Intake manifold presure, (bar)"
             annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
         equation
-          der(P_m) = RTVmRatio*(m_ai_dot - m_ao_dot); // TODO adapt so that der(m_ai) and der(m_ao) is used!
-          m_ao_dot = -0.366 + 0.08979*N*P_m - 0.0337*N*P_m^2 + 0.0001*N^2*P_m;
+          der(P_m) = RTVmRatio*(m_ai_der - m_ao_der); // TODO adapt so that der(m_ai) and der(m_ao) is used!
+          m_ao_der = -0.366 + 0.08979*N*P_m - 0.0337*N*P_m^2 + 0.0001*N^2*P_m;
 
           annotation (Diagram(graphics));
         end IntakeManifold;
@@ -1943,7 +1943,7 @@ initial equation
           Modelica.Blocks.Interfaces.RealOutput m_a
             "Mass of an cylinder air charge (g)"
             annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-          Modelica.Blocks.Interfaces.RealInput m_ao_dot
+          Modelica.Blocks.Interfaces.RealInput m_ao_der
             "Mass flow rate of air out of manifold (g/s)"
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 
@@ -1957,7 +1957,7 @@ initial equation
             "Total amount of air that was sucked in";
           Real m_a_last "Amount of air sucked in until last clock event";
         equation
-          der(m_a_total) = m_ao_dot;
+          der(m_a_total) = m_ao_der;
           m_a = m_a_total - hold(m_a_last);
           when clock then
             m_a_last = sample(m_a_total);
@@ -2039,7 +2039,7 @@ initial equation
           connect(Theta, throttleBody.Theta) annotation (Line(
               points={{-120,0},{-92,0},{-92,36},{-80,36}},
               color={0,0,127}));
-          connect(throttleBody.m_ai_dot, intakeManifold.m_ai_dot) annotation (Line(
+          connect(throttleBody.m_ai_der, intakeManifold.m_ai_der) annotation (Line(
               points={{-57,30},{-52,30},{-52,10},{-86,10},{-86,-4},{-80,-4}},
               color={0,0,127}));
           connect(intakeManifold.P_m, throttleBody.Pm) annotation (Line(
@@ -2053,7 +2053,7 @@ initial equation
               Line(
               points={{-29,-10},{-24,-10}},
               color={0,0,127}));
-          connect(intakeManifold.m_ao_dot, cylinderAirCharge.m_ao_dot) annotation (
+          connect(intakeManifold.m_ao_der, cylinderAirCharge.m_ao_der) annotation (
               Line(
               points={{-57,-4},{-56,-4},{-56,-10},{-52,-10}},
               color={0,0,127}));
