@@ -1637,8 +1637,9 @@ to beeing satisfied, i.e., the state when the clock last ticked.
      International Conference on Control, Edinburgh, UK, March.<br>&nbsp;</dd>
 
 <dt>Simulink&reg; (R2010b) demo model <code>sldemo_enginewc.mdl</code>:</dt>
-<dd><b>Engine Timing Model with Closed Loop Control.</b>
-    Simulation results for the <code>EngineThrottleControl</code> example can be compared to the <code>sldemo_enginewc.mdl</code> demo model which is shipped with the Simulink&reg; software developed by The MathWorks, Inc.<br>&nbsp;</dd>
+<dd><b>Engine Timing Model with Closed Loop Control</b>.
+    The <code>EngineThrottleControl</code> example uses the same parameter values as the <code>sldemo_enginewc.mdl</code> demo model which is shipped with the Simulink&reg; software developed by The MathWorks, Inc.
+    Hence, the simulation results of these models can be compared conveniently.<br>&nbsp;</dd>
 </dl>
 </html>"));
     end EngineThrottleControl;
@@ -1692,9 +1693,9 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
           extends Modelica.Blocks.Icons.Block;
           import Modelica.SIunits.Conversions.NonSIunits;
           parameter Real RTVmRatio = 0.41328
-            "RT/V_m TODO: What are sensible individual values of R,T, and V_m! (took same value like SIMULINK example for comparison reasons)";
+            "RT/V_m";
           parameter NonSIunits.Pressure_bar P_0 = 0.543
-            "Initial value for P_m, (bar) (took same value like SIMULINK example for comparison reasons)";
+            "Initial value for P_m, (bar)";
           Modelica.Blocks.Interfaces.RealInput m_ai_der(quantity="MassFlowRate", unit="g/s")
             "Mass flow rate of air into manifold (g/s) "
             annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
@@ -1707,7 +1708,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
             "Intake manifold presure, (bar)"
             annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
         equation
-          der(P_m) = RTVmRatio*(m_ai_der - m_ao_der); // TODO adapt so that der(m_ai) and der(m_ao) is used!
+          der(P_m) = RTVmRatio*(m_ai_der - m_ao_der);
           m_ao_der = -0.366 + 0.08979*N*P_m - 0.0337*N*P_m^2 + 0.0001*N^2*P_m;
 
           annotation (Diagram(graphics));
@@ -1716,9 +1717,9 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
         block TorqueGeneration
         extends Modelica.Blocks.Icons.Block;
           parameter Real AFR = 14.6
-            "Air-fuel ratio (took same value like SIMULINK example for comparison reasons)";
+            "Air-fuel ratio";
           parameter Real sigma = 15.0
-            "Spark advance, BTDC (took same value like SIMULINK example for comparison reasons)";
+            "Spark advance, BTDC";
           Modelica.Blocks.Interfaces.RealInput m_a(quantity="Mass", unit="g")
             "Mass of air charge in cylinder (delayed of 180deg crankshaft rotation) (g) "
             annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
@@ -2158,7 +2159,7 @@ initial equation
                   lineColor={0,0,255},
                   fillColor={255,255,0},
                   fillPattern=FillPattern.Solid,
-                  textString="%name")}), Diagram(graphics));
+                  textString="%name")}));
         end Engine2;
       end ComponentsThrottleControl;
 
