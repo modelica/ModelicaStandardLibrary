@@ -1627,6 +1627,19 @@ In the end, <code>rotationalClock</code> samples it's own input angle to bookeep
 an offset used to decide when to tick; the clock's event condition depends on
 the state present when the condition changed last time from beeing non-satisfied
 to beeing satisfied, i.e., the state when the clock last ticked.
+<p>
+<i>This example model is based on the following references:</i>
+</p>
+
+<dl>
+<dt>Crossley, P.R. and Cook, J. (1991):</dt>
+<dd> <b>A nonlinear engine model for drivetrain system development</b>.
+     International Conference on Control, Edinburgh, UK, March.<br>&nbsp;</dd>
+
+<dt>Simulink&reg; (R2010b) demo model <code>sldemo_enginewc.mdl</code>:</dt>
+<dd><b>Engine Timing Model with Closed Loop Control.</b>
+    Simulation results for the <code>EngineThrottleControl</code> example can be compared to the <code>sldemo_enginewc.mdl</code> demo model which is shipped with the Simulink&reg; software developed by The MathWorks, Inc.<br>&nbsp;</dd>
+</dl>
 </html>"));
     end EngineThrottleControl;
 
