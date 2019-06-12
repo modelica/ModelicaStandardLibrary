@@ -6198,7 +6198,7 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
             "Diode opened conductance";
           parameter Modelica.SIunits.Voltage VkneeD=0 "Diode threshold voltage";
           Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
-            adaptor(useConstantMaximumVoltage=false, vMax=VMax)
+            adaptor(useConstantVoltageLimit=false, vLim=VMax)
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM pwm(
               useConstantDutyCycle=false, f=fS) annotation (Placement(
@@ -6251,7 +6251,7 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
                                   color={0,0,255}));
           connect(vRef, adaptor.v)
             annotation (Line(points={{-120,0},{-62,0}}, color={0,0,127}));
-          connect(vMax, adaptor.vMaxExt)
+          connect(vMax,adaptor.vLimExt)
             annotation (Line(points={{-120,60},{-50,60},{-50,12}}, color={0,0,127}));
           annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                 Rectangle(

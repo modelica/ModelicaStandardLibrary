@@ -216,3 +216,10 @@ convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
 convertElement("Modelica.Electrical.Analog.Basic.HeatingResistor",
                {"R_ref"},
                {"R"});
+
+convertElement({"Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle"},
+                "vMaxExt", "vLimExt");
+convertElement({"Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle"},
+                "useConstantMaximumVoltage", "useConstantVoltageLimit");
+convertElement({"Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle"},
+                "vMax", "vLim");

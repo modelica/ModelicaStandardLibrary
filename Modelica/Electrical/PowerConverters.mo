@@ -180,10 +180,11 @@ This library provides power converters for DC and AC single and multi phase elec
   <li>AC/DC converters (rectifiers)</li>
   <li>DC/AC converters (inverters)</li>
   <li>DC/DC converters</li>
+  <li>AC/AC converters</li>
 </ul>
 
 <p>
-General types of AC/AC converters are currently not provided in this library.
+AC/AC converters are currently provided only a soft starter in this library.
 </p>
 
 <h4>Converter characteristics</h4>
@@ -3780,7 +3781,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
       extends Modelica.Icons.Package;
       block Signal2mPulse "Generic control of 2*m pulse rectifiers"
         import Modelica.Constants.pi;
-        extends Icons.Control;
+        extends Modelica.Electrical.PowerConverters.Icons.Control;
         parameter Integer m(final min=1) = 3 "Number of phases";
         parameter Boolean useConstantFiringAngle=true
           "Use constant firing angle instead of signal input";
@@ -3802,9 +3803,11 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               rotation=270,
               origin={0,-120})));
         parameter Modelica.SIunits.Angle firingAngleMax(
-          min=0,
-          max=Modelica.Constants.pi) = Modelica.Constants.pi
+          min=0, max=pi) = Modelica.Constants.pi
           "Maximum firing angle";
+        parameter Modelica.SIunits.Angle firingAngleMin(
+          min=0, max=pi) = 0
+          "Minimum firing angle";
         Modelica.Blocks.Sources.Constant constantconstantFiringAngle(final k=
               constantFiringAngle) if useConstantFiringAngle annotation (
             Placement(transformation(
@@ -3815,28 +3818,28 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
              zeros(m)) annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
-              origin={-60,10})));
+              origin={-60,-20})));
         Modelica.Blocks.Logical.LessThreshold negativeThreshold[m](threshold=
               zeros(m)) annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
-              origin={60,10})));
+              origin={60,-20})));
         Modelica.Blocks.Logical.Timer timerPositive[m] annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
-              origin={-60,40})));
+              origin={-60,10})));
         Modelica.Blocks.Logical.Timer timerNegative[m] annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
-              origin={60,40})));
+              origin={60,10})));
         Modelica.Blocks.Logical.Greater greaterPositive[m] annotation (
             Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=270,
               origin={-60,80})));
-        Modelica.Blocks.Logical.Greater negativeEqual[m] annotation (Placement(
+        Modelica.Blocks.Logical.Greater greaterNegative[m] annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
@@ -3851,7 +3854,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={60,110})));
-        Modelica.Blocks.Math.Gain gain(final k=1/2/pi/f) annotation (Placement(
+        Modelica.Blocks.Math.Gain gain(final k=1/pi)     annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
@@ -3861,8 +3864,9 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={0,40})));
-        Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=max(Modelica.Constants.pi,
-              firingAngleMax), final uMin=0) annotation (Placement(
+        Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=min(firingAngleMax, pi),
+            final uMin=max(firingAngleMin, 0))
+                                             annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
@@ -3880,26 +3884,33 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
         Modelica.Blocks.Routing.RealPassThrough realPassThrough[m] if not
           useFilter "Pass through in case filter is off"
           annotation (Placement(transformation(extent={{-90,-60},{-70,-40}})));
+        Blocks.Math.Gain gainPositive[m](each final k=2*f) annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=270,
+              origin={-60,40})));
+        Blocks.Math.Gain gainNegative[m](each final k=2*f) annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=270,
+              origin={60,40})));
       equation
+        assert(firingAngleMax>firingAngleMin,
+          "Signal2mPulse: firingAngleMax has to be greater than firingAngleMin");
         connect(positiveThreshold.y, timerPositive.u) annotation (Line(
-            points={{-60,21},{-60,28}}, color={255,0,255}));
+            points={{-60,-9},{-60,-2}}, color={255,0,255}));
         connect(negativeThreshold.y, timerNegative.u) annotation (Line(
-            points={{60,21},{60,28}}, color={255,0,255}));
-        connect(timerPositive.y, greaterPositive.u1) annotation (Line(
-            points={{-60,51},{-60,68}}, color={0,0,127}));
-        connect(negativeEqual.u1, timerNegative.y) annotation (Line(
-            points={{60,68},{60,51}}, color={0,0,127}));
+            points={{60,-9},{60,-2}}, color={255,0,255}));
         connect(greaterPositive.y, fire_p) annotation (Line(
             points={{-60,91},{-60,110}}, color={255,0,255}));
-        connect(negativeEqual.y, fire_n) annotation (Line(
-            points={{60,91},{60,110}}, color={255,0,255}));
+        connect(greaterNegative.y, fire_n)
+          annotation (Line(points={{60,91},{60,110}}, color={255,0,255}));
         connect(gain.y, replicator.u) annotation (Line(
             points={{0,21},{0,28}}, color={0,0,127}));
         connect(replicator.y, greaterPositive.u2) annotation (Line(
             points={{0,51},{0,60},{-52,60},{-52,68}}, color={0,0,127}));
-        connect(replicator.y, negativeEqual.u2) annotation (Line(
-            points={{0,51},{0,60},{52,60},{52,
-                68}}, color={0,0,127}));
+        connect(replicator.y, greaterNegative.u2)
+          annotation (Line(points={{0,51},{0,60},{52,60},{52,68}}, color={0,0,127}));
         connect(limiter.y, gain.u) annotation (Line(
             points={{0,-9},{0,-2}}, color={0,0,127}));
         connect(firingAngle, limiter.u) annotation (Line(
@@ -3909,16 +3920,24 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
         connect(v, filter.u) annotation (Line(
             points={{-120,0},{-100,0},{-100,-80},{-92,-80}}, color={0,0,127}));
         connect(filter.y, positiveThreshold.u) annotation (Line(
-            points={{-69,-80},{-60,-80},{-60,-2}}, color={0,0,127}));
+            points={{-69,-80},{-60,-80},{-60,-32}},color={0,0,127}));
         connect(filter.y, negativeThreshold.u) annotation (Line(
-            points={{-69,-80},{-60,-80},{-60,-50},{-52,-50},{-52,-50},{60,-50},
-                {60,-2}}, color={0,0,127}));
+            points={{-69,-80},{-60,-80},{-60,-50},{60,-50},{60,-32}},
+                          color={0,0,127}));
         connect(realPassThrough.u, v) annotation (Line(
             points={{-92,-50},{-100,-50},{-100,0},{-120,0}}, color={0,0,127}));
         connect(realPassThrough.y, positiveThreshold.u) annotation (Line(
-            points={{-69,-50},{-60,-50},{-60,-2}}, color={0,0,127}));
+            points={{-69,-50},{-60,-50},{-60,-32}},color={0,0,127}));
         connect(realPassThrough.y, negativeThreshold.u) annotation (Line(
-            points={{-69,-50},{-56,-50},{-56,-50},{60,-50},{60,-2}}, color={0,0,127}));
+            points={{-69,-50},{60,-50},{60,-32}},                    color={0,0,127}));
+        connect(timerPositive.y, gainPositive.u)
+          annotation (Line(points={{-60,21},{-60,28}}, color={0,0,127}));
+        connect(gainPositive.y, greaterPositive.u1)
+          annotation (Line(points={{-60,51},{-60,68}}, color={0,0,127}));
+        connect(gainNegative.y, greaterNegative.u1)
+          annotation (Line(points={{60,51},{60,68}}, color={0,0,127}));
+        connect(timerNegative.y, gainNegative.u)
+          annotation (Line(points={{60,21},{60,28}}, color={0,0,127}));
         annotation (defaultComponentName="adaptor",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
@@ -6481,31 +6500,24 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
       end SignalPWM;
 
       block VoltageToDutyCycle "Linearly transforms voltage to duty cycle"
+        parameter Boolean reciprocal = false
+          "Enables reciprocal formula between voltage and duty cycle";
         parameter Boolean useBipolarVoltage = true
-          "Enables bipolar input voltage range";
-        parameter Boolean useConstantMaximumVoltage=true
-          "Enables constant maximum voltage";
-        parameter Modelica.SIunits.Voltage vMax=0
-          "Maximum voltage range mapped to dutyCycle = 1"
-          annotation(Dialog(enable=useConstantMaximumVoltage));
-
+          "Enables bipolar input voltage range"
+          annotation(Dialog(enable=not reciprocal));
+        parameter Boolean useConstantVoltageLimit=true
+          "Enables constant voltage limit";
+        parameter Modelica.SIunits.Voltage vLim(min=Modelica.Constants.small)
+          "Voltage range limit mapped to dutyCycle = 1 resp. 0"
+          annotation(Dialog(enable=useConstantVoltageLimit));
         Modelica.Blocks.Interfaces.RealInput v "Voltage" annotation (Placement(
               transformation(extent={{-140,-20},{-100,20}}), iconTransformation(
                 extent={{-140,-20},{-100,20}})));
         Modelica.Blocks.Interfaces.RealOutput dutyCycle "Duty cycle" annotation (
             Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(
                 extent={{100,-10},{120,10}})));
-        Blocks.Math.Division divisionUnipolar if not useBipolarVoltage
-          annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-        Blocks.Math.Division divisionBipolar if useBipolarVoltage
-          annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
-        Modelica.Blocks.Math.Add add(k1=0.5, k2=1) if useBipolarVoltage
-          annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
-        Modelica.Blocks.Sources.Constant offset(final k=0.5) if useBipolarVoltage
-          "Offset of 0.5 in case of bipolar operation"
-          annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
-        Blocks.Interfaces.RealInput vMaxExt if not useConstantMaximumVoltage
-          "External maximum voltage" annotation (
+        Blocks.Interfaces.RealInput vLimExt if not useConstantVoltageLimit
+          "External voltage limit"   annotation (
             Placement(transformation(
               extent={{-20,-20},{20,20}},
               rotation=270,
@@ -6513,36 +6525,31 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
               extent={{-20,-20},{20,20}},
               rotation=270,
               origin={0,120})));
-        Blocks.Sources.Constant vMaxConst(final k=vMax) if useConstantMaximumVoltage
-          "Offset of 0.5 in case of bipolar operation"
+        Blocks.Sources.Constant vLimConst(final k=vLim) if useConstantVoltageLimit
+          "Constant voltage limit"
           annotation (Placement(transformation(extent={{40,70},{20,90}})));
       protected
-        Blocks.Interfaces.RealInput vMaxInt "External maximum voltage" annotation (
+        Blocks.Interfaces.RealInput vLimInt "Internal voltage limit"   annotation (
             Placement(transformation(
               extent={{-4,-4},{4,4}},
               rotation=180,
               origin={0,80})));
       equation
-        connect(divisionBipolar.y, add.u1) annotation (Line(points={{-19,-30},{-10,-30},
-                {-10,-44},{-2,-44}}, color={0,0,127}));
-        connect(offset.y, add.u2) annotation (Line(
-            points={{-19,-70},{-10,-70},{-10,-56},{-2,-56}},  color={0,0,127}));
-        connect(divisionUnipolar.y, dutyCycle) annotation (Line(points={{-19,30},{40,30},
-                {40,0},{110,0}}, color={0,0,127}));
-        connect(add.y, dutyCycle) annotation (Line(
-            points={{21,-50},{40,-50},{40,0},{110,0}},  color={0,0,127}));
-        connect(v, divisionUnipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
-                36},{-42,36}}, color={0,0,127}));
-        connect(v, divisionBipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
-                -24},{-42,-24}}, color={0,0,127}));
-        connect(vMaxExt, vMaxInt)
-          annotation (Line(points={{0,120},{0,80}}, color={0,0,127}));
-        connect(vMaxInt, divisionUnipolar.u2) annotation (Line(points={{0,80},{-60,80},
-                {-60,24},{-42,24}}, color={0,0,127}));
-        connect(vMaxInt, vMaxConst.y)
-          annotation (Line(points={{0,80},{19,80}}, color={0,0,127}));
-        connect(vMaxInt, divisionBipolar.u2) annotation (Line(points={{0,80},{-60,80},
-                {-60,-36},{-42,-36}}, color={0,0,127}));
+        if not reciprocal then
+          if not useBipolarVoltage then
+            dutyCycle = max(min(v,vLimInt), 0)/vLimInt;
+          else
+            dutyCycle = (max(min(v,vLimInt), -vLimInt)/vLimInt + 1)/2;
+          end if;
+        else
+          dutyCycle = 1 - vLimInt/max(v, vLimInt);
+        end if;
+        connect(vLimExt,vLimInt)
+          annotation (Line(points={{0,120},{0,80},{4.44089e-16,80}},
+                                                    color={0,0,127}));
+        connect(vLimInt,vLimConst. y)
+          annotation (Line(points={{4.44089e-16,80},{19,80}},
+                                                    color={0,0,127}));
         annotation (defaultComponentName="adaptor", Icon(graphics={
               Rectangle(
                 extent={{-100,100},{100,-100}},
@@ -6562,7 +6569,14 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
                 fillPattern=FillPattern.Solid), Text(extent={{
                     -150,-120},{150,-160}}, textString = "%name", textColor = {0, 0, 255})}),
           Documentation(info="<html>
-This model linearly transforms the input voltage signal into a duty cycle. For the unipolar case the input voltage range is between zero and <code>vMax</code>. In case of bipolar input the input voltage is in the range between <code>-vMax</code> and <code>vMax</code>.
+<p>
+Transforms the input voltage signal into a duty cycle:
+<ul>
+<li><code>reciprocal = false and useBipolarVoltage = false: v/vLim = dutyCycle</code></li>
+<li><code>reciprocal = false and useBipolarVoltage = true : v/vLim = 2*dutyCycle - 1</code></li>
+<li><code>reciprocal = true:                                v/vLim = 1/(1 - dutyCycle)</code></li>
+</ul>
+</p>
 </html>"));
       end VoltageToDutyCycle;
       annotation (Documentation(info="<html>
