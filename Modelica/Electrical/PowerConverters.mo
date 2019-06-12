@@ -3771,6 +3771,10 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
 </html>"));
       end ExampleTemplates;
     end DCDC;
+
+    package ACAC "AC to AC converter examples"
+      extends Modelica.Icons.ExamplesPackage;
+    end ACAC;
     annotation (Documentation(info="<html>
 <p>This is a collection of AC/DC, DC/DC and DC/AC converters.</p>
 </html>"));
@@ -6957,6 +6961,232 @@ General information about DC/DC converters can be found at the
 </html>"));
   end DCDC;
 
+  package ACAC "AC to AC converters"
+    extends Modelica.Icons.Package;
+
+    package Control "Control components for AC to AC converters"
+      extends Modelica.Icons.Package;
+      block VoltageToAngle "Reference voltage to firing angle converter"
+        extends Modelica.Blocks.Icons.Block;
+        import Modelica.Constants.pi;
+        parameter Modelica.SIunits.Voltage Vnom "Nominal voltage";
+        parameter Modelica.Electrical.PowerConverters.Types.Voltage2AngleType v2a=
+            Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.Lin
+          "Select type of calculation";
+        Modelica.Blocks.Interfaces.RealInput vRef "Reference voltage"
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Blocks.Interfaces.RealOutput alpha(
+          unit="rad", displayUnit="deg",
+          min=0, max=pi, start=pi)  "Phase angle"
+          annotation (Placement(
+              transformation(extent={{100,-10},{120,10}})));
+        Modelica.Blocks.Math.Gain gain_v(final k=1/Vnom)
+          annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+        Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=1, final uMin=0)
+          annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+        Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(final table=if v2a
+               == Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.Lin
+               then Lin elseif v2a == Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.H01
+               then H01 else RMS, final extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
+          annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+        Modelica.Blocks.Math.Gain gain_alpha(final k=pi)
+          annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+      protected
+        constant Real Lin[:,2]=[0,1; 1,0];
+        constant Real H01[:,2]=[0,1;
+          7.85377E-05,0.995; 0.000314125,0.99; 0.000706684,0.985; 0.001256086,0.98;
+          0.00196215,0.975; 0.007832473,0.95; 0.017562721,0.925; 0.031072921,0.9;
+          0.048252035,0.875; 0.068958879,0.85; 0.093023287,0.825; 0.120247535,0.8;
+          0.150407987,0.775; 0.183256979,0.75; 0.218524917,0.725; 0.255922582,0.7;
+          0.295143624,0.675; 0.33586724,0.65; 0.377761016,0.625; 0.420483922,0.6;
+          0.463689446,0.575; 0.507028849,0.55; 0.550154538,0.525; 0.592723531,0.5;
+          0.634401018,0.475; 0.674864,0.45; 0.713804992,0.425; 0.750935807,0.4;
+          0.785991389,0.375; 0.818733724,0.35; 0.848955796,0.325; 0.87648563,0.3;
+          0.901190381,0.275; 0.922980502,0.25; 0.941813955,0.225; 0.957700455,0.2;
+          0.97070568,0.175; 0.980955368,0.15; 0.988639134,0.125; 0.994013774,0.1;
+          0.997405692,0.075; 0.999211945,0.05; 0.999899238,0.025; 0.999948191,0.02;
+          0.999978053,0.015; 0.999993471,0.01; 0.999999181,0.005; 1,0];
+        constant Real RMS[:,2]=[0,1;
+          0.000906877,0.995; 0.002564847,0.99; 0.004711343,0.985; 0.007252334,0.98;
+          0.010133194,0.975; 0.028608003,0.95; 0.052394349,0.925; 0.080318563,0.9;
+          0.111626433,0.875; 0.14574274,0.85; 0.182186463,0.825; 0.22053266,0.8;
+          0.260393008,0.775; 0.301405137,0.75; 0.343226628,0.725; 0.385531651,0.7;
+          0.428009237,0.675; 0.470362569,0.65; 0.51230895,0.625; 0.553580231,0.6;
+          0.593923537,0.575; 0.633102218,0.55; 0.670896923,0.525; 0.707106781,0.5;
+          0.741550618,0.475; 0.774068203,0.45; 0.804521493,0.425; 0.83279585,0.4;
+          0.858801222,0.375; 0.882473259,0.35; 0.903774359,0.325; 0.922694611,0.3;
+          0.939252619,0.275; 0.953496168,0.25; 0.965502709,0.225; 0.975379591,0.2;
+          0.983263999,0.175; 0.989322523,0.15; 0.99375024,0.125; 0.996769245,0.1;
+          0.998626473,0.075; 0.999590707,0.05; 0.999948658,0.025; 0.999973701,0.02;
+          0.999988902,0.015; 0.999996711,0.01; 0.999999589,0.005; 1,0];
+      equation
+        connect(limiter.y, combiTable1Ds.u)
+          annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
+        connect(vRef, gain_v.u)
+          annotation (Line(points={{-120,0},{-82,0}}, color={0,0,127}));
+        connect(gain_alpha.y, alpha)
+          annotation (Line(points={{61,0},{110,0}}, color={0,0,127}));
+        connect(combiTable1Ds.y[1], gain_alpha.u)
+          annotation (Line(points={{21,0},{38,0}}, color={0,0,127}));
+        connect(gain_v.y, limiter.u)
+          annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
+        annotation (Documentation(info="<html>
+<p>
+This block calculates firing angle from desired voltage, 
+choosing either a linear (<code>Lin</code>) relationship or prescribing the first harmonic (<code>H01</code>)  or the root mean square (<code>RMS</code>) . 
+Since calculating the firing angle from both the H01 and the RMS involves a nonlinear equation, 
+both relationships have been precalculated and are interpolated from a table.
+</p>
+</html>"),       Icon(graphics={
+              Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                    74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
+                    59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
+                    -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
+                    {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, smooth = Smooth.Bezier),
+              Polygon(points={{-54,68},{-62,52},{-70,30},{-80,0},{-54,0},{-54,68}},
+                lineColor={238,46,47}, fillColor={238,46,47}, fillPattern=FillPattern.Solid),
+              Polygon(points={{13,-34},{5,-18},{-3,4},{-13,34},{13,34},{13,-34}},
+                lineColor={238,46,47}, fillColor={238,46,47}, fillPattern=FillPattern.Solid,
+                origin={13,-34}, rotation=360),
+              Line(points={{-80,0},{80,0}}, color={28,108,200})}));
+      end VoltageToAngle;
+
+      block SoftStartControl
+        extends Modelica.Blocks.Icons.Block;
+        import ModeOfOperation =
+               Modelica.Electrical.PowerConverters.Types.SoftStarterModeOfOperation;
+        parameter Modelica.SIunits.Time tRampUp_ "Start ramp duration";
+        parameter Real vStart=0 "Start voltage / nominal voltage";
+        parameter Real iMax "Maximum current / Nominal current";
+        parameter Real iMin=0.9*iMax "Lower threshold of current control";
+        parameter Modelica.SIunits.Current Inom "Nominal current";
+      parameter Modelica.SIunits.Time tRampDwn "Stop ramp duration";
+        Modelica.Blocks.Interfaces.RealInput iRMS(unit="A") "Measured RMS current"
+          annotation (Placement(
+              transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Blocks.Interfaces.RealOutput vRef(min=0, max=1, start=0) "Reference voltage"
+          annotation (Placement(
+              transformation(extent={{100,-10},{120,10}})));
+        Modelica.Blocks.Interfaces.BooleanInput start annotation (Placement(
+              transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={0,-120})));
+      protected
+        Modelica.Electrical.PowerConverters.Types.SoftStarterModeOfOperation modeOfOperation;
+        Real i=iRMS/Inom "Measured current";
+        Boolean limit "Indicates current limitation";
+      initial equation
+        if start then
+          if vRef<1 then
+            modeOfOperation=ModeOfOperation.Up_;
+          else
+            modeOfOperation=ModeOfOperation.On_;
+          end if;
+        else
+          if vRef>0 then
+            modeOfOperation=ModeOfOperation.Dwn;
+          else
+            modeOfOperation=ModeOfOperation.Off;
+          end if;
+        end if;
+        limit = i>=iMax;
+      equation
+        assert(iMax>iMin, "iMax has to be greater than iMin");
+        when start then
+          modeOfOperation = ModeOfOperation.Up_;
+        elsewhen vRef>=1 then
+          modeOfOperation = ModeOfOperation.On_;
+        elsewhen not start then
+          modeOfOperation = ModeOfOperation.Dwn;
+        elsewhen vRef<=0 then
+          modeOfOperation = ModeOfOperation.Off;
+        end when;
+        when start and vRef<vStart then
+          reinit(vRef, vStart);
+        end when;
+        when i>=iMax then
+          limit=true;
+        elsewhen i<=iMin then
+          limit=false;
+        end when;
+        if modeOfOperation==ModeOfOperation.Up_ and not limit then
+          der(vRef) = (1 - vStart)/tRampUp_;
+        elseif modeOfOperation==ModeOfOperation.Dwn  and not limit then
+          der(vRef) = -1/tRampDwn;
+        else
+          der(vRef) = 0;
+        end if;
+        annotation (Documentation(info="<html>
+<p>
+This block models the functionality of a soft starter controller, controlling the output <code>vRef</code> in the range [0,1] with respect to nominal voltage.
+</p>
+<p>
+Boolean input <code>start = true</code> causes the output <code>vRef</code> to be rised according to a ramp: <code>vRef = vStart + (1 - vStart)*(time - t0)/tRampUp_</code>.
+</p>
+<p> 
+In case the current exceeds the specified maximum current <code>iMax</code> during the starting ramp, the ramp is stopped. 
+When the current falls below the lower threshold of current control <code>iMin &lt; iMax</code>, the ramp is continued. 
+</p>
+<p>
+Note: It is recommended to filter the measured current, e.g. using <a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>
+</p>
+<p>
+Boolean input <code>start = false</code> causes the output <code>vRef</code> to be lowered according to a ramp: <code>vRef = -(time - t0)/tRampDwn</code>. 
+</p>
+</html>"),       Icon(graphics={
+              Polygon(
+                points={{-12,20},{-12,-4},{12,8},{-12,20}},
+                lineColor={28,108,200},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{-12,20},{-12,-20}}, color={28,108,200}),
+              Line(points={{12,20},{12,-20}}, color={28,108,200}),
+              Polygon(
+                points={{-12,12},{-12,-12},{12,0},{-12,12}},
+                lineColor={28,108,200},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                origin={0,-8},
+                rotation=180),
+              Line(points={{-40,0},{-12,0}}, color={28,108,200}),
+              Line(points={{12,0},{40,0}}, color={28,108,200}),
+              Polygon(
+                points={{-12,80},{-12,56},{12,68},{-12,80}},
+                lineColor={28,108,200},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{-12,80},{-12,40}}, color={28,108,200}),
+              Line(points={{12,80},{12,40}}, color={28,108,200}),
+              Polygon(
+                points={{-12,12},{-12,-12},{12,0},{-12,12}},
+                lineColor={28,108,200},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                origin={0,52},
+                rotation=180),
+              Line(points={{-40,60},{-12,60}}, color={28,108,200}),
+              Line(points={{12,60},{40,60}}, color={28,108,200}),
+              Polygon(
+                points={{-12,-40},{-12,-64},{12,-52},{-12,-40}},
+                lineColor={28,108,200},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{-12,-40},{-12,-80}}, color={28,108,200}),
+              Line(points={{12,-40},{12,-80}}, color={28,108,200}),
+              Polygon(
+                points={{-12,12},{-12,-12},{12,0},{-12,12}},
+                lineColor={28,108,200},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                origin={0,-68},
+                rotation=180),
+              Line(points={{-40,-60},{-12,-60}}, color={28,108,200}),
+              Line(points={{12,-60},{40,-60}}, color={28,108,200})}));
+      end SoftStartControl;
+    end Control;
+  end ACAC;
+
   package Enable "Enabling models"
     extends Modelica.Icons.Package;
     model EnableLogic
@@ -7357,10 +7587,8 @@ This partial model provides parameters and the conditional input signal for the 
   package Types "Type definitions for PowerConverters"
     extends Modelica.Icons.TypesPackage;
   type PWMType = enumeration(
-        SVPWM
-            "SpaceVector PWM",
-        Intersective
-                   "Intersective PWM")
+        SVPWM "SpaceVector PWM",
+        Intersective "Intersective PWM")
     "Enumeration defining the PWM type";
     type ReferenceType = enumeration(
         Sawtooth1 "Sawtooth signal single phase",
@@ -7368,6 +7596,17 @@ This partial model provides parameters and the conditional input signal for the 
         Triangle1 "Triangle signal single phase",
         Triangle3 "Triangle signal three phase")
       "Enumeration defining the type of reference signal";
+    type Voltage2AngleType = enumeration(
+        Lin "Linear",
+        H01 "First harmonic",
+        RMS "Root mean square")
+      "Enumeration defining the type of voltage to angle conversion";
+    type SoftStarterModeOfOperation = enumeration(
+        Off "v=0",
+        Up_ "v=0->1",
+        On_ "v=1",
+        Dwn "v=1->0")
+      "Enumeration defining the internal mode of operation of the soft start controller";
   end Types;
   annotation (
     preferredView="info",
