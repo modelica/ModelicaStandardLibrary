@@ -45,6 +45,18 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2891;
+
+    model Issue2945 "Conversion test for #2945"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Sources.Clock clock(
+        offset=-0.5,
+        startTime=0.5);
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2945\">#2945</a>.
+</p>
+</html>"));
+    end Issue2945;
   end Blocks;
 
   package Constants
@@ -142,7 +154,20 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue758;
-    end Digital;
+
+      model Issue2945 "Conversion test for #2945"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Digital.Sources.Clock clock(
+          startTime=0,
+          period=1,
+          width=50);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2945\">#2945</a>.
+</p>
+</html>"));
+      end Issue2945;
+     end Digital;
 
     package QuasiStatic
       extends Modelica.Icons.ExamplesPackage;
@@ -220,7 +245,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia2(J=0.15);
         Modelica.Mechanics.Rotational.Sources.Torque loadTorque2(useSupport=false);
         parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData dcpmData;
-      equation 
+      equation
         connect(armatureVoltage.n, groundArmature.p);
         connect(loadInertia2.flange_b, loadTorque2.flange);
         connect(dcpm2.flange, loadInertia2.flange_a);
@@ -506,7 +531,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         Modelica.Thermal.HeatTransfer.Rankine.FromKelvin fromKelvin1(n=2);
         Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin fromKelvin2(n=-3);
         Modelica.Blocks.Sources.Constant const(k=10);
-      equation 
+      equation
         connect(const.y, fromKelvin1.Kelvin);
         connect(const.y, toKelvin.Rankine);
         connect(const.y, fromKelvin2.Kelvin);

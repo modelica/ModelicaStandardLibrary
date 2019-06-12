@@ -271,7 +271,7 @@ package Blocks "Test models for Modelica.Blocks"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-    Modelica.Blocks.Sources.Clock clock
+    Modelica.Blocks.Sources.ContinuousClock clock
       annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
     Modelica.Blocks.Math.Gain gain(k=2, y(stateSelect=StateSelect.always))
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
@@ -1877,7 +1877,7 @@ This shows the improvements in the numerics when balance=true is set.
 
   model MuxDemux "Test model for the Mux and Demux blocks"
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Sources.Clock clock annotation (Placement(
+    Modelica.Blocks.Sources.ContinuousClock clock annotation (Placement(
           transformation(extent={{-100,-10},{-80,10}})));
     Modelica.Blocks.Routing.Multiplex mux5(n=5) annotation (Placement(
           transformation(extent={{-30,-10},{-10,10}})));

@@ -1314,7 +1314,7 @@ public
     annotation (Placement(transformation(extent={{-40,-34},{-10,-14}})));
   Modelica.Blocks.Tables.CombiTable1Dv t_new(tableOnFile=true, tableName=\"TestTable_1D_a\")
     annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-  Modelica.Blocks.Sources.Clock clock
+  Modelica.Blocks.Sources.ContinuousClock clock
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
 protected
   encapsulated function getUsertab
