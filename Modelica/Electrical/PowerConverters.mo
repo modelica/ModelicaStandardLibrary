@@ -4197,8 +4197,8 @@ Compare starting with firing angle by
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Frequency f=50 "Source frequency";
-          parameter Modelica.SIunits.Voltage Vrms=230 "RMS source voltage";
-          parameter Modelica.SIunits.ApparentPower S=500 "Load apparent power";
+          parameter Modelica.SIunits.Voltage Vrms=110 "RMS source voltage";
+          parameter Modelica.SIunits.ApparentPower S=1000 "Load apparent power";
           parameter Real powerFactor(final min=0, final max=1)=0.87 "Load power factor";
           parameter Modelica.SIunits.Impedance ZLoad=Vrms^2/S "Load impedance";
           parameter Modelica.SIunits.Resistance RLoad=ZLoad*powerFactor "Load resistance";
@@ -8464,6 +8464,7 @@ This library provides power converters for DC and AC single and multi phase elec
   <li>AC/DC converters (rectifiers)</li>
   <li>DC/AC converters (inverters)</li>
   <li>DC/DC converters</li>
+  <li>AC/AC converters</li>
 </ul>
 
 <p>
