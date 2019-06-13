@@ -23,7 +23,7 @@ The following values are possible:<br>&nbsp;
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.Resolution.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><strong>Types.Resolution.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td valign=\"top\">y</td>
     <td valign=\"top\">year (= 365*24*60*60 seconds)</td></tr>
 

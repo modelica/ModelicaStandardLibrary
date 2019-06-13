@@ -17,14 +17,14 @@ library is given at hand of several examples.
     extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-A central element of the Modelica.Clocked library is a <b>clock</b>.
+A central element of the Modelica.Clocked library is a <strong>clock</strong>.
 Below, the most important information for clocks is summarized.
 For more details, see the Modelica Language Specification,
 Chapter 16 (for Modelica Language Version &ge; 3.3).
 </p>
 
 <p>
-A <b>Clock</b> type is a base data type (introduced in Modelica 3.3, additionally to Real, Integer, Boolean, String) that defines when a particular partition consisting of a set of equations is active. Starting with Modelica Language Version 3.3, every variable and every equation is either continuous-time or is associated exactly to one clock. This feature is visualized in the figure below where c(ti) is a clock that is active at particular time instants ti and r(ti) is a variable that is associated to this clock. A clocked variable has only a value when the corresponding clock is active:
+A <strong>Clock</strong> type is a base data type (introduced in Modelica 3.3, additionally to Real, Integer, Boolean, String) that defines when a particular partition consisting of a set of equations is active. Starting with Modelica Language Version 3.3, every variable and every equation is either continuous-time or is associated exactly to one clock. This feature is visualized in the figure below where c(ti) is a clock that is active at particular time instants ti and r(ti) is a variable that is associated to this clock. A clocked variable has only a value when the corresponding clock is active:
 </p>
 
 <p>
@@ -63,18 +63,18 @@ is generated:
 </p>
 
 <p>
-As usual in synchronous languages, a clock is represented by a <b>true</b> value
+As usual in synchronous languages, a clock is represented by a <strong>true</strong> value
 when the clock is active. The relationship between such derived
-clocks is <b>exact</b>, so it is guaranteed that at every 3rd tick of clock
+clocks is <strong>exact</strong>, so it is guaranteed that at every 3rd tick of clock
 \"periodicRealClock.y\", the clock \"subSample.y\" is active.
 </p>
 
 <p>
-If a clock is associated to a clocked continuous-time partition, then an <b>integrator</b>
+If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
 has to be defined that is used to integrate the partition from the previous
-to the current clock tick. This is performed by setting parameter <b>useSolver</b>
-= <b>true</b> and defining the integration method as String with
-parameter <b>solver</b>. Both parameters are in tab <b>Advanced</b>
+to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
+= <strong>true</strong> and defining the integration method as String with
+parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>
 of one of the clock signal generating blocks.
 The possible integration methods are tool dependent. It is expected that
 at least the solvers \"External\" (= use the integrator selected in the
@@ -87,17 +87,17 @@ are supported by every tool. For an example, see
 A clocked partition is a set of equations that depend
 on each other and where the boundary variables are marked
 with sample and hold operators.
-If a clocked partition contains no operator <b>der</b>, <b>delay</b>,
-<b>spatialDistribution</b>, no event related operators (with exception of <b>noEvent</b>(..)),
-and no <b>when</b>-clause with a Boolean condition, it is a <b>clocked discrete-time</b>
+If a clocked partition contains no operator <strong>der</strong>, <strong>delay</strong>,
+<strong>spatialDistribution</strong>, no event related operators (with exception of <strong>noEvent</strong>(..)),
+and no <strong>when</strong>-clause with a Boolean condition, it is a <strong>clocked discrete-time</strong>
 partition, that is, it is a standard sampled data system that is described by difference equations.
-If a clocked partition is <b>not</b> a <b>clocked discrete-time</b> partition and
-it contains neither operator <b>previous</b> nor operator
-<b>interval</b>, it is a
-<b>clocked discretized continuous-time</b> partition.
-Such a partition has to be solved with a <b>solver</b> method.
+If a clocked partition is <strong>not</strong> a <strong>clocked discrete-time</strong> partition and
+it contains neither operator <strong>previous</strong> nor operator
+<strong>interval</strong>, it is a
+<strong>clocked discretized continuous-time</strong> partition.
+Such a partition has to be solved with a <strong>solver</strong> method.
 It is an error, if none of the two properties hold, e.g., if operators
-<b>previous</b> and <b>der</b> are both used in the same partition.
+<strong>previous</strong> and <strong>der</strong> are both used in the same partition.
 In a clocked discrete-time partition all event generating mechanisms
 do no longer apply. Especially neither relations, nor one of the built-in event
 triggering operators will trigger an event.
@@ -114,21 +114,21 @@ triggering operators will trigger an event.
 
 <dl>
 <dt>Astr&ouml;m K.J., Wittenmark B. (1997):</dt>
-<dd> <b>Computer Controlled Systems: Theory and Design</b>.
+<dd> <strong>Computer Controlled Systems: Theory and Design</strong>.
      Prentice Hall. 3rd edition.<br>&nbsp;</dd>
 
 <dt>Elmqvist H., Otter M., and Mattsson S.E. (2012):</dt>
-<dd><b>Fundamentals of Synchronous Control in Modelica.</b>
+<dd><strong>Fundamentals of Synchronous Control in Modelica.</strong>
     Proceedings of 9th International Modelica Conference, Munich,
     Germany, Sep. 3-5.<br>&nbsp;</dd>
 
 <dt>Otter M., Thiele B., and Elmqvist H. (2012):</dt>
-<dd> <b>A Library for Synchronous Control Systems in Modelica.</b>
+<dd> <strong>A Library for Synchronous Control Systems in Modelica.</strong>
      Proceedings of 9th International Modelica Conference, Munich,
      Germany, September 3-5.<br>&nbsp;</dd>
 
 <dt>Walther N. (2002):</dt>
-<dd> <b>Praxisgerechte Modelica-Bibliothek f&uuml;r Abtastregler</b>.
+<dd> <strong>Praxisgerechte Modelica-Bibliothek f&uuml;r Abtastregler</strong>.
      Diplomarbeit, HTWK Leipzig, Fachbereich Elektro- und
      Informationstechnik, supervised by Prof. M&uuml;ller (HTWK)
      and Prof. Martin Otter (DLR), 12 Nov. 2002.<br>&nbsp;</dd>
@@ -149,7 +149,7 @@ a control system are discussed in the following reference:</i>
 
 <dl>
 <dt>Looye G., Th&uuml;mmel M., Kurze M., Otter M., and Bals J. (2005):</dt>
-<dd> <b>Nonlinear Inverse Models for Control</b>.
+<dd> <strong>Nonlinear Inverse Models for Control</strong>.
      Proceedings of 4th International Modelica Conference, ed. G. Schmitz,
      Hamburg, March 7-8.
      <a href=\"https://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Download</a>.
@@ -169,27 +169,27 @@ synchronous languages (Benveniste et. al. 2002):</i>
 
 <dl>
 <dt>Benveniste A., Caspi P., Edwards S.A., Halbwachs N., Le Guernic P., and Simone R. (2003):</dt>
-<dd> <b>The Synchronous Languages Twelve Years Later</b>.
+<dd> <strong>The Synchronous Languages Twelve Years Later</strong>.
      Proceedings of the IEEE, Vol., 91, No. 1.
      <a href=\"http://www.irisa.fr/distribcom/benveniste/pub/synch_ProcIEEE_2002.pdf\">Download</a>.
      <br>&nbsp;</dd>
 
 <dt>Colaco J.-L., and Pouzet M. (2003):</dt>
-<dd><b>Clocks as First Class Abstract Types.</b>
+<dd><strong>Clocks as First Class Abstract Types.</strong>
     In Third International Conference on
     Embedded Software (EMSOFT'03), Philadelphia, Pennsylvania, USA, October 2003.
      <a href=\"http://www.di.ens.fr/~pouzet/lucid-synchrone/papers/emsoft03.ps.gz\">Download</a>.
     <br>&nbsp;</dd>
 
 <dt>Forget J., F. Boniol, D. Lesens, C. Pagetti (2008):</dt>
-<dd> <b>A Multi-Periodic Synchronous Data-Flow Language.</b>
+<dd> <strong>A Multi-Periodic Synchronous Data-Flow Language.</strong>
      In 11th IEEE High Assurance Systems Engineering Symposium (HASE'08),
      Dec. 3-5 2008, Nanjing, China, pp. 251-260.
      <a href=\"http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=4708883&contentType=Conference+Publications\">Download</a>.
      <br>&nbsp;</dd>
 
 <dt>Pouzet M. (2006):</dt>
-<dd> <b>Lucid Synchrone, Version 3.0, Tutorial and Reference Manual</b>.
+<dd> <strong>Lucid Synchrone, Version 3.0, Tutorial and Reference Manual</strong>.
      <a href=\"http://www.di.ens.fr/~pouzet/lucid-synchrone/\">Download</a>.
     <br>&nbsp;</dd>
 </dl>
@@ -351,7 +351,7 @@ able to support this library.
     extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <dl>
-<dt><b>Main Authors:</b></dt>
+<dt><strong>Main Authors:</strong></dt>
 <dd>Martin Otter and Bernhard Thiele<br>
     German Aerospace Center (DLR)<br>
     Robotics and Mechatronics Center<br>
@@ -361,7 +361,7 @@ able to support this library.
     Germany<br>
     email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A>, <a href=\"mailto:Bernhard.Thiele@dlr.de\">Bernhard.Thiele@dlr.de</A><br></dd>
 </dl>
-<p><b>Acknowledgements:</b></p>
+<p><strong>Acknowledgements:</strong></p>
 <ul>
 <li> The design of the library has been performed in close cooperation and discussion
      with Hilding Elmqvist from Dassault Syst&egrave;mes Lund.</li>
@@ -375,8 +375,8 @@ able to support this library.
   end Contact;
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-Library <b>Modelica.Clocked</b> is a Modelica package
-to precisely define and synchronize sampled data systems with different sampling rates. This package contains the <b>user's guide</b> for
+Library <strong>Modelica.Clocked</strong> is a Modelica package
+to precisely define and synchronize sampled data systems with different sampling rates. This package contains the <strong>user's guide</strong> for
 the library and has the following content:
 </p>
 <ol>

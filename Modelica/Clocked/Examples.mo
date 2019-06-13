@@ -76,7 +76,7 @@ package Examples
         Documentation(info="<html>
 <p>
 Original simple controlled drive with a
-<b>continuous-time</b> controller.
+<strong>continuous-time</strong> controller.
 </p>
 </html>"),
         experiment(
@@ -480,9 +480,9 @@ modelled as a clocked partition.
 The PI controller is defined with a continuous-time block.
 The clocked partition is automatically discretized with an
 implicit Euler method by setting parameter
-<b>useSolver</b> = true in the <b>Advanced</b> menu
-of block <b>periodicClock</b> and then selecting
-<b>ImplicitEuler</b> as <b>SolverMethod</b> for the partition.
+<strong>useSolver</strong> = true in the <strong>Advanced</strong> menu
+of block <strong>periodicClock</strong> and then selecting
+<strong>ImplicitEuler</strong> as <strong>SolverMethod</strong> for the partition.
 </p>
 </html>"),
         experiment(
@@ -609,7 +609,7 @@ This package shows the same example in different variants.
 
 <p>
 Model <a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive.Continuous\">SimpleControlledDrive.Continuous</a>
-is the <b>continuous-time</b> model from which the sampled-data versions are derived.
+is the <strong>continuous-time</strong> model from which the sampled-data versions are derived.
 The model consists of a reference controller (\"ramp\"), a feedback controller
 (\"feedback\" and \"PI\") and a plant (\"torque\", \"load\" and \"speed\").
 The task of the controller is to control the speed of the load inertia
@@ -726,7 +726,7 @@ system with one sample period.
         Documentation(info="<html>
 <p>
 Original cascade controlled drive with a
-<b>continuous-time</b> controller.
+<strong>continuous-time</strong> controller.
 </p>
 </html>"),
         experiment(StopTime=4));
@@ -1182,7 +1182,7 @@ This package shows the same example in different variants.
 
 <p>
 Model <a href=\"modelica://Modelica.Clocked.Examples.CascadeControlledDrive.Continuous\">CascadeControlledDrive.Continuous</a>
-is the <b>continuous-time</b> model from which the sampled-data versions are derived.
+is the <strong>continuous-time</strong> model from which the sampled-data versions are derived.
 The \"CascadeControlledDrive\" example adds another position control cascade to the
 <a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive\">SimpleControlledDrive</a>
 example. This model demonstrates a control system with two cascaded control loops.
@@ -1423,14 +1423,14 @@ Translating this
 model will generate the continuous-time inverse plant model.
 However, a Modelica tool will give an error message that it
 has to differentiate the model, but this requires the
-<b>second derivative</b> of the external input c_ref and this derivative
+<strong>second derivative</strong> of the external input c_ref and this derivative
 is not available. The conclusion is that a low pass filter of at
 least second order has to be connected between c_ref and c, for example
 <a href=\"modelica:Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>. Only filter types should be used that do not have \"vibrations\" in the time domain for
-a step input. Therefore, parameter <b>analogFilter</b> of the component should be
-selected as <b>CriticalDamping</b> (= only real poles), or
-<b>Bessel</b> (= nearly no vibrations, but steeper frequency response as
-CriticalDamping). The cut-off frequency <b>f_cut</b> is manually
+a step input. Therefore, parameter <strong>analogFilter</strong> of the component should be
+selected as <strong>CriticalDamping</strong> (= only real poles), or
+<strong>Bessel</strong> (= nearly no vibrations, but steeper frequency response as
+CriticalDamping). The cut-off frequency <strong>f_cut</strong> is manually
 selected by simulations of the closed loop system. In the example,
 a CriticalDamping filter of third order (the third order is selected to
 get smoother signals) and a cut-off frequency of 1/300 Hz is used.
@@ -1476,7 +1476,7 @@ the actual time instant of the clock).
 The controller works perfectly if the same parameters for the plant
 and the inverse plant model are used (follows perfectly the filtered reference
 concentration). Changing all parameters of the inverse plant model by 50 %
-(with exception of parameter <b>e</b> since the plant is very sensitive to it)
+(with exception of parameter <strong>e</strong> since the plant is very sensitive to it)
 still results in a reasonable control behavior as shown in the next two figures:
 </p>
 
@@ -1633,11 +1633,11 @@ to beeing satisfied, i.e., the state when the clock last ticked.
 
 <dl>
 <dt>Crossley, P.R. and Cook, J. (1991):</dt>
-<dd> <b>A nonlinear engine model for drivetrain system development</b>.
+<dd> <strong>A nonlinear engine model for drivetrain system development</strong>.
      International Conference on Control, Edinburgh, UK, March.<br>&nbsp;</dd>
 
 <dt>Simulink&reg; (R2010b) demo model <code>sldemo_enginewc.mdl</code>:</dt>
-<dd><b>Engine Timing Model with Closed Loop Control</b>.
+<dd><strong>Engine Timing Model with Closed Loop Control</strong>.
     The <code>EngineThrottleControl</code> example uses the same parameter values as the <code>sldemo_enginewc.mdl</code> demo model which is shipped with the Simulink&reg; software developed by The MathWorks, Inc.
     Hence, the simulation results of these models can be compared conveniently.<br>&nbsp;</dd>
 </dl>
@@ -2466,7 +2466,7 @@ clocked partitions is currently performed different to the continuous time parti
     end Utilities;
   annotation (Documentation(info="<html>
 <p>
-This package contains complete <b>system models</b> of
+This package contains complete <strong>system models</strong> of
 simplified realistic applications.
 </p>
 </html>"));
