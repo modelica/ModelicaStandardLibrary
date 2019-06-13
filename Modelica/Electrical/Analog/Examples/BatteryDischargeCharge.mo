@@ -2,11 +2,12 @@ within Modelica.Electrical.Analog.Examples;
 model BatteryDischargeCharge "Discharge and charge idealized battery"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Batteries.BatteryOCV_SOCtable battery(
-    OCVnom=12,
+    OCVmax=12,
     Qnom=36000,
+    OCV_SOC=[0,0; 0.1,0.9; 1,1],
     Isc=1200,
     useHeatPort=false,
-    SOC(fixed=true, start=0.75)) annotation (Placement(transformation(
+    SOC(fixed=true, start=0.99)) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={20,0})));
@@ -27,7 +28,7 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
     annotation (Placement(transformation(extent={{-88,-10},{-68,10}})));
   Modelica.Blocks.Continuous.FirstOrder
     firstOrder(
-    k=50,
+    k=98,
     T=1,
     initType=Modelica.Blocks.Types.Init.InitialOutput)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
@@ -59,10 +60,11 @@ equation
       Interval=0.1,
       Tolerance=1e-06),
     Documentation(info="<html>
-<p>An idealized battery with a nominal charge of 10 Ah is 75&percnt; charged at the beginning.</p>
-<p>It is first discharged with 6 current pulses of 50 A for 1 minute, and breaks between the pulses of 1 minute, reaching SOC = 0.25.<(p>
-<p>Subsequently, it is charged with 6 current pulses of 50 A for 1 minute, and breaks between the pulses of 1 minute, reaching SOC = 0.75 again.</p>
+<p>An idealized battery with a nominal charge of 10 Ah is 99&percnt; charged at the beginning.</p>
+<p>It is first discharged with 6 current pulses of 98 A for 1 minute, and breaks between the pulses of 1 minute, reaching SOC = 0.01.<(p>
+<p>Subsequently, it is charged with 6 current pulses of 98 A for 1 minute, and breaks between the pulses of 1 minute, reaching SOC = 0.99 again.</p>
 <p>Simulate and plot terminal voltage <code>battery.v</code> versus state of charge <code>battery.SOC</code>.<p>
+<p>Note: Dependency of OCV on SOC can be chosen either linear (<code>useLinearSOCDependency=true</code>) or table based.</p>
 <p>Plotting <code>energy.y</code>, it is remarkable that first energy is delivered by the battery, but then due to the losses more energy is consumed to recharge the battery.</p>
 </html>"));
 end BatteryDischargeCharge;

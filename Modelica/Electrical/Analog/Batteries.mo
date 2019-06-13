@@ -4,12 +4,11 @@ package Batteries "Simple battery models"
   model BatteryOCV_SOCtable
     "Battery with inner resistance and open-circuit voltage dependent on state of charge"
     extends Partials.BaseBatteryOCV_SOCtable;
-    parameter Modelica.SIunits.Current Isc "Short-cicuit current at SOC = 1";
-    parameter Modelica.SIunits.Resistance Ri=OCVnom/Isc "Inner resistance";
+    parameter Modelica.SIunits.Current Isc "Short-cicuit current at SOC = SOCmax";
+    parameter Modelica.SIunits.Resistance Ri=OCVmax/Isc "Inner resistance";
     extends Modelica.Electrical.Analog.Interfaces.PartialConditionalHeatPort;
     Modelica.Electrical.Analog.Basic.Resistor resistor(final R=Ri,
-      T_ref=293.15,                                                final
-        useHeatPort=true)
+      T_ref=293.15, final useHeatPort=true)
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   equation
     connect(resistor.n, n)
@@ -35,40 +34,54 @@ whoses losses are dissipated to the optional <code>heatPort</code>.
 
     partial model BaseBatteryOCV_SOCtable
       "Battery with open-circuit voltage dependent on state of charge"
-      parameter Modelica.SIunits.Voltage OCVnom "OCV at SOC = 1";
-      parameter Real OCV_SOC[:,2]=[0,0; 1,1] "OCV/OCVnom versus SOC";
-      parameter Modelica.SIunits.ElectricCharge Qnom(displayUnit="Ah") "Nominal (maximum) charge";
+      import Modelica.Constants.eps;
+      parameter Modelica.SIunits.ElectricCharge Qnom(displayUnit="Ah")
+        "Nominal (maximum) charge";
+      parameter Boolean useLinearSOCDependency=true
+        "Use a linear SOC dependent OCV, otherwise table based";
+      parameter Modelica.SIunits.Voltage OCVmax(final min=0) "OCV at SOC = SOCmax";
+      parameter Modelica.SIunits.Voltage OCVmin(final min=0)=0 "OCV at SOC = SOCmin"
+        annotation(Dialog(enable=useLinearSOCDependency));
       parameter Real SOCmax(final max=1)=1 "Max. state of charge";
       parameter Real SOCmin(final min=0)=0 "Min. state of charge";
+      parameter Real OCV_SOC[:,2]=[SOCmin,OCVmin/OCVmax; SOCmax,1] "OCV/OCVmax versus SOC"
+        annotation(Dialog(enable=not useLinearSOCDependency));
       Modelica.SIunits.Current i = p.i "Current into the battery";
       Modelica.SIunits.Power power = v*i "Power to the battery";
       extends Modelica.Electrical.Analog.Interfaces.TwoPin;
-      output Real SOC(start=1)=integrator.y "State of charge"
+      output Real SOC(start=SOCmax)=integrator.y "State of charge"
         annotation(Dialog(showStartAttribute=true));
       Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
         annotation (Placement(transformation(extent={{-90,10},{-70,-10}})));
-      Modelica.Blocks.Continuous.Integrator integrator(final k=1/Qnom, final
-          initType=Modelica.Blocks.Types.Init.NoInit)
+      Modelica.Blocks.Continuous.Integrator integrator(final k=1/Qnom,
+        final initType=Modelica.Blocks.Types.Init.NoInit)
         annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-80,30})));
-      Modelica.Blocks.Tables.CombiTable1Ds ocv_soc(table=OCV_SOC, extrapolation=
-            Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
+      Modelica.Blocks.Tables.CombiTable1Ds ocv_soc(
+        table=if useLinearSOCDependency then LinearOCV_SOC else OCV_SOC,
+        extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
         annotation (Placement(transformation(extent={{-70,40},{-50,60}})));
-      Modelica.Blocks.Math.Gain gainV(final k=OCVnom) annotation (Placement(
+      Modelica.Blocks.Math.Gain gainV(final k=OCVmax) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-40,30})));
       Modelica.Electrical.Analog.Sources.SignalVoltage ocv
         annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+    protected
+      final parameter Real LinearOCV_SOC[2,2]=[SOCmin,OCVmin/OCVmax; SOCmax,1] "Linear SOC dependent OV";
     equation
-      assert(OCV_SOC[1,  1]>=0, "Specify OCV(SOC) table with SOC >= 0");
-      assert(OCV_SOC[end,1]<=1, "Specify OCV(SOC) table with SOC <= 1");
-      assert(OCV_SOC[1,  2]>=0, "Specify OCV(SOC) table with OCVmin/OCVnom >= 0");
-      assert(OCV_SOC[end,2]>=1, "Specify OCV(SOC) table with OCVmax/OCVnom <= 1");
+      assert(OCVmax>OCVmin, "Specify 0 <= OCVmin < OCVmax");
+      assert(SOCmax>SOCmin, "Specify 0 <= SOCmin < SOCmax <= 1");
+      assert(OCV_SOC[1,  1]>=0, "Specify OCV(SOC) table with SOCmin >= 0");
+      assert(OCV_SOC[end,1]<=1, "Specify OCV(SOC) table with SOCmax <= 1");
+      assert(OCV_SOC[1,  2]>=0, "Specify OCV(SOC)/OCVmax table with  OCVmin/OCVmax >= 0");
+      assert(OCV_SOC[end,2]>=1, "Specify OCV(SOC)/OCVmax table with max.OCV/OCVmax <= 1");
+      assert(SOC<SOCmax + eps, "Battery overcharged!");
+      assert(SOC>SOCmin - eps, "Battery exhausted!");
       connect(gainV.y, ocv.v)
         annotation (Line(points={{-40,19},{-40,12}}, color={0,0,127}));
       connect(ocv_soc.y[1], gainV.u)
@@ -115,12 +128,12 @@ whoses losses are dissipated to the optional <code>heatPort</code>.
 <p>
 The battery is modeled by open-circuit voltage (OCV) dependent on state of charge (SOC).
 </p>
-<p>OCV dependent on SOC is defined as table:</p>
+<p>Dependency of OCV on SOC can be chosen either linear (<code>useLinearSOCDependency=true</code>) or table based;</p>
 <ul>
-<li>1st column = SOC in the range [0, 1]</li>
-<li>2nd column = OCV / OCVnom at SOC = 1 in the range [0, 1]</li>
+<li>1st column = SOC in the range [SOCmin, SOCmax]</li>
+<li>2nd column = OCV / OCVmax (at SOC = SOCmax) in the range [OCVmin/OCVmax, 1]</li>
 </ul>
-<p>By default, a linear OCV vs. SOC characteristic is defined (like a capacitor), i.e. <code>OCV_SOC[:,2]=[0,0; 1,1]</code></p>
+<p>By default, a linear OCV vs. SOC characteristic is defined (like a capacitor), i.e. <code>OCV_SOC[:,2]=[SOCmin,OCVmin/OCVmax; SOCmax,1]</code></p>
 <p>
 Note: SOC &gt; SOCmax and SOC &lt; SOCmin triggers an error.
 </p>
