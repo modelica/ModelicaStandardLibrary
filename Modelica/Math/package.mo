@@ -2117,9 +2117,9 @@ matrices <code>U</code> and <code>VT</code>.
        + "] has more columns as rows.
 This is not allowed when calling Modelica.Matrices.QR(A).");
     if pivoting then
-      (Q,tau,p) := LAPACK.dgeqpf(A);
+      (Q,tau,p) := LAPACK.dgeqp3(A);
     else
-      (Q,tau) := Modelica.Math.Matrices.LAPACK.dgeqrf(A);
+      (Q,tau) := LAPACK.dgeqrf(A);
       p := 1:ncol;
     end if;
 
@@ -2180,7 +2180,7 @@ of <strong>R</strong> (which is the same row-rank as <strong>A</strong>). Furthe
 where <strong>R</strong><sub>1</sub> is a regular, upper triangular matrix.
 </p>
 <p>
-Note, the solution is computed with the LAPACK functions \"dgeqpf\"
+Note, the solution is computed with the LAPACK functions \"dgeqp3\"
 and \"dorgqr\", i.e., by Householder transformations with
 column pivoting. If <strong>Q</strong> is not needed, the function may be
 called as: <code>(,R,p) = QR(A)</code>.
@@ -6988,10 +6988,10 @@ For details of the arguments, see documentation of dgbsv.
     end dgeqp3;
 
     function dorgqr
-      "Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf"
+      "Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqrf"
 
       extends Modelica.Icons.Function;
-      input Real QR[:, :] "QR from dgeqpf";
+      input Real QR[:, :] "QR from dgeqrf";
       input Real tau[min(size(QR, 1), size(QR, 2))]
         "The scalar factors of the elementary reflectors of Q";
       output Real Q[size(QR, 1), size(QR, 2)]=QR "Orthogonal matrix Q";
