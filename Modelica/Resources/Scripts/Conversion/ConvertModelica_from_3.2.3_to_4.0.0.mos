@@ -39,6 +39,14 @@ convertClass("Modelica.Blocks.Sources.Clock",
               "Modelica.Blocks.Sources.ContinuousClock")
 convertClass("Modelica.Electrical.Digital.Sources.Clock",
               "Modelica.Electrical.Digital.Sources.DigitalClock")
+convertClass("Modelica.Math.Matrices.LAPACK.dgegv",
+              "ObsoleteModelica4.Math.Matrices.LAPACK.dgegv")
+convertClass("Modelica.Math.Matrices.LAPACK.dgelsx",
+              "ObsoleteModelica4.Math.Matrices.LAPACK.dgelsx")
+convertClass("Modelica.Math.Matrices.LAPACK.dgelsx_vec",
+              "ObsoleteModelica4.Math.Matrices.LAPACK.dgelsx_vec")
+convertClass("Modelica.Math.Matrices.LAPACK.dgeqpf",
+              "ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf")
 
 // Change renamed elements of classes
 // mue -> mu

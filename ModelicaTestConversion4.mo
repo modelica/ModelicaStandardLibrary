@@ -506,6 +506,26 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue978;
+
+    model Issue2857 "Conversion test for #2857"
+      extends Modelica.Icons.Example;
+      Real A[3,3] = [1,2,3; 3,4,5; 2,1,4];
+      Real R[3,3] = Modelica.Math.Matrices.LAPACK.dgeqpf(A);
+      Real X[3,3];
+      Real r[3];
+      Real i[3];
+      Real b[3];
+      Real x[3];
+    algorithm
+      (r, i, b) := Modelica.Math.Matrices.LAPACK.dgegv(A, identity(3));
+      X := Modelica.Math.Matrices.LAPACK.dgelsx(A, identity(3));
+      x := Modelica.Math.Matrices.LAPACK.dgelsx_vec(A, {1,0,0});
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2857\">#2857</a>.
+</p>
+</html>"));
+    end Issue2857;
   end Math;
 
   package Media
