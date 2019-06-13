@@ -109,7 +109,7 @@ triggering operators will trigger an event.
     extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-<i>This library is based on the following references:</i>
+<em>This library is based on the following references:</em>
 </p>
 
 <dl>
@@ -135,7 +135,7 @@ triggering operators will trigger an event.
 </dl>
 
 <p>
-<i>
+<em>
 The synchronous Modelica language elements allow for the first
 time to utilize a continuous-time, nonlinear, inverse model in
 a Modelica sampled-data system, by automatically discretizing
@@ -144,7 +144,7 @@ a convenient definition of certain nonlinear control systems,
 see example
 <a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 Several practical details to use nonlinear inverse plant models in
-a control system are discussed in the following reference:</i>
+a control system are discussed in the following reference:</em>
 </p>
 
 <dl>
@@ -157,14 +157,14 @@ a control system are discussed in the following reference:</i>
 </dl>
 
 <p>
-<i>
+<em>
 The synchronous Modelica language elements used in this library
 are based on the clock calculus and inference system proposed by (Colaco and
 Pouzet 2003) and implemented in Lucid Synchrone version 2 and 3 (Pouzet 2006).
 However, the Modelica approach also uses multi-rate periodic clocks based on
 rational arithmetic introduced by (Forget et. al. 2008), as an extension of
 the Lucid Synchrone semantics. These approaches belong to the class of
-synchronous languages (Benveniste et. al. 2002):</i>
+synchronous languages (Benveniste et. al. 2002):</em>
 </p>
 
 <dl>

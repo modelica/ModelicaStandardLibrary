@@ -1348,7 +1348,7 @@ then shifts it with shiftCounter = 4 and resolution = 3:<br>
    </tr>
 </table>
 <p>
-The first activation of output y of block shiftSample1 is shifted in time (4/3*20ms). The parameter values <strong>shiftCounter</strong> = 4 and <strong>resolution</strong> = 3 are visible at the bottom of the icon. Also note, that the signal is not simply a shift in time. The output of a ShiftSample block will always be the value from the <i>last</i> tick of the clock of its inputs.
+The first activation of output y of block shiftSample1 is shifted in time (4/3*20ms). The parameter values <strong>shiftCounter</strong> = 4 and <strong>resolution</strong> = 3 are visible at the bottom of the icon. Also note, that the signal is not simply a shift in time. The output of a ShiftSample block will always be the value from the <em>last</em> tick of the clock of its inputs.
 </p>
 
 </html>"));
@@ -1497,7 +1497,7 @@ shift-samples it with shiftCounter = 4 and resolution = 3 and then back-samples 
    </tr>
 </table>
 <p>
-The first activation of output y of block backSample1 is shifted (4/3*20ms) before the first activation of output y of block shiftSample1. As a consequence, the activation times of the output y are coincident with the input signal of the shiftSample1 block. However, as described above, the output of block backSample1 <strong>does not</strong> recover the original sampled sine signal! For the first two ticks the output holds the value of the parameter <strong>y_start</strong> = 0.5. After that the output at a clock tick of block backSample1 is the <i>last</i> value of the output of the shiftSample1 block. The parameter values <strong>y_start</strong> = 0.5, <strong>shiftCounter</strong> = 4 and <strong>resolution</strong> = 3 are visible at the bottom of the icon.
+The first activation of output y of block backSample1 is shifted (4/3*20ms) before the first activation of output y of block shiftSample1. As a consequence, the activation times of the output y are coincident with the input signal of the shiftSample1 block. However, as described above, the output of block backSample1 <strong>does not</strong> recover the original sampled sine signal! For the first two ticks the output holds the value of the parameter <strong>y_start</strong> = 0.5. After that the output at a clock tick of block backSample1 is the <em>last</em> value of the output of the shiftSample1 block. The parameter values <strong>y_start</strong> = 0.5, <strong>shiftCounter</strong> = 4 and <strong>resolution</strong> = 3 are visible at the bottom of the icon.
 </p>
 </html>"));
     end BackSample;
@@ -1870,7 +1870,7 @@ the value of u, at intermediate ticks of clock y, the value of y is set to zero.
 </p>
 
 <p>
-For signal interpolation an <i>upsample</i> should be followed by an appropriate filter (antiimaging).
+For signal interpolation an <em>upsample</em> should be followed by an appropriate filter (antiimaging).
 </p>
 
 <h4>Examples</h4>
@@ -2607,7 +2607,7 @@ as output.
           annotation (
             Documentation(info="<HTML>
 <p>
-<i>Random</i> generates a sequence of uniform distributed
+<em>Random</em> generates a sequence of uniform distributed
 pseudo-random numbers. The algorithm is a variant of the
 multiplicative congruential algorithm, known as the
 Wichmann-Hill generator:
@@ -2686,8 +2686,8 @@ distribution. There are two types of techniques for transforming random variates
 Copyright &copy; Hubertus Tummescheit and Department of Automatic Control, Lund University, Sweden.
 </p>
 <p>
-<i>This Modelica function is <strong>free</strong> software; it can be redistributed and/or modified
-under the terms of the BSD-3-Clause license.</i>
+<em>This Modelica function is <strong>free</strong> software; it can be redistributed and/or modified
+under the terms of the BSD-3-Clause license.</em>
 </p>
 </HTML>", revisions="<html>
 <p>2019-05-20: Changed license to BSD-3-Clause after consultation with Hubertus Tummescheit.</p>
@@ -3093,7 +3093,7 @@ results in the following equations:
 ",     revisions="<html>
 <p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>August 13, 2012</i>
+<li><em>August 13, 2012</em>
     by <a href=\"http://www.dlr.de/rm/\">Bernhard Thiele</a>:<br>
     Used the code from Blocks.Discrete.StateSpace and converted it into
     the Modelica 3.3 clocked equation style.</li>
@@ -3187,15 +3187,15 @@ states can be set as start values of <strong>x</strong>.<p>
 ",   revisions="<html>
 <p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>August 13, 2012</i>
+<li><em>August 13, 2012</em>
     by <a href=\"http://www.dlr.de/rm/\">Bernhard Thiele</a>:<br>
     Used the original code from Blocks.Discrete.TransferFunction and converted it into
     the Modelica 3.3 clocked equation style.</li>
-<li><i>November 15, 2000</i>
+<li><em>November 15, 2000</em>
     by <a href=\"http://www.dynasim.se\">Hans Olsson</a>:<br>
     Converted to when-semantics of Modelica 1.4 with special
     care to avoid unnecessary algebraic loops.</li>
-<li><i>June 18, 2000</i>
+<li><em>June 18, 2000</em>
     by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
     Realized based on a corresponding model of Dieter Moormann
     and Hilding Elmqvist.</li>
@@ -3364,7 +3364,7 @@ u and past u values that are taken into account.
 <p>
 This block could also be implemented with block
 <a href=\"modelica://Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients\">FIRbyCoefficients</a>
-by using the coefficients a = fill(1/n, n). However, block <i>MovingAverage</i> is
+by using the coefficients a = fill(1/n, n). However, block <em>MovingAverage</em> is
 a more efficient implementation since it can be implemented recursively,
 contrary to a general FIR filter.
 </p>

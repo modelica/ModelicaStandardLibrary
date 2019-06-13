@@ -1628,7 +1628,7 @@ an offset used to decide when to tick; the clock's event condition depends on
 the state present when the condition changed last time from beeing non-satisfied
 to beeing satisfied, i.e., the state when the clock last ticked.
 <p>
-<i>This example model is based on the following references:</i>
+<em>This example model is based on the following references:</em>
 </p>
 
 <dl>
@@ -2452,7 +2452,7 @@ initial equation
             Documentation(info="<html>
 <p>This block defines the transfer function between the
 input u and the output y
-as an n-th order filter with <i>critical damping</i>
+as an n-th order filter with <em>critical damping</em>
 characteristics and cut-off frequency f. It is
 a slightly simplified version of the \"Modelica.Blocks.Continuous.CriticalDamping\" block from the MSL 3.2.1.
 It doesn't provide the same initialization capabilities as the MSL block, since the initialization of
