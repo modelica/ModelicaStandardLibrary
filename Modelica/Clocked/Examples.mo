@@ -1612,7 +1612,7 @@ event-based clock that ticks every 180° rotation of the crankshaft angle. The
 speed controller therefore is automatically executed every half-rotation of the
 engine's crankshaft. To produce respective clock ticks,
 <a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock\">rotationalClock</a>
-bookeeps the angular of the last time a half-rotation of
+holds the angle of the last time a half-rotation of
 the crankshaft has been recognized (<code>angular_offset</code>). Given
 <code>angular_offset</code>, the event-condition for half-rotations is:
 <p>
@@ -1623,10 +1623,10 @@ with <code>trigger_interval = 180°</code>. The model of
 </p>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalClock_Model.png\">
 <p>
-In the end, <code>rotationalClock</code> samples it's own input angle to bookeep
+In the end, <code>rotationalClock</code> samples it's own input angle to keep track of
 an offset used to decide when to tick; the clock's event condition depends on
-the state present when the condition changed last time from beeing non-satisfied
-to beeing satisfied, i.e., the state when the clock last ticked.
+the state present when the condition changed last time from being non-satisfied
+to being satisfied, i.e., the state when the clock last ticked.
 <p>
 <em>This example model is based on the following references:</em>
 </p>
