@@ -3297,25 +3297,41 @@ Please note that the filter has a settle time depending on the filter parameters
       package ChopperStepDown "Step down chopper"
         extends Modelica.Icons.ExamplesPackage;
         model ChopperStepDown_R "Step down chopper with resistive load"
-          extends ExampleTemplates.ChopperStepDown;
+          extends ExampleTemplates.ChopperStepDown(signalPWM(useConstantDutyCycle=false));
           extends Modelica.Icons.Example;
-          parameter Modelica.SIunits.Resistance R=100 "Resistance";
-          Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
+          Modelica.Electrical.Analog.Basic.Resistor loadResistor(R=RLoad)
+            annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={30,50})));
+                origin={40,40})));
+          Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle adaptor(
+            reciprocal=false,
+            useBipolarVoltage=false,
+            vLim=Vsource) annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={-70,-60})));
+          Modelica.Blocks.Sources.Ramp vRef(
+            height=V0,
+            duration=0.05,
+            offset=0,
+            startTime=0.025)
+            annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
         equation
-          connect(chopperStepDown.dc_p2, resistor.p) annotation (Line(
-              points={{-40,6},{-30,6},{-30,70},{30,70},{30,60}}, color={0,0,255}));
-          connect(resistor.n, currentSensor.p) annotation (Line(
-              points={{30,40},{30,-6},{0,-6}}, color={0,0,255}));
+          connect(loadResistor.n, currentSensor.p)
+            annotation (Line(points={{40,30},{40,-10},{30,-10}}, color={0,0,255}));
+          connect(loadResistor.p, capacitor.p) annotation (Line(points={{40,50},{40,60},
+                  {1.77636e-15,60},{1.77636e-15,10}}, color={0,0,255}));
+          connect(adaptor.dutyCycle, signalPWM.dutyCycle)
+            annotation (Line(points={{-70,-49},{-70,-40},{-42,-40}}, color={0,0,127}));
+          connect(vRef.y, adaptor.v)
+            annotation (Line(points={{79,-80},{-70,-80},{-70,-72}}, color={0,0,127}));
           annotation (
             experiment(
-              StartTime=0,
               StopTime=0.1,
-              Tolerance=1e-06,
-              Interval=0.0002),
+              Interval=1e-05,
+              Tolerance=1e-06),
             Documentation(info="<html>
 <p>This example demonstrates the switching on of a resistive load operated by a step down chopper.
 DC output voltage is equal to <code>dutyCycle</code> times the input voltage.
@@ -3324,33 +3340,49 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
         end ChopperStepDown_R;
 
         model ChopperStepDown_RL "Step down chopper with R-L load"
-          extends ExampleTemplates.ChopperStepDown;
+          extends ExampleTemplates.ChopperStepDown(signalPWM(useConstantDutyCycle=false));
           extends Modelica.Icons.Example;
-          parameter Modelica.SIunits.Resistance R=100 "Resistance";
-          parameter Modelica.SIunits.Inductance L=1 "Inductance";
-          Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
+          parameter Modelica.SIunits.Inductance LLoad=0.025 "Load inductance";
+          Modelica.Electrical.Analog.Basic.Resistor loadResistor(R=RLoad)
+            annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={30,50})));
-          Modelica.Electrical.Analog.Basic.Inductor inductor(L=L, i(fixed=true,
-                start=0)) annotation (Placement(transformation(
+                origin={40,40})));
+          Modelica.Electrical.Analog.Basic.Inductor loadInductor(i(fixed=true, start=0),
+            L=LLoad) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={30,10})));
+                origin={40,10})));
+          Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle adaptor(
+            reciprocal=false,
+            useBipolarVoltage=false,
+            vLim=Vsource) annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={-70,-60})));
+          Modelica.Blocks.Sources.Ramp vRef(
+            height=V0,
+            duration=0.05,
+            offset=0,
+            startTime=0.025)
+            annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
         equation
-          connect(chopperStepDown.dc_p2, resistor.p) annotation (Line(
-              points={{-40,6},{-30,6},{-30,70},{30,70},{30,60}}, color={0,0,255}));
-          connect(resistor.n, inductor.p) annotation (Line(
-              points={{30,40},{30,20}}, color={0,0,255}));
-          connect(inductor.n, currentSensor.p) annotation (Line(
-              points={{30,0},{30,-6},{0,-6}}, color={0,0,255}));
+          connect(loadResistor.p, capacitor.p) annotation (Line(points={{40,50},{40,60},
+                  {1.77636e-15,60},{1.77636e-15,10}}, color={0,0,255}));
+          connect(loadInductor.n, currentSensor.p)
+            annotation (Line(points={{40,0},{40,-10},{30,-10}}, color={0,0,255}));
+          connect(loadResistor.n, loadInductor.p)
+            annotation (Line(points={{40,30},{40,20}}, color={0,0,255}));
+          connect(adaptor.dutyCycle, signalPWM.dutyCycle)
+            annotation (Line(points={{-70,-49},{-70,-40},{-42,-40}}, color={0,0,127}));
+          connect(adaptor.v, vRef.y)
+            annotation (Line(points={{-70,-72},{-70,-80},{79,-80}}, color={0,0,127}));
           annotation (
             experiment(
-              StartTime=0,
               StopTime=0.1,
-              Tolerance=1e-06,
-              Interval=0.0002),
+              Interval=1e-05,
+              Tolerance=1e-06),
             Documentation(info="<html>
 <p>This example demonstrates the switching on of an R-L load operated by a step down chopper.
 DC output voltage is equal to <code>dutyCycle</code> times the input voltage.
@@ -3362,24 +3394,40 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
       package ChopperStepUp "Step up chopper"
         extends Modelica.Icons.ExamplesPackage;
         model ChopperStepUp_R "Step up chopper with resistive load"
-          extends ExampleTemplates.ChopperStepUp;
+          extends ExampleTemplates.ChopperStepUp(signalPWM(useConstantDutyCycle=false));
           extends Modelica.Icons.Example;
-          parameter Modelica.SIunits.Resistance R=10 "Resistance";
-          Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
+          Modelica.Electrical.Analog.Basic.Resistor loadResistor(R=RLoad)
+            annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={40,50})));
+                origin={40,40})));
+          Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle adaptor(
+            reciprocal=true,
+            useBipolarVoltage=false,
+            vLim=Vsource) annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={-70,-60})));
+          Modelica.Blocks.Sources.Ramp vRef(
+            height=V0 - Vsource,
+            duration=0.05,
+            offset=Vsource,
+            startTime=0.025)
+            annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
         equation
-          connect(resistor.n, currentSensor.p) annotation (Line(
-              points={{40,40},{40,-10},{30,-10}},
-                                               color={0,0,255}));
-          connect(capacitor.p, resistor.p) annotation (Line(points={{0,10},{0,
-                  70},{40,70},{40,60}}, color={0,0,255}));
+          connect(loadResistor.n, currentSensor.p)
+            annotation (Line(points={{40,30},{40,-10},{30,-10}}, color={0,0,255}));
+          connect(loadResistor.p, capacitor.p) annotation (Line(points={{40,50},{40,60},
+                  {1.77636e-15,60},{1.77636e-15,10}}, color={0,0,255}));
+          connect(adaptor.dutyCycle, signalPWM.dutyCycle)
+            annotation (Line(points={{-70,-49},{-70,-40},{-42,-40}}, color={0,0,127}));
+          connect(vRef.y, adaptor.v)
+            annotation (Line(points={{79,-80},{-70,-80},{-70,-72}}, color={0,0,127}));
           annotation (
             experiment(
               StopTime=0.1,
-              Interval=5e-05,
+              Interval=1e-05,
               Tolerance=1e-06),
             Documentation(info="<html>
 <p>This example demonstrates the switching on of a resistive load operated by a step up chopper.
@@ -3567,20 +3615,22 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
         partial model ChopperStepDown "Step down chopper including control"
           extends Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
-          parameter Modelica.SIunits.Voltage Vsource=100 "Source voltage";
-          parameter Real dutyCycle=0.25 "Duty cycle";
-          parameter Modelica.SIunits.Voltage V0=Vsource*dutyCycle "No-load voltage";
-          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(final V=
-                Vsource)
-                     annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
+          parameter Modelica.SIunits.Voltage Vsource=60 "Source voltage";
+          parameter Modelica.SIunits.Inductance L=25e-3 "Source inductance";
+          parameter Modelica.SIunits.Capacitance C=20e-6 "Smoothing capacitance";
+          parameter Real dutyCycle=0.20 "Duty cycle";
+          parameter Modelica.SIunits.Current ILoad=1.2 "Load current";
+          parameter Modelica.SIunits.Resistance RLoad=V0/ILoad "Load resistance";
+          parameter Modelica.SIunits.Voltage V0=Vsource*dutyCycle "No-load output voltage";
+          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(final V=Vsource)
+            annotation (Placement(transformation(
+                extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={-80,0})));
-          Modelica.Electrical.PowerConverters.DCDC.ChopperStepDown
-            chopperStepDown(useHeatPort=false)
+          Modelica.Electrical.PowerConverters.DCDC.ChopperStepDown chopperStepDown
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
-            annotation (Placement(transformation(extent={{0,-16},{-20,4}})));
+            annotation (Placement(transformation(extent={{30,-20},{10,0}})));
           Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor
             annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
@@ -3589,38 +3639,58 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-40},{-70,-20}})));
           Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM(
-                                           final constantDutyCycle=dutyCycle, final f=f)
-                                           annotation (Placement(transformation(
+            constantDutyCycle=dutyCycle, f=f)
+            annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
-                origin={-50,-60})));
+                origin={-30,-40})));
           Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={-10,-40})));
+                rotation=0,
+                origin={90,-40})));
           Modelica.Blocks.Math.Mean meanVoltage(f=f, x0=0) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={90,10})));
+          Modelica.Electrical.Analog.Basic.Inductor inductor(i(fixed=true, start=0), L=L)
+            annotation (Placement(transformation(extent={{-30,0},{-10,20}})));
+          Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=C, v(fixed=true, start=V0))
+            annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={0,0})));
         equation
           connect(constantVoltage.p, chopperStepDown.dc_p1) annotation (Line(
               points={{-80,10},{-70,10},{-70,6},{-60,6}}, color={0,0,255}));
           connect(constantVoltage.n, chopperStepDown.dc_n1) annotation (Line(
               points={{-80,-10},{-70,-10},{-70,-6},{-60,-6}}, color={0,0,255}));
-          connect(chopperStepDown.dc_p2, voltageSensor.p) annotation (Line(
-              points={{-40,6},{-30,6},{-30,70},{60,70},{60,20}}, color={0,0,255}));
           connect(voltageSensor.n, currentSensor.p) annotation (Line(
-              points={{60,0},{60,-6},{0,-6}}, color={0,0,255}));
-          connect(currentSensor.n, chopperStepDown.dc_n2) annotation (Line(
-              points={{-20,-6},{-40,-6}}, color={0,0,255}));
+              points={{60,0},{60,-10},{30,-10}},
+                                              color={0,0,255}));
           connect(constantVoltage.n, ground.p) annotation (Line(
               points={{-80,-10},{-80,-20}}, color={0,0,255}));
           connect(voltageSensor.v, meanVoltage.u) annotation (Line(
               points={{71,10},{78,10}}, color={0,0,127}));
           connect(currentSensor.i, meanCurrent.u) annotation (Line(
-              points={{-10,-17},{-10,-28}}, color={0,0,127}));
+              points={{20,-21},{20,-40},{78,-40}},
+                                            color={0,0,127}));
           connect(signalPWM.fire, chopperStepDown.fire_p) annotation (Line(
-              points={{-56,-49},{-56,-12}}, color={255,0,255}));
+              points={{-36,-29},{-36,-20},{-56,-20},{-56,-12}},
+                                            color={255,0,255}));
+          connect(chopperStepDown.dc_p2, inductor.p)
+            annotation (Line(points={{-40,6},{-30,6},{-30,10}}, color={0,0,255}));
+          connect(inductor.n, capacitor.p)
+            annotation (Line(points={{-10,10},{1.77636e-15,10}},
+                                                       color={0,0,255}));
+          connect(voltageSensor.p, capacitor.p)
+            annotation (Line(points={{60,20},{60,60},{1.77636e-15,60},{
+                  1.77636e-15,10}},                                  color={0,0,255}));
+          connect(chopperStepDown.dc_n2, capacitor.n) annotation (Line(points={
+                  {-40,-6},{-20,-6},{-20,-10},{-1.77636e-15,-10}}, color={0,0,
+                  255}));
+          connect(capacitor.n, currentSensor.n) annotation (Line(points={{
+                  -1.77636e-15,-10},{10,-10}}, color={0,0,255}));
           annotation (Documentation(
                 info="<html>
 <p>Step down chopper example template including supply and sensors; load is not yet included</p>
@@ -3628,22 +3698,21 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
         end ChopperStepDown;
 
         partial model ChopperStepUp "Step up chopper including control"
-          import Modelica;
           extends Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
-          parameter Modelica.SIunits.Voltage Vsource=100 "Source voltage";
-          parameter Modelica.SIunits.Inductance Lsource=10e-3 "Source inductance";
-          parameter Modelica.SIunits.Capacitance C=0.1e-3 "Smoothing capacitance";
-          parameter Real dutyCycle=0.25 "Duty cycle";
-          parameter Modelica.SIunits.Voltage V0=Vsource/(1 - dutyCycle) "No-load voltage";
-          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(final V=
-                Vsource)
+          parameter Modelica.SIunits.Voltage Vsource=60 "Source voltage";
+          parameter Modelica.SIunits.Inductance L=25e-3 "Source inductance";
+          parameter Modelica.SIunits.Capacitance C=20e-6 "Smoothing capacitance";
+          parameter Real dutyCycle=0.20 "Duty cycle";
+          parameter Modelica.SIunits.Current ILoad=1.2 "Load current";
+          parameter Modelica.SIunits.Resistance RLoad=V0/ILoad "Load resistance";
+          parameter Modelica.SIunits.Voltage V0=Vsource/(1 - dutyCycle) "No-load output voltage";
+          Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=Vsource)
                      annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
+                extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={-80,0})));
-          Modelica.Electrical.PowerConverters.DCDC.ChopperStepUp   chopperStepUp(
-              useHeatPort=false)
+          Modelica.Electrical.PowerConverters.DCDC.ChopperStepUp chopperStepUp
             annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
           Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
             annotation (Placement(transformation(extent={{30,-20},{10,0}})));
@@ -3655,23 +3724,23 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-40},{-70,-20}})));
           Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM(
-                                           final constantDutyCycle=dutyCycle, final f=f)
-                                           annotation (Placement(transformation(
+            constantDutyCycle=dutyCycle, f=f)
+            annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
-                origin={-30,-60})));
+                origin={-30,-40})));
           Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={20,-44})));
+                rotation=0,
+                origin={90,-40})));
           Modelica.Blocks.Math.Mean meanVoltage(f=f, x0=0) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={90,10})));
-          Analog.Basic.Inductor inductorSource(i(fixed=true, start=0), final L=Lsource)
+          Analog.Basic.Inductor inductor(i(fixed=true, start=0), final L=L)
             annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
-          Analog.Basic.Capacitor capacitor(               C=C, v(fixed=true, start=V0))
-                                                               annotation (Placement(
+          Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=C, v(fixed=true, start=V0))
+            annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -3687,21 +3756,26 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           connect(voltageSensor.v, meanVoltage.u) annotation (Line(
               points={{71,10},{78,10}}, color={0,0,127}));
           connect(currentSensor.i, meanCurrent.u) annotation (Line(
-              points={{20,-21},{20,-32}},   color={0,0,127}));
+              points={{20,-21},{20,-40},{78,-40}},
+                                            color={0,0,127}));
           connect(signalPWM.fire, chopperStepUp.fire_p)
-            annotation (Line(points={{-36,-49},{-36,-12}}, color={255,0,255}));
-          connect(constantVoltage.p, inductorSource.p)
+            annotation (Line(points={{-36,-29},{-36,-12}}, color={255,0,255}));
+          connect(constantVoltage.p, inductor.p)
             annotation (Line(points={{-80,10},{-70,10}}, color={0,0,255}));
-          connect(inductorSource.n, chopperStepUp.dc_p1)
-            annotation (Line(points={{-50,10},{-50,6},{-40,6}}, color={0,0,255}));
+          connect(inductor.n, chopperStepUp.dc_p1) annotation (Line(points={{-50,
+                  10},{-50,6},{-40,6}}, color={0,0,255}));
           connect(voltageSensor.p, capacitor.p)
-            annotation (Line(points={{60,20},{60,70},{0,70},{0,10}}, color={0,0,255}));
-          connect(capacitor.p, chopperStepUp.dc_p2) annotation (Line(points={{0,10},{-10,
-                  10},{-10,6},{-20,6}}, color={0,0,255}));
-          connect(chopperStepUp.dc_n2, capacitor.n) annotation (Line(points={{-20,-6},{-10,
-                  -6},{-10,-10},{0,-10}}, color={0,0,255}));
+            annotation (Line(points={{60,20},{60,60},{1.77636e-15,60},{
+                  1.77636e-15,10}},                                  color={0,0,255}));
+          connect(capacitor.p, chopperStepUp.dc_p2) annotation (Line(points={{
+                  1.77636e-15,10},{-10,10},{-10,6},{-20,6}},
+                                        color={0,0,255}));
+          connect(chopperStepUp.dc_n2, capacitor.n) annotation (Line(points={{-20,-6},
+                  {-10,-6},{-10,-10},{-1.77636e-15,-10}},
+                                          color={0,0,255}));
           connect(capacitor.n, currentSensor.n)
-            annotation (Line(points={{0,-10},{10,-10}}, color={0,0,255}));
+            annotation (Line(points={{-1.77636e-15,-10},{10,-10}},
+                                                        color={0,0,255}));
           annotation (Documentation(
                 info="<html>
 <p>Step up chopper example template including supply and sensors; load is not yet included</p>
