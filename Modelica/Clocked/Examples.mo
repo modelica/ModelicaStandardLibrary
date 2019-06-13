@@ -1686,7 +1686,6 @@ to being satisfied, i.e., the state when the clock last ticked.
 g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
 */
         m_ai_der = der(m_ai);
-          annotation (Diagram(graphics));
         end ThrottleBody;
 
         block IntakeManifold "Dynamics of the intake manifold"
@@ -1710,8 +1709,6 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
         equation
           der(P_m) = RTVmRatio*(m_ai_der - m_ao_der);
           m_ao_der = -0.366 + 0.08979*N*P_m - 0.0337*N*P_m^2 + 0.0001*N^2*P_m;
-
-          annotation (Diagram(graphics));
         end IntakeManifold;
 
         block TorqueGeneration
@@ -1733,8 +1730,6 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
          T_torque_e = -181.3 + 379.36*m_a + 21.91*AFR - 0.85*AFR^2 + 0.26*sigma
          - 0.0028*sigma^2 + 0.027*N - 0.000107*N^2 + 0.00048*N*sigma
          + 2.55*sigma*m_a - 0.05*sigma^2*m_a;
-
-          annotation (Diagram(graphics));
         end TorqueGeneration;
 
         block SpeedControl
@@ -1758,7 +1753,7 @@ initial equation
              x_d = previous(x_d) + k_I*interval()*(previous(N_des) - previous(N));
              Theta = k_p*(N_des - N) + x_d;
           end when;
-          annotation (Diagram(graphics), Icon(graphics={
+          annotation (Icon(graphics={
                 Rectangle(
                   extent={{-100,100},{100,-100}},
                   fillColor={255,255,255},
@@ -1978,8 +1973,6 @@ initial equation
           when clock then
             m_a_last = sample(m_a_total);
           end when;
-
-          annotation (Diagram(graphics));
         end CylinderAirCharge;
 
         block InductionToPowerDelay
@@ -2006,7 +1999,6 @@ initial equation
             m_a_delayedSampled = previous(m_a_sampled);
           end when;
           m_a_delayed = hold(m_a_delayedSampled);
-          annotation (Diagram(graphics));
         end InductionToPowerDelay;
 
         model Engine2 "Internal combustion engine"
@@ -2347,7 +2339,7 @@ initial equation
               points={{-36,30},{-38,30},{-38,24},{-48.8,24}},
               color={0,0,127}));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-120,
-                    -100},{100,100}}),      graphics),
+                    -100},{100,100}})),
             experiment(StopTime=500),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}})));
@@ -2373,7 +2365,6 @@ initial equation
           connect(mixingUnit.c, inverseBlockConstraints.u2) annotation (Line(
               points={{2,14},{10,14},{10,11},{17.4,11}},
               color={0,0,127}));
-          annotation (Diagram(graphics));
         end FilterOrder;
 
         block CriticalDamping
@@ -2825,7 +2816,7 @@ Example used to generate a figure for the documentation of block
           points={{-59,30},{-47.2,30}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -2910,7 +2901,7 @@ Example used to generate a figure for the documentation of block
           pattern=LinePattern.Dot,
           thickness=0.5));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -2949,7 +2940,7 @@ Example used to generate a figure for the documentation of block
           points={{-59,40},{-38,40},{-38,30.6},{-15.2,30.6}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3037,7 +3028,7 @@ Example used to generate a figure for the documentation of block
           points={{-17.4,30},{-9.2,30}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3177,7 +3168,7 @@ Example used to generate a figure for the documentation of block
           points={{-33.4,30},{-23.2,30}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3216,7 +3207,7 @@ Example used to generate a figure for the documentation of block
           points={{-33.4,30},{-23.2,30}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.08),
+                -100},{100,100}})), experiment(StopTime=0.08),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3256,7 +3247,7 @@ Example used to generate a figure for the documentation of block
           points={{-33.4,30},{-23.2,30}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.06),
+                -100},{100,100}})), experiment(StopTime=0.06),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3340,7 +3331,7 @@ Example used to generate a figure for the documentation of block
           points={{-13.4,30},{-5.2,30}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3382,7 +3373,7 @@ Example used to generate a figure for the documentation of block
           points={{-37,28},{-27.2,28}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3444,7 +3435,7 @@ Example used to generate a figure for the documentation of block
           points={{-11.4,23.7},{-6,23.7},{-6,68},{-36,68}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3495,7 +3486,7 @@ Example used to generate a figure for the documentation of block
           points={{-13.4,40},{-8,40},{-8,36},{-2,36}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3600,7 +3591,7 @@ Example used to generate a figure for the documentation of block
           points={{20,38.2},{20,30},{1,30}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3639,7 +3630,7 @@ Example used to generate a figure for the documentation of block
           points={{-35.4,30},{-26,30}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3675,7 +3666,7 @@ Example used to generate a figure for the documentation of block
           points={{-55,30},{-47.2,30}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=1.1),
+                -100},{100,100}})), experiment(StopTime=1.1),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3714,7 +3705,7 @@ Example used to generate a figure for the documentation of block
           points={{-28,30},{-35.4,30}},
           color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
@@ -3950,7 +3941,7 @@ sub-library.
           points={{-35.4,30},{-23.2,30}},
           color={255,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4011,7 +4002,7 @@ Elementary example for the documentation of block
             color={255,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}},
-              grid={1,1}),           graphics), experiment(StopTime=0.2),
+              grid={1,1})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4200,7 +4191,7 @@ Elementary example for the documentation of block
           points={{-33.4,30},{-23.2,30}},
           color={255,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4237,7 +4228,7 @@ Elementary example for the documentation of block
           points={{-33.4,30},{-23.2,30}},
           color={255,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4282,7 +4273,7 @@ Elementary example for the documentation of block
           points={{-59,30},{-47.2,30}},
           color={255,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4325,7 +4316,7 @@ Elementary example for the documentation of block
           points={{-41.1,28},{-27.2,28}},
           color={255,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4389,7 +4380,7 @@ Elementary example for the documentation of block
           points={{-41.1,10},{-34,10},{-34,24.6},{-25.2,24.6}},
           color={255,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4439,7 +4430,7 @@ Elementary example for the documentation of block
           points={{-13.4,20},{-6,20},{-6,27.9},{2,27.9}},
           color={255,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4505,7 +4496,7 @@ Example for block
           points={{-39,30},{-23.2,30}},
           color={255,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=1.0),
+                -100},{100,100}})), experiment(StopTime=1.0),
         Documentation(info="<html>
 <p>
 Example for block
@@ -4552,7 +4543,7 @@ sub-library.
           points={{-35.4,30},{-23.2,30}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4611,7 +4602,7 @@ Elementary example for the documentation of block
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}},
-              grid={1,1}),           graphics), experiment(StopTime=0.2),
+              grid={1,1})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4646,7 +4637,7 @@ Elementary example for the documentation of block
           points={{-47.2,30},{-59,30}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4725,7 +4716,7 @@ Elementary example for the documentation of block
           points={{-9.2,30},{-17.4,30}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4761,7 +4752,7 @@ Elementary example for the documentation of block
           points={{-23.2,30},{-33.4,30}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4797,7 +4788,7 @@ Elementary example for the documentation of block
           points={{-23.2,30},{-33.4,30}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.2),
+                -100},{100,100}})), experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4833,7 +4824,7 @@ Elementary example for the documentation of block
           points={{-23.2,30},{-33.4,30}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4877,7 +4868,7 @@ Elementary example for the documentation of block
           points={{12.8,30},{-5.4,30}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4919,7 +4910,7 @@ Elementary example for the documentation of block
           points={{-59,58},{-70,58},{-70,28},{-61,28}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -4982,7 +4973,7 @@ Elementary example for the documentation of block
           points={{-11.4,24.3},{-2,24.3},{-2,-18},{-36,-18}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
@@ -5031,7 +5022,7 @@ Elementary example for the documentation of block
           points={{-13.4,20},{-8,20},{-8,22},{-2,22}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),   graphics), experiment(StopTime=0.09),
+                -100},{100,100}})), experiment(StopTime=0.09),
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
