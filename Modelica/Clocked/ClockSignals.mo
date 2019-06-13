@@ -46,8 +46,8 @@ package ClockSignals "Library of blocks for clocked signals"
         Documentation(info="<html>
 <p>
 This component generates a periodic clock that starts ticking when
-the simulation starts. The <b>period</b> is defined in seconds
-by a <b>Real</b> number. If clocks are synchronized relatively to each other
+the simulation starts. The <strong>period</strong> is defined in seconds
+by a <strong>Real</strong> number. If clocks are synchronized relatively to each other
 then only one of the clocks can be defined with PeriodicRealClock.
 </p>
 
@@ -62,11 +62,11 @@ to generate a periodic clock signal.
 
 
 <p>
-If a clock is associated to a clocked continuous-time partition, then an <b>integrator</b>
+If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
 has to be defined that is used to integrate the partition from the previous
-to the current clock tick. This is performed by setting parameter <b>useSolver</b>
-= <b>true</b> and defining the integration method as String with
-parameter <b>solver</b>. Both parameters are in tab <b>Advanced</b>.
+to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
+= <strong>true</strong> and defining the integration method as String with
+parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
 For an example, see
 <a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
@@ -137,10 +137,10 @@ For an example, see
         Documentation(info="<html>
 <p>
 This component generates a periodic clock that starts ticking when
-the simulation starts. The <b>period</b> is defined as the product
+the simulation starts. The <strong>period</strong> is defined as the product
 of a resolution, defined with enumeration
 <a href=\"modelica://Modelica.Clocked.Types.Resolution\">Resolution</a>,
-and Integer parameter <b>factor</b>. Internally, the period is
+and Integer parameter <strong>factor</strong>. Internally, the period is
 represented as a rational number. All clocks with rational number definitions
 are exactly time synchronized to each other.
 </p>
@@ -163,11 +163,11 @@ For an introduction to clocks see
 </p>
 
 <p>
-If a clock is associated to a clocked continuous-time partition, then an <b>integrator</b>
+If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
 has to be defined that is used to integrate the partition from the previous
-to the current clock tick. This is performed by setting parameter <b>useSolver</b>
-= <b>true</b> and defining the integration method as String with
-parameter <b>solver</b>. Both parameters are in tab <b>Advanced</b>.
+to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
+= <strong>true</strong> and defining the integration method as String with
+parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
 For an example, see
 <a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
@@ -197,9 +197,9 @@ For an example, see
         Documentation(info="<html>
 <p>
 This component generates a clock signal triggered by a continuous-time
-Boolean input signal u: Whenever the Boolean input signal <b>u</b>
-changes from <b>false</b> to <b>true</b>, then the output
-clock signal <b>y</b> ticks.
+Boolean input signal u: Whenever the Boolean input signal <strong>u</strong>
+changes from <strong>false</strong> to <strong>true</strong>, then the output
+clock signal <strong>y</strong> ticks.
 </p>
 
 <p>
@@ -208,11 +208,11 @@ For an introduction to clocks see
 </p>
 
 <p>
-If a clock is associated to a clocked continuous-time partition, then an <b>integrator</b>
+If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
 has to be defined that is used to integrate the partition from the previous
-to the current clock tick. This is performed by setting parameter <b>useSolver</b>
-= <b>true</b> and defining the integration method as String with
-parameter <b>solver</b>. Both parameters are in tab <b>Advanced</b>.
+to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
+= <strong>true</strong> and defining the integration method as String with
+parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
 For an example, see
 <a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Examples.Systems.ControlledMixingUnit</a>.
 </p>
@@ -709,7 +709,7 @@ output clock y.
 
 <p>
 To be more precise:
-The clock y is factor-times slower than the clock u. The first activation of clock y coincides with the first activation of clock u. The sub-sampling factor is defined by Integer parameter <b>factor</b>.
+The clock y is factor-times slower than the clock u. The first activation of clock y coincides with the first activation of clock u. The sub-sampling factor is defined by Integer parameter <strong>factor</strong>.
 </p>
 
 <h4>Example</h4>
@@ -847,7 +847,7 @@ clock output signal y.
 
 <p>
 To be more precise:
-Clock y is factor-times faster than clock u. The first activation of clock y coincides with the first activation of clock u. The super-sampling factor is defined by Integer parameter <b>factor</b>.
+Clock y is factor-times faster than clock u. The first activation of clock y coincides with the first activation of clock u. The super-sampling factor is defined by Integer parameter <strong>factor</strong>.
 </p>
 
 <h4>Example</h4>
@@ -955,7 +955,7 @@ clock superSample.y is faster as clock superSample.u.
 <p>
 This block shifts the first activation of clock output y by
 fraction shiftCounter/resolution of the period (or for a non-periodic signal by a fraction of the last interval).
-Here, <b>shiftCounter</b> and <b>resolution</b> are positive Integer parameters.
+Here, <strong>shiftCounter</strong> and <strong>resolution</strong> are positive Integer parameters.
 </p>
 
 <p>
@@ -964,7 +964,7 @@ The block constructs (conceptually) a clock &ldquo;cBase&rdquo;
 </p>
 
 <pre>
-   <b>Clock</b> cBase = <b>subSample</b>(<b>superSample</b>(u, resolution), shiftCounter)
+   <strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), shiftCounter)
 </pre>
 
 <p>
@@ -993,7 +993,7 @@ then shifts it with shiftCounter = 4 and resolution = 3:<br>
    </tr>
 </table>
 <p>
-The first activation of clock output y of block shiftSample1 is shifted in time (4/3*20ms). The parameter values <b>shiftCounter</b> = 4 and <b>resolution</b> = 3 are visible at the bottom of the icon.
+The first activation of clock output y of block shiftSample1 is shifted in time (4/3*20ms). The parameter values <strong>shiftCounter</strong> = 4 and <strong>resolution</strong> = 3 are visible at the bottom of the icon.
 </p>
 
 </html>"));

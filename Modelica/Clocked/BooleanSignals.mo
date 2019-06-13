@@ -1067,14 +1067,14 @@ but are used as building blocks for \"higher level\" blocks.
     annotation (Documentation(info="<html>
 <p>
 This package contains blocks that mark boundaries of a clocked partition
-and transform a <b>Boolean</b> signal from one partition to the next. Especially,
+and transform a <strong>Boolean</strong> signal from one partition to the next. Especially,
 the following blocks are provided:<br>&nbsp;
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"3\">
-<tr><th align=\"left\"><b>Boundary Type</b></th>
-    <th align=\"left\"><b>Block Name</b></th>
-    <th align=\"left\"><b>Description</b></th></tr>
+<tr><th align=\"left\"><strong>Boundary Type</strong></th>
+    <th align=\"left\"><strong>Block Name</strong></th>
+    <th align=\"left\"><strong>Description</strong></th></tr>
 
 <tr><td valign=\"top\" rowspan=\"3\">continuous-time &rarr; clocked</td>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Sample\">Sample</a></td>
@@ -1082,11 +1082,11 @@ the following blocks are provided:<br>&nbsp;
     </tr>
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SampleClocked\">SampleClocked</a></td>
-      <td>Sample and associate a clock to the sampled <b>scalar</b> signal.</td>
+      <td>Sample and associate a clock to the sampled <strong>scalar</strong> signal.</td>
     </tr>
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked\">SampleVectorizedAndClocked</a></td>
-      <td>Sample an input vector and associate a clock to the sampled <b>vector</b> signal.</td>
+      <td>Sample an input vector and associate a clock to the sampled <strong>vector</strong> signal.</td>
     </tr>
 
 <tr><td valign=\"top\">clocked &rarr; continuous-time</td>
@@ -1117,11 +1117,11 @@ the following blocks are provided:<br>&nbsp;
 
 <tr><td valign=\"top\" rowspan=\"2\">within clocked partition</td>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.AssignClock\">AssignClock</a></td>
-      <td>Assign a clock to a clocked <b>scalar</b> signal.</td>
+      <td>Assign a clock to a clocked <strong>scalar</strong> signal.</td>
     </tr>
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized\">AssignClockVectorized</a></td>
-      <td>Assign a clock to a clocked <b>vector</b> signal.</td>
+      <td>Assign a clock to a clocked <strong>vector</strong> signal.</td>
     </tr>
 </table>
 
@@ -1175,10 +1175,10 @@ contains utility blocks that are used as building blocks for user-relevant block
       y = not(u == previous(u));
     end if;</code></pre>
     <p>
-    <b>This block might be superfluous and replaced by
-    </b><code>Modelica.Blocks.Math.BooleanChange</code><b> when the semantics
-    of </b><code>change</code><b> are relaxed and well-defined for
-    clocked discrete-time partitions.</b>
+    <strong>This block might be superfluous and replaced by
+    </strong><code>Modelica.Blocks.Math.BooleanChange</code><strong> when the semantics
+    of </strong><code>change</code><strong> are relaxed and well-defined for
+    clocked discrete-time partitions.</strong>
     </html>"));
     end BooleanChange;
 
@@ -1517,7 +1517,7 @@ y is set to parameter y_start.
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.BooleanStep\">Modelica.Blocks.Sources.BooleanStep</a>,
-but adapted to work in clocked partitions (by internal sampling of the continuous <b>time</b> variable).</p>
+but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
 <p>
 The Boolean output y is a step signal:
 </p>
@@ -1687,7 +1687,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBase
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>
 <p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.BooleanPulse\">Modelica.Blocks.Sources.BooleanPulse</a>,
-but adapted to work in clocked partitions (by internal sampling of the continuous <b>time</b> variable).
+but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).
 </p>
 <p>
 The Boolean output y is a pulse signal:
@@ -1705,9 +1705,9 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBase
       end Pulse;
     annotation (Documentation(info="<html>
 <p>
-This package provides <b>source</b> components akin to the blocks provided in
+This package provides <strong>source</strong> components akin to the blocks provided in
 <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference
-that they provide a <b>clocked</b> output signal.
+that they provide a <strong>clocked</strong> output signal.
 </p>
 <p>
 As an effect it is not necessary to use an intermediate Sample block if the output signal
@@ -2021,7 +2021,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBase
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>
 <p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.BooleanPulse\">Modelica.Blocks.Sources.BooleanPulse</a>,
-but adapted to work in clocked partitions (by internal sampling of the continuous <b>time</b> variable).
+but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).
 </p>
 <p>
 The Boolean output y is a pulse signal:
@@ -2037,10 +2037,10 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBase
 </html>"));
       end Pulse;
     annotation (Documentation(info="<html>
-<p>This package provides <b>source</b> components akin to the blocks provided in <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide </p>
+<p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide </p>
 <p><ol>
-<li>a <b>clocked</b> output signal and</li>
-<li>are parametrized in terms of <b>clock ticks</b> rather than simulation time.</li>
+<li>a <strong>clocked</strong> output signal and</li>
+<li>are parametrized in terms of <strong>clock ticks</strong> rather than simulation time.</li>
 </ol></p>
 </html>"));
   end TickBasedSources;

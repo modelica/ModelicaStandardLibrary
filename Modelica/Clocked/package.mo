@@ -9,7 +9,7 @@ extends Modelica.Icons.Package;
     dateModified = "2019-04-03 17:30:00Z",
   Documentation(info="<html>
 <p>
-Library <b>Modelica.Clocked</b> is a Modelica package
+Library <strong>Modelica.Clocked</strong> is a Modelica package
 to precisely define and synchronize sampled data systems with different sampling rates.
 The library has elements to define periodic clocks and event clocks that trigger elements to sample, sub-sample, super-sample, or shift-sample partitions synchronously. Optionally, quantization effects, computational delay or noise can be simulated. Continuous-time equations can be automatically discretized and utilized in a sampled data system. The sample rate of
 a partition need to be defined only at one location.

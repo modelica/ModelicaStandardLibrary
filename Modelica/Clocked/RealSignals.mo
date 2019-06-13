@@ -174,7 +174,7 @@ input and the output is associated to this clock.
 Note, it does not make much sense to vectorize this block, because then
 also the clock input is vectorized. Instead, if the input signal is a vector, use block
 <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked\">SampleVectorizedAndClocked</a>
-that has a <b>vector</b> Real input and output, as well as a <b>scalar</b> clock input.
+that has a <strong>vector</strong> Real input and output, as well as a <strong>scalar</strong> clock input.
 </p>
 
 <h4>Example</h4>
@@ -422,12 +422,12 @@ simulated real-world effects are applied on the sampled signal. In particular:
 </p>
 
 <ul>
-<li> The output is limited, if parameter <b>limited</b> = true.</li>
+<li> The output is limited, if parameter <strong>limited</strong> = true.</li>
 <li> The output is value discretized in the form of an Analog-Digital converter
      with a defineable number of bits,
-     if parameters <b>limited</b> = true, and <b>quantized</b> = true.</li>
+     if parameters <strong>limited</strong> = true, and <strong>quantized</strong> = true.</li>
 <li> Noise is added to the output if
-     parameter <b>noisy</b> = true.
+     parameter <strong>noisy</strong> = true.
      A pseudo random number generator is used to generate uniformly distributed
      random numbers in a given band.</li>
 </ul>
@@ -512,7 +512,7 @@ To be more precise: The input signal u(ti) must be a clocked signal.
 The output signal y(t) is a piecewise constant continuous-time signal.
 When the clock of u ticks at time ti, the block output y(ti) = u(ti). Otherwise y(t), t &ge;ti, is the value of
 u(ti) from the last clock activation at time ti. Before the first clock activation of u,
-the block outputs the value of parameter <b>y_start</b>. The value of
+the block outputs the value of parameter <strong>y_start</strong>. The value of
 this parameter is displayed below the icon.
 </p>
 
@@ -689,17 +689,17 @@ with a zero-order hold. In particular:
 
 <ul>
 <li> The output is delayed by a fraction of the clock period,
-     if parameter <b>computationalDelay</b> = true.
+     if parameter <strong>computationalDelay</strong> = true.
      The delay is defined by shiftCounter/resolution*interval(),
-     where <b>shiftCounter</b> and </b>resolution</b> are Integer parameters and
+     where <strong>shiftCounter</strong> and </strong>resolution</strong> are Integer parameters and
      interval() is the time duration from the previous to the current
      clock tick. The maximal possible computational delay is one clock
      duration, and therefore there is the restriction that
      shiftCounter &le; resolution.</li>
-<li> The output is limited, if parameter <b>limited</b> = true.</li>
+<li> The output is limited, if parameter <strong>limited</strong> = true.</li>
 <li> The output is value discretized in the form of an Digital-Analog converter
      with a defineable number of bits,
-     if parameters <b>limited</b> = true, and <b>quantized</b> = true.</li>
+     if parameters <strong>limited</strong> = true, and <strong>quantized</strong> = true.</li>
 </ul>
 
 <h4>Example</h4>
@@ -737,7 +737,7 @@ the following effects are added to the hold block:</p>
 </p>
 
 <p>
-If the hold output is delayed by one sample period, then the <b>previous</b>(..) value of the
+If the hold output is delayed by one sample period, then the <strong>previous</strong>(..) value of the
 input is output, and the first tick is delayed by one sample period,
 as shown by the
 <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2\">modified example</a>
@@ -871,8 +871,8 @@ clocked output signal y.
 <p>
 To be more precise:
 The clock of y is factor-times slower than the clock of u. At every factor ticks of the clock of u, the output y returns the value of u. The first activation of the clock of y coincides with the first activation of the clock of u. By default, the sub-sampling factor is inferred,
-that is, it must be defined somewhere else. If parameter <b>inferFactor</b> = false,
-then the sub-sampling factor is defined by Integer parameter <b>factor</b>.
+that is, it must be defined somewhere else. If parameter <strong>inferFactor</strong> = false,
+then the sub-sampling factor is defined by Integer parameter <strong>factor</strong>.
 </p>
 
 <h4>Example</h4>
@@ -1016,8 +1016,8 @@ clocked output signal y.
 To be more precise:
 The clock of y is factor-times faster than the clock of u. At every tick of the clock of y, the value of y is set to
 the value of u from the last tick of the clock of u. The first activation of the clock of y coincides with the first activation of the clock of u. By default, the super-sampling factor is inferred,
-that is, it must be defined somewhere else. If parameter <b>inferFactor</b> = false,
-then the super-sampling factor is defined by Integer parameter <b>factor</b>.
+that is, it must be defined somewhere else. If parameter <strong>inferFactor</strong> = false,
+then the super-sampling factor is defined by Integer parameter <strong>factor</strong>.
 </p>
 
 <p>
@@ -1172,8 +1172,8 @@ The clock of y is factor-times faster than the clock of u. At every tick of the 
 the value of the linearly interpolated value between the last available values of u.
 The first activation of the clock of y coincides with the first activation of the clock of u.
 By default, the super-sampling factor is inferred,
-that is, it must be defined somewhere else. If parameter <b>inferFactor</b> = false,
-then the super-sampling factor is defined by Integer parameter <b>factor</b>.
+that is, it must be defined somewhere else. If parameter <strong>inferFactor</strong> = false,
+then the super-sampling factor is defined by Integer parameter <strong>factor</strong>.
 </p>
 
 <p>
@@ -1291,7 +1291,7 @@ clock of superSampleIpo.y is faster as the clock of superSampleIpo.u.
 This block shifts the first activation of the clock of the output y by
 fraction shiftCounter/resolution of the period (or for a non-periodic signal by a fraction of the last interval)
 and the output y is set to the last available value of the input u.
-Here, <b>shiftCounter</b> and <b>resolution</b> are positive Integer parameters.
+Here, <strong>shiftCounter</strong> and <strong>resolution</strong> are positive Integer parameters.
 </p>
 
 <p>
@@ -1300,7 +1300,7 @@ The block constructs (conceptually) a clock &ldquo;cBase&rdquo;
 </p>
 
 <pre>
-   <b>Clock</b> cBase = <b>subSample</b>(<b>superSample</b>(u, resolution), shiftCounter)
+   <strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), shiftCounter)
 </pre>
 
 <p>
@@ -1312,8 +1312,8 @@ the operator returns the value of u from the last tick of the clock of u.
 Note, for
 <a href=\"Modelica.Clocked.ClockSignals.Clocks.EventClock\">EventClock</a>s
 there is the restriction that
-block <b>ShiftSample</b> can only shift the number of ticks of the EventClock clock,
-but cannot introduce new ticks, due to the restriction of operator <b>superSample</b> on
+block <strong>ShiftSample</strong> can only shift the number of ticks of the EventClock clock,
+but cannot introduce new ticks, due to the restriction of operator <strong>superSample</strong> on
 EventClocks.
 </p>
 
@@ -1348,7 +1348,7 @@ then shifts it with shiftCounter = 4 and resolution = 3:<br>
    </tr>
 </table>
 <p>
-The first activation of output y of block shiftSample1 is shifted in time (4/3*20ms). The parameter values <b>shiftCounter</b> = 4 and <b>resolution</b> = 3 are visible at the bottom of the icon. Also note, that the signal is not simply a shift in time. The output of a ShiftSample block will always be the value from the <i>last</i> tick of the clock of its inputs.
+The first activation of output y of block shiftSample1 is shifted in time (4/3*20ms). The parameter values <strong>shiftCounter</strong> = 4 and <strong>resolution</strong> = 3 are visible at the bottom of the icon. Also note, that the signal is not simply a shift in time. The output of a ShiftSample block will always be the value from the <i>last</i> tick of the clock of its inputs.
 </p>
 
 </html>"));
@@ -1437,7 +1437,7 @@ This block shifts the first activation of the clock of the output y by
 fraction backCounter/resolution of the period (or for a non-periodic signal by a fraction of the last interval)
 before the first activation of the clock of u.
 The output y is set to the last available value of the input u.
-Here, <b>backCounter</b> and <b>resolution</b> are positive Integer parameters.
+Here, <strong>backCounter</strong> and <strong>resolution</strong> are positive Integer parameters.
 </p>
 
 <p>
@@ -1446,7 +1446,7 @@ The block constructs (conceptually) a clock &ldquo;cBase&rdquo;
 </p>
 
 <pre>
-   <b>Clock</b> cBase = <b>subSample</b>(<b>superSample</b>(u, resolution), backCounter)
+   <strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), backCounter)
 </pre>
 
 <p>
@@ -1454,7 +1454,7 @@ and the first clock tick of y is shifted before the first tick of the clock of u
 such that this duration is identical to the duration
 between the first and second clock tick of cBase.
 Before the first tick of the clock of u, the block outputs
-the value of parameter <b>y_start</b>. After that, the block returns the last
+the value of parameter <strong>y_start</strong>. After that, the block returns the last
 available value of u.
 </p>
 
@@ -1462,15 +1462,15 @@ available value of u.
 Note, for
 <a href=\"Modelica.Clocked.ClockSignals.Clocks.EventClock\">EventClock</a>s
 there is the restriction that
-block <b>BackSample</b> can only shift the number of ticks of the EventClock clock,
-but cannot introduce new ticks, due to the restriction of operator <b>superSample</b> on
+block <strong>BackSample</strong> can only shift the number of ticks of the EventClock clock,
+but cannot introduce new ticks, due to the restriction of operator <strong>superSample</strong> on
 EventClocks.
 </p>
 
 <p>
 Also note, that this block does not simply shift the signal in time,
 since only the value of u from the last tick of the clock of u is used for the output.
-In particular, a <b>BackSample</b> block following a <b>ShiftSample</b>
+In particular, a <strong>BackSample</strong> block following a <strong>ShiftSample</strong>
 block cannot be used to recover the input signal of ShiftSample
 (for a causal system this is impossible).
 </p>
@@ -1497,7 +1497,7 @@ shift-samples it with shiftCounter = 4 and resolution = 3 and then back-samples 
    </tr>
 </table>
 <p>
-The first activation of output y of block backSample1 is shifted (4/3*20ms) before the first activation of output y of block shiftSample1. As a consequence, the activation times of the output y are coincident with the input signal of the shiftSample1 block. However, as described above, the output of block backSample1 <b>does not</b> recover the original sampled sine signal! For the first two ticks the output holds the value of the parameter <b>y_start</b> = 0.5. After that the output at a clock tick of block backSample1 is the <i>last</i> value of the output of the shiftSample1 block. The parameter values <b>y_start</b> = 0.5, <b>shiftCounter</b> = 4 and <b>resolution</b> = 3 are visible at the bottom of the icon.
+The first activation of output y of block backSample1 is shifted (4/3*20ms) before the first activation of output y of block shiftSample1. As a consequence, the activation times of the output y are coincident with the input signal of the shiftSample1 block. However, as described above, the output of block backSample1 <strong>does not</strong> recover the original sampled sine signal! For the first two ticks the output holds the value of the parameter <strong>y_start</strong> = 0.5. After that the output at a clock tick of block backSample1 is the <i>last</i> value of the output of the shiftSample1 block. The parameter values <strong>y_start</strong> = 0.5, <strong>shiftCounter</strong> = 4 and <strong>resolution</strong> = 3 are visible at the bottom of the icon.
 </p>
 </html>"));
     end BackSample;
@@ -1707,7 +1707,7 @@ At every clock tick (that is at every 20ms) the output of the unitDelay1 block i
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
-This block assigns a clock to the Real <b>vector</b> input signal u
+This block assigns a clock to the Real <strong>vector</strong> input signal u
 and provides u as vector output signal y.
 </p>
 
@@ -1733,7 +1733,7 @@ shows two discrete counters. In order to execute the counters with a sample peri
    </tr>
 </table>
 <p>
-At every clock tick (that is every 20ms) the output of the unitDelay1 block is incremented by one and that of the unitDelay2 block is incremented by two. The vector size of the input and output is provided by parameter <b>n</b>=2 which is also shown in the icon
+At every clock tick (that is every 20ms) the output of the unitDelay1 block is incremented by one and that of the unitDelay2 block is incremented by two. The vector size of the input and output is provided by parameter <strong>n</strong>=2 which is also shown in the icon
 of block assignClock1.
 </p>
 </html>"));
@@ -1866,7 +1866,7 @@ This block upsamples the clocked Real input signal u and provides it as clocked 
 <p>
 To be more precise:
 The clock of y is factor-times faster than the clock of u. At every tick of the clock of u, the value of y is set to
-the value of u, at intermediate ticks of clock y, the value of y is set to zero. The first activation of the clock of y coincides with the first activation of the clock of u. By default, the upsampling factor is inferred,that is, it must be defined somewhere else. If parameter <b>inferFactor</b> = false, then the upsampling factor is defined by the Integer parameter <b>factor</b>.
+the value of u, at intermediate ticks of clock y, the value of y is set to zero. The first activation of the clock of y coincides with the first activation of the clock of u. By default, the upsampling factor is inferred,that is, it must be defined somewhere else. If parameter <strong>inferFactor</strong> = false, then the upsampling factor is defined by the Integer parameter <strong>factor</strong>.
 </p>
 
 <p>
@@ -2171,12 +2171,12 @@ and provides the sum as clocked Real output signal.
 </p>
 
 <p>
-The Integer[3] parameter vector <b>firstSeed</b> is used to initialize the
+The Integer[3] parameter vector <strong>firstSeed</strong> is used to initialize the
 basic random number generator. The 3 elements of firstSeed need
 to be in the range [0, 255]. The use of the same seed vector
 will lead to the same sequence of numbers when these are computed serially.
 This is usually not desired. Therefore, for every usage of block
-<b>Noise</b> a different firstSeed should be defined.
+<strong>Noise</strong> a different firstSeed should be defined.
 </p>
 
 <p>
@@ -2358,7 +2358,7 @@ It is based on the xorshift64* algorithm.
 For more details, see the documentation to
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>.
 </p>
-<p><b>2019-05-20 TODO:</b> Add an example which exercises this block.</p>
+<p><strong>2019-05-20 TODO:</strong> Add an example which exercises this block.</p>
 </html>"),  Icon(graphics={
                 Polygon(
                   points={{-81,90},{-89,68},{-73,68},{-81,90}},
@@ -2500,7 +2500,7 @@ For more details, see the documentation to
             Documentation(info="<html>
 <p>
 The clocked Real input signal is value discretized
-(the discretization is defined by parameter <b>bits</b>).
+(the discretization is defined by parameter <strong>bits</strong>).
 </p>
 </html>"));
         end Quantization;
@@ -2623,7 +2623,7 @@ initial Integer vector {x,y,z} known as the seed. The use of the same
 seed will lead to the same sequence of numbers.
 </p>
 <p>
-<b>Remarks</b>
+<strong>Remarks</strong>
 </p>
 <p>Random number generators (RNG) are pseudo-functions which are not true
 functions but algorithms which deliver a fixed sequence of (usually Integer) numbers
@@ -2686,7 +2686,7 @@ distribution. There are two types of techniques for transforming random variates
 Copyright &copy; Hubertus Tummescheit and Department of Automatic Control, Lund University, Sweden.
 </p>
 <p>
-<i>This Modelica function is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica function is <strong>free</strong> software; it can be redistributed and/or modified
 under the terms of the BSD-3-Clause license.</i>
 </p>
 </HTML>", revisions="<html>
@@ -2714,14 +2714,14 @@ but are used as building blocks for \"higher level\" blocks.
     annotation (Documentation(info="<html>
 <p>
 This package contains blocks that mark boundaries of a clocked partition
-and transform a <b>Real</b> signal from one partition to the next. Especially,
+and transform a <strong>Real</strong> signal from one partition to the next. Especially,
 the following blocks are provided:<br>&nbsp;
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"3\">
-<tr><th align=\"left\"><b>Boundary Type</b></th>
-    <th align=\"left\"><b>Block Name</b></th>
-    <th align=\"left\"><b>Description</b></th></tr>
+<tr><th align=\"left\"><strong>Boundary Type</strong></th>
+    <th align=\"left\"><strong>Block Name</strong></th>
+    <th align=\"left\"><strong>Description</strong></th></tr>
 
 <tr><td valign=\"top\" rowspan=\"4\">continuous-time &rarr; clocked</td>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Sample</a></td>
@@ -2729,11 +2729,11 @@ the following blocks are provided:<br>&nbsp;
     </tr>
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleClocked\">SampleClocked</a></td>
-      <td>Sample and associate a clock to the sampled <b>scalar</b> signal.</td>
+      <td>Sample and associate a clock to the sampled <strong>scalar</strong> signal.</td>
     </tr>
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked\">SampleVectorizedAndClocked</a></td>
-      <td>Sample an input vector and associate a clock to the sampled <b>vector</b> signal.</td>
+      <td>Sample an input vector and associate a clock to the sampled <strong>vector</strong> signal.</td>
     </tr>
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects\">SampleWithADeffects</a></td>
@@ -2777,11 +2777,11 @@ the following blocks are provided:<br>&nbsp;
 
 <tr><td valign=\"top\" rowspan=\"2\">within clocked partition</td>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.AssignClock\">AssignClock</a></td>
-      <td>Assign a clock to a clocked <b>scalar</b> signal.</td>
+      <td>Assign a clock to a clocked <strong>scalar</strong> signal.</td>
     </tr>
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized\">AssignClockVectorized</a></td>
-      <td>Assign a clock to a clocked <b>vector</b> signal.</td>
+      <td>Assign a clock to a clocked <strong>vector</strong> signal.</td>
     </tr>
 </table>
 
@@ -2989,7 +2989,7 @@ y is set to parameter y_start.
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
-This block delays a signal. Similar to the <a href=\"Modelica.Clocked.RealSignals.Sampler.ShiftSample\">ShiftSample</a> block the first activation of the clock of the output y is delayed by <b>shiftCounter</b>/<b>resolution</b>*interval(u) relative to the input u (interval(u) is the sample period of the clock associated to input u). However, in contrast to ShiftSample, the block provides a buffer for the input values and truly delays the input signal.
+This block delays a signal. Similar to the <a href=\"Modelica.Clocked.RealSignals.Sampler.ShiftSample\">ShiftSample</a> block the first activation of the clock of the output y is delayed by <strong>shiftCounter</strong>/<strong>resolution</strong>*interval(u) relative to the input u (interval(u) is the sample period of the clock associated to input u). However, in contrast to ShiftSample, the block provides a buffer for the input values and truly delays the input signal.
 </p>
 
 <h4>Example</h4>
@@ -3013,7 +3013,7 @@ shows how a sample sine signal is delayed.
    </tr>
 </table>
 <p>
-The parameter values <b>shiftCounter</b>=3 and <b>resolution</b>=2 are visible at the bottom of the fractionalDelay block.
+The parameter values <strong>shiftCounter</strong>=3 and <strong>resolution</strong>=2 are visible at the bottom of the fractionalDelay block.
 </p>
 </html>"));
     end FractionalDelay;
@@ -3091,7 +3091,7 @@ results in the following equations:
 </pre>
 </HTML>
 ",     revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
 <li><i>August 13, 2012</i>
     by <a href=\"http://www.dlr.de/rm/\">Bernhard Thiele</a>:<br>
@@ -3163,7 +3163,7 @@ results in the following equations:
       end when;
       annotation (
         Documentation(info="<html>
-<p>The <b>discrete transfer function</b> block defines the
+<p>The <strong>discrete transfer function</strong> block defines the
 transfer function between the input signal u and the output
 signal y. The numerator has the order nb-1, the denominator
 has the order na-1.</p>
@@ -3171,9 +3171,9 @@ has the order na-1.</p>
    y(z) = -------------------------------------------- * u(z)
           a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
 </pre>
-<p>State variables <b>x</b> are defined according to
-<b>controller canonical</b> form. Initial values of the
-states can be set as start values of <b>x</b>.<p>
+<p>State variables <strong>x</strong> are defined according to
+<strong>controller canonical</strong> form. Initial values of the
+states can be set as start values of <strong>x</strong>.<p>
 <p>Example:</p>
 <pre>     TransferFunction g(b = {2,4}, a = {1,3});
 </pre>
@@ -3185,7 +3185,7 @@ states can be set as start values of <b>x</b>.<p>
 
 </HTML>
 ",   revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
 <li><i>August 13, 2012</i>
     by <a href=\"http://www.dlr.de/rm/\">Bernhard Thiele</a>:<br>
@@ -3610,7 +3610,7 @@ clocked signals, will usually result in non-expected behavior.
               extent={{-72,100},{-31,80}},
               textString="y")}),
         Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.Step\">Modelica.Blocks.Sources.Step</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <b>time</b> variable).</p>
+<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.Step\">Modelica.Blocks.Sources.Step</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
 <p>
 The Real output y is a step signal:
 </p>
@@ -3769,7 +3769,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSt
               extent={{-2,-21},{37,-33}},
               textString="duration")}),
         Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.Ramp\">Modelica.Blocks.Sources.Ramp</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <b>time</b> variable).</p>
+<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.Ramp\">Modelica.Blocks.Sources.Ramp</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
 <p>
 The Real output y is a ramp signal:
 </p>
@@ -3941,7 +3941,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRa
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.Sine\">Modelica.Blocks.Sources.Sine</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <b>time</b> variable).</p>
+<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.Sine\">Modelica.Blocks.Sources.Sine</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
 <p>The Real output y is a sine signal: </p>
 <p><img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png\"></p>
 
@@ -3955,9 +3955,9 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSi
 
     annotation (Documentation(info="<html>
 <p>
-This package provides <b>source</b> components akin to the blocks provided in
+This package provides <strong>source</strong> components akin to the blocks provided in
 <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference
-that they provide a <b>clocked</b> output signal.
+that they provide a <strong>clocked</strong> output signal.
 </p>
 <p>
 As an effect it is not necessary to use an intermediate Sample block if the output signal
@@ -4497,10 +4497,10 @@ The Real output y is a sine signal. The signal is defined in terms of clock tick
 </html>"));
         end Sine;
     annotation (Documentation(info="<html>
-<p>This package provides <b>source</b> components akin to the blocks provided in <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide </p>
+<p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide </p>
 <p><ol>
-<li>a <b>clocked</b> output signal and</li>
-<li>are parametrized in terms of <b>clock ticks</b> rather than simulation time.</li>
+<li>a <strong>clocked</strong> output signal and</li>
+<li>are parametrized in terms of <strong>clock ticks</strong> rather than simulation time.</li>
 </ol></p>
 </html>"));
   end TickBasedSources;
