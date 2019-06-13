@@ -46,7 +46,7 @@ For an introduction, have especially a look at:
      gives author and acknowledgement information for this library.</li>
 </ul>
 <p>
-<i>Copyright &copy; 2012-2019, Modelica Association and contributors.</i>
+<em>Copyright &copy; 2012-2019, Modelica Association and contributors.</em>
 </p>
 <p>
 </html>",
@@ -60,15 +60,15 @@ revisions="<html>
     <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Clocked/dlr_logo.png\">
     </td><td valign=\"bottom\">
-    Initial version implemented by M. Otter and B. Thiele released as <i>Modelica_Synchronous</i> (version 0.9) library.<br>
+    Initial version implemented by M. Otter and B. Thiele released as <em>Modelica_Synchronous</em> (version 0.9) library.<br>
          <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
     </td></tr>
     </table>
 </td></tr>
 
-<tr><td></td><td>Several releases as <i>Modelica_Synchronous</i> library.</td></tr>
+<tr><td></td><td>Several releases as <em>Modelica_Synchronous</em> library.</td></tr>
 
-<tr><td> 2019 </td><td>The <i>Modelica_Synchronous</i> library is included as <i>Modelica.Clocked</i> in the Modelica Standard Library 4.0.0.</td></tr>
+<tr><td> 2019 </td><td>The <em>Modelica_Synchronous</em> library is included as <em>Modelica.Clocked</em> in the Modelica Standard Library 4.0.0.</td></tr>
 
 <tr><td></td><td>see <a href=\"modelica://Modelica.Clocked.UsersGuide.ReleaseNotes\">Release Notes</a>.</td></tr>
 
