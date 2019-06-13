@@ -1661,7 +1661,7 @@ to being satisfied, i.e., the state when the clock last ticked.
           Modelica.Blocks.Interfaces.RealInput Theta(unit="deg") "Throttle angle (deg)"
             annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
           Modelica.Blocks.Interfaces.RealInput Pm(unit="bar")
-            "Intake manifold presure, bar"
+            "Intake manifold pressure (bar)"
             annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
           Modelica.Blocks.Interfaces.RealOutput m_ai_der(unit="g/s")
             "Mass flow rate of air into manifold (g/s)"
@@ -1704,7 +1704,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
             "Mass flow rate of air out of manifold (g/s)"
             annotation (Placement(transformation(extent={{100,50},{120,70}})));
           Modelica.Blocks.Interfaces.RealOutput P_m(start=P_0, fixed=true, unit="bar")
-            "Intake manifold presure, (bar)"
+            "Intake manifold pressure (bar)"
             annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
         equation
           der(P_m) = RTVmRatio*(m_ai_der - m_ao_der);
