@@ -15,7 +15,7 @@ package PowerConverters "Rectifiers, Inverters and DC/DC converters"
 <ul>
   <li>Diode rectifiers</li>
   <li>Thyristor rectifiers</li>
-  <li>Half controlled rectifiers; half of the semiconductors are diodes and thyristors, respectively</li>
+  <li>Half controlled rectifiers; half of the semiconductors are diodes and the others are thyristors, respectively</li>
 </ul>
 
 <h4>Topology classification</h4>
@@ -50,8 +50,10 @@ contain <code>_Characteristic</code>.
 
 <h4>Control</h4>
 
-<p>There are currently no space phasor pulse width modulation (PWM) models provided. However, for operating the single
-and multi phase inverter the PWM
+<p>Currently there are 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM\">space vector PWM</a> and 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM\">intersective PWM</a> models provided. 
+However, for operating the single phase inverter the PWM
 <a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM\">controller</a>
 can be used.
 </p>
@@ -71,7 +73,7 @@ can be used.
 <p>The following DC/DC converter topologies are currently included in the PowerConverters library.</p>
 
 <ul>
-<li>Chopper step down converter</li>
+<li>Chopper step down and step up converter</li>
 <li>H bridge converter; four quadrant operation</li>
 </ul>
 
@@ -89,6 +91,41 @@ is provided.
 </p>
 </html>"));
     end DCDCConcept;
+
+    class ACACConcept "AC/AC converter concept"
+      extends Modelica.Icons.Information;
+      annotation (DocumentationClass=true, Documentation(info="<html>
+
+<p>The following DC/DC converter topologies are currently included in the PowerConverters library.</p>
+
+<ul>
+<li>SinglePhase dimmer with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triac</a></li>
+<li>MultiPhase indcution machine soft starter with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.MultiPhaseTriac\">triac</a></li>
+</ul>
+
+<h4>Control</h4>
+
+<p>To apply firing signals to the triac, the 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.Signal2mPulse\">Signal2mPulse adaptor</a> is provided.
+</p>
+<p>
+The <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle\">Voltage2Angle block</a> 
+calculates phase angle from reference voltage.
+</p>
+<p>
+To control the soft start of an induction machine, 
+the <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl\">SoftStartControl block</a> 
+is provided. It applies a voltage ramp during start, setting the ramp on hold whenever the measured current exceeds the maximum current. 
+Furthermore, a ramp down can be applied for stoppng the drive.
+</p>
+
+<h4>Examples</h4>
+
+<p>Some examples are provided at
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACAC\">Examples.ACAC</a>.
+</p>
+</html>"));
+    end ACACConcept;
 
     class Contact "Contact"
       extends Modelica.Icons.Contact;
@@ -184,7 +221,7 @@ This library provides power converters for DC and AC single and multi phase elec
 </ul>
 
 <p>
-AC/AC converters are currently provided only a soft starter in this library.
+AC/AC converters currently only provide dimmer and soft starter with triacs.
 </p>
 
 <h4>Converter characteristics</h4>
@@ -3848,6 +3885,87 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
 
     package ACAC "AC to AC converter examples"
       extends Modelica.Icons.ExamplesPackage;
+      model Dimmer_R "Dimmer with resistive load"
+        extends
+          Modelica.Electrical.PowerConverters.Examples.ACAC.ExampleTemplates.Dimmer(powerFactor=1);
+        extends Modelica.Icons.Example;
+        Analog.Basic.Resistor loadResistor(R=RLoad) annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={50,10})));
+      equation
+        connect(ground.p, loadResistor.n) annotation (Line(points={{-80,-20},{50,-20},
+                {50,-3.55271e-15}}, color={0,0,255}));
+        connect(loadResistor.p, multiSensor.nc)
+          annotation (Line(points={{50,20},{50,40},{30,40}}, color={0,0,255}));
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+              coordinateSystem(preserveAspectRatio=false)),
+          experiment(
+            StopTime=8,
+            Interval=0.0001,
+            Tolerance=1e-06,
+            __Dymola_Algorithm="Dassl"),
+          Documentation(info="<html>
+<p>
+This model demonstrates the behaviour of a dimmer with phase-angle control with resistive load.
+</p>
+<p>
+The reference voltage is prescribed by a trapezoid between zero and full voltage. 
+The <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle\">voltageToAngle block</a> 
+calculates the necessary phase angle, which is processed by 
+the <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse adaptor</a>, 
+applying the firing signals to the 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triac</a>.
+</p>
+</html>"));
+      end Dimmer_R;
+
+      model Dimmer_RL "Dimmer with resistive-inductive load"
+        extends
+          Modelica.Electrical.PowerConverters.Examples.ACAC.ExampleTemplates.Dimmer(powerFactor=0.87);
+        extends Modelica.Icons.Example;
+        Analog.Basic.Resistor loadResistor(R=RLoad) annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={50,30})));
+        Analog.Basic.Inductor loadInductor(i(start=0, fixed=true), L=LLoad)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={50,-10})));
+      equation
+        connect(loadResistor.p, multiSensor.nc)
+          annotation (Line(points={{50,40},{30,40}},         color={0,0,255}));
+        connect(ground.p, loadInductor.n)
+          annotation (Line(points={{-80,-20},{50,-20}}, color={0,0,255}));
+        connect(loadInductor.p, loadResistor.n)
+          annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+              coordinateSystem(preserveAspectRatio=false)),
+          experiment(
+            StopTime=8,
+            Interval=0.0001,
+            Tolerance=1e-06,
+            __Dymola_Algorithm="Dassl"),
+          Documentation(info="<html>
+<p>
+This model demonstrates the behaviour of a dimmer with phase-angle control with resistive-inductive load. 
+Note that due to the inductance the current is not zero at the points in time wehre zero-crossing of the voltage occurs, 
+and the triac stays conducting until the current becomes zero.
+</p>
+<p>
+The reference voltage is prescribed by a trapezoid between zero and full voltage. 
+The <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle\">voltageToAngle block</a> 
+calculates the necessary phase angle, which is processed by 
+the <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse adaptor</a>, 
+applying the firing signals to the 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triac</a>.
+</p>
+</html>"));
+      end Dimmer_RL;
+
       model SoftStarter "Soft start of an induction machine"
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
@@ -3882,7 +4000,8 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={-80,30})));
-        Modelica.Electrical.PowerConverters.ACAC.MultiPhaseTriac triac(final m=m)
+        Modelica.Electrical.PowerConverters.ACAC.MultiPhaseTriac triac(final m=m,
+            useHeatPort=false)
           annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
         Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(m=m)
           annotation (Placement(transformation(
@@ -3907,8 +4026,8 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           useFilter=false,
           f=fNominal)
           annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-        Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle voltageToAngle(Vnom=1, v2a=
-              Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.H01)
+        Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle voltageToAngle(
+          Vnom=1, voltage2Angle=Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.H01)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
@@ -4071,6 +4190,118 @@ Compare starting with firing angle by
 </p>
 </html>"));
       end SoftStarter;
+
+      package ExampleTemplates "Templates of examples"
+        extends Modelica.Icons.Package;
+        partial model Dimmer "Dimmer including control"
+          extends Icons.ExampleTemplate;
+          import Modelica.Constants.pi;
+          parameter Modelica.SIunits.Frequency f=50 "Source frequency";
+          parameter Modelica.SIunits.Voltage Vrms=230 "RMS source voltage";
+          parameter Modelica.SIunits.ApparentPower S=500 "Load apparent power";
+          parameter Real powerFactor(final min=0, final max=1)=0.87 "Load power factor";
+          parameter Modelica.SIunits.Impedance ZLoad=Vrms^2/S "Load impedance";
+          parameter Modelica.SIunits.Resistance RLoad=ZLoad*powerFactor "Load resistance";
+          parameter Modelica.SIunits.Inductance LLoad=ZLoad*sqrt(1 - powerFactor^2)/(2*pi*f) "Load inductance";
+          Analog.Sources.SineVoltage                         sineVoltage(final V=
+                sqrt(2)*Vrms,                                                                 freqHz=f)
+            annotation (Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=270,
+                origin={-80,10})));
+          Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+                transformation(extent={{-90,-40},{-70,-20}})));
+          Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac triac(Ron=1e-9,
+              Goff=1e-9)
+            annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
+          Analog.Sensors.VoltageSensor voltageSensor annotation (Placement(
+                transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=90,
+                origin={-60,10})));
+          Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse adaptor(
+            m=1,   useConstantFiringAngle=false,
+            f=f)
+            annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+          Analog.Sensors.MultiSensor multiSensor
+            annotation (Placement(transformation(extent={{10,30},{30,50}})));
+          Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle
+            voltageToAngle(Vnom=1, voltage2Angle=Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.RMS)
+            annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={-30,-40})));
+          Blocks.Sources.Trapezoid trapezoid(
+            amplitude=1,
+            rising=2,
+            width=2,
+            falling=2,
+            period=8,
+            nperiod=1,
+            offset=0,
+            startTime=1)
+            annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
+          Blocks.Math.Mean meanPower(f=f) annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={0,10})));
+          Blocks.Math.RootMeanSquare vRMS(f=f)
+            annotation (Placement(transformation(extent={{70,-60},{90,-40}})));
+          Blocks.Math.Harmonic vH01(f=f, k=1)
+            annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
+          Blocks.Math.RootMeanSquare iRMS(f=f)
+            annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
+          Blocks.Math.Harmonic iH01(f=f, k=1)
+            annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
+        equation
+          connect(sineVoltage.n, ground.p)
+            annotation (Line(points={{-80,0},{-80,-20}},   color={0,0,255}));
+          connect(ground.p, voltageSensor.n) annotation (Line(points={{-80,-20},
+                  {-60,-20},{-60,0}}, color={0,0,255}));
+          connect(voltageSensor.v, adaptor.v[1])
+            annotation (Line(points={{-49,10},{-42,10}}, color={0,0,127}));
+          connect(sineVoltage.p, triac.p)
+            annotation (Line(points={{-80,20},{-80,40},{-40,40}}, color={0,0,255}));
+          connect(triac.p, voltageSensor.p) annotation (Line(points={{-40,40},{
+                  -60,40},{-60,20}}, color={0,0,255}));
+          connect(adaptor.fire_p[1], triac.fire1)
+            annotation (Line(points={{-36,21},{-36,28}}, color={255,0,255}));
+          connect(adaptor.fire_n[1], triac.fire2)
+            annotation (Line(points={{-24,21},{-24,28}}, color={255,0,255}));
+          connect(triac.n, multiSensor.pc)
+            annotation (Line(points={{-20,40},{10,40}},  color={0,0,255}));
+          connect(multiSensor.pc, multiSensor.pv)
+            annotation (Line(points={{10,40},{10,50},{20,50}},  color={0,0,255}));
+          connect(voltageToAngle.alpha, adaptor.firingAngle)
+            annotation (Line(points={{-30,-29},{-30,-2}},  color={0,0,127}));
+          connect(trapezoid.y, voltageToAngle.vRef)
+            annotation (Line(points={{-49,-70},{-30,-70},{-30,-52}}, color={0,0,127}));
+          connect(multiSensor.power, meanPower.u) annotation (Line(points={{9,
+                  34},{2.22045e-15,34},{2.22045e-15,22}}, color={0,0,127}));
+          connect(ground.p, multiSensor.nv) annotation (Line(points={{-80,-20},
+                  {20,-20},{20,30}}, color={0,0,255}));
+          connect(multiSensor.i, iRMS.u) annotation (Line(points={{14,29},{14,
+                  -50},{28,-50}}, color={0,0,127}));
+          connect(multiSensor.i, iH01.u) annotation (Line(points={{14,29},{14,
+                  -80},{28,-80}}, color={0,0,127}));
+          connect(multiSensor.v, vRMS.u) annotation (Line(points={{26,29},{26,
+                  -30},{60,-30},{60,-50},{68,-50}}, color={0,0,127}));
+          connect(multiSensor.v, vH01.u) annotation (Line(points={{26,29},{26,
+                  -30},{60,-30},{60,-80},{68,-80}}, color={0,0,127}));
+          annotation (Documentation(
+                info="<html>
+<p>Dimmer example template including supply and sensors; load is not yet included</p>
+</html>"), experiment(
+              StopTime=8,
+              Interval=0.0001,
+              Tolerance=1e-06,
+              __Dymola_Algorithm="Dassl"));
+        end Dimmer;
+
+        annotation (Documentation(info="<html>
+<p>This package includes templates of the used examples. The templates are partial example models.</p>
+</html>"));
+      end ExampleTemplates;
     end ACAC;
     annotation (Documentation(info="<html>
 <p>This is a collection of AC/DC, DC/DC and DC/AC converters.</p>
@@ -7357,7 +7588,7 @@ General information about DC/DC converters can be found at the
         extends Modelica.Blocks.Icons.Block;
         import Modelica.Constants.pi;
         parameter Modelica.SIunits.Voltage Vnom "Nominal voltage";
-        parameter Modelica.Electrical.PowerConverters.Types.Voltage2AngleType v2a=
+        parameter Modelica.Electrical.PowerConverters.Types.Voltage2AngleType voltage2Angle=
             Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.Lin
           "Select type of calculation";
         Modelica.Blocks.Interfaces.RealInput vRef "Reference voltage"
@@ -7371,10 +7602,10 @@ General information about DC/DC converters can be found at the
           annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
         Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=1, final uMin=0)
           annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-        Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(final table=if v2a
-               == Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.Lin
-               then Lin elseif v2a == Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.H01
-               then H01 else RMS, final extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
+        Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(final table=
+          if voltage2Angle == Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.Lin then Lin
+          elseif voltage2Angle == Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.H01 then H01
+          else RMS, final extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
           annotation (Placement(transformation(extent={{0,-10},{20,10}})));
         Modelica.Blocks.Math.Gain gain_alpha(final k=pi)
           annotation (Placement(transformation(extent={{40,-10},{60,10}})));
@@ -7572,57 +7803,52 @@ Boolean input <code>start = false</code> causes the output <code>vRef</code> to 
       end SoftStartControl;
     end Control;
 
-    model MultiPhaseTriac "Triodes for alternating current"
-      extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
+    model SinglePhaseTriac "Triode for alternating current"
+      extends Modelica.Electrical.Analog.Interfaces.TwoPin;
+      Modelica.SIunits.Current i=p.i "Current flowing from pin p to pin n";
       parameter Modelica.SIunits.Resistance Ron=1e-5
         "Forward state-on differential resistance (closed resistance)";
       parameter Modelica.SIunits.Conductance Goff=1e-5
         "Backward state-off conductance (opened conductance)";
       parameter Modelica.SIunits.Voltage Vknee=0 "Forward threshold voltage";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m);
-      Modelica.Blocks.Interfaces.BooleanInput fire1[m] annotation (Placement(
+      parameter Boolean useHeatPort = false "= true, if heatPort is enabled"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Temperature T=293.15
+        "Fixed device temperature if useHeatPort = false"
+        annotation(Dialog(enable=not useHeatPort));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+        "Conditional heat port"
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+            iconTransformation(extent={{-10,-110},{10,-90}})));
+      Modelica.Blocks.Interfaces.BooleanInput fire1 annotation (Placement(
             transformation(
             extent={{-20,-20},{20,20}},
             rotation=90,
             origin={-60,-120})));
-      Modelica.Blocks.Interfaces.BooleanInput fire2[m] annotation (Placement(
+      Modelica.Blocks.Interfaces.BooleanInput fire2 annotation (Placement(
             transformation(
             extent={{-20,-20},{20,20}},
             rotation=90,
             origin={60,-120})));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPins_p plugToPins_p(final m=m)
-        annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPins_n plugToPins_n(final m=m)
-        annotation (Placement(transformation(extent={{90,-10},{70,10}})));
-      Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor1[m](
-        each final Ron=Ron,
-        each final Goff=Goff,
-        each final Vknee=Vknee,
-        each final useHeatPort=useHeatPort,
-        each off(fixed=true))
+      Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor1(
+        final Ron=Ron,
+        final Goff=Goff,
+        final Vknee=Vknee,
+        final useHeatPort=useHeatPort,
+        final T=T,
+        off(fixed=true))
         annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-      Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor2[m](
-        each final Ron=Ron,
-        each final Goff=Goff,
-        each final Vknee=Vknee,
-        each final useHeatPort=useHeatPort,
-        each off(fixed=true)) annotation (Placement(transformation(
+      Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor2(
+        final Ron=Ron,
+        final Goff=Goff,
+        final Vknee=Vknee,
+        final useHeatPort=useHeatPort,
+        final T=T,
+        off(fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={0,-40})));
     equation
-      connect(plug_p, plugToPins_p.plug_p)
-        annotation (Line(points={{-100,0},{-82,0}}, color={0,0,255}));
-      connect(plugToPins_n.plug_n, plug_n)
-        annotation (Line(points={{82,0},{100,0}},               color={0,0,255}));
-      connect(plugToPins_p.pin_p, thyristor1.p)
-        annotation (Line(points={{-78,0},{-10,0},{-10,40}}, color={0,0,255}));
-      connect(plugToPins_p.pin_p, thyristor2.n)
-        annotation (Line(points={{-78,0},{-10,0},{-10,-40}}, color={0,0,255}));
-      connect(plugToPins_n.pin_n, thyristor1.n)
-        annotation (Line(points={{78,0},{10,0},{10,40}}, color={0,0,255}));
-      connect(plugToPins_n.pin_n, thyristor2.p)
-        annotation (Line(points={{78,0},{10,0},{10,-40}}, color={0,0,255}));
       connect(fire1, thyristor1.fire) annotation (Line(points={{-60,-120},{-60,60},{
               10,60},{10,52}}, color={255,0,255}));
       connect(fire2, thyristor2.fire) annotation (Line(points={{60,-120},{60,-60},{-10,
@@ -7631,6 +7857,14 @@ Boolean input <code>start = false</code> causes the output <code>vRef</code> to 
               {-20,-80},{0,-80},{0,-100}}, color={191,0,0}));
       connect(heatPort, thyristor2.heatPort) annotation (Line(points={{0,-100},{0,-80},
               {20,-80},{20,-30},{0,-30}}, color={191,0,0}));
+      connect(p, thyristor1.p)
+        annotation (Line(points={{-100,0},{-10,0},{-10,40}}, color={0,0,255}));
+      connect(p, thyristor2.n)
+        annotation (Line(points={{-100,0},{-10,0},{-10,-40}}, color={0,0,255}));
+      connect(n, thyristor1.n)
+        annotation (Line(points={{100,0},{10,0},{10,40}}, color={0,0,255}));
+      connect(n, thyristor2.p)
+        annotation (Line(points={{100,0},{10,0},{10,-40}}, color={0,0,255}));
       annotation (defaultComponentName="triac",
         Icon(graphics={
             Text(
@@ -7673,7 +7907,110 @@ Boolean input <code>start = false</code> causes the output <code>vRef</code> to 
               rotation=180)}),
           Documentation(info="<html>
 <p>
-Simplified model of triodes for alternating current, each built from two antiparallel thyristors. 
+Simplified model of a triode for alternating current, built from two antiparallel thyristors. 
+<code>thyristor1</code> has to be fired during the positive halfwave of the voltage. 
+<code>thyristor2</code> has to be fired during the negative halfwave of the voltage. 
+</p>
+<p>
+Note: A real triac is fired in positive direction (<code>thyristor1</code>) by a positive gate current and in negative direction (<code>thyristor2</code>) by a negative gate current. 
+The triac goes in blocking condition when the current falls to zero. 
+</p>
+<p>
+This behaviour is simulated by the two firing gates <code>fire1</code> and <code>fire2</code>:
+<ul>
+<li><code>fire1=false</code> and <code>fire2=false</code>: gate current = 0, stay in blocking condition</li>
+<li><code>fire1=true </code> and <code>fire2=false</code>: gate current &gt; 0, fire <code>thyristor1</code></li>
+<li><code>fire1=false</code> and <code>fire2=true </code>: gate current &lt; 0, fire <code>thyristor2</code></li>
+<li><code>fire1=true </code> and <code>fire2=true </code>: forbidden</li>
+</ul>
+</p>
+</p>
+</html>"));
+    end SinglePhaseTriac;
+
+    model MultiPhaseTriac "Triodes for alternating current"
+      extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Resistance Ron=1e-5
+        "Forward state-on differential resistance (closed resistance)";
+      parameter Modelica.SIunits.Conductance Goff=1e-5
+        "Backward state-off conductance (opened conductance)";
+      parameter Modelica.SIunits.Voltage Vknee=0 "Forward threshold voltage";
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m);
+      Modelica.Blocks.Interfaces.BooleanInput fire1[m] annotation (Placement(
+            transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={-60,-120})));
+      Modelica.Blocks.Interfaces.BooleanInput fire2[m] annotation (Placement(
+            transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={60,-120})));
+      Modelica.Electrical.MultiPhase.Basic.PlugToPins_p plugToPins_p(final m=m)
+        annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
+      Modelica.Electrical.MultiPhase.Basic.PlugToPins_n plugToPins_n(final m=m)
+        annotation (Placement(transformation(extent={{90,-10},{70,10}})));
+      SinglePhaseTriac triac[m](each useHeatPort=useHeatPort)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    equation
+      connect(plug_p, plugToPins_p.plug_p)
+        annotation (Line(points={{-100,0},{-82,0}}, color={0,0,255}));
+      connect(plugToPins_n.plug_n, plug_n)
+        annotation (Line(points={{82,0},{100,0}},               color={0,0,255}));
+      connect(triac.heatPort, heatPort)
+        annotation (Line(points={{0,-10},{0,-100}}, color={191,0,0}));
+      connect(fire1, triac.fire1) annotation (Line(points={{-60,-120},{-60,-20},{-6,
+              -20},{-6,-12}}, color={255,0,255}));
+      connect(fire2, triac.fire2) annotation (Line(points={{60,-120},{60,-20},{6,-20},
+              {6,-12}}, color={255,0,255}));
+      connect(plugToPins_p.pin_p, triac.p)
+        annotation (Line(points={{-78,0},{-10,0}}, color={0,0,255}));
+      connect(triac.n, plugToPins_n.pin_n)
+        annotation (Line(points={{10,0},{78,0}}, color={0,0,255}));
+      annotation (defaultComponentName="triac",
+        Icon(graphics={
+            Text(
+              extent={{-150,110},{150,70}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-40,70},{-40,-70}}, color={28,108,200}),
+            Line(points={{40,70},{40,-72}}, color={28,108,200}),
+            Polygon(points={{-40,70},{40,30},{-40,-10},{-40,70}},lineColor=
+                  {28,108,200},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(points={{40,8},{-40,-32},{40,-72},{40,8}},   lineColor=
+                  {28,108,200},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-40,0},{-90,0}}, color={28,108,200}),
+            Line(points={{90,0},{40,0}}, color={28,108,200}),
+            Line(points={{-60,-100},{-60,-10},{-40,0}}, color={28,108,200}),
+            Line(points={{60,-100},{60,-10},{40,0}}, color={28,108,200}),
+            Line(
+              points={{-10,-5},{10,5},{10,5}},
+              color={28,108,200},
+              origin={50,-3},
+              rotation=180),
+            Line(
+              points={{-10,-5},{10,5},{10,5}},
+              color={28,108,200},
+              origin={50,-7},
+              rotation=180),
+            Line(
+              points={{-10,5},{10,-5},{10,-5}},
+              color={28,108,200},
+              origin={-50,-7},
+              rotation=180),
+            Line(
+              points={{-10,5},{10,-5},{10,-5}},
+              color={28,108,200},
+              origin={-50,-3},
+              rotation=180)}),
+          Documentation(info="<html>
+<p>
+Simplified model of <code>m</code> 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triodes for alternating current</a>, each built from two antiparallel thyristors. 
 <code>thyristor1</code> has to be fired during the positive halfwave of the voltage. 
 <code>thyristor2</code> has to be fired during the negative halfwave of the voltage. 
 </p>
