@@ -3969,6 +3969,7 @@ applying the firing signals to the
       model SoftStarter "Soft start of an induction machine"
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
+        import Modelica.Electrical.MultiPhase.Functions.factorY2D;
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VNominal=100 "Nominal RMS voltage line to line";
         parameter Modelica.SIunits.Current INominal=100*sqrt(3) "Nominal RMS current at the terminals";
@@ -3980,7 +3981,8 @@ applying the firing signals to the
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
-          V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
+          V=sqrt(2)*fill(VNominal, m)/factorY2D(m))
+                                         annotation (Placement(transformation(
               origin={-80,0},
               extent={{10,-10},{-10,10}},
               rotation=90)));
@@ -3995,7 +3997,7 @@ applying the firing signals to the
               origin={-80,-60},
               extent={{-10,-10},{10,10}},
               rotation=0)));
-        Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
+        MultiPhase.Sensors.CurrentQuasiRMSSensor                   currentQuasiRMSSensor(m=m)
           annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
@@ -4032,7 +4034,7 @@ applying the firing signals to the
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-30,-30})));
-        Modelica.Electrical.MultiPhase.Sensors.MultiSensor multiSensor
+        Modelica.Electrical.MultiPhase.Sensors.MultiSensor multiSensor(m=m)
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
         Modelica.Electrical.MultiPhase.Basic.Star star2(m=m)
           annotation (Placement(
@@ -4050,10 +4052,11 @@ applying the firing signals to the
           annotation (Placement(transformation(extent={{40,50},{60,70}})));
         Modelica.Blocks.Math.Harmonic harmonic(f=fNominal,k=1)
           annotation (Placement(transformation(extent={{40,20},{60,40}})));
-        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
+        Machines.Utilities.MultiTerminalBox                terminalBox(m=m,
+                                                                       terminalConnection="D")
           annotation (Placement(transformation(extent={{10,6},{30,26}})));
         Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-          aimc(
+          imc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
           Rs=aimcData.Rs,
@@ -4074,8 +4077,8 @@ applying the firing signals to the
           TrRef=aimcData.TrRef,
           TsOperational=293.15,
           alpha20r=aimcData.alpha20r,
-          TrOperational=293.15) annotation (Placement(transformation(extent={{10,-10},
-                  {30,10}})));
+          TrOperational=293.15)
+          annotation (Placement(transformation(extent={{10,-10},{30,10}})));
         parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
@@ -4104,14 +4107,14 @@ applying the firing signals to the
             startTime=0)
           annotation (Placement(transformation(extent={{10,-70},{-10,-50}})));
       initial equation
-        aimc.is = zeros(3);
-        aimc.ir = zeros(2);
+        imc.is = zeros(3);
+        imc.ir = zeros(2);
       equation
         connect(ground.p, star.pin_n)
           annotation (Line(points={{-80,-50},{-80,-40}}, color={0,0,255}));
         connect(sineVoltage.plug_n, star.plug_p)
           annotation (Line(points={{-80,-10},{-80,-20}}, color={0,0,255}));
-        connect(aimc.flange, loadInertia.flange_a)
+        connect(imc.flange, loadInertia.flange_a)
           annotation (Line(points={{30,0},{40,0}}, color={0,0,0}));
         connect(triac.plug_n, multiSensor.pc)
           annotation (Line(points={{-20,40},{-10,40}}, color={0,0,255}));
@@ -4120,9 +4123,9 @@ applying the firing signals to the
         connect(multiSensor.nv,star2. plug_p)
           annotation (Line(points={{0,30},{0,10},{1.77636e-15,10}},
                                                    color={0,0,255}));
-        connect(terminalBox.plug_sn, aimc.plug_sn)
+        connect(terminalBox.plug_sn, imc.plug_sn)
           annotation (Line(points={{14,10},{14,10}}, color={0,0,255}));
-        connect(terminalBox.plug_sp, aimc.plug_sp)
+        connect(terminalBox.plug_sp, imc.plug_sp)
           annotation (Line(points={{26,10},{26,10}}, color={0,0,255}));
         connect(triac.fire1, adaptor.fire_p)
           annotation (Line(points={{-36,28},{-36,11}}, color={255,0,255}));
@@ -4145,12 +4148,10 @@ applying the firing signals to the
           annotation (Line(points={{-60,-40},{-60,-50}}, color={0,0,255}));
         connect(star2.pin_n, ground2.p)
           annotation (Line(points={{0,-10},{0,-20}}, color={0,0,255}));
-        connect(multiSensor.v[1], harmonic.u) annotation (Line(points={{6,
-                29.6667},{6,20},{30,20},{30,30},{38,30}},
-                                              color={0,0,127}));
-        connect(multiSensor.v[1], rootMeanSquare.u) annotation (Line(points={{6,
-                29.6667},{6,20},{30,20},{30,60},{38,60}},
-                                                 color={0,0,127}));
+        connect(multiSensor.v[1], harmonic.u) annotation (Line(points={{6,29},{6,20},{
+                30,20},{30,30},{38,30}},      color={0,0,127}));
+        connect(multiSensor.v[1], rootMeanSquare.u) annotation (Line(points={{6,29},{6,
+                20},{30,20},{30,60},{38,60}},    color={0,0,127}));
         connect(loadInertia.flange_b, quadraticLoadTorque.flange)
           annotation (Line(points={{60,0},{70,0}}, color={0,0,0}));
         connect(currentQuasiRMSSensor.I, filter.u) annotation (Line(points={{-91,
