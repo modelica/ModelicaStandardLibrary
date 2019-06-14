@@ -3969,10 +3969,10 @@ applying the firing signals to the
       model SoftStarter "Soft start of an induction machine"
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
-        import Modelica.Electrical.MultiPhase.Functions.factorY2D;
         constant Integer m=3 "Number of phases";
+        constant Real y2d=Modelica.Electrical.MultiPhase.Functions.factorY2D(m);
         parameter Modelica.SIunits.Voltage VNominal=100 "Nominal RMS voltage line to line";
-        parameter Modelica.SIunits.Current INominal=100*sqrt(3) "Nominal RMS current at the terminals";
+        parameter Modelica.SIunits.Current INominal=100*y2d "Nominal RMS current at the terminals";
         parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
         parameter Modelica.SIunits.Inertia JLoad=aimcData.Jr "Load's moment of inertia";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
@@ -3981,7 +3981,7 @@ applying the firing signals to the
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
-          V=sqrt(2)*fill(VNominal, m)/factorY2D(m))
+          V=sqrt(2)*fill(VNominal, m)/y2d)
                                          annotation (Placement(transformation(
               origin={-80,0},
               extent={{10,-10},{-10,10}},
@@ -4055,15 +4055,17 @@ applying the firing signals to the
         Machines.Utilities.MultiTerminalBox                terminalBox(m=m,
                                                                        terminalConnection="D")
           annotation (Placement(transformation(extent={{10,6},{30,26}})));
-        Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
+        Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           imc(
+          m=m,
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
-          Rs=aimcData.Rs,
+          Rs=aimcData.Rs*m/3,
           TsRef=aimcData.TsRef,
           alpha20s(displayUnit="1/K") = aimcData.alpha20s,
-          Lszero=aimcData.Lszero,
-          Lssigma=aimcData.Lssigma,
+          effectiveStatorTurns=aimcData.effectiveStatorTurns,
+          Lszero=aimcData.Lszero*m/3,
+          Lssigma=aimcData.Lssigma*m/3,
           Jr=aimcData.Jr,
           Js=aimcData.Js,
           frictionParameters=aimcData.frictionParameters,
@@ -4071,9 +4073,9 @@ applying the firing signals to the
           wMechanical(fixed=true),
           statorCoreParameters=aimcData.statorCoreParameters,
           strayLoadParameters=aimcData.strayLoadParameters,
-          Lm=aimcData.Lm,
-          Lrsigma=aimcData.Lrsigma,
-          Rr=aimcData.Rr,
+          Lm=aimcData.Lm*m/3,
+          Lrsigma=aimcData.Lrsigma*m/3,
+          Rr=aimcData.Rr*m/3,
           TrRef=aimcData.TrRef,
           TsOperational=293.15,
           alpha20r=aimcData.alpha20r,
@@ -4107,8 +4109,8 @@ applying the firing signals to the
             startTime=0)
           annotation (Placement(transformation(extent={{10,-70},{-10,-50}})));
       initial equation
-        imc.is = zeros(3);
-        imc.ir = zeros(2);
+        imc.is[1:3] = zeros(3);
+        imc.ir[1:2] = zeros(2);
       equation
         connect(ground.p, star.pin_n)
           annotation (Line(points={{-80,-50},{-80,-40}}, color={0,0,255}));
