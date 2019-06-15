@@ -3904,8 +3904,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           experiment(
             StopTime=8,
             Interval=0.0001,
-            Tolerance=1e-06,
-            __Dymola_Algorithm="Dassl"),
+            Tolerance=1e-06),
           Documentation(info="<html>
 <p>
 This model demonstrates the behaviour of a dimmer with phase-angle control with resistive load.
@@ -3947,8 +3946,7 @@ applying the firing signals to the
           experiment(
             StopTime=8,
             Interval=0.0001,
-            Tolerance=1e-06,
-            __Dymola_Algorithm="Dassl"),
+            Tolerance=1e-06),
           Documentation(info="<html>
 <p>
 This model demonstrates the behaviour of a dimmer with phase-angle control with resistive-inductive load. 
@@ -3982,7 +3980,7 @@ applying the firing signals to the
           final m=m,
           freqHz=fill(fNominal, m),
           V=sqrt(2)*fill(VNominal, m)/y2d)
-                                         annotation (Placement(transformation(
+          annotation (Placement(transformation(
               origin={-80,0},
               extent={{10,-10},{-10,10}},
               rotation=90)));
@@ -3997,13 +3995,13 @@ applying the firing signals to the
               origin={-80,-60},
               extent={{-10,-10},{10,10}},
               rotation=0)));
-        MultiPhase.Sensors.CurrentQuasiRMSSensor                   currentQuasiRMSSensor(m=m)
+        MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(m=m)
           annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={-80,30})));
         Modelica.Electrical.PowerConverters.ACAC.MultiPhaseTriac triac(final m=m,
-            useHeatPort=false)
+          useHeatPort=false)
           annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
         Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(m=m)
           annotation (Placement(transformation(
@@ -4029,7 +4027,8 @@ applying the firing signals to the
           f=fNominal)
           annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
         Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle voltageToAngle(
-          Vnom=1, voltage2Angle=Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.H01)
+          VNominal=1,
+          voltage2Angle=Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.H01)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
@@ -4052,8 +4051,7 @@ applying the firing signals to the
           annotation (Placement(transformation(extent={{40,50},{60,70}})));
         Modelica.Blocks.Math.Harmonic harmonic(f=fNominal,k=1)
           annotation (Placement(transformation(extent={{40,20},{60,40}})));
-        Machines.Utilities.MultiTerminalBox                terminalBox(m=m,
-                                                                       terminalConnection="D")
+        Machines.Utilities.MultiTerminalBox terminalBox(m=m, terminalConnection="D")
           annotation (Placement(transformation(extent={{10,6},{30,26}})));
         Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           imc(
@@ -4169,8 +4167,7 @@ applying the firing signals to the
         annotation (experiment(
             StopTime=10,
             Interval=0.0001,
-            Tolerance=1e-06,
-            __Dymola_Algorithm="Dassl"), Documentation(info="<html>
+            Tolerance=1e-06), Documentation(info="<html>
 <p>This model demonstrates a soft start of an induction machine: 
 Voltage ramp is started at 0.1 s and should ramp up to nominal voltage within 4s, 
 but current is limited to 2.5 times nominal current. 
@@ -4206,16 +4203,14 @@ Compare starting with firing angle by
           parameter Modelica.SIunits.Impedance ZLoad=Vrms^2/S "Load impedance";
           parameter Modelica.SIunits.Resistance RLoad=ZLoad*powerFactor "Load resistance";
           parameter Modelica.SIunits.Inductance LLoad=ZLoad*sqrt(1 - powerFactor^2)/(2*pi*f) "Load inductance";
-          Analog.Sources.SineVoltage                         sineVoltage(final V=
-                sqrt(2)*Vrms,                                                                 freqHz=f)
+          Analog.Sources.SineVoltage sineVoltage(final V = sqrt(2) * Vrms, freqHz = f)
             annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={-80,10})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-40},{-70,-20}})));
-          Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac triac(Ron=1e-9,
-              Goff=1e-9)
+          Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac triac(Ron=1e-9, Goff=1e-9)
             annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
           Analog.Sensors.VoltageSensor voltageSensor annotation (Placement(
                 transformation(
@@ -4229,7 +4224,7 @@ Compare starting with firing angle by
           Analog.Sensors.MultiSensor multiSensor
             annotation (Placement(transformation(extent={{10,30},{30,50}})));
           Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle
-            voltageToAngle(Vnom=1, voltage2Angle=Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.RMS)
+            voltageToAngle(VNominal=1, voltage2Angle=Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.RMS)
             annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=90,
@@ -7590,7 +7585,7 @@ General information about DC/DC converters can be found at the
       block VoltageToAngle "Reference voltage to firing angle converter"
         extends Modelica.Blocks.Icons.Block;
         import Modelica.Constants.pi;
-        parameter Modelica.SIunits.Voltage Vnom "Nominal voltage";
+        parameter Modelica.SIunits.Voltage VNominal "Nominal voltage";
         parameter Modelica.Electrical.PowerConverters.Types.Voltage2AngleType voltage2Angle=
             Modelica.Electrical.PowerConverters.Types.Voltage2AngleType.Lin
           "Select type of calculation";
@@ -7601,7 +7596,7 @@ General information about DC/DC converters can be found at the
           min=0, max=pi, start=pi)  "Phase angle"
           annotation (Placement(
               transformation(extent={{100,-10},{120,10}})));
-        Modelica.Blocks.Math.Gain gain_v(final k=1/Vnom)
+        Modelica.Blocks.Math.Gain gain_v(final k=1/VNominal)
           annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
         Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=1, final uMin=0)
           annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
@@ -7658,18 +7653,17 @@ choosing either a linear (<code>Lin</code>) relationship or prescribing the firs
 Since calculating the firing angle from both the H01 and the RMS involves a nonlinear equation, 
 both relationships have been precalculated and are interpolated from a table.
 </p>
-</html>"),       Icon(coordinateSystem(grid={1,1}),
+</html>"),       Icon(coordinateSystem(grid={2,2}),
                       graphics={
-              Line(points={{-55.1,66.4},{-49.4,74.6},{-43.8,79.1},{-38.2,79.8},
-                    {-32.6,76.6},{-26.9,69.7},{-21.3,59.4},{-14.9,44.1},{-6.83,
-                    21.2},{0,0}},                                 smooth = Smooth.Bezier),
+              Line(points={{-55.1,66.4},{-49.4,74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,
+                    76.6},{-26.9,69.7},{-21.3,59.4},{-14.9,44.1},{-6.83,21.2},{0,0}},
+                                                                  smooth = Smooth.Bezier),
               Line(points={{-80,0},{80,0}}, color={28,108,200}),
               Line(points={{-55,66},{-55,0},{-80,0}}, color={0,0,0}),
-              Line(points={{26,-68},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,
-                    -71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}},
-                                                                  smooth = Smooth.Bezier),
+              Line(points={{26,-68},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},{57.5,
+                    -61.9},{63.9,-47.2},{72,-24.8},{80,0}},       smooth = Smooth.Bezier),
               Line(points={{0,0},{26,0},{26,-68}}, color={0,0,0})}),
-          Diagram(coordinateSystem(grid={1,1})));
+          Diagram(coordinateSystem(grid={2,2})));
       end VoltageToAngle;
 
       block SoftStartControl
