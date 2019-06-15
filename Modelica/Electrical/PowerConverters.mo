@@ -6345,11 +6345,11 @@ General information about AC/DC converters can be found at the
         connect(intersectivePWM.fire_n, fire_n) annotation (Line(points={{11,-46},{60,
                 -46},{60,-60},{110,-60}}, color={255,0,255}));
         annotation (defaultComponentName="pwm", Icon(coordinateSystem(preserveAspectRatio=false), graphics={Text(
-                extent={{-80,80},{60,40}},
+                extent={{-70,80},{70,40}},
                 textString="P W M"), Text(
-                extent={{-80,-40},{60,-80}},
+                extent={{-70,-40},{70,-80}},
                 textString="f=%f"), Text(
-                extent={{-80,20},{60,-20}},
+                extent={{-70,20},{70,-20}},
                 textString="%pwmType")}), Diagram(
               coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
