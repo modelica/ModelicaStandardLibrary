@@ -7658,18 +7658,18 @@ choosing either a linear (<code>Lin</code>) relationship or prescribing the firs
 Since calculating the firing angle from both the H01 and the RMS involves a nonlinear equation, 
 both relationships have been precalculated and are interpolated from a table.
 </p>
-</html>"),       Icon(graphics={
-              Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
-                    74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
-                    59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
-                    -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
-                    {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, smooth = Smooth.Bezier),
-              Polygon(points={{-54,68},{-62,52},{-70,30},{-80,0},{-54,0},{-54,68}},
-                lineColor={238,46,47}, fillColor={238,46,47}, fillPattern=FillPattern.Solid),
-              Polygon(points={{13,-34},{5,-18},{-3,4},{-13,34},{13,34},{13,-34}},
-                lineColor={238,46,47}, fillColor={238,46,47}, fillPattern=FillPattern.Solid,
-                origin={13,-34}, rotation=360),
-              Line(points={{-80,0},{80,0}}, color={28,108,200})}));
+</html>"),       Icon(coordinateSystem(grid={1,1}),
+                      graphics={
+              Line(points={{-55.1,66.4},{-49.4,74.6},{-43.8,79.1},{-38.2,79.8},
+                    {-32.6,76.6},{-26.9,69.7},{-21.3,59.4},{-14.9,44.1},{-6.83,
+                    21.2},{0,0}},                                 smooth = Smooth.Bezier),
+              Line(points={{-80,0},{80,0}}, color={28,108,200}),
+              Line(points={{-55,66},{-55,0},{-80,0}}, color={0,0,0}),
+              Line(points={{26,-68},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,
+                    -71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}},
+                                                                  smooth = Smooth.Bezier),
+              Line(points={{0,0},{26,0},{26,-68}}, color={0,0,0})}),
+          Diagram(coordinateSystem(grid={1,1})));
       end VoltageToAngle;
 
       block SoftStartControl
