@@ -4094,7 +4094,7 @@ applying the firing signals to the
           vStart=0.3,
           iMax=2.5,
           iMin=2.4,
-          Inom=INominal,
+          INominal=INominal,
           tRampDwn=3,
           vRef(fixed=true)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -7673,7 +7673,7 @@ both relationships have been precalculated and are interpolated from a table.
         parameter Real vStart=0 "Start voltage / nominal voltage";
         parameter Real iMax "Maximum current / Nominal current";
         parameter Real iMin=0.9*iMax "Lower threshold of current control";
-        parameter Modelica.SIunits.Current Inom "Nominal current";
+        parameter Modelica.SIunits.Current INominal "Nominal current";
       parameter Modelica.SIunits.Time tRampDwn "Stop ramp duration";
         Modelica.Blocks.Interfaces.RealInput iRMS(unit="A") "Measured RMS current"
           annotation (Placement(
@@ -7688,7 +7688,7 @@ both relationships have been precalculated and are interpolated from a table.
               origin={0,-120})));
       protected
         Modelica.Electrical.PowerConverters.Types.SoftStarterModeOfOperation modeOfOperation;
-        Real i=iRMS/Inom "Measured current";
+        Real i=iRMS/INominal "Measured current";
         Boolean limit "Indicates current limitation";
       initial equation
         if start then
