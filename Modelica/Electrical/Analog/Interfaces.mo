@@ -168,15 +168,9 @@ The reason could be that
 
   partial model OnePort
     "Component with two electrical pins p and n and current i from p to n"
-
-    SI.Voltage v "Voltage drop of the two pins (= p.v - n.v)";
+    extends TwoPin;
     SI.Current i "Current flowing from pin p to pin n";
-    PositivePin p "Positive electrical pin" annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}})));
-    NegativePin n "Negative electrical pin" annotation (Placement(transformation(extent={{
-              110,-10},{90,10}})));
   equation
-    v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
     annotation (
@@ -218,8 +212,7 @@ The reason could be that
             textString="i")}));
   end OnePort;
 
-  partial model TwoPort
-    "Component with two electrical ports, including current"
+  partial model FourPin "Component with two pairs of each two electrical pins"
     SI.Voltage v1 "Voltage drop of port 1 (= p1.v - n1.v)";
     SI.Voltage v2 "Voltage drop of port 2 (= p2.v - n2.v)";
     SI.Current i1 "Current flowing from pos. to neg. pin of port 1";
@@ -235,10 +228,74 @@ The reason could be that
   equation
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
-    0 = p1.i + n1.i;
-    0 = p2.i + n2.i;
     i1 = p1.i;
     i2 = p2.i;
+    annotation (
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}),               graphics={
+          Polygon(
+            points={{-124,103},{-114,100},{-124,97},{-124,103}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-140,100},{-115,100}},
+                                             color={160,160,164}),
+          Polygon(
+            points={{130,-97},{140,-100},{130,-103},{130,-97}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Line(points={{114,-100},{139,-100}},
+                                             color={160,160,164}),
+          Text(
+            extent={{113,-96},{129,-81}},
+            lineColor={160,160,164},
+            textString="i2"),
+          Text(
+            extent={{122,102},{139,117}},
+            lineColor={160,160,164},
+            textString="i2"),
+          Polygon(
+            points={{124,103},{114,100},{124,97},{124,103}},
+            lineColor={160,160,164},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={160,160,164}),
+          Line(points={{115,100},{140,100}}, color={160,160,164}),
+          Line(points={{-140,-100},{-115,-100}},
+                                               color={160,160,164}),
+          Polygon(
+            points={{-130,-97},{-140,-100},{-130,-103},{-130,-97}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-131,-97},{-114,-82}},
+            lineColor={160,160,164},
+            textString="i1"),
+          Text(
+            extent={{-140,103},{-123,118}},
+            lineColor={160,160,164},
+            textString="i1")}),
+      Documentation(revisions="<html>
+<ul>
+<li><em> 1998   </em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>FourPin is a partial model that consists of two pairs of each two electrical pins.</p>
+</html>"));
+  end FourPin;
+
+  partial model TwoPort
+    "Component with two electrical ports, including current"
+    extends FourPin;
+
+  equation
+    0 = p1.i + n1.i;
+    0 = p2.i + n2.i;
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
