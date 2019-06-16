@@ -444,12 +444,13 @@ This block computes output <code>y</code> as
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
                   points={{-40,0},{40,0}},
-                  color={0,0,0}),  Line(
+                  color={85,170,255}),
+                                   Line(
                   points={{-40,0},{40,0}},
-                  color={0,0,0},
+                  color={85,170,255},
                   rotation=60),Line(
                   points={{-40,0},{40,0}},
-                  color={0,0,0},
+                  color={85,170,255},
                   rotation=120)}));
     end Conj;
 
@@ -524,7 +525,8 @@ Example:
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
-                  points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}),
+                  points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}}, color={85,
+                  170,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})));
     end Sum;
@@ -592,7 +594,7 @@ result in the following equation:
                   textString="%name",
                   lineColor={0,0,255}),                       Text(
                   extent={{20,-20},{100,-100}},
-              lineColor={0,0,0},
+              lineColor={85,170,255},
               textString="-")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})));
@@ -639,7 +641,7 @@ result in the following equation:
                 Ellipse(extent={{-50,50},{50,-50}}, lineColor={85,170,255}),
                 Line(points={{50,0},{100,0}}, color={85,170,255}),
                 Text(extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
+              lineColor={85,170,255},
               textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})));
@@ -709,7 +711,7 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
                 Text(extent={{-98,-20},{5,20}}, textString="%k2"),
                 Text(extent={{-98,-50},{5,-90}}, textString="%k3"),
                 Text(extent={{10,40},{90,-40}},
-              lineColor={0,0,0},
+              lineColor={85,170,255},
               textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})));
@@ -739,9 +741,12 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                                Line(points={{-100,-60},{-40,-60},{-30,-40}},
               color={85,170,255}),
                                Line(points={{50,0},{100,0}}, color={85,170,255}),
-              Line(points={{-30,0},{30,0}}),Line(points={{-15,
-              25.99},{15,-25.99}}),Line(points={{-15,-25.99},{15,
-              25.99}}),Ellipse(extent={{-50,50},{50,-50}},
+              Line(points={{-30,0},{30,0}}, color={85,170,255}),
+                                            Line(points={{-15,
+              25.99},{15,-25.99}}, color={85,170,255}),
+                                   Line(points={{-15,-25.99},{15,
+              25.99}}, color={85,170,255}),
+                       Ellipse(extent={{-50,50},{50,-50}},
               lineColor={85,170,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})));
@@ -779,11 +784,16 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Line(points={{50,0},{100,0}}, color={85,170,255}),
-              Line(points={{-30,0},{30,0}}),Ellipse(
+              Line(points={{-30,0},{30,0}}, color={85,170,255}),
+                                            Ellipse(
                   extent={{-5,20},{5,30}},
-                  fillPattern=FillPattern.Solid),Ellipse(
+              lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid),    Ellipse(
                   extent={{-5,-20},{5,-30}},
-                  fillPattern=FillPattern.Solid),
+              lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
               extent={{-60,90},{90,50}},
               lineColor={128,128,128},
@@ -809,7 +819,8 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
               -68.7},{-78.4,-64},{-76.8,-57.3},{-73.6,-47.9},{-67.9,-36.1},{-59.1,
               -22.2},{-46.2,-6.49},{-28.5,10.7},{-4.42,30},{27.7,51.3},{69.5,
-              74.7},{80,80}}),Polygon(
+              74.7},{80,80}}, color={85,170,255}),
+                              Polygon(
                   points={{-80,90},{-88,68},{-72,68},{-80,90}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
@@ -847,8 +858,9 @@ as <em>square root</em> of the input <code>u</code> (= principal square root of 
               {-49.4,74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},
               {-21.3,59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},
               {23.7,-64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{
-              51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={
-              0,0,0}),Polygon(
+              51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={85,
+                  170,255}),
+                      Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
@@ -895,7 +907,8 @@ as <strong>sine</strong> of the input <code>u</code>. Optionally, the input <cod
               78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},{-48.6,26.6},{-29.3,-32.5},
               {-22.1,-51.7},{-15.7,-65.3},{-10.1,-73.8},{-4.42,-78.8},{1.21,-79.9},
               {6.83,-77.1},{12.5,-70.6},{18.1,-60.6},{24.5,-45.7},{32.6,-23},{
-              50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}),Text(
+              50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}, color=
+                  {85,170,255}),                                                   Text(
                   extent={{-36,82},{36,34}},
                   lineColor={192,192,192},
                   textString="cos")}),
@@ -933,7 +946,8 @@ as <strong>cos</strong> of the input <code>u</code>. Optionally, the input <code
               -59.7},{-74.4,-50},{-71.2,-40.9},{-67.1,-33},{-60.7,-24.8},{-51.1,
               -17.2},{-35.8,-9.98},{-4.42,-1.07},{33.4,9.12},{49.4,16.2},{59.1,
               23.2},{65.5,30.6},{70.4,39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{
-              80,80}}),Line(points={{-90,0},{68,0}}, color={192,192,192}),
+              80,80}}, color={85,170,255}),
+                       Line(points={{-90,0},{68,0}}, color={192,192,192}),
               Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
@@ -974,7 +988,8 @@ as <strong>tan</strong> of the input <code>u</code>. Optionally, the input <code
                   fillPattern=FillPattern.Solid),Line(points={{0,-80},{0,68}},
               color={192,192,192}),Line(points={{-80,-80},{-79.2,-72.8},{-77.6,
               -67.5},{-73.6,-59.4},{-66.3,-49.8},{-53.5,-37.3},{-30.2,-19.7},{
-              37.4,24.8},{57.5,40.8},{68.7,52.7},{75.2,62.2},{77.6,67.5},{80,80}}),Line(points={{-90,0},{68,0}}, color={192,192,192}),
+              37.4,24.8},{57.5,40.8},{68.7,52.7},{75.2,62.2},{77.6,67.5},{80,80}}, color=
+                  {85,170,255}),                                                   Line(points={{-90,0},{68,0}}, color={192,192,192}),
               Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
@@ -1015,7 +1030,8 @@ This blocks computes the output <code>y</code> as the
                   fillPattern=FillPattern.Solid),Line(points={{-80,80},{-79.2,
               72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,49.8},{-53.5,37.3},{-30.2,
               19.7},{37.4,-24.8},{57.5,-40.8},{68.7,-52.7},{75.2,-62.2},{77.6,-67.5},
-              {80,-80}}),Line(points={{0,-88},{0,68}}, color={
+              {80,-80}}, color={85,170,255}),
+                         Line(points={{0,-88},{0,68}}, color={
               192,192,192}),Line(points={{-90,-80},{68,-80}}, color={192,192,192}),
               Polygon(
                   points={{90,-80},{68,-72},{68,-88},{90,-80}},
@@ -1058,7 +1074,8 @@ This blocks computes the output <code>y</code> as the
               color={192,192,192}),Line(points={{-80,-80},{-52.7,-75.2},{-37.4,
               -69.7},{-26.9,-63},{-19.7,-55.2},{-14.1,-45.8},{-10.1,-36.4},{-6.03,
               -23.9},{-1.21,-5.06},{5.23,21},{9.25,34.1},{13.3,44.2},{18.1,52.9},
-              {24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{80,80}}),
+              {24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{80,80}}, color={85,
+                  170,255}),
               Line(points={{-90,0},{68,0}}, color={192,192,192}),Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
@@ -1104,7 +1121,8 @@ This blocks computes the output <code>y</code> as the
               points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,
               -28.1},{-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{
               24.5,4.57},{39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,
-              47.4},{74.4,60.4},{78.4,73.8},{80,80}}),Polygon(
+              47.4},{74.4,60.4},{78.4,73.8},{80,80}}, color={85,170,255}),
+                                                      Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
@@ -1147,7 +1165,8 @@ This blocks computes the output <code>y</code> as the
               -43.5},{-46.2,-55.1},{-39,-64.3},{-30.2,-71.7},{-18.9,-77.1},{-4.42,
               -79.9},{10.9,-79.1},{23.7,-75.2},{34.2,-68.7},{42.2,-60.6},{48.6,
               -51.2},{54.3,-40},{59.1,-27.5},{63.1,-14.6},{67.1,1.29},{71.2,
-              20.7},{74.4,39.3},{77.6,61.1},{80,80}}),Line(
+              20.7},{74.4,39.3},{77.6,61.1},{80,80}}, color={85,170,255}),
+                                                      Line(
               points={{-90,-86.083},{68,-86.083}}, color={192,192,192}),Polygon(
                   points={{90,-86.083},{68,-78.083},{68,-94.083},{90,-86.083}},
                   lineColor={192,192,192},
@@ -1183,7 +1202,8 @@ This blocks computes the output <code>y</code> as the
               Line(points={{-80,-80},{-47.8,-78.7},{-35.8,-75.7},{-27.7,-70.6},
               {-22.1,-64.2},{-17.3,-55.9},{-12.5,-44.3},{-7.64,-29.2},{-1.21,-4.82},
               {6.83,26.3},{11.7,42},{16.5,54.2},{21.3,63.1},{26.9,69.9},{34.2,
-              75},{45.4,78.4},{72,79.9},{80,80}}),Polygon(
+              75},{45.4,78.4},{72,79.9},{80,80}}, color={85,170,255}),
+                                                  Polygon(
                   points={{0,90},{-8,68},{8,68},{0,90}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
@@ -1230,7 +1250,8 @@ This blocks computes the output <code>y</code> as the
                   lineColor={192,192,192},
                   textString="exp"),Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},
               {10.9,-68.4},{23.7,-61},{34.2,-51.6},{43,-40.3},{50.3,-27.8},{
-              56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{80,80}}),Line(points={{-90,-80.3976},{68,-80.3976}}, color=
+              56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{80,80}}, color=
+                  {85,170,255}),                                                Line(points={{-90,-80.3976},{68,-80.3976}}, color=
               {192,192,192}),Polygon(
                   points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
                   lineColor={192,192,192},
@@ -1270,7 +1291,8 @@ This blocks computes the output <code>y</code> as the
                   fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
               -50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},{-75.2,-11.4},{-72.8,
               -1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},{-47,38.1},{-31.8,
-              48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}),
+              48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, color={85,170,
+                  255}),
               Line(points={{-90,0},{68,0}}, color={192,192,192}),Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
@@ -1504,7 +1526,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
             Line(points={{-70,-56},{-70,68}}, color={135,135,135}),
             Line(
               points={{-78,44},{-50,44},{70,-66}},
-              color={0,0,0},
+              color={85,170,255},
               thickness=0.5),               Text(
             extent={{-150,150},{150,110}},
             textString="%name",
@@ -1946,7 +1968,8 @@ Variable <strong>y</strong> is both a variable and a connector.
                   points={{90,-70},{68,-62},{68,-78},{90,-70}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,0},{80,0}}),Text(
+                  fillPattern=FillPattern.Solid),Line(points={{-80,0},{80,0}}, color=
+                  {85,170,255}),                                               Text(
                   extent={{-150,-150},{150,-110}},
                   textString="k=%k")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2001,7 +2024,8 @@ The Complex output y is a constant signal:
                   lineColor={192,192,192},
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Line(points={{-80,-70},{0,-70},
-              {0,50},{80,50}}),Text(
+              {0,50},{80,50}}, color={85,170,255}),
+                               Text(
                   extent={{-150,-150},{150,-110}},
                   textString="startTime=%startTime")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2229,7 +2253,7 @@ The output is the decimal power of this logarithmic ramp.
             Line(points={{-78,-48},{80,-48}}, color={192,192,192}),
             Line(
               points={{-70,-48},{-50,-48},{50,44},{70,44}},
-              color={0,0,0},
+              color={0,0,127},
               thickness=0.5),
             Line(points={{-50,-48},{-50,44}}, color={192,192,192}),
             Line(points={{50,-48},{50,44}}, color={192,192,192}),
