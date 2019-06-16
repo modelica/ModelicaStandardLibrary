@@ -379,47 +379,75 @@ package OpAmps "Examples with operational amplifiers"
     parameter Modelica.SIunits.Time Ti=T2 "Integral time constant";
     parameter Real kp=T2/(2*T1) "Proportional gain";
     Modelica.Electrical.Analog.Basic.Ground ground
-      annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+      annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
     Sources.StepVoltage vRef(V=10, startTime=0.1) annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
-          origin={-70,0})));
+          origin={-70,-20})));
     OpAmpCircuits.Feedback feedback(p1(i(start=0)))
-      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-    OpAmpCircuits.PI pI(
+      annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    OpAmpCircuits.PI PI(
       v2(fixed=true),   k=kp, T=Ti,
       opAmp(v_in(start=0)))
-      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
     OpAmpCircuits.FirstOrder firstOrder1(
       v2(fixed=true),                    T=T1,
       opAmp(v_in(start=0)))
-      annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+      annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
     OpAmpCircuits.FirstOrder firstOrder2(
       v2(fixed=true),                    T=T2,
       opAmp(v_in(start=0)))
-      annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+      annotation (Placement(transformation(extent={{50,-30},{70,-10}})));
+    Blocks.Sources.Step step1(height=10, startTime=0.1)
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    Blocks.Math.Feedback feedback1
+      annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+    Blocks.Continuous.PI PI1(
+      k=kp,
+      T=Ti,
+      initType=Modelica.Blocks.Types.Init.InitialOutput)
+      annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+    Blocks.Continuous.FirstOrder firstOrder11(T=T1, initType=Modelica.Blocks.Types.Init.InitialOutput)
+      annotation (Placement(transformation(extent={{20,40},{40,60}})));
+    Blocks.Continuous.FirstOrder firstOrder12(T=T2, initType=Modelica.Blocks.Types.Init.InitialOutput)
+      annotation (Placement(transformation(extent={{50,40},{70,60}})));
   equation
     connect(vRef.n, ground.p)
-      annotation (Line(points={{-70,-10},{-70,-20}}, color={0,0,255}));
+      annotation (Line(points={{-70,-30},{-70,-40}}, color={0,0,255}));
     connect(vRef.n, feedback.n1)
-      annotation (Line(points={{-70,-10},{-40,-10}}, color={0,0,255}));
-    connect(feedback.p2, pI.p1)
-      annotation (Line(points={{-20,10},{-10,10}}, color={0,0,255}));
-    connect(feedback.n2, pI.n1)
-      annotation (Line(points={{-20,-10},{-10,-10}}, color={0,0,255}));
-    connect(pI.p2, firstOrder1.p1)
-      annotation (Line(points={{10,10},{20,10}}, color={0,0,255}));
-    connect(pI.n2, firstOrder1.n1)
-      annotation (Line(points={{10,-10},{20,-10}}, color={0,0,255}));
+      annotation (Line(points={{-70,-30},{-40,-30}}, color={0,0,255}));
+    connect(feedback.p2,PI. p1)
+      annotation (Line(points={{-20,-10},{-10,-10}},
+                                                   color={0,0,255}));
+    connect(feedback.n2,PI. n1)
+      annotation (Line(points={{-20,-30},{-10,-30}}, color={0,0,255}));
+    connect(PI.p2, firstOrder1.p1)
+      annotation (Line(points={{10,-10},{20,-10}},
+                                                 color={0,0,255}));
+    connect(PI.n2, firstOrder1.n1)
+      annotation (Line(points={{10,-30},{20,-30}}, color={0,0,255}));
     connect(firstOrder1.p2, firstOrder2.p1)
-      annotation (Line(points={{40,10},{50,10}}, color={0,0,255}));
+      annotation (Line(points={{40,-10},{50,-10}},
+                                                 color={0,0,255}));
     connect(firstOrder1.n2, firstOrder2.n1)
-      annotation (Line(points={{40,-10},{50,-10}}, color={0,0,255}));
+      annotation (Line(points={{40,-30},{50,-30}}, color={0,0,255}));
     connect(vRef.p, feedback.p1)
-      annotation (Line(points={{-70,10},{-40,10}}, color={0,0,255}));
-    connect(firstOrder2.p2, feedback.p1_2) annotation (Line(points={{70,10},{80,10},
-            {80,-20},{-50,-20},{-50,0},{-40,0}}, color={0,0,255}));
+      annotation (Line(points={{-70,-10},{-40,-10}},
+                                                   color={0,0,255}));
+    connect(firstOrder2.p2, feedback.p1_2) annotation (Line(points={{70,-10},{
+            80,-10},{80,-40},{-50,-40},{-50,-20},{-40,-20}},
+                                                 color={0,0,255}));
+    connect(step1.y, feedback1.u1)
+      annotation (Line(points={{-59,50},{-38,50}}, color={0,0,127}));
+    connect(feedback1.y, PI1.u)
+      annotation (Line(points={{-21,50},{-12,50}}, color={0,0,127}));
+    connect(PI1.y, firstOrder11.u)
+      annotation (Line(points={{11,50},{18,50}}, color={0,0,127}));
+    connect(firstOrder11.y, firstOrder12.u)
+      annotation (Line(points={{41,50},{48,50}}, color={0,0,127}));
+    connect(firstOrder12.y, feedback1.u2) annotation (Line(points={{71,50},{80,
+            50},{80,30},{-30,30},{-30,42}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>This is an analog control circuit with operational amplifiers.</p>
 </html>"),
@@ -967,15 +995,15 @@ package OpAmps "Examples with operational amplifiers"
         out(i(start=0, fixed=false)))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-            Polygon(
-              points={{100,0},{-90,100},{-90,-100},{100,0}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255})}),                                Diagram(
+              lineColor={0,0,255}), Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={28,108,200},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              radius=40)}),                                          Diagram(
             coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
@@ -1016,7 +1044,26 @@ Different functionality is achieved by different circuits.
       annotation (Documentation(info="<html>
 <p>Non-inverting amplifier = buffer, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>vOut = k*vIn</code></p>
-</html>"),     Icon(graphics={Line(points={{0,80},{0,-80}}, color={28,108,200})}));
+</html>"), Icon(graphics={
+            Polygon(
+              points={{-80,90},{-88,68},{-72,68},{-80,90}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
+            Line(points={{-80,-80},{-80,40},{60,40}},                color = {0,0,127}),
+            Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
+            Polygon(
+              points={{90,-80},{68,-72},{68,-88},{90,-80}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-100,10},{100,-10}},
+              lineColor={28,108,200},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.None,
+              textString="non-inverting")}));
     end Buffer;
     extends Icons.VariantsPackage;
 
@@ -1049,7 +1096,20 @@ Different functionality is achieved by different circuits.
       annotation (Documentation(info="<html>
 <p>Inverting amplifier = gain, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>vOut = -k*vIn</code></p>
-</html>"));
+</html>"), Icon(graphics={
+            Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
+            Polygon(
+              points={{-80,90},{-88,68},{-72,68},{-80,90}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{90,-80},{68,-72},{68,-88},{90,-80}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
+            Line(points={{-80,-80},{-80,40},{60,40}},                color = {0,0,127})}));
     end Gain;
 
     model Add "Adding operational amplifier circuit"
@@ -1225,7 +1285,26 @@ Different functionality is achieved by different circuits.
       annotation (Documentation(info="<html>
 <p>Inverting integrator, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>k*vin = -der(dvOut)</code></p>
-</html>"),     Icon(graphics={Line(points={{-80,-80},{80,80}}, color={28,108,200})}));
+</html>"), Icon(graphics={
+              Polygon(
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid,
+                points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+              Line(
+                points={{-80.0,78.0},{-80.0,-90.0}},
+                color={192,192,192}),
+              Line(
+                points=DynamicSelect({{-80.0,-80.0},{80.0,80.0}}, if use_reset then {{-80.0,-80.0},{60.0,60.0},{60.0,-80.0},{80.0,-60.0}} else {{-80.0,-80.0},{80.0,80.0}}),
+                color={0,0,127}),
+              Line(
+                points={{-90.0,-80.0},{82.0,-80.0}},
+                color={192,192,192}),
+              Polygon(
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid,
+                points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}})}));
     end Integrator;
 
     model FirstOrder "Lowpass filter operational amplifier circuit"
@@ -1264,11 +1343,23 @@ Different functionality is achieved by different circuits.
       annotation (Documentation(info="<html>
 <p>Inverting lowpass filter = first order, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p>Transfer function: <code>vOut/vIn = -k/(1 + s*T)</code></p>
-</html>"),     Icon(graphics={
+</html>"), Icon(graphics={
+      Polygon(lineColor={192,192,192},
+        fillColor={192,192,192},
+        fillPattern=FillPattern.Solid,
+        points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+      Line(points={{-80.0,78.0},{-80.0,-90.0}},
+        color={192,192,192}),
       Line(origin = {-26.667,6.667},
           points = {{106.667,43.333},{-13.333,29.333},{-53.333,-86.667}},
           color = {0,0,127},
-          smooth = Smooth.Bezier)}));
+          smooth = Smooth.Bezier),
+      Line(points={{-90.0,-80.0},{82.0,-80.0}},
+        color={192,192,192}),
+      Polygon(lineColor={192,192,192},
+        fillColor={192,192,192},
+        fillPattern=FillPattern.Solid,
+        points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}})}));
     end FirstOrder;
 
     model Derivative "Lowpass filter operational amplifier circuit"
@@ -1306,11 +1397,23 @@ Different functionality is achieved by different circuits.
       annotation (Documentation(info="<html>
 <p>Inverting highpass filter = derivative, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p>Transfer function: <code>vOut/vIn = -k*s/(1 + s*T)</code></p>
-</html>"),     Icon(graphics={
+</html>"), Icon(graphics={
+      Polygon(lineColor={192,192,192},
+        fillColor={192,192,192},
+        fillPattern=FillPattern.Solid,
+        points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+        Line(points={{-80.0,78.0},{-80.0,-90.0}},
+          color={192,192,192}),
       Line(origin = {-24.667,-27.333},
         points = {{-55.333,87.333},{-19.333,-40.667},{86.667,-52.667}},
         color = {0,0,127},
-        smooth = Smooth.Bezier)}));
+        smooth = Smooth.Bezier),
+      Line(points={{-90.0,-80.0},{82.0,-80.0}},
+        color={192,192,192}),
+      Polygon(lineColor={192,192,192},
+        fillColor={192,192,192},
+        fillPattern=FillPattern.Solid,
+        points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}})}));
     end Derivative;
 
     model PI "PI controller operational amplifier circuit"
@@ -1320,7 +1423,7 @@ Different functionality is achieved by different circuits.
       parameter SI.Resistance R1=1000 "Resistance at negative input of OpAmp";
       parameter SI.Resistance R2=k*R1 "Calculated resistance to reach k";
       parameter SI.Time T "Time constant";
-      parameter SI.Capacitance C=T/R1 "Calculated capacitance to reach T";
+      parameter SI.Capacitance C=T/k/R1 "Calculated capacitance to reach T";
       Basic.Resistor                            r1(R=R1)
         annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
       Basic.Resistor                            r2(R=R2)
@@ -1344,11 +1447,23 @@ Different functionality is achieved by different circuits.
         annotation (Line(points={{30,30},{40,30}}, color={0,0,255}));
       connect(opAmp.out, c.p)
         annotation (Line(points={{10,0},{60,0},{60,30}}, color={0,0,255}));
-      annotation (Documentation(info="<html>
+      annotation (defaultComponentName="PI", Documentation(info="<html>
 <p>Inverting proportional-integral controller = PI, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p>Transfer function: <code>vOut/vIn = -k*s/(1 + s*T)</code></p>
 </html>"),     Icon(graphics={
-            Line(points = {{-80.0,-80.0},{-80.0,-20.0},{60.0,80.0}}, color = {0,0,127})}));
+            Polygon(
+              points={{-80,90},{-88,68},{-72,68},{-80,90}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
+            Line(points = {{-80.0,-80.0},{-80.0,-20.0},{60.0,80.0}}, color = {0,0,127}),
+            Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
+            Polygon(
+              points={{90,-80},{68,-72},{68,-88},{90,-80}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid)}));
     end PI;
   end OpAmpCircuits;
 end OpAmps;
