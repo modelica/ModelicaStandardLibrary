@@ -3673,7 +3673,7 @@ For example for a road rising by 10&nbsp;m over 100&nbsp;m the
 grade&nbsp;=&nbsp;10&nbsp;% and, thus, the parameter
 <code>inclinationConstant&nbsp;=&nbsp;0.1</code>.
 Positive inclination means driving uphill, negative inclination means
-driving downhill.
+driving downhill, in case of positive driving speed.
 </p>
 <p>
 <strong>Inclination resistance</strong>
