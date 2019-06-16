@@ -481,16 +481,19 @@ end Connectors;
 <p>In the Modelica documentation sometimes different cases have to be distinguished. If the case distinction refers to Modelica parameters or variables (Boolean expressions) the comparisons should be written in the style of Modelica code within <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
 </p>
 
-<h5>Example 1</h5>
+<h4>Examples</h4>
 
+<h5>Example 1</h5>
+<p>
 <code>&lt;p&gt;If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model...&lt;/p&gt;</code>
+</p>
 
 <p>appears as</p>
 
 <p>If <code>useCage == true</code>, a damper cage is considered in the model...</p>
 
 <p>
-For more complex case scenarios a unordered list should be used. In this case only Modelica specific code segments and Boolean expressions.
+For more complex case scenarios, an unordered list should be used. In this case only Modelica specific code segments and Boolean expressions.
 </p>
 
 <h5>Example 2</h5>
@@ -511,7 +514,7 @@ For more complex case scenarios a unordered list should be used. In this case on
 </ul>
 
 <p>
-In a more equation oriented case additional equations or code segments can be added.
+In a more equation oriented case, additional equations or code segments can be added.
 </p>
 
 <h5>Example 3</h5>
@@ -564,12 +567,14 @@ Modelica code in the HTML documentation.
 <ol>
 <li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
      should to be used, e.g.,<br>
-     <code><strong>parameter</strong> Modelica.SIunits.Time tStart \"Start time\"</code></li>
+     <code><strong>parameter</strong> Modelica.SIunits.Time tStart &quot;Start time&quot;</code></li>
 <li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
 <li> Multi line or single line code shall not be indented.</li>
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
 <li> In code segments use bold to emphasize Modelica keywords.</li>
 </ol>
+
+<h4>Examples</h4>
 
 <h5>Example 1</h5>
 
@@ -577,7 +582,7 @@ Modelica code in the HTML documentation.
 &lt;pre&gt;
 &lt;strong&gt;connector&lt;/strong&gt; Frame
    ...
-   &lt;strong&gt;flow&lt;/strong&gt; SI.Force f[3] &lt;strong&gt;annotation&lt;/strong&gt;(unassignedMessage=\"...\");
+   &lt;strong&gt;flow&lt;/strong&gt; SI.Force f[3] &lt;strong&gt;annotation&lt;/strong&gt;(unassignedMessage=&quot;...&quot;);
 &lt;strong&gt;end&lt;/strong&gt; Frame;
 &lt;/pre&gt;</pre>
 
@@ -586,7 +591,7 @@ Modelica code in the HTML documentation.
 <pre>
 <strong>connector</strong> Frame
    ...
-   <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
+   <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=&quot;...&quot;);
 <strong>end</strong> Frame;
 </pre>
 
@@ -639,8 +644,10 @@ In an <code>alt</code> tag the original equation should be stored, e.g.,</p>
 If one wants to refer to particular variables and parameters in the documentation text, either a
 graphical representation (PNG file) or italic fonts for regular physical symbols and lower case
 <a href=\"http://www.w3.org/TR/html4/sgml/entities.html\">Greek letters</a>
-should be used. Full word variables and full word indices should be spelled within &lt;code&gt; and &lt;/code&gt;.
-Vector and array indices should be typeset as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags.
+should be used. Full word variables and full word indices should be spelled within
+<code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.
+Vector and array indices should be typeset as subscripts using the
+<code>&lt;sub&gt;</code> and <code>&lt;/sub&gt;</code> tags.
 </p>
 
 <p> Examples for such variables and parameters are:
@@ -652,12 +659,12 @@ Vector and array indices should be typeset as subscripts using the &lt;sub&gt; a
 <p>For numbering equations a one row table with two columns should be used. The equation number should be placed in the right column:</p>
 
 <pre>
-&lt;table border=\"0\" cellspacing=\"10\" cellpadding=\"2\"&gt;
+&lt;table border=&quot;0&quot; cellspacing=&quot;10&quot; cellpadding=&quot;2&quot;&gt;
   &lt;tr&gt;
-      &lt;td&gt;&lt;img
-      src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
-      alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
-      &lt;td&gt;(1)&lt;/td&gt;
+    &lt;td&gt;&lt;img
+    src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+    alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
+    &lt;td&gt;(1)&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 </pre>
@@ -693,17 +700,22 @@ Figures should in particular be included to examples to discuss the problems and
 
 <h4>Location of files</h4>
 
+<p>
 The <code>PNG</code> files should be placed in a folder which exactly represents the package structure.
+</p>
+
+<h4>Examples</h4>
 
 <h5>Example 1</h5>
 
 <p>This example shows how an illustration should be embedded in the Example
 <a href=\"modelica://Modelica.Blocks.Examples.PID_Controller\">PID_Controller</a> of the
-<a href=\"modelica://Modelica.Blocks\">Blocks</a> package.</p>
+<a href=\"modelica://Modelica.Blocks\">Blocks</a> package.
+</p>
 
 <pre>
-&lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
-     alt=\"PID_controller.png\"&gt;
+&lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+     alt=&quot;PID_controller.png&quot;&gt;
 </pre>
 
 <h5>Example 2</h5>
@@ -711,12 +723,12 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <p>This is a simple example of a technical figure with caption.</p>
 
 <pre>
-&lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
+&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
-           alt=\"PID_controller.png\"&gt;
+      &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+           alt=&quot;PID_controller.png&quot;&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -729,17 +741,16 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <p>Figures have to be enumerated manually.</p>
 
 <pre>
-&lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;&lt;strong&gt;Fig. 2: &lt;/strong&gt;Caption starts with a capital letter&lt;/caption&gt;
+&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
-           alt=\"PID_controller.png\"&gt;
+      &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+           alt=&quot;PID_controller.png&quot;&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 </pre>
-
 </html>"));
         end Figures;
 
@@ -755,18 +766,24 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <li> For hyperlinks referring to a Modelica component, see Example 1 and 2.</li>
 <li> No links to commercial web sites are allowed.</li>
 </ol>
+
+<h4>Examples</h4>
+
 <h5>Example 1</h5>
+
 <pre>
-&lt;a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\"&gt;
+&lt;a href=&quot;modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&quot;&gt;
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
 <p>appears as</p>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
+
 <h5>Example 2</h5>
+
 <pre>
 &lt;p&gt;
   The feeder cables are connected to an
-  &lt;a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\"&gt;
+  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
 &lt;/p&gt;</pre>
 <p>appears as</p>
@@ -782,17 +799,16 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-<p>
-Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.
-</p>
-
 <ol>
+<li> Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.</li>
 <li> Items of a list shall start with
-<ul>
-    <li> a capital letter if each item is a full sentence</li>
-    <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
-</ul></li>
+     <ol>
+     <li> a capital letter if each item is a full sentence</li>
+     <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
+     </ol></li>
 </ol>
+
+<h4>Examples</h4>
 
 <h5>Example 1</h5>
 
@@ -832,26 +848,25 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-
-<h4>General</h4>
 <ol>
 <li> Refer to references by [1], [Andronov1973], etc. by hyperlink and summarize literature in the references subsection of
      <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Conventions.UsersGuide.References</a>.</li>
 <li> There has to be made at least one citation to each reference.</li>
 </ol>
 
-<h5>Example</h5>
+<h4>Examples</h4>
+
+<h5>Example 1</h5>
 
 <pre>
 &lt;p&gt;
-  More details about sensorless rotor temperature estimation
-  can be found in &lt;a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\"&gt;[Gao2008]&lt;/a.&gt;
+More details about sensorless rotor temperature estimation
+can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;[Gao2008]&lt;/a.&gt;
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
   More details about sensorless rotor temperature estimation can be found in <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">[Gao2008]</a>.
 </p>
-
 </html>"));
         end References;
 
@@ -867,13 +882,15 @@ Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compli
 <li> Table headers and entries start with capital letters.</li>
 </ol>
 
+<h4>Examples</h4>
+
 <h5>Example 1</h5>
 
 <p>This is a simple example of a table.</p>
 
 <pre>
-&lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
+&lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
@@ -912,8 +929,8 @@ has to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong
 and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to be enumerated manually.</p>
 
 <pre>
-&lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;&lt;strong&gt;Tab 2: &lt;/strong&gt;Caption starts with a capital letter&lt;/caption&gt;
+&lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Tab 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
@@ -930,7 +947,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
 </pre>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Tab. 2: </strong>Caption starts with a capital letter</caption>
+  <caption align=\"bottom\"><strong>Tab. 2:</strong> Caption starts with a capital letter</caption>
   <tr>
     <th>Head 1</th>
     <th>Head 2</th>
@@ -944,7 +961,6 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
     <td>Entry 4</td>
   </tr>
 </table>
-
 </html>"));
         end Tables;
         annotation (Documentation(info="<html>
@@ -989,9 +1005,6 @@ The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure
         extends Modelica.Icons.Information;
 
         annotation (Documentation(info="<html>
-
-<h4>General</h4>
-
 <ol>
 <li> In the HTML documentation of any Modelica library, the headings <code>&lt;h1&gt;</code>,
      <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> should not be used, because they are utilized by
@@ -1003,6 +1016,7 @@ The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure
 </ol>
 
 <h4>Structure</h4>
+
 <p>
 The following parts should be added to the documentation of each component:
 </p>
@@ -1050,7 +1064,6 @@ This is an example of a very simple structure.
 </pre>
 
 <h5>Example 3</h5>
-
 <p>
 This example shows a more complex structure with enumeration.
 </p>
@@ -1061,7 +1074,9 @@ This example shows a more complex structure with enumeration.
 &lt;h5&gt;Note 2&lt;/h5&gt;
 ...
 </pre>
+
 <h4>Automatically created documentation</h4>
+
 <p>
 For parameters, connectors, as well as inputs and outputs of function automatic documentation is generated by the tool from the quoted comments.
 </p>
@@ -1176,9 +1191,9 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <h4>Comments and Annotations</h4>
 <p>
 Comments and annotations should start with a capital letter, for example:<br>
-     <code><strong>parameter</strong> Real a = 1 \"Arbitrary factor\";</code>.<br>
-     For Boolean parameters, the description string should start with \"= true: ..\", for example:<br>
-     <code><strong>parameter</strong> Boolean useHeatPort = false \"= true, if heatPort is enabled\";</code>.
+<code><strong>parameter</strong> Real a = 1 &quot;Arbitrary factor&quot;;</code>.<br>
+For Boolean parameters, the description string should start with &quot;= true, &hellip;&quot;, for example:<br>
+<code><strong>parameter</strong> Boolean useHeatPort = false &quot;= true, if heatPort is enabled&quot;;</code>.
 </p>
 </html>"));
        end Format;
@@ -1190,10 +1205,10 @@ Comments and annotations should start with a capital letter, for example:<br>
 
 <ol>
 <li> <strong>Class and instance names</strong> are usually written in upper and lower case
-     letters, e.g., \"ElectricCurrent\". An underscore may be used in names.
+     letters, e.g., &quot;ElectricCurrent&quot;. An underscore may be used in names.
      However, it has to be taken into account that the last underscore in a
      name might indicate that the following characters are rendered as a subscript.
-     Example: \"pin_a\" may be rendered as \"pin<sub>a</sub>\".</li>
+     Example: &quot;pin_a&quot; may be rendered as &quot;pin<sub>a</sub>&quot;.</li>
 
 <li> <strong>Class names</strong> start always with an upper case letter,
      with the exception of functions, that start with a lower case letter.</li>
@@ -1205,7 +1220,7 @@ Comments and annotations should start with a capital letter, for example:<br>
      (such as <code>T</code> for a temperature variable).</li>
 
 <li> <strong>Constant names</strong>, i.e., names of variables declared with the
-     \"constant\" prefix, follow the usual naming conventions
+     &quot;constant&quot; prefix, follow the usual naming conventions
      (= upper and lower case letters) and start usually with an
      upper case letter, e.g., UniformGravity, SteadyState.</li>
 
@@ -1228,7 +1243,7 @@ Comments and annotations should start with a capital letter, for example:<br>
       <th>Variable</th>
       <th>Quantity</th>
     </tr>
-     <tr>
+    <tr>
       <td>a</td>
       <td>acceleration</td>
     </tr>
@@ -1269,12 +1284,12 @@ Comments and annotations should start with a capital letter, for example:<br>
       <td>conductance</td>
     </tr>
     <tr>
-      <td>H</td>
-      <td>enthalpy</td>
-    </tr>
-    <tr>
       <td>h</td>
       <td>height, specificEnthalpy</td>
+    </tr>
+    <tr>
+      <td>H</td>
+      <td>enthalpy</td>
     </tr>
     <tr>
       <td>HFlow</td>
@@ -1309,12 +1324,12 @@ Comments and annotations should start with a capital letter, for example:<br>
       <td>massFlow</td>
     </tr>
     <tr>
-      <td>P</td>
-      <td>power</td>
-    </tr>
-    <tr>
       <td>p</td>
       <td>pressure</td>
+    </tr>
+    <tr>
+      <td>P</td>
+      <td>power</td>
     </tr>
     <tr>
       <td>Q</td>
@@ -1415,7 +1430,7 @@ This class summarizes general information about the implementation which is not 
 <ul>
 <li> Journal (or conference) [Gao2008]</li>
 <li> Book [Andronov1973]</li>
-<li> Master's thesis [Woehrnschimmel1998]</li>
+<li> Master&apos;s thesis [Woehrnschimmel1998]</li>
 <li> PhD thesis [Farnleitner1999]</li>
 <li> Technical report [Marlino2005]</li>
 </ul>
@@ -1426,91 +1441,101 @@ This class summarizes general information about the implementation which is not 
 
 <pre>
 &lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Gao2008]&lt;/td&gt;
-      &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;A sensorless rotor temperature estimator for induction
-                 machines based on a current harmonic spectral
-                 estimation scheme,&quot;
+  &lt;tr&gt;
+    &lt;td&gt;[Gao2008]&lt;/td&gt;
+    &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
+        &amp;quot;A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral
+        estimation scheme&amp;quot;,
         &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
-        vol. 55, no. 1, pp. 407-416, Jan. 2008.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Andronov1973]&lt;/td&gt;
-      &lt;td&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;em&gt;,
-        1st ed. New York: J. Wiley &amp; Sons, 1973.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Woehrnschimmel1998]&lt;/td&gt;
-      &lt;td&gt;R. W&amp;ouml;hrnschimmel,
-        &quot;Simulation, modeling and fault detection for vector
-              controlled induction machines,&quot;
-        Master&#39;s thesis, Vienna University of Technology,
-        Vienna, Austria, 1998.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Farnleitner1999]&lt;/td&gt;
-      &lt;td&gt;E. Farnleitner,
-        &quot;Computational Fluid dynamics analysis for rotating
-              electrical machinery,&quot;
-        Ph.D. dissertation, University of Leoben,
-        Department of Applied Mathematics, Leoben, Austria, 1999.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;[Marlino2005]&lt;/td&gt;
-      &lt;td&gt;L. D. Marlino,
-        &quot;Oak ridge national laboratory annual progress report for the
-              power electronics and electric machinery program,&quot;
+        vol. 55, no. 1, pp. 407-416, Jan. 2008.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;[Andronov1973]&lt;/td&gt;
+    &lt;td&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
+        &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;/em&gt;,
+        1st ed. New York: J. Wiley &amp;amp; Sons, 1973.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;[Woehrnschimmel1998]&lt;/td&gt;
+    &lt;td&gt;R. W&amp;ouml;hrnschimmel,
+        &amp;quot;Simulation, modeling and fault detection for vector
+        controlled induction machines&amp;quot;,
+        Master&amp;apos;s thesis, Vienna University of Technology,
+        Vienna, Austria, 1998.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;[Farnleitner1999]&lt;/td&gt;
+    &lt;td&gt;E. Farnleitner,
+      &amp;quot;Computational Fluid dynamics analysis for rotating
+      electrical machinery&amp;quot;,
+      Ph.D. dissertation, University of Leoben,
+      Department of Applied Mathematics, Leoben, Austria, 1999.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;[Marlino2005]&lt;/td&gt;
+    &lt;td&gt;L. D. Marlino,
+      &amp;quot;Oak ridge national laboratory annual progress report for the
+      power electronics and electric machinery program&amp;quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;</pre>
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
 
 <p>appears as</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-    <tr>
-      <td>[Gao08]</td>
-      <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
+  <tr>
+    <td>[Gao2008]</td>
+    <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
         &quot;A sensorless rotor temperature estimator for induction
-                 machines based on a current harmonic spectral
-                 estimation scheme,&quot;
+        machines based on a current harmonic spectral
+        estimation scheme&quot;,
         <em>IEEE Transactions on Industrial Electronics</em>,
-        vol. 55, no. 1, pp. 407-416, Jan. 2008.</td>
-    </tr>
-    <tr>
-      <td>[Andronov1973]</td>
-      <td>A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
+        vol. 55, no. 1, pp. 407-416, Jan. 2008.
+    </td>
+  </tr>
+  <tr>
+    <td>[Andronov1973]</td>
+    <td>A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
         <em>Theory of  Bifurcations of Dynamic Systems on a plane</em>,
-        1st ed. New York: J. Wiley &amp; Sons, 1973.</td>
-    </tr>
-    <tr>
-      <td>[Woehrnschimmel1998]</td>
-      <td>R. W&ouml;hrnschimmel,
+        1st ed. New York: J. Wiley &amp; Sons, 1973.
+    </td>
+  </tr>
+  <tr>
+    <td>[Woehrnschimmel1998]</td>
+    <td>R. W&ouml;hrnschimmel,
         &quot;Simulation, modeling and fault detection for vector
-              controlled induction machines,&quot;
-        Master&#39;s thesis, Vienna University of Technology,
-        Vienna, Austria, 1998.</td>
-    </tr>
-    <tr>
-      <td>[Farnleitner1999]</td>
-      <td>E. Farnleitner,
-        &quot;Computational Fluid dynamics analysis for rotating
-              electrical machinery,&quot;
-        Ph.D. dissertation, University of Leoben,
-        Department of Applied Mathematics, Leoben, Austria, 1999.</td>
-    </tr>
-    <tr>
-      <td>[Marlino2005]</td>
-      <td>L. D. Marlino,
-        &quot;Oak ridge national laboratory annual progress report for the
-              power electronics and electric machinery program,&quot;
+        controlled induction machines&quot;,
+        Master&apos;s thesis, Vienna University of Technology,
+        Vienna, Austria, 1998.
+    </td>
+  </tr>
+  <tr>
+    <td>[Farnleitner1999]</td>
+    <td>E. Farnleitner,
+      &quot;Computational Fluid dynamics analysis for rotating
+      electrical machinery&quot;,
+      Ph.D. dissertation, University of Leoben,
+      Department of Applied Mathematics, Leoben, Austria, 1999.
+    </td>
+  </tr>
+  <tr>
+    <td>[Marlino2005]</td>
+    <td>L. D. Marlino,
+      &quot;Oak ridge national laboratory annual progress report for the
+      power electronics and electric machinery program&quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.</td>
-    </tr>
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+    </td>
+  </tr>
 </table>
-
 </html>"));
       end References;
 
@@ -1739,6 +1764,7 @@ The authors would like to thank following persons for their support ...
 In the Modelica Standard Library the following color schemes apply:</p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\">Color schemes applied to particular libraries</caption>
   <tr>
     <th>Package</th>
     <th>Color RGB code</th>
@@ -1881,11 +1907,21 @@ In the Modelica Standard Library the following color schemes apply:</p>
 <p>If possible, the icon shall be designed such way, that the icon name <code>%name</code>
 and the most significant parameter can be displayed within the vertical Diagram range of the icon.</p>
 
-<p>
-(a) <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\">
-(b) <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"><br>
-Fig. 1: (a) Typical icon, (b) including dimensions
-</p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</caption>
+  <tr>
+    <td> (a)
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
+           alt=\"Typical placement of component name\">
+    </td>
+  </tr>
+  <tr>
+    <td> (b)
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
+           alt=\"Typical dimensions of icon and its entities\">
+    </td>
+  </tr>
+</table>
 
 <h4>Component Name</h4>
 
@@ -1895,36 +1931,51 @@ Fig. 1: (a) Typical icon, (b) including dimensions
 <li>Text width: 300 units</li>
 </ul>
 <p>The text shall be located above the actual icon. If there is enough space, the upper text limit of the component name
-shall be 10 units below the upper icon boundary, see Fig. 1.</p>
+shall be 10 units below the upper icon boundary, see <strong>Fig.&nbsp;1</strong>.</p>
 
 <p>If the icon is as big as the entire icon range of 200 units x 200 units, e.g. in blocks,
-the component name shall be placed above the icon with vertical 10 units of space between icon and lower text box, see Fig. 2.</p>
+the component name shall be placed above the icon with vertical 10 units of space between icon and lower text box, see <strong>Fig.&nbsp;2</strong>.</p>
 
-<p>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"><br>
-Fig. 2: Block component name
-</p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 2</strong>: Block component name</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
+           alt=\"Placement of block component name\">
+    </td>
+  </tr>
+</table>
 
 <p>If there is a connector located at the top icon boundary and it is obvious that this connector influences the model
 behavior compared to a similar model without such connector, then a line from the connector to the actual icon
-shall be avoided to keep the design straight, see Fig. 4. If it is required to use a line indicating the connector dependency, then
+shall be avoided to keep the design straight, see <strong>Fig.&nbsp;4</strong>. If it is required to use a line indicating the connector dependency, then
 the line shall be interrupted such that this line does not interfere with component name.</p>
 
-<p>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"><br>
-Fig. 3: Component name between actual icon and connector
-</p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 3</strong>: Component name between actual icon and connector</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
+           alt=\"Component name placed between actual icon and connector\">
+    </td>
+  </tr>
+</table>
 
-<p>In some cases, if there is not alternative, the component name has to be placed below the actual icon, see. Fig. 4.</p>
+<p>In some cases, if there is not alternative, the component name has to be placed below the actual icon, see. <strong>Fig.&nbsp;4</strong>.</p>
 
-<p>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"><br>
-Fig. 4: Component name below actual icon
-</p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 4</strong>: Component name below actual icon</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
+           alt=\"Icon with name placed below it\">
+    </td>
+  </tr>
+</table>
 
 <h4>Parameter Name</h4>
 
-<p>One significant parameter shall be placed below the icon, see Fig. 1 and 2. The parameter name shall be RGB (0,0,0) black color.</p>
+<p>One significant parameter shall be placed below the icon, see <strong>Fig.&nbsp;1</strong> and <strong>Fig.&nbsp;2</strong>. The parameter name shall be RGB (0,0,0) black color.</p>
 <ul>
 <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
 <li>Text width: 300 units</li>
@@ -1934,25 +1985,28 @@ Fig. 4: Component name below actual icon
 
 <h4>Connector location</h4>
 
-<p>Physical connectors shall always be located on the icon boundary. Input and output connector shall be placed outside the icon, see Fig. 2 and 3.
+<p>Physical connectors shall always be located on the icon boundary. Input and output connector shall be placed outside the icon, see <strong>Fig.&nbsp;2</strong> and <strong>Fig.&nbsp;3</strong>.
 Preferred connector locations are:</p>
 <ul>
-<li>at the four corners of the icon diagram, see Fig. 5</li>
-<li>at vertical or horizontal symmetry line of an icon, see Fig. 1-3</li>
-<li>alternative connection points shall be located in a raster of 20 units (or 10 units) if required, see Fig. 4</li>
+<li>at the four corners of the icon diagram, see <strong>Fig.&nbsp;5</strong></li>
+<li>at vertical or horizontal symmetry line of an icon, see <strong>Fig.&nbsp;1&ndash;3</strong></li>
+<li>alternative connection points shall be located in a raster of 20 units (or 10 units) if required, see <strong>Fig.&nbsp;4</strong></li>
 </ul>
 
-<p>
-<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"><br>
-Fig. 5: Connectors located at the four corners of the icon diagram
-</p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+  </tr>
+</table>
 
 <h4>Diagram icons</h4>
 
 <p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the
 icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
-
-
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
