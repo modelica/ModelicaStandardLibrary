@@ -1136,6 +1136,10 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
   </tr>
   <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=141-02-10\">star point</a></td>
+    <td>star-point, starpoint</td>
+  </tr>
+  <tr>
     <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=811-12-22\">three-phase</a></td>
     <td>three phase, threephase, 3 phase, 3-phase</td>
   </tr>
