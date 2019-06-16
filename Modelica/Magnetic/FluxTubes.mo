@@ -4,7 +4,7 @@ package FluxTubes
 
   import SI = Modelica.SIunits;
   import Modelica.Constants.pi;
-  import mu_0 = Modelica.Constants.mu_0;
+  import        Modelica.Constants.mu_0;
 
   extends Modelica.Icons.Package;
 
@@ -5321,7 +5321,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
         parameter SI.MagneticFluxDensity Js = 1.8 "Saturation polarization" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/SoftMagneticHysteresis2.png"));
         parameter SI.MagneticFluxDensity Br=0.9 "Remanence" annotation (Dialog(group="Hysteresis"));
         parameter SI.MagneticFieldStrength Hc=120 "Coercitivity" annotation (Dialog(group="Hysteresis"));
-        parameter Real K=1 "mu_0 multiplier" annotation (Dialog(group="Hysteresis"));
+        parameter Real K=1 "Slope of hysteresis in the saturation region (K*mu_0)" annotation (Dialog(group="Hysteresis"));
 
         extends Interfaces.PartialGenericHysteresisTellinen(mu0=K*mu_0);
 
@@ -5359,7 +5359,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
         parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
         parameter SI.MagneticFieldStrength Hc=5e5 "Coercitivity" annotation (Dialog(group="Hysteresis"));
         parameter Real M = 10/Hc "Slope of tanh()-function" annotation (Dialog(group="Hysteresis"));
-        parameter Real K=1 "mu_0 multiplier" annotation (Dialog(group="Hysteresis"));
+        parameter Real K=1 "Slope of hysteresis in the saturation region (K*mu_0)" annotation (Dialog(group="Hysteresis"));
 
       protected
         final parameter SI.MagneticFluxDensity eps = Br/1000;
