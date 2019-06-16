@@ -1724,7 +1724,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       parameter Real cr=0.01 "Rolling resistance coefficient";
       //Check nominal force
       parameter Real inclination=0 "Constant inclination = tan(angle)";
-      parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nominal speed";
+      parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nominal velocity";
       final parameter Modelica.SIunits.Force FDrag=cw*A*rho*(vNom - vWind)^2/2 "Drag resistance"
         annotation(Dialog(enable=false));
       final parameter Modelica.SIunits.Angle alpha=atan(inclination) "Inclination angle"
@@ -1811,10 +1811,10 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       annotation (experiment(StopTime=60, Interval=0.01), Documentation(info="<html>
 <p>
 A vehicle is accelerated and decelerated by a driving torque. 
-Nominal torque is defined as the sum of driving resistances at nominal speed times wheel radius. 
+Nominal torque is defined as the sum of driving resistances at nominal velocity times wheel radius. 
 </p>
 <p>
-Starting at 5 s, a vehicle is accelerated by a multiple of nominal torque until it nearly reaches nominal speed, then driven by nominal torque. 
+Starting at 5 s, a vehicle is accelerated by a multiple of nominal torque until it nearly reaches nominal velocity, then driven by nominal torque. 
 Between 20 s and 25 s, an inclination of 5% occurs and driving torque is increased to a multiple of nominal torque temporarily. 
 Between 50 s and 55 s, the driving torque is set below zero, causing the vehicle to decelerate. 
 After 55 s, the vehicle decelerates due to the driving resistances.
@@ -3648,8 +3648,8 @@ fDrag = cw*rho*A*(v - vWind)^2/2
 </pre>
 </blockquote>
 <p>
-Wind speed is measured in the same direction as velocity of <code>flange</code>.
-Wind speed is either constant or prescribed by the input <code>vWind</code>.
+Wind velocity is measured in the same direction as velocity of <code>flange</code>.
+Wind velocity is either constant or prescribed by the input <code>vWind</code>.
 </p>
 <p>
 <strong>Rolling resistance</strong>
@@ -3662,7 +3662,7 @@ fRoll = cr*m*g*cos(alpha)
 <p>
 Rolling resistance coeffcient&nbsp;<var>cr</var> is either constant
 or prescribed by the input <code>cr</code>.
-Rolling resistance has a crossover from positive to negative speed within <code>[-vReg, vReg]</code>.
+Rolling resistance has a crossover from positive to negative velocity within <code>[-vReg, vReg]</code>.
 </p>
 <p>
 The inclination angle&nbsp;<var>&alpha;</var> is either constant or prescribed by
@@ -3673,7 +3673,7 @@ For example for a road rising by 10&nbsp;m over 100&nbsp;m the
 grade&nbsp;=&nbsp;10&nbsp;% and, thus, the parameter
 <code>inclinationConstant&nbsp;=&nbsp;0.1</code>.
 Positive inclination means driving uphill, negative inclination means
-driving downhill, in case of positive driving speed.
+driving downhill, in case of positive vehicle velocity.
 </p>
 <p>
 <strong>Inclination resistance</strong>
