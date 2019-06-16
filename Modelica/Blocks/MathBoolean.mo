@@ -7,9 +7,9 @@ block MultiSwitch
     "Set Boolean expression that is associated with the first active input signal"
 
   input Boolean expr[nu]=fill(false, nu)
-      "y = if u[i] then expr[i] else y_default (time varying)" annotation(Dialog);
+      "Sets y = if u[i] then expr[i] else y_default (time varying)" annotation(Dialog);
   parameter Boolean use_pre_as_default=true
-      "set true to hold last value as default (y_default = pre(y))"
+      "Set true to hold last value as default (y_default = pre(y))"
         annotation(HideResult=true, choices(checkBox=true));
   parameter Boolean y_default=false
       "Default value of output y if all u[i] = false"

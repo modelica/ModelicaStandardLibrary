@@ -161,13 +161,13 @@ is forced back to its limit after a transient phase.
 
   model Filter "Demonstrates the Continuous.Filter block with various options"
     extends Modelica.Icons.Example;
-    parameter Integer order=3;
-    parameter Modelica.SIunits.Frequency f_cut=2;
+    parameter Integer order=3 "Number of order of filter";
+    parameter Modelica.SIunits.Frequency f_cut=2 "Cut-off freuquency";
     parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
       "Type of filter (LowPass/HighPass)";
     parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
       "Type of initialization (no init/steady state/initial state/initial output)";
-    parameter Boolean normalized=true;
+    parameter Boolean normalized=true "= true, if amplitude at f_cut = -3db, otherwise unmodified filter";
 
     Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
       annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
@@ -241,7 +241,7 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
   model FilterWithDifferentiation
     "Demonstrates the use of low pass filters to determine derivatives of filters"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Frequency f_cut=2;
+    parameter Modelica.SIunits.Frequency f_cut=2 "Cut-off frequency";
 
     Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));

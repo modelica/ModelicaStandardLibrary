@@ -3610,8 +3610,8 @@ provide both values as output.
   block LinearDependency "Output a linear combination of the two inputs"
     extends Modelica.Blocks.Interfaces.SI2SO;
     parameter Real y0=0 "Initial value";
-    parameter Real k1=0 "u1 dependency";
-    parameter Real k2=0 "u2 dependency";
+    parameter Real k1=0 "Gain of u1";
+    parameter Real k2=0 "Gain of u2";
   equation
     y = y0*(1 + k1*u1 + k2*u2);
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,

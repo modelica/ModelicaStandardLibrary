@@ -1466,7 +1466,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\
       "= true: y = noise, otherwise y = y_off"
       annotation(choices(checkBox=true),Dialog(tab="Advanced",group="Noise generation"));
     parameter Real y_off = 0.0
-      "y = y_off if enableNoise=false (or time<startTime, see below)"
+      "Sets y = y_off if enableNoise=false (or time<startTime, see below)"
       annotation(Dialog(tab="Advanced",group="Noise generation"));
 
     // Advanced dialog menu: Initialization
