@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package ComplexBlocks
   "Library of basic input/output control blocks with Complex signals"
   extends Modelica.Icons.Package;
@@ -36,6 +36,13 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
+
+<h5>Version 4.0.0</h5>
+<ul>
+<li>Unify color scheme of icons, see
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2833\">#2833</a></li>
+</ul>
+
 
 <h5>Version 3.2.2</h5>
 
@@ -162,7 +169,7 @@ Plot the magnitude locus (in dB) dB versus lg_w and the phase locus versus lg_w.
             fillColor={85,170,255},
             fillPattern=FillPattern.Solid), Text(
             extent={{-10,85},{-10,60}},
-            lineColor={0,0,127},
+            lineColor={85,170,255},
             textString="%name")}),
       Documentation(info="<html>
 <p>
@@ -186,7 +193,7 @@ Connector with one input signal of type Complex.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid), Text(
             extent={{30,110},{30,60}},
-            lineColor={0,0,127},
+            lineColor={85,170,255},
             textString="%name")}),
       Documentation(info="<html>
 <p>
@@ -437,12 +444,12 @@ This block computes output <code>y</code> as
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
                   points={{-40,0},{40,0}},
-                  color={0,0,255}),Line(
+                  color={0,0,0}),  Line(
                   points={{-40,0},{40,0}},
-                  color={0,0,255},
+                  color={0,0,0},
                   rotation=60),Line(
                   points={{-40,0},{40,0}},
-                  color={0,0,255},
+                  color={0,0,0},
                   rotation=120)}));
     end Conj;
 
@@ -473,24 +480,17 @@ input <code>u</code>. Optionally, the input <code>u</code> can be processed conj
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
-                  points={{-100,-100},{-100,100},{100,0},{-100,-100}},
-                  lineColor={0,0,127},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
+              points={{-100,-100},{-100,100},{100,0},{-100,-100}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),    Text(
                   extent={{-150,-140},{150,-100}},
                   textString="k=%k"),Text(
                   extent={{-150,140},{150,100}},
                   textString="%name",
                   lineColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Polygon(
-                  points={{-100,-100},{-100,100},{100,0},{-100,-100}},
-                  lineColor={0,0,127},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-76,38},{0,-34}},
-                  textString="k",
-                  lineColor={0,0,255})}));
+                {100,100}})));
     end Gain;
 
     block Sum "Output the sum of the elements of the input vector"
@@ -526,25 +526,23 @@ Example:
                 100,100}}), graphics={Line(
                   points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Rectangle(
-                  extent={{-100,-100},{100,100}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}));
+                {100,100}})));
     end Sum;
 
     block Feedback
       "Output difference between commanded input 1 and feedback input 2"
 
-      Interfaces.ComplexInput u1 annotation (Placement(transformation(extent={{
-                -100,-20},{-60,20}})));
+      Interfaces.ComplexInput u1 annotation (Placement(transformation(extent={{-100,
+                -20},{-60,20}}), iconTransformation(extent={{-100,-20},{-60,20}})));
       Interfaces.ComplexInput u2 annotation (Placement(transformation(
-            origin={0,-80},
+            origin={0,-100},
             extent={{-20,-20},{20,20}},
-            rotation=90)));
-      Interfaces.ComplexOutput y annotation (Placement(transformation(extent={{
-                80,-10},{100,10}})));
+            rotation=90), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={0,-80})));
+      Interfaces.ComplexOutput y annotation (Placement(transformation(extent={{80,-10},
+                {100,10}}), iconTransformation(extent={{80,-10},{100,10}})));
 
       parameter Boolean useConjugateInput1=false
         "If true, input 1 is processed conjugate complex";
@@ -583,26 +581,21 @@ result in the following equation:
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
                   extent={{-20,20},{20,-20}},
-                  lineColor={0,0,127},
+                  lineColor={85,170,255},
                   fillColor={235,235,235},
                   fillPattern=FillPattern.Solid),Line(points={{-60,0},{-20,0}},
-              color={0,0,127}),Line(points={{20,0},{80,0}}, color={0,0,127}),
-              Line(points={{0,-20},{0,-60}}, color={0,0,127}),Text(
-                  extent={{-14,0},{82,-94}},
-                  textString="-"),Text(
+              color={85,170,255}),
+                               Line(points={{20,0},{80,0}}, color={85,170,255}),
+              Line(points={{0,-20},{0,-60}}, color={85,170,255}),
+                                  Text(
                   extent={{-150,94},{150,44}},
                   textString="%name",
-                  lineColor={0,0,255})}),
+                  lineColor={0,0,255}),                       Text(
+                  extent={{20,-20},{100,-100}},
+              lineColor={0,0,0},
+              textString="-")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Ellipse(
-                  extent={{-20,20},{20,-20}},
-                  fillColor={235,235,235},
-                  fillPattern=FillPattern.Solid,
-                  lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,0,255}),
-              Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points=
-               {{0,-20},{0,-60}}, color={0,0,255}),Text(
-                  extent={{-12,10},{84,-84}},
-                  textString="-")}));
+                {100,100}})));
     end Feedback;
 
     block Add "Output the sum of the two inputs"
@@ -641,25 +634,15 @@ result in the following equation:
                 100,100}}), graphics={Text(extent={{-98,-52},{5,-92}},
                 textString="%k2"), Text(extent={{-98,92},{5,52}}, textString="%k1"),
                 Line(points={{50,0},{100,0}},color={0,0,255}),
-                Line(points={{-100,60},{-74,24},{-44,24}},color={0,0,127}),
-                Line(points={{-100,-60},{-74,-24},{-44,-24}},color={0,0,127}),
-                Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
-                Line(points={{50,0},{100,0}}, color={0,0,127}),
-                Text(extent={{-40,40},{40,-40}},textString="+")}),
+                Line(points={{-100,60},{-74,24},{-44,24}},color={85,170,255}),
+                Line(points={{-100,-60},{-74,-24},{-44,-24}},color={85,170,255}),
+                Ellipse(extent={{-50,50},{50,-50}}, lineColor={85,170,255}),
+                Line(points={{50,0},{100,0}}, color={85,170,255}),
+                Text(extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Rectangle(
-                  extent={{-100,-100},{100,100}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
-                  Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
-                  Line(points={{50,0},{100,0}},color={0,0,255}),
-                  Line(points={{-100,60},{-74,24},{-44,24}},color={0,0,255}),
-                  Line(points={{-100,-60},{-74,-24},{-44,-24}}, color={0,0,255}),
-                  Line(points={{50,0},{100,0}},color={0,0,255}),
-                  Text(extent={{-40,40},{40,-40}},textString="+"),
-                  Text(extent={{-100,52},{5,92}}, textString="k1"),
-                  Text(extent={{-100,-52},{5,-92}}, textString="k2")}));
+                {100,100}})));
     end Add;
 
     block Add3 "Output the sum of the three inputs"
@@ -721,20 +704,15 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Text(extent={{-98,50},{5,90}}, textString="%k1"),
+                100,100}}), graphics={Text(extent={{-98,50},{5,90}}, textString
+                =                                                               "%k1"),
                 Text(extent={{-98,-20},{5,20}}, textString="%k2"),
                 Text(extent={{-98,-50},{5,-90}}, textString="%k3"),
-                Text(extent={{10,40},{90,-40}}, textString="+")}),
+                Text(extent={{10,40},{90,-40}},
+              lineColor={0,0,0},
+              textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Rectangle(
-                  extent={{-100,-100},{100,100}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
-                  Text(extent={{10,40},{90,-40}}, textString="+"),
-                  Text(extent={{-100,50},{5,90}}, textString="k1"),
-                  Text(extent={{-100,-20},{5,20}}, textString="k2"),
-                  Text(extent={{-100,-50},{5,-90}}, textString="k3")}));
+                {100,100}})));
     end Add3;
 
     block Product "Output product of the two inputs"
@@ -757,24 +735,16 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,60},{-40,60},{-30,40}},
-              color={0,0,127}),Line(points={{-100,-60},{-40,-60},{-30,-40}},
-              color={0,0,127}),Line(points={{50,0},{100,0}}, color={0,0,127}),
+              color={85,170,255}),
+                               Line(points={{-100,-60},{-40,-60},{-30,-40}},
+              color={85,170,255}),
+                               Line(points={{50,0},{100,0}}, color={85,170,255}),
               Line(points={{-30,0},{30,0}}),Line(points={{-15,
               25.99},{15,-25.99}}),Line(points={{-15,-25.99},{15,
               25.99}}),Ellipse(extent={{-50,50},{50,-50}},
-              lineColor={0,0,127})}),
+              lineColor={85,170,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Rectangle(
-                  extent={{-100,-100},{100,100}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,60},{-40,60},
-              {-30,40}}, color={0,0,255}),Line(points={{-100,-60},{-40,-60},{-30,
-              -40}}, color={0,0,255}),Line(points={{50,0},{100,0}}, color={0,0,255}),
-              Line(points={{-30,0},{30,0}}),Line(points={{
-              -15,25.99},{15,-25.99}}),Line(points={{-15,-25.99},
-              {15,25.99}}),Ellipse(extent={{-50,50},{50,-50}},
-              lineColor={0,0,255})}));
+                {100,100}})));
     end Product;
 
     block Division "Output first input divided by second input"
@@ -803,12 +773,12 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
-              Line(points={{-100,60},{-60,60},{0,0}}, color={0,0,127}),
-              Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127}),
-              Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127},
+              Line(points={{-100,60},{-60,60},{0,0}}, color={85,170,255}),
+              Line(points={{-100,-60},{-60,-60},{0,0}}, color={85,170,255}),
+              Ellipse(extent={{-50,50},{50,-50}}, lineColor={85,170,255},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
-              Line(points={{50,0},{100,0}}, color={0,0,127}),
+              Line(points={{50,0},{100,0}}, color={85,170,255}),
               Line(points={{-30,0},{30,0}}),Ellipse(
                   extent={{-5,20},{5,30}},
                   fillPattern=FillPattern.Solid),Ellipse(
@@ -819,20 +789,8 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
               lineColor={128,128,128},
               textString="u1 / u2")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Rectangle(
-                  extent={{-100,-100},{100,100}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
-              color={0,0,255}),Line(points={{-30,0},{30,0}}),
-              Ellipse(
-                  extent={{-5,20},{5,30}},
-                  fillPattern=FillPattern.Solid),Ellipse(
-                  extent={{-5,-20},{5,-30}},
-                  fillPattern=FillPattern.Solid),Ellipse(extent={{-50,50},{50,-50}},
-              lineColor={0,0,255}),Line(points={{-100,60},{-40,60},{-30,40}},
-              color={0,0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}},color=
-              {0,0,255})}));
+                {100,100}}), graphics={          Line(points={{50,0},{100,0}},
+              color={0,0,255})}));
     end Division;
 
     block Sqrt
@@ -861,26 +819,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   lineColor={192,192,192},
                   textString="sqrt")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-92,-80},{84,-80}}, color=
-              {192,192,192}),Polygon(
-                  points={{100,-80},{84,-74},{84,-86},{100,-80}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
-              -68.7},{-78.4,-64},{-76.8,-57.3},{-73.6,-47.9},{-67.9,-36.1},{-59.1,
-              -22.2},{-46.2,-6.49},{-28.5,10.7},{-4.42,30},{27.7,51.3},{69.5,
-              74.7},{80,80}}),Polygon(
-                  points={{-80,98},{-86,82},{-74,82},{-80,98}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,-90},{-80,84}},
-              color={192,192,192}),Text(
-                  extent={{-71,98},{-44,78}},
-                  lineColor={160,160,164},
-                  textString="y"),Text(
-                  extent={{60,-52},{84,-72}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>
@@ -918,38 +857,7 @@ as <em>square root</em> of the input <code>u</code> (= principal square root of 
                   lineColor={192,192,192},
                   textString="sin")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={
-              192,192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
-              Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
-                  extent={{-75,98},{-46,78}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{-80,96},{-86,80},{-74,80},{-80,96}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,0},{84,0}},
-              color={192,192,192}),Polygon(
-                  points={{100,0},{84,6},{84,-6},{100,0}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,0},{-68.7,
-              34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,74.6},{-43.8,79.1},{-38.2,
-              79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,59.4},{-14.9,44.1},{-6.83,
-              21.2},{10.1,-30.8},{17.3,-50.2},{23.7,-64.2},{29.3,-73.1},{35,-78.4},
-              {40.6,-80},{46.2,-77.6},{51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{
-              72,-24.8},{80,0}}),Text(
-                  extent={{-105,72},{-85,88}},
-                  textString="1",
-                  lineColor={0,0,255}),Text(
-                  extent={{70,25},{90,5}},
-                  textString="2*pi",
-                  lineColor={0,0,255}),Text(
-                  extent={{-105,-72},{-85,-88}},
-                  textString="-1",
-                  lineColor={0,0,255}),Text(
-                  extent={{76,-10},{98,-30}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>
@@ -992,37 +900,7 @@ as <strong>sine</strong> of the input <code>u</code>. Optionally, the input <cod
                   lineColor={192,192,192},
                   textString="cos")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={
-              192,192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
-              Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
-                  extent={{-75,102},{-48,82}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{-80,100},{-86,84},{-74,84},{-80,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-103,72},{-83,88}},
-                  textString="1",
-                  lineColor={0,0,255}),Text(
-                  extent={{-79,-72},{-59,-88}},
-                  textString="-1",
-                  lineColor={0,0,255}),Text(
-                  extent={{70,25},{90,5}},
-                  textString="2*pi",
-                  lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={
-              192,192,192}),Polygon(
-                  points={{100,0},{84,6},{84,-6},{100,0}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,80},{-74.4,
-              78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},{-48.6,26.6},{-29.3,-32.5},
-              {-22.1,-51.7},{-15.7,-65.3},{-10.1,-73.8},{-4.42,-78.8},{1.21,-79.9},
-              {6.83,-77.1},{12.5,-70.6},{18.1,-60.6},{24.5,-45.7},{32.6,-23},{
-              50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}),Text(
-                  extent={{74,-4},{98,-24}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>
@@ -1065,37 +943,7 @@ as <strong>cos</strong> of the input <code>u</code>. Optionally, the input <code
                   lineColor={192,192,192},
                   textString="tan")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
-              Line(points={{0,-80},{-8,-80}}, color={192,192,192}),
-              Line(points={{0,-88},{0,86}}, color={192,192,192}),Text(
-                  extent={{11,100},{38,80}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{0,102},{-6,86},{6,86},{0,102}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-37,-72},{-17,-88}},
-                  textString="-5.8",
-                  lineColor={0,0,255}),Text(
-                  extent={{-33,86},{-13,70}},
-                  textString=" 5.8",
-                  lineColor={0,0,255}),Text(
-                  extent={{70,25},{90,5}},
-                  textString="1.4",
-                  lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={
-              192,192,192}),Polygon(
-                  points={{100,0},{84,6},{84,-6},{100,0}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-78.4,
-              -68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,-40.9},{-67.1,-33},{-60.7,
-              -24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,-1.07},{33.4,9.12},{
-              49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,39.1},{73.6,47.4},{76,
-              56.1},{77.6,63.8},{80,80}}),Text(
-                  extent={{70,-6},{94,-26}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>
@@ -1136,39 +984,7 @@ as <strong>tan</strong> of the input <code>u</code>. Optionally, the input <code
                   lineColor={192,192,192},
                   textString="asin")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
-              Line(points={{0,-80},{-8,-80}}, color={192,192,192}),
-              Line(points={{0,-90},{0,84}}, color={192,192,192}),Text(
-                  extent={{9,102},{36,82}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{0,100},{-6,84},{6,84},{0,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-40,-72},{-15,-88}},
-                  textString="-pi/2",
-                  lineColor={0,0,255}),Text(
-                  extent={{-38,88},{-13,72}},
-                  textString=" pi/2",
-                  lineColor={0,0,255}),Text(
-                  extent={{70,25},{90,5}},
-                  textString="+1",
-                  lineColor={0,0,255}),Text(
-                  extent={{-90,21},{-70,1}},
-                  textString="-1",
-                  lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={
-              192,192,192}),Polygon(
-                  points={{100,0},{84,6},{84,-6},{100,0}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
-              -72.8},{-77.6,-67.5},{-73.6,-59.4},{-66.3,-49.8},{-53.5,-37.3},{-30.2,
-              -19.7},{37.4,24.8},{57.5,40.8},{68.7,52.7},{75.2,62.2},{77.6,67.5},
-              {80,80}}),Text(
-                  extent={{74,-4},{100,-26}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
@@ -1210,36 +1026,7 @@ This blocks computes the output <code>y</code> as the
                   lineColor={192,192,192},
                   textString="acos")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
-              Line(points={{0,-80},{-8,-80}}, color={192,192,192}),
-              Line(points={{0,-90},{0,84}}, color={192,192,192}),Text(
-                  extent={{13,100},{42,82}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{0,100},{-6,84},{6,84},{0,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,-80},{84,-80}},
-              color={192,192,192}),Polygon(
-                  points={{100,-80},{84,-74},{84,-86},{100,-80}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,80},{-79.2,
-              72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,49.8},{-53.5,37.3},{-30.2,
-              19.7},{37.4,-24.8},{57.5,-40.8},{68.7,-52.7},{75.2,-62.2},{77.6,-67.5},
-              {80,-80}}),Text(
-                  extent={{-30,88},{-5,72}},
-                  textString=" pi",
-                  lineColor={0,0,255}),Text(
-                  extent={{-94,-57},{-74,-77}},
-                  textString="-1",
-                  lineColor={0,0,255}),Text(
-                  extent={{80,-45},{100,-65}},
-                  textString="+1",
-                  lineColor={0,0,255}),Text(
-                  extent={{76,-84},{102,-102}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
@@ -1281,40 +1068,7 @@ This blocks computes the output <code>y</code> as the
                   lineColor={192,192,192},
                   textString="atan")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
-              Line(points={{0,-80},{-8,-80}}, color={192,192,192}),
-              Line(points={{0,-90},{0,84}}, color={192,192,192}),Text(
-                  extent={{13,102},{42,82}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{0,100},{-6,84},{6,84},{0,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,0},{84,0}},
-              color={192,192,192}),Polygon(
-                  points={{100,0},{84,6},{84,-6},{100,0}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-52.7,
-              -75.2},{-37.4,-69.7},{-26.9,-63},{-19.7,-55.2},{-14.1,-45.8},{-10.1,
-              -36.4},{-6.03,-23.9},{-1.21,-5.06},{5.23,21},{9.25,34.1},{13.3,
-              44.2},{18.1,52.9},{24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{
-              80,80}}),Text(
-                  extent={{-32,91},{-12,71}},
-                  textString="1.4",
-                  lineColor={0,0,255}),Text(
-                  extent={{-32,-71},{-12,-91}},
-                  textString="-1.4",
-                  lineColor={0,0,255}),Text(
-                  extent={{73,26},{93,10}},
-                  textString=" 5.8",
-                  lineColor={0,0,255}),Text(
-                  extent={{-103,20},{-83,4}},
-                  textString="-5.8",
-                  lineColor={0,0,255}),Text(
-                  extent={{66,-8},{94,-28}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
@@ -1356,39 +1110,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
-              Line(points={{0,-80},{-8,-80}}, color={192,192,192}),
-              Line(points={{0,-90},{0,84}}, color={192,192,192}),Text(
-                  extent={{9,98},{34,78}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{0,100},{-6,84},{6,84},{0,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,0},{84,0}},
-              color={192,192,192}),Polygon(
-                  points={{100,0},{84,6},{84,-6},{100,0}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-76,-65.4},
-              {-71.2,-51.4},{-65.5,-38.8},{-59.1,-28.1},{-51.1,-18.7},{-41.4,-11.4},
-              {-27.7,-5.5},{-4.42,-0.653},{24.5,4.57},{39,10.1},{49.4,17.2},{
-              57.5,25.9},{63.9,35.8},{69.5,47.4},{74.4,60.4},{78.4,73.8},{80,80}}),Text(
-                  extent={{-31,72},{-11,88}},
-                  textString="27",
-                  lineColor={0,0,255}),Text(
-                  extent={{-35,-88},{-15,-72}},
-                  textString="-27",
-                  lineColor={0,0,255}),Text(
-                  extent={{70,25},{90,5}},
-                  textString="4",
-                  lineColor={0,0,255}),Text(
-                  extent={{-98,21},{-78,1}},
-                  textString="-4",
-                  lineColor={0,0,255}),Text(
-                  extent={{72,-6},{96,-26}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
@@ -1432,39 +1154,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
-              Line(points={{0,-80},{-8,-80}}, color={192,192,192}),
-              Line(points={{0,-90},{0,84}}, color={192,192,192}),Text(
-                  extent={{11,98},{38,78}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{0,100},{-6,84},{6,84},{0,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,-86.083},{
-              84,-86.083}}, color={192,192,192}),Polygon(
-                  points={{100,-86.083},{84,-80.083},{84,-92.083},{100,-86.083}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,80},{-77.6,
-              61.1},{-74.4,39.3},{-71.2,20.7},{-67.1,1.29},{-63.1,-14.6},{-58.3,
-              -29.8},{-52.7,-43.5},{-46.2,-55.1},{-39,-64.3},{-30.2,-71.7},{-18.9,
-              -77.1},{-4.42,-79.9},{10.9,-79.1},{23.7,-75.2},{34.2,-68.7},{42.2,
-              -60.6},{48.6,-51.2},{54.3,-40},{59.1,-27.5},{63.1,-14.6},{67.1,
-              1.29},{71.2,20.7},{74.4,39.3},{77.6,61.1},{80,80}}),
-              Text(
-                  extent={{-31,72},{-11,88}},
-                  textString="27",
-                  lineColor={0,0,255}),Text(
-                  extent={{62,-67},{82,-87}},
-                  textString="4",
-                  lineColor={0,0,255}),Text(
-                  extent={{-104,-63},{-84,-83}},
-                  textString="-4",
-                  lineColor={0,0,255}),Text(
-                  extent={{78,-54},{100,-74}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
@@ -1506,40 +1196,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
-              Line(points={{0,-80},{-8,-80}}, color={192,192,192}),
-              Line(points={{0,-90},{0,84}}, color={192,192,192}),Text(
-                  extent={{9,98},{42,80}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{0,100},{-6,84},{6,84},{0,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,0},{84,0}},
-              color={192,192,192}),Polygon(
-                  points={{100,0},{84,6},{84,-6},{100,0}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-47.8,
-              -78.7},{-35.8,-75.7},{-27.7,-70.6},{-22.1,-64.2},{-17.3,-55.9},{-12.5,
-              -44.3},{-7.64,-29.2},{-1.21,-4.82},{6.83,26.3},{11.7,42},{16.5,
-              54.2},{21.3,63.1},{26.9,69.9},{34.2,75},{45.4,78.4},{72,79.9},{80,
-              80}}),Text(
-                  extent={{70,25},{90,5}},
-                  textString="4",
-                  lineColor={0,0,255}),Text(
-                  extent={{-106,21},{-86,1}},
-                  textString="-4",
-                  lineColor={0,0,255}),Text(
-                  extent={{-29,72},{-9,88}},
-                  textString="1",
-                  lineColor={0,0,255}),Text(
-                  extent={{3,-72},{23,-88}},
-                  textString="-1",
-                  lineColor={0,0,255}),Text(
-                  extent={{72,-8},{98,-26}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
@@ -1580,39 +1237,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{0,80},{-8,80}}, color={192,192,192}),
-              Line(points={{0,-80},{-8,-80}}, color={192,192,192}),
-              Line(points={{0,-90},{0,84}}, color={192,192,192}),Text(
-                  extent={{9,100},{40,80}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{0,100},{-6,84},{6,84},{0,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,-80.3976},{
-              84,-80.3976}}, color={192,192,192}),Polygon(
-                  points={{100,-80.3976},{84,-74.3976},{84,-86.3976},{100,-80.3976}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-31,-77.9},
-              {-6.03,-74},{10.9,-68.4},{23.7,-61},{34.2,-51.6},{43,-40.3},{50.3,
-              -27.8},{56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{
-              80,80}}),Text(
-                  extent={{-31,72},{-11,88}},
-                  textString="20",
-                  lineColor={0,0,255}),Text(
-                  extent={{-92,-83},{-72,-103}},
-                  textString="-3",
-                  lineColor={0,0,255}),Text(
-                  extent={{70,-83},{90,-103}},
-                  textString="3",
-                  lineColor={0,0,255}),Text(
-                  extent={{-18,-53},{2,-73}},
-                  textString="1",
-                  lineColor={0,0,255}),Text(
-                  extent={{66,-52},{96,-72}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
@@ -1655,40 +1280,7 @@ This blocks computes the output <code>y</code> as the
                   lineColor={192,192,192},
                   textString="log")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={
-              192,192,192}),Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
-              Line(points={{-80,-90},{-80,84}}, color={192,192,192}),Text(
-                  extent={{-67,98},{-40,80}},
-                  lineColor={160,160,164},
-                  textString="y"),Polygon(
-                  points={{-80,100},{-86,84},{-74,84},{-80,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,0},{84,0}},
-              color={192,192,192}),Polygon(
-                  points={{100,0},{84,6},{84,-6},{100,0}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
-              -50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},{-75.2,-11.4},{-72.8,
-              -1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},{-47,38.1},{-31.8,
-              48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}),
-              Text(
-                  extent={{-105,72},{-85,88}},
-                  textString="3",
-                  lineColor={0,0,255}),Text(
-                  extent={{-109,-88},{-89,-72}},
-                  textString="-3",
-                  lineColor={0,0,255}),Text(
-                  extent={{70,-3},{90,-23}},
-                  textString="20",
-                  lineColor={0,0,255}),Text(
-                  extent={{-78,-1},{-58,-21}},
-                  textString="1",
-                  lineColor={0,0,255}),Text(
-                  extent={{68,28},{94,8}},
-                  lineColor={160,160,164},
-                  textString="u")}),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
@@ -1891,14 +1483,14 @@ An error occurs if the elements of the input <code>u</code> is zero.
       connect(limiter.y, log10_y.u) annotation (Line(points={{-29,-70},{-22,-70}}, color={0,0,127}));
       connect(complexToPolar.len, limiter.u) annotation (Line(points={{-6,-32},{-6,-40},{-60,-40},{-60,-70},{-52,-70}}, color={0,0,127}));
       annotation (Icon(graphics={
-            Line(points={{-78,44},{80,44}}, color={135,135,135}),
-            Line(points={{-78,34},{80,34}}, color={135,135,135}),
-            Line(points={{-78,20},{80,20}}, color={135,135,135}),
-            Line(points={{-78,-2},{80,-2}}, color={135,135,135}),
-            Line(points={{-78,-48},{80,-48}}, color={135,135,135}),
-            Line(points={{-50,-48},{-50,44}}, color={135,135,135}),
-            Line(points={{50,-48},{50,44}}, color={135,135,135}),
-            Line(points={{-78,40},{80,40}}, color={135,135,135}),
+            Line(points={{-78,44},{80,44}}, color={192,192,192}),
+            Line(points={{-78,34},{80,34}}, color={192,192,192}),
+            Line(points={{-78,20},{80,20}}, color={192,192,192}),
+            Line(points={{-78,-2},{80,-2}}, color={192,192,192}),
+            Line(points={{-78,-48},{80,-48}}, color={192,192,192}),
+            Line(points={{-50,-48},{-50,44}}, color={192,192,192}),
+            Line(points={{50,-48},{50,44}}, color={192,192,192}),
+            Line(points={{-78,40},{80,40}}, color={192,192,192}),
                                    Polygon(
                   points={{90,-48},{68,-40},{68,-56},{90,-48}},
                   lineColor={192,192,192},
@@ -1912,7 +1504,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
             Line(points={{-70,-56},{-70,68}}, color={135,135,135}),
             Line(
               points={{-78,44},{-50,44},{70,-66}},
-              color={0,0,255},
+              color={0,0,0},
               thickness=0.5),               Text(
             extent={{-150,150},{150,110}},
             textString="%name",
@@ -1980,13 +1572,13 @@ Otherwise the output <code>y = u</code>.</p>
       y = u*bSum/aSum;
       annotation (Icon(graphics={
           Text(
-            lineColor={0,0,127},
+            lineColor={85,170,255},
             extent={{-90,10},{90,90}},
               textString="b(jw)"),
             Line(points={{-80,0},{80,0}},
-              color={0,0,127}),
+              color={85,170,255}),
           Text(
-            lineColor={0,0,127},
+            lineColor={85,170,255},
             extent={{-90,-90},{90,-10}},
               textString="a(jw)")}), Documentation(info="<html>
 <p>
@@ -2029,10 +1621,10 @@ connected with continuous blocks or with sampled-data blocks.
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
-            Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-            Line(points={{100,0},{10,0}}, color={0,0,127}),
-            Line(points={{0,0},{100,10}}, color={0,0,127}),
-            Line(points={{0,0},{100,-10}}, color={0,0,127}),
+            Line(points={{-100,0},{-6,0}}, color={85,170,255}),
+            Line(points={{100,0},{10,0}}, color={85,170,255}),
+            Line(points={{0,0},{100,10}}, color={85,170,255}),
+            Line(points={{0,0},{100,-10}}, color={85,170,255}),
             Ellipse(
               extent={{-14,16},{16,-14}},
               fillColor={85,170,255},
@@ -2061,71 +1653,74 @@ This block replicates the input signal to an array of <code>nout</code> identica
               extent={{-90,51},{-50,-49}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
+              lineColor={85,170,255}),
             Rectangle(
               extent={{50,50},{90,-50}},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
+              lineColor={85,170,255}),
             Polygon(
               points={{-94.4104,1.90792},{-94.4104,-2.09208},{-90.4104,-0.0920762},
                   {-94.4104,1.90792}},
-              fillColor={0,0,127},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
-            Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,127}),
-            Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,127}),
-            Line(points={{-113,0},{-76.0373,-0.0180176}}, color={0,0,127}),
-            Line(points={{-73,-5},{-60,-40},{-49,-40}}, color={0,0,127}),
-            Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
-                  0,0,127}),
+              lineColor={85,170,255}),
+            Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={85,
+                  170,255}),
+            Line(points={{-73,4},{-59,40},{-49,40}}, color={85,170,255}),
+            Line(points={{-113,0},{-76.0373,-0.0180176}}, color={85,170,255}),
+            Line(points={{-73,-5},{-60,-40},{-49,-40}}, color={85,170,255}),
+            Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={85,
+                  170,255}),
             Polygon(
               points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
-              fillColor={255,255,255},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
-            Line(points={{-46,13},{-35,13},{35,-30},{45,-30}}, color={0,0,127}),
-            Line(points={{-45,40},{-35,40},{35,0},{44,0}}, color={0,0,127}),
-            Line(points={{-45,-40},{-34,-40},{35,30},{44,30}}, color={0,0,127}),
+              lineColor={85,170,255}),
+            Line(points={{-46,13},{-35,13},{35,-30},{45,-30}}, color={85,170,
+                  255}),
+            Line(points={{-45,40},{-35,40},{35,0},{44,0}}, color={85,170,255}),
+            Line(points={{-45,-40},{-34,-40},{35,30},{44,30}}, color={85,170,
+                  255}),
             Polygon(
               points={{-49,42},{-49,38},{-45,40},{-49,42}},
-              fillColor={255,255,255},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
+              lineColor={85,170,255}),
             Polygon(
               points={{-48.8728,-38.0295},{-48.8728,-42.0295},{-44.8728,-40.0295},
                   {-48.8728,-38.0295}},
-              fillColor={255,255,255},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
+              lineColor={85,170,255}),
             Polygon(
               points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{-48.9983,
                   14.8801}},
-              fillColor={255,255,255},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
-            Line(points={{80,0},{100,0}}, color={0,0,127}),
+              lineColor={85,170,255}),
+            Line(points={{80,0},{100,0}}, color={85,170,255}),
             Polygon(
               points={{43.1618,32.3085},{43.1618,28.3085},{47.1618,30.3085},{
                   43.1618,32.3085}},
-              fillColor={0,0,127},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
+              lineColor={85,170,255}),
             Polygon(
               points={{43.2575,1.80443},{43.2575,-2.19557},{47.2575,-0.195573},{
                   43.2575,1.80443}},
-              fillColor={0,0,127},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
+              lineColor={85,170,255}),
             Polygon(
               points={{43.8805,-28.1745},{43.8805,-32.1745},{47.8805,-30.1745},{
                   43.8805,-28.1745}},
-              fillColor={0,0,127},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
-            Line(points={{48,0},{70,0}}, color={0,0,127}),
-            Line(points={{47,30},{60,30},{73,3}}, color={0,0,127}),
-            Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,127}),
+              lineColor={85,170,255}),
+            Line(points={{48,0},{70,0}}, color={85,170,255}),
+            Line(points={{47,30},{60,30},{73,3}}, color={85,170,255}),
+            Line(points={{49,-30},{60,-30},{74,-4}}, color={85,170,255}),
             Text(
               extent={{-150,-150},{150,-110}},
               textString="extract=%extract"),
@@ -2141,86 +1736,7 @@ This block replicates the input signal to an array of <code>nout</code> identica
               lineColor={0,0,127})}),
       Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-90,50},{-50,-50}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{50,50},{90,-50}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-94.4104,1.90792},{-94.4104,-2.09208},{-90.4104,-0.0920762},
-                  {-94.4104,1.90792}},
-              lineColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,255}),
-            Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,255}),
-            Line(points={{-112,0},{-75.0373,-0.0180176}}, color={0,0,255}),
-            Ellipse(
-              extent={{-80.0437,4.59255},{-70.0437,-4.90745}},
-              lineColor={0,0,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-73,-5},{-60,-40},{-49,-40}}, color={0,0,255}),
-            Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
-                  0,0,255}),
-            Polygon(
-              points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-46,13},{-35,13},{35,-30},{45,-30}}, color={0,0,255}),
-            Line(points={{-45,40},{-35,40},{35,0},{44,0}}, color={0,0,255}),
-            Line(points={{-45,-40},{-34,-40},{35,30},{44,30}}, color={0,0,255}),
-            Polygon(
-              points={{-49,42},{-49,38},{-45,40},{-49,42}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-48.8728,-38.0295},{-48.8728,-42.0295},{-44.8728,-40.0295},
-                  {-48.8728,-38.0295}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{-48.9983,
-                  14.8801}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{70.3052,4.12743},{80.3052,-5.37257}},
-              lineColor={0,0,255},
-              fillColor={85,170,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{80,0},{105,0}}, color={0,0,255}),
-            Polygon(
-              points={{44.1618,32.3085},{44.1618,28.3085},{48.1618,30.3085},{
-                  44.1618,32.3085}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{44.2575,1.80443},{44.2575,-2.19557},{48.2575,-0.195573},{
-                  44.2575,1.80443}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{44.8805,-28.1745},{44.8805,-32.1745},{48.8805,-30.1745},{
-                  44.8805,-28.1745}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{48,0},{70,0}}, color={0,0,255}),
-            Line(points={{47,30},{60,30},{73,3}}, color={0,0,255}),
-            Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,255}),
-            Rectangle(extent={{-100,80},{100,-81}}, lineColor={0,0,255})}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>Extract signals from the input connector and transfer them
 to the output connector.</p>
@@ -2279,60 +1795,62 @@ input vector (nin=7):</p>
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-80,50},{-40,-50}},
-              lineColor={0,0,127},
+              lineColor={85,170,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-84.4104,1.9079},{-84.4104,-2.09208},{-80.4104,-0.09208},{
                   -84.4104,1.9079}},
-              lineColor={0,0,127},
+              lineColor={85,170,255},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-62,2},{-50.1395,12.907},{-39.1395,12.907}}, color={0,0,127}),
-            Line(points={{-63,4},{-49,40},{-39,40}}, color={0,0,127}),
-            Line(points={{-102,0},{-65.0373,-0.01802}}, color={0,0,127}),
+            Line(points={{-62,2},{-50.1395,12.907},{-39.1395,12.907}}, color={85,
+                  170,255}),
+            Line(points={{-63,4},{-49,40},{-39,40}}, color={85,170,255}),
+            Line(points={{-102,0},{-65.0373,-0.01802}}, color={85,170,255}),
             Ellipse(
               extent={{-70.0437,4.5925},{-60.0437,-4.90745}},
-              lineColor={0,0,127},
-              fillColor={0,0,127},
+              lineColor={85,170,255},
+              fillColor={85,170,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-63,-5},{-50,-40},{-39,-40}}, color={0,0,127}),
-            Line(points={{-62,-2},{-50.0698,-12.907},{-39.0698,-12.907}}, color={
-                  0,0,127}),
+            Line(points={{-63,-5},{-50,-40},{-39,-40}}, color={85,170,255}),
+            Line(points={{-62,-2},{-50.0698,-12.907},{-39.0698,-12.907}}, color={85,
+                  170,255}),
             Polygon(
               points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}},
-              lineColor={0,0,127},
+              lineColor={85,170,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-39,42},{-39,38},{-35,40},{-39,42}},
-              lineColor={0,0,127},
+              lineColor={85,170,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-38.8728,-38.0295},{-38.8728,-42.0295},{-34.8728,-40.0295},
                   {-38.8728,-38.0295}},
-              lineColor={0,0,127},
+              lineColor={85,170,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-38.9983,14.8801},{-38.9983,10.8801},{-34.9983,12.8801},{-38.9983,
                   14.8801}},
-              lineColor={0,0,127},
+              lineColor={85,170,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-30,50},{30,-50}},
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,127}),
-            Line(points={{100,0},{0,0}}, color={0,0,127}),
+              lineColor={85,170,255}),
+            Line(points={{100,0},{0,0}}, color={85,170,255}),
             Line(points={{0,2},{0,-104}}, color={255,128,0}),
-            Line(points={{-35,40},{-20,40}}, color={0,0,127}),
-            Line(points={{-35,13},{-20,13}}, color={0,0,127}),
-            Line(points={{-35,-13},{-20,-13}}, color={0,0,127}),
-            Line(points={{-35,-40},{-20,-40}}, color={0,0,127}),
-            Polygon(points={{0,0},{-20,13},{-20,13},{0,0},{0,0}}, lineColor={0,0,
-                  127}),
+            Line(points={{-35,40},{-20,40}}, color={85,170,255}),
+            Line(points={{-35,13},{-20,13}}, color={85,170,255}),
+            Line(points={{-35,-13},{-20,-13}}, color={85,170,255}),
+            Line(points={{-35,-40},{-20,-40}}, color={85,170,255}),
+            Polygon(points={{0,0},{-20,13},{-20,13},{0,0},{0,0}}, lineColor={85,
+                  170,255}),
             Ellipse(
               extent={{-6,6},{6,-6}},
               lineColor={255,128,0},
@@ -2355,7 +1873,7 @@ value of the additional u index:</p>
       y = u;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,0},{100,0}},
-                color={0,0,127})}),
+                color={85,170,255})}),
                         Documentation(info="<html>
 <p>
 Passes a Complex signal through without modification. Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
@@ -2561,28 +2079,29 @@ The Complex output y is a step signal (of real and imaginary part):
       y = magnitude*Modelica.ComplexMath.exp(Complex(0, phi));
       annotation (defaultComponentName="complexRotating",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Polygon(
-                  points={{-10,90},{-16,68},{-4,68},{-10,90}},
-                  lineColor={95,95,95},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid),Line(points={{-10,68},{-10,-90}},
-              color={95,95,95}),Line(points={{-90,0},{82,0}}, color={95,95,95}),
-              Polygon(
-                  points={{90,0},{68,6},{68,-6},{90,0}},
-                  lineColor={95,95,95},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{-10,0},{50,50}},
-                  color={0,0,255}),
+                -100},{100,100}}), graphics={    Line(
+                  points={{0,0},{60,50}},
+                  color={85,170,255}),
                                  Polygon(
-                  points={{50,50},{29,41},{38,30},{50,50}},
-                  lineColor={95,95,95},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid),Line(points={{-47,35},{-40,40},
-              {-32,44},{-20,47},{-7,46},{5,42},{18,34},{26,23},{31,10}}, color={192,192,192},
+                  points={{60,50},{39,41},{48,30},{60,50}},
+                  lineColor={85,170,255},
+                  fillColor={85,170,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-37,35},{-30,40},
+                  {-22,44},{-10,47},{3,46},{15,42},{28,34},{36,23},{41,10}},
+                                                                         color={192,192,192},
               smooth=Smooth.Bezier),
                          Polygon(
-                  points={{-52,29},{-32,36},{-42,47},{-52,29}},
+                  points={{-42,29},{-22,36},{-32,47},{-42,29}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),Line(points={{0,-80},{0,68}},
+              color={192,192,192}),   Polygon(
+                  points={{0,90},{-8,68},{8,68},{0,90}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+              Line(points={{-90,0},{68,0}}, color={192,192,192}),Polygon(
+                  points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid)}), Documentation(info="<html>
@@ -2625,30 +2144,31 @@ The output y is a complex phasor with constant magnitude, spinning with constant
 
       annotation (defaultComponentName="complexRamp",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Polygon(
-                  points={{-10,90},{-16,68},{-4,68},{-10,90}},
+                -100},{100,100}}), graphics={    Line(
+                  points={{0,-8},{24,12}},
+                  color={85,170,255}),
+                                 Polygon(
+                  points={{38,24},{17,15},{26,4},{38,24}},
+                  lineColor={85,170,255},
+                  fillColor={85,170,255},
+                  fillPattern=FillPattern.Solid),Line(
+                  points={{0,8},{60,58}},
+                  color={85,170,255}),
+                                 Polygon(
+                  points={{76,72},{55,63},{64,52},{76,72}},
+                  lineColor={85,170,255},
+                  fillColor={85,170,255},
+                  fillPattern=FillPattern.Solid),
+              Line(points={{-90,0},{68,0}}, color={192,192,192}),
+                                                 Line(points={{0,-80},{0,68}},
+              color={192,192,192}),   Polygon(
+                  points={{0,90},{-8,68},{8,68},{0,90}},
                   lineColor={192,192,192},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid),Line(points={{-10,68},{-10,-90}},
-              color={95,95,95}),Line(points={{-90,0},{82,0}}, color={95,95,95}),
-              Polygon(
-                  points={{90,0},{68,6},{68,-6},{90,0}},
-                  lineColor={95,95,95},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{-10,-10},{14,10}},
-                  color={0,0,255}),
-                                 Polygon(
-                  points={{28,22},{7,13},{16,2},{28,22}},
-                  lineColor={95,95,95},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{-10,6},{50,56}},
-                  color={0,0,255}),
-                                 Polygon(
-                  points={{66,70},{45,61},{54,50},{66,70}},
-                  lineColor={95,95,95},
-                  fillColor={0,0,255},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),                Polygon(
+                  points={{90,0},{68,8},{68,-8},{90,0}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
                   fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 The output y is a complex phasor with constant angle and a ramped magnitude.
@@ -2702,16 +2222,18 @@ The output is the decimal power of this logarithmic ramp.
 
 </html>"),
         Icon(graphics={
-            Line(points={{-78,44},{80,44}}, color={135,135,135}),
-            Line(points={{-78,34},{80,34}}, color={135,135,135}),
-            Line(points={{-78,20},{80,20}}, color={135,135,135}),
-            Line(points={{-78,-2},{80,-2}}, color={135,135,135}),
-            Line(points={{-78,-48},{80,-48}}, color={135,135,135}),
+            Line(points={{-78,44},{80,44}}, color={192,192,192}),
+            Line(points={{-78,34},{80,34}}, color={192,192,192}),
+            Line(points={{-78,20},{80,20}}, color={192,192,192}),
+            Line(points={{-78,-2},{80,-2}}, color={192,192,192}),
+            Line(points={{-78,-48},{80,-48}}, color={192,192,192}),
             Line(
-              points={{-70,-48},{-50,-48},{50,44},{70,44}}),
-            Line(points={{-50,-48},{-50,44}}, color={135,135,135}),
-            Line(points={{50,-48},{50,44}}, color={135,135,135}),
-            Line(points={{-78,40},{80,40}}, color={135,135,135}),
+              points={{-70,-48},{-50,-48},{50,44},{70,44}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(points={{-50,-48},{-50,44}}, color={192,192,192}),
+            Line(points={{50,-48},{50,44}}, color={192,192,192}),
+            Line(points={{-78,40},{80,40}}, color={192,192,192}),
                                    Polygon(
                   points={{90,-48},{68,-40},{68,-56},{90,-48}},
                   lineColor={192,192,192},
@@ -2722,13 +2244,14 @@ The output is the decimal power of this logarithmic ramp.
                   lineColor={192,192,192},
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),
-            Line(points={{-70,-56},{-70,68}}, color={135,135,135})}));
+            Line(points={{-70,-56},{-70,68}}, color={192,192,192})}));
     end LogFrequencySweep;
   end Sources;
+
   package Icons "Icons for ComplexBlocks"
     extends Modelica.Icons.IconsPackage;
     partial block ComplexBlock "Basic graphical layout of Complex input/output block"
-      annotation(
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}},
