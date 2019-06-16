@@ -1104,6 +1104,10 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     <th>Not to be used</th>
   </tr>
   <tr>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-13-54\">cut-off frequency</a></td>
+    <td>cut off frequency, cutoff frequency, cut-off-frequency, cutoff-frequency</td>
+  </tr>
+  <tr>
     <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-11-09\">electromagnetic</a></td>
     <td>electro magnetic, electro-magnetic</td>
   </tr>
