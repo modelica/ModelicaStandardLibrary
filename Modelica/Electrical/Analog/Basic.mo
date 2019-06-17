@@ -494,7 +494,7 @@ package Basic "Basic electrical components"
       annotation (Placement(transformation(extent={{90,-70},{110,70}})));
 
     SI.Voltage v[N] "Voltage drop over inductors";
-    SI.Current i[N](each start=0, fixed=true)
+    SI.Current i[N](each start=0, each fixed=true)
       "Current through inductors";
     parameter SI.Inductance Lm[N, N](each final fixed=false)
       "Complete symmetric inductance matrix, calculated internally";
