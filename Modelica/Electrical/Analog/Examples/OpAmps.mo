@@ -1026,7 +1026,7 @@ package OpAmps "Examples with operational amplifiers"
               textString="%name",
               lineColor={0,0,255}), Rectangle(
               extent={{-100,100},{100,-100}},
-              lineColor={28,108,200},
+              lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
               radius=40)}),                                          Diagram(
@@ -1086,7 +1086,7 @@ Different functionality is achieved by different circuits.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-100,10},{100,-10}},
-              lineColor={28,108,200},
+              lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.None,
               textString="non-inverting")}));
@@ -1186,7 +1186,7 @@ Different functionality is achieved by different circuits.
 <p><code>-vOut = k1*vIn1 + k2*vIn2</code></p>
 </html>"),     Icon(graphics={Text(
               extent={{-40,40},{40,-40}},
-              lineColor={28,108,200},
+              lineColor={0,0,255},
               textString="+")}));
     end Add;
 
@@ -1242,7 +1242,7 @@ Different functionality is achieved by different circuits.
 <p><code>vOut = -k*(vIn1 - vIn2)</code></p>
 </html>"),     Icon(graphics={Text(
               extent={{-40,40},{40,-40}},
-              lineColor={28,108,200},
+              lineColor={0,0,255},
               textString="-")}));
     end Feedback;
 
@@ -1278,7 +1278,7 @@ Different functionality is achieved by different circuits.
 <p><code>vOut = -k*der(vIn)</code></p>
 </html>"),     Icon(graphics={Text(
               extent={{-40,40},{40,-40}},
-              lineColor={28,108,200},
+              lineColor={0,0,255},
               textString="der")}));
     end Der;
 
