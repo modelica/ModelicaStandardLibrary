@@ -1024,12 +1024,11 @@ package OpAmps "Examples with operational amplifiers"
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}), Rectangle(
-              extent={{-100,100},{100,-100}},
+              lineColor={0,0,255}), Polygon(
+              points={{-60,70},{70,0},{-60,-72},{-60,70}},
               lineColor={0,0,255},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              radius=40)}),                                          Diagram(
+              fillPattern=FillPattern.Solid)}),                      Diagram(
             coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
@@ -1277,7 +1276,7 @@ Different functionality is achieved by different circuits.
 <p>Inverting differentiator = der, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>vOut = -k*der(vIn)</code></p>
 </html>"),     Icon(graphics={Text(
-              extent={{-40,40},{40,-40}},
+              extent={{-60,40},{20,-40}},
               lineColor={0,0,255},
               textString="der")}));
     end Der;
@@ -1330,7 +1329,11 @@ Different functionality is achieved by different circuits.
                 lineColor={192,192,192},
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid,
-                points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}})}));
+                points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
+                              Text(
+              extent={{-80,40},{0,-40}},
+              lineColor={0,0,255},
+              textString="I")}));
     end Integrator;
 
     model FirstOrder "Lowpass filter operational amplifier circuit"
