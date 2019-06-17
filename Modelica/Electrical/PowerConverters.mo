@@ -4090,12 +4090,12 @@ applying the firing signals to the
           tau_nominal=-TLoad,
           useSupport=false) annotation (Placement(transformation(extent={{90,-10},{70,10}})));
         Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl softStartControl(
-          tRampUp_=4,
+          tRampUp=4,
           vStart=0.3,
           iMax=2.5,
           iMin=2.4,
           INominal=INominal,
-          tRampDwn=3,
+          tRampDown=3,
           vRef(fixed=true)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
@@ -7163,8 +7163,8 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
         else
           dutyCycle =1 - vLimInt/max(v, vLimInt);
         end if;
-        connect(vLim, vLimInt) annotation (Line(points={{0,120},{0,80},{
-                4.44089e-16,80}}, color={0,0,127}));
+        connect(vLim, vLimInt) annotation (Line(points={{0,120},{0,80},{4.44089e-16,
+                80}}, color={0,0,127}));
         connect(vLimInt, vLimConst.y) annotation (Line(points={{4.44089e-16,80},
                 {19,80}}, color={0,0,127}));
         annotation (defaultComponentName="adaptor", Icon(graphics={
@@ -7668,12 +7668,12 @@ both relationships have been precalculated and are interpolated from a table.
       block SoftStartControl
         extends Modelica.Blocks.Icons.Block;
         import ModeOfOperation = Modelica.Electrical.PowerConverters.Types.SoftStarterModeOfOperation;
-        parameter Modelica.SIunits.Time tRampUp_ "Start ramp duration";
+        parameter Modelica.SIunits.Time tRampUp "Start ramp duration";
         parameter Real vStart=0 "Start voltage / nominal voltage";
         parameter Real iMax "Maximum current / Nominal current";
         parameter Real iMin=0.9*iMax "Lower threshold of current control";
         parameter Modelica.SIunits.Current INominal "Nominal current";
-      parameter Modelica.SIunits.Time tRampDwn "Stop ramp duration";
+      parameter Modelica.SIunits.Time tRampDown "Stop ramp duration";
         Modelica.Blocks.Interfaces.RealInput iRMS(unit="A") "Measured RMS current"
           annotation (Placement(
               transformation(extent={{-140,-20},{-100,20}})));
@@ -7692,13 +7692,13 @@ both relationships have been precalculated and are interpolated from a table.
       initial equation
         if start then
           if vRef<1 then
-            modeOfOperation=ModeOfOperation.Up_;
+            modeOfOperation=ModeOfOperation.Up;
           else
-            modeOfOperation=ModeOfOperation.On_;
+            modeOfOperation=ModeOfOperation.On;
           end if;
         else
           if vRef>0 then
-            modeOfOperation=ModeOfOperation.Dwn;
+            modeOfOperation=ModeOfOperation.Down;
           else
             modeOfOperation=ModeOfOperation.Off;
           end if;
@@ -7707,11 +7707,11 @@ both relationships have been precalculated and are interpolated from a table.
       equation
         assert(iMax>iMin, "iMax has to be greater than iMin");
         when start then
-          modeOfOperation = ModeOfOperation.Up_;
+          modeOfOperation = ModeOfOperation.Up;
         elsewhen vRef>=1 then
-          modeOfOperation = ModeOfOperation.On_;
+          modeOfOperation = ModeOfOperation.On;
         elsewhen not start then
-          modeOfOperation = ModeOfOperation.Dwn;
+          modeOfOperation = ModeOfOperation.Down;
         elsewhen vRef<=0 then
           modeOfOperation = ModeOfOperation.Off;
         end when;
@@ -7723,10 +7723,10 @@ both relationships have been precalculated and are interpolated from a table.
         elsewhen i<=iMin then
           limit=false;
         end when;
-        if modeOfOperation==ModeOfOperation.Up_ and not limit then
-          der(vRef) = (1 - vStart)/tRampUp_;
-        elseif modeOfOperation==ModeOfOperation.Dwn  and not limit then
-          der(vRef) = -1/tRampDwn;
+        if modeOfOperation==ModeOfOperation.Up and not limit then
+          der(vRef) = (1 - vStart)/tRampUp;
+        elseif modeOfOperation==ModeOfOperation.Down  and not limit then
+          der(vRef) = -1/tRampDown;
         else
           der(vRef) = 0;
         end if;
@@ -7735,7 +7735,7 @@ both relationships have been precalculated and are interpolated from a table.
 This block models the functionality of a soft starter controller, controlling the output <code>vRef</code> in the range [0,1] with respect to nominal voltage.
 </p>
 <p>
-Boolean input <code>start = true</code> causes the output <code>vRef</code> to be rised according to a ramp: <code>vRef = vStart + (1 - vStart)*(time - t0)/tRampUp_</code>.
+Boolean input <code>start = true</code> causes the output <code>vRef</code> to be rised according to a ramp: <code>vRef = vStart + (1 - vStart)*(time - t0)/tRampUp</code>.
 </p>
 <p> 
 In case the current exceeds the specified maximum current <code>iMax</code> during the starting ramp, the ramp is stopped. 
@@ -7745,7 +7745,7 @@ When the current falls below the lower threshold of current control <code>iMin &
 Note: It is recommended to filter the measured current, e.g. using <a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>
 </p>
 <p>
-Boolean input <code>start = false</code> causes the output <code>vRef</code> to be lowered according to a ramp: <code>vRef = -(time - t0)/tRampDwn</code>. 
+Boolean input <code>start = false</code> causes the output <code>vRef</code> to be lowered according to a ramp: <code>vRef = -(time - t0)/tRampDown</code>. 
 </p>
 </html>"),       Icon(graphics={
               Polygon(
@@ -8443,10 +8443,10 @@ This partial model provides parameters and the conditional input signal for the 
         RMS "Root mean square")
       "Enumeration defining the type of voltage to angle conversion";
     type SoftStarterModeOfOperation = enumeration(
-        Off "v=0",
-        Up_ "v=0->1",
-        On_ "v=1",
-        Dwn "v=1->0")
+        Off "v = 0",
+        Up "v = 0 -> 1",
+        On "v = 1",
+        Down "v = 1 -> 0")
       "Enumeration defining the internal mode of operation of the soft start controller";
   end Types;
   annotation (
