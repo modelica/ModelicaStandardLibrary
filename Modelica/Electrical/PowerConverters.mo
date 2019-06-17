@@ -4333,10 +4333,10 @@ Compare starting with firing angle by
               rotation=270,
               origin={0,-120})));
         parameter Modelica.SIunits.Angle firingAngleMax(
-          min=0, max=pi) = Modelica.Constants.pi
+          final min=0, final max=pi) = Modelica.Constants.pi
           "Maximum firing angle";
         parameter Modelica.SIunits.Angle firingAngleMin(
-          min=0, max=pi) = 0
+          final min=0, final max=pi) = 0
           "Minimum firing angle";
         Modelica.Blocks.Sources.Constant constantconstantFiringAngle(final k=
               constantFiringAngle) if useConstantFiringAngle annotation (
@@ -4499,8 +4499,8 @@ General information about controllers is summarized in
         parameter Modelica.SIunits.Angle constantFiringAngle=0 "Firing angle"
           annotation (Dialog(enable=useConstantFiringAngle));
         parameter Modelica.SIunits.Angle firingAngleMax(
-          min=0,
-          max=Modelica.Constants.pi) = Modelica.Constants.pi
+          final min=0,
+          final max=Modelica.Constants.pi) = Modelica.Constants.pi
           "Maximum firing angle";
         parameter Boolean useFilter=true "Enable use of filter"
           annotation (Dialog(tab="Filter"));
@@ -4598,8 +4598,8 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
         parameter Modelica.SIunits.Angle constantFiringAngle=0 "Firing angle"
           annotation (Dialog(enable=useConstantFiringAngle));
         parameter Modelica.SIunits.Angle firingAngleMax(
-          min=0,
-          max=Modelica.Constants.pi) = Modelica.Constants.pi
+          final min=0,
+          final max=Modelica.Constants.pi) = Modelica.Constants.pi
           "Maximum firing angle";
         parameter Boolean useFilter=true "Enable use of filter"
           annotation (Dialog(tab="Filter"));
@@ -4699,8 +4699,8 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
         parameter Modelica.SIunits.Angle constantFiringAngle=0 "Firing angle"
           annotation (Dialog(enable=useConstantFiringAngle));
         parameter Modelica.SIunits.Angle firingAngleMax(
-          min=0,
-          max=Modelica.Constants.pi) = Modelica.Constants.pi
+          final min=0,
+          final max=Modelica.Constants.pi) = Modelica.Constants.pi
           "Maximum firing angle";
         parameter Boolean useFilter=true "Enable use of filter"
           annotation (Dialog(tab="Filter"));
@@ -7127,7 +7127,7 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
           annotation(Dialog(enable=not reciprocal));
         parameter Boolean useConstantVoltageLimit=true
           "Enables constant voltage limit";
-        parameter Modelica.SIunits.Voltage VLim(min=Modelica.Constants.small)
+        parameter Modelica.SIunits.Voltage VLim(final min=Modelica.Constants.small)
           "Voltage range limit mapped to dutyCycle = 1 resp. 0"
           annotation(Dialog(enable=useConstantVoltageLimit));
         Modelica.Blocks.Interfaces.RealInput v "Voltage" annotation (Placement(
@@ -7136,7 +7136,7 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
         Modelica.Blocks.Interfaces.RealOutput dutyCycle "Duty cycle" annotation (
             Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(
                 extent={{100,-10},{120,10}})));
-        Blocks.Interfaces.RealInput vLim if    not useConstantVoltageLimit
+        Blocks.Interfaces.RealInput vLim if not useConstantVoltageLimit
           "Voltage limit" annotation (Placement(transformation(
               extent={{-20,-20},{20,20}},
               rotation=270,
@@ -7802,11 +7802,11 @@ Boolean input <code>start = false</code> causes the output <code>vRef</code> to 
     model SinglePhaseTriac "Triode for alternating current"
       extends Modelica.Electrical.Analog.Interfaces.TwoPin;
       Modelica.SIunits.Current i=p.i "Current flowing from pin p to pin n";
-      parameter Modelica.SIunits.Resistance Ron=1e-5
+      parameter Modelica.SIunits.Resistance Ron(final min=0)=1e-5
         "Forward state-on differential resistance (closed resistance)";
-      parameter Modelica.SIunits.Conductance Goff=1e-5
+      parameter Modelica.SIunits.Conductance Goff(final min=0)=1e-5
         "Backward state-off conductance (opened conductance)";
-      parameter Modelica.SIunits.Voltage Vknee=0 "Forward threshold voltage";
+      parameter Modelica.SIunits.Voltage Vknee(final min=0)=0 "Forward threshold voltage";
       parameter Boolean useHeatPort = false "= true, if heatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Modelica.SIunits.Temperature T=293.15
@@ -7926,11 +7926,11 @@ This behaviour is simulated by the two firing gates <code>fire1</code> and <code
 
     model MultiPhaseTriac "Triodes for alternating current"
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Ron=1e-5
+      parameter Modelica.SIunits.Resistance Ron(final min=0)=1e-5
         "Forward state-on differential resistance (closed resistance)";
-      parameter Modelica.SIunits.Conductance Goff=1e-5
+      parameter Modelica.SIunits.Conductance Goff(final min=0)=1e-5
         "Backward state-off conductance (opened conductance)";
-      parameter Modelica.SIunits.Voltage Vknee=0 "Forward threshold voltage";
+      parameter Modelica.SIunits.Voltage Vknee(final min=0)=0 "Forward threshold voltage";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m);
       Modelica.Blocks.Interfaces.BooleanInput fire1[m] annotation (Placement(
             transformation(
