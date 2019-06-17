@@ -162,7 +162,7 @@ is forced back to its limit after a transient phase.
   model Filter "Demonstrates the Continuous.Filter block with various options"
     extends Modelica.Icons.Example;
     parameter Integer order=3 "Number of order of filter";
-    parameter Modelica.SIunits.Frequency f_cut=2 "Cut-off freuquency";
+    parameter Modelica.SIunits.Frequency f_cut=2 "Cut-off frequency";
     parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
       "Type of filter (LowPass/HighPass)";
     parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
