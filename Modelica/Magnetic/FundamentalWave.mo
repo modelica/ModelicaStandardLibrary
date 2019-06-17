@@ -4054,7 +4054,10 @@ to speed to achieve constant current and torque.</p>
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";
         parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0 "Initial rotor displacement angle";
-        Modelica.SIunits.Current irRMS = sqrt(smee.ir[1]^2+smee.ir[2]^2)/sqrt(2) "Quasi RMS rotor current";
+        Modelica.Blocks.Interfaces.RealOutput irRMS(
+          final quantity="ElectricCurrent",
+          final unit="A") if smee.useDamperCage "Damper cage RMS current"
+          annotation (Placement(visible=false));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited smee(
           phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=true),
           fsNominal=smeeData.fsNominal,
@@ -4170,6 +4173,7 @@ to speed to achieve constant current and torque.</p>
         smee.ie = 0;
         //conditional damper cage currents are defined as fixed start values
       equation
+        connect(irRMS, smee.irRMS);
         connect(rotorDisplacementAngle.plug_n, smee.plug_sn) annotation (Line(
               points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
         connect(rotorDisplacementAngle.plug_p, smee.plug_sp)
@@ -7033,6 +7037,10 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
           each final quantity="ElectricCurrent",
           each final unit="A") if useDamperCage "Damper cage currents"
           annotation (Placement(visible=false),Dialog(showStartAttribute=true));
+        Modelica.Blocks.Interfaces.RealOutput irRMS(
+          final quantity="ElectricCurrent",
+          final unit="A") if useDamperCage "Damper cage RMS current"
+          annotation (Placement(visible=false));
         FundamentalWave.Components.Short short if not useDamperCage
           "Magnetic connection in case the damper cage is not present"
           annotation (Placement(transformation(
@@ -7086,6 +7094,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             quantity="Power", final unit="W") "Damper losses";
       equation
         connect(ir, rotorCage.i);
+        connect(irRMS, rotorCage.iRMS);
         connect(damperCageLossPower, rotorCage.lossPower);
         if not useDamperCage then
           damperCageLossPower = 0;
@@ -7935,6 +7944,10 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           each final quantity="ElectricCurrent",
           each final unit="A") = electroMagneticConverter.i
           "Currents out from damper";
+        Modelica.Blocks.Interfaces.RealOutput iRMS(
+          final quantity="ElectricCurrent",
+          final unit="A") = sqrt(i[1]^2+i[2]^2)/sqrt(2)
+          "RMS current out from damper";
         Modelica.Blocks.Interfaces.RealOutput lossPower(
           final quantity="Power",
           final unit="W") = sum(resistor.resistor.LossPower) "Damper losses";
