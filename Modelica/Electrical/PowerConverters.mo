@@ -4156,7 +4156,7 @@ applying the firing signals to the
           annotation (Line(points={{60,0},{70,0}}, color={0,0,0}));
         connect(currentQuasiRMSSensor.I, filter.u) annotation (Line(points={{-91,
                 30},{-100,30},{-100,-80},{-62,-80}}, color={0,0,127}));
-        connect(voltageToAngle.alpha, adaptor.firingAngle)
+        connect(voltageToAngle.firingAngle, adaptor.firingAngle)
           annotation (Line(points={{-30,-19},{-30,-12}}, color={0,0,127}));
         connect(filter.y, softStartControl.iRMS)
           annotation (Line(points={{-39,-80},{-30,-80},{-30,-72}}, color={0,0,127}));
@@ -4270,8 +4270,8 @@ Compare starting with firing angle by
             annotation (Line(points={{-20,40},{10,40}},  color={0,0,255}));
           connect(multiSensor.pc, multiSensor.pv)
             annotation (Line(points={{10,40},{10,50},{20,50}},  color={0,0,255}));
-          connect(voltageToAngle.alpha, adaptor.firingAngle)
-            annotation (Line(points={{-30,-29},{-30,-2}},  color={0,0,127}));
+          connect(voltageToAngle.firingAngle, adaptor.firingAngle)
+            annotation (Line(points={{-30,-29},{-30,-2}}, color={0,0,127}));
           connect(trapezoid.y, voltageToAngle.vRef)
             annotation (Line(points={{-49,-70},{-30,-70},{-30,-52}}, color={0,0,127}));
           connect(multiSensor.power, meanPower.u) annotation (Line(points={{9,
@@ -7588,11 +7588,13 @@ General information about DC/DC converters can be found at the
           "Select type of calculation";
         Modelica.Blocks.Interfaces.RealInput vRef "Reference voltage"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-        Modelica.Blocks.Interfaces.RealOutput alpha(
-          unit="rad", displayUnit="deg",
-          min=0, max=pi, start=pi)  "Phase angle"
-          annotation (Placement(
-              transformation(extent={{100,-10},{120,10}})));
+        Modelica.Blocks.Interfaces.RealOutput firingAngle(
+          unit="rad",
+          displayUnit="deg",
+          min=0,
+          max=pi,
+          start=pi) "Firing angle"
+          annotation (Placement(transformation(extent={{100,-10},{120,10}})));
         Modelica.Blocks.Math.Gain gain_v(final k=1/VNominal)
           annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
         Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=1, final uMin=0)
@@ -7637,7 +7639,7 @@ General information about DC/DC converters can be found at the
           annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
         connect(vRef, gain_v.u)
           annotation (Line(points={{-120,0},{-82,0}}, color={0,0,127}));
-        connect(gain_alpha.y, alpha)
+        connect(gain_alpha.y, firingAngle)
           annotation (Line(points={{61,0},{110,0}}, color={0,0,127}));
         connect(combiTable1Ds.y[1], gain_alpha.u)
           annotation (Line(points={{21,0},{38,0}}, color={0,0,127}));
