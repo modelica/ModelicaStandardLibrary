@@ -1042,7 +1042,7 @@ Different functionality is achieved by different circuits.
     model Buffer "Non inverting operational amplifier circuit"
       extends PartialOpAmp;
       parameter Real k(final min=0)=1 "Desired amplification";
-      parameter SI.Resistance R1=1000 "Resistance at ground";
+      parameter SI.Resistance R1=1000 "Resistance at negative pin(s)";
       parameter SI.Resistance R2=(k - 1)*R1 "Calculated resistance to reach desired amplification k";
       Basic.Resistor                            r1(final R=R1)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
@@ -1249,8 +1249,8 @@ Different functionality is achieved by different circuits.
     model Der "Differentiating operational amplifier circuit"
       extends PartialOpAmp;
       import Modelica.Constants.pi;
-      parameter Real k(final min=0)=1 "Desired amplification";
-      parameter Modelica.SIunits.Frequency f "at frequency f";
+      parameter Real k(final min=0)=1 "Desired amplification at frequency f";
+      parameter Modelica.SIunits.Frequency f "Frequency";
       parameter SI.Resistance R=1000 "Resistance at output of OpAmp";
       parameter SI.Capacitance C=k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
       Modelica.SIunits.Voltage v(start=0)=c.v "Capacitor voltage = state";
@@ -1285,8 +1285,8 @@ Different functionality is achieved by different circuits.
     model Integrator "Integrating operational amplifier circuit"
       extends PartialOpAmp(v2(start=0));
       import Modelica.Constants.pi;
-      parameter Real k(final min=0)=1 "Desired amplification";
-      parameter Modelica.SIunits.Frequency f "at frequency f";
+      parameter Real k(final min=0)=1 "Desired amplification at frequency f";
+      parameter Modelica.SIunits.Frequency f "Frequency";
       parameter SI.Resistance R=1000 "Resistance at negative input of OpAmp";
       parameter SI.Capacitance C=1/k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
       Basic.Capacitor  c(final C=C)
