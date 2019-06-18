@@ -1511,8 +1511,8 @@ Obviously, the concentration follows reasonably well the desired one. By using a
       Clocked.ClockSignals.Clocks.Rotational.FixedRotationalClock rotationalClock(
           trigger_interval(displayUnit="deg") = 3.1415926535898)
         annotation (Placement(transformation(extent={{20,-50},{0,-30}})));
-      Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine2 engine(
-          crankshaftPositionEvent(trigger_interval=rotationalClock.trigger_interval))
+      Utilities.ComponentsThrottleControl.Engine engine(crankshaftPositionEvent(
+            trigger_interval=rotationalClock.trigger_interval))
         annotation (Placement(transformation(extent={{30,-4},{58,24}})));
       Modelica.Blocks.Sources.Step step(
         height=-5,
@@ -2001,7 +2001,7 @@ initial equation
           m_a_delayed = hold(m_a_delayedSampled);
         end InductionToPowerDelay;
 
-        model Engine2 "Internal combustion engine"
+        model Engine "Internal combustion engine"
 
         public
           Modelica.Blocks.Interfaces.RealInput Theta(unit="deg") "Throttle angle (deg)"
@@ -2152,7 +2152,7 @@ initial equation
                   fillColor={255,255,0},
                   fillPattern=FillPattern.Solid,
                   textString="%name")}));
-        end Engine2;
+        end Engine;
       end ComponentsThrottleControl;
 
       package ComponentsMixingUnit
