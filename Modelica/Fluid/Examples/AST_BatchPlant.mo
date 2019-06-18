@@ -3,7 +3,7 @@ package AST_BatchPlant
   "Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)"
   extends Modelica.Icons.ExamplesPackage;
 
-  model BatchPlant_StandardWater
+  model BatchPlant_StandardWater "Model of an experimental batch plant"
       extends Modelica.Icons.Example;
     replaceable package BatchMedium = Modelica.Media.Water.StandardWater constrainedby
       Modelica.Media.Interfaces.PartialTwoPhaseMedium "Component media";
@@ -559,8 +559,13 @@ package AST_BatchPlant
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
           "plot level"),
       Documentation(info="<html>
+<p>
+Documentation for this example can be found on the <a href=\"modelica://Modelica.Fluid.Examples.AST_BatchPlant\">enclosing package</a>.
+</p>
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\"
      alt=\"BatchPlant_StandardWater.png\">
+</p>
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-200,-280},{200,
               280}})));
@@ -2236,8 +2241,12 @@ The steam is condensed in the condenser K1 and cooled
 afterwards in the cooling tank B6. The concentrated
  solution is also led to a cooling tank B7. The cooled
 fluids are pumped back to the charging vessels by the
-pumps P1 and P2. Be-tween the tanks several valves are
+pumps P1 and P2. Between the tanks several valves are
 present that are regulated by a central control system.
+</p>
+<p>
+This case study is described in more detail in this
+<a href=\"https://www.modelica.org/events/modelica2006/Proceedings/sessions/Session6b3.pdf\">Modelica Conference 2006 paper</a>.
 </p>
 </html>"));
 end AST_BatchPlant;
