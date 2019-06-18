@@ -1183,10 +1183,9 @@ a different icon as <code>ClockInput</code> connector.
               lineColor={95,95,95},
               fillColor={95,95,95})}),
         Diagram,
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 
-</HTML>
-"));
+</html>"));
     end PartialClock;
 
     partial block PartialPeriodicClock

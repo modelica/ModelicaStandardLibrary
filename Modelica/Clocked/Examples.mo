@@ -2450,8 +2450,7 @@ It doesn't provide the same initialization capabilities as the MSL block, since 
 clocked partitions is currently performed different to the continuous time partitions.
 </p>
 
-</html>
-"));
+</html>"));
         end CriticalDamping;
       end ComponentsMixingUnit;
     end Utilities;

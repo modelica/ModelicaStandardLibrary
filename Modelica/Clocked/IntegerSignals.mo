@@ -1677,10 +1677,9 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBase
               extent={{-200,129},{200,64}},
               lineColor={0,0,255},
               textString="%name")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 
-</HTML>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             initialScale=0.06)));

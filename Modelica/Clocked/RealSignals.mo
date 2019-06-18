@@ -2515,14 +2515,14 @@ The clocked Real input signal is value discretized
                                    ") < uMin (=" + String(uMin) + ")");
               y = if u > uMax then uMax else if u < uMin then uMin else u;
               annotation (
-                Documentation(info="<HTML>
+                Documentation(info="<html>
 <p>
 The Limiter block passes its input signal as output signal
 as long as the input is within the specified upper and lower
 limits. If this is not the case, the corresponding limits are passed
 as output.
 </p>
-</HTML>"),      Icon(coordinateSystem(
+</html>"),      Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
                 grid={2,2}), graphics={
@@ -2605,7 +2605,7 @@ as output.
           end if;
           x := rem((seedOut[1]/30269.0 + seedOut[2]/30307.0 + seedOut[3]/30323.0), 1.0);
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 <em>Random</em> generates a sequence of uniform distributed
 pseudo-random numbers. The algorithm is a variant of the
@@ -2689,7 +2689,7 @@ Copyright &copy; Hubertus Tummescheit and Department of Automatic Control, Lund 
 <em>This Modelica function is <strong>free</strong> software; it can be redistributed and/or modified
 under the terms of the BSD-3-Clause license.</em>
 </p>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <p>2019-05-20: Changed license to BSD-3-Clause after consultation with Hubertus Tummescheit.</p>
 </html>"));
         end random;
@@ -3089,8 +3089,7 @@ results in the following equations:
   y[1]   = [0.1  2.0] * [              ] + [0  0] * [    ]
                         [previous(x[2])]            [u[2]]
 </pre>
-</HTML>
-",     revisions="<html>
+</html>",     revisions="<html>
 <p><strong>Release Notes:</strong></p>
 <ul>
 <li><em>August 13, 2012</em>
@@ -3183,8 +3182,7 @@ states can be set as start values of <strong>x</strong>.<p>
          z + 3
 </pre>
 
-</HTML>
-",   revisions="<html>
+</html>",   revisions="<html>
 <p><strong>Release Notes:</strong></p>
 <ul>
 <li><em>August 13, 2012</em>
@@ -3348,7 +3346,7 @@ form of a PI controller by using the implicit Euler discretization formula.
          yy = y;
       end when;
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This block computes the output y as the average of the input u and of
 its past values (= moving average filter):
@@ -3369,8 +3367,7 @@ a more efficient implementation since it can be implemented recursively,
 contrary to a general FIR filter.
 </p>
 
-</HTML>
-"),     Icon(graphics={
+</html>"),     Icon(graphics={
          Line(points={{-84,78},{-84,-90}}, color={192,192,192}),
         Line(points={{-90,-82},{82,-82}}, color={192,192,192}),
           Rectangle(extent={{-84,-82},{-18,4}},
@@ -4594,10 +4591,9 @@ The Real output y is a sine signal. The signal is defined in terms of clock tick
               extent={{-200,129},{200,64}},
               lineColor={0,0,255},
               textString="%name")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 
-</HTML>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             initialScale=0.06)));
