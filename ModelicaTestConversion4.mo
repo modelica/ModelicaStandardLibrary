@@ -264,8 +264,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
       model Issue2929 "Conversion test for #2929"
         extends Modelica.Icons.Example;
-        model M =
-            Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer;
+        model M = Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer;
         annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2929\">#2929</a>.
