@@ -6889,6 +6889,7 @@ For details of the arguments, see documentation of dgbsv.
 
       extends Modelica.Icons.Function;
       input Real A[:, :] "Square or rectangular matrix";
+      input Integer lwork=max(1, 3*size(A, 2) + 1) "Length of work array";
       output Real QR[size(A, 1), size(A, 2)]=A
         "QR factorization in packed format";
       output Real tau[min(size(A, 1), size(A, 2))]
@@ -6899,8 +6900,7 @@ For details of the arguments, see documentation of dgbsv.
       Integer m=size(A, 1);
       Integer lda=max(1, size(A, 1));
       Integer ncol=size(A, 2) "Column dimension of A";
-      Integer lwork=max(1, 3*size(A, 2) + 1) "Length of work array";
-      Real work[max(1, 3*size(A, 2) + 1)] "Work array";
+      Real work[lwork] "Work array";
 
     external"FORTRAN 77" dgeqp3(
               m,
