@@ -424,7 +424,7 @@ simulated real-world effects are applied on the sampled signal. In particular:
 <ul>
 <li> The output is limited, if parameter <strong>limited</strong> = true.</li>
 <li> The output is value discretized in the form of an Analog-Digital converter
-     with a defineable number of bits,
+     with a definable number of bits,
      if parameters <strong>limited</strong> = true, and <strong>quantized</strong> = true.</li>
 <li> Noise is added to the output if
      parameter <strong>noisy</strong> = true.
@@ -698,7 +698,7 @@ with a zero-order hold. In particular:
      shiftCounter &le; resolution.</li>
 <li> The output is limited, if parameter <strong>limited</strong> = true.</li>
 <li> The output is value discretized in the form of an Digital-Analog converter
-     with a defineable number of bits,
+     with a definable number of bits,
      if parameters <strong>limited</strong> = true, and <strong>quantized</strong> = true.</li>
 </ul>
 
@@ -1870,7 +1870,7 @@ the value of u, at intermediate ticks of clock y, the value of y is set to zero.
 </p>
 
 <p>
-For signal interpolation an <em>upsample</em> should be followed by an appropriate filter (antiimaging).
+For signal interpolation an <em>upsample</em> should be followed by an appropriate filter (anti-imaging).
 </p>
 
 <h4>Examples</h4>
@@ -2181,7 +2181,7 @@ This is usually not desired. Therefore, for every usage of block
 
 <p>
 This noise generator is based on a function that generates
-a random real number uniformely in the semi-open range [0.0, 1.0).
+a random real number uniformly in the semi-open range [0.0, 1.0).
 The function uses the standard Wichmann-Hill generator,
 combining three pure multiplicative congruential generators of
 modulus 30269, 30307 and 30323. Its period (how many numbers it
@@ -2593,7 +2593,7 @@ as output.
           seedOut[1] := rem((171*seedIn[1]), 30269);
           seedOut[2] := rem((172*seedIn[2]), 30307);
           seedOut[3] := rem((170*seedIn[3]), 30323);
-          // zero is a poor seed, therfore substitute 1;
+          // zero is a poor seed, therefore substitute 1;
           if seedOut[1] == 0 then
             seedOut[1] := 1;
           end if;

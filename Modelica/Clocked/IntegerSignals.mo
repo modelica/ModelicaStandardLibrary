@@ -98,12 +98,10 @@ Analog to the corresponding Real signal block example there exists an elementary
       extends Clocked.IntegerSignals.Interfaces.SamplerIcon;
       parameter Integer n(min=1)=1
         "Size of input signal vector u (= size of output signal vector y)";
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u[n]
+      Modelica.Blocks.Interfaces.IntegerInput u[n]
         "Connector of continuous-time, Integer input signal vector"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}}), iconTransformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y[n]
+      Modelica.Blocks.Interfaces.IntegerOutput y[n]
         "Connector of clocked, Integer output signal vector"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       Clocked.ClockSignals.Interfaces.ClockInput clock
@@ -214,14 +212,11 @@ Analog to the corresponding Real signal block example there exists an elementary
         "= true, if sub-sampling factor is inferred"  annotation(Evaluate=true, choices(checkBox=true));
       parameter Integer factor(min=1)=1
         "Sub-sampling factor >= 1 (ignored if inferFactor=true)"
-                                                                annotation(Evaluate=true, Dialog(enable=not inferFactor));
-
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u
+        annotation(Evaluate=true, Dialog(enable=not inferFactor));
+      Modelica.Blocks.Interfaces.IntegerInput u
         "Connector of clocked, Integer input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y
+      Modelica.Blocks.Interfaces.IntegerOutput y
         "Connector of clocked, Integer output signal (clock of y is slower as clock of u)"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     equation
@@ -318,14 +313,11 @@ Analog to the corresponding Real signal block example there exists an elementary
         "= true, if super-sampling factor is inferred"  annotation(Evaluate=true, choices(checkBox=true));
       parameter Integer factor(min=1)=1
         "Super-sampling factor >= 1 (ignored if inferFactor=true)"
-                                                    annotation(Evaluate=true, Dialog(enable=not inferFactor));
-
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u
+        annotation(Evaluate=true, Dialog(enable=not inferFactor));
+      Modelica.Blocks.Interfaces.IntegerInput u
         "Connector of clocked, Integer input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y
+      Modelica.Blocks.Interfaces.IntegerOutput y
         "Connector of clocked, Integer output signal (clock of y is faster as clock of u)"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     equation
@@ -429,16 +421,13 @@ Analog to the corresponding Real signal block example there exists an elementary
     block ShiftSample
       "Shift the clocked Integer input signal by a fraction of the last interval and and provide it as clocked output signal"
       parameter Integer shiftCounter(min=0)=0 "Numerator of shifting formula"
-            annotation(Evaluate=true, Dialog(group="Shift first clock activation for 'shiftCounter/resolution*interval(u)' seconds"));
+        annotation(Evaluate=true, Dialog(group="Shift first clock activation for 'shiftCounter/resolution*interval(u)' seconds"));
       parameter Integer resolution(min=1)=1 "Denominator of shifting formula"
-            annotation(Evaluate=true, Dialog(group="Shift first clock activation for 'shiftCounter/resolution*interval(u)' seconds"));
-
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u
+        annotation(Evaluate=true, Dialog(group="Shift first clock activation for 'shiftCounter/resolution*interval(u)' seconds"));
+      Modelica.Blocks.Interfaces.IntegerInput u
         "Connector of clocked, Integer input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y
+      Modelica.Blocks.Interfaces.IntegerOutput y
         "Connector of clocked, Integer output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     equation
@@ -514,18 +503,15 @@ Analog to the corresponding Real signal block example there exists an elementary
     block BackSample
       "Shift clock of Integer input signal backwards in time (and access the most recent value of the input at this new clock)"
       parameter Integer backCounter(min=0)=0 "Numerator of shifting formula"
-            annotation(Evaluate = true, Dialog(group="Shift first clock activation backwards in time for 'shiftCounter/resolution*interval(u)' seconds"));
+        annotation(Evaluate = true, Dialog(group="Shift first clock activation backwards in time for 'shiftCounter/resolution*interval(u)' seconds"));
       parameter Integer resolution(min=1)=1 "Denominator of shifting formula"
-            annotation(Evaluate = true, Dialog(group="Shift first clock activation backwards in time for 'shiftCounter/resolution*interval(u)' seconds"));
+        annotation(Evaluate = true, Dialog(group="Shift first clock activation backwards in time for 'shiftCounter/resolution*interval(u)' seconds"));
       parameter Integer y_start=0
         "Value of output y before the first clock tick of the input u";
-
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u(start=y_start)
+      Modelica.Blocks.Interfaces.IntegerInput u(start=y_start)
         "Connector of clocked, Integer input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y
+      Modelica.Blocks.Interfaces.IntegerOutput y
         "Connector of clocked, Integer output signal (clock of y is faster als clock of u)"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     equation
@@ -601,12 +587,10 @@ Analog to the corresponding Real signal block example there exists an elementary
     end BackSample;
 
     block AssignClock "Assigns a clock to a clocked Integer signal"
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u
+      Modelica.Blocks.Interfaces.IntegerInput u
         "Connector of clocked, Integer input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y
+      Modelica.Blocks.Interfaces.IntegerOutput y
         "Connector of clocked, Integer output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
        Clocked.ClockSignals.Interfaces.ClockInput clock annotation (Placement(
@@ -692,12 +676,10 @@ Analog to the corresponding Real signal block example there exists an elementary
       "Assigns a clock to a clocked Integer signal vector"
       parameter Integer n(min=1)=1
         "Size of input signal vector u (= size of output signal vector y)";
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u[n]
+      Modelica.Blocks.Interfaces.IntegerInput u[n]
         "Connector of clocked, Integer input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y[n]
+      Modelica.Blocks.Interfaces.IntegerOutput y[n]
         "Connector of clocked, Integer output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
        Clocked.ClockSignals.Interfaces.ClockInput clock annotation (Placement(
@@ -787,12 +769,10 @@ Analog to the corresponding Real signal block example there exists an elementary
           "= true, if upsampling factor is inferred"  annotation(Evaluate=true, choices(checkBox=true));
         parameter Integer factor(min=1)=1
           "Upsampling factor >= 1 (if inferFactor=false)" annotation(Evaluate=true, Dialog(enable=not inferFactor));
-        Modelica.Blocks.Interfaces.IntegerInput
-                                             u
+        Modelica.Blocks.Interfaces.IntegerInput u
           "Connector of clocked, Integer input signal"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-        Modelica.Blocks.Interfaces.IntegerOutput
-                                              y
+        Modelica.Blocks.Interfaces.IntegerOutput y
           "Connector of clocked, Integer output signal (clock of y is faster as clock of u)"
           annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       protected
@@ -914,8 +894,7 @@ Analog to the corresponding Real signal block example there exists an elementary
         "Generate a Boolean continuous-time trigger signal from a clocked Integer input"
           extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
           parameter Boolean y_start=false "Initial value of output signal";
-          Modelica.Blocks.Interfaces.IntegerInput
-                                               u
+          Modelica.Blocks.Interfaces.IntegerInput u
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
           Modelica.Blocks.Interfaces.BooleanOutput y
           "Connector of Boolean output signal"     annotation (Placement(
@@ -977,8 +956,7 @@ This block for Integer signals works similar as the corresponding block for Real
         "Generate a Boolean continuous-time square signal from a clocked Integer input"
           extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
           parameter Boolean y_start=false "Initial value of output signal";
-          Modelica.Blocks.Interfaces.IntegerInput
-                                               u
+          Modelica.Blocks.Interfaces.IntegerInput u
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
           Modelica.Blocks.Interfaces.BooleanOutput y
           "Connector of Boolean output signal"     annotation (Placement(
@@ -1123,8 +1101,7 @@ contains utility blocks that are used as building blocks for user-relevant block
       if firstTick() then
         y = false;
       else
-        y = not
-               (u == previous(u));
+        y = not (u == previous(u));
       end if;
 
       annotation (
@@ -1266,7 +1243,7 @@ y is set to parameter y_start.
   package TimeBasedSources
     "Package of signal source blocks generating clocked simulation time based Integer signals"
      extends Modelica.Icons.SourcesPackage;
-    block Step "Generate step signal of type Integer"
+     block Step "Generate step signal of type Integer"
         extends Interfaces.PartialClockedSO;
       parameter Integer height = 1 "Height of step";
       parameter Integer offset = 0 "Offset of output signal y";
@@ -1652,16 +1629,12 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBase
     partial block PartialSISOSampler
       "Basic block used for sampling of Integer signals"
     extends Clocked.IntegerSignals.Interfaces.SamplerIcon;
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u
+      Modelica.Blocks.Interfaces.IntegerInput u
         "Connector of continuous-time, Real input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y
+      Modelica.Blocks.Interfaces.IntegerOutput y
         "Connector of clocked, Real output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-    equation
-
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}})));
     end PartialSISOSampler;
@@ -1671,12 +1644,10 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBase
       parameter Integer y_start = 0
         "Value of output y before the first tick of the clock associated to input u";
 
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u(final start=y_start)
+      Modelica.Blocks.Interfaces.IntegerInput u(final start=y_start)
         "Connector of clocked, Integer input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y
+      Modelica.Blocks.Interfaces.IntegerOutput y
         "Connector of continuous-time, Integer output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
@@ -1719,12 +1690,10 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBase
       "Block with clocked single input and clocked single output Integer signals"
       extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
 
-      Modelica.Blocks.Interfaces.IntegerInput
-                                           u
+      Modelica.Blocks.Interfaces.IntegerInput u
         "Connector of clocked, Real input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y
+      Modelica.Blocks.Interfaces.IntegerOutput y
         "Connector of clocked, Real output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
@@ -1736,8 +1705,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBase
       "Block with clocked single output Integer signal"
       extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
 
-      Modelica.Blocks.Interfaces.IntegerOutput
-                                            y
+      Modelica.Blocks.Interfaces.IntegerOutput y
         "Connector of clocked, Real output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
