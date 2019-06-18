@@ -228,8 +228,7 @@ Analog to the corresponding Real signal block example there exists an elementary
 </p>
 
 
-</html>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             initialScale=0.06)));
@@ -1151,8 +1150,7 @@ contains utility blocks that are used as building blocks for user-relevant block
       if firstTick() then
         y = false;
       else
-        y = not
-               (u == previous(u));
+        y = not (u == previous(u));
       end if;
 
       annotation (
@@ -1293,8 +1291,7 @@ y is set to parameter y_start.
     end FractionalDelay;
 
     block ClockToBoolean
-      "Block to translate clock signals to continuous Boolean events (each time the
-   input clock ticks a rising Boolean output edge is produced)."
+      "Block to translate clock signals to continuous Boolean events (each time the input clock ticks a rising Boolean output edge is produced)."
       extends ClockSignals.Interfaces.ClockedBlockIcon;
       extends Modelica.Blocks.Icons.PartialBooleanBlock;
 
@@ -2085,16 +2082,12 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBase
     partial block PartialSISOSampler
       "Basic block used for sampling of Boolean signals"
     extends Clocked.BooleanSignals.Interfaces.SamplerIcon;
-      Modelica.Blocks.Interfaces.BooleanInput
-                                           u
+      Modelica.Blocks.Interfaces.BooleanInput u
         "Connector of continuous-time, Real input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.BooleanOutput
-                                            y
+      Modelica.Blocks.Interfaces.BooleanOutput y
         "Connector of clocked, Real output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-    equation
-
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}})), Diagram(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}})));
@@ -2104,12 +2097,10 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBase
       "Block with clocked single input and clocked single output Boolean signals"
       extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
 
-      Modelica.Blocks.Interfaces.BooleanInput
-                                           u
+      Modelica.Blocks.Interfaces.BooleanInput u
         "Connector of clocked, Real input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.BooleanOutput
-                                            y
+      Modelica.Blocks.Interfaces.BooleanOutput y
         "Connector of clocked, Real output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
@@ -2121,8 +2112,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBase
       "Block with clocked single output Boolean signals"
       extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
 
-      Modelica.Blocks.Interfaces.BooleanOutput
-                                            y
+      Modelica.Blocks.Interfaces.BooleanOutput y
         "Connector of clocked, Real output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
