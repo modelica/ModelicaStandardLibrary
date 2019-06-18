@@ -2586,8 +2586,7 @@ Example used to generate a figure for the documentation of block
       end ShiftSample;
 
       model RotationalSample
-        "Simple example of a rotational clock with variable trigger interval and
-   switching rotation-direction."
+        "Simple example of a rotational clock with variable trigger interval and switching rotation-direction."
         extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine angle_input(
@@ -2629,9 +2628,9 @@ Example used to generate a figure for the documentation of block
           experiment(StopTime = 2),
           Documentation(info="<html>
     Simple example of a rotational clock with variable trigger interval and
-    switching rotation-direction. The input rotation is just sinodical,
+    switching direction of rotation. The input rotation is just sinusoidal,
     switching direction every half second. The trigger interval is changed with
-    the same pace; every half second it is doubled or halfed respectively. The
+    the same pace; every half second it is doubled or halved respectively. The
     generated clocked signals are therefore:
     <p>
     <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalSample_Result.png\">.
@@ -2639,8 +2638,7 @@ Example used to generate a figure for the documentation of block
       end RotationalSample;
 
       model LogicalSample
-        "Simple example of conjunctive and disjunctive logical clocks, combining clock
-   signals to derive new event driven clocks."
+        "Simple example of conjunctive and disjunctive logical clocks, combining clock signals to derive new event driven clocks."
         extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine_angle_input(

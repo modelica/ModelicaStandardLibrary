@@ -445,7 +445,7 @@ For an example, see
             nu = nu)
           "Replaceable logical combinator applied on vector of Clock input signals.
      Important: Must not be any kind of negation since such would result in
-     infinite many tickts for an infinitesimal short time period."
+     infinite many ticks for an infinitesimal short time period."
           annotation (Placement(transformation(extent = {{20,-10},{40,10}})));
 
         EventClock clock
