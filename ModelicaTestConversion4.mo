@@ -167,7 +167,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2945;
-     end Digital;
+    end Digital;
 
     package QuasiStatic
       extends Modelica.Icons.ExamplesPackage;
@@ -206,13 +206,16 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         model M1
           extends Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer;
         end M1;
+
         model M2
           extends Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet(quasiStationary=true);
           extends Modelica.Electrical.Machines.Icons.QuasiStationaryMachine;
         end M2;
+
         model M3
           extends Modelica.Electrical.Machines.BasicMachines.Components.InductorDC(final quasiStationary=true);
         end M3;
+
         model M4
           extends Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC(final quasiStationary=true);
         end M4;
@@ -261,7 +264,8 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
       model Issue2929 "Conversion test for #2929"
         extends Modelica.Icons.Example;
-        model M = Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer;
+        model M =
+            Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer;
         annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2929\">#2929</a>.
