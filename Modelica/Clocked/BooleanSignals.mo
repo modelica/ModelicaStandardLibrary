@@ -978,10 +978,8 @@ Analog to the corresponding Real signal block example there exists an elementary
                   fillPattern=FillPattern.Solid),
                 Ellipse(
                   extent={{71,7},{85,-7}},
-                  lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                            {235,235,235}),
-                  fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                            {235,235,235}),
+                  lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+                  fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
                   fillPattern=FillPattern.Solid),
               Line(points={{-60,-70},{-60,70}}),
               Line(points={{-20,-70},{-20,70}}),
@@ -1036,10 +1034,8 @@ This block for Boolean signals works similarly as the corresponding block for Re
                   fillPattern=FillPattern.Solid),
                 Ellipse(
                   extent={{71,7},{85,-7}},
-                  lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                            {235,235,235}),
-                  fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                            {235,235,235}),
+                  lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+                  fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
                   fillPattern=FillPattern.Solid),
                                        Line(points={{-80,-70},{-40,-70},{-40,44},
                     {0,44},{0,-70},{40,-70},{40,44},{79,44}})}),
@@ -1315,19 +1311,19 @@ y is set to parameter y_start.
         annotation (Placement(transformation(extent = {{54,-6},{66,6}})));
 
     equation
-      connect(input_sample.y,input_tick. u)
+      connect(input_sample.y,input_tick.u)
         annotation (Line(
           points = {{-50,7.4},{-50,0},{-28.4,0}},
           color = {255,0,255}));
-      connect(input_hold.y,input_sample. u)
+      connect(input_hold.y,input_sample.u)
         annotation (Line(
           points = {{26.6,0},{40,0},{40,30},{-50,30},{-50,21.2}},
           color = {255,0,255}));
-      connect(input_tick.y,input_hold. u)
+      connect(input_tick.y,input_hold.u)
         annotation (Line(
           points = {{-12.8,0},{12.8,0}},
           color = {255,0,255}));
-      connect(input_hold.y,input_ticked. u)
+      connect(input_hold.y,input_ticked.u)
         annotation (Line(
           points = {{26.6,0},{51.6,0}},
           color = {255,0,255}));
@@ -1356,21 +1352,13 @@ y is set to parameter y_start.
           color = {255,0,255}),
         Ellipse(
           extent = {{-71,7},{-85,-7}},
-          lineColor = DynamicSelect(
-            {235,235,235},
-            if u > 0.5 then {0,255,0} else {235,235,235}),
-          fillColor = DynamicSelect(
-            {235,235,235},
-            if u > 0.5 then {0,255,0} else {235,235,235}),
+          lineColor = DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else {235,235,235}),
+          fillColor = DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else {235,235,235}),
           fillPattern = FillPattern.Solid),
         Ellipse(
           extent = {{71,7},{85,-7}},
-          lineColor = DynamicSelect(
-            {235,235,235},
-            if y > 0.5 then {0,255,0} else {235,235,235}),
-          fillColor = DynamicSelect(
-            {235,235,235},
-            if y > 0.5 then {0,255,0} else {235,235,235}),
+          lineColor = DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+          fillColor = DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
           fillPattern = FillPattern.Solid),
         Ellipse(
           extent = {{-40,70},{-20,50}},
@@ -1416,13 +1404,10 @@ y is set to parameter y_start.
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{71,7},{85,-7}},
-              lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                        {235,235,235}),
-              fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                        {235,235,235}),
+              lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
               fillPattern=FillPattern.Solid),
-                                           Line(points={{-80,-70},{0,-70},{0,50},{80,
-                  50}},   pattern=LinePattern.Dot),
+            Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, pattern=LinePattern.Dot),
             Ellipse(
               extent={{-86,-64},{-74,-76}},
               lineColor={255,0,255},
@@ -1544,7 +1529,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBase
     protected
         Modelica.SIunits.Time simTime;
         parameter Modelica.SIunits.Duration Twidth=period*width/100
-        "width of one pulse"                                              annotation(HideResult=true);
+        "width of one pulse" annotation(HideResult=true);
 
         Modelica.SIunits.Time next(start=startTime, fixed=true)
         "next = startTime + n*period, for smallest n such that next>simTime";
@@ -1574,13 +1559,11 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBase
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{71,7},{85,-7}},
-                lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                          {235,235,235}),
-                fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                          {235,235,235}),
+                lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+                fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
                 fillPattern=FillPattern.Solid),
-                                     Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},
-                    {0,-70},{40,-70},{40,44},{79,44}},   pattern=LinePattern.Dot),
+              Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},
+                    {0,-70},{40,-70},{40,44},{79,44}}, pattern=LinePattern.Dot),
               Ellipse(
                 extent={{-86,-64},{-74,-76}},
                 lineColor={255,0,255},
@@ -1750,13 +1733,10 @@ to use the blocks provided in this package than to use the blocks offered by <a 
               fillPattern=FillPattern.Solid),
             Ellipse(
               extent={{71,7},{85,-7}},
-              lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                        {235,235,235}),
-              fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                        {235,235,235}),
+              lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
               fillPattern=FillPattern.Solid),
-                                           Line(points={{-80,-70},{0,-70},{0,50},{80,
-                  50}},   pattern=LinePattern.Dot),
+            Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, pattern=LinePattern.Dot),
             Ellipse(
               extent={{-86,-64},{-74,-76}},
               lineColor={255,0,255},
@@ -1907,13 +1887,11 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBase
                 fillPattern=FillPattern.Solid),
               Ellipse(
                 extent={{71,7},{85,-7}},
-                lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                          {235,235,235}),
-                fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                          {235,235,235}),
+                lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+                fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
                 fillPattern=FillPattern.Solid),
-                Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},
-                    {0,-70},{40,-70},{40,44},{79,44}},   pattern=LinePattern.Dot),
+              Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},
+                    {0,-70},{40,-70},{40,44},{79,44}}, pattern=LinePattern.Dot),
               Ellipse(
                 extent={{-86,-64},{-74,-76}},
                 lineColor={255,0,255},

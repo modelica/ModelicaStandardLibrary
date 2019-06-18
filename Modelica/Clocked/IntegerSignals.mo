@@ -931,10 +931,8 @@ Analog to the corresponding Real signal block example there exists an elementary
                   fillPattern=FillPattern.Solid),
                 Ellipse(
                   extent={{71,7},{85,-7}},
-                  lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                            {235,235,235}),
-                  fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                            {235,235,235}),
+                  lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+                  fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
                   fillPattern=FillPattern.Solid),
               Line(points={{-60,-70},{-60,70}}),
               Line(points={{-20,-70},{-20,70}}),
@@ -988,12 +986,10 @@ This block for Integer signals works similar as the corresponding block for Real
                   fillPattern=FillPattern.Solid),
                 Ellipse(
                   extent={{71,7},{85,-7}},
-                  lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                            {235,235,235}),
-                  fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
-                            {235,235,235}),
+                  lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
+                  fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
                   fillPattern=FillPattern.Solid),
-                                       Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},
+                Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},
                       {0,-70},{40,-70},{40,44},{79,44}})}),
             Diagram(coordinateSystem(
               preserveAspectRatio=false,
