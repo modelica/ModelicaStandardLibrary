@@ -5,10 +5,13 @@ package UsersGuide "User's Guide"
     extends Modelica.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-In this section, a first introduction to the Modelica.Clocked
-library is given at hand of several examples.
-<br>
-(needs still to be provided).
+Please explore the
+<a href=\"modelica://Modelica.Clocked.Examples\">Examples</a>,
+which provide simple models for a broad variety of applications.
+</p>
+<p>
+A central element of the Modelica.Clocked library is a <strong>clock</strong>.
+For an introduction to clocks see <a href=\"modelica://Modelica.Clocked.UsersGuide.Clocks\">UsersGuide.Clocks</a>.
 </p>
 </html>"));
   end GettingStarted;
@@ -120,12 +123,16 @@ triggering operators will trigger an event.
 <dt>Elmqvist H., Otter M., and Mattsson S.E. (2012):</dt>
 <dd><strong>Fundamentals of Synchronous Control in Modelica.</strong>
     Proceedings of 9th International Modelica Conference, Munich,
-    Germany, Sep. 3-5.<br>&nbsp;</dd>
+    Germany, Sep. 3-5.
+    <a href=\"https://www.doi.org/10.3384/ecp1207615\">DOI:10.3384/ecp1207615</a>.
+   <br>&nbsp;</dd>
 
 <dt>Otter M., Thiele B., and Elmqvist H. (2012):</dt>
 <dd> <strong>A Library for Synchronous Control Systems in Modelica.</strong>
      Proceedings of 9th International Modelica Conference, Munich,
-     Germany, September 3-5.<br>&nbsp;</dd>
+     Germany, September 3-5.
+     <a href=\"https://www.doi.org/10.3384/ecp1207627\">DOI:10.3384/ecp1207627</a>.
+     <br>&nbsp;</dd>
 
 <dt>Walther N. (2002):</dt>
 <dd> <strong>Praxisgerechte Modelica-Bibliothek f&uuml;r Abtastregler</strong>.
@@ -382,7 +389,7 @@ the library and has the following content:
 <ol>
 <li><a href=\"modelica://Modelica.Clocked.UsersGuide.GettingStarted\">Getting started</a>
     contains an introduction to the most important features and how
-    to use them at hand of examples.</li>
+    to use them.</li>
 <li><a href=\"modelica://Modelica.Clocked.UsersGuide.Literature\">Literature</a>
     provides references that have been used to design and implement this
     library.</li>

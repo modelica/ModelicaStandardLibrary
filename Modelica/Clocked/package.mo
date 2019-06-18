@@ -27,9 +27,11 @@ rate is defined at one location with a clock:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/SimpleSampledSystem.png\">
 </p>
-
 <p>
-For an introduction, have especially a look at:
+The initial version of this library was developed and released under the name <strong>Modelica_Synchronous</strong> library
+before the library became a package of the Modelica Standard Library using the name <strong>Modelica.Clocked</strong>.
+The basic principles and components are the same as in the initial library, therefore the introductory material
+for <strong>Modelica_Synchronous</strong> is still valid, in particular:
 </p>
 <ul>
 <li> <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pdf\">Modelica_Synchronous.pdf</a>
@@ -37,11 +39,16 @@ For an introduction, have especially a look at:
      (the pdf file was generated from the
       <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx\">PowerPoint presentation</a>).
       </li>
-<li> <a href=\"modelica://Modelica.Clocked.UsersGuide.GettingStarted\">Getting started</a>
-     provides an overview of the Library
-     inside the <a href=\"modelica://Modelica.Clocked.UsersGuide\">User's Guide</a>.</li>
+<li><a href=\"https://www.doi.org/10.3384/ecp1207627\">A Library for Synchronous Control Systems in Modelica</a> is the corresponding paper.</li>
+</ul>
+<p>
+Furthermore:
+</p>
+<ul>
+<li> <a href=\"modelica://Modelica.Clocked.UsersGuide\">User's Guide</a>
+     discusses the most important aspects of this library.</li>
 <li><a href=\"modelica://Modelica.Clocked.UsersGuide.ReleaseNotes\">Release Notes</a>
-    summarizes the changes of new versions of this package.</li>
+     summarizes the changes of the library releases.</li>
 <li> <a href=\"modelica://Modelica.Clocked.UsersGuide.Contact\">Contact</a>
      gives author and acknowledgement information for this library.</li>
 </ul>
