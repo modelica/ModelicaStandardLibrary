@@ -99,8 +99,8 @@ is provided.
 <p>The following DC/DC converter topologies are currently included in the PowerConverters library.</p>
 
 <ul>
-<li>SinglePhase dimmer with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triac</a></li>
-<li>MultiPhase indcution machine soft starter with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.MultiPhaseTriac\">triac</a></li>
+<li>Single-phase dimmer with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triac</a></li>
+<li>Polyphase indcution machine soft starter with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.PolyPhaseTriac\">triac</a></li>
 </ul>
 
 <h4>Control</h4>
@@ -4000,8 +4000,8 @@ applying the firing signals to the
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={-80,30})));
-        Modelica.Electrical.PowerConverters.ACAC.MultiPhaseTriac triac(final m=m,
-          useHeatPort=false)
+        Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac triac(final m=m,
+            useHeatPort=false)
           annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
         Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(m=m)
           annotation (Placement(transformation(
@@ -7924,7 +7924,7 @@ This behaviour is simulated by the two firing gates <code>fire1</code> and <code
 </html>"));
     end SinglePhaseTriac;
 
-    model MultiPhaseTriac "Triodes for alternating current"
+    model PolyphaseTriac "Triodes for alternating current"
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron(final min=0)=1e-5
         "Forward state-on differential resistance (closed resistance)";
@@ -8019,13 +8019,13 @@ This behaviour is simulated by the two firing gates <code>fire1</code> and <code
 <ul>
 <li><code>fire1=false</code> and <code>fire2=false</code>: gate current = 0, stay in blocking condition</li>
 <li><code>fire1=true </code> and <code>fire2=false</code>: gate current &gt; 0, fire <code>thyristor1</code></li>
-<li><code>fire1=false</code> and <code>fire2=true </code>: gate current &lt; 0, fire <code>thyristor2</code></li>
-<li><code>fire1=true </code> and <code>fire2=true </code>: forbidden</li>
+<li><code>fire1=false</code> and <code>fire2=true</code>: gate current &lt; 0, fire <code>thyristor2</code></li>
+<li><code>fire1=true </code> and <code>fire2=true</code>: forbidden</li>
 </ul>
 </p>
 </p>
 </html>"));
-    end MultiPhaseTriac;
+    end PolyphaseTriac;
   end ACAC;
 
   package Enable "Enabling models"
