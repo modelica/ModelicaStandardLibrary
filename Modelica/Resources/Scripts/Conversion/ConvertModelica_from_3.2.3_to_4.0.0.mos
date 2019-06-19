@@ -70,6 +70,10 @@ convertElement("Modelica.Thermal.FluidHeatFlow.Media.Medium",
                 "lamda", "lambda");
 convertElement("Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction",
                 "united_converging_crossection", "united_converging_cross_section");
+convertElement("Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3",
+                "jucntioncap", "junctioncap");
+convertMessage("Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet",
+                "No automatic conversion can be applied if record components are removed.")
 convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheel",
                {"wheelRadius"},
                {"radius"});

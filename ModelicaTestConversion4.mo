@@ -269,6 +269,26 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2929;
     end Machines;
+
+    package Spice3
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue940 "Conversion test for #940"
+        function f
+          extends Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3;
+          output Real dummy = jucntioncap*2;
+        end f;
+        Real y;
+        parameter Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet r1 = Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, true);
+        parameter Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet r2 = Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, m_drainPerimiter=19, m_sourcePerimiter=20, m_uic=true);
+      equation
+        (, y) = f(1, 2, 3, 4, 5);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/940\">#940</a>.
+</p>
+</html>"));
+      end Issue940;
+    end Spice3;
   end Electrical;
 
   package Fluid
