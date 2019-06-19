@@ -562,6 +562,24 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue1202;
     end HeatTransfer;
+
+    package FluidHeatFlow
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue940 "Conversion test for #940"
+        extends Modelica.Icons.Example;
+        parameter Modelica.Thermal.FluidHeatFlow.Media.Medium r1 = Modelica.Thermal.FluidHeatFlow.Media.Medium(lamda=2);
+        record R
+          extends Modelica.Thermal.FluidHeatFlow.Media.Medium(lamda=3);
+        end R;
+        parameter R r2;
+        Real y[:] = {r1.lamda, r2.lamda};
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/940\">#940</a>.
+</p>
+</html>"));
+      end Issue940;
+    end FluidHeatFlow;
   end Thermal;
 
   package SIunits

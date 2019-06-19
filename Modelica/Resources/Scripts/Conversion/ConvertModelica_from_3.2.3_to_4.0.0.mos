@@ -66,6 +66,8 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "Modelica.Mechanics.Translational.Components.Brake"},
                 "mue0", "mu0");
 
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Medium",
+                "lamda", "lambda");
 convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheel",
                {"wheelRadius"},
                {"radius"});
