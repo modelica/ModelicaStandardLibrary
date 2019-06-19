@@ -68,6 +68,8 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
 
 convertElement("Modelica.Thermal.FluidHeatFlow.Media.Medium",
                 "lamda", "lambda");
+convertElement("Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction",
+                "united_converging_crossection", "united_converging_cross_section");
 convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheel",
                {"wheelRadius"},
                {"radius"});

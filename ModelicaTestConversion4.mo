@@ -275,6 +275,21 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     extends Modelica.Icons.ExamplesPackage;
     package Dissipation
       extends Modelica.Icons.ExamplesPackage;
+      model Issue940 "Conversion test for #940"
+        extends Modelica.Icons.Example;
+        parameter Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction r1 = Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction(united_converging_crossection=false);
+        record R
+          extends Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction(united_converging_crossection=false);
+        end R;
+        parameter R r2;
+        Boolean y[:] = {r1.united_converging_crossection, r2.united_converging_crossection};
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/940\">#940</a>.
+</p>
+</html>"));
+      end Issue940;
+
       model Issue2780 "Conversion test for #2780"
         extends Modelica.Icons.Example;
         import Modelica.SIunits.ReynoldsNumber;
