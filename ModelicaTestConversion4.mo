@@ -269,12 +269,47 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2929;
     end Machines;
+
+    package Spice3
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue940 "Conversion test for #940"
+        function f
+          extends Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3;
+          output Real dummy = jucntioncap*2;
+        end f;
+        Real y;
+        parameter Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet r1 = Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, true);
+        parameter Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet r2 = Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, m_drainPerimiter=19, m_sourcePerimiter=20, m_uic=true);
+      equation
+        (, y) = f(1, 2, 3, 4, 5);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/940\">#940</a>.
+</p>
+</html>"));
+      end Issue940;
+    end Spice3;
   end Electrical;
 
   package Fluid
     extends Modelica.Icons.ExamplesPackage;
     package Dissipation
       extends Modelica.Icons.ExamplesPackage;
+      model Issue940 "Conversion test for #940"
+        extends Modelica.Icons.Example;
+        parameter Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction r1 = Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction(united_converging_crossection=false);
+        record R
+          extends Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction(united_converging_crossection=false);
+        end R;
+        parameter R r2;
+        Boolean y[:] = {r1.united_converging_crossection, r2.united_converging_crossection};
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/940\">#940</a>.
+</p>
+</html>"));
+      end Issue940;
+
       model Issue2780 "Conversion test for #2780"
         extends Modelica.Icons.Example;
         import Modelica.SIunits.ReynoldsNumber;
@@ -562,6 +597,24 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue1202;
     end HeatTransfer;
+
+    package FluidHeatFlow
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue940 "Conversion test for #940"
+        extends Modelica.Icons.Example;
+        parameter Modelica.Thermal.FluidHeatFlow.Media.Medium r1 = Modelica.Thermal.FluidHeatFlow.Media.Medium(lamda=2);
+        record R
+          extends Modelica.Thermal.FluidHeatFlow.Media.Medium(lamda=3);
+        end R;
+        parameter R r2;
+        Real y[:] = {r1.lamda, r2.lamda};
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/940\">#940</a>.
+</p>
+</html>"));
+      end Issue940;
+    end FluidHeatFlow;
   end Thermal;
 
   package SIunits

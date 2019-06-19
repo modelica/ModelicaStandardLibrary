@@ -5832,7 +5832,7 @@ on the model behaviour.
         input SI.Temp_K tnom "Nominal temperature";
 
         output SI.Voltage junctionpot "Junction potential";
-        output Real jucntioncap "Junction capacitance";
+        output Real junctioncap "Junction capacitance";
 
       protected
         SI.GapEnergy phibtemp;
@@ -5868,7 +5868,7 @@ on the model behaviour.
         junctionpot := pbfact+fact2*pbo;
         gmaold      := (phi0 -pbo)/pbo;
         gmanew      := (junctionpot-pbo)/pbo;
-        jucntioncap := cap0 /
+        junctioncap := cap0 /
                        (1+mcoeff* (400e-6*(tnom-Spice3.Internal.SpiceConstants.REFTEMP)-gmaold))  *
                        (1+mcoeff* (400e-6*(temp-Spice3.Internal.SpiceConstants.REFTEMP)-gmanew));
 
@@ -6616,8 +6616,6 @@ on the model behaviour.
       //----------------------obsolete-----------------------------------
         Integer m_bPMOS(        start = 0) "P type MOSFET model";
         Integer m_nLevel(       start = 1) "MOS model level";
-        SI.Length m_drainPerimiter(  start = 0.0) "PD, Drain perimeter";
-        SI.Length m_sourcePerimiter( start = 0.0) "PS, Source perimeter";
       //-----------------------------------------------------------------
         Boolean m_uic;
 
@@ -8075,8 +8073,6 @@ on the model behaviour.
         m_off =            0,
         m_bPMOS =          0,
         m_nLevel =         1,
-        m_drainPerimiter = 0.0,
-        m_sourcePerimiter= 0.0,
         m_uic =            false) "Record Mosfet";
 
         Real hlp;
@@ -8593,8 +8589,6 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         assert(ex.LEVEL== 1, "only MOS Level1 implemented");
         dev.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK "Device temperature";
 
-        dev.m_drainPerimiter := 0;
-        dev.m_sourcePerimiter := 0;
         dev.m_uic := false;
 
         annotation (Documentation(info="<html>
@@ -10094,8 +10088,8 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         dev.m_sourceArea := AS;       // AS, area of source diffusion
         dev.m_drainSquares := NRD;    // NRD, length of drain in squares
         dev.m_sourceSquares := NRS;   // NRS, length of source in squares
-        dev.m_drainPerimiter := PD;   // PD, Drain perimeter;
-        dev.m_sourcePerimiter := PS;  // PS, Source perimeter
+        dev.m_drainPerimeter := PD;   // PD, Drain perimeter;
+        dev.m_sourcePerimeter := PS;  // PS, Source perimeter
 
           dev.m_dICVDSIsGiven := if          (IC > -1e40) then 1 else 0;
           dev.m_dICVDS := if         (IC > -1e40) then IC else 0;
