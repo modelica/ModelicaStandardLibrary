@@ -100,7 +100,7 @@ is provided.
 
 <ul>
 <li>Single-phase dimmer with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triac</a></li>
-<li>Polyphase indcution machine soft starter with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.PolyPhaseTriac\">triac</a></li>
+<li>Polyphase induction machine soft starter with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.PolyPhaseTriac\">triac</a></li>
 </ul>
 
 <h4>Control</h4>
