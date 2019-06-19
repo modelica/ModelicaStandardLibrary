@@ -23,6 +23,10 @@ convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1Z",
               "Modelica.Electrical.Digital.Converters.LogicToX01Z");
 convertClass("Modelica.SIunits.FluxiodQuantum",
               "Modelica.SIunits.FluxoidQuantum");
+convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient",
+              "Modelica.SIunits.LinearTemperatureCoefficientResistance");
+convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",
+              "Modelica.SIunits.QuadraticTemperatureCoefficientResistance");
 convertClass("Modelica.Media.Incompressible.TableBased.Polynomials_Temp",
               "Modelica.Math.Polynomials");
 convertClass("Modelica.Electrical.QuasiStationary",
