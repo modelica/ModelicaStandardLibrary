@@ -631,6 +631,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue385;
+
+    model Issue2944 "Conversion test for #2944"
+      extends Modelica.Icons.Example;
+      Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient x = 1;
+      Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient y = 2;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2944\">#2944</a>.
+</p>
+</html>"));
+    end Issue2944;
   end SIunits;
   annotation(uses(Modelica(version="3.2.3")));
 end ModelicaTestConversion4;
