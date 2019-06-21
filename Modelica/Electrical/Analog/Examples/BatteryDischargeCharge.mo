@@ -4,6 +4,7 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
   Modelica.Electrical.Analog.Batteries.BatteryOCV_SOCtable battery(
     OCVmax=12,
     Qnom=36000,
+    OCVmin=10,
     OCV_SOC=[0,0; 0.1,0.9; 1,1],
     Isc=1200,
     useHeatPort=false,

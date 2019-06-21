@@ -40,7 +40,7 @@ whoses losses are dissipated to the optional <code>heatPort</code>.
       parameter Boolean useLinearSOCDependency=true
         "Use a linear SOC dependent OCV, otherwise table based";
       parameter Modelica.SIunits.Voltage OCVmax(final min=0) "OCV at SOC = SOCmax";
-      parameter Modelica.SIunits.Voltage OCVmin(final min=0)=0 "OCV at SOC = SOCmin"
+      parameter Modelica.SIunits.Voltage OCVmin(final min=0, start=0) "OCV at SOC = SOCmin"
         annotation(Dialog(enable=useLinearSOCDependency));
       parameter Real SOCmax(final max=1)=1 "Max. state of charge";
       parameter Real SOCmin(final min=0)=0 "Min. state of charge";
