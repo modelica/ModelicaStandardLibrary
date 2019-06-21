@@ -112,6 +112,6 @@ convertModifiers({"Modelica.Blocks.Nonlinear.Limiter",
                   {"limitsAtInit"}, fill("", 0), true);
 convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
                   {"deadZoneAtInit"}, fill("", 0), true);
-convertElement("Modelica.Electrical.Analog.Basic.Resistor",
+convertElement("Modelica.Electrical.Analog.Basic.HeatingResistor",
                {"R_ref"},
                {"R"});
