@@ -1257,7 +1257,7 @@ argument):</p>
   type Susceptance = Conductance;
   type InstantaneousPower = Real (final quantity="Power", final unit="W");
   type ActivePower = Real (final quantity="Power", final unit="W");
-  type ApparentPower = Real (final quantity="Power", final unit="VA");
+  type ApparentPower = Real (final quantity="Power", final unit="V.A");
   type ReactivePower = Real (final quantity="Power", final unit="var");
   type PowerFactor = Real (final quantity="PowerFactor", final unit="1");
   type LinearTemperatureCoefficientResistance = Real (
