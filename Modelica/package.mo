@@ -8448,7 +8448,6 @@ dateModified = "2019-01-23 12:00:00Z",
 revisionId="$Format:%h %ci$",
 uses(Complex(version="4.0.0-dev"), ModelicaServices(version="4.0.0-dev")),
 conversion(
- from(version={"2.1", "2.2", "2.2.1", "2.2.2"}, script="modelica://Modelica/Resources/Scripts/Conversion/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version={"3.0", "3.0.1", "3.1", "3.2", "3.2.1", "3.2.2", "3.2.3"}, script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_3.2.3_to_4.0.0.mos")),
 Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
   Polygon(
