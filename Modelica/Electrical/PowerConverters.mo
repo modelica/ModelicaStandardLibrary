@@ -116,7 +116,7 @@ calculates phase angle from reference voltage.
 To control the soft start of an induction machine, 
 the <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl\">SoftStartControl block</a> 
 is provided. It applies a voltage ramp during start, setting the ramp on hold whenever the measured current exceeds the maximum current. 
-Furthermore, a ramp down can be applied for stoppng the drive.
+Furthermore, a ramp down can be applied for stopping the drive.
 </p>
 
 <h4>Examples</h4>
@@ -7735,7 +7735,7 @@ both relationships have been precalculated and are interpolated from a table.
 This block models the functionality of a soft starter controller, controlling the output <code>vRef</code> in the range [0,1] with respect to nominal voltage.
 </p>
 <p>
-Boolean input <code>start = true</code> causes the output <code>vRef</code> to be rised according to a ramp: <code>vRef = vStart + (1 - vStart)*(time - t0)/tRampUp</code>.
+Boolean input <code>start = true</code> causes the output <code>vRef</code> to be risen according to a ramp: <code>vRef = vStart + (1 - vStart)*(time - t0)/tRampUp</code>.
 </p>
 <p> 
 In case the current exceeds the specified maximum current <code>iMax</code> during the starting ramp, the ramp is stopped. 
