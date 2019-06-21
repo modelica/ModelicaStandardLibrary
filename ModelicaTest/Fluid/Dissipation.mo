@@ -5185,7 +5185,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           parameter Integer n=size(rho, 1)
             "number of different fluid density values";
-          parameter Modelica.SIunits.KinematicViscosity nue=1e-6
+          parameter Modelica.SIunits.KinematicViscosity nu=1e-6
             "kinetic viscosity of fluid";
 
           //general variables
@@ -5211,7 +5211,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp=
               4190 "specific heat capacity at constant pressure of fluid"
             annotation (Dialog(group="FluidProperties"));
-          Modelica.SIunits.DynamicViscosity eta[:]={rho[i]*nue for i in 1:n}
+          Modelica.SIunits.DynamicViscosity eta[:]={rho[i]*nu for i in 1:n}
             "dynamic viscosity of fluid" annotation (Dialog(group="FluidProperties"));
           parameter Modelica.SIunits.ThermalConductivity lambda=0.6
             "thermal conductivity of fluid"

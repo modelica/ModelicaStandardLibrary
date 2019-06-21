@@ -71,7 +71,7 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "mue0", "mu0");
 
 convertElement("Modelica.Thermal.FluidHeatFlow.Media.Medium",
-                "lamda", "lambda");
+                {"lamda", "nue"}, {"lambda", "nu"});
 convertElement("Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction",
                 "united_converging_crossection", "united_converging_cross_section");
 convertElement("Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3",
