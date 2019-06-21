@@ -1006,7 +1006,7 @@ package OpAmps "Examples with operational amplifiers"
         Interval=1e-005));
   end LCOscillator;
 
-  package OpAmpCircuits "Different curcuits with operational amplifiers"
+  package OpAmpCircuits "Different circuits with operational amplifiers"
     partial model PartialOpAmp
       "Partial circuit of operational amplifiers"
       extends Modelica.Electrical.Analog.Interfaces.FourPin;
