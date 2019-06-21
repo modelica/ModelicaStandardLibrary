@@ -5080,7 +5080,7 @@ Function <strong>flipUpDown</strong> computes from matrix <strong>A</strong> a m
 
   package LAPACK
     "Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.FunctionsPackage;
 
     function dgeev
       "Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A"
