@@ -75,6 +75,8 @@ convertClass("Modelica.Math.baseIcon2",
               "Modelica.Math.Icons.AxisCenter")
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
               "Modelica.Electrical.Analog.Basic.Resistor");
+convertClass("Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle",
+              "ObsoleteModelica4.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle");
 convertClass("Modelica.Blocks.Interfaces.BlockIcon",
               "Modelica.Blocks.Icons.Block");
 convertClass("Modelica.Blocks.Interfaces.BooleanBlockIcon",
