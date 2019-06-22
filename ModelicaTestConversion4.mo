@@ -451,6 +451,29 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2929;
     end Machines;
+    
+    package PowerConverters "Rectifiers, Inverters, DC/DC and AC/AC converters"
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue2970 "Conversion test for #2970"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
+          adaptor(vMax=100)
+          annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+        Modelica.Blocks.Sources.Ramp ramp(
+          height=200,
+          duration=1,
+          offset=-100)
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+      equation
+        connect(ramp.y, adaptor.v)
+          annotation (Line(points={{-9,0},{8,0}}, color={0,0,127}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2970\">#2970</a>.
+</p>
+</html>"));
+      end Issue2970;
+    end PowerConverters;
 
     package Spice3
       extends Modelica.Icons.ExamplesPackage;
