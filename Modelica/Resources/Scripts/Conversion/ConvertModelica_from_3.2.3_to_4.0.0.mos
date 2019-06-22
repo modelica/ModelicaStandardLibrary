@@ -183,6 +183,32 @@ convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.Symmetr
               "ObsoleteModelica4.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding")
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete",
               "ObsoleteModelica4.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding")
+convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort",
+              "Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary");
+convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended",
+              "Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended");
+convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary",
+              "Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort");
+convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine",
+              "Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine");
+convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort",
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortElementary");
+convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended",
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortExtended");
+convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortElementary",
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPort");
+convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.BaseInductionMachine",
+              "Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine");
+convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine",
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.BaseMachine");
+convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPortsElementary",
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPortsElementary");
+convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts",
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPorts");
+convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedShape",
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.FixedShape");
+convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage",
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.Leakage");
 
 // Change renamed elements of classes
 // mue -> mu
