@@ -1,5 +1,5 @@
 within Modelica;
-package Electrical "Library of electrical models (analog, digital, machines, multi-phase)"
+package Electrical "Library of electrical models (analog, digital, machines, polyphase)"
 extends Modelica.Icons.Package;
 
 
@@ -8,7 +8,7 @@ annotation (
 <p>
 This library contains electrical components to build up analog and digital circuits,
 as well as machines to model electrical motors and generators,
-especially three phase induction machines such as an asynchronous motor.
+especially three-phase induction machines such as an asynchronous motor.
 </p>
 
 </html>"),

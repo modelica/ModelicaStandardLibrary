@@ -54,7 +54,7 @@ main sub-libraries:
  </td>
  <td>
  <a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a><br>
-Based on magnetic flux tubes concepts. Especially to model electro-magnetic actuators. Nonlinear shape, force, leakage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
+Based on magnetic flux tubes concepts. Especially to model electromagnetic actuators. Nonlinear shape, force, leakage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
  </td>
 </tr>
 
@@ -217,7 +217,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>Pin, PositivePin, NegativePin</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPins.png\"></td></tr>
 
-<tr><td><strong>electrical<br>multi-phase</strong></td>
+<tr><td><strong>electrical<br>polyphase</strong></td>
    <td colspan=\"3\">vector of electrical pins</td>
    <td><a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces\">Modelica.Electrical.MultiPhase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
@@ -231,7 +231,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>SpacePhasor</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
-<tr><td><strong>quasi-static<br>single phase</strong></td>
+<tr><td><strong>quasi-static<br>single-phase</strong></td>
    <td>complex electrical potential</td>
    <td>complex electrical current</td>
    <td></td>
@@ -240,8 +240,8 @@ variables is explained in section \"Connector Equations\" below):
      <br>Pin, PositivePin, NegativePin</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticSinglePhasePins.png\"></td></tr>
 
-<tr><td><strong>quasi-static<br>multi-phase</strong></td>
-   <td colspan=\"3\">vector of quasi-static single phase pins</td>
+<tr><td><strong>quasi-static<br>polyphase</strong></td>
+   <td colspan=\"3\">vector of quasi-static single-phase pins</td>
    <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces\">Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticMultiPhasePlugs.png\"></td></tr>
@@ -783,13 +783,13 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <pre>
 &lt;p&gt;
   The feeder cables are connected to an
-  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage&quot;&gt;
+  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.AIM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
   The feeder cables are connected to an
-  <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">
+  <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.AIM_SquirrelCage\">
   induction machine</a>.
 </p>
 </html>"));
@@ -2351,7 +2351,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes\">Modelica.Magnetic.QuasiStatic.FluxTubes</a></td>
     <td>
-    This library provides models for the investigation of quasi static electromagnetic devices with lumped magnetic networks
+    This library provides models for the investigation of quasi-static electromagnetic devices with lumped magnetic networks
     in a comparable way as <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
     (This library was developed by Christian Kral).
     </td></tr>
@@ -2411,9 +2411,9 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td width=\"150\">MultiSensor</td>
     <td> Measures voltage, current and active power for each phase as well as total power simultaneously.</td></tr>
 <tr><td width=\"150\">AronSensor</td>
-    <td> Measures active power for a threephase system by two singlephase power sensors in an Aron circuit.</td></tr>
+    <td> Measures active power for a three-phase system by two single-phase power sensors in an Aron circuit.</td></tr>
 <tr><td width=\"150\">ReactivePowerSensor</td>
-    <td> Measures reactive power for a threephase system.</td></tr>
+    <td> Measures reactive power for a three-phase system.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples</strong></td></tr>
 <tr><td width=\"150\">SMEE_DOL</td>
     <td> Electrically excited synchronous machine, starting direct on line via the damper cage,
@@ -2437,9 +2437,9 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td width=\"150\">MultiSensor</td>
     <td> Measures voltage, current and apparent power for m phases as well as total apparent power simultaneously.</td></tr>
 <tr><td width=\"150\">AronSensor</td>
-    <td> Measures active power for a threephase system by two singlephase power sensors in an Aron circuit.</td></tr>
+    <td> Measures active power for a three-phase system by two single-phase power sensors in an Aron circuit.</td></tr>
 <tr><td width=\"150\">ReactivePowerSensor</td>
-    <td> Measures reactive power for a threephase system.</td></tr>
+    <td> Measures reactive power for a three-phase system.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
 <tr><td width=\"150\">FrequencySweepVoltageSource<br>FrequencySweepCurrentSource</td>
     <td> Voltage source and current source with integrated frequency sweep.</td></tr>
@@ -2815,7 +2815,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
     <td>
-    This library provides quasi-static models of multiphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
+    This library provides quasi-static models of polyphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
     to the transient models in <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a>.<br>
     Quasistatic means that electric transients are neglected, voltages and currents are supposed to be sinusoidal. Mechanical and thermal transients are taken into account.<br>
     This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
@@ -3224,24 +3224,24 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td width=\"150\"> MUX2x1</td>
     <td> A two inputs MULTIPLEXER for multiple value logic (2 data inputs, 1 select input, 1 output) </td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.InductionMachines.</strong></td></tr>
 <tr><td width=\"150\"> AIMC_Initialize </td>
-    <td> Steady-State Initialization example of AsynchronousInductionMachineSquirrelCage </td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</strong></td></tr>
+    <td> Steady-State Initialization example of InductionMachineSquirrelCage </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousMachines.</strong></td></tr>
 <tr><td width=\"150\"> SMPM_VoltageSource </td>
-    <td> PermanentMagnetSynchronousInductionMachine example fed by FOC </td></tr>
+    <td> PermanentMagnetSynchronousMachine example fed by FOC </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Examples.</strong></td></tr>
 <tr><td width=\"150\"> TestSensors </td>
-    <td> Example for multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor </td></tr>
+    <td> Example for polyphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Sensors.</strong></td></tr>
 <tr><td width=\"150\"> VoltageQuasiRMSSensor </td>
-    <td> Continuous quasi voltage RMS sensor for multi phase system </td></tr>
+    <td> Continuous quasi voltage RMS sensor for polyphase system </td></tr>
 <tr><td width=\"150\"> CurrentQuasiRMSSensor </td>
-    <td> Continuous quasi current RMS sensor for multi phase system </td></tr>
+    <td> Continuous quasi current RMS sensor for polyphase system </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Blocks.</strong></td></tr>
 <tr><td width=\"150\"> QuasiRMS </td>
-    <td> Determine quasi RMS value of a multi-phase system </td></tr>
+    <td> Determine quasi RMS value of a polyphase system </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Functions.</strong></td></tr>
 <tr><td width=\"150\"> quasiRMS </td>
     <td> Calculate continuous quasi RMS value of input </td></tr>
@@ -3280,7 +3280,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
                                       SMPM_Inverter_MultiPhase<br>
                                       SMEE_Generator_MultiPhase<br>
                                       SMR_Inverter_MultiPhase</td>
-    <td> Multi-phase machine examples </td></tr>
+    <td> Polyphase machine examples </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Fluid.Sensors.</strong></td></tr>
 <tr><td width=\"150\"> MassFractions<br>
@@ -3479,7 +3479,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <tr><td><a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a></td>
     <td>
-    Library for quasi-static electrical singlephase and multiphase AC simulation.<br>
+    Library for quasi-static electrical single-phase and polyphase AC simulation.<br>
     This library allows very fast simulations of electrical circuits with sinusoidal
     currents and voltages by only taking into account the quasi-static, periodic part
     and neglecting non-periodic transients.<br>
@@ -3709,9 +3709,9 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Basic</strong></td></tr>
 <tr><td> MutualInductor </td>
-    <td> Multi phase inductor providing a mutual inductance matrix model.</td></tr>
+    <td> Polyphase inductor providing a mutual inductance matrix model.</td></tr>
 <tr><td> ZeroInductor </td>
-    <td> Multi phase zero sequence inductor.</td></tr>
+    <td> Polyphase zero sequence inductor.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines</strong></td></tr>
 <tr><td> Examples </td>
@@ -3734,17 +3734,17 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</strong></td></tr>
 <tr><td> AIMC_withLosses </td>
-    <td> Asynchronous induction machine with squirrel cage with losses </td></tr>
+    <td> Induction machine with squirrel cage with losses </td></tr>
 <tr><td> AIMC_Transformer </td>
-    <td> Asynchronous induction machine with squirrel cage - transformer starting </td></tr>
+    <td> Induction machine with squirrel cage - transformer starting </td></tr>
 <tr><td> AIMC_withLosses </td>
-    <td> Test example of an asynchronous induction machine with squirrel cage with losses </td></tr>
+    <td> Test example of an induction machine with squirrel cage with losses </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</strong></td></tr>
 <tr><td> SMPM_CurrentSource </td>
-    <td> Permanent magnet synchronous induction machine fed by a current source </td></tr>
+    <td> Permanent magnet synchronous machine fed by a current source </td></tr>
 <tr><td> SMEE_LoadDump </td>
-    <td> Electrical excited synchronous induction machine with voltage controller </td></tr>
+    <td> Electrical excited synchronous machine with voltage controller </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.DCMachines.</strong></td></tr>
 <tr><td> DCSE_SinglePhase </td>
@@ -3775,9 +3775,9 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Utilities</strong></td></tr>
 <tr><td> SwitchedRheostat </td>
-    <td> Switched rheostat, used for starting asynchronous induction motors with slipring rotor.</td></tr>
+    <td> Switched rheostat, used for starting induction motors with slipring rotor.</td></tr>
 <tr><td> RampedRheostat </td>
-    <td> Ramped rheostat, used for starting asynchronous induction motors with slipring rotor.</td></tr>
+    <td> Ramped rheostat, used for starting induction motors with slipring rotor.</td></tr>
 <tr><td> SynchronousMachineData </td>
     <td> The parameters of the synchronous machine model with electrical excitation (and damper) are calculated
                       from parameters normally given in a technical description,
@@ -4362,12 +4362,12 @@ have been fixed:
 
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/200\">#200</a></td>
-    <td>adjust Multiphase to Analog</td>
+    <td>adjust MultiPhase to Analog</td>
 </tr>
 
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/277\">#277</a></td>
-    <td>Improve/fix documentation of Modelica.Electrical.Multiphase</td>
+    <td>Improve/fix documentation of Modelica.Electrical.MultiPhase</td>
 </tr>
 
 <tr><td>
@@ -4674,7 +4674,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     <td>
      Components to model magnetic devices based on the magnetic flux tubes concepts.
      Especially to model
-     electro-magnetic actuators. Nonlinear shape, force, leakage, and
+     electromagnetic actuators. Nonlinear shape, force, leakage, and
      Material models. Material data for steel, electric sheet, pure iron,
      Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
     </td></tr>
@@ -4809,7 +4809,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td> ThermalCollector</td>
     <td> New auxiliary model to collect the heat flows
                       from m heatports to a single heatport;
-                      useful for multiphase resistors (with heatports)
+                      useful for polyphase resistors (with heatports)
                       as a junction of the m heatports.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Icons.</strong></td></tr>
@@ -5466,12 +5466,12 @@ should be automatic):
                                                 parameter SIunits.AngularVelocity wNominal</td></tr>
 <tr><td> </td>
           <td> Changed the following component variable and parameter names to be more concise:<br>
-                                                Removed suffix \"DamperCage\" from all synchronous induction machines
+                                                Removed suffix \"DamperCage\" from all synchronous machines
                                                 since the user can choose whether the damper cage is present or not.<br><code>
                                                 RotorAngle ... RotorDisplacementAngle<br>
                                                 J_Rotor ... Jr<br>
-                                                Rr ........ Rrd (damper of synchronous induction machines)<br>
-                                                Lrsigma ... Lrsigmad (damper of synchronous induction machines)<br>
+                                                Rr ........ Rrd (damper of synchronous machines)<br>
+                                                Lrsigma ... Lrsigmad (damper of synchronous machines)<br>
                                                 phi_mechanical ... phiMechanical<br>
                                                 w_mechanical ..... wMechanical<br>
                                                 rpm_mechanical ... rpmMechanical<br>
@@ -5480,7 +5480,7 @@ should be automatic):
                                                 TurnsRatio ....... turnsRatio    (AIMS)<br>
                                                 VsNom ............ VsNominal     (AIMS)<br>
                                                 Vr_Lr ............ VrLockedRotor (AIMS)<br>
-                                                DamperCage ....... useDamperCage (synchronous induction machines)<br>
+                                                DamperCage ....... useDamperCage (synchronous machines)<br>
                                                 V0 ............... VsOpenCicuit  (SMPM)<br>
                                                 Ie0 .............. IeOpenCicuit  (SMEE)
                                                 </code></td></tr>
@@ -6019,16 +6019,16 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
           </td>
 </tr>
 <tr><td> AIMC_Steinmetz </td>
-          <td> Asynchronous induction machine squirrel cage with Steinmetz connection
+          <td> Induction machine squirrel cage with Steinmetz connection
           </td>
 </tr>
 
 <tr><td colspan=\"2\"><strong>Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td> BasicAIM </td>
-          <td> Partial model for asynchronous induction machine
+          <td> Partial model for induction machine
           </td></tr>
 <tr><td> BasicSM </td>
-          <td> Partial model for synchronous induction machine
+          <td> Partial model for synchronous machine
           </td></tr>
 <tr><td> PartialAirGap </td>
           <td> Partial air gap model
@@ -6040,7 +6040,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
           <td> Partial air gap model of a DC machine
           </td></tr>
 <tr><td> BasicTransformer </td>
-          <td> Partial model of threephase transformer
+          <td> Partial model of three-phase transformer
           </td></tr>
 <tr><td> PartialCore </td>
           <td> Partial model of transformer core with 3 windings
@@ -6991,7 +6991,7 @@ The following <strong>new components</strong> have been added to <strong>existin
                    available conversions from a menu.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.</strong></td></tr>
 <tr><td> SM_ElectricalExcitedDamperCage</td>
-          <td> Electrical excited synchronous induction machine with damper cage</td></tr>
+          <td> Electrical excited synchronous machine with damper cage</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td> ElectricalExcitation </td>
           <td> Electrical excitation for electrical excited synchronous
@@ -7604,7 +7604,7 @@ class Version_1_6 "Version 1.6 (June 21, 2004)"
 <tr><td>HeatingPNP</td>
           <td>Simple PNP BJT according to Ebers-Moll with heating port</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase</strong><br>
-          A new library for multi-phase electrical circuits</td></tr>
+          A new library for polyphase electrical circuits</td></tr>
 </table>
 <p>
 <strong>New examples</strong>
@@ -8021,7 +8021,7 @@ class Contact "Contact"
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.Multiphase</td>
+<td align=\"left\">Electrical.MultiPhase</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
@@ -8218,7 +8218,7 @@ of the Modelica package (many more people have contributed to the design):
    <td>Consultant, Regensburg,<br>Germany</td>
    <td>Modelica.ComplexBlocks<br>
                       Modelica.Electrical.Machines<br>
-                      Modelica.Electrical.Multiphase<br>
+                      Modelica.Electrical.MultiPhase<br>
                       Modelica.Electrical.QuasiStatic<br>
                       Modelica.Magnetics.FundamentalWave<br>
                       Modelica.Mechanics.Rotational<br>
@@ -8437,7 +8437,7 @@ User's Guides that can be accessed by the following links:
 
 <tr>
   <td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide\">FundamentalWave</a></td>
-  <td>Library for quasi static fundamental wave electric machines</td>
+  <td>Library for quasi-static fundamental wave electric machines</td>
 </tr>
 
 <tr>
@@ -8467,7 +8467,7 @@ User's Guides that can be accessed by the following links:
 
 <tr>
   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide\">QuasiStatic</a></td>
-  <td>Library for quasi-static electrical singlephase and multiphase AC simulation</td>
+  <td>Library for quasi-static electrical single-phase and polyphase AC simulation</td>
 </tr>
 
 <tr><td><a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>

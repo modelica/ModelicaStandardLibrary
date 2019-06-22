@@ -2177,8 +2177,8 @@ This package contains components for modeling electrical machines, specially thr
                 60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
 This package contains components for modeling quasi-static electrical induction machines, based on space phasor theory:
 <ul>
-<li>package AsynchronousInductionMachines: quasi-static models of three phase asynchronous induction machines</li>
-<li>package SynchronousInductionMachines: quasi-static models of three phase synchronous induction machines</li>
+<li>package InductionMachines: quasi-static models of three-phase induction machines</li>
+<li>package SynchronousMachines: quasi-static models of three-phase synchronous machines</li>
 <li>package Transformers: quasi-static three-phase transformers (see detailed documentation in subpackage)</li>
 <li>package Components: components for quasi-static modeling machines and transformers</li>
 </ul>
@@ -2427,7 +2427,7 @@ This package contains the quasi-static space phasor connector and partial models
     extends Modelica.Icons.Package;
     package Blocks
       extends Modelica.Icons.Package;
-      block ToSpacePhasor "Conversion: three phase -> space phasor"
+      block ToSpacePhasor "Conversion: three-phase -> space phasor"
         extends Modelica.Blocks.Icons.Block;
         import Modelica.ComplexMath.j;
         import Modelica.ComplexMath.exp;
@@ -2472,11 +2472,11 @@ This package contains the quasi-static space phasor connector and partial models
                 extent={{-12,-74},{64,-86}},
                 textString="zero")}),
           Documentation(info="<html>
-Transformation of quasi-static multi phase values (voltages or currents) to space phasor and zero sequence value.
+Transformation of quasi-static polyphase values (voltages or currents) to space phasor and zero sequence value.
 </html>"));
       end ToSpacePhasor;
 
-      block FromSpacePhasor "Conversion: space phasor -> three phase"
+      block FromSpacePhasor "Conversion: space phasor -> three-phase"
         extends Modelica.Blocks.Icons.Block;
         import Modelica.ComplexMath.j;
         import Modelica.ComplexMath.exp;
@@ -2517,7 +2517,7 @@ Transformation of quasi-static multi phase values (voltages or currents) to spac
               Text(
                 extent={{-62,-74},{14,-86}},
                 textString="zero")}), Documentation(info="<html>
-Transformation of space phasor and zero sequence value to quasi-static multi phase values (voltages or currents).
+Transformation of space phasor and zero sequence value to quasi-static polyphase values (voltages or currents).
 </html>"));
       end FromSpacePhasor;
     end Blocks;

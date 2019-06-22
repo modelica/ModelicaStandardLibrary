@@ -1,5 +1,5 @@
 within Modelica.Electrical.QuasiStatic;
-package MultiPhase "Multiphase AC components"
+package MultiPhase "Polyphase AC components"
   extends Modelica.Icons.Package;
 
   package Examples "Test examples"
@@ -248,7 +248,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
       annotation (Documentation(info="<html>
 <p>
 For the unsymmetrical load (resistor, capacitor and inductor) the parameters inductance L and capacitance C
-are chosen such way that the magnitudes of the three phase currents (see currentSensor12, currentSensor23, currentSensor31) are equal.
+are chosen such way that the magnitudes of the three-phase currents (see currentSensor12, currentSensor23, currentSensor31) are equal.
 </p>
 <p>
 P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 43, example 23
@@ -256,7 +256,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
 </html>"), experiment(StopTime=1.0, Interval=0.001));
     end BalancingDelta;
 
-    model UnsymmetricalLoad "Unsymmetrical threephase load"
+    model UnsymmetricalLoad "Unsymmetrical three-phase load"
       extends Icons.Example;
       import Modelica.ComplexMath.'abs';
       output Modelica.SIunits.Current i1_d=symmetricalComponents_1.abs_y[1]
@@ -431,7 +431,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
               {-50,-21},{-50,-29.5},{-50,-38}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>
-This example shows an unsymmetrical load, in the upper with neutral connection (the singlephase current sensor measures the neutral current) and in the lower without neutral connection (the singlephase voltage sensor measures the neutral displacement).
+This example shows an unsymmetrical load, in the upper with neutral connection (the single-phase current sensor measures the neutral current) and in the lower without neutral connection (the single-phase voltage sensor measures the neutral displacement).
 </p>
 </html>"),
       experiment(StopTime=1.0, Interval=0.001));
@@ -598,7 +598,7 @@ This example shows an unsymmetrical load, in the upper with neutral connection (
               {70,50},{50,50},{50,62}}, color={0,0,127}));
       annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info="<html>
 <p>
-Test quasi-static multiphase sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
+Test quasi-static polyphase sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
 </html>"));
     end TestSensors;
@@ -607,7 +607,7 @@ Examples to demonstrate the usage of quasi-static electric components.
 </html>"));
   end Examples;
 
-  package Basic "Basic components for AC multiphase models"
+  package Basic "Basic components for AC polyphase models"
     extends Modelica.Icons.Package;
 
     model Star "Star connection"
@@ -644,7 +644,7 @@ Examples to demonstrate the usage of quasi-static electric components.
               textString="m=%m")}),
           Documentation(info="<html>
 <p>
-Star (wye) connection of a multi phase circuit. The potentials at the star points are the same.
+Star (wye) connection of a polyphase circuit. The potentials at the star points are the same.
 </p>
 <h4>See also</h4>
 <p>
@@ -692,7 +692,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
               textString="m=%m")}),
           Documentation(info="<html>
 <p>
-Delta (polygon) connection of a multi phase circuit.
+Delta (polygon) connection of a polyphase circuit.
 </p>
 <h4>See also</h4>
 <p>
@@ -703,7 +703,7 @@ Delta (polygon) connection of a multi phase circuit.
     end Delta;
 
     model MultiStar
-      "Star connection of multi phase systems consisting of multiple base systems"
+      "Star connection of polyphase systems consisting of multiple base systems"
       parameter Integer m(final min=1) = 3 "Number of phases";
       final parameter Integer mSystems=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
@@ -763,8 +763,8 @@ Delta (polygon) connection of a multi phase circuit.
               textString="m=%m")}),
         Documentation(info="<html>
 <p>
-Star (wye) connection of a multi phase circuit consisting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). The potentials at the star points are all equal.
+Star (wye) connection of a polyphase circuit consisting of multiple base systems (see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">polyphase guidelines</a>). The potentials at the star points are all equal.
 </p>
 <h4>See also</h4>
 <p>
@@ -775,7 +775,7 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
     end MultiStar;
 
     model MultiDelta
-      "Delta (polygon) connection of multi phase systems consisting of multiple base systems"
+      "Delta (polygon) connection of polyphase systems consisting of multiple base systems"
       parameter Integer m(final min=2) = 3 "Number of phases";
       final parameter Integer mSystems=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
@@ -823,8 +823,8 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
               extent={{-150,-110},{150,-70}},
               textString="m=%m")}), Documentation(info="<html>
 <p>
-Delta (polygon) connection of a multi phase circuit consisting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>).
+Delta (polygon) connection of a polyphase circuit consisting of multiple base systems (see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">polyphase guidelines</a>).
 </p>
 <h4>See also</h4>
 <p>
@@ -890,8 +890,8 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
               textString="R=%R")}),
         Documentation(info="<html>
 <p>
-Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>.
+Multi star points are connected by resistors. This model is required to operate polyphase systems with even phase numbers to avoid ideal connections of start points of base systems; see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">polyphase guidelines</a>.
 </p>
 </html>"));
     end MultiStarResistance;
@@ -929,7 +929,7 @@ Multi star points are connected by resistors. This model is required to operate 
               extent={{-150,-40},{150,-80}},
                   textString="k = %k")}), Documentation(info="<html>
 <p>
-Connects the single phase (positive) pin <code>k</code> of the multi phase (positive) plug to a single phase (positive) pin.
+Connects the single-phase (positive) pin <code>k</code> of the polyphase (positive) plug to a single-phase (positive) pin.
 </p>
 <h4>See also</h4>
 <p>
@@ -973,7 +973,7 @@ Connects the single phase (positive) pin <code>k</code> of the multi phase (posi
               extent={{-150,-40},{150,-80}},
                   textString="k = %k")}), Documentation(info="<html>
 <p>
-Connects the single phase (negative) pin <code>k</code> of the multi phase (negative) plug to a single phase (negative) pin.
+Connects the single-phase (negative) pin <code>k</code> of the polyphase (negative) plug to a single-phase (negative) pin.
 </p>
 <h4>See also</h4>
 <p>
@@ -1017,7 +1017,7 @@ Connects the single phase (negative) pin <code>k</code> of the multi phase (nega
               textString="%name",
               textColor={0,0,255})}), Documentation(info="<html>
 <p>
-Connects all <code>m</code> single phase (positive) pins of the multi phase (positive) plug to an array of <code>m</code> single phase (positive) pins.
+Connects all <code>m</code> single-phase (positive) pins of the polyphase (positive) plug to an array of <code>m</code> single-phase (positive) pins.
 </p>
 <h4>See also</h4>
 <p>
@@ -1061,7 +1061,7 @@ Connects all <code>m</code> single phase (positive) pins of the multi phase (pos
               textString="%name",
               textColor={0,0,255})}), Documentation(info="<html>
 <p>
-Connects all <code>m</code> single phase (negative) pins of the multi phase (negative) plug to an array of <code>m</code> single phase (negative) pins.
+Connects all <code>m</code> single-phase (negative) pins of the polyphase (negative) plug to an array of <code>m</code> single-phase (negative) pins.
 </p>
 <h4>See also</h4>
 <p>
@@ -1072,7 +1072,7 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
 </html>"));
     end PlugToPins_n;
 
-    model Resistor "Multiphase linear resistor"
+    model Resistor "Polyphase linear resistor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance R_ref[m](start=fill(1, m))
         "Reference resistances at T_ref";
@@ -1114,7 +1114,7 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
 <p>
 The linear resistor connects the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor\">single phase Resistors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor\">single-phase Resistors</a>.
 </p>
 
 <p>
@@ -1141,7 +1141,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 </html>"));
     end Resistor;
 
-    model Conductor "Multiphase linear conductor"
+    model Conductor "Polyphase linear conductor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Conductance G_ref[m](start=fill(1, m))
         "Reference conductances at T_ref";
@@ -1183,7 +1183,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 <p>
 The linear resistor connects the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor\">single phase Conductors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor\">single-phase Conductors</a>.
 </p>
 
 <p>
@@ -1210,7 +1210,7 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 </html>"));
     end Conductor;
 
-    model Capacitor "Multiphase linear capacitor"
+    model Capacitor "Polyphase linear capacitor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Capacitance C[m](start=fill(1, m))
         "Capacitances";
@@ -1239,7 +1239,7 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 <p>
 The linear capacitor connects the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">single phase Capacitors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor\">single-phase Capacitors</a>.
 </p>
 
 <h4>See also</h4>
@@ -1260,7 +1260,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.Single
 </html>"));
     end Capacitor;
 
-    model Inductor "Multiphase linear inductor"
+    model Inductor "Polyphase linear inductor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Inductance L[m](start=fill(1, m))
         "Inductances";
@@ -1301,7 +1301,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.Single
 <p>
 The linear inductor connects the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor\">single phase Inductors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor\">single-phase Inductors</a>.
 </p>
 
 <h4>See also</h4>
@@ -1338,7 +1338,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.Single
       end for;
       annotation (defaultComponentName="inductor", Documentation(info="<html>
 <p>
-Model of a multi phase inductor providing a mutual inductance matrix model.
+Model of a polyphase inductor providing a mutual inductance matrix model.
 </p>
 <h4>Implementation</h4>
 <pre>
@@ -1396,7 +1396,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
               textColor={0,0,255})}));
     end MutualInductor;
 
-    model Impedance "Multiphase linear impedance"
+    model Impedance "Polyphase linear impedance"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.ComplexImpedance Z_ref[m](re(start=fill(1,m)),im(start=fill(0,m)))
         "Complex impedances R_ref + j*X_ref";
@@ -1448,7 +1448,7 @@ in each phase.<br>
 <p>
 The linear impedance connects the voltage <code><u>v</u></code> with the
 current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code> in each phase, using <code>m</code>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance\">singlephase impedances</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance\">single-phase impedances</a>.
 The resistive
 components are modeled temperature dependent, so the real parts <code>R_actual = real(<u>Z</u>)</code> are determined from
 the actual operating temperatures and the reference input resistances <code>real(Z_ref)</code>.
@@ -1483,7 +1483,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 </html>"));
     end Impedance;
 
-    model Admittance "Multiphase linear admittance"
+    model Admittance "Polyphase linear admittance"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.ComplexAdmittance Y_ref[m](re(start=fill(1,m)),im(start=fill(0,m)))
         "Complex admittances G_ref + j*B_ref";
@@ -1536,7 +1536,7 @@ in each phase.<br>
 <p>
 The linear admittance connects the voltage <code><u>v</u></code> with the
 current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code> in each phase, using <code>m</code>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance\">singlephase admittances</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance\">single-phase admittances</a>.
 The resistive
 components are modeled temperature dependent, so the real parts <code>G_actual = real(<u>Y</u>)</code> are determined from
 the actual operating temperatures and the reference input conductances <code>real(Y_ref)</code>.
@@ -1571,7 +1571,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 </html>"));
     end Admittance;
 
-    model VariableResistor "Multiphase variable resistor"
+    model VariableResistor "Polyphase variable resistor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
         "Reference temperatures";
@@ -1623,7 +1623,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 <p>
 The linear resistors connect the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">single phase variable Resistors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor\">single-phase variable Resistors</a>.
 The resistances <code>R</code> are given as <code>m</code> input signals.
 </p>
 
@@ -1651,7 +1651,7 @@ A linear temperature dependency of the resistances is also taken into account.
 </html>"));
     end VariableResistor;
 
-    model VariableConductor "Multiphase variable conductor"
+    model VariableConductor "Polyphase variable conductor"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
         "Reference temperatures";
@@ -1701,7 +1701,7 @@ A linear temperature dependency of the resistances is also taken into account.
 <p>
 The linear resistors connect the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor\">single phase variable Conductors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor\">single-phase variable Conductors</a>.
 The conductances <code>G</code> are given as <code>m</code> input signals.
 </p>
 
@@ -1729,7 +1729,7 @@ A linear temperature dependency of the conductances is also taken into account.
 </html>"));
     end VariableConductor;
 
-    model VariableCapacitor "Multiphase variable capacitor"
+    model VariableCapacitor "Polyphase variable capacitor"
       extends Interfaces.TwoPlug;
       Modelica.Blocks.Interfaces.RealInput C[m](each unit="F")
         "Variable capacitance" annotation (Placement(transformation(
@@ -1768,7 +1768,7 @@ A linear temperature dependency of the conductances is also taken into account.
 <p>
 The linear capacitors connect the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor\">single phase variable Capacitors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor\">single-phase variable Capacitors</a>.
 The capacitances <code>C</code> are given as <code>m</code> input signals.
 </p>
 
@@ -1790,7 +1790,7 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
 </html>"));
     end VariableCapacitor;
 
-    model VariableInductor "Multiphase variable inductor"
+    model VariableInductor "Polyphase variable inductor"
       extends Interfaces.TwoPlug;
       Modelica.Blocks.Interfaces.RealInput L[m](each unit="H")
         "Variable inductance" annotation (Placement(transformation(
@@ -1838,7 +1838,7 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
 <p>
 The linear inductors connect the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
-using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor\">single phase variable Inductors</a>.
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor\">single-phase variable Inductors</a>.
 The inductances <code>L</code> are given as <code>m</code> input signals.
 </p>
 
@@ -1860,7 +1860,7 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
 </html>"));
     end VariableInductor;
 
-    model VariableImpedance "Multiphase variable impedance"
+    model VariableImpedance "Polyphase variable impedance"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
         "Reference temperatures";
@@ -1927,7 +1927,7 @@ The linear impedance connects the complex voltage <code><u>v</u></code> with the
 complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code> in each phase,
 using <code>m</code>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance\">
-variable singlephase impedances</a>.
+variable single-phase impedances</a>.
 The impedances <code>Z_ref = R_ref + j*X_ref</code> are given as complex input signals, representing the
 resistive and reactive components of the input impedances. The resistive
 components are modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> are determined from
@@ -1968,7 +1968,7 @@ singularities due to the actual structure of the connected network.
 </html>"));
     end VariableImpedance;
 
-    model VariableAdmittance "Multiphase variable admittance"
+    model VariableAdmittance "Polyphase variable admittance"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
         "Reference temperatures";
@@ -2033,7 +2033,7 @@ The linear admittance connects the complex voltage <code><u>v</u></code> with th
 complex current <code><u>i</u></code> by <code><u>v</u>*<u>Y</u> = <u>i</u></code> in each phase,
 using <code>m</code>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance\">
-variable singlephase admittances</a>.
+variable single-phase admittances</a>.
 The admittances <code>Y_ref = G_ref + j*B_ref</code> are given as complex input signals, representing the
 resistive and reactive components of the input admittances. The resistive
 components are modeled temperature dependent, so the real part <code>G_actual = real(<u>Y</u>)</code> are determined from
@@ -2082,7 +2082,7 @@ singularities due to the actual structure of the connected network.
             fillPattern=FillPattern.Solid,
             extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
               {100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
-<p>This package hosts basic models for quasi-static multiphase circuits.
+<p>This package hosts basic models for quasi-static polyphase circuits.
 Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
@@ -2093,7 +2093,7 @@ Quasi-static theory can be found in the
 </html>"));
   end Basic;
 
-  package Ideal "Ideal components for AC multiphase models"
+  package Ideal "Ideal components for AC polyphase models"
     extends Modelica.Icons.Package;
 
     model Idle "Idle branch"
@@ -2122,7 +2122,7 @@ Quasi-static theory can be found in the
               textString="m=%m")}), Documentation(info="<html>
 <p>
 This model describes <em>m</em> simple idle branches considering the complex currents <em><u>i</u></em> = 0;
-it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">single phase idle branches</a>.
+it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle\">single-phase idle branches</a>.
 </p>
 
 <h4>See also</h4>
@@ -2160,7 +2160,7 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePh
                            Documentation(info="<html>
 <p>
 This model describes <em>m</em> simple short branches considering the complex voltages <em><u>v</u></em> = 0;
-it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">single phase short branches</a>.
+it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">single-phase short branches</a>.
 </p>
 
 <h4>See also</h4>
@@ -2171,7 +2171,7 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePh
 </html>"));
     end Short;
 
-    model IdealCommutingSwitch "Multiphase ideal commuting switch"
+    model IdealCommutingSwitch "Polyphase ideal commuting switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2244,7 +2244,7 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePh
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}), Documentation(info="<html>
 <p>
-Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch).
+Contains m single-phase ideal commuting switches (Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch).
 </p>
 <p>
 <strong>Use with care:</strong>
@@ -2253,7 +2253,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 </html>"));
     end IdealCommutingSwitch;
 
-    model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
+    model IdealIntermediateSwitch "Polyphase ideal intermediate switch"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2346,7 +2346,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 </html>"));
     end IdealIntermediateSwitch;
 
-    model IdealOpeningSwitch "Multiphase ideal opener"
+    model IdealOpeningSwitch "Polyphase ideal opener"
       extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2400,7 +2400,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 </html>"));
     end IdealOpeningSwitch;
 
-    model IdealClosingSwitch "Multiphase ideal closer"
+    model IdealClosingSwitch "Polyphase ideal closer"
       extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
             fill(1e-5, m)) "Closed switch resistance";
@@ -2460,7 +2460,7 @@ This switch is only intended to be used for structural changes, not fast switchi
           Line(origin={10,34}, points={{30,-40},{30,-60}}),
           Line(origin={10,34}, points={{30,-60},{80,-60}})}), Documentation(
           info="<html>
-<p>This package hosts ideal models for quasi-static multiphase circuits.
+<p>This package hosts ideal models for quasi-static polyphase circuits.
 Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
@@ -2487,8 +2487,8 @@ Quasi-static theory can be found in the
       // Alternative implementation due to https://trac.openmodelica.org/OpenModelica/ticket/4496
       y :=sum({sqrt(u[k].re^2 + u[k].im^2) for k in 1:m})/m;
       annotation (Inline=true, Documentation(info="<html>
-  This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system,
-  represented by m quasi static time domain phasors.
+  This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a polyphase system,
+  represented by m quasi-static time domain phasors.
 </html>"));
     end quasiRMS;
 
@@ -2505,14 +2505,14 @@ Quasi-static theory can be found in the
         for k in 1:size(v, 1)}));
       annotation (Inline=true, Documentation(info="<html>
 <p>
-Calculates instantaneous power from multiphase voltages and currents.
+Calculates instantaneous power from polyphase voltages and currents.
 In quasi-static operation, instantaneous power equals active power;
 </p>
 </html>"));
     end activePower;
   end Functions;
 
-  package Blocks "Blocks for quasi-static multi phase systems"
+  package Blocks "Blocks for quasi-static polyphase systems"
     extends Modelica.Icons.Package;
 
     block QuasiRMS
@@ -2525,7 +2525,7 @@ In quasi-static operation, instantaneous power equals active power;
 
       annotation (defaultComponentName="rms", Documentation(info="<html>
 <p>
-This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor.
+This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a polyphase system, representing an equivalent RMS vector or phasor.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
@@ -2534,7 +2534,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
     end QuasiRMS;
 
     block SymmetricalComponents
-      "Creates symmetrical components from signals representing quasi static phasors"
+      "Creates symmetrical components from signals representing quasi-static phasors"
       extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m,final useConjugateInput=fill(false,m));
       import Modelica.ComplexMath.'abs';
       import Modelica.ComplexMath.arg;
@@ -2610,7 +2610,7 @@ Calculates the symmetric components according to Charles L. Fortescue from the t
     end SymmetricalComponents;
 
     block FromSymmetricalComponents
-      "Creates quasi static phasors from symmetrical components"
+      "Creates quasi-static phasors from symmetrical components"
       extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m,final useConjugateInput=fill(false,m));
       import Modelica.ComplexMath.'abs';
       import Modelica.ComplexMath.arg;
@@ -2686,7 +2686,7 @@ Calculates the time phasors from the symmetric components according to Charles L
     end FromSymmetricalComponents;
 
     block SingleToMultiPhase
-      "Extends complex phase signal to complex multi phase signals using symmetricOrientation"
+      "Extends complex phase signal to complex polyphase signals using symmetricOrientation"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSIMO(final nout=m,final useConjugateInput=false);
       parameter Integer m=3 "Number of phases";
     equation
@@ -2825,7 +2825,7 @@ Transformation of space phasor to m phase values (voltages or currents).
     end FromSpacePhasor;
   end Blocks;
 
-  package Sensors "AC multiphase sensors"
+  package Sensors "AC polyphase sensors"
     extends Modelica.Icons.SensorsPackage;
 
     model ReferenceSensor "Sensor of reference angle gamma"
@@ -2888,7 +2888,7 @@ This sensor can be used to measure the reference angle.
 
 <p>
 This sensor can be used to measure the frequency of the reference system, using <em>one</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.FrequencySensor\">single phase FrequencySensor</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.FrequencySensor\">single-phase FrequencySensor</a>.
 </p>
 
 <h4>See also</h4>
@@ -2932,7 +2932,7 @@ This sensor can be used to measure the frequency of the reference system, using 
 
 <p>
 This sensor can be used to measure <em>m</em> complex potentials, using <em>m</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor\">single phase PotentialSensors</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor\">single-phase PotentialSensors</a>.
 </p>
 
 <h4>See also</h4>
@@ -2977,7 +2977,7 @@ This sensor can be used to measure <em>m</em> complex potentials, using <em>m</e
 
 <p>
 This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">single phase VoltageSensors</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">single-phase VoltageSensors</a>.
 </p>
 
 <h4>See also</h4>
@@ -3002,7 +3002,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
     end VoltageSensor;
 
     model VoltageQuasiRMSSensor
-      "Continuous quasi voltage RMS sensor for multi phase system"
+      "Continuous quasi voltage RMS sensor for polyphase system"
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
@@ -3052,7 +3052,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
 </html>", info="<html>
 <p>
 This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a>
-value of a multi phase voltage system, by averaging the phase RMS voltage phasors <code>v</code>.
+value of a polyphase voltage system, by averaging the phase RMS voltage phasors <code>v</code>.
 </p>
 <pre>
   V = sum({'abs'(v[k]) for k in 1:m})/m
@@ -3094,7 +3094,7 @@ value of a multi phase voltage system, by averaging the phase RMS voltage phasor
 
 <p>
 This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">single phase CurrentSensors</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">single-phase CurrentSensors</a>.
 </p>
 
 <h4>See also</h4>
@@ -3119,7 +3119,7 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
     end CurrentSensor;
 
     model CurrentQuasiRMSSensor
-      "Continuous quasi current RMS sensor for multi phase system"
+      "Continuous quasi current RMS sensor for polyphase system"
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
@@ -3170,7 +3170,7 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
 </html>", info="<html>
 <p>
 This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a>
-value of a multi phase current system, by averaging the phase RMS current phasors <code>i</code>.
+value of a polyphase current system, by averaging the phase RMS current phasors <code>i</code>.
 </p>
 <pre>
   I = sum({'abs'(i[k]) for k in 1:m})/m
@@ -3277,7 +3277,7 @@ value of a multi phase current system, by averaging the phase RMS current phasor
 
 <p>
 This sensor can be used to measure <em>m</em> complex apparent power values, using <em>m</em>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">single phase PowerSensors</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">single-phase PowerSensors</a>.
 </p>
 
 <h4>See also</h4>
@@ -3297,7 +3297,7 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
 </html>"));
     end PowerSensor;
 
-  model MultiSensor "Multiphase sensor to measure current, voltage and power"
+  model MultiSensor "Polyphase sensor to measure current, voltage and power"
     extends Modelica.Icons.RotationalSensor;
     import Modelica.ComplexMath.conj;
     import Modelica.ComplexMath.'sum';
@@ -3393,7 +3393,7 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
             textString="%name",
             textColor={0,0,255})}),
       Documentation(info="<html>
-<p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths.
+<p>This multi sensor measures currents, voltages and instantaneous electrical power of a polyphase system and has separated voltage and current paths.
 The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc.
 The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.</p>
 
@@ -3502,10 +3502,10 @@ The internal resistance of each current path is zero, the internal resistance of
               textColor={64,64,64},
               textString="W")}),      Documentation(info="<html>
 <p>
-Contains 2 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total active power in a threephase system.
+Contains 2 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total active power in a three-phase system.
 </p>
 <p>
-This device works only for sinusoidal voltages and currents in threephase systems without neutral.
+This device works only for sinusoidal voltages and currents in three-phase systems without neutral.
 </p>
 <p>
 Elmar Schr&uuml;fer, Leonhard Reindl, Bernhard Zagar: Elektrische Messtechnik. Carl Hanser Verlag.<br>
@@ -3624,7 +3624,7 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
               textColor={64,64,64},
               textString="var")}),    Documentation(info="<html>
 <p>
-Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a threephase system.
+Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a three-phase system.
 </p>
 <p>
 Thomas M&uuml;hl: Elektrische Messtechnik. Springer Vieweg.
@@ -3632,7 +3632,7 @@ Thomas M&uuml;hl: Elektrische Messtechnik. Springer Vieweg.
 </html>"));
     end ReactivePowerSensor;
     annotation (Documentation(info="<html>
-<p>This package hosts sensors for quasi-static multiphase circuits.
+<p>This package hosts sensors for quasi-static polyphase circuits.
 Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
@@ -3643,10 +3643,10 @@ Quasi-static theory can be found in the
 </html>"));
   end Sensors;
 
-  package Sources "AC multiphase sources"
+  package Sources "AC polyphase sources"
     extends Modelica.Icons.SourcesPackage;
 
-    model VoltageSource "Constant multiphase AC voltage"
+    model VoltageSource "Constant polyphase AC voltage"
       extends Interfaces.Source;
       import Modelica.ComplexMath.j;
       import Modelica.ComplexMath.exp;
@@ -3671,7 +3671,7 @@ Quasi-static theory can be found in the
 This model describes <em>m</em> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts
 (defaults are
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">single phase VoltageSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource\">single-phase VoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3685,7 +3685,7 @@ This model describes <em>m</em> constant voltage sources, specifying the complex
 </html>"));
     end VoltageSource;
 
-    model VariableVoltageSource "Variable multiphase AC voltage"
+    model VariableVoltageSource "Variable polyphase AC voltage"
       extends Interfaces.Source;
       Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
             transformation(
@@ -3712,7 +3712,7 @@ This model describes <em>m</em> constant voltage sources, specifying the complex
 This model describes <em>m</em> variable voltage sources, with <em>m</em> complex signal inputs,
 specifying the complex voltages by the complex RMS voltage components.
 Additionally, the frequency of the voltage source is defined by a real signal input.
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableVoltageSource\">single phase VariableVoltageSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableVoltageSource\">single-phase VariableVoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3727,7 +3727,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
     end VariableVoltageSource;
 
     model ReferenceVoltageSource
-      "Variable multiphase AC voltage with reference angle input"
+      "Variable polyphase AC voltage with reference angle input"
       extends Electrical.QuasiStatic.MultiPhase.Interfaces.ReferenceSource;
       import Modelica.Constants.pi;
       Modelica.Blocks.Interfaces.RealInput gamma
@@ -3751,7 +3751,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">single-phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3828,7 +3828,7 @@ way that on a logarithmic frequency scale, the frequency curve appears linear.</
 </html>"));
     end FrequencySweepVoltageSource;
 
-    model CurrentSource "Constant multiphase AC current"
+    model CurrentSource "Constant polyphase AC current"
       extends Interfaces.Source;
       import Modelica.ComplexMath.j;
       import Modelica.ComplexMath.exp;
@@ -3853,7 +3853,7 @@ way that on a logarithmic frequency scale, the frequency curve appears linear.</
 This model describes <em>m</em> constant current sources, specifying the complex currents by the RMS currents and the phase shifts
 (defaults are
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource\">single-phase CurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3867,7 +3867,7 @@ This model describes <em>m</em> constant current sources, specifying the complex
 </html>"));
     end CurrentSource;
 
-    model VariableCurrentSource "Variable multiphase AC current"
+    model VariableCurrentSource "Variable polyphase AC current"
       extends Interfaces.Source;
       Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
             transformation(
@@ -3900,7 +3900,7 @@ This model describes <em>m</em> constant current sources, specifying the complex
 This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">single-phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -3915,7 +3915,7 @@ Additionally, the frequency of the current source is defined by a real signal in
     end VariableCurrentSource;
 
     model ReferenceCurrentSource
-      "Variable multiphase AC current with reference angle input"
+      "Variable polyphase AC current with reference angle input"
       extends Electrical.QuasiStatic.MultiPhase.Interfaces.ReferenceSource;
       import Modelica.Constants.pi;
       Modelica.Blocks.Interfaces.RealInput gamma
@@ -3952,7 +3952,7 @@ Additionally, the frequency of the current source is defined by a real signal in
 This model describes <em>m</em> variable current sources, with <em>m</em> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+<em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">single-phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
@@ -4027,7 +4027,7 @@ way that on a logarithmic frequency scale, the frequency curve appears linear.</
 </html>"));
     end FrequencySweepCurrentSource;
     annotation (Documentation(info="<html>
-<p>This package hosts sources for quasi-static multiphase circuits.
+<p>This package hosts sources for quasi-static polyphase circuits.
 Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
@@ -4038,7 +4038,7 @@ Quasi-static theory can be found in the
 </html>"));
   end Sources;
 
-  package Interfaces "Interfaces for AC multiphase models"
+  package Interfaces "Interfaces for AC polyphase models"
     extends Modelica.Icons.InterfacesPackage;
 
     connector Plug "Quasi-static polyphase plug"
@@ -4047,7 +4047,7 @@ Quasi-static theory can be found in the
       annotation (Documentation(info="<html>
 
 <p>
-This multiphase plug contains a vector of <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">single phase pins</a>.
+This polyphase plug contains a vector of <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">single-phase pins</a>.
 The <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">positive</a> and
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">negative plug</a> are
 derived from this base connector.
@@ -4426,7 +4426,7 @@ The source partial model relies on the
           fillColor={170,213,255},
           fillPattern=FillPattern.Solid,
           extent={{-20,-74},{0,-54}})}), Documentation(info="<html>
-<p>This package hosts models for quasi-static multi phase circuits.
+<p>This package hosts models for quasi-static polyphase circuits.
 Quasi-static theory can be found in
 [<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">Vaske1973</a>]
 and other

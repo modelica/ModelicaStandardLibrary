@@ -158,7 +158,7 @@ in the declaration as in the example at the beginning.
   Chapter  3: <strong>Mechanics</strong>
   Chapter  4: <strong>Heat</strong>
   Chapter  5: <strong>Electricity and Magnetism</strong>
-  Chapter  6: <strong>Light and Related Electro-Magnetic Radiations</strong>
+  Chapter  6: <strong>Light and Related Electromagnetic Radiations</strong>
   Chapter  7: <strong>Acoustics</strong>
   Chapter  8: <strong>Physical Chemistry</strong>
   Chapter  9: <strong>Atomic and Nuclear Physics</strong>

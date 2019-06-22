@@ -1,5 +1,5 @@
 ﻿within Modelica.Magnetic.QuasiStatic;
-package FluxTubes "Library for modelling of quasi static electromagnetic devices with lumped magnetic networks"
+package FluxTubes "Library for modelling of quasi-static electromagnetic devices with lumped magnetic networks"
 
   import SI = Modelica.SIunits;
   import Modelica.Constants.pi;
@@ -14,11 +14,11 @@ package FluxTubes "Library for modelling of quasi static electromagnetic devices
       extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
-<h4>Overview of the concept of quasi static magnetic flux tubes</h4>
+<h4>Overview of the concept of quasi-static magnetic flux tubes</h4>
 <p>
 Following below, the concept of magnetic flux tubes is outlined in short. For a detailed description of flux tube elements, please have a look at the listed literature. Magnetic flux tubes enable the modeling of magnetic fields with lumped equivalent circuit networks.</p>
 
-<p>Since quasi static conditions are assumed, each field quantity can be represented by a complex phasor -- which is indicated by underlining the respective variable:
+<p>Since quasi-static conditions are assumed, each field quantity can be represented by a complex phasor -- which is indicated by underlining the respective variable:
 </p>
 
 <ul>
@@ -93,11 +93,11 @@ see example
 <h4>Notes</h4>
 
 <p>The parameter and variable names are chosen as close as possible to the transient
-<a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a> library, to avoid additional effort when converting transient into quasi static flux tubes models.</p>
+<a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a> library, to avoid additional effort when converting transient into quasi-static flux tubes models.</p>
 
 <h4>Reference Note</h4>
 
-<p>A similar approach on quasi static flux tube models is published in
+<p>A similar approach on quasi-static flux tube models is published in
 [<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.Literature\">Raabe2012</a>].</p>
 </html>"));
     end FluxTubeConcept;
@@ -169,20 +169,20 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </html>"));
     end Contact;
     annotation (DocumentationClass=true, Documentation(info="<html>
-<p>The quasi static flux tubes library is based on the transient library
-<a href=\"modelica://Modelica.Magnetic.FluxTubes\">Magnetic.FluxTubes</a>. The main principles of confined flux and flux tubes apply, too. The quasi static flux tubes library contains components for modelling of electromagnetic devices with lumped magnetic networks based on quasi static theory. Models based on this library are suited for quasi static simulation of transformers at component and system level.</p>
-<p>The quasi static components of this library do not consider saturation since <strong>linearity</strong> is strictly assumed. In case that the permeability of a saturated circuit needs to be considered, a
+<p>The quasi-static flux tubes library is based on the transient library
+<a href=\"modelica://Modelica.Magnetic.FluxTubes\">Magnetic.FluxTubes</a>. The main principles of confined flux and flux tubes apply, too. The quasi-static flux tubes library contains components for modelling of electromagnetic devices with lumped magnetic networks based on quasi-static theory. Models based on this library are suited for quasi-static simulation of transformers at component and system level.</p>
+<p>The quasi-static components of this library do not consider saturation since <strong>linearity</strong> is strictly assumed. In case that the permeability of a saturated circuit needs to be considered, a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor\">transient permeability estimation sensor</a> is provided do determine the effective permeability from a transient simulation.
 </p>
 
 <p>
-A general introduction into <strong>quasi static</strong> (quasi-static) phasor can be found in
+A general introduction into <strong>quasi-static</strong> (quasi-static) phasor can be found in
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview\">Modelica.Electrical.QuasiStatic</a>.
 </p>
 
 <p>
 This user's guide gives a short introduction to the underlying
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.FluxTubeConcept\">concept</a> of quasi static magnetic flux tubes, summarizes basic relationships and equations.
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.UsersGuide.FluxTubeConcept\">concept</a> of quasi-static magnetic flux tubes, summarizes basic relationships and equations.
 </p>
 </html>"));
   end UsersGuide;
@@ -193,7 +193,7 @@ This user's guide gives a short introduction to the underlying
 
     model LinearInductor "Linear inductor with ferromagnetic core"
       extends Modelica.Icons.Example;
-      output Modelica.SIunits.Current deviation = feedback.y "Deviation of transient and quasi static current";
+      output Modelica.SIunits.Current deviation = feedback.y "Deviation of transient and quasi-static current";
       FluxTubes.Basic.Ground ground_mQS annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
       Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource
         sourceQS(
@@ -359,18 +359,18 @@ This user's guide gives a short introduction to the underlying
           Tolerance=1e-07), Documentation(
             info="<html>
 <p>
-This model compares a transient-linear magnetic circuit with a quasi static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape.
+This model compares a transient-linear magnetic circuit with a quasi-static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape.
 </p>
 
 <p>Compare the following quantities</p>
 <ul>
 <li>Sinusoidal supply voltage<br>
     <code>source.v | sourceQS.v.re|im</code></li>
-<li>Non-linear transient current due to saturation and equivalent quasi static current<br>
+<li>Non-linear transient current due to saturation and equivalent quasi-static current<br>
     <code>currentSensor.i | currentSensorQS.i.re|im</code></li>
-<li>Difference between RMS fundamental wave of transient current and the RMS quasi static current<br>
+<li>Difference between RMS fundamental wave of transient current and the RMS quasi-static current<br>
     <code>feedback.y</code></li>
-<li>Relative permeability of iron core of transient and quasi static circuit<br>
+<li>Relative permeability of iron core of transient and quasi-static circuit<br>
     <code>r_mFe.mu_rConst | r_mFeQS.mu_rConst</code></li>
 </ul>
 </html>"),
@@ -379,7 +379,7 @@ This model compares a transient-linear magnetic circuit with a quasi static magn
 
     model NonLinearInductor "Non linear inductor with ferromagnetic core"
       extends Modelica.Icons.Example;
-      output Modelica.SIunits.Current deviation = feedback.y "Deviation of transient and quasi static current";
+      output Modelica.SIunits.Current deviation = feedback.y "Deviation of transient and quasi-static current";
       FluxTubes.Basic.Ground ground_mQS annotation (Placement(transformation(extent={{80,-90},{100,-70}})));
       Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource
         sourceQS(
@@ -582,18 +582,18 @@ This model compares a transient-linear magnetic circuit with a quasi static magn
           Tolerance=1e-07),                                   Documentation(
             info="<html>
 <p>
-This model compares a transient non-linear magnetic circuit with a linearized quasi static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape.
+This model compares a transient non-linear magnetic circuit with a linearized quasi-static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape.
 </p>
 
 <p>Compare the following quantities</p>
 <ul>
 <li>Sinusoidal supply voltage<br>
     <code>source.v | sourceQS.v.re|im</code></li>
-<li>Non-linear transient current due to saturation and equivalent quasi static current<br>
+<li>Non-linear transient current due to saturation and equivalent quasi-static current<br>
     <code>currentSensor.i | currentSensorQS.i.re|im</code></li>
-<li>Difference between RMS fundamental wave of transient current and the RMS quasi static current<br>
+<li>Difference between RMS fundamental wave of transient current and the RMS quasi-static current<br>
     <code>feedback.y</code></li>
-<li>Effective fundamental wave relative permeability of iron core of transient and quasi static circuit<br>
+<li>Effective fundamental wave relative permeability of iron core of transient and quasi-static circuit<br>
     <code>fundamentalWavePermabilitySensor.mur | r_mFeQS.mu_rConst</code></li>
 </ul>
 </html>"),
@@ -959,7 +959,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
     end Leakage;
     annotation (Documentation(info="<html>
 <p>
-This package contains examples to demonstrate the usage of the quasi static flux tubes components.
+This package contains examples to demonstrate the usage of the quasi-static flux tubes components.
 </p>
 </html>"));
   end Examples;
@@ -1009,7 +1009,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   textString="port.V_m = 0")}));
     end Ground;
 
-    model ElectroMagneticConverter "Electro-magnetic energy conversion"
+    model ElectroMagneticConverter "Electromagnetic energy conversion"
 
       constant Complex j=Complex(0, 1);
       FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port" annotation (Placement(transformation(extent={{90,90},{110,110}}), iconTransformation(extent={{90,90},{110,110}})));
@@ -1158,7 +1158,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
               rotation=270)}),
         Documentation(info="<html>
 <p>
-The electro magnetic energy conversion is given by <strong>Ampere</strong>'s law and <strong>Faraday</strong>'s law respectively:
+The electromagnetic energy conversion is given by <strong>Ampere</strong>'s law and <strong>Faraday</strong>'s law respectively:
 </p>
 
 <dl>
@@ -1438,7 +1438,7 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
         Diagram(coordinateSystem(preserveAspectRatio=false)));
     end Crossing;
     annotation (Documentation(info="<html>
-<p>This package contains the basic components of quasi static flux tubes package.</p>
+<p>This package contains the basic components of quasi-static flux tubes package.</p>
 </html>"));
   end Basic;
 
@@ -2206,7 +2206,7 @@ This package contains connectors for the magnetic domain and partial models for 
             Line(points={{60,20},{80,20}}, color={255,170,85})}),
         Documentation(info="<html>
 <p>
-This source provides a constant quasi static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf),
+This source provides a constant quasi-static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf),
 at fixed frequency, <code>f</code>.
 </p>
 </html>"));
@@ -2258,7 +2258,7 @@ at fixed frequency, <code>f</code>.
             Line(points={{60,20},{80,20}}, color={255,170,85})}),
         Documentation(info="<html>
 <p>
-This source provides a quasi static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf)
+This source provides a quasi-static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf)
 with signal inputs for:
 </p>
 <ul>
@@ -2305,7 +2305,7 @@ with signal inputs for:
             extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
-This source provides a constant quasi static magnetic flux <code>Phi</code> at fixed frequency, <code>f</code>.
+This source provides a constant quasi-static magnetic flux <code>Phi</code> at fixed frequency, <code>f</code>.
 </p>
 </html>"));
     end ConstantMagneticFlux;
@@ -2351,7 +2351,7 @@ This source provides a constant quasi static magnetic flux <code>Phi</code> at f
           Line(points={{0,50},{0,-50}}, color={255,170,85})}),
         Documentation(info="<html>
 <p>
-This source provides a quasi static magnetic flux with inputs for:
+This source provides a quasi-static magnetic flux with inputs for:
 </p>
 <ul>
 <li>Complex magnetic flux, <code>Phi</code></li>
@@ -2377,8 +2377,8 @@ This package contains sources of a magnetic potential difference or a magnetic f
       y = port.reference.gamma;
       annotation (                 Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
-<p>This sensor determines the reference angle of the connected quasi static magnetic system.
-The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.
+<p>This sensor determines the reference angle of the connected quasi-static magnetic system.
+The integral of the angular frequency of the quasi-static magnetic system is equal to the reference angle.
 </p>
 </html>"),
         Icon(graphics={
@@ -2398,7 +2398,7 @@ The integral of the angular frequency of the quasi static magnetic system is equ
       annotation (               Documentation(info="<html>
 <p>
 This sensor can be used to measure the frequency of the reference system.
-The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.
+The integral of the angular frequency of the quasi-static magnetic system is equal to the reference angle.
 </p>
 </html>"), Icon(graphics={
             Text(
@@ -2416,7 +2416,7 @@ The integral of the angular frequency of the quasi static magnetic system is equ
       annotation (defaultComponentName="magPotentialSensor",
       Documentation(info="<html>
 <p>
-This sensor can be used to measure the complex magnetic potential <code>V_m</code> in a quasi static magnetic system.
+This sensor can be used to measure the complex magnetic potential <code>V_m</code> in a quasi-static magnetic system.
 </p>
 </html>"),
         Icon(graphics={
@@ -2446,7 +2446,7 @@ This sensor can be used to measure the complex magnetic potential <code>V_m</cod
         Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex magnetic potential difference <code>V_m</code>
-in a quasi static magnetic system.
+in a quasi-static magnetic system.
 </p>
 </html>"));
     end MagneticPotentialDifferenceSensor;
@@ -2468,7 +2468,7 @@ in a quasi static magnetic system.
         Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
-This sensor can be used to measure the complex magnetic flux <code>Phi</code> of a quasi static magnetic system.
+This sensor can be used to measure the complex magnetic flux <code>Phi</code> of a quasi-static magnetic system.
 </p>
 </html>"));
     end MagneticFluxSensor;
@@ -2672,7 +2672,7 @@ of the flux path have to be take into account</p>
       end Permeability;
     annotation (Documentation(info="<html>
 <p>This package contains sensors to be used with transient flux tubes models in order to provide information
-for quasi static parameters.</p>
+for quasi-static parameters.</p>
 </html>"));
     end Transient;
     annotation (Documentation(info="<html>
@@ -2684,7 +2684,7 @@ For analysis of magnetic networks, only magnetic potential differences and magne
   annotation (Documentation(info="<html>
 <p>
 This library is intended to provide models for the investigation of
-quasi static electromagnetic devices with lumped magnetic networks.
+quasi-static electromagnetic devices with lumped magnetic networks.
 </p>
 </html>", revisions="<html></html>"),
            Icon(coordinateSystem(preserveAspectRatio=false), graphics={

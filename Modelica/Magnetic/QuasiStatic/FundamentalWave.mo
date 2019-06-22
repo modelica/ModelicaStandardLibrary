@@ -1,5 +1,5 @@
 within Modelica.Magnetic.QuasiStatic;
-package FundamentalWave "Quasi static fundamental wave electric machines"
+package FundamentalWave "Quasi-static fundamental wave electric machines"
   extends Modelica.Icons.Package;
   package UsersGuide "User's Guide"
     extends Modelica.Icons.Information;
@@ -8,7 +8,7 @@ package FundamentalWave "Quasi static fundamental wave electric machines"
       annotation (Documentation(info="<html>
 <h5>Reference frames</h5>
 
-<p>Quasi static magnetic ports contain the complex magnetic flux (flow variable) and the complex magnetic potential difference (potential variable) and a reference angle. The relationship between the different complex phasors with respect to different references will be explained by means of the complex magnetic flux. The same transformation relationships also apply to the complex magnetic potential difference. However, the discussed relationships are important for handling connectors in the air gap model, transform equations into the rotor fixed reference frame, etc.</p>
+<p>Quasi-static magnetic ports contain the complex magnetic flux (flow variable) and the complex magnetic potential difference (potential variable) and a reference angle. The relationship between the different complex phasors with respect to different references will be explained by means of the complex magnetic flux. The same transformation relationships also apply to the complex magnetic potential difference. However, the discussed relationships are important for handling connectors in the air gap model, transform equations into the rotor fixed reference frame, etc.</p>
 
 <p>
 Let us assume that the air gap model contains stator and rotor magnetic ports which relate to the different sides of the machine. The angle relationship between these ports is
@@ -40,11 +40,11 @@ respectively, by means of:
 </p>
 
 <p>
-This is a strict consequence of the electro magnetic coupling between the quasi static electric and the quasi static magnetic domain.</p>
+This is a strict consequence of the electromagnetic coupling between the quasi-static electric and the quasi-static magnetic domain.</p>
 
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1:</strong> Reference frames of the quasi static fundamental wave library</caption>
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Reference frames of the quasi-static fundamental wave library</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/ReferenceFrames.png\"/>
@@ -61,7 +61,7 @@ The complex magnetic flux with respect a stator and rotor magnetic port are equa
 </p>
 
 <p>
-but the reference phase angles are different according to the relationship explained above. The stator and rotor reference angles refer to quasi static magnetic connectors. The complex magnetic flux of the (stator) port with respect to the <strong>stator fixed</strong> reference frame is then calculated by</p>
+but the reference phase angles are different according to the relationship explained above. The stator and rotor reference angles refer to quasi-static magnetic connectors. The complex magnetic flux of the (stator) port with respect to the <strong>stator fixed</strong> reference frame is then calculated by</p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_s_ref.png\"/>.
@@ -157,7 +157,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 0.4.1, 2013-12-18</h5>
 <ul>
 <li>Renamed base magnetic port to MagneticPort</li>
-<li>Bug fix of single to multi phase converter</li>
+<li>Bug fix of single-phase to polyphase converter</li>
 <li>Bug fix of phase number propagation in SaliencyCageWinding fixed</li>
 <li>Improved documentation of library</li>
 <li>Added current controlled SMR example and indicated SMR inverter example as obsolete</li>
@@ -215,9 +215,9 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 0.1.0, 2013-08-27</h5>
 <ul>
 <li>Documentation of <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">phasor concept</a></li>
-<li>Connections.branch between electric and magnetic quasi static connectors to handle open circuit and motor operation of machines</li>
+<li>Connections.branch between electric and magnetic quasi-static connectors to handle open circuit and motor operation of machines</li>
 <li>Saliency effects are properly considered</li>
-<li>Electromagnetic coupling with Analog domain is implemented fully quasi static with v = 0 at the electric connectors -- this may have to be changed in the future</li>
+<li>Electromagnetic coupling with Analog domain is implemented fully quasi-static with v = 0 at the electric connectors -- this may have to be changed in the future</li>
 <li>Implemented machine types</li>
 <li><ul>
 <li>Induction machine with squirrel cage</li>
@@ -247,7 +247,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     end References;
     annotation (Documentation(info="<html>
 <p>
-This is the library of quasi static fundamental wave models for multi phase electric machines. This is complementary library with the transient machine models of
+This is the library of quasi-static fundamental wave models for polyphase electric machines. This is complementary library with the transient machine models of
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">FundamentalWave</a>.
 </p>
 </html>"));
@@ -256,9 +256,9 @@ This is the library of quasi static fundamental wave models for multi phase elec
   package Examples "Examples"
     extends Modelica.Icons.ExamplesPackage;
     package Components
-      "Examples for testing quasi static fundamental wave components"
+      "Examples for testing quasi-static fundamental wave components"
       extends Modelica.Icons.ExamplesPackage;
-      model MultiPhaseInductance "Multi phase inductance"
+      model MultiPhaseInductance "Polyphase inductance"
         extends Modelica.Icons.Example;
         parameter Integer m=5 "Number of phases";
         parameter Modelica.SIunits.Frequency f=1 "Supply frequency";
@@ -266,7 +266,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
         parameter Modelica.SIunits.Resistance R=1E-5 "Resistance";
         parameter Modelica.SIunits.Inductance L=1 "Load inductance";
         parameter Real effectiveTurns=5 "Effective number of turns";
-        // Symmetrical multi phase magnetic reluctance
+        // Symmetrical polyphase magnetic reluctance
         final parameter Modelica.SIunits.Reluctance R_m=m*effectiveTurns^2/2/L
           "Equivalent magnetic reluctance";
         output Modelica.SIunits.ComplexCurrent Ie=resistor_e.i[1]
@@ -633,11 +633,11 @@ In this example the eddy current losses are implemented in two different ways. C
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static")}),
+                  textString="%m phase quasi-static")}),
             Documentation(info="<html>
 
 <p>
-This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with squirrel cage rotor
+This examples allows the investigation of characteristic curves of quasi-static polyphase induction machines with squirrel cage rotor
 as a function of rotor speed.
 </p>
 
@@ -735,8 +735,8 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
           Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(final m=m)
             annotation (Placement(transformation(origin={0,-20},   extent={{-10,-10},{10,
                     10}})));
-          Electrical.Machines.Utilities.MultiTerminalBox     terminalBox(m=m, terminalConnection="Y") annotation (Placement(transformation(extent={{20,-54},{40,-34}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
+          Electrical.Machines.Utilities.MultiTerminalBox terminalBox(m=m, terminalConnection="Y") annotation (Placement(transformation(extent={{20,-54},{40,-34}})));
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage
             imc(
             Jr=imcData.Jr,
             Js=imcData.Js,
@@ -910,12 +910,12 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
                           textString="%m phase transient"),     Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static")}),
+                  textString="%m phase quasi-static")}),
                 experiment(StopTime=1, Interval=0.0001, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a multi phase induction machine.
-At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are
+This example compares a time transient and a quasi-static model of a polyphase induction machine.
+At start time <code>tOn</code> a transient and a quasi-static polyphase voltage source are
 connected to an induction machine. The machine starts from standstill, accelerating inertias
 against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
@@ -1001,7 +1001,7 @@ Simulate for 1 second and plot (versus time):
             useSupport=false) annotation (Placement(transformation(extent={{100,10},{80,30}})));
           parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
 
-          Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
             TsRef=imcData.TsRef,
@@ -1103,7 +1103,7 @@ Simulate for 1 second and plot (versus time):
             Documentation(
                 info="<html>
 <p>
-At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
+At start time tStart three-phase voltage is supplied to the induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
 <p>Simulate for 2.5 seconds and plot (versus time):</p>
 
@@ -1118,7 +1118,7 @@ Default machine parameters are used.</p>
                 Text(
                   extent={{-60,20},{20,12}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"), Text(
+                  textString="%m phase quasi-static"), Text(
                           extent={{-60,-80},{20,-88}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -1233,7 +1233,7 @@ Default machine parameters are used.</p>
           Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox terminalBoxQS(terminalConnection="D", m=m)
                                                                                                                     annotation (Placement(transformation(extent={{80,26},{60,46}})));
           parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{80,52},{100,72}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
             TsRef=imcData.TsRef,
@@ -1370,7 +1370,7 @@ Default machine parameters are used.</p>
           connect(terminalBox.plug_sn, imc.plug_sn) annotation (Line(points={{76,-70},{76,-70}}, color={0,0,255}));
           annotation (experiment(StopTime=2.5, Interval=0.0001, Tolerance=1e-06), Documentation(
                 info="<html>
-<p>At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
+<p>At start time tStart1 three-phase voltage is supplied to the induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
 at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.</p>
 <p>
@@ -1386,7 +1386,7 @@ Simulate for 2.5 seconds and plot (versus time):</p>
                 Text(
                   extent={{80,8},{160,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),
+                  textString="%m phase quasi-static"),
                                                     Text(
                           extent={{80,-92},{160,-100}},
                           fillColor={255,255,170},
@@ -1466,7 +1466,7 @@ Simulate for 2.5 seconds and plot (versus time):</p>
                 extent={{10,10},{-10,-10}},
                 rotation=180,
                 origin={80,32})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
             TsRef=imcData.TsRef,
@@ -1596,7 +1596,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
                 Text(
                   extent={{20,60},{100,52}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),
+                  textString="%m phase quasi-static"),
                                                     Text(
                           extent={{20,-40},{100,-48}},
                           fillColor={255,255,170},
@@ -1806,7 +1806,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                 Text(
                   extent={{-80,40},{0,32}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static")}));
+                  textString="%m phase quasi-static")}));
         end IMC_withLosses;
 
         model IMC_Initialize "Steady-state initialization of induction machine with squirrel cage"
@@ -1874,7 +1874,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                                                                       annotation (Placement(transformation(extent={{-20,56},{0,76}})));
           parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
 
-          Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage imc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
             TsRef=imcData.TsRef,
@@ -1974,8 +1974,8 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           connect(starMachineQS.pin_n, groundQS.pin) annotation (Line(points={{-40,28},{-40,20},{-70,20}}, color={85,170,255}));
           annotation (experiment(StopTime=1.5, Interval=0.00001, Tolerance=1e-06), Documentation(
                 info="<html>
-<strong>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</strong><br>
-The asynchronous induction machine with squirrel cage is initialized in steady-state at no-load;
+<strong>Test example: Steady-State Initialization of an induction machine with squirrel cage</strong><br>
+The induction machine with squirrel cage is initialized in steady-state at no-load;
 at time tStart a load torque step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
@@ -1988,7 +1988,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),
+                  textString="%m phase quasi-static"),
                                                     Text(
                           extent={{20,-92},{100,-100}},
                           fillColor={255,255,170},
@@ -2125,7 +2125,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             Documentation(info="<html>
 
 <p>
-This examples allows the investigation of characteristic curves of quasi static multi phase induction machines with slip ring rotor
+This examples allows the investigation of characteristic curves of quasi-static polyphase induction machines with slip ring rotor
 as a function of rotor speed.
 </p>
 
@@ -2147,7 +2147,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static")}));
+                  textString="%m phase quasi-static")}));
         end IMS_Characteristics;
 
         model IMS_Start "Starting of induction machine with slip rings"
@@ -2206,7 +2206,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
                   extent={{20,-54},{40,-34}})));
           Utilities.MultiTerminalBox terminalBoxQS(m=m, terminalConnection="Y")
             annotation (Placement(transformation(extent={{20,46},{40,66}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing
             ims(
             Jr=imsData.Jr,
             Js=imsData.Js,
@@ -2438,8 +2438,8 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
             Documentation(info="<html>
 
 <p>
-This example compares a time transient and a quasi static model of a multi phase induction machine.
-At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are connected to induction machine with sliprings. The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
+This example compares a time transient and a quasi-static model of a polyphase induction machine.
+At start time <code>tOn</code> a transient and a quasi-static polyphase voltage source are connected to induction machine with sliprings. The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time <code>tRheostat</code> external rotor resistance is shortened, finally reaching nominal speed.</p>
 
 <p>
@@ -2459,7 +2459,7 @@ Simulate for 1.5 seconds and plot (versus time):
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),
+                  textString="%m phase quasi-static"),
                 Text(
                   extent={{20,-92},{100,-100}},
                           textStyle={TextStyle.Bold},
@@ -2531,7 +2531,7 @@ Simulate for 1.5 seconds and plot (versus time):
           Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.PotentialSensor
             potentialSensorQS(m=m)
             annotation (Placement(transformation(extent={{10,40},{30,60}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpm(
             p=smpmData.p,
             fsNominal=smpmData.fsNominal,
@@ -2611,7 +2611,7 @@ Simulate for 1.5 seconds and plot (versus time):
             experiment(StopTime=0.1, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a permanent magnet synchronous machine.
+This example compares a time transient and a quasi-static model of a permanent magnet synchronous machine.
 The machines are operated at constant mechanical angular velocity.</p>
 
 <p>
@@ -2623,13 +2623,13 @@ Simulate for 0.1 second and plot (versus time):
 </ul>
 
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p>
+<p>The resistors connected to the terminals of the windings of the quasi-static machine model are necessary to numerically stabilize the simulation.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Text(
                   extent={{-100,8},{-20,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),               Text(
+                  textString="%m phase quasi-static"),               Text(
                           extent={{-100,-92},{-20,-100}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -2753,7 +2753,7 @@ Simulate for 0.1 second and plot (versus time):
             annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
           Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(m=m)
             annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpm(
             m=m,
             Jr=smpmData.Jr,
@@ -2878,7 +2878,7 @@ Simulate for 0.1 second and plot (versus time):
                 Text(
                   extent={{20,8},{100,0}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),               Text(
+                  textString="%m phase quasi-static"),               Text(
                           extent={{20,-92},{100,-100}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -2887,7 +2887,7 @@ Simulate for 0.1 second and plot (versus time):
             Documentation(info="<html>
 
 <p>
-This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines start with zero load and synchronous speed. At time <code>tStep</code> the machines are loaded with nominal torque.</p>
+This example compares a time transient and a quasi-static model of a permanent magnet synchronous machine. The machines start with zero load and synchronous speed. At time <code>tStep</code> the machines are loaded with nominal torque.</p>
 
 <p>
 Simulate for 1 second and plot (versus time):
@@ -2915,10 +2915,10 @@ Simulate for 1 second and plot (versus time):
           parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi static";
+          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
           Modelica.SIunits.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
 
-          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpm(
             p=smpmData.p,
             fsNominal=smpmData.fsNominal,
@@ -3195,7 +3195,7 @@ Simulate for 1 second and plot (versus time):
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines are fed by a current source. The current components are oriented at the magnetic field orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque. The machines start to accelerate from standstill.</p>
+This example compares a time transient and a quasi-static model of a permanent magnet synchronous machine. The machines are fed by a current source. The current components are oriented at the magnetic field orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque. The machines start to accelerate from standstill.</p>
 
 <p>
 Simulate for 2 seconds and plot (versus time):
@@ -3207,14 +3207,14 @@ Simulate for 2 seconds and plot (versus time):
 </ul>
 
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary
+<p>The resistors connected to the terminals of the windings of the quasi-static machine model are necessary
 to numerically stabilize the simulation.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),               Text(
+                  textString="%m phase quasi-static"),               Text(
                           extent={{30,-52},{110,-60}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -3235,7 +3235,7 @@ to numerically stabilize the simulation.</p>
           parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
           parameter Modelica.SIunits.AngularVelocity wNominal = 2*pi*fNominal/smpmData.p "Nominal angular velocity";
           parameter Boolean positiveRange = false "Use positive range of angles, if true";
-          output Modelica.SIunits.Angle theta=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi static";
+          output Modelica.SIunits.Angle theta=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
           output Modelica.SIunits.Angle phi_i = Modelica.Math.wrapAngle(smpmQS.arg_is[1],positiveRange) "Angle of current";
           output Modelica.SIunits.Angle phi_v = Modelica.Math.wrapAngle(smpmQS.arg_vs[1],positiveRange) "Angle of voltage";
           output Modelica.SIunits.Angle phi = Modelica.Math.wrapAngle(phi_v-phi_i,positiveRange) "Angle between voltage and current";
@@ -3386,7 +3386,7 @@ to numerically stabilize the simulation.</p>
             experiment(StopTime=1, Interval=1E-3, Tolerance=1E-6),
             Documentation(info="<html>
 <p>
-This example investigates the maximum torque per amps (MTPA) of a quasi static permanent magnet synchronous machine.
+This example investigates the maximum torque per amps (MTPA) of a quasi-static permanent magnet synchronous machine.
 The machines is operated at constant speed. The current magnitude is kept constant and the current angle is
 rotated from 0 to 360 degrees with the simulation period of one second.</p>
 
@@ -3412,14 +3412,14 @@ Simulate for 1 second and plot (versus angle epsilon):
 </ul>
 
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary
+<p>The resistors connected to the terminals of the windings of the quasi-static machine model are necessary
 to numerically stabilize the simulation.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Text(
                   extent={{20,0},{100,-8}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static")}));
+                  textString="%m phase quasi-static")}));
         end SMPM_MTPA;
 
         model SMEE_Generator
@@ -3437,7 +3437,7 @@ to numerically stabilize the simulation.</p>
             "Initial excitation current";
           parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
             "Initial rotor displacement angle";
-          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi static";
+          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
           Modelica.SIunits.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
 
           output Modelica.SIunits.Power Ptr=powerSensor.power "Transient power";
@@ -3462,7 +3462,7 @@ to numerically stabilize the simulation.</p>
           Electrical.Machines.Utilities.MultiTerminalBox     terminalBoxM(
               terminalConnection="Y", m=m) annotation (Placement(transformation(
                   extent={{-10,-64},{10,-44}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
+          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
             smee(
             phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=
                  true),
@@ -3739,7 +3739,7 @@ to numerically stabilize the simulation.</p>
               Tolerance=1e-06),
             Documentation(info="<html>
 <p>
-This example compares a time transient and a quasi static model of a electrically excited synchronous machine.
+This example compares a time transient and a quasi-static model of a electrically excited synchronous machine.
 The electrically excited synchronous generators are connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
 rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.
@@ -3753,7 +3753,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
 <li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
 </ul>
 
-<p>Since the rotor slip is very low the transient and quasi static electro magnetic torque are practically equal.</p>
+<p>Since the rotor slip is very low the transient and quasi-static electromagnetic torque are practically equal.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={         Text(
@@ -3761,7 +3761,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),     Text(
+                  textString="%m phase quasi-static"),     Text(
                   extent={{20,-92},{100,-100}},
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient")}));
@@ -3781,7 +3781,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi static";
+          Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
           Modelica.SIunits.Angle theta=rotorDisplacementAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
 
           Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(
@@ -3930,7 +3930,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
             effectiveStatorTurns=smrData.effectiveStatorTurns,
             TsOperational=293.15,
             TrOperational=293.15) annotation (Placement(transformation(extent={{-10,10},{10,30}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
+          Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor
             smr(
             Jr=smrData.Jr,
             Js=smrData.Js,
@@ -4079,7 +4079,7 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html><html>
 <p>
-This example compares a time transient and a quasi static model of a synchronous reluctance machine.
+This example compares a time transient and a quasi-static model of a synchronous reluctance machine.
 The machines are fed by a current source. The current components are oriented at the magnetic field
 orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque.
 The machines start to accelerate from standstill.</p>
@@ -4097,7 +4097,7 @@ Simulate for 2 seconds and plot (versus time):
                 Text(
                   extent={{30,48},{110,40}},
                           textStyle={TextStyle.Bold},
-                  textString="%m phase quasi static"),               Text(
+                  textString="%m phase quasi-static"),               Text(
                           extent={{30,-52},{110,-60}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -4286,7 +4286,7 @@ the conductance for the eddy current loss model is determined by</p>
 </p>
 
 <p>
-where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/N.png\"> is the number of turns of the symmetric electro magnetic coupling.
+where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/N.png\"> is the number of turns of the symmetric electromagnetic coupling.
 </p>
 
 <p>For such an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase system
@@ -4322,7 +4322,7 @@ relationship of the voltage and current space phasor.
     end EddyCurrent;
 
     model MultiPhaseElectroMagneticConverter
-      "Multi phase electro magnetic converter"
+      "Polyphase electromagnetic converter"
       import Modelica.Constants.pi;
       constant Complex j=Complex(0, 1);
       Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug
@@ -4345,7 +4345,7 @@ relationship of the voltage and current space phasor.
       parameter Real effectiveTurns "Effective number of turns";
       constant Modelica.SIunits.Angle orientation=0
         "Orientation of the first winding axis";
-      // Local electric multi phase quantities
+      // Local electric polyphase quantities
       Modelica.SIunits.ComplexVoltage v[m] "Complex voltage";
       Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.'abs'(v)
         "Magnitude of complex voltage";
@@ -4477,7 +4477,7 @@ Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalW
 </p>
 
 <p>
-The total complex magnetic potential difference of the multi phase winding is determined by:
+The total complex magnetic potential difference of the polyphase winding is determined by:
 </p>
 
 <p>
@@ -4512,7 +4512,7 @@ QuasiStaticAnalogElectroMagneticConverter</a>
     end MultiPhaseElectroMagneticConverter;
 
     model QuasiStaticAnalogElectroMagneticConverter
-      "Electro magnetic converter to only (!) quasi static analog, neglecting induced voltage"
+      "Electromagnetic converter to only (!) quasi-static analog, neglecting induced voltage"
       // Note: It has not whether the transient voltage induction and the
       //   leakage induction shall be considered in this model or not.
       //   This model is required for electrical excited synchronous machines (SMEE)
@@ -4533,7 +4533,7 @@ QuasiStaticAnalogElectroMagneticConverter</a>
         annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
       parameter Real effectiveTurns "Effective number of turns"
         annotation (Evaluate=true);
-      // Local electric single phase quantities
+      // Local electric single-phase quantities
       Modelica.SIunits.Voltage v "Voltage drop";
       Modelica.SIunits.Current i "Current";
 
@@ -4568,7 +4568,7 @@ QuasiStaticAnalogElectroMagneticConverter</a>
       // Complex magnetic potential difference is determined from currents, number
       // of turns and angles of orientation of the magnetic potential difference
       V_m = (2/pi)*effectiveTurns*i*Modelica.ComplexMath.fromPolar(1, -gamma);
-      // Induced voltages is zero due to quasi static electric analog circuit
+      // Induced voltages is zero due to quasi-static electric analog circuit
       v = 0;
       Connections.branch(port_p.reference, port_n.reference);
       port_p.reference.gamma = port_n.reference.gamma;
@@ -4602,11 +4602,11 @@ QuasiStaticAnalogElectroMagneticConverter</a>
               textString="%name")}),
         Documentation(info="<html>
 <p>
-The analog single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in the winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
+The analog single-phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in the winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
 </p>
 
 <p>
-The total complex magnetic potential difference of the single phase winding is determined by:
+The total complex magnetic potential difference of the single-phase winding is determined by:
 </p>
 
 <p>
@@ -4745,9 +4745,9 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
 </html>"));
   end Components;
 
-  package BasicMachines "Basic quasi static machine models"
+  package BasicMachines "Basic quasi-static machine models"
     extends Modelica.Icons.Package;
-    package InductionMachines "Quasi static induction machines"
+    package InductionMachines "Quasi-static induction machines"
       extends Modelica.Icons.Package;
       model IM_SquirrelCage "Induction machine with squirrel cage"
         // Removed from extension of FUNDAMENTAL WAVE model: is(start=zeros(m)) ##
@@ -4757,7 +4757,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
           final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
                 effectiveStatorTurns^2),
           redeclare final
-            Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMC
+            Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientAIMC
             thermalAmbient(final Tr=TrOperational),
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMC
@@ -4836,10 +4836,10 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <p>
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">
 IM_SlipRing</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">
-Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">
-Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing\">
+Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage\">
+Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage</a>,
 </p>
 </html>"));
       end IM_SquirrelCage;
@@ -4852,7 +4852,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
           final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
                 effectiveStatorTurns^2),
           redeclare final
-            Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS
+            Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientAIMS
             thermalAmbient(final Tr=TrOperational, final mr=mr),
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS
@@ -5007,16 +5007,16 @@ Resistances and stray inductances of the machine always refer to either stator o
 <p>
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
 IM_SquirrelCage</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">
-Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">
-Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing\">
+Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage\">
+Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage</a>,
 </p>
 </html>"));
       end IM_SlipRing;
     end InductionMachines;
 
-    package SynchronousMachines "Quasi static synchronous machines"
+    package SynchronousMachines "Quasi-static synchronous machines"
       extends Modelica.Icons.Package;
       model SM_PermanentMagnet
         "Permanent magnet synchronous machine with optional damper cage"
@@ -5026,7 +5026,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
           final L0(d=2.0*Lmd/m/effectiveStatorTurns^2, q=2.0*Lmq/m/
                 effectiveStatorTurns^2),
           redeclare final
-            Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM
+            Modelica.Electrical.Machines.Thermal.SynchronousMachines.ThermalAmbientSMPM
             thermalAmbient(
             final useDamperCage=useDamperCage,
             final Tr=TrOperational,
@@ -5209,11 +5209,11 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">
 SM_ReluctanceRotor</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">
 Magnetic.FundamentalWave.BasicMachines.SM_PermanentMagnet</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
 Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">
 Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
 </p>
 </html>"));
@@ -5227,7 +5227,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           final L0(d=2.0*Lmd/m/effectiveStatorTurns^2, q=2.0*Lmq/m/
                 effectiveStatorTurns^2),
           redeclare final
-            Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE
+            Modelica.Electrical.Machines.Thermal.SynchronousMachines.ThermalAmbientSMEE
             thermalAmbient(
             final useDamperCage=useDamperCage,
             final Te=TeOperational,
@@ -5441,11 +5441,11 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 SM_PermanentMagnet</a>,
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">
 SM_ReluctanceRotor</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">
 Magnetic.FundamentalWave.BasicMachines.SM_PermanentMagnet</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
 Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">
 Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
 </p>
 </html>"));
@@ -5459,7 +5459,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           final L0(d=2.0*Lmd/m/effectiveStatorTurns^2, q=2.0*Lmq/m/
                 effectiveStatorTurns^2),
           redeclare final
-            Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR
+            Modelica.Electrical.Machines.Thermal.SynchronousMachines.ThermalAmbientSMR
             thermalAmbient(final useDamperCage=useDamperCage, final Tr=
                 TrOperational),
           redeclare final
@@ -5595,18 +5595,18 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 SM_PermanentMagnet</a>,
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
 SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">
 Magnetic.FundamentalWave.BasicMachines.SM_PermanentMagnet</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited\">
 Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">
 Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
 </p>
 </html>"));
       end SM_ReluctanceRotor;
     end SynchronousMachines;
 
-    package Components "Components for quasi static machine models"
+    package Components "Components for quasi-static machine models"
       extends Modelica.Icons.Package;
       model SymmetricMultiPhaseWinding
         "Symmetric winding model coupling electrical and magnetic domain"
@@ -5767,10 +5767,10 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
                 textString="%name")}),
           Documentation(info="<html>
 <p>
-The symmetrical multi phase winding consists of a symmetrical winding
+The symmetrical polyphase winding consists of a symmetrical winding
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor\">resistor</a>, a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance\">stray reluctance</a>, a symmetrical
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase electromagnetic coupling</a> and a
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">polyphase electromagnetic coupling</a> and a
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.EddyCurrent\">core loss</a> model including
 heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">port</a>.
 </p>
@@ -5788,7 +5788,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
       end SymmetricMultiPhaseWinding;
 
       model QuasiStaticAnalogWinding
-        "Quasi static single phase winding neglecting induced voltage"
+        "Quasi-static single-phase winding neglecting induced voltage"
 
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin"
           annotation (Placement(transformation(
@@ -5886,9 +5886,9 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
                 textString="%name")}),
           Documentation(info="<html>
 <p>
-The single phase winding consists of a
+The single-phase winding consists of a
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>,  and a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single phase electromagnetic coupling</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single-phase electromagnetic coupling</a>.
 </p>
 
 <h4>See also</h4>
@@ -6391,7 +6391,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
       extends Modelica.Icons.BasesPackage;
 
       partial model PartialBasicMachine
-        "Partial model for quasi static multi phase machines"
+        "Partial model for quasi-static polyphase machines"
         constant Modelica.SIunits.Angle pi = Modelica.Constants.pi;
         extends Electrical.Machines.Icons.QuasiStaticFundamentalWaveMachine;
         parameter Integer m(min=3) = 3 "Number of stator phases";
@@ -7162,7 +7162,7 @@ ConstantFlux</a>
         "Argument of complex magnetic potential difference";
 
       FundamentalWave.Interfaces.PositiveMagneticPort port_p
-        "Quasi static magnetic port of sensor"
+        "Quasi-static magnetic port of sensor"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     equation
       // No magnetic flux through sensor
@@ -7510,7 +7510,7 @@ The partial two port elementary model extends from the partial two port model an
     end PartialTwoPortElementary;
   end Interfaces;
 
-  package Utilities "Utilities for quasi static fundamental wave machines"
+  package Utilities "Utilities for quasi-static fundamental wave machines"
     extends Modelica.Icons.UtilitiesPackage;
     block VfController "Voltage-Frequency-Controller"
       import Modelica.Constants.pi;
@@ -7524,7 +7524,7 @@ The partial two port elementary model extends from the partial two port model an
       parameter Modelica.SIunits.Angle BasePhase=0 "Common phase shift";
       output Modelica.SIunits.Voltage amplitude;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
-        "Complex quasi static voltages (RMS)" annotation (Placement(
+        "Complex quasi-static voltages (RMS)" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}), iconTransformation(
               extent={{100,-10},{120,10}})));
       Modelica.Blocks.Interfaces.RealInput u(unit="Hz") "Frequency input (Hz)"
@@ -7568,7 +7568,7 @@ The partial two port elementary model extends from the partial two port model an
         Documentation(info="<html>
 <p>
 This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An
-<code>m</code> quasi static phasor signal is provided as output signal <code>y</code>, representing complex voltages.
+<code>m</code> quasi-static phasor signal is provided as output signal <code>y</code>, representing complex voltages.
 The output voltages may serve as inputs for complex voltage sources with phase input. Symmetrical voltages are assumed.
 </p>
 
@@ -7639,7 +7639,7 @@ The output voltages may serve as inputs for complex voltage sources with phase i
 This model represents the internal connections of the terminal box of an electric machine. 
 The parameter <code>terminalConnection</code> is used to switch between star 
 (<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection. 
-The (single phase) connector <code>starPoint</code> is only availabile if star connection is selected. 
+The (single-phase) connector <code>starPoint</code> is only available if star connection is selected. 
 </p>
 </html>"));
     end TerminalBox;
@@ -7704,7 +7704,7 @@ The parameter <code>terminalConnection</code> is used to switch between star
 (<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection.
 </p>
 
-<p>The connector <code>starPoint</code> is only availabile if star connection is selected. 
+<p>The connector <code>starPoint</code> is only available if star connection is selected. 
 This connector is a plug with 
 <code>mSystem = Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code> phases, 
 representing the star points of each base system; see 
@@ -7816,7 +7816,7 @@ representing the star points of each base system; see
             extent={{10,-10},{-10,10}},
             rotation=270)));
       Modelica.ComplexBlocks.Interfaces.ComplexOutput I[m]
-        "Multi phase current phasors"
+        "Polyphase current phasors"
         annotation (Placement(transformation(extent={{100,30},{120,50}})));
       Modelica.Blocks.Interfaces.RealOutput gamma(unit="rad") "Reference angle of source"
         annotation (Placement(transformation(extent={{100,-50},{120,-30}})));
@@ -7867,9 +7867,9 @@ representing the star points of each base system; see
         Documentation(info="<html>
 <p>
 This is a simple current controller.
-The desired RMS values of d  and q component of the quasi static space phasor current in rotor fixed coordinate system are the inputs <code>id_rms</code> and <code>iq_rms</code>.
-Using the given rotor position input <code>phi</code>, the quasi static <code>m</code> phase output currents <code>i[m]</code> are calculated.
-The model output can be used to feed a quasi static current source with phase input to supply synchronous machines.
+The desired RMS values of d  and q component of the quasi-static space phasor current in rotor fixed coordinate system are the inputs <code>id_rms</code> and <code>iq_rms</code>.
+Using the given rotor position input <code>phi</code>, the quasi-static <code>m</code> phase output currents <code>i[m]</code> are calculated.
+The model output can be used to feed a quasi-static current source with phase input to supply synchronous machines.
 </p>
 </html>"));
     end CurrentController;

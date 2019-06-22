@@ -2274,7 +2274,7 @@ random number generator. This block is used in the example
         extends Modelica.Icons.Package;
 
         model MotorWithCurrentControl
-          "Synchronous induction machine with current controller and measurement noise"
+          "Synchronous machine with current controller and measurement noise"
           extends Modelica.Electrical.Machines.Icons.TransientMachine;
           constant Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
@@ -2286,7 +2286,7 @@ random number generator. This block is used in the example
           parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
           parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
 
-          Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+          Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpm(
             p=smpmData.p,
             fsNominal=smpmData.fsNominal,
@@ -2463,7 +2463,7 @@ random number generator. This block is used in the example
           annotation (
             Documentation(info="<html>
 <p>
-A synchronous induction machine with permanent magnets, current controller and
+A synchronous machine with permanent magnets, current controller and
 measurement noise of &plusmn;0.01 rad accelerates a quadratic speed dependent load from standstill.
 The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
 and fed to the machine. The result shows that the torque is influenced by the q-current,
@@ -2472,7 +2472,7 @@ whereas the stator voltage is influenced by the d-current.
 
 <p>
 Default machine parameters of model
-<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>
+<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>
 are used.
 </p>
 

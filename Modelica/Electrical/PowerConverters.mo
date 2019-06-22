@@ -20,7 +20,7 @@ package PowerConverters "Rectifiers, Inverters, DC/DC and AC/AC converters"
 
 <h4>Topology classification</h4>
 
-<p>The PowerConverters library provides bridge and center tap rectifiers for single and multi phase supply, see
+<p>The PowerConverters library provides bridge and center tap rectifiers for single and polyphase supply, see
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC\">AC/DC converters</a>.</p>
 
 <h4>Control</h4>
@@ -46,14 +46,14 @@ contain <code>_Characteristic</code>.
       extends Modelica.Icons.Information;
       annotation (DocumentationClass=true, Documentation(info="<html>
 
-<p>There are a single and multi phase DC/AC converter model provided by the PowerConverters library.</p>
+<p>There are a single-phase and polyphase DC/AC converter model provided by the PowerConverters library.</p>
 
 <h4>Control</h4>
 
 <p>Currently there are 
 <a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM\">space vector PWM</a> and 
 <a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM\">intersective PWM</a> models provided. 
-However, for operating the single phase inverter the PWM
+However, for operating the single-phase inverter the PWM
 <a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM\">controller</a>
 can be used.
 </p>
@@ -210,7 +210,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
     end References;
     annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-This library provides power converters for DC and AC single and multi phase electrical systems. The PowerConverters library contains three types of converters.
+This library provides power converters for DC and AC single-phase and polyphase electrical systems. The PowerConverters library contains three types of converters.
 </p>
 
 <ul>
@@ -246,7 +246,7 @@ AC/AC converters currently only provide dimmer and soft starter with triacs.
   <li>Each converter contains boolean firing inputs provides variables <code>offStart...</code>
       to specify the initial conditions of the off state of each semiconductor</li>
   <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code></li>
-  <li>The number of phases of multi phase converters is not restricted to three</li>
+  <li>The number of phases of polyphase converters is not restricted to three</li>
 </ul>
 
 <h4>Literature</h4>
@@ -294,7 +294,7 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>This example demonstrates the operational behavior of a single phase controlled rectifier with constant firing angle and resistive load.</p>
+<p>This example demonstrates the operational behavior of a single-phase controlled rectifier with constant firing angle and resistive load.</p>
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end Thyristor1Pulse_R;
@@ -329,7 +329,7 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>This example demonstrates the operational behavior of a single phase controlled rectifier with variable firing angle and resistive load. The average load voltage can be controlled by means of the firing angle.</p>
+<p>This example demonstrates the operational behavior of a single-phase controlled rectifier with variable firing angle and resistive load. The average load voltage can be controlled by means of the firing angle.</p>
 <p><br>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2.firingAngle</code> to see control characteristic of this type of rectifier with resistive load.</p>
 </html>"));
         end Thyristor1Pulse_R_Characteristic;
@@ -880,7 +880,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 </html>"));
         end ThyristorBridge2Pulse_DC_Drive;
         annotation (Documentation(info="<html>
-<p>This package includes single phase two pulse bridge rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes single-phase two pulse bridge rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierBridge2Pulse;
 
@@ -1148,7 +1148,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 </html>"));
         end ThyristorCenterTap2Pulse_RLV_Characteristic;
         annotation (Documentation(info="<html>
-<p>This package includes single phase two pulse center tap rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes single-phase two pulse center tap rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierCenterTap2Pulse;
 
@@ -1416,7 +1416,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 </html>"));
         end ThyristorCenterTapmPulse_RLV_Characteristic;
         annotation (Documentation(info="<html>
-<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, equals the number of pulses. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes polyphase center tap rectifiers. The number of phases, <code>m</code>, equals the number of pulses. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierCenterTapmPulse;
 
@@ -1986,7 +1986,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 </html>"));
         end ThyristorBridge2mPulse_DC_Drive;
         annotation (Documentation(info="<html>
-<p>This package includes multi phase bridge rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes polyphase bridge rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierBridge2mPulse;
 
@@ -2268,7 +2268,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 </html>"));
         end ThyristorCenterTap2mPulse_RLV_Characteristic;
         annotation (Documentation(info="<html>
-<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes polyphase center tap rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierCenterTap2mPulse;
 
@@ -2811,10 +2811,10 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
 
     package DCAC "DC to AC converter examples"
       extends Modelica.Icons.ExamplesPackage;
-      package SinglePhaseTwoLevel "Single phase two level inverter examples"
+      package SinglePhaseTwoLevel "Single-phase two level inverter examples"
         extends Modelica.Icons.ExamplesPackage;
         model SinglePhaseTwoLevel_R
-          "Single phase DC to AC converter with resistive load"
+          "Single-phase DC to AC converter with resistive load"
           extends ExampleTemplates.SinglePhaseTwoLevel(sine(
               amplitude=0.5,
               offset=0.5,
@@ -2844,7 +2844,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
         end SinglePhaseTwoLevel_R;
 
         model SinglePhaseTwoLevel_RL
-          "Single phase DC to AC converter with R-L load"
+          "Single-phase DC to AC converter with R-L load"
           extends ExampleTemplates.SinglePhaseTwoLevel(sine(
               amplitude=0.5,
               offset=0.5,
@@ -2882,9 +2882,9 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
         end SinglePhaseTwoLevel_RL;
       end SinglePhaseTwoLevel;
 
-      package MultiPhaseTwoLevel "Multi phase two level inverter example"
+      package MultiPhaseTwoLevel "Polyphase two level inverter example"
         extends Modelica.Icons.ExamplesPackage;
-        model MultiPhaseTwoLevel_R "Multi phase DC to AC converter with R load"
+        model MultiPhaseTwoLevel_R "Polyphase DC to AC converter with R load"
           extends Modelica.Icons.Example;
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
@@ -2998,7 +2998,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
         end MultiPhaseTwoLevel_R;
 
         model MultiPhaseTwoLevel_RL
-          "Multi phase DC to AC converter with R-L load"
+          "Polyphase DC to AC converter with R-L load"
           extends Modelica.Icons.Example;
           parameter Integer m=6 "Number of phases";
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
@@ -3221,7 +3221,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
             Documentation(info="<html>
 <p>
 A reference space vector (formed by real part = cosine and imaginary part = sine) of length &radic;2*RMS and frequency 2 Hz is applied.
-The resulting switching patterns are applied to a threephase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1
+The resulting switching patterns are applied to a three-phase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1
 where 1 is the theoretical maximum voltage from terminal to neutral.
 The resulting voltages with reference to midpoint of the DC voltage are measured.
 </p>
@@ -3248,7 +3248,7 @@ Please note that the filter has a settle time depending on the filter parameters
       package ExampleTemplates "Templates of examples"
         extends Modelica.Icons.Package;
         partial model SinglePhaseTwoLevel
-          "Single phase two level inverter including control"
+          "Single-phase two level inverter including control"
           extends Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage_n(
@@ -3319,7 +3319,7 @@ Please note that the filter has a settle time depending on the filter parameters
               points={{81,-10},{90,-10},{90,38}}, color={0,0,127}));
           annotation (Documentation(
                 info="<html>
-<p>Single phase two level example template including supply and sensors; load is not yet included.</p>
+<p>Single-phase two level example template including supply and sensors; load is not yet included.</p>
 </html>"));
         end SinglePhaseTwoLevel;
         annotation (Documentation(info="<html>
@@ -3661,7 +3661,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           parameter Modelica.SIunits.Resistance RLoad=V0/ILoad "Load resistance";
           parameter Modelica.SIunits.Voltage V0=Vsource*dutyCycle "No-load output voltage";
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(final V=Vsource)
-            annotation (Placement(transformation(
+                     annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={-80,0})));
@@ -3678,7 +3678,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
                 transformation(extent={{-90,-40},{-70,-20}})));
           Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM(
             constantDutyCycle=dutyCycle, f=f)
-            annotation (Placement(transformation(
+                                           annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-30,-40})));
           Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
@@ -3763,7 +3763,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
                 transformation(extent={{-90,-40},{-70,-20}})));
           Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM(
             constantDutyCycle=dutyCycle, f=f)
-            annotation (Placement(transformation(
+                                           annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-30,-40})));
           Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
@@ -3778,7 +3778,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           Analog.Basic.Inductor inductor(i(fixed=true, start=0), final L=L)
             annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
           Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=C, v(fixed=true, start=V0))
-            annotation (Placement(
+                                                               annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -4296,7 +4296,7 @@ Compare starting with firing angle by
               Tolerance=1e-06));
         end Dimmer;
 
-        annotation (Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>This package includes templates of the used examples. The templates are partial example models.</p>
 </html>"));
       end ExampleTemplates;
@@ -5778,7 +5778,7 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for polyphase circuits with even phase numbers greater than three the
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
 </p>
 </html>"));
@@ -5908,7 +5908,7 @@ General information about AC/DC converters can be found at the
 </p>
 
 <p>
-This is a 2*m pulse thyristor rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. It is important to note that for multi phase circuits with phase even phase numbers greater than three the
+This is a 2*m pulse thyristor rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. It is important to note that for polyphase circuits with phase even phase numbers greater than three the
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
 See example
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>.
@@ -6052,7 +6052,7 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a 2*m pulse half controlled rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for polyphase circuits with even phase numbers greater than three the
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
 </p>
 </html>"));
@@ -6440,7 +6440,7 @@ Let the user choose the PWM type from:
               coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
 <p>
-For a threephase system, 8 space vectors are available according to the following switching patterns:
+For a three-phase system, 8 space vectors are available according to the following switching patterns:
 </p>
 <ul>
 <li>0 [0,0,0] length 0</li>
@@ -6585,7 +6585,7 @@ The switching pattern of the negative fire signal is just the inverse of the pos
               coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
 <p>
-The intersective PWM transforms the input space phasor <u>u</u> to the three phase voltages,
+The intersective PWM transforms the input space phasor <u>u</u> to the three-phase voltages,
 and compares them with the reference signals.
 As long as the phase voltage is greater than the corresponding reference signal, the corresponding fire signal is true.
 The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
@@ -6603,12 +6603,12 @@ The user can choose from 4 different reference signals:
       end IntersectivePWM;
       annotation (Documentation(info="<html>
 <p>
-Currently there are only threephase PWM implemented (not multiphase).
+Currently there are only three-phase PWM implemented (not polyphase).
 </p>
 </html>"));
     end Control;
 
-    model SinglePhase2Level "Single phase DC to AC converter"
+    model SinglePhase2Level "Single-phase DC to AC converter"
       extends Modelica.Blocks.Icons.Block;
       parameter Modelica.SIunits.Resistance RonTransistor=1e-05
         "Transistor closed resistance";
@@ -6740,17 +6740,17 @@ Currently there are only threephase PWM implemented (not multiphase).
               textString="AC")}),
         Documentation(info="<html>
 <p>
-This is a single phase two level inverter. The boolean signals <code>fire_p</code> and <code>fire_n</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of two transistors and two anti parallel free wheeling diodes.
+This is a single-phase two level inverter. The boolean signals <code>fire_p</code> and <code>fire_n</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of two transistors and two anti parallel free wheeling diodes.
 </p>
 
 <p>
-An example of a single phase inverter with PWM voltage control is included in
+An example of a single-phase inverter with PWM voltage control is included in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel\">Examples.DCAC.SinglePhaseTwoLevel</a>.
 </p>
 </html>"));
     end SinglePhase2Level;
 
-    model MultiPhase2Level "Multi phase DC to AC converter"
+    model MultiPhase2Level "Polyphase DC to AC converter"
       extends Modelica.Blocks.Icons.Block;
       extends Interfaces.Enable.Enable2m;
       parameter Modelica.SIunits.Resistance RonTransistor=1e-05
@@ -6905,7 +6905,7 @@ An example of a single phase inverter with PWM voltage control is included in
               textString="AC")}),
         Documentation(info="<html>
 <p>
-This is a multi phase two level inverter. The boolean signals <code>fire_p[k]</code> and <code>fire_n[k]</code> for any phase <code>k</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of <code>2*m</code> transistors and two anti parallel free wheeling diodes, respectively, where <code>m</code> is the number of phases.
+This is a polyphase two level inverter. The boolean signals <code>fire_p[k]</code> and <code>fire_n[k]</code> for any phase <code>k</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of <code>2*m</code> transistors and two anti parallel free wheeling diodes, respectively, where <code>m</code> is the number of phases.
 </p>
 </html>"));
     end MultiPhase2Level;
@@ -7460,7 +7460,7 @@ This is a conventional step up chopper (boost converter) model. It consists of a
               color={0,0,255})}),
         Documentation(info="<html>
 <p>
-The H bridge is a four quadrant DC/DC converter. It consists of two single phase DC/AC converters which are controlled differently; see Fig.&nbsp;1.</p>
+The H bridge is a four quadrant DC/DC converter. It consists of two single-phase DC/AC converters which are controlled differently; see Fig.&nbsp;1.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 1:</strong> H bridge</caption>
@@ -8012,7 +8012,7 @@ For <code>useConstantEnable = false</code> the internal signal
         Modelica.SIunits.Power powerAC=vAC*iAC "AC power";
       end ACtwoPin;
       extends Modelica.Icons.InterfacesPackage;
-      partial model ACplug "AC multi phase plug"
+      partial model ACplug "AC polyphase plug"
         parameter Integer m(final min=3) = 3 "Number of phases";
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
           "AC input"
@@ -8023,7 +8023,7 @@ For <code>useConstantEnable = false</code> the internal signal
         Modelica.SIunits.Power powerTotalAC=sum(powerAC) "AC total power";
       end ACplug;
 
-      partial model ACtwoPlug "Two AC multi phase plugs"
+      partial model ACtwoPlug "Two AC polyphase plugs"
         parameter Integer m(final min=3) = 3 "Number of phases";
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac_p(final m=m)
           "Positive potential AC input"
@@ -8084,7 +8084,7 @@ For <code>useConstantEnable = false</code> the internal signal
         Modelica.SIunits.Power powerAC=vAC*iAC "AC power";
       end ACpin;
 
-      partial model ACplug "AC multi phase plug"
+      partial model ACplug "AC polyphase plug"
         parameter Integer m(final min=3) = 3 "Number of phases";
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
           "AC output"
@@ -8343,10 +8343,10 @@ This partial model provides parameters and the conditional input signal for the 
         Intersective "Intersective PWM")
     "Enumeration defining the PWM type";
     type ReferenceType = enumeration(
-        Sawtooth1 "Sawtooth signal single phase",
-        Sawtooth3 "Sawtooth signal three phase",
-        Triangle1 "Triangle signal single phase",
-        Triangle3 "Triangle signal three phase")
+        Sawtooth1 "Sawtooth signal single-phase",
+        Sawtooth3 "Sawtooth signal three-phase",
+        Triangle1 "Triangle signal single-phase",
+        Triangle3 "Triangle signal three-phase")
       "Enumeration defining the type of reference signal";
     type Voltage2AngleType = enumeration(
         Lin "Linear",
@@ -8364,7 +8364,7 @@ This partial model provides parameters and the conditional input signal for the 
     preferredView="info",
     Documentation(info="<html>
 <p>
-This library provides power converters for DC and AC single and multi phase electrical systems. The PowerConverters library contains four types of converters.
+This library provides power converters for DC and AC single-phase and polyphase electrical systems. The PowerConverters library contains four types of converters.
 </p>
 
 <ul>

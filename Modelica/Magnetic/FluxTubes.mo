@@ -2037,7 +2037,7 @@ The characteristic current drop during pull-in is due to both armature motion an
           FluxTubes.Basic.Ground ground annotation (Placement(transformation(
                   extent={{50,10},{70,30}})));
           FluxTubes.Basic.ElectroMagneticConverter coil(final N=N, i(fixed=true))
-            "Electro-magnetic converter" annotation (Placement(transformation(
+            "Electromagnetic converter" annotation (Placement(transformation(
                 origin={0,20},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
@@ -2351,7 +2351,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           FluxTubes.Basic.Ground ground annotation (Placement(transformation(
                   extent={{42,2},{62,22}})));
           FluxTubes.Basic.ElectroMagneticConverter coil1(final N=N/2, i(fixed=true))
-            "Electro-magnetic conversion in first half of coil" annotation (
+            "Electromagnetic conversion in first half of coil" annotation (
               Placement(transformation(
                 origin={-46,20},
                 extent={{-10,-10},{10,10}},
@@ -2463,7 +2463,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
           FluxTubes.Basic.ElectroMagneticConverter coil2(final N=N/2, i(fixed=true))
-            "Electro-magnetic conversion in first half of coil" annotation (
+            "Electromagnetic conversion in first half of coil" annotation (
               Placement(transformation(
                 origin={30,20},
                 extent={{-10,-10},{10,10}},
@@ -2920,7 +2920,7 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
         connect(core.port_n, winding2.port_p) annotation (Line(points={{10,20},{20,20},{20,10}}, color={255,127,0}));
         annotation (experiment(StartTime=0, StopTime=0.02, Interval=4e-6, Tolerance=1e-006), Documentation(info="<html>
 <p>
-This simple model of an single phase transformer shows the inrush currents due to the remanence of the core material (M330-50A). For an accurate modelling of the core material the GenericHystTellinenTable hysteresis flux tube element is used. The initial magnetization MagRel of the Core component is set to 80%. Simulation settings:
+This simple model of an single-phase transformer shows the inrush currents due to the remanence of the core material (M330-50A). For an accurate modelling of the core material the GenericHystTellinenTable hysteresis flux tube element is used. The initial magnetization MagRel of the Core component is set to 80%. Simulation settings:
 </p>
 <ul>
   <li>Stop time: 0.02 s</li>
@@ -2979,7 +2979,7 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
         connect(transformer.n2, el_ground2.p) annotation (Line(points={{10,10},{10,12},{20,12},{20,0},{40,0}}, color={0,0,255}));
         annotation (experiment(StartTime=0, StopTime=0.1, Interval=2e-5, Tolerance=1e-004), Documentation(info="<html>
 <p>
-A simple model of an single phase transformer (similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">SinglePhaseTransformerWithHysteresis1</a> but with separate transformer model: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis\">Transformer1PhaseWithHysteresis</a>). Use the simulation settings:
+A simple model of an single-phase transformer (similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">SinglePhaseTransformerWithHysteresis1</a> but with separate transformer model: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis\">Transformer1PhaseWithHysteresis</a>). Use the simulation settings:
 </p>
 <ul>
   <li>Stop time: 0.1 s</li>
@@ -3173,7 +3173,7 @@ An example simulation shows the transformer inrush currents due to an initially 
         extends Modelica.Icons.Package;
 
         model Transformer1PhaseWithHysteresis
-          "Single Phase transformer with ferromagnetic core and hysteresis"
+          "Single-phase transformer with ferromagnetic core and hysteresis"
 
           Modelica.Electrical.Analog.Interfaces.NegativePin n1 "Negative pin of primary winding" annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin p1 "Positive pin of primary winding" annotation (Placement(transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
@@ -3394,7 +3394,7 @@ An example simulation shows the transformer inrush currents due to an initially 
                 Line(points={{100,90},{100,20},{60,20}}, color={0,0,255})}),
             Documentation(info="<html>
 <p>
-Simple model of a single phase transformer with a primary and a secondary winding and a magnetic core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this element considers static and dynamic hysteresis.
+Simple model of a single-phase transformer with a primary and a secondary winding and a magnetic core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this element considers static and dynamic hysteresis.
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
@@ -3410,7 +3410,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
         end Transformer1PhaseWithHysteresis;
 
         model Transformer3PhaseYyWithHysteresis
-          "Three phase transformer in Yy configuration"
+          "Three-phase transformer in Yy configuration"
 
           Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature Temp
             annotation (Placement(transformation(extent={{-166,14},{-154,26}})));
@@ -3821,7 +3821,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
                   fillColor={0,128,255})}),
             Documentation(info="<html>
 <p>
-Simple model of a three phase transformer with primary and a secondary windings and a magnetic E-I shaped core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this model considers static and dynamic hysteresis as well as initial flux.
+Simple model of a three-phase transformer with primary and a secondary windings and a magnetic E-I shaped core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this model considers static and dynamic hysteresis as well as initial flux.
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
@@ -4117,7 +4117,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   textString="port.V_m = 0")}));
     end Ground;
 
-    model ElectroMagneticConverter "Ideal electro-magnetic energy conversion"
+    model ElectroMagneticConverter "Ideal electromagnetic energy conversion"
 
       FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port"
         annotation (Placement(transformation(extent={{90,90},{110,110}}), iconTransformation(extent={{90,90},{110,110}})));
@@ -4283,7 +4283,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
             Line(points={{-30,-100},{-30,-60}}, color={28,108,200})}),
         Documentation(info="<html>
 <p>
-The electro-magnetic energy conversion is given by <em>Ampere</em>'s law and <em>Faraday</em>'s law respectively:
+The electromagnetic energy conversion is given by <em>Ampere</em>'s law and <em>Faraday</em>'s law respectively:
 </p>
 
 <pre>
@@ -4303,7 +4303,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
     end ElectroMagneticConverter;
 
     model ElectroMagneticConverterWithLeakageInductance
-      "Electro-magnetic energy conversion with a leakage inductance"
+      "Electromagnetic energy conversion with a leakage inductance"
 
       Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port"
         annotation (Placement(transformation(extent={{90,90},{110,110}}), iconTransformation(extent={{90,90},{110,110}})));
@@ -4504,7 +4504,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
             Line(points={{-30,-100},{-30,-60}}, color={28,108,200})}),
         Documentation(info="<html>
 <p>
-Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electro-magnetic converter.
+Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electromagnetic converter.
 </p>
 </html>"));
     end ElectroMagneticConverterWithLeakageInductance;
