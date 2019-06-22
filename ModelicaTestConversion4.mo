@@ -135,6 +135,23 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2361;
+
+      model Issue2899 "Conversion test for #2899"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation(Placement(transformation(extent={{-30,-20},{-10,0}})));
+        Modelica.Electrical.Analog.Basic.HeatingResistor resistor(R_ref = 10,
+            useHeatPort=false)
+          annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      equation
+        connect(ground.p, resistor.p)
+          annotation (Line(points={{-20,0},{-10,0},{-10,0},{0,0}}, color={0,0,255}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
+</p>
+</html>"));
+      end Issue2899;
     end Analog;
 
     package Digital

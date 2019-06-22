@@ -8,7 +8,7 @@ DifferenceAmplifier
 HeatingMOSInverter
 HeatingNPN_NORGate
 HeatingPNP_NORGate
-HeatingResistor
+Resistor
 HeatingRectifier
 NandGate
 OvervoltageProtection

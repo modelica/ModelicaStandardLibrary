@@ -51,6 +51,8 @@ convertClass("Modelica.Math.Matrices.LAPACK.dgelsx_vec",
               "ObsoleteModelica4.Math.Matrices.LAPACK.dgelsx_vec")
 convertClass("Modelica.Math.Matrices.LAPACK.dgeqpf",
               "ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf")
+convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
+              "Modelica.Electrical.Analog.Basic.Resistor");
 
 // Change renamed elements of classes
 // mue -> mu
@@ -110,3 +112,6 @@ convertModifiers({"Modelica.Blocks.Nonlinear.Limiter",
                   {"limitsAtInit"}, fill("", 0), true);
 convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
                   {"deadZoneAtInit"}, fill("", 0), true);
+convertElement("Modelica.Electrical.Analog.Basic.HeatingResistor",
+               {"R_ref"},
+               {"R"});
