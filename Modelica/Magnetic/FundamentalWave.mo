@@ -65,7 +65,7 @@ The specific arrangement of windings in electric machines with <img src=\"modeli
 </p>
 
 <p>
-The main components of an electric machine model based on the FundamentalWave library are <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">polyphase</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single-phase windings</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">air gap</a> as well as <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric</a> or <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">salient cage</a> models.
+The main components of an electric machine model based on the FundamentalWave library are <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">polyphase</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single-phase windings</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">air gap</a> as well as <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">symmetric</a> or <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">salient cage</a> models.
 The electric machine models provided in this library are based on symmetrical windings in the stator and equivalent two-phase or three-phase windings in squirrel cage rotors. Slip ring induction machines may have different phase numbers in the stator and rotor.
 </p>
 
@@ -104,7 +104,7 @@ The term <strong>fundamental wave</strong> refers to spatial waves of the electr
 </html>"));
     end Concept;
 
-    class MultiPhase "Polyphase windings"
+    class Polyphase "Polyphase windings"
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
 <h4>Symmetrical three-phase system</h4>
@@ -112,27 +112,27 @@ The term <strong>fundamental wave</strong> refers to spatial waves of the electr
 <p>
 Symmetrical three-phases systems of currents (or voltages) consists of three sinusoidal
 sine waves with an angular displacement of
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/>.
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/2pi_3.png\"/>.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/i123.png\"/>,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/i123.png\"/>,
 </p>
 
 <p>
 Electrical three-phase machines have (usually) symmetrical three-phase windings which
 excite spatial magnetic potential with a spacial displacement of
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/2pi_3.png\"/>
 - with respect to the fundamental wave,
 see [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Laughton02</a>].
 Such a symmetrical three-phase system of currents (or voltages) can be represented by
 <a href=\"http://en.wikipedia.org/wiki/Phasor\">phasors</a>, as depicted in Fig. 1(a).
 The associated three-phase winding is depicted in Fig. 2(a). The winding axis are displaced by
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/>:
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/2pi_3.png\"/>:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_3.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/orientationk_3.png\"/>
 </p>
 
 <p>
@@ -144,7 +144,7 @@ spatial domain which also applies to polyphase systems.
   <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three-phase and (b) five-phase current system</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase35.png\"
            alt=\"phase35.png\">
     </td>
   </tr>
@@ -154,7 +154,7 @@ spatial domain which also applies to polyphase systems.
   <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) three-phase and (b) five-phase winding</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding35.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/winding35.png\"
            alt=\"winding35.png\">
     </td>
   </tr>
@@ -169,9 +169,9 @@ In symmetrical polyphase systems odd and even phase numbers have to be distingui
 <h5>Odd number of phases</h5>
 
 <p>
-For a symmetrical polyphase system with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\"/>
+For a symmetrical polyphase system with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/m.png\"/>
 phases the displacement in the time and spatial domain is
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_m.png\"/>,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/2pi_m.png\"/>,
 as depicted in Fig. 1 and 2.
 </p>
 
@@ -179,31 +179,31 @@ as depicted in Fig. 1 and 2.
 Mathematically, this symmetry is expressed in terms of phase currents by:
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png\"/></p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/ik_odd.png\"/></p>
 
 <p>
 The orientation of the winding axis of such winding is given by:
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_m.png\"/></p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/orientationk_m.png\"/></p>
 
 <h5>Even number of phases</h5>
 
 <p>
 In the current implementation of the FundamentalWave library, phase numbers equal
 to the power of two are not supported. However, any other polyphase system with even
-an phase number, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\"/>,
+an phase number, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/m.png\"/>,
 can be recursively split into various symmetrical systems with odd phase numbers, as depicted in Fig. 3 and 4.
 The displacement between the two symmetrical systems is
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/pi_m.png\"/>.
-A function for calculating the <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a> is available.
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/pi_m.png\"/>.
+A function for calculating the <a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a> is available.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 3: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase610.png\"
            alt=\"phase610.png\">
     </td>
   </tr>
@@ -213,7 +213,7 @@ A function for calculating the <a href=\"modelica://Modelica.Electrical.MultiPha
   <caption align=\"bottom\"><strong>Fig. 4: </strong>Symmetrical (a) six and (b) ten phase winding</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding610.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/winding610.png\"
            alt=\"winding610.png\">
     </td>
   </tr>
@@ -228,7 +228,7 @@ In a fully symmetrical machine, the orientation of the winding axes and the symm
 and Fig. 3 and 4 for even phase numbers.
 </p>
 </html>"));
-    end MultiPhase;
+    end Polyphase;
 
     class Parameters "Parameters of equivalent machines models"
       extends Modelica.Icons.Information;
@@ -397,7 +397,7 @@ this also includes the removal of the rotor cage heat sensor which previously ha
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1216\">#1216</a>#1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">polyphase converter</a></li>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">polyphase converter</a></li>
 <li>Added two more component examples, showing the equivalent nature of electrical and magnetic domain</li>
 </ul>
 
@@ -421,7 +421,7 @@ this also includes the removal of the rotor cage heat sensor which previously ha
 
 <ul>
 <li>Corrected bug in calculation of core conductance in
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>:
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a>:
 the wrong calculation <code>G=(m/2)*GcRef/effectiveTurns^2</code> is now replaced by <code>G=(m/2)*GcRef*effectiveTurns^2</code></li>
 </ul>
 
@@ -444,18 +444,18 @@ Translational.Interfaces</a></li>
 <h5>Version 1.7.0, 2010-05-31</h5>
 
 <ul>
-<li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric polyphase winding</a> model
+<li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">symmetric polyphase winding</a> model
   <ul>
       <li>Added zero sequence inductance based on
-          <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.ZeroInductor\">zero inductor</a></li>
+          <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.ZeroInductor\">zero inductor</a></li>
       <li>Replaced electrical model of stray
-          <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">inductor</a> by stray
+          <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Inductor\">inductor</a> by stray
           <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">reluctance</a> model</li>
       <li>Integrated cores <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">losses</a>
           and <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heat port</a></li>
   </ul></li>
   <li>Added rotor core loss parameters in induction machine with slip rings</li>
-  <li>Renamed heat ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single-phase winding</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric polyphase winding</a>
+  <li>Renamed heat ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single-phase winding</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">symmetric polyphase winding</a>
      </li>
   <li>Relocated core losses between zero inductor and stray reluctance model in the magnetic domain</li>
   <li>Renamed instances of stator and rotor (winding) models in each machines</li>
@@ -467,7 +467,7 @@ Translational.Interfaces</a></li>
   <li>Updated images of Users Guide</li>
   <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
       <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single-phase winding</a></li>
-  <li>Reduced number of states in <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">symmetric cage</a> model by introducing an additional non-grounded star connection</li>
+  <li>Reduced number of states in <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">symmetric cage</a> model by introducing an additional non-grounded star connection</li>
 </ul>
 
 <h5>Version 1.6.0, 2010-05-05</h5>
@@ -476,9 +476,9 @@ Translational.Interfaces</a></li>
 <li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. The following classes are affected:
 <ul>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a></li>
-<li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a></li>
+<li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">PolyphaseElectroMagneticConverter</a></li>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a></li>
-<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<li><a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 </ul></li>
 <li>Update due to changed class names in <a href=\"modelica://Modelica.Electrical.Machines.Icons\">Machines.Icons</a></li>
 <li>Using <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> instead of
@@ -690,51 +690,51 @@ The magnetic potential difference of the connector therefore also refers to an e
           annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
         Modelica.Electrical.Analog.Basic.Ground ground_m
           annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
-        Modelica.Electrical.MultiPhase.Basic.Star star_e(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star_e(m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,30})));
-        Modelica.Electrical.MultiPhase.Basic.Star star_m(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star_m(m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-60})));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_e(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_e(
           m=m,
           V=fill(1, m),
           freqHz=fill(1, m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,60})));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_m(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_m(
           m=m,
           V=fill(1, m),
           freqHz=fill(1, m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-30})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor resistor_e(m=m, R=fill(R,
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor_e(m=m, R=fill(R,
               m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={-60,70})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor resistor_m(m=m, R=fill(R,
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor_m(m=m, R=fill(R,
               m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={-60,-20})));
-        Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
           converter_e(
           m=m,
           effectiveTurns=fill(N, m),
           orientation=
-              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+              Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
           annotation (Placement(transformation(extent={{20,50},{40,70}})));
-        Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
           converter_m(
           m=m,
           effectiveTurns=fill(N, m),
           orientation=
-              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+              Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
           annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
         Modelica.Magnetic.FundamentalWave.Components.Reluctance reluctance_e(
             R_m(d=R_m, q=R_m)) annotation (Placement(transformation(
@@ -750,7 +750,7 @@ The magnetic potential difference of the connector therefore also refers to an e
           annotation (Placement(transformation(extent={{30,0},{50,20}})));
         Modelica.Magnetic.FundamentalWave.Components.Ground mground_m
           annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
-        Electrical.MultiPhase.Basic.Conductor loss_e(m=m, G=fill(Gc, m))
+        Electrical.Polyphase.Basic.Conductor loss_e(m=m, G=fill(Gc, m))
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -759,9 +759,9 @@ The magnetic potential difference of the connector therefore also refers to an e
               *Gc/2) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={60,-20})));
-        Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerb_e(m=m)
+        Modelica.Electrical.Polyphase.Sensors.PowerSensor powerb_e(m=m)
           annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
-        Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerb_m(m=m)
+        Modelica.Electrical.Polyphase.Sensors.PowerSensor powerb_m(m=m)
           annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
       initial equation
         reluctance_e.Phi = Complex(0, 0);
@@ -898,7 +898,7 @@ In this example the eddy current losses are implemented in two different ways. C
         annotation (experiment(StopTime=100, Interval=0.01));
       end SinglePhaseInductance;
 
-      model MultiPhaseInductance "Polyphase inductance"
+      model PolyphaseInductance "Polyphase inductance"
         extends Modelica.Icons.Example;
         parameter Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Frequency f=1 "Supply frequency";
@@ -912,52 +912,52 @@ In this example the eddy current losses are implemented in two different ways. C
           annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
         Modelica.Electrical.Analog.Basic.Ground ground_m
           annotation (Placement(transformation(extent={{-70,-90},{-50,-70}})));
-        Modelica.Electrical.MultiPhase.Basic.Star star_e(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star_e(m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,40})));
-        Modelica.Electrical.MultiPhase.Basic.Star star_m(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star_m(m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-60})));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage voltageSource_e(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage voltageSource_e(
           m=m,
           freqHz=fill(f, m),
           V=fill(sqrt(2)*VRMS, m),
-          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+          phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
               m) + fill(Modelica.Constants.pi/2, m)) annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,70})));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage voltageSource_m(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage voltageSource_m(
           m=m,
           freqHz=fill(f, m),
           V=fill(sqrt(2)*VRMS, m),
-          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+          phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
               m) + fill(Modelica.Constants.pi/2, m)) annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-30})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor resistor_e(m=m, R=fill(R,
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor_e(m=m, R=fill(R,
               m))
           annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor resistor_m(m=m, R=fill(R,
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor_m(m=m, R=fill(R,
               m))
           annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-        Modelica.Electrical.MultiPhase.Basic.Inductor inductor_e(m=m, L=fill(L,
+        Modelica.Electrical.Polyphase.Basic.Inductor inductor_e(m=m, L=fill(L,
               m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={0,70})));
-        Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
           converter_m(
           m=m,
           orientation=
-              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+              Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
           effectiveTurns=fill(effectiveTurns, m))
           annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
 
@@ -999,7 +999,7 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(star_m.pin_n, ground_m.p) annotation (Line(
             points={{-60,-70},{-60,-70}}, color={0,0,255}));
         annotation (experiment(StopTime=100, Interval=0.01));
-      end MultiPhaseInductance;
+      end PolyphaseInductance;
     end Components;
 
     package BasicMachines "Examples of machines of the FundamentalWave library"
@@ -1028,17 +1028,17 @@ In this example the eddy current losses are implemented in two different ways. C
                   transformation(
                   origin={-90,50},
                   extent={{-10,-10},{10,10}})));
-            Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
                 Placement(transformation(extent={{-70,62},{-90,82}})));
-            Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltageM(
+            Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltageM(
               final m=m,
               freqHz=fill(fNominal, m),
               V=fill(sqrt(2.0)*VsNominal, m),
-              phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m)) annotation (Placement(transformation(
                   origin={-50,72},
                   extent={{10,-10},{-10,10}})));
-            Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloserM(
+            Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloserM(
               final m=m,
               Ron=fill(1e-5*m/m3, m),
               Goff=fill(1e-5*m3/m, m)) annotation (Placement(transformation(
@@ -1049,7 +1049,7 @@ In this example the eddy current losses are implemented in two different ways. C
                   extent={{-10,-10},{10,10}},
                   rotation=90,
                   origin={-20,40})));
-            Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM(m=
+            Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM(m=
                  m) annotation (Placement(transformation(
                   origin={10,72},
                   extent={{-10,-10},{10,10}})));
@@ -1099,17 +1099,17 @@ In this example the eddy current losses are implemented in two different ways. C
                   transformation(
                   origin={-90,-52},
                   extent={{-10,-10},{10,10}})));
-            Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star star3(final m=m3) annotation (
                Placement(transformation(extent={{-70,-40},{-90,-20}})));
-            Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage3(
+            Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage3(
               final m=m3,
               V=fill(sqrt(2.0)*VsNominal, m3),
-              phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m3),
               freqHz=fill(fNominal, m3)) annotation (Placement(transformation(
                   origin={-50,-30},
                   extent={{10,-10},{-10,10}})));
-            Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser3(
+            Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser3(
               final m=m3,
               Ron=fill(1e-5, m3),
               Goff=fill(1e-5, m3)) annotation (Placement(transformation(
@@ -1392,17 +1392,17 @@ Simulate for 1.5 seconds and plot (versus time):
                   transformation(
                   origin={-90,50},
                   extent={{-10,-10},{10,10}})));
-            Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (Placement(
+            Electrical.Polyphase.Basic.Star starM(final m=m) annotation (Placement(
                   transformation(extent={{-70,62},{-90,82}})));
-            Electrical.MultiPhase.Sources.SineVoltage sineVoltageM(
+            Electrical.Polyphase.Sources.SineVoltage sineVoltageM(
               final m=m,
               freqHz=fill(fNominal, m),
               V=fill(sqrt(2.0)*VsNominal, m),
-              phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m)) annotation (Placement(transformation(
                   origin={-50,72},
                   extent={{10,-10},{-10,10}})));
-            Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloserM(
+            Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloserM(
               final m=m,
               Ron=fill(1e-5*m/3, m),
               Goff=fill(1e-5*m3/m, m)) annotation (Placement(transformation(
@@ -1412,7 +1412,7 @@ Simulate for 1.5 seconds and plot (versus time):
                 startValue=false) annotation (Placement(transformation(
                   extent={{-10,-10},{10,10}},
                   origin={-40,40})));
-            Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
+            Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor
               currentRMSsensorM(m=m) annotation (Placement(transformation(
                   origin={10,72},
                   extent={{-10,10},{10,-10}})));
@@ -1420,17 +1420,17 @@ Simulate for 1.5 seconds and plot (versus time):
                   transformation(
                   origin={-90,-52},
                   extent={{-10,-10},{10,10}})));
-            Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
+            Electrical.Polyphase.Basic.Star star3(final m=m3) annotation (
                 Placement(transformation(extent={{-70,-40},{-90,-20}})));
-            Electrical.MultiPhase.Sources.SineVoltage sineVoltage3(
+            Electrical.Polyphase.Sources.SineVoltage sineVoltage3(
               final m=m3,
               V=fill(sqrt(2.0)*VsNominal, m3),
-              phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m3),
               freqHz=fill(fNominal, m3)) annotation (Placement(transformation(
                   origin={-50,-30},
                   extent={{10,-10},{-10,10}})));
-            Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser3(
+            Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser3(
               final m=m3,
               Ron=fill(1e-5, m3),
               Goff=fill(1e-5, m3)) annotation (Placement(transformation(
@@ -1579,16 +1579,16 @@ Simulate for 1.5 seconds and plot (versus time):
                 origin={-90,90},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-50,80},{-70,100}})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             freqHz=fill(fNominal, m),
             V=fill(sqrt(2.0/3.0)*VsNominal, m)) annotation (Placement(
                 transformation(
                 origin={-30,90},
                 extent={{10,-10},{-10,10}})));
-          Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+          Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
             final m=m,
             Ron=fill(1e-5, m),
             Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -1685,7 +1685,7 @@ Simulate for 1.5 seconds and plot (versus time):
             Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
             aimcData "Induction machine data"
             annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
-          Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
+          Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor
             currentQuasiRMSSensor annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
                 rotation=270,
@@ -1801,13 +1801,13 @@ Simulate for 1.5 seconds and plot (versus time):
             TrOperational=293.15) annotation (Placement(transformation(extent={{20,10},{40,30}})));
           Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(extent={{-10,10},{10,-10}}, rotation=270,
                 origin={30,70})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             freqHz=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-30,90},
                 extent={{10,10},{-10,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-50,80},{-70,100}})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
@@ -1816,7 +1816,7 @@ Simulate for 1.5 seconds and plot (versus time):
                 rotation=270)));
           Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=
                 tStart1) annotation (Placement(transformation(extent={{-80,50},{-60,70}})));
-          Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+          Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
             final m=m,
             Ron=fill(1e-5, m),
             Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -1926,13 +1926,13 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
           Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
                 origin={-40,80},
                 extent={{-10,10},{10,-10}})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             freqHz=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-70,80},
                 extent={{10,10},{-10,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{10,-10},{-10,10}},
                 rotation=90,
                 origin={-80,50})));
@@ -1943,7 +1943,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
           Modelica.Blocks.Sources.BooleanStep booleanStep1[m](each startTime=
                 tStart1) annotation (Placement(transformation(extent={{-60,40},{-40,
                     60}})));
-          Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+          Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
             final m=m,
             Ron=fill(1e-5, m),
             Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -1985,7 +1985,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
             P_sc=500) "Transformer data" annotation (Placement(transformation(extent={{80,80},{100,100}})));
           Modelica.Blocks.Sources.BooleanStep booleanStep2[m](each startTime=
                 tStart2) annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
-          Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
+          Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch
             idealCommutingSwitch(
             final m=m,
             Ron=fill(1e-5, m),
@@ -2111,12 +2111,12 @@ at start time tStart2 the machine is fed directly from the voltage source, final
             final m=m,
             VNominal=VNominal,
             fNominal=fNominal) annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
-          Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+          Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
               final m=m) annotation (Placement(transformation(
                 origin={0,60},
                 extent={{10,10},{-10,-10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-50,80},{-70,100}})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
@@ -2224,11 +2224,11 @@ Default machine parameters are used.
             final m=m,
             VNominal=VNominal,
             fNominal=fNominal) annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
-          Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+          Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
               final m=m) annotation (Placement(transformation(
                 origin={0,90},
                 extent={{10,10},{-10,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-40,80},{-60,100}})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
@@ -2362,17 +2362,17 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             tau_nominal=-TLoad,
             useSupport=false) annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
           Electrical.Machines.Utilities.TerminalBox TerminalBox1(terminalConnection="D") annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-          Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3)
+          Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3)
             annotation (Placement(transformation(
                 origin={-30,18},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p2(m=m, k=2)
+          Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin_p2(m=m, k=2)
             annotation (Placement(transformation(
                 origin={-10,18},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
+          Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
             annotation (Placement(transformation(
                 origin={10,18},
                 extent={{-10,-10},{10,10}},
@@ -2548,14 +2548,14 @@ finally reaching nominal speed.</p>
           Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
                 origin={-70,90},
                 extent={{-10,10},{10,-10}})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             freqHz=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-90,70},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=90,
@@ -2746,14 +2746,14 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
                 origin={-40,80},
                 extent={{-10,10},{10,-10}})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             freqHz=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-70,70},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=90,
@@ -2838,15 +2838,15 @@ at time tStart a load torque step is applied.</p>
                 origin={-90,90},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-50,80},{-70,100}})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             V=fill(sqrt(2.0/3.0)*VsNominal, m),
             freqHz=fill(fNominal, m)) annotation (Placement(transformation(
                 origin={-30,90},
                 extent={{10,-10},{-10,10}})));
-          Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+          Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
             final m=m,
             Ron=fill(1e-5, m),
             Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -2855,7 +2855,7 @@ at time tStart a load torque step is applied.</p>
                 rotation=270)));
           Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tOn)
             annotation (Placement(transformation(extent={{-60,50},{-40,70}})));
-          Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM
+          Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM
             annotation (Placement(transformation(
                 origin={0,20},
                 extent={{-10,10},{10,-10}},
@@ -3066,9 +3066,9 @@ Simulate for 1.5 seconds and plot (versus time):
                   origin={-90,90},
                   extent={{-10,-10},{10,10}},
                   rotation=270)));
-            Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star star3(final m=m3) annotation (
                Placement(transformation(extent={{-50,80},{-70,100}})));
-            Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage3(
+            Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage3(
                 final m=m3) annotation (Placement(transformation(
                   origin={0,70},
                   extent={{10,10},{-10,-10}},
@@ -3081,9 +3081,9 @@ Simulate for 1.5 seconds and plot (versus time):
               BasePhase=+Modelica.Constants.pi/2,
               final m=m3,
               orientation=-
-                  Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m3))
+                  Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m3))
               annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
-            Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
+            Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor
               currentRMSsensorM(m=m) annotation (Placement(transformation(
                   origin={30,20},
                   extent={{-10,-10},{10,10}},
@@ -3194,12 +3194,12 @@ Simulate for 1.5 seconds and plot (versus time):
               Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
               smpmData "Synchronous machine data" annotation (Placement(transformation(extent={{-100,-100},{-80,
                       -80}})));
-            Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltageM(
+            Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltageM(
                 final m=m) annotation (Placement(transformation(
                   origin={30,50},
                   extent={{10,10},{-10,-10}},
                   rotation=270)));
-            Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
                 Placement(transformation(
                   extent={{10,-10},{-10,10}},
                   rotation=180,
@@ -3215,7 +3215,7 @@ Simulate for 1.5 seconds and plot (versus time):
               BasePhase=+Modelica.Constants.pi/2,
               final m=m,
               orientation=-
-                  Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+                  Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
               annotation (Placement(transformation(
                   extent={{10,10},{-10,-10}},
                   rotation=180,
@@ -3305,7 +3305,7 @@ Simulate for 1.5 seconds and plot (versus time):
 
 An ideal frequency inverter is modeled by using
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>s
-and <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltages</a>s.
+and <a href=\"modelica://Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltages</a>s.
 Frequency is raised by a ramp, causing the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">permanent magnet synchronous machines</a> to start,
 and accelerate the inertias. Two equivalent machines with different numbers of phases are compared and their equal behavior is demonstrated.</p>
@@ -3377,21 +3377,21 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
               "Warm damper resistance (equivalent three-phase winding) d-axis";
             parameter Modelica.SIunits.Resistance Rrq=Rrd
               "Warm damper resistance (equivalent three-phase winding) q-axis";
-            Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star star3(final m=m3) annotation (
                Placement(transformation(extent={{-50,-30},{-70,-10}})));
             Modelica.Electrical.Analog.Basic.Ground ground3 annotation (Placement(
                   transformation(
                   origin={-90,-20},
                   extent={{-10,-10},{10,10}},
                   rotation=270)));
-            Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage3(
+            Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage3(
               final m=m3,
               final V=fill(VsNominal*sqrt(2), m3),
-              phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m3),
               final freqHz=fill(fsNominal, m3)) annotation (Placement(
                   transformation(extent={{-20,-30},{-40,-10}})));
-            Modelica.Electrical.MultiPhase.Sensors.PowerSensor
+            Modelica.Electrical.Polyphase.Sensors.PowerSensor
               electricalPowerSensorM(m=m) annotation (Placement(transformation(
                   extent={{10,-10},{-10,10}},
                   rotation=180,
@@ -3547,7 +3547,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
               TeRef=293.15) "Synchronous machine data" annotation (Placement(transformation(extent={{-100,-100},
                       {-80,-80}})));
 
-            Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
+            Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor
               currentRMSsensorM(m=m) annotation (Placement(transformation(
                   origin={30,80},
                   extent={{-10,10},{10,-10}})));
@@ -3564,18 +3564,18 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                   transformation(
                   extent={{-10,10},{10,-10}},
                   origin={90,0})));
-            Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
                 Placement(transformation(extent={{-50,70},{-70,90}})));
             Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
                   transformation(
                   origin={-90,80},
                   extent={{-10,-10},{10,10}},
                   rotation=270)));
-            Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltageM(
+            Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltageM(
               final V=fill(VsNominal*sqrt(2), m),
               final freqHz=fill(fsNominal, m),
               final m=m,
-              phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m)) annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
           initial equation
             smee3.is[1:2] = zeros(2);
@@ -3831,9 +3831,9 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                   origin={-90,90},
                   extent={{-10,-10},{10,10}},
                   rotation=270)));
-            Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star star3(final m=m3) annotation (
                Placement(transformation(extent={{-50,80},{-70,100}})));
-            Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage3(
+            Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage3(
                 final m=m3) annotation (Placement(transformation(
                   origin={0,70},
                   extent={{10,10},{-10,-10}},
@@ -3846,9 +3846,9 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
               BasePhase=+Modelica.Constants.pi/2,
               final m=m3,
               orientation=-
-                  Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m3))
+                  Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m3))
               annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
-            Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
+            Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor
               currentRMSsensorM(m=m) annotation (Placement(transformation(
                   origin={30,20},
                   extent={{-10,-10},{10,10}},
@@ -3858,12 +3858,12 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                   origin={-80,0},
                   extent={{-10,10},{10,-10}},
                   rotation=270)));
-            Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltageM(
+            Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltageM(
                 final m=m) annotation (Placement(transformation(
                   origin={30,50},
                   extent={{10,10},{-10,-10}},
                   rotation=270)));
-            Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
                 Placement(transformation(
                   extent={{10,-10},{-10,10}},
                   rotation=180,
@@ -3879,7 +3879,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
               BasePhase=+Modelica.Constants.pi/2,
               final m=m,
               orientation=-
-                  Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+                  Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
               annotation (Placement(transformation(
                   extent={{10,10},{-10,-10}},
                   rotation=180,
@@ -3968,7 +3968,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
 <p>
 Ideal frequency inverters are modeled by using a
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
-and phase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>s.
+and phase <a href=\"modelica://Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltage</a>s.
 Frequency is raised by a ramp, causing the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied. Two equivalent machines with different numbers of phases are compared and their equal behavior is demonstrated.
@@ -4027,9 +4027,9 @@ Simulate for 1.5 seconds and plot (versus time):
                 origin={-90,90},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-50,80},{-70,100}})));
-          Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+          Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
               final m=m) annotation (Placement(transformation(
                 origin={0,60},
                 extent={{10,10},{-10,-10}},
@@ -4042,7 +4042,7 @@ Simulate for 1.5 seconds and plot (versus time):
             fNominal=fsNominal,
             BasePhase=+Modelica.Constants.pi/2) annotation (Placement(
                 transformation(extent={{-40,50},{-20,70}})));
-          Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM
+          Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM
             annotation (Placement(transformation(
                 origin={0,30},
                 extent={{-10,10},{10,-10}},
@@ -4217,7 +4217,7 @@ Simulate for 1.5 seconds and plot (versus time):
 
 An ideal frequency inverter is modeled by using a
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
-and a three-phase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
+and a three-phase <a href=\"modelica://Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">permanent magnet synchronous machine</a> to start,
 and accelerate the inertias.</p>
@@ -4274,12 +4274,12 @@ and accelerate the inertias.</p>
             effectiveStatorTurns=smpmData.effectiveStatorTurns,
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15)                                                 annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-          Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(
+          Modelica.Electrical.Polyphase.Sources.SignalCurrent signalCurrent(
               final m=m) annotation (Placement(transformation(
                 origin={-10,50},
                 extent={{-10,10},{10,-10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-50,80},{-70,100}})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
@@ -4295,7 +4295,7 @@ and accelerate the inertias.</p>
                 extent={{-10,10},{10,-10}},
                 rotation=180,
                 origin={-30,-10})));
-          Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
@@ -4442,12 +4442,12 @@ whereas the stator voltage is influenced by the d-current.</p>
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15)       annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
 
-          Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+          Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
               final m=m) annotation (Placement(transformation(
                 origin={-10,50},
                 extent={{10,10},{-10,-10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-50,80},{-70,100}})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
@@ -4470,7 +4470,7 @@ whereas the stator voltage is influenced by the d-current.</p>
             quadraticSpeedDependentTorque(            tau_nominal=-TLoad,
               w_nominal(displayUnit="rad/s") = wNominal)
             annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
-          Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
+          Modelica.Electrical.Polyphase.Sensors.CurrentSensor currentSensor(m=m)
             annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -4505,7 +4505,7 @@ whereas the stator voltage is influenced by the d-current.</p>
                 origin={-80,-28},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
@@ -4669,7 +4669,7 @@ whereas the stator voltage is influenced by the d-current.</p>
                 extent={{-10,10},{10,-10}},
                 rotation=180,
                 origin={10,80})));
-          Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (Placement(transformation(
+          Electrical.Polyphase.Basic.Star starM(final m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-60,-10})));
@@ -4791,20 +4791,20 @@ to speed to achieve constant current and torque.</p>
                 origin={-40,-70},
                 extent={{-10,-10},{10,10}})));
           Modelica.Mechanics.Rotational.Sensors.MultiSensor mechanicalSensor annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
-          Modelica.Electrical.MultiPhase.Sensors.MultiSensor electricalSensor(m=m) annotation (Placement(transformation(
+          Modelica.Electrical.Polyphase.Sensors.MultiSensor electricalSensor(m=m) annotation (Placement(transformation(
                 origin={40,30},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSSensor(m=m) annotation (Placement(transformation(
+          Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor currentRMSSensor(m=m) annotation (Placement(transformation(
                 origin={40,0},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             final V=fill(VNominal*sqrt(2), m),
             final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
                   extent={{-10,40},{-30,60}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-40,40},{-60,60}})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
@@ -4844,7 +4844,7 @@ to speed to achieve constant current and torque.</p>
             TeSpecification=293.15,
             TeRef=293.15) "Synchronous machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
 
-          Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch switch(
+          Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch switch(
             final m=m,
             Ron=fill(1e-5*m/3, m),
             Goff=fill(1e-5*m/3, m)) annotation (Placement(transformation(
@@ -4968,14 +4968,14 @@ This noise is caused by the interaction of the high resistance of the switch and
             "Warm damper resistance (equivalent three-phase winding) d-axis";
           parameter Modelica.SIunits.Resistance Rrq=Rrd
             "Warm damper resistance (equivalent three-phase winding) q-axis";
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-50,80},{-70,100}})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
                 origin={-90,90},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             final V=fill(VsNominal*sqrt(2), m),
             final freqHz=fill(fsNominal, m)) annotation (Placement(transformation(
@@ -5364,7 +5364,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
                 rotation=270)));
           Modelica.Blocks.Sources.BooleanPulse loadControl(period=4, startTime=2)
             annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
-          Modelica.Electrical.MultiPhase.Ideal.CloserWithArc switch(
+          Modelica.Electrical.Polyphase.Ideal.CloserWithArc switch(
             m=m,
             Ron=fill(1e-5, m),
             Goff=fill(1e-5, m),
@@ -5373,13 +5373,13 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             Vmax=fill(60, m),
             closerWithArc(off(start=fill(true, m), fixed=fill(true, m))))
             annotation (Placement(transformation(extent={{0,40},{-20,60}})));
-          Modelica.Electrical.MultiPhase.Basic.Resistor loadResistor(m=m, R=fill(
+          Modelica.Electrical.Polyphase.Basic.Resistor loadResistor(m=m, R=fill(
                 RLoad, m))
             annotation (Placement(transformation(extent={{-30,40},{-50,60}})));
-          Modelica.Electrical.MultiPhase.Basic.Inductor loadInductor(m=m, L=fill(
+          Modelica.Electrical.Polyphase.Basic.Inductor loadInductor(m=m, L=fill(
                 LLoad, m))
             annotation (Placement(transformation(extent={{-60,40},{-80,60}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(m=m) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -5570,12 +5570,12 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
               Placement(transformation(
                 origin={-30,-60},
                 extent={{-10,-10},{10,10}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star1(m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star1(m=m) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-20,90})));
-          Modelica.Electrical.MultiPhase.Ideal.IdealDiode idealDiode1(
+          Modelica.Electrical.Polyphase.Ideal.IdealDiode idealDiode1(
             m=m,
             Ron=fill(1E-5, m),
             Goff=fill(1E-5, m),
@@ -5583,7 +5583,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={0,80})));
-          Modelica.Electrical.MultiPhase.Ideal.IdealDiode idealDiode2(
+          Modelica.Electrical.Polyphase.Ideal.IdealDiode idealDiode2(
             m=m,
             Ron=fill(1E-5, m),
             Goff=fill(1E-5, m),
@@ -5591,7 +5591,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={0,40})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star2(m=m) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
@@ -5715,9 +5715,9 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
                 origin={-90,90},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-50,80},{-70,100}})));
-          Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+          Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
               final m=m) annotation (Placement(transformation(
                 origin={0,60},
                 extent={{10,10},{-10,-10}},
@@ -5729,7 +5729,7 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
             VNominal=VsNominal,
             fNominal=fsNominal) annotation (Placement(transformation(extent={{-40,
                     50},{-20,70}})));
-          Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM
+          Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM
             annotation (Placement(transformation(
                 origin={0,20},
                 extent={{-10,10},{10,-10}},
@@ -5894,7 +5894,7 @@ Voltage is controlled, the set point depends on speed. The generator is loaded w
 <p>
 An ideal frequency inverter is modeled by using a
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
-and a three-phase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
+and a three-phase <a href=\"modelica://Modelica.Electrical.Polyphase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied.
@@ -6242,18 +6242,18 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
 </p>
 
 <p>The single-phase electromagnetic converter is a special case of the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">PolyphaseElectroMagneticConverter</a>
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">PolyphaseElectroMagneticConverter</a>
 </p>
 
 </html>"));
     end SinglePhaseElectroMagneticConverter;
 
-    model MultiPhaseElectroMagneticConverter
+    model PolyphaseElectroMagneticConverter
       "Polyphase electromagnetic converter"
 
       import Modelica.Constants.pi;
@@ -6275,12 +6275,12 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
       Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
         "Argument of complex magnetic flux";
 
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         "Positive plug" annotation (Placement(transformation(
             origin={-100,100},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
         "Negative plug" annotation (Placement(transformation(
             origin={-100,-100},
             extent={{-10,-10},{10,10}},
@@ -6348,7 +6348,7 @@ The total complex magnetic potential difference of the polyphase winding is dete
 </p>
 
 <p>
-&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/multiphaseconverter_vm.png\">
+&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/polyphaseconverter_vm.png\">
 </p>
 
 <p>
@@ -6359,7 +6359,7 @@ In this equation each contribution of a winding magnetomotive force on the total
 The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v_k.png\"> induced in each winding depend on the cosines between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are proportional to the respective number of turns. This relationship can be modeled by means of</p>
 
 <p>
-&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/multiphaseconverter_phi.png\">
+&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/polyphaseconverter_phi.png\">
 </p>
 
 <p>for <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_in_1_m.png\"> and is also illustrated by the following figure:</p>
@@ -6378,7 +6378,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
 </p>
 </html>"));
-    end MultiPhaseElectroMagneticConverter;
+    end PolyphaseElectroMagneticConverter;
 
     model Idle "Idle running branch"
       extends
@@ -6538,7 +6538,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
           "Operational temperature of rotor resistance" annotation (Dialog(
               group="Operational temperatures", enable=not useThermalPort));
         output Modelica.SIunits.Current ir[m]=rotorCage.i "Rotor cage currents";
-        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding
+        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding
           rotorCage(
           final Lsigma=Lrsigma,
           final effectiveTurns=effectiveStatorTurns,
@@ -6605,12 +6605,12 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             final lossPowerRotorCore=rotor.core.lossPower,
             final lossPowerBrush=0,
             final powerRotor=
-                Modelica.Electrical.MultiPhase.Functions.activePower(vr, ir)));
+                Modelica.Electrical.Polyphase.Functions.activePower(vr, ir)));
 
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=
+        Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_rn(final m=
               mr) "Negative plug of rotor" annotation (Placement(transformation(
                 extent={{-110,-50},{-90,-70}})));
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_rp(final m=
               mr) "Positive plug of rotor" annotation (Placement(transformation(
                 extent={{-110,70},{-90,50}})));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
@@ -6667,7 +6667,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             TurnsRatio else VsNominal/VrLockedRotor*(2*pi*fsNominal*Lm)/sqrt(Rs
             ^2 + (2*pi*fsNominal*(Lm + Lssigma))^2);
       public
-        Components.SymmetricMultiPhaseWinding rotor(
+        Components.SymmetricPolyphaseWinding rotor(
           final Lsigma=Lrsigma,
           final effectiveTurns=effectiveStatorTurns/internalTurnsRatio,
           final useHeatPort=true,
@@ -7473,23 +7473,23 @@ The single-phase winding consists of a winding
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
       end SinglePhaseWinding;
 
-      model SymmetricMultiPhaseWinding
+      model SymmetricPolyphaseWinding
         "Symmetric winding model coupling electrical and magnetic domain"
         // Orientation changed
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
           "Positive plug" annotation (Placement(transformation(
               origin={-100,100},
               extent={{-10,-10},{10,10}},
               rotation=180)));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
           "Negative plug" annotation (Placement(transformation(
               origin={-100,-100},
               extent={{-10,-10},{10,10}},
@@ -7527,7 +7527,7 @@ The single-phase winding consists of a winding
         parameter Real effectiveTurns=1 "Effective number of turns per phase";
         parameter Modelica.SIunits.Conductance GcRef
           "Electrical reference core loss reluctance";
-        final parameter Integer nBase=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
+        final parameter Integer nBase=Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)
           "Number of base systems";
         final parameter Integer mBase=integer(m/nBase)
           "Number of phase of the base systems";
@@ -7550,27 +7550,27 @@ The single-phase winding consists of a winding
         Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
           "Argument of complex magnetic flux";
 
-        Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
           electroMagneticConverter(
           final m=m,
           final effectiveTurns=fill(effectiveTurns, m),
           final orientation=
-              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+              Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
           "Symmetric winding" annotation (Placement(transformation(extent={{-10,
                   -40},{10,-20}})));
-        Modelica.Electrical.MultiPhase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero) if
+        Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero) if
              mBase<>2 "Zero sequence inductance of winding"
           annotation (Placement(transformation(
               origin={-30,30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Electrical.MultiPhase.Ideal.Short short(final m=m) if mBase==2
+        Electrical.Polyphase.Ideal.Short short(final m=m) if mBase==2
           annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-10,30})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor resistor(
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor(
           final m=m,
           final useHeatPort=useHeatPort,
           final R=fill(RRef, m),
@@ -7647,9 +7647,9 @@ The single-phase winding consists of a winding
                                        Documentation(info="<html>
 <p>
 The symmetrical polyphase winding consists of a symmetrical winding
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.ZeroInductor\">zero inductor</a> as well as a symmetrical
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">polyphase electromagnetic coupling</a> and a
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Resistor\">resistor</a>, a
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.ZeroInductor\">zero inductor</a> as well as a symmetrical
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">polyphase electromagnetic coupling</a> and a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">stray reluctance</a> and a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core loss</a> model including
 heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">port</a>.
@@ -7658,12 +7658,12 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
-      end SymmetricMultiPhaseWinding;
+      end SymmetricPolyphaseWinding;
 
       model RotorSaliencyAirGap "Air gap model with rotor saliency"
         import Modelica.Constants.pi;
@@ -7780,15 +7780,15 @@ according to the following figure.
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 </p>
 
 </html>"));
       end RotorSaliencyAirGap;
 
-      model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"
+      model SymmetricPolyphaseCageWinding "Symmetrical rotor cage"
         import Modelica.Constants.pi;
         extends
           Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
@@ -7813,21 +7813,21 @@ according to the following figure.
           annotation (Dialog(enable=not useHeatPort));
         parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
-        final parameter Integer nBase=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
+        final parameter Integer nBase=Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)
           "Number of base systems";
         Modelica.SIunits.Current i[m]=electroMagneticConverter.i
           "Cage currents";
-        Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
           electroMagneticConverter(
           final m=m,
           final effectiveTurns=fill(effectiveTurns, m),
           final orientation=
-              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+              Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
           "Symmetric winding" annotation (Placement(transformation(
               origin={0,-10},
               extent={{-10,-10},{10,10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Resistor resistor(
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor(
           final useHeatPort=useHeatPort,
           final m=m,
           final R=fill(RRef, m),
@@ -7837,7 +7837,7 @@ according to the following figure.
               origin={-20,-50},
               extent={{10,10},{-10,-10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=nBase)
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=nBase)
                                                                   annotation (
             Placement(transformation(extent={{50,-30},{70,-10}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -7859,7 +7859,7 @@ according to the following figure.
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={0,20})));
-        Modelica.Electrical.MultiPhase.Basic.MultiStar multiStar(final m=m)
+        Modelica.Electrical.Polyphase.Basic.MultiStar multiStar(final m=m)
           annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
       equation
         connect(port_p, electroMagneticConverter.port_p)
@@ -7934,12 +7934,12 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
-      end SymmetricMultiPhaseCageWinding;
+      end SymmetricPolyphaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
         extends
@@ -7976,7 +7976,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
         Modelica.Blocks.Interfaces.RealOutput lossPower(
           final quantity="Power",
           final unit="W") = sum(resistor.resistor.LossPower) "Damper losses";
-        Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
           electroMagneticConverter(
           final m=2,
           final orientation={0,Modelica.Constants.pi/2},
@@ -7985,7 +7985,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               origin={0,-10},
               extent={{-10,-10},{10,10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Resistor resistor(
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor(
           final useHeatPort=useHeatPort,
           final m=2,
           final R={RRef.d,RRef.q},
@@ -7995,7 +7995,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
               origin={-20,-50},
               extent={{10,10},{-10,-10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=2) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=2) annotation (
             Placement(transformation(extent={{20,-30},{40,-10}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -8077,8 +8077,8 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
@@ -8715,7 +8715,7 @@ This model is mainly used to extend from in order build more complex - equation 
       replaceable output
         Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines
         powerBalance(
-        final powerStator=Modelica.Electrical.MultiPhase.Functions.activePower(
+        final powerStator=Modelica.Electrical.Polyphase.Functions.activePower(
             vs, is),
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
@@ -8750,13 +8750,13 @@ This model is mainly used to extend from in order build more complex - equation 
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={70,-90})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_sp(final m=m)
         "Positive plug of stator" annotation (Placement(transformation(extent={
                 {50,90},{70,110}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_sn(final m=m)
         "Negative plug of stator" annotation (Placement(transformation(extent={
                 {-70,90},{-50,110}})));
-      BasicMachines.Components.SymmetricMultiPhaseWinding stator(
+      BasicMachines.Components.SymmetricPolyphaseWinding stator(
         final useHeatPort=true,
         final m=m,
         final RRef=Rs,

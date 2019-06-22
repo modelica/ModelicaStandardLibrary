@@ -49,12 +49,12 @@ package Machines
       alpha20r=smpmData.alpha20r)
       annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
 
-    Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+    Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
         final m=m) annotation (Placement(transformation(
           origin={-10,50},
           extent={{10,10},{-10,-10}},
           rotation=270)));
-    Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+    Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
         Placement(transformation(extent={{-50,80},{-70,100}})));
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
           transformation(
@@ -80,7 +80,7 @@ package Machines
         w_nominal(displayUnit="rad/s") = wNominal,
       TorqueDirection=false)
       annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
-    Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
+    Modelica.Electrical.Polyphase.Sensors.CurrentSensor currentSensor(m=m)
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -117,7 +117,7 @@ package Machines
           origin={-80,-28},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-    Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+    Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
         Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,

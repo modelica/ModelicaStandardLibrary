@@ -452,14 +452,14 @@ This is the library of electric machine models.
           annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,-10},{-10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -469,7 +469,7 @@ This is the library of electric machine models.
         Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=
               tStart1) annotation (Placement(transformation(extent={{-80,30},{-60,
                   50}})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+        Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -576,14 +576,14 @@ finally reaching nominal speed.</p>
           annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,-10},{-10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -593,7 +593,7 @@ finally reaching nominal speed.</p>
         Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=
               tStart1) annotation (Placement(transformation(extent={{-80,30},{-60,
                   50}})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+        Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -708,13 +708,13 @@ load torque quadratic dependent on speed, finally reaching nominal speed.</p>
               origin={0,80},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={-30,90},
               extent={{10,10},{-10,-10}})));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -724,7 +724,7 @@ load torque quadratic dependent on speed, finally reaching nominal speed.</p>
         Modelica.Blocks.Sources.BooleanStep booleanStep1[m](each startTime=
               tStart1) annotation (Placement(transformation(extent={{-60,40},{-40,
                   60}})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+        Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -771,7 +771,7 @@ load torque quadratic dependent on speed, finally reaching nominal speed.</p>
         Modelica.Blocks.Sources.BooleanStep booleanStep2[m](each startTime=
               tStart2) annotation (Placement(transformation(extent={{-60,-10},{
                   -40,10}})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
+        Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch
           idealCommutingSwitch(
           final m=m,
           Ron=fill(1e-5, m),
@@ -908,14 +908,14 @@ at start time tStart2 the machine is fed directly from the voltage source, final
           annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,-10},{-10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -925,7 +925,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
         Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=
               tStart1) annotation (Placement(transformation(extent={{-80,30},{-60,
                   50}})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+        Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -1050,12 +1050,12 @@ using a starting resistance. At time tStart2 external rotor resistance is shorte
           VNominal=VNominal,
           fNominal=fNominal) annotation (Placement(transformation(extent={{-70,20},
                   {-50,40}})));
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+        Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
             final m=m) annotation (Placement(transformation(
               origin={30,30},
               extent={{10,10},{-10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=270,
               origin={30,60})));
@@ -1177,12 +1177,12 @@ and accelerating inertias.<br>At time tStep a load step is applied.</p>
           VNominal=VNominal,
           fNominal=fNominal) annotation (Placement(transformation(extent={{-40,
                   50},{-20,70}})));
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+        Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
             final m=m) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,10},{-10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -1257,7 +1257,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         "Test example: InductionMachineSquirrelCage inverter drive"
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
-        import Modelica.Electrical.MultiPhase.Functions.factorY2DC;
+        import Modelica.Electrical.Polyphase.Functions.factorY2DC;
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VNominal=400
           "Nominal RMS voltage per phase";
@@ -1269,9 +1269,9 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
         parameter Modelica.SIunits.AngularVelocity wLoad=1440.45*2*pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
-        MultiPhase.Sources.SineVoltage sineVoltage(
+        Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
-          final phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+          final phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
           final freqHz=fill(fNominal, m),
           final offset=zeros(m),
           final startTime=zeros(m),
@@ -1280,7 +1280,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-30})));
-        MultiPhase.Basic.Star star(m=m) annotation (Placement(transformation(
+        Polyphase.Basic.Star star(m=m) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-60})));
@@ -1293,7 +1293,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
               extent={{-10,10},{10,-10}},
               rotation=270,
               origin={-80,0})));
-        MultiPhase.Basic.Resistor resistor(
+        Polyphase.Basic.Resistor resistor(
           final m=m,
           final R=fill(RGrid, m),
           final T_ref=fill(20, m),
@@ -1302,7 +1302,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-80,30})));
-        MultiPhase.Basic.Inductor inductor(m=m, final L=fill(LGrid, m))
+        Polyphase.Basic.Inductor inductor(m=m, final L=fill(LGrid, m))
         annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
@@ -1315,7 +1315,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-30,70})));
-        PowerConverters.DCAC.MultiPhase2Level inverter annotation (Placement(
+        PowerConverters.DCAC.Polyphase2Level inverter annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               origin={0,70})));
@@ -1450,7 +1450,7 @@ This is a model of a complete inverter drive comprising:
 <li>a grid model and a line choke</li>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse\">a diode rectifier</a></li>
 <li>a buffer capacitor</li>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level\">a switching inverter</a></li>
+<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level\">a switching inverter</a></li>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.PWM\">a pulse width modulation</a></li>
 <li><a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">a voltage/frequency characteristic</a></li>
 <li>the reference frequency ramped up</li>
@@ -1533,17 +1533,17 @@ This is a model of a complete inverter drive comprising:
                   {70,-30}})));
         Machines.Utilities.TerminalBox TerminalBox1(terminalConnection="D")
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3)
+        Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3)
           annotation (Placement(transformation(
               origin={-30,18},
               extent={{-10,-10},{10,10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p2(m=m, k=2)
+        Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin_p2(m=m, k=2)
           annotation (Placement(transformation(
               origin={-10,18},
               extent={{-10,-10},{10,10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
+        Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
           annotation (Placement(transformation(
               origin={10,18},
               extent={{-10,-10},{10,10}},
@@ -1732,14 +1732,14 @@ the machine starts from standstill, accelerating inertias against load torque qu
               origin={-30,70},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={-70,70},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
@@ -1948,14 +1948,14 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
               origin={-10,0},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={-70,10},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
@@ -2094,14 +2094,14 @@ This package contains test examples of induction machines.
         parameter
           Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_ReluctanceRotorData
           smrData "Synchronous machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,-10},{-10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -2111,7 +2111,7 @@ This package contains test examples of induction machines.
         Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=
               tStart1) annotation (Placement(transformation(extent={{-80,30},{-60,
                   50}})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+        Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -2226,12 +2226,12 @@ Default machine parameters of model <em>SM_ReluctanceRotor</em> are used.
           VNominal=VNominal,
           fNominal=fNominal) annotation (Placement(transformation(extent={{-40,
                   50},{-20,70}})));
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+        Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
             final m=m) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,10},{-10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -2344,7 +2344,7 @@ and accelerating inertias. At time tStep a load step is applied.</p>
           annotation (Placement(transformation(extent={{-10,6},{10,26}})));
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
-        Modelica.Electrical.MultiPhase.Sensors.PotentialSensor potentialSensor(m=m)
+        Modelica.Electrical.Polyphase.Sensors.PotentialSensor potentialSensor(m=m)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
@@ -2468,12 +2468,12 @@ i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero
           fNominal=fNominal,
           BasePhase=+Modelica.Constants.pi/2) annotation (Placement(
               transformation(extent={{-40,50},{-20,70}})));
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+        Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
             final m=m) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,10},{-10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -2590,12 +2590,12 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
           alpha20r=smpmData.alpha20r,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-        Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(
+        Modelica.Electrical.Polyphase.Sources.SignalCurrent signalCurrent(
             final m=m) annotation (Placement(transformation(
               origin={-10,50},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -2613,7 +2613,7 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
               extent={{-10,10},{10,-10}},
               rotation=180,
               origin={-30,-10})));
-        Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -2776,12 +2776,12 @@ whereas the stator voltage is influenced by the d-current.</p>
           alpha20r=smpmData.alpha20r) annotation (Placement(transformation(
                 extent={{-20,-50},{0,-30}})));
 
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+        Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
             final m=m) annotation (Placement(transformation(
               origin={-10,50},
               extent={{10,10},{-10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -2805,7 +2805,7 @@ whereas the stator voltage is influenced by the d-current.</p>
           quadraticSpeedDependentTorque(            tau_nominal=-TLoad,
             w_nominal(displayUnit="rad/s") = wNominal)
           annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
-        Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
+        Modelica.Electrical.Polyphase.Sensors.CurrentSensor currentSensor(m=m)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -2842,7 +2842,7 @@ whereas the stator voltage is influenced by the d-current.</p>
               origin={-80,-28},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -3029,7 +3029,7 @@ whereas the stator voltage is influenced by the d-current.</p>
               extent={{-10,10},{10,-10}},
               rotation=180,
               origin={10,80})));
-        MultiPhase.Basic.Star                     starM(final m=m) annotation (
+        Polyphase.Basic.Star                     starM(final m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -3169,12 +3169,12 @@ achieve constant current and torque.</p>
               origin={0,10},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           final V=fill(VNominal*sqrt(2), m),
           final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
                 extent={{-20,80},{-40,100}})));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -3218,7 +3218,7 @@ achieve constant current and torque.</p>
           TeRef=293.15) "Synchronous machine data"
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
 
-        MultiPhase.Ideal.IdealClosingSwitch                     idealCloser(
+        Polyphase.Ideal.IdealClosingSwitch                     idealCloser(
           final m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m)) annotation (Placement(transformation(
@@ -3391,12 +3391,12 @@ This noise is caused by the interaction of the high resistance of the switch and
               origin={0,30},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           final V=fill(VNominal*sqrt(2), m),
           final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
                 extent={{-20,80},{-40,100}})));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -3630,7 +3630,7 @@ rotor angle is very slowly increased. This allows to see several characteristics
               rotation=270)));
         Modelica.Blocks.Sources.BooleanPulse loadControl(period=4, startTime=2)
           annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-        Modelica.Electrical.MultiPhase.Ideal.CloserWithArc switch(
+        Modelica.Electrical.Polyphase.Ideal.CloserWithArc switch(
           m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m),
@@ -3639,13 +3639,13 @@ rotor angle is very slowly increased. This allows to see several characteristics
           Vmax=fill(60, m),
           closerWithArc(off(start=fill(true, m), fixed=fill(true, m))))
           annotation (Placement(transformation(extent={{0,40},{-20,60}})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor loadResistor(m=m, R=fill(
+        Modelica.Electrical.Polyphase.Basic.Resistor loadResistor(m=m, R=fill(
               RLoad, m))
           annotation (Placement(transformation(extent={{-30,40},{-50,60}})));
-        Modelica.Electrical.MultiPhase.Basic.Inductor loadInductor(m=m, L=fill(
+        Modelica.Electrical.Polyphase.Basic.Inductor loadInductor(m=m, L=fill(
               LLoad, m))
           annotation (Placement(transformation(extent={{-60,40},{-80,60}})));
-        Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star(m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -3857,12 +3857,12 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
             Placement(transformation(
               origin={-30,-60},
               extent={{-10,-10},{10,10}})));
-        Modelica.Electrical.MultiPhase.Basic.Star star1(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star1(m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
               origin={-20,90})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode idealDiode1(
+        Modelica.Electrical.Polyphase.Ideal.IdealDiode idealDiode1(
           m=m,
           Ron=fill(1E-5, m),
           Goff=fill(1E-5, m),
@@ -3870,7 +3870,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={0,80})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode idealDiode2(
+        Modelica.Electrical.Polyphase.Ideal.IdealDiode idealDiode2(
           m=m,
           Ron=fill(1E-5, m),
           Goff=fill(1E-5, m),
@@ -3878,7 +3878,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={0,40})));
-        Modelica.Electrical.MultiPhase.Basic.Star star2(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star2(m=m) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -6294,13 +6294,13 @@ This package contains test examples demonstrating control of electric drives.
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Resistance RL[3]=fill(1/3, 3)
           "Load resistance";
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage source(freqHz=fill(
               50, 3), V=fill(sqrt(2/3)*100, 3)) annotation (Placement(
               transformation(
               origin={-90,-10},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star starS annotation (Placement(
+        Modelica.Electrical.Polyphase.Basic.Star starS annotation (Placement(
               transformation(
               origin={-90,-40},
               extent={{-10,-10},{10,10}},
@@ -6316,7 +6316,7 @@ This package contains test examples demonstrating control of electric drives.
               origin={-50,-30},
               extent={{-10,10},{10,-10}},
               rotation=180)));
-        Modelica.Electrical.MultiPhase.Basic.Delta deltaS annotation (Placement(
+        Modelica.Electrical.Polyphase.Basic.Delta deltaS annotation (Placement(
               transformation(
               origin={-50,-10},
               extent={{-10,-10},{10,10}})));
@@ -6331,7 +6331,7 @@ This package contains test examples demonstrating control of electric drives.
             Placement(transformation(
               origin={50,-30},
               extent={{-10,-10},{10,10}})));
-        Modelica.Electrical.MultiPhase.Basic.Delta deltaL annotation (Placement(
+        Modelica.Electrical.Polyphase.Basic.Delta deltaL annotation (Placement(
               transformation(
               origin={50,-10},
               extent={{-10,10},{10,-10}},
@@ -6340,12 +6340,12 @@ This package contains test examples demonstrating control of electric drives.
           annotation (Placement(transformation(extent={{40,20},{60,0}})));
         Machines.Sensors.ElectricalPowerSensor electricalPowerSensorL
           annotation (Placement(transformation(extent={{70,0},{90,20}})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor load(R=RL) annotation (
+        Modelica.Electrical.Polyphase.Basic.Resistor load(R=RL) annotation (
             Placement(transformation(
               origin={90,-10},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star starL annotation (Placement(
+        Modelica.Electrical.Polyphase.Basic.Star starL annotation (Placement(
               transformation(
               origin={90,-40},
               extent={{-10,10},{10,-10}},
@@ -6451,20 +6451,20 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
       model AsymmetricalLoad "Asymmetrical load"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Resistance RL=1 "Load resistance";
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage source(freqHz=fill(
               50, 3), V=fill(sqrt(2/3)*100, 3)) annotation (Placement(
               transformation(
               origin={-90,-10},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star starS annotation (Placement(
+        Modelica.Electrical.Polyphase.Basic.Star starS annotation (Placement(
               transformation(
               origin={-90,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Analog.Basic.Ground groundS annotation (Placement(
               transformation(extent={{-100,-80},{-80,-60}})));
-        Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensorS
+        Modelica.Electrical.Polyphase.Sensors.CurrentSensor currentSensorS
           annotation (Placement(transformation(extent={{-60,20},{-40,0}})));
         Modelica.Electrical.Analog.Basic.Ground groundL annotation (Placement(
               transformation(extent={{0,-80},{20,-60}})));
@@ -6499,7 +6499,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
           T2Operational=293.15) annotation (Placement(transformation(extent={{-20,
                   -10},{20,30}})));
 
-        Modelica.Electrical.MultiPhase.Basic.PlugToPin_n plugToPin_n(k=1)
+        Modelica.Electrical.Polyphase.Basic.PlugToPin_n plugToPin_n(k=1)
           annotation (Placement(transformation(extent={{20,0},{40,20}})));
         Analog.Basic.Resistor load(R=RL) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -6564,23 +6564,23 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         parameter Modelica.SIunits.Capacitance C=0.005 "Total DC-capacitance";
         parameter Modelica.SIunits.Voltage VC0=sqrt(3)*V
           "Initial voltage of capacitance";
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage source(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage source(
           m=m,
           V=fill(V, m),
           freqHz=fill(f, m)) annotation (Placement(transformation(
               origin={-90,-10},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star starAC(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star starAC(m=m) annotation (
             Placement(transformation(
               origin={-90,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Analog.Basic.Ground groundAC annotation (Placement(
               transformation(extent={{-100,-80},{-80,-60}})));
-        Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
+        Modelica.Electrical.Polyphase.Sensors.CurrentSensor currentSensor(m=m)
           annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode1(
+        Modelica.Electrical.Polyphase.Ideal.IdealDiode diode1(
           m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m),
@@ -6588,12 +6588,12 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
               origin={-20,60},
               extent={{-10,10},{10,-10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Star star1(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star1(m=m) annotation (
             Placement(transformation(
               origin={0,70},
               extent={{10,10},{-10,-10}},
               rotation=180)));
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode2(
+        Modelica.Electrical.Polyphase.Ideal.IdealDiode diode2(
           m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m),
@@ -6601,7 +6601,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
               origin={-20,20},
               extent={{-10,10},{10,-10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Star star2(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star2(m=m) annotation (
             Placement(transformation(extent={{-10,0},{10,20}})));
         Modelica.Electrical.Analog.Basic.Resistor load(R=RL) annotation (
             Placement(transformation(
@@ -6694,7 +6694,7 @@ neglecting initial transient.
 
       model Rectifier12pulse "12-pulse rectifier with 2 transformers"
         extends Machines.Examples.Transformers.Rectifier6pulse(RL=0.2);
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode3(
+        Modelica.Electrical.Polyphase.Ideal.IdealDiode diode3(
           m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m),
@@ -6702,9 +6702,9 @@ neglecting initial transient.
               origin={-20,-20},
               extent={{-10,10},{10,-10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Star star3(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star3(m=m) annotation (
             Placement(transformation(extent={{-10,0},{10,-20}})));
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode4(
+        Modelica.Electrical.Polyphase.Ideal.IdealDiode diode4(
           m=m,
           Ron=fill(1e-5, m),
           Goff=fill(1e-5, m),
@@ -6712,7 +6712,7 @@ neglecting initial transient.
               origin={-20,-60},
               extent={{-10,10},{10,-10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Star star4(m=m) annotation (
+        Modelica.Electrical.Polyphase.Basic.Star star4(m=m) annotation (
             Placement(transformation(extent={{-10,-60},{10,-80}})));
         Machines.BasicMachines.Transformers.Dd.Dd00 transformer2(
           n=transformerData2.n,
@@ -7109,7 +7109,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={-70,-50},
               extent={{10,10},{-10,-10}},
               rotation=180)));
-        Modelica.Electrical.MultiPhase.Basic.Resistor rr(
+        Modelica.Electrical.Polyphase.Basic.Resistor rr(
           final m=m,
           final R=fill(Rr, m),
           final T_ref=fill(TrRef, m),
@@ -7119,10 +7119,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_rp(final m=
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_rp(final m=
               m) "Positive rotor plug" annotation (Placement(transformation(
                 extent={{-110,70},{-90,50}})));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=
+        Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_rn(final m=
               m) "Negative rotor plug" annotation (Placement(transformation(
                 extent={{-110,-50},{-90,-70}})));
         Machines.BasicMachines.Components.Inductor lrsigma(final L=fill(
@@ -9157,14 +9157,14 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
         model Yy00 "Transformer Yy0"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yy00");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
@@ -9196,21 +9196,21 @@ Transformer Yy0
         model Yy02 "Transformer Yy2"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yy02");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9239,21 +9239,21 @@ Transformer Yy2
         model Yy04 "Transformer Yy4"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yy04");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9282,14 +9282,14 @@ Transformer Yy4
         model Yy06 "Transformer Yy6"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yy06");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
@@ -9321,21 +9321,21 @@ Transformer Yy6
         model Yy08 "Transformer Yy8"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yy08");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9364,21 +9364,21 @@ Transformer Yy8
         model Yy10 "Transformer Yy10"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yy10");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9426,14 +9426,14 @@ This package contains transformers primary Y connected / secondary y connected i
         model Yd01 "Transformer Yd1"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yd01");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9460,16 +9460,16 @@ Transformer Yd1
         model Yd03 "Transformer Yd3"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yd03");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9498,14 +9498,14 @@ Transformer Yd3
         model Yd05 "Transformer Yd5"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yd05");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9532,14 +9532,14 @@ Transformer Yd5
         model Yd07 "Transformer Yd7"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yd07");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9566,16 +9566,16 @@ Transformer Yd7
         model Yd09 "Transformer Yd9"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yd09");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9604,14 +9604,14 @@ Transformer Yd9
         model Yd11 "Transformer Yd11"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yd11");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -9657,26 +9657,26 @@ This package contains transformers primary Y connected / secondary d connected i
         model Yz01 "Transformer Yz1"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yz01");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
@@ -9710,26 +9710,26 @@ Transformer Yz1
         model Yz03 "Transformer Yz3"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yz03");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
@@ -9763,21 +9763,21 @@ Transformer Yz3
         model Yz05 "Transformer Yz5"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yz05");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
@@ -9809,21 +9809,21 @@ Transformer Yz5
         model Yz07 "Transformer Yz7"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yz07");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
@@ -9855,26 +9855,26 @@ Transformer Yz7
         model Yz09 "Transformer Yz9"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yz09");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
@@ -9908,26 +9908,26 @@ Transformer Yz9
         model Yz11 "Transformer Yz11"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Yz11");
-          Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
@@ -9980,16 +9980,16 @@ This package contains transformers primary Y connected / secondary zig-zag conne
         model Dy01 "Transformer Dy1"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dy01");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10018,16 +10018,16 @@ Transformer Dy1
         model Dy03 "Transformer Dy3"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dy03");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10056,14 +10056,14 @@ Transformer Dy3
         model Dy05 "Transformer Dy5"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dy05");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10090,16 +10090,16 @@ Transformer Dy5
         model Dy07 "Transformer Dy7"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dy07");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10128,16 +10128,16 @@ Transformer Dy7
         model Dy09 "Transformer Dy9"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dy09");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10166,14 +10166,14 @@ Transformer Dy9
         model Dy11 "Transformer Dy11"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dy11");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10219,9 +10219,9 @@ This package contains transformers primary D connected / secondary y connected i
         model Dd00 "Transformer Dd0"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dd00");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -10248,11 +10248,11 @@ Transformer Dd0
         model Dd02 "Transformer Dd2"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dd02");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -10281,9 +10281,9 @@ Transformer Dd2
         model Dd04 "Transformer Dd4"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dd04");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -10310,9 +10310,9 @@ Transformer Dd4
         model Dd06 "Transformer Dd6"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dd06");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(Delta2.plug_p, r2.plug_p) annotation (Line(points={{50,20},{
@@ -10339,11 +10339,11 @@ Transformer Dd6
         model Dd08 "Transformer Dd8"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dd08");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot2(final m=m)
             annotation (Placement(transformation(extent={{50,10},{30,30}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -10372,9 +10372,9 @@ Transformer Dd8
         model Dd10 "Transformer Dd10"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dd10");
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta2(final m=m)
             annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -10420,24 +10420,24 @@ This package contains transformers primary D connected / secondary d connected i
         model Dz00 "Transformer Dz0"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dz00");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10468,24 +10468,24 @@ Transformer Dz0
         model Dz02 "Transformer Dz2"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dz02");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10516,19 +10516,19 @@ Transformer Dz2
         model Dz04 "Transformer Dz4"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dz04");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10557,19 +10557,19 @@ Transformer Dz4
         model Dz06 "Transformer Dz6"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dz06");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10598,24 +10598,24 @@ Transformer Dz6
         model Dz08 "Transformer Dz8"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dz08");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -10646,24 +10646,24 @@ Transformer Dz8
         model Dz10 "Transformer Dz10"
           extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
                "Dz10");
-          Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot21(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot21(final m=m)
             annotation (Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Rot22(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Rot22(final m=m)
             annotation (Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
-          Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -11496,17 +11496,17 @@ the connection to airgap has to be grounded at one point.
         Modelica.SIunits.Current i3[m]=plug_p3.pin.i;
         Modelica.SIunits.Current im[m]=i1 + i2/n12 + i3/n13
           "Magnetizing current";
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p1(final m=
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p1(final m=
               m) annotation (Placement(transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n1(final m=
+        Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n1(final m=
               m) annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p2(final m=
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p2(final m=
               m) annotation (Placement(transformation(extent={{90,90},{110,110}})));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n2(final m=
+        Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n2(final m=
               m) annotation (Placement(transformation(extent={{90,30},{110,50}})));
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p3(final m=
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p3(final m=
               m) annotation (Placement(transformation(extent={{90,-30},{110,-50}})));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n3(final m=
+        Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n3(final m=
               m) annotation (Placement(transformation(extent={{90,-90},{110,-110}})));
       equation
         plug_p1.pin.i + plug_n1.pin.i = zeros(m);
@@ -11759,11 +11759,11 @@ The induction machine models use package SpacePhasors.
             origin={0,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor VoltageSensor1(
+      Modelica.Electrical.Polyphase.Sensors.VoltageSensor VoltageSensor1(
           final m=m) annotation (Placement(transformation(extent={{-10,40},{10,
                 60}})));
       Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2)) annotation (Placement(
@@ -11821,11 +11821,11 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
             origin={0,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Electrical.MultiPhase.Sensors.CurrentSensor CurrentSensor1(
+      Modelica.Electrical.Polyphase.Sensors.CurrentSensor CurrentSensor1(
           final m=m) annotation (Placement(transformation(extent={{-10,40},{10,
                 60}})));
       Modelica.Blocks.Math.Gain Gain1(final k=1/sqrt(2)) annotation (Placement(
@@ -11888,11 +11888,11 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
             origin={50,110},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_ni(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_ni(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_nv(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_nv(final m=m)
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
       Modelica.SIunits.Voltage v_[2];
@@ -12004,11 +12004,11 @@ Calculates (mechanical) power from torque times angular speed.
       Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(final
           quantity="Angle", final unit="rad") annotation (Placement(
             transformation(extent={{100,-10},{120,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor VoltageSensor1(
+      Modelica.Electrical.Polyphase.Sensors.VoltageSensor VoltageSensor1(
           final m=m) annotation (Placement(transformation(
             origin={-80,0},
             extent={{10,-10},{-10,10}},
@@ -12233,9 +12233,9 @@ This package contains sensors that are useful when modelling machines.
         parameter Real InverseTransformation[m, 2]={{cos(-(k - 1)/m*2*pi),-sin(
             -(k - 1)/m*2*pi)} for k in 1:m};
       public
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
           annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
           annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
         Modelica.Electrical.Analog.Interfaces.PositivePin zero annotation (
             Placement(transformation(extent={{90,-10},{110,10}})));
@@ -12415,7 +12415,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
         parameter Integer m(min=1) = 3 "Number of phases";
       protected
         parameter Modelica.SIunits.Angle phi[m]=
-            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+            Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
         parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
         parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}
             for k in 1:m};
@@ -12459,7 +12459,7 @@ Transformation of polyphase values (of voltages or currents) to space phasor and
         parameter Integer m(min=1) = 3 "Number of phases";
       protected
         parameter Modelica.SIunits.Angle phi[m]=
-            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+            Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
         parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
         parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}
             for k in 1:m};
@@ -12632,7 +12632,7 @@ the first element representing the real part and the second element representing
       protected
         parameter Integer m=size(x, 1) "Number of phases";
         parameter Modelica.SIunits.Angle phi[m]=
-            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+            Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
         parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
         parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}
             for k in 1:m};
@@ -12654,7 +12654,7 @@ Transformation of polyphase values (of voltages or currents) to space phasor and
         output Real y[m] "Polyphase output";
       protected
         parameter Modelica.SIunits.Angle phi[m]=
-            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+            Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
         parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
         parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}
             for k in 1:m};
@@ -12739,7 +12739,7 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
       protected
         Integer m=size(x, 1) "Number of phases";
         Modelica.SIunits.Angle phi[m]=
-            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+            Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
         Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
         Real h[2]=TransformationMatrix*x;
       algorithm
@@ -13085,7 +13085,7 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
     package InductionMachines "Loss models for induction machines"
       extends Modelica.Icons.VariantsPackage;
       model Brush "Model considering voltage drop of carbon brushes"
-        extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
+        extends Modelica.Electrical.Polyphase.Interfaces.TwoPlug;
         parameter Machines.Losses.BrushParameters brushParameters
           "Brush loss parameters";
         extends
@@ -13124,9 +13124,9 @@ Model of voltage drop and losses of carbon brushes. This three-phase model uses 
 
       model StrayLoad
         "Model of stray load losses dependent on current and speed"
-        extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
+        extends Modelica.Electrical.Polyphase.Interfaces.OnePort;
         extends Machines.Interfaces.FlangeSupport;
-        import Modelica.Electrical.MultiPhase.Functions.quasiRMS;
+        import Modelica.Electrical.Polyphase.Functions.quasiRMS;
         parameter Machines.Losses.StrayLoadParameters strayLoadParameters
           "Stray load loss parameters";
         extends
@@ -13188,7 +13188,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
       model PermanentMagnetLosses
         "Model of permanent magnet losses dependent on current and speed"
         extends Machines.Interfaces.FlangeSupport;
-        import Modelica.Electrical.MultiPhase.Functions.quasiRMS;
+        import Modelica.Electrical.Polyphase.Functions.quasiRMS;
         parameter Integer m(min=1) = 3 "Number of phases";
         parameter Machines.Losses.PermanentMagnetLossParameters
           permanentMagnetLossParameters "Permanent magnet loss parameters";
@@ -14808,13 +14808,13 @@ One may also fix the shaft and let rotate the stator; parameter Js is only of im
         "Rotor space phasor current / stator fixed frame";
       input Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer)
         "Rotor space phasor current / rotor fixed frame";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_sp(final m=m)
         "Positive stator plug" annotation (Placement(transformation(extent={{50,
                 90},{70,110}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_sn(final m=m)
         "Negative stator plug" annotation (Placement(transformation(extent={{-70,
                 90},{-50,110}})));
-      Modelica.Electrical.MultiPhase.Basic.Resistor rs(
+      Modelica.Electrical.Polyphase.Basic.Resistor rs(
         final m=m,
         final R=fill(Rs, m),
         final T_ref=fill(TsRef, m),
@@ -15742,13 +15742,13 @@ Thermal ports for DC machines
       parameter Real ni=n*(if C2 == "z" then sqrt(3) else 2)*(if C2 == "d"
            then 1 else sqrt(3))/(if C1 == "D" then 1 else sqrt(3));
     public
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug1(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug1(final m=m)
         "Primary plug" annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug2(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug2(final m=m)
         "Secondary plug" annotation (Placement(transformation(extent={{90,-10},
                 {110,10}})));
-      Modelica.Electrical.MultiPhase.Basic.Resistor r1(
+      Modelica.Electrical.Polyphase.Basic.Resistor r1(
         final m=m,
         final R=fill(R1, m),
         final T_ref=fill(T1Ref, m),
@@ -15756,10 +15756,10 @@ Thermal ports for DC machines
         final useHeatPort=true,
         final T=fill(T1Ref, m)) annotation (Placement(transformation(extent={{-90,
                 10},{-70,-10}})));
-      Modelica.Electrical.MultiPhase.Basic.Inductor l1sigma(final m=m, final L=
+      Modelica.Electrical.Polyphase.Basic.Inductor l1sigma(final m=m, final L=
             fill(L1sigma, m)) annotation (Placement(transformation(extent={{-70,
                 -10},{-50,10}})));
-      Modelica.Electrical.MultiPhase.Basic.Resistor r2(
+      Modelica.Electrical.Polyphase.Basic.Resistor r2(
         final m=m,
         final R=fill(R2, m),
         final T_ref=fill(T2Ref, m),
@@ -15767,7 +15767,7 @@ Thermal ports for DC machines
         final useHeatPort=true,
         final T=fill(T2Ref, m)) annotation (Placement(transformation(extent={{
                 90,10},{70,-10}})));
-      Modelica.Electrical.MultiPhase.Basic.Inductor l2sigma(final m=m, final L=
+      Modelica.Electrical.Polyphase.Basic.Inductor l2sigma(final m=m, final L=
             fill(L2sigma, m)) annotation (Placement(transformation(extent={{70,
                 -10},{50,10}})));
       Machines.BasicMachines.Components.IdealCore core(
@@ -16691,7 +16691,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
       extends Modelica.Blocks.Interfaces.SIMO(u(unit="Hz"), final nout=m);
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Angle orientation[m]=-
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+          Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
         "Orientation of phases";
       parameter Modelica.SIunits.Voltage VNominal "Nominal RMS voltage per phase";
       parameter Modelica.SIunits.Frequency fNominal "Nominal frequency";
@@ -17038,20 +17038,20 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
 
     model SwitchYD "Y-D-switch"
       parameter Integer m=3 "Number of phases";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plugSupply(final m=
            m) "To grid" annotation (Placement(transformation(extent={{-10,90},{
                 10,110}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_sp(final m=m)
         "To positive stator plug" annotation (Placement(transformation(extent={
                 {50,-90},{70,-110}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_sn(final m=m)
         "To negative stator plug" annotation (Placement(transformation(extent={
                 {-70,-90},{-50,-110}})));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+      Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
           Placement(transformation(extent={{20,-50},{40,-30}})));
-      Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m) annotation (
+      Modelica.Electrical.Polyphase.Basic.Delta delta(final m=m) annotation (
           Placement(transformation(extent={{40,-80},{20,-60}})));
-      Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
+      Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch
         idealCommutingSwitch(
         final m=m,
         Ron=fill(1e-5, m),
@@ -17116,23 +17116,23 @@ If <em>control</em> is true, plug_sp and plug_sn are delta connected and they ar
       parameter String terminalConnection(start="Y") "Choose \"Y\" for star or \"D\" for delta connection"
         annotation (choices(choice="Y" "Star connection", choice="D"
             "Delta connection"));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_sp(final m=m)
         "To be connected with positive stator plug" annotation (Placement(transformation(extent={{50,-50},
                 {70,-70}}), iconTransformation(extent={{
                 50,-50},{70,-70}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_sn(final m=m)
         "To be connected with negative stator plug" annotation (Placement(transformation(extent={{-70,-50},
                 {-50,-70}}), iconTransformation(extent={
                 {-70,-50},{-50,-70}})));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) if (
+      Modelica.Electrical.Polyphase.Basic.Star star(final m=m) if (
         terminalConnection <> "D") annotation (Placement(transformation(
             origin={-70,-80},
             extent={{-10,10},{10,-10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m) if (
+      Modelica.Electrical.Polyphase.Basic.Delta delta(final m=m) if (
         terminalConnection == "D") annotation (Placement(transformation(extent=
                 {{-20,-70},{-40,-50}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plugSupply(final m=
            m) "To be connected with grid" annotation (Placement(transformation(extent={{-10,-30},
                 {10,-50}}), iconTransformation(extent={{-10,-30},{
                 10,-50}})));
@@ -17170,32 +17170,32 @@ The (single-phase) connector <code>starPoint</code> is only available if star co
     model MultiTerminalBox "Terminal box Y/D-connection"
       parameter Integer m(min=1) = 3 "Number of phases";
       final parameter Integer mSystems=
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(
           m) "Number of symmetric base systems";
       final parameter Integer mBasic=integer(m/mSystems) "Number of phases of basic system";
       parameter String terminalConnection(start="Y") "Choose \"Y\" for star or \"D\" for delta connection"
         annotation (choices(choice="Y" "Star connection", choice="D"
             "Delta connection"));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_sp(final m=m)
         "To be connected with positive stator plug" annotation (Placement(transformation(extent={{50,-50},
                 {70,-70}}), iconTransformation(extent={{
                 50,-50},{70,-70}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_sn(final m=m)
         "To be connected with negative stator plug" annotation (Placement(transformation(extent={{-70,-50},
                 {-50,-70}}), iconTransformation(extent={
                 {-70,-50},{-50,-70}})));
-      MultiPhase.Basic.MultiStar multiStar(final m=m) if (terminalConnection
+      Polyphase.Basic.MultiStar multiStar(final m=m) if (terminalConnection
          <> "D") annotation (Placement(transformation(
             origin={-70,-80},
             extent={{-10,10},{10,-10}},
             rotation=180)));
-      MultiPhase.Basic.MultiDelta multiDelta(final m=m) if (terminalConnection
+      Polyphase.Basic.MultiDelta multiDelta(final m=m) if (terminalConnection
          == "D") annotation (Placement(transformation(extent={{-20,-70},{-40,-50}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plugSupply(final m=
            m) "To be connected with grid" annotation (Placement(transformation(extent={{-10,-30},
                 {10,-50}}), iconTransformation(extent={{-10,-30},{
                 10,-50}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoint(final m=
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug starpoint(final m=
             mSystems) if (terminalConnection <> "D") "Star point" annotation (Placement(
             transformation(extent={{-110,-50},{-90,-30}}),
             iconTransformation(extent={{-110,-50},{-90,-30}})));
@@ -17225,32 +17225,32 @@ This model represents the internal connections of the terminal box of an electri
 The parameter <code>terminalConnection</code> is used to switch between star 
 (<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection.
 The star point is a plug with 
-<code>mSystem = Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)</code> phases, 
+<code>mSystem = Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)</code> phases, 
 representing the star points of each base system; see 
-<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase</a>.
+<a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase</a>.
 </p>
 </html>"));
     end MultiTerminalBox;
 
     model SwitchedRheostat "Rheostat which is shortened after a given time"
       parameter Integer m=3 "Number of phases";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         "To positive rotor plug" annotation (Placement(transformation(extent={{
                 90,70},{110,50}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
         "To negative rotor plug" annotation (Placement(transformation(extent={{
                 90,-50},{110,-70}})));
       parameter Modelica.SIunits.Resistance RStart "Starting resistance";
       parameter Modelica.SIunits.Time tStart
         "Duration of switching on the starting resistor";
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+      Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
           Placement(transformation(extent={{-40,-70},{-60,-50}})));
       Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
             transformation(
             origin={-80,-60},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
+      Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch
         idealCommutingSwitch(
         final m=m,
         Ron=fill(1e-5, m),
@@ -17258,10 +17258,10 @@ representing the star points of each base system; see
             origin={40,20},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Resistor rheostat(final m=m, final R=
+      Modelica.Electrical.Polyphase.Basic.Resistor rheostat(final m=m, final R=
            fill(RStart, m)) annotation (Placement(transformation(extent={{0,-30},
                 {-20,-10}})));
-      Modelica.Electrical.MultiPhase.Basic.Star starRheostat(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star starRheostat(final m=m)
         annotation (Placement(transformation(extent={{-40,-30},{-60,-10}})));
       Modelica.Blocks.Sources.BooleanStep booleanStep[m](final startTime=fill(
             tStart, m), final startValue=fill(false, m)) annotation (Placement(
@@ -17309,24 +17309,24 @@ representing the star points of each base system; see
 
     model RampedRheostat "Rheostat with linearly decreasing resistance"
       parameter Integer m=3 "Number of phases";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         "To positive rotor plug" annotation (Placement(transformation(extent={{
                 90,70},{110,50}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
         "To negative rotor plug" annotation (Placement(transformation(extent={{
                 90,-50},{110,-70}})));
       parameter Modelica.SIunits.Resistance RStart "Starting resistance";
       parameter Modelica.SIunits.Time tStart
         "Time instance of reducing the rheostat";
       parameter Modelica.SIunits.Time tRamp "Duration of ramp";
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+      Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
           Placement(transformation(extent={{-20,-70},{-40,-50}})));
       Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
             transformation(
             origin={-70,-60},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.VariableResistor rheostat(final m=m)
+      Modelica.Electrical.Polyphase.Basic.VariableResistor rheostat(final m=m)
         annotation (Placement(transformation(
             origin={60,0},
             extent={{-10,10},{10,-10}},

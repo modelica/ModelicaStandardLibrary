@@ -1,5 +1,5 @@
 within Modelica.Electrical;
-package MultiPhase "Library for electrical components of one or more phases"
+package Polyphase "Library for electrical components of one or more phases"
   extends Modelica.Icons.Package;
 
   package UsersGuide "User's Guide"
@@ -12,7 +12,7 @@ package MultiPhase "Library for electrical components of one or more phases"
         Documentation(info="<html>
 <p>
 <strong>In polyphase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e., they are based on the same
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">orientation function</a>.</strong>
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">orientation function</a>.</strong>
 </p>
 <h4>Symmetrical three-phase system</h4>
 <p>
@@ -30,7 +30,7 @@ For a symmetrical polyphase system with m phases the displacement of the sine wa
   <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three-phase and (b) five-phase current system</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase35.png\"
            alt=\"phase35.png\">
     </td>
   </tr>
@@ -50,7 +50,7 @@ For a base system with m<sub>Base</sub> phases the displacement of the sine wave
   <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png\"
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase610.png\"
            alt=\"phase610.png\">
     </td>
   </tr>
@@ -77,7 +77,7 @@ This set of symmetrical components is repeated for each of the n<sub>Base</sub> 
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide</a> on polyphase winding.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">User's guide</a> on polyphase winding.
 </p>
 </html>"));
     end PhaseOrientation;
@@ -114,10 +114,10 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
   <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
 <li>Removed redundant (and not identical) parameter m from
-    <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
+    <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MutualInductor\">MutualInductor</a>,
     see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2202\">#2202</a></li>
 <li>Changed epsilon from constant to parameter in
-    <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
+    <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MutualInductor\">MutualInductor</a>,
     see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2200\">#2200</a></li>
 <li>Added User's Guide</li>
 <li>Added blocks and functions for multiple base systems</li>
@@ -188,7 +188,7 @@ Most of the components use an array of single-phase components from <a href=\"mo
 </p>
 <h4>Note</h4>
 <p>
-For the orientation of an arbitrary number of phases m &gt; 3, see the <a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">phase orientation concept</a>.
+For the orientation of an arbitrary number of phases m &gt; 3, see the <a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">phase orientation concept</a>.
 </p>
 </html>"));
   end UsersGuide;
@@ -376,7 +376,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
 
     model Rectifier "Test example with polyphase components"
       extends Modelica.Icons.Example;
-      import Modelica.Electrical.MultiPhase.Functions.factorY2DC;
+      import Modelica.Electrical.Polyphase.Functions.factorY2DC;
       final parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=100 "RMS of Star-Voltage";
       parameter Modelica.SIunits.Frequency f=50 "Frequency";
@@ -536,14 +536,14 @@ as well as reactive power measured by powerSensorSpacePhasor and reactivePowerSe
       final parameter Modelica.SIunits.ActivePower P=3*R*IRMS^2 "Total active power";
       final parameter Modelica.SIunits.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total reactive power";
       final parameter Modelica.SIunits.ApparentPower S=3*Z*IRMS^2 "Total apparent power";
-      Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+      Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
         final m=m,
         V=fill(sqrt(2)*VRMS, m),
         freqHz=fill(f, m)) annotation (Placement(transformation(
             origin={-20,-30},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+      Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
           Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
@@ -552,22 +552,22 @@ as well as reactive power measured by powerSensorSpacePhasor and reactivePowerSe
             transformation(
             origin={-20,-100},
             extent={{-10,-10},{10,10}})));
-      Modelica.Electrical.MultiPhase.Basic.Resistor resistor(m=m, R=fill(R, m))
+      Modelica.Electrical.Polyphase.Basic.Resistor resistor(m=m, R=fill(R, m))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-20})));
-      Modelica.Electrical.MultiPhase.Basic.Inductor inductor(m=m, L=fill(L, m))
+      Modelica.Electrical.Polyphase.Basic.Inductor inductor(m=m, L=fill(L, m))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-50})));
-      Modelica.Electrical.MultiPhase.Basic.Star starLoad(m=m) annotation (
+      Modelica.Electrical.Polyphase.Basic.Star starLoad(m=m) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-80})));
-      Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
+      Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor
         currentQuasiRMSSensor(m=m) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=90,
@@ -599,7 +599,7 @@ as well as reactive power measured by powerSensorSpacePhasor and reactivePowerSe
       Modelica.Blocks.Math.Feedback feedbackP
         annotation (Placement(transformation(extent={{40,10},{60,30}})));
       Modelica.Blocks.Sources.RealExpression realExpression(y=
-            Modelica.Electrical.MultiPhase.Functions.activePower(
+            Modelica.Electrical.Polyphase.Functions.activePower(
             voltageQuasiRMSSensor.v, currentQuasiRMSSensor.i)) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -770,9 +770,9 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStar\">MultiStar</a>,
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a>
 </p>
 
 </html>"));
@@ -819,9 +819,9 @@ when used in parallel to another component.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStar\">MultiStar</a>,
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a>
 </p>
 </html>"));
     end Delta;
@@ -830,13 +830,13 @@ when used in parallel to another component.
       "Star connection of polyphase systems consisting of multiple base systems"
       parameter Integer m(final min=1) = 3 "Number of phases";
       final parameter Integer mSystems=
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(
           m) "Number of base systems";
       final parameter Integer mBasic=integer(m/mSystems)
         "Phase number of base systems";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoints(final m=
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug starpoints(final m=
            mSystems) annotation (Placement(transformation(extent={{90,-10},{110,
                 10}})));
     equation
@@ -884,13 +884,13 @@ when used in parallel to another component.
         Documentation(info="<html>
 <p>
 Star (wye) connection of a polyphase circuit consisting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">polyphase guidelines</a>). The potentials at the star points are all equal.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>). The potentials at the star points are all equal.
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a>
 </p></html>"));
     end MultiStar;
 
@@ -898,14 +898,14 @@ Star (wye) connection of a polyphase circuit consisting of multiple base systems
       "Delta (polygon) connection of polyphase systems consisting of multiple base systems"
       parameter Integer m(final min=2) = 3 "Number of phases";
       final parameter Integer mSystems=
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(
           m) "Number of base systems";
       final parameter Integer mBasic=integer(m/mSystems)
         "Phase number of base systems";
 
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+      Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
     equation
       for k in 1:mSystems loop
@@ -937,13 +937,13 @@ Star (wye) connection of a polyphase circuit consisting of multiple base systems
                                   Documentation(info="<html>
 <p>
 Delta (polygon) connection of a polyphase circuit consisting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">polyphase guidelines</a>).
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>).
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStar\">MultiStar</a>
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiStar\">MultiStar</a>
 </p>
 </html>"));
     end MultiDelta;
@@ -951,20 +951,20 @@ Delta (polygon) connection of a polyphase circuit consisting of multiple base sy
     model MultiStarResistance "Resistance connection of star points"
       parameter Integer m(final min=3) = 3 "Number of phases";
       final parameter Integer mBasic=
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(
           m) "Number of symmetric base systems";
       parameter Modelica.SIunits.Resistance R=1e6
         "Insulation resistance between base systems";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug(m=m)
+      Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug(m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.MultiPhase.Basic.MultiStar multiStar(m=m) annotation (
+      Modelica.Electrical.Polyphase.Basic.MultiStar multiStar(m=m) annotation (
          Placement(transformation(
             extent={{-10,-10},{10,10}},
             origin={-50,0})));
-      Modelica.Electrical.MultiPhase.Basic.Resistor resistor(m=mBasic, R=fill(R,
+      Modelica.Electrical.Polyphase.Basic.Resistor resistor(m=mBasic, R=fill(R,
             mBasic)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}})));
-      Modelica.Electrical.MultiPhase.Basic.Star star(m=mBasic) annotation (
+      Modelica.Electrical.Polyphase.Basic.Star star(m=mBasic) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             origin={50,0})));
@@ -1010,7 +1010,7 @@ Delta (polygon) connection of a polyphase circuit consisting of multiple base sy
         Documentation(info="<html>
 <p>
 Multi star points are connected by resistors. This model is required to operate polyphase systems with even phase numbers to avoid ideal connections of start points of base systems; see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">polyphase guidelines</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>.
 </p>
 </html>"));
     end MultiStarResistance;
@@ -1177,7 +1177,7 @@ Connects all pins of plug_n to the pin array pin_n.
         "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of resistances at reference temperatures";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
       Modelica.Electrical.Analog.Basic.Resistor resistor[m](
         final R=R,
@@ -1222,7 +1222,7 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
         "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of conductances at reference temperatures";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
       Modelica.Electrical.Analog.Basic.Conductor conductor[m](
         final G=G,
@@ -1399,7 +1399,7 @@ Each element of the array of saturatingInductors is only dependent on the curren
     end SaturatingInductor;
 
     model MutualInductor "Linear mutual inductor"
-      extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
+      extends Modelica.Electrical.Polyphase.Interfaces.OnePort;
       parameter Real epsilon=1e-9 "Relative accuracy tolerance of matrix symmetry";
       parameter Modelica.SIunits.Inductance L[m, m] "Mutual inductance matrix";
     initial equation
@@ -1480,7 +1480,7 @@ Model of a polyphase inductor providing a mutual inductance matrix model.
     end MutualInductor;
 
     model ZeroInductor "Linear zero sequence inductor"
-      extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
+      extends Modelica.Electrical.Polyphase.Interfaces.OnePort;
       parameter Modelica.SIunits.Inductance Lzero "Zero sequence inductance";
       Modelica.SIunits.Current i0;
       Modelica.SIunits.Voltage v0;
@@ -1618,7 +1618,7 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
         "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of resistances at reference temperatures";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput R[m](each unit="Ohm") annotation (
           Placement(transformation(
@@ -1676,7 +1676,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
         "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of conductances at reference temperatures";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput G[m](each unit="S") annotation (
           Placement(transformation(
@@ -1882,7 +1882,7 @@ This package contains basic analog electrical polyphase components.
             fill(1e-5, m)) "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
             zeros(m)) "Threshold voltage";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode[m](
         final Ron=Ron,
@@ -1930,7 +1930,7 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
             zeros(m)) "Threshold voltage";
       Boolean off[m] = idealThyristor.off "Alias of boolean thyristor off";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput fire[m] annotation (Placement(
             transformation(
@@ -1988,7 +1988,7 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
             fill(1e-5, m)) "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
             zeros(m)) "Threshold voltage";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput fire[m] annotation (Placement(
             transformation(
@@ -2052,7 +2052,7 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
             fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
             fill(1e-5, m)) "Opened switch conductance";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => p--n2 connected, false => p--n1 connected" annotation (
@@ -2110,7 +2110,7 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
             fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
             fill(1e-5, m)) "Opened switch conductance";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected"
@@ -2334,7 +2334,7 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
             fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
             fill(1e-5, m)) "Opened switch conductance";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => switch open, false => p--n connected" annotation (Placement(
@@ -2383,7 +2383,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
             fill(1e-5, m)) "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
             fill(1e-5, m)) "Opened switch conductance";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => p--n connected, false => switch open" annotation (Placement(
@@ -2437,7 +2437,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
         "Arc voltage slope";
       parameter Modelica.SIunits.Voltage Vmax[m](start=fill(60, m))
         "Max. arc voltage";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => switch open, false => p--n connected" annotation (Placement(
@@ -2494,7 +2494,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
         "Arc voltage slope";
       parameter Modelica.SIunits.Voltage Vmax[m](start=fill(60, m))
         "Max. arc voltage";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
         "true => switch open, false => p--n connected" annotation (Placement(
@@ -2583,7 +2583,7 @@ like thyristor, diode, switch, transformer.
       Modelica.Blocks.Interfaces.RealInput u[m]
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     equation
-      y = Modelica.Electrical.MultiPhase.Functions.quasiRMS(u);
+      y = Modelica.Electrical.Polyphase.Functions.quasiRMS(u);
 
       annotation (defaultComponentName="rms", Documentation(info="<html>
 <p>
@@ -2659,7 +2659,7 @@ This function determines the orientation angles of the symmetrical winding with 
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end symmetricOrientation;
@@ -2699,7 +2699,7 @@ This function determines the orientation matrix of the symmetrical winding with 
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end symmetricOrientationMatrix;
@@ -2736,7 +2736,7 @@ The transformation matrix can be used to determine the symmetrical components fr
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end symmetricTransformationMatrix;
@@ -2773,7 +2773,7 @@ The back transformation matrix can be used to determine the time phasors from th
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end symmetricBackTransformationMatrix;
@@ -2804,7 +2804,7 @@ This function determines the number of base systems of the symmetrical winding w
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end numberOfSymmetricBaseSystems;
@@ -2816,7 +2816,7 @@ This function determines the number of base systems of the symmetrical winding w
       output Real y "Factor Y to D";
     protected
       parameter Integer mBasic=integer(m/
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(
           m));
     algorithm
       y := 2*sin(pi/mBasic);
@@ -2829,7 +2829,7 @@ This function determines the number of base systems of the symmetrical winding w
       output Real y "Factor Yrms to DC";
     protected
       parameter Integer mBasic=integer(m/
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(
           m));
     algorithm
       y := sqrt(2)*2*sin((mBasic - 1)/mBasic*pi/2)*sin(pi/(2*m))/(pi/(2*m));
@@ -2855,7 +2855,7 @@ This function determines the indices of positive sequence of the symmetrical win
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end indexPositiveSequence;
@@ -2888,7 +2888,7 @@ This function determines the indices of non-positive sequence of the symmetrical
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end indexNonPositiveSequence;
@@ -2980,7 +2980,7 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
     model VoltageQuasiRMSSensor
       "Continuous quasi voltage RMS sensor for polyphase system"
       extends Modelica.Icons.RotationalSensor;
-      extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
+      extends Modelica.Electrical.Polyphase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
 
       Modelica.Blocks.Interfaces.RealOutput V "Continuous quasi RMS of voltage"
@@ -2991,9 +2991,9 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-110})));
-      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(final
+      Modelica.Electrical.Polyphase.Sensors.VoltageSensor voltageSensor(final
           m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Modelica.Electrical.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m)
+      Modelica.Electrical.Polyphase.Blocks.QuasiRMS quasiRMS(final m=m)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -3078,7 +3078,7 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
     model CurrentQuasiRMSSensor
       "Continuous quasi current RMS sensor for polyphase system"
       extends Modelica.Icons.RotationalSensor;
-      extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
+      extends Modelica.Electrical.Polyphase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I
         "Continuous quasi average RMS of current" annotation (Placement(
@@ -3089,9 +3089,9 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-110})));
-      Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(final
+      Modelica.Electrical.Polyphase.Sensors.CurrentSensor currentSensor(final
           m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Modelica.Electrical.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m)
+      Modelica.Electrical.Polyphase.Blocks.QuasiRMS quasiRMS(final m=m)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -3134,16 +3134,16 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
     model PowerSensor "Polyphase instantaneous power sensor"
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(min=1) = 3 "Number of phases";
-      MultiPhase.Interfaces.PositivePlug pc(final m=m)
+      Polyphase.Interfaces.PositivePlug pc(final m=m)
         "Positive plug, current path" annotation (Placement(transformation(
               extent={{-110,10},{-90,-10}})));
-      MultiPhase.Interfaces.NegativePlug nc(final m=m)
+      Polyphase.Interfaces.NegativePlug nc(final m=m)
         "Negative plug, current path" annotation (Placement(transformation(
               extent={{90,10},{110,-10}})));
-      MultiPhase.Interfaces.PositivePlug pv(final m=m)
+      Polyphase.Interfaces.PositivePlug pv(final m=m)
         "Positive plug, voltage path" annotation (Placement(transformation(
               extent={{-10,90},{10,110}})));
-      MultiPhase.Interfaces.NegativePlug nv(final m=m)
+      Polyphase.Interfaces.NegativePlug nv(final m=m)
         "Negative plug, voltage path" annotation (Placement(transformation(
               extent={{-10,-90},{10,-110}})));
       Modelica.Blocks.Interfaces.RealOutput power annotation (Placement(
@@ -3154,12 +3154,12 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
             extent={{10,-10},{-10,10}},
             rotation=90,
             origin={-100,-110})));
-      MultiPhase.Sensors.VoltageSensor voltageSensor(final m=m) annotation (
+      Polyphase.Sensors.VoltageSensor voltageSensor(final m=m) annotation (
           Placement(transformation(
             origin={0,-20},
             extent={{10,10},{-10,-10}},
             rotation=90)));
-      MultiPhase.Sensors.CurrentSensor currentSensor(final m=m) annotation (
+      Polyphase.Sensors.CurrentSensor currentSensor(final m=m) annotation (
           Placement(transformation(extent={{-50,-10},{-30,10}})));
       Modelica.Blocks.Math.Product product[m] annotation (Placement(
             transformation(
@@ -3214,16 +3214,16 @@ This power sensor measures instantaneous electrical power of a polyphase system 
   model MultiSensor "Polyphase sensor to measure current, voltage and power"
     extends Modelica.Icons.RotationalSensor;
     parameter Integer m(min=1) = 3 "Number of phases";
-    Modelica.Electrical.MultiPhase.Interfaces.PositivePlug pc(final m=m)
+    Modelica.Electrical.Polyphase.Interfaces.PositivePlug pc(final m=m)
         "Positive plug, current path"
       annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
-    Modelica.Electrical.MultiPhase.Interfaces.NegativePlug nc(final m=m)
+    Modelica.Electrical.Polyphase.Interfaces.NegativePlug nc(final m=m)
         "Negative plug, current path"
       annotation (Placement(transformation(extent={{110,-10},{90,10}})));
-    Modelica.Electrical.MultiPhase.Interfaces.PositivePlug pv(final m=m)
+    Modelica.Electrical.Polyphase.Interfaces.PositivePlug pv(final m=m)
         "Positive plug, voltage path"
       annotation (Placement(transformation(extent={{-10,110},{10,90}})));
-    Modelica.Electrical.MultiPhase.Interfaces.NegativePlug nv(final m=m)
+    Modelica.Electrical.Polyphase.Interfaces.NegativePlug nv(final m=m)
         "Negative plug, voltage path"
       annotation (Placement(transformation(extent={{10,-110},{-10,-90}})));
     Modelica.Blocks.Interfaces.RealOutput i[m](each final quantity="ElectricCurrent", each final unit="A")
@@ -3588,7 +3588,7 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
       parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
         "Amplitudes of sine waves";
       parameter Modelica.SIunits.Angle phase[m]=-
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+          Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
         "Phases of sine waves";
       parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
         "Frequencies of sine waves";
@@ -3633,7 +3633,7 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
 <p>
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
 with a default phase shift determined by
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </html>"));
     end SineVoltage;
@@ -3643,7 +3643,7 @@ with a default phase shift determined by
       parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
         "Amplitudes of cosine waves";
       parameter Modelica.SIunits.Angle phase[m]=-
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+          Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
         "Phases of cosine waves";
       parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
         "Frequencies of cosine waves";
@@ -3692,7 +3692,7 @@ with a default phase shift determined by
 <p>
 Contains m cosine voltage sources (Modelica.Electrical.Analog.Sources.CosineVoltage)
 with a default phase shift determined by
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </html>"));
     end CosineVoltage;
@@ -3787,7 +3787,7 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
       parameter Modelica.SIunits.Current I[m](start=fill(1, m))
         "Amplitudes of sine waves";
       parameter Modelica.SIunits.Angle phase[m]=-
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+          Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
         "Phases of sine waves";
       parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
         "Frequencies of sine waves";
@@ -3834,7 +3834,7 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
 <p>
 Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
 with a default phase shift determined by
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </html>"));
     end SineCurrent;
@@ -3844,7 +3844,7 @@ with a default phase shift determined by
       parameter Modelica.SIunits.Current I[m](start=fill(1, m))
         "Amplitudes of cosine waves";
       parameter Modelica.SIunits.Angle phase[m]=-
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+          Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
         "Phases of cosine waves";
       parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
         "Frequencies of cosine waves";
@@ -3889,7 +3889,7 @@ with a default phase shift determined by
 <p>
 Contains m cosine current sources (Modelica.Electrical.Analog.Sources.CosineCurrent)
 with a default phase shift determined by
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </html>"));
     end CosineCurrent;
@@ -3901,15 +3901,15 @@ This package contains time-dependent and controlled polyphase voltage and curren
 <li>SignalVoltage: fed by Modelica.Blocks.Sources arbitrary waveforms of voltages are possible</li>
 <li>ConstantVoltage: constant polyphase voltages</li>
 <li>SineVoltage : phase shift between consecutive voltages by default given by
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>CosineVoltage : phase shift between consecutive voltages by default given by
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>SignalCurrent: fed by Modelica.Blocks.Sources arbitrary waveforms of currents are possible</li>
 <li>ConstantCurrent: constant polyphase currents</li>
 <li>SineCurrent : phase shift between consecutive currents by default given by
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>CosineCurrent : phase shift between consecutive currents by default given by
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 </ul>
 </html>", revisions="<html>
 <dl>
@@ -4189,4 +4189,4 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
           fillColor={95,95,95},
           fillPattern=FillPattern.Solid,
           extent={{-20,-74},{0,-54}})}));
-end MultiPhase;
+end Polyphase;

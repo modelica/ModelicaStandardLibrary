@@ -14,7 +14,7 @@ package Machines "Quasi-static machine models"
       output Modelica.SIunits.Angle phiS=polarVS.phi "Grid phase";
       output Modelica.SIunits.Voltage VL=polarVL.len "Load voltage";
       output Modelica.SIunits.Angle phiL=polarVL.phi "Load phase";
-      QuasiStatic.MultiPhase.Sources.VoltageSource source(
+      QuasiStatic.Polyphase.Sources.VoltageSource source(
         f=50,
         V=fill(100/sqrt(3), 3),
         m=m,
@@ -23,23 +23,23 @@ package Machines "Quasi-static machine models"
             origin={-90,0},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStatic.MultiPhase.Basic.Star starS(m=m) annotation (Placement(
+      QuasiStatic.Polyphase.Basic.Star starS(m=m) annotation (Placement(
             transformation(
             origin={-90,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       QuasiStatic.SinglePhase.Basic.Ground groundS annotation (Placement(
             transformation(extent={{-100,-70},{-80,-50}})));
-      QuasiStatic.MultiPhase.Sensors.PowerSensor electricalPowerSensorS(m=m)
+      QuasiStatic.Polyphase.Sensors.PowerSensor electricalPowerSensorS(m=m)
         annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
-      QuasiStatic.MultiPhase.Sensors.CurrentSensor currentSensorS(m=m)
+      QuasiStatic.Polyphase.Sensors.CurrentSensor currentSensorS(m=m)
         annotation (Placement(transformation(extent={{-60,30},{-40,10}})));
       ComplexBlocks.ComplexMath.ComplexToPolar polarIS annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-50,80})));
-      QuasiStatic.MultiPhase.Sensors.VoltageSensor voltageSensorS(m=m)
+      QuasiStatic.Polyphase.Sensors.VoltageSensor voltageSensorS(m=m)
         annotation (Placement(transformation(
             origin={-50,-20},
             extent={{-10,10},{10,-10}},
@@ -49,7 +49,7 @@ package Machines "Quasi-static machine models"
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-50,-80})));
-      QuasiStatic.MultiPhase.Basic.Delta deltaS(m=m) annotation (Placement(
+      QuasiStatic.Polyphase.Basic.Delta deltaS(m=m) annotation (Placement(
             transformation(
             origin={-50,0},
             extent={{-10,-10},{10,10}})));
@@ -60,7 +60,7 @@ package Machines "Quasi-static machine models"
             rotation=270)));
       QuasiStatic.SinglePhase.Basic.Ground groundT annotation (Placement(
             transformation(extent={{-10,-70},{10,-50}})));
-      QuasiStatic.MultiPhase.Sensors.VoltageSensor voltageSensorL(m=m)
+      QuasiStatic.Polyphase.Sensors.VoltageSensor voltageSensorL(m=m)
         annotation (Placement(transformation(
             origin={50,-20},
             extent={{-10,-10},{10,10}})));
@@ -69,26 +69,26 @@ package Machines "Quasi-static machine models"
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={50,-80})));
-      QuasiStatic.MultiPhase.Basic.Delta deltaL(m=m) annotation (Placement(
+      QuasiStatic.Polyphase.Basic.Delta deltaL(m=m) annotation (Placement(
             transformation(
             origin={50,0},
             extent={{-10,10},{10,-10}},
             rotation=180)));
-      QuasiStatic.MultiPhase.Sensors.CurrentSensor currentSensorL(m=m)
+      QuasiStatic.Polyphase.Sensors.CurrentSensor currentSensorL(m=m)
         annotation (Placement(transformation(extent={{40,30},{60,10}})));
       ComplexBlocks.ComplexMath.ComplexToPolar polarIL annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={50,80})));
-      QuasiStatic.MultiPhase.Sensors.PowerSensor electricalPowerSensorL(m=m)
+      QuasiStatic.Polyphase.Sensors.PowerSensor electricalPowerSensorL(m=m)
         annotation (Placement(transformation(extent={{60,10},{80,30}})));
-      QuasiStatic.MultiPhase.Basic.Resistor load(R_ref=RL, m=m) annotation (
+      QuasiStatic.Polyphase.Basic.Resistor load(R_ref=RL, m=m) annotation (
          Placement(transformation(
             origin={90,0},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStatic.MultiPhase.Basic.Star starL(m=m) annotation (Placement(
+      QuasiStatic.Polyphase.Basic.Star starL(m=m) annotation (Placement(
             transformation(
             origin={90,-30},
             extent={{-10,10},{10,-10}},
@@ -123,22 +123,22 @@ package Machines "Quasi-static machine models"
         T1Operational=293.15,
         T2Operational=293.15) annotation (Placement(transformation(extent={{-20,0},{
                 20,40}})));
-      MultiPhase.Blocks.SymmetricalComponents symmetricalComponentsIS(final m=m)
+      Polyphase.Blocks.SymmetricalComponents symmetricalComponentsIS(final m=m)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-50,50})));
-      MultiPhase.Blocks.SymmetricalComponents symmetricalComponentsIL(final m=m)
+      Polyphase.Blocks.SymmetricalComponents symmetricalComponentsIL(final m=m)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={50,50})));
-      MultiPhase.Blocks.SymmetricalComponents symmetricalComponentsVS(final m=m)
+      Polyphase.Blocks.SymmetricalComponents symmetricalComponentsVS(final m=m)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-50,-50})));
-      MultiPhase.Blocks.SymmetricalComponents symmetricalComponentsVL(final m=m)
+      Polyphase.Blocks.SymmetricalComponents symmetricalComponentsVL(final m=m)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -234,14 +234,14 @@ Examples to demonstrate the usage of quasi-static electric components.
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yy00");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
@@ -274,21 +274,21 @@ Transformer Yy0
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yy02");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -318,21 +318,21 @@ Transformer Yy2
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yy04");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -362,14 +362,14 @@ Transformer Yy4
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yy06");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
@@ -402,21 +402,21 @@ Transformer Yy6
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yy08");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -446,21 +446,21 @@ Transformer Yy8
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yy10");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -510,14 +510,14 @@ This package contains transformers primary Y connected / secondary y connected i
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yd01");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -545,16 +545,16 @@ Transformer Yd1
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yd03");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{30,10},{50,30}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -584,14 +584,14 @@ Transformer Yd3
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yd05");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -619,14 +619,14 @@ Transformer Yd5
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yd07");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -654,16 +654,16 @@ Transformer Yd7
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yd09");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{30,-30},{50,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -693,14 +693,14 @@ Transformer Yd9
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yd11");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
@@ -748,26 +748,26 @@ This package contains transformers primary Y connected / secondary d connected i
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yz01");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Rot22(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot22(final m=m) annotation (
               Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
@@ -802,26 +802,26 @@ Transformer Yz1
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yz03");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Rot22(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot22(final m=m) annotation (
               Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
@@ -856,21 +856,21 @@ Transformer Yz3
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yz05");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
@@ -903,21 +903,21 @@ Transformer Yz5
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yz07");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
@@ -950,26 +950,26 @@ Transformer Yz7
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yz09");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Rot22(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot22(final m=m) annotation (
               Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
@@ -1004,26 +1004,26 @@ Transformer Yz9
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Yz11");
-          QuasiStatic.MultiPhase.Basic.Star star1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star1(final m=m) annotation (
               Placement(transformation(
                 origin={-10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint1
             annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Rot22(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot22(final m=m) annotation (
               Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
@@ -1078,16 +1078,16 @@ This package contains transformers primary Y connected / secondary zig-zag conne
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dy01");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1117,16 +1117,16 @@ Transformer Dy1
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dy03");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1156,14 +1156,14 @@ Transformer Dy3
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dy05");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1191,16 +1191,16 @@ Transformer Dy5
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dy07");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1230,16 +1230,16 @@ Transformer Dy7
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dy09");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1269,14 +1269,14 @@ Transformer Dy9
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dy11");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1324,9 +1324,9 @@ This package contains transformers primary D connected / secondary y connected i
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd00");
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -1354,11 +1354,11 @@ Transformer Dd0
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd02");
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{30,10},{50,30}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -1388,9 +1388,9 @@ Transformer Dd2
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd04");
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -1418,9 +1418,9 @@ Transformer Dd4
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd06");
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(Delta2.plug_p, r2.plug_n) annotation (Line(points={{50,20},{
@@ -1448,11 +1448,11 @@ Transformer Dd6
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd08");
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot2(final m=m) annotation (
               Placement(transformation(extent={{50,10},{30,30}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -1482,9 +1482,9 @@ Transformer Dd8
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd10");
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
-          QuasiStatic.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta2(final m=m) annotation (
               Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
@@ -1532,24 +1532,24 @@ This package contains transformers primary D connected / secondary d connected i
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dz00");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Rot22(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot22(final m=m) annotation (
               Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1579,24 +1579,24 @@ Transformer Dz0
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dz02");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Rot22(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot22(final m=m) annotation (
               Placement(transformation(
                 origin={40,20},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1628,19 +1628,19 @@ Transformer Dz2
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dz04");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1668,19 +1668,19 @@ Transformer Dz4
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dz06");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1710,24 +1710,24 @@ Transformer Dz6
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dz08");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Rot22(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot22(final m=m) annotation (
               Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1759,24 +1759,24 @@ Transformer Dz8
 
           extends QuasiStatic.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dz10");
-          QuasiStatic.MultiPhase.Basic.Star star2(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStatic.SinglePhase.Interfaces.NegativePin starpoint2
             annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
-          QuasiStatic.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          QuasiStatic.MultiPhase.Basic.Delta Rot22(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Rot22(final m=m) annotation (
               Placement(transformation(
                 origin={40,20},
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
-          QuasiStatic.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
+          QuasiStatic.Polyphase.Basic.Delta Delta1(final m=m) annotation (
               Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
@@ -1971,17 +1971,17 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
         Modelica.SIunits.ComplexVoltage v3[m];
         Modelica.SIunits.ComplexCurrent i3[m];
         Modelica.SIunits.ComplexCurrent im[m] "Magnetizing current";
-        QuasiStatic.MultiPhase.Interfaces.PositivePlug plug_p1(final m=m)
+        QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p1(final m=m)
           annotation (Placement(transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
-        QuasiStatic.MultiPhase.Interfaces.NegativePlug plug_n1(final m=m)
+        QuasiStatic.Polyphase.Interfaces.NegativePlug plug_n1(final m=m)
           annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
-        QuasiStatic.MultiPhase.Interfaces.PositivePlug plug_p2(final m=m)
+        QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p2(final m=m)
           annotation (Placement(transformation(extent={{90,90},{110,110}})));
-        QuasiStatic.MultiPhase.Interfaces.NegativePlug plug_n2(final m=m)
+        QuasiStatic.Polyphase.Interfaces.NegativePlug plug_n2(final m=m)
           annotation (Placement(transformation(extent={{90,30},{110,50}})));
-        QuasiStatic.MultiPhase.Interfaces.PositivePlug plug_p3(final m=m)
+        QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p3(final m=m)
           annotation (Placement(transformation(extent={{90,-30},{110,-50}})));
-        QuasiStatic.MultiPhase.Interfaces.NegativePlug plug_n3(final m=m)
+        QuasiStatic.Polyphase.Interfaces.NegativePlug plug_n3(final m=m)
           annotation (Placement(transformation(extent={{90,-90},{110,-110}})));
       equation
         v1 = plug_p1.pin.v - plug_n1.pin.v;
@@ -2261,13 +2261,13 @@ This package contains components for modeling quasi-static electrical induction 
       parameter Real ni=n*(if C2 == "z" then sqrt(3) else 2)*(if C2 == "d"
            then 1 else sqrt(3))/(if C1 == "D" then 1 else sqrt(3));
     public
-      QuasiStatic.MultiPhase.Interfaces.PositivePlug plug1(final m=m)
+      QuasiStatic.Polyphase.Interfaces.PositivePlug plug1(final m=m)
         "Primary plug" annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
-      QuasiStatic.MultiPhase.Interfaces.NegativePlug plug2(final m=m)
+      QuasiStatic.Polyphase.Interfaces.NegativePlug plug2(final m=m)
         "Secondary plug" annotation (Placement(transformation(extent={{90,-10},
                 {110,10}})));
-      QuasiStatic.MultiPhase.Basic.Resistor r1(
+      QuasiStatic.Polyphase.Basic.Resistor r1(
         final m=m,
         final R_ref=fill(R1, m),
         final T_ref=fill(T1Ref, m),
@@ -2276,10 +2276,10 @@ This package contains components for modeling quasi-static electrical induction 
         final useHeatPort=true,
         final T=fill(T1Ref, m)) annotation (Placement(transformation(extent={{-90,
                 10},{-70,-10}})));
-      QuasiStatic.MultiPhase.Basic.Inductor l1sigma(final m=m, final L=fill(
+      QuasiStatic.Polyphase.Basic.Inductor l1sigma(final m=m, final L=fill(
             L1sigma, m)) annotation (Placement(transformation(extent={{-70,-10},
                 {-50,10}})));
-      QuasiStatic.MultiPhase.Basic.Resistor r2(
+      QuasiStatic.Polyphase.Basic.Resistor r2(
         final m=m,
         final R_ref=fill(R2, m),
         final T_ref=fill(T2Ref, m),
@@ -2288,7 +2288,7 @@ This package contains components for modeling quasi-static electrical induction 
         final useHeatPort=true,
         final T=fill(T2Ref, m)) annotation (Placement(transformation(extent={{
                 70,10},{90,-10}})));
-      QuasiStatic.MultiPhase.Basic.Inductor l2sigma(final m=m, final L=fill(
+      QuasiStatic.Polyphase.Basic.Inductor l2sigma(final m=m, final L=fill(
             L2sigma, m)) annotation (Placement(transformation(extent={{50,-10},
                 {70,10}})));
       QuasiStatic.Machines.BasicMachines.Components.IdealCore core(
@@ -2439,7 +2439,7 @@ This package contains the quasi-static space phasor connector and partial models
           annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       protected
         parameter Modelica.SIunits.Angle phi[m]=
-            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+            Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
         Complex c;
       equation
         c = sqrt(2)/m*'sum'({u[k]*exp(j*phi[k]) for k in 1:m});
@@ -2487,7 +2487,7 @@ Transformation of quasi-static polyphase values (voltages or currents) to space 
           annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       protected
         parameter Modelica.SIunits.Angle phi[m]=
-            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+            Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
       equation
         y = {Complex(u[1], u[2])*exp(-j*phi[k])/sqrt(2) for k in 1:m};
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,

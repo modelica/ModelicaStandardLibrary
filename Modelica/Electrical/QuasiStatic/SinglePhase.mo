@@ -1355,7 +1355,7 @@ Quasi-static theory for single-phase circuits can be found in the
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic\">MultiPhase.Basic</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic\">Polyphase.Basic</a>
 
 </html>"));
   end Basic;
@@ -1957,7 +1957,7 @@ Quasi-static theory for single-phase circuits can be found in the
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Ideal\">MultiPhase.Ideal</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal\">Polyphase.Ideal</a>
 
 </html>"));
   end Ideal;
@@ -2312,7 +2312,7 @@ Quasi-static theory for single-phase circuits can be found in the
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors\">MultiPhase.Sensors</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Sensors\">Polyphase.Sensors</a>
 
 </html>"));
   end Sensors;
@@ -2580,7 +2580,7 @@ Quasi-static theory for single-phase circuits can be found in the
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources\">MultiPhase.Sources</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Sources\">Polyphase.Sources</a>
 
 </html>"));
   end Sources;
@@ -2604,9 +2604,9 @@ derived from this base connector.
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">NegativePlug</a>
 </p>
 
 </html>"));
@@ -2641,9 +2641,9 @@ Additionally the reference angle is specified in the connector. The time derivat
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">Pin</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">NegativePlug</a>
 </p>
 </html>"));
     end PositivePin;
@@ -2677,9 +2677,9 @@ Additionally the reference angle is specified in the connector. The time derivat
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">Pin</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">NegativePlug</a>
 </p>
 </html>"));
     end NegativePin;
@@ -2775,8 +2775,8 @@ The absolute sensor partial model provides a single
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensor\">RelativeSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.AbsoluteSensor\">MultiPhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">Polyphase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensor\">Polyphase.Interfaces.RelativeSensor</a>
 </p>
 
 </html>"));
@@ -2811,8 +2811,8 @@ The relative sensor partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.AbsoluteSensor\">MultiPhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">Polyphase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensor\">Polyphase.Interfaces.RelativeSensor</a>
 </p>
 
 </html>"));
@@ -2848,7 +2848,7 @@ The source partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource\">CurrentSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Source\">MultiPhase.Interfaces.Source</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source\">Polyphase.Interfaces.Source</a>.
 </p>
 </html>"));
     end Source;
@@ -3041,7 +3041,7 @@ Quasi-static theory for single-phase circuits can be found in the
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase\">MultiPhase</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase\">Polyphase</a>
 
 </html>"));
 end SinglePhase;

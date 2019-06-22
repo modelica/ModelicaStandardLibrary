@@ -2315,12 +2315,12 @@ random number generator. This block is used in the example
             TrOperational=293.15,
             alpha20r=smpmData.alpha20r)
             annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-          Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(final m=m)
+          Modelica.Electrical.Polyphase.Sources.SignalCurrent signalCurrent(final m=m)
             annotation (Placement(transformation(
                 origin={-10,50},
                 extent={{-10,10},{10,-10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m)
             annotation (Placement(transformation(extent={{-10,80},{-30,100}})));
           Modelica.Electrical.Analog.Basic.Ground ground
             annotation (Placement(transformation(
@@ -2329,7 +2329,7 @@ random number generator. This block is used in the example
                 rotation=270)));
           Modelica.Electrical.Machines.Utilities.CurrentController currentController(p=smpm.p)
             annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
-          Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (Placement(transformation(
+          Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-60,-10})));
