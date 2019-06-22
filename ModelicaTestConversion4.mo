@@ -1060,59 +1060,6 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end Translational;
   end Mechanics;
 
-  package Magnetic "Library of magnetic models"
-    extends Modelica.Icons.ExamplesPackage;
-    package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
-      extends Modelica.Icons.ExamplesPackage;
-      package Interfaces "Interfaces and partial models"
-        extends Modelica.Icons.ExamplesPackage;
-        package Issue496
-          extends Modelica.Icons.ExamplesPackage;
-          partial model PartialTwoPort "Two magnetic ports for graphical modeling"
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
-            annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2441\">#2441</a>.
-</p>
-</html>"));
-          end PartialTwoPort;
-
-          partial model PartialTwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
-            annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2441\">#2441</a>.
-</p>
-</html>"));
-          end PartialTwoPortExtended;
-
-          partial model PartialTwoPortElementary "Two magnetic ports for textual modeling"
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
-            annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2441\">#2441</a>.
-</p>
-</html>"));
-          end PartialTwoPortElementary;
-
-          partial model PartialBasicInductionMachine "Partial model for induction machine"
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine;
-            annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2441\">#2441</a>.
-</p>
-</html>"));
-          end PartialBasicInductionMachine;
-          annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2441\">#2441</a>.
-</p>
-</html>"));
-        end Issue496;
-      end Interfaces;
-    end FundamentalWave;
-  end Magnetic;
-
   package Math
     extends Modelica.Icons.ExamplesPackage;
     model Issue813 "Conversion test for #813"
@@ -1387,5 +1334,5 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue2944;
   end SIunits;
-  annotation(uses(Modelica(version="3.2.3"), Complex(version="3.2.2")));
+  annotation(uses(Modelica(version="3.2.3")));
 end ModelicaTestConversion4;
