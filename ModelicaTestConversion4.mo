@@ -1490,5 +1490,5 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue2944;
   end SIunits;
-  annotation(uses(Modelica(version="3.2.3"), Complex(version="3.2.2")));
+  annotation(uses(Modelica(version="3.2.3")));
 end ModelicaTestConversion4;
