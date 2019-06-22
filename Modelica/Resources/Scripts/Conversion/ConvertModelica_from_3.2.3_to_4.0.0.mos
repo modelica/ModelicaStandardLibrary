@@ -51,6 +51,10 @@ convertClass("Modelica.Math.Matrices.LAPACK.dgelsx_vec",
               "ObsoleteModelica4.Math.Matrices.LAPACK.dgelsx_vec")
 convertClass("Modelica.Math.Matrices.LAPACK.dgeqpf",
               "ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf")
+convertClass("Modelica.Math.tempInterpol1",
+              "ObsoleteModelica4.Math.tempInterpol1")
+convertClass("Modelica.Math.tempInterpol2",
+              "ObsoleteModelica4.Math.tempInterpol2")
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
               "Modelica.Electrical.Analog.Basic.Resistor");
 
