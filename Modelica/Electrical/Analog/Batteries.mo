@@ -99,31 +99,28 @@ whose losses are dissipated to the optional <code>heatPort</code>.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Text(
-              extent={{-150,-90},{150,-50}},
+              extent={{-150,-110},{150,-70}},
               lineColor={0,0,0},
               textString="OCV=%OCVnom"),
-            Ellipse(extent={{-90,20},{-82,-20}}, lineColor={0,0,255},
-              fillColor={170,170,255},
-              fillPattern=FillPattern.Sphere),
-            Rectangle(extent={{-86,20},{-60,-20}},lineColor={0,0,255},
-              fillColor={170,170,255},
-              fillPattern=FillPattern.HorizontalCylinder),
-            Ellipse(extent={{-64,20},{-56,-20}}, lineColor={0,0,255},
-              fillColor={170,170,255},
-              fillPattern=FillPattern.Sphere),
-            Ellipse(extent={{-70,50},{-50,-50}}, lineColor={0,0,255},
-              fillColor={170,170,255},
-              fillPattern=FillPattern.Sphere),
-            Rectangle(extent={{-60,50},{80,-50}}, lineColor={0,0,255},
-              fillColor={170,170,255},
-              fillPattern=FillPattern.HorizontalCylinder),
-            Ellipse(extent={{70,50},{90,-50}}, lineColor={0,0,255},
-              fillColor={170,170,255},
-              fillPattern=FillPattern.Sphere),
             Text(
               extent={{-150,70},{150,110}},
               lineColor={0,0,255},
-              textString="%name")}),
+              textString="%name"),
+            Rectangle(
+              extent={{-90,50},{90,-50}},
+              lineColor={0,0,255},
+              radius=10),
+            Rectangle(
+              extent=DynamicSelect({{70,-30},{-70,30}},{{70,-30},{70-140*SOC,30}}),
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-90,30},{-100,30},{-110,10},{-110,-10},{-100,-30},{-90,-30},{
+                  -90,30}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
 The battery is modeled by open-circuit voltage (OCV) dependent on state of charge (SOC).
