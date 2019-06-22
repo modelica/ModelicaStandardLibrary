@@ -35,7 +35,7 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Electrical.Analog.Sensors.PowerSensor powerSensor
     annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-  Modelica.Blocks.Continuous.Integrator energy
+  Modelica.Blocks.Continuous.Integrator energy(u(unit="W"), y(unit="J"))
     annotation (Placement(transformation(extent={{30,10},{50,30}})));
 equation
   connect(battery.n, ground.p)
@@ -56,13 +56,13 @@ equation
     annotation (Line(points={{-10,40},{-10,50},{0,50}}, color={0,0,255}));
   connect(powerSensor.power, energy.u)
     annotation (Line(points={{-10,29},{-10,20},{28,20}}, color={0,0,127}));
-  annotation (                                     experiment(
+  annotation (experiment(
       StopTime=1440,
       Interval=0.1,
       Tolerance=1e-06),
     Documentation(info="<html>
-<p>An idealized battery with a nominal charge of 10 Ah is 99&percnt; charged at the beginning.</p>
-<p>It is first discharged with 6 current pulses of 98 A for 1 minute, and breaks between the pulses of 1 minute, reaching SOC = 0.01.<(p>
+<p>An idealized battery with a nominal charge of 10 Ah is 99 % charged at the beginning.</p>
+<p>It is first discharged with 6 current pulses of 98 A for 1 minute, and breaks between the pulses of 1 minute, reaching SOC = 0.01.</p>
 <p>Subsequently, it is charged with 6 current pulses of 98 A for 1 minute, and breaks between the pulses of 1 minute, reaching SOC = 0.99 again.</p>
 <p>Simulate and plot terminal voltage <code>battery.v</code> versus state of charge <code>battery.SOC</code>.<p>
 <p>Note: Dependency of OCV on SOC can be chosen either linear (<code>useLinearSOCDependency=true</code>) or table based.</p>

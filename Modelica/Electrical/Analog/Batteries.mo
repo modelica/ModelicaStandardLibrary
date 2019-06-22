@@ -4,7 +4,7 @@ package Batteries "Simple battery models"
   model BatteryOCV_SOCtable
     "Battery with inner resistance and open-circuit voltage dependent on state of charge"
     extends Partials.BaseBatteryOCV_SOCtable;
-    parameter Modelica.SIunits.Current Isc "Short-cicuit current at SOC = SOCmax";
+    parameter Modelica.SIunits.Current Isc "Short-circuit current at SOC = SOCmax";
     parameter Modelica.SIunits.Resistance Ri=OCVmax/Isc "Inner resistance";
     extends Modelica.Electrical.Analog.Interfaces.PartialConditionalHeatPort;
     Modelica.Electrical.Analog.Basic.Resistor resistor(final R=Ri,
@@ -24,7 +24,7 @@ package Batteries "Simple battery models"
       Documentation(info="<html>
 <p>
 The battery is modeled by open-circuit voltage (OCV) dependent on state of charge (SOC) and an inner resistance, 
-whoses losses are dissipated to the optional <code>heatPort</code>. 
+whose losses are dissipated to the optional <code>heatPort</code>. 
 </p>
 </html>"));
   end BatteryOCV_SOCtable;
