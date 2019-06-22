@@ -3,7 +3,7 @@ package Batteries "Simple battery models"
   extends Modelica.Icons.Package;
   model BatteryOCV_SOCtable
     "Battery with inner resistance and open-circuit voltage dependent on state of charge"
-    extends Partials.BaseBatteryOCV_SOCtable;
+    extends BaseClasses.BaseBatteryOCV_SOCtable;
     parameter Modelica.SIunits.Current Isc "Short-circuit current at SOC = SOCmax";
     parameter Modelica.SIunits.Resistance Ri=OCVmax/Isc "Inner resistance";
     extends Modelica.Electrical.Analog.Interfaces.PartialConditionalHeatPort;
@@ -29,7 +29,7 @@ whose losses are dissipated to the optional <code>heatPort</code>.
 </html>"));
   end BatteryOCV_SOCtable;
 
-  package Partials "Partials for battery models"
+  package BaseClasses "Base classes for battery models"
     extends Modelica.Icons.BasesPackage;
 
     partial model BaseBatteryOCV_SOCtable
@@ -140,9 +140,9 @@ Note: SOC &gt; SOCmax and SOC &lt; SOCmin triggers an error.
 </html>"));
     end BaseBatteryOCV_SOCtable;
     annotation (Documentation(info="<html>
-<p>Partial models for batteries</p>
+<p>Base classes for batteries</p>
 </html>"));
-  end Partials;
+  end BaseClasses;
   annotation (Icon(graphics={
         Ellipse(extent={{-10,50},{10,-50}},  lineColor={95,95,95},
           fillColor={215,215,215},
