@@ -219,7 +219,6 @@ convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedSha
               "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage",
               "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage");
-// Issue #496
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary",
               "Modelica.Magnetic.FluxTubes.Interfaces.TwoPortsElementary")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts",
@@ -236,6 +235,22 @@ convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen")
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort",
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.TwoPort");
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft",
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.SinglePortLeft");
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortBottom",
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.SinglePortBottom");
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction",
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.SimpleFriction");
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient",
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.Ambient");
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor",
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.AbsoluteSensor");
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor",
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensor");
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.FlowSensor",
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.FlowSensor");
 
 // Change renamed elements of classes
 // mue -> mu
