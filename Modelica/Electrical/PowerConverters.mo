@@ -1,5 +1,5 @@
 within Modelica.Electrical;
-package PowerConverters "Rectifiers, Inverters and DC/DC converters"
+package PowerConverters "Rectifiers, Inverters, DC/DC and AC/AC converters"
   extends Modelica.Icons.Package;
   package UsersGuide "User's Guide"
     extends Modelica.Icons.Information;
@@ -7577,7 +7577,8 @@ both relationships have been precalculated and are interpolated from a table.
 
       block SoftStartControl
         extends Modelica.Blocks.Icons.Block;
-        import ModeOfOperation = Modelica.Electrical.PowerConverters.Types.SoftStarterModeOfOperation;
+        import ModeOfOperation =
+          Modelica.Electrical.PowerConverters.Types.SoftStarterModeOfOperation;
         parameter Modelica.SIunits.Time tRampUp "Start ramp duration";
         parameter Real vStart=0 "Start voltage / nominal voltage";
         parameter Real iMax "Maximum current / Nominal current";
@@ -8363,7 +8364,7 @@ This partial model provides parameters and the conditional input signal for the 
     preferredView="info",
     Documentation(info="<html>
 <p>
-This library provides power converters for DC and AC single and multi phase electrical systems. The PowerConverters library contains three types of converters.
+This library provides power converters for DC and AC single and multi phase electrical systems. The PowerConverters library contains four types of converters.
 </p>
 
 <ul>
