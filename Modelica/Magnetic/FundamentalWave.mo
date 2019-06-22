@@ -5957,7 +5957,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
     model Reluctance "Salient reluctance"
       import Modelica.Constants.pi;
       extends
-        Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
+        Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort;
       parameter Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(d(
             start=1), q(start=1)) "Magnetic reluctance in d=re and q=im axis";
     equation
@@ -5997,7 +5997,7 @@ The salient reluctance models the relationship between the complex magnetic pote
     model Permeance "Salient Permeance"
       import Modelica.Constants.pi;
       extends
-        Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
+        Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort;
       parameter Modelica.Magnetic.FundamentalWave.Types.SalientPermeance G_m(d(
             start=1), q(start=1)) "Magnetic permeance in d=re and q=im axis";
     equation
@@ -6029,7 +6029,7 @@ The salient permeance models the relationship between the complex magnetic poten
       "Constant loss model under sinusoidal magnetic conditions"
       import Modelica.Constants.pi;
       extends
-        Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
+        Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort;
       parameter Modelica.SIunits.Conductance G(min=0)
         "Equivalent symmetric loss conductance";
       extends
@@ -6382,7 +6382,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 
     model Idle "Idle running branch"
       extends
-        Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
+        Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort;
     equation
       Phi = Complex(0, 0);
       annotation (
@@ -6414,7 +6414,7 @@ This is a simple idle running branch.
     end Idle;
 
     model Short "Short cut branch"
-      extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+      extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary;
     equation
       connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
               100,0}}, color={255,128,0}));
@@ -6496,7 +6496,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
       model IM_SquirrelCage
         "Induction machine with squirrel cage"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine(
+          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
@@ -6583,7 +6583,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code>-phas
       model IM_SlipRing "Induction machine with slip ring rotor"
         parameter Integer mr(min=3) = m "Number of rotor phases";
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine(
+          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
@@ -6749,7 +6749,7 @@ Resistances and stray inductances of the machine always refer to either stator o
       model SM_PermanentMagnet
         "Permanent magnet synchronous machine with optional damper cage"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine(
+          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
@@ -6947,7 +6947,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code>-phas
       model SM_ElectricalExcited
         "Electrical excited synchronous machine with optional damper cage"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine(
+          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
@@ -7187,7 +7187,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 
       model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine(
+          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
@@ -7791,7 +7791,7 @@ according to the following figure.
       model SymmetricPolyphaseCageWinding "Symmetrical rotor cage"
         import Modelica.Constants.pi;
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
+          Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended;
         parameter Integer m=3 "Number of phases";
         parameter Boolean useHeatPort=false
           "Enable / disable (=fixed temperatures) thermal port"
@@ -7943,7 +7943,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
+          Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended;
         parameter Boolean useHeatPort=false
           "Enable / disable (=fixed temperatures) thermal port"
           annotation (Evaluate=true);
@@ -8118,7 +8118,7 @@ for electric machines.
     extends Modelica.Icons.SourcesPackage;
     model ConstantMagneticPotentialDifference
       "Source with constant magnetic potential difference"
-      extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+      extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary;
       parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m=Complex(
           re=1, im=0) "Complex magnetic potential difference";
       Modelica.SIunits.MagneticPotentialDifference abs_V_m=
@@ -8171,7 +8171,7 @@ Source of constant magnetomotive force.
 
     model SignalMagneticPotentialDifference
       "Source of magnetic potential difference with signal input"
-      extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+      extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary;
       Modelica.ComplexBlocks.Interfaces.ComplexInput V_m
         "Complex signal input of magnetic potential difference" annotation (
           Placement(transformation(
@@ -8229,7 +8229,7 @@ Source of magnetomotive force with complex signal input.
     end SignalMagneticPotentialDifference;
 
     model ConstantFlux "Source of constant magnetic flux"
-      extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+      extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
       Modelica.SIunits.MagneticPotentialDifference abs_V_m=
@@ -8284,7 +8284,7 @@ Source of constant magnetic flux.
     end ConstantFlux;
 
     model SignalFlux "Source of time varying magnetic flux"
-      extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+      extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
       Modelica.SIunits.MagneticPotentialDifference abs_V_m=
@@ -8352,7 +8352,7 @@ Source of magnetic flux with complex signal input.
     extends Modelica.Icons.SensorsPackage;
     model MagneticFluxSensor "Sensor to measure magnetic flux"
       extends Modelica.Icons.RotationalSensor;
-      extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+      extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
       Modelica.ComplexBlocks.Interfaces.ComplexOutput Phi
@@ -8394,7 +8394,7 @@ Source of magnetic flux with complex signal input.
     model MagneticPotentialDifferenceSensor
       "Sensor to measure magnetic potential difference"
       extends Modelica.Icons.RotationalSensor;
-      extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+      extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput V_m
         "Complex magnetic potential difference between port_p and port_n as output signal"
         annotation (Placement(transformation(
@@ -8560,7 +8560,7 @@ Positive magnetic <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfa
 </html>"));
     end PositiveMagneticPort;
 
-    partial model PartialTwoPort "Two magnetic ports for graphical modeling"
+    partial model TwoPortElementary "Two magnetic ports for graphical modeling"
       PositiveMagneticPort port_p "Positive magnetic port of fundamental wave machines" annotation (
           Placement(transformation(extent={{-110,-10},{-90,10}})));
       NegativeMagneticPort port_n "Negative magnetic port of fundamental wave machines" annotation (
@@ -8580,24 +8580,21 @@ considers the flux balance of the two ports. Additionally the magnetic potential
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a>
 </p></html>"));
-    end PartialTwoPort;
+    end TwoPortElementary;
 
-    partial model PartialTwoPortExtended
-      "Two magnetic ports for graphical modeling with additional variables"
-      extends Interfaces.PartialTwoPort;
-      Modelica.SIunits.ComplexMagneticPotentialDifference V_m=port_p.V_m -
-          port_n.V_m "Complex magnetic potential difference";
-      Modelica.SIunits.MagneticPotentialDifference abs_V_m=
-          Modelica.ComplexMath.'abs'(V_m)
+    partial model TwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
+      extends TwoPortElementary;
+      Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
+        "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
         "Magnitude of complex magnetic potential difference";
-      Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
         "Argument of complex magnetic potential difference";
-
-      Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
+      Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi
         "Complex magnetic flux";
-      Modelica.SIunits.MagneticFlux abs_Phi=Modelica.ComplexMath.'abs'(Phi)
+      Modelica.SIunits.MagneticFlux abs_Phi = Modelica.ComplexMath.'abs'(Phi)
         "Magnitude of complex magnetic flux";
-      Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
         "Argument of complex magnetic flux";
 
       annotation (Documentation(info="<html>
@@ -8605,29 +8602,11 @@ considers the flux balance of the two ports. Additionally the magnetic potential
 <h4>See also</h4>
 <p><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a></p>
 </html>"));
-    end PartialTwoPortExtended;
+    end TwoPortExtended;
 
-    partial model PartialTwoPortElementary
-      "Two magnetic ports for textual modeling"
-      extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
-      Modelica.SIunits.ComplexMagneticPotentialDifference V_m
-        "Complex magnetic potential difference";
-      Modelica.SIunits.MagneticPotentialDifference abs_V_m=
-          Modelica.ComplexMath.'abs'(V_m)
-        "Magnitude of complex magnetic potential difference";
-      Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
-        "Argument of complex magnetic potential difference";
-
-      Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
-      Modelica.SIunits.MagneticFlux abs_Phi=Modelica.ComplexMath.'abs'(Phi)
-        "Magnitude of complex magnetic flux";
-      Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
-        "Argument of complex magnetic flux";
+    partial model TwoPort "Two magnetic ports for textual modeling"
+      extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended;
     equation
-      // Flux into positive port
-      V_m = port_p.V_m - port_n.V_m;
-      // Magnetomotive force
-      port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
       annotation (Documentation(info="<html>
@@ -8646,10 +8625,9 @@ This model is mainly used to extend from in order build more complex - equation 
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
 </p>
 </html>"));
-    end PartialTwoPortElementary;
+    end TwoPort;
 
-    partial model PartialBasicInductionMachine
-      "Partial model for induction machine"
+    partial model BaseMachine "Base model of machines"
       constant Modelica.SIunits.Angle pi = Modelica.Constants.pi;
       extends Modelica.Electrical.Machines.Icons.FundamentalWaveMachine;
       parameter Integer m(min=3) = 3 "Number of stator phases";
@@ -8766,8 +8744,7 @@ This model is mainly used to extend from in order build more complex - equation 
         final TOperational=TsOperational,
         final GcRef=statorCoreParameters.GcRef,
         final alpha20=alpha20s,
-        final Lzero=Lszero)
-        "Symmetric stator winding including resistances, zero and stray inductances and core losses"
+        final Lzero=Lszero) "Symmetric stator winding including resistances, zero and stray inductances and core losses"
         annotation (Placement(transformation(
             origin={0,40},
             extent={{-10,-10},{10,10}},
@@ -8904,7 +8881,7 @@ This model is mainly used to extend from in order build more complex - equation 
             Line(
               visible=not useSupport,
               points={{120,-100},{110,-120}})}));
-    end PartialBasicInductionMachine;
+    end BaseMachine;
 
     model StateSelector
       "Transform instantaneous values to space phasors and select states"
