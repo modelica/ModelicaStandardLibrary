@@ -8577,8 +8577,8 @@ considers the flux balance of the two ports. Additionally the magnetic potential
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended\">TwoPortExtended</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort\">TwoPort</a>
 </p></html>"));
     end TwoPortElementary;
 
@@ -8600,7 +8600,10 @@ considers the flux balance of the two ports. Additionally the magnetic potential
       annotation (Documentation(info="<html>
 <p>This magnetic two port element consists of a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a> and some additionally variables, but no physical balance equations.</p>
 <h4>See also</h4>
-<p><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a></p>
+<p><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>, 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>, 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort\">TwoPort</a>, 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary\">TwoPortElementary</a></p>
 </html>"));
     end TwoPortExtended;
 
@@ -8621,8 +8624,8 @@ This model is mainly used to extend from in order build more complex - equation 
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary\">TwoPortElementary</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended\">TwoPortExtended</a>
 </p>
 </html>"));
     end TwoPort;
