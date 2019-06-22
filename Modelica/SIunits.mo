@@ -1288,7 +1288,7 @@ argument):</p>
   type RadiantIntensity = Real (final quantity="RadiantIntensity", final unit=
           "W/sr");
   type Radiance = Real (final quantity="Radiance", final unit="W/(sr.m2)");
-  type RadiantExtiance = Real (final quantity="RadiantExtiance", final unit=
+  type RadiantExitance = Real (final quantity="RadiantExitance", final unit=
           "W/m2");
   type Irradiance = Real (final quantity="Irradiance", final unit="W/m2");
   type Emissivity = Real (final quantity="Emissivity", final unit="1");

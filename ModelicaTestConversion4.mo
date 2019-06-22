@@ -637,6 +637,16 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
   package SIunits
     extends Modelica.Icons.ExamplesPackage;
+    model Issue147 "Conversion test for #147"
+      extends Modelica.Icons.Example;
+      Modelica.SIunits.RadiantExtiance x(displayUnit="W/cm2") = 1;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/147\">#147</a>.
+</p>
+</html>"));
+    end Issue147;
+
     model Issue385 "Conversion test for #385"
       extends Modelica.Icons.Example;
       Modelica.SIunits.FluxiodQuantum x(displayUnit="Wb") = 1;
