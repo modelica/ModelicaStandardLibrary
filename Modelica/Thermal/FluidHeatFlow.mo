@@ -1720,7 +1720,7 @@ Block generating the sum of two ramps.
     annotation (Documentation(info="<html>
 <p>Pipe with optional heat exchange.</p>
 <p>
-Thermodynamic equations are defined by Partials.TwoPort.
+Thermodynamic equations are defined by Interfaces.TwoPort.
 Q_flow is defined by heatPort.Q_flow (useHeatPort=true) or zero (useHeatPort=false).</p>
 <p>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
@@ -2080,7 +2080,7 @@ The position of the flange (as well as of the support, if useSupport=true) is in
 <p>This package contains components.</p>
 <p>
 Pressure drop is taken from partial model SimpleFriction.
-Thermodynamic equations are defined in partial models (package Partials).
+Thermodynamic equations are defined in partial models (package Interfaces).
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
@@ -2232,7 +2232,7 @@ Record containing (constant) medium properties.
       annotation (
         Documentation(info="<html>
 <p>The PressureSensor measures the absolute pressure.</p>
-<p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
+<p>Thermodynamic equations are defined by Interfaces.AbsoluteSensor.</p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2250,7 +2250,7 @@ Record containing (constant) medium properties.
     annotation (
         Documentation(info="<html>
 <p>The TempreatureSensor measures the absolute temperature (Kelvin).</p>
-<p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
+<p>Thermodynamic equations are defined by Interfaces.AbsoluteSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2268,7 +2268,7 @@ Record containing (constant) medium properties.
     annotation (
         Documentation(info="<html>
 <p>The RelPressureSensor measures the pressure drop between flowPort_a and flowPort_b.</p>
-<p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
+<p>Thermodynamic equations are defined by Interfaces.RelativeSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2286,7 +2286,7 @@ Record containing (constant) medium properties.
       annotation (
         Documentation(info="<html>
 <p>The RelTemperatureSensor measures the temperature difference between flowPort_a and flowPort_b.</p>
-<p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
+<p>Thermodynamic equations are defined by Interfaces.RelativeSensor.</p>
 <p>
 <strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.
@@ -2309,7 +2309,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       annotation (
         Documentation(info="<html>
 <p>The MassFlowSensor measures the mass flow rate.</p>
-<p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
+<p>Thermodynamic equations are defined by Interfaces.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2327,7 +2327,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       annotation (
         Documentation(info="<html>
 <p>The VolumeFlowSensor measures the volume flow rate.</p>
-<p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
+<p>Thermodynamic equations are defined by Interfaces.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2345,7 +2345,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       annotation (
         Documentation(info="<html>
 <p>The EnthalpyFlowSensor measures the enthalpy flow rate.</p>
-<p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
+<p>Thermodynamic equations are defined by Interfaces.FlowSensor.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2367,7 +2367,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 
 <p>Some of the sensors do not need access to medium properties for measuring,
 but it is necessary to define the medium in the connector (check of connections).
-Thermodynamic equations are defined in partial models (package Interfaces.Partials).
+Thermodynamic equations are defined in partial models (package Interfaces).
 All sensors are considered massless, they do not change mass flow or enthalpy flow.</p>
 
 </html>"));
@@ -2424,7 +2424,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
       T = TAmbient;
     annotation (Documentation(info="<html>
 <p>(Infinite) ambient with constant pressure and temperature.</p>
-<p>Thermodynamic equations are defined by Partials.Ambient.</p>
+<p>Thermodynamic equations are defined by Interfaces.SinglePortLeft.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
               extent={{-90,90},{90,-90}},
@@ -2488,7 +2488,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglect of temperature transient cv*m*der(T).
 </p>
-<p>Thermodynamic equations are defined by Partials.TwoPort.</p>
+<p>Thermodynamic equations are defined by Interfaces.TwoPort.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
@@ -2540,7 +2540,7 @@ leads to neglect of temperature transient cv*m*der(T).
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglect of temperature transient cv*m*der(T).
 </p>
-<p>Thermodynamic equations are defined by Partials.TwoPort.</p>
+<p>Thermodynamic equations are defined by Interfaces.TwoPort.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
@@ -2610,7 +2610,7 @@ The axis intersections vary with speed as follows:
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
-Thermodynamic equations are defined by Partials.TwoPort.
+Thermodynamic equations are defined by Interfaces.TwoPort.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -2644,7 +2644,7 @@ This package contains different types of sources:
 <li>Simple pump with mechanical flange</li>
 </ul>
 <p>
-Thermodynamic equations are defined in partial models (package Interfaces.Partials).
+Thermodynamic equations are defined in partial models (package Interfaces).
 All fans / pumps are considered without losses, they do not change enthalpy flow.
 </p>
 </html>"));
@@ -3055,7 +3055,6 @@ See also sketch at diagram layer.
 <ul>
 <li>FlowPort: basic definition of the connector.</li>
 <li>FlowPort_a &amp; FlowPort_b: same as FlowPort with different icons to differentiate direction of flow</li>
-<li>package Partials (defining basic thermodynamic equations)</li>
 </ul>
 
 </html>"));
