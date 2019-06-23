@@ -1491,7 +1491,7 @@ value of reducedX, and provide the corresponding implementation.</p>
 <p>If fixedX is left modifiable, then the implementation should also handle the
 case fixedX = true properly.</p>
 <p>Fluid connectors should always use composition vectors of size Xi, such as
-in the Modelica_Fluid library:</p>
+in the Modelica.Fluid library:</p>
 <pre>
 <strong>connector</strong> FluidPort
   <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium;
@@ -1539,7 +1539,7 @@ In short, if h is not a computed by a Modelica function and
 this function is non-linear in the independent medium variables,
 then non-linear systems of equations will occur at
 every connection point, if the FluidPort connectors from the
-Modelica_Fluid library are used (these are the same as in
+Modelica.Fluid library are used (these are the same as in
 Modelica.Media.Examples.Utilities.FluidPort).
 Only, if the above rule is fulfilled, a tool is able to
 remove these non-linear system of equations in most cases.
@@ -2081,8 +2081,7 @@ A large part of the library provides specific medium models
 that can be directly utilized. This library can be used in
 all types of Modelica fluid libraries that may have different connectors
 and design philosophies. It is particularly utilized
-in the Modelica_Fluid library (the Modelica_Fluid library is currently
-under development to provide 1D therm-fluid flow components for
+in the Modelica.Fluid library (1D therm-fluid flow components for
 single and multiple substance flow with one and multiple phases).
 The Modelica.Media library has the following
 main features:
@@ -2111,7 +2110,7 @@ main features:
      efficiency as if all medium variables are passed by the
      connector from one component to the next one (the latter
      approach has the restriction that a fluid port can only
-     connect two components and not more). Note, the Modelica_Fluid
+     connect two components and not more). Note, the Modelica.Fluid
      library uses the first approach, i.e., having a set of
      independent medium variables in a connector.</li>
 <li> The medium models are implemented with regards to
