@@ -7978,7 +7978,7 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 
 <h4>References</h4>
 <dl><dt>Elmqvist,H., M.Otter and S.E. Cellier: </dt>
-<dd><strong>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</strong>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dd><strong>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</strong>. In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
 <dt>Idelchik,I.E.: </dt>
 <dd><strong>Handbook of hydraulic resistance</strong>. Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
 <dt>Miller,D.S.: </dt>
@@ -8454,7 +8454,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 <dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><strong>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
 </dl>
 </html>"));
     end dp_idealGas;
@@ -8562,7 +8562,7 @@ The generic mass flow rate <strong> M_FLOW </strong> in dependence of the pressu
 <dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><strong>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
 <dt>Wischhusen, S.:</dt>
     <dd><strong>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</strong>.
     PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
@@ -8704,7 +8704,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 <dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><strong>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
 <dt>Wischhusen, S.:</dt>
     <dd><strong>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</strong>.
     PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
@@ -8761,7 +8761,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
  <dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><strong>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
  <dt>Wischhusen, S.:</dt>
     <dd><strong>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</strong>.
     PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
@@ -8821,7 +8821,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 <dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><strong>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
 <dt>Wischhusen, S.:</dt>
     <dd><strong>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</strong>.
     PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
@@ -8925,7 +8925,7 @@ The local resistance coefficient <strong> zeta_LOC </strong> of a sudden contrac
 <dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><strong>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
 <dt>Idelchik,I.E.:</dt>
     <dd><strong>Handbook of hydraulic resistance</strong>.
     Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
@@ -9038,7 +9038,7 @@ The pressure loss <strong> DP </strong> of an thick edged orifice in dependence 
  <dt>Elmqvist,H., M.Otter and S.E. Cellier:</dt>
     <dd><strong>Inline integration: A new mixed
 symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
 <dt>Idelchik,I.E.:</dt>
     <dd><strong>Handbook of hydraulic resistance</strong>.
     Jaico Publishing House,Mumbai, 3rd edition, 2006.</dd>
@@ -9149,7 +9149,7 @@ regime shall be modelled, the pressure loss function <a href=\"modelica://Modeli
  <dt>Elmqvist,H., M.Otter and S.E. Cellier:</dt>
     <dd><strong>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
 <dt>Idelchik,I.E.:</dt>
     <dd><strong>Handbook of hydraulic resistance</strong>.
     Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
