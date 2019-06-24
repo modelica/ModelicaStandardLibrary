@@ -286,8 +286,7 @@ For an example, see
           annotation (Placement(transformation(extent = {{-76,-54},{-64,-66}})));
 
       algorithm
-        assert(
-          not (trigger_interval == 0),
+        assert(trigger_interval > 0 or trigger_interval < 0,
           "The rotational-interval of rotational clocks must be non-zero.");
 
       equation
