@@ -212,7 +212,7 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
 
   #if defined(__MINGW32__) || defined(__CYGWIN__) /* MinGW and Cygwin have dirent.h */
     #include <dirent.h>
-  #else /* include the opendir/readdir/closedir implementation for _WIN32 */
+  #else /* include the opendir/readdir/closedir interface for _WIN32 */
     #include "win32_dirent.h"
   #endif
 
