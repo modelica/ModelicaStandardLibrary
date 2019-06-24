@@ -543,6 +543,18 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
   package Math
     extends Modelica.Icons.ExamplesPackage;
+    model Issue813 "Conversion test for #813"
+      extends Modelica.Icons.Example;
+      constant Real table[:,:] = [0,0,0;1,2,4];
+      Real y1 = Modelica.Math.tempInterpol1(0.5, table, 2);
+      Real y2[1,2] = Modelica.Math.tempInterpol2(0.5, table, {2,3});
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
+</p>
+</html>"));
+    end Issue813;
+
     model Issue978 "Conversion test for #978"
       extends Modelica.Icons.Example;
       import Polynomials = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;

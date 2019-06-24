@@ -12665,132 +12665,6 @@ Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisCenter\">Modelica.
   obsolete = "Obsolete function - use Modelica.Math.Icons.AxisCenter instead");
 end baseIcon2;
 
-
-function tempInterpol1
-  "Temporary function for linear interpolation (will be removed)"
-  extends Modelica.Icons.Function;
-  extends Modelica.Icons.ObsoleteModel;
-
-  input Real u "input value (first column of table)";
-  input Real table[:, :] "table to be interpolated";
-  input Integer icol "column of table to be interpolated";
-  output Real y "interpolated input value (icol column of table)";
-protected
-  Integer i;
-  Integer n "number of rows of table";
-  Real u1;
-  Real u2;
-  Real y1;
-  Real y2;
-algorithm
-  n := size(table, 1);
-
-  if n <= 1 then
-    y := table[1, icol];
-
-  else
-    // Search interval
-
-    if u <= table[1, 1] then
-      i := 1;
-
-    else
-      i := 2;
-      // Supports duplicate table[i, 1] values
-      // in the interior to allow discontinuities.
-      // Interior means that
-      // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
-
-      while i < n and u >= table[i, 1] loop
-        i := i + 1;
-
-      end while;
-      i := i - 1;
-
-    end if;
-
-    // Get interpolation data
-    u1 := table[i, 1];
-    u2 := table[i + 1, 1];
-    y1 := table[i, icol];
-    y2 := table[i + 1, icol];
-
-    assert(u2 > u1, "Table index must be increasing");
-    // Interpolate
-    y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
-
-  end if;
-
-  annotation (Documentation(info="<html>
-
-</html>"),
-  obsolete = "Obsolete function");
-end tempInterpol1;
-
-
-function tempInterpol2
-  "Temporary function for vectorized linear interpolation (will be removed)"
-  extends Modelica.Icons.Function;
-  extends Modelica.Icons.ObsoleteModel;
-
-  input Real u "input value (first column of table)";
-  input Real table[:, :] "table to be interpolated";
-  input Integer icol[:] "column(s) of table to be interpolated";
-  output Real y[1, size(icol, 1)]
-    "interpolated input value(s) (column(s) icol of table)";
-protected
-  Integer i;
-  Integer n "number of rows of table";
-  Real u1;
-  Real u2;
-  Real y1[1, size(icol, 1)];
-  Real y2[1, size(icol, 1)];
-algorithm
-  n := size(table, 1);
-
-  if n <= 1 then
-    y := transpose([table[1, icol]]);
-
-  else
-    // Search interval
-
-    if u <= table[1, 1] then
-      i := 1;
-
-    else
-      i := 2;
-      // Supports duplicate table[i, 1] values
-      // in the interior to allow discontinuities.
-      // Interior means that
-      // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
-
-      while i < n and u >= table[i, 1] loop
-        i := i + 1;
-
-      end while;
-      i := i - 1;
-
-    end if;
-
-    // Get interpolation data
-    u1 := table[i, 1];
-    u2 := table[i + 1, 1];
-    y1 := transpose([table[i, icol]]);
-    y2 := transpose([table[i + 1, icol]]);
-
-    assert(u2 > u1, "Table index must be increasing");
-    // Interpolate
-    y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
-
-  end if;
-
-  annotation (Documentation(info="<html>
-
-</html>"),
-  obsolete = "Obsolete function");
-end tempInterpol2;
-
-
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
           {100,100}}), graphics={Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},
             {-55.1,66.4},{-49.4,74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{
@@ -12823,6 +12697,8 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
+<li><em>June 22, 2019</em>
+       by Thomas Beutlich: Functions tempInterpol1/tempInterpol2 moved to ObsoleteModelica4</li>
 <li><em>August 24, 2016</em>
        by Christian Kral: added wrapAngle</li>
 <li><em>October 21, 2002</em>
@@ -12836,6 +12712,5 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized.</li>
 </ul>
-
 </html>"));
 end Math;
