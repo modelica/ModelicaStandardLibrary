@@ -598,8 +598,8 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
 #if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
     {
         /* In case of realpath: Retain trailing slash to match _fullpath behaviour */
-        size_t len = strlen(name) - 1;
-        if ('/' == name[len] || '\\' == name[len]) {
+        size_t len = strlen(name);
+        if (len > 0 && ('/' == name[len - 1] || '\\' == name[len - 1])) {
             strcat(fullName, "/");
         }
     }
