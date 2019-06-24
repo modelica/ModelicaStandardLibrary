@@ -25,7 +25,7 @@ rate is defined at one location with a clock:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/SimpleSampledSystem.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/SimpleSampledSystem.png\", alt=\"Simple sampled-data system\">
 </p>
 <p>
 The initial version of this library was developed and released under the name <strong>Modelica_Synchronous</strong> library

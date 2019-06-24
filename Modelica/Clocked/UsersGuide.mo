@@ -31,7 +31,7 @@ A <strong>Clock</strong> type is a base data type (introduced in Modelica 3.3, a
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clockSignals.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clockSignals.png\", alt=\"Clock variables and clocked variables\">
 </p>
 
 <p>
@@ -43,7 +43,7 @@ one of the blocks of sublibrary
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clocks.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clocks.png\", alt=\"Sublibrary ClockSignals.Clocks\">
 </p>
 
 <p>
@@ -61,8 +61,8 @@ is generated:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockExample.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockResult.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockExample.png\", alt=\"Sub-sample example model\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockResult.png\", alt=\"Sub-sample example plot\">
 </p>
 
 <p>
