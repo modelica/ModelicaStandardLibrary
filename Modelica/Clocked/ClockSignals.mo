@@ -1040,7 +1040,7 @@ a clock signal.
           fillColor={128,0,255})}),
       Documentation(info="<html>
 <p>
-Connector with one input signal of type Boolean.
+Connector with one input signal of type Clock.
 </p>
 </html>"));
   connector ClockOutput = output Clock "'output Clock' as connector"
@@ -1073,7 +1073,7 @@ Connector with one input signal of type Boolean.
             textString="%name")}),
       Documentation(info="<html>
 <p>
-Connector with one output signal of type Boolean.
+Connector with one output signal of type Clock.
 </p>
 </html>"));
     connector ClockVectorInput = input Clock
