@@ -465,7 +465,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           offset=-100)
           annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
         Modelica.Blocks.Sources.Sine sine(freqHz=50)
-                                          annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+          annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
         Modelica.Blocks.Sources.Ramp rampAngle(
           height=Modelica.Constants.pi,
           duration=1,
@@ -476,14 +476,13 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           useFilter=true,
           f=50,
           fCut=100,
-          vStart={0})                                                                                                   annotation (Placement(transformation(extent={{18,-60},{38,-40}})));
+          vStart={0})
+          annotation (Placement(transformation(extent={{18,-60},{38,-40}})));
         Boolean toBeConverted;
       equation
-        // The following line shall be converterd by the conversion script
+        // The following line shall be converted by the conversion script
         toBeConverted = signal2mPulse.negativeEqual[1].y;
-        connect(ramp.y, adaptor.v)
-          annotation (Line(points={{-19,0},{18,0}},
-                                                  color={0,0,127}));
+        connect(ramp.y, adaptor.v) annotation (Line(points={{-19,0},{18,0}},color={0,0,127}));
         connect(sine.y, signal2mPulse.v[1]) annotation (Line(points={{-19,-50},{16,-50}},color={0,0,127}));
         connect(rampAngle.y, signal2mPulse.firingAngle) annotation (Line(points={{-19,-90},{28,-90},{28,-62}},color={0,0,127}));
         annotation(experiment(StopTime=1), Documentation(info="<html>
