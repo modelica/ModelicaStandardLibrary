@@ -218,4 +218,6 @@ convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
 convertElement("Modelica.Electrical.Analog.Basic.HeatingResistor",
                {"R_ref"},
                {"R"});
-
+convertElement("Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse",
+               {"negativeEqual"},
+               {"greaterNegative"});
