@@ -252,7 +252,7 @@ void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
     Mat_VarFree(matio.matvarRoot);
     (void)Mat_Close(matio.mat);
 
-    if (readError == 0) {
+    if (readError == 0 && NULL != matrix) {
         /* Array is stored column-wise -> need to transpose */
         transpose(matrix, m, n);
     }

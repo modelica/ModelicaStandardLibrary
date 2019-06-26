@@ -4575,13 +4575,15 @@ static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last,
 
 static int isValidName(_In_z_ const char* name) {
     int isValid = 0;
-    if (strcmp(name, "NoName") != 0) {
-        size_t i;
-        size_t len = strlen(name);
-        for (i = 0; i < len; i++) {
-            if (name[i] != ' ') {
-                isValid = 1;
-                break;
+    if (NULL != name) {
+        if (strcmp(name, "NoName") != 0) {
+            size_t i;
+            size_t len = strlen(name);
+            for (i = 0; i < len; i++) {
+                if (name[i] != ' ') {
+                    isValid = 1;
+                    break;
+                }
             }
         }
     }
@@ -5582,105 +5584,107 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
     TableShare* file = NULL;
 #endif
     double* table = NULL;
+    if (NULL != tableName && NULL != fileName && NULL != nRow && NULL != nCol) {
 #if defined(TABLE_SHARE)
-    size_t lenFileName = strlen(fileName);
-    char* key = (char*)malloc((lenFileName + strlen(tableName) + 2)*sizeof(char));
-    if (NULL != key) {
-        int updateError = 0;
-        strcpy(key, fileName);
-        strcpy(key + lenFileName + 1, tableName);
-        MUTEX_LOCK();
-        HASH_FIND_STR(tableShare, key, file);
-        if (NULL == file || force) {
-            /* Release resources since ModelicaIO_readRealTable may fail with
-               ModelicaError
-            */
-            MUTEX_UNLOCK();
-            free(key);
-#endif
-            table = ModelicaIO_readRealTable(fileName, tableName,
-                nRow, nCol, verbose);
-            if (NULL == table) {
-#if defined(TABLE_SHARE)
-                return file;
-#else
-                return table;
-#endif
-            }
-#if defined(TABLE_SHARE)
-            /* Again allocate and set key */
-            key = (char*)malloc((lenFileName + strlen(tableName) + 2) * sizeof(char));
-            if (NULL == key) {
-                ModelicaIO_freeRealTable(table);
-                return file;
-            }
+        size_t lenFileName = strlen(fileName);
+        char* key = (char*)malloc((lenFileName + strlen(tableName) + 2)*sizeof(char));
+        if (NULL != key) {
+            int updateError = 0;
             strcpy(key, fileName);
             strcpy(key + lenFileName + 1, tableName);
-            /* Again ask for lock and search in hash table share */
             MUTEX_LOCK();
             HASH_FIND_STR(tableShare, key, file);
-        }
-        if (NULL == file) {
-            /* Share miss -> Insert new table */
-            file = (TableShare*)malloc(sizeof(TableShare));
-            if (NULL != file) {
-                size_t lenKey = key_strlen(key);
-                file->key = key;
-                file->refCount = 1;
-                file->nRow = *nRow;
-                file->nCol = *nCol;
-                file->table = table;
-                HASH_ADD_KEYPTR(hh, tableShare, key, lenKey, file);
-                if (NULL == file->hh.tbl) {
+            if (NULL == file || force) {
+                /* Release resources since ModelicaIO_readRealTable may fail with
+                   ModelicaError
+                */
+                MUTEX_UNLOCK();
+                free(key);
+#endif
+                table = ModelicaIO_readRealTable(fileName, tableName,
+                    nRow, nCol, verbose);
+                if (NULL == table) {
+#if defined(TABLE_SHARE)
+                    return file;
+#else
+                    return table;
+#endif
+                }
+#if defined(TABLE_SHARE)
+                /* Again allocate and set key */
+                key = (char*)malloc((lenFileName + strlen(tableName) + 2) * sizeof(char));
+                if (NULL == key) {
+                    ModelicaIO_freeRealTable(table);
+                    return file;
+                }
+                strcpy(key, fileName);
+                strcpy(key + lenFileName + 1, tableName);
+                /* Again ask for lock and search in hash table share */
+                MUTEX_LOCK();
+                HASH_FIND_STR(tableShare, key, file);
+            }
+            if (NULL == file) {
+                /* Share miss -> Insert new table */
+                file = (TableShare*)malloc(sizeof(TableShare));
+                if (NULL != file) {
+                    size_t lenKey = key_strlen(key);
+                    file->key = key;
+                    file->refCount = 1;
+                    file->nRow = *nRow;
+                    file->nCol = *nCol;
+                    file->table = table;
+                    HASH_ADD_KEYPTR(hh, tableShare, key, lenKey, file);
+                    if (NULL == file->hh.tbl) {
+                        free(key);
+                        free(file);
+                        ModelicaIO_freeRealTable(table);
+                        MUTEX_UNLOCK();
+                        return NULL;
+                    }
+                }
+                else {
                     free(key);
-                    free(file);
                     ModelicaIO_freeRealTable(table);
                     MUTEX_UNLOCK();
-                    return NULL;
+                    return file;
+                }
+            }
+            else if (force) {
+                /* Share hit -> Update table share (only if not shared
+                   by multiple table objects)
+                */
+                free(key);
+                if (file->refCount == 1) {
+                    ModelicaIO_freeRealTable(file->table);
+                    file->nRow = *nRow;
+                    file->nCol = *nCol;
+                    file->table = table;
+                }
+                else {
+                    updateError = 1;
                 }
             }
             else {
+                /* Share hit -> Read from table share and increment table
+                   reference counter
+                */
                 free(key);
-                ModelicaIO_freeRealTable(table);
-                MUTEX_UNLOCK();
-                return file;
+                if (NULL != table) {
+                    ModelicaIO_freeRealTable(table);
+                }
+                file->refCount++;
+                *nRow = file->nRow;
+                *nCol = file->nCol;
+            }
+            MUTEX_UNLOCK();
+            if (updateError == 1) {
+                ModelicaFormatError("Not possible to update shared "
+                    "table \"%s\" from \"%s\": File and table name "
+                    "must be unique.\n", tableName, fileName);
             }
         }
-        else if (force) {
-            /* Share hit -> Update table share (only if not shared
-               by multiple table objects)
-            */
-            free(key);
-            if (file->refCount == 1) {
-                ModelicaIO_freeRealTable(file->table);
-                file->nRow = *nRow;
-                file->nCol = *nCol;
-                file->table = table;
-            }
-            else {
-                updateError = 1;
-            }
-        }
-        else {
-            /* Share hit -> Read from table share and increment table
-               reference counter
-            */
-            free(key);
-            if (NULL != table) {
-                ModelicaIO_freeRealTable(table);
-            }
-            file->refCount++;
-            *nRow = file->nRow;
-            *nCol = file->nCol;
-        }
-        MUTEX_UNLOCK();
-        if (updateError == 1) {
-            ModelicaFormatError("Not possible to update shared "
-                "table \"%s\" from \"%s\": File and table name "
-                "must be unique.\n", tableName, fileName);
-        }
-    }
 #endif
+    }
 #if defined(TABLE_SHARE)
     return file;
 #else
