@@ -548,6 +548,21 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       constant Real table[:,:] = [0,0,0;1,2,4];
       Real y1 = Modelica.Math.tempInterpol1(0.5, table, 2);
       Real y2[1,2] = Modelica.Math.tempInterpol2(0.5, table, {2,3});
+      function f1
+        extends Modelica.Math.baseIcon1;
+        input Real x1;
+        output Real y;
+        algorithm
+          y := x1;
+      end f1;
+      function f2
+        extends Modelica.Math.baseIcon2;
+        input Real x2[1,2];
+        output Real y;
+        algorithm
+          y := sum(x2[1,:]);
+      end f2;
+      Real y = f1(y1) + f2(y2);
     annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
