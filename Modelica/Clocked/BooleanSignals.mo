@@ -1505,7 +1505,7 @@ The Boolean output y is a step signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanStep.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanStep.png\", alt=\"BooleanStep.png\">
 </p>
 
 <h4>Example</h4>
@@ -1674,7 +1674,7 @@ The Boolean output y is a pulse signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png\", alt=\"Pulse.png\">
 </p>
 <h4>Example</h4>
 <p>
@@ -1832,7 +1832,7 @@ The Boolean output y is a step signal. The signal is defined in terms of clock t
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/BooleanSignals/TickBasedSources_Step.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/BooleanSignals/TickBasedSources_Step.png\", alt=\"TickBasedSources_Step\">
 </p>
 
 <h4>Example</h4>
@@ -2003,7 +2003,7 @@ The Boolean output y is a pulse signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/BooleanSignals/TickBasedSources_Pulse.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/BooleanSignals/TickBasedSources_Pulse.png\", alt=\"TickBasedSources_Pulse.png\">
 </p>
 <h4>Example</h4>
 <p>
