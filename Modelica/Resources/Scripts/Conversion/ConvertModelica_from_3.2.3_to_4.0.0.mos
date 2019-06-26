@@ -55,6 +55,10 @@ convertClass("Modelica.Math.tempInterpol1",
               "ObsoleteModelica4.Math.tempInterpol1")
 convertClass("Modelica.Math.tempInterpol2",
               "ObsoleteModelica4.Math.tempInterpol2")
+convertClass("Modelica.Math.baseIcon1",
+              "Modelica.Math.Icons.AxisLeft")
+convertClass("Modelica.Math.baseIcon2",
+              "Modelica.Math.Icons.AxisCenter")
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
               "Modelica.Electrical.Analog.Basic.Resistor");
 
