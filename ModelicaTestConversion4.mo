@@ -65,13 +65,75 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       extends Modelica.Icons.Example;
       Modelica.Blocks.Sources.Constant constantBlock(
         k=Modelica.Constants.mue_0);
-        annotation(experiment(StopTime=1), Documentation(info="<html>
+      annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/194\">#194</a>.
 </p>
 </html>"));
     end Issue194;
   end Constants;
+
+  package StateGraph
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue2112 "Conversion test for #2112"
+      extends Modelica.Icons.Example;
+      Boolean b1 = Modelica.StateGraph.Temporary.anyTrue({true, false});
+      Boolean b2;
+    algorithm
+      b2 := not Modelica.StateGraph.Temporary.allTrue({true, false});
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2112\">#2112</a>.
+</p>
+</html>"));
+    end Issue2112;
+
+    model Issue2113 "Conversion test for #2113"
+      extends Modelica.Icons.Example;
+      Modelica.StateGraph.Temporary.NumericValue numericValue1(
+        precision=2,
+        hideConnector=false)
+        annotation(Placement(transformation(extent={{-60,0},{-40,20}})));
+      Modelica.StateGraph.Temporary.NumericValue numericValue2(
+        precision=3,
+        hideConnector=true,
+        Value=time*2)
+        annotation(Placement(transformation(extent={{-60,40},{-40,60}})));
+      Modelica.StateGraph.Temporary.IndicatorLamp indicatorLamp
+        annotation(Placement(transformation(extent={{20,40},{40,60}})));
+      Modelica.Blocks.Sources.BooleanExpression booleanExpression(y=time >= 0.5)
+        annotation(Placement(transformation(extent={{-20,40},{0,60}})));
+      Modelica.Blocks.Sources.RealExpression realExpression(y=time*3)
+        annotation(Placement(transformation(extent={{-100,0},{-80,20}})));
+    equation
+      connect(booleanExpression.y, indicatorLamp.u) annotation(Line(points={{1,50},{18,50}}, color={255,0,255}));
+      connect(realExpression.y, numericValue1.Value) annotation(Line(points={{-79,10},{-62,10}}, color={0,0,127}));
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2113\">#2113</a>.
+</p>
+</html>"));
+    end Issue2113;
+
+    model Issue2880 "Conversion test for #2880"
+      extends Modelica.Icons.Example;
+      parameter Modelica.StateGraph.Temporary.SetRealParameter limit=0.98 "Limit level of tank 1"
+        annotation(Placement(transformation(extent={{-64,76},{-44,96}})));
+      parameter Modelica.StateGraph.Temporary.SetRealParameter waitTime=3 "Wait time"
+        annotation(Placement(transformation(extent={{-91,76},{-71,96}})));
+      Modelica.StateGraph.Temporary.RadioButton start(reset={stop.on,shut.on}, buttonTimeTable={20,280})
+        annotation(Placement(transformation(extent={{-66,40},{-46,60}})));
+      Modelica.StateGraph.Temporary.RadioButton stop(reset={start.on,shut.on}, buttonTimeTable={220,650})
+        annotation(Placement(transformation(extent={{-66,10},{-46,30}})));
+      Modelica.StateGraph.Temporary.RadioButton shut(reset={start.on,stop.on}, buttonTimeTable={700})
+        annotation(Placement(transformation(extent={{-66,-20},{-46,0}})));
+      annotation(experiment(StopTime=900), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2880\">#2880</a>.
+</p>
+</html>"));
+    end Issue2880;
+  end StateGraph;
 
   package Electrical
     extends Modelica.Icons.ExamplesPackage;

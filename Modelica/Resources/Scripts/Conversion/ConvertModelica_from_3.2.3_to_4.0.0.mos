@@ -88,6 +88,31 @@ convertElement("Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTe
                 "jucntioncap", "junctioncap");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet",
                 "No automatic conversion can be applied if record components are removed.")
+
+// StateGraph.Temporary
+convertClass("Modelica.StateGraph.Temporary.anyTrue",
+              "Modelica.Math.BooleanVectors.anyTrue");
+convertClass("Modelica.StateGraph.Temporary.allTrue",
+              "Modelica.Math.BooleanVectors.andTrue");
+convertClass("Modelica.StateGraph.Temporary.NumericValue",
+              "Modelica.Blocks.Interaction.Show.RealValue");
+convertClass("Modelica.StateGraph.Temporary.IndicatorLamp",
+              "Modelica.Blocks.Interaction.Show.BooleanValue");
+convertClass("Modelica.StateGraph.Temporary.RadioButton",
+              "Modelica.Blocks.Sources.RadioButtonSource");
+convertClass("Modelica.StateGraph.Temporary.SetRealParameter",
+              "Real");
+convertElement("Modelica.StateGraph.Temporary.NumericValue",
+                "Value", "numberPort");
+convertElement("Modelica.StateGraph.Temporary.IndicatorLamp",
+                "u", "activePort");
+convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
+                  {"precision"}, {"significantDigits=%precision%"});
+convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
+                  {"Value"}, {"number=%Value%"});
+convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
+                  {"hideConnector"}, {"use_numberPort=not %hideConnector%"});
+
 convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheel",
                {"wheelRadius"},
                {"radius"});
