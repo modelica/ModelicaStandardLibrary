@@ -313,6 +313,21 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
   package Fluid
     extends Modelica.Icons.ExamplesPackage;
+    model Issue813 "Conversion test for #813"
+      extends Modelica.Icons.Example;
+      package P1
+        extends Modelica.Fluid.Icons.VariantLibrary;
+      end P1;
+      package P2
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
+      end P2;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
+</p>
+</html>"));
+    end Issue813;
+
     package Dissipation
       extends Modelica.Icons.ExamplesPackage;
       model Issue940 "Conversion test for #940"
