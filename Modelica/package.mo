@@ -5149,7 +5149,7 @@ The following changes are present for the whole library:
          (number of equations = number of unknown variables - unknown variables that have
          to be defined when using the component). A few models of the Modelica
          Standard Library did not fulfill these new restrictions and had
-         either to be moved to library ObsoleteModelica3 (e.g., Blocks.Math.TwoInputs)
+         either to be moved to library <a href=\"https://github.com/modelica-deprecated/ObsoleteModelica3\">ObsoleteModelica3</a> (e.g., Blocks.Math.TwoInputs)
          or had to be differently implemented
          (e.g., Media.Interfaces.PartialMedium.BaseProperties).
          The Modelica Standard Library version 3.0 fulfills all the restrictions of
@@ -5356,7 +5356,7 @@ should be automatic):
 <tr><td> RealSignal<br>
                                                 IntegerSignal<br>
                                                 BooleanSignal</td>
-          <td> Moved to library ObsoleteModelica3, since these connectors
+          <td> Moved to library <a href=\"https://github.com/modelica-deprecated/ObsoleteModelica3\">ObsoleteModelica3</a>, since these connectors
                                                 are no longer allowed in Modelica 3<br>
                                                 (prefixes input and/or output are required).</td></tr>
 
@@ -5364,14 +5364,14 @@ should be automatic):
 <tr><td> AdaptorReal<br>
                                                 AdaptorBoolean<br>
                                                 AdaptorInteger</td>
-          <td> Moved to library ObsoleteModelica3, since the models are not \"balanced\".
+          <td> Moved to library <a href=\"https://github.com/modelica-deprecated/ObsoleteModelica3\">ObsoleteModelica3</a>, since the models are not \"balanced\".
                                                 These are completely obsolete adaptors<br>between the Real, Boolean, Integer
                                                 signal connectors of version 1.6 and version &ge; 2.1 of the Modelica
                                                 Standard Library.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Blocks.Math.</strong></td></tr>
 <tr><td> ConvertAllUnits</td>
-          <td> Moved to library ObsoleteModelica3, since extending from a replaceable class
+          <td> Moved to library <a href=\"https://github.com/modelica-deprecated/ObsoleteModelica3\">ObsoleteModelica3</a>, since extending from a replaceable class
                                                 and this is not allowed in Modelica 3.<br> It would be possible to rewrite this
                                                 model to use a replaceable component. However, the information about the
                                                 conversion<br> cannot be visualized in the icon in this case.</td></tr>
@@ -5379,7 +5379,7 @@ should be automatic):
 <tr><td colspan=\"2\"><strong>Blocks.Math.UnitConversions.</strong></td></tr>
 <tr><td> TwoInputs<br>
                                                 TwoOutputs</td>
-          <td> Moved to library ObsoleteModelica3, since the models are not \"balanced\".
+          <td> Moved to library <a href=\"https://github.com/modelica-deprecated/ObsoleteModelica3\">ObsoleteModelica3</a>, since the models are not \"balanced\".
                                                 A new component<br>\"InverseBlockConstraints\"
                                                 is provided instead that has the same feature, but is \"balanced\".</td></tr>
 
