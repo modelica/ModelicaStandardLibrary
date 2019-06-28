@@ -750,7 +750,7 @@ where vt_t depends on the temperature of the heat port:
   vt_t = k*temp/q
 </pre>
 <p>
-If the exponent <em>v/vt_t</em> reaches the limit <em>maxex</em>, the diode characteristic is linearly
+If the exponent <em>v/vt_t</em> reaches the limit <em>Maxexp</em>, the diode characteristic is linearly
 continued to avoid overflow.<br>
 The thermal power is calculated by <em>i*v</em>.
 </p>
