@@ -71,6 +71,18 @@ convertClass("Modelica.Blocks.Interfaces.IntegerBlockIcon",
               "Modelica.Blocks.Icons.IntegerBlock");
 convertClass("Modelica.Blocks.Interfaces.partialBooleanBlockIcon",
               "Modelica.Blocks.Icons.PartialBooleanBlock");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.SendReal",
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.SendReal");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.SendBoolean",
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.SendBoolean");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.SendInteger",
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.SendInteger");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveReal",
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveReal");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveBoolean",
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveBoolean");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveInteger",
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveInteger");
 
 // Change renamed elements of classes
 // mue -> mu

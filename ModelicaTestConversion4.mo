@@ -35,6 +35,22 @@ package ModelicaTestConversion4
       B3 b3;
       B4 b4;
       B5 b5;
+      Modelica.Blocks.Interfaces.Adaptors.SendReal sendReal;
+      Modelica.Blocks.Interfaces.Adaptors.ReceiveReal receiveReal;
+      Modelica.Blocks.Sources.RealExpression realExpression;
+      Modelica.Blocks.Interfaces.Adaptors.SendBoolean sendBoolean;
+      Modelica.Blocks.Interfaces.Adaptors.ReceiveBoolean receiveBoolean;
+      Modelica.Blocks.Sources.BooleanExpression booleanExpression;
+      Modelica.Blocks.Interfaces.Adaptors.SendInteger sendInteger;
+      Modelica.Blocks.Interfaces.Adaptors.ReceiveInteger receiveInteger;
+      Modelica.Blocks.Sources.IntegerExpression integerExpression;
+    equation
+      connect(sendReal.toBus, receiveReal.fromBus);
+      connect(realExpression.y, sendReal.u);
+      connect(sendBoolean.toBus, receiveBoolean.fromBus);
+      connect(booleanExpression.y, sendBoolean.u);
+      connect(sendInteger.toBus, receiveInteger.fromBus);
+      connect(integerExpression.y, sendInteger.u);
       annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
