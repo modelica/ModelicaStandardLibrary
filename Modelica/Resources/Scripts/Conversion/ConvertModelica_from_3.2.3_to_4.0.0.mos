@@ -61,6 +61,16 @@ convertClass("Modelica.Math.baseIcon2",
               "Modelica.Math.Icons.AxisCenter")
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
               "Modelica.Electrical.Analog.Basic.Resistor");
+convertClass("Modelica.Blocks.Interfaces.BlockIcon",
+              "Modelica.Blocks.Icons.Block");
+convertClass("Modelica.Blocks.Interfaces.BooleanBlockIcon",
+              "Modelica.Blocks.Icons.BooleanBlock");
+convertClass("Modelica.Blocks.Interfaces.DiscreteBlockIcon",
+              "Modelica.Blocks.Icons.DiscreteBlock");
+convertClass("Modelica.Blocks.Interfaces.IntegerBlockIcon",
+              "Modelica.Blocks.Icons.IntegerBlock");
+convertClass("Modelica.Blocks.Interfaces.partialBooleanBlockIcon",
+              "Modelica.Blocks.Icons.PartialBooleanBlock");
 
 // Change renamed elements of classes
 // mue -> mu
