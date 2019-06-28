@@ -3861,7 +3861,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={0,40})));
-        Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=max(Modelica.Constants.pi,
+        Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=min(Modelica.Constants.pi,
               firingAngleMax), final uMin=0) annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
