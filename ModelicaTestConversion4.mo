@@ -843,6 +843,9 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       package P5
         extends Modelica.Icons.Info;
       end P5;
+      package P6
+        extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
+      end P6;
       annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.

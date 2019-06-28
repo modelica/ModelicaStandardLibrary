@@ -96,7 +96,9 @@ convertClass("Modelica.Icons.Library2",
 convertClass("Modelica.Icons.GearIcon",
               "Modelica.Mechanics.Rotational.Icons.Gearbox")
 convertClass("Modelica.Icons.MotorIcon",
-              "Modelica.Mechanics.MultiBody.Icons.MotorIcon")
+              "Modelica.Electrical.Machines.Icons.Drive")
+convertClass("Modelica.Mechanics.MultiBody.Icons.MotorIcon",
+              "Modelica.Electrical.Machines.Icons.Drive")
 convertClass("Modelica.Icons.Info",
               "Modelica.Icons.Information")
 
