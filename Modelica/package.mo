@@ -2376,7 +2376,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td width=\"150\">ReactivePowerSensor</td>
     <td> Measures reactive power for a threephase system.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
-<tr><td width=\"150\">FrequencySweepVoltageSource<br>FrquencySweepCurrentSource</td>
+<tr><td width=\"150\">FrequencySweepVoltageSource<br>FrequencySweepCurrentSource</td>
     <td> Voltage source and current source with integrated frequency sweep.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td width=\"150\">Visualizers.Rectangle</td>

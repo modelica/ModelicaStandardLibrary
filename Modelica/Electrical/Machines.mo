@@ -16682,7 +16682,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
       parameter Modelica.SIunits.Voltage VNominal "Nominal RMS voltage per phase";
       parameter Modelica.SIunits.Frequency fNominal "Nominal frequency";
       parameter Modelica.SIunits.Angle BasePhase=0 "Common phase shift";
-      parameter Boolean EconomyMode=false "Economy mode: voltage quadratic dependent on frquency"
+      parameter Boolean EconomyMode=false "Economy mode: voltage quadratic dependent on frequency"
         annotation(Evaluate=true,choices(checkBox=true));
       output Modelica.SIunits.Angle x(start=0, fixed=true) "Integrator state";
       output Modelica.SIunits.Voltage amplitude;
