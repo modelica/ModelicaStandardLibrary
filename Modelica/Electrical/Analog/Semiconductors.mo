@@ -5,34 +5,65 @@ package Semiconductors
   import Modelica.Constants.k "Boltzmann's constant, [J/K]";
   import Modelica.Constants.q "Electron charge, [As]";
 
-  model Diode "Simple diode"
+  model Diode "Simple diode with heating port"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter SI.Current Ids=1e-6 "Saturation current";
-    parameter SI.Voltage Vt=0.04
-      "Voltage equivalent of temperature (kT/qn)";
-    parameter Real Maxexp(final min=Modelica.Constants.small) = 15
-      "Max. exponent for linear continuation";
+    parameter Boolean useTemperatureDependency = false "= true, if TODO";
+    parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)" annotation(Dialog(enable=not useTemperatureDependency));
+    parameter Real Maxexp(final min=Modelica.Constants.small) = 15 "Max. exponent for linear continuation";
     parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+    parameter Real EG=1.11 "Activation energy";
+    parameter Real N=1 "Emission coefficient";
+    parameter SI.Temperature TNOM=300.15 "Parameter measurement temperature";
+    parameter Real XTI=3 "Temperature exponent of saturation current";
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+
+    SI.Voltage vt_t "Temperature voltage";
+    SI.Current id "Diode current";
+    protected
+    SI.Temperature htemp "Auxiliary temperature";
+    Real aux;
+    Real auxp;
   equation
-    i = smooth(1, Ids*(exlin(v/Vt, Maxexp) - 1) + v/R);
-    LossPower = v*i;
+    assert(T_heatPort > 0,"Temperature must be positive");
+    htemp = T_heatPort;
+    vt_t = k*htemp/q;
+
+    id = exlin((v/(N*vt_t)), Maxexp) - 1;
+
+    aux = (htemp/TNOM - 1)*EG/(N*vt_t);
+    auxp = exp(aux);
+
+    i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
+
+    LossPower = i*v;
     annotation (defaultComponentName="diode",
       Documentation(info="<html>
-<p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:</p>
-<pre>                v/vt
-  i  =  ids ( e      - 1).</pre>
-<p>If the exponent <em>v/vt</em> reaches the limit <em>maxex</em>, the diode characteristic is linearly continued to avoid overflow.</p><p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.</p>
-</html>",
-   revisions="<html>
+<p>
+The simple diode is an electrical one port, where a heat port is added, which is
+defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic
+resistance <em>R</em>. The diode formula is:
+</p>
+<pre>
+                v/vt_t
+  i  =  ids ( e        - 1).
+
+</pre>
+where vt_t depends on the temperature of the heat port:
+<pre>
+  vt_t = k*temp/q
+</pre>
+<p>
+If the exponent <em>v/vt_t</em> reaches the limit <em>Maxexp</em>, the diode characteristic is linearly
+continued to avoid overflow.<br>
+The thermal power is calculated by <em>i*v</em>.
+</p>
+</html>", revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><em> November 15, 2005   </em>
-       by Christoph Clauss<br> smooth function added<br>
-       </li>
-<li><em> 1998   </em>
+<li><em>April 5, 2004   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -698,87 +729,6 @@ on page 317 ff.</dd>
             textString="%name",
             textColor={0,0,255})}));
 end PNP;
-
-model HeatingDiode "Simple diode with heating port"
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  parameter SI.Current Ids=1e-6 "Saturation current";
-  /* parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
-  parameter Real Maxexp(final min=Modelica.Constants.small) = 15
-      "Max. exponent for linear continuation";
-  parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
-  parameter Real EG=1.11 "Activation energy";
-  parameter Real N=1 "Emission coefficient";
-  parameter SI.Temperature TNOM=300.15
-      "Parameter measurement temperature";
-  parameter Real XTI=3 "Temperature exponent of saturation current";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
-
-  SI.Voltage vt_t "Temperature voltage";
-  SI.Current id "Diode current";
-  protected
-  SI.Temperature htemp "Auxiliary temperature";
-  Real aux;
-  Real auxp;
-equation
-  assert(T_heatPort > 0,"Temperature must be positive");
-  htemp = T_heatPort;
-  vt_t = k*htemp/q;
-
-  id = exlin((v/(N*vt_t)), Maxexp) - 1;
-
-  aux = (htemp/TNOM - 1)*EG/(N*vt_t);
-  auxp = exp(aux);
-
-  i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
-
-  LossPower = i*v;
-  annotation (defaultComponentName="diode",
-    Documentation(info="<html>
-<p>
-The simple diode is an electrical one port, where a heat port is added, which is
-defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic
-resistance <em>R</em>. The diode formula is:
-</p>
-<pre>
-                v/vt_t
-  i  =  ids ( e        - 1).
-
-</pre>
-where vt_t depends on the temperature of the heat port:
-<pre>
-  vt_t = k*temp/q
-</pre>
-<p>
-If the exponent <em>v/vt_t</em> reaches the limit <em>Maxexp</em>, the diode characteristic is linearly
-continued to avoid overflow.<br>
-The thermal power is calculated by <em>i*v</em>.
-</p>
-</html>", revisions="<html>
-<ul>
-<li><em> March 11, 2009   </em>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-<li><em>April 5, 2004   </em>
-       by Christoph Clauss<br> implemented<br>
-       </li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(
-  preserveAspectRatio=true,
-  extent={{-100,-100},{100,100}}), graphics={
-          Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{40,0}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255}),
-          Text(
-            extent={{-150,90},{150,50}},
-            textString="%name",
-            textColor={0,0,255})}));
-end HeatingDiode;
 
         model HeatingNMOS "Simple MOS Transistor with heating port"
 
