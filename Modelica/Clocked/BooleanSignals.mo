@@ -1091,22 +1091,22 @@ the following blocks are provided:<br>&nbsp;
 
 <tr><td valign=\"top\" rowspan=\"4\">clocked &rarr; clocked</td>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SubSample\">SubSample</a></td>
-      <td>Sub-sample a signal (output clock is slower as input clock). </td>
+      <td>Sub-sample a signal (output clock is slower as input clock).</td>
     </tr>
 
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SuperSample\">SuperSample</a></td>
-      <td>Super-sample a signal (output clock is faster as input clock). </td>
+      <td>Super-sample a signal (output clock is faster as input clock).</td>
     </tr>
 
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.ShiftSample\">ShiftSample</a></td>
-      <td>Shift a signal (output clock is delayed with respect to input clock).  </td>
+      <td>Shift a signal (output clock is delayed with respect to input clock).</td>
     </tr>
 
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.BackSample\">BackSample</a></td>
-      <td>Shift a signal and start the output clock before the input clock with a start value.  </td>
+      <td>Shift a signal and start the output clock before the input clock with a start value.</td>
     </tr>
 
 
@@ -1122,7 +1122,7 @@ the following blocks are provided:<br>&nbsp;
 
 <p>
 Additionally, package
-<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Utilities\">Utilities</a></td>
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Utilities\">Utilities</a>
 contains utility blocks that are used as building blocks for user-relevant blocks.
 </p>
 </html>"));

@@ -366,7 +366,7 @@ able to support this library.
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A>, <a href=\"mailto:Bernhard.Thiele@dlr.de\">Bernhard.Thiele@dlr.de</A><br></dd>
+    email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>, <a href=\"mailto:Bernhard.Thiele@dlr.de\">Bernhard.Thiele@dlr.de</a><br></dd>
 </dl>
 <p><strong>Acknowledgements:</strong></p>
 <ul>

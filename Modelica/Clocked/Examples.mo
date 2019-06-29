@@ -2626,13 +2626,13 @@ Example used to generate a figure for the documentation of block
         annotation (
           preferredView = "info",
           experiment(StopTime = 2),
-          Documentation(info="<html>
+          Documentation(info="<html><p>
     Simple example of a rotational clock with variable trigger interval and
     switching direction of rotation. The input rotation is just sinusoidal,
     switching direction every half second. The trigger interval is changed with
     the same pace; every half second it is doubled or halved respectively. The
     generated clocked signals are therefore:
-    <p>
+    </p>
     <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalSample_Result.png\" alt=\"RotationalSample_Result.png\">.
     </html>"));
       end RotationalSample;
@@ -2728,7 +2728,7 @@ Example used to generate a figure for the documentation of block
         annotation (
           preferredView = "info",
           experiment(StopTime = 2),
-          Documentation(info="<html>
+          Documentation(info="<html><p>
     Simple example of two logical clocks, a conjunctive and a disjunctive clock.
     Both receive the very same clock inputs, produced by two rotational clocks
     with slightly shifted input angle waves (sine and cosine respectively). The
@@ -2736,7 +2736,7 @@ Example used to generate a figure for the documentation of block
     <a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample\">rotational clocks example</a>.
     The generated clocked signals of the disjunctive and conjunctive clock are
     therefore:
-    <p>
+    </p>
     <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/LogicalSample_Result.png\" alt=\"LogicalSample_Result.png\">.
     </html>"));
       end LogicalSample;

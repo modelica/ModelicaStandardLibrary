@@ -164,6 +164,7 @@ is the left limit of hold.y (= the red, continuous-time signal).
             grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
+<p>
 This block is similar to the
 <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Sample</a>
 block. The only difference is that a clock signal is provided via a second
@@ -415,6 +416,7 @@ signals are sampled with a periodic clock of 20 ms period:<br>
             grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
+<p>
 This block is similar to the
 <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Sample</a>
 block. The only difference is that after the sampling of the input signal,
@@ -680,6 +682,7 @@ to -1.0 (= the value of parameter hold.y_start).<br>
               extent={{-200,-146},{200,-211}},
               textString="%shiftCounter/%resolution")}),
         Documentation(info="<html>
+<p>
 This block is similar to the
 <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Hold\">Hold</a>
 block. The only difference is that simulated real-world effects are applied on the
@@ -691,7 +694,7 @@ with a zero-order hold. In particular:
 <li> The output is delayed by a fraction of the clock period,
      if parameter <strong>computationalDelay</strong> = true.
      The delay is defined by shiftCounter/resolution*interval(),
-     where <strong>shiftCounter</strong> and </strong>resolution</strong> are Integer parameters and
+     where <strong>shiftCounter</strong> and <strong>resolution</strong> are Integer parameters and
      interval() is the time duration from the previous to the current
      clock tick. The maximal possible computational delay is one clock
      duration, and therefore there is the restriction that
@@ -2745,27 +2748,27 @@ the following blocks are provided:<br>&nbsp;
 
 <tr><td valign=\"top\" rowspan=\"5\">clocked &rarr; clocked</td>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SubSample\">SubSample</a></td>
-      <td>Sub-sample a signal (output clock is slower as input clock). </td>
+      <td>Sub-sample a signal (output clock is slower as input clock).</td>
     </tr>
 
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSample\">SuperSample</a></td>
-      <td>Super-sample a signal (output clock is faster as input clock). </td>
+      <td>Super-sample a signal (output clock is faster as input clock).</td>
     </tr>
 
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a></td>
-      <td>Super-sample a signal with linear interpolation (output clock is faster as input clock). </td>
+      <td>Super-sample a signal with linear interpolation (output clock is faster as input clock).</td>
     </tr>
 
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.ShiftSample\">ShiftSample</a></td>
-      <td>Shift a signal (output clock is delayed with respect to input clock).  </td>
+      <td>Shift a signal (output clock is delayed with respect to input clock).</td>
     </tr>
 
     <tr>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.BackSample\">BackSample</a></td>
-      <td>Shift a signal and start the output clock before the input clock with a start value.  </td>
+      <td>Shift a signal and start the output clock before the input clock with a start value.</td>
     </tr>
 
 
@@ -2781,7 +2784,7 @@ the following blocks are provided:<br>&nbsp;
 
 <p>
 Additionally, package
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities\">Utilities</a></td>
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities\">Utilities</a>
 contains utility blocks that are used as building blocks for user-relevant blocks.
 Especially, block
 <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">UpSample</a>
