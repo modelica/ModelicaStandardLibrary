@@ -421,7 +421,7 @@ For an example, see
         annotation (Icon(graphics={
           Text(
             extent = {{-140,-120},{140,-150}},
-            lineColor = {0,0,0},
+            textColor = {0,0,0},
             textString = "%trigger_interval%")}));
       end FixedRotationalClock;
     end Rotational;
@@ -543,7 +543,7 @@ For an example, see
               lineThickness = 0.5),
             Text(
               extent = {{-94,94},{-54,80}},
-              lineColor = {238,46,47},
+              textColor = {238,46,47},
               pattern = LinePattern.Dash,
               lineThickness = 1,
               textString = "array of\ninput trackers",
@@ -555,7 +555,7 @@ For an example, see
               lineThickness = 0.5),
             Text(
               extent = {{14,-26},{50,-40}},
-              lineColor = {28,108,200},
+              textColor = {28,108,200},
               pattern = LinePattern.Dash,
               lineThickness = 1,
               textString = "resetter",
@@ -572,7 +572,7 @@ For an example, see
           Icon(graphics={
             Text(
               extent = {{-60,60},{60,-60}},
-              lineColor = {217,67,180},
+              textColor = {217,67,180},
               textStyle = {TextStyle.Bold},
               textString = "∧")}),
           Documentation(info="<html>
@@ -590,7 +590,7 @@ For a simple example cf. the
           Icon(graphics={
             Text(
               extent = {{-60,60},{60,-60}},
-              lineColor = {217,67,180},
+              textColor = {217,67,180},
               textStyle = {TextStyle.Bold},
               textString = "∨")}),
           Documentation(info="<html>
@@ -641,7 +641,7 @@ to clocks see
               pattern=LinePattern.None),
             Text(
               extent={{-200,145},{200,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-200,-85},{200,-150}},
@@ -768,7 +768,7 @@ clock subSample.y is slower as clock subSample.u.
               pattern=LinePattern.None),
             Text(
               extent={{-200,175},{200,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-200,-85},{200,-150}},
@@ -911,7 +911,7 @@ clock superSample.y is faster as clock superSample.u.
               pattern=LinePattern.Dot),
             Text(
               extent={{-200,175},{200,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-200,-85},{200,-150}},
@@ -1033,7 +1033,7 @@ a clock signal.
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid), Text(
             extent={{-10,85},{-10,60}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name",
           fillPattern=FillPattern.Solid,
           fillColor={128,0,255})}),
@@ -1068,7 +1068,7 @@ Connector with one input signal of type Clock.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid), Text(
             extent={{30,110},{30,60}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}),
       Documentation(info="<html>
 <p>
@@ -1098,7 +1098,7 @@ Connector with one output signal of type Clock.
           graphics={
             Text(
               extent = {{0,-58},{0,-84}},
-              lineColor = {95,95,95},
+              textColor = {95,95,95},
               textString = "%name"),
             Ellipse(
               extent = {{-50,50},{50,-50}},
@@ -1141,7 +1141,7 @@ a different icon as <code>ClockInput</code> connector.
             Text(
             extent={{-300,175},{300,110}},
             textString="%name",
-            lineColor={0,0,255},
+            textColor={0,0,255},
             fontSize=0),
             Rectangle(
               extent={{80,6},{100,-6}},
@@ -1205,7 +1205,7 @@ a different icon as <code>ClockInput</code> connector.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255},
+              textColor={0,0,255},
               fontSize=0)}));
     end ClockedBlockIcon;
     annotation (Documentation(info="<html>

@@ -21,7 +21,7 @@ package IntegerSignals "Library of clocked blocks for Integer signals"
                          graphics={
             Text(
               extent={{-200,50},{200,115}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -76,7 +76,7 @@ Analog to the corresponding Real signal block examples there exist two elementar
               thickness=0.5),
             Text(
               extent={{-200,50},{200,115}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
@@ -128,7 +128,7 @@ Analog to the corresponding Real signal block example there exists an elementary
               thickness=0.5),
             Text(
               extent={{-200,50},{200,115}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-160,-30},{20,-80}},
@@ -245,7 +245,7 @@ Analog to the corresponding Real signal block example there exists an elementary
               color={255,128,0}),
             Text(
               extent={{-200,165},{200,100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(visible=not inferFactor,
               extent={{-200,-85},{200,-150}},
@@ -350,7 +350,7 @@ Analog to the corresponding Real signal block example there exists an elementary
               pattern=LinePattern.Dot),
             Text(
               extent={{-200,175},{200,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(visible=not inferFactor,
               extent={{-200,-85},{200,-150}},
@@ -451,7 +451,7 @@ Analog to the corresponding Real signal block example there exists an elementary
               pattern=LinePattern.Dot),
             Text(
               extent={{-200,175},{200,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-200,-85},{200,-150}},
@@ -535,7 +535,7 @@ Analog to the corresponding Real signal block example there exists an elementary
               pattern=LinePattern.Dot),
             Text(
               extent={{-200,175},{200,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-200,-135},{200,-200}},
@@ -613,7 +613,7 @@ Analog to the corresponding Real signal block example there exists an elementary
                          graphics={
             Text(
               extent={{-200,100},{200,160}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-90,90},{88,-88}},
@@ -702,7 +702,7 @@ Analog to the corresponding Real signal block example there exists an elementary
                          graphics={
             Text(
               extent={{-196,128},{204,188}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{0,-32},{180,-82}},
@@ -821,7 +821,7 @@ Analog to the corresponding Real signal block example there exists an elementary
                 pattern=LinePattern.Dot),
               Text(
                 extent={{-200,175},{200,110}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Ellipse(
                 extent={{-95,-45},{-65,-75}},
@@ -1104,7 +1104,7 @@ contains utility blocks that are used as building blocks for user-relevant block
         Icon(graphics={
           Text(
             extent = {{-90,36},{90,-36}},
-            lineColor = {160,160,164},
+            textColor = {160,160,164},
             textString = "change()")}),
         Documentation(info="<html><p>
     This block is a synchronous version of
@@ -1139,11 +1139,11 @@ contains utility blocks that are used as building blocks for user-relevant block
             Text(
               extent={{-90,10},{90,90}},
               textString="1",
-              lineColor={255,128,0}),
+              textColor={255,128,0}),
             Text(
               extent={{-90,-10},{90,-90}},
               textString="z",
-              lineColor={255,128,0}),
+              textColor={255,128,0}),
             Text(
               extent={{-150,-140},{150,-100}},
               textString="y_start=%y_start")}),
@@ -1671,7 +1671,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBase
               textString="%y_start"),
             Text(
               extent={{-200,129},{200,64}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 
