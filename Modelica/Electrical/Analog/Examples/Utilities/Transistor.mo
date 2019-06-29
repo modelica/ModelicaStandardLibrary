@@ -58,7 +58,7 @@ equation
         Line(points={{-10,-10},{40,-60},{60,-60}}, color={0,0,255}),
         Text(
           extent={{-150,130},{150,90}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="%name")}),
     Documentation(info="<html>
 <p>Since the simple bipolar transistor model does not have base or collector resistances both are added in this component. Additionally, a capacity is added to the base pin. See the schematic for more details.  In such a way the transistor model can be enhanced to become more common.</p>
@@ -66,6 +66,6 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={Text(
           extent={{-76,82},{-2,54}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Transistor")}));
 end Transistor;

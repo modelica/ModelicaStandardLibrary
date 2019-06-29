@@ -100,11 +100,11 @@ whose losses are dissipated to the optional <code>heatPort</code>.
                 100}}), graphics={
             Text(
               extent={{-150,-110},{150,-70}},
-              lineColor={0,0,0},
+              textColor={0,0,0},
               textString="OCV=%OCVnom"),
             Text(
               extent={{-150,70},{150,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-90,50},{90,-50}},

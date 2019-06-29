@@ -26,7 +26,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -69,7 +69,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -110,7 +110,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
           Line(points={{0,-100},{0,-70}}, color={0,0,127})}),
       Diagram(coordinateSystem(
@@ -119,7 +119,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           Text(
             extent={{-153,79},{147,119}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -183,7 +183,7 @@ equation
       Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
       Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127}),
       Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
-      Text(lineColor = {0,0,255}, extent={{-150,110},{150,150}},   textString = "%name"),
+      Text(textColor = {0,0,255}, extent={{-150,110},{150,150}},   textString = "%name"),
       Line(points = {{0,70},{0,40}}),
       Text(extent = {{-29,-70},{30,-11}},
             textString="P")}),
@@ -255,7 +255,7 @@ equation
         Text(
           extent={{40,-60},{80,-100}},
           textString="v"),
-      Text(lineColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name")}),
+      Text(textColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name")}),
     Documentation(info="<html>
 <p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.
 The pins of the voltage path are pv and nv, the pins of the current path are pc and nc.

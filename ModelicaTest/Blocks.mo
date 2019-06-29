@@ -1445,10 +1445,10 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
       Line(points={{-72.0,0.0},{-60.7,34.2},{-53.5,53.1},{-47.1,66.4},{-41.4,74.6},{-35.8,79.1},{-30.2,79.8},{-24.6,76.6},{-18.9,69.7},{-13.3,59.4},{-6.9,44.1},{1.17,21.2},{18.1,-30.8},{25.3,-50.2},{31.7,-64.2},{37.3,-73.1},{43.0,-78.4},{48.6,-80.0},{54.2,-77.6},{59.9,-71.5},{65.5,-61.9},{71.9,-47.2},{80.0,-24.8},{88.0,0.0}},
         color={160,160,164},
         smooth=Smooth.Bezier),
-      Text(lineColor={160,160,164},
+      Text(textColor={160,160,164},
         extent={{-10.0,38.0},{100.0,100.0}},
         textString="m=%m"),
-      Text(lineColor={160,160,164},
+      Text(textColor={160,160,164},
         extent={{-98.0,-96.0},{6.0,-34.0}},
         textString="n=%n")}),
       Diagram(coordinateSystem(
@@ -1459,7 +1459,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
           Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
           Text(
             extent={{-75,98},{-46,78}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="outPort"),
           Polygon(
             points={{-80,96},{-86,80},{-74,80},{-80,96}},
@@ -1488,13 +1488,13 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
                 73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
           Text(
             extent={{67,22},{96,6}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="time"),
           Line(points={{-64,-30},{-64,0}}, color={192,192,192}),
           Text(
             extent={{-58,-42},{-58,-32}},
             textString="delayTime",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-94,-26},{-80,-26}}, color={192,192,192}),
           Line(points={{-64,-26},{-50,-26}}, color={192,192,192}),
           Polygon(

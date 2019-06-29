@@ -52,7 +52,7 @@ equation
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={Text(
                 extent={{-48,-36},{48,-68}},
-                lineColor={135,135,135},
+                textColor={135,135,135},
                 textString="to FMU"),Text(
                 extent={{-94,96},{-10,66}},
                 horizontalAlignment=TextAlignment.Left,

@@ -131,17 +131,17 @@ Possible reasons:
           Line(points={{100,-30},{100,21}}),
           Text(
             extent={{60,12},{96,-13}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b"),
           Text(
             extent={{-95,13},{-60,-9}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="a"),
           Text(
             visible=useAxisFlange,
             extent={{-150,-135},{150,-95}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-150,-90},{150,-60}},
             textString="n=%n"),
@@ -156,7 +156,7 @@ Possible reasons:
             visible=not useAxisFlange,
             extent={{-150,60},{150,100}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -346,11 +346,11 @@ Possible reasons:
           Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
           Text(
             extent={{-90,14},{-54,-11}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="a"),
           Text(
             extent={{51,11},{87,-14}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b"),
           Line(
             visible=useAxisFlange,
@@ -387,7 +387,7 @@ Possible reasons:
             visible=useAxisFlange,
             extent={{-150,-155},{150,-115}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             visible=useAxisFlange,
             points={{-20,70},{-60,70},{-60,60}}),
@@ -410,7 +410,7 @@ Possible reasons:
             visible=not useAxisFlange,
             extent={{-150,70},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 
 <p>
@@ -578,7 +578,7 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           Text(
             extent={{-150,-110},{150,-70}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-20,10},{20,-10}},
             lineColor={64,64,64},
@@ -600,11 +600,11 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           Rectangle(extent={{20,60},{100,-60}}, lineColor={64,64,64}, radius=10),
           Text(
             extent={{-90,14},{-54,-11}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="a"),
           Text(
             extent={{51,11},{87,-14}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b"),
           Line(
             points={{-91,-76},{-33,15},{30,-49},{87,61}},
@@ -803,7 +803,7 @@ vector \"n\" defining the cylinder axis
           Text(
             extent={{-150,100},{150,60}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-150,-65},{150,-95}},
             textString="n=%n")}));
@@ -944,7 +944,7 @@ phi_b.start = 45<sup>o</sup>).
           Text(
             extent={{-150,-80},{150,-120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{12,82},{80,-82}},
             lineColor={255,255,255},
@@ -1184,7 +1184,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
           Text(
             extent={{-150,110},{150,70}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end Planar;
 
   model Spherical
@@ -1454,7 +1454,7 @@ frame_b of the joint.
           Text(
             extent={{-150,-115},{150,-75}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -1786,7 +1786,7 @@ frame_b of the joint.
             fillPattern=FillPattern.Solid),
           Text(
             extent={{150,-35},{-150,-75}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Rectangle(
             extent={{-70,-5},{-90,5}},
@@ -2158,7 +2158,7 @@ its tip position, is shown in
             fillPattern=FillPattern.Solid),
           Text(
             extent={{150,-44},{-150,-84}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Rectangle(
             extent={{-70,-5},{-90,5}},
@@ -2395,7 +2395,7 @@ its tip position, is shown in
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-40,40},{41,-41}},
             lineColor={255,255,255},
@@ -2447,7 +2447,7 @@ its tip position, is shown in
           Text(
             extent={{-37,-63},{33,-79}},
             textString="rodLength",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-40,41},{40,-40}},
             lineColor={255,255,255},
@@ -2920,7 +2920,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-150,-50},{150,-90}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Ellipse(
             extent={{-100,-40},{-19,40}},
@@ -2988,7 +2988,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             fillColor={192,192,192}),
           Text(
             extent={{-105,118},{-67,86}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="ia"),
           Text(
             extent={{-24,95},{167,65}},
@@ -3009,7 +3009,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Text(
             extent={{-56,-71},{56,-90}},
             textString="rRod",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Ellipse(
             extent={{-100,-40},{-19,40}},
             fillPattern=FillPattern.Sphere,
@@ -3097,7 +3097,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Text(
             extent={{-23,30},{26,10}},
             textString=" eRod*e2 = 0;  n1*e2 = 0",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end UniversalSpherical;
 
   model GearConstraint "Ideal 3-dim. gearbox (arbitrary shaft directions)"
@@ -3250,7 +3250,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     annotation (
       Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
         Text(origin = {0,-20},
-          lineColor = {0,0,255},
+          textColor = {0,0,255},
           extent = {{-150,135},{150,175}},
           textString = "%name"),
         Text(origin = {0,12},
@@ -3509,7 +3509,7 @@ November 3-4, 2003, pp. 149-158</p>
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,120},{150,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Ellipse(
               extent={{-80,80},{80,-80}},
@@ -3713,7 +3713,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
             Text(
               extent={{-146,-98},{154,-138}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Ellipse(
               extent={{42,80},{118,-80}},
               fillColor={255,255,255},
@@ -3746,7 +3746,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-68,70},{-50,58}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="x"),
             Line(
               points={{-62,30},{-94,30}},
@@ -3758,7 +3758,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-114,50},{-96,38}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="y")}),
       Documentation(info="<html>
 <p>
@@ -4167,7 +4167,7 @@ component).
             initialScale=0.2), graphics={
             Text(
               extent={{-140,-50},{140,-75}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Ellipse(
               extent={{-100,-40},{-19,40}},
@@ -4230,7 +4230,7 @@ component).
               fillColor={192,192,192}),
             Text(
               extent={{-98,84},{-60,65}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ia"),
             Line(
               points={{-40,0},{-40,90},{-80,90},{-80,97}},
@@ -4238,7 +4238,7 @@ component).
               thickness=0.5),
             Text(
               extent={{61,86},{109,64}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ib"),
             Rectangle(
               extent={{-35,-13},{-6,14}},
@@ -4294,7 +4294,7 @@ component).
             Text(
               extent={{-62,-73},{65,-90}},
               textString="rAxis",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Ellipse(
               extent={{-100,-40},{-19,40}},
               fillPattern=FillPattern.Sphere,
@@ -4405,7 +4405,7 @@ component).
             Text(
               extent={{-24,117},{-9,102}},
               textString="f",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{-26,103},{-36,100},{-26,97},{-26,103}},
               lineColor={0,0,255},
@@ -4420,7 +4420,7 @@ component).
             Text(
               extent={{12,116},{27,101}},
               textString="f",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{30,93},{40,90},{30,87},{30,93}},
               lineColor={128,128,128},
@@ -4430,7 +4430,7 @@ component).
             Line(points={{-25,100},{-10,100}}, color={0,0,255}),
             Text(
               extent={{-18,90},{19,77}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="s"),
             Line(
               points={{60,90},{40,90},{40,98}},
@@ -4818,7 +4818,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             initialScale=0.2), graphics={
             Text(
               extent={{-140,-41},{140,-66}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Ellipse(
               extent={{-100,-30},{-40,30}},
@@ -4903,11 +4903,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Rectangle(extent={{85,30},{100,-30}}),
             Text(
               extent={{40,109},{77,91}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ib"),
             Text(
               extent={{-124,109},{-95,92}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ia"),
             Line(
               points={{60,30},{60,80},{80,80},{80,100}},
@@ -4915,7 +4915,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               thickness=0.5),
             Text(
               extent={{-43,108},{-10,92}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="im"),
             Line(
               points={{19,6},{19,80},{0,80},{0,100}},
@@ -5317,7 +5317,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-140,-45},{140,-70}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Ellipse(
               extent={{-100,-30},{-40,30}},
@@ -5388,11 +5388,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               fillColor={192,192,192}),
             Text(
               extent={{37,109},{68,90}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ib"),
             Text(
               extent={{-124,110},{-93,90}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ia"),
             Line(
               points={{50,6},{50,80},{80,80},{80,100}},
@@ -5400,7 +5400,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               thickness=0.5),
             Text(
               extent={{-44,111},{-8,91}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="im"),
             Line(
               points={{19,6},{19,80},{0,80},{0,100}},
@@ -5434,11 +5434,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-76,39},{-49,32}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="rRod1_ia"),
             Text(
               extent={{-27,40},{0,33}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="rRod2_ib"),
             Line(
               points={{3,30},{-43,30}},
@@ -5707,7 +5707,7 @@ component).
             initialScale=0.2), graphics={
             Text(
               extent={{-141,-41},{139,-66}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Ellipse(
               extent={{-100,-30},{-40,30}},
@@ -5760,7 +5760,7 @@ component).
             Rectangle(extent={{85,30},{100,-30}}),
             Text(
               extent={{88,112},{127,92}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ib"),
             Ellipse(
               extent={{-80,11},{-60,-9}},
@@ -5779,7 +5779,7 @@ component).
               thickness=0.5),
             Text(
               extent={{-47,111},{-8,92}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="im"),
             Line(
               points={{68,30},{68,80},{80,80},{80,98}},
@@ -6050,7 +6050,7 @@ component).
             initialScale=0.2), graphics={
             Text(
               extent={{-140,-40},{140,-65}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Ellipse(
               extent={{-100,-30},{-40,30}},
@@ -6089,7 +6089,7 @@ component).
               fillColor={192,192,192}),
             Text(
               extent={{89,115},{132,92}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ib"),
             Ellipse(
               extent={{-80,11},{-60,-9}},
@@ -6104,7 +6104,7 @@ component).
               thickness=0.5),
             Text(
               extent={{-49,114},{-11,92}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="im"),
             Rectangle(
               extent={{50,20},{80,-20}},
@@ -6378,15 +6378,15 @@ are connected by rigid rods.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-140,-55},{140,-80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{36,114},{71,92}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ib"),
             Text(
               extent={{-126,115},{-87,90}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ia"),
             Ellipse(
               extent={{-100,25},{-50,-25}},
@@ -6431,7 +6431,7 @@ are connected by rigid rods.
               thickness=0.5),
             Text(
               extent={{-46,114},{-7,91}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="im"),
             Line(
               points={{-80,100},{-80,8}},
@@ -6699,15 +6699,15 @@ and 1 prismatic joint are connected by rigid rods.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-139,-53},{141,-78}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{26,124},{68,93}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ib"),
             Text(
               extent={{-134,128},{-94,94}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="ia"),
             Ellipse(
               extent={{-100,25},{-50,-25}},
@@ -6738,7 +6738,7 @@ and 1 prismatic joint are connected by rigid rods.
               thickness=0.5),
             Text(
               extent={{-55,126},{-15,92}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="im"),
             Line(
               points={{-80,100},{-80,8}},
@@ -6990,37 +6990,37 @@ pair of joints\" from Woernle and Hiller is described in:
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x",
               visible=x_locked and not y_locked and not z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: y",
               visible=not x_locked and y_locked and not z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: z",
               visible=not x_locked and not y_locked and z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x, y",
               visible=x_locked and y_locked and not z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x, z",
               visible=x_locked and not y_locked and z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: y, z",
               visible=not x_locked and y_locked and z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x, y, z",
               visible=x_locked and y_locked and z_locked),
             Rectangle(
@@ -7049,7 +7049,7 @@ pair of joints\" from Woernle and Hiller is described in:
             Line(points={{-30,-44},{-30,56}}),
             Text(
               extent={{-150,120},{150,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(
               points={{-81,-66},{-23,25},{40,-39},{97,71}},
@@ -7200,11 +7200,11 @@ pair of joints\" from Woernle and Hiller is described in:
             Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
             Text(
               extent={{-90,14},{-54,-11}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="a"),
             Text(
               extent={{51,11},{87,-14}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="b"),
             Rectangle(
               extent={{-30,11},{30,-10}},
@@ -7220,7 +7220,7 @@ pair of joints\" from Woernle and Hiller is described in:
               textString="constraint"),
             Text(
               extent={{-150,120},{150,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
           Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
@@ -7326,41 +7326,41 @@ pair of joints\" from Woernle and Hiller is described in:
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-150,120},{150,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x",
               visible=x_locked and not y_locked and not z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: y",
               visible=not x_locked and y_locked and not z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: z",
               visible=not x_locked and not y_locked and z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x, y",
               visible=x_locked and y_locked and not z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x, z",
               visible=x_locked and not y_locked and z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: y, z",
               visible=not x_locked and y_locked and z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x, y, z",
               visible=x_locked and y_locked and z_locked),
             Ellipse(
@@ -7495,37 +7495,37 @@ pair of joints\" from Woernle and Hiller is described in:
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x",
               visible=x_locked and not y_locked and not z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: y",
               visible=not x_locked and y_locked and not z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: z",
               visible=not x_locked and not y_locked and z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x, y",
               visible=x_locked and y_locked and not z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x, z",
               visible=x_locked and not y_locked and z_locked),
             Text(
               extent={{-100,-70},{100,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: y, z",
               visible=not x_locked and y_locked and z_locked),
             Text(
               extent={{-100,-76},{100,-106}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="lock: x, y, z",
               visible=x_locked and y_locked and z_locked),
             Rectangle(
@@ -7578,7 +7578,7 @@ pair of joints\" from Woernle and Hiller is described in:
               thickness=0.5),
             Text(
               extent={{-150,120},{150,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(
               points={{-81,-66},{-23,25},{40,-39},{97,71}},
@@ -7874,7 +7874,7 @@ position a degree of freedom is lost.
             Text(
               extent={{-139,-168},{137,-111}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
             Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
             Text(
@@ -8213,7 +8213,7 @@ degree of freedom is lost.
             Text(
               extent={{-136,-170},{140,-113}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(extent={{-100,60},{-30,-60}}),
             Line(points={{100,-40},{100,-60}}, color={0,0,255}),
             Rectangle(
@@ -8230,7 +8230,7 @@ degree of freedom is lost.
             Line(points={{0,-67},{90,-67}}, color={128,128,128}),
             Text(
               extent={{31,-68},{68,-81}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="s"),
             Line(points={{-100,-67},{0,-67}}, color={128,128,128}),
             Polygon(
@@ -8240,7 +8240,7 @@ degree of freedom is lost.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-77,-70},{-43,-85}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="s_offset"),
             Line(points={{-100,-71},{-100,-51}}, color={128,128,128}),
             Line(points={{-30,-73},{-30,-33}}, color={128,128,128}),
@@ -8278,7 +8278,7 @@ degree of freedom is lost.
             Text(
               extent={{42,91},{57,76}},
               textString="f",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{40,75},{70,75}}, color={0,0,255}),
             Polygon(
               points={{-21,78},{-31,75},{-21,72},{-21,78}},
@@ -8289,7 +8289,7 @@ degree of freedom is lost.
             Text(
               extent={{-21,90},{-6,75}},
               textString="f",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{60,78},{70,75},{60,72},{60,78}},
               lineColor={0,0,255},
@@ -8303,7 +8303,7 @@ degree of freedom is lost.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{0,63},{37,50}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="s"),
             Rectangle(
               extent={{100,40},{90,80}},
@@ -8437,7 +8437,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-148,-86},{152,-126}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Line(
                 points={{0,-60},{0,4}},

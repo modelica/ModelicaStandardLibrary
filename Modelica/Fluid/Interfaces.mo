@@ -262,7 +262,7 @@ This will be visualized at the port icons, in order to improve the understanding
             visible=showDesignFlowDirection),
           Text(
             extent={{-149,-114},{151,-154}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Ellipse(
             extent={{-110,26},{-90,-24}},

@@ -22,7 +22,7 @@ package Sensors
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{151,-20},{57,-50}},
             textString="p")}),
@@ -52,7 +52,7 @@ ideal, i.e., it does not influence the fluid.
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{154,-31},{56,-61}},
             textString="d"),
@@ -184,7 +184,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Text(
             extent={{-150,110},{150,150}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{12,0},{60,0}}, color={0,0,127})}));
   end Temperature;
 
@@ -271,7 +271,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{168,-30},{52,-60}},
             textString="h"),
@@ -336,7 +336,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{156,-24},{54,-54}},
             textString="s"),
@@ -425,7 +425,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{160,-30},{60,-60}},
             textString="Xi"),
@@ -528,7 +528,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{160,-30},{60,-60}},
             textString="C"),
@@ -787,7 +787,7 @@ as signal.
             Text(
               extent={{-150,40},{150,80}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{32,3},{-58,3}},
               color={0,128,255}),

@@ -30,7 +30,7 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,-10},{150,-50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end Ground;
 
   model Resistor "Ideal linear electrical resistor"
@@ -87,7 +87,7 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end Resistor;
 
   model Conductor "Ideal linear electrical conductor"
@@ -144,7 +144,7 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end Conductor;
 
   model Capacitor "Ideal linear electrical capacitor"
@@ -176,7 +176,7 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end Capacitor;
 
   model Inductor "Ideal linear electrical inductor"
@@ -222,7 +222,7 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end Inductor;
 
   model SaturatingInductor "Simple model of an inductor with saturation"
@@ -280,7 +280,7 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 <p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
 <ul>
@@ -341,11 +341,11 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-20,-60},{20,-100}},
             textString="M",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-40,60},{-40,100},{-90,100}}, color={0,0,255}),
           Line(points={{40,60},{40,100},{90,100}}, color={0,0,255}),
           Line(points={{-40,-60},{-40,-100},{-90,-100}}, color={0,0,255}),
@@ -401,11 +401,11 @@ package Basic "Basic electrical components"
           Text(
             extent={{-100,20},{-58,-20}},
             textString="L1",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{60,20},{100,-20}},
             textString="L2",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end Transformer;
 
   model M_Transformer "Generic transformer with free number of inductors"
@@ -450,7 +450,7 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,120},{150,80}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(extent={{-150,-80},{150,-120}}, textString="N=%N"),
           Line(points={{60,-50},{90,-50}},
                                        color={0,0,255}),
@@ -625,7 +625,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,151},{150,111}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{-10,-26},{-20,-30},{-10,-34},{-10,-26}},
               fillColor={0,0,255},
@@ -719,7 +719,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-150,-50},{150,-90}},
             textString="k=%k"),
@@ -748,7 +748,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
               fillPattern=FillPattern.Solid),Line(points={{-20,110},{-20,85}},
             color={160,160,164}),Text(
               extent={{-40,110},{-30,90}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i"),Line(points={{9,75},{19,75}}, color={192,192,192}),
             Line(points={{-20,-110},{-20,-85}}, color={160,160,164}),Polygon(
               points={{-17,-100},{-20,-110},{-23,-100},{-17,-100}},
@@ -756,7 +756,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),Text(
               extent={{-40,-110},{-30,-90}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i"),Line(points={{8,-79},{18,-79}}, color={192,192,192}),
             Line(points={{14,80},{14,70}}, color={192,192,192})}),
       Documentation(info="<html>
@@ -881,7 +881,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{20,80},{220,40}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
               points={{-17,95},{-20,85},{-23,95},{-17,95}},
@@ -890,7 +890,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
               fillPattern=FillPattern.Solid),Line(points={{-20,110},{-20,85}},
             color={160,160,164}),Text(
               extent={{-40,110},{-30,90}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i"),Line(points={{9,75},{19,75}}, color={192,192,192}),
             Line(points={{-20,-110},{-20,-85}}, color={160,160,164}),Polygon(
               points={{-17,-100},{-20,-110},{-23,-100},{-17,-100}},
@@ -898,7 +898,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),Text(
               extent={{-40,-110},{-30,-90}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i"),Line(points={{8,-79},{18,-79}}, color={192,192,192}),
             Line(points={{14,80},{14,70}}, color={192,192,192}),Polygon(
               points={{140,3},{150,0},{140,-3},{140,3},{140,3}},
@@ -951,7 +951,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,151},{150,111}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-90,100},{-40,100},{-40,62}}, color={0,0,255}),
           Line(points={{-90,-100},{-40,-100},{-40,-60}}, color={0,0,255})}));
   end VCV;
@@ -996,7 +996,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-90,100},{-40,100},{-40,60}}, color={0,0,255}),
           Line(
             points={{10,25},{-40,25},{-40,-15}},
@@ -1046,7 +1046,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end CCV;
 
   model CCC "Linear current-controlled current source"
@@ -1092,7 +1092,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end CCC;
 
   model OpAmp "Simple nonideal model of an OpAmp with limitation"
@@ -1156,7 +1156,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end OpAmp;
 
   model OpAmpDetailed "Detailed model of an operational amplifier"
@@ -1393,7 +1393,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{70,0},{-70,80},{-70,-80},{70,0}},
             fillColor={255,255,255},
@@ -1466,7 +1466,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end VariableResistor;
 
   model VariableConductor
@@ -1521,7 +1521,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end VariableConductor;
 
   model VariableCapacitor
@@ -1575,7 +1575,7 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end VariableCapacitor;
 
   model VariableInductor
@@ -1629,7 +1629,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
             color={0,0,255},
@@ -1742,7 +1742,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
                        <p>This models a potentiometer where the sliding contact is placed between pin_n (r = 0) and pin_p (r = 1), dependent on either the parameter rConstant or the signal input r.</p>
                        <p>The total resistance R is temperature dependent.</p>

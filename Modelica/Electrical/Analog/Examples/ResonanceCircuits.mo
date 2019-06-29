@@ -222,9 +222,9 @@ Bear in mind that separating physical components and connecting them via adaptor
 </html>"),
     Diagram(graphics={Text(
           extent={{-100,90},{100,70}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="parallel resonance"), Text(
           extent={{-100,-10},{100,-30}},
-          lineColor={28,108,200},
+          textColor={28,108,200},
           textString="series resonance")}));
 end ResonanceCircuits;

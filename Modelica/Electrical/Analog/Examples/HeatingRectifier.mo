@@ -53,7 +53,7 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-94,102},{0,74}},
           textString="HeatingRectifier",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
                                 Documentation(info="<html>
 <p>The heating rectifier shows a heat flow always if the electrical capacitor is loaded.</p>
 <p>Simulate until T=5 s.Plot in separate windows:

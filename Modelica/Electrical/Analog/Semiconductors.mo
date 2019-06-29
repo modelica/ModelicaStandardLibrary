@@ -54,7 +54,7 @@ package Semiconductors
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
@@ -143,7 +143,7 @@ Stefan Vorkoetter - new model proposed.</li>
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
@@ -200,7 +200,7 @@ Stefan Vorkoetter - new model proposed.</li>
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-101},{0,-20}},
@@ -322,7 +322,7 @@ Some typical parameter sets are:
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-90},{0,0}},
@@ -455,7 +455,7 @@ Muenchen Wien 1990.</dd>
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
 end NMOS;
 
 model NPN "Simple BJT according to Ebers-Moll"
@@ -581,7 +581,7 @@ on page 317 ff.</dd>
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
 end NPN;
 
 model PNP "Simple BJT according to Ebers-Moll"
@@ -697,7 +697,7 @@ on page 317 ff.</dd>
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
 end PNP;
 
 model HeatingDiode "Simple diode with heating port"
@@ -778,7 +778,7 @@ The thermal power is calculated by <em>i*v</em>.
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
 end HeatingDiode;
 
         model HeatingNMOS "Simple MOS Transistor with heating port"
@@ -900,7 +900,7 @@ end HeatingDiode;
             lineColor={0,0,255}),
           Text(     extent={{-150,130},{150,90}},
             textString="%name",
-                    lineColor={0,0,255})}));
+                    textColor={0,0,255})}));
         end HeatingNMOS;
 
         model HeatingPMOS "Simple PMOS Transistor with heating port"
@@ -1011,7 +1011,7 @@ end HeatingDiode;
             lineColor={0,0,255}),
           Text(     extent={{-150,130},{150,90}},
             textString="%name",
-                    lineColor={0,0,255})}));
+                    textColor={0,0,255})}));
         end HeatingPMOS;
 
         model HeatingNPN "Simple NPN BJT according to Ebers-Moll with heating port"
@@ -1123,7 +1123,7 @@ end HeatingDiode;
             lineColor={0,0,255}),
           Text(     extent={{-150,130},{150,90}},
             textString="%name",
-                    lineColor={0,0,255})}));
+                    textColor={0,0,255})}));
         end HeatingNPN;
 
         model HeatingPNP "Simple PNP BJT according to Ebers-Moll with heating port"
@@ -1234,7 +1234,7 @@ end HeatingDiode;
             lineColor={0,0,255}),
           Text(     extent={{-150,130},{150,90}},
             textString="%name",
-                    lineColor={0,0,255})}));
+                    textColor={0,0,255})}));
         end HeatingPNP;
 
 protected
@@ -1374,7 +1374,7 @@ public
           Text(
             extent={{-150,-40},{150,-80}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
      Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -1392,11 +1392,11 @@ public
             fillPattern=FillPattern.Solid),
           Text(
             extent={{5,81},{15,71}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="i"),
           Text(
             extent={{70,-10},{80,-20}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="v"),
           Line(
             points={{20,9},{20,0}},
@@ -1404,7 +1404,7 @@ public
             pattern=LinePattern.Dot),
           Text(
             extent={{25,64},{45,54}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="Ron"),
           Line(
             points={{14,20},{25,73}},
@@ -1417,11 +1417,11 @@ public
             thickness=0.5),
           Text(
             extent={{-67,11},{-47,1}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="VRRM"),
           Text(
             extent={{44,-2},{64,-12}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="VDRM"),
           Line(
             points={{-57,1},{-57,-1}}),
@@ -1432,13 +1432,13 @@ public
             pattern=LinePattern.Dot),
           Text(
             extent={{-28,-9},{-8,-19}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="Roff"),
           Line(
             points={{2,20},{-2,20}}),
           Text(
             extent={{-14,23},{-2,16}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="IH")}));
   end Thyristor;
 
@@ -1541,7 +1541,7 @@ public
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 <p>This is a simple TRIAC model based on the extended thyristor model Modelica.Electrical.Analog.Semiconductors.Thyristor.
 <br>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.

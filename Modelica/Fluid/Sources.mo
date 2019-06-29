@@ -104,7 +104,7 @@ package Sources "Define fixed or prescribed boundary conditions"
             fillColor={0,127,255}), Text(
             extent={{-150,110},{150,150}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Model <strong>FixedBoundary</strong> defines constant values for boundary conditions:
@@ -214,7 +214,7 @@ with exception of boundary pressure, do not have an effect.
           Text(
             extent={{-150,120},{150,160}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             visible=use_p_in,
             points={{-100,80},{-58,80}},
@@ -358,7 +358,7 @@ with exception of boundary pressure, do not have an effect.
           Text(
             extent={{-150,110},{150,150}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             visible=use_p_in,
             points={{-100,80},{-60,80}},
@@ -513,12 +513,12 @@ with exception of boundary pressure, do not have an effect.
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-54,32},{16,-30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="m"),
           Text(
             extent={{-150,130},{150,170}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Ellipse(
             extent={{-26,30},{-18,22}},
             lineColor={255,0,0},
@@ -662,7 +662,7 @@ with exception of boundary flow rate, do not have an effect.
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-54,32},{16,-30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="m"),
           Ellipse(
             extent={{-26,30},{-18,22}},
@@ -688,7 +688,7 @@ with exception of boundary flow rate, do not have an effect.
           Text(
             extent={{-150,110},{150,150}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Models an ideal flow source, with prescribed values of flow rate, temperature and composition:

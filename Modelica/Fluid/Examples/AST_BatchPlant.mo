@@ -899,7 +899,7 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
             Line(points={{-200,100},{-200,-100},{0,-100},{0,100}}),
             Text(
               extent={{-200,84},{0,48}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Polygon(
               points={{0,100},{200,70},{200,50},{200,50},{0,80},{0,100}},
@@ -1198,7 +1198,7 @@ Full steady state initialization is not supported, because the corresponding ini
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-288,286},{262,208}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{-48,0},{0,0}}),
             Rectangle(extent={{-170,60},{-50,-60}}),
@@ -1679,7 +1679,7 @@ end for;
               fillPattern=FillPattern.VerticalCylinder),
             Text(
               extent={{-94,90},{95,60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-95,41},{95,21}},

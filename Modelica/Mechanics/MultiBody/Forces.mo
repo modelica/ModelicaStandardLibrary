@@ -72,7 +72,7 @@ package Forces "Components that exert forces and/or torques between frames"
               100}}), graphics={
           Text(
             extent={{-100,-40},{100,-70}},
-            lineColor={192,192,192},
+            textColor={192,192,192},
             textString="resolve"),
           Polygon(
             points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,-10},
@@ -81,7 +81,7 @@ package Forces "Components that exert forces and/or torques between frames"
           Text(
             extent={{-150,80},{150,40}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             points={{0,-10},{0,-95}},
             color={95,95,95},
@@ -296,12 +296,12 @@ This leads to the following animation
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-61,64},{46,27}},
-            lineColor={192,192,192},
+            textColor={192,192,192},
             textString="resolve"),
           Text(
             extent={{-150,-40},{150,-80}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             points={{0,95},{0,82}},
             color={95,95,95},
@@ -429,12 +429,12 @@ This leads to the following animation
               100}}), graphics={
           Text(
             extent={{-63,56},{44,19}},
-            lineColor={192,192,192},
+            textColor={192,192,192},
             textString="resolve"),
           Text(
             extent={{-150,-75},{150,-115}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             points={{-100,60},{-86,68},{-80,72},{-70,78},{-64,82},{-46,86},{-34,
                 88},{-16,88},{-2,86},{12,80},{24,74},{34,68},{46,58},{52,54},{
@@ -628,12 +628,12 @@ This leads to the following animation
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-92,61},{87,35}},
-            lineColor={192,192,192},
+            textColor={192,192,192},
             textString="resolve"),
           Text(
             extent={{-150,-55},{150,-95}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             points={{40,100},{40,0}},
             color={95,95,95},
@@ -815,12 +815,12 @@ clarity this is not shown in the animation):
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-59,55},{72,30}},
-            lineColor={192,192,192},
+            textColor={192,192,192},
             textString="resolve"),
           Text(
             extent={{-150,-30},{150,-70}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{100,20},{84,52},{69,39},{100,20}},
             fillPattern=FillPattern.Solid),
@@ -1052,12 +1052,12 @@ clarity this is not shown in the animation):
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-59,55},{72,30}},
-            lineColor={192,192,192},
+            textColor={192,192,192},
             textString="resolve"),
           Text(
             extent={{-150,-55},{150,-95}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{100,21},{84,55},{69,39},{100,21}},
             fillPattern=FillPattern.Solid),
@@ -1317,7 +1317,7 @@ clarity this is not shown in the animation):
           Text(
             extent={{-150,-50},{150,-90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-40,41},{44,-40}},
             lineColor={255,255,255},
@@ -1342,12 +1342,12 @@ clarity this is not shown in the animation):
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
             extent={{-62,50},{-140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0"),
           Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_b,
             extent={{62,50},{140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1361,7 +1361,7 @@ clarity this is not shown in the animation):
           Text(
             extent={{-40,98},{40,82}},
             textString="length",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Ellipse(
             extent={{-100,-40},{-20,40}},
             fillPattern=FillPattern.Sphere,
@@ -1675,7 +1675,7 @@ in the other flange connector.
           Text(
             extent={{-150,-55},{150,-95}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-52,40},{48,-40}},
             lineColor={255,255,255},
@@ -1705,12 +1705,12 @@ in the other flange connector.
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
             extent={{-62,50},{-140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0"),
           Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_b,
             extent={{62,50},{140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1724,7 +1724,7 @@ in the other flange connector.
           Text(
             extent={{-42,91},{30,79}},
             textString="length",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Ellipse(
             extent={{-100,-40},{-20,40}},
             fillPattern=FillPattern.Sphere,
@@ -1956,7 +1956,7 @@ in the other flange connector.
           Text(
             extent={{-150,56},{150,96}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-150,-80},{150,-50}},
             textString="c=%c"),
@@ -1966,12 +1966,12 @@ in the other flange connector.
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
             extent={{-62,50},{-140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0"),
           Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_b,
             extent={{62,50},{140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0")}),
       Documentation(info="<html>
 <p>
@@ -2101,7 +2101,7 @@ where a mass is hanging on a damper.
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-150,-75},{150,-45}},
             textString="d=%d"),
@@ -2124,7 +2124,7 @@ where a mass is hanging on a damper.
           Line(points={{-50,60},{50,60}}, color={128,128,128}),
           Text(
             extent={{-40,64},{23,77}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="der(s)"),
           Polygon(
             points={{64,60},{42,68},{42,52},{62,60},{64,60}},
@@ -2234,7 +2234,7 @@ and der(s) is the time derivative of s.
           Text(
             extent={{-150,-150},{150,-110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{60,
                 40},{80,40}}),
           Line(points={{-80,40},{-80,-70}}),
@@ -2276,7 +2276,7 @@ and der(s) is the time derivative of s.
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-20,72},{20,97}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="s"),
           Rectangle(
             extent={{-52,-20},{38,-80}},
@@ -2415,7 +2415,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-150,-65},{150,-35}},
             textString="c=%c"),
@@ -2455,11 +2455,11 @@ force element) and der(s_damper) is the time derivative of s_damper.
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-72,63},{-11,78}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="s_damper"),
           Text(
             extent={{0,80},{20,100}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="s")}));
   end SpringDamperSeries;
 
@@ -2529,12 +2529,12 @@ force element) and der(s_damper) is the time derivative of s_damper.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-92,61},{87,35}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="resolve"),
             Text(
               extent={{-136,-52},{149,-113}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{40,100},{40,0}},
               color={95,95,95},
@@ -2655,12 +2655,12 @@ values from the outside in order that the model remains balanced
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-59,55},{72,30}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="resolve"),
             Text(
               extent={{-139,-27},{146,-88}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{100,20},{84,52},{69,39},{100,20}},
               fillPattern=FillPattern.Solid),
@@ -2763,7 +2763,7 @@ values from the outside in order that the model remains balanced
                 100,100}}), graphics={
             Text(
               extent={{-100,-40},{100,-70}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="resolve"),
             Polygon(
               points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
@@ -2772,7 +2772,7 @@ values from the outside in order that the model remains balanced
             Text(
               extent={{-150,80},{150,40}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{0,-10},{0,-95}},
               color={95,95,95},
@@ -2867,12 +2867,12 @@ values from the outside in order that the model remains balanced
                 100,100}}), graphics={
             Text(
               extent={{-61,64},{46,27}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="resolve"),
             Text(
               extent={{-150,-40},{150,-80}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{0,95},{0,82}},
               color={95,95,95},

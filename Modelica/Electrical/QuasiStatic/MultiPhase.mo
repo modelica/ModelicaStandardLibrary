@@ -638,7 +638,7 @@ Examples to demonstrate the usage of quasi-static electric components.
             Text(
               extent={{-150,70},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-110},{150,-70}},
               textString="m=%m")}),
@@ -686,7 +686,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-150,70},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-110},{150,-70}},
               textString="m=%m")}),
@@ -757,7 +757,7 @@ Delta (polygon) connection of a multi phase circuit.
             Text(
               extent={{-150,70},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-110},{150,-70}},
               textString="m=%m")}),
@@ -818,7 +818,7 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
             Text(
               extent={{-150,70},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-110},{150,-70}},
               textString="m=%m")}), Documentation(info="<html>
@@ -884,7 +884,7 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
             Text(
               extent={{-150,70},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-110},{150,-70}},
               textString="R=%R")}),
@@ -924,7 +924,7 @@ Multi star points are connected by resistors. This model is required to operate 
             Text(
               extent={{-150,50},{150,90}},
                   textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-40},{150,-80}},
                   textString="k = %k")}), Documentation(info="<html>
@@ -968,7 +968,7 @@ Connects the single phase (positive) pin <code>k</code> of the multi phase (posi
             Text(
               extent={{-150,50},{150,90}},
                   textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-40},{150,-80}},
                   textString="k = %k")}), Documentation(info="<html>
@@ -1015,7 +1015,7 @@ Connects the single phase (negative) pin <code>k</code> of the multi phase (nega
             Text(
               extent={{-150,50},{150,90}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Connects all <code>m</code> single phase (positive) pins of the multi phase (positive) plug to an array of <code>m</code> single phase (positive) pins.
 </p>
@@ -1059,7 +1059,7 @@ Connects all <code>m</code> single phase (positive) pins of the multi phase (pos
             Text(
               extent={{-150,50},{150,90}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Connects all <code>m</code> single phase (negative) pins of the multi phase (negative) plug to an array of <code>m</code> single phase (negative) pins.
 </p>
@@ -1107,7 +1107,7 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{150,-80},{-150,-40}},
               textString="m=%m")}), Documentation(info="<html>
@@ -1179,7 +1179,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 The linear resistor connects the complex currents <code><u>i</u></code> with the complex
 voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
@@ -1228,7 +1228,7 @@ A linear temperature dependency of the conductances for enabled heat ports is al
             Text(
               extent={{-150,90},{150,50}},
                   textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-6,28},{-6,-28}},
               color={0,128,255}),
@@ -1297,7 +1297,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStatic.Single
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 The linear inductor connects the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
@@ -1393,7 +1393,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end MutualInductor;
 
     model Impedance "Multiphase linear impedance"
@@ -1440,7 +1440,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor
 in each phase.<br>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/RX_impedance.png\"></p>
@@ -1527,7 +1527,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 
 <p>The admittance model represents a <strong>parallel</strong> connection of a resistor and either a capacitor or inductor
 in each phase.<br>
@@ -1615,7 +1615,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
@@ -1693,7 +1693,7 @@ A linear temperature dependency of the resistances is also taken into account.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
@@ -1760,7 +1760,7 @@ A linear temperature dependency of the conductances is also taken into account.
             Text(
               extent={{-150,90},{150,50}},
                   textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
@@ -1830,7 +1830,7 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
@@ -1913,7 +1913,7 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
@@ -2019,7 +2019,7 @@ singularities due to the actual structure of the connected network.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}),
@@ -2116,7 +2116,7 @@ Quasi-static theory can be found in the
               Text(
                   extent={{-150,130},{150,90}},
                   textString="%name",
-                  lineColor={0,0,255}),
+                  textColor={0,0,255}),
             Text(
               extent={{-150,-90},{150,-130}},
               textString="m=%m")}), Documentation(info="<html>
@@ -2153,7 +2153,7 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePh
                     Text(
                   extent={{-150,130},{150,90}},
                   textString="%name",
-                  lineColor={0,0,255}),
+                  textColor={0,0,255}),
             Text(
               extent={{-150,-90},{150,-130}},
               textString="m=%m")}),
@@ -2239,7 +2239,7 @@ it uses <em>m</em> <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePh
             Text(
               extent={{-150,90},{150,50}},
                   textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}), Documentation(info="<html>
@@ -2331,7 +2331,7 @@ This switch is only intended to be used for structural changes, not fast switchi
             Text(
               extent={{-150,90},{150,50}},
                   textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}), Documentation(info=
@@ -2386,7 +2386,7 @@ This switch is only intended to be used for structural changes, not fast switchi
             Text(
               extent={{-150,90},{150,50}},
                   textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}), Documentation(info="<html>
@@ -2439,7 +2439,7 @@ This switch is only intended to be used for structural changes, not fast switchi
             Text(
               extent={{-150,90},{150,50}},
                   textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
                     Text(
                   extent={{150,-80},{-150,-40}},
                   textString="m=%m")}), Documentation(info="<html>
@@ -3036,7 +3036,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
             Text(
-              lineColor={0,0,255},
+              textColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}),
         Documentation(revisions="<html>
@@ -3149,7 +3149,7 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Text(
-              lineColor={0,0,255},
+              textColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}),
         Documentation(revisions="<html>
@@ -3251,7 +3251,7 @@ value of a multi phase current system, by averaging the phase RMS current phasor
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
             Text(extent={{-29,-70},{30,-11}}, textString="P"),
             Text(
-              lineColor={0,0,255},
+              textColor={0,0,255},
               extent={{-150,110},{150,150}},
               textString="%name"),
             Line(points={{-100,0},{100,0}}, color={85,170,255}),
@@ -3371,7 +3371,7 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
           Text(
             extent={{-150,110},{150,150}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 <p>This multi sensor measures currents, voltages and instantaneous electrical power of a multiphase system and has separated voltage and current paths.
 The plugs of the voltage paths are pv and nv, the plugs of the current paths are pc and nc.
@@ -3477,7 +3477,7 @@ The internal resistance of each current path is zero, the internal resistance of
             Text(
               extent={{-150,80},{150,120}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains 2 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total active power in a threephase system.
 </p>
@@ -3596,7 +3596,7 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
             Text(
               extent={{-150,80},{150,120}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a threephase system.
 </p>
@@ -3782,7 +3782,7 @@ Additionally, the frequency of the current source is defined by a real signal in
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-44,0},{-32,14},{-20,32},{-12,42},{-6,30},{0,0},{4,-28},{8,-40},{12,-20},{14,2},{16,30},{18,42},{20,28},{24,-32},{26,-40},{28,0}},
               color={192,192,192},
@@ -3976,7 +3976,7 @@ Additionally, the frequency of the current source is defined by a real signal in
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-44,0},{-32,14},{-20,32},{-12,42},{-6,30},{0,0},{4,-28},{8,-40},{12,-20},{14,2},{16,30},{18,42},{20,28},{24,-32},{26,-40},{28,0}},
               color={192,192,192},
@@ -4054,7 +4054,7 @@ derived from this base connector.
               fillColor={85,170,255},
               fillPattern=FillPattern.Solid), Text(
               extent={{-100,100},{100,60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 
@@ -4090,7 +4090,7 @@ Additionally the reference angle is specified in the connector. The time derivat
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
               extent={{-100,100},{100,60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 
@@ -4243,7 +4243,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic.PlugToPi
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Text(
-              lineColor={0,0,255},
+              textColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}), Documentation(info="<html>
 
@@ -4279,7 +4279,7 @@ The absolute sensor partial model relies on the a
               extent={{150,-100},{-150,-70}},
               textString="m=%m"),
             Text(
-              lineColor={0,0,255},
+              textColor={0,0,255},
               extent={{-150,80},{150,120}},
               textString="%name")}), Documentation(info="<html>
 <p>
@@ -4319,7 +4319,7 @@ The relative sensor partial model relies on the
                                Text(
                   extent={{-160,60},{160,100}},
                   textString="%name",
-                  lineColor={0,0,255})}),
+                  textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 The source partial model relies on the
@@ -4357,7 +4357,7 @@ The source partial model relies on the
                                Text(
                   extent={{-160,60},{160,100}},
                   textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255})}), Documentation(info="<html>
 <p>
 The source partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon.

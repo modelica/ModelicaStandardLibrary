@@ -255,7 +255,7 @@ end UsersGuide;
             Text(
               extent={{-115,155},{115,105}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end Conversion;
   end Icons;
 
@@ -871,7 +871,7 @@ The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" retu
             Text(
               extent={{-115,155},{115,105}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This icon of a <strong>conversion symbol</strong> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
 </p>

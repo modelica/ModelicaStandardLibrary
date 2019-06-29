@@ -433,12 +433,12 @@ whereas the transient model may have only one ground since AC side and DC side a
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-60,30},{40,10}},
-              lineColor={28,108,200},
+              textColor={28,108,200},
               textString="transformer with short
 circuit impedance"),
             Text(
               extent={{50,30},{96,10}},
-              lineColor={28,108,200},
+              textColor={28,108,200},
               textString="load current")}),
         Documentation(info="<html>
 <p>This examples shows the operational behavior of transformer with short circuit impedance. The transformer is loaded with constant current magnitude of 250A but variable phase angle. The angle varies from 0 to 360 degrees within one second of simulation time.
@@ -482,7 +482,7 @@ Examples to demonstrate the usage of quasi-static electric components.
             Text(
               extent={{150,-50},{-150,-10}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Ground of a single phase circuit. The potential at the ground node is zero.
 Every electrical circuit, e.g., a series resonance
@@ -520,7 +520,7 @@ Every electrical circuit, e.g., a series resonance
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
           Documentation(info="<html>
 <p>
 The linear resistor connects the complex voltage <code><u>v</u></code> with the complex
@@ -578,7 +578,7 @@ A linear temperature dependency of the resistance is also taken into account.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
           Documentation(info="<html>
 
 <p>
@@ -621,7 +621,7 @@ A linear temperature dependency of the conductance is also taken into account.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-6,28},{-6,-28}},
               color={85,170,255}),
@@ -684,7 +684,7 @@ The capacitance <code>C</code> is allowed to be positive, zero, or negative.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
           Documentation(info="<html>
 
 <p>
@@ -753,7 +753,7 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
           Documentation(info="<html>
 
 <p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor.<br>
@@ -835,7 +835,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
           Documentation(info="<html>
 
 <p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
@@ -909,7 +909,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -980,7 +980,7 @@ A zero crossing of the R signal could cause singularities due to the actual stru
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -1032,7 +1032,7 @@ A linear temperature dependency of the conductance is also taken into account.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-6,28},{-6,-28}},
               color={0,128,255}),
@@ -1110,7 +1110,7 @@ The abstraction of a variable capacitor at quasi-static operation assumes:
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -1194,7 +1194,7 @@ The abstraction of a variable inductor at quasi-static operation assumes:
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>The impedance model represents a <strong>series</strong> connection of a resistor and either an inductor or capacitor.<br>
@@ -1292,7 +1292,7 @@ singularities due to the actual structure of the connected network.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>The admittance model represents a <strong>parallel</strong> connection of a conductor and either a capacitor or inductor.<br>
@@ -1377,7 +1377,7 @@ Quasi-static theory for single phase circuits can be found in the
             Text(
               extent={{-150,110},{150,70}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This model is a simple idle branch considering the complex current <em><u>i</u></em> = 0.
 </p>
@@ -1403,7 +1403,7 @@ This model is a simple idle branch considering the complex current <em><u>i</u><
             Text(
               extent={{-150,110},{150,70}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This model is a simple short cut branch considering the complex voltage <em><u>v</u></em> = 0.
 </p>
@@ -1494,7 +1494,7 @@ This switch is only intended to be used for structural changes, not for fast swi
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end IdealCommutingSwitch;
 
     model IdealIntermediateSwitch "Ideal intermediate switch"
@@ -1601,7 +1601,7 @@ This switch is only intended to be used for structural changes, not for fast swi
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end IdealIntermediateSwitch;
 
     model IdealOpeningSwitch "Ideal electrical opener"
@@ -1670,13 +1670,13 @@ This switch is only intended to be used for structural changes, not for fast swi
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{-100,-40},{100,-79}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Ideal electrical closer"
@@ -1744,13 +1744,13 @@ This switch is only intended to be used for structural changes, not for fast swi
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{-100,-40},{100,-79}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end IdealClosingSwitch;
 
     model IdealTransformer "Ideal transformer"
@@ -1814,11 +1814,11 @@ This switch is only intended to be used for structural changes, not for fast swi
                 {100,100}}), graphics={
             Text(
               extent={{-100,10},{0,-10}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="1=primary"),
             Text(
               extent={{0,10},{100,-10}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="2=secondary"),
             Polygon(
               points={{-120,53},{-110,50},{-120,47},{-120,53}},
@@ -1828,7 +1828,7 @@ This switch is only intended to be used for structural changes, not for fast swi
             Line(points={{-136,50},{-111,50}}, color={160,160,164}),
             Text(
               extent={{-136,53},{-119,68}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i1"),
             Line(points={{-136,-49},{-111,-49}}, color={160,160,164}),
             Polygon(
@@ -1838,7 +1838,7 @@ This switch is only intended to be used for structural changes, not for fast swi
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-127,-46},{-110,-31}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i1"),
             Polygon(
               points={{127,-47},{137,-50},{127,-53},{127,-47}},
@@ -1848,7 +1848,7 @@ This switch is only intended to be used for structural changes, not for fast swi
             Line(points={{111,-50},{136,-50}}, color={160,160,164}),
             Text(
               extent={{112,-44},{128,-29}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i2"),
             Text(
               extent={{118,52},{135,67}},
@@ -1862,11 +1862,11 @@ This switch is only intended to be used for structural changes, not for fast swi
                 100,100}}), graphics={
             Text(
               extent={{-100,20},{-60,-20}},
-              lineColor={85,170,255},
+              textColor={85,170,255},
               textString="1"),
             Text(
               extent={{60,20},{100,-20}},
-              lineColor={85,170,255},
+              textColor={85,170,255},
               textString="2"),
             Line(points={{-40,60},{-40,100},{-90,100}}, color={85,170,255}),
             Line(points={{40,60},{40,100},{90,100}}, color={85,170,255}),
@@ -1923,7 +1923,7 @@ This switch is only intended to be used for structural changes, not for fast swi
             Text(
               extent={{-150,149},{150,109}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 The ideal transformer is a two-port circuit element without magnetization. Voltages and currents are ideally transformed:
@@ -2161,7 +2161,7 @@ This sensor can be used to measure the complex current.
             Text(
               extent={{-150,110},{150,150}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
           Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127})}),
                                                                 Documentation(
             info="<html>
@@ -2257,7 +2257,7 @@ This sensor can be used to measure the complex apparent power.
           Text(
             extent={{-150,110},{150,150}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-100,-60},{-80,-60},{-56,-42}},
                                                      color={85,170,255}),
           Line(points={{-60,-100},{-60,-80},{-42,-56}},
@@ -2417,7 +2417,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-44,0},{-32,14},{-20,32},{-12,42},{-6,30},{0,0},{4,-28},{8,-40},{12,-20},{14,2},{16,30},{18,42},{20,28},{24,-32},{26,-40},{28,0}},
               color={192,192,192},
@@ -2539,7 +2539,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-44,0},{-32,14},{-20,32},{-12,42},{-6,30},{0,0},{4,-28},{8,-40},{12,-20},{14,2},{16,30},{18,42},{20,28},{24,-32},{26,-40},{28,0}},
               color={192,192,192},
@@ -2607,7 +2607,7 @@ derived from this base connector.
       annotation (
         Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"), Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={85,170,255},
@@ -2643,7 +2643,7 @@ Additionally the reference angle is specified in the connector. The time derivat
       annotation (
         Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"), Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={85,170,255},
@@ -2751,7 +2751,7 @@ This model is intended to be used with textual representation of user models.
             Line(points={{-70,0},{-94,0}}, color={85,170,255}),
             Text(
               extent={{-160,120},{160,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{100,0},{70,0}})}), Documentation(info="<html>
 <p>
@@ -2784,7 +2784,7 @@ The absolute sensor partial model provides a single
             Line(points={{70,0},{94,0}}, color={85,170,255}),
             Text(
               extent={{-160,120},{160,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{0,-70},{0,-80},{0,-90},{0,-100}})}),
           Documentation(info="<html>
@@ -2821,7 +2821,7 @@ The relative sensor partial model relies on the
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{-90,0},{-50,0}}, color={85,170,255}),
             Line(points={{50,0},{90,0}}, color={85,170,255})}),
                                             Documentation(info="<html>
@@ -2896,18 +2896,18 @@ The source partial model relies on the
               color={0,0,255}),
             Text(
               extent={{50,30},{100,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="DC"),
             Line(
               points={{-2,40},{-2,40},{-70,40},{-2,40},{-70,-50},{-2,-50},{-2,40},{-2,-50}},
               color={85,170,255}),
             Text(
               extent={{-90,30},{-40,0}},
-              lineColor={85,170,255},
+              textColor={85,170,255},
               textString="QS"),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-150,-50},{150,-90}},
@@ -2985,15 +2985,15 @@ At the DC side, only the mean of voltage and current are taken into account.
       annotation (defaultComponentName="rectifier", Icon(graphics={
             Text(
               extent={{50,30},{100,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="DC"),
             Text(
               extent={{-100,30},{-50,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="AC"),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(
               points={{-2,40},{-2,40},{-70,40},{-2,40},{-70,-50},{-2,-50},{-2,40},{-2,-50}},

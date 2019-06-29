@@ -3929,7 +3929,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
                   -60}},
                       color={255,0,255}),Text(
                       extent={{-40,60},{40,0}},
-                      lineColor={255,0,255},
+                      textColor={255,0,255},
                       textString="2*%m%")}),
           Documentation(revisions="<html>
 </html>", info="<html>
@@ -4020,7 +4020,7 @@ General information about controllers is summarized in
                   -60}},
                       color={255,0,255}),Text(
                       extent={{-40,60},{40,0}},
-                      lineColor={255,0,255},
+                      textColor={255,0,255},
                       textString="2")}),
           Documentation(revisions="<html>
 </html>", info="<html>
@@ -4124,7 +4124,7 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
                   -60}},
                       color={255,0,255}),Text(
                       extent={{-40,60},{40,0}},
-                      lineColor={255,0,255},
+                      textColor={255,0,255},
                       textString="2*%m%")}),
           Documentation(info="<html>
 
@@ -4224,7 +4224,7 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
                   -60}},
                       color={255,0,255}),Text(
                       extent={{-40,60},{40,0}},
-                      lineColor={255,0,255},
+                      textColor={255,0,255},
                       textString="2*%m%")}),
           Documentation(revisions="<html>
 </html>", info="<html>
@@ -4413,11 +4413,11 @@ enabling signal is taken from the optional signal input <code>enable</code>.
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -4558,11 +4558,11 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -4700,11 +4700,11 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-44,50},{36,2}},
@@ -4809,11 +4809,11 @@ The circuit topology is the same as in
             grid={2,2}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -4913,11 +4913,11 @@ This is a two pulse diode rectifier with center tap. In order to operate this re
             grid={2,2}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -4999,11 +4999,11 @@ General information about AC/DC converters can be found at the
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5093,11 +5093,11 @@ The circuit topology is the same as in
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5201,11 +5201,11 @@ See example
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5329,11 +5329,11 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5457,11 +5457,11 @@ See example
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-46,52},{34,4}},
@@ -5579,11 +5579,11 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5698,11 +5698,11 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -6183,11 +6183,11 @@ Currently there are only threephase PWM implemented (not multiphase).
               color={0,0,255}),
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC")}),
         Documentation(info="<html>
 <p>
@@ -6348,11 +6348,11 @@ An example of a single phase inverter with PWM voltage control is included in
               color={0,0,255}),
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="AC")}),
         Documentation(info="<html>
 <p>
@@ -6560,7 +6560,7 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
               Polygon(
                 points={{0,-80},{0,60},{-6,60},{0,80},{6,60},{0,60},{0,-80}},
                 fillPattern=FillPattern.Solid), Text(extent={{
-                    -150,-120},{150,-160}}, textString = "%name", lineColor = {0, 0, 255})}),
+                    -150,-120},{150,-160}}, textString = "%name", textColor = {0, 0, 255})}),
           Documentation(info="<html>
 This model linearly transforms the input voltage signal into a duty cycle. For the unipolar case the input voltage range is between zero and <code>vMax</code>. In case of bipolar input the input voltage is in the range between <code>-vMax</code> and <code>vMax</code>.
 </html>"));
@@ -6635,16 +6635,16 @@ Currently there is only one PWM method provided in this library.
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC in"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC out"),
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={255,255,255},
@@ -6742,16 +6742,16 @@ This is a conventional step down chopper (buck converter) model. It consists of 
                 100,100}}), graphics={
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC in"),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC out"),
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={255,255,255},
@@ -6884,11 +6884,11 @@ This is a conventional step up chopper (boost converter) model. It consists of a
               fillPattern=FillPattern.Solid),
             Text(
               extent={{0,-50},{100,-70}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC out"),
             Text(
               extent={{-100,70},{0,50}},
-              lineColor={0,0,127},
+              textColor={0,0,127},
               textString="DC in"),
             Line(
               points={{-40,0},{-28,0}},
@@ -6995,7 +6995,7 @@ For <code>useConstantEnable = false</code> the internal signal
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
               extent={{-58,60},{58,-60}},
-              lineColor={255,0,255},
+              textColor={255,0,255},
               textString="enable")}));
     end EnableLogic;
   end Enable;
@@ -7324,7 +7324,7 @@ This partial model provides parameters and the conditional input signal for the 
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end Converter;
 
     partial block Control "Control icon"
@@ -7336,7 +7336,7 @@ This partial model provides parameters and the conditional input signal for the 
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-150,-140},{150,-180}},
                   textString="%name",
-                  lineColor={0,0,255})}));
+                  textColor={0,0,255})}));
     end Control;
   end Icons;
 

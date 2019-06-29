@@ -137,7 +137,7 @@ package Lines
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{40,30},{-40,30}}),
           Line(points={{-40,40},{-40,20}}),
           Line(points={{40,40},{40,20}})}));
@@ -290,7 +290,7 @@ package Lines
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>The segment model is part of the multiple line model. It describes one line segment as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
     end segment;
@@ -353,7 +353,7 @@ package Lines
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>The segment_last model is part of the multiple line model. It describes the special  line segment which is used to get the line symmetrical as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
     end segment_last;
@@ -434,7 +434,7 @@ package Lines
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Transformer model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
 <blockquote>
@@ -615,7 +615,7 @@ The capacitances are calculated with: C=c*length/N.
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-80,80},{80,-80}},
             lineColor={0,0,255},
@@ -670,7 +670,7 @@ The capacitances are calculated with: C=c*length/N.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-80,80},{80,-80}},
             lineColor={0,0,255},
@@ -696,7 +696,7 @@ The capacitances are calculated with: C=c*length/N.
                                       Text(
               extent={{-100,100},{100,70}},
               textString="TLine1",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
   end TLine1;
 
   model TLine2
@@ -739,7 +739,7 @@ The capacitances are calculated with: C=c*length/N.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-80,80},{80,-80}},
             lineColor={0,0,255},
@@ -765,7 +765,7 @@ The capacitances are calculated with: C=c*length/N.
                                            Text(
               extent={{-100,100},{100,70}},
               textString="TLine2",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
   end TLine2;
 
   model TLine3
@@ -817,7 +817,7 @@ The capacitances are calculated with: C=c*length/N.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-40,40},{-40,20}}),
           Line(points={{40,30},{-40,30}}),
           Line(points={{40,40},{40,20}}),
@@ -831,7 +831,7 @@ The capacitances are calculated with: C=c*length/N.
                                            Text(
               extent={{-100,100},{100,70}},
               textString="TLine3",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
   end TLine3;
 
   annotation (Documentation(info="<html>

@@ -121,7 +121,7 @@ of the mechanism, as demonstrated in the example
           lineThickness=0.5,
           pattern=LinePattern.Dash),      Text(
           extent={{0,18},{0,2}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="Can be replaced by Assemblies.JointRRR",
           fontSize=14)}));
 end PlanarFourbar;

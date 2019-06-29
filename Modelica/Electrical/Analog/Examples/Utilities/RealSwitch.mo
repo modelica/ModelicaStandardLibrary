@@ -25,6 +25,6 @@ equation
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-90,86},{28,70}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Real Switch")}));
 end RealSwitch;

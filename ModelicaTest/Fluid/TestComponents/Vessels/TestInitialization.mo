@@ -48,7 +48,7 @@ equation
             -100},{100,100}}), graphics={
         Text(
           extent={{-100,-28},{100,-34}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="See Documentation view for more info.")}),
                        experiment(StopTime=1, Tolerance=1e-6),
     Documentation(info="<html>

@@ -82,11 +82,11 @@ package Examples
           Rectangle(extent={{-99,48},{-32,8}}, lineColor={255,0,0}),
           Text(
             extent={{-98,59},{-31,51}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="reference speed generation"),
           Text(
             extent={{-98,-46},{-60,-52}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="PI controller"),
           Line(
             points={{-76,-44},{-57,-23}},
@@ -95,7 +95,7 @@ package Examples
           Rectangle(extent={{-25,6},{99,-50}}, lineColor={255,0,0}),
           Text(
             extent={{4,14},{71,7}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="plant (simple drive train)")}),
       experiment(StopTime=4),
       Documentation(info="<html>
@@ -2507,7 +2507,7 @@ actuator example
                   pattern=LinePattern.None), Text(
                 extent={{-150,150},{150,110}},
                 textString="%name",
-                lineColor={0,0,255})}));
+                textColor={0,0,255})}));
         end MotorWithCurrentControl;
 
         model Controller "Simple position controller for actuator"
@@ -2560,7 +2560,7 @@ actuator example
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
                   extent={{-40,50},{40,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="PI")}),
             Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -2759,7 +2759,7 @@ This package contains the bus definitions needed for the
               lineColor={0,0,127}), Text(
               extent={{-106,124},{114,68}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This model is used to demonstrate the bus usage in example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.

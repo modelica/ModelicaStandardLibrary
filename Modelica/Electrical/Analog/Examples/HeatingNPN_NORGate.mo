@@ -183,7 +183,7 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}},
           textString="Heating \"NPN NOR\" Gate",
-          lineColor={0,0,255})}), Documentation(info="<html>
+          textColor={0,0,255})}), Documentation(info="<html>
 <p>The heating &quot;NPN NOR&quot; gate shows a heat flow always if a transistor is leading.</p>
 <p>Simulate until T=200 s. Plot in separate windows:
 <br>V1.v and V2.v and C2.v

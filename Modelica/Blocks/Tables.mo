@@ -251,7 +251,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Text(
             extent={{-100,100},{100,64}},
             textString="Univariate constant, linear or cubic Hermite spline table interpolation",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
@@ -276,19 +276,19 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Text(
             extent={{-52,56},{-34,44}},
             textString="u",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-22,54},{2,42}},
             textString="y[1]",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{4,54},{28,42}},
             textString="y[2]",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{0,-40},{32,-54}},
             textString="columns",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end CombiTable1Ds;
 
   block CombiTable1Dv
@@ -542,7 +542,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Text(
             extent={{-100,100},{100,64}},
             textString="Univariate constant, linear or cubic Hermite spline table interpolation",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
@@ -567,19 +567,19 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Text(
             extent={{-50,54},{-32,42}},
             textString="u[1]/[2]",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-24,54},{0,42}},
             textString="y[1]",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-2,-40},{30,-54}},
             textString="columns",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{2,54},{26,42}},
             textString="y[2]",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end CombiTable1Dv;
 
   block CombiTable2Ds "Table look-up in two dimensions (matrix/file)"
@@ -1031,7 +1031,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Text(
             extent={{-100,100},{100,64}},
             textString="Bivariate constant, bilinear or bivariate Akima table interpolation",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
@@ -1066,15 +1066,15 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Text(
             extent={{-54,-40},{-30,-56}},
             textString="u1",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{28,58},{52,44}},
             textString="u2",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-2,12},{32,-22}},
             textString="y",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
     end CombiTable2DBase;
 
     function readTimeTableData "Read table data from text or MATLAB MAT-file"

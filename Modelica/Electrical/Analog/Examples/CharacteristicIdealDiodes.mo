@@ -77,7 +77,7 @@ equation
             100,100}}), graphics={Text(
           extent={{-88,102},{92,48}},
           textString="Characteristic Ideal Diodes",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(info="<html>
 <p>Three examples of ideal diodes are shown:
 <br>the <strong>totally ideal diode</strong> (Ideal) with all parameters to be zero,

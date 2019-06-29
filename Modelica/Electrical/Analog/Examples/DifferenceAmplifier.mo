@@ -134,6 +134,6 @@ Christoph Clau&szlig;
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={Text(
           extent={{-98,106},{22,60}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Difference Amplifier")}));
 end DifferenceAmplifier;

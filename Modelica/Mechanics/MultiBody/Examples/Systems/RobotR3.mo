@@ -466,7 +466,7 @@ determined from the connections to this bus.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,55},{29,12}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="w"),
             Line(points={{-80,0},{-41,69},{26,69},{58,0}}),
             Text(extent={{-70,-44},{84,-68}}, textString="1 axis")}),
@@ -666,7 +666,7 @@ motion on the controlBus of the r3 robot.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,55},{29,12}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="w"),
             Line(points={{-80,0},{-41,69},{26,69},{58,0}}),
             Text(extent={{-70,-44},{84,-68}}, textString="6 axes")}),
@@ -772,17 +772,17 @@ motion on the controlBus of the r3 robot.
             Text(
               extent={{-92,98},{-16,68}},
               textString="q",
-              lineColor={0,0,0},
+              textColor={0,0,0},
               horizontalAlignment=TextAlignment.Left),
             Text(
               extent={{-92,46},{-16,16}},
               textString="qd",
-              lineColor={0,0,0},
+              textColor={0,0,0},
               horizontalAlignment=TextAlignment.Left),
             Text(
               extent={{-92,-16},{-16,-46}},
               textString="qdd",
-              lineColor={0,0,0},
+              textColor={0,0,0},
               horizontalAlignment=TextAlignment.Left),
             Text(
               extent={{-2,20},{80,-18}},
@@ -793,7 +793,7 @@ motion on the controlBus of the r3 robot.
             Text(
               extent={{-92,-70},{36,-96}},
               textString="moving",
-              lineColor={0,0,0},
+              textColor={0,0,0},
               horizontalAlignment=TextAlignment.Left)}),
         Documentation(info="<html>
 <p>
@@ -869,10 +869,10 @@ the definition of initial values considerably.
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-30,-30},{30,-80}},
-              lineColor={255,255,255},
+              textColor={255,255,255},
               textString="1"),
             Line(points={{-24,0},{-16,0},{-12,14},{-4,-14},{4,14},{12,-14},{16,0},{24,0}}, color={95,95,95})}),
         Diagram(coordinateSystem(
@@ -923,11 +923,11 @@ Default values for all parameters are given for joint 4.
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-30,-30},{30,-80}},
               textString="2",
-              lineColor={255,255,255})}));
+              textColor={255,255,255})}));
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors"
@@ -1122,7 +1122,7 @@ produced by the motor).
             extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-150,110},{150,70}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end Motor;
 
     model Controller "P-PI cascade controller for one axis"
@@ -1258,7 +1258,7 @@ a model of the electrical motor and a continuous-time cascade controller.
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(
               extent={{-100,34},{22,-34}},
               fillPattern=FillPattern.Solid,
@@ -1410,7 +1410,7 @@ Default values of the parameters are given for the axis of joint 1.
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(
               extent={{-100,50},{66,-50}},
               fillPattern=FillPattern.HorizontalCylinder,
@@ -1741,7 +1741,7 @@ This model contains the mechanical components of the r3 robot
             Text(
               extent={{-200,250},{200,210}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Bitmap(extent={{-130,-195},{195,195}},
               fileName="modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png"),
             Text(

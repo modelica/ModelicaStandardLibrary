@@ -35,7 +35,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-70,30},{-70,10}}, color={0,0,255}),
           Line(points={{-80,20},{-60,20}}, color={0,0,255}),
           Line(points={{60,20},{80,20}}, color={0,0,255})}),
@@ -49,14 +49,14 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Line(points={{91,20},{116,20}},
             color={160,160,164}),Text(
               extent={{-109,25},{-89,45}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i"),Polygon(
               points={{106,23},{116,20},{106,17},{106,23}},
               lineColor={160,160,164},
               fillColor={160,160,164},
               fillPattern=FillPattern.Solid),Text(
               extent={{91,45},{111,25}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i"),Line(points={{-119,-5},{-119,5}}, color={160,160,164}),
             Line(points={{-124,0},{-114,0}}, color={160,160,164}),Line(
             points={{116,0},{126,0}}, color={160,160,164})}),
@@ -82,7 +82,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               100}}), graphics={
           Text(
             extent={{-150,70},{150,110}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Line(points={{-70,30},{-70,10}}, color={0,0,255}),
           Line(points={{-80,20},{-60,20}}, color={0,0,255}),
@@ -132,16 +132,16 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Text(
               extent={{-21,-72},{25,-90}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Line(
               points={{0,-17},{0,-71}},
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-68,-36},{-22,-54}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Line(
               points={{-13,50},{-13,-17}},
               color={192,192,192}),Polygon(
@@ -157,7 +157,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-68,26},{-22,8}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="V"),Polygon(
               points={{-13,-69},{-16,-56},{-10,-56},{-13,-69},{-13,-69}},
               lineColor={192,192,192},
@@ -170,7 +170,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-67,93},{-2,67}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
@@ -215,16 +215,16 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-80,-33},{-41,-49}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-40,-70},{6,-88}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{-67,93},{-2,67}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="v = p.v - n.v"),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-20,-20},{-20,-70}},
               color={192,192,192},
@@ -252,10 +252,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{53,25},{82,7}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="V"),Text(
               extent={{0,-17},{35,-37}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="duration")}),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-60},{-50,-60},{50,60},{80,60}},
@@ -309,16 +309,16 @@ package Sources "Time-dependent and controlled voltage and current sources"
               points={{-41,-2},{-80,-2}},
               thickness=0.5),Text(
               extent={{-106,-11},{-60,-29}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Line(
               points={{-41,-2},{-41,-40}},
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-60,-43},{-14,-61}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{76,-52},{100,-72}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-8,78},{45,78}},
               color={192,192,192},
@@ -331,7 +331,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{37,57},{83,39}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="V"),Polygon(
               points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
               lineColor={192,192,192},
@@ -340,7 +340,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               points={{33,78},{33,-2}},
               color={192,192,192}),Text(
               extent={{-69,109},{-4,83}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
@@ -395,16 +395,16 @@ package Sources "Time-dependent and controlled voltage and current sources"
               points={{-41,-2},{-80,-2}},
               thickness=0.5),Text(
               extent={{-106,-11},{-60,-29}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Line(
               points={{-41,-2},{-41,-40}},
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-60,-43},{-14,-61}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{76,-52},{100,-72}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-8,78},{45,78}},
               color={192,192,192},
@@ -417,7 +417,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{37,57},{83,39}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="V"),Polygon(
               points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
               lineColor={192,192,192},
@@ -426,7 +426,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               points={{33,78},{33,-2}},
               color={192,192,192}),Text(
               extent={{-69,109},{-4,83}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="v = p.v - n.v"),Line(
               points={{-41,78},{-41,-2}},
               thickness=0.5)}),
@@ -482,13 +482,13 @@ package Sources "Time-dependent and controlled voltage and current sources"
               -12.1}},
               thickness=0.5),Text(
               extent={{-78,1},{-55,-19}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-72,-36},{-26,-54}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{76,-44},{100,-64}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-50,0},{18,0}},
               color={192,192,192},
@@ -503,7 +503,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               pattern=LinePattern.Dash),Line(points={{18,73},{-50,73}}, color={
             192,192,192}),Text(
               extent={{-42,88},{9,74}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="1/freqHz"),Polygon(
               points={{-50,73},{-41,75},{-41,71},{-50,73}},
               lineColor={192,192,192},
@@ -519,10 +519,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-51,-63},{-27,-75}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="t"),Text(
               extent={{-82,-67},{108,-96}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="V*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"),Line(
               points={{-50,0},{-50,-40}},
               color={192,192,192},
@@ -534,7 +534,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-77,105},{-38,92}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
@@ -589,10 +589,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Text(
               extent={{-70,91},{-29,71}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="outPort"),Text(
               extent={{-78,-43},{-46,-56}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Polygon(
               points={{-40,-70},{-42,-60},{-38,-60},{-40,-70},{-40,-70}},
               lineColor={192,192,192},
@@ -607,7 +607,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               points={{-39,-30},{-80,-30}},
               thickness=0.5),Text(
               extent={{-59,-71},{-13,-89}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Polygon(
               points={{-40,-30},{-31,-28},{-31,-32},{-40,-30}},
               lineColor={192,192,192},
@@ -620,10 +620,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-26,-12},{19,-28}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="riseTime"),Text(
               extent={{78,-76},{102,-96}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-40,-30},{-37.2,-15.3},{-34.3,-2.1},{-30.8,12.4},{-27.3,
               25},{-23.7,35.92},{-19.5,47.18},{-15.3,56.7},{-10.3,66},{-4.6,
@@ -688,13 +688,13 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-78,-24},{-35,-36}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-40,-69},{6,-87}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-20,0},{-20,-70}},
               color={192,192,192},
@@ -714,10 +714,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
             192,192,192}),Line(points={{-20,69},{21,69}}, color={192,192,192}),
             Text(
               extent={{-11,97},{35,85}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="period"),Text(
               extent={{-18,81},{21,69}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="width"),Line(
               points={{-53,50},{-20,50}},
               color={192,192,192},
@@ -725,7 +725,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               points={{-34,50},{-34,0}},
               color={192,192,192}),Text(
               extent={{-78,34},{-37,20}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="V"),Polygon(
               points={{-34,50},{-37,37},{-31,37},{-34,50}},
               lineColor={192,192,192},
@@ -754,7 +754,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-78,103},{-24,89}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
@@ -799,13 +799,13 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-78,-24},{-35,-36}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-31,-69},{15,-87}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-10,-20},{-10,-70}},
               color={192,192,192},
@@ -818,7 +818,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               pattern=LinePattern.Dash),Line(points={{-10,83},{30,83}}, color={
             192,192,192}),Text(
               extent={{-12,97},{34,85}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="period"),Line(
               points={{-44,60},{30,60}},
               color={192,192,192},
@@ -826,7 +826,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               points={{-34,47},{-34,-20}},
               color={192,192,192}),Text(
               extent={{-78,34},{-37,20}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="V"),Polygon(
               points={{-34,60},{-37,47},{-30,47},{-34,60}},
               lineColor={192,192,192},
@@ -847,7 +847,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               points={{-80,-20},{-10,-20},{30,60},{30,-20},{72,60},{72,-20}},
               thickness=0.5),Text(
               extent={{-77,100},{-27,88}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="v = p.v - n.v")}),
       Documentation(revisions="<html>
 <ul>
@@ -907,13 +907,13 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-86,-43},{-43,-55}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-47,-69},{-1,-87}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-30,81},{-30,-70}},
               color={192,192,192},
@@ -929,7 +929,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               pattern=LinePattern.Dash),Line(points={{-30,56},{40,56}}, color={
             192,192,192}),Text(
               extent={{-8,70},{21,60}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="width"),Line(
               points={{-42,40},{-10,40}},
               color={192,192,192},
@@ -937,7 +937,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               points={{-39,40},{-39,-30}},
               color={192,192,192}),Text(
               extent={{-71,13},{-34,-1}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="V"),Polygon(
               points={{-30,56},{-23,58},{-23,54},{-30,56}},
               lineColor={192,192,192},
@@ -978,13 +978,13 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-34,70},{-5,60}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="rising"),Text(
               extent={{16,70},{45,60}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="falling"),Text(
               extent={{-77,103},{-23,91}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="v = p.v - n.v"),Line(points={{-30,76},{60,76}}, color=
              {192,192,192}),Polygon(
               points={{-30,76},{-21,78},{-21,74},{-30,76}},
@@ -996,7 +996,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-2,86},{25,77}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="period")}),
       Documentation(revisions="<html>
 <ul>
@@ -1038,7 +1038,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
             80,90},{80,-30},{-20,-30},{-20,0},{80,0},{80,30},{-20,30},{-20,60},
             {80,60},{80,90},{30,90},{30,-31}}),Text(
               extent={{-77,-42},{-38,-58}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Polygon(
               points={{-31,-30},{-33,-40},{-29,-40},{-31,-30}},
               lineColor={192,192,192},
@@ -1054,20 +1054,20 @@ package Sources "Time-dependent and controlled voltage and current sources"
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-38,-70},{8,-88}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Line(
               points={{-20,-30},{-80,-30}},
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{66,-81},{91,-93}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Text(
               extent={{-15,83},{24,68}},
               textString="time"),Text(
               extent={{33,83},{76,67}},
               textString="v"),Text(
               extent={{-81,98},{-31,85}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="v = p.v - n.v")}),
       Documentation(info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package.  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
@@ -1134,7 +1134,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{90,0},{60,10},{60,-10},{90,0}},
             lineColor={0,0,255},
@@ -1174,7 +1174,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,60},{150,100}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Text(
             extent={{-150,-100},{150,-60}},
@@ -1213,16 +1213,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Text(
               extent={{-21,-72},{25,-90}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Line(
               points={{0,-17},{0,-70}},
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-68,-36},{-22,-54}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Line(
               points={{-13,50},{-13,-18}},
               color={192,192,192}),Polygon(
@@ -1238,7 +1238,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-68,26},{-22,8}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="I"),Polygon(
               points={{-13,-70},{-16,-57},{-10,-57},{-13,-70},{-13,-70}},
               lineColor={192,192,192},
@@ -1251,7 +1251,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-73,75},{-53,95}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
@@ -1296,13 +1296,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-80,-33},{-41,-49}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-40,-70},{6,-88}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-20,-20},{-20,-70}},
               color={192,192,192},
@@ -1330,13 +1330,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{53,25},{82,7}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="I"),Text(
               extent={{0,-17},{35,-37}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="duration"),Text(
               extent={{-73,75},{-53,95}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i")}),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-60},{-50,-60},{50,60},{80,60}},
@@ -1390,16 +1390,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               points={{-41,-2},{-80,-2}},
               thickness=0.5),Text(
               extent={{-106,-11},{-60,-29}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Line(
               points={{-41,-2},{-41,-40}},
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-60,-43},{-14,-61}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{84,-52},{108,-72}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-10,78},{42,78}},
               color={192,192,192},
@@ -1412,7 +1412,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{37,57},{83,39}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="I"),Polygon(
               points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
               lineColor={192,192,192},
@@ -1421,7 +1421,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               points={{33,78},{33,-2}},
               color={192,192,192}),Text(
               extent={{-73,82},{-53,102}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
@@ -1470,16 +1470,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               points={{-41,-2},{-80,-2}},
               thickness=0.5),Text(
               extent={{-106,-11},{-60,-29}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Line(
               points={{-41,-2},{-41,-40}},
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-60,-43},{-14,-61}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{84,-52},{108,-72}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-10,78},{42,78}},
               color={192,192,192},
@@ -1492,7 +1492,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{37,57},{83,39}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="I"),Polygon(
               points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
               lineColor={192,192,192},
@@ -1501,7 +1501,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               points={{33,78},{33,-2}},
               color={192,192,192}),Text(
               extent={{-73,82},{-53,102}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i"),Line(
               points={{-41,78},{-41,-2}},
               thickness=0.5),Line(
@@ -1565,13 +1565,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               -12.1}},
               thickness=0.5),Text(
               extent={{-78,1},{-55,-19}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-72,-36},{-26,-54}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{76,-44},{100,-64}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-50,0},{18,0}},
               color={192,192,192},
@@ -1586,7 +1586,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               pattern=LinePattern.Dash),Line(points={{18,73},{-50,73}}, color={
             192,192,192}),Text(
               extent={{-42,88},{9,74}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="1/freqHz"),Polygon(
               points={{-50,73},{-41,75},{-41,71},{-50,73}},
               lineColor={192,192,192},
@@ -1602,10 +1602,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-51,-63},{-27,-75}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="t"),Text(
               extent={{-82,-67},{108,-96}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="I*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"),Line(
               points={{-50,0},{-50,-40}},
               color={192,192,192},
@@ -1617,7 +1617,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-74,83},{-54,103}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
@@ -1684,7 +1684,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               points={{-39,-30},{-80,-30}},
               thickness=0.5),Text(
               extent={{-59,-71},{-13,-89}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Polygon(
               points={{-40,-30},{-31,-28},{-31,-32},{-40,-30}},
               lineColor={192,192,192},
@@ -1697,7 +1697,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-26,-12},{19,-28}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="riseTime"),Line(
               points={{-40,-30},{-80,-30}},
               thickness=0.5),Line(
@@ -1705,7 +1705,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-73,75},{-53,95}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
@@ -1758,13 +1758,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-78,-24},{-35,-36}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-42,-69},{4,-87}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-19,0},{-19,-70}},
               color={192,192,192},
@@ -1784,10 +1784,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             192,192,192}),Line(points={{-19,69},{21,69}}, color={192,192,192}),
             Text(
               extent={{-9,97},{37,85}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="period"),Text(
               extent={{-18,81},{21,69}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="width"),Line(
               points={{-52,50},{-19,50}},
               color={192,192,192},
@@ -1795,7 +1795,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               points={{-34,50},{-34,1}},
               color={192,192,192}),Text(
               extent={{-78,34},{-37,20}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="I"),Polygon(
               points={{-34,50},{-37,37},{-31,37},{-34,50}},
               lineColor={192,192,192},
@@ -1824,7 +1824,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-73,75},{-53,95}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
@@ -1870,13 +1870,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-78,-24},{-35,-36}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-31,-69},{15,-87}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-10,-20},{-10,-70}},
               color={192,192,192},
@@ -1889,7 +1889,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               pattern=LinePattern.Dash),Line(points={{-10,83},{30,83}}, color={
             192,192,192}),Text(
               extent={{-12,97},{34,85}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="period"),Line(
               points={{-44,60},{30,60}},
               color={192,192,192},
@@ -1897,7 +1897,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               points={{-34,60},{-34,-20}},
               color={192,192,192}),Text(
               extent={{-78,34},{-37,20}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="I"),Polygon(
               points={{-34,60},{-37,47},{-31,47},{-34,60}},
               lineColor={192,192,192},
@@ -1918,7 +1918,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               points={{-80,-20},{-10,-20},{30,60},{30,-20},{72,60},{72,-20}},
               thickness=0.5),Text(
               extent={{-73,75},{-53,95}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
@@ -1978,13 +1978,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-86,-43},{-43,-55}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Text(
               extent={{-47,-69},{-1,-87}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Line(
               points={{-30,79},{-30,-70}},
               color={192,192,192},
@@ -2001,10 +2001,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             192,192,192}),Line(points={{-30,56},{40,56}}, color={192,192,192}),
             Text(
               extent={{-9,88},{37,76}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="period"),Text(
               extent={{-8,70},{21,60}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="width"),Line(
               points={{-42,40},{-10,40}},
               color={192,192,192},
@@ -2012,7 +2012,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               points={{-39,40},{-39,-30}},
               color={192,192,192}),Text(
               extent={{-77,14},{-40,0}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="I"),Polygon(
               points={{-30,56},{-23,58},{-23,54},{-30,56}},
               lineColor={192,192,192},
@@ -2061,13 +2061,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{-34,70},{-5,60}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="rising"),Text(
               extent={{16,70},{45,60}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="falling"),Text(
               extent={{-73,75},{-53,95}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i")}),
       Documentation(revisions="<html>
 <ul>
@@ -2109,7 +2109,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             80,90},{80,-30},{-20,-30},{-20,0},{80,0},{80,30},{-20,30},{-20,60},
             {80,60},{80,90},{30,90},{30,-31}}),Text(
               extent={{-77,-42},{-38,-58}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="offset"),Polygon(
               points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}},
               lineColor={192,192,192},
@@ -2125,20 +2125,20 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{-38,-70},{8,-88}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="startTime"),Line(
               points={{-20,-30},{-80,-30}},
               color={192,192,192},
               pattern=LinePattern.Dash),Text(
               extent={{66,-81},{91,-93}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="time"),Text(
               extent={{-15,83},{24,68}},
               textString="time"),Text(
               extent={{33,83},{76,67}},
               textString="i"),Text(
               extent={{-73,75},{-53,95}},
-              lineColor={192,192,192},
+              textColor={192,192,192},
               textString="i")}),
       Documentation(info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
@@ -2219,7 +2219,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
             color={0,0,255}),
           Text(
             extent={{-150,110},{150,70}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Line(
             points={{-40,0},{-10,0}},
@@ -2229,15 +2229,15 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
             color={0,0,255}),
           Text(
             extent={{-100,40},{-80,20}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="+"),
           Text(
             extent={{80,40},{100,20}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="-"),
           Text(
             extent={{-10,40},{10,20}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="0")}),
       Documentation(info="<html>
                        <p>This is a simple model of a constant supply voltage with positive and negative supply, the potential between positive and negative supply is accessible.</p>

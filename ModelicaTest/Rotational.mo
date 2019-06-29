@@ -514,7 +514,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid), Text(
               extent={{-80,100},{80,60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid,
               textString="Since the initialization was changed some elements here
@@ -625,7 +625,7 @@ But for compatibility reasons they were not deleted yet.")}));
                   fillColor={255,213,170},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{10,20},{90,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="This two parts are identical
 concerning structure, parameters
 and initialization.
@@ -1846,7 +1846,7 @@ force law in a target system between two inertias.
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Text(
                     extent={{-84,-58},{24,-90}},
-                    lineColor={135,135,135},
+                    textColor={135,135,135},
                     textString="to FMU"),Text(
                     extent={{8,96},{92,66}},
                     horizontalAlignment=TextAlignment.Right,
@@ -1918,7 +1918,7 @@ on the other side of it.
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Text(
                     extent={{0,-62},{96,-94}},
-                    lineColor={135,135,135},
+                    textColor={135,135,135},
                     textString="to FMU"),Text(
                     extent={{-94,96},{-10,66}},
                     horizontalAlignment=TextAlignment.Left,
@@ -2011,7 +2011,7 @@ the output torque <code>tau</code> is returned.
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Text(
               extent={{-48,-36},{48,-68}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="to FMU"),      Text(
                     extent={{-94,96},{-10,66}},
                     horizontalAlignment=TextAlignment.Left,
@@ -2090,7 +2090,7 @@ exchange.
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Text(
               extent={{-48,-36},{48,-68}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="to FMU"),      Text(
                     extent={{-94,96},{-10,66}},
                     horizontalAlignment=TextAlignment.Left,

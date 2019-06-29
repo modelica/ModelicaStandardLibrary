@@ -260,7 +260,7 @@ to the FlangeWithBearing connector.
           Line(points={{-90,0},{0,0}}),
           Text(
             extent={{-216,88},{86,36}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}),
       Documentation(info="<html>
 <p>
@@ -293,10 +293,10 @@ connector.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-136,-25},{-100,-50}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="a"), Text(
             extent={{100,-25},{136,-50}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b")}),
       Documentation(info="<html>
 <p>
@@ -331,10 +331,10 @@ needed and if the two frame connectors should be connected for a correct model.
           extent={{-100,-100},{100,100}},
           initialScale=0.2), graphics={Text(
             extent={{-117,-13},{-106,-23}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="a"), Text(
             extent={{110,-15},{122,-25}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b")}),
       Documentation(info="<html>
 <p>
@@ -388,7 +388,7 @@ needed and if this connector should be connected for a correct model.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{94,-20},{130,-45}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b")}),
       Documentation(info="<html>
 <p>
@@ -563,12 +563,12 @@ distance <strong>length</strong> became smaller as parameter <strong>s_small</st
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
             extent={{-62,50},{-140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0"),
           Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_b,
             extent={{62,50},{140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0")}));
   end LineForceBase;
 
@@ -615,12 +615,12 @@ has to be defined. Example:
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
             extent={{-62,50},{-140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0"),
           Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_b,
             extent={{62,50},{140,30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="R=0")}));
   end PartialLineForce;
 
@@ -657,7 +657,7 @@ with the blocks of package Modelica.Blocks.
           Text(
             extent={{-132,-125},{131,-79}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end PartialAbsoluteSensor;
 
   partial model PartialRelativeSensor
@@ -702,14 +702,14 @@ with the blocks of package Modelica.Blocks.
           Text(
             extent={{-132,76},{129,124}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-118,52},{-82,27}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="a"),
           Text(
             extent={{85,53},{121,28}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b")}));
   end PartialRelativeSensor;
 

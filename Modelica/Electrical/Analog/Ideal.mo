@@ -226,7 +226,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end IdealCommutingSwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
@@ -304,7 +304,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),   Ellipse(extent={{-4,24},{4,16}}, lineColor=
+            textColor={0,0,255}),   Ellipse(extent={{-4,24},{4,16}}, lineColor=
             {0,0,255}),Line(points={{-96,0},{-40,0}}, color={0,0,255}),Line(
             points={{-96,40},{-40,40}}, color={0,0,255}),Line(points={{-40,0},{40,40}},
                      color={0,0,255}),Line(points={{-40,40},{40,0}}, color={0,0,255}),
@@ -394,7 +394,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end ControlledIdealCommutingSwitch;
 
   model ControlledIdealIntermediateSwitch
@@ -491,7 +491,7 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end ControlledIdealIntermediateSwitch;
 
   model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)"
@@ -539,7 +539,7 @@ are possible (norator).
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{70,0},{-70,80},{-70,-80},{70,0}},
             fillColor={255,255,255},
@@ -588,7 +588,7 @@ are possible.
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{70,0},{-70,80},{-70,-80},{70,0}},
             fillColor={255,255,255},
@@ -662,7 +662,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{0,40},{0,100}}, color={0,0,255}),
           Line(points={{0,-100},{0,-40}}, color={0,0,255})}));
   end IdealOpAmpLimited;
@@ -739,7 +739,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Polygon(
             points={{70,0},{-70,80},{-70,-80},{70,0}},
@@ -840,16 +840,16 @@ For the backward conversion, one has to decide about the partitioning of the lea
           Text(extent={{-150,-110},{150,-150}},textString="n=%n"),
           Text(
             extent={{-100,20},{-60,-20}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="1"),
           Text(
             extent={{60,20},{100,-20}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="2"),
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-40,60},{-40,100},{-90,100}}, color={0,0,255}),
           Line(points={{40,60},{40,100},{90,100}}, color={0,0,255}),
           Line(points={{-40,-60},{-40,-100},{-90,-100}}, color={0,0,255}),
@@ -946,7 +946,7 @@ where the constant <em>G</em> is called the gyration conductance.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             points={{-40,30},{-25,28},{-10,12},{-10,-12},{-26,-28},{-40,-30}},
             color={0,0,255},
@@ -986,7 +986,7 @@ where the constant <em>G</em> is called the gyration conductance.
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end Idle;
 
   model Short "Short cut branch"
@@ -1014,13 +1014,13 @@ where the constant <em>G</em> is called the gyration conductance.
           Text(
             extent={{-150,130},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
             Text(
               extent={{-100,100},{100,70}},
               textString="Short",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
   end Short;
 
   model IdealOpeningSwitch "Ideal electrical opener"
@@ -1410,7 +1410,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-100,-100},{-100,-80}}, color={0,0,255})}),
                                     Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
@@ -1534,11 +1534,11 @@ Hence the output will change instantaneously when the trigger signal rises.
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-60,50},{60,10}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%n-bit"),
           Text(
             extent={{-60,-10},{60,-50}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="ADC")}));
   end AD_Converter;
 
@@ -1605,11 +1605,11 @@ Hence the output will change instantaneously when the trigger signal rises.
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-60,50},{60,10}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%n-bit"),
           Text(
             extent={{-60,-10},{60,-50}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="DAC")}));
   end DA_Converter;
   annotation (Documentation(info="<html>

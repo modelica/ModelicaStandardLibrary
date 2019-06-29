@@ -81,12 +81,12 @@ The initial equations are consistent however and a tool shall reduce them approp
         Diagram(coordinateSystem(preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}), graphics={Text(
                 extent={{-100,-20},{100,-40}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString=
                     "Problem: pipe.medium.p[1:5] are equal and have initial equations der(medium.p)=zeros(5);"),
                 Text(
                 extent={{-76,-40},{80,-58}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString=
                     "A translator should remove consistently overdetermined initial equations.")}),
           experiment(StopTime=4));
@@ -164,22 +164,22 @@ The initial equations are consistent however and a tool shall reduce them approp
                 extent={{-100,-100},{100,100}}), graphics={
               Text(
                 extent={{-100,-20},{100,-40}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString=
                     "Problem: pipe.medium[1].p is equal to source.p and  has a consistent initial value  of system.p_start = 100 bar;"),
               Text(
                 extent={{-76,-36},{76,-54}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString=
                     "A translator should remove consistently overdetermined initial equations."),
               Text(
                 extent={{-100,-64},{90,-84}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString=
                     "Work-around 2: change system.energyDynamics from FixedInitial to DynamicFreeInitial"),
               Text(
                 extent={{-100,-54},{42,-74}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString=
                     "Work-around 1: change pipe.modelStructure from av_vb to a_vb")}),
           experiment(StopTime=4));

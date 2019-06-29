@@ -63,6 +63,6 @@ annotation (Documentation(info="<html>
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={Text(
           extent={{-100,112},{80,40}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Example VariableResistor")}));
 end ShowVariableResistor;

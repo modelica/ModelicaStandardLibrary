@@ -78,6 +78,6 @@ Christoph Clau&szlig;
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
             100,100}}), graphics={Text(
           extent={{-98,104},{-32,72}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Chua Circuit")}));
 end ChuaCircuit;

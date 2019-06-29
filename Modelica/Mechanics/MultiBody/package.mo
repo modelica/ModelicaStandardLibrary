@@ -1288,7 +1288,7 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
         Text(
           extent={{-150,145},{150,105}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{95,-113},{144,-162}},
           textString="%label1"),

@@ -11342,13 +11342,13 @@ package Icons "Icons for Math"
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={95,95,95}),
             Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),Line(
             points={{-80,-90},{-80,84}}, color={95,95,95}),Text(
                 extent={{-75,104},{-55,84}},
-                lineColor={95,95,95},
+                textColor={95,95,95},
                 textString="y"),Polygon(
                 points={{-80,98},{-86,82},{-74,82},{-80,98}},
                 lineColor={95,95,95},
@@ -11381,12 +11381,12 @@ It is expected, that an x-axis is added and a plot of the function.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(graphics={Line(points={{0,80},{-8,80}}, color={95,95,95}),Line(
             points={{0,-80},{-8,-80}}, color={95,95,95}),Line(points={{0,-90},{
             0,84}}, color={95,95,95}),Text(
                 extent={{5,104},{25,84}},
-                lineColor={95,95,95},
+                textColor={95,95,95},
                 textString="y"),Polygon(
                 points={{0,98},{-6,82},{6,82},{0,98}},
                 lineColor={95,95,95},
@@ -11470,7 +11470,7 @@ external "builtin" y = sin(u);
               57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}),
         Text(
           extent={{12,84},{84,36}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="sin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -11489,15 +11489,15 @@ external "builtin" y = sin(u);
             thickness=0.5),Text(
             extent={{-105,72},{-85,88}},
             textString="1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{70,25},{90,5}},
             textString="2*pi",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-103,-72},{-83,-88}},
             textString="-1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{82,-6},{102,-26}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{-80,80},{-28,80}},
             color={175,175,175}),Line(
@@ -11538,20 +11538,20 @@ external "builtin" y = cos(u);
               73.4},{75.2,78.6},{80,80}}),
         Text(
           extent={{-36,82},{36,34}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="cos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-103,72},{-83,88}},
             textString="1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-103,-72},{-83,-88}},
             textString="-1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{70,25},{90,5}},
             textString="2*pi",
-            lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
+            textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{98,0},{82,6},{82,-6},{98,0}},
             lineColor={95,95,95},
@@ -11565,7 +11565,7 @@ external "builtin" y = cos(u);
             color={0,0,255},
             thickness=0.5),Text(
             extent={{78,-6},{98,-26}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{-80,-80},{18,-80}},
             color={175,175,175})}),
@@ -11603,7 +11603,7 @@ external "builtin" y = tan(u);
               47.4},{76,56.1},{77.6,63.8},{80,80}}),
         Text(
           extent={{-90,72},{-18,24}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="tan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -11629,7 +11629,7 @@ external "builtin" y = tan(u);
             color={0,0,255},
             thickness=0.5),Text(
             extent={{82,22},{102,2}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{0,80},{86,80}},
             color={175,175,175}),Line(
@@ -11669,23 +11669,23 @@ external "builtin" y = asin(u);
               52.7},{75.2,62.2},{77.6,67.5},{80,80}}),
         Text(
           extent={{-88,78},{-16,30}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="asin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-40,-72},{-15,-88}},
             textString="-pi/2",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-38,88},{-13,72}},
             textString=" pi/2",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{68,-9},{88,-29}},
             textString="+1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-90,21},{-70,1}},
             textString="-1",
-            lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
+            textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{98,0},{82,6},{82,-6},{98,0}},
             lineColor={95,95,95},
@@ -11697,7 +11697,7 @@ external "builtin" y = asin(u);
             color={0,0,255},
             thickness=0.5),Text(
             extent={{82,24},{102,4}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{0,80},{86,80}},
             color={175,175,175}),Line(
@@ -11736,7 +11736,7 @@ external "builtin" y = acos(u);
               {75.2,-62.2},{77.6,-67.5},{80,-80}}),
         Text(
           extent={{-86,-14},{-14,-62}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="acos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -11753,15 +11753,15 @@ external "builtin" y = acos(u);
             thickness=0.5),Text(
             extent={{-30,88},{-5,72}},
             textString=" pi",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-94,-57},{-74,-77}},
             textString="-1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{60,-81},{80,-101}},
             textString="+1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{82,-56},{102,-76}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{-2,80},{84,80}},
             color={175,175,175}),Line(
@@ -11801,7 +11801,7 @@ external "builtin" y = atan(u);
               73.6},{69.5,78.6},{80,80}}),
         Text(
           extent={{-86,68},{-14,20}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="atan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -11819,12 +11819,12 @@ external "builtin" y = atan(u);
             thickness=0.5),Text(
             extent={{-34,87},{-14,74}},
             textString="pi/2",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-32,-71},{-12,-91}},
             textString="-pi/2",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{84,-4},{104,-24}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{-2,80},{84,80}},
             color={175,175,175})}),
@@ -11866,7 +11866,7 @@ external "builtin" y = atan2(u1, u2);
               65.8},{-1.82,77.2},{0,80}}),
         Text(
           extent={{-90,-46},{-18,-94}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="atan2")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -11891,19 +11891,19 @@ external "builtin" y = atan2(u1, u2);
             thickness=0.5),Text(
             extent={{-32,89},{-10,74}},
             textString="pi",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-32,-72},{-4,-88}},
             textString="-pi",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{0,55},{20,42}},
             textString="pi/2",
-            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
+            textColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
           Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
             extent={{0,-23},{20,-42}},
             textString="-pi/2",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{62,-4},{94,-26}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u1, u2"),Line(
             points={{-88,40},{86,40}},
             color={175,175,175}),Line(
@@ -11970,7 +11970,7 @@ algorithm
               65.8},{-1.82,77.2},{0,80}}),
         Text(
           extent={{-90,-46},{-18,-94}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="atan3")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -12001,7 +12001,7 @@ algorithm
             lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
           Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
             extent={{38,-68},{78,-84}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u1, u2, y0"),Line(
             points={{-84,40},{88,40}},
             color={175,175,175}),Line(
@@ -12052,7 +12052,7 @@ external "builtin" y = sinh(u);
               74.4,60.4},{78.4,73.8},{80,80}}),
         Text(
           extent={{-88,80},{-16,32}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="sinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -12070,18 +12070,18 @@ external "builtin" y = sinh(u);
             thickness=0.5),Text(
             extent={{-31,72},{-11,88}},
             textString="27",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-35,-88},{-15,-72}},
             textString="-27",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{68,-7},{88,-27}},
             textString="4",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-98,21},{-78,1}},
             textString="-4",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{80,26},{100,6}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{0,80},{86,80}},
             color={175,175,175}),Line(
@@ -12123,7 +12123,7 @@ external "builtin" y = cosh(u);
               77.6,61.1},{80,80}}),
         Text(
           extent={{4,66},{66,20}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="cosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -12142,15 +12142,15 @@ external "builtin" y = cosh(u);
             thickness=0.5),Text(
             extent={{-31,72},{-11,88}},
             textString="27",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{64,-83},{84,-103}},
             textString="4",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-94,-63},{-74,-83}},
             textString="-4",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{80,-60},{100,-80}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{0,80},{88,80}},
             color={175,175,175}),Line(
@@ -12190,7 +12190,7 @@ external "builtin" y = tanh(u);
               {45.4,78.4},{72,79.9},{80,80}}),
         Text(
           extent={{-88,72},{-16,24}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="tanh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -12208,12 +12208,12 @@ external "builtin" y = tanh(u);
             thickness=0.5),Text(
             extent={{-29,72},{-9,88}},
             textString="1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{3,-72},{23,-88}},
             textString="-1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{82,-2},{102,-22}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{0,80},{88,80}},
             color={175,175,175})}),
@@ -12251,7 +12251,7 @@ algorithm
               {56.7,68.4},{80,80}}),
         Text(
           extent={{-90,80},{-6,26}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="asinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -12274,12 +12274,12 @@ algorithm
             lineColor={0,0,255}),Text(
             extent={{72,-13},{92,-33}},
             textString="5",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-96,21},{-76,1}},
             textString="-5",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{80,22},{100,2}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{0,80},{88,80}},
             color={175,175,175}),Line(
@@ -12324,7 +12324,7 @@ algorithm
               {7.97,39.2},{35.3,55},{69.9,70.8},{94,80}}),
         Text(
           extent={{-14,2},{76,-54}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="arcosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -12347,12 +12347,12 @@ algorithm
             lineColor={0,0,255}),Text(
             extent={{64,-77},{84,-92}},
             textString="5",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-96,-55},{-76,-70}},
             textString="0",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{74,-44},{94,-64}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{-80,80},{100,80}},
             color={175,175,175}),Line(
@@ -12403,7 +12403,7 @@ external "builtin" y = exp(u);
               67.1,18.6},{72,38.2},{76,57.6},{80,80}}),
         Text(
           extent={{-86,50},{-14,2}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="exp")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -12420,18 +12420,18 @@ external "builtin" y = exp(u);
             thickness=0.5),Text(
             extent={{-31,72},{-11,88}},
             textString="20",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-92,-81},{-72,-101}},
             textString="-3",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{66,-81},{86,-101}},
             textString="3",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{2,-69},{22,-89}},
             textString="1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{78,-54},{98,-74}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Line(
             points={{0,80},{88,80}},
             color={175,175,175}),Line(
@@ -12470,7 +12470,7 @@ external "builtin" y = log(u);
               {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}),
         Text(
           extent={{-6,-24},{66,-72}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="log")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -12487,19 +12487,19 @@ external "builtin" y = log(u);
             thickness=0.5),Text(
             extent={{-105,72},{-85,88}},
             textString="3",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{60,-3},{80,-23}},
             textString="20",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-78,-7},{-58,-27}},
             textString="1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{84,26},{104,6}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Text(
             extent={{-100,9},{-80,-11}},
             textString="0",
-            lineColor={0,0,255}),Line(
+            textColor={0,0,255}),Line(
             points={{-80,80},{84,80}},
             color={175,175,175}),Line(
             points={{82,82},{82,-6}},
@@ -12538,7 +12538,7 @@ external "builtin" y = log10(u);
               {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}),
         Text(
           extent={{-30,-22},{60,-70}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="log10")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -12555,19 +12555,19 @@ external "builtin" y = log10(u);
             thickness=0.5),Text(
             extent={{66,-13},{86,-33}},
             textString="20",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-78,-1},{-58,-21}},
             textString="1",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-83,62},{-63,78}},
             textString=" 1.3",
             lineColor={0,0,255}),Text(
             extent={{80,24},{100,4}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="u"),Text(
             extent={{-100,9},{-80,-11}},
             textString="0",
-            lineColor={0,0,255}),Line(
+            textColor={0,0,255}),Line(
             points={{-80,80},{86,80}},
             color={175,175,175}),Line(
             points={{80,92},{80,-12}},

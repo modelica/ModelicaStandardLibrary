@@ -4135,7 +4135,7 @@ Simulate for 2 seconds and plot (versus time):
             Line(points={{-20,10},{20,10}}, color={255,170,85}),
             Text(
               extent={{150,-10},{-150,-50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 
@@ -4163,7 +4163,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
               color={255,170,85}),Line(points={{70,0},{96,0}}, color={255,170,85}),
             Text(
               extent={{150,90},{-150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),     Documentation(info="<html>
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
@@ -4201,7 +4201,7 @@ The salient reluctance models the relationship between the complex magnetic pote
               85}),
             Text(
               extent={{150,90},{-150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
                       Documentation(info="<html>
 <p>
@@ -4252,7 +4252,7 @@ The salient permeance models the relationship between the complex magnetic poten
                   textString="G=%G"),
             Text(
               extent={{150,90},{-150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>
@@ -4469,7 +4469,7 @@ relationship of the voltage and current space phasor.
               rotation=270),
             Text(
               extent={{150,150},{-150,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),     Documentation(info="<html>
 
 <p>
@@ -4598,7 +4598,7 @@ QuasiStaticAnalogElectroMagneticConverter</a>
               rotation=270),
             Text(
               extent={{150,150},{-150,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>
@@ -4643,7 +4643,7 @@ MultiPhaseElectroMagneticConverter</a>
               85}),
             Text(
               extent={{150,60},{-150,20}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>
@@ -4678,7 +4678,7 @@ This is a simple idle running branch.
             Line(points={{-100,0},{100,0}}, color={255,170,85}),
             Text(
               extent={{150,60},{-150,20}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -4716,7 +4716,7 @@ This is a simple short cut branch.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
                   extent={{-150,110},{150,150}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),           Line(
                   points={{-100,100},{-42,100},{42,-100},{100,-100}},
                   color={255,170,85}),Line(
@@ -5763,7 +5763,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
                     20},{100,-20},{40,-60}}, color={85,170,255}),
               Text(
                 extent={{150,150},{-150,110}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -5882,7 +5882,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
                     20},{100,-20},{40,-60}}, color={0,0,255}),
               Text(
                 extent={{150,150},{-150,110}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -6173,7 +6173,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
                 255,128,0}),
               Text(
                 extent={{150,140},{-150,100}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -6320,7 +6320,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
               Line(points={{100,0},{80,0}}, color={255,170,85}),
               Text(
                 extent={{150,140},{-150,100}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}),
           Documentation(info="<html>
 
@@ -6660,7 +6660,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
               Line(points={{50,100},{20,100},{20,70}}, color={85,170,255}),
               Text(
                 extent={{-150,-120},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Line(
                 visible=not useSupport,
@@ -6710,7 +6710,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
               color={85,170,255}),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}), Documentation(info="<html>
 <p>
 Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e., they are dependent on square of current,
@@ -6840,7 +6840,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
               Line(points={{-50,0},{50,0}}, color={255,127,0}),
             Text(
               extent={{150,108},{-150,68}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{-80,20},{-60,20}}, color={255,127,0}),
             Line(points={{-70,30},{-70,10}}, color={255,127,0}),
@@ -6901,7 +6901,7 @@ SignalFlux</a>
               points={{0,100},{0,50}}, color={255,170,85}),
             Text(
               extent={{150,-60},{-150,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{-80,20},{-60,20}}, color={255,127,0}),
             Line(points={{-70,30},{-70,10}}, color={255,127,0}),
@@ -6965,7 +6965,7 @@ SignalFlux</a>
                   fillPattern=FillPattern.Solid),
             Text(
               extent={{150,110},{-150,70}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),      Documentation(info="<html>
 <p>
 Source of constant magnetic flux.
@@ -7027,7 +7027,7 @@ SignalFlux</a>
               color={255,170,85}),
             Text(
               extent={{150,-60},{-150,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),      Documentation(info="<html>
 <p>
 Source of magnetic flux with complex signal input.
@@ -7085,7 +7085,7 @@ ConstantFlux</a>
               Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{70,0},{90,0}}),
+                  textColor={0,0,255}),Line(points={{70,0},{90,0}}),
               Line(points={{0,-90},{0,-70}})}),
         Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
@@ -7132,7 +7132,7 @@ ConstantFlux</a>
               {0,-70}}),Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255})}), Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
 <h4>See also</h4>
@@ -7172,7 +7172,7 @@ ConstantFlux</a>
               Line(points={{0,-90},{0,-70}}),Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255})}), Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
 <h4>See also</h4>
@@ -7354,7 +7354,7 @@ This package provides sensors for the magnetic potential difference and the magn
         defaultComponentName="port_p",
         Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
-              lineColor={255,170,85},
+              textColor={255,170,85},
               textString="%name"), Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={255,170,85},
@@ -7390,7 +7390,7 @@ Additionally the reference angle is specified in the connector. The time derivat
         defaultComponentName="port_n",
         Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
-              lineColor={255,170,85},
+              textColor={255,170,85},
               textString="%name"), Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={255,170,85},
@@ -7551,7 +7551,7 @@ The partial two port elementary model extends from the partial two port model an
                   smooth=Smooth.Bezier),Text(
                   extent={{-150,150},{150,110}},
                   textString="%name",
-                  lineColor={0,0,255})}),
+                  textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An
@@ -7843,14 +7843,14 @@ representing the star points of each base system; see
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,60},{20,40}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="id_rms"),Text(
                   extent={{-100,-40},{20,-60}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="iq_rms"),     Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This is a simple current controller.

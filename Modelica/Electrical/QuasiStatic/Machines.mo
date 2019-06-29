@@ -2017,7 +2017,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
                   -100},{100,100}}), graphics={Text(
                       extent={{-150,150},{150,110}},
                       textString="%name",
-                      lineColor={0,0,255}), Line(points={{-90,100},{-30,100}},
+                      textColor={0,0,255}), Line(points={{-90,100},{-30,100}},
                       color={85,170,255}),
                                        Line(points={{-90,-100},{-30,-100}},
                                                                           color={85,170,255}),
@@ -2334,7 +2334,7 @@ This package contains components for modeling quasi-static electrical induction 
               extent={{150,-60},{-150,-100}},
               textString="%VectorGroup"), Text(
               extent={{150,100},{-150,60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}), Documentation(info="<html>
 Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
 Circuit layout (vector group) of primary and secondary windings have to be defined.

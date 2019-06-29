@@ -1017,7 +1017,7 @@ The output of the integrator part opamp (opAmp2) is a triangular signal of also 
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}), Polygon(
+              textColor={0,0,255}), Polygon(
               points={{-60,70},{70,0},{-60,-72},{-60,70}},
               lineColor={0,0,255},
               fillColor={255,255,255},
@@ -1078,7 +1078,7 @@ Different functionality is achieved by different circuits.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-100,10},{100,-10}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.None,
               textString="non-inverting")}));
@@ -1178,7 +1178,7 @@ Different functionality is achieved by different circuits.
 <p><code>-vOut = k1*vIn1 + k2*vIn2</code></p>
 </html>"),     Icon(graphics={Text(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="+")}));
     end Add;
 
@@ -1234,7 +1234,7 @@ Different functionality is achieved by different circuits.
 <p><code>vOut = -k*(vIn1 - vIn2)</code></p>
 </html>"),     Icon(graphics={Text(
               extent={{-40,40},{40,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="-")}));
     end Feedback;
 
@@ -1270,7 +1270,7 @@ Different functionality is achieved by different circuits.
 <p><code>vOut = -k*der(vIn)</code></p>
 </html>"),     Icon(graphics={Text(
               extent={{-60,40},{20,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="der")}));
     end Der;
 
@@ -1325,7 +1325,7 @@ Different functionality is achieved by different circuits.
                 points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
                               Text(
               extent={{-80,40},{0,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="I")}));
     end Integrator;
 

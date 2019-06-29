@@ -536,10 +536,10 @@ u1, else it is set equal to u3.</p>
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Text(
               extent={{70,-80},{94,-100}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="u"),Text(
               extent={{-65,93},{-12,75}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="y"),Line(
               points={{-80,-70},{30,-70}},
               thickness=0.5),Line(
@@ -558,10 +558,10 @@ u1, else it is set equal to u3.</p>
               points={{25,-30},{30,-19},{35,-30}},
               thickness=0.5),Text(
               extent={{-99,2},{-70,18}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="true"),Text(
               extent={{-98,-87},{-66,-73}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="false"),Text(
               extent={{19,-87},{44,-70}},
               textString="uHigh"),Text(
@@ -592,11 +592,11 @@ u1, else it is set equal to u3.</p>
           Line(points={{-49,51},{-49,-29}}),
           Text(
             extent={{-92,-49},{-9,-92}},
-            lineColor={192,192,192},
+            textColor={192,192,192},
             textString="%uLow"),
           Text(
             extent={{2,-49},{91,-92}},
-            lineColor={192,192,192},
+            textColor={192,192,192},
             textString="%uHigh"),
           Rectangle(extent={{-91,-49},{-8,-92}}, lineColor={192,192,192}),
           Line(points={{-49,-29},{-49,-49}}, color={192,192,192}),
@@ -966,7 +966,7 @@ The output <code>Q</code> is set by the input <code>S</code>, is reset by the in
           fillPattern=FillPattern.Solid,
           borderPattern=BorderPattern.Raised,
           extent={{-194,-14},{-168,14}}),
-        Text(lineColor={0,0,255},
+        Text(textColor={0,0,255},
           extent={{-200,22},{200,46}},
           textString="%name")}), Documentation(info="<html>
 <p>

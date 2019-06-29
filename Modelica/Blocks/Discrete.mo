@@ -156,10 +156,10 @@ the output y is identical to parameter yStart.
         graphics={
       Line(points={{-30.0,0.0},{30.0,0.0}},
         color={0,0,127}),
-      Text(lineColor={0,0,127},
+      Text(textColor={0,0,127},
         extent={{-90.0,10.0},{90.0,90.0}},
         textString="1"),
-      Text(lineColor={0,0,127},
+      Text(textColor={0,0,127},
         extent={{-90.0,-90.0},{90.0,-10.0}},
         textString="z")}),
       Diagram(coordinateSystem(
@@ -169,11 +169,11 @@ the output y is identical to parameter yStart.
           Text(
             extent={{-160,10},{-140,-10}},
             textString="u",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{115,10},{135,-10}},
             textString="y",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255}),
           Line(points={{40,0},{-40,0}}),
@@ -261,10 +261,10 @@ states can be set as start values of <strong>x</strong>.</p>
         graphics={
       Line(points={{82.0,0.0},{-84.0,0.0}},
         color={0,0,127}),
-      Text(lineColor={0,0,127},
+      Text(textColor={0,0,127},
         extent={{-92.0,12.0},{86.0,92.0}},
         textString="b(z)"),
-      Text(lineColor={0,0,127},
+      Text(textColor={0,0,127},
         extent={{-90.0,-90.0},{90.0,-12.0}},
         textString="a(z)")}),
       Diagram(coordinateSystem(
@@ -345,23 +345,23 @@ results in the following equations:
           Text(
             extent={{-90,15},{-15,90}},
             textString="A",
-            lineColor={0,0,127}),
+            textColor={0,0,127}),
           Text(
             extent={{15,15},{90,90}},
             textString="B",
-            lineColor={0,0,127}),
+            textColor={0,0,127}),
           Text(
             extent={{-52,28},{54,-20}},
             textString="z",
-            lineColor={0,0,127}),
+            textColor={0,0,127}),
           Text(
             extent={{-90,-15},{-15,-90}},
             textString="C",
-            lineColor={0,0,127}),
+            textColor={0,0,127}),
           Text(
             extent={{15,-15},{90,-90}},
             textString="D",
-            lineColor={0,0,127})}),
+            textColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={

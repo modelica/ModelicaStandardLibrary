@@ -29,7 +29,7 @@ algorithm
           fillPattern=FillPattern.Solid),
         Text(
           extent={{80,24},{100,4}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="u"),
         Line(points={{-80,54},{-80,54},{-60,80},{-60,-80},{60,80},{60,-80},{80,-52}})}),
     Documentation(info="<html>

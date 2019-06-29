@@ -11,7 +11,7 @@ package Icons "Icons for MultiBody package"
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,140},{150,100}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}), Documentation(info="<html>
 <p>
 This icon is designed for a <strong>parametrized surface</strong> model.
