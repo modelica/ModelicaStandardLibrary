@@ -56,16 +56,16 @@ package Examples
             grid={2,2}), graphics={
             Text(
               extent={{-35,39},{15,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="feedback controller"),
             Text(
               extent={{54,39},{104,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-120,40},{-70,-20}}, lineColor={255,0,0}),
             Text(
               extent={{-119,39},{-71,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-46,40},{18,-34}}, lineColor={255,0,0}),
             Rectangle(extent={{40,40},{120,-34}}, lineColor={255,0,0})}),
@@ -153,16 +153,16 @@ Original simple controlled drive with a
             grid={2,2}), graphics={
             Text(
               extent={{-41,39},{9,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="feedback controller"),
             Text(
               extent={{54,39},{104,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-120,40},{-80,-20}}, lineColor={255,0,0}),
             Text(
               extent={{-125,39},{-77,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-46,40},{14,-48}}, lineColor={255,0,0}),
             Rectangle(extent={{50,40},{132,-48}}, lineColor={255,0,0})}),
@@ -251,16 +251,16 @@ modelled as a clocked partition
             grid={2,2}), graphics={
             Text(
               extent={{-41,37},{9,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="feedback controller"),
             Text(
               extent={{40,37},{90,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-108,40},{-74,-8}},  lineColor={255,0,0}),
             Text(
               extent={{-113,37},{-65,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-50,40},{6,-40}},  lineColor={255,0,0}),
             Rectangle(extent={{32,40},{104,-40}}, lineColor={255,0,0})}),
@@ -353,16 +353,16 @@ taken into account the actual sample period.
             grid={2,2}), graphics={
             Text(
               extent={{-41,39},{9,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="feedback controller"),
             Text(
               extent={{54,39},{104,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-120,40},{-80,-20}}, lineColor={255,0,0}),
             Text(
               extent={{-125,39},{-77,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-46,40},{14,-48}}, lineColor={255,0,0}),
             Rectangle(extent={{50,40},{132,-48}}, lineColor={255,0,0})}),
@@ -456,16 +456,16 @@ a Real periodic clock.
             grid={2,2}), graphics={
             Text(
               extent={{-41,37},{9,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="feedback controller"),
             Text(
               extent={{46,37},{96,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-106,40},{-72,-10}}, lineColor={255,0,0}),
             Text(
               extent={{-113,37},{-65,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-50,40},{14,-40}}, lineColor={255,0,0}),
             Rectangle(extent={{36,40},{108,-40}}, lineColor={255,0,0})}),
@@ -574,16 +574,16 @@ of block <strong>periodicClock</strong> and then selecting
             grid={2,2}), graphics={
             Text(
               extent={{-41,39},{9,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="feedback controller"),
             Text(
               extent={{54,39},{104,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-120,40},{-80,-20}}, lineColor={255,0,0}),
             Text(
               extent={{-125,39},{-77,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-46,40},{14,-48}}, lineColor={255,0,0}),
             Rectangle(extent={{50,40},{132,-48}}, lineColor={255,0,0})}),
@@ -701,23 +701,23 @@ system with one sample period.
             grid={2,2}), graphics={
             Text(
               extent={{-12,38},{38,32}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="fast controller"),
             Text(
               extent={{66,37},{116,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-138,40},{-110,-20}},lineColor={255,0,0}),
             Text(
               extent={{-142,38},{-103,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-92,40},{-28,-68}},lineColor={255,0,0}),
             Rectangle(extent={{-14,40},{38,-68}}, lineColor={255,0,0}),
             Rectangle(extent={{56,40},{134,-68}}, lineColor={255,0,0}),
             Text(
               extent={{-89,38},{-39,32}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="slow controller")}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -850,23 +850,23 @@ Original cascade controlled drive with a
             grid={2,2}), graphics={
             Text(
               extent={{-12,38},{38,32}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="fast controller"),
             Text(
               extent={{66,37},{116,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-138,40},{-110,-20}},lineColor={255,0,0}),
             Text(
               extent={{-142,38},{-103,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-86,40},{-32,-52}},lineColor={255,0,0}),
             Rectangle(extent={{-14,40},{38,-52}}, lineColor={255,0,0}),
             Rectangle(extent={{56,40},{136,-52}}, lineColor={255,0,0}),
             Text(
               extent={{-83,38},{-33,32}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="slow controller")}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -992,23 +992,23 @@ clock inference.
             grid={2,2}), graphics={
             Text(
               extent={{-12,38},{38,32}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="fast controller"),
             Text(
               extent={{66,37},{116,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-138,40},{-110,-20}},lineColor={255,0,0}),
             Text(
               extent={{-142,38},{-103,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-86,40},{-32,-48}},lineColor={255,0,0}),
             Rectangle(extent={{-14,40},{38,-48}}, lineColor={255,0,0}),
             Rectangle(extent={{56,40},{134,-48}}, lineColor={255,0,0}),
             Text(
               extent={{-83,38},{-33,32}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="slow controller")}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1140,23 +1140,23 @@ defined by the super-sampling factor defined at the \"super\" block.
             grid={2,2}), graphics={
             Text(
               extent={{-12,38},{38,32}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="fast controller"),
             Text(
               extent={{66,37},{116,31}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="plant"),
             Rectangle(extent={{-138,40},{-110,-20}},lineColor={255,0,0}),
             Text(
               extent={{-142,38},{-103,33}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="reference"),
             Rectangle(extent={{-86,40},{-32,-48}},lineColor={255,0,0}),
             Rectangle(extent={{-14,40},{38,-48}}, lineColor={255,0,0}),
             Rectangle(extent={{56,40},{134,-48}}, lineColor={255,0,0}),
             Text(
               extent={{-83,38},{-33,32}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="slow controller")}),
        Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1333,7 +1333,7 @@ precisely time-synchronized to each other.
                 -100},{120,100}}),      graphics={Rectangle(extent={{-90,44},
                 {60,-44}}, lineColor={255,0,0}), Text(
             extent={{12,42},{58,34}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             textString="controller")}),
@@ -1584,7 +1584,7 @@ Obviously, the concentration follows reasonably well the desired one. By using a
                           graphics={Rectangle(extent={{104,36},{154,-22}},
                 lineColor={0,0,255}), Text(
               extent={{110,-16},{152,-20}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="Load torque")}),
                                      Icon(coordinateSystem(preserveAspectRatio=true,
                       extent={{-100,-100},{100,100}})),
@@ -1809,7 +1809,7 @@ initial equation
                 Text(
                   extent={{-150,90},{150,60}},
                   textString="%name",
-                  lineColor={0,0,255}),
+                  textColor={0,0,255}),
                 Polygon(
                   points={{28,-18},{48,-28},{40,-34},{20,-24},{28,-18}},
                   lineColor={0,0,255},
@@ -2149,7 +2149,7 @@ initial equation
                 Line(points={{-46,38},{-36,54},{40,66}}),
                 Text(
                   extent={{-100,-50},{100,-90}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   fillColor={255,255,0},
                   fillPattern=FillPattern.Solid,
                   textString="%name")}));
@@ -2206,7 +2206,7 @@ initial equation
                       0,0}),
                 Text(
                   extent={{-144,148},{148,100}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   textString="%name"),
@@ -2412,7 +2412,7 @@ initial equation
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{0,0},{60,-60}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="PTn"),
                 Line(points={{-80.7599,-80.5082},{-70.7599,-74.5082},{-56,-60},{-48,-42},
                       {-42,-18},{-36,4},{-26,20},{-10.7599,34.9018},{-0.759907,
@@ -2421,7 +2421,7 @@ initial equation
                       48.2918},{79.2401,48.6118}}, color={0,0,127}),
                 Text(
                   extent={{-70,94},{26,48}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="%n"),
                 Text(
                   extent={{8,-106},{8,-146}},
