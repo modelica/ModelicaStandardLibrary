@@ -982,7 +982,7 @@ then shifts it with shiftCounter = 4 and resolution = 3:<br>
 
 <table border=0 cellspacing=0 cellpadding=2>
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/ShiftSample_Model.png\", alt=\ShiftSample_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/ShiftSample_Model.png\", alt=\"ShiftSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/ShiftSample_Result.png\", alt=\"ShiftSample_Result.png\"></td>
     </tr>
