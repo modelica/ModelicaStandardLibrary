@@ -737,7 +737,7 @@ the following effects are added to the hold block:</p>
 </p>
 
 <p>
-If the hold output is delayed by one sample period, then the <strong>previous</strong>(..) value of the
+If the hold output is delayed by one sample period, then the <strong>previous</strong>(&hellip;) value of the
 input is output, and the first tick is delayed by one sample period,
 as shown by the
 <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2\">modified example</a>
@@ -2149,7 +2149,7 @@ There is the restriction that shiftCounter/resolution &le; 1.
             "Integer[3] defining random sequence; required element range: 0..255";
         protected
           Integer seedState[3](start=firstSeed, each fixed=true)
-            "State of seed"                                                      annotation(HideResult=true);
+            "State of seed" annotation(HideResult=true);
           Real noise "Noise in the range 0..1" annotation(HideResult=true);
         equation
           (noise,seedState) =
@@ -2162,7 +2162,7 @@ There is the restriction that shiftCounter/resolution &le; 1.
             Documentation(info="<html>
 <p>
 This block adds uniformly distributed noise
-in the range noiseMin .. noiseMax to the clocked Real input signal
+in the range noiseMin&nbsp;&hellip;&nbsp;noiseMax to the clocked Real input signal
 and provides the sum as clocked Real output signal.
 </p>
 
@@ -2194,9 +2194,8 @@ For more details, see the underlying function
 The following
 <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise\">example</a>
 samples zero signal with a periodic clock of 20 ms period, and adds
-noise in the range from -0.1 .. 0.1:<br>
+noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
 </p>
-
 
 <table border=0 cellspacing=0 cellpadding=2>
 <tr><td width=\"50\"></td>
@@ -2226,8 +2225,7 @@ noise in the range from -0.1 .. 0.1:<br>
                 Line(points={{-89,62},{85,62}}, color={255,0,0}),
                 Line(points={{-81,-17},{-67,-17},{-67,-1},{-59,-1},{-59,-49},{
                       -51,-49},{-51,-27},{-43,-27},{-43,57},{-35,57},{-35,25}},
-                                                                       color={0,0,
-                      127},
+                     color={0,0,127},
                   pattern=LinePattern.Dot),
                 Line(points={{-35,25},{-35,-35},{-25,-35},{-25,-17},{-15,-17},{
                       -15,-45},{-5,-45},{-5,37},{1,37},{1,51},{7,51},{7,-5},{17,
@@ -2348,7 +2346,7 @@ noise in the range from -0.1 .. 0.1:<br>
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}})),
             Documentation(info="<html>
-<p>This block adds uniformly distributed noise in the range noiseMin .. noiseMax to the clocked Real input signal and provides the sum as clocked Real output signal. </p>
+<p>This block adds uniformly distributed noise in the range noiseMin&nbsp;&hellip;&nbsp;noiseMax to the clocked Real input signal and provides the sum as clocked Real output signal. </p>
 <p>
 It is based on the xorshift64* algorithm.
 For more details, see the documentation to
@@ -3162,9 +3160,9 @@ results in the following equations:
 transfer function between the input signal u and the output
 signal y. The numerator has the order nb-1, the denominator
 has the order na-1.</p>
-<pre>          b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
+<pre>          b(1)*z^(nb-1) + b(2)*z^(nb-2) + &hellip; + b(nb)
    y(z) = -------------------------------------------- * u(z)
-          a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
+          a(1)*z^(na-1) + a(2)*z^(na-2) + &hellip; + a(na)
 </pre>
 <p>State variables <strong>x</strong> are defined according to
 <strong>controller canonical</strong> form. Initial values of the
@@ -3348,7 +3346,7 @@ This block computes the output y as the average of the input u and of
 its past values (= moving average filter):
 </p>
 <pre>
- y(i) = ( u(i) + u(i-1) + u(i-2) + ... ) / n
+ y(i) = ( u(i) + u(i-1) + u(i-2) + &hellip; ) / n
 </pre>
 <p>
 where y(i) and u(i) are the values of y and u at clock tick i, and n are the number of
@@ -3425,7 +3423,7 @@ This block computes the output y as a linear combination of the input u
 and of its past values (= FIR filter):
 </p>
 <pre>
- y(i) = a[1]*u(i) + a[2]*u(i-1) + a[3]*u(i-2) + ...
+ y(i) = a[1]*u(i) + a[2]*u(i-1) + a[3]*u(i-2) + &hellip;
 </pre>
 <p>
 where y(i) and u(i) are the values of y and u at clock tick i and
