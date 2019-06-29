@@ -1594,7 +1594,7 @@ Obviously, the concentration follows reasonably well the desired one. By using a
 This example shows how to model a non-periodic synchronous sampled data systems
 with the <code>Modelica.Clocked library</code>. This is demonstrated at hand
 of a closed-loop throttle control synchronized to the crankshaft angle of an
-internal combustion engine. This system has the following properties:
+internal combustion engine. This system has the following properties:</p>
 <ul>
 <li> Engine speed is regulated with a throttle actuator.</li>
 <li> Controller execution is synchronized with the engine crankshaft angle.</li>
@@ -1614,9 +1614,10 @@ engine's crankshaft. To produce respective clock ticks,
 <a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock\">rotationalClock</a>
 holds the angle of the last time a half-rotation of
 the crankshaft has been recognized (<code>angular_offset</code>). Given
-<code>angular_offset</code>, the event-condition for half-rotations is:
+<code>angular_offset</code>, the event-condition for half-rotations is:</p>
 <p>
 <code>abs(angle - angular_offset) >= abs(trigger_interval)</code>
+</p>
 <p>
 with <code>trigger_interval = 180°</code>. The model of
 <code>rotationalClock</code> therefore is (diagram-layer):
@@ -1626,7 +1627,7 @@ with <code>trigger_interval = 180°</code>. The model of
 In the end, <code>rotationalClock</code> samples it's own input angle to keep track of
 an offset used to decide when to tick; the clock's event condition depends on
 the state present when the condition changed last time from being non-satisfied
-to being satisfied, i.e., the state when the clock last ticked.
+to being satisfied, i.e., the state when the clock last ticked.</p>
 <p>
 <em>This example model is based on the following references:</em>
 </p>

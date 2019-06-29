@@ -331,7 +331,7 @@ Analog to the corresponding Real signal block example there exists an elementary
         Documentation(info="<html>
 <p>
 This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SubSample\">RealSignals.Sampler.SubSample</a>).
-/p>
+</p>
 <p>
 Analog to the corresponding Real signal block example there exists an elementary <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.SubSample\">example</a> for this Boolean block.
 </p>
@@ -1155,24 +1155,24 @@ contains utility blocks that are used as building blocks for user-relevant block
             extent = {{-90,36},{90,-36}},
             lineColor = {160,160,164},
             textString = "change()")}),
-        Documentation(info="<html>
+        Documentation(info="<html><p>
     This block is a synchronous version of
     <a href=\"Modelica.Blocks.Math.BooleanChange\">Modelica.Blocks.Math.BooleanChange</a>.
     It uses <code>previous</code> instead of the implicit <code>pre</code> of
     <code>change</code> to set the Boolean output <code>y</code> to
     <code>true</code> when the boolean input <code>u</code> changed. Thus, it's
-    logic is:
+    logic is:</p>
     <pre><code>
     if firstTick() then
       y = false;
     else
-      y = not(u == previous(u));
+      y = not (u == previous(u));
     end if;</code></pre>
     <p>
     <strong>This block might be superfluous and replaced by
     </strong><code>Modelica.Blocks.Math.BooleanChange</code><strong> when the semantics
     of </strong><code>change</code><strong> are relaxed and well-defined for
-    clocked discrete-time partitions.</strong>
+    clocked discrete-time partitions.</strong></p>
     </html>"));
     end BooleanChange;
 

@@ -3166,7 +3166,7 @@ has the order na-1.</p>
 </pre>
 <p>State variables <strong>x</strong> are defined according to
 <strong>controller canonical</strong> form. Initial values of the
-states can be set as start values of <strong>x</strong>.<p>
+states can be set as start values of <strong>x</strong>.</p>
 <p>Example:</p>
 <pre>     TransferFunction g(b = {2,4}, a = {1,3});
 </pre>
