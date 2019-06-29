@@ -91,7 +91,7 @@ A clocked partition is a set of equations that depend
 on each other and where the boundary variables are marked
 with sample and hold operators.
 If a clocked partition contains no operator <strong>der</strong>, <strong>delay</strong>,
-<strong>spatialDistribution</strong>, no event related operators (with exception of <strong>noEvent</strong>(..)),
+<strong>spatialDistribution</strong>, no event related operators (with exception of <strong>noEvent</strong>(&hellip;)),
 and no <strong>when</strong>-clause with a Boolean condition, it is a <strong>clocked discrete-time</strong>
 partition, that is, it is a standard sampled data system that is described by difference equations.
 If a clocked partition is <strong>not</strong> a <strong>clocked discrete-time</strong> partition and
