@@ -1390,7 +1390,7 @@ These equations are collected together in input/output block
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_PlantModel.png\", alt=\"ControlledMixingUnit_PlantModel.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_PlantModel.png\" alt=\"ControlledMixingUnit_PlantModel.png\">
 </p>
 
 <p>
@@ -1414,7 +1414,7 @@ in the pre-filter design block
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_FilterDesign.png\", alt=\"ControlledMixingUnit_FilterDesign.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_FilterDesign.png\" alt=\"ControlledMixingUnit_FilterDesign.png\">
 </p>
 
 
@@ -1444,7 +1444,7 @@ well as in the following figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Controller.png\", alt=\"ControlledMixingUnit_Controller.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Controller.png\" alt=\"ControlledMixingUnit_Controller.png\">
 </p>
 
 It consists of the filter discussed above. The input to the filter is the reference
@@ -1481,7 +1481,7 @@ still results in a reasonable control behavior as shown in the next two figures:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Result.png\", alt=\"ControlledMixingUnit_Result.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Result.png\" alt=\"ControlledMixingUnit_Result.png\">
 </p>
 
 <p>
@@ -1603,7 +1603,7 @@ internal combustion engine. This system has the following properties:</p>
 <p>
 The complete system is shown in figure below (diagram-layer):
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/EngineThrottleControl_Model.png\", alt=\"EngineThrottleControl_Model.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/EngineThrottleControl_Model.png\" alt=\"EngineThrottleControl_Model.png\">
 <p>
 Block <code>speedControl</code> is the discrete control system. The boundaries
 of this controller are defined by <code>sample1</code>, <code>sample2</code> and
@@ -1622,7 +1622,7 @@ the crankshaft has been recognized (<code>angular_offset</code>). Given
 with <code>trigger_interval = 180°</code>. The model of
 <code>rotationalClock</code> therefore is (diagram-layer):
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalClock_Model.png\", alt=\"RotationalClock_Model.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalClock_Model.png\" alt=\"RotationalClock_Model.png\">
 <p>
 In the end, <code>rotationalClock</code> samples it's own input angle to keep track of
 an offset used to decide when to tick; the clock's event condition depends on
@@ -2633,7 +2633,7 @@ Example used to generate a figure for the documentation of block
     the same pace; every half second it is doubled or halved respectively. The
     generated clocked signals are therefore:
     <p>
-    <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalSample_Result.png\", alt=\"RotationalSample_Result.png\">.
+    <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalSample_Result.png\" alt=\"RotationalSample_Result.png\">.
     </html>"));
       end RotationalSample;
 
@@ -2737,7 +2737,7 @@ Example used to generate a figure for the documentation of block
     The generated clocked signals of the disjunctive and conjunctive clock are
     therefore:
     <p>
-    <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/LogicalSample_Result.png\", alt=\"LogicalSample_Result.png\">.
+    <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/LogicalSample_Result.png\" alt=\"LogicalSample_Result.png\">.
     </html>"));
       end LogicalSample;
     annotation (Documentation(info="<html>
