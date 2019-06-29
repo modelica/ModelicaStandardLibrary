@@ -39,6 +39,12 @@ convertClass("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachin
               "Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines");
 convertClass("Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer",
               "Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer");
+convertClass("Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe",
+              "Modelica.Thermal.FluidHeatFlow.Components.Pipe");
+convertClass("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",
+              "Modelica.Thermal.FluidHeatFlow.Components.Pipe");
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient",
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft");
 convertClass("Modelica.Blocks.Sources.Clock",
               "Modelica.Blocks.Sources.ContinuousClock")
 convertClass("Modelica.Electrical.Digital.Sources.Clock",
@@ -88,6 +94,10 @@ convertElement("Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTe
                 "jucntioncap", "junctioncap");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet",
                 "No automatic conversion can be applied if record components are removed.")
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"},
+                 fill("",0), {"useHeatPort=false"});
+convertModifiers("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",
+                 fill("",0), {"useHeatPort=true"});
 
 // StateGraph.Temporary
 convertClass("Modelica.StateGraph.Temporary.anyTrue",
