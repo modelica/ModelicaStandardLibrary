@@ -16,7 +16,7 @@ package Continuous "Library of continuous control blocks with internal states"
     /* InitialState is the default, because it was the default in Modelica 2.2
      and therefore this setting is backward compatible
   */
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
+    parameter Init initType=Init.InitialState
       "Type of initialization (1: no init, 2: steady state, 3,4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
@@ -146,7 +146,7 @@ port has a rising edge.
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_set = false "= true, if set port enabled and used as reinitialization value when reset"
       annotation(Dialog(enable=use_reset), Evaluate=true, HideResult=true, choices(checkBox=true));
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
+    parameter Init initType=Init.InitialState
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
       annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Boolean limitsAtInit = true
@@ -297,7 +297,7 @@ port has a rising edge.
     parameter Real k(unit="1")=1 "Gains";
     parameter SIunits.Time T(min=Modelica.Constants.small) = 0.01
       "Time constants (T>0 required; T=0 is ideal derivative block)";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
+    parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                                                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
@@ -394,7 +394,7 @@ If k=0, the block reduces to y=0.
     import Modelica.Blocks.Types.Init;
     parameter Real k(unit="1")=1 "Gain";
     parameter SIunits.Time T(start=1) "Time Constant";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
+    parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
@@ -482,7 +482,7 @@ Example:
     parameter Real k(unit="1")=1 "Gain";
     parameter Real w(start=1) "Angular frequency";
     parameter Real D(start=1) "Damping";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
+    parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
@@ -602,7 +602,7 @@ Example:
     parameter Real k(unit="1")=1 "Gain";
     parameter SIunits.Time T(start=1,min=Modelica.Constants.small)
       "Time Constant (T>0 required)";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
+    parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                                                               annotation(Evaluate=true,
         Dialog(group="Initialization"));
@@ -707,7 +707,6 @@ This is discussed in the description of package
   end PI;
 
   block PID "PID-controller in additive description form"
-    import Modelica.Blocks.Types.InitPID;
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
 
@@ -718,7 +717,7 @@ This is discussed in the description of package
       "Time Constant of Derivative block";
     parameter Real Nd(min=Modelica.Constants.small) = 10
       "The higher Nd, the more ideal the derivative block";
-    parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
+    parameter Init initType= Init.InitialState
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
@@ -729,25 +728,24 @@ This is discussed in the description of package
       "Initial or guess value for state of derivative block"
       annotation (Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial value of output"
-      annotation(Dialog(enable=initType == InitPID.InitialOutput, group=
+      annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
     constant SI.Time unitTime=1 annotation(HideResult=true);
 
     Blocks.Math.Gain P(k=1) "Proportional part of PID controller"
       annotation (Placement(transformation(extent={{-60,60},{-20,100}})));
     Blocks.Continuous.Integrator I(k=unitTime/Ti, y_start=xi_start,
-      initType=if initType==InitPID.SteadyState then
+      initType=if initType==Init.SteadyState then
                   Init.SteadyState else
-               if initType==InitPID.InitialState or
-                  initType==InitPID.DoNotUse_InitialIntegratorState then
+               if initType==Init.InitialState then
                   Init.InitialState else Init.NoInit)
       "Integral part of PID controller"
       annotation (Placement(transformation(extent={{-60,-20},{-20,20}})));
     Blocks.Continuous.Derivative D(k=Td/unitTime, T=max([Td/Nd, 100*Modelica.
           Constants.eps]), x_start=xd_start,
-      initType=if initType==InitPID.SteadyState or
-                  initType==InitPID.InitialOutput then Init.SteadyState else
-               if initType==InitPID.InitialState then Init.InitialState else
+      initType=if initType==Init.SteadyState or
+                  initType==Init.InitialOutput then Init.SteadyState else
+               if initType==Init.InitialState then Init.InitialState else
                   Init.NoInit) "Derivative part of PID controller"
       annotation (Placement(transformation(extent={{-60,-100},{-20,-60}})));
     Blocks.Math.Gain Gain(k=k) "Gain of PID controller"
@@ -755,7 +753,7 @@ This is discussed in the description of package
     Blocks.Math.Add3 Add annotation (Placement(transformation(extent={{20,-10},
               {40,10}})));
   initial equation
-    if initType==InitPID.InitialOutput then
+    if initType==Init.InitialOutput then
        y = y_start;
     end if;
 
@@ -808,15 +806,7 @@ block LimPID.
 The PID block can be initialized in different
 ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
-<a href=\"modelica://Modelica.Blocks.Types.InitPID\">Modelica.Blocks.Types.InitPID</a>.
-This type is identical to
-<a href=\"modelica://Modelica.Blocks.Types.Init\">Types.Init</a>,
-with the only exception that the additional option
-<strong>DoNotUse_InitialIntegratorState</strong> is added for
-backward compatibility reasons (= integrator is initialized with
-InitialState whereas differential part is initialized with
-NoInit which was the initialization in version 2.2 of the Modelica
-standard library).
+<a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>.
 </p>
 
 <p>
@@ -845,16 +835,12 @@ blocks inside the PID controller are initialized according to the following tabl
           and initial equation: y = y_start</td>
       <td>NoInit</td>
       <td>SteadyState</td></tr>
-
-  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
-      <td>InitialState</td>
-      <td>NoInit</td></tr>
 </table>
 
 <p>
 In many cases, the most useful initial condition is
 <strong>SteadyState</strong> because initial transients are then no longer
-present. If initType = InitPID.SteadyState, then in some
+present. If initType = Init.SteadyState, then in some
 cases difficulties might occur. The reason is the
 equation of the integrator:
 </p>
@@ -880,7 +866,6 @@ to compute u by an algebraic equation.
 
   block LimPID
     "P, PI, PD, and PID controller with limited output, anti-windup compensation, setpoint weighting and optional feed-forward"
-    import Modelica.Blocks.Types.InitPID;
     import Modelica.Blocks.Types.Init;
     import Modelica.Blocks.Types.SimpleController;
     extends Modelica.Blocks.Interfaces.SVcontrol;
@@ -916,7 +901,7 @@ to compute u by an algebraic equation.
       annotation(Evaluate=true, choices(checkBox=true));
     parameter Real kFF=1 "Gain of feed-forward input"
       annotation(Dialog(enable=withFeedForward));
-    parameter .Modelica.Blocks.Types.InitPID initType= .Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
+    parameter Init initType = Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
       annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Real xi_start=0
@@ -930,7 +915,7 @@ to compute u by an algebraic equation.
                            enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
                                   controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real y_start=0 "Initial value of output"
-      annotation(Dialog(enable=initType == .Modelica.Blocks.Types.InitPID.InitialOutput, group=
+      annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
     parameter Modelica.Blocks.Types.LimiterHomotopy homotopyType = Modelica.Blocks.Types.LimiterHomotopy.Linear
       "Simplified model for homotopy-based initialization"
@@ -954,16 +939,16 @@ to compute u by an algebraic equation.
     Modelica.Blocks.Continuous.Integrator I(
       k=unitTime/Ti,
       y_start=xi_start,
-      initType=if initType == InitPID.SteadyState then Init.SteadyState else if
-          initType == InitPID.InitialState or initType == InitPID.DoNotUse_InitialIntegratorState
+      initType=if initType == Init.SteadyState then Init.SteadyState else if
+          initType == Init.InitialState
            then Init.InitialState else Init.NoInit) if with_I
       annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
     Modelica.Blocks.Continuous.Derivative D(
       k=Td/unitTime,
       T=max([Td/Nd,1.e-14]),
       x_start=xd_start,
-      initType=if initType == InitPID.SteadyState or initType == InitPID.InitialOutput
-           then Init.SteadyState else if initType == InitPID.InitialState then
+      initType=if initType == Init.SteadyState or initType == Init.InitialOutput
+           then Init.SteadyState else if initType == Init.InitialState then
           Init.InitialState else Init.NoInit) if with_D
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
     Modelica.Blocks.Math.Gain gainPID(k=k)
@@ -1000,11 +985,11 @@ to compute u by an algebraic equation.
     Modelica.Blocks.Math.Add addFF(k1=1, k2=kFF)
       annotation (Placement(transformation(extent={{48,-6},{60,6}})));
   initial equation
-    if initType==InitPID.InitialOutput then
+    if initType==Init.InitialOutput then
       gainPID.y = y_start;
     end if;
   equation
-    if initType == InitPID.InitialOutput and (y_start < yMin or y_start > yMax) then
+    if initType == Init.InitialOutput and (y_start < yMin or y_start > yMax) then
         Modelica.Utilities.Streams.error("LimPID: Start value y_start (=" + String(y_start) +
            ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
     end if;
@@ -1173,15 +1158,7 @@ together) and using the following strategy:
 This block can be initialized in different
 ways controlled by parameter <strong>initType</strong>. The possible
 values of initType are defined in
-<a href=\"modelica://Modelica.Blocks.Types.InitPID\">Modelica.Blocks.Types.InitPID</a>.
-This type is identical to
-<a href=\"modelica://Modelica.Blocks.Types.Init\">Types.Init</a>,
-with the only exception that the additional option
-<strong>DoNotUse_InitialIntegratorState</strong> is added for
-backward compatibility reasons (= integrator is initialized with
-InitialState whereas differential part is initialized with
-NoInit which was the initialization in version 2.2 of the Modelica
-standard library).
+<a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>.
 </p>
 
 <p>
@@ -1210,16 +1187,12 @@ blocks inside the PID controller are initialized according to the following tabl
           and initial equation: y = y_start</td>
       <td>NoInit</td>
       <td>SteadyState</td></tr>
-
-  <tr><td><strong>DoNotUse_InitialIntegratorState</strong></td>
-      <td>InitialState</td>
-      <td>NoInit</td></tr>
 </table>
 
 <p>
 In many cases, the most useful initial condition is
 <strong>SteadyState</strong> because initial transients are then no longer
-present. If initType = InitPID.SteadyState, then in some
+present. If initType = Init.SteadyState, then in some
 cases difficulties might occur. The reason is the
 equation of the integrator:
 </p>

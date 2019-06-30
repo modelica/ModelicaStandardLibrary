@@ -22,13 +22,13 @@ package Blocks "Test models for Modelica.Blocks"
     Modelica.Blocks.Continuous.PID pID(
       Ti=0.5,
       Td=0.1,
-      initType=Modelica.Blocks.Types.InitPID.InitialState) annotation (
+      initType=Modelica.Blocks.Types.Init.InitialState) annotation (
         Placement(transformation(extent={{-60,-140},{-40,-120}})));
     Modelica.Blocks.Continuous.LimPID limPID(
       Ti=0.5,
       Td=0.1,
       yMax=1,
-      initType=Modelica.Blocks.Types.InitPID.InitialState) annotation (
+      initType=Modelica.Blocks.Types.Init.InitialState) annotation (
         Placement(transformation(extent={{40,100},{60,120}})));
     Modelica.Blocks.Continuous.TransferFunction transferFunction(
       a={1,1},
@@ -128,8 +128,8 @@ package Blocks "Test models for Modelica.Blocks"
       firstOrder(initType=Modelica.Blocks.Types.Init.InitialState),
       secondOrder(initType=Modelica.Blocks.Types.Init.InitialState),
       pI(initType=Modelica.Blocks.Types.Init.InitialState),
-      pID(initType=Modelica.Blocks.Types.InitPID.InitialState),
-      limPID(initType=Modelica.Blocks.Types.InitPID.InitialState),
+      pID(initType=Modelica.Blocks.Types.Init.InitialState),
+      limPID(initType=Modelica.Blocks.Types.Init.InitialState),
       transferFunction(
         initType=Modelica.Blocks.Types.Init.InitialState,
         a={1,1},
@@ -154,9 +154,9 @@ package Blocks "Test models for Modelica.Blocks"
       firstOrder(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
       secondOrder(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
       pI(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
-      pID(initType=Modelica.Blocks.Types.InitPID.InitialOutput, y_start=2),
+      pID(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
       limPID(
-        initType=Modelica.Blocks.Types.InitPID.InitialOutput,
+        initType=Modelica.Blocks.Types.Init.InitialOutput,
         yMax=3,
         y_start=2),
       transferFunction(
@@ -370,12 +370,12 @@ package Blocks "Test models for Modelica.Blocks"
       k=5.0,
       outMax=0.9)
       annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
-    Modelica.Blocks.Continuous.LimPID PID1(yMax=0.4, initType=Modelica.Blocks.Types.InitPID.InitialOutput)
+    Modelica.Blocks.Continuous.LimPID PID1(yMax=0.4, initType=Modelica.Blocks.Types.Init.InitialOutput)
       annotation (Placement(transformation(extent={{38,-60},{58,-40}})));
     Modelica.Blocks.Continuous.LimPID PID2(
       yMax=0.4,
       strict=true,
-      initType=Modelica.Blocks.Types.InitPID.InitialOutput)
+      initType=Modelica.Blocks.Types.Init.InitialOutput)
       annotation (Placement(transformation(extent={{40,-100},{60,-80}})));
   equation
     connect(sine1.y, limiter1.u) annotation (Line(
@@ -811,13 +811,13 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
     Modelica.Blocks.Continuous.PID PID(
       Ti=2,
       Td=3,
-      initType=Modelica.Blocks.Types.InitPID.InitialState)
+      initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{60,30},{80,50}})));
     Modelica.Blocks.Continuous.LimPID PID1(
       Ti=2,
       Td=3,
       yMax=4,
-      initType=Modelica.Blocks.Types.InitPID.InitialState)
+      initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{60,0},{80,20}})));
     Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=10, freqHz=2)
       annotation (Placement(transformation(
@@ -1947,7 +1947,7 @@ This shows the improvements in the numerics when balance=true is set.
       Ti=1,
       yMax=1,
       yMin=0,
-      initType=Modelica.Blocks.Types.InitPID.SteadyState,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
       controllerType=Modelica.Blocks.Types.SimpleController.PI)
       annotation (Placement(transformation(extent={{-40,80},{-20,100}})));
     Modelica.Blocks.Sources.Step step1(
@@ -1961,7 +1961,7 @@ This shows the improvements in the numerics when balance=true is set.
       Ti=1,
       yMax=1,
       yMin=0,
-      initType=Modelica.Blocks.Types.InitPID.SteadyState,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
       homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UpperLimit)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
@@ -1976,7 +1976,7 @@ This shows the improvements in the numerics when balance=true is set.
       Ti=1,
       yMax=1,
       yMin=0,
-      initType=Modelica.Blocks.Types.InitPID.SteadyState,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
       homotopyType=Modelica.Blocks.Types.LimiterHomotopy.LowerLimit)
       annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
@@ -1991,7 +1991,7 @@ This shows the improvements in the numerics when balance=true is set.
       Ti=1,
       yMax=1,
       yMin=0,
-      initType=Modelica.Blocks.Types.InitPID.SteadyState,
+      initType=Modelica.Blocks.Types.Init.SteadyState,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
       homotopyType=Modelica.Blocks.Types.LimiterHomotopy.NoHomotopy)
       annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));

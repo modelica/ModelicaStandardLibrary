@@ -3611,7 +3611,7 @@ rotor angle is very slowly increased. This allows to see several characteristics
           Ti=Ti,
           yMax=2.5*Ve0,
           yMin=0,
-          initType=Modelica.Blocks.Types.InitPID.InitialState,
+          initType=Modelica.Blocks.Types.Init.InitialState,
           Td=0.001)
           annotation (Placement(transformation(extent={{-70,-20},{-50,-40}})));
         Modelica.Electrical.Analog.Sources.SignalVoltage excitationVoltage
@@ -3845,7 +3845,7 @@ Voltage is controlled, the set point depends on speed. After start-up the genera
           Ti=Ti,
           yMax=2.5*Ve0,
           yMin=0,
-          initType=Modelica.Blocks.Types.InitPID.InitialState,
+          initType=Modelica.Blocks.Types.Init.InitialState,
           Td=0.001)
           annotation (Placement(transformation(extent={{-70,-20},{-50,-40}})));
         Modelica.Electrical.Analog.Sources.SignalVoltage excitationVoltage
@@ -4163,7 +4163,7 @@ Default machine parameters of model <em>DC_PermanentMagnet</em> are used.
           initType=Modelica.Blocks.Types.Init.InitialOutput,
           y_start=0)
           annotation (Placement(transformation(extent={{-20,50},{0,70}})));
-        Blocks.Continuous.LimPID PID(withFeedForward=true, initType=Modelica.Blocks.Types.InitPID.InitialOutput,
+        Blocks.Continuous.LimPID PID(withFeedForward=true, initType=Modelica.Blocks.Types.Init.InitialOutput,
           controllerType=Modelica.Blocks.Types.SimpleController.PI,
           k=k,
           Ti=Ti,
