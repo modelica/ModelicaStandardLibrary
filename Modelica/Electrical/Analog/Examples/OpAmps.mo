@@ -542,10 +542,9 @@ package OpAmps "Examples with operational amplifiers"
         points={{20,0},{30,0},{30,-8}}, color={0,0,255}));
     connect(ground.p, rl.n) annotation (Line(
         points={{-10,-80},{30,-80},{30,-28}}, color={0,0,255}));
-    annotation (Documentation(info=
-                   "<html>
-    <p>This is a voltage follower. It reproduces the input voltage at the output without loading the input voltage source with a stiff output.</p>
-                         </html>"),
+    annotation (Documentation(info="<html>
+<p>This is a voltage follower. It reproduces the input voltage at the output without loading the input voltage source with a stiff output.</p>
+</html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -608,10 +607,9 @@ package OpAmps "Examples with operational amplifiers"
         points={{0,-30},{0,-50}}, color={0,0,255}));
     connect(ground.p, supplyVoltage.ground) annotation (Line(
         points={{-10,-80},{-10,-50}}, color={0,0,255}));
-    annotation (Documentation(info=
-                   "<html>
-                        <p>This is a comparator. Resistance R1 can be chosen, resistance R2 is defined by the desired reference voltage Vref (between Vn and Vp). The output switches between Vn for input voltage &lt; Vref and Vp for input voltage &gt; Vref.</p>
-                        </html>"),
+    annotation (Documentation(info="<html>
+<p>This is a comparator. Resistance R1 can be chosen, resistance R2 is defined by the desired reference voltage Vref (between Vn and Vp). The output switches between Vn for input voltage &lt; Vref and Vp for input voltage &gt; Vref.</p>
+</html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -681,11 +679,10 @@ package OpAmps "Examples with operational amplifiers"
         points={{-10,-80},{50,-80},{50,-30}}, color={0,0,255}));
     connect(opAmp.out, vOut.p) annotation (Line(
         points={{20,0},{50,0},{50,-10}}, color={0,0,255}));
-    annotation (Documentation(info=
-                   "<html>
-                        <p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &gt; 0 + vHys and Vp for input voltage &lt; vHys*Vns/Vps.</p>
-                        <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
-                        </html>"),
+    annotation (Documentation(info="<html>
+<p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &gt; 0 + vHys and Vp for input voltage &lt; vHys*Vns/Vps.</p>
+<p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+</html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -754,11 +751,10 @@ package OpAmps "Examples with operational amplifiers"
         points={{0,20},{-20,20}}, color={0,0,255}));
     connect(r1.p, vIn.p) annotation (Line(
         points={{-40,20},{-80,20},{-80,10}}, color={0,0,255}));
-    annotation (Documentation(info=
-                   "<html>
-                        <p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &gt; vHys and Vn for input voltage &lt; vHys*Vns/Vps.</p>
-                        <p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
-                        </html>"),
+    annotation (Documentation(info="<html>
+<p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &gt; vHys and Vn for input voltage &lt; vHys*Vns/Vps.</p>
+<p>The example is taken from: U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.2</p>
+</html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -822,11 +818,10 @@ package OpAmps "Examples with operational amplifiers"
         points={{0,-6},{-10,-6},{-10,-30}}, color={0,0,255}));
     connect(r.n, c.p) annotation (Line(
         points={{0,30},{-30,30},{-30,-30}}, color={0,0,255}));
-    annotation (Documentation(info=
-                   "<html>
-                        <p>This is a Multivibrator with Schmitt trigger according to:</p>
-                        <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
-                        </html>"),
+    annotation (Documentation(info="<html>
+<p>This is a Multivibrator with Schmitt trigger according to:</p>
+<p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
+</html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -911,13 +906,12 @@ package OpAmps "Examples with operational amplifiers"
         points={{50,0},{60,0},{60,-8}}, color={0,0,255}));
     connect(ground.p, vOutTriangle.n) annotation (Line(
         points={{0,-40},{60,-40},{60,-28}}, color={0,0,255}));
-    annotation (Documentation(info=
-                   "<html>
-                        <p>This signal generator consists of a Schmitt trigger and an integrator. The output of the Schmitt trigger part opamp (opAmp1) is a rectangular signal with the amplitude VAmp and the frequency f.
-                        The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f.</p>
-                        <p>Source:</p>
-                        <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
-                        </html>"),
+    annotation (Documentation(info="<html>
+<p>This signal generator consists of a Schmitt trigger and an integrator. The output of the Schmitt trigger part opamp (opAmp1) is a rectangular signal with the amplitude VAmp and the frequency f.
+The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f.</p>
+<p>Source:</p>
+<p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
+</html>"),
       experiment(
         StartTime=0,
         StopTime=1,
@@ -994,11 +988,10 @@ package OpAmps "Examples with operational amplifiers"
         points={{20,-40},{60,-40},{60,-30}}, color={0,0,255}));
     connect(r.n, vOut.p) annotation (Line(
         points={{10,0},{60,0},{60,-10}}, color={0,0,255}));
-    annotation (Documentation(info=
-                   "<html>
-                       <p>This is an LC oscillator according to:</p>
-                       <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.1</p>
-                       </html>"),
+    annotation (Documentation(info="<html>
+<p>This is an LC oscillator according to:</p>
+<p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.1</p>
+</html>"),
       experiment(
         StartTime=0,
         StopTime=0.01,
@@ -1494,5 +1487,14 @@ Different functionality is achieved by different circuits.
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid)}));
     end PI;
+    annotation (Documentation(info="<html>
+<p>This package provides some fully connected operational amplifiers circuts.
+</p>
+</html>"));
   end OpAmpCircuits;
+  annotation (Documentation(info="<html>
+<p>This package contains applications examples of the components provided in the package
+<a href=\"Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits\">OpAmpCircuits</a>.
+</p>
+</html>"));
 end OpAmps;
