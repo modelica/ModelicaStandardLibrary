@@ -146,7 +146,7 @@ package OpAmps "Examples with operational amplifiers"
         Interval=0.001));
   end Adder;
 
-  model Subtracter "Inverting subtractor"
+  model Subtracter "Inverting subtracter"
     extends Modelica.Icons.Example;
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
@@ -1488,12 +1488,12 @@ Different functionality is achieved by different circuits.
               fillPattern=FillPattern.Solid)}));
     end PI;
     annotation (Documentation(info="<html>
-<p>This package provides some fully connected operational amplifiers circuts.
+<p>This package provides some fully connected operational amplifier circuits.
 </p>
 </html>"));
   end OpAmpCircuits;
   annotation (Documentation(info="<html>
-<p>This package contains applications examples of the components provided in the package
+<p>This package contains application examples of the components provided in the package
 <a href=\"Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits\">OpAmpCircuits</a>.
 </p>
 </html>"));
