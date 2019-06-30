@@ -2,6 +2,62 @@ package ModelicaTestConversion4
   extends Modelica.Icons.ExamplesPackage;
   package Blocks
     extends Modelica.Icons.ExamplesPackage;
+    model Issue813 "Conversion test for #813"
+      extends Modelica.Icons.Example;
+      block B
+        output Real y;
+        parameter Real p;
+      equation
+        y = p*time;
+      end B;
+      block B1
+        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends B(p=1);
+      end B1;
+      block B2
+        extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
+        extends B(p=2);
+      end B2;
+      block B3
+        extends Modelica.Blocks.Interfaces.DiscreteBlockIcon;
+        extends B(p=3);
+      end B3;
+      block B4
+        extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
+        extends B(p=4);
+      end B4;
+      block B5
+        extends Modelica.Blocks.Interfaces.partialBooleanBlockIcon;
+        extends B(p=5);
+      end B5;
+      B1 b1;
+      B2 b2;
+      B3 b3;
+      B4 b4;
+      B5 b5;
+      Modelica.Blocks.Interfaces.Adaptors.SendReal sendReal;
+      Modelica.Blocks.Interfaces.Adaptors.ReceiveReal receiveReal;
+      Modelica.Blocks.Sources.RealExpression realExpression;
+      Modelica.Blocks.Interfaces.Adaptors.SendBoolean sendBoolean;
+      Modelica.Blocks.Interfaces.Adaptors.ReceiveBoolean receiveBoolean;
+      Modelica.Blocks.Sources.BooleanExpression booleanExpression;
+      Modelica.Blocks.Interfaces.Adaptors.SendInteger sendInteger;
+      Modelica.Blocks.Interfaces.Adaptors.ReceiveInteger receiveInteger;
+      Modelica.Blocks.Sources.IntegerExpression integerExpression;
+    equation
+      connect(sendReal.toBus, receiveReal.fromBus);
+      connect(realExpression.y, sendReal.u);
+      connect(sendBoolean.toBus, receiveBoolean.fromBus);
+      connect(booleanExpression.y, sendBoolean.u);
+      connect(sendInteger.toBus, receiveInteger.fromBus);
+      connect(integerExpression.y, sendInteger.u);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
+</p>
+</html>"));
+    end Issue813;
+
     model Issue2441 "Conversion test for #2441"
       extends Modelica.Icons.Example;
       Modelica.Blocks.Tables.CombiTable1D table1(table=[0,0;0,1]);
