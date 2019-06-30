@@ -89,6 +89,18 @@ convertClass("Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState",
               "Modelica.Blocks.Types.Init.NoInit");
 convertClass("Modelica.Blocks.Types.InitPID",
               "Modelica.Blocks.Types.Init");
+convertClass("Modelica.Icons.Library",
+              "Modelica.Icons.Package")
+convertClass("Modelica.Icons.Library2",
+              "Modelica.Icons.Package")
+convertClass("Modelica.Icons.GearIcon",
+              "Modelica.Mechanics.Rotational.Icons.Gearbox")
+convertClass("Modelica.Icons.MotorIcon",
+              "Modelica.Electrical.Machines.Icons.Drive")
+convertClass("Modelica.Mechanics.MultiBody.Icons.MotorIcon",
+              "Modelica.Electrical.Machines.Icons.Drive")
+convertClass("Modelica.Icons.Info",
+              "Modelica.Icons.Information")
 
 // Change renamed elements of classes
 // mue -> mu

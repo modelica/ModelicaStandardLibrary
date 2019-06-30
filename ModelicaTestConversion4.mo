@@ -824,6 +824,36 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end FluidHeatFlow;
   end Thermal;
 
+  package Icons
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue813 "Conversion test for #813"
+      extends Modelica.Icons.Example;
+      package P1
+        extends Modelica.Icons.Library;
+      end P1;
+      package P2
+        extends Modelica.Icons.Library2;
+      end P2;
+      package P3
+        extends Modelica.Icons.GearIcon;
+      end P3;
+      package P4
+        extends Modelica.Icons.MotorIcon;
+      end P4;
+      package P5
+        extends Modelica.Icons.Info;
+      end P5;
+      package P6
+        extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
+      end P6;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
+</p>
+</html>"));
+    end Issue813;
+  end Icons;
+
   package SIunits
     extends Modelica.Icons.ExamplesPackage;
     model Issue385 "Conversion test for #385"
