@@ -5636,7 +5636,7 @@ and instead the component is internally fixed to ground.
     partial model PartialAbsoluteSensor
       "Device to measure a single absolute flange variable"
 
-      extends Modelica.Icons.TranslationalSensor;
+      extends Modelica.Icons.RectangularSensor;
 
       Interfaces.Flange_a flange
         "Flange to be measured (flange axis directed into cut plane, e. g. from left to right)"
@@ -5668,7 +5668,7 @@ with the Modelica.Blocks blocks.
     partial model PartialRelativeSensor
       "Device to measure a single relative variable between two flanges"
 
-      extends Modelica.Icons.TranslationalSensor;
+      extends Modelica.Icons.RectangularSensor;
       extends Translational.Interfaces.PartialTwoFlanges;
     equation
       0 = flange_a.f + flange_b.f;

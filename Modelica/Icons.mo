@@ -439,7 +439,7 @@ directly utilized by a user.
 </html>"));
   end MaterialProperty;
 
-  partial class RotationalSensor "Icon representing a round measurement device"
+  partial class RoundSensor "Icon representing a round measurement device"
 
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
@@ -472,9 +472,9 @@ directly utilized by a user.
 This icon is designed for a <strong>rotational sensor</strong> model.
 </p>
 </html>"));
-  end RotationalSensor;
+  end RoundSensor;
 
-  partial class TranslationalSensor
+  partial class RectangularSensor
     "Icon representing a linear measurement device"
 
     annotation (
@@ -499,7 +499,7 @@ This icon is designed for a <strong>rotational sensor</strong> model.
 <p>
 This icon is designed for a <strong>translational sensor</strong> model.
 </p></html>"));
-  end TranslationalSensor;
+  end RectangularSensor;
 
   partial function Function "Icon for functions"
 

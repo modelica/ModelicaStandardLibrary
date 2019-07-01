@@ -438,7 +438,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
 
   partial model AbsoluteSensor
     "Base class to measure the absolute value of a pin variable"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Interfaces.PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
@@ -473,7 +473,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
 
   partial model RelativeSensor
     "Base class to measure a relative variable between two pins"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Interfaces.PositivePin p "Positive electrical pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));

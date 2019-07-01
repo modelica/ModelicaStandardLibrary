@@ -2121,7 +2121,7 @@ This sensor can be used to measure the complex current.
 
     model PowerSensor "Power sensor"
       import Modelica.ComplexMath.conj;
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       Interfaces.PositivePin currentP annotation (Placement(transformation(
               extent={{-110,-10},{-90,10}})));
       Interfaces.NegativePin currentN annotation (Placement(transformation(
@@ -2193,7 +2193,7 @@ This sensor can be used to measure the complex apparent power.
     end PowerSensor;
 
   model MultiSensor "Sensor to measure current, voltage and power"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     import Modelica.ComplexMath.conj;
     import Modelica.ComplexMath.'abs';
     import Modelica.ComplexMath.arg;
@@ -2751,7 +2751,7 @@ This model is intended to be used with textual representation of user models.
     end OnePort;
 
     partial model AbsoluteSensor "Partial potential sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       Modelica.SIunits.AngularVelocity omega;
       PositivePin pin "Positive quasi-static single-phase pin" annotation (Placement(transformation(extent={{-110,
                 -10},{-90,10}})));
@@ -2783,7 +2783,7 @@ The absolute sensor partial model provides a single
     end AbsoluteSensor;
 
     partial model RelativeSensor "Partial voltage / current sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends OnePort;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
             transformation(

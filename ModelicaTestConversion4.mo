@@ -1493,7 +1493,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
   package Icons
     extends Modelica.Icons.ExamplesPackage;
-    model Issue813 "Conversion test for #813"
+    model Issue340 "Conversion test for #340"
       extends Modelica.Icons.Example;
       package P1
         extends Modelica.Icons.Library;
@@ -1518,12 +1518,18 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       package P6
         extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
       end P6;
+      package P7
+        extends Modelica.Icons.RotationalSensor;
+      end P7;
+      package P8
+        extends Modelica.Icons.TranslationalSensor;
+      end P8;
       annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/340\">#340</a>.
 </p>
 </html>"));
-    end Issue813;
+    end Issue340;
 
     model Issue3036 "Conversion test for #3036"
       extends Modelica.Icons.Example;

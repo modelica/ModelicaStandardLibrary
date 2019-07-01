@@ -5,7 +5,7 @@ package Sensors
 
   model Pressure "Ideal pressure sensor"
     extends Sensors.BaseClasses.PartialAbsoluteSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput p(final quantity="Pressure",
                                             final unit="Pa",
                                             displayUnit="bar",
@@ -36,7 +36,7 @@ ideal, i.e., it does not influence the fluid.
 
   model Density "Ideal one port density sensor"
     extends Sensors.BaseClasses.PartialAbsoluteSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput d(final quantity="Density",
                                             final unit="kg/m3",
                                             displayUnit="g/cm3",
@@ -68,7 +68,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model DensityTwoPort "Ideal two port density sensor"
     extends Sensors.BaseClasses.PartialFlowSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput d(final quantity="Density",
                                             final unit="kg/m3",
                                             displayUnit="g/cm3",
@@ -256,7 +256,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model SpecificEnthalpy "Ideal one port specific enthalpy sensor"
     extends Sensors.BaseClasses.PartialAbsoluteSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput h_out(final quantity="SpecificEnergy",
                                                 final unit="J/kg")
       "Specific enthalpy in port medium"
@@ -287,7 +287,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
   model SpecificEnthalpyTwoPort
     "Ideal two port sensor for the specific enthalpy"
     extends Sensors.BaseClasses.PartialFlowSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput h_out(final quantity="SpecificEnergy",
                                                 final unit="J/kg")
       "Specific enthalpy of the passing fluid"
@@ -321,7 +321,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model SpecificEntropy "Ideal one port specific entropy sensor"
     extends Sensors.BaseClasses.PartialAbsoluteSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput s(final quantity="SpecificEntropy",
                                             final unit="J/(kg.K)")
       "Specific entropy in port medium"
@@ -351,7 +351,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model SpecificEntropyTwoPort "Ideal two port sensor for the specific entropy"
     extends Sensors.BaseClasses.PartialFlowSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput s(final quantity="SpecificEntropy",
                                             final unit="J/(kg.K)")
       "Specific entropy of the passing fluid"
@@ -394,7 +394,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model MassFractions "Ideal one port mass fraction sensor"
     extends Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     parameter String substanceName = "water" "Name of mass fraction";
 
     Modelica.Blocks.Interfaces.RealOutput Xi "Mass fraction in port medium"
@@ -444,7 +444,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model MassFractionsTwoPort "Ideal two port sensor for mass fraction"
     extends Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput Xi "Mass fraction in port medium"
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=90,
@@ -496,7 +496,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model TraceSubstances "Ideal one port trace substances sensor"
     extends Sensors.BaseClasses.PartialAbsoluteSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     parameter String substanceName = "CO2" "Name of trace substance";
 
     Modelica.Blocks.Interfaces.RealOutput C "Trace substance in port medium"
@@ -543,7 +543,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model TraceSubstancesTwoPort "Ideal two port sensor for trace substance"
     extends Sensors.BaseClasses.PartialFlowSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput C
       "Trace substance of the passing fluid"
       annotation (Placement(transformation(
@@ -590,7 +590,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model MassFlowRate "Ideal sensor for mass flow rate"
     extends Sensors.BaseClasses.PartialFlowSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput m_flow(quantity="MassFlowRate",
                                                  final unit="kg/s")
       "Mass flow rate from port_a to port_b" annotation (Placement(
@@ -620,7 +620,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   model VolumeFlowRate "Ideal sensor for volume flow rate"
     extends Sensors.BaseClasses.PartialFlowSensor;
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     Modelica.Blocks.Interfaces.RealOutput V_flow(final quantity="VolumeFlowRate",
                                                  final unit="m3/s")
       "Volume flow rate from port_a to port_b"
@@ -755,7 +755,7 @@ as signal.
 
     model PartialRelativeSensor
       "Partial component to model a sensor that measures the difference between two potential variables"
-      extends Modelica.Icons.TranslationalSensor;
+      extends Modelica.Icons.RectangularSensor;
       replaceable package Medium =
         Modelica.Media.Interfaces.PartialMedium "Medium in the sensor" annotation (
           choicesAllMatching = true);

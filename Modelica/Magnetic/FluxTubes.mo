@@ -7273,7 +7273,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
 
     model MagneticPotentialDifferenceSensor
       "Sensor to measure magnetic potential difference"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends Interfaces.TwoPortsElementary;
 
       Modelica.Blocks.Interfaces.RealOutput V_m(final quantity=
@@ -7314,7 +7314,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
 
     model MagneticFluxSensor "Sensor to measure magnetic flux"
       extends Interfaces.TwoPortsElementary;
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
 
       Modelica.Blocks.Interfaces.RealOutput Phi(final quantity="MagneticFlux",
           final unit="Wb")

@@ -7656,7 +7656,7 @@ and instead the component is internally fixed to ground.
 
     partial model PartialAbsoluteSensor
       "Partial model to measure a single absolute flange variable"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
 
       Flange_a flange
         "Flange of shaft from which sensor information shall be measured"
@@ -7685,7 +7685,7 @@ with the blocks of package Modelica.Blocks.
 
     partial model PartialRelativeSensor
       "Partial model to measure a single relative variable between two flanges"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
 
       Flange_a flange_a "Left flange of shaft" annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));

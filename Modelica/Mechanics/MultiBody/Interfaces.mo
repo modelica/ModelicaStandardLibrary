@@ -626,7 +626,7 @@ has to be defined. Example:
 
   partial model PartialAbsoluteSensor
     "Base model to measure an absolute frame variable"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     parameter Integer n_out = 1 "Number of output signals";
     Interfaces.Frame_a frame_a
       "Coordinate system from which absolute quantities are provided as output signals"
@@ -662,7 +662,7 @@ with the blocks of package Modelica.Blocks.
 
   partial model PartialRelativeSensor
     "Base model to measure a relative variable between two frames"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     parameter Integer n_out = 1 "Number of output signals";
     Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}})));
