@@ -505,13 +505,13 @@ generated signal.
           extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-102,34},{-142,24}},
               textString="(setpoint)",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{100,24},{140,14}},
               textString="(actuator)",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{-83,-112},{-33,-102}},
               textString=" (measurement)",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Block has two continuous Real input signals and one
 continuous Real output signal. The block is designed
@@ -540,13 +540,13 @@ to be used as base class for a corresponding controller.
           extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-100,36},{-140,26}},
               textString="(setpoint)",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{102,24},{142,14}},
               textString="(actuator)",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{-75,-108},{-25,-98}},
               textString=" (measurement)",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Block has two continuous Real input signal vectors and one
 continuous Real output signal vector. The block is designed

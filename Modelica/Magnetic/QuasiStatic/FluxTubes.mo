@@ -1116,7 +1116,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
             extent={{-150,150},{150,110}},
             textString="%name",
               pattern=LinePattern.None,
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
           Line(points={{18,10},{18,-12}}, color={255,170,85}),
           Line(points={{-110,30},{-110,-30}},
                                             color={85,170,255}),

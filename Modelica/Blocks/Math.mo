@@ -1540,13 +1540,13 @@ as <strong>cos</strong> of the input <strong>u</strong>:
               fillPattern=FillPattern.Solid),Text(
               extent={{-37,-72},{-17,-88}},
               textString="-5.8",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{-33,86},{-13,70}},
               textString=" 5.8",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{70,25},{90,5}},
               textString="1.4",
-              lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,192,192}),
+              textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={192,192,192}),
             Polygon(
               points={{100,0},{84,6},{84,-6},{100,0}},
               lineColor={192,192,192},
@@ -1791,16 +1791,16 @@ Otherwise an error occurs.
             52.9},{24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{80,80}}),Text(
               extent={{-32,91},{-12,71}},
               textString="1.4",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{-32,-71},{-12,-91}},
               textString="-1.4",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{73,26},{93,10}},
               textString=" 5.8",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{-103,20},{-83,4}},
               textString="-5.8",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{66,-8},{94,-28}},
               textColor={160,160,164},
               textString="u")}),
@@ -2447,10 +2447,10 @@ zero or negative.
               textColor={0,0,255}),Text(
               extent={{-109,72},{-89,88}},
               textString=" 1.3",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{-109,-88},{-89,-72}},
               textString="-1.3",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{62,30},{90,10}},
               textColor={160,160,164},
               textString="u")}),

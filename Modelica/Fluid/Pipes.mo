@@ -720,7 +720,7 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.Dot),
             Text(
               extent={{100.5,36},{130.5,30}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="crossAreas[n]"),
             Line(
               points={{-34,52},{-34,-53}},
@@ -752,7 +752,7 @@ This also allows for taking into account friction losses with respect to the act
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{20.5,-63},{80,-69}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="flowModel.dps_fg[2:n-1]"),
             Line(
               points={{-95,0},{-5,0}},
@@ -821,15 +821,15 @@ This also allows for taking into account friction losses with respect to the act
               textString="states[1]"),
             Text(
               extent={{-99.5,30},{-69.5,24}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="dimensions[1]"),
             Text(
               extent={{-0.5,30},{40,24}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="dimensions[2:n-1]"),
             Text(
               extent={{100.5,30},{130.5,24}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="dimensions[n]"),
             Line(
               points={{-34,73},{-34,52}},
@@ -3498,8 +3498,7 @@ b has the same sign of the change of density.</p>
 
         // Currently not in use (means to widen the regularization domain in case of large difference in static head)
         final parameter Boolean use_x_small_staticHead = false
-          "Use dp_/m_flow_small_staticHead only if static head actually exists"
-                                                                                annotation(Evaluate=true);
+          "Use dp_/m_flow_small_staticHead only if static head actually exists" annotation(Evaluate=true);
                                                                /*abs(height_ab)>0*/
         SI.AbsolutePressure dp_small_staticHead = noEvent(max(dp_small, 0.015*abs(g_times_height_ab*(rho_a-rho_b))))
           "Heuristic for large discontinuities in static head";

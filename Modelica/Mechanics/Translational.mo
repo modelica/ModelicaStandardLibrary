@@ -540,13 +540,13 @@ the two other examples).
                 {100,100}}),graphics={Text(
                   extent={{-100,80},{-82,60}},
                   textString="1)",
-                  lineColor={0,0,255}),Text(
+                  textColor={0,0,255}),Text(
                   extent={{-100,40},{-82,20}},
                   textString="2)",
-                  lineColor={0,0,255}),Text(
+                  textColor={0,0,255}),Text(
                   extent={{-100,-20},{-82,-40}},
                   textString="3)",
-                  lineColor={0,0,255})}),
+                  textColor={0,0,255})}),
         experiment(StopTime=1.0, Interval=0.001));
     end SignConvention;
 
@@ -1214,10 +1214,10 @@ to see the difference.
                 {100,100}}), graphics={Text(
                   extent={{-100,80},{-80,60}},
                   textString="1)",
-                  lineColor={0,0,255}),Text(
+                  textColor={0,0,255}),Text(
                   extent={{-100,20},{-80,0}},
                   textString="2)",
-                  lineColor={0,0,255}),Text(
+                  textColor={0,0,255}),Text(
                   extent={{-100,-40},{-80,-60}},
                   textColor={0,0,255},
                   textString="3)")}),

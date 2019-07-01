@@ -11610,13 +11610,13 @@ external "builtin" y = tan(u);
         extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-37,-72},{-17,-88}},
             textString="-5.8",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-33,86},{-13,70}},
             textString=" 5.8",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{68,-13},{88,-33}},
             textString="1.4",
-            lineColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
+            textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{98,0},{82,6},{82,-6},{98,0}},
             lineColor={95,95,95},
@@ -11995,10 +11995,10 @@ algorithm
             thickness=0.5),Text(
             extent={{-56,82},{-12,72}},
             textString="(2*N-1)*pi",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-52,-72},{-10,-88}},
             textString="(2*N-3)*pi",
-            lineColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
+            textColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
           Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
             extent={{38,-68},{78,-84}},
             textColor={95,95,95},
@@ -12268,10 +12268,10 @@ algorithm
             thickness=0.5),Text(
             extent={{-31,72},{-11,88}},
             textString="2.31",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-35,-88},{-15,-72}},
             textString="-2.31",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{72,-13},{92,-33}},
             textString="5",
             textColor={0,0,255}),Text(
@@ -12341,10 +12341,10 @@ algorithm
             thickness=0.5),Text(
             extent={{-80,66},{-58,78}},
             textString="2.29",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{-73,-86},{-50,-70}},
             textString="1.0",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{64,-77},{84,-92}},
             textString="5",
             textColor={0,0,255}),Text(
@@ -12561,7 +12561,7 @@ external "builtin" y = log10(u);
             textColor={0,0,255}),Text(
             extent={{-83,62},{-63,78}},
             textString=" 1.3",
-            lineColor={0,0,255}),Text(
+            textColor={0,0,255}),Text(
             extent={{80,24},{100,4}},
             textColor={95,95,95},
             textString="u"),Text(

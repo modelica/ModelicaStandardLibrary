@@ -1465,7 +1465,7 @@ results in the following equations:
           graphics={Text(
             extent={{-96,28},{94,-24}},
             textString="der()",
-            lineColor={0,0,127})}),
+            textColor={0,0,127})}),
           Documentation(info="<html>
 <p>
 Defines that the output y is the <em>derivative</em>
