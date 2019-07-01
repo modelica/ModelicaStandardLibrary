@@ -253,19 +253,16 @@ equation
                                                 color={28,108,200}),
         Text(
           extent={{-100,-40},{-60,-80}},
-          textString="p",
             textColor={64,64,64},
-            fontSize=0),
+            textString="W"),
         Text(
           extent={{-80,-60},{-40,-100}},
-          textString="i",
             textColor={64,64,64},
-            fontSize=0),
+            textString="A"),
         Text(
           extent={{40,-60},{80,-100}},
-          textString="v",
             textColor={64,64,64},
-            fontSize=0),
+            textString="V"),
       Text(textColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name")}),
     Documentation(info="<html>
 <p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.

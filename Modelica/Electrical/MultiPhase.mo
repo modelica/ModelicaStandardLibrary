@@ -3269,19 +3269,16 @@ This power sensor measures instantaneous electrical power of a multiphase system
                                                   color={28,108,200}),
           Text(
             extent={{-100,-40},{-60,-80}},
-            textString="p",
               textColor={64,64,64},
-              fontSize=0),
+              textString="W"),
           Text(
             extent={{-80,-60},{-40,-100}},
-            textString="i",
               textColor={64,64,64},
-              fontSize=0),
+              textString="A"),
           Text(
             extent={{40,-60},{80,-100}},
-            textString="v",
               textColor={64,64,64},
-              fontSize=0),
+              textString="V"),
           Line(points={{100,-60},{80,-60},{56,-42}}, color={28,108,200}),
           Text(
             extent={{-150,110},{150,150}},
