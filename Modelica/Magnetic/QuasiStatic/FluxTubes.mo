@@ -2384,7 +2384,7 @@ The integral of the angular frequency of the quasi static magnetic system is equ
         Icon(graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="rad"), Line(points={{70,0},{100,0}}, color={0,0,127})}));
     end ReferenceSensor;
 
@@ -2403,7 +2403,7 @@ The integral of the angular frequency of the quasi static magnetic system is equ
 </html>"), Icon(graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="Hz")}));
     end FrequencySensor;
 
@@ -2422,7 +2422,7 @@ This sensor can be used to measure the complex magnetic potential <code>V_m</cod
         Icon(graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="A"), Line(points={{70,0},{100,0}}, color={85,170,255})}));
     end MagneticPotentialSensor;
 
@@ -2440,7 +2440,7 @@ This sensor can be used to measure the complex magnetic potential <code>V_m</cod
           extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="A")}),      Diagram(coordinateSystem(
             preserveAspectRatio=false)),
         Documentation(info="<html>
@@ -2463,7 +2463,7 @@ in a quasi static magnetic system.
                 -100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="Wb")}),
         Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
@@ -2589,7 +2589,7 @@ This sensor can be used to measure the complex magnetic flux <code>Phi</code> of
                 preserveAspectRatio=false), graphics={
               Text(
                 extent={{-60,-60},{-20,-100}},
-                lineColor={64,64,64},
+                textColor={64,64,64},
                 textString="H/m"),
               Line(points={{-90,0},{90,0}}, color={255,128,0}),
               Line(points={{0,90},{0,70}}, color={255,128,0}),

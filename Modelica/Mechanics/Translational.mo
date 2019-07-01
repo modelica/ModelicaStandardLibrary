@@ -4036,7 +4036,7 @@ Modelica.Blocks library).
                 {100,100}}), graphics={
             Text(
               extent={{10,20},{70,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m")}));
     end PositionSensor;
 
@@ -4060,7 +4060,7 @@ Modelica.Blocks library).
                 {100,100}}), graphics={
             Text(
               extent={{10,20},{70,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s")}));
     end SpeedSensor;
 
@@ -4087,7 +4087,7 @@ Modelica.Blocks library).
                 {100,100}}), graphics={
             Text(
               extent={{10,20},{70,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s2")}));
     end AccSensor;
 
@@ -4116,7 +4116,7 @@ Modelica.Blocks library).
                                   Line(points={{0,-99},{0,-60}}, color={0,0,127}),
             Text(
               extent={{10,20},{70,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m")}));
     end RelPositionSensor;
 
@@ -4154,7 +4154,7 @@ Modelica.Blocks library).
               127}),
             Text(
               extent={{10,20},{70,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s")}));
     end RelSpeedSensor;
 
@@ -4189,7 +4189,7 @@ Modelica.Blocks library).
                                   Line(points={{0,-99},{0,-60}}, color={0,0,127}),
             Text(
               extent={{10,20},{70,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s2")}));
     end RelAccSensor;
 
@@ -4217,7 +4217,7 @@ with blocks of the Modelica.Blocks library).
               {-80,0}}, color={0,0,127}),
             Text(
               extent={{10,20},{70,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="N")}));
     end ForceSensor;
 
@@ -4245,7 +4245,7 @@ and provides the result as output signal <strong>power</strong>
               -100},{-80,0}}, color={0,0,127}),
             Text(
               extent={{10,20},{70,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="W")}));
     end PowerSensor;
 
@@ -4288,15 +4288,15 @@ ideal way and provides the results as output signals <strong>v</strong>, <strong
               Line(points={{60,-100},{60,-60}}, color={0,0,127}),
             Text(
               extent={{-100,-60},{-60,-100}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="W"),
             Text(
               extent={{-20,-60},{20,-100}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="N"),
             Text(
               extent={{60,-60},{100,-100}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s")}));
     end MultiSensor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},

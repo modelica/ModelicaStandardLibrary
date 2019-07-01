@@ -5837,7 +5837,7 @@ way and provides the result as output signal <strong>phi</strong>
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="rad")}));
     end AngleSensor;
 
@@ -5863,7 +5863,7 @@ way and provides the result as output signal <strong>w</strong>
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="rad/s")}));
     end SpeedSensor;
 
@@ -5891,7 +5891,7 @@ blocks of the Modelica.Blocks library).
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="rad/s2")}));
     end AccSensor;
 
@@ -5924,7 +5924,7 @@ in an ideal way and provides the result as output signal <strong>phi_rel</strong
         color={0,0,127}),
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="rad")}));
     end RelAngleSensor;
 
@@ -5961,7 +5961,7 @@ in an ideal way and provides the result as output signal <strong>w_rel</strong>
           color={0,0,127}),
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="rad/s")}));
     end RelSpeedSensor;
 
@@ -6000,7 +6000,7 @@ in an ideal way and provides the result as output signal <strong>a_rel</strong>
           color={0,0,127}),
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="rad/s2")}));
     end RelAccSensor;
 
@@ -6033,7 +6033,7 @@ and provides the result as output signal <strong>tau</strong>
           color={0,0,127}),
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="N.m")}));
     end TorqueSensor;
 
@@ -6066,7 +6066,7 @@ and provides the result as output signal <strong>power</strong>
           color={0,0,127}),
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="W")}));
     end PowerSensor;
 
@@ -6108,15 +6108,15 @@ and provides the result as output signal <strong>power</strong>
             Line(points={{60,-100},{60,-60},{50,-50}}, color={0,0,127}),
             Text(
               extent={{-100,-60},{-60,-100}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="W"),
             Text(
               extent={{-20,-60},{20,-100}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="N.m"),
             Text(
               extent={{60,-60},{100,-100}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="rad/s")}));
     end MultiSensor;
     annotation (Documentation(info="<html>

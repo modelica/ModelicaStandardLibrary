@@ -2230,7 +2230,7 @@ Record containing (constant) medium properties.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="Pa")}));
     end PressureSensor;
 
@@ -2248,7 +2248,7 @@ Record containing (constant) medium properties.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="K")}));
     end TemperatureSensor;
 
@@ -2266,7 +2266,7 @@ Record containing (constant) medium properties.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="Pa")}));
     end RelPressureSensor;
 
@@ -2289,7 +2289,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="K")}));
     end RelTemperatureSensor;
 
@@ -2307,7 +2307,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="kg/s")}));
     end MassFlowSensor;
 
@@ -2325,7 +2325,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-30,-20},{30,-60}},
               textString="m3/s",
-              lineColor={0,0,0})}));
+              textColor={0,0,0})}));
     end VolumeFlowSensor;
 
     model EnthalpyFlowSensor "Enthalpy flow sensor"
@@ -2342,7 +2342,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="W")}));
     end EnthalpyFlowSensor;
   annotation (Documentation(info="<html>
@@ -2980,7 +2980,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
               Text(
                 extent={{-150,90},{150,130}},
                 textString="%name",
-                lineColor={0,0,255})}));
+                textColor={0,0,255})}));
       end AbsoluteSensor;
 
       partial model RelativeSensor "Partial model of relative sensor"
