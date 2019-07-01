@@ -1922,8 +1922,6 @@ and the most significant parameter can be displayed within the vertical Diagram 
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
            alt=\"Typical placement of component name\">
     </td>
-  </tr>
-  <tr>
     <td> (b)
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
            alt=\"Typical dimensions of icon and its entities\">
@@ -2011,10 +2009,62 @@ Preferred connector locations are:</p>
   </tr>
 </table>
 
+<h4>Sensors</h4>
+
+<p>
+Based on <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2628\">#2628</a> the following guidelines for the
+design of sensors apply:
+</p>
+
+<ul>
+<li>The sensor outputs shall be indicated by its SI unit, not its quantity; the proper SI unit shall be compliant with the unit definitions of
+    <a href=\"modelica://Modelica.SIunits\">SIunits</a>, 
+    e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
+<li>The text color of the SI units is {64,64,64} in RGB code</li>
+<li>For a sensor with a single output signal</li>
+    <ul>
+    <li>the SI unit shall be placed withing the sensor, see <strong>Fig.&nbsp;6</strong></li>
+    <li>Text height: 60 units</li>
+    <li>Text width: 60 units</li>
+    </ul>
+<li>For a sensor with multiple output signals</li>
+    <ul>
+    <li>the SI unit shall be placed next to the output signal; a signal connectors and the SI units may overlap, 
+        see <strong>Fig.&nbsp;7</strong></li>
+    <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
+    <li>Text width: 40 units (or 30 units, minimum 20 units, if required)</li>
+    </ul>
+</ul>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 6</strong>: (a) Round, (b) rectangular sensor with SI unit of output quantity</caption>
+  <tr>
+    <td> (a)
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+    <td> (b)
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+  </tr>
+</table>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 7</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+  </tr>
+</table>
+
 <h4>Diagram icons</h4>
 
 <p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the
 icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
+
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
