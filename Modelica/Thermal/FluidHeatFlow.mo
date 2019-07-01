@@ -2227,10 +2227,11 @@ Record containing (constant) medium properties.
 <p>The PressureSensor measures the absolute pressure.</p>
 <p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
 </html>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-          graphics={Text(
-              extent={{-30,-20},{30,-60}},
-              textString="p")}));
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="Pa")}));
     end PressureSensor;
 
     model TemperatureSensor "Absolute temperature sensor"
@@ -2244,9 +2245,11 @@ Record containing (constant) medium properties.
 <p>The TempreatureSensor measures the absolute temperature (Kelvin).</p>
 <p>Thermodynamic equations are defined by Partials.AbsoluteSensor.</p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-30,-20},{30,-60}},
-              textString="T")}));
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="K")}));
     end TemperatureSensor;
 
     model RelPressureSensor "Pressure difference sensor"
@@ -2260,9 +2263,11 @@ Record containing (constant) medium properties.
 <p>The RelPressureSensor measures the pressure drop between flowPort_a and flowPort_b.</p>
 <p>Thermodynamic equations are defined by Partials.RelativeSensor.</p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-30,-20},{30,-60}},
-              textString="dp")}));
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="Pa")}));
     end RelPressureSensor;
 
     model RelTemperatureSensor "Temperature difference sensor"
@@ -2281,9 +2286,11 @@ Since mixing my occur, the outlet temperature of a component may be different fr
 Outlet temperature is defined by variable T of the corresponding component.
 </p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-30,-20},{30,-60}},
-              textString="dT")}));
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="K")}));
     end RelTemperatureSensor;
 
     model MassFlowSensor "Mass flow sensor"
@@ -2297,9 +2304,11 @@ Outlet temperature is defined by variable T of the corresponding component.
 <p>The MassFlowSensor measures the mass flow rate.</p>
 <p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-30,-20},{30,-60}},
-              textString="m")}));
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="kg/s")}));
     end MassFlowSensor;
 
     model VolumeFlowSensor "Volume flow sensor"
@@ -2315,7 +2324,8 @@ Outlet temperature is defined by variable T of the corresponding component.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={Text(extent={{-30,-20},{30,-60}},
-              textString="V")}));
+              textString="m3/s",
+              lineColor={0,0,0})}));
     end VolumeFlowSensor;
 
     model EnthalpyFlowSensor "Enthalpy flow sensor"
@@ -2329,9 +2339,11 @@ Outlet temperature is defined by variable T of the corresponding component.
 <p>The EnthalpyFlowSensor measures the enthalpy flow rate.</p>
 <p>Thermodynamic equations are defined by Partials.FlowSensor.</p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-        graphics={Text(extent={{-30,-20},{30,-60}},
-              textString="H")}));
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="W")}));
     end EnthalpyFlowSensor;
   annotation (Documentation(info="<html>
 <p>This package contains sensors:</p>
@@ -2963,8 +2975,12 @@ Partial model of single port at the bottom, defining the medium and the temperat
 <p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Line(points={{-70,0},{-90,0}}),
-              Line(points={{70,0},{100,0}})}));
+              Line(points={{-70,0},{-90,0}}, color={255,0,0}),
+              Line(points={{70,0},{100,0}}, color={0,0,127}),
+              Text(
+                extent={{-150,90},{150,130}},
+                textString="%name",
+                lineColor={0,0,255})}));
       end AbsoluteSensor;
 
       partial model RelativeSensor "Partial model of relative sensor"
@@ -2993,11 +3009,11 @@ Partial model of single port at the bottom, defining the medium and the temperat
 <p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Line(points={{-70,0},{-90,0}}),
-              Line(points={{70,0},{90,0}}),
-              Line(points={{0,-100},{0,-70}}),
+              Line(points={{-70,0},{-90,0}}, color={255,0,0}),
+              Line(points={{70,0},{90,0}}, color={255,0,0}),
+              Line(points={{0,-100},{0,-70}}, color={0,0,127}),
               Text(
-                extent={{-150,100},{150,140}},
+                extent={{-150,90},{150,130}},
                 textString="%name",
                 textColor={0,0,255})}));
       end RelativeSensor;
@@ -3020,11 +3036,11 @@ Partial model of single port at the bottom, defining the medium and the temperat
 <p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Line(points={{-70,0},{-90,0}}),
-              Line(points={{70,0},{90,0}}),
-              Line(points={{0,-100},{0,-70}}),
+              Line(points={{-70,0},{-90,0}}, color={255,0,0}),
+              Line(points={{70,0},{90,0}}, color={255,0,0}),
+              Line(points={{0,-100},{0,-70}}, color={0,0,127}),
               Text(
-                extent={{-150,100},{150,140}},
+                extent={{-150,90},{150,130}},
                 textString="%name",
                 textColor={0,0,255})}));
       end FlowSensor;
