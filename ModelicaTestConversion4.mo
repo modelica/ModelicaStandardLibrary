@@ -807,6 +807,45 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue194;
 
+      model Issue813 "Conversion test for #813"
+        extends Modelica.Icons.Example;
+        model Ambient "Ambient with constant properties"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient(final T0fixed=false);
+          parameter Modelica.SIunits.Pressure pAmbient(start=0) "Ambient pressure";
+          parameter Modelica.SIunits.Temperature TAmbient(start=293.15, displayUnit="degC") "Ambient temperature";
+        equation
+          flowPort.p = pAmbient;
+          T = TAmbient;
+        end Ambient;
+        Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe isolatedPipe(
+          m=1,
+          T0=293.15,
+          V_flowLaminar=0.1,
+          dpLaminar=10000,
+          V_flowNominal=1,
+          dpNominal=100000,
+          h_g=1) annotation(Placement(transformation(extent={{-36,34},{-16,54}})));
+        Ambient ambient(
+          pAmbient=100000,
+          TAmbient=293.15) annotation(Placement(transformation(extent={{6,34},{26,54}})));
+        Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe heatedPipe(
+          m=1,
+          T0=293.15,
+          V_flowLaminar=0.1,
+          dpLaminar=10000,
+          V_flowNominal=1,
+          dpNominal=100000,
+          h_g=1) annotation(Placement(transformation(extent={{-38,2},{-18,22}})));
+      equation
+        connect(ambient.flowPort, isolatedPipe.flowPort_b) annotation(Line(points={{6,44},{-16,44}}, color={255,0,0}));
+        connect(heatedPipe.flowPort_b, ambient.flowPort) annotation(Line(points={{-18,12},{-8,12},{-8,44},{6,44}}, color={255,0,0}));
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
+</p>
+</html>"));
+      end Issue813;
+
       model Issue940 "Conversion test for #940"
         extends Modelica.Icons.Example;
         parameter Modelica.Thermal.FluidHeatFlow.Media.Medium r1 = Modelica.Thermal.FluidHeatFlow.Media.Medium(lamda=2);

@@ -1738,32 +1738,6 @@ temperature rise defined by storing heat in medium's mass.
               lineColor={0,0,255})}));
     end Pipe;
 
-    model IsolatedPipe "Pipe without heat exchange"
-      extends Modelica.Thermal.FluidHeatFlow.Components.Pipe(final useHeatPort=false);
-      extends Modelica.Icons.ObsoleteModel;
-    annotation (
-        obsolete = "Obsolete model - use Modelica.Thermal.FluidHeatFlow.Components.Pipe(useHeatPort=false) instead",
-        Documentation(info="<html>
-<p>
-This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.Pipe\">Pipe</a> model
-with parameter useHeatPort = false and is kept for compatibility reasons. In the future, it will be removed.
-</p>
-</html>"));
-    end IsolatedPipe;
-
-    model HeatedPipe "Pipe with heat exchange"
-      extends Modelica.Thermal.FluidHeatFlow.Components.Pipe(final useHeatPort=true);
-      extends Modelica.Icons.ObsoleteModel;
-    annotation (
-        obsolete = "Obsolete model - use Modelica.Thermal.FluidHeatFlow.Components.Pipe(useHeatPort=true) instead",
-        Documentation(info="<html>
-<p>
-This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Components.Pipe\">Pipe</a> model
-with parameter useHeatPort = true and is kept for compatibility reasons. In the future, it will be removed.
-</p>
-</html>"));
-    end HeatedPipe;
-
     model Valve "Simple valve"
       extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort(m(start=0), final tapT=1);
 
@@ -2430,7 +2404,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
       T = TAmbient;
     annotation (Documentation(info="<html>
 <p>(Infinite) ambient with constant pressure and temperature.</p>
-<p>Thermodynamic equations are defined by Partials.Ambient.</p>
+<p>Thermodynamic equations are defined by Partials.SinglePortLeft.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
               extent={{-90,90},{90,-90}},
@@ -2931,23 +2905,6 @@ Partial model of single port at the left, defining the medium and the temperatur
                 lineColor={0,0,255},
                 textString="%name")}));
       end SinglePortLeft;
-
-      partial model Ambient "Partial model of ambient"
-        extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft(final Exchange=true, final T0=293.15);
-        extends Icons.ObsoleteModel;
-        annotation (obsolete = "Obsolete model - use SinglePortLeft instead",
-        Documentation(info="<html>
-<p>
-This model simply extends from the <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft\">SinglePortLeft</a> model,
-only adding an icon, and is kept for compatibility reasons. In the future, it will be removed.
-</p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Ellipse(
-                extent={{-90,90},{90,-90}},
-                lineColor={255,0,0},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid)}));
-      end Ambient;
 
       partial model SinglePortBottom
         "Partial model of a single port at the bottom"
