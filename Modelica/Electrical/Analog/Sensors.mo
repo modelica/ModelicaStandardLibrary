@@ -18,15 +18,16 @@ package Sensors "Potential, voltage, current, and power sensors"
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-29,-11},{30,-70}},
-            textString="V"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Line(points={{100,0},{70,0}}, color={0,0,127}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Text(
+            extent={{-30,-10},{30,-70}},
+            textString="V",
+            textColor={64,64,64})}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -60,16 +61,17 @@ package Sensors "Potential, voltage, current, and power sensors"
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-29,-11},{30,-70}},
-            textString="V"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
           Line(points={{0,-100},{0,-70}}, color={0,0,127}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Text(
+            extent={{-30,-10},{30,-70}},
+            textString="V",
+            textColor={64,64,64})}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -103,16 +105,17 @@ package Sensors "Potential, voltage, current, and power sensors"
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-29,-11},{30,-70}},
-            textString="A"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
             textColor={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-100},{0,-70}}, color={0,0,127})}),
+          Line(points={{0,-100},{0,-70}}, color={0,0,127}),
+          Text(
+            extent={{-30,-10},{30,-70}},
+            textColor={64,64,64},
+            textString="A")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -185,8 +188,10 @@ equation
       Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
       Text(textColor = {0,0,255}, extent={{-150,110},{150,150}},   textString = "%name"),
       Line(points = {{0,70},{0,40}}),
-      Text(extent = {{-29,-70},{30,-11}},
-            textString="P")}),
+        Text(
+            extent={{-30,-10},{30,-70}},
+            textColor={64,64,64},
+            textString="W")}),
     Documentation(info="<html>
 <p>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
@@ -248,13 +253,19 @@ equation
                                                 color={28,108,200}),
         Text(
           extent={{-100,-40},{-60,-80}},
-          textString="p"),
+          textString="p",
+            textColor={64,64,64},
+            fontSize=0),
         Text(
           extent={{-80,-60},{-40,-100}},
-          textString="i"),
+          textString="i",
+            textColor={64,64,64},
+            fontSize=0),
         Text(
           extent={{40,-60},{80,-100}},
-          textString="v"),
+          textString="v",
+            textColor={64,64,64},
+            fontSize=0),
       Text(textColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name")}),
     Documentation(info="<html>
 <p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.
