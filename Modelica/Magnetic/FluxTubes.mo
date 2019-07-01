@@ -887,11 +887,11 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                       extent={{-98,96},{100,86}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString=
                   "Comparison of the force-current characteristics of both converter models"),
                 Text( extent={{-98,88},{2,78}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="with armature blocked at mid-position")}),
           experiment(StopTime=6, Tolerance=1e-007),
           Documentation(info="<html>
@@ -1040,11 +1040,11 @@ Simulation of the force-stroke characteristic of the <a href=\"modelica://Modeli
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                       extent={{-98,98},{48,86}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString=
                   "Comparison of a pull-in stroke of both converter models"),
                 Text( extent={{-98,90},{-30,80}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="after a voltage step at t=0")}),
           experiment(StopTime=0.05, Tolerance=1e-007),
           Documentation(info="<html>
@@ -1291,7 +1291,7 @@ Both force components are properly considered with a simple permeance model as s
                           fillColor={255,213,170},
                           fillPattern=FillPattern.Solid),Text(
                           extent={{150,150},{-150,110}},
-                          lineColor={0,0,255},
+                          textColor={0,0,255},
                           textString="%name")}));
         end PermeanceActuator;
 
@@ -1368,13 +1368,13 @@ Both force components are properly considered with a simple permeance model as s
                           fillColor={255,255,255},
                           fillPattern=FillPattern.Solid),Text(
                           extent={{-70,80},{72,-80}},
-                          lineColor={255,128,0},
+                          textColor={255,128,0},
                           textString="c"),Line(points={{-90,100},{-80,100}},
                   color={0,0,255}),Line(points={{-90,-100},{-80,-100}},
                                                                       color={0,0,255}),
                   Line(points={{80,0},{90,0}}, color={0,127,0}),Text(
                           extent={{150,150},{-150,110}},
-                          lineColor={0,0,255},
+                          textColor={0,0,255},
                           textString="%name")}), Documentation(info="<html>
 <p>
 Similar to rotational DC-Motors, the electro-mechanical energy conversion of translatory electrodynamic actuators and generators of moving coil and moving magnet type can be described with the following two converter equations:
@@ -2268,7 +2268,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{150,150},{-150,110}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
 Please refer to the <strong>Parameters</strong> section for a schematic drawing of this axis-symmetric lifting magnet.
@@ -2668,7 +2668,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                     80},{12,90}}, color={255,128,0}),
               Text(
                 extent={{150,150},{-150,110}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
 Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> for a general description of this actuator. Unlike in that simple magnetic network model, the coil is split into two lumped elements here. This enables for more realistic modelling of the radial leakage flux between armature and yoke (leakage permeance G_mLeakRad). Especially for large air gaps, the influence of this leakage flux on the actuator's inductance and its electromagnetic force is rather strong. Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStatic\">ComparisonQuasiStatic</a> for a comparison of both models with FEA-based results included as reference.
@@ -3376,7 +3376,7 @@ An example simulation shows the transformer inrush currents due to an initially 
                   fillColor={128,0,255}),
                 Text(
                   extent={{150,150},{-150,110}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),
                 Polygon(
                   points={{-10,60},{10,40},{10,-20},{-10,-40},{-10,60}},
@@ -3766,7 +3766,7 @@ Simple model of a single phase transformer with a primary and a secondary windin
                   fillColor={128,0,255}),
                 Text(
                   extent={{150,130},{-150,90}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),
                 Polygon(
                   points={{-20,10},{0,-10},{1.22465e-016,-50},{-10,-60},{-20,-60},{-20,10}},
@@ -3920,10 +3920,10 @@ Simple model of a three phase transformer with primary and a secondary windings 
                       thickness=0.5,
                       arrow={Arrow.None,Arrow.Filled}),Text(
                       extent={{-84,-82},{-76,-92}},
-                      lineColor={160,160,164},
+                      textColor={160,160,164},
                       textString="0"),Text(
                       extent={{-46,-82},{-38,-92}},
-                      lineColor={160,160,164},
+                      textColor={160,160,164},
                       textString="x"),Ellipse(
                       extent={{-82,-78},{-78,-74}},
                       lineColor={175,175,175},
@@ -3938,7 +3938,7 @@ Simple model of a three phase transformer with primary and a secondary windings 
               fillColor={255,127,0}),
             Text(
               extent={{-120,140},{120,100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,60},{50,-60}},
@@ -4097,7 +4097,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
           Line(points={{0,90},{0,50}}, color={255,127,0}),
           Text(
             extent={{-150,-50},{150,-10}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
@@ -4115,7 +4115,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   color={255,127,0},
                   thickness=0.5),Text(
                   extent={{-40,-40},{40,20}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="port.V_m = 0")}));
     end Ground;
 
@@ -4176,7 +4176,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   fillPattern=FillPattern.Solid),Line(points={{125,-60},{150,-60}},
               color={160,160,164}),Text(
                   extent={{128,-56},{144,-41}},
-                  lineColor={160,160,164},
+                  textColor={160,160,164},
                   textString="Phi"),Text(
                   extent={{128,64},{145,79}},
                   textString="Phi"),Line(points={{-150,-59},{-125,-59}}, color=
@@ -4186,10 +4186,10 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   fillColor={160,160,164},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-141,-56},{-124,-41}},
-                  lineColor={160,160,164},
+                  textColor={160,160,164},
                   textString="i"),Text(
                   extent={{-150,63},{-133,78}},
-                  lineColor={160,160,164},
+                  textColor={160,160,164},
                   textString="i"),Line(points={{124,61},{149,61}}, color={160,160,164}),
               Polygon(
                   points={{134,64},{124,61},{134,58},{134,64}},
@@ -4201,7 +4201,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-150,150},{150,110}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
             Line(points={{-30,100},{-90,100}},
                                              color={0,0,255}),
@@ -4241,7 +4241,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                                              color={255,127,0}),
             Text(
               extent={{-150,150},{150,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{18,10},{18,-12}}, color={255,127,0}),
             Line(points={{-110,30},{-110,-30}},
@@ -4384,7 +4384,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
             Line(points={{125,-60},{150,-60}}, color={160,160,164}),
             Text(
               extent={{128,-56},{144,-41}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="Phi"),
             Text(
               extent={{128,64},{145,79}},
@@ -4397,11 +4397,11 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-141,-56},{-124,-41}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i"),
             Text(
               extent={{-150,63},{-133,78}},
-              lineColor={160,160,164},
+              textColor={160,160,164},
               textString="i"),
             Line(points={{124,61},{149,61}}, color={160,160,164}),
             Polygon(
@@ -4451,7 +4451,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
                                              color={255,127,0}),
             Text(
               extent={{-150,150},{150,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{18,10},{18,-12}}, color={255,127,0}),
             Line(points={{-110,30},{-110,-30}},
@@ -4532,7 +4532,7 @@ Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticCo
           Line(points={{70,0},{90,0}}, color={255,128,0}),
             Text(
               extent={{-150,50},{150,90}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),Documentation(info="<html>
 <p>
 This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
@@ -4561,7 +4561,7 @@ This constant reluctance is provided for test purposes and simple magnetic netwo
           Line(points={{70,0},{90,0}}, color={255,128,0}),
             Text(
               extent={{-150,50},{150,90}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),Documentation(info="<html>
 <p>
 This constant permeance is provided for test purposes and simple magnetic network models. The permeance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
@@ -4653,7 +4653,7 @@ This element must <strong>not</strong> be used <strong>for dynamic simulation of
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Eddy currents are induced in a conductive magnetic flux tube when the flux changes with time. This causes a magnetic voltage drop in addition to the voltage drop that is due to the reluctance of this flux tube. The eddy current component can be thought of as a short-circuited secondary winding of a transformer with only one turn. Its resistance is calculated from the geometry and resistivity of the eddy current path.
 </p>
@@ -4678,7 +4678,7 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
                 100,100}}), graphics={
             Text(
               extent={{-150,50},{150,90}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{-100,0},{-40,0}}, color={255,128,0}),
             Line(points={{40,0},{100,0}}, color={255,128,0})}),
@@ -4713,7 +4713,7 @@ This is a simple idle running branch.
             Line(points={{-100,0},{100,0}}, color={255,128,0}),
             Text(
               extent={{-150,50},{150,90}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),                              Documentation(
             info="<html>
 <p>
@@ -4759,7 +4759,7 @@ This is a simple short cut branch.
               color={255,128,0}),
             Text(
               extent={{-150,110},{150,150}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),Documentation(
             info="<html>
 <p>
@@ -5346,7 +5346,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
 </table>
 </html>"), Icon(graphics={Text(
                 extent={{40,0},{40,-30}},
-                lineColor={255,128,0},
+                textColor={255,128,0},
                 textString="TS")}));
       end GenericHystTellinenSoft;
 
@@ -5406,7 +5406,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
                 color={255,128,0}),
               Text(
                 extent={{40,-2},{40,-30}},
-                lineColor={255,128,0},
+                textColor={255,128,0},
                 textString="TH")}), Documentation(info="<html>
 <p>
   Flux tube element for modeling the ferromagnetic (static) hysteresis of hard magnetic materials. The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop is described by simple hyperbolic tangent functions with 4 parameters.
@@ -5465,7 +5465,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
 
         annotation (defaultComponentName="core", Icon(graphics={Text(
                 extent={{40,0},{40,-30}},
-                lineColor={255,128,0},
+                textColor={255,128,0},
                 textString="TE")}),
           Documentation(info="<html>
 
@@ -5513,7 +5513,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
 
         annotation (defaultComponentName="core", Icon(graphics={Text(
                 extent={{40,0},{40,-30}},
-                lineColor={255,128,0},
+                textColor={255,128,0},
                 textString="TT")}),
           Documentation(info="<html>
 
@@ -5709,7 +5709,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
 
         annotation (defaultComponentName="core", Icon(graphics={Text(
                 extent={{40,0},{40,-30}},
-                lineColor={255,128,0},
+                textColor={255,128,0},
                 textString="PE")}),
           Documentation(info="<html>
 <p>
@@ -5793,7 +5793,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 rotation=90),
               Text(
                 extent={{22,0},{22,-18}},
-                lineColor={255,128,0},
+                textColor={255,128,0},
                 textString="TH")}), Documentation(info="<html>
 
 <p>
@@ -7294,7 +7294,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-100,160},{-100,100}},
-              lineColor={255,127,0},
+              textColor={255,127,0},
               textString="%name"), Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={255,127,0},
@@ -7317,7 +7317,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{100,160},{100,100}},
-              lineColor={255,127,0},
+              textColor={255,127,0},
               textString="%name"), Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={255,127,0},
@@ -7416,7 +7416,7 @@ This magnetic flux is provided explicitly as flux Phi.
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model.
 </p>
@@ -7479,7 +7479,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
           Text(
             extent={{-150,-80},{150,-40}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-10,-100},{-30,-120}}),
           Line(points={{-30,-100},{-50,-120}}),
           Line(points={{-30,-100},{30,-100}}),
@@ -7525,7 +7525,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> for utilisation of this partial model.
 </p>
@@ -7547,7 +7547,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
             Text(
               extent={{-150,50},{150,90}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{-70,0},{-100,0}}, color={255,128,0}),
             Rectangle(
               extent={{-70,30},{70,-30}},
@@ -7758,7 +7758,7 @@ This package contains connectors for the magnetic domain and partial models for 
           Text(
             extent={{-150,60},{150,100}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-50,0},{50,0}}, color={255,127,0}),
             Line(points={{-70,30},{-70,10}}, color={255,128,0}),
             Line(points={{-80,20},{-60,20}}, color={255,128,0}),
@@ -7806,7 +7806,7 @@ For modelling of reluctance actuators with this source component it is assumed t
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Ellipse(
             extent={{-50,-50},{50,50}},
             lineColor={255,127,0},
@@ -7854,7 +7854,7 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
           Text(
             extent={{-150,60},{150,100}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{80,0},{60,6},{60,-6},{80,0}},
             lineColor={255,128,0},
@@ -7911,7 +7911,7 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-100,0},{-50,0}}, color={255,127,0}),
           Line(points={{50,0},{100,0}}, color={255,127,0}),
           Ellipse(
@@ -7970,7 +7970,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
             Text(
               extent={{-150,120},{150,80}},
               textString="%name",
-              lineColor={0,0,255})}), Diagram(coordinateSystem(
+              textColor={0,0,255})}), Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-100,0}}, color={255,128,0}),
               Line(points={{70,0},{100,0}}, color={255,128,0}),Line(
@@ -8002,7 +8002,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
               -70}}, textString="Phi"),Text(
                   extent={{-150,120},{150,80}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{0,-90},{0,-70}})}));
+                  textColor={0,0,255}),Line(points={{0,-90},{0,-70}})}));
     end MagneticFluxSensor;
     annotation (Documentation(info="<html>
 <p>

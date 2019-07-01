@@ -25,7 +25,7 @@ equation
           lineColor={0,0,255}),
         Text(
           extent={{-170,110},{150,70}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="%name")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -42,7 +42,7 @@ equation
         Text(
           extent={{-100,100},{100,70}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(info="<html>
 <p>This is the only nonlinear component for Chua&#39;s circuit. It is a piecewise linear resistor with both an inner and an outer range, which includes the inner one. The slopes of both ranges are given by parameters. The resistance characteristic is continuous. For Chua&#39;s circuit both slopes have to be chosen to be negative.</p>
 </html>"));

@@ -104,19 +104,19 @@ a lot by removing one strong nonlinearity from the initialization problem.
           Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}),
           Text(
             extent={{46,-6},{68,-18}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="u"),
           Text(
             extent={{-30,70},{-5,50}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="y"),
           Text(
             extent={{-58,-54},{-28,-42}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="uMin"),
           Text(
             extent={{26,40},{66,56}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="uMax")}));
       end Limiter;
 
@@ -224,19 +224,19 @@ a lot by removing one strong nonlinearity from the initialization problem.
           Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}),
           Text(
             extent={{46,-6},{68,-18}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="input"),
           Text(
             extent={{-30,70},{-5,50}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="output"),
           Text(
             extent={{-66,-40},{-26,-20}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="uMin"),
           Text(
             extent={{30,20},{70,40}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="uMax"),
           Line(points={{-100,80},{40,80},{40,40}}, color={0,0,127}),
           Line(points={{-100,-80},{-40,-80},{-40,-40}}, color={0,0,127}),
@@ -357,7 +357,7 @@ function of the input with a slope of 1.
           Line(points={{-80,-60},{-20,0},{20,0},{80,60}}),
           Text(
             extent={{-150,-150},{150,-110}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="uMax=%uMax")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -377,19 +377,19 @@ function of the input with a slope of 1.
           Line(points={{-81,-40},{-38,0},{40,0},{80,40}}),
           Text(
             extent={{62,-7},{88,-25}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="u"),
           Text(
             extent={{-36,72},{-5,50}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="y"),
           Text(
             extent={{-51,1},{-28,19}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="uMin"),
           Text(
             extent={{27,21},{52,5}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="uMax")}));
       end DeadZone;
 
@@ -432,7 +432,7 @@ The Input signal is delayed by a given time instant, or more precisely:
           Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
           Text(
             extent={{-75,98},{-46,78}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="output"),
           Polygon(
             points={{-80,96},{-86,80},{-74,80},{-80,96}},
@@ -461,13 +461,13 @@ The Input signal is delayed by a given time instant, or more precisely:
                 73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
           Text(
             extent={{67,22},{96,6}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="time"),
           Line(points={{-64,-30},{-64,0}}, color={192,192,192}),
           Text(
             extent={{-58,-42},{-58,-32}},
             textString="delayTime",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-94,-26},{-80,-26}}, color={192,192,192}),
           Line(points={{-64,-26},{-50,-26}}, color={192,192,192}),
           Polygon(
@@ -671,13 +671,13 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
       Line(points={{-72.0,0.0},{-60.7,34.2},{-53.5,53.1},{-47.1,66.4},{-41.4,74.6},{-35.8,79.1},{-30.2,79.8},{-24.6,76.6},{-18.9,69.7},{-13.3,59.4},{-6.9,44.1},{1.17,21.2},{18.1,-30.8},{25.3,-50.2},{31.7,-64.2},{37.3,-73.1},{43.0,-78.4},{48.6,-80.0},{54.2,-77.6},{59.9,-71.5},{65.5,-61.9},{71.9,-47.2},{80.0,-24.8},{88.0,0.0}},
         color={160,160,164},
         smooth=Smooth.Bezier),
-      Text(lineColor={160,160,164},
+      Text(textColor={160,160,164},
         extent={{-10.0,38.0},{100.0,100.0}},
         textString="m=%m"),
-      Text(lineColor={160,160,164},
+      Text(textColor={160,160,164},
         extent={{-98.0,-96.0},{6.0,-34.0}},
         textString="n=%n"),
-      Text(visible=balance, lineColor={160,160,164},
+      Text(visible=balance, textColor={160,160,164},
         extent={{-96,-20},{98,22}},
             textString="balanced")}),
       Diagram(coordinateSystem(
@@ -688,7 +688,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
           Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
           Text(
             extent={{-75,98},{-46,78}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="output"),
           Polygon(
             points={{-80,96},{-86,80},{-74,80},{-80,96}},
@@ -717,13 +717,13 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
                 73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
           Text(
             extent={{67,22},{96,6}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="time"),
           Line(points={{-64,-30},{-64,0}}, color={192,192,192}),
           Text(
             extent={{-58,-42},{-58,-32}},
             textString="delayTime",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-94,-26},{-80,-26}}, color={192,192,192}),
           Line(points={{-64,-26},{-50,-26}}, color={192,192,192}),
           Polygon(
@@ -789,7 +789,7 @@ the following relationship:
         fillPattern=FillPattern.Solid),
       Text(
         extent={{-69,98},{-40,78}},
-        lineColor={0,0,255},
+        textColor={0,0,255},
         textString="output"),
       Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
             74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
@@ -810,12 +810,12 @@ the following relationship:
         fillPattern=FillPattern.Solid),
       Text(
         extent={{67,22},{96,6}},
-        lineColor={160,160,164},
+        textColor={160,160,164},
         textString="time"),
       Text(
         extent={{-58,-42},{-58,-32}},
         textString="delayTime",
-        lineColor={0,0,255}),
+        textColor={0,0,255}),
       Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
       Text(
         extent={{-24,98},{-2,78}},

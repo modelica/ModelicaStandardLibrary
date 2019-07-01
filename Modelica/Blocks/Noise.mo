@@ -38,7 +38,7 @@ into your model and specify the seed.
                                           Text(
           extent={{-150,150},{150,110}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
           Line(visible = enableNoise,
                points={{-73,-15},{-59,-15},{-59,1},{-51,1},{-51,-47},{-43,-47},{-43,
                 -25},{-35,-25},{-35,59},{-27,59},{-27,27},{-27,27},{-27,-33},{-17,-33},{-17,-15},{-7,-15},{-7,-43},{3,
@@ -47,14 +47,14 @@ into your model and specify the seed.
               color={215,215,215}),
           Text(visible=enableNoise and not useAutomaticSeed,
             extent={{-90,-4},{88,-30}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="%fixedSeed"),
           Line(visible = not enableNoise,
             points={{-80,-4},{84,-4}},
             color={215,215,215}),
           Text(visible=enableNoise and not useAutomaticSeed,
             extent={{-84,34},{94,8}},
-            lineColor={255,0,0},
+            textColor={255,0,0},
             textString="fixedSeed =")}),
       Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -177,11 +177,11 @@ So, the block will usually reside on the top level of the model.
             pattern=LinePattern.Dot),
           Text(visible=enableNoise,
             extent={{-70,94},{95,64}},
-            lineColor={175,175,175},
+            textColor={175,175,175},
             textString="%y_max"),
           Text(visible=enableNoise,
             extent={{-70,-64},{95,-94}},
-            lineColor={175,175,175},
+            textColor={175,175,175},
             textString="%y_min")}),
       Documentation(info="<html>
 <p>
@@ -238,11 +238,11 @@ is dragged to provide global settings for all instances.
               {100,100}}), graphics={
               Text(visible=enableNoise,
                extent={{-66,92},{94,66}},
-               lineColor={175,175,175},
+               textColor={175,175,175},
                textString="mu=%mu"),
               Text(visible=enableNoise,
                extent={{-70,-68},{94,-96}},
-               lineColor={175,175,175},
+               textColor={175,175,175},
                textString="sigma=%sigma")}),
       Documentation(info="<html>
 <p>
@@ -310,15 +310,15 @@ is dragged to provide global settings for all instances.
             pattern=LinePattern.Dot),
           Text(visible=enableNoise,
             extent={{-70,94},{95,64}},
-            lineColor={175,175,175},
+            textColor={175,175,175},
             textString="%y_max"),
           Text(visible=enableNoise,
             extent={{-70,-64},{95,-94}},
-            lineColor={175,175,175},
+            textColor={175,175,175},
             textString="%y_min"),
           Text(
             extent={{-71,12},{71,-12}},
-            lineColor={175,175,175},
+            textColor={175,175,175},
             origin={-88,-11},
             rotation=90,
             textString="normal")}),
@@ -388,11 +388,11 @@ is dragged to provide global settings for all instances.
                                                                                         annotation(Dialog(enable=enableNoise), Icon(
           graphics={Text(
             extent={{-70,96},{92,60}},
-            lineColor={175,175,175},
+            textColor={175,175,175},
             textString="%noisePower"),
           Text(
             extent={{-96,11},{96,-11}},
-            lineColor={175,175,175},
+            textColor={175,175,175},
             origin={-87,0},
             rotation=90,
             textString="white noise")}),

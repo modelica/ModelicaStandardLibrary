@@ -473,7 +473,7 @@ model SharpEdgedOrifice
             arrow={Arrow.Filled,Arrow.Filled}),
           Text(
             extent={{-78,16},{-44,-8}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="diameter"),
           Line(
             points={{-30,-10},{-30,12}},
@@ -481,11 +481,11 @@ model SharpEdgedOrifice
             arrow={Arrow.Filled,Arrow.Filled}),
           Text(
             extent={{-24,14},{8,-10}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="leastDiameter"),
           Text(
             extent={{-20,84},{18,70}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="length"),
           Line(
             points={{30,68},{-30,68}},
@@ -497,7 +497,7 @@ model SharpEdgedOrifice
             arrow={Arrow.Filled,Arrow.Filled}),
           Text(
             extent={{38,8},{92,-6}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="alpha")}));
 
 end SharpEdgedOrifice;
@@ -533,7 +533,7 @@ model AbruptAdaptor
             arrow={Arrow.Filled,Arrow.Filled}),
           Text(
             extent={{-50,16},{-26,-10}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="diameter_a"),
           Line(
             points={{34,-100},{34,100}},
@@ -541,7 +541,7 @@ model AbruptAdaptor
             arrow={Arrow.Filled,Arrow.Filled}),
           Text(
             extent={{54,16},{78,-10}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="diameter_b")}),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
@@ -643,7 +643,7 @@ of the modeller. Increase nPorts_b to add an additional port.
             thickness=1),
           Text(
             extent={{-150,100},{150,60}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}),
                             Documentation(info="<html>
 <p>
@@ -851,7 +851,7 @@ of the modeller.
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Text(
                   extent={{-50,16},{6,-10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="diameter"),
                 Line(
                   points={{-100,74},{100,74}},
@@ -859,7 +859,7 @@ of the modeller.
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Text(
                   extent={{-34,92},{34,74}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="length")}),
            Documentation(info="<html>
 <p>
@@ -1006,7 +1006,7 @@ As a short summary:
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Text(
                   extent={{-50,16},{-26,-10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="diameter_a"),
                 Line(
                   points={{34,-100},{34,100}},
@@ -1014,7 +1014,7 @@ As a short summary:
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Text(
                   extent={{54,16},{78,-10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="diameter_b")}),
            Documentation(info="<html>
 <p>
@@ -1103,7 +1103,7 @@ port_a to port_b as:
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Text(
                   extent={{-78,16},{-44,-8}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="diameter"),
                 Line(
                   points={{-30,-10},{-30,12}},
@@ -1111,11 +1111,11 @@ port_a to port_b as:
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Text(
                   extent={{-24,14},{8,-10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="leastDiameter"),
                 Text(
                   extent={{-20,84},{18,70}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="length"),
                 Line(
                   points={{30,68},{-30,68}},
@@ -1127,7 +1127,7 @@ port_a to port_b as:
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Text(
                   extent={{38,8},{92,-6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="alpha")}),
             Documentation(info="<html>
 <p>
@@ -2108,7 +2108,7 @@ where
               fillColor={0,127,255}),
             Text(
               extent={{-150,-89},{150,-129}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-44,100},{44,44}},

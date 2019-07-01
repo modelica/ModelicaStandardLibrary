@@ -777,7 +777,7 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
         connect(complexRamp.y, source.V_m) annotation (Line(points={{-21,-60},{-34,-60},{-34,8}},  color={85,170,255}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false),          graphics={Text(
                 extent={{-100,100},{100,80}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 pattern=LinePattern.Dash,
                 textString="Added short and idle model for testing purposes only")}),
           Documentation(info="<html>
@@ -987,7 +987,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
           Line(points={{0,90},{0,50}}, color={255,170,85}),
           Text(
             extent={{-150,-50},{150,-10}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
@@ -1005,7 +1005,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   color={255,170,85}),
                                  Text(
                   extent={{-40,-40},{40,20}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="port.V_m = 0")}));
     end Ground;
 
@@ -1232,7 +1232,7 @@ if
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
 </p>
@@ -1261,7 +1261,7 @@ This constant reluctance is provided for test purposes and simple magnetic netwo
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This constant permeance is provided for test purposes and simple magnetic network models. The permeance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
 </p>
@@ -1345,7 +1345,7 @@ that are calculated from their geometry, this leakage reluctance is calculated w
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Eddy currents are induced in a conductive magnetic flux tube when the flux changes with time. This causes a magnetic voltage drop in addition to the voltage drop that is due to the reluctance of this flux tube. The eddy current component can be thought of as a short-circuited secondary winding of a transformer with only one turn. Its resistance is then determined by the geometry and resistivity of the eddy current path. Alternatively, a total conductance parameter can be used.
 </p>
@@ -1370,7 +1370,7 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This is a simple idle running branch. The magnetic flux through this component is equal to zero.
@@ -1391,7 +1391,7 @@ This is a simple idle running branch. The magnetic flux through this component i
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(
+            textColor={0,0,255})}), Documentation(
             info="<html>
 <p>
 This is a simple short cut branch. The magnetic voltage of this component is equal to zero.
@@ -1427,7 +1427,7 @@ This is a simple short cut branch. The magnetic voltage of this component is equ
               color={255,170,85}),
             Text(
               extent={{-150,110},{150,150}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}), Documentation(
             info="<html>
 <p>
@@ -1855,7 +1855,7 @@ is the complex magnetic flux <code>Phi</code>.</p>
                 {100,100}}),
                 graphics={Text(
                   extent={{-100,100},{100,60}},
-                  lineColor={255,170,85},
+                  textColor={255,170,85},
                   fillColor={0,0,255},
                   fillPattern=FillPattern.Solid,
                   textString="%name"), Rectangle(
@@ -1899,7 +1899,7 @@ The symbol is also designed such way to look different than the
                 -100},{100,100}}),
                 graphics={Text(
                   extent={{-100,100},{100,60}},
-                  lineColor={255,170,85},
+                  textColor={255,170,85},
                   fillColor={0,0,255},
                   fillPattern=FillPattern.Solid,
                   textString="%name"), Rectangle(
@@ -2032,7 +2032,7 @@ is identical to the flux flowing out of <code>port_n</code>.
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Please refer to the description of  the subpackage
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a>
@@ -2067,7 +2067,7 @@ for utilisation of this partial model.
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Please refer to the description of the subpackage
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a>
@@ -2087,7 +2087,7 @@ for utilisation of this partial model.
             Line(points={{-70,0},{-90,0}}, color={255,170,85}),
             Text(
               extent={{-150,120},{150,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               pattern=LinePattern.None,
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
@@ -2115,7 +2115,7 @@ of the angular frequency.
             Line(points={{70,0},{90,0}}, color={255,170,85}),
             Text(
               extent={{-150,120},{150,80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               pattern=LinePattern.None,
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
@@ -2149,7 +2149,7 @@ of the angular frequency.
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-90,0},{-50,0}},
               color={255,170,85}),

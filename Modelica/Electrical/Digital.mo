@@ -1273,7 +1273,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 textString="D"),
               Text(
                 extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Text(
                 extent={{-60,100},{60,40}},
@@ -1360,7 +1360,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 textString="QN"),
               Text(
                 extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}));
         end RS;
 
@@ -1440,7 +1440,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Line(points={{-90,20},{-60,0},{-90,-20}}),
               Text(
                 extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}));
         end RSFF;
 
@@ -1506,7 +1506,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Line(points={{-90,20},{-60,0},{-90,-20}}),
               Text(
                 extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Text(
                 extent={{-100,100},{100,40}},
@@ -1602,7 +1602,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Line(points={{-90,20},{-60,0},{-90,-20}}),
               Text(
                 extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Text(
                 extent={{-100,100},{100,40}},
@@ -1665,7 +1665,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                                   extent={{60,-60},{90,-80}},
                                   textString="c"),Text(
                                   extent={{-150,-100},{150,-160}},
-                                  lineColor={0,0,255},
+                                  textColor={0,0,255},
                                   textString="%name"),Text(
                                   extent={{-100,100},{100,0}},
                                   textString="+"),Line(
@@ -1845,7 +1845,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-150,-96},{150,-151}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Text(
                 extent={{-86,80},{-64,60}},
@@ -1922,7 +1922,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 textString="S"),
               Text(
                 extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Text(
                 extent={{-40,60},{40,20}},
@@ -2009,7 +2009,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 textString="Q0"),
               Text(
                 extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Text(
                 extent={{-60,40},{60,0}},
@@ -2078,7 +2078,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 textString="Q"),
               Text(
                 extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Text(
                 extent={{-40,40},{40,0}},
@@ -2201,7 +2201,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-150,-100},{150,-160}},
-            lineColor={127,0,127},
+            textColor={127,0,127},
             textString="%name"), Rectangle(
             extent={{-100,-100},{100,100}},
             lineColor={127,0,127},
@@ -2227,7 +2227,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid), Text(
             extent={{-150,-100},{150,-160}},
-            lineColor={127,0,127},
+            textColor={127,0,127},
             textString="%name")}),
           Documentation(info=
                          "<html>
@@ -2410,7 +2410,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                   color={127,0,127}),
                 Text(
                   extent={{-41,-5},{-24,-34}},
-                  lineColor={127,33,107},
+                  textColor={127,33,107},
                   textString="RE")}));
         end MemoryBase;
 
@@ -2661,7 +2661,7 @@ If time less than <em>Tdel</em> the initial value <em>initout</em> holds.
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -2716,7 +2716,7 @@ If time is less than <em>delayTime</em> the initial value <em>y0</em> holds.
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -2801,7 +2801,7 @@ is used, if it is zero, the input is not delayed.
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -2861,15 +2861,15 @@ is used, if it is zero, the input is not delayed.
               thickness=1),
             Text(
               extent={{-40,52},{38,-20}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="DELAY"),
             Text(
               extent={{-26,12},{18,-32}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="signal "),
             Text(
               extent={{-32,0},{28,-62}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="sensitive")}), Documentation(info="<html>
 
 <p>
@@ -2917,7 +2917,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
               textString="1"),
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Ellipse(
               extent={{50,6},{62,-6}},
@@ -2960,7 +2960,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
               extent={{-50,40},{50,80}},
               textString="&"), Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
         end And;
 
@@ -3000,7 +3000,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
               textString="&"),
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Ellipse(
               extent={{50,6},{62,-6}},
@@ -3043,7 +3043,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
               extent={{-50,40},{50,80}},
               textString=">=1"), Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
         end Or;
 
@@ -3084,7 +3084,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
               textString=">=1"),
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Ellipse(
               extent={{50,6},{62,-6}},
@@ -3127,7 +3127,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
               extent={{-50,40},{50,80}},
               textString="=1"), Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
         end Xor;
 
@@ -3165,7 +3165,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
               extent={{-50,40},{50,80}},
               textString="="), Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
         end Xnor;
         annotation (Documentation(info="<html>
@@ -3203,7 +3203,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -3256,7 +3256,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -3292,7 +3292,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
                              graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -3357,7 +3357,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -3405,7 +3405,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -3458,7 +3458,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -3506,7 +3506,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -3544,7 +3544,7 @@ The parameters <em>tLH</em> and <em>tHL</em> are valid for each of the n signals
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -3623,7 +3623,7 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
               textString="SET"),
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{50,0},{90,0}}, color={127,0,127})}));
         end Set;
@@ -3691,7 +3691,7 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
               fillPattern=FillPattern.Solid),
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{-30,40},{0,40},{0,80},{30,80}}),
             Line(points={{50,0},{90,0}}, color={127,0,127})}));
@@ -3766,7 +3766,7 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
               fillPattern=FillPattern.Solid),
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{50,0},{90,0}}, color={127,0,127}),
             Rectangle(
@@ -3864,7 +3864,7 @@ they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forc
               fillPattern=FillPattern.Solid),
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{50,0},{90,0}}, color={127,0,127}),
             Line(points={{-36,40},{-30,40},{-30,40},{-18,40},{-18,40},{-14,40},
@@ -3917,7 +3917,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(points={{50,0},{90,0}}, color={127,0,127}),
             Line(points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{
@@ -3980,7 +3980,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Polygon(
               points={{-40,-40},{-40,40},{40,40},{-40,-40}},
@@ -4050,7 +4050,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Polygon(
               points={{-40,-40},{-40,40},{40,40},{-40,-40}},
@@ -4120,7 +4120,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Polygon(
               points={{-40,-40},{-40,40},{40,40},{-40,-40}},
@@ -4188,7 +4188,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -4244,7 +4244,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Polygon(
               points={{-40,-40},{40,-40},{40,40},{-40,-40}},
@@ -4307,7 +4307,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
                   0,255}),
             Text(
               extent={{148,-100},{-152,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -4385,7 +4385,7 @@ The values val... are given by parameters.</p>
                   0,255}),
             Text(
               extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -4514,15 +4514,15 @@ The values val... are given by parameters.</p>
               color={127,33,107}),
             Text(
               extent={{-30,54},{20,8}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="DFFR"),
             Text(
               extent={{-32,-14},{-6,-26}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="clock"),
             Text(
               extent={{-14,-44},{12,-56}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="reset")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities</p>
@@ -4668,19 +4668,19 @@ Clock transition definitions:
               color={127,0,127}),
             Text(
               extent={{-32,70},{30,10}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="DFFREG"),
             Text(
               extent={{-14,-34},{12,-46}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="reset"),
             Text(
               extent={{-28,-14},{-2,-26}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="clock"),
             Text(
               extent={{-26,44},{26,2}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="high active")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
@@ -4772,7 +4772,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               pattern=LinePattern.None), Text(
               extent={{-28,48},{24,-1}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="low active")}));
         end DFFREGL;
 
@@ -4932,22 +4932,22 @@ Clock transition definitions:
               color={127,33,107}),
             Text(
               extent={{-36,66},{34,-8}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="DFFSR"),
             Text(
               extent={{-28,-14},{-2,-26}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="clock"),
             Text(
               extent={{-14,-44},{12,-56}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="reset"),
             Line(
               points={{0,80},{0,60}},
               color={127,0,127}),
             Text(
               extent={{-13,56},{13,44}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="set")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
@@ -5113,15 +5113,15 @@ Clock transition definitions:
               color={127,0,127}),
             Text(
               extent={{-44,94},{38,-14}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="DFFREGSR"),
             Text(
               extent={{-14,-32},{12,-44}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="reset"),
             Text(
               extent={{-33,-13},{-7,-25}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="clock"),
             Line(
               points={{-84,80},{0,80},{0,70}},
@@ -5131,11 +5131,11 @@ Clock transition definitions:
               color={127,0,127}),
             Text(
               extent={{-14,66},{12,54}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="set"),
             Text(
               extent={{-32,38},{26,10}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="high active")}),
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
@@ -5196,7 +5196,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               pattern=LinePattern.None), Text(
               extent={{-30,38},{24,12}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="low active")}), Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 
@@ -5422,15 +5422,15 @@ Clock transition definitions:
               color={127,33,107}),
             Text(
               extent={{-30,58},{26,2}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="DLATR"),
             Text(
               extent={{-29,-8},{6,-32}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="enable"),
             Text(
               extent={{-14,-44},{12,-56}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="reset")}));
         end DLATR;
 
@@ -5551,22 +5551,22 @@ Clock transition definitions:
               color={127,0,127}),
             Text(
               extent={{-32,82},{32,-2}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="DLATREG"),
             Text(
               extent={{-14,-33},{12,-45}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="reset"),
             Text(
               extent={{-33,-7},{-1,-32}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="enable"),
             Line(
               points={{-84,-60},{0,-60},{0,-50}},
               color={127,0,127}),
             Text(
               extent={{-26,44},{26,2}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="high active")}));
         end DLATREG;
 
@@ -5620,7 +5620,7 @@ Clock transition definitions:
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
               extent={{-26,48},{26,-1}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="low active")}));
         end DLATREGL;
 
@@ -5855,22 +5855,22 @@ Clock transition definitions:
               color={127,33,107}),
             Text(
               extent={{-34,60},{32,-6}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="DLATSR"),
             Text(
               extent={{-29,-8},{5,-30}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="enable"),
             Text(
               extent={{-14,-44},{12,-56}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="reset"),
             Line(
               points={{0,80},{0,60}},
               color={127,0,127}),
             Text(
               extent={{-13,56},{13,44}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="set")}));
         end DLATSR;
 
@@ -6007,15 +6007,15 @@ Clock transition definitions:
               color={127,0,127}),
             Text(
               extent={{-46,96},{46,-18}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="DLATREGSR"),
             Text(
               extent={{-14,-32},{14,-45}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="reset"),
             Text(
               extent={{-33,-7},{-1,-32}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="enable"),
             Line(
               points={{-84,80},{0,80},{0,70}},
@@ -6025,11 +6025,11 @@ Clock transition definitions:
               color={127,0,127}),
             Text(
               extent={{-14,67},{12,53}},
-              lineColor={127,33,107},
+              textColor={127,33,107},
               textString="set"),
             Text(
               extent={{-28,38},{30,10}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="high active")}));
         end DLATREGSRH;
 
@@ -6087,7 +6087,7 @@ Clock transition definitions:
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
               extent={{-30,30},{30,16}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="low active")}));
         end DLATREGSRL;
 
@@ -6144,7 +6144,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-7,46},{39,18}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="N"),
             Line(
               points={{-82,70},{0,70},{0,16}},
@@ -6152,7 +6152,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-44,-24},{30,-46}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6226,7 +6226,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-2,46},{44,18}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="NR"),
             Line(
               points={{-82,70},{0,70},{0,16}},
@@ -6234,7 +6234,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-36,-24},{38,-46}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6308,7 +6308,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-7,46},{39,18}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="P"),
             Line(
               points={{-82,70},{0,70},{0,16}},
@@ -6316,7 +6316,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-36,-24},{38,-46}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6390,7 +6390,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-2,46},{44,18}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="PR"),
             Line(
               points={{-82,70},{0,70},{0,16}},
@@ -6398,7 +6398,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-40,-24},{34,-46}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6475,7 +6475,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-54,-62},{20,-84}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6554,7 +6554,7 @@ Clock transition definitions:
               thickness=1),
             Text(
               extent={{-54,-62},{20,-84}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6638,7 +6638,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-54,-62},{20,-84}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6722,7 +6722,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-54,-62},{20,-84}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6784,7 +6784,7 @@ Wires n input signals in one output signal, without delay.
               extent={{-50,40},{50,80}},
               textString="Wire"), Text(
               extent={{152,-160},{-148,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
     end WiredX;
   end Tristates;
@@ -6897,14 +6897,14 @@ Firstly Write is carried out, then Read.</strong></p>
         graphics={
           Text(
             extent={{-50,70},{50,30}},
-            lineColor={127,33,107},
+            textColor={127,33,107},
             textString="DLATRAM"),
           Line(
             points={{-60,-40},{-46,-50},{-60,-60}},
             color={127,0,127}),
           Text(
             extent={{-41,-35},{-24,-62}},
-            lineColor={127,33,107},
+            textColor={127,33,107},
             textString="WE"),
           Line(
             points={{-84,-50},{-60,-50}},
@@ -6981,7 +6981,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
         graphics={
           Text(
             extent={{-50,70},{50,30}},
-            lineColor={127,33,107},
+            textColor={127,33,107},
             textString="DLATROM")}));
     end DLATROM;
   end Memories;
@@ -7054,11 +7054,11 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-36,-70},{38,-92}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Text(
               extent={{-38,10},{38,-10}},
-              lineColor={127,0,127},
+              textColor={127,0,127},
               textString="MUX2x1")}),
         Documentation(info="<html>
 <p>Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>

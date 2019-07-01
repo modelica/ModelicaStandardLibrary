@@ -78,7 +78,7 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,80},{100,60}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Compare voltage and current of inductor1 and inductor2")}),
     experiment(
       StopTime=6,

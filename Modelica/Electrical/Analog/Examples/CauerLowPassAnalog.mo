@@ -111,7 +111,7 @@ equation
         Text(
           extent={{-120,100},{120,80}},
           textString="CauerLowPassAnalog",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     experiment(StopTime=60),
     Documentation(revisions="<html>
 <ul>

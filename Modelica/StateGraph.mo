@@ -1540,7 +1540,7 @@ buttons:
                 thickness=0.5),
               Text(
                 extent={{-131,125},{136,67}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Line(
                 points={{0,0},{0,-60}},
@@ -1578,7 +1578,7 @@ buttons:
               Text(
                 extent={{-122,-82},{88,-42}},
                 textString="%name",
-                lineColor={0,0,255}),
+                textColor={0,0,255}),
               Rectangle(
                 extent={{-60,60},{80,-40}},
                 lineThickness=0.5,
@@ -1612,7 +1612,7 @@ buttons:
                 fillPattern=FillPattern.Solid), Text(
                 extent={{-144,54},{152,114}},
                 textString="%name",
-                lineColor={0,0,255})}));
+                textColor={0,0,255})}));
     end Source;
 
     model CompositeStep
@@ -2061,7 +2061,7 @@ package Interfaces "Connectors and partial models"
               fillPattern=FillPattern.Solid), Text(
               extent={{160,110},{-160,150}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
   end PartialStateGraphIcon;
 
   model CompositeStepState
@@ -2106,7 +2106,7 @@ equation
           Text(
             extent={{-200,110},{200,150}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
             fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
@@ -2138,7 +2138,7 @@ equation
           Text(
             extent={{-200,110},{200,150}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
             fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
@@ -2166,7 +2166,7 @@ equation
           extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-200,110},{200,150}},
             textString="%name",
-            lineColor={0,0,255}), Rectangle(
+            textColor={0,0,255}), Rectangle(
             extent={{-100,100},{100,-100}},
             fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
             fillPattern=FillPattern.Solid)}),
@@ -2196,7 +2196,7 @@ equation
           Text(
             extent={{-200,110},{200,150}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
             fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
@@ -2227,14 +2227,14 @@ block Transition
           Text(
             extent={{200,110},{-200,150}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{20,20},{200,45}},
-            lineColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
+            textColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
             textString="%waitTime"),
           Text(
             extent={{-200,-120},{200,-145}},
-            lineColor=DynamicSelect({0,0,0}, if condition then {0,255,0} else {0,0,0}),
+            textColor=DynamicSelect({0,0,0}, if condition then {0,255,0} else {0,0,0}),
             textString="%condition")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2262,7 +2262,7 @@ block TransitionWithSignal
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{20,20},{200,45}},
-            lineColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
+            textColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
             textString="%waitTime"),
           Rectangle(
             extent={{-10,100},{10,-100}},
@@ -2272,7 +2272,7 @@ block TransitionWithSignal
           Text(
             extent={{200,110},{-200,150}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Ellipse(
             extent={{7,-81},{-7,-95}},
             lineColor=DynamicSelect({0,0,0}, if condition then {0,255,0} else {0,0,0}),
@@ -2690,7 +2690,7 @@ inside the CompositeStep to the outPort connector.");
           Text(
             extent={{-250,160},{250,200}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-150,150},{150,-150}},
             fillColor=DynamicSelect({255,255,255}, if active then {0,255,0} else {255,255,255}),
@@ -2722,7 +2722,7 @@ equation
           Text(
             extent={{-200,110},{200,150}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}}),
           Text(

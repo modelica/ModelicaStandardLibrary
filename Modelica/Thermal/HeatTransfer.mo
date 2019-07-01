@@ -399,7 +399,7 @@ conduction law in a target system between two capacitors.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-84,-58},{24,-90}},
-                      lineColor={135,135,135},
+                      textColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{8,96},{92,66}},
                       horizontalAlignment=TextAlignment.Right,
@@ -447,7 +447,7 @@ conduction law in a target system between two capacitors.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{0,-62},{96,-94}},
-                      lineColor={135,135,135},
+                      textColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
@@ -504,7 +504,7 @@ conduction law in a target system between two capacitors.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-48,-36},{48,-68}},
-                      lineColor={135,135,135},
+                      textColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
@@ -556,7 +556,7 @@ conduction law in a target system between two capacitors.
             Text(
               extent={{-150,110},{150,70}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{0,67},{-20,63},{-40,57},{-52,43},{-58,35},{-68,25},{-72,
                   13},{-76,-1},{-78,-15},{-76,-31},{-76,-43},{-76,-53},{-70,-65},
@@ -688,7 +688,7 @@ compute C:
             Text(
               extent={{-150,115},{150,75}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-75},{150,-105}},
               textString="G=%G")}),
@@ -701,7 +701,7 @@ compute C:
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-100,-20},{100,-40}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="Q_flow"),
             Text(
               extent={{-100,40},{100,20}},
@@ -781,7 +781,7 @@ e.g., with one of the following equations:
             Text(
               extent={{-150,115},{150,75}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-75},{150,-105}},
               textString="R=%R")}),
@@ -794,7 +794,7 @@ e.g., with one of the following equations:
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-100,-20},{100,-40}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="Q_flow"),
             Text(
               extent={{-100,40},{100,20}},
@@ -844,7 +844,7 @@ especially if it shall be allowed that a ThermalResistance is defined to be zero
             Text(
               extent={{-150,-90},{150,-130}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
             Line(points={{-60,20},{76,20}}, color={191,0,0}),
             Line(points={{-60,-20},{76,-20}}, color={191,0,0}),
@@ -939,7 +939,7 @@ McGraw-Hill, 1997, p.270):
             Line(points={{100,0},{100,0}}, color={0,127,255}),
             Text(
               extent={{-40,40},{80,20}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="Q_flow"),
             Line(points={{-60,20},{76,20}}, color={191,0,0}),
             Line(points={{-60,-20},{76,-20}}, color={191,0,0}),
@@ -995,7 +995,7 @@ McGraw-Hill, 1997, p.270):
             Text(
               extent={{-150,-90},{150,-130}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
             Line(points={{-60,20},{76,20}}, color={191,0,0}),
             Line(points={{-60,-20},{76,-20}}, color={191,0,0}),
@@ -1037,7 +1037,7 @@ especially if it shall be allowed that a convective resistance is defined to be 
             Line(points={{100,0},{100,0}}, color={0,127,255}),
             Text(
               extent={{-40,40},{80,20}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="Q_flow"),
             Line(points={{-60,20},{76,20}}, color={191,0,0}),
             Line(points={{-60,-20},{76,-20}}, color={191,0,0}),
@@ -1091,7 +1091,7 @@ especially if it shall be allowed that a convective resistance is defined to be 
             Text(
               extent={{-150,125},{150,85}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-90},{150,-120}},
               textString="Gr=%Gr"),
@@ -1213,7 +1213,7 @@ place from the inner to the outer cylinder):
             Text(
               extent={{-150,-30},{150,-70}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,80},{150,50}},
               textString="m=%m"),
@@ -1494,7 +1494,7 @@ Note, the input signals must be consistent to each other
             Text(
               extent={{-150,130},{150,90}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -1533,7 +1533,7 @@ sensor model.
             Text(
               extent={{-150,80},{150,40}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{92,-62},{34,-122}},
               textString="K")}),
@@ -1587,7 +1587,7 @@ the two ports of this component and is provided as output signal in Kelvin.
             Text(
               extent={{-150,125},{150,85}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This model is capable of monitoring the heat flow rate flowing through
@@ -1645,7 +1645,7 @@ The output signal is positive, if the heat flows from port_a to port_b.
             fillPattern = FillPattern.HorizontalCylinder,
             extent={{70,-10},{90,10}}),
           Text(
-            lineColor = {0,0,255},
+            textColor = {0,0,255},
             extent = {{-150,85},{150,125}},
             textString = "%name"),
           Line(points = {{0,-70},{0,-90}}, color = {0,0,127})},
@@ -1684,7 +1684,7 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-110},{150,-140}},
               textString="T=%T"),
@@ -1758,7 +1758,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{50,-20},{50,20},{90,0},{50,-20}},
               lineColor={191,0,0},
@@ -1810,7 +1810,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-55},{150,-85}},
               textString="Q_flow=%Q_flow"),
@@ -1926,7 +1926,7 @@ in order to simulate temperature dependent losses (which are given with respect 
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
@@ -2019,7 +2019,7 @@ in order to simulate temperature dependent losses (which are given with respect 
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This component converts an input signal from Celsius to Kelvin
@@ -2042,7 +2042,7 @@ and provide is as output signal.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineThickness=0.5,
@@ -2093,7 +2093,7 @@ and provides is as output signal.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
               pattern=LinePattern.None,
@@ -2167,7 +2167,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
@@ -2281,7 +2281,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{-150,135},{150,95}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -2355,7 +2355,7 @@ Example:
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-42,-44},{-153,-91}},
               textString="degF")}),
@@ -2380,7 +2380,7 @@ and provides is as output signal.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineThickness=0.5,
@@ -2430,7 +2430,7 @@ and provides them as output signals.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
               pattern=LinePattern.None,
@@ -2504,7 +2504,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
@@ -2614,7 +2614,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{-150,135},{150,95}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -2690,7 +2690,7 @@ Example:
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This component converts all input signals from degree Rankine to Kelvin
@@ -2712,7 +2712,7 @@ and provides them as output signals.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineThickness=0.5,
@@ -2762,7 +2762,7 @@ and provides them as output signals.
             Text(
               extent={{-118,165},{122,105}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(
               extent={{-100,100},{100,-100}},
               pattern=LinePattern.None,
@@ -2836,7 +2836,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
@@ -2946,7 +2946,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{-150,135},{150,95}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -3023,7 +3023,7 @@ class.</p>
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid), Text(
               extent={{-120,120},{100,60}},
-              lineColor={191,0,0},
+              textColor={191,0,0},
               textString="%name")}));
     end HeatPort_a;
 
@@ -3053,7 +3053,7 @@ class.</p>
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
               extent={{-100,120},{120,60}},
-              lineColor={191,0,0},
+              textColor={191,0,0},
               textString="%name")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(

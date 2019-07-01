@@ -66,7 +66,7 @@ equation
           Line(points={{4,0},{4,-20}}, color={85,255,85}),
           Text(
             extent={{-150,90},{150,50}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}),
       Documentation(info="<html>
 <p>This model is a switched capacitor model without thermal behavior which can represent positive and negative resistances.</p>

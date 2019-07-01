@@ -26,7 +26,7 @@ package Interfaces
         fillPattern=FillPattern.Solid,
         points={{0.0,50.0},{100.0,0.0},{0.0,-50.0},{0.0,50.0}}),
       Text(
-        lineColor={0,0,127},
+        textColor={0,0,127},
         extent={{-10.0,60.0},{-10.0,85.0}},
         textString="%name")}),
     Documentation(info="<html>
@@ -56,7 +56,7 @@ Connector with one input signal of type Real.
         fillPattern=FillPattern.Solid,
         points={{-100.0,50.0},{0.0,0.0},{-100.0,-50.0}}),
       Text(
-        lineColor={0,0,127},
+        textColor={0,0,127},
         extent={{30.0,60.0},{30.0,110.0}},
         textString="%name")}),
     Documentation(info="<html>
@@ -85,7 +85,7 @@ Connector with one output signal of type Real.
           fillColor={255,0,255},
           fillPattern=FillPattern.Solid), Text(
           extent={{-10,85},{-10,60}},
-          lineColor={255,0,255},
+          textColor={255,0,255},
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -111,7 +111,7 @@ Connector with one input signal of type Boolean.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid), Text(
           extent={{30,110},{30,60}},
-          lineColor={255,0,255},
+          textColor={255,0,255},
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -139,7 +139,7 @@ Connector with one output signal of type Boolean.
           fillColor={255,127,0},
           fillPattern=FillPattern.Solid), Text(
           extent={{-10,85},{-10,60}},
-          lineColor={255,127,0},
+          textColor={255,127,0},
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -165,7 +165,7 @@ Connector with one input signal of type Integer.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid), Text(
           extent={{30,110},{30,60}},
-          lineColor={255,127,0},
+          textColor={255,127,0},
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -189,7 +189,7 @@ Connector with one output signal of type Integer.
         initialScale=0.2,
         extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-10,85},{-10,60}},
-          lineColor={0,0,127},
+          textColor={0,0,127},
           textString="%name"), Ellipse(
           extent={{-50,50},{50,-50}},
           lineColor={0,0,127},
@@ -219,7 +219,7 @@ and has therefore a different icon as RealInput connector.
         initialScale=0.2,
         extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-10,85},{-10,60}},
-          lineColor={255,128,0},
+          textColor={255,128,0},
           textString="%name"), Ellipse(
           extent={{-50,50},{50,-50}},
           lineColor={255,128,0},
@@ -250,7 +250,7 @@ and has therefore a different icon as IntegerInput connector.
         initialScale=0.2,
         extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-10,85},{-10,60}},
-          lineColor={255,0,255},
+          textColor={255,0,255},
           textString="%name"), Ellipse(
           extent={{-50,50},{50,-50}},
           lineColor={255,0,255},
@@ -280,7 +280,7 @@ and has therefore a different icon as BooleanInput connector.
         initialScale=0.2,
         extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-10,85},{-10,60}},
-          lineColor={0,0,127},
+          textColor={0,0,127},
           textString="%name"), Ellipse(
           extent={{-50,50},{50,-50}},
           lineColor={0,0,127},
@@ -409,7 +409,7 @@ one continuous Real output signal.
           Text(
             extent={{-250,170},{250,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={255,137,0},
@@ -729,7 +729,7 @@ See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock
               -100},{100,100}}), graphics={Text(
               extent={{-100,-10},{-80,-30}},
               textString="u_s",
-              lineColor={0,0,255}),Text(
+              textColor={0,0,255}),Text(
               extent={{-98,34},{-138,24}},
               textString="(setpoint)"),Text(
               extent={{98,24},{138,14}},
@@ -936,7 +936,7 @@ where the signal sizes of the input and output vector are identical.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
             fillColor={255,213,170},
@@ -967,7 +967,7 @@ where the signal sizes of the input and output vector are identical.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={255,137,0},
@@ -1202,7 +1202,7 @@ and a 3D icon (e.g., used in Blocks.Logical library).
             fillPattern=FillPattern.Solid), Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Block has one continuous Real input and one continuous Boolean output signal
 as well as a 3D icon (e.g., used in Blocks.Logical library).
@@ -1238,7 +1238,7 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
                                                  Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Block has two continuous Real input and one continuous Boolean output signal
@@ -1263,7 +1263,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           Text(
             extent={{-300,200},{300,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
             fillColor={215,215,215},
@@ -1293,7 +1293,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           Text(
             extent={{-250,170},{250,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
             fillColor={215,215,215},
@@ -1333,7 +1333,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           fillPattern=FillPattern.Solid,
           points={{90.0,0.0},{30.0,20.0},{30.0,-20.0},{90.0,0.0}}),
         Text(
-          lineColor={0,0,255},
+          textColor={0,0,255},
           extent={{-150,110},{150,150}},
           textString="%name")}), Documentation(info="<html>
 <p>
@@ -1434,7 +1434,7 @@ converts from one unit into another one.
             textString="%y_off"),
           Text(visible=enableNoise and not useAutomaticLocalSeed,
             extent={{-92,20},{98,-22}},
-            lineColor={238,46,47},
+            textColor={238,46,47},
             textString="%fixedLocalSeed")}),
       Documentation(info="<html>
 <p>
@@ -1530,7 +1530,7 @@ of noise blocks.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
             Text(
               extent={{-150,150},{150,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
                 Rectangle(
                   extent={{-20,100},{20,-100}},
@@ -1642,7 +1642,7 @@ Note, the input signals must be consistent to each other
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
             Text(
               extent={{-150,150},{150,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
                 Rectangle(
                   extent={{-20,100},{20,-100}},

@@ -1387,7 +1387,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
-            lineColor={255,127,0},
+            textColor={255,127,0},
             textString="f")}));
   end s_pTX;
 
@@ -1447,7 +1447,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
-            lineColor={255,127,0},
+            textColor={255,127,0},
             textString="f")}));
   end s_pTX_der;
 
@@ -1465,7 +1465,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 
     annotation (Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
-            lineColor={255,127,0},
+            textColor={255,127,0},
             textString="f")}), Documentation(revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));

@@ -169,7 +169,7 @@ Plot the magnitude locus (in dB) dB versus lg_w and the phase locus versus lg_w.
             fillColor={85,170,255},
             fillPattern=FillPattern.Solid), Text(
             extent={{-10,85},{-10,60}},
-            lineColor={85,170,255},
+            textColor={85,170,255},
             textString="%name")}),
       Documentation(info="<html>
 <p>
@@ -193,7 +193,7 @@ Connector with one input signal of type Complex.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid), Text(
             extent={{30,110},{30,60}},
-            lineColor={85,170,255},
+            textColor={85,170,255},
             textString="%name")}),
       Documentation(info="<html>
 <p>
@@ -489,7 +489,7 @@ input <code>u</code>. Optionally, the input <code>u</code> can be processed conj
                   textString="k=%k"),Text(
                   extent={{-150,140},{150,100}},
                   textString="%name",
-                  lineColor={0,0,255})}),
+                  textColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})));
     end Gain;
@@ -592,9 +592,9 @@ result in the following equation:
                                   Text(
                   extent={{-150,94},{150,44}},
                   textString="%name",
-                  lineColor={0,0,255}),                       Text(
+                  textColor={0,0,255}),                       Text(
                   extent={{20,-20},{100,-100}},
-              lineColor={85,170,255},
+              textColor={85,170,255},
               textString="-")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})));
@@ -641,7 +641,7 @@ result in the following equation:
                 Ellipse(extent={{-50,50},{50,-50}}, lineColor={85,170,255}),
                 Line(points={{50,0},{100,0}}, color={85,170,255}),
                 Text(extent={{-40,40},{40,-40}},
-              lineColor={85,170,255},
+              textColor={85,170,255},
               textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})));
@@ -711,7 +711,7 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
                 Text(extent={{-98,-20},{5,20}}, textString="%k2"),
                 Text(extent={{-98,-50},{5,-90}}, textString="%k3"),
                 Text(extent={{10,40},{90,-40}},
-              lineColor={85,170,255},
+              textColor={85,170,255},
               textString="+")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})));
@@ -796,7 +796,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-60,90},{90,50}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="u1 / u2")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={          Line(points={{50,0},{100,0}},
@@ -827,7 +827,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   fillPattern=FillPattern.Solid),Line(points={{-80,-88},{-80,68}},
               color={192,192,192}),Text(
                   extent={{-8,-4},{64,-52}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="sqrt")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})),
@@ -866,7 +866,7 @@ as <em>square root</em> of the input <code>u</code> (= principal square root of 
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{12,84},{84,36}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="sin")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})),
@@ -910,7 +910,7 @@ as <strong>sine</strong> of the input <code>u</code>. Optionally, the input <cod
               50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}, color=
                   {85,170,255}),                                                   Text(
                   extent={{-36,82},{36,34}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="cos")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})),
@@ -954,7 +954,7 @@ as <strong>cos</strong> of the input <code>u</code>. Optionally, the input <code
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-90,72},{-18,24}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="tan")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})),
@@ -996,7 +996,7 @@ as <strong>tan</strong> of the input <code>u</code>. Optionally, the input <code
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-88,78},{-16,30}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="asin")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})),
@@ -1039,7 +1039,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-86,-14},{-14,-62}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="acos")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})),
@@ -1082,7 +1082,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-86,68},{-14,20}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="atan")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})),
@@ -1115,7 +1115,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-86,80},{-14,32}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="sinh"),Line(points={{0,-80},{0,68}}, color={192,192,192}),
               Line(points={{-90,0},{68,0}}, color={192,192,192}),Line(
               points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,
@@ -1159,7 +1159,7 @@ This blocks computes the output <code>y</code> as the
                   fillPattern=FillPattern.Solid),Line(points={{0,-80},{0,68}},
               color={192,192,192}),Text(
                   extent={{4,66},{66,20}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="cosh"),Line(points={{-80,80},{-77.6,61.1},{-74.4,
               39.3},{-71.2,20.7},{-67.1,1.29},{-63.1,-14.6},{-58.3,-29.8},{-52.7,
               -43.5},{-46.2,-55.1},{-39,-64.3},{-30.2,-71.7},{-18.9,-77.1},{-4.42,
@@ -1209,7 +1209,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-88,72},{-16,24}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="tanh"),Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
@@ -1247,7 +1247,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-86,50},{-14,2}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="exp"),Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},
               {10.9,-68.4},{23.7,-61},{34.2,-51.6},{43,-40.3},{50.3,-27.8},{
               56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{80,80}}, color=
@@ -1299,7 +1299,7 @@ This blocks computes the output <code>y</code> as the
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-6,-24},{66,-72}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="log")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}})),
@@ -1335,10 +1335,10 @@ An error occurs if the elements of the input <code>u</code> is zero.
       y = Complex(re, im);
       annotation (Icon(graphics={Text(
                   extent={{-100,80},{-20,40}},
-                  lineColor={0,0,127},
+                  textColor={0,0,127},
                   textString="re"),Text(
                   extent={{-100,-40},{-20,-80}},
-                  lineColor={0,0,127},
+                  textColor={0,0,127},
                   textString="im"),Polygon(
                   points={{20,0},{0,20},{0,10},{-30,10},{-30,-10},{0,-10},{0,-20},
                 {20,0}},
@@ -1346,7 +1346,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
                   fillColor={85,170,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{20,60},{100,-60}},
-                  lineColor={85,170,255},
+                  textColor={85,170,255},
               textString="C")}),     Documentation(info="<html>
 <p>Converts the Real inputs <em>re</em> (real part) and <em>im</em> (imaginary part) to the Complex output <em>y</em>.</p>
 </html>"));
@@ -1364,10 +1364,10 @@ An error occurs if the elements of the input <code>u</code> is zero.
       y = Complex(len*cos(phi), len*sin(phi));
       annotation (Icon(graphics={Text(
                   extent={{-100,80},{-20,40}},
-                  lineColor={0,0,127},
+                  textColor={0,0,127},
                   textString="len"),Text(
                   extent={{-100,-40},{-20,-80}},
-                  lineColor={0,0,127},
+                  textColor={0,0,127},
                   textString="phi"),Polygon(
                   points={{20,0},{0,20},{0,10},{-30,10},{-30,-10},{0,-10},{0,-20},
                 {20,0}},
@@ -1375,7 +1375,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
                   fillColor={85,170,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{20,60},{100,-60}},
-                  lineColor={85,170,255},
+                  textColor={85,170,255},
               textString="C")}),     Documentation(info="<html>
 <p>Converts the Real inputs <em>len</em> (length, absolute) and <em>phi</em> (angle, argument) to the Complex output <em>y</em>.</p>
 </html>"));
@@ -1398,10 +1398,10 @@ An error occurs if the elements of the input <code>u</code> is zero.
       im = (if useConjugateInput then -u.im else u.im);
       annotation (Icon(graphics={Text(
                   extent={{20,80},{100,40}},
-                  lineColor={0,0,127},
+                  textColor={0,0,127},
                   textString="re"),Text(
                   extent={{20,-40},{100,-80}},
-                  lineColor={0,0,127},
+                  textColor={0,0,127},
                   textString="im"),Polygon(
                   points={{40,0},{20,20},{20,10},{-10,10},{-10,-10},{20,-10},{
                 20,-20},{40,0}},
@@ -1409,7 +1409,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
                   fillColor={85,170,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,60},{-20,-60}},
-                  lineColor={85,170,255},
+                  textColor={85,170,255},
               fillColor={85,170,255},
               fillPattern=FillPattern.Solid,
               textString="C")}),     Documentation(info="<html>
@@ -1436,10 +1436,10 @@ An error occurs if the elements of the input <code>u</code> is zero.
 
       annotation (Icon(graphics={Text(
                   extent={{20,80},{100,40}},
-                  lineColor={0,0,127},
+                  textColor={0,0,127},
                   textString="len"),Text(
                   extent={{20,-40},{100,-80}},
-                  lineColor={0,0,127},
+                  textColor={0,0,127},
                   textString="phi"),Polygon(
                   points={{40,0},{20,20},{20,10},{-10,10},{-10,-10},{20,-10},{
                 20,-20},{40,0}},
@@ -1447,7 +1447,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
                   fillColor={85,170,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,60},{-20,-60}},
-                  lineColor={85,170,255},
+                  textColor={85,170,255},
               textString="C")}),     Documentation(info="<html>
 <p>Converts the Complex input <em>u</em> to the Real outputs <em>len</em> (length, absolute) and <em>phi</em> (angle, argument).</p>
 </html>"));
@@ -1530,7 +1530,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
               thickness=0.5),               Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
             Text(
               extent={{-80,-90},{-40,-70}},
               lineThickness=0.5,
@@ -1555,7 +1555,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
             Text(
               visible = useDivisor,
               extent={{-56,94},{94,54}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="u / divisor")}),
         Documentation(info="<html>
 <p>This complex block is used to determine variables of a Bode diagram for the output <code>y</code>.
@@ -1594,13 +1594,13 @@ Otherwise the output <code>y = u</code>.</p>
       y = u*bSum/aSum;
       annotation (Icon(graphics={
           Text(
-            lineColor={85,170,255},
+            textColor={85,170,255},
             extent={{-90,10},{90,90}},
               textString="b(jw)"),
             Line(points={{-80,0},{80,0}},
               color={85,170,255}),
           Text(
-            lineColor={85,170,255},
+            textColor={85,170,255},
             extent={{-90,-90},{90,-10}},
               textString="a(jw)")}), Documentation(info="<html>
 <p>
@@ -1936,7 +1936,7 @@ This package contains blocks to combine and extract signals.
                   textString="%y"),Text(
                   extent={{-150,90},{140,50}},
                   textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255})}), Documentation(info="<html>
 <p>
 The (time varying) Complex output signal of this block can be defined in its
 parameter menu via variable <strong>y</strong>. The purpose is to support the
@@ -2284,7 +2284,7 @@ The output is the decimal power of this logarithmic ramp.
             fillPattern=FillPattern.Solid), Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Block that has only the basic icon for an Complex input/output

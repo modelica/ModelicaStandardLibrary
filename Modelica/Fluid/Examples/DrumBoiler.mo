@@ -151,7 +151,7 @@ package DrumBoiler
           extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-151,165},{138,102}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Text(
             extent={{-79,67},{67,21}},

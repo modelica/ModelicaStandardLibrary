@@ -285,7 +285,7 @@ package Sensors "Sensors to measure variables"
           Text(
             extent={{-132,76},{129,124}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             visible=get_r,
             extent={{-130,-74},{-95,-90}},
@@ -312,7 +312,7 @@ package Sensors "Sensors to measure variables"
             textString="z"),
           Text(
             extent={{60,52},{191,27}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="resolve")}),
       Documentation(info="<html>
 <p>
@@ -726,7 +726,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           Text(
             extent={{-132,90},{129,138}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             visible=get_r_rel,
             extent={{-130,-74},{-95,-90}},
@@ -933,13 +933,13 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           Text(
             extent={{-127,95},{134,143}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{62,46},{146,16}},
             textString="r"),
           Text(
             extent={{15,-67},{146,-92}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="resolve"),
           Line(
             points={{0,-96},{0,-96},{0,-70},{0,-70}},
@@ -1062,13 +1062,13 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
           Text(
             extent={{-130,72},{131,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{58,48},{142,18}},
             textString="v"),
           Text(
             extent={{15,-67},{146,-92}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="resolve"),
           Line(
             points={{0,-70},{0,-95}},
@@ -1149,7 +1149,7 @@ v  = MultiBody.Frames.resolve2(frame_a.R, v0);
           Text(
             extent={{-132,76},{129,124}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             points={{70,0},{100,0}},
             color={0,0,127}),
@@ -1247,7 +1247,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           Text(
             extent={{-127,77},{134,125}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{66,48},{150,18}},
             textString="w"),
@@ -1257,7 +1257,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
             pattern=LinePattern.Dot),
           Text(
             extent={{15,-67},{146,-92}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="resolve")}),
       Documentation(info="<html>
 <p>
@@ -1357,7 +1357,7 @@ w = MultiBody.Frames.angularVelocity2(frame_a.R);
           Text(
             extent={{-127,95},{134,143}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{18,-80},{102,-110}},
             textString="r_rel")}),
@@ -1483,7 +1483,7 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
           Text(
             extent={{-127,95},{134,143}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{18,-80},{102,-110}},
             textString="v_rel")}),
@@ -1587,17 +1587,17 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
           Text(
             extent={{-132,90},{129,138}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{0,-76},{110,-98}},
             textString="angles"),
           Text(
             extent={{-108,43},{-72,18}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="a"),
           Text(
             extent={{72,43},{108,18}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b")}),      Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate frame_a
@@ -1692,7 +1692,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           Text(
             extent={{-127,95},{134,143}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{14,-78},{98,-108}},
             textString="w_rel")}),
@@ -1803,7 +1803,7 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
           Text(
             extent={{-128,30},{133,78}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{-70,0},{-101,0}}),
@@ -1812,7 +1812,7 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
           Text(
             extent={{-22,70},{20,46}},
             textString="s",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-98,40},{88,40}}, color={0,0,255}),
           Polygon(
             points={{102,40},{87,46},{87,34},{102,40}},
@@ -2285,7 +2285,7 @@ with negative sign at frame_a.
           Text(
             extent={{-128,126},{126,68}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 This component provides the power flowing from frame_a to frame_b
@@ -2373,13 +2373,13 @@ as output signal <strong>power</strong>.
             pattern=LinePattern.Dot),
           Text(
             extent={{58,47},{189,22}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="resolve"),
           Line(
             points={{-70,0},{-96,0},{-96,0}}),
           Text(
             extent={{-116,45},{-80,20}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="a")}),
       Documentation(info="<html>
 <p>
@@ -2468,7 +2468,7 @@ transformed output vector as \"Real r_out[3]\";
             textString="r_out"),
           Text(
             extent={{70,126},{200,100}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="resolve")}),
       Documentation(info="<html>
 <p>
@@ -2497,7 +2497,7 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-108,43},{-72,18}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="a"), Line(
               points={{-70,0},{-96,0},{-96,0}})}), Documentation(info="<html>
 <p>
@@ -2535,7 +2535,7 @@ This partial class can be used for sensors defined either by components or by eq
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="a"),
             Line(
               points={{-70,0},{-96,0},{-96,0}}),
@@ -2549,7 +2549,7 @@ This partial class can be used for sensors defined either by components or by eq
               pattern=LinePattern.Dot),
             Text(
               extent={{0,-75},{131,-100}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="resolve")}), Documentation(info="<html>
 <p>
 Partial base class for absolute sensor models defined by equations.
@@ -2576,11 +2576,11 @@ The connector frame_resolve is always enabled and must be connected exactly once
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="a"),
             Text(
               extent={{72,43},{108,18}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="b"),
             Line(
               points={{-70,0},{-96,0},{-96,0}}),
@@ -2628,11 +2628,11 @@ This partial class can be used for sensors defined either by components or by eq
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="a"),
             Text(
               extent={{72,41},{108,16}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="b"),
             Line(
               points={{-70,0},{-96,0},{-96,0}}),
@@ -2683,7 +2683,7 @@ The connector frame_resolve is always enabled and must be connected exactly once
               textString="r"), Text(
               extent={{-127,75},{134,123}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
 the absolute position vector of the origin of frame_a should be determined.
@@ -2759,7 +2759,7 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
               textString="w"), Text(
               extent={{-130,76},{131,124}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
 the absolute angular velocity of frame_a should be determined.
@@ -2839,7 +2839,7 @@ w = MultiBody.Frames.angularVelocity2(frame_a.R);
               textString="r_rel"), Text(
               extent={{-127,95},{134,143}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
 the relative position vector between the origins of frame_a and frame_b should be determined.
@@ -2925,7 +2925,7 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
               textString="w_rel"), Text(
               extent={{-132,90},{129,138}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
 the relative angular velocity between frame_a and frame_b should be determined.
@@ -3064,11 +3064,11 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
               color={0,0,127}),
             Text(
               extent={{58,47},{189,22}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="resolve"),
             Text(
               extent={{-116,45},{-80,20}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="a"),
             Line(
               points={{-70,0},{-96,0},{-96,0}}),
@@ -3250,18 +3250,18 @@ with the blocks of package Modelica.Blocks.
             Text(
               extent={{-132,76},{129,124}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-118,55},{-82,30}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="a"),
             Text(
               extent={{83,55},{119,30}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="b"),
             Text(
               extent={{70,-66},{201,-91}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="resolve"),
             Line(
               points={{80,0},{80,-100}},
@@ -3325,18 +3325,18 @@ with the blocks of package Modelica.Blocks.
             Text(
               extent={{-132,76},{129,124}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-118,55},{-82,30}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="a"),
             Text(
               extent={{83,55},{119,30}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="b"),
             Text(
               extent={{70,-66},{201,-91}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               textString="resolve"),
             Line(
               points={{80,0},{80,-100}},

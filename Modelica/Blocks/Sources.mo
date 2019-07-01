@@ -25,7 +25,7 @@ package Sources
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 The (time varying) Real output signal of this block can be defined in its
 parameter menu via variable <strong>y</strong>. The purpose is to support the
@@ -61,7 +61,7 @@ variable <strong>y</strong> is both a variable and a connector.
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 The (time varying) Integer output signal of this block can be defined in its
 parameter menu via variable <strong>y</strong>. The purpose is to support the
@@ -97,7 +97,7 @@ variable <strong>y</strong> is both a variable and a connector.
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{100,10},{120,0},{100,-10},{100,10}},
             lineColor=DynamicSelect({255,0,255}, if y then {0,255,0} else {255,0,255}),
@@ -904,7 +904,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
           Line(points={{-80,64},{-80,-84}}, color={95,95,95}),
           Text(
             extent={{-81,87},{-40,67}},
-            lineColor={95,95,95},
+            textColor={95,95,95},
             textString="y"),
           Text(
             extent={{-71,-46},{-38,-55}},
@@ -1520,7 +1520,7 @@ The Real output y is a trapezoid signal:
                 60,-70},{60,0},{68,0}}),
           Text(
             extent={{2,80},{80,20}},
-            lineColor={192,192,192},
+            textColor={192,192,192},
             textString="acc"),
           Text(
             extent={{-150,-150},{150,-110}},
@@ -2510,7 +2510,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           Text(
             extent={{34,-30},{71,-42}},
             textString="columns",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{51,82},{80,68}},
             textString="y[2]")}));
@@ -2937,7 +2937,7 @@ The precise semantics is:
             fillPattern=FillPattern.Solid,
             lineColor={128,128,128}), Text(
             extent={{-300,110},{300,175}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")},
           interaction={OnMouseDownSetBoolean(on, true)}), Documentation(info="<html>
 <p>

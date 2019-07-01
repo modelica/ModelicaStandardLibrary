@@ -262,7 +262,7 @@ Copyright &copy; 2010-2019, Modelica Association and <a href=\"modelica://Modeli
           fillPattern=FillPattern.Solid,
           extent={{-100,-100},{100,100}},
           radius=25.0), Text(
-          lineColor={255,255,255},
+          textColor={255,255,255},
           extent={{-90,-50},{90,50}},
           textString="C")}));
 

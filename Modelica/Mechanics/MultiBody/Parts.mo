@@ -100,7 +100,7 @@ package Parts
           Text(
             extent={{150,145},{-150,105}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{0,100},{0,-100}}),
           Line(points={{0,-80},{-100,-20}}),
           Line(points={{0,-40},{-100,20}}),
@@ -247,17 +247,17 @@ animation = <strong>false</strong>.
           Text(
             extent={{-150,85},{150,45}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{150,-50},{-150,-20}},
             textString="r=%r"),
           Text(
             extent={{-89,38},{-53,13}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="a"),
           Text(
             extent={{57,39},{93,14}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -275,17 +275,17 @@ animation = <strong>false</strong>.
             arrow={Arrow.None,Arrow.Filled}),
           Text(
             extent={{-72,35},{-58,24}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="x"),
           Text(
             extent={{-113,57},{-98,45}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="y"),
           Line(points={{-100,-4},{-100,-69}}, color={128,128,128}),
           Line(points={{-100,-63},{90,-63}}, color={128,128,128}),
           Text(
             extent={{-22,-39},{16,-63}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="r"),
           Polygon(
             points={{88,-59},{88,-68},{100,-63},{88,-59}},
@@ -301,11 +301,11 @@ animation = <strong>false</strong>.
             arrow={Arrow.None,Arrow.Filled}),
           Text(
             extent={{92,35},{106,24}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="x"),
           Text(
             extent={{51,57},{66,45}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="y")}),
       Documentation(info="<html>
 <p>
@@ -547,7 +547,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Rectangle(
             extent={{-100,5},{100,-4}},
             fillPattern=FillPattern.Solid),
@@ -564,11 +564,11 @@ the animation may be switched off via parameter animation = <strong>false</stron
             textString="r=%r"),
           Text(
             extent={{-117,51},{-81,26}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="a"),
           Text(
             extent={{84,-24},{120,-49}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="b")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -578,7 +578,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
           Line(points={{-100,-60},{89,-60}}, color={128,128,128}),
           Text(
             extent={{-22,-36},{16,-60}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="r"),
           Rectangle(
             extent={{-100,5},{100,-5}},
@@ -593,11 +593,11 @@ the animation may be switched off via parameter animation = <strong>false</stron
             arrow={Arrow.None,Arrow.Filled}),
           Text(
             extent={{95,42},{109,31}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="x"),
           Text(
             extent={{42,70},{57,58}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="y"),
           Line(
             points={{-95,22},{-58,22}},
@@ -609,11 +609,11 @@ the animation may be switched off via parameter animation = <strong>false</stron
             arrow={Arrow.None,Arrow.Filled}),
           Text(
             extent={{-72,37},{-58,26}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="x"),
           Text(
             extent={{-113,59},{-98,47}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="y"),
           Polygon(
             points={{88,-56},{88,-65},{100,-60},{88,-56}},
@@ -895,7 +895,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
           Text(
             extent={{-150,110},{150,70}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Ellipse(
             extent={{-20,60},{100,-60}},
             lineColor={0,24,48},
@@ -1256,7 +1256,7 @@ states and of the \"Advanced\" menu parameters, see model
           Text(
             extent={{-150,110},{150,70}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-150,-100},{150,-70}},
             textString="r=%r"),
@@ -1293,7 +1293,7 @@ states and of the \"Advanced\" menu parameters, see model
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-22,68},{20,40}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="r"),
           Line(points={{-100,-10},{-100,-90}}, color={128,128,128}),
           Line(points={{-100,-84},{-10,-84}}, color={128,128,128}),
@@ -1304,7 +1304,7 @@ states and of the \"Advanced\" menu parameters, see model
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-82,-66},{-56,-84}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             textString="r_CM"),
           Line(points={{0,-46},{0,-90}}, color={128,128,128})}));
   end BodyShape;
@@ -1526,7 +1526,7 @@ states and of the \"Advanced\" menu parameters, see model
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{150,-80},{-150,-50}},
             textString="r=%r"),
@@ -1738,7 +1738,7 @@ states and of the \"Advanced\" menu parameters, see model
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{150,-80},{-150,-50}},
             textString="r=%r"),
@@ -1851,7 +1851,7 @@ the only case where this is done.
           Text(
             extent={{-150,100},{150,60}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Ellipse(
             extent={{-50,50},{50,-50}},
             lineColor={0,24,48},
@@ -1921,7 +1921,7 @@ are forced to be used as states.
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-150,110},{150,150}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}));
     end Housing;
     Housing housing(t=-n*flange_b.tau) if world.driveTrainMechanics3D
@@ -1940,7 +1940,7 @@ are forced to be used as states.
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,60},{150,20}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Line(points={{80,-60},{40,-100}}),
           Line(points={{40,-60},{0,-100}}),
@@ -2221,7 +2221,7 @@ November 3-4, 2003, pp. 149-158</p>
             Text(
               extent={{-148,112},{152,72}},
               textString="%name=%J",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{0,-70},{0,-100}})}));
     end RotorWith3DEffects;
 
@@ -2337,7 +2337,7 @@ November 3-4, 2003, pp. 149-158</p>
             radius=10),
           Text(
             extent={{-150,125},{150,85}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Line(points={{0,-70},{0,-100}}),
           Text(
@@ -2384,7 +2384,7 @@ November 3-4, 2003, pp. 149-158</p>
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-150,110},{150,150}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}));
     end Housing;
     Housing housing(t=-flange_a.tau*e_a - flange_b.tau*e_b) if world.driveTrainMechanics3D
@@ -2400,7 +2400,7 @@ November 3-4, 2003, pp. 149-158</p>
     annotation (
       Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
         Text(origin = {0,-40},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           extent = {{-150,150},{150,180}},
             textString="%name"),
         Text(origin = {0,-10},
@@ -2673,7 +2673,7 @@ November 3-4, 2003, pp. 149-158
           Text(
             extent={{-150,120},{150,80}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(
             points={{-100,-80},{100,-80}}),
           Ellipse(extent={{-80,80},{80,-80}}, lineColor={64,64,64})}),
@@ -2915,7 +2915,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
           Text(
             extent={{-150,-105},{150,-145}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{86,24},{64,24},{64,12},{56,12}}),
           Line(points={{86,-24},{64,-24},{64,-12},{56,-12}}),
           Line(
@@ -2943,7 +2943,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Text(
               extent={{12,-68},{30,-80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="x"),Line(
               points={{6,-100},{-26,-100}},
               color={0,0,255}),Polygon(
@@ -2952,7 +2952,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Text(
               extent={{-46,-80},{-28,-92}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="y")}),
       Documentation(info="<html>
 <p>

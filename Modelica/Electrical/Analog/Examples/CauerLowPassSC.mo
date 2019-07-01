@@ -267,7 +267,7 @@ equation
             -200},{250,200}}), graphics={Text(
           extent={{-100,180},{94,140}},
           textString="CauerLowPassSC",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     experiment(StopTime=60, Interval=0.04),
     Documentation(revisions="<html>
 <ul>

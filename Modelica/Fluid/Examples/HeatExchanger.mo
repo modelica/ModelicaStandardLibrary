@@ -372,7 +372,7 @@ package HeatExchanger "Demo of a heat exchanger model"
               fillColor={0,128,255}),
             Text(
               extent={{-150,110},{150,70}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(
               points={{30,-85},{-60,-85}},

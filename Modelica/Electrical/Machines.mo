@@ -1896,11 +1896,11 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                       extent={{-72,100},{68,80}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString=
                   "Simulate for 5 seconds for starting the machine."),Text(
                       extent={{-100,-80},{100,-100}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString=
                   "Continue the simulation for additional 5 seconds: a load ramp is applied.")}));
       end AIMC_withLosses;
@@ -5750,11 +5750,11 @@ Current controller according to absolute optimum, speed controller according to 
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{0,6},{60,-56}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="PI", visible=useI),
                 Text(
                   extent={{0,6},{60,-56}},
-                  lineColor={192,192,192},
+                  textColor={192,192,192},
                   textString="P", visible=not useI),
                 Line(visible=not useI, points={{-80,-80},{-80,24},{56,24}},  color = {0,0,127})}),
                                                        Diagram(
@@ -5811,9 +5811,9 @@ The difference between unlimited and limited output is fed back to the integrato
                                                 Text(
                 extent={{-120,-100},{120,-140}},
                 textString="%name",
-                lineColor={0,0,255}),           Text(
+                textColor={0,0,255}),           Text(
                 extent={{-100,-60},{100,-80}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                   textString="V0=%V0"),
                 Rectangle(extent={{-70,90},{-50,80}}, lineColor={28,108,200}),
                 Rectangle(
@@ -6031,15 +6031,15 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-98,20},{98,-20}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),
                 Text(
                   extent={{-40,80},{40,60}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="Bat"),
                 Text(
                   extent={{-40,-60},{40,-80}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="Mot"),
                 Line(points={{-20,-20},{-100,-100}}, color={0,0,255}),
                 Line(points={{100,100},{20,20}},     color={0,0,255}),
@@ -6050,19 +6050,19 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
                 Line(visible=not useIdealInverter, points={{98,98},{20,20}},       color={217,67,180}),
                 Text(
                   extent={{-100,70},{-80,50}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="v"),
                 Text(
                   extent={{80,-50},{100,-70}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="v"),
                 Text(
                   extent={{80,70},{100,50}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="i"),
                 Text(
                   extent={{-100,-50},{-80,-70}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="i")}),                                     Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
@@ -6167,15 +6167,15 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
                 Line(points={{-20,-20},{-100,-100}}, color={0,0,255}),
                 Text(
                   extent={{-40,80},{40,60}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="Bat"),
                 Text(
                   extent={{-100,20},{100,-20}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),
                 Text(
                   extent={{-40,-60},{40,-80}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="Mot")}),                                   Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
@@ -6263,15 +6263,15 @@ This is a simple model of a DC-source resp. battery, consisting of a constant DC
                 Line(points={{-20,-20},{-98,-98}},   color={217,67,180}),
                 Text(
                   extent={{-40,80},{40,60}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="Bat"),
                 Text(
                   extent={{-100,20},{100,-20}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),
                 Text(
                   extent={{-40,-60},{40,-80}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="Mot")}),                                   Diagram(
                 coordinateSystem(preserveAspectRatio=false)),
             Documentation(info="<html>
@@ -10933,7 +10933,7 @@ equation
                 fillColor={128,128,128}),
               Text(
                 extent={{-150,-110},{150,-150}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 Partial model of the airgap, using only equations.
 </html>"));
@@ -11019,7 +11019,7 @@ This is a model of an inductor, described with space phasors.
                 color={0,0,255}),
               Text(
                 extent={{-150,40},{150,80}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Line(
                 points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
@@ -11077,7 +11077,7 @@ This is a model of an inductor, described with space phasors.
                  {0,0,255}),Line(points={{70,-80},{90,-80}}, color={0,0,255}),
                 Line(points={{66,-70},{94,-70}}, color={0,0,255}),Text(
                       extent={{-150,-148},{150,-110}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name"),Line(points={{-100,90},{-100,60}},
                 color={0,0,255}),
               Line(
@@ -11194,7 +11194,7 @@ Material properties alpha of both axis are the same.
                 origin={-85,10},
                 rotation=90),                                     Text(
                       extent={{-150,-148},{150,-110}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name")}),
                                 Documentation(info="<html>
 <p>
@@ -11243,7 +11243,7 @@ although reference temperature for both resistances is the same.
                 100},{30,100},{30,40}}, color={0,0,255}),Line(points={{30,-40},
                 {30,-100},{90,-100}}, color={0,0,255}),           Text(
                       extent={{-150,-148},{150,-110}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name")}),              Documentation(info="<html>
 Model of an electrical excitation, converting excitation to space phasor.
 </html>"));
@@ -11284,7 +11284,7 @@ Model of an electrical excitation, converting excitation to space phasor.
                 Line(points={{0,100},{-70,100}}, color={0,0,255}),Line(
                 points={{0,100},{0,60}}, color={255,0,0}),        Text(
                       extent={{-150,-160},{150,-120}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 Model of a permanent magnet excitation, characterized by an equivalent excitation current.
 </html>"));
@@ -11325,7 +11325,7 @@ If <code>quasiStatic == false</code>, the electrical transients are neglected, i
                       textString="L=%L"),Text(
                       extent={{-150,50},{150,90}},
                       textString="%name",
-                      lineColor={0,0,255}),Rectangle(
+                      textColor={0,0,255}),Rectangle(
                       visible=quasiStatic,
                       extent={{-70,30},{70,-30}},
                       lineColor={0,0,255},
@@ -11394,7 +11394,7 @@ If <code>quasiStatic == false</code>, the electrical transients are neglected, i
                       extent={{0,40},{80,-40}},
                       textString="E"),Text(
                       extent={{-150,-160},{150,-120}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name"),Text(
                       extent={{-80,40},{0,-40}},
                       textString="A"),Rectangle(
@@ -11472,10 +11472,10 @@ Induced armature voltage is calculated from flux times angular velocity.
                       fillColor={0,0,255},
                       fillPattern=FillPattern.Solid),Text(
                       extent={{-80,-40},{-40,-80}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="S"),Text(
                       extent={{40,-40},{80,-80}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="E")}), Documentation(info="<html>
 Model to compound the shunt excitation current and the series excitation current to the total excitation current w.r.t. shunt excitation.
 This model is intended to be placed between shunt and series excitation pins and the airgap;
@@ -11621,7 +11621,7 @@ the connection to airgap has to be grounded at one point.
                 textString="m=%m"), Text(
                       extent={{-150,150},{150,110}},
                       textString="%name",
-                      lineColor={0,0,255})}),
+                      textColor={0,0,255})}),
                               Documentation(info="<html>
 Partial model of transformer core with 3 windings; saturation function flux versus magnetizing current has to be defined.
 </html>"));
@@ -11800,13 +11800,13 @@ The induction machine models use package SpacePhasors.
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
                   textString="V RMS"),
                                   Text(
                     extent={{-150,120},{150,80}},
                     textString="%name",
-                    lineColor={0,0,255})}),
+                    textColor={0,0,255})}),
                                          Documentation(info="<html>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
@@ -11862,13 +11862,13 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
                   textString="A RMS"),
                                   Text(
                     extent={{-150,120},{150,80}},
                     textString="%name",
-                    lineColor={0,0,255})}),
+                    textColor={0,0,255})}),
                                          Documentation(info="<html>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
@@ -11912,7 +11912,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               Line(points={{0,-70},{0,-90}}, color={0,0,255}),Line(points={{-10,
               70},{-10,80},{-50,80},{-50,100}}, color={0,0,127}),Line(points={{
               10,70},{10,80},{50,80},{50,100}}, color={0,0,127}),Text(
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
                   textString="P Q")}), Documentation(info="<html>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors,<br>
@@ -11981,7 +11981,7 @@ which are used to calculate power quantities:
               points={{0,-100},{-10,-120}}),Line(visible=not useSupport, points=
                {{10,-100},{0,-120}}),Line(visible=not useSupport, points={{20,-100},
               {10,-120}}),Text(
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
                   textString="Pmech")}), Documentation(info="<html>
 Calculates (mechanical) power from torque times angular speed.
@@ -12139,7 +12139,7 @@ Otherwise, the sensor's support has to be connected to the machine's support.
         Icon(coordinateSystem(preserveAspectRatio=false), graphics={
             Text(
               extent={{-100,-60},{100,-80}},
-              lineColor={28,108,200},
+              textColor={28,108,200},
               textString="p=%p"),
             Ellipse(extent={{-60,60},{60,-60}}, lineColor={28,108,200},
               fillColor={215,215,215},
@@ -12165,7 +12165,7 @@ Otherwise, the sensor's support has to be connected to the machine's support.
             Line(points={{100,0},{60,0}}, color={28,108,200}),
             Text(
               extent={{-100,100},{100,60}},
-              lineColor={28,108,200},
+              textColor={28,108,200},
               fillColor={255,255,255},
               textString="%name")}),
         Diagram(coordinateSystem(preserveAspectRatio=false)),
@@ -12264,11 +12264,11 @@ This package contains sensors that are useful when modelling machines.
                 smooth=Smooth.Bezier),
               Text(
                 extent={{-150,-120},{150,-160}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name"),
               Text(
                 extent={{40,10},{90,-10}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="zero"),
               Line(points={{90,-100},{60,-100}}, color={0,0,255}),
               Line(points={{60,-84},{60,-116}}, color={0,0,255}),
@@ -12510,10 +12510,10 @@ Transformation of space phasor and zero sequence value to multi phase values (of
                       smooth=Smooth.Bezier),Polygon(points={{-18,-18},{-14,-26},
                 {-10,-22},{-18,-18}}, lineColor={0,0,255}),Text(
                       extent={{-100,100},{-6,-6}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="R"),Text(
                       extent={{6,6},{100,-100}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="P")}), Documentation(info="<html>
 Converts a space phasor from rectangular coordinates to polar coordinates.
 </html>"));
@@ -12534,10 +12534,10 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
                       smooth=Smooth.Bezier),Polygon(points={{-18,-18},{-14,-26},
                 {-10,-22},{-18,-18}}, lineColor={0,0,255}),Text(
                       extent={{-100,100},{-6,-6}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="P"),Text(
                       extent={{6,6},{100,-100}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="R")}), Documentation(info="<html>
 Converts a space phasor from polar coordinates to rectangular coordinates.
 </html>"));
@@ -12563,7 +12563,7 @@ This model determines the RMS value of the input space phasor <code>u</code>.</p
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                       extent={{-60,40},{60,-20}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="RMS")}));
       end QuasiRMS;
 
@@ -13015,7 +13015,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
               color={95,95,95}),
             Text(
               extent={{-150,90},{150,60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}), Documentation(info="<html>
 <p>
 The friction losses are considered by the equations
@@ -13099,7 +13099,7 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
                       fillPattern=FillPattern.Solid),Line(points={{-90,0},{-40,
                 0}}, color={0,0,255}),Line(points={{40,0},{90,0}}, color={0,0,255}),
                 Text( extent={{-150,80},{150,40}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 <p>
 Model of voltage drop and losses of carbon brushes. This three-phase model uses three
@@ -13136,7 +13136,7 @@ Model of voltage drop and losses of carbon brushes. This three-phase model uses 
                 pattern=LinePattern.Dot),
               Text(
                 extent={{-150,90},{150,50}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
 Stray load losses are modeled similar to standards EN 60034-2 and IEEE 112, i.e., they are dependent on square of current,
@@ -13276,7 +13276,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
                 color={0,0,255}),
               Text(
                 extent={{-150,90},{150,50}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
 Core losses can be separated into <strong>eddy current</strong> and <strong>hysteresis</strong> losses. The total core losses
@@ -13378,7 +13378,7 @@ This package contains loss models used for induction machine models.
               Line(points={{40,0},{90,0}}, color={0,0,255}),
               Text(
                 extent={{-150,80},{150,40}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
 Model of voltage drop and losses of carbon brushes. For currents between <code>-ILinear</code> and <code>ILinear</code>
@@ -13455,7 +13455,7 @@ e.g., used for initial equations.
                       lineColor={0,0,255},
                       pattern=LinePattern.Dot),Text(
                       extent={{-150,90},{150,50}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 <p>
 The stray load loss torque is
@@ -13512,7 +13512,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
                 color={0,0,255}),Line(points={{-70,-30},{70,-30}}, color={0,0,255}),
                 Line(points={{-70,-10},{70,-10}}, color={0,0,255}),Text(
                       extent={{-150,90},{150,50}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 <p>
 Core losses can be separated into <em>eddy current</em> and <em>hysteresis</em> losses. The total core losses
@@ -14612,7 +14612,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid), Text(
               extent={{-150,-90},{150,-150}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
@@ -14695,7 +14695,7 @@ Connector for Space Phasors:
                 -100},{100,100}}), graphics={
             Text(
               extent={{-150,-120},{150,-160}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{80,-80},{120,-120}},
@@ -15798,7 +15798,7 @@ Thermal ports for DC machines
                   extent={{150,-60},{-150,-100}},
                   textString="%VectorGroup"),Text(
                   extent={{150,100},{-150,60}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}),
         Documentation(info="<html>
 Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
@@ -16877,10 +16877,10 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-100,60},{20,40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="id_rms"), Text(
               extent={{-100,-40},{20,-60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="iq_rms")}), Documentation(info="<html>
 <p>
 Simple Current-Controller.
@@ -17002,10 +17002,10 @@ They can be used to feed a current source which in turn feeds an induction machi
       annotation (
         Icon(graphics={Text(
               extent={{-100,60},{20,40}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="id_rms"), Text(
               extent={{-100,-40},{20,-60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="iq_rms")}), Documentation(info="<html>
 <p>
 Simple Voltage-Controller

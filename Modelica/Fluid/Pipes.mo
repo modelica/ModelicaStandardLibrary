@@ -704,7 +704,7 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.Dot),
             Text(
               extent={{-99,36},{-69,30}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="crossAreas[1]"),
             Line(
               points={{-100,70},{-34,70}},
@@ -712,7 +712,7 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.Dot),
             Text(
               extent={{0,36},{40,30}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="crossAreas[2:n-1]"),
             Line(
               points={{100,-60},{100,60}},
@@ -738,14 +738,14 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.Dot),
             Text(
               extent={{-30,77},{30,71}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="lengths[2:n-1]"),
             Line(
               points={{-100,-70},{0,-70}},
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-80,-63},{-20,-69}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="flowModel.dps_fg[1]"),
             Line(
               points={{0,-70},{100,-70}},
@@ -759,14 +759,14 @@ This also allows for taking into account friction losses with respect to the act
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-62,7},{-32,1}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="m_flows[2]"),
             Line(
               points={{5,0},{95,0}},
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{34,7},{64,1}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="m_flows[3:n]"),
             Line(
               points={{-150,0},{-105,0}},
@@ -776,15 +776,15 @@ This also allows for taking into account friction losses with respect to the act
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-140,7},{-110,1}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="m_flows[1]"),
             Text(
               extent={{111,7},{141,1}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="m_flows[n+1]"),
             Text(
               extent={{35,-92},{100,-98}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="(ModelStructure av_vb, n=3)"),
             Line(
               points={{-100,-50},{-100,-86}},
@@ -801,7 +801,7 @@ This also allows for taking into account friction losses with respect to the act
               fillPattern=FillPattern.Solid),
             Text(
               extent={{3,-4},{33,-10}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="states[2:n-1]"),
             Ellipse(
               extent={{95,5},{105,-5}},
@@ -809,7 +809,7 @@ This also allows for taking into account friction losses with respect to the act
               fillPattern=FillPattern.Solid),
             Text(
               extent={{104,-4},{124,-10}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="states[n]"),
             Ellipse(
               extent={{-105,5},{-95,-5}},
@@ -817,7 +817,7 @@ This also allows for taking into account friction losses with respect to the act
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-96,-4},{-76,-10}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="states[1]"),
             Text(
               extent={{-99.5,30},{-69.5,24}},
@@ -858,25 +858,25 @@ This also allows for taking into account friction losses with respect to the act
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{5,18},{25,12}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="vs[2:n-1]"),
             Text(
               extent={{-72,18},{-62,12}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="vs[1]"),
             Line(
               points={{-100,11},{-34,11}},
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{63,18},{73,12}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="vs[n]"),
             Line(
               points={{34,11},{100,11}},
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-80,-75},{-20,-81}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="flowModel.pathLengths[1]"),
             Line(
               points={{-100,-82},{0,-82}},
@@ -886,15 +886,15 @@ This also allows for taking into account friction losses with respect to the act
               arrow={Arrow.Filled,Arrow.Filled}),
             Text(
               extent={{15,-75},{85,-81}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="flowModel.pathLengths[2:n-1]"),
             Text(
               extent={{-100,77},{-37,71}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="lengths[1]"),
             Text(
               extent={{34,77},{100,71}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="lengths[n]")}));
     end PartialTwoPortFlow;
 
@@ -1307,7 +1307,7 @@ simulation and/or might give a more robust simulation.
                 arrow={Arrow.Filled,Arrow.Filled}),
               Text(
                 extent={{-50,16},{6,-10}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="diameters"),
               Line(
                 points={{-100,74},{100,74}},
@@ -1315,7 +1315,7 @@ simulation and/or might give a more robust simulation.
                 arrow={Arrow.Filled,Arrow.Filled}),
               Text(
                 extent={{-32,93},{32,74}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="pathLengths")}));
           end PartialGenericPipeFlow;
 
@@ -1525,7 +1525,7 @@ b has the same sign of the change of density.</p>
                 arrow={Arrow.Filled,Arrow.Filled}),
               Text(
                 extent={{-50,16},{6,-10}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="diameters"),
               Line(
                 points={{-100,74},{100,74}},
@@ -3532,7 +3532,7 @@ b has the same sign of the change of density.</p>
                 fillColor={0,127,255}),
               Text(
                 extent={{-150,80},{150,120}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
 This model describes pressure losses due to <strong>wall friction</strong> in a pipe
@@ -3585,7 +3585,7 @@ simulation and/or might give a more robust simulation.
                 arrow={Arrow.Filled,Arrow.Filled}),
               Text(
                 extent={{-50,16},{6,-10}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="diameter"),
               Line(
                 points={{-100,74},{100,74}},
@@ -3593,7 +3593,7 @@ simulation and/or might give a more robust simulation.
                 arrow={Arrow.Filled,Arrow.Filled}),
               Text(
                 extent={{-34,92},{34,74}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="length")}));
       end TestWallFrictionAndGravity;
       annotation (Documentation(info="<html>

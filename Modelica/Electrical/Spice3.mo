@@ -2268,7 +2268,7 @@ by this ground element.
               color={0,0,255}),
             Text(
               extent={{-50,-14},{58,-54}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
     end Ground;
 
@@ -2427,11 +2427,11 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
               color={170,85,255}),
             Text(
               extent={{-74,76},{74,30}},
-              lineColor={170,85,255},
+              textColor={170,85,255},
               textString="%name"),
             Text(
               extent={{-72,-24},{76,-70}},
-              lineColor={170,85,255},
+              textColor={170,85,255},
               textString="k=%k")}),
         Documentation(info="<html>
 <p>
@@ -2989,15 +2989,15 @@ Christoph Clau&szlig;
             Line(points={{50,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-120,60},{-20,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="+"),
             Text(
               extent={{20,60},{120,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="-"),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
     Documentation(info="<html>
 <p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
@@ -3021,11 +3021,11 @@ Christoph Clau&szlig;
                 -100},{100,100}}), graphics={
             Text(
               extent={{-120,60},{-20,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="+"),
             Text(
               extent={{20,60},{120,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="-"),
              Ellipse(
                extent={{-50,50},{50,-50}},
@@ -3044,7 +3044,7 @@ Christoph Clau&szlig;
                                                          color={192,192,192}),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),  Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
@@ -3076,11 +3076,11 @@ Christoph Clau&szlig;
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-120,60},{-20,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="+"),
             Text(
               extent={{20,60},{120,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="-"),
              Ellipse(
                extent={{-50,50},{50,-50}},
@@ -3099,7 +3099,7 @@ Christoph Clau&szlig;
                   192,192,192}),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
@@ -3149,11 +3149,11 @@ Christoph Clau&szlig;
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-120,60},{-20,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="+"),
             Text(
               extent={{20,60},{120,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="-"),
              Ellipse(
                extent={{-50,50},{50,-50}},
@@ -3166,7 +3166,7 @@ Christoph Clau&szlig;
                   {75,66}}, color={192,192,192}),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>Periodic pulse source with not limited number of periods.</p>
@@ -3262,11 +3262,11 @@ Christoph Clau&szlig;
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-120,60},{-20,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="+"),
             Text(
               extent={{20,60},{120,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="-"),
              Ellipse(
                extent={{-50,50},{50,-50}},
@@ -3280,7 +3280,7 @@ Christoph Clau&szlig;
                   60,40},{60,70},{10,70},{10,-51}}, color={192,192,192}),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>This model generates a voltage by <strong>linear interpolation</strong> in a given table. The time points and voltage values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
@@ -3323,11 +3323,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-120,60},{-20,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="+"),
             Text(
               extent={{20,60},{120,0}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="-"),
              Ellipse(
                extent={{-50,50},{50,-50}},
@@ -3338,11 +3338,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
              Line(points={{50,0},{90,0}}, color={0,0,255}),
             Text(
               extent={{-60,-50},{60,-90}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="SFFM"),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
@@ -3378,7 +3378,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
              fillPattern=FillPattern.Solid),
            Text(
              extent={{-150,90},{150,50}},
-             lineColor={0,0,255},
+             textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>The I_constant source is a simple constant current source for an ideal constant current which is provided by a parameter.</p>
@@ -3425,7 +3425,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                 color={192,192,192}),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>Damped sinusoidal source</p>
@@ -3476,7 +3476,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                                            color={192,192,192}),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
@@ -3540,7 +3540,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                   {192,192,192}),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>Periodic pulse source with not limited number of periods.</p>
@@ -3652,7 +3652,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>This model generates a current  by <strong>linear interpolation</strong> in a given table. The time points and current values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
@@ -3710,11 +3710,11 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-60,-50},{60,-90}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="SFFM"),
             Text(
               extent={{-150,90},{150,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
@@ -3887,7 +3887,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
             Text(
               extent={{-100,-62},{99,-112}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
             Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
             Line(points={{-20,50},{20,50}}, color={0,0,255}),
@@ -3898,7 +3898,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               lineColor={0,0,255}),
             Text(
               extent={{-54,-26},{22,-60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="VCV")}),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
@@ -3982,7 +3982,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
             Text(
               extent={{-100,-62},{99,-112}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
             Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
             Line(points={{-20,50},{20,50}}, color={0,0,255}),
@@ -3993,7 +3993,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
               lineColor={0,0,255}),
             Text(
               extent={{-60,-24},{16,-58}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="VCC")}),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
@@ -4078,7 +4078,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
             Text(
               extent={{-100,-62},{99,-112}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
             Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
             Line(points={{-20,50},{20,50}}, color={0,0,255}),
@@ -4089,7 +4089,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
               lineColor={0,0,255}),
             Text(
               extent={{-60,-26},{16,-60}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="CCV")}),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
@@ -4180,7 +4180,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
             Text(
               extent={{-100,-62},{99,-112}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
             Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
             Line(points={{-20,50},{20,50}}, color={0,0,255}),
@@ -4191,7 +4191,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               lineColor={0,0,255}),
             Text(
               extent={{-60,-24},{16,-58}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="CCC")}),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
@@ -4514,7 +4514,7 @@ on the model behaviour.
             Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
             Text(
               extent={{8,-34},{92,-86}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
   end MOS;
 
@@ -4810,7 +4810,7 @@ on the model behaviour.
             Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
             Text(
               extent={{8,-34},{92,-86}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
   end MOS2;
 
@@ -4964,7 +4964,7 @@ on the model behaviour.
             Text(
               extent={{-94,56},{206,16}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>Bipolar junction transistor model, both NPN and PNP</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -5163,7 +5163,7 @@ on the model behaviour.
             Text(
               extent={{-94,56},{206,16}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>This model is obsolete, please use BJT2</p>
 <p>Bipolar junction transistor model</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -5356,7 +5356,7 @@ on the model behaviour.
             Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
             Text(
               extent={{8,-34},{96,-54}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
   end JFET;
 
@@ -5469,7 +5469,7 @@ on the model behaviour.
            Text(
              extent={{-154,100},{146,60}},
              textString="%name",
-             lineColor={0,0,255})}),
+             textColor={0,0,255})}),
        Documentation(info="<html>
 <p>DIODE model</p>
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -5560,7 +5560,7 @@ on the model behaviour.
             Text(
               extent={{-150,64},{150,24}},
               textString="%name",
-              lineColor={0,0,255})}),Documentation(revisions="<html>
+              textColor={0,0,255})}),Documentation(revisions="<html>
 <dl>
 <dt><em> April 2009 </em></dt>
 <dd>by Kristin Majetta initially implemented</dd>

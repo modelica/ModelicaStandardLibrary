@@ -73,10 +73,10 @@ equation
           lineColor={255,0,0},
           lineThickness=0.5),Text(
           extent={{-25,100},{55,91}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="jointRRP in model"),Text(
           extent={{-24,96},{51,78}},
-          lineColor={255,0,0},
+          textColor={255,0,0},
           textString="Loops.Engine1b_analytic")}),
     Documentation(info="<html>
 <p>

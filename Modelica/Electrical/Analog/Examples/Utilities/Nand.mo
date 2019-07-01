@@ -105,18 +105,18 @@ equation
         Text(
           extent={{-100,34},{-90,24}},
           textString="x1",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{-100,-65},{-90,-75}},
           textString="x2",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{90,-15},{100,-25}},
           textString="y",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{-151,-81},{149,-111}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="%name")}),
     Documentation(info="<html>
 <p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors.</p>
@@ -144,6 +144,6 @@ Christoph Clau&szlig;
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-94,93},{-44,70}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="NAND")}));
 end Nand;

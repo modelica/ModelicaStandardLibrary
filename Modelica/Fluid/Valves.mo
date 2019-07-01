@@ -535,7 +535,7 @@ y=uMin is passed as output.
         Text(
           extent={{-150,150},{150,110}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
         Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -554,19 +554,19 @@ y=uMin is passed as output.
         Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}),
         Text(
           extent={{46,-6},{68,-18}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="u"),
         Text(
           extent={{-30,70},{-5,50}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="y"),
         Text(
           extent={{-58,-54},{-28,-42}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="uMin"),
         Text(
           extent={{26,40},{66,56}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="uMax")}));
     end MinLimiter;
 

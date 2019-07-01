@@ -164,37 +164,37 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of EVEN GAP for LAMINAR flow regime"),Text(
                   extent={{-160,11},{40,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DevOne "),Text(
                   extent={{-120,11},{80,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DevBoth"),Text(
                   extent={{-82,11},{118,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevOne"),Text(
                   extent={{-40,11},{160,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevBoth"),Text(
                   extent={{-100,-100},{100,40}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == DevOne >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-100,-100},{100,30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == DevBoth >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
                   Text(
                   extent={{-100,-100},{100,20}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == UndevOne >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-100,-100},{100,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevBoth >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
             experiment(StopTime=1.01));
         end kc_evenGapLaminar;
@@ -355,44 +355,44 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of EVEN GAP for LAMINAR flow regime (inlining)"),
                   Text(
                   extent={{-98,-26},{102,-1}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                                                                                   Text(
                   extent={{-158,9},{42,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DevOne "),Text(
                   extent={{-118,9},{82,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DevBoth"),Text(
                   extent={{-80,9},{120,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevOne"),Text(
                   extent={{-38,9},{162,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevBoth"),Text(
                   extent={{-98,-102},{102,38}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == DevOne >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-98,-102},{102,28}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == DevBoth >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
                   Text(
                   extent={{-98,-102},{102,18}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == UndevOne >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-98,-102},{102,8}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevBoth >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
             experiment(StopTime=1.01));
         end kc_evenGapLaminar_KC;
@@ -566,37 +566,37 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of EVEN GAP for OVERALL flow regime"),Text(
                   extent={{-160,9},{40,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DevOne "),Text(
                   extent={{-120,9},{80,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DevBoth"),Text(
                   extent={{-82,9},{118,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevOne"),Text(
                   extent={{-40,9},{160,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevBoth"),Text(
                   extent={{-100,-102},{100,38}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == DevOne >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-100,-102},{100,28}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == DevBoth >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
                   Text(
                   extent={{-100,-102},{100,18}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == UndevOne >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-100,-102},{100,8}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevBoth >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
             experiment(StopTime=1.01));
         end kc_evenGapOverall;
@@ -778,44 +778,44 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of EVEN GAP for OVERALL flow regime (inlining)"),
                   Text(
                   extent={{-98,-30},{102,-5}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                                                                                   Text(
                   extent={{-160,7},{40,2}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DevOne "),Text(
                   extent={{-120,7},{80,2}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DevBoth"),Text(
                   extent={{-82,7},{118,2}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevOne"),Text(
                   extent={{-40,7},{160,2}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevBoth"),Text(
                   extent={{-100,-104},{100,36}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == DevOne >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-100,-104},{100,26}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == DevBoth >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
                   Text(
                   extent={{-100,-104},{100,16}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Target == UndevOne >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-100,-104},{100,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == UndevBoth >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
             experiment(StopTime=1.01));
         end kc_evenGapOverall_KC;
@@ -910,7 +910,7 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of EVEN GAP for TURBULENT flow regime")}),
             experiment(StopTime=1.01));
         end kc_evenGapTurbulent;
@@ -999,7 +999,7 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of EVEN GAP for TURBULENT flow regime (inlining)")}),
             experiment(StopTime=1.01));
@@ -1139,19 +1139,19 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-92,12},{-32,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == Rough "),
                                              Text(
                   extent={{-34,12},{28,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == Middle"),
                                             Text(
                   extent={{34,12},{80,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == Finest"),
                                             Text(
                   extent={{-102,50},{98,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of GENERIC calculation for forced convection for TURBULENT flow regime")}),
             experiment(StopTime=1.01));
@@ -1283,19 +1283,19 @@ extends Modelica.Icons.ExamplesPackage;
                     {100,100}}),
                  graphics={Text(
                    extent={{-92,12},{-32,6}},
-                   lineColor={0,0,255},
+                   textColor={0,0,255},
                   textString="Target == Rough "),
                                               Text(
                    extent={{-34,12},{28,6}},
-                   lineColor={0,0,255},
+                   textColor={0,0,255},
                   textString="Target == Middle"),
                                              Text(
                    extent={{34,12},{80,6}},
-                   lineColor={0,0,255},
+                   textColor={0,0,255},
                   textString="Target == Finest"),
                                              Text(
                    extent={{-102,50},{98,75}},
-                   lineColor={0,0,255},
+                   textColor={0,0,255},
                    textString=
                      "Heat transfer of GENERIC calculation for forced convection for TURBULENT flow regime (inlining)")}),
              experiment(StopTime=1.01));
@@ -1426,16 +1426,16 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                       "Heat transfer of heat exchangers with flat tubes and various fin geometries"),
                 Text(
                   extent={{-58,-22},{-22,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Flat tube and louver fin"),
                 Text(
                   extent={{22,-22},{58,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Flat tube and slit fin")}),
             experiment(StopTime=1.01));
         end kc_flatTube;
@@ -1565,16 +1565,16 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                       "Heat transfer of heat exchangers with flat tubes and various fin geometries (inlining)"),
                 Text(
                   extent={{-58,-22},{-22,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Flat tube and louver fin"),
                 Text(
                   extent={{22,-22},{58,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Flat tube and slit fin")}),
             experiment(StopTime=1.01));
         end kc_flatTube_KC;
@@ -1769,24 +1769,24 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                       "Heat transfer of heat exchangers with round tubes and various fin geometries"),
                 Text(
                   extent={{-60,18},{-20,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Round tube and plain fin"),
                 Text(
                   extent={{20,18},{60,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Round tube and louver fin"),
                 Text(
                   extent={{-58,-22},{-22,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Round tube and slit fin"),
                 Text(
                   extent={{20,-22},{60,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Round tube and wavy fin")}),
             experiment(StopTime=1.01));
         end kc_roundTube;
@@ -1985,21 +1985,21 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of heat exchangers with round tubes and various fin geometries (inlining)"),
                   Text(
                   extent={{-60,18},{-20,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Round tube and plain fin"),Text(
                   extent={{20,18},{60,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Round tube and louver fin"),Text(
                   extent={{-60,-22},{-20,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Round tube and slit fin"),Text(
                   extent={{20,-22},{60,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Round tube and wavy fin")}),
             experiment(StopTime=1.01));
         end kc_roundTube_KC;
@@ -2144,17 +2144,17 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of helical pipe for LAMINAR flow regime"),
                   Text(
                   extent={{-78,15},{-40,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 1"),Text(
                   extent={{-18,15},{20,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 5"),Text(
                   extent={{42,15},{80,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 10")}),
             experiment(StopTime=1.01));
         end kc_laminar;
@@ -2282,23 +2282,23 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of helical pipe for LAMINAR flow regime (inlining)"),
                   Text(
                   extent={{-78,17},{-40,8}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 1"),Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                   Text(
                   extent={{-16,17},{22,8}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 5"),Text(
                   extent={{40,17},{78,8}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 10")}),
             experiment(StopTime=1.01));
         end kc_laminar_KC;
@@ -2448,7 +2448,7 @@ extends Modelica.Icons.ExamplesPackage;
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                     100}}), graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of helical pipe for OVERALL flow regime")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
         end kc_overall;
@@ -2574,23 +2574,23 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of helical pipe for OVERALL flow regime (inlining)"),
                   Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                   Text(
                   extent={{-78,19},{-40,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 1"),Text(
                   extent={{-16,19},{22,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 5"),Text(
                   extent={{40,19},{78,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 10")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
         end kc_overall_KC;
@@ -2734,17 +2734,17 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of helical pipe for TURBULENT flow regime"),
                   Text(
                   extent={{-76,15},{-38,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 1"),Text(
                   extent={{-16,15},{22,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 5"),Text(
                   extent={{44,15},{82,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 10")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
         end kc_turbulent;
@@ -2872,23 +2872,23 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of helical pipe for TURBULENT flow regime (inlining)"),
                   Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                   Text(
                   extent={{-78,17},{-40,8}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 1"),Text(
                   extent={{-16,17},{22,8}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 5"),Text(
                   extent={{40,17},{78,8}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="number of turns n_nt = 10")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
         end kc_turbulent_KC;
@@ -2978,10 +2978,10 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of plate for LAMINAR flow regime"),Text(
                   extent={{-100,11},{100,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target: kc == f(m_flow)")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
         end kc_laminar;
@@ -3050,14 +3050,14 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of plate for LAMINAR flow regime (inlining)"),Text(
                   extent={{-100,11},{100,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target: m_flow == f(kc)"),Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
@@ -3147,10 +3147,10 @@ extends Modelica.Icons.ExamplesPackage;
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of plate for OVERALL flow regime"),Text(
                   extent={{-100,11},{100,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target: kc == f(m_flow)")}),
             experiment(StopTime=1.01, Tolerance=1e-005));
         end kc_overall;
@@ -3218,14 +3218,14 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of plate for OVERALL flow regime (inlining)"),Text(
                   extent={{-100,11},{100,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target: m_flow == f(kc)"),Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
@@ -3314,10 +3314,10 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of plate for LAMINAR flow regime"),Text(
                   extent={{-100,11},{100,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target: kc == f(m_flow)")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
         end kc_turbulent;
@@ -3386,14 +3386,14 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer of plate for TURBULENT flow regime (inlining)"),Text(
                   extent={{-100,11},{100,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target: m_flow == f(kc)"),Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
@@ -3569,20 +3569,20 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of straight pipe for LAMINAR flow regime"),
                   Text(
                   extent={{-104,14},{-58,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UWT+DFF"),Text(
                   extent={{-54,20},{-8,12}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UHF + DFF"),Text(
                   extent={{6,12},{52,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UWT+UFF"),Text(
                   extent={{56,20},{102,12}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UHF + UFF")}),
             experiment(StopTime=1.01, Tolerance=1e-007));
         end kc_laminar;
@@ -3731,25 +3731,25 @@ extends Modelica.Icons.ExamplesPackage;
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                     100}}), graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of straight pipe for LAMINAR flow regime"),
                   Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                   Text(
                   extent={{-104,14},{-58,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UWT+DFF"),Text(
                   extent={{-52,20},{-6,12}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UHF + DFF"),Text(
                   extent={{56,20},{102,12}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UHF + UFF"),Text(
                   extent={{6,12},{52,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UWT+UFF")}),
             experiment(StopTime=1.01, Tolerance=1e-005));
         end kc_laminar_KC;
@@ -3924,20 +3924,20 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of straight pipe for OVERALL flow regime"),
                   Text(
                   extent={{-104,14},{-58,6}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UWT+DFF"),Text(
                   extent={{-52,20},{-6,12}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UHF + DFF"),Text(
                   extent={{6,12},{52,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UWT+UFF"),Text(
                   extent={{56,20},{102,12}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UHF + UFF")}),
             experiment(StopTime=1.01, Tolerance=1e-005));
         end kc_overall;
@@ -4089,25 +4089,25 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Heat transfer of straight pipe for OVERALL flow regime "),
                   Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                   Text(
                   extent={{-102,12},{-56,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UWT+DFF"),Text(
                   extent={{-52,18},{-6,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UHF + DFF"),Text(
                   extent={{6,10},{52,2}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UWT+UFF"),Text(
                   extent={{56,18},{102,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="UHF + UFF")}),
             experiment(StopTime=1.01, Tolerance=1e-005));
         end kc_overall_KC;
@@ -4230,7 +4230,7 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer in straight pipe for turbulent flow regime ")}),
             experiment(StopTime=1.01, Tolerance=1e-005));
@@ -4329,15 +4329,15 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,5},{100,0}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target: kc == f(m_flow)"),Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                   Text(
                   extent={{-100,52},{100,77}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Heat transfer in straight pipe for turbulent flow regime considering surface roughness")}),
             experiment(StopTime=1.01, Tolerance=1e-005));
@@ -4554,7 +4554,7 @@ extends Modelica.Icons.ExamplesPackage;
                 "Verification of kc_twoPhaseOverall_KC"),
               Diagram(graphics={Text(
                   extent={{-100,52},{100,77}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Two phase heat transfer in straight pipe for overall  flow regime ")}),
             experiment(StopTime=1.01, Tolerance=1e-005));
@@ -4739,22 +4739,22 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of CURVED bend for OVERALL flow regime (considering surface roughness | inverse)"),
                   Text(
                   extent={{-103,22},{-12,2}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "relative curvature radius dependence | constant angle of turning "),
                   Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                   Text(
                   extent={{13,22},{104,2}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "constant relative curvature radius | angle of turning dependence")}),
             experiment(StopTime=1.01, Tolerance=1e-005));
@@ -4860,15 +4860,15 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of EDGED bend for OVERALL flow regime (considering surface roughness | inlining)"),
                   Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)")}));
         end dp_edgedOverall_DPMFLOW;
       end Bend;
@@ -5038,15 +5038,15 @@ extends Modelica.Icons.ExamplesPackage;
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of CHANNEL for OVERALL flow regime (different geometries | inverse)"),
                   Text(
                   extent={{-43,22},{48,2}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="different geometries as target"),Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(StopTime=1.01));
@@ -5162,18 +5162,18 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of GENERIC geometry (ideal gas law dependence | inverse)"),
                   Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)"),Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(StopTime=1.01));
@@ -5293,15 +5293,15 @@ extends Modelica.Icons.ExamplesPackage;
                 coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                     100}}), graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of GENERIC geometry (density and viscosity dependence | inverse)"),
                   Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)")}),
             experiment(StopTime=1.01));
         end dp_nominalDensityViscosity_DPMFLOW;
@@ -5429,18 +5429,18 @@ extends Modelica.Icons.ExamplesPackage;
                 coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of GENERIC geometry (pressure loss law dependence | inverse)"),
                   Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)"),Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
@@ -5527,18 +5527,18 @@ extends Modelica.Icons.ExamplesPackage;
               Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of GENERIC geometry (pressure loss coefficient dependence | inverse)"),
                   Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)"),Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
@@ -5631,18 +5631,18 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of GENERIC geometry (volume flow rate dependence | inverse)"),
                   Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)"),Text(
                   extent={{-98,-50},{102,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
@@ -5766,18 +5766,18 @@ extends Modelica.Icons.ExamplesPackage;
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                     100}}), graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of SMOOTH orifice with SUDDEN CHANGE in cross sectional area for TURBULENT flow regime (inverse)"),
                   Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)"),Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(StopTime=1.0,Interval=2e-4));
@@ -5897,18 +5897,18 @@ extends Modelica.Icons.ExamplesPackage;
               Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of THICK EDGED ORIFICE in cross sectional area for OVERALL flow regime (inverse)"),
                   Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)"),Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
@@ -6025,12 +6025,12 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of STRAIGHT PIPE for LAMINAR flow regime (inverse)"),
                   Text(
                   extent={{-102,-50},{98,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
@@ -6149,18 +6149,18 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                   Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)"),Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of STRAIGHT PIPE for OVERALL flow regime (inverse)")}),
             experiment(
@@ -6279,18 +6279,18 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of STRAIGHT PIPE for TURBULENT flow regime (inverse)"),
                   Text(
                   extent={{13,14},{88,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == M_FLOW (compressible)"),Text(
                   extent={{-83,14},{-8,4}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="Target == DP (incompressible)"),Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
@@ -6444,7 +6444,7 @@ extends Modelica.Icons.ExamplesPackage;
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Two phase pressure loss of STRAIGHT PIPE for OVERALL flow regime")}),
             experiment(
@@ -6684,29 +6684,29 @@ extends Modelica.Icons.ExamplesPackage;
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
                   extent={{-100,50},{100,75}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "Pressure loss of VALVE for OVERALL flow regime (different geometries | inverse)"),
                   Text(
                   extent={{-100,-50},{100,-25}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
                   Text(
                   extent={{-91,20},{-24,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=" constant opening / variable pressure loss"),Text(
                   extent={{25,20},{92,10}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=" variable opening / constant pressure loss"),Text(
                   extent={{-27,-6},{26,-16}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="incompressible case"),Text(
                   extent={{-33,-20},{34,-30}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString=" constant opening / variable mass flow rate"),Text(
                   extent={{-27,52},{26,42}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="compressible cases")}),
             experiment(StopTime=1.0));
         end dp_severalGeometryOverall_DPMFLOW;
@@ -6814,10 +6814,10 @@ This model executes pressure loss calculations out of the <strong> Fluid.Dissipa
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}), graphics={Text(
                 extent={{-96,120},{86,58}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="Test: Bend functions"), Text(
                 extent={{-56,-2},{60,-18}},
-                lineColor={255,0,0},
+                textColor={255,0,0},
                 textString=
                     "set record parameters for chosen pressure loss function (inside flow model)")}));
       end Bend;
@@ -6920,10 +6920,10 @@ This model executes pressure loss calculations out of the <strong> Fluid.Dissipa
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}), graphics={Text(
                 extent={{-96,120},{86,58}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="Test: Orifice functions"), Text(
                 extent={{-56,-2},{60,-18}},
-                lineColor={255,0,0},
+                textColor={255,0,0},
                 textString=
                     "set record parameters for chosen pressure loss function (inside flow model)")}));
       end Orifice;
@@ -7175,19 +7175,19 @@ This model executes pressure loss calculations out of the <strong> Fluid.Dissipa
                   200}}), graphics={
               Text(
                 extent={{-50,202},{32,188}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="SeveralTestCases"),
               Text(
                 extent={{-90,158},{-8,144}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="EdgedBend"),
               Text(
                 extent={{-162,-6},{-18,-20}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="GeneralPressureDrop"),
               Text(
                 extent={{10,-83},{92,-97}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="CurvedBend")}));
       end SeveralTestCases;
 

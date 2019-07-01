@@ -3233,7 +3233,7 @@ Modelica.Media.Common.OneNonLinearEquation.
                         fillPattern=FillPattern.Solid),Text(
                         extent={{-88,206},{112,112}},
                         textString="%name",
-                        lineColor={0,0,255})}),
+                        textColor={0,0,255})}),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Ellipse(
                         extent={{-100,100},{100,-100}},
@@ -3265,7 +3265,7 @@ Modelica.Media.Common.OneNonLinearEquation.
                         fillPattern=FillPattern.Solid),Text(
                         extent={{-88,192},{112,98}},
                         textString="%name",
-                        lineColor={0,0,255})}),
+                        textColor={0,0,255})}),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Ellipse(
                         extent={{-100,100},{100,-100}},
@@ -3362,7 +3362,7 @@ Modelica.Media.Common.OneNonLinearEquation.
                         fillColor={170,213,255}),Text(
                         extent={{-150,150},{150,110}},
                         textString="%name",
-                        lineColor={0,0,255}), Text(
+                        textColor={0,0,255}), Text(
                         extent={{-150,-110},{150,-150}},
                         textString="V=%V")}), Documentation(info="<html>
 <p>
@@ -3443,11 +3443,11 @@ transport.
                         fillColor={0,0,255},
                         fillPattern=FillPattern.Solid),Text(
                         extent={{-54,32},{16,-30}},
-                        lineColor={255,0,0},
+                        textColor={255,0,0},
                         textString="m"),Text(
                         extent={{-150,150},{150,110}},
                         textString="%name",
-                        lineColor={0,0,255}), Text(
+                        textColor={0,0,255}), Text(
                         extent={{-150,-110},{150,-150}},
                         textString="%m_flow"), Ellipse(
                         extent={{-26,30},{-18,22}},
@@ -3524,7 +3524,7 @@ transport.
                         fillColor={0,127,255}), Text(
                         extent={{-150,150},{150,110}},
                         textString="%name",
-                        lineColor={0,0,255})}), Documentation(info="<html>
+                        textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Model <strong>FixedAmbient_pt</strong> defines constant values for ambient conditions:
 </p>
@@ -3594,7 +3594,7 @@ with exception of ambient pressure, do not have an effect.
                         fillPattern=FillPattern.HorizontalCylinder,
                         fillColor={0,127,255}),Text(
                         extent={{-150,110},{150,70}},
-                        textString="%name", lineColor={0,0,255}), Text(
+                        textString="%name", textColor={0,0,255}), Text(
                         extent={{-150,-70},{150,-110}},
                         textString="k=%m_flow_nominal/%dp_nominal")}),
             Documentation(info="<html>
@@ -4064,7 +4064,7 @@ Modelica source.
               lineColor={0,0,255}), Text(
               extent={{-152,164},{152,102}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 Model <strong>BaseProperties</strong> is a model within package <strong>PartialMedium</strong>
 and contains the <strong>declarations</strong> of the minimum number of

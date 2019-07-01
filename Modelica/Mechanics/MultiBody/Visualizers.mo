@@ -180,7 +180,7 @@ definition of the colors used in the MultiBody library together with a color edi
           Text(
             extent={{-150,100},{150,60}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{-100,32},{-100,-60},{-10,-42},{50,-60},{50,32},{-10,12},{-100,32}},
             lineColor={215,215,215},
@@ -264,7 +264,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
           Text(
             extent={{-150,115},{150,75}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{150,-90},{-150,-60}},
             textString="r=%r"),
@@ -574,7 +574,7 @@ vector&nbsp;<strong>r</strong>.
             thickness=0.5),
           Text(
             extent={{16,93},{67,43}},
-            lineColor={0,191,0},
+            textColor={0,191,0},
             textString="y"),
           Text(
             extent={{43,11},{92,-38}},
@@ -592,11 +592,11 @@ vector&nbsp;<strong>r</strong>.
           Text(
             extent={{-87,13},{-38,-36}},
             textString="z",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-150,145},{150,105}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
@@ -694,7 +694,7 @@ parameter menu.
           Text(
             extent={{-150,105},{150,65}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(
             extent={{-150,-75},{150,-105}},
             textString="%length")}),
@@ -777,7 +777,7 @@ parameter menu.
           Text(
             extent={{-150,105},{150,65}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Model <strong>SignalArrow</strong> defines an arrow that is dynamically visualized
@@ -858,7 +858,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
             Text(
             extent={{-150,-105},{150,-145}},
             textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+            textColor={0,0,255})}), Documentation(info="<html>
 <p>
 This shape visualizes the x-y plane by a box.
 </p>
@@ -922,7 +922,7 @@ This shape visualizes the x-y plane by a box.
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png"),
             Text(
             extent={{-150,100},{150,140}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}), Documentation(info="<html>
 <p>
 Model <strong>Torus</strong> visualizes a torus. The center of the torus is located at
@@ -1022,7 +1022,7 @@ the last point of the parametrization coincide in this case.
     annotation (Icon(graphics={
             Text(
             extent={{-150,100},{150,140}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Bitmap(extent={{-96,-96},{102,96}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png"),
@@ -1112,7 +1112,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
     annotation (Icon(graphics={
             Text(
             extent={{-150,50},{150,90}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"), Bitmap(extent={{-100,-62},{98,58}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png")}),
                                    Documentation(info="<html>
@@ -1218,7 +1218,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
       Icon(graphics={
             Text(
             extent={{-150,80},{150,40}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Polygon(
             points={{-50,20},{-90,-60},{70,-60},{90,20},{-50,20}},
@@ -1926,7 +1926,7 @@ library (will be replaced by a color editor).
             Text(
               extent={{-150,105},{150,65}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end Arrow;
 
     model DoubleArrow
@@ -2018,7 +2018,7 @@ library (will be replaced by a color editor).
             Text(
               extent={{-150,105},{150,65}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{0,60},{60,0},{0,-60},{0,60}},
               lineColor={128,128,128},
@@ -2087,7 +2087,7 @@ library (will be replaced by a color editor).
               textString="%shapeType"),
             Text(
               extent={{-150,150},{150,110}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}),
          Documentation(info="<html>
 <p>
@@ -2231,7 +2231,7 @@ Visualizers.Advanced.Shape shape(length = sin(time));
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}), Documentation(info="<html>
 <p>
 Model <strong>Surface</strong> defines a moveable, parametrized surface in 3-dim. space
@@ -2340,7 +2340,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
                   "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png"),
               Text(
               extent={{-150,54},{150,94}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}), Documentation(info="<html>
 <p>
 Model <strong>PipeWithScalarField</strong> visualizes a pipe and a scalar
@@ -2664,7 +2664,7 @@ since they all have frame connectors).
             Text(
               extent={{-150,145},{150,105}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}},
               lineColor={0,127,255},
@@ -2795,7 +2795,7 @@ The diameter and color of all line cylinders are identical.
             Text(
               extent={{-150,145},{150,105}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 With model <strong>Lines</strong> a set of dynamic lines is defined

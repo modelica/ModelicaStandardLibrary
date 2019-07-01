@@ -30,7 +30,7 @@ The reason could be that
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid), Text(
             extent={{-160,110},{40,50}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}),
       Documentation(revisions="<html>
 <ul>
@@ -79,7 +79,7 @@ The reason could be that
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid), Text(
             extent={{-160,110},{40,50}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name")}));
   end PositivePin;
 
@@ -120,7 +120,7 @@ The reason could be that
             fillPattern=FillPattern.Solid), Text(
             extent={{-40,110},{160,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end NegativePin;
 
   partial model TwoPin "Component with two electrical pins"
@@ -143,7 +143,7 @@ The reason could be that
           Line(points={{-136,0},{-111,0}}, color={160,160,164}),
           Text(
             extent={{-134,5},{-117,20}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="p.i"),
           Line(points={{110,0},{135,0}}, color={160,160,164}),
           Polygon(
@@ -153,7 +153,7 @@ The reason could be that
             fillPattern=FillPattern.Solid),
           Text(
             extent={{117,3},{134,18}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="n.i")}),
       Documentation(revisions="<html>
 <ul>
@@ -198,7 +198,7 @@ The reason could be that
           Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
           Text(
             extent={{-110,25},{-90,45}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i"),
           Polygon(
             points={{105,23},{115,20},{105,17},{105,23}},
@@ -208,7 +208,7 @@ The reason could be that
           Line(points={{115,0},{125,0}}, color={160,160,164}),
           Text(
             extent={{90,45},{110,25}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i")}));
   end OnePort;
 
@@ -251,11 +251,11 @@ The reason could be that
                                              color={160,160,164}),
           Text(
             extent={{113,-96},{129,-81}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i2"),
           Text(
             extent={{122,102},{139,117}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i2"),
           Polygon(
             points={{124,103},{114,100},{124,97},{124,103}},
@@ -272,11 +272,11 @@ The reason could be that
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-131,-97},{-114,-82}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i1"),
           Text(
             extent={{-140,103},{-123,118}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i1")}),
       Documentation(revisions="<html>
 <ul>
@@ -317,11 +317,11 @@ The reason could be that
                                              color={160,160,164}),
           Text(
             extent={{113,-96},{129,-81}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i2"),
           Text(
             extent={{122,102},{139,117}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i2"),
           Polygon(
             points={{124,103},{114,100},{124,97},{124,103}},
@@ -338,11 +338,11 @@ The reason could be that
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-131,-97},{-114,-82}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i1"),
           Text(
             extent={{-140,103},{-123,118}},
-            lineColor={160,160,164},
+            textColor={160,160,164},
             textString="i1")}),
       Documentation(revisions="<html>
 <ul>
@@ -454,7 +454,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-96,0}}),
@@ -495,7 +495,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -535,7 +535,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
           Text(
             extent={{-150,60},{150,100}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Line(points={{-90,0},{90,0}}, color={0,0,255}),
           Line(points={{-80,20},{-60,20}}, color={0,0,255}),
           Line(points={{-70,30},{-70,10}}, color={0,0,255}),
@@ -575,7 +575,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
           Text(
             extent={{-150,100},{150,60}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Polygon(
             points={{90,0},{60,10},{60,-10},{90,0}},
             lineColor={0,0,255},
@@ -667,7 +667,7 @@ behavior is <strong>not</strong> modelled.
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,128,128}),
             Polygon(
@@ -681,10 +681,10 @@ behavior is <strong>not</strong> modelled.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),Text(
               extent={{10,80},{20,70}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="i"),Text(
               extent={{70,-10},{80,-20}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="v"),Line(
               points={{-80,-40},{-20,-10},{20,10},{40,70}},
               thickness=0.5),Line(
@@ -692,13 +692,13 @@ behavior is <strong>not</strong> modelled.
               color={128,128,128},
               pattern=LinePattern.Dot),Text(
               extent={{20,0},{40,-10}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="Vknee"),Text(
               extent={{20,70},{40,60}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="Ron"),Text(
               extent={{-20,10},{0,0}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="Goff"),Ellipse(
               extent={{18,12},{22,8}},
               pattern=LinePattern.Dot,
@@ -764,7 +764,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}));
+            textColor={0,0,255})}));
   end IdealSwitch;
 
   partial model IdealSwitchWithArc "Ideal switch with simple arc model"
@@ -808,7 +808,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            lineColor={0,0,255})}),
+            textColor={0,0,255})}),
       Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
             Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
               extent={{30,-60},{50,-70}},

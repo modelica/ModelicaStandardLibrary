@@ -178,7 +178,7 @@ equation
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-98,100},{-4,72}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Heating \"PNP NOR\" Gate")}),
                                   Documentation(info="<html>
 <p>The heating &quot;PNP NOR&quot; gate shows a heat flow always if a transistor is conducting.</p>

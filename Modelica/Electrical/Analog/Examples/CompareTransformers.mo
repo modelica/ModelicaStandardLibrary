@@ -141,10 +141,10 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-60,-80},{60,-100}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="try considerMagnetization=false/true"), Text(
           extent={{-60,20},{60,0}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="Basic.Transformer (mutual inductance)")}),
     experiment(StopTime=50, Interval=0.001),
     Documentation(revisions="<html>

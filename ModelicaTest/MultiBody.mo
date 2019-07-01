@@ -8765,7 +8765,7 @@ often possible to use the FreeMotion joint such that the singularity
                 lineThickness=0.5),
               Text(
                 extent={{-150,-72},{-56,-90}},
-                lineColor={255,85,85},
+                textColor={255,85,85},
                 lineThickness=0.5,
                 fillPattern=FillPattern.Solid,
                 textString="Compare angles and position vector r",
@@ -10673,7 +10673,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
               fillColor={255,213,170},
               fillPattern=FillPattern.Solid), Text(
               extent={{20,-30},{100,-80}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="This two parts are identical
 concerning structure, parameters
 and initialization.

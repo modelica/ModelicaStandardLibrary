@@ -56,7 +56,7 @@ equation
             Text(
               extent={{-100,90},{300,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-80,15},{290,-15}},
               textString="%expr")}),

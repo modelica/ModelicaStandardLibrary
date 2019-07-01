@@ -5919,7 +5919,7 @@ Simulate for 1.5 seconds and plot (versus time):
             Text(
               extent={{-150,-10},{150,-50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -5947,7 +5947,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
               color={255,128,0}),Line(points={{70,0},{96,0}}, color={255,128,0}),
               Text(
                   extent={{-150,50},{150,90}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}), Documentation(info="<html>
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
@@ -5987,7 +5987,7 @@ The salient reluctance models the relationship between the complex magnetic pote
               color={255,128,0}),Line(points={{70,0},{96,0}}, color={255,128,0}),
               Text(
                   extent={{-150,50},{150,90}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}), Documentation(info="<html>
 <p>
 The salient permeance models the relationship between the complex magnetic potential difference
@@ -6031,7 +6031,7 @@ The salient permeance models the relationship between the complex magnetic poten
                   textString="G=%G"),
               Text(
                   extent={{-150,50},{150,90}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}),Documentation(info="<html>
 <p>
 The eddy current loss model with respect to fundamental wave effects is designed in accordance to
@@ -6190,7 +6190,7 @@ relationship of the voltage and current space phasor.
               rotation=270),
               Text(
                   extent={{-150,120},{150,160}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}),
         Documentation(info="<html>
 <p>
@@ -6311,7 +6311,7 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
               rotation=270),
               Text(
                   extent={{-150,120},{150,160}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}),
         Documentation(info="<html>
 <p>
@@ -6366,7 +6366,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
               color={255,128,0}),Line(points={{40,0},{100,0}}, color={255,128,0}),
               Text(
                   extent={{-150,20},{150,60}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}),
         Documentation(info="<html>
 <p>
@@ -6398,7 +6398,7 @@ This is a simple idle running branch.
               color={255,128,0}),
               Text(
                   extent={{-150,20},{150,60}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}),
                                     Documentation(info="<html>
 <p>
@@ -6438,7 +6438,7 @@ This is a simple short cut branch.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
                   extent={{-150,110},{150,150}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),           Line(
                   points={{100,100},{40,100},{-40,-100},{-100,-100}},
                   color={255,128,0}),Line(
@@ -7438,7 +7438,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
                 {0,0,255}),
                 Text(
                     extent={{-150,110},{150,150}},
-                    lineColor={0,0,255},
+                    textColor={0,0,255},
                     textString="%name")}),   Documentation(info="<html>
 <p>
 The single phase winding consists of a winding
@@ -7617,7 +7617,7 @@ The single phase winding consists of a winding
                     20},{100,-20},{40,-60}}, color={0,0,255}),
                 Text(
                     extent={{-150,110},{150,150}},
-                    lineColor={0,0,255},
+                    textColor={0,0,255},
                     textString="%name")}),
                                        Documentation(info="<html>
 <p>
@@ -7895,7 +7895,7 @@ according to the following figure.
               Line(points={{100,0},{80,0}}, color={255,128,0}),
                 Text(
                     extent={{-150,100},{150,140}},
-                    lineColor={0,0,255},
+                    textColor={0,0,255},
                     textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -8041,7 +8041,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
                 255,128,0}),
                 Text(
                     extent={{-150,100},{150,140}},
-                    lineColor={0,0,255},
+                    textColor={0,0,255},
                     textString="%name")}),
           Documentation(info="<html>
 
@@ -8193,7 +8193,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
                 0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
                 255,128,0}),Text(
                       extent={{0,100},{0,140}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -8330,7 +8330,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
                 0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
                 255,128,0}),Text(
                       extent={{0,100},{0,140}},
-                      lineColor={0,0,255},
+                      textColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 
 <p>
@@ -8392,7 +8392,7 @@ for electric machines.
               Line(points={{-50,0},{50,0}}, color={255,128,0}),
               Text(
                   extent={{-150,70},{150,110}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),
             Line(points={{-80,20},{-60,20}}, color={255,128,0}),
             Line(points={{-70,30},{-70,10}}, color={255,128,0}),
@@ -8450,7 +8450,7 @@ Source of constant magnetomotive force.
               {{0,100},{0,50}}, color={255,128,0}),
               Text(
                   extent={{-150,-100},{150,-60}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),
             Line(points={{-80,20},{-60,20}}, color={255,128,0}),
             Line(points={{-70,30},{-70,10}}, color={255,128,0}),
@@ -8507,7 +8507,7 @@ Source of magnetomotive force with complex signal input.
                   fillPattern=FillPattern.Solid),
               Text(
                   extent={{-150,70},{150,110}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}),  Documentation(info="<html>
 <p>
 Source of constant magnetic flux.
@@ -8568,7 +8568,7 @@ Source of constant magnetic flux.
               color={255,128,0}),
               Text(
                   extent={{-150,-100},{150,-60}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}),  Documentation(info="<html>
 <p>
 Source of magnetic flux with complex signal input.
@@ -8619,7 +8619,7 @@ Source of magnetic flux with complex signal input.
               Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{70,0},{90,0}}),
+                  textColor={0,0,255}),Line(points={{70,0},{90,0}}),
               Line(points={{0,-90},{0,-70}})}), Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
@@ -8658,7 +8658,7 @@ Source of magnetic flux with complex signal input.
               {0,-70}}),Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255})}), Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
 <h4>See also</h4>
@@ -8689,7 +8689,7 @@ Source of magnetic flux with complex signal input.
               Line(points={{0,-90},{0,-70}}),Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255})}), Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
 <h4>See also</h4>
@@ -8738,7 +8738,7 @@ The potential quantity of the magnetic port is the complex magnetic potential di
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-60,100},{-60,60}},
-              lineColor={255,128,0},
+              textColor={255,128,0},
               textString="%name"), Ellipse(
               extent={{-50,50},{50,-50}},
               lineColor={255,128,0},
@@ -8770,7 +8770,7 @@ Negative magnetic <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfa
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-60,100},{-60,60}},
-              lineColor={255,128,0},
+              textColor={255,128,0},
               textString="%name"), Ellipse(
               extent={{-50,50},{50,-50}},
               lineColor={255,128,0},
@@ -9117,7 +9117,7 @@ This model is mainly used to extend from in order build more complex - equation 
             Line(points={{50,100},{20,100},{20,70}}, color={0,0,255}),
             Text(
               extent={{-150,-120},{150,-160}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Line(
               visible=not useSupport,
@@ -9178,9 +9178,9 @@ i.e., with small derivatives.
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-60,60},{60,-60}},
                   textString="S",
-                  lineColor={0,0,255}), Text(
+                  textColor={0,0,255}), Text(
                   extent={{0,-60},{0,-100}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name")}));
     end StateSelector;
 
@@ -9209,10 +9209,10 @@ i.e., with small derivatives.
                   points={{0,0},{100,-100}},
                   color={255,128,0}),Text(
                   extent={{80,80},{120,40}},
-                  lineColor={255,128,0},
+                  textColor={255,128,0},
                   textString="re"),Text(
                   extent={{80,-40},{120,-80}},
-                  lineColor={255,128,0},
+                  textColor={255,128,0},
                   textString="im")}),
         Documentation(info="<html>
 <p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
@@ -9244,10 +9244,10 @@ i.e., with small derivatives.
                   points={{0,0},{100,-100}},
                   color={255,128,0}),Text(
                   extent={{80,80},{120,40}},
-                  lineColor={255,128,0},
+                  textColor={255,128,0},
                   textString="re"),Text(
                   extent={{80,-40},{120,-80}},
-                  lineColor={255,128,0},
+                  textColor={255,128,0},
                   textString="im")}),
         Documentation(info="<html>
 <p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>

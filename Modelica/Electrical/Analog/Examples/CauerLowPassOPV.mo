@@ -256,7 +256,7 @@ equation
             -200},{250,200}}), graphics={Text(
           extent={{-130,172},{80,120}},
           textString="CauerLowPassOPV",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     experiment(StopTime=60),
     Documentation(revisions="<html>
 <ul>
