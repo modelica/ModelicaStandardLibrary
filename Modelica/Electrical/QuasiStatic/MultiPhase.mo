@@ -2836,10 +2836,7 @@ Transformation of space phasor to m phase values (voltages or currents).
     equation
       y = plug_p.reference.gamma;
       plug_p.pin.i = fill(Complex(0), m);
-      annotation (
-        Icon(graphics={Text(
-              extent={{60,-60},{-60,-30}},
-              textString="ref")}), Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This sensor can be used to measure the reference angle.
 </p>
@@ -2858,7 +2855,11 @@ This sensor can be used to measure the reference angle.
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="rad")}));
     end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"
@@ -2879,9 +2880,11 @@ This sensor can be used to measure the reference angle.
           points={{11,0},{110,0}}, color={0,0,127}));
       annotation (
         Icon(graphics={Line(points={{70,0},{80,0},{90,0},{100,0}},
-                color={0,0,127}), Text(
-              extent={{-29,-11},{30,-70}},
-              textString="f")}), Documentation(info="<html>
+                color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Hz")}),Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the frequency of the reference system, using <em>one</em>
@@ -2925,10 +2928,7 @@ This sensor can be used to measure the frequency of the reference system, using 
           points={{-100,0},{-72,0}}, color={85,170,255}));
       connect(plugToPins_p.pin_p, potentialSensor.pin) annotation (Line(
           points={{-68,0},{-10,0}}, color={85,170,255}));
-      annotation (
-        Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
-              textString="V")}), Documentation(info="<html>
+      annotation (Documentation(info="<html>
 
 <p>
 This sensor can be used to measure <em>m</em> complex potentials, using <em>m</em>
@@ -2949,7 +2949,11 @@ This sensor can be used to measure <em>m</em> complex potentials, using <em>m</e
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="V")}));
     end PotentialSensor;
 
     model VoltageSensor "Voltage sensor"
@@ -2969,10 +2973,7 @@ This sensor can be used to measure <em>m</em> complex potentials, using <em>m</e
               {{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(voltageSensor.y, y) annotation (Line(points={{0,-11},{0,-35.75},{
               0,-35.75},{0,-60.5},{0,-60.5},{0,-110}}, color={85,170,255}));
-      annotation (
-        Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
-              textString="V")}), Documentation(info="<html>
+      annotation (Documentation(info="<html>
 
 <p>
 This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
@@ -2993,7 +2994,11 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="V")}));
     end VoltageSensor;
 
     model VoltageQuasiRMSSensor
@@ -3038,7 +3043,11 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
             Text(
               textColor={0,0,255},
               extent={{-150,80},{150,120}},
-              textString="%name")}),
+              textString="%name"),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="V")}),
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
@@ -3081,10 +3090,7 @@ value of a multi phase voltage system, by averaging the phase RMS voltage phasor
               {{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(currentSensor.y, y) annotation (Line(points={{0,-11},{0,-35.75},{
               0,-35.75},{0,-60.5},{0,-60.5},{0,-110}}, color={85,170,255}));
-      annotation (
-        Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
-              textString="I")}), Documentation(info="<html>
+      annotation (Documentation(info="<html>
 
 <p>
 This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
@@ -3105,7 +3111,11 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}));
     end CurrentSensor;
 
     model CurrentQuasiRMSSensor
@@ -3151,7 +3161,11 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
             Text(
               textColor={0,0,255},
               extent={{-150,80},{150,120}},
-              textString="%name")}),
+              textString="%name"),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}),
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
@@ -3249,13 +3263,16 @@ value of a multi phase current system, by averaging the phase RMS current phasor
         Icon(graphics={
             Line(points={{0,100},{0,70}}, color={85,170,255}),
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
-            Text(extent={{-29,-70},{30,-11}}, textString="P"),
             Text(
               textColor={0,0,255},
               extent={{-150,110},{150,150}},
               textString="%name"),
             Line(points={{-100,0},{100,0}}, color={85,170,255}),
-          Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127})}),
+          Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="VA")}),
         Documentation(info="<html>
 
 <p>
@@ -3359,14 +3376,17 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
           Line(points={{60,-100},{60,-80},{42,-56}},
                                                   color={85,170,255}),
           Text(
-            extent={{-100,-40},{-60,-80}},
-            textString="s"),
+            extent={{-100,-20},{-60,-60}},
+              textString="VA",
+              textColor={64,64,64}),
           Text(
             extent={{-80,-60},{-40,-100}},
-            textString="i"),
+              textString="A",
+              textColor={64,64,64}),
           Text(
             extent={{40,-60},{80,-100}},
-            textString="v"),
+              textString="V",
+              textColor={64,64,64}),
           Line(points={{100,-60},{80,-60},{56,-42}}, color={85,170,255}),
           Text(
             extent={{-150,110},{150,150}},
@@ -3397,7 +3417,7 @@ The internal resistance of each current path is zero, the internal resistance of
 </html>"));
   end MultiSensor;
 
-    model AronSensor "threephase Aron sensor for active power"
+    model AronSensor "Three-phase Aron sensor for active power"
       import Modelica;
       extends Modelica.Icons.RotationalSensor;
       final parameter Integer m(final min=1) = 3 "Number of phases";
@@ -3405,7 +3425,7 @@ The internal resistance of each current path is zero, the internal resistance of
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Blocks.Interfaces.RealOutput power "active power" annotation (
+      Modelica.Blocks.Interfaces.RealOutput power "Active power" annotation (
           Placement(transformation(
             origin={0,-110},
             extent={{10,-10},{-10,10}},
@@ -3466,9 +3486,8 @@ The internal resistance of each current path is zero, the internal resistance of
       connect(plugToPins_p.pin_p[2], powerSensor3.voltageN) annotation (Line(
             points={{-68,0},{30,0},{30,-30}}, color={85,170,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-29,-11},{30,-70}},
-              textString="W"),  Line(points={{-70,0},{-90,0}}),
+                -100},{100,100}}), graphics={
+                                Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),
             Text(
@@ -3477,7 +3496,11 @@ The internal resistance of each current path is zero, the internal resistance of
             Text(
               extent={{-150,80},{150,120}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="W")}),      Documentation(info="<html>
 <p>
 Contains 2 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total active power in a threephase system.
 </p>
@@ -3491,7 +3514,7 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
 </html>"));
     end AronSensor;
 
-    model ReactivePowerSensor "threephase sensor for reactive power"
+    model ReactivePowerSensor "Three-phase sensor for reactive power"
       import Modelica;
       extends Modelica.Icons.RotationalSensor;
       final parameter Integer m(final min=1) = 3 "Number of phases";
@@ -3499,7 +3522,7 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Blocks.Interfaces.RealOutput reactivePower "reactive power"
+      Modelica.Blocks.Interfaces.RealOutput reactivePower "Reactive power"
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{10,-10},{-10,10}},
@@ -3585,9 +3608,8 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
       connect(complexToReal3.re, add.u3) annotation (Line(points={{36,-42},{36,
               -60},{8,-60},{8,-68}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-29,-11},{30,-70}},
-              textString="var"),   Line(points={{-70,0},{-90,0}}),
+                -100},{100,100}}), graphics={
+                                   Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),
             Text(
@@ -3596,7 +3618,11 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
             Text(
               extent={{-150,80},{150,120}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="var")}),    Documentation(info="<html>
 <p>
 Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a threephase system.
 </p>
