@@ -4034,9 +4034,10 @@ Modelica.Blocks library).
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
-              Text(
-                  extent={{80,-28},{114,-62}},
-                  textString="s")}));
+            Text(
+              extent={{10,20},{70,-40}},
+              lineColor={64,64,64},
+              textString="m")}));
     end PositionSensor;
 
     model SpeedSensor "Ideal sensor to measure the absolute velocity"
@@ -4057,9 +4058,10 @@ Modelica.Blocks library).
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
-              Text(
-                  extent={{80,-28},{111,-61}},
-                  textString="v")}));
+            Text(
+              extent={{10,20},{70,-40}},
+              lineColor={64,64,64},
+              textString="m/s")}));
     end SpeedSensor;
 
     model AccSensor "Ideal sensor to measure the absolute acceleration"
@@ -4083,9 +4085,10 @@ Modelica.Blocks library).
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
-              Text(
-                  extent={{80,-28},{115,-60}},
-                  textString="a")}));
+            Text(
+              extent={{10,20},{70,-40}},
+              lineColor={64,64,64},
+              textString="m/s2")}));
     end AccSensor;
 
     model RelPositionSensor "Ideal sensor to measure the relative position"
@@ -4109,9 +4112,12 @@ Modelica.Blocks library).
 </p>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={                        Text(
-                  extent={{8,-68},{42,-102}},
-                  textString="s"),Line(points={{0,-99},{0,-60}}, color={0,0,127})}));
+                {100,100}}), graphics={
+                                  Line(points={{0,-99},{0,-60}}, color={0,0,127}),
+            Text(
+              extent={{10,20},{70,-40}},
+              lineColor={64,64,64},
+              textString="m")}));
     end RelPositionSensor;
 
     model RelSpeedSensor "Ideal sensor to measure the relative speed"
@@ -4143,10 +4149,13 @@ Modelica.Blocks library).
 <li><em>First Version from August 26, 1999 by P. Beater</em></li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={                        Text(
-                  extent={{8,-68},{42,-102}},
-                  textString="v"),Line(points={{0,-100},{0,-61}}, color={0,0,
-              127})}));
+                {100,100}}), graphics={
+                                  Line(points={{0,-100},{0,-61}}, color={0,0,
+              127}),
+            Text(
+              extent={{10,20},{70,-40}},
+              lineColor={64,64,64},
+              textString="m/s")}));
     end RelSpeedSensor;
 
     model RelAccSensor "Ideal sensor to measure the relative acceleration"
@@ -4176,9 +4185,12 @@ Modelica.Blocks library).
 </p>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={                        Text(
-                  extent={{7,-68},{41,-102}},
-                  textString="a"),Line(points={{0,-99},{0,-60}}, color={0,0,127})}));
+                {100,100}}), graphics={
+                                  Line(points={{0,-99},{0,-60}}, color={0,0,127}),
+            Text(
+              extent={{10,20},{70,-40}},
+              lineColor={64,64,64},
+              textString="m/s2")}));
     end RelAccSensor;
 
     model ForceSensor "Ideal sensor to measure the force between two flanges"
@@ -4201,10 +4213,12 @@ with blocks of the Modelica.Blocks library).
 </p>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Text(
-                  extent={{-40,-70},{40,-120}},
-                  textString="f"),         Line(points={{-80,-100},
-              {-80,0}}, color={0,0,127})}));
+                {100,100}}), graphics={    Line(points={{-80,-100},
+              {-80,0}}, color={0,0,127}),
+            Text(
+              extent={{10,20},{70,-40}},
+              lineColor={64,64,64},
+              textString="N")}));
     end ForceSensor;
 
     model PowerSensor
@@ -4227,10 +4241,12 @@ and provides the result as output signal <strong>power</strong>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Text(
-                  extent={{-75,-79},{67,-119}},
-                  textString="power"),     Line(points={{-80,
-              -100},{-80,0}}, color={0,0,127})}));
+                {100,100}}), graphics={    Line(points={{-80,
+              -100},{-80,0}}, color={0,0,127}),
+            Text(
+              extent={{10,20},{70,-40}},
+              lineColor={64,64,64},
+              textString="W")}));
     end PowerSensor;
 
     model MultiSensor
@@ -4266,15 +4282,22 @@ and provides the result as output signal <strong>power</strong>
 Measures the <strong>absolute velocity</strong> of a flange_a, the <strong>cut-force</strong> and <strong>power</strong> between two flanges in an
 ideal way and provides the results as output signals <strong>v</strong>, <strong>f</strong> and <strong>power</strong>, respectively.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Text(
-                  extent={{-146,-70},{-56,-100}},
-                  textString="power"),     Line(points={{-60,
-              -100},{-60,-60}}, color={0,0,127}),Text(
-                  extent={{-28,-71},{52,-101}},
-                  textString="f"),Line(points={{0,-100},{0,-60}}, color={0,0,127}),
-              Line(points={{60,-100},{60,-60}}, color={0,0,127}),Text(
-                  extent={{60,-70},{114,-101}},
-                  textString="v")}));
+                {100,100}}), graphics={    Line(points={{-60,
+              -100},{-60,-60}}, color={0,0,127}),
+                                  Line(points={{0,-100},{0,-60}}, color={0,0,127}),
+              Line(points={{60,-100},{60,-60}}, color={0,0,127}),
+            Text(
+              extent={{-100,-60},{-60,-100}},
+              lineColor={64,64,64},
+              textString="W"),
+            Text(
+              extent={{-20,-60},{20,-100}},
+              lineColor={64,64,64},
+              textString="N"),
+            Text(
+              extent={{60,-60},{100,-100}},
+              lineColor={64,64,64},
+              textString="m/s")}));
     end MultiSensor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={

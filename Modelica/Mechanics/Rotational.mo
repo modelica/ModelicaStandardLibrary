@@ -6111,7 +6111,7 @@ and provides the result as output signal <strong>power</strong>
               lineColor={64,64,64},
               textString="W"),
             Text(
-              extent={{-40,-60},{0,-100}},
+              extent={{-20,-60},{20,-100}},
               lineColor={64,64,64},
               textString="N.m"),
             Text(
