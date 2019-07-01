@@ -57,32 +57,32 @@ Tsensor1.T, Tsensor2.T, T_final_degC
     model ControlledTemperature "Control temperature of a resistor"
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC") = 293.15
-        "Ambient Temperature";
+        "Ambient temperature";
       parameter Modelica.SIunits.TemperatureDifference TDif = 2
-        "Error in Temperature";
-      output Modelica.SIunits.Temperature TRes(displayUnit="degC") = heatingResistor.T_heatPort
-        "Resulting Temperature";
+        "Error in temperature";
+      output Modelica.SIunits.Temperature TRes(displayUnit="degC") = resistor.T_heatPort "Resulting temperature";
       Modelica.Electrical.Analog.Basic.Ground ground
-                                  annotation (Placement(transformation(extent={
+        annotation (Placement(transformation(extent={
                 {-100,-100},{-80,-80}})));
       Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=10)
-                                                            annotation (Placement(
+        annotation (Placement(
             transformation(
             origin={-90,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       HeatTransfer.Components.HeatCapacitor heatCapacitor(
-                                               C=1, T(start=TAmb, fixed=true))
+        C=1, T(start=TAmb, fixed=true))
         annotation (Placement(transformation(extent={{0,-60},{20,-80}})));
-      Modelica.Electrical.Analog.Basic.HeatingResistor heatingResistor(
-        R_ref=10,
+      Electrical.Analog.Basic.Resistor resistor(
+        R=10,
         T_ref=293.15,
-        alpha=1/255) annotation (Placement(transformation(
+        alpha=1/255,
+        useHeatPort=true) annotation (Placement(transformation(
             origin={-30,-50},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       HeatTransfer.Sources.FixedTemperature fixedTemperature(
-                                                     T=TAmb)
+        T=TAmb)
         annotation (Placement(transformation(extent={{100,-60},{80,-40}})));
       HeatTransfer.Celsius.TemperatureSensor temperatureSensor annotation (Placement(
             transformation(
@@ -90,7 +90,7 @@ Tsensor1.T, Tsensor2.T, T_final_degC
             extent={{-10,-10},{10,10}},
             rotation=90)));
       HeatTransfer.Components.ThermalConductor thermalConductor(
-                                                     G=0.1) annotation (Placement(
+        G=0.1) annotation (Placement(
             transformation(extent={{40,-60},{60,-40}})));
       Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealSwitch
             annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
@@ -102,25 +102,20 @@ Tsensor1.T, Tsensor2.T, T_final_degC
       Modelica.Blocks.Logical.OnOffController onOffController(bandwidth=TDif)
         annotation (Placement(transformation(extent={{0,-20},{-20,0}})));
       Modelica.Blocks.Logical.Not logicalNot
-                                       annotation (Placement(transformation(
+        annotation (Placement(transformation(
               extent={{-30,-20},{-50,0}})));
     equation
-      connect(constantVoltage.n, heatingResistor.n) annotation (Line(points={{-90,-60},
-              {-30,-60}}, color={0,0,255}));
+      connect(constantVoltage.n, resistor.n) annotation (Line(points={{-90,-60},{-30,-60}}, color={0,0,255}));
       connect(constantVoltage.n, ground.p) annotation (Line(points={{-90,-60},
               {-90,-80}}, color={0,0,255}));
-      connect(heatingResistor.heatPort, thermalConductor.port_a) annotation (Line(
-            points={{-20,-50},{40,-50}}, color={191,0,0}));
+      connect(resistor.heatPort, thermalConductor.port_a) annotation (Line(points={{-20,-50},{40,-50}}, color={191,0,0}));
       connect(thermalConductor.port_b, fixedTemperature.port) annotation (Line(
             points={{60,-50},{80,-50}}, color={191,0,0}));
-      connect(heatingResistor.heatPort, temperatureSensor.port) annotation (Line(
-            points={{-20,-50},{10,-50},{10,-40}}, color={191,0,0}));
-      connect(heatingResistor.heatPort, heatCapacitor.port) annotation (Line(
-            points={{-20,-50},{10,-50},{10,-60}}, color={191,0,0}));
+      connect(resistor.heatPort, temperatureSensor.port) annotation (Line(points={{-20,-50},{10,-50},{10,-40}}, color={191,0,0}));
+      connect(resistor.heatPort, heatCapacitor.port) annotation (Line(points={{-20,-50},{10,-50},{10,-60}}, color={191,0,0}));
       connect(constantVoltage.p, idealSwitch.p) annotation (Line(points={{-90,
               -40},{-70,-40}}, color={0,0,255}));
-      connect(idealSwitch.n, heatingResistor.p) annotation (Line(points={{-50,-40},
-              {-30,-40}}, color={0,0,255}));
+      connect(idealSwitch.n, resistor.p) annotation (Line(points={{-50,-40},{-30,-40}}, color={0,0,255}));
       connect(ramp.y, onOffController.reference) annotation (Line(points={{19,
               10},{10,10},{10,-4},{2,-4}}, color={0,0,127}));
       connect(temperatureSensor.T, onOffController.u) annotation (Line(points=
@@ -129,8 +124,8 @@ Tsensor1.T, Tsensor2.T, T_final_degC
                                           annotation (Line(points={{-21,-10},{
               -28,-10}}, color={255,0,255}));
       connect(logicalNot.y, idealSwitch.control)
-                                            annotation (Line(points={{-51,-10},
-              {-60,-10},{-60,-33}}, color={255,0,255}));
+                                            annotation (Line(points={{-51,-10},{-60,-10},{-60,-28}},
+                                    color={255,0,255}));
       annotation (Documentation(info="<html>
 <p>
 A constant voltage of 10 V is applied to a
