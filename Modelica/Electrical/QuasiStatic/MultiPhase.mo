@@ -3272,7 +3272,7 @@ value of a multi phase current system, by averaging the phase RMS current phasor
             Text(
               extent={{-30,-10},{30,-70}},
               textColor={64,64,64},
-              textString="VA")}),
+              textString="V.A")}),
         Documentation(info="<html>
 
 <p>
@@ -3377,8 +3377,8 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
                                                   color={85,170,255}),
           Text(
             extent={{-100,-20},{-60,-60}},
-              textString="VA",
-              textColor={64,64,64}),
+              textColor={64,64,64},
+              textString="V.A"),
           Text(
             extent={{-80,-60},{-40,-100}},
               textString="A",
