@@ -8613,14 +8613,17 @@ Source of magnetic flux with complex signal input.
       // No magnetic potential difference at sensor
       V_m = Complex(0, 0);
       annotation (defaultComponentName="magFluxSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-29,-11},{30,-70}},
-                  textString="Phi"),Line(points={{-72,0},{-90,0}}),
+                -100},{100,100}}), graphics={
+                                    Line(points={{-70,0},{-90,0}}, color={255,128,0}),
               Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  textColor={0,0,255}),Line(points={{70,0},{90,0}}),
-              Line(points={{0,-90},{0,-70}})}), Documentation(info="<html>
+                  textColor={0,0,255}),Line(points={{70,0},{90,0}}, color={255,128,0}),
+              Line(points={{0,-90},{0,-70}}, color={85,170,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Wb")}), Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
 <h4>See also</h4>
@@ -8651,14 +8654,19 @@ Source of magnetic flux with complex signal input.
       // No magnetic flux through sensor
       Phi = Complex(0, 0);
       annotation (defaultComponentName="magVoltageSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-52,1},{48,-57}},
-                  textString="V_m"),Line(points={{-70,0},{-90,0}}),
-              Line(points={{70,0},{90,0}}),Line(points={{0,-90},
-              {0,-70}}),Text(
+                -100},{100,100}}), graphics={
+                                    Line(points={{-70,0},{-90,0}}, color={255,128,0}),
+              Line(points={{70,0},{90,0}}, color={255,128,0}),
+                                           Line(points={{0,-90},
+              {0,-70}}, color={85,170,255}),
+                        Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  textColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}), Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
 <h4>See also</h4>
@@ -8683,13 +8691,17 @@ Source of magnetic flux with complex signal input.
       // Magnetic potential
       V_m = port_p.V_m;
       annotation (defaultComponentName="magPotentialSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-52,1},{48,-57}},
-                  textString="V_m"),Line(points={{-70,0},{-90,0}}),
-              Line(points={{0,-90},{0,-70}}),Text(
+                -100},{100,100}}), graphics={
+                                    Line(points={{-70,0},{-90,0}}, color={255,128,0}),
+              Line(points={{0,-90},{0,-70}}, color={85,170,255}),
+                                             Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  textColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}), Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
 <h4>See also</h4>

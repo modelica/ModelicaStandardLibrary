@@ -7079,14 +7079,16 @@ ConstantFlux</a>
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
-                  extent={{-29,-11},{30,-70}},
-                  textString="Phi"),Line(points={{-72,0},{-90,0}}),
+            grid={2,2}), graphics={ Line(points={{-70,0},{-90,0}}, color={255,170,85}),
               Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  textColor={0,0,255}),Line(points={{70,0},{90,0}}),
-              Line(points={{0,-90},{0,-70}})}),
+                  textColor={0,0,255}),Line(points={{70,0},{90,0}}, color={255,170,85}),
+              Line(points={{0,-90},{0,-70}}, color={85,170,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Wb")}),
         Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
@@ -7125,14 +7127,18 @@ ConstantFlux</a>
       annotation (defaultComponentName="magVoltageSensor", Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
-                  extent={{-52,1},{48,-57}},
-                  textString="V_m"),Line(points={{-70,0},{-90,0}}),
-              Line(points={{70,0},{90,0}}),Line(points={{0,-90},
-              {0,-70}}),Text(
+            grid={2,2}), graphics={ Line(points={{-70,0},{-90,0}}, color={255,170,85}),
+              Line(points={{70,0},{90,0}}, color={255,170,85}),
+                                           Line(points={{0,-90},
+              {0,-70}}, color={85,170,255}),
+                        Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  textColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}), Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
 <h4>See also</h4>
@@ -7166,13 +7172,16 @@ ConstantFlux</a>
       annotation (defaultComponentName="magPotentialSensor", Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
-                  extent={{-52,1},{48,-57}},
-                  textString="V_m"),Line(points={{-70,0},{-90,0}}),
-              Line(points={{0,-90},{0,-70}}),Text(
+            grid={2,2}), graphics={ Line(points={{-70,0},{-90,0}}, color={255,170,85}),
+              Line(points={{0,-90},{0,-70}}, color={85,170,255}),
+                                             Text(
                   extent={{-140,120},{140,80}},
                   textString="%name",
-                  textColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}), Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
 <h4>See also</h4>
@@ -7306,7 +7315,11 @@ ConstantFlux</a>
                   visible=not useSupport,
                   points={{110,120},{100,100}}),Line(
                   visible=not useSupport,
-                  points={{120,120},{110,100}})}),
+                  points={{120,120},{110,100}}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="rad")}),
         Documentation(info="<html>
 <p>
 Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system,
