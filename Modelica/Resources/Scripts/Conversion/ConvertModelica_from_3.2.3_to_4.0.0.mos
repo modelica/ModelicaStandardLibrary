@@ -113,6 +113,10 @@ convertClass("Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState",
               "Modelica.Blocks.Types.Init.NoInit");
 convertClass("Modelica.Blocks.Types.InitPID",
               "Modelica.Blocks.Types.Init");
+convertClass("Modelica.Icons.RotationalSensor",
+              "Modelica.Icons.RoundSensor")
+convertClass("Modelica.Icons.TranslationalSensor",
+              "Modelica.Icons.RectangularSensor")
 convertClass("Modelica.Icons.Library",
               "Modelica.Icons.Package")
 convertClass("Modelica.Icons.Library2",

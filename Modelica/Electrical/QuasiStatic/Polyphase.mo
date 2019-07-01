@@ -3003,7 +3003,7 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
 
     model VoltageQuasiRMSSensor
       "Continuous quasi voltage RMS sensor for polyphase system"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput V
@@ -3120,7 +3120,7 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
 
     model CurrentQuasiRMSSensor
       "Continuous quasi current RMS sensor for polyphase system"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I
@@ -3192,7 +3192,7 @@ value of a polyphase current system, by averaging the phase RMS current phasors 
     end CurrentQuasiRMSSensor;
 
     model PowerSensor "Power sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.AngularVelocity omega=der(currentP.reference.gamma);
       Interfaces.PositivePlug currentP(final m=m) annotation (Placement(
@@ -3298,7 +3298,7 @@ This sensor can be used to measure <em>m</em> complex apparent power values, usi
     end PowerSensor;
 
   model MultiSensor "Polyphase sensor to measure current, voltage and power"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     import Modelica.ComplexMath.conj;
     import Modelica.ComplexMath.'sum';
     import Modelica.ComplexMath.'abs';
@@ -3419,7 +3419,7 @@ The internal resistance of each current path is zero, the internal resistance of
 
     model AronSensor "Three-phase Aron sensor for active power"
       import Modelica;
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       final parameter Integer m(final min=1) = 3 "Number of phases";
       Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
@@ -3516,7 +3516,7 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
 
     model ReactivePowerSensor "Three-phase sensor for reactive power"
       import Modelica;
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       final parameter Integer m(final min=1) = 3 "Number of phases";
       Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
@@ -4254,7 +4254,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin
     end OnePort;
 
     partial model AbsoluteSensor "Partial potential sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.AngularVelocity omega;
       PositivePlug plug_p(final m=m)
@@ -4290,7 +4290,7 @@ The absolute sensor partial model relies on the a
     end AbsoluteSensor;
 
     partial model RelativeSensor "Partial voltage / current sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends TwoPlug;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m] annotation (
           Placement(transformation(

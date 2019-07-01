@@ -6511,7 +6511,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
   package Sensors "Sensors to measure variables in magnetic networks"
     extends Modelica.Icons.SensorsPackage;
     model MagneticFluxSensor "Sensor to measure magnetic flux"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends Interfaces.TwoPortElementary;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
@@ -6561,7 +6561,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
 
     model MagneticPotentialDifferenceSensor
       "Sensor to measure magnetic potential difference"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends Interfaces.TwoPortElementary;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput V_m
         "Complex magnetic potential difference between port_p and port_n as output signal"
@@ -6608,7 +6608,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
     end MagneticPotentialDifferenceSensor;
 
     model MagneticPotentialSensor "Sensor to measure magnetic potential"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       Modelica.ComplexBlocks.Interfaces.ComplexOutput V_m
         "Complex magnetic potential as output signal" annotation (Placement(
             transformation(

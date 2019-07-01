@@ -4,7 +4,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   extends Modelica.Icons.SensorsPackage;
 
   model PotentialSensor "Sensor to measure the potential"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Interfaces.PositivePin p "pin to be measured" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
@@ -40,7 +40,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   end PotentialSensor;
 
   model VoltageSensor "Sensor to measure the voltage between two pins"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Interfaces.PositivePin p "positive pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
@@ -84,7 +84,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   end VoltageSensor;
 
   model CurrentSensor "Sensor to measure the current in a branch"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Interfaces.PositivePin p "positive pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
@@ -135,7 +135,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   end CurrentSensor;
 
 model PowerSensor "Sensor to measure the power"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   Modelica.Electrical.Analog.Interfaces.PositivePin pc
       "Positive pin, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
@@ -202,7 +202,7 @@ equation
 end PowerSensor;
 
 model MultiSensor "Sensor to measure current, voltage and power"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   Modelica.Electrical.Analog.Interfaces.PositivePin pc
       "Positive pin, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));

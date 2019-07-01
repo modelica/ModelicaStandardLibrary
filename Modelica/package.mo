@@ -2024,13 +2024,13 @@ design of sensors apply:
 <li>For a sensor with a single output signal the SI unit shall be placed withing the sensor, 
     see <strong>Fig.&nbsp;6</strong> and <strong>7</strong></li>
     <ul>
-    <li>In a <a href=\"modelica://Modelica.Icons.RotationalSensor\">round sensor</a> the text size shall be</li>
+    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be</li>
         <ul>
         <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readibility</li>
         </ul>
         
-    <li>In a <a href=\"modelica://Modelica.Icons.TranslationalSensor\">rectangular sensor</a> the text size shall be 
+    <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be 
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
     </ul>
 <li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal; 
@@ -5781,8 +5781,8 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
           <td> New parameter \"useSupport\" to optionally enable a support connector.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Icons.</strong></td></tr>
-<tr><td> TranslationalSensor<br>
-                                                RotationalSensor</td>
+<tr><td> RectangularSensor<br>
+                                                RoundSensor</td>
           <td> Removed drawing from the diagram layer (kept drawing only in
                                                 icon layer),<br> in order that this icon can be used in situations
                                                 where components are dragged in the diagram layer.</td></tr>

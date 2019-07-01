@@ -2898,7 +2898,7 @@ This function determines the indices of non-positive sequence of the symmetrical
     extends Modelica.Icons.SensorsPackage;
 
     model PotentialSensor "Polyphase potential sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
@@ -2934,7 +2934,7 @@ thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
     end PotentialSensor;
 
     model VoltageSensor "Polyphase voltage sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
@@ -2979,7 +2979,7 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
 
     model VoltageQuasiRMSSensor
       "Continuous quasi voltage RMS sensor for polyphase system"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends Modelica.Electrical.Polyphase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
 
@@ -3031,7 +3031,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
     end VoltageQuasiRMSSensor;
 
     model CurrentSensor "Polyphase current sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
@@ -3077,7 +3077,7 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
 
     model CurrentQuasiRMSSensor
       "Continuous quasi current RMS sensor for polyphase system"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends Modelica.Electrical.Polyphase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I
@@ -3132,7 +3132,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
     end CurrentQuasiRMSSensor;
 
     model PowerSensor "Polyphase instantaneous power sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       parameter Integer m(min=1) = 3 "Number of phases";
       Polyphase.Interfaces.PositivePlug pc(final m=m)
         "Positive plug, current path" annotation (Placement(transformation(
@@ -3212,7 +3212,7 @@ This power sensor measures instantaneous electrical power of a polyphase system 
     end PowerSensor;
 
   model MultiSensor "Polyphase sensor to measure current, voltage and power"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
     parameter Integer m(min=1) = 3 "Number of phases";
     Modelica.Electrical.Polyphase.Interfaces.PositivePlug pc(final m=m)
         "Positive plug, current path"
@@ -3297,7 +3297,7 @@ The internal resistance of each current path is zero, the internal resistance of
 
     model AronSensor "Three-phase Aron sensor for active power"
       import Modelica;
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       final parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
@@ -3382,7 +3382,7 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
 
     model ReactivePowerSensor "Three-phase sensor for reactive power"
       import Modelica;
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       final parameter Integer m(final min=1) = 3 "Number of phases";
       Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));

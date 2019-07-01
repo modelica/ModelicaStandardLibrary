@@ -2737,7 +2737,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     end FlowPort_b;
 
     partial model AbsoluteSensor "Partial model of absolute sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Sensor's medium"
         annotation(choicesAllMatching=true);
@@ -2764,7 +2764,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     end AbsoluteSensor;
 
     partial model RelativeSensor "Partial model of relative sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Sensor's medium"
         annotation(choicesAllMatching=true);
@@ -2799,7 +2799,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     end RelativeSensor;
 
     partial model FlowSensor "Partial model of flow sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort(final m=0, final T0=293.15, final T0fixed=false, final tapT=1);
       Modelica.Blocks.Interfaces.RealOutput y
         annotation (Placement(transformation(

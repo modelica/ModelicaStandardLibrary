@@ -11743,7 +11743,7 @@ The induction machine models use package SpacePhasors.
   package Sensors "Sensors for machine modelling"
     extends Modelica.Icons.SensorsPackage;
     model VoltageQuasiRMSSensor "Length of space phasor -> RMS voltage"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput V(final quantity=
             "ElectricPotential", final unit="V") annotation (Placement(
@@ -11806,7 +11806,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     end VoltageQuasiRMSSensor;
 
     model CurrentQuasiRMSSensor "Length of space phasor -> RMS current"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I(final quantity="ElectricCurrent",
           final unit="A") annotation (Placement(transformation(
@@ -11868,7 +11868,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     end CurrentQuasiRMSSensor;
 
     model ElectricalPowerSensor "Instantaneous power from space phasors"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput P(final quantity="Power", final
           unit="W") annotation (Placement(transformation(
@@ -11921,7 +11921,7 @@ which are used to calculate power quantities:
     end ElectricalPowerSensor;
 
     model MechanicalPowerSensor "Mechanical power = torque x speed"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation (Evaluate=true);

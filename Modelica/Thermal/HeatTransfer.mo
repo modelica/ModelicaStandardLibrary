@@ -1476,7 +1476,7 @@ sensor model.
     end TemperatureSensor;
 
     model RelTemperatureSensor "Relative Temperature sensor"
-      extends Modelica.Icons.TranslationalSensor;
+      extends Modelica.Icons.RectangularSensor;
       Interfaces.HeatPort_a port_a annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}})));
       Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
@@ -1517,7 +1517,7 @@ the two ports of this component and is provided as output signal in Kelvin.
     end RelTemperatureSensor;
 
     model HeatFlowSensor "Heat flow rate sensor"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       Modelica.Blocks.Interfaces.RealOutput Q_flow(unit="W")
         "Heat flow from port_a to port_b as output signal" annotation (Placement(
             transformation(
@@ -1562,7 +1562,7 @@ The output signal is positive, if the heat flows from port_a to port_b.
 
     model ConditionalFixedHeatFlowSensor
       "HeatFlowSensor, conditional fixed Temperature"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       parameter Boolean useFixedTemperature(start=false)
         "Fixed Temperature if true"
         annotation(Evaluate=true);
