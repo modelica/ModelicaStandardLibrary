@@ -7961,16 +7961,17 @@ This package contains sources of a magnetic potential difference or a magnetic f
     Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
-            Text(
-              extent={{-52,1},{48,-57}},
-              textString="V_m"),
             Line(points={{-70,0},{-90,0}}, color={255,128,0}),
             Line(points={{70,0},{90,0}}, color={255,128,0}),
             Line(points={{0,-90},{0,-70}}),
             Text(
               extent={{-150,120},{150,80}},
               textString="%name",
-              textColor={0,0,255})}), Diagram(coordinateSystem(
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}),      Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-100,0}}, color={255,128,0}),
               Line(points={{70,0},{100,0}}, color={255,128,0}),Line(
@@ -7998,11 +7999,14 @@ This package contains sources of a magnetic potential difference or a magnetic f
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}, color={255,128,0}),
                                                                                                             Line(
               points={{70,0},{90,0}}, color={255,128,0}),
-                                      Text(extent={{-29,-11},{30,
-              -70}}, textString="Phi"),Text(
+                                       Text(
                   extent={{-150,120},{150,80}},
                   textString="%name",
-                  textColor={0,0,255}),Line(points={{0,-90},{0,-70}})}));
+                  textColor={0,0,255}),Line(points={{0,-90},{0,-70}}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Wb")}));
     end MagneticFluxSensor;
     annotation (Documentation(info="<html>
 <p>
