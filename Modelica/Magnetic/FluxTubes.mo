@@ -24,8 +24,6 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/magnetic_flux_tube_schematic.png\" alt=\"Magnetic flux tube\">
 </p>
 
-
-
 <p>
 For a region with an approximately homogeneous distribution of the magnetic field strength <strong>H</strong> and the magnetic flux density <strong>B</strong> through cross sectional area <em>A</em> at each length coordinate <em>s</em>  (<em>A</em> perpendicular to the direction of the magnetic field lines), a magnetic reluctance <em>R<sub>m</sub></em> can be defined:</p>
 
@@ -7963,7 +7961,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
           extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-70,0},{-90,0}}, color={255,128,0}),
             Line(points={{70,0},{90,0}}, color={255,128,0}),
-            Line(points={{0,-90},{0,-70}}),
+            Line(points={{0,-90},{0,-70}}, color={0,0,127}),
             Text(
               extent={{-150,120},{150,80}},
               textString="%name",
@@ -8002,7 +8000,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
                                        Text(
                   extent={{-150,120},{150,80}},
                   textString="%name",
-                  textColor={0,0,255}),Line(points={{0,-90},{0,-70}}),
+                  textColor={0,0,255}),Line(points={{0,-90},{0,-70}}, color={0,0,127}),
             Text(
               extent={{-30,-10},{30,-70}},
               textColor={64,64,64},
