@@ -5834,9 +5834,11 @@ way and provides the result as output signal <strong>phi</strong>
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={Text(
-                  extent={{70,-30},{120,-70}},
-                  textString="phi")}));
+            extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="rad")}));
     end AngleSensor;
 
     model SpeedSensor
@@ -5858,9 +5860,11 @@ way and provides the result as output signal <strong>w</strong>
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={Text(
-                  extent={{70,-30},{120,-70}},
-                  textString="w")}));
+            extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="rad/s")}));
     end SpeedSensor;
 
     model AccSensor
@@ -5884,9 +5888,11 @@ blocks of the Modelica.Blocks library).
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={Text(
-                  extent={{70,-30},{120,-70}},
-                  textString="a")}));
+            extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="rad/s2")}));
     end AccSensor;
 
     model RelAngleSensor
@@ -5914,10 +5920,12 @@ in an ideal way and provides the result as output signal <strong>phi_rel</strong
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{20.0,-114.0},{160.0,-84.0}},
-          textString="phi_rel"),
        Line(points={{0.0,-100.0},{0.0,-70.0}},
-        color={0,0,127})}));
+        color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="rad")}));
     end RelAngleSensor;
 
     model RelSpeedSensor
@@ -5949,10 +5957,12 @@ in an ideal way and provides the result as output signal <strong>w_rel</strong>
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{20.0,-118.0},{160.0,-88.0}},
-          textString="w_rel"),
         Line(points={{0.0,-100.0},{0.0,-70.0}},
-          color={0,0,127})}));
+          color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="rad/s")}));
     end RelSpeedSensor;
 
     model RelAccSensor
@@ -5986,10 +5996,12 @@ in an ideal way and provides the result as output signal <strong>a_rel</strong>
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{20.0,-116.0},{160.0,-86.0}},
-          textString="a_rel"),
         Line(points={{0.0,-100.0},{0.0,-70.0}},
-          color={0,0,127})}));
+          color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="rad/s2")}));
     end RelAccSensor;
 
     model TorqueSensor
@@ -6017,10 +6029,12 @@ and provides the result as output signal <strong>tau</strong>
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{-50.0,-120.0},{50.0,-80.0}},
-          textString="tau"),
         Line(points={{-80.0,-100.0},{-80.0,0.0}},
-          color={0,0,127})}));
+          color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="N.m")}));
     end TorqueSensor;
 
     model PowerSensor
@@ -6048,10 +6062,12 @@ and provides the result as output signal <strong>power</strong>
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{-50.0,-120.0},{100.0,-80.0}},
-          textString="power"),
         Line(points={{-80.0,-100.0},{-80.0,0.0}},
-          color={0,0,127})}));
+          color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="W")}));
     end PowerSensor;
 
     model MultiSensor
@@ -6087,18 +6103,21 @@ and provides the result as output signal <strong>power</strong>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
-            Text(
-              extent={{60,-68},{100,-96}},
-              textString="w"),
-            Text(
-              extent={{-140,-68},{-60,-96}},
-              textString="power"),
-            Text(
-              extent={{-30,-68},{30,-96}},
-              textString="tau"),
             Line(points={{-60,-100},{-60,-60},{-94,-2}}),
             Line(points={{0,-100},{0,-70}}, color={0,0,127}),
-            Line(points={{60,-100},{60,-60},{50,-50}}, color={0,0,127})}));
+            Line(points={{60,-100},{60,-60},{50,-50}}, color={0,0,127}),
+            Text(
+              extent={{-100,-60},{-60,-100}},
+              lineColor={64,64,64},
+              textString="W"),
+            Text(
+              extent={{-40,-60},{0,-100}},
+              lineColor={64,64,64},
+              textString="N.m"),
+            Text(
+              extent={{60,-60},{100,-100}},
+              lineColor={64,64,64},
+              textString="rad/s")}));
     end MultiSensor;
     annotation (Documentation(info="<html>
 <p>
