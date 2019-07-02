@@ -10,9 +10,10 @@ package SinglePhase "Single phase AC components"
       output Real abs_y = bode.abs_y "Magnitude of voltage ratio";
       output Modelica.SIunits.AmplitudeLevelDifference dB_y = bode.dB_y "Log10 of magnitude of voltage ratio in dB";
       output Modelica.SIunits.Angle arg_y = bode.arg_y "Angle of voltage ratio";
-      ComplexBlocks.Sources.LogFrequencySweep frequencySweep(duration=1,wMin=0.01,wMax=100) annotation (Placement(transformation(
-            origin={-70,-40},
-            extent={{-10,-10},{10,10}})));
+      Blocks.Sources.LogFrequencySweep frequencySweep(
+        duration=1,
+        wMin=0.01,
+        wMax=100) annotation (Placement(transformation(origin={-70,-40}, extent={{-10,-10},{10,10}})));
       QuasiStatic.SinglePhase.Sources.VariableVoltageSource voltageSource(gamma(fixed=true, start=0)) annotation (Placement(transformation(
             origin={-30,-20},
             extent={{-10,10},{10,-10}},
@@ -2388,7 +2389,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
       parameter Modelica.SIunits.Voltage V(start=1) "RMS voltage of the source";
       parameter Modelica.SIunits.Angle phi=0 "Phase shift of the source";
       Modelica.SIunits.Frequency f = voltageSource.f "Actual frequency";
-      ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
+      Blocks.Sources.LogFrequencySweep logFrequencySweep(
         final wMin=fStart,
         final wMax=fStop,
         final startTime=startTime,
@@ -2514,7 +2515,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
       parameter Modelica.SIunits.Current I(start=1) "RMS current of the source";
       parameter Modelica.SIunits.Angle phi=0 "Phase shift of the source";
       Modelica.SIunits.Frequency f = currentSource.f "Actual frequency";
-      ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
+      Blocks.Sources.LogFrequencySweep logFrequencySweep(
         final wMin=fStart,
         final wMax=fStop,
         final startTime=startTime,

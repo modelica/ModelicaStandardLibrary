@@ -142,6 +142,23 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end Issue2945;
   end Blocks;
 
+  package ComplexBlocks
+    "Library of basic input/output control blocks with Complex signals"
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue2157 "Conversion test for #2157"
+      extends Modelica.Icons.Example;
+      Modelica.ComplexBlocks.Sources.LogFrequencySweep logSweep(
+        wMin=0.01,
+        wMax=100,
+        duration=1) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2157\">#2157</a>.
+</p>
+</html>"));
+    end Issue2157;
+  end ComplexBlocks;
+
   package Constants
     extends Modelica.Icons.ExamplesPackage;
     model Issue194 "Conversion test for #194"
