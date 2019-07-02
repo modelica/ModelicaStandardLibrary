@@ -1064,12 +1064,106 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     extends Modelica.Icons.ExamplesPackage;
     package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
       extends Modelica.Icons.ExamplesPackage;
-      package Interfaces "Interfaces and partial models"
+      package Issue496 "Conversion test for #194"
+        extends Modelica.Icons.ExamplesPackage;
+        partial model PartialTwoPort "Two magnetic ports for graphical modeling"
+          extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+        end PartialTwoPort;
+
+        partial model PartialTwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
+          extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+        end PartialTwoPortExtended;
+
+        partial model PartialTwoPortElementary "Two magnetic ports for textual modeling"
+          extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+        end PartialTwoPortElementary;
+
+        partial model PartialBasicInductionMachine "Partial model for induction machine"
+          extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+        end PartialBasicInductionMachine;
+        annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+      end Issue496;
+    end FundamentalWave;
+
+    package QuasiStatic
+      extends Modelica.Icons.ExamplesPackage;
+      package FluxTubes "Library for modelling of quasi static electromagnetic devices with lumped magnetic networks"
         extends Modelica.Icons.ExamplesPackage;
         package Issue496 "Conversion test for #194"
           extends Modelica.Icons.ExamplesPackage;
+          partial model PartialTwoPortsElementary "Partial component with two magnetic ports p and n for textual programming"
+            extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+            annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+          end PartialTwoPortsElementary;
+
+          partial model PartialTwoPorts "Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n"
+            extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts;
+            annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+          end PartialTwoPorts;
+
+          partial model PartialFixedShape "Base class for flux tubes with fixed shape during simulation"
+            extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedShape;
+            annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+          end PartialFixedShape;
+
+          partial model PartialLeakage "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
+            extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage;
+            annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+          end PartialLeakage;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+        end Issue496;
+      end FluxTubes;
+
+      package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
+        extends Modelica.Icons.ExamplesPackage;
+        package Issue496
+          extends Modelica.Icons.ExamplesPackage;
           partial model PartialTwoPort "Two magnetic ports for graphical modeling"
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+            extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort;
             annotation (Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
@@ -1078,7 +1172,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           end PartialTwoPort;
 
           partial model PartialTwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
+            extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended;
             annotation (Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
@@ -1087,7 +1181,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           end PartialTwoPortExtended;
 
           partial model PartialTwoPortElementary "Two magnetic ports for textual modeling"
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
+            extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortElementary;
             annotation (Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
@@ -1095,123 +1189,20 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
           end PartialTwoPortElementary;
 
-          partial model PartialBasicInductionMachine "Partial model for induction machine"
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine;
+          partial model BaseInductionMachine "Partial model for induction machine"
+            extends Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine;
             annotation (Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
 </html>"));
-          end PartialBasicInductionMachine;
+          end BaseInductionMachine;
           annotation (Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
 </html>"));
         end Issue496;
-      end Interfaces;
-    end FundamentalWave;
-
-    package QuasiStatic
-      extends Modelica.Icons.ExamplesPackage;
-      package FluxTubes "Library for modelling of quasi static electromagnetic devices with lumped magnetic networks"
-        extends Modelica.Icons.ExamplesPackage;
-        package Interfaces "Interfaces of magnetic network components"
-          extends Modelica.Icons.ExamplesPackage;
-          package Issue496 "Conversion test for #194"
-            extends Modelica.Icons.ExamplesPackage;
-            partial model PartialTwoPortsElementary "Partial component with two magnetic ports p and n for textual programming"
-              extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPortsElementary;
-              annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-            end PartialTwoPortsElementary;
-
-            partial model PartialTwoPorts "Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n"
-              extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts;
-              annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-            end PartialTwoPorts;
-
-            partial model PartialFixedShape "Base class for flux tubes with fixed shape during simulation"
-              extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedShape;
-              annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-            end PartialFixedShape;
-
-            partial model PartialLeakage "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
-              extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage;
-              annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-            end PartialLeakage;
-            annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-          end Issue496;
-        end Interfaces;
-      end FluxTubes;
-
-      package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
-        extends Modelica.Icons.ExamplesPackage;
-        package Interfaces "Interfaces and partial models"
-          extends Modelica.Icons.ExamplesPackage;
-          package Issue496
-            extends Modelica.Icons.ExamplesPackage;
-            partial model PartialTwoPort "Two magnetic ports for graphical modeling"
-              extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort;
-              annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-            end PartialTwoPort;
-
-            partial model PartialTwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
-              extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended;
-              annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-            end PartialTwoPortExtended;
-
-            partial model PartialTwoPortElementary "Two magnetic ports for textual modeling"
-              extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortElementary;
-              annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-            end PartialTwoPortElementary;
-
-            partial model BaseInductionMachine "Partial model for induction machine"
-              extends Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine;
-              annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-            end BaseInductionMachine;
-            annotation (Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
-</p>
-</html>"));
-          end Issue496;
-        end Interfaces;
       end FundamentalWave;
     end QuasiStatic;
   end Magnetic;
