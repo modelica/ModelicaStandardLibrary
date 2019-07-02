@@ -7492,6 +7492,9 @@ The partial two port elementary model extends from the partial two port model an
               visible=not useSupport,
               points={{120,-100},{110,-120}})}));
     end Machine;
+    annotation (Documentation(info="<html>
+<p>This package contains partial models based on interface models and physical equations.</p>
+</html>"));
   end BaseClasses;
 
   package Utilities "Utilities for quasi-static fundamental wave machines"
