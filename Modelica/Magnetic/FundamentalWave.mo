@@ -6496,7 +6496,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
       model IM_SquirrelCage
         "Induction machine with squirrel cage"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
+          Modelica.Magnetic.FundamentalWave.BaseClasses.Machine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
@@ -6583,7 +6583,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code>-phas
       model IM_SlipRing "Induction machine with slip ring rotor"
         parameter Integer mr(min=3) = m "Number of rotor phases";
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
+          Modelica.Magnetic.FundamentalWave.BaseClasses.Machine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
@@ -6749,7 +6749,7 @@ Resistances and stray inductances of the machine always refer to either stator o
       model SM_PermanentMagnet
         "Permanent magnet synchronous machine with optional damper cage"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
+          Modelica.Magnetic.FundamentalWave.BaseClasses.Machine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
@@ -6947,7 +6947,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code>-phas
       model SM_ElectricalExcited
         "Electrical excited synchronous machine with optional damper cage"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
+          Modelica.Magnetic.FundamentalWave.BaseClasses.Machine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
@@ -7187,7 +7187,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 
       model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine(
+          Modelica.Magnetic.FundamentalWave.BaseClasses.Machine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
@@ -8630,7 +8630,133 @@ This model is mainly used to extend from in order build more complex - equation 
 </html>"));
     end TwoPort;
 
-    partial model BaseMachine "Base model of machines"
+    model StateSelector
+      "Transform instantaneous values to space phasors and select states"
+      import Modelica.Constants.pi;
+      parameter Integer m(min=3) = 3 "Number of phases";
+      input Real xi[m](each stateSelect=StateSelect.avoid)
+        "Instantaneous values" annotation (Dialog);
+      input Modelica.SIunits.Angle gamma "Angle of rotation" annotation (Dialog);
+      parameter StateSelect x0StateSelect=StateSelect.prefer
+        "Priority to use zero systems as states";
+      parameter StateSelect xrStateSelect=StateSelect.prefer
+        "Priority to use space phasors w.r.t. rotating frame as states";
+      Real x0(stateSelect=x0StateSelect) = 1/sqrt(m)*sum(xi) "Zero system";
+      Real x00(stateSelect=x0StateSelect) = 1/sqrt(m)*sum({xi[2*l - 1] - xi[2*l]
+        for l in 1:integer(m/2)}) if m == 2*integer(m/2)
+        "Second zero system, if present (mp even)";
+      final parameter Integer np=integer((m - 1)/2) "Number of space phasors";
+      Complex xf[np](each re(stateSelect=StateSelect.avoid), each im(
+            stateSelect=StateSelect.avoid)) "Space phasors w.r.t. fixed frame";
+      Complex xr[np](each re(stateSelect=xrStateSelect), each im(stateSelect=
+              xrStateSelect)) "Space phasors w.r.t. rotating frame";
+    equation
+      //space phasor transformations
+      for k in 1:np loop
+        xf[k].re = 1/sqrt(m)*sum({cos(k*(l - 1)*2*pi/m)*xi[l] for l in 1:m});
+        xf[k].im = 1/sqrt(m)*sum({sin(k*(l - 1)*2*pi/m)*xi[l] for l in 1:m});
+        xr[k] = xf[k]*Modelica.ComplexMath.conj(Modelica.ComplexMath.exp(
+          Complex(0, gamma)));
+      end for;
+      annotation (Documentation(info="<html>
+<p>
+Transforms instantaneous values into space phasors and zero system currents,
+rotates space phasors and sets stateSelect modifiers in order to choose states w.r.t. rotating frame,
+i.e., with small derivatives.
+</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={Ellipse(
+                  extent={{-60,60},{60,-60}},
+                  lineColor={170,213,255},
+                  fillColor={170,213,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-60,60},{60,-60}},
+                  textString="S",
+                  textColor={0,0,255}), Text(
+                  extent={{0,-60},{0,-100}},
+                  textColor={0,0,255},
+                  textString="%name")}));
+    end StateSelector;
+
+    model PositivePortInterface "Positive port interface to FluxTubes"
+
+      Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort port
+        "Magnetic port of fundamental wave machines"
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_re
+        "Magnetic port, real part"
+        annotation (Placement(transformation(extent={{90,90},{110,110}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_im
+        "Magnetic port, imaginary part"
+        annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
+    equation
+      port.V_m.re = port_re.V_m;
+      port.V_m.im = port_im.V_m;
+      port.Phi.re + port_re.Phi = 0;
+      port.Phi.im + port_im.Phi = 0;
+
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Line(
+                  points={{-100,0},{0,0},{100,100}},
+                  color={255,128,0}),Line(
+                  points={{0,0},{100,-100}},
+                  color={255,128,0}),Text(
+                  extent={{80,80},{120,40}},
+                  textColor={255,128,0},
+                  textString="re"),Text(
+                  extent={{80,-40},{120,-80}},
+                  textColor={255,128,0},
+                  textString="im")}),
+        Documentation(info="<html>
+<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
+</html>"));
+    end PositivePortInterface;
+
+    model NegativePortInterface "Negative port interface to FluxTubes"
+
+      Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort port
+        "Magnetic port of fundamental wave machines"
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_re
+        "Magnetic port, real part"
+        annotation (Placement(transformation(extent={{90,90},{110,110}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_im
+        "Magnetic port, imaginary part"
+        annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
+    equation
+      port.V_m.re = port_re.V_m;
+      port.V_m.im = port_im.V_m;
+      port.Phi.re + port_re.Phi = 0;
+      port.Phi.im + port_im.Phi = 0;
+
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Line(
+                  points={{-100,0},{0,0},{100,100}},
+                  color={255,128,0}),Line(
+                  points={{0,0},{100,-100}},
+                  color={255,128,0}),Text(
+                  extent={{80,80},{120,40}},
+                  textColor={255,128,0},
+                  textString="re"),Text(
+                  extent={{80,-40},{120,-80}},
+                  textColor={255,128,0},
+                  textString="im")}),
+        Documentation(info="<html>
+<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
+</html>"));
+    end NegativePortInterface;
+    annotation (Documentation(info="<html>
+<p>
+This package contains interface definitions of the magnetic ports as well as partial models.
+</p>
+</html>"));
+  end Interfaces;
+
+  package BaseClasses "Base classes of fundamental wave machines"
+    extends Icons.BasesPackage;
+    partial model Machine "Base model of machines"
       constant Modelica.SIunits.Angle pi = Modelica.Constants.pi;
       extends Modelica.Electrical.Machines.Icons.FundamentalWaveMachine;
       parameter Integer m(min=3) = 3 "Number of stator phases";
@@ -8884,131 +9010,11 @@ This model is mainly used to extend from in order build more complex - equation 
             Line(
               visible=not useSupport,
               points={{120,-100},{110,-120}})}));
-    end BaseMachine;
-
-    model StateSelector
-      "Transform instantaneous values to space phasors and select states"
-      import Modelica.Constants.pi;
-      parameter Integer m(min=3) = 3 "Number of phases";
-      input Real xi[m](each stateSelect=StateSelect.avoid)
-        "Instantaneous values" annotation (Dialog);
-      input Modelica.SIunits.Angle gamma "Angle of rotation" annotation (Dialog);
-      parameter StateSelect x0StateSelect=StateSelect.prefer
-        "Priority to use zero systems as states";
-      parameter StateSelect xrStateSelect=StateSelect.prefer
-        "Priority to use space phasors w.r.t. rotating frame as states";
-      Real x0(stateSelect=x0StateSelect) = 1/sqrt(m)*sum(xi) "Zero system";
-      Real x00(stateSelect=x0StateSelect) = 1/sqrt(m)*sum({xi[2*l - 1] - xi[2*l]
-        for l in 1:integer(m/2)}) if m == 2*integer(m/2)
-        "Second zero system, if present (mp even)";
-      final parameter Integer np=integer((m - 1)/2) "Number of space phasors";
-      Complex xf[np](each re(stateSelect=StateSelect.avoid), each im(
-            stateSelect=StateSelect.avoid)) "Space phasors w.r.t. fixed frame";
-      Complex xr[np](each re(stateSelect=xrStateSelect), each im(stateSelect=
-              xrStateSelect)) "Space phasors w.r.t. rotating frame";
-    equation
-      //space phasor transformations
-      for k in 1:np loop
-        xf[k].re = 1/sqrt(m)*sum({cos(k*(l - 1)*2*pi/m)*xi[l] for l in 1:m});
-        xf[k].im = 1/sqrt(m)*sum({sin(k*(l - 1)*2*pi/m)*xi[l] for l in 1:m});
-        xr[k] = xf[k]*Modelica.ComplexMath.conj(Modelica.ComplexMath.exp(
-          Complex(0, gamma)));
-      end for;
-      annotation (Documentation(info="<html>
-<p>
-Transforms instantaneous values into space phasors and zero system currents,
-rotates space phasors and sets stateSelect modifiers in order to choose states w.r.t. rotating frame,
-i.e., with small derivatives.
-</p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics={Ellipse(
-                  extent={{-60,60},{60,-60}},
-                  lineColor={170,213,255},
-                  fillColor={170,213,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-60,60},{60,-60}},
-                  textString="S",
-                  textColor={0,0,255}), Text(
-                  extent={{0,-60},{0,-100}},
-                  textColor={0,0,255},
-                  textString="%name")}));
-    end StateSelector;
-
-    model PositivePortInterface "Positive port interface to FluxTubes"
-
-      Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort port
-        "Magnetic port of fundamental wave machines"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_re
-        "Magnetic port, real part"
-        annotation (Placement(transformation(extent={{90,90},{110,110}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_im
-        "Magnetic port, imaginary part"
-        annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
-    equation
-      port.V_m.re = port_re.V_m;
-      port.V_m.im = port_im.V_m;
-      port.Phi.re + port_re.Phi = 0;
-      port.Phi.im + port_im.Phi = 0;
-
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={Line(
-                  points={{-100,0},{0,0},{100,100}},
-                  color={255,128,0}),Line(
-                  points={{0,0},{100,-100}},
-                  color={255,128,0}),Text(
-                  extent={{80,80},{120,40}},
-                  textColor={255,128,0},
-                  textString="re"),Text(
-                  extent={{80,-40},{120,-80}},
-                  textColor={255,128,0},
-                  textString="im")}),
-        Documentation(info="<html>
-<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
-</html>"));
-    end PositivePortInterface;
-
-    model NegativePortInterface "Negative port interface to FluxTubes"
-
-      Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort port
-        "Magnetic port of fundamental wave machines"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_re
-        "Magnetic port, real part"
-        annotation (Placement(transformation(extent={{90,90},{110,110}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_im
-        "Magnetic port, imaginary part"
-        annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
-    equation
-      port.V_m.re = port_re.V_m;
-      port.V_m.im = port_im.V_m;
-      port.Phi.re + port_re.Phi = 0;
-      port.Phi.im + port_im.Phi = 0;
-
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={Line(
-                  points={{-100,0},{0,0},{100,100}},
-                  color={255,128,0}),Line(
-                  points={{0,0},{100,-100}},
-                  color={255,128,0}),Text(
-                  extent={{80,80},{120,40}},
-                  textColor={255,128,0},
-                  textString="re"),Text(
-                  extent={{80,-40},{120,-80}},
-                  textColor={255,128,0},
-                  textString="im")}),
-        Documentation(info="<html>
-<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
-</html>"));
-    end NegativePortInterface;
+    end Machine;
     annotation (Documentation(info="<html>
-<p>
-This package contains interface definitions of the magnetic ports as well as partial models.
-</p>
+<p>This package contains partial models based on interface models and physical equations.</p>
 </html>"));
-  end Interfaces;
+  end BaseClasses;
 
   package Types "Definition of salient types"
     extends Modelica.Icons.TypesPackage;
