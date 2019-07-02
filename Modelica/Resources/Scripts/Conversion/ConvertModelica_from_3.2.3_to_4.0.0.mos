@@ -198,7 +198,7 @@ convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTw
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortElementary",
               "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPort");
 convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.BaseInductionMachine",
-              "Modelica.Magnetic.FundamentalWave.Interfaces.BaseMachine");
+              "Modelica.Magnetic.FundamentalWave.Interfaces.BaseClasses.Machine");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine",
               "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.BaseMachine");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPortsElementary",

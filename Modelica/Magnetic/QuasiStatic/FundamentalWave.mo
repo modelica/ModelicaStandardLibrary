@@ -4751,7 +4751,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
       extends Modelica.Icons.Package;
       model IM_SquirrelCage "Induction machine with squirrel cage"
         // Removed from extension of FUNDAMENTAL WAVE model: is(start=zeros(m)) ##
-        extends Interfaces.BaseMachine(
+        extends BaseClasses.Machine(
           Rs(start=0.03),
           Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
           final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
@@ -4846,7 +4846,7 @@ Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage</a>,
 
       model IM_SlipRing "Induction machine with slip ring rotor"
         parameter Integer mr(min=3) = m "Number of rotor phases";
-        extends Interfaces.BaseMachine(
+        extends BaseClasses.Machine(
           Rs(start=0.03),
           Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
           final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
@@ -5020,7 +5020,7 @@ Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage</a>,
       extends Modelica.Icons.Package;
       model SM_PermanentMagnet
         "Permanent magnet synchronous machine with optional damper cage"
-        extends Interfaces.BaseMachine(
+        extends BaseClasses.Machine(
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
           final L0(d=2.0*Lmd/m/effectiveStatorTurns^2, q=2.0*Lmq/m/
@@ -5221,7 +5221,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
 
       model SM_ElectricalExcited
         "Electrical excited synchronous machine with optional damper cage"
-        extends Interfaces.BaseMachine(
+        extends BaseClasses.Machine(
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
           final L0(d=2.0*Lmd/m/effectiveStatorTurns^2, q=2.0*Lmq/m/
@@ -5453,7 +5453,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
 
       model SM_ReluctanceRotor
         "Synchronous reluctance machine with optional damper cage"
-        extends Interfaces.BaseMachine(
+        extends BaseClasses.Machine(
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
           final L0(d=2.0*Lmd/m/effectiveStatorTurns^2, q=2.0*Lmq/m/
@@ -7200,7 +7200,11 @@ The partial two port elementary model extends from the partial two port model an
 </html>"));
     end TwoPort;
 
-    partial model BaseMachine "Base model of machines"
+  end Interfaces;
+
+  package BaseClasses "Base classes of fundamental wave machines"
+    extends Icons.BasesPackage;
+    partial model Machine "Base model of machines"
       constant Modelica.SIunits.Angle pi = Modelica.Constants.pi;
       extends Electrical.Machines.Icons.QuasiStaticFundamentalWaveMachine;
       parameter Integer m(min=3) = 3 "Number of stator phases";
@@ -7487,8 +7491,8 @@ The partial two port elementary model extends from the partial two port model an
             Line(
               visible=not useSupport,
               points={{120,-100},{110,-120}})}));
-    end BaseMachine;
-  end Interfaces;
+    end Machine;
+  end BaseClasses;
 
   package Utilities "Utilities for quasi-static fundamental wave machines"
     extends Modelica.Icons.UtilitiesPackage;
