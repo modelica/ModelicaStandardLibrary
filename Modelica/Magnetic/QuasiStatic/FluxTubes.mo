@@ -1272,7 +1272,7 @@ This constant permeance is provided for test purposes and simple magnetic networ
     model LeakageWithCoefficient
     "Leakage reluctance with respect to the reluctance of a useful flux path (not for dynamic simulation of actuators)"
 
-      extends Interfaces.Leakage;
+      extends BaseClasses.Leakage;
 
       parameter SI.CouplingCoefficient c_usefulFlux=0.7
       "Ratio useful flux/(leakage flux + useful flux) = useful flux/total flux";
@@ -1453,7 +1453,7 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
       model GenericFluxTube
       "Flux tube with fixed cross-section and length; linear or non-linear material characteristics"
 
-        extends Interfaces.FixedShape;
+        extends BaseClasses.FixedShape;
 
         parameter SI.Length l=0.01 "Length in direction of flux"
           annotation(Dialog(group="Fixed geometry", groupImage=
@@ -1488,7 +1488,7 @@ the magnetic reluctance by:</p>
       model Cuboid
       "Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics"
 
-        extends Interfaces.FixedShape;
+        extends BaseClasses.FixedShape;
 
         parameter SI.Length l=0.01 "Length in direction of flux" annotation (
             Dialog(group="Fixed geometry", groupImage=
@@ -1523,7 +1523,7 @@ the magnetic reluctance by:</p>
       model HollowCylinderAxialFlux
       "(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics"
 
-        extends Interfaces.FixedShape;
+        extends BaseClasses.FixedShape;
 
         parameter SI.Length l=0.01 "Axial length (in direction of flux)"
           annotation (Dialog(group="Fixed geometry", groupImage=
@@ -1553,7 +1553,7 @@ the magnetic reluctance by:</p>
       model HollowCylinderRadialFlux
       "Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics"
 
-        extends Interfaces.FixedShape;
+        extends BaseClasses.FixedShape;
 
         parameter SI.Length l=0.01 "Width (orthogonal to flux direction)"
                                                  annotation (Dialog(group=
@@ -1593,7 +1593,7 @@ This package provides different reluctance models, based on different geometric 
       model QuarterCylinder
       "Leakage flux from one edge to the opposite plane through a quarter cylinder"
 
-        extends Interfaces.Leakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length l=0.1
         "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edge and plane)"
@@ -1616,7 +1616,7 @@ are summarized. As an alternative to the geometry based data a
       model QuarterHollowCylinder
       "Leakage flux in circumferential direction through a quarter hollow cylinder"
 
-        extends Interfaces.Leakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length l=0.1
         "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)"
@@ -1640,7 +1640,7 @@ are summarized. As an alternative to the geometry based data a
 
       model HalfCylinder "Leakage flux through the edges of a half cylinder"
 
-        extends Interfaces.Leakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length l=0.1
         "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edges)"
@@ -1664,7 +1664,7 @@ are summarized. As an alternative to the geometry based data a
       model HalfHollowCylinder
       "Leakage flux in circumferential direction through a half hollow cylinder"
 
-        extends Interfaces.Leakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length l=0.1
         "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)"
@@ -1689,7 +1689,7 @@ are summarized. As an alternative to the geometry based data a
       model QuarterSphere
       "Leakage flux through the corners of a quarter sphere"
 
-        extends Interfaces.Leakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Radius r=0.005 "Radius of quarter sphere"
           annotation (Dialog(group="Parameters", groupImage=
@@ -1712,7 +1712,7 @@ are summarized. As an alternative to the geometry based data a
       model QuarterHollowSphere
       "Leakage flux through the edges of a quarter hollow sphere"
 
-        extends Interfaces.Leakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length t(start=0.01) "Thickness of spherical shell"
           annotation (Dialog(group="Parameters", groupImage=
@@ -1735,7 +1735,7 @@ are summarized. As an alternative to the geometry based data a
       model EighthOfSphere
       "Leakage flux through one edge and the opposite plane of an eighth of a sphere"
 
-        extends Interfaces.Leakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Radius r=0.01 "Radius of eighth of sphere"
           annotation (Dialog(group="Parameters", groupImage=
@@ -1758,7 +1758,7 @@ are summarized. As an alternative to the geometry based data a
       model EighthOfHollowSphere
       "Leakage flux through one edge and the opposite plane of an eighth of a hollow sphere"
 
-        extends Interfaces.Leakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length t(start=0.01) "Thickness of spherical shell"
           annotation (Dialog(group="Parameters", groupImage=
@@ -1781,7 +1781,7 @@ are summarized. As an alternative to the geometry based data a
       model CoaxCylindersEndFaces
       "Leakage flux between the end planes of a inner solid cylinder and a coaxial outer hollow cylinder"
 
-        extends Interfaces.Leakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Radius r_0=10e-3 "Radius of inner solid cylinder"
           annotation (Dialog(group="Parameters", groupImage=
@@ -1983,93 +1983,6 @@ is identical to the flux flowing out of <code>port_n</code>.
 </html>"));
     end TwoPorts;
 
-    partial model FixedShape "Base class for flux tubes with fixed shape during simulation"
-
-      extends TwoPorts;
-
-      parameter SI.RelativePermeability mu_rConst = 1 "Constant relative permeability";
-
-      Modelica.SIunits.Reluctance R_m "Magnetic reluctance";
-      Modelica.SIunits.Permeance G_m "Magnetic permeance";
-      Modelica.SIunits.ComplexMagneticFluxDensity B
-      "Magnetic flux density (normal component)";
-      Modelica.SIunits.MagneticFluxDensity abs_B = Modelica.ComplexMath.'abs'(B)
-      "Magnitude of complex magnetic flux density";
-      Modelica.SIunits.Angle arg_B = Modelica.ComplexMath.arg(B)
-      "Argument of complex magnetic flux density";
-      SI.CrossSection A "Area of cross section penetrated by magnetic flux";
-      Modelica.SIunits.ComplexMagneticFieldStrength H
-      "Magnetic field strength (normal component)";
-      Modelica.SIunits.MagneticFieldStrength abs_H = Modelica.ComplexMath.'abs'(H)
-      "Magnitude of complex magnetic field strength";
-      Modelica.SIunits.Angle arg_H = Modelica.ComplexMath.arg(H)
-      "Argument of complex magnetic field strength";
-
-      SI.RelativePermeability mu_r "Relative magnetic permeability";
-
-    equation
-      mu_r = mu_rConst;
-      R_m = 1/G_m;
-      V_m = Phi*R_m;
-      B = Phi/A;
-      H = B/(mu_0*mu_r);
-
-      annotation (Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={255,170,85},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-          Line(points={{-70,0},{-90,0}}, color={255,170,85}),
-          Line(points={{70,0},{90,0}}, color={255,170,85}),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255})}), Documentation(info="<html>
-<p>
-Please refer to the description of  the subpackage
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a>
-for utilisation of this partial model.
-</p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false)));
-    end FixedShape;
-
-    partial model Leakage "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
-
-      extends TwoPorts;
-
-      SI.Reluctance R_m "Magnetic reluctance";
-      SI.Permeance G_m "Magnetic permeance";
-
-    equation
-      V_m = Phi*R_m;
-      R_m = 1/G_m;
-
-      annotation (Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={255,170,85},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-          Line(points={{-70,0},{-90,0}}, color={255,170,85}),
-          Line(points={{70,0},{90,0}}, color={255,170,85}),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255})}), Documentation(info="<html>
-<p>
-Please refer to the description of the subpackage
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a>
-for utilisation of this partial model.
-</p>
-</html>"));
-    end Leakage;
-
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
       Modelica.SIunits.AngularVelocity omega;
@@ -2167,6 +2080,99 @@ This package contains connectors for the magnetic domain and partial models for 
 
 </html>"));
   end Interfaces;
+
+  package BaseClasses "Base classes containing partial models"
+    extends Icons.BasesPackage;
+    partial model FixedShape "Base class for flux tubes with fixed shape during simulation"
+
+      extends Interfaces.TwoPorts;
+
+      parameter SI.RelativePermeability mu_rConst = 1 "Constant relative permeability";
+
+      Modelica.SIunits.Reluctance R_m "Magnetic reluctance";
+      Modelica.SIunits.Permeance G_m "Magnetic permeance";
+      Modelica.SIunits.ComplexMagneticFluxDensity B
+      "Magnetic flux density (normal component)";
+      Modelica.SIunits.MagneticFluxDensity abs_B = Modelica.ComplexMath.'abs'(B)
+      "Magnitude of complex magnetic flux density";
+      Modelica.SIunits.Angle arg_B = Modelica.ComplexMath.arg(B)
+      "Argument of complex magnetic flux density";
+      SI.CrossSection A "Area of cross section penetrated by magnetic flux";
+      Modelica.SIunits.ComplexMagneticFieldStrength H
+      "Magnetic field strength (normal component)";
+      Modelica.SIunits.MagneticFieldStrength abs_H = Modelica.ComplexMath.'abs'(H)
+      "Magnitude of complex magnetic field strength";
+      Modelica.SIunits.Angle arg_H = Modelica.ComplexMath.arg(H)
+      "Argument of complex magnetic field strength";
+
+      SI.RelativePermeability mu_r "Relative magnetic permeability";
+
+    equation
+      mu_r = mu_rConst;
+      R_m = 1/G_m;
+      V_m = Phi*R_m;
+      B = Phi/A;
+      H = B/(mu_0*mu_r);
+
+      annotation (Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={255,170,85},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+          Line(points={{-70,0},{-90,0}}, color={255,170,85}),
+          Line(points={{70,0},{90,0}}, color={255,170,85}),
+          Text(
+            extent={{-150,50},{150,90}},
+            textString="%name",
+            textColor={0,0,255})}), Documentation(info="<html>
+<p>
+Please refer to the description of  the subpackage
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a>
+for utilisation of this partial model.
+</p>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false)));
+    end FixedShape;
+
+    partial model Leakage "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
+
+      extends Interfaces.TwoPorts;
+
+      SI.Reluctance R_m "Magnetic reluctance";
+      SI.Permeance G_m "Magnetic permeance";
+
+    equation
+      V_m = Phi*R_m;
+      R_m = 1/G_m;
+
+      annotation (Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={255,170,85},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+          Line(points={{-70,0},{-90,0}}, color={255,170,85}),
+          Line(points={{70,0},{90,0}}, color={255,170,85}),
+          Text(
+            extent={{-150,50},{150,90}},
+            textString="%name",
+            textColor={0,0,255})}), Documentation(info="<html>
+<p>
+Please refer to the description of the subpackage
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a>
+for utilisation of this partial model.
+</p>
+</html>"));
+    end Leakage;
+    annotation (Documentation(info="<html>
+<p>This package contains partial models based on interface models and physical equations.</p>
+</html>"));
+  end BaseClasses;
 
   package Sources
   "Sources of different complexity of magnetomotive force and magnetic flux"

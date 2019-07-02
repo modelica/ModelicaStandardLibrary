@@ -206,9 +206,9 @@ convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts",
               "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPorts");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedShape",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.FixedShape");
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.BaseClasses.FixedShape");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.Leakage");
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.BaseClasses.Leakage");
 
 // Change renamed elements of classes
 // mue -> mu
