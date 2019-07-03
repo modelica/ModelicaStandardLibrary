@@ -535,6 +535,40 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end gravityAccelerationIssue194;
 
+      model Issue813 "Conversion test for #813"
+        extends Modelica.Icons.Example;
+        inner Modelica.Mechanics.MultiBody.World world;
+        model AbsoluteVelocity
+          extends Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity(tansformAbsoluteVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a));
+        end AbsoluteVelocity;
+        model RelativeVelocity
+          extends Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity(tansformRelativeVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a));
+        end RelativeVelocity;
+        AbsoluteVelocity absoluteVelocity;
+        Modelica.Mechanics.MultiBody.Sensors.TansformAbsoluteVector transformAbsoluteVector;
+        RelativeVelocity relativeVelocity;
+        Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector transformRelativeVector;
+        Modelica.Blocks.Sources.RealExpression realExpression(y=time);
+      equation
+        connect(world.frame_b,absoluteVelocity.frame_a);
+        connect(transformAbsoluteVector.frame_a,world.frame_b);
+        connect(relativeVelocity.frame_a,world.frame_b);
+        connect(relativeVelocity.frame_b,world.frame_b);
+        connect(transformRelativeVector.frame_a,world.frame_b);
+        connect(transformRelativeVector.frame_b,world.frame_b);
+        connect(realExpression.y,transformAbsoluteVector.r_in[1]);
+        connect(realExpression.y,transformAbsoluteVector.r_in[2]);
+        connect(realExpression.y,transformAbsoluteVector.r_in[3]);
+        connect(realExpression.y,transformRelativeVector.r_in[1]);
+        connect(realExpression.y,transformRelativeVector.r_in[2]);
+        connect(realExpression.y,transformRelativeVector.r_in[3]);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
+</p>
+</html>"));
+      end Issue813;
+
       model Issue2425 "Conversion test for #2425"
         extends Modelica.Icons.Example;
         inner Modelica.Mechanics.MultiBody.World world;

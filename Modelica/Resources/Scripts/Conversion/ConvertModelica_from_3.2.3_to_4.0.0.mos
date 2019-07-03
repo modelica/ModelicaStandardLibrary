@@ -107,6 +107,10 @@ convertClass("Modelica.Mechanics.MultiBody.Icons.MotorIcon",
               "Modelica.Electrical.Machines.Icons.Drive")
 convertClass("Modelica.Icons.Info",
               "Modelica.Icons.Information")
+convertClass("Modelica.Mechanics.MultiBody.Sensors.TansformAbsoluteVector",
+              "Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector")
+convertClass("Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector",
+              "Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector")
 
 // Change renamed elements of classes
 // mue -> mu
@@ -126,6 +130,10 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "Modelica.Mechanics.Translational.Components.Brake"},
                 "mue0", "mu0");
 
+convertElement("Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity",
+                "tansformAbsoluteVector", "transformAbsoluteVector");
+convertElement("Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity",
+                "tansformRelativeVector", "transformRelativeVector");
 convertElement("Modelica.Thermal.FluidHeatFlow.Media.Medium",
                 {"lamda", "nue"}, {"lambda", "nu"});
 convertElement("Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction",

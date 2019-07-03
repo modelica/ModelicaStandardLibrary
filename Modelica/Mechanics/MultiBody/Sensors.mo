@@ -1015,7 +1015,7 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
     Blocks.Continuous.Der der1[3] annotation (Placement(transformation(
           extent={{-20,-20},{0,0}},
           origin={10,10})));
-    Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector tansformAbsoluteVector(
+    Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector transformAbsoluteVector(
       frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
       frame_r_out=resolveInFrame) annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
@@ -1033,24 +1033,24 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
         points={{-60,0},{-80,0},{-80,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(der1.y, tansformAbsoluteVector.r_in) annotation (Line(
+    connect(der1.y, transformAbsoluteVector.r_in) annotation (Line(
         points={{11,0},{38,0}}, color={0,0,127}));
-    connect(tansformAbsoluteVector.r_out, v) annotation (Line(
+    connect(transformAbsoluteVector.r_out, v) annotation (Line(
         points={{61,0},{110,0}}, color={0,0,127}));
     connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
         points={{-60,-50},{-50,-50},{-50,-10}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(tansformAbsoluteVector.frame_a, frame_a) annotation (Line(
+    connect(transformAbsoluteVector.frame_a, frame_a) annotation (Line(
         points={{50,10},{50,20},{-70,20},{-70,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(tansformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
+    connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
       annotation (Line(
         points={{49.9,-10},{50,-10},{50,-50},{60,-50}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(tansformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
+    connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
         points={{49.9,-10},{50,-10},{50,-50},{0,-50},{0,-100}},
         color={95,95,95},
         pattern=LinePattern.Dot));
@@ -1410,7 +1410,7 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
     "Measure relative velocity vector between the origins of two frame connectors"
     extends Internal.PartialRelativeSensor;
     Modelica.Blocks.Interfaces.RealOutput v_rel[3](each final quantity="Velocity", each final
-              unit =                                                                        "m/s")
+              unit = "m/s")
       "Relative velocity vector resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -1433,12 +1433,11 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
       annotation (Placement(transformation(extent={{50,-60},{70,-40}})));
-    Modelica.Blocks.Continuous.Der der_r_rel[3]                      annotation (Placement(transformation(
+    Modelica.Blocks.Continuous.Der der_r_rel[3] annotation (Placement(transformation(
           extent={{-20,-20},{0,0}},
           rotation=-90,
           origin={10,-40})));
-    Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector
-                           tansformRelativeVector(
+    Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector transformRelativeVector(
         frame_r_in= Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
         frame_r_out=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
@@ -1451,26 +1450,25 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
         points={{10,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(relativePosition.r_rel, der_r_rel.u)
-                                            annotation (Line(
+    connect(relativePosition.r_rel, der_r_rel.u) annotation (Line(
         points={{0,-11},{0,-18}}, color={0,0,127}));
-    connect(der_r_rel.y, tansformRelativeVector.r_in) annotation (Line(
+    connect(der_r_rel.y, transformRelativeVector.r_in) annotation (Line(
         points={{0,-41},{0,-58}}, color={0,0,127}));
-    connect(tansformRelativeVector.r_out, v_rel) annotation (Line(
+    connect(transformRelativeVector.r_out, v_rel) annotation (Line(
         points={{0,-81},{0,-110}}, color={0,0,127}));
-    connect(tansformRelativeVector.frame_a, frame_a) annotation (Line(
+    connect(transformRelativeVector.frame_a, frame_a) annotation (Line(
         points={{-10,-70},{-70,-70},{-70,0},{-100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(tansformRelativeVector.frame_b, frame_b) annotation (Line(
+    connect(transformRelativeVector.frame_b, frame_b) annotation (Line(
         points={{10,-70},{80,-70},{80,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(tansformRelativeVector.frame_resolve, frame_resolve) annotation (Line(
+    connect(transformRelativeVector.frame_resolve, frame_resolve) annotation (Line(
         points={{10,-62},{30,-62},{30,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot));
-    connect(zeroPosition.frame_resolve, tansformRelativeVector.frame_resolve)
+    connect(zeroPosition.frame_resolve, transformRelativeVector.frame_resolve)
       annotation (Line(
         points={{50,-50},{30,-50},{30,-62},{10,-62}},
         color={95,95,95},
@@ -3511,24 +3509,6 @@ The classes in this package should not be directly used by a user.
 </p>
 </html>"));
   end Internal;
-
-  model TansformAbsoluteVector
-    "Obsolete model will be removed in future versions, use TransformAbsoluteVector instead!"
-    extends Modelica.Icons.ObsoleteModel;
-    extends TransformAbsoluteVector;
-    annotation(obsolete = "Obsolete model due to misspelled class name - use Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector instead", Documentation(info="<html>
-<!--a placeholder to fulfill minimum documentation length-->
-</html>"));
-  end TansformAbsoluteVector;
-
-  model TansformRelativeVector
-    "Obsolete model will be removed in future versions, use TransformRelativeVector instead!"
-    extends Modelica.Icons.ObsoleteModel;
-    extends TransformRelativeVector;
-    annotation(obsolete = "Obsolete model due to misspelled class name - use Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector instead", Documentation(info="<html>
-<!--a placeholder to fulfill minimum documentation length-->
-</html>"));
-  end TansformRelativeVector;
 
   annotation (Documentation(info="<html>
 <p>
