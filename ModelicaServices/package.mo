@@ -135,6 +135,20 @@ The interface of this model is defined at
 
 </html>"));
     end Surface;
+
+    model Vector "Animation of a moveable vector-quantity (the length is not fixed in meters)"
+      extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector;
+
+  annotation (Documentation(info="<html>
+<p>
+The interface of this model is documented at
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.<br>
+The interface of this model is defined at
+<a href=\"modelica://Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector</a>.
+</p>
+
+</html>"));
+    end Vector;
   end Animation;
 
   package ExternalReferences "Library of functions to access external resources"
