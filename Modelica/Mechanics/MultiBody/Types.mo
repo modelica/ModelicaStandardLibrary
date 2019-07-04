@@ -117,7 +117,7 @@ are shown for a cylinder:
 </p>
 </html>"));
   type ShapeType = Modelica.Icons.TypeString
-    "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)"
+    "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, vector, spring, <external shape>)"
      annotation ( choices(
       choice="box" "\"box\"",
       choice="sphere" "\"sphere\"",
@@ -127,6 +127,7 @@ are shown for a cylinder:
       choice="pipe" "\"pipe\"",
       choice="beam" "\"beam\"",
       choice="gearwheel" "\"gearwheel\"",
+      choice="vector" "\"vector\"",
       choice="spring" "\"spring\"",
       choice="modelica://PackageName/PathName.dxf"),
     Documentation(info="<html>
@@ -343,6 +344,14 @@ type Init = enumeration(
       Velocity,
       VelocityAcceleration,
       PositionVelocityAcceleration);
+      
+type VectorQuantity = enumeration(
+      Force,
+      Torque,
+      Velocity,
+      Acceleration,
+      AngularVelocity,
+      AngularAcceleration);
 
   package Defaults "Default settings of the MultiBody library via constants"
     extends Modelica.Icons.Package;

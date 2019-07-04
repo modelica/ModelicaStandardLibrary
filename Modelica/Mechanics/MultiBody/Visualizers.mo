@@ -2056,6 +2056,92 @@ library (will be replaced by a color editor).
 </html>"));
     end DoubleArrow;
 
+    model Vector
+          "Visualizing a vector quantity (force, torque etc)"
+
+      import Modelica.Mechanics.MultiBody.Types;
+      import Modelica.Mechanics.MultiBody.Frames;
+      import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
+      import Modelica.SIunits.Conversions.to_unit1;
+
+      input Frames.Orientation R=Frames.nullRotation()
+        "Orientation object to rotate the world frame into the vector frame" annotation(Dialog);
+      input SI.Position r[3]={0,0,0}
+        "Position vector from origin of world frame to origin of vector, resolved in world frame" annotation(Dialog);
+      input Real r_value[3]={0,0,0}
+        "Value of the vector" annotation(Dialog);
+      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
+        "Color of vector" annotation(Dialog(colorSelector=true));
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
+                                                                                                            annotation(Dialog);
+      input Boolean pushing=true "If true the vector is pointing towards the origin" annotation(Dialog);
+      input Modelica.Mechanics.MultiBody.Types.VectorQuantity quantity = Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force "The quantity of the value" annotation(Dialog);
+
+    protected
+      outer World world;
+      Visualizers.Advanced.Shape vectorLine(
+        extra=(if pushing then 10 else 0)+integer(quantity)-1,
+        shapeType="vector",
+        color=color,
+        specularCoefficient=specularCoefficient,
+        length=r_value[1],
+	width=r_value[2],
+	height=r_value[3],
+        r=r,
+        R=R) if world.enableAnimation;
+
+      annotation (
+        Documentation(info="<html>
+<p>
+Model <strong>Vector</strong> defines an vector that is dynamically
+visualized at the defined location (see variables below).
+The difference compared to Arrow is that the vector-length does not represent a physical length, but a different 3-dimensional quantity
+(like force, torque, speed, ...).
+
+That allows the vectors of similar quantities to be scaled appropriately during post-processing.
+</p>
+
+
+<p>
+The variables under heading <strong>Parameters</strong> below
+are declared as (time varying) <strong>input</strong> variables.
+If the default equation is not appropriate, a corresponding
+modifier equation has to be provided in the
+model where an <strong>Arrow</strong> instance is used, e.g., in the form
+</p>
+<pre>
+    Visualizers.Advanced.Vector arrow(r_value = {sin(time),cos(time),0});
+</pre>
+
+<p>
+Variable <strong>color</strong> is an Integer vector with 3 elements,
+{r, g, b}, and specifies the color of the shape.
+{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
+Note, r g, b are given in the range 0 .. 255.
+The predefined type <strong>MultiBody.Types.Color</strong> contains
+a menu definition of the colors used in the MultiBody
+library (will be replaced by a color editor).
+</p>
+</html>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-100,28},{20,-28}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{20,60},{100,0},{20,-60},{20,60}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-150,105},{150,65}},
+              textString="%name",
+              lineColor={0,0,255})}));
+    end Vector;
+    
     model Shape
       "Visualizing an elementary object with variable size; all data have to be set as modifiers (see info layer)"
 
