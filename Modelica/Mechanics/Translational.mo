@@ -4035,7 +4035,7 @@ Modelica.Blocks library).
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
-              extent={{10,20},{70,-40}},
+              extent={{-24,20},{66,-40}},
               lineColor={64,64,64},
               textString="m")}));
     end PositionSensor;
@@ -4059,7 +4059,7 @@ Modelica.Blocks library).
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
-              extent={{10,20},{70,-40}},
+              extent={{-24,20},{66,-40}},
               lineColor={64,64,64},
               textString="m/s")}));
     end SpeedSensor;
@@ -4086,7 +4086,7 @@ Modelica.Blocks library).
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
-              extent={{10,20},{70,-40}},
+              extent={{-24,20},{66,-40}},
               lineColor={64,64,64},
               textString="m/s2")}));
     end AccSensor;
@@ -4115,15 +4115,14 @@ Modelica.Blocks library).
                 {100,100}}), graphics={
                                   Line(points={{0,-99},{0,-60}}, color={0,0,127}),
             Text(
-              extent={{10,20},{70,-40}},
+              extent={{-24,20},{66,-40}},
               lineColor={64,64,64},
               textString="m")}));
     end RelPositionSensor;
 
     model RelSpeedSensor "Ideal sensor to measure the relative speed"
       extends Translational.Interfaces.PartialRelativeSensor;
-      SI.Position s_rel
-        "Distance between the two flanges (flange_b.s - flange_a.s)";
+      SI.Position s_rel "Distance between the two flanges (flange_b.s - flange_a.s)";
       Modelica.Blocks.Interfaces.RealOutput v_rel(unit="m/s")
         "Relative velocity between two flanges (= der(flange_b.s) - der(flange_a.s)) as output signal"
         annotation (Placement(transformation(
@@ -4153,17 +4152,15 @@ Modelica.Blocks library).
                                   Line(points={{0,-100},{0,-61}}, color={0,0,
               127}),
             Text(
-              extent={{20,10},{60,-30}},
+              extent={{-24,20},{66,-40}},
               lineColor={64,64,64},
               textString="m/s")}));
     end RelSpeedSensor;
 
     model RelAccSensor "Ideal sensor to measure the relative acceleration"
       extends Translational.Interfaces.PartialRelativeSensor;
-      SI.Position s_rel
-        "Distance between the two flanges (flange_b.s - flange_a.s)";
-      SI.Velocity v_rel
-        "Relative velocity between the two flanges (der(flange_b.s) - der(flange_a.s))";
+      SI.Position s_rel "Distance between the two flanges (flange_b.s - flange_a.s)";
+      SI.Velocity v_rel "Relative velocity between the two flanges (der(flange_b.s) - der(flange_a.s))";
       Modelica.Blocks.Interfaces.RealOutput a_rel(unit="m/s2")
         "Relative acceleration between two flanges (= der(v_rel)) as output signal"
         annotation (Placement(transformation(
@@ -4188,7 +4185,7 @@ Modelica.Blocks library).
                 {100,100}}), graphics={
                                   Line(points={{0,-99},{0,-60}}, color={0,0,127}),
             Text(
-              extent={{20,10},{60,-30}},
+              extent={{-24,20},{66,-40}},
               lineColor={64,64,64},
               textString="m/s2")}));
     end RelAccSensor;
@@ -4216,7 +4213,7 @@ with blocks of the Modelica.Blocks library).
                 {100,100}}), graphics={    Line(points={{-80,-100},
               {-80,0}}, color={0,0,127}),
             Text(
-              extent={{10,20},{70,-40}},
+              extent={{-24,20},{66,-40}},
               lineColor={64,64,64},
               textString="N")}));
     end ForceSensor;
@@ -4244,7 +4241,7 @@ and provides the result as output signal <strong>power</strong>
                 {100,100}}), graphics={    Line(points={{-80,
               -100},{-80,0}}, color={0,0,127}),
             Text(
-              extent={{10,20},{70,-40}},
+              extent={{-24,20},{66,-40}},
               lineColor={64,64,64},
               textString="W")}));
     end PowerSensor;

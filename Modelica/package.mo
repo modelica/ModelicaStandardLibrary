@@ -2021,29 +2021,44 @@ design of sensors apply:
     <a href=\"modelica://Modelica.SIunits\">SIunits</a>, 
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
-<li>For a sensor with a single output signal</li>
+<li>For a sensor with a single output signal the SI unit shall be placed withing the sensor, 
+    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong></li>
     <ul>
-    <li>the SI unit shall be placed withing the sensor, see <strong>Fig.&nbsp;6</strong></li>
-    <li>Text height: 60 units (or 40 units in case of a <a href=\"modelica://Modelica.Icons.TranslationalSensor\">rectangular sensor</a> if required)</li>
-    <li>Text width: 60 units (or 40 units in case of a <a href=\"modelica://Modelica.Icons.TranslationalSensor\">rectangular sensor</a> if required)</li>
+    <li>In a <a href=\"modelica://Modelica.Icons.RotationalSensor\">round sensor</a> the text size shall be</li>
+        <ul>
+        <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
+        <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readibility</li>
+        </ul>
+        
+    <li>In a <a href=\"modelica://Modelica.Icons.TranslationalSensor\">rectangular sensor</a> the text size shall be 
+        <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
     </ul>
-<li>For a sensor with multiple output signals</li>
+<li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal; 
+    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong></li>
     <ul>
-    <li>the SI unit shall be placed next to the output signal; a signal connectors and the SI units may overlap, 
-        see <strong>Fig.&nbsp;7</strong></li>
     <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
     <li>Text width: 40 units (or 30 units, minimum 20 units, if required)</li>
     </ul>
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 6</strong>: (a) Round, (b) rectangular sensor with SI unit of output quantity</caption>
+  <caption align=\"bottom\"><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</caption>
   <tr>
     <td> (a)
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
            alt=\"Icon of connector corner\">
     </td>
     <td> (b)
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round2.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+  </tr>
+</table>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 7</strong>: Rectangular sensor </caption>
+  <tr>
+    <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
            alt=\"Icon of connector corner\">
     </td>
@@ -2051,7 +2066,7 @@ design of sensors apply:
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 7</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
+  <caption align=\"bottom\"><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
