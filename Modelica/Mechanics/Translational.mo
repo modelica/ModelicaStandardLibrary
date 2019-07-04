@@ -4153,8 +4153,8 @@ Modelica.Blocks library).
                                   Line(points={{0,-100},{0,-61}}, color={0,0,
               127}),
             Text(
-              extent={{10,20},{70,-40}},
-              textColor={64,64,64},
+              extent={{20,10},{60,-30}},
+              lineColor={64,64,64},
               textString="m/s")}));
     end RelSpeedSensor;
 
@@ -4188,8 +4188,8 @@ Modelica.Blocks library).
                 {100,100}}), graphics={
                                   Line(points={{0,-99},{0,-60}}, color={0,0,127}),
             Text(
-              extent={{10,20},{70,-40}},
-              textColor={64,64,64},
+              extent={{20,10},{60,-30}},
+              lineColor={64,64,64},
               textString="m/s2")}));
     end RelAccSensor;
 

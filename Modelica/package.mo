@@ -2024,8 +2024,8 @@ design of sensors apply:
 <li>For a sensor with a single output signal</li>
     <ul>
     <li>the SI unit shall be placed withing the sensor, see <strong>Fig.&nbsp;6</strong></li>
-    <li>Text height: 60 units</li>
-    <li>Text width: 60 units</li>
+    <li>Text height: 60 units (or 40 units in case of a <a href=\"modelica://Modelica.Icons.TranslationalSensor\">rectangular sensor</a> if required)</li>
+    <li>Text width: 60 units (or 40 units in case of a <a href=\"modelica://Modelica.Icons.TranslationalSensor\">rectangular sensor</a> if required)</li>
     </ul>
 <li>For a sensor with multiple output signals</li>
     <ul>
