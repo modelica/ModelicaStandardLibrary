@@ -3756,7 +3756,7 @@ Additionally, the frequency of the current source is defined by a real signal in
       parameter Modelica.SIunits.Angle phi[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m) "Phase shift of the source";
       Modelica.SIunits.Frequency f = voltageSource.f "Actual frequency";
       VariableVoltageSource voltageSource(final m=m) annotation (Placement(transformation(extent={{-10,10},{10,-10}})));
-      ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
+      Modelica.Blocks.Sources.LogFrequencySweep logFrequencySweep(
         final wMin=fStart,
         final wMax=fStop,
         final startTime=startTime,
@@ -3953,7 +3953,7 @@ Additionally, the frequency of the current source is defined by a real signal in
       parameter Modelica.SIunits.Angle phi[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m) "Phase shift of the source";
       Modelica.SIunits.Frequency f=currentSource.f   "Actual frequency";
       VariableCurrentSource currentSource(final m=m) annotation (Placement(transformation(extent={{-10,10},{10,-10}})));
-      ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
+      Modelica.Blocks.Sources.LogFrequencySweep logFrequencySweep(
         final wMin=fStart,
         final wMax=fStop,
         final startTime=startTime,
