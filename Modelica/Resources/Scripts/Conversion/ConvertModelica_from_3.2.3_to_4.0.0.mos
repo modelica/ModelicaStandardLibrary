@@ -236,13 +236,13 @@ convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis",
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen")
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort",
-              "Modelica.Thermal.FluidHeatFlow.Interfaces.TwoPort");
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft",
-              "Modelica.Thermal.FluidHeatFlow.Interfaces.SinglePortLeft");
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortBottom",
-              "Modelica.Thermal.FluidHeatFlow.Interfaces.SinglePortBottom");
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortBottom");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction",
-              "Modelica.Thermal.FluidHeatFlow.Interfaces.SimpleFriction");
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SimpleFriction");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient",
               "Modelica.Thermal.FluidHeatFlow.Interfaces.Ambient");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor",

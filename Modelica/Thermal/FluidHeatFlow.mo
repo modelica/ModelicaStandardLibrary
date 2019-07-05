@@ -1696,8 +1696,8 @@ Block generating the sum of two ramps.
     extends Modelica.Icons.Package;
 
     model Pipe "Pipe with optional heat exchange"
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.TwoPort;
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.SimpleFriction;
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort;
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.SimpleFriction;
 
       parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
@@ -1746,7 +1746,7 @@ temperature rise defined by storing heat in medium's mass.
     end Pipe;
 
     model Valve "Simple valve"
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.TwoPort(m(start=0), final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort(m(start=0), final tapT=1);
 
       parameter Boolean LinearCharacteristic(start=true)
         "Type of characteristic"
@@ -1831,7 +1831,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
     end Valve;
 
     model OpenTank "Model of a tank under ambient pressure"
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.SinglePortBottom(final Exchange=true);
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortBottom(final Exchange=true);
 
       parameter Modelica.SIunits.Area ATank(start=1) "Cross section of tank";
       parameter Modelica.SIunits.Length hTank(start=1) "Height of tank";
@@ -1956,7 +1956,7 @@ Via the optional heatPort the medium in the tank can be cooled or heated.
 
     model Cylinder "Simple model of a piston in a cylinder"
       import Modelica.Constants.small;
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.SinglePortLeft(final Exchange=true);
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft(final Exchange=true);
 
       parameter Modelica.SIunits.Area A "Cross section of cylinder/piston";
       parameter Modelica.SIunits.Length L "Length of cylinder";
@@ -2031,7 +2031,7 @@ The position of the flange (as well as of the support, if useSupport=true) is in
     end Cylinder;
 
     model OneWayValve "Simple one-way valve"
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.TwoPort(m(start=0), final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort(m(start=0), final tapT=1);
 
       parameter Modelica.SIunits.VolumeFlowRate V_flowNominal(start=1) "Nominal volume flow rate (forward)";
       parameter Modelica.SIunits.Pressure dpForward(displayUnit="bar")=1e-6 "Pressure drop at nominal flow (forward)";
@@ -2378,7 +2378,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 
     model Ambient "Ambient with constant properties"
 
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.SinglePortLeft(final Exchange=true, final T0=293.15, final T0fixed=false);
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft(final Exchange=true, final T0=293.15, final T0fixed=false);
       parameter Boolean usePressureInput=false
         "Enable / disable pressure input"
         annotation(Evaluate=true, choices(checkBox=true));
@@ -2438,7 +2438,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
     end Ambient;
 
     model AbsolutePressure "Defines absolute pressure level"
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.SinglePortLeft(final Exchange=false, final T0=293.15, final T0fixed=false);
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft(final Exchange=false, final T0=293.15, final T0fixed=false);
       parameter Modelica.SIunits.Pressure p(start=0) "Pressure ground";
     equation
       // defining pressure
@@ -2460,7 +2460,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 
     model VolumeFlow "Enforces constant volume flow"
 
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.TwoPort(final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort(final tapT=1);
       parameter Boolean useVolumeFlowInput=false
         "Enable / disable volume flow input"
         annotation(Evaluate=true, choices(checkBox=true));
@@ -2511,7 +2511,7 @@ leads to neglect of temperature transient cv*m*der(T).
 
     model PressureIncrease "Enforces constant pressure increase"
 
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.TwoPort(final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort(final tapT=1);
       parameter Boolean usePressureIncreaseInput=false
         "Enable / disable pressure increase input"
         annotation(Evaluate=true, choices(checkBox=true));
@@ -2564,7 +2564,7 @@ leads to neglect of temperature transient cv*m*der(T).
 
     model IdealPump "Model of an ideal pump"
 
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.TwoPort(final tapT=1);
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort(final tapT=1);
       parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="rev/min")
         "Nominal speed"
           annotation(Dialog(group="Pump characteristic"));
@@ -2735,6 +2735,105 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
               textString="%name")}));
     end FlowPort_b;
 
+    partial model AbsoluteSensor "Partial model of absolute sensor"
+      extends Modelica.Icons.RotationalSensor;
+      parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
+        "Sensor's medium"
+        annotation(choicesAllMatching=true);
+      Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort(final medium=medium)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Modelica.Blocks.Interfaces.RealOutput y
+        annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+    equation
+      // no mass exchange
+      flowPort.m_flow = 0;
+      // no energy exchange
+      flowPort.H_flow = 0;
+    annotation (Documentation(info="<html>
+<p>Partial model for an absolute sensor (pressure/temperature).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
+</html>"),
+         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(points={{-70,0},{-90,0}}),
+            Line(points={{70,0},{100,0}})}));
+    end AbsoluteSensor;
+
+    partial model RelativeSensor "Partial model of relative sensor"
+      extends Modelica.Icons.RotationalSensor;
+      parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
+        "Sensor's medium"
+        annotation(choicesAllMatching=true);
+      Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort_a(final medium=medium)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b flowPort_b(final medium=medium)
+        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+      Modelica.Blocks.Interfaces.RealOutput y
+        annotation (Placement(transformation(
+            origin={0,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+    equation
+      // no mass exchange
+      flowPort_a.m_flow = 0;
+      flowPort_b.m_flow = 0;
+      // no energy exchange
+      flowPort_a.H_flow = 0;
+      flowPort_b.H_flow = 0;
+    annotation (Documentation(info="<html>
+<p>Partial model for a relative sensor (pressure drop/temperature difference).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
+</html>"),
+         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(points={{-70,0},{-90,0}}),
+            Line(points={{70,0},{90,0}}),
+            Line(points={{0,-100},{0,-70}}),
+            Text(
+              extent={{-150,100},{150,140}},
+              textString="%name",
+              textColor={0,0,255})}));
+    end RelativeSensor;
+
+    partial model FlowSensor "Partial model of flow sensor"
+      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort(final m=0, final T0=293.15, final T0fixed=false, final tapT=1);
+      Modelica.Blocks.Interfaces.RealOutput y
+        annotation (Placement(transformation(
+            origin={0,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+    equation
+      // no pressure drop
+      dp = 0;
+      // no energy exchange
+      Q_flow = 0;
+    annotation (Documentation(info="<html>
+<p>Partial model for a flow sensor (mass flow/heat flow).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.</p>
+</html>"),
+         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(points={{-70,0},{-90,0}}),
+            Line(points={{70,0},{90,0}}),
+            Line(points={{0,-100},{0,-70}}),
+            Text(
+              extent={{-150,100},{150,140}},
+              textString="%name",
+              textColor={0,0,255})}));
+    end FlowSensor;
+  annotation (Documentation(info="<html>
+<p>This package contains connectors and partial models:</p>
+<ul>
+<li>FlowPort: basic definition of the connector.</li>
+<li>FlowPort_a &amp; FlowPort_b: same as FlowPort with different icons to differentiate direction of flow</li>
+</ul>
+
+</html>"));
+  end Interfaces;
+
+  package BaseClasses "Base classes of FluidHeatFlow models"
+    extends Icons.BasesPackage;
     partial model SinglePortLeft "Partial model of a single port at the left"
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium() "Medium"
         annotation(choicesAllMatching=true);
@@ -2773,8 +2872,7 @@ Partial model of single port at the left, defining the medium and the temperatur
               textString="%name")}));
     end SinglePortLeft;
 
-    partial model SinglePortBottom
-      "Partial model of a single port at the bottom"
+    partial model SinglePortBottom "Partial model of a single port at the bottom"
       parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=Modelica.Thermal.FluidHeatFlow.Media.Medium() "Medium"
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Temperature T0(start=293.15, displayUnit="degC")
@@ -2961,104 +3059,10 @@ See also sketch at diagram layer.
               textColor={0,0,255},
               textString="dp ~ V_flow^2")}));
     end SimpleFriction;
-
-    partial model AbsoluteSensor "Partial model of absolute sensor"
-      extends Modelica.Icons.RotationalSensor;
-      parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
-        "Sensor's medium"
-        annotation(choicesAllMatching=true);
-      Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort(final medium=medium)
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Blocks.Interfaces.RealOutput y
-        annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-    equation
-      // no mass exchange
-      flowPort.m_flow = 0;
-      // no energy exchange
-      flowPort.H_flow = 0;
     annotation (Documentation(info="<html>
-<p>Partial model for an absolute sensor (pressure/temperature).</p>
-<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Line(points={{-70,0},{-90,0}}, color={255,0,0}),
-              Line(points={{70,0},{100,0}}, color={0,0,127}),
-              Text(
-                extent={{-150,90},{150,130}},
-                textString="%name",
-                textColor={0,0,255})}));
-      end AbsoluteSensor;
-
-    partial model RelativeSensor "Partial model of relative sensor"
-      extends Modelica.Icons.RotationalSensor;
-      parameter Modelica.Thermal.FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
-        "Sensor's medium"
-        annotation(choicesAllMatching=true);
-      Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a flowPort_a(final medium=medium)
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b flowPort_b(final medium=medium)
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Blocks.Interfaces.RealOutput y
-        annotation (Placement(transformation(
-            origin={0,-110},
-            extent={{10,-10},{-10,10}},
-            rotation=90)));
-    equation
-      // no mass exchange
-      flowPort_a.m_flow = 0;
-      flowPort_b.m_flow = 0;
-      // no energy exchange
-      flowPort_a.H_flow = 0;
-      flowPort_b.H_flow = 0;
-    annotation (Documentation(info="<html>
-<p>Partial model for a relative sensor (pressure drop/temperature difference).</p>
-<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Line(points={{-70,0},{-90,0}}, color={255,0,0}),
-              Line(points={{70,0},{90,0}}, color={255,0,0}),
-              Line(points={{0,-100},{0,-70}}, color={0,0,127}),
-              Text(
-                extent={{-150,90},{150,130}},
-                textString="%name",
-                textColor={0,0,255})}));
-      end RelativeSensor;
-
-    partial model FlowSensor "Partial model of flow sensor"
-      extends Modelica.Icons.RotationalSensor;
-      extends Modelica.Thermal.FluidHeatFlow.Interfaces.TwoPort(final m=0, final T0=293.15, final T0fixed=false, final tapT=1);
-      Modelica.Blocks.Interfaces.RealOutput y
-        annotation (Placement(transformation(
-            origin={0,-110},
-            extent={{10,-10},{-10,10}},
-            rotation=90)));
-    equation
-      // no pressure drop
-      dp = 0;
-      // no energy exchange
-      Q_flow = 0;
-    annotation (Documentation(info="<html>
-<p>Partial model for a flow sensor (mass flow/heat flow).</p>
-<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.</p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Line(points={{-70,0},{-90,0}}, color={255,0,0}),
-              Line(points={{70,0},{90,0}}, color={255,0,0}),
-              Line(points={{0,-100},{0,-70}}, color={0,0,127}),
-              Text(
-                extent={{-150,90},{150,130}},
-                textString="%name",
-                textColor={0,0,255})}));
-      end FlowSensor;
-  annotation (Documentation(info="<html>
-<p>This package contains connectors and partial models:</p>
-<ul>
-<li>FlowPort: basic definition of the connector.</li>
-<li>FlowPort_a &amp; FlowPort_b: same as FlowPort with different icons to differentiate direction of flow</li>
-</ul>
-
+<p>This package contains partial models based on interface models and physical equations.</p>
 </html>"));
-  end Interfaces;
+  end BaseClasses;
   annotation (
     Documentation(info="<html>
 <p>This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g., of electric machines:</p>
