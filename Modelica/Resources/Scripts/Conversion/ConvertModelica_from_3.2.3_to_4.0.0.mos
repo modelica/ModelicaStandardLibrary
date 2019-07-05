@@ -61,12 +61,6 @@ convertClass("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachin
               "Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines");
 convertClass("Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer",
               "Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer");
-convertClass("Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe",
-              "Modelica.Thermal.FluidHeatFlow.Components.Pipe");
-convertClass("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",
-              "Modelica.Thermal.FluidHeatFlow.Components.Pipe");
-convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient",
-              "Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft");
 convertClass("Modelica.Blocks.Sources.Clock",
               "Modelica.Blocks.Sources.ContinuousClock")
 convertClass("Modelica.Electrical.Digital.Sources.Clock",
@@ -235,6 +229,12 @@ convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen")
+convertClass("Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe",
+              "Modelica.Thermal.FluidHeatFlow.Components.Pipe");
+convertClass("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",
+              "Modelica.Thermal.FluidHeatFlow.Components.Pipe");
+convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient",
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort",
               "Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft",
@@ -243,8 +243,6 @@ convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortBotto
               "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortBottom");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction",
               "Modelica.Thermal.FluidHeatFlow.BaseClasses.SimpleFriction");
-convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient",
-              "Modelica.Thermal.FluidHeatFlow.Interfaces.Ambient");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor",
               "Modelica.Thermal.FluidHeatFlow.Interfaces.AbsoluteSensor");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor",
