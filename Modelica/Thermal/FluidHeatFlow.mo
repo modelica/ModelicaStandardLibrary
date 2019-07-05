@@ -40,7 +40,8 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
   <h5>4.0.0, 2020-XX-XX</h5>
   <ul>
   <li>Move models of package Interfaces.Partials to 
-      <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Interfaces</a>, see
+      <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Interfaces</a> and
+      <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.BaseClasses\">BaseClasses</a>, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a></li>
   </ul>
 
@@ -1720,7 +1721,7 @@ Block generating the sum of two ramps.
     annotation (Documentation(info="<html>
 <p>Pipe with optional heat exchange.</p>
 <p>
-Thermodynamic equations are defined by Interfaces.TwoPort.
+Thermodynamic equations are defined by BaseClasses.TwoPort.
 Q_flow is defined by heatPort.Q_flow (useHeatPort=true) or zero (useHeatPort=false).</p>
 <p>
 <strong>Note:</strong> Setting parameter m (mass of medium within pipe) to zero
@@ -2080,7 +2081,7 @@ The position of the flange (as well as of the support, if useSupport=true) is in
 <p>This package contains components.</p>
 <p>
 Pressure drop is taken from partial model SimpleFriction.
-Thermodynamic equations are defined in partial models (package Interfaces).
+Thermodynamic equations are defined in partial models (package BaseClasses).
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
@@ -2367,7 +2368,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 
 <p>Some of the sensors do not need access to medium properties for measuring,
 but it is necessary to define the medium in the connector (check of connections).
-Thermodynamic equations are defined in partial models (package Interfaces).
+Thermodynamic equations are defined in partial models (package BaseClasses).
 All sensors are considered massless, they do not change mass flow or enthalpy flow.</p>
 
 </html>"));
@@ -2424,7 +2425,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
       T = TAmbient;
     annotation (Documentation(info="<html>
 <p>(Infinite) ambient with constant pressure and temperature.</p>
-<p>Thermodynamic equations are defined by Interfaces.SinglePortLeft.</p>
+<p>Thermodynamic equations are defined by BaseClasses.SinglePortLeft.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
               extent={{-90,90},{90,-90}},
@@ -2488,7 +2489,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglect of temperature transient cv*m*der(T).
 </p>
-<p>Thermodynamic equations are defined by Interfaces.TwoPort.</p>
+<p>Thermodynamic equations are defined by BaseClasses.TwoPort.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
@@ -2540,7 +2541,7 @@ leads to neglect of temperature transient cv*m*der(T).
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglect of temperature transient cv*m*der(T).
 </p>
-<p>Thermodynamic equations are defined by Interfaces.TwoPort.</p>
+<p>Thermodynamic equations are defined by BaseClasses.TwoPort.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
@@ -2610,7 +2611,7 @@ The axis intersections vary with speed as follows:
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
-Thermodynamic equations are defined by Interfaces.TwoPort.
+Thermodynamic equations are defined by BaseClasses.TwoPort.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -2644,7 +2645,7 @@ This package contains different types of sources:
 <li>Simple pump with mechanical flange</li>
 </ul>
 <p>
-Thermodynamic equations are defined in partial models (package Interfaces).
+Thermodynamic equations are defined in partial models (package BaseClasses).
 All fans / pumps are considered without losses, they do not change enthalpy flow.
 </p>
 </html>"));
