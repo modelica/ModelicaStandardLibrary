@@ -1188,9 +1188,6 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     // number of intervals: 2500, stop time: 0.003
     parameter SI.Time Ts=0.0000012 "Sampling time";
 
-    // constant expressions
-    constant Real Pi=3.141592654 "Obsolete constant pi; will be removed in future release";
-
     // power supply
     final parameter SI.Voltage vcp_abs=abs(vcp)
       "Positive correction value for limiting by p_supply";

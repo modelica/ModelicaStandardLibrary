@@ -107,6 +107,8 @@ convertClass("Modelica.Icons.MotorIcon",
               "Modelica.Electrical.Machines.Icons.Drive")
 convertClass("Modelica.Mechanics.MultiBody.Icons.MotorIcon",
               "Modelica.Electrical.Machines.Icons.Drive")
+convertClass("Modelica.Electrical.Analog.Basic.OpAmpDetailed.Pi",
+              "Modelica.Constants.pi")
 convertClass("Modelica.Icons.Info",
               "Modelica.Icons.Information")
 convertClass("Modelica.Mechanics.MultiBody.Sensors.TansformAbsoluteVector",

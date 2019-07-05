@@ -314,6 +314,16 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2899;
+
+      model Issue3024 "Conversion test for #3024"
+        extends Modelica.Icons.Example;
+        import pi = Modelica.Electrical.Analog.Basic.OpAmpDetailed.Pi;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3024\">#3024</a>.
+</p>
+</html>"));
+      end Issue3024;
     end Analog;
 
     package Digital
