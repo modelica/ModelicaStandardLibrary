@@ -11799,15 +11799,15 @@ The induction machine models use package SpacePhasors.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
-              Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
-                  textColor={0,0,255},
-                  extent={{-40,-60},{40,-20}},
-                  textString="V RMS"),
+              Line(points={{0,-70},{0,-100}}, color={0,0,127}),
                                   Text(
                     extent={{-150,120},{150,80}},
                     textString="%name",
-                    textColor={0,0,255})}),
-                                         Documentation(info="<html>
+                    textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textString="V",
+              textColor={64,64,64})}),   Documentation(info="<html>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
 </html>"));
@@ -11861,15 +11861,15 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
-              Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
-                  textColor={0,0,255},
-                  extent={{-40,-60},{40,-20}},
-                  textString="A RMS"),
+              Line(points={{0,-70},{0,-100}}, color={0,0,127}),
                                   Text(
                     extent={{-150,120},{150,80}},
                     textString="%name",
-                    textColor={0,0,255})}),
-                                         Documentation(info="<html>
+                    textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}),         Documentation(info="<html>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
 </html>"));
@@ -11911,10 +11911,15 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
               Line(points={{0,-70},{0,-90}}, color={0,0,255}),Line(points={{-10,
               70},{-10,80},{-50,80},{-50,100}}, color={0,0,127}),Line(points={{
-              10,70},{10,80},{50,80},{50,100}}, color={0,0,127}),Text(
-                  textColor={0,0,255},
-                  extent={{-40,-60},{40,-20}},
-                  textString="P Q")}), Documentation(info="<html>
+              10,70},{10,80},{50,80},{50,100}}, color={0,0,127}),
+            Text(
+              extent={{-70,100},{-30,60}},
+              textColor={64,64,64},
+              textString="W"),
+            Text(
+              extent={{30,100},{70,60}},
+              textColor={64,64,64},
+              textString="var")}),     Documentation(info="<html>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors,<br>
 which are used to calculate power quantities:
 <ul>
@@ -11980,10 +11985,11 @@ which are used to calculate power quantities:
               points={{-10,-100},{-20,-120}}),Line(visible=not useSupport,
               points={{0,-100},{-10,-120}}),Line(visible=not useSupport, points=
                {{10,-100},{0,-120}}),Line(visible=not useSupport, points={{20,-100},
-              {10,-120}}),Text(
-                  textColor={0,0,255},
-                  extent={{-40,-60},{40,-20}},
-                  textString="Pmech")}), Documentation(info="<html>
+              {10,-120}}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="W")}),         Documentation(info="<html>
 Calculates (mechanical) power from torque times angular speed.
 </html>"));
     end MechanicalPowerSensor;
@@ -12108,7 +12114,11 @@ Calculates (mechanical) power from torque times angular speed.
                   visible=not useSupport,
                   points={{110,120},{100,100}}),Line(
                   visible=not useSupport,
-                  points={{120,120},{110,100}})}),
+                  points={{120,120},{110,100}}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="rad")}),
         Documentation(info="<html>
 Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system,<br>
 rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
@@ -12137,37 +12147,41 @@ Otherwise, the sensor's support has to be connected to the machine's support.
       y=rem((flange.phi - phi_support - phi0)*p, 2*pi);
        annotation (
         Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-            Text(
-              extent={{-100,-60},{100,-80}},
-              textColor={28,108,200},
-              textString="p=%p"),
-            Ellipse(extent={{-60,60},{60,-60}}, lineColor={28,108,200},
+            Ellipse(extent={{-70,70},{70,-70}}, lineColor={95,95,95},
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
-            Line(points={{0,0},{0,60}},  color={28,108,200}),
-            Line(points={{0,-30},{0,30}},color={28,108,200},
+            Line(points={{0,0},{0,70}},  color={95,95,95}),
+            Line(points={{0,-70},{0,0}}, color={95,95,95}),
+            Line(points={{-70,0},{-100,0}}, color={95,95,95}),
+            Line(points={{100,0},{70,0}}, color={95,95,95}),
+            Text(
+              extent={{-150,120},{150,80}},
+              textColor={0,0,255},
+              fillColor={255,255,255},
+              textString="%name"),
+            Line(points={{0,-30},{-0.545517,38.9449}},
+                                         color={95,95,95},
               origin={-26,15},
               rotation=60),
-            Line(points={{0,-30},{0,30}},color={28,108,200},
+            Line(points={{0,-30},{-0.545517,38.9449}},
+                                         color={95,95,95},
+              origin={34,-19},
+              rotation=60),
+            Line(points={{0,-30},{0.545517,38.9449}},
+                                         color={95,95,95},
               origin={26,15},
               rotation=-60),
-            Line(points={{0,-60},{0,0}}, color={28,108,200}),
-            Line(points={{0,-30},{0,30}},color={28,108,200},
-              origin={26,-15},
-              rotation=60),
-            Line(points={{0,-30},{0,30}},color={28,108,200},
-              origin={-26,-15},
+            Line(points={{0,-30},{0.545517,38.9449}},
+                                         color={95,95,95},
+              origin={-34,-19},
               rotation=-60),
-            Ellipse(extent={{-20,20},{20,-20}}, lineColor={28,108,200},
+            Ellipse(extent={{-20,20},{20,-20}}, lineColor={95,95,95},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-60,0},{-100,0}}, color={28,108,200}),
-            Line(points={{100,0},{60,0}}, color={28,108,200}),
             Text(
-              extent={{-100,100},{100,60}},
-              textColor={28,108,200},
-              fillColor={255,255,255},
-              textString="%name")}),
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="rad")}),
         Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>

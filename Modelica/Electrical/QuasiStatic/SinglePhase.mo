@@ -1971,10 +1971,7 @@ Quasi-static theory for single phase circuits can be found in the
           Placement(transformation(extent={{100,-10},{120,10}})));
     equation
       y = pin.reference.gamma;
-      annotation (
-        Icon(graphics={Text(
-              extent={{60,-60},{-60,-30}},
-              textString="ref")}), Documentation(info="<html>
+      annotation (Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the reference angle.
@@ -1991,7 +1988,11 @@ This sensor can be used to measure the reference angle.
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="rad")}));
     end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"
@@ -2001,10 +2002,7 @@ This sensor can be used to measure the reference angle.
               extent={{100,-10},{120,10}})));
     equation
       2*pi*y = omega;
-      annotation (
-        Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
-              textString="f")}), Documentation(info="<html>
+      annotation (Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the frequency of the reference system.
@@ -2021,7 +2019,11 @@ This sensor can be used to measure the frequency of the reference system.
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Hz")}));
     end FrequencySensor;
 
     model PotentialSensor "Potential sensor"
@@ -2032,10 +2034,7 @@ This sensor can be used to measure the frequency of the reference system.
       Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex potential";
     equation
       y = pin.v;
-      annotation (
-        Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
-              textString="V")}), Documentation(info="<html>
+      annotation (Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the complex potential.
@@ -2053,7 +2052,11 @@ This sensor can be used to measure the complex potential.
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="V")}));
     end PotentialSensor;
 
     model VoltageSensor "Voltage sensor"
@@ -2063,10 +2066,7 @@ This sensor can be used to measure the complex potential.
     equation
       i = Complex(0);
       y = v;
-      annotation (
-        Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
-              textString="V")}), Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex voltage.
 </p>
@@ -2082,7 +2082,11 @@ This sensor can be used to measure the complex voltage.
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="V")}));
     end VoltageSensor;
 
     model CurrentSensor "Current sensor"
@@ -2092,10 +2096,7 @@ This sensor can be used to measure the complex voltage.
     equation
       v = Complex(0);
       y = i;
-      annotation (
-        Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
-              textString="I")}), Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex current.
 </p>
@@ -2111,7 +2112,11 @@ This sensor can be used to measure the complex current.
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor\">MultiSensor</a>
 </p>
 
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}));
     end CurrentSensor;
 
     model PowerSensor "Power sensor"
@@ -2157,14 +2162,16 @@ This sensor can be used to measure the complex current.
         Icon(graphics={
             Line(points={{0,100},{0,70}}, color={85,170,255}),
             Line(points={{0,-70},{0,-100}}, color={85,170,255}),
-            Text(extent={{-29,-70},{30,-11}}, textString="P"),
             Line(points={{-100,0},{100,0}}, color={85,170,255}),
             Text(
               extent={{-150,110},{150,150}},
               textString="%name",
               textColor={0,0,255}),
-          Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127})}),
-                                                                Documentation(
+          Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="V.A")}),Documentation(
             info="<html>
 
 <p>
@@ -2266,14 +2273,17 @@ This sensor can be used to measure the complex apparent power.
           Line(points={{60,-100},{60,-80},{42,-56}},
                                                   color={85,170,255}),
           Text(
-            extent={{-100,-40},{-60,-80}},
-            textString="s"),
+            extent={{-100,-20},{-60,-60}},
+              textColor={64,64,64},
+              textString="V.A"),
           Text(
             extent={{-80,-60},{-40,-100}},
-            textString="i"),
+              textString="A",
+              textColor={64,64,64}),
           Text(
             extent={{40,-60},{80,-100}},
-            textString="v")}),
+              textString="V",
+              textColor={64,64,64})}),
       Documentation(info="<html>
 <p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.
 The pins of the voltage path are pv and nv, the pins of the current path are pc and nc.

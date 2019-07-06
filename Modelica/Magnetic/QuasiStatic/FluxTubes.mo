@@ -3,7 +3,7 @@ package FluxTubes "Library for modelling of quasi static electromagnetic devices
 
   import SI = Modelica.SIunits;
   import Modelica.Constants.pi;
-  import mu_0 = Modelica.Constants.mu_0;
+  import        Modelica.Constants.mu_0;
 
   extends Modelica.Icons.Package;
 
@@ -2121,7 +2121,7 @@ of the angular frequency.
               fillPattern=FillPattern.Solid,
               textString="%name"),
             Line(
-              points={{0,-70},{0,-100}})}),
+              points={{0,-70},{0,-100}}, color={85,170,255})}),
           Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
@@ -2375,15 +2375,17 @@ This package contains sources of a magnetic potential difference or a magnetic f
           Placement(transformation(extent={{100,-10},{120,10}})));
     equation
       y = port.reference.gamma;
-      annotation (Icon(graphics={Text(
-              extent={{60,-60},{-60,-30}},
-              fillPattern=FillPattern.Solid,
-              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=false)),
+      annotation (                 Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>This sensor determines the reference angle of the connected quasi static magnetic system.
 The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.
 </p>
-</html>"));
+</html>"),
+        Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="rad"), Line(points={{70,0},{100,0}}, color={0,0,127})}));
     end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"
@@ -2393,14 +2395,16 @@ The integral of the angular frequency of the quasi static magnetic system is equ
               extent={{100,-10},{120,10}})));
     equation
       2*pi*y = omega;
-      annotation (Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
-              textString="f")}), Documentation(info="<html>
+      annotation (               Documentation(info="<html>
 <p>
 This sensor can be used to measure the frequency of the reference system.
 The integral of the angular frequency of the quasi static magnetic system is equal to the reference angle.
 </p>
-</html>"));
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Hz")}));
     end FrequencySensor;
 
     model MagneticPotentialSensor "Potential sensor"
@@ -2414,7 +2418,12 @@ The integral of the angular frequency of the quasi static magnetic system is equ
 <p>
 This sensor can be used to measure the complex magnetic potential <code>V_m</code> in a quasi static magnetic system.
 </p>
-</html>"));
+</html>"),
+        Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A"), Line(points={{70,0},{100,0}}, color={85,170,255})}));
     end MagneticPotentialSensor;
 
     model MagneticPotentialDifferenceSensor
@@ -2430,12 +2439,9 @@ This sensor can be used to measure the complex magnetic potential <code>V_m</cod
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
             Text(
-              extent={{-52,1},{48,-57}},
-              textString="V_m"),
-            Line(points={{-70,0},{-90,0}}, color={255,170,85}),
-            Line(points={{70,0},{90,0}}, color={255,170,85}),
-            Line(points={{0,-90},{0,-70}})}),
-                                      Diagram(coordinateSystem(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}),      Diagram(coordinateSystem(
             preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
@@ -2454,9 +2460,11 @@ in a quasi static magnetic system.
 
       annotation (defaultComponentName="magFluxSensor",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}),Line(
-              points={{70,0},{90,0}}),Text(extent={{-29,-11},{30,
-              -70}}, textString="Phi"),Line(points={{0,-90},{0,-70}})}),
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Wb")}),
         Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
@@ -2579,8 +2587,14 @@ This sensor can be used to measure the complex magnetic flux <code>Phi</code> of
             color={0,0,127}));
         annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false), graphics={
-                                        Text(extent={{-29,-11},{30,-70}},
-                textString="μ")}), Diagram(
+              Text(
+                extent={{-60,-60},{-20,-100}},
+                textColor={64,64,64},
+                textString="H/m"),
+              Line(points={{-90,0},{90,0}}, color={255,128,0}),
+              Line(points={{0,90},{0,70}}, color={255,128,0}),
+              Line(points={{0,-70},{0,-90}}, color={255,128,0})}),
+                                    Diagram(
               coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>

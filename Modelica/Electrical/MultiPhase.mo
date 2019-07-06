@@ -2921,7 +2921,11 @@ This function determines the indices of non-positive sequence of the symmetrical
             Text(
               extent={{-150,80},{150,120}},
                   textString="%name",
-                  textColor={0,0,255})}), Documentation(info="<html>
+                  textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textString="V",
+              textColor={64,64,64})}),    Documentation(info="<html>
 <p>
 Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor),
 thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
@@ -2952,9 +2956,7 @@ thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
       connect(voltageSensor.v, v) annotation (Line(
           points={{0,-11},{0,-110}}, color={0,0,127}));
       annotation (
-        Icon(graphics={Text(
-                  extent={{-29,-11},{30,-70}},
-                  textString="V"), Line(points={{-70,0},{-90,0}}),
+        Icon(graphics={Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),
             Text(
@@ -2963,7 +2965,11 @@ thus measuring the m potentials <em>phi[m]</em> of the m pins of plug_p.
             Text(
               extent={{-150,80},{150,120}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textString="V",
+              textColor={64,64,64})}),Documentation(info="<html>
 <p>
 Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
 thus measuring the m potential differences <em>v[m]</em> between the m pins of plug_p and plug_n.
@@ -3009,7 +3015,11 @@ thus measuring the m potential differences <em>v[m]</em> between the m pins of p
             Text(
               extent={{-150,80},{150,120}},
                   textString="%name",
-              textColor={0,0,255})}), Documentation(revisions="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textString="V",
+              textColor={64,64,64})}),Documentation(revisions="<html>
 </html>", info="<html>
 <p>
 This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representing an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
@@ -3043,9 +3053,8 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       connect(currentSensor.i, i) annotation (Line(
           points={{0,-11},{0,-110}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-29,-11},{30,-70}},
-                  textString="A"), Line(points={{-70,0},{-90,0}}),
+                -100},{100,100}}), graphics={
+                                   Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),
             Text(
@@ -3054,7 +3063,11 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
             Text(
               extent={{-150,80},{150,120}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}),      Documentation(info="<html>
 <p>
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
 thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to the m pins of plug_n.
@@ -3102,7 +3115,11 @@ thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to
             Text(
               extent={{-150,80},{150,120}},
                   textString="%name",
-              textColor={0,0,255})}),
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}),
           Documentation(revisions="<html>
 </html>", info="<html>
 <p>
@@ -3175,7 +3192,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
         Icon(graphics={Line(points={{0,100},{0,70}}, color={0,0,255}),
               Line(points={{0,-70},{0,-100}}, color={0,0,255}),
                                  Ellipse(fillPattern=FillPattern.Solid, extent=
-              {{-5,-5},{5,5}}),Text(extent={{-29,-70},{30,-11}}, textString="P"),
+              {{-5,-5},{5,5}}),
               Line(points={{-100,0},{100,0}}, color={0,0,255}),
             Text(
               extent={{-150,110},{150,150}},
@@ -3184,8 +3201,11 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
             Text(
               extent={{150,-90},{-150,-70}},
               textString="m=%m"),
-          Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127})}),
-                                                                  Documentation(
+          Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="W")}), Documentation(
             info="<html><p>
 This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
 </p></html>"));
@@ -3249,13 +3269,16 @@ This power sensor measures instantaneous electrical power of a multiphase system
                                                   color={28,108,200}),
           Text(
             extent={{-100,-40},{-60,-80}},
-            textString="p"),
+              textColor={64,64,64},
+              textString="W"),
           Text(
             extent={{-80,-60},{-40,-100}},
-            textString="i"),
+              textColor={64,64,64},
+              textString="A"),
           Text(
             extent={{40,-60},{80,-100}},
-            textString="v"),
+              textColor={64,64,64},
+              textString="V"),
           Line(points={{100,-60},{80,-60},{56,-42}}, color={28,108,200}),
           Text(
             extent={{-150,110},{150,150}},
@@ -3272,7 +3295,7 @@ The internal resistance of each current path is zero, the internal resistance of
 </html>"));
   end MultiSensor;
 
-    model AronSensor "threephase Aron sensor for active power"
+    model AronSensor "Threephase Aron sensor for active power"
       import Modelica;
       extends Modelica.Icons.RotationalSensor;
       final parameter Integer m(final min=1) = 3 "Number of phases";
@@ -3327,9 +3350,8 @@ The internal resistance of each current path is zero, the internal resistance of
       connect(powerSensor3.power, add.u1) annotation (Line(points={{20,-29},{20,-20},
               {6,-20},{6,-58}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-29,-11},{30,-70}},
-              textString="W"),  Line(points={{-70,0},{-90,0}}),
+                -100},{100,100}}), graphics={
+                                Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),
             Text(
@@ -3338,12 +3360,18 @@ The internal resistance of each current path is zero, the internal resistance of
             Text(
               extent={{-150,80},{150,120}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="W")}),      Documentation(info="<html>
 <p>
-Contains 2 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total active power in a threephase system.
+Contains two 
+<a href=\"modelica://Modelica.Electrical.Analog.Sensors.PowerSensor\">power meters</a>
+to measure total active power in a three-phase system.
 </p>
 <p>
-This device works only for sinusoidal voltages and currents in threephase systems without neutral.
+This device works only for sinusoidal voltages and currents in three-phase systems without neutral.
 </p>
 <p>
 Elmar Schr&uuml;fer, Leonhard Reindl, Bernhard Zagar: Elektrische Messtechnik. Carl Hanser Verlag.<br>
@@ -3420,9 +3448,8 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
       connect(powerSensor3.power, add.u3) annotation (Line(points={{30,-41},{30,
               -60},{8,-60},{8,-68}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-29,-11},{30,-70}},
-              textString="var"),   Line(points={{-70,0},{-90,0}}),
+                -100},{100,100}}), graphics={
+                                   Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-100},
               {0,-70}}, color={0,0,127}),
             Text(
@@ -3431,7 +3458,11 @@ Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
             Text(
               extent={{-150,80},{150,120}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="var")}),    Documentation(info="<html>
 <p>
 Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a threephase system.
 </p>

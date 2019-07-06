@@ -2028,7 +2028,7 @@ and <code>inertiaOut.w</code> to each other.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-84,-58},{24,-90}},
-                      textColor={135,135,135},
+                      lineColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{8,96},{92,66}},
                       horizontalAlignment=TextAlignment.Right,
@@ -2100,7 +2100,7 @@ on the other side of it.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{0,-62},{96,-94}},
-                      textColor={135,135,135},
+                      lineColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
@@ -2192,7 +2192,7 @@ the output torque <code>tau</code> is returned.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                 extent={{-48,-36},{48,-68}},
-                textColor={128,128,128},
+                lineColor={128,128,128},
                 textString="to FMU"),      Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
@@ -2271,7 +2271,7 @@ exchange.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                 extent={{-48,-36},{48,-68}},
-                textColor={128,128,128},
+                lineColor={128,128,128},
                 textString="to FMU"),      Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
@@ -2354,7 +2354,7 @@ desired for a force element.
             extent={{-150,-144},{150,-104}},
             textString="d=%d"),
           Text(extent={{-190,110},{190,70}},
-            textColor={0,0,255},
+            lineColor={0,0,255},
             textString="%name"),
           Text(
             origin={0,-7},
@@ -2387,7 +2387,7 @@ desired for a force element.
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-44,79},{29,91}},
-                textColor={0,0,255},
+                lineColor={0,0,255},
                 textString="s_rel"),
               Rectangle(
                 extent={{-50,-20},{40,-80}},
@@ -2434,7 +2434,7 @@ simulate them according to the provided description in the models.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-150,-90},{150,-130}},
-              textColor={0,0,255},
+              lineColor={0,0,255},
               textString="%name"),
             Line(points={{-80,-40},{80,-40}}),
             Line(points={{80,-40},{40,-80}}),
@@ -2518,7 +2518,7 @@ Rotational component with <strong>inertia</strong> and two rigidly connected fla
           fillPattern=FillPattern.HorizontalCylinder,
           extent={{-50.0,-50.0},{50.0,50.0}},
           radius=10.0),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150.0,60.0},{150.0,100.0}},
           textString="%name"),
         Text(extent={{-150.0,-120.0},{150.0,-80.0}},
@@ -2570,7 +2570,7 @@ flange.
               extent={{-10.0,-50.0},{10.0,50.0}}),
             Text(extent={{-160.0,-87.0},{160.0,-62.0}},
               textString="deltaPhi = %deltaPhi"),
-            Text(textColor={0,0,255},
+            Text(lineColor={0,0,255},
               extent={{-150.0,60.0},{150.0,100.0}},
               textString="%name")}));
     end Disc;
@@ -2598,7 +2598,7 @@ a coupling of the element with the housing via a spring.
           graphics={
         Text(extent={{-150,80},{150,40}},
           textString="%name",
-          textColor={0,0,255}),
+          lineColor={0,0,255}),
         Text(extent={{-150,-40},{150,-80}},
           textString="c=%c"),
         Line(points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,0}})}),
@@ -2615,7 +2615,7 @@ a coupling of the element with the housing via a spring.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-22,62},{18,87}},
-              textColor={0,0,255},
+              lineColor={0,0,255},
               textString="phi_rel"),
             Line(points={{-96,0},{-60,0},{-42,-32},{-12,30},{18,-30},{48,28},{
                   62,0},{96,0}}, color={0,0,255})}));
@@ -2657,7 +2657,7 @@ in the User's Guide of the Rotational library.
         Line(points={{30,0},{90,0}}),
         Text(extent={{-150,80},{150,40}},
           textString="%name",
-          textColor={0,0,255}),
+          lineColor={0,0,255}),
         Text(extent={{-150,-50},{150,-90}},
           textString="d=%d"),
         Line(visible=useHeatPort,
@@ -2679,7 +2679,7 @@ in the User's Guide of the Rotational library.
             Line(points={{-68,0},{-68,65}}, color={128,128,128}),
             Text(
               extent={{-40,66},{33,85}},
-              textColor={0,0,255},
+              lineColor={0,0,255},
               textString="phi_rel"),
             Line(points={{-68,60},{72,60}}, color={128,128,128}),
             Line(points={{72,0},{72,65}}, color={128,128,128}),
@@ -2744,7 +2744,7 @@ in the User's Guide of the Rotational library.
           extent={{-150,-144},{150,-104}},
           textString="d=%d"),
         Text(extent={{-190,110},{190,70}},
-          textColor={0,0,255},
+          lineColor={0,0,255},
           textString="%name"),
         Text(
           origin={0,-7},
@@ -2771,7 +2771,7 @@ in the User's Guide of the Rotational library.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-44,79},{29,91}},
-              textColor={0,0,255},
+              lineColor={0,0,255},
               textString="phi_rel"),
             Rectangle(
               extent={{-50,-20},{40,-80}},
@@ -3005,7 +3005,7 @@ in the User's Guide of the Rotational library.
         Text(extent={{-150,-130},{150,-90}},
           textString="b=%b"),
         Text(extent={{-150,100},{150,60}},
-          textColor={0,0,255},
+          lineColor={0,0,255},
           textString="%name"),
         Text(extent={{-152,-92},{148,-52}},
           textString="c=%c"),
@@ -3030,7 +3030,7 @@ in the User's Guide of the Rotational library.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-34,77},{40,90}},
-              textColor={128,128,128},
+              lineColor={128,128,128},
               textString="phi_rel"),
             Rectangle(
               extent={{-60,-20},{-10,-80}},
@@ -3074,7 +3074,7 @@ in the User's Guide of the Rotational library.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{39,60},{68,46}},
-              textColor={160,160,164},
+              lineColor={160,160,164},
               textString="b")}));
     end ElastoBacklash;
 
@@ -3292,7 +3292,7 @@ in the User's Guide of the Rotational library.
         Text(extent={{-150,-130},{150,-90}},
           textString="b=%b"),
         Text(extent={{-150,100},{150,60}},
-          textColor={0,0,255},
+          lineColor={0,0,255},
           textString="%name"),
         Text(extent={{-152,-92},{148,-52}},
           textString="c=%c"),
@@ -3302,7 +3302,7 @@ in the User's Guide of the Rotational library.
           pattern=LinePattern.Dot),
             Text(
               extent={{20,48},{80,10}},
-              textColor={95,95,95},
+              lineColor={95,95,95},
               textString="2")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3321,7 +3321,7 @@ in the User's Guide of the Rotational library.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-34,77},{40,90}},
-              textColor={128,128,128},
+              lineColor={128,128,128},
               textString="phi_rel"),
             Rectangle(
               extent={{-60,-20},{-10,-80}},
@@ -3365,7 +3365,7 @@ in the User's Guide of the Rotational library.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{39,60},{68,46}},
-              textColor={160,160,164},
+              lineColor={160,160,164},
               textString="b")}));
     end ElastoBacklash2;
 
@@ -3538,7 +3538,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
           fillPattern=FillPattern.Solid,
           points={{60.0,60.0},{60.0,70.0},{75.0,70.0},{75.0,80.0},{-75.0,80.0},{-75.0,70.0},{-60.0,70.0},{-60.0,60.0},{60.0,60.0}}),
         Line(points={{75.0,70.0},{75.0,10.0}}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150.0,90.0},{150.0,130.0}},
           textString="%name"),
         Line(points={{0.0,-80.0},{0.0,-100.0}}),
@@ -3652,7 +3652,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
             color={0,0,127}),
           Line(  points={{0.0,90.0},{-80.0,70.0},{-80.0,-40.0},{-70.0,-40.0}},
             color={0,0,127}),
-          Text(  textColor={0,0,255},
+          Text(  lineColor={0,0,255},
             extent={{-150.0,-180.0},{150.0,-140.0}},
             textString="%name"),
           Line(visible=useHeatPort,
@@ -3811,7 +3811,7 @@ in the User's Guide of the Rotational library.
             graphics={
           Text(extent={{-150,-110},{150,-70}},
             textString="%name",
-            textColor={0,0,255}),
+            lineColor={0,0,255}),
           Line(visible=useHeatPort,
             points={{-100,-100},{-100,-40},{0,-40}},
             color={191,0,0},
@@ -3995,7 +3995,7 @@ in the User's Guide of the Rotational library.
               graphics={
             Text(extent={{-150,-110},{150,-70}},
               textString="%name",
-              textColor={0,0,255}),
+              lineColor={0,0,255}),
             Polygon(points={{-10,30},{50,0},{-10,-30},{-10,30}},
               fillPattern=FillPattern.Solid),
             Line(visible=useHeatPort,
@@ -4132,7 +4132,7 @@ connected to other elements in an appropriate way.
           extent={{-100,-100},{100,100}}),
         graphics={
           Text(extent={{-153,145},{147,105}},
-            textColor={0,0,255},
+            lineColor={0,0,255},
             textString="%name"),
           Text(extent={{-146,-49},{154,-79}},
             textString="ratio=%ratio")}));
@@ -4531,7 +4531,7 @@ Sept. 11, 2009.</li>
           fillPattern=FillPattern.Solid,
           points={{-110,50},{-80,50},{-80,80},{-90,80},{-70,100},{-50,80},{-60,80},{-60,30},{-110,30},{-110,50}}),
         Line(points={{-80.0,20.0},{-60.0,20.0}}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-148.0,105.0},{152.0,145.0}},
           textString="%name"),
         Text(extent={{-145.0,-79.0},{155.0,-49.0}},
@@ -4619,7 +4619,7 @@ in the flanges, are along the axis vector displayed in the icon.
         Line(points={{-70.0,50.0},{-70.0,40.0}}),
         Line(points={{-80.0,80.0},{-59.0,80.0}}),
         Line(points={{-70.0,100.0},{-70.0,80.0}}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150.0,110.0},{150.0,150.0}},
           textString="%name"),
         Text(extent={{-150.0,-150.0},{150.0,-110.0}},
@@ -4726,13 +4726,13 @@ in the flanges, are along the axis vector displayed in the icon.
         Line(points = {{-26,-42},{-32,-2}},
           color = {0,0,255},
           pattern = LinePattern.Dot),
-        Text(textColor = {0,0,255},
+        Text(lineColor = {0,0,255},
           extent = {{58,-78},{98,-66}},
           textString = "ring gear"),
-        Text(textColor = {0,0,255},
+        Text(lineColor = {0,0,255},
           extent = {{-112,87},{-56,111}},
           textString = "planet carrier "),
-        Text(textColor = {0,0,255},
+        Text(lineColor = {0,0,255},
           extent = {{-47,-56},{-3,-42}},
           textString = "sun gear"),
         Polygon(lineColor = {128,128,128},
@@ -4749,7 +4749,7 @@ in the flanges, are along the axis vector displayed in the icon.
           points = {{-7,-86},{-27,-81},{-27,-91},{-7,-86}}),
         Line(points = {{-97,-86},{-26,-86}},
           color = {128,128,128}),
-        Text(textColor = {128,128,128},
+        Text(lineColor = {128,128,128},
           extent = {{-96,-84},{-28,-71}},
           textString = "rotation axis"),
         Rectangle(origin = {-30,65},
@@ -4900,7 +4900,7 @@ Gearbox.
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),graphics={Text(
                   extent={{-150,150},{150,110}},
-                  textColor={0,0,255},
+                  lineColor={0,0,255},
                   textString="%name"),Text(
                   extent={{-150,70},{150,100}},
                   textString="ratio=%ratio, c=%c"),Line(
@@ -4942,7 +4942,7 @@ This component defines the kinematic constraint:
           fillColor={192,192,192},
           fillPattern=FillPattern.HorizontalCylinder,
           extent={{-233.3333,-10.0},{-163.3333,10.0}}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150.0,85.0},{150.0,125.0}},
           textString="%name"),
         Rectangle(
@@ -5033,7 +5033,7 @@ This component defines the kinematic constraint:
           Ellipse(  fillColor={192,192,192},
             fillPattern=FillPattern.Solid,
             extent={{56.0,-10.0},{64.0,10.0}}),
-          Text(  textColor={0,0,255},
+          Text(  lineColor={0,0,255},
             extent={{-150.0,90.0},{150.0,130.0}},
             textString="%name"),
           Polygon(  lineColor={0,127,0},
@@ -5197,15 +5197,15 @@ no rolling resistance. This component defines the kinematic constraint:
             Text(
               extent={{-94,94},{66,66}},
               textString="phi_start",
-              textColor={128,128,128}),
+              lineColor={128,128,128}),
             Text(
               extent={{-94,16},{60,-14}},
               textString="w_start",
-              textColor={128,128,128}),
+              lineColor={128,128,128}),
             Text(
               extent={{-92,-66},{60,-94}},
               textString="a_start",
-              textColor={128,128,128})}),
+              lineColor={128,128,128})}),
         Documentation(info="<html>
 <p>
 This component is used to optionally initialize the angle, speed,
@@ -5305,13 +5305,13 @@ in the User's Guide of the Rotational library.
           fillColor={52,219,218},
           fillPattern=FillPattern.Solid,
           extent={{-40.0,-40.0},{40.0,40.0}}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-40,-40},{40,40}},
           textString="S"),
         Text(
           extent={{-150,90},{150,50}},
           textString="%name",
-          textColor={0,0,255})}),
+          lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Ellipse(
@@ -5322,7 +5322,7 @@ in the User's Guide of the Rotational library.
                 Text(
                   extent={{-40,40},{40,-40}},
                   textString="S",
-                  textColor={0,0,255}),Line(
+                  lineColor={0,0,255}),Line(
                   points={{40,0},{96,0}},
                   pattern=LinePattern.Dash),Line(points={{-100,-10},{-100,-80}},
               color={160,160,164}),Line(points={{100,-10},{100,-80}}, color={
@@ -5334,14 +5334,14 @@ in the User's Guide of the Rotational library.
               color={160,160,164}),Text(
                   extent={{-30,-70},{30,-90}},
                   textString="w_rel",
-                  textColor={0,0,255}),Line(points={{-76,80},{-5,80}}, color={
+                  lineColor={0,0,255}),Line(points={{-76,80},{-5,80}}, color={
               128,128,128}),Polygon(
                   points={{14,80},{-6,85},{-6,75},{14,80}},
                   lineColor={128,128,128},
                   fillColor={128,128,128},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{18,87},{86,74}},
-                  textColor={128,128,128},
+                  lineColor={128,128,128},
                   textString="rotation axis"),Line(
                   points={{-96,0},{-40,0}},
                   pattern=LinePattern.Dash)}));
@@ -5437,7 +5437,7 @@ blocks of the block library Modelica.Blocks.Sources.
                 Line(points={{-20,-32},{-30,-42}}),Text(
                       extent={{-150,100},{150,60}},
                       textString="%name",
-                      textColor={0,0,255})}));
+                      lineColor={0,0,255})}));
       end Move_phi;
 
       model Move_w
@@ -5508,7 +5508,7 @@ blocks of the block library Modelica.Blocks.Sources.
                 Line(points={{-20,-32},{-30,-42}}),Text(
                       extent={{-150,100},{150,60}},
                       textString="%name",
-                      textColor={0,0,255})}));
+                      lineColor={0,0,255})}));
       end Move_w;
     equation
       connect(multiplex3.y, move.u) annotation (Line(
@@ -5581,7 +5581,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              textColor={0,0,255})}),
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -5681,7 +5681,7 @@ torque as output signal. Note, the input signals must be consistent to each othe
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              textColor={0,0,255})}),
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -5834,9 +5834,11 @@ way and provides the result as output signal <strong>phi</strong>
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={Text(
-                  extent={{70,-30},{120,-70}},
-                  textString="phi")}));
+            extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="rad")}));
     end AngleSensor;
 
     model SpeedSensor
@@ -5858,9 +5860,11 @@ way and provides the result as output signal <strong>w</strong>
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={Text(
-                  extent={{70,-30},{120,-70}},
-                  textString="w")}));
+            extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-50,-14},{50,-54}},
+              lineColor={64,64,64},
+              textString="rad/s")}));
     end SpeedSensor;
 
     model AccSensor
@@ -5884,9 +5888,11 @@ blocks of the Modelica.Blocks library).
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={Text(
-                  extent={{70,-30},{120,-70}},
-                  textString="a")}));
+            extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-50,-14},{50,-54}},
+              lineColor={64,64,64},
+              textString="rad/s2")}));
     end AccSensor;
 
     model RelAngleSensor
@@ -5914,10 +5920,12 @@ in an ideal way and provides the result as output signal <strong>phi_rel</strong
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{20.0,-114.0},{160.0,-84.0}},
-          textString="phi_rel"),
        Line(points={{0.0,-100.0},{0.0,-70.0}},
-        color={0,0,127})}));
+        color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="rad")}));
     end RelAngleSensor;
 
     model RelSpeedSensor
@@ -5949,10 +5957,12 @@ in an ideal way and provides the result as output signal <strong>w_rel</strong>
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{20.0,-118.0},{160.0,-88.0}},
-          textString="w_rel"),
         Line(points={{0.0,-100.0},{0.0,-70.0}},
-          color={0,0,127})}));
+          color={0,0,127}),
+            Text(
+              extent={{-50,-14},{50,-54}},
+              lineColor={64,64,64},
+              textString="rad/s")}));
     end RelSpeedSensor;
 
     model RelAccSensor
@@ -5986,10 +5996,12 @@ in an ideal way and provides the result as output signal <strong>a_rel</strong>
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{20.0,-116.0},{160.0,-86.0}},
-          textString="a_rel"),
         Line(points={{0.0,-100.0},{0.0,-70.0}},
-          color={0,0,127})}));
+          color={0,0,127}),
+            Text(
+              extent={{-50,-14},{50,-54}},
+              lineColor={64,64,64},
+              textString="rad/s2")}));
     end RelAccSensor;
 
     model TorqueSensor
@@ -6017,10 +6029,12 @@ and provides the result as output signal <strong>tau</strong>
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{-50.0,-120.0},{50.0,-80.0}},
-          textString="tau"),
         Line(points={{-80.0,-100.0},{-80.0,0.0}},
-          color={0,0,127})}));
+          color={0,0,127}),
+            Text(
+              extent={{-50,-14},{50,-54}},
+              lineColor={64,64,64},
+              textString="N.m")}));
     end TorqueSensor;
 
     model PowerSensor
@@ -6048,10 +6062,12 @@ and provides the result as output signal <strong>power</strong>
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Text(extent={{-50.0,-120.0},{100.0,-80.0}},
-          textString="power"),
         Line(points={{-80.0,-100.0},{-80.0,0.0}},
-          color={0,0,127})}));
+          color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              lineColor={64,64,64},
+              textString="W")}));
     end PowerSensor;
 
     model MultiSensor
@@ -6087,18 +6103,21 @@ and provides the result as output signal <strong>power</strong>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
-            Text(
-              extent={{60,-68},{100,-96}},
-              textString="w"),
-            Text(
-              extent={{-140,-68},{-60,-96}},
-              textString="power"),
-            Text(
-              extent={{-30,-68},{30,-96}},
-              textString="tau"),
             Line(points={{-60,-100},{-60,-60},{-94,-2}}),
             Line(points={{0,-100},{0,-70}}, color={0,0,127}),
-            Line(points={{60,-100},{60,-60},{50,-50}}, color={0,0,127})}));
+            Line(points={{60,-100},{60,-60},{50,-50}}, color={0,0,127}),
+            Text(
+              extent={{-100,-60},{-60,-100}},
+              lineColor={64,64,64},
+              textString="W"),
+            Text(
+              extent={{-20,-60},{20,-100}},
+              lineColor={64,64,64},
+              textString="N.m"),
+            Text(
+              extent={{60,-60},{100,-100}},
+              lineColor={64,64,64},
+              textString="rad/s")}));
     end MultiSensor;
     annotation (Documentation(info="<html>
 <p>
@@ -6198,10 +6217,10 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{-29,32},{30,32}}),
         Line(points={{0,-32},{0,-100}}),
         Text(extent={{-150,-60},{-40,-30}},
-              textColor={128,128,128},
+              lineColor={128,128,128},
               textString="phi_ref",
               horizontalAlignment=TextAlignment.Right),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150,60},{150,100}},
           textString="%name"),
         Text(extent={{30,-60},{150,-30}},
@@ -6286,7 +6305,7 @@ blocks of the block library Modelica.Blocks.Sources.
           extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
         Text(extent={{-140,-60},{-40,-30}},
-              textColor={128,128,128},
+              lineColor={128,128,128},
               horizontalAlignment=TextAlignment.Right,
               textString="w_ref"),
         Text(extent={{30,-60},{150,-30}},
@@ -6301,7 +6320,7 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{0.0,52.0},{0.0,32.0}}),
         Line(points={{-29.0,32.0},{30.0,32.0}}),
         Line(points={{0.0,-32.0},{0.0,-100.0}}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150,60},{150,100}},
           textString="%name")}));
     end Speed;
@@ -6357,11 +6376,11 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{0.0,52.0},{0.0,32.0}}),
         Line(points={{-29.0,32.0},{30.0,32.0}}),
         Line(points={{0.0,-32.0},{0.0,-100.0}}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150.0,60.0},{150.0,100.0}},
           textString="%name"),
         Text(extent={{-140,-60},{-40,-30}},
-              textColor={128,128,128},
+              lineColor={128,128,128},
               horizontalAlignment=TextAlignment.Right,
               textString="a_ref")}));
     end Accelerate;
@@ -6455,11 +6474,11 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{0.0,52.0},{0.0,32.0}}),
         Line(points={{-29.0,32.0},{30.0,32.0}}),
         Line(points={{0.0,-32.0},{0.0,-100.0}}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150.0,60.0},{150.0,100.0}},
           textString="%name"),
         Text(extent={{-140,-60},{-40,-30}},
-              textColor={128,128,128},
+              lineColor={128,128,128},
               horizontalAlignment=TextAlignment.Right,
               textString="phi,w,a")}));
     end Move;
@@ -6490,7 +6509,7 @@ blocks of Modelica.Blocks.Sources.
           graphics={
         Text(extent={{-150,110},{150,70}},
           textString="%name",
-          textColor={0,0,255}),
+          lineColor={0,0,255}),
         Text(extent={{-62,-29},{-141,-70}},
           textString="tau"),
         Polygon(points={{86,0},{66,58},{37,27},{86,0}},
@@ -6510,7 +6529,7 @@ blocks of Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{14,86},{82,73}},
-              textColor={128,128,128},
+              lineColor={128,128,128},
               textString="rotation axis"),
             Polygon(
               points={{10,80},{-10,85},{-10,75},{10,80}},
@@ -6557,7 +6576,7 @@ blocks of Modelica.Blocks.Sources.
           graphics={
         Text(extent={{-150,-40},{150,-80}},
           textString="%name",
-          textColor={0,0,255}),
+          lineColor={0,0,255}),
         Polygon(points={{-78,24},{-69,17},{-89,0},{-78,24}},
           lineThickness=0.5,
           fillPattern=FillPattern.Solid),
@@ -6572,7 +6591,7 @@ blocks of Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{15,-71},{83,-84}},
-              textColor={128,128,128},
+              lineColor={128,128,128},
               textString="rotation axis"),
             Polygon(
               points={{11,-77},{-9,-72},{-9,-82},{11,-77}},
@@ -6793,7 +6812,7 @@ Model of <strong>fixed</strong> angular velocity of flange, not dependent on tor
               Line(points={{-75,-30},{0,-30},{0,45},{65,45}}, color={0,0,127}),
               Text(
               extent={{0,-40},{100,-10}},
-              textColor={128,128,128},
+              lineColor={128,128,128},
               textString="time")}),
         Documentation(info="<html>
 <p>
@@ -7068,7 +7087,7 @@ It is most convenient to utilize it
                   fillColor={175,175,175},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-200,80},{200,40}},
-                  textColor={0,0,255},
+                  lineColor={0,0,255},
                   textString="%name")}), Documentation(info="<html>
 <p>
 This is an adapter model to utilize a conditional support connector
@@ -7165,10 +7184,10 @@ and instead the component is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{-38,-98},{-6,-96}},
-                  textColor={95,95,95},
+                  lineColor={95,95,95},
                   textString="(if useSupport)"),Text(
                   extent={{21,-95},{61,-96}},
-                  textColor={95,95,95},
+                  lineColor={95,95,95},
                   textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -7229,10 +7248,10 @@ and instead the component is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{-38,-98},{-6,-96}},
-                  textColor={95,95,95},
+                  lineColor={95,95,95},
                   textString="(if useSupport)"),Text(
                   extent={{24,-97},{64,-98}},
-                  textColor={95,95,95},
+                  lineColor={95,95,95},
                   textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -7390,10 +7409,10 @@ and instead the component is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{25,-97},{65,-98}},
-                  textColor={95,95,95},
+                  lineColor={95,95,95},
                   textString="(if not useSupport)"),Text(
                   extent={{-38,-98},{-6,-96}},
-                  textColor={95,95,95},
+                  lineColor={95,95,95},
                   textString="(if useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -7503,10 +7522,10 @@ and instead the component is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{24,-97},{64,-98}},
-                  textColor={95,95,95},
+                  lineColor={95,95,95},
                   textString="(if not useSupport)"),Text(
                   extent={{-38,-98},{-6,-96}},
-                  textColor={95,95,95},
+                  lineColor={95,95,95},
                   textString="(if useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -7692,7 +7711,7 @@ and instead the translational part is internally fixed to ground.
             Line(points={{0,-62},{0,-100}}),
             Text(
               extent={{-150,150},{150,110}},
-              textColor={0,0,255},
+              lineColor={0,0,255},
               textString="%name"),
             Polygon(
               points={{94,26},{80,84},{50,62},{94,26}},
@@ -7759,7 +7778,7 @@ with the blocks of package Modelica.Blocks.
         Line(points={{-70.0,0.0},{-90.0,0.0}}),
         Line(points={{70.0,0.0},{100.0,0.0}},
           color={0,0,127}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150.0,80.0},{150.0,120.0}},
           textString="%name")}));
     end PartialAbsoluteSensor;
@@ -7789,7 +7808,7 @@ with the blocks of package Modelica.Blocks.
           graphics={
         Line(points={{-70.0,0.0},{-90.0,0.0}}),
         Line(points={{70.0,0.0},{90.0,0.0}}),
-        Text(textColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-150,80},{150,120}},
           textString="%name")}));
     end PartialRelativeSensor;
