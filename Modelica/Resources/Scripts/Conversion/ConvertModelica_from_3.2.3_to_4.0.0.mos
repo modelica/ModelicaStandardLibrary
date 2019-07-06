@@ -31,6 +31,10 @@ convertClass("Modelica.SIunits.FluxiodQuantum",
               "Modelica.SIunits.FluxoidQuantum");
 convertClass("Modelica.SIunits.RadiantExtiance",
               "Modelica.SIunits.RadiantExitance");
+convertClass("Modelica.SIunits.LoundnessLevel",
+              "Modelica.SIunits.LoudnessLevel")
+convertClass("Modelica.SIunits.Loundness",
+              "Modelica.SIunits.Loudness")
 convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient",
               "Modelica.SIunits.LinearTemperatureCoefficientResistance");
 convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",

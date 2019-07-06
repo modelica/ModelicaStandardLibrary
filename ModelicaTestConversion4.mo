@@ -1039,6 +1039,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue415;
 
+    model Issue1159 "Conversion test for #1159"
+      extends Modelica.Icons.Example;
+      Modelica.SIunits.LoundnessLevel x(displayUnit="phon") = 1;
+      Modelica.SIunits.Loundness y(displayUnit="sone") = 1;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1159\">#1159</a>.
+</p>
+</html>"));
+    end Issue1159;
+
     model Issue2944 "Conversion test for #2944"
       extends Modelica.Icons.Example;
       Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient x = 1;
