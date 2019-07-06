@@ -850,34 +850,6 @@ The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" retu
               extent={{100,-50},{-16,-98}},
               textString="m/s")}));
     end from_cm2;
-
-    partial function ConversionIcon
-      "This icon will be removed in future Modelica versions."
-      extends Modelica.Icons.ObsoleteModel;
-
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={191,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,0},{30,0}}, color={191,0,0}),
-            Polygon(
-              points={{90,0},{30,20},{30,-20},{90,0}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-115,155},{115,105}},
-              textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
-<p>
-This icon of a <strong>conversion symbol</strong> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
-</p>
-</html>"),
-      obsolete = "Obsolete function - use Modelica.SIunits.Icons.Conversion instead");
-    end ConversionIcon;
     annotation (Documentation(info="<html>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
