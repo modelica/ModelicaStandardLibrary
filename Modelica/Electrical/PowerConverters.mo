@@ -3226,7 +3226,7 @@ The resulting voltages with reference to midpoint of the DC voltage are measured
 </p>
 <p>
 The RMS of the first harmonic of the first of these voltages is calculated.
-Please note that the value of the first harmonic is vaild after the first period (i.e. 0.5 s).
+Please note that the value of the first harmonic is valid after the first period (i.e. 0.5 s).
 </p>
 <p>
 Furthermore, these three voltages are transformed to the corresponding space phasor.
