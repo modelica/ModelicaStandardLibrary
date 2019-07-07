@@ -296,11 +296,11 @@ phase winding parameters -- at the same nominal rotor voltage and frequency.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_DOL_MultiPhase\">AIMC_DOL_MultiPhase</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMS_Start_MultiPhase\">AIMS_Start_MultiPhase</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMPM_Inverter_MultiPhase\">SMPM_Inverter_MultiPhase</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMEE_Generator_MultiPhase\">SMEE_Generator_MultiPhase</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMR_Inverter_MultiPhase\">SMR_Inverter_MultiPhase</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.AIMC_DOL_Polyphase\">AIMC_DOL_Polyphase</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.AIMS_Start_Polyphase\">AIMS_Start_Polyphase</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase\">SMPM_Inverter_Polyphase</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase\">SMEE_Generator_Polyphase</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines.ComparisonPolyphase.SMR_Inverter_Polyphase\">SMR_Inverter_Polyphase</a>
 </p>
 
 </html>"));
