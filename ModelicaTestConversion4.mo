@@ -981,6 +981,23 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue385;
 
+    model Issue415 "Conversion test for #415"
+      extends Modelica.Icons.Example;
+      function f
+        extends Modelica.SIunits.Conversions.ConversionIcon;
+        input Real x;
+        output Real y;
+        algorithm
+          y := x;
+      end f;
+      Real y = f(time);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/415\">#415</a>.
+</p>
+</html>"));
+    end Issue415;
+
     model Issue2944 "Conversion test for #2944"
       extends Modelica.Icons.Example;
       Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient x = 1;

@@ -25,6 +25,8 @@ convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1",
               "Modelica.Electrical.Digital.Converters.LogicToX01");
 convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1Z",
               "Modelica.Electrical.Digital.Converters.LogicToX01Z");
+convertClass("Modelica.SIunits.Conversions.ConversionIcon",
+              "Modelica.SIunits.Icons.Conversion")
 convertClass("Modelica.SIunits.FluxiodQuantum",
               "Modelica.SIunits.FluxoidQuantum");
 convertClass("Modelica.SIunits.RadiantExtiance",
