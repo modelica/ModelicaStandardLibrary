@@ -2273,6 +2273,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
       end RectifierCenterTap2mPulse;
 
       package ExampleTemplates "Templates of examples"
+        extends Modelica.Icons.Package;
         partial model Thyristor1Pulse "Template of single pulse rectifier"
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
@@ -2348,7 +2349,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 single pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
         end Thyristor1Pulse;
-        extends Modelica.Icons.Package;
+
         partial model ThyristorBridge2Pulse
           "Template of two pulse Graetz thyristor bridge"
           extends Icons.ExampleTemplate;
