@@ -4292,8 +4292,7 @@ Compare starting with firing angle by
 </html>"), experiment(
               StopTime=8,
               Interval=0.0001,
-              Tolerance=1e-06,
-              __Dymola_Algorithm="Dassl"));
+              Tolerance=1e-06));
         end Dimmer;
 
         annotation (Documentation(info="<html>
