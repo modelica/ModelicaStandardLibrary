@@ -45,7 +45,7 @@ main sub-libraries:
  <td>
  <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a><br>
             Electrical asynchronous-, synchronous-, and DC-machines
- (motors and generators) as well as 3-phase transformers.
+ (motors and generators) as well as three-phase transformers.
  </td>
 </tr>
 

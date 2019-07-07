@@ -11808,7 +11808,7 @@ The induction machine models use package SpacePhasors.
               extent={{-30,-10},{30,-70}},
               textString="V",
               textColor={64,64,64})}),   Documentation(info="<html>
-Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor;
+Measured three-phase instantaneous voltages are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
 </html>"));
     end VoltageQuasiRMSSensor;
@@ -11870,7 +11870,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               extent={{-30,-10},{30,-70}},
               textColor={64,64,64},
               textString="A")}),         Documentation(info="<html>
-Measured 3-phase instantaneous currents are transformed to the corresponding space phasor;
+Measured three-phase instantaneous currents are transformed to the corresponding space phasor;
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
 </html>"));
     end CurrentQuasiRMSSensor;
@@ -11920,7 +11920,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               extent={{30,100},{70,60}},
               textColor={64,64,64},
               textString="var")}),     Documentation(info="<html>
-3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors,<br>
+Three-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors,<br>
 which are used to calculate power quantities:
 <ul>
 <li>P = instantaneous power, thus giving in stationary state active power.</li>
