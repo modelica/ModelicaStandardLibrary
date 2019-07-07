@@ -655,7 +655,7 @@ combination). In this case the system is not at rest.
             Line(points={{-80,58},{-80,46}}, color={0,0,255}),
             Text(
               extent={{-10,5},{10,-5}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="ref= 0 m",
               origin={-96,73},
               rotation=90),
@@ -664,22 +664,22 @@ combination). In this case the system is not at rest.
               color={0,0,255}),
             Text(
               extent={{-40,82},{-20,72}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString=" 4.5 m "),
             Line(
               points={{70,90},{70,50}},
               color={0,0,255}),
             Text(
               extent={{40,98},{60,88}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="12.5 m"),
             Text(
               extent={{-60,16},{-40,6}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="  2 m  "),
             Text(
               extent={{20,16},{40,6}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="  4 m  "),
             Text(
               extent={{-20,16},{0,6}},
@@ -689,11 +689,11 @@ combination). In this case the system is not at rest.
               textString="  5 m  "),
             Text(
               extent={{-60,-84},{-40,-94}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString=" 0.5 m
  (1 m) "), Text(
               extent={{20,-84},{40,-94}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString=" 1 m
  (1 m) "), Text(
               extent={{-20,-84},{0,-94}},
@@ -706,7 +706,7 @@ combination). In this case the system is not at rest.
               color={0,0,255}),
             Text(
               extent={{-10,5},{10,-5}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               origin={-96,-35},
               rotation=90,
               textString="ref= -1 m"),
@@ -715,14 +715,14 @@ combination). In this case the system is not at rest.
               color={0,0,255}),
             Text(
               extent={{-20,-22},{0,-32}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="  0 m  "),
             Line(
               points={{70,-32},{70,-50}},
               color={0,0,255}),
             Text(
               extent={{20,-24},{40,-34}},
-              lineColor={238,46,47},
+              textColor={238,46,47},
               textString=" 2.5 m "),
             Line(
               points={{-90,54},{-80,54}},
@@ -765,7 +765,7 @@ combination). In this case the system is not at rest.
               color={0,0,255}),
             Text(
               extent={{-90,66},{-70,56}},
-              lineColor={255,0,0},
+              textColor={255,0,0},
               textString="1 m "),
             Line(
               points={{-60,-70},{-60,-84}},
@@ -817,7 +817,7 @@ combination). In this case the system is not at rest.
               arrow={Arrow.Open,Arrow.Open}),
             Text(
               extent={{-60,-24},{-40,-34}},
-              lineColor={238,46,47},
+              textColor={238,46,47},
               textString="1 m ")}));
     end InitialConditions;
 
@@ -899,14 +899,14 @@ problems.
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
                   extent={{-84,10},{88,2}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="positionSensor2.s = positionSensor3.s"),Text(
                   extent={{-78,-4},{86,-12}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="positionSensor3.s <>positionSensor1.s"),Text(
                   extent={{-82,-80},{92,-88}},
                   textString="Both systems are equivalent",
-                  lineColor={0,0,255}),Line(
+                  textColor={0,0,255}),Line(
                   points={{-90,-28},{90,-28}},
                   thickness=0.5,
                   color={0,0,255})}),
@@ -1219,7 +1219,7 @@ to see the difference.
                   textString="2)",
                   lineColor={0,0,255}),Text(
                   extent={{-100,-40},{-80,-60}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="3)")}),
         Documentation(info="<html>
 <ol>
@@ -1919,7 +1919,7 @@ f = F_Coulomb + F_prop*v + F_Stribeck*exp(-fexp*v);
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-84,-58},{24,-90}},
-                      lineColor={135,135,135},
+                      textColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{8,96},{92,66}},
                       horizontalAlignment=TextAlignment.Right,
@@ -1986,7 +1986,7 @@ on the other side of it.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{0,-62},{96,-94}},
-                      lineColor={135,135,135},
+                      textColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
@@ -2077,7 +2077,7 @@ the output force&nbsp;<code>f</code> is returned.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-48,-36},{48,-68}},
-                      lineColor={135,135,135},
+                      textColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
@@ -2154,7 +2154,7 @@ exchange.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-48,-36},{48,-68}},
-                      lineColor={135,135,135},
+                      textColor={135,135,135},
                       textString="to FMU"),Text(
                       extent={{-94,96},{-10,66}},
                       horizontalAlignment=TextAlignment.Left,
@@ -2237,7 +2237,7 @@ desired for a force element.
             extent={{-150,-144},{150,-104}},
             textString="d=%d"),
           Text(extent={{-190,110},{190,70}},
-            lineColor={0,0,255},
+            textColor={0,0,255},
             textString="%name"),
           Text(
             origin={0,-7},
@@ -2270,7 +2270,7 @@ desired for a force element.
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-44,79},{29,91}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="s_rel"),
               Rectangle(
                 extent={{-50,-20},{40,-80}},
@@ -2324,7 +2324,7 @@ simulate them according to the provided description in the models.
             Text(
               extent={{-150,-90},{150,-130}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255})}), Documentation(info="<html>
 <p>
 The <em>flange</em> of a 1D translational mechanical system <em>fixed</em>
 at an position s0 in the <em>housing</em>. May be used:
@@ -2382,7 +2382,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
             Text(
               extent={{-150,85},{150,45}},
               textString="%name",
-              lineColor={0,0,255},
+              textColor={0,0,255},
               fillColor={110,210,110},
               fillPattern=FillPattern.Solid),
             Text(
@@ -2409,13 +2409,13 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-44,-41},{51,-57}},
                   textString="Length L",
-                  lineColor={0,0,255}),Line(points={{0,30},{0,53}}),
+                  textColor={0,0,255}),Line(points={{0,30},{0,53}}),
               Line(points={{-72,40},{1,40}}),Polygon(
                   points={{-7,42},{-7,38},{-1,40},{-7,42}},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-61,53},{-9,42}},
                   textString="Position s",
-                  lineColor={0,0,255})}));
+                  textColor={0,0,255})}));
     end Mass;
 
     model Rod "Rod without inertia"
@@ -2443,7 +2443,7 @@ A translational rod <strong>without inertia</strong> and two rigidly connected f
               fillPattern=FillPattern.Solid),    Text(
                   extent={{-150,80},{150,40}},
                   textString="%name",
-                  lineColor={0,0,255}),Text(
+                  textColor={0,0,255}),Text(
                   extent={{-150,-30},{150,-60}},
                   textString="L=%L")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2465,7 +2465,7 @@ A translational rod <strong>without inertia</strong> and two rigidly connected f
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-44,-41},{51,-57}},
                   textString="Length L",
-                  lineColor={0,0,255})}));
+                  textColor={0,0,255})}));
     end Rod;
 
     model Spring "Linear 1D translational spring"
@@ -2497,7 +2497,7 @@ a coupling of the sliding mass with the housing via a spring.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{-98,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{
                   60,0},{100,0}}, color={0,127,0}),
             Text(
@@ -2512,7 +2512,7 @@ a coupling of the sliding mass with the housing via a spring.
                   fillColor={128,128,128},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-56,66},{36,81}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="s_rel"),Line(points={{-86,0},{-60,0},{-44,-30},{-16,
               30},{14,-30},{44,30},{60,0},{84,0}})}));
     end Spring;
@@ -2549,7 +2549,7 @@ between two sliding masses.
                                                                                    Text(
                   extent={{-150,90},{150,50}},
                   textString="%name",
-                  lineColor={0,0,255}),Text(
+                  textColor={0,0,255}),Text(
                   extent={{-150,-45},{150,-75}},
                   textString="d=%d"),Line(
                   visible=useHeatPort,
@@ -2571,7 +2571,7 @@ between two sliding masses.
                   fillColor={128,128,128},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-58,68},{42,78}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="der(s_rel)")}));
     end Damper;
 
@@ -2617,7 +2617,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
             Text(
               extent={{-150,120},{150,80}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,-135},{150,-165}},
               textString="d=%d"),
@@ -2646,7 +2646,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
                   fillColor={128,128,128},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-63,83},{46,103}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="s_rel"),Rectangle(
                   extent={{-52,-28},{38,-72}},
                   fillColor={192,192,192},
@@ -2809,7 +2809,7 @@ where the different effects are visualized:
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-64,-80},{64,-64}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="s_rel"),Line(points={{-100,-29},{-100,-61}}),Line(points={{100,-61},{100,-28}}),
               Line(points={{-98,-60},{98,-60}}),Polygon(
                   points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}},
@@ -2840,7 +2840,7 @@ where the different effects are visualized:
               fillPattern=FillPattern.Solid),    Text(
                   extent={{-150,100},{150,60}},
                   textString="%name",
-                  lineColor={0,0,255}), Text(
+                  textColor={0,0,255}), Text(
                   extent={{-150,-125},{150,-95}},
                   textString="c=%c"),Text(
                   extent={{-150,-160},{150,-130}},
@@ -3032,7 +3032,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{-60,30},{60,30},{60,20},{80,20},{80,50},{-80,50},{-80,20},{-60,20},{-60,30}},
               lineColor={95,95,95},
@@ -3236,7 +3236,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
                                                                              Text(
                   extent={{-150,-120},{150,-160}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(
+                  textColor={0,0,255}),Line(
                   visible=useHeatPort,
                   points={{-100,-102},{-100,-16},{0,-16}},
                   color={191,0,0},
@@ -3720,7 +3720,7 @@ between the stops.</em></li>
               fillColor={0,127,0}),
             Text( extent={{-150,80},{150,40}},
                   textString="%name",
-                  lineColor={0,0,255}),
+                  textColor={0,0,255}),
             Line(points={{-50,-90},{-28,-68}}, color={0,127,0}),
             Line(points={{-30,-90},{-8,-68}}, color={0,127,0}),
             Line(points={{-10,-90},{12,-68}}, color={0,127,0}),
@@ -3764,7 +3764,7 @@ between the stops.</em></li>
             Text(
               extent={{-149,51},{-126,60}},
               textString="s min",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{-121,52},{-111,49},{-121,46},{-121,52}},
               fillPattern=FillPattern.Solid),
@@ -3776,7 +3776,7 @@ between the stops.</em></li>
             Text(
               extent={{-17,83},{6,92}},
               textString="s max",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{114,81},{124,78},{114,75},{114,81}},
               fillPattern=FillPattern.Solid),
@@ -3787,7 +3787,7 @@ between the stops.</em></li>
             Text(
               extent={{-75,60},{-38,71}},
               textString="Position s",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{-5,61},{5,58},{-5,55},{-5,61}},
               fillPattern=FillPattern.Solid),
@@ -3803,7 +3803,7 @@ between the stops.</em></li>
             Text(
               extent={{-11,-46},{26,-36}},
               textString="Length L",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end MassWithStopAndFriction;
 
     model RelativeStates "Definition of relative state variables"
@@ -3866,11 +3866,11 @@ velocity of model mass1 or of model mass2 as state variables.
             Text(
               extent={{-40,40},{40,-40}},
               textString="S",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255})}),
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Line(
@@ -3885,7 +3885,7 @@ velocity of model mass1 or of model mass2 as state variables.
             Text(
               extent={{-40,40},{40,-40}},
               textString="S",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{-100,-10},{-100,-80}},
               color={160,160,164}),
             Line(points={{100,-10},{100,-80}}, color={
@@ -3898,14 +3898,14 @@ velocity of model mass1 or of model mass2 as state variables.
               color={160,160,164}),Text(
                   extent={{-30,-70},{30,-90}},
                   textString="v_rel",
-                  lineColor={0,0,255}),Line(points={{-76,80},{-5,80}}, color={
+                  textColor={0,0,255}),Line(points={{-76,80},{-5,80}}, color={
               128,128,128}),Polygon(
                   points={{14,80},{-6,85},{-6,75},{14,80}},
                   lineColor={128,128,128},
                   fillColor={128,128,128},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{18,87},{86,74}},
-                  lineColor={128,128,128},
+                  textColor={128,128,128},
                   textString="moving direction")}));
     end RelativeStates;
 
@@ -4036,7 +4036,7 @@ Modelica.Blocks library).
                 {100,100}}), graphics={
             Text(
               extent={{-24,20},{66,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m")}));
     end PositionSensor;
 
@@ -4060,7 +4060,7 @@ Modelica.Blocks library).
                 {100,100}}), graphics={
             Text(
               extent={{-24,20},{66,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s")}));
     end SpeedSensor;
 
@@ -4087,7 +4087,7 @@ Modelica.Blocks library).
                 {100,100}}), graphics={
             Text(
               extent={{-24,20},{66,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s2")}));
     end AccSensor;
 
@@ -4116,7 +4116,7 @@ Modelica.Blocks library).
                                   Line(points={{0,-99},{0,-60}}, color={0,0,127}),
             Text(
               extent={{-24,20},{66,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m")}));
     end RelPositionSensor;
 
@@ -4153,7 +4153,7 @@ Modelica.Blocks library).
               127}),
             Text(
               extent={{-24,20},{66,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s")}));
     end RelSpeedSensor;
 
@@ -4186,7 +4186,7 @@ Modelica.Blocks library).
                                   Line(points={{0,-99},{0,-60}}, color={0,0,127}),
             Text(
               extent={{-24,20},{66,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s2")}));
     end RelAccSensor;
 
@@ -4214,7 +4214,7 @@ with blocks of the Modelica.Blocks library).
               {-80,0}}, color={0,0,127}),
             Text(
               extent={{-24,20},{66,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="N")}));
     end ForceSensor;
 
@@ -4242,7 +4242,7 @@ and provides the result as output signal <strong>power</strong>
               -100},{-80,0}}, color={0,0,127}),
             Text(
               extent={{-24,20},{66,-40}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="W")}));
     end PowerSensor;
 
@@ -4285,15 +4285,15 @@ ideal way and provides the results as output signals <strong>v</strong>, <strong
               Line(points={{60,-100},{60,-60}}, color={0,0,127}),
             Text(
               extent={{-100,-60},{-60,-100}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="W"),
             Text(
               extent={{-20,-60},{20,-100}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="N"),
             Text(
               extent={{60,-60},{100,-100}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m/s")}));
     end MultiSensor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -4398,7 +4398,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{0,52},{0,32}}, color={0,127,0}),
             Line(points={{-29,32},{30,32}}, color={0,127,0}),
             Line(points={{-30,-32},{30,-32}}, color={0,127,0}),
@@ -4408,7 +4408,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(extent={{30,-90},{150,-60}},
               textString="%exact"),
             Text(extent={{-140,-60},{-40,-30}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               horizontalAlignment=TextAlignment.Right,
               textString="s_ref")}));
     end Position;
@@ -4497,9 +4497,9 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(extent={{-140,-60},{-40,-30}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               horizontalAlignment=TextAlignment.Right,
               textString="v_ref"),
             Text(extent={{30,-60},{150,-30}},
@@ -4558,9 +4558,9 @@ blocks of the block library Modelica.Blocks.Source.
             Line(points={{0,52},{0,32}}, color={0,127,0}),
             Text(extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Text(extent={{-140,-60},{-40,-30}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               horizontalAlignment=TextAlignment.Right,
               textString="a_ref")}));
     end Accelerate;
@@ -4655,9 +4655,9 @@ blocks of the block library Modelica.Blocks.Sources.
           Text(
             extent={{150,60},{-150,100}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
           Text(extent={{-140,-60},{-40,-30}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             horizontalAlignment=TextAlignment.Right,
             textString="s,v,a")}));
     end Move;
@@ -4701,7 +4701,7 @@ blocks of Modelica.Blocks.Source.
             Text(
               extent={{-150,90},{150,50}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Polygon(
               points={{50,-54},{-30,-54},{-30,-46},{-60,-60},{-30,-74},{-30,-66},{50,-66},{50,-54}},
               lineColor={0,127,0},
@@ -4739,7 +4739,7 @@ blocks of Modelica.Blocks.Source.
                 {100,100}}), graphics={Text(
                   extent={{-150,-40},{150,-80}},
                   textString="%name",
-                  lineColor={0,0,255}),Polygon(
+                  textColor={0,0,255}),Polygon(
               points={{90,0},{60,-30},{60,-10},{10,-10},{10,10},{60,10},{60,30},{90,0}},
               lineColor={0,127,0},
               fillColor={160,215,160},
@@ -4918,7 +4918,7 @@ Model of <strong>fixed</strong> velocity of flange, not dependent on force.
                                       Line(points={{-75,-30},{0,-30},{0,45},{65,45}}, color={0,0,127}),
                                           Text(
               extent={{0,-40},{100,-10}},
-              lineColor={128,128,128},
+              textColor={128,128,128},
               textString="time")}),     Documentation(info="<html>
 <p>
 Model of a force step at time startTime.
@@ -5038,7 +5038,7 @@ f: Cut-force in direction of the flange axis in [N].
               fillColor={0,127,0},
               fillPattern=FillPattern.Solid), Text(
               extent={{-160,110},{40,50}},
-              lineColor={0,127,0},
+              textColor={0,127,0},
               textString="%name")}));
     end Flange_a;
 
@@ -5082,7 +5082,7 @@ f: Cut-force in direction of the flange axis in [N].
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
               extent={{-40,110},{160,50}},
-              lineColor={0,127,0},
+              textColor={0,127,0},
               textString="%name")}));
     end Flange_b;
 
@@ -5097,7 +5097,7 @@ f: Cut-force in direction of the flange axis in [N].
                   fillPattern=FillPattern.Solid,
                   pattern=LinePattern.None),           Text(
                   extent={{-160,110},{40,50}},
-                  lineColor={0,127,0},
+                  textColor={0,127,0},
                   textString="%name"),Rectangle(
                   extent={{-40,-40},{40,40}},
                   lineColor={0,127,0},
@@ -5159,7 +5159,7 @@ The support connector is usually defined as conditional connector. It is most co
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-200,80},{200,40}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),Rectangle(
                   extent={{-20,20},{20,-20}},
                   lineColor={0,127,0},
@@ -5262,10 +5262,10 @@ and instead the component is internally fixed to ground.
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
                   extent={{-38,-98},{-6,-96}},
-                  lineColor={95,95,95},
+                  textColor={95,95,95},
                   textString="(if useSupport)"),Text(
                   extent={{21,-95},{61,-96}},
-                  lineColor={95,95,95},
+                  textColor={95,95,95},
                   textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -5322,10 +5322,10 @@ and instead the component is internally fixed to ground.
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
                   extent={{-38,-98},{-6,-96}},
-                  lineColor={95,95,95},
+                  textColor={95,95,95},
                   textString="(if useSupport)"),Text(
                   extent={{20,-95},{60,-96}},
-                  lineColor={95,95,95},
+                  textColor={95,95,95},
                   textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -5497,10 +5497,10 @@ and instead the component is internally fixed to ground.
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
                   extent={{-38,-98},{-6,-96}},
-                  lineColor={95,95,95},
+                  textColor={95,95,95},
                   textString="(if useSupport)"),Text(
                   extent={{24,-97},{64,-98}},
-                  lineColor={95,95,95},
+                  textColor={95,95,95},
                   textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -5620,10 +5620,10 @@ connector is not connected).
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
                   extent={{-38,-98},{-6,-96}},
-                  lineColor={95,95,95},
+                  textColor={95,95,95},
                   textString="(if useSupport)"),Text(
                   extent={{24,-97},{64,-98}},
-                  lineColor={95,95,95},
+                  textColor={95,95,95},
                   textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -5729,7 +5729,7 @@ connector is not connected).
                   fillPattern=FillPattern.Solid),Line(points={{0,-60},{0,-100}}, color={0,127,0}),
                                                                                  Text(
                   extent={{-150,140},{150,100}},
-                  lineColor={0,0,255},
+                  textColor={0,0,255},
                   textString="%name"),Line(points={{-78,80},{51,80}}, color={95,127,95}),
               Polygon(
               points={{81,80},{51,90},{51,70},{81,80}},
@@ -5783,7 +5783,7 @@ with the Modelica.Blocks blocks.
               Text(
                   extent={{-150,80},{150,40}},
                   textString="%name",
-                  lineColor={0,0,255})}));
+                  textColor={0,0,255})}));
     end PartialAbsoluteSensor;
 
     partial model PartialRelativeSensor
@@ -5812,7 +5812,7 @@ with the Modelica.Blocks blocks.
                                                                                                              Text(
                   extent={{-150,100},{150,60}},
                   textString="%name",
-                  lineColor={0,0,255})}));
+                  textColor={0,0,255})}));
     end PartialRelativeSensor;
 
     partial model PartialFriction "Base model of Coulomb friction elements"

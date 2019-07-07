@@ -7777,7 +7777,7 @@ Boolean input <code>start = false</code> causes the output <code>vRef</code> to 
             Text(
               extent={{-150,110},{150,70}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{-40,70},{-40,-70}}, color={0,0,255}),
             Line(points={{40,70},{40,-72}}, color={0,0,255}),
             Polygon(points={{-40,70},{40,30},{-40,-10},{-40,70}},lineColor={0,0,
@@ -7879,7 +7879,7 @@ This behaviour is simulated by the two firing gates <code>fire1</code> and <code
             Text(
               extent={{-150,110},{150,70}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(points={{-40,70},{-40,-70}}, color={0,0,255}),
             Line(points={{40,70},{40,-72}}, color={0,0,255}),
             Polygon(points={{-40,70},{40,30},{-40,-10},{-40,70}},lineColor={0,0,

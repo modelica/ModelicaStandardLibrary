@@ -318,7 +318,7 @@ package Icons "Library of icons"
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
             Text(
-              lineColor={128,128,128},
+              textColor={128,128,128},
               extent={{-90,-90},{90,90}},
               textString="f")}));
   end FunctionsPackage;
@@ -505,7 +505,7 @@ This icon is designed for a <strong>translational sensor</strong> model.
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Text(
-            lineColor={0,0,255},
+            textColor={0,0,255},
             extent={{-150,105},{150,145}},
             textString="%name"),
           Ellipse(
@@ -514,7 +514,7 @@ This icon is designed for a <strong>translational sensor</strong> model.
             fillPattern = FillPattern.Solid,
             extent = {{-100,-100},{100,100}}),
           Text(
-            lineColor={108,88,49},
+            textColor={108,88,49},
             extent={{-90.0,-90.0},{90.0,90.0}},
             textString="f")}),
   Documentation(info="<html>
@@ -526,7 +526,7 @@ This icon is designed for a <strong>translational sensor</strong> model.
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Text(
-            lineColor={0,0,255},
+            textColor={0,0,255},
             extent={{-150,60},{150,100}},
             textString="%name"),
           Rectangle(
@@ -563,7 +563,7 @@ This icon is indicates a record.
               extent={{-100.0,-100.0},{100.0,100.0}},
               radius=25.0),
             Text(
-              lineColor={255,255,255},
+              textColor={255,255,255},
               extent={{-90.0,-50.0},{90.0,50.0}},
               textString="C")}),
                         Documentation(info="<html>
@@ -587,7 +587,7 @@ to Complex and is therefore superfluous.
               extent={{-100.0,-100.0},{100.0,100.0}},
               radius=25.0),
             Text(
-              lineColor={255,255,255},
+              textColor={255,255,255},
               extent={{-90.0,-50.0},{90.0,50.0}},
               textString="R")}),Documentation(info="<html>
 <p>
@@ -606,7 +606,7 @@ This icon is designed for a <strong>Real</strong> type.
               extent={{-100.0,-100.0},{100.0,100.0}},
               radius=25.0),
             Text(
-              lineColor={255,255,255},
+              textColor={255,255,255},
               extent={{-90.0,-50.0},{90.0,50.0}},
               textString="I")}),Documentation(info="<html>
 <p>
@@ -625,7 +625,7 @@ This icon is designed for an <strong>Integer</strong> type.
               extent={{-100.0,-100.0},{100.0,100.0}},
               radius=25.0),
             Text(
-              lineColor={255,255,255},
+              textColor={255,255,255},
               extent={{-90.0,-50.0},{90.0,50.0}},
               textString="B")}),
    Documentation(info="<html>
@@ -644,7 +644,7 @@ This icon is designed for a <strong>Boolean</strong> type.
               extent={{-100.0,-100.0},{100.0,100.0}},
               radius=25.0),
             Text(
-              lineColor={255,255,255},
+              textColor={255,255,255},
               extent={{-90.0,-50.0},{90.0,50.0}},
               textString="S")}),Documentation(info="<html>
 <p>

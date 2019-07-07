@@ -1735,7 +1735,7 @@ temperature rise defined by storing heat in medium's mass.
               points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}},
               lineColor={255,0,0}),           Text(extent={{-150,80},{150,40}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end Pipe;
 
     model IsolatedPipe "Pipe without heat exchange"
@@ -1846,7 +1846,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
             Line(points={{0,80},{0,0}}, color={0,0,127}),
                                               Text(extent={{-150,-70},{150,-110}},
               textString="%name",
-              lineColor={0,0,255})}));
+              textColor={0,0,255})}));
     end Valve;
 
     model OpenTank "Model of a tank under ambient pressure"
@@ -2016,7 +2016,7 @@ The position of the flange (as well as of the support, if useSupport=true) is in
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={       Text(
               extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Polygon(
               points={{-90,10},{-70,10},{-70,60},{70,60},{70,-60},{-70,-60},{-70,-10},
@@ -2087,7 +2087,7 @@ The position of the flange (as well as of the support, if useSupport=true) is in
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(extent={{-150,-70},{150,-110}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Line(
               points={{-60,60},{60,-60},{50,-40},{40,-50},{60,-60}},
               thickness=0.5),
@@ -2256,7 +2256,7 @@ Record containing (constant) medium properties.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="Pa")}));
     end PressureSensor;
 
@@ -2274,7 +2274,7 @@ Record containing (constant) medium properties.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="K")}));
     end TemperatureSensor;
 
@@ -2292,7 +2292,7 @@ Record containing (constant) medium properties.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="Pa")}));
     end RelPressureSensor;
 
@@ -2315,7 +2315,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="K")}));
     end RelTemperatureSensor;
 
@@ -2333,7 +2333,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-50,-14},{50,-54}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="kg/s")}));
     end MassFlowSensor;
 
@@ -2351,7 +2351,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-50,-14},{50,-54}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="m3/s")}));
     end VolumeFlowSensor;
 
@@ -2369,7 +2369,7 @@ Outlet temperature is defined by variable T of the corresponding component.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-30,-10},{30,-70}},
-              lineColor={64,64,64},
+              textColor={64,64,64},
               textString="W")}));
     end EnthalpyFlowSensor;
   annotation (Documentation(info="<html>
@@ -2524,7 +2524,7 @@ leads to neglect of temperature transient cv*m*der(T).
               extent={{-40,30},{20,-30}},
               textString="V"),                Text(
               extent={{-150,-140},{150,-100}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
     end VolumeFlow;
 
@@ -2577,7 +2577,7 @@ leads to neglect of temperature transient cv*m*der(T).
               extent={{-40,30},{20,-30}},
               textString="dp"),               Text(
               extent={{-150,-100},{150,-140}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
     end PressureIncrease;
 
@@ -2640,7 +2640,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-150,150},{150,90}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name"),
             Rectangle(
               extent={{-10,-40},{10,-100}},
@@ -2723,7 +2723,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-100,110},{100,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
     end FlowPort_a;
 
@@ -2750,7 +2750,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
             Ellipse(extent={{-48,48},{48,-48}}, lineColor={0,0,255}),
             Text(
               extent={{-100,110},{100,50}},
-              lineColor={0,0,255},
+              textColor={0,0,255},
               textString="%name")}));
     end FlowPort_b;
 
@@ -2821,27 +2821,27 @@ See also sketch at diagram layer.
               Line(points={{60,40},{0,40}}, color={0,0,255}),
               Text(
                 extent={{18,0},{48,-20}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="V_flowLaminar"),
               Text(
                 extent={{50,0},{80,-20}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="V_flowNominal"),
               Text(
                 extent={{-30,30},{-4,10}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="dpLaminar"),
               Text(
                 extent={{-30,50},{-4,30}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="dpNominal"),
               Text(
                 extent={{0,20},{30,0}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="dp ~ V_flow"),
               Text(
                 extent={{30,60},{60,40}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="dp ~ V_flow^2")}));
       end SimpleFriction;
 
@@ -2941,7 +2941,7 @@ Partial model of single port at the left, defining the medium and the temperatur
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={       Text(
                 extent={{-150,140},{150,100}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}));
       end SinglePortLeft;
 
@@ -2996,7 +2996,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={       Text(
                 extent={{-150,140},{150,100}},
-                lineColor={0,0,255},
+                textColor={0,0,255},
                 textString="%name")}));
       end SinglePortBottom;
 
@@ -3024,7 +3024,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
               Text(
                 extent={{-150,90},{150,130}},
                 textString="%name",
-                lineColor={0,0,255})}));
+                textColor={0,0,255})}));
       end AbsoluteSensor;
 
       partial model RelativeSensor "Partial model of relative sensor"
@@ -3059,7 +3059,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
               Text(
                 extent={{-150,90},{150,130}},
                 textString="%name",
-                lineColor={0,0,255})}));
+                textColor={0,0,255})}));
       end RelativeSensor;
 
       partial model FlowSensor "Partial model of flow sensor"
@@ -3086,7 +3086,7 @@ Partial model of single port at the bottom, defining the medium and the temperat
               Text(
                 extent={{-150,90},{150,130}},
                 textString="%name",
-                lineColor={0,0,255})}));
+                textColor={0,0,255})}));
       end FlowSensor;
     annotation (Documentation(info="<html>
 <p>
