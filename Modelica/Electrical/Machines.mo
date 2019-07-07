@@ -56,12 +56,12 @@ You may have a look at a short summary of space phasor theory at <a href=\"https
   <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines\">Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines</a></td>
   </tr>
   <tr>
-  <td>Induction machines, limited to 3 phases</td>
+  <td>Induction machines, limited to three phases</td>
   <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines\">Modelica.Electrical.Machines.BasicMachines.InductionMachines</a></td>
   <td>n/a</td>
   </tr>
   <tr>
-  <td>Synchronous machines, limited to 3 phases</td>
+  <td>Synchronous machines, limited to three phases</td>
   <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines\">Modelica.Electrical.Machines.BasicMachines.SynchronousMachines</a></td>
   <td>n/a</td>
   </tr>
@@ -81,8 +81,8 @@ You may have a look at a short summary of space phasor theory at <a href=\"https
   <h4>Note:</h4>
   <ul>
   <li>Transient and quasiStatic models are parameter compatible.</li>
-  <li>Induction machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
-  <li>Synchronous machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
+  <li>Induction machine models limited to three phases and with arbitrary number of phases are parameter compatible.</li>
+  <li>Synchronous machine models limited to three phases and with arbitrary number of phases are parameter compatible.</li>
   </ul>
   </html>"));
     end Discrimination;
@@ -10746,8 +10746,8 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 </p>
 <strong>Limitations and assumptions:</strong><br>
 <ul>
-<li>number of phases is limited to 3, therefore definition as a constant m=3</li>
-<li>symmetry of the 3 phases resp. limbs</li>
+<li>number of phases is limited to three, therefore definition as a constant m=3</li>
+<li>symmetry of the three-phases resp. limbs</li>
 <li>saturation is neglected, i.e., inductances are constant</li>
 <li>magnetizing current is neglected</li>
 <li>magnetizing losses are neglected</li>

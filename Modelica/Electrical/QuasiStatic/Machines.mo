@@ -1861,7 +1861,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 <strong>Limitations and assumptions:</strong><br>
 <ul>
 <li>number of phases is limited to 3, therefore definition as a constant m=3</li>
-<li>symmetry of the 3 phases resp. limbs</li>
+<li>symmetry of the three phases resp. limbs</li>
 <li>saturation is neglected, i.e., inductances are constant</li>
 <li>magnetizing current is neglected</li>
 <li>magnetizing losses are neglected</li>

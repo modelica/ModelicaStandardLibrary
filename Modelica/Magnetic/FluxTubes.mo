@@ -3001,7 +3001,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
       end SinglePhaseTransformerWithHysteresis2;
 
       model ThreePhaseTransformerWithRectifier
-        "3 Phase transformer (including hysteresis effect) with rectifier"
+        "Three-phase transformer (including hysteresis effect) with rectifier"
         extends Modelica.Icons.Example;
 
         Modelica.Electrical.Analog.Basic.Ground ground1 annotation (Placement(transformation(extent={{-120,-90},{-100,-70}})));

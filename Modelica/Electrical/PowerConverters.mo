@@ -6594,10 +6594,10 @@ The switching pattern of the negative fire signal is just the inverse of the pos
 The user can choose from 4 different reference signals:
 </p>
 <ul>
-<li>Sawtooth1: sawtooth signal, same phase in all 3 phases</li>
-<li>Sawtooth3: sawtooth signal, phase shift between the 3 phases = period/3</li>
-<li>Triangle1: triangle signal, same phase in all 3 phases</li>
-<li>Triangle3: triangle signal, phase shift between the 3 phases = period/3</li>
+<li>Sawtooth1: sawtooth signal, same phase in all three phases</li>
+<li>Sawtooth3: sawtooth signal, phase shift between the three phases = period/3</li>
+<li>Triangle1: triangle signal, same phase in all three phases</li>
+<li>Triangle3: triangle signal, phase shift between the three phases = period/3</li>
 </ul>
 </html>"));
       end IntersectivePWM;

@@ -1257,12 +1257,12 @@ Simulate for 1.5 seconds and plot (versus time):
                           extent={{20,88},{100,80}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
-                          textString="%m phase machine",
+                          textString="%m-phase machine",
                           textStyle={TextStyle.Bold}),Text(
                           extent={{20,-22},{100,-30}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
-                          textString="3 phase machine",
+                          textString="Three-phase machine",
                           textStyle={TextStyle.Bold})}));
           end IMC_DOL_Polyphase;
 
@@ -1551,12 +1551,12 @@ Simulate for 1.5 seconds and plot (versus time):
                           extent={{40,68},{100,60}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
-                          textString="%m phase machine",
+                          textString="%m-phase machine",
                           textStyle={TextStyle.Bold}),Text(
                           extent={{40,-32},{100,-40}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
-                          textString="3 phase machine",
+                          textString="Three-phase machine",
                           textStyle={TextStyle.Bold})}));
           end AIMS_Start_Polyphase;
         end ComparisonPolyphase;
@@ -3333,13 +3333,13 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="3 phase machine
+                          textString="Three-phase machine
 "),               Text(
                     extent={{40,-44},{100,-52}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase machine
+                          textString="%m-phase machine
 ")}));
           end SMPM_Inverter_Polyphase;
 
@@ -3702,13 +3702,13 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase machine
+                          textString="%m-phase machine
 "),               Text(
                     extent={{10,-52},{70,-60}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="3 phase machine
+                          textString="Three-phase machine
 "),               Rectangle(
                     extent={{-50,-60},{100,-100}},
                           fillColor={255,255,170},
@@ -3994,13 +3994,13 @@ Simulate for 1.5 seconds and plot (versus time):
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="%m phase machine
+                          textString="%m-phase machine
 "),               Text(
                     extent={{40,-54},{100,-62}},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
-                          textString="3 phase machine
+                          textString="Three-phase machine
 "),               Rectangle(
                     extent={{-20,-60},{100,-100}},
                           fillColor={255,255,170},
