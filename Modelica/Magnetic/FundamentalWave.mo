@@ -3043,7 +3043,7 @@ Simulate for 1.5 seconds and plot (versus time):
         end AIMS_Start;
       end InductionMachines;
 
-      package SnychronousMachines "Snychronous machines exmaples"
+      package SnychronousMachines "Synchronous machines examples"
         extends Icons.ExamplesPackage;
         package ComparisonPolyphase
           "Compare polyphase machines with threephase machines"
