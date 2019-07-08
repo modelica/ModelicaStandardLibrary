@@ -514,6 +514,31 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end Spice3;
   end Electrical;
 
+  package Magnetic
+    extends Modelica.Icons.ExamplesPackage;
+    package FundamentalWave
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue3030 "Conversion test for #3030"
+        extends Modelica.Icons.Example;
+        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete symmetricCage(RRef=1, Lsigma=1) annotation (Placement(transformation(extent={{0,0},{20,20}})));
+        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete saliencyCage(RRef(d(start=1), q(start=1)), Lsigma(d(start=1), q(start=1))) annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+        Modelica.Magnetic.FundamentalWave.Components.Ground ground annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-30,-10})));
+      equation
+        connect(ground.port_p, symmetricCage.port_p) annotation (Line(points={{-20,-10},{-10,-10},{-10,10},{0,10}}, color={255,128,0}));
+        connect(ground.port_p, saliencyCage.port_p) annotation (Line(points={{-20,-10},{-10,-10},{-10,-30},{0,-30}}, color={255,128,0}));
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
+          Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>.
+</p>
+</html>"));
+      end Issue3030;
+    end FundamentalWave;
+  end Magnetic;
+
   package Fluid
     extends Modelica.Icons.ExamplesPackage;
     model Issue813 "Conversion test for #813"
@@ -521,6 +546,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       package P1
         extends Modelica.Fluid.Icons.VariantLibrary;
       end P1;
+
       package P2
         extends Modelica.Fluid.Icons.BaseClassLibrary;
       end P2;
