@@ -1,7 +1,7 @@
 AR = ar -ru
 RM = rm -f
 
-CFLAGS = -O3 -Wno-attributes
+CFLAGS = -O3 -Wno-attributes -fno-delete-null-pointer-checks
 CPPFLAGS = -DNDEBUG -DHAVE_UNISTD_H -DHAVE_STDARG_H -DHAVE_HIDDEN -DHAVE_MEMCPY
 INC = -I"../../C-Sources/zlib"
 
