@@ -4054,7 +4054,7 @@ applying the firing signals to the
           annotation (Placement(transformation(extent={{40,20},{60,40}})));
         Machines.Utilities.MultiTerminalBox terminalBox(m=m, terminalConnection="D")
           annotation (Placement(transformation(extent={{10,6},{30,26}})));
-        Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
+        Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage
           imc(
           m=m,
           p=aimcData.p,
@@ -4185,9 +4185,9 @@ to firing signals which are applied to the
 </p>
 <p>
 Compare starting with firing angle by 
-<a href=\"modelica://Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_DOL\">starting direct on line</a>,
-<a href=\"modelica://Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_YD\">star-delta starting</a>, and 
-<a href=\"modelica://Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer\">starting via a transformer</a>.
+<a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DOL\">starting direct on line</a>,
+<a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_YD\">star-delta starting</a>, and 
+<a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Transformer\">starting via a transformer</a>.
 </p>
 </html>"));
       end SoftStarter;

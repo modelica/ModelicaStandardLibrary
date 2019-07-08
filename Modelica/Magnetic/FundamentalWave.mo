@@ -1010,7 +1010,7 @@ In this example the eddy current losses are implemented in two different ways. C
         package ComparisonPolyphase
           "Compare polyphase machines with three-phase machines"
           extends Icons.ExamplesPackage;
-          model AIMC_DOL_Polyphase
+          model IMC_DOL_Polyphase
             "Direct on line start of polyphase induction machine with squirrel cage"
             extends Modelica.Icons.Example;
             constant Integer m3=3 "Number of stator phases of three-phase system";
@@ -1558,10 +1558,10 @@ Simulate for 1.5 seconds and plot (versus time):
                           fillPattern=FillPattern.Solid,
                           textString="Three-phase machine",
                           textStyle={TextStyle.Bold})}));
-          end AIMS_Start_Polyphase;
+          end IMS_Start_Polyphase;
         end ComparisonPolyphase;
 
-        model AIMC_DOL
+        model IMC_DOL
           "Direct on line (DOL) start of induction machine with squirrel cage"
           extends Modelica.Icons.Example;
           constant Integer m=3 "Number of stator phases";
@@ -1759,9 +1759,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimcM|E.tauElectrical</code>: machine torque</li>
 </ul>
 </html>"));
-        end AIMC_DOL;
+        end IMC_DOL;
 
-        model AIMC_YD
+        model IMC_YD
           "Induction machine with squirrel cage starting Y-D"
 
           extends Modelica.Icons.Example;
