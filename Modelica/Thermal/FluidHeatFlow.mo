@@ -2753,11 +2753,14 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     annotation (Documentation(info="<html>
 <p>Partial model for an absolute sensor (pressure/temperature).</p>
 <p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
-</html>"),
-         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Line(points={{-70,0},{-90,0}}),
-            Line(points={{70,0},{100,0}})}));
+            Line(points={{-70,0},{-90,0}}, color={255,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,127}),
+            Text(
+              extent={{-150,90},{150,130}},
+              textString="%name",
+              textColor={0,0,255})}));
     end AbsoluteSensor;
 
     partial model RelativeSensor "Partial model of relative sensor"
@@ -2784,14 +2787,13 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     annotation (Documentation(info="<html>
 <p>Partial model for a relative sensor (pressure drop/temperature difference).</p>
 <p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
-</html>"),
-         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Line(points={{-70,0},{-90,0}}),
-            Line(points={{70,0},{90,0}}),
-            Line(points={{0,-100},{0,-70}}),
+            Line(points={{-70,0},{-90,0}}, color={255,0,0}),
+            Line(points={{70,0},{90,0}}, color={255,0,0}),
+            Line(points={{0,-100},{0,-70}}, color={0,0,127}),
             Text(
-              extent={{-150,100},{150,140}},
+              extent={{-150,90},{150,130}},
               textString="%name",
               textColor={0,0,255})}));
     end RelativeSensor;
@@ -2812,14 +2814,13 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     annotation (Documentation(info="<html>
 <p>Partial model for a flow sensor (mass flow/heat flow).</p>
 <p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.</p>
-</html>"),
-         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Line(points={{-70,0},{-90,0}}),
-            Line(points={{70,0},{90,0}}),
-            Line(points={{0,-100},{0,-70}}),
+            Line(points={{-70,0},{-90,0}}, color={255,0,0}),
+            Line(points={{70,0},{90,0}}, color={255,0,0}),
+            Line(points={{0,-100},{0,-70}}, color={0,0,127}),
             Text(
-              extent={{-150,100},{150,140}},
+              extent={{-150,90},{150,130}},
               textString="%name",
               textColor={0,0,255})}));
     end FlowSensor;
