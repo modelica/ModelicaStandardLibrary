@@ -965,7 +965,7 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
                 points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
             connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
                 points={{-20,-80},{30,-80}}, color={0,0,255}));
-            annotation (defaultComponentName="cage", obsolete="Wrong structure of multi phase cage, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536)",
+            annotation (defaultComponentName="cage", obsolete="Obsolete model, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536) and #3030 (https://github.com/modelica/ModelicaStandardLibrary/issues/3030), use Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding instead",
               Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                       {100,100}}), graphics={Ellipse(
                           extent={{-80,80},{80,-80}},
@@ -996,19 +996,10 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
                           textString="%name")}),
               Documentation(info="<html>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
-</p>
-<p>
-The symmetric rotor cage model of this library does not consist of rotor bars and end rings. Instead the symmetric cage is modeled by an equivalent symmetrical winding. The rotor cage model consists of
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. If the cage is modeled by equivalent stator winding parameters, the number of effective turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\">, has to be chosen equivalent to the effective number of stator turns.
-</p>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+Obsolete symmetric cage model, see 
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and 
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a> instead.
 </p>
 </html>"));
           end SymmetricMultiPhaseCageWinding_obsolete;
@@ -1095,7 +1086,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
                 points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
             connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
                 points={{-30,-70},{-40,-70}}, color={191,0,0}));
-            annotation (defaultComponentName="cage", obsolete="Wrong structure of saliency cage, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536)",
+            annotation (defaultComponentName="cage", obsolete="Obsolete model, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536) and #3030 (https://github.com/modelica/ModelicaStandardLibrary/issues/3030), use Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding instead",
               Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                       -100},{100,100}}), graphics={Ellipse(
                           extent={{-80,80},{80,-80}},
@@ -1124,17 +1115,11 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
                           extent={{0,100},{0,140}},
                           textColor={0,0,255},
                           textString="%name")}), Documentation(info="<html>
-
 <p>
-The salient cage model is a two axis model with two phases. The electromagnetic coupling therefore is also two phase coupling model. The angles of the two orientations are 0 and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_2.png\">. This way an asymmetrical rotor cage with different resistances and stray inductances in d- and q-axis can be modeled.
-</p>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+Obsolete saliency cage model, see 
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and 
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a> instead.
 </p>
 </html>"));
           end SaliencyCageWinding_obsolete;
