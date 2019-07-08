@@ -1339,27 +1339,17 @@ argument):</p>
           final unit="1");
   type AcousticAbsorptionCoefficient = Real (final quantity=
           "AcousticAbsorptionCoefficient", final unit="1");
-  type SoundReductionIndex = Real (final quantity="SoundReductionIndex", final unit=
-             "dB");
+  type SoundReductionIndex = Real (final quantity="SoundReductionIndex", final unit="dB");
   type EquivalentAbsorptionArea = Real (final quantity="Area", final unit="m2");
   type ReverberationTime = Real (final quantity="Time", final unit="s");
-  type LoudnessLevel = Real (final quantity="LoudnessLevel", final unit=
-          "phon");
+  type LoudnessLevel = Real (final quantity="LoudnessLevel", final unit="phon");
   type Loudness = Real (final quantity="Loudness", final unit="sone");
-  type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
-          "phon") "Obsolete type, use LoudnessLevel instead!" annotation(
-    obsolete = "Obsolete type - use Modelica.SIunits.LoudnessLevel instead");
-  type Loundness = Real (final quantity="Loundness", final unit="sone")
-    "Obsolete type, use Loudness instead!" annotation(
-    obsolete = "Obsolete type - use Modelica.SIunits.Loudness instead");
 
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
-  type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit=
-             "1");
+  type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit="1");
   type RelativeMolecularMass = Real (final quantity="RelativeMolecularMass",
         final unit="1");
-  type NumberOfMolecules = Real (final quantity="NumberOfMolecules", final unit=
-         "1");
+  type NumberOfMolecules = Real (final quantity="NumberOfMolecules", final unit="1");
   type AmountOfSubstance = Real (
       final quantity="AmountOfSubstance",
       final unit="mol",
