@@ -884,7 +884,7 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
         extends Modelica.Icons.Package;
         package Components "Components specially for electric machines"
           extends Modelica.Icons.Package;
-          model SymmetricMultiPhaseCageWinding_obsolete "Symmetrical rotor cage"
+          model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"
             import Modelica.Constants.pi;
             extends Modelica.Icons.ObsoleteModel;
             extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
@@ -1002,9 +1002,9 @@ Obsolete symmetric cage model, see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a> instead.
 </p>
 </html>"));
-          end SymmetricMultiPhaseCageWinding_obsolete;
+          end SymmetricMultiPhaseCageWinding;
 
-          model SaliencyCageWinding_obsolete "Rotor cage with saliency in d- and q-axis"
+          model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
             extends Modelica.Icons.ObsoleteModel;
             extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
             parameter Boolean useHeatPort=false
@@ -1122,7 +1122,7 @@ Obsolete saliency cage model, see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a> instead.
 </p>
 </html>"));
-          end SaliencyCageWinding_obsolete;
+          end SaliencyCageWinding;
         end Components;
       end BasicMachines;
     end FundamentalWave;
