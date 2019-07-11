@@ -694,8 +694,8 @@ Figures should in particular be included to examples to discuss the problems and
 <ol>
 <li> Figures have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.</li>
 <li> Figures need to have <strong>at least</strong> a <code>src</code> and an <code>alt</code> attribute defined to be HTML compliant.</li>
-<li> Technical figures should be placed within a table environment. Each technical figure should then also have a caption. The figure caption starts with a capital letter.</li>
-<li> Illustration can be embedded without table environment.</li>
+<li> Technical figures should be placed within a figure environment. Each technical figure should then also have a caption. The figure caption starts with a capital letter.</li>
+<li> Illustration can be embedded without figure environment.</li>
 </ol>
 
 <h4>Location of files</h4>
@@ -723,6 +723,16 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <p>This is a simple example of a technical figure with caption.</p>
 
 <pre>
+&lt;figure&gt;
+   &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+        alt=&quot;PID_controller.png&quot;&gt;
+   &lt;figcaption&gt;Caption starts with a capital letter&lt;/figcaption&gt;
+&lt;/figure&gt;
+</pre>
+
+<p>Including figures based on <code>&lt;figure&gt;</code> is the preferred option. Older implementations based on</p> 
+
+<pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
   &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
@@ -734,6 +744,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 &lt;/table&gt;
 </pre>
 
+<p>shall be converted.</p>
+
 <h5>Example 3</h5>
 
 <p>To refer to a certain figure, a figure number may be added. In such case the figure name (Fig.) including the figure enumeration (1,2,...) have to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>.</p>
@@ -741,15 +753,10 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <p>Figures have to be enumerated manually.</p>
 
 <pre>
-&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
-  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
-  &lt;tr&gt;
-    &lt;td&gt;
-      &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
-           alt=&quot;PID_controller.png&quot;&gt;
-    &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;
+&lt;figure&gt;
+   &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+        alt=&quot;PID_controller.png&quot;&gt;
+  &lt;figcaption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/figcaption&gt;<br>&lt;/figure&gt;</pre>
 </pre>
 </html>"));
         end Figures;
@@ -1915,19 +1922,13 @@ In the Modelica Standard Library the following color schemes apply:</p>
 <p>If possible, the icon shall be designed such way, that the icon name <code>%name</code>
 and the most significant parameter can be displayed within the vertical Diagram range of the icon.</p>
 
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</caption>
-  <tr>
-    <td> (a)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
-           alt=\"Typical placement of component name\">
-    </td>
-    <td> (b)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
+<figure>
+  (a)&nbsp;<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
+           alt=\"Icon name\">
+  (b)&nbsp;<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
            alt=\"Typical dimensions of icon and its entities\">
-    </td>
-  </tr>
-</table>
+  <figcaption><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</figcaption>
+</figure>
 
 <h4>Component Name</h4>
 
@@ -1942,42 +1943,30 @@ shall be 10 units below the upper icon boundary, see <strong>Fig.&nbsp;1</strong
 <p>If the icon is as big as the entire icon range of 200 units x 200 units, e.g. in blocks,
 the component name shall be placed above the icon with vertical 10 units of space between icon and lower text box, see <strong>Fig.&nbsp;2</strong>.</p>
 
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 2</strong>: Block component name</caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
-           alt=\"Placement of block component name\">
-    </td>
-  </tr>
-</table>
+<figure>
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
+       alt=\"Block name\">
+  <figcaption><strong>Fig. 2</strong>: Block component name</figcaption>
+</figure>
 
 <p>If there is a connector located at the top icon boundary and it is obvious that this connector influences the model
 behavior compared to a similar model without such connector, then a line from the connector to the actual icon
 shall be avoided to keep the design straight, see <strong>Fig.&nbsp;4</strong>. If it is required to use a line indicating the connector dependency, then
 the line shall be interrupted such that this line does not interfere with component name.</p>
 
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 3</strong>: Component name between actual icon and connector</caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
-           alt=\"Component name placed between actual icon and connector\">
-    </td>
-  </tr>
-</table>
+<figure>
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
+       alt=\"Component name placed between actual icon and connector\">
+  <figcaption><strong>Fig. 3</strong>: Component name between actual icon and connector</figcaption>
+</figure>
 
 <p>In some cases, if there is not alternative, the component name has to be placed below the actual icon, see. <strong>Fig.&nbsp;4</strong>.</p>
 
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 4</strong>: Component name below actual icon</caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
-           alt=\"Icon with name placed below it\">
-    </td>
-  </tr>
-</table>
+<figure>
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
+       alt=\"Icon with name placed below it\">
+  <figcaption><strong>Fig. 4</strong>: Component name below actual icon</figcaption>
+</figure>
 
 <h4>Parameter Name</h4>
 
@@ -1999,15 +1988,11 @@ Preferred connector locations are:</p>
 <li>alternative connection points shall be located in a raster of 20 units (or 10 units) if required, see <strong>Fig.&nbsp;4</strong></li>
 </ul>
 
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
-           alt=\"Icon of connector corner\">
-    </td>
-  </tr>
-</table>
+<figure>
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
+       alt=\"Icon of connector corner\">
+  <figcaption align=\"bottom\"><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</figcaption>
+</figure>
 
 <h4>Sensors</h4>
 
@@ -2041,39 +2026,25 @@ design of sensors apply:
     </ul>
 </ul>
 
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</caption>
-  <tr>
-    <td> (a)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
-           alt=\"Icon of connector corner\">
-    </td>
-    <td> (b)
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round2.png\"
-           alt=\"Icon of connector corner\">
-    </td>
-  </tr>
-</table>
+<figure>
+  (a)&nbsp;<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
+                alt=\"Icon of connector corner\">
+  (b)&nbsp;<img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round2.png\"
+                alt=\"Icon of connector corner\">
+  <figcaption><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</figcaption>
+</figure>
 
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 7</strong>: Rectangular sensor </caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
-           alt=\"Icon of connector corner\">
-    </td>
-  </tr>
-</table>
+<figure>
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
+       alt=\"Icon of connector corner\">
+  <figcaption><strong>Fig. 7</strong>: Rectangular sensor </figcaption>
+</figure>
 
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
-           alt=\"Icon of connector corner\">
-    </td>
-  </tr>
-</table>
+<figure>
+   <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
+        alt=\"Icon of connector corner\">
+  <figcaption><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</figcaption>
+</figure>
 
 <h4>Diagram icons</h4>
 
