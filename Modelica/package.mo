@@ -720,7 +720,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <h5>Example 2</h5>
 
-<p>This is a simple example of a technical figure with caption.</p>
+<p>This is a simple example of a technical figure with caption. The caption shall be placed underneath the figure, so the following order of the <code>img</code>
+and <code>figcaption</code> tag shall be obeyed.</p>
 
 <pre>
 &lt;figure&gt;
@@ -750,7 +751,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <p>To refer to a certain figure, a figure number may be added. In such case the figure name (Fig.) including the figure enumeration (1,2,...) have to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>.</p>
 <p>The figure name and enumeration should look like this: <strong>Fig. 1:</strong></p>
-<p>Figures have to be enumerated manually.</p>
+<p>Figures have to be enumerated manually. The caption shall go underneath the image.</p>
 
 <pre>
 &lt;figure&gt;
