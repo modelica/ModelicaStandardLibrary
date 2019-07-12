@@ -998,6 +998,16 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue813;
+
+    model Issue3036 "Conversion test for #3036"
+      extends Modelica.Icons.Example;
+      Modelica.Icons.TypeComplex c = Modelica.Icons.TypeComplex(0, 1);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3036\">#3036</a>.
+</p>
+</html>"));
+    end Issue3036;
   end Icons;
 
   package SIunits

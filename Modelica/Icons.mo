@@ -553,30 +553,6 @@ This icon is indicates a record.
 </html>"));
   end Record;
 
-  operator record TypeComplex = Complex
-    "Obsolete class kept only for backwards compatibility (use Complex instead)"
-    annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid,
-              extent={{-100.0,-100.0},{100.0,100.0}},
-              radius=25.0),
-            Text(
-              textColor={255,255,255},
-              extent={{-90.0,-50.0},{90.0,50.0}},
-              textString="C")}),
-                        Documentation(info="<html>
-<p>
-Obsolete class, only kept for backwards compatibility.
-The type classes TypeReal, TypeInteger etc. have been introduced to associate an icon to the
-built-in base classes Real, Integer etc. Instead for Complex, an icon is already introduced in its
-definition (which is not possible for the built-in classes). Therefore, TypeComplex is just an alias
-to Complex and is therefore superfluous.
-</p>
-</html>"),
-    obsolete = "Obsolete operator record - use Complex instead");
-
   type TypeReal "Icon for Real types"
       extends Real;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
