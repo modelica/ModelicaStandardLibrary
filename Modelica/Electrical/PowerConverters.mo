@@ -4054,7 +4054,7 @@ applying the firing signals to the
           annotation (Placement(transformation(extent={{40,20},{60,40}})));
         Machines.Utilities.MultiTerminalBox terminalBox(m=m, terminalConnection="D")
           annotation (Placement(transformation(extent={{10,6},{30,26}})));
-        Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
           imc(
           m=m,
           p=aimcData.p,
@@ -4080,7 +4080,7 @@ applying the firing signals to the
           alpha20r=aimcData.alpha20r,
           TrOperational=293.15)
           annotation (Placement(transformation(extent={{10,-10},{30,10}})));
-        parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
+        parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
           annotation (Placement(transformation(extent={{40,-10},{60,10}})));

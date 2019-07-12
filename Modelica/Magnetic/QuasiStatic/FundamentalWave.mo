@@ -559,7 +559,7 @@ In this example the eddy current losses are implemented in two different ways. C
           Modelica.Electrical.QuasiStatic.Polyphase.Sensors.PowerSensor pSensorQS(m=m) annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
           Electrical.QuasiStatic.Polyphase.Sensors.CurrentQuasiRMSSensor iSensorQS(m=m) annotation (Placement(transformation(extent={{-10,70},{10,90}})));
           parameter
-            Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
+            Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
             imcData "Induction machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imcQS(
@@ -736,7 +736,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
             annotation (Placement(transformation(origin={0,-20},   extent={{-10,-10},{10,
                     10}})));
           Electrical.Machines.Utilities.MultiTerminalBox terminalBox(m=m, terminalConnection="Y") annotation (Placement(transformation(extent={{20,-54},{40,-34}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
             imc(
             Jr=imcData.Jr,
             Js=imcData.Js,
@@ -780,7 +780,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
             TorqueDirection=false,
             useSupport=false) annotation (Placement(transformation(extent={{100,30},{80,50}})));
           parameter
-            Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
+            Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
             imcData "Induction machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imcQS(
@@ -999,9 +999,9 @@ Simulate for 1 second and plot (versus time):
             TorqueDirection=false,
             tau_nominal=-TLoad,
             useSupport=false) annotation (Placement(transformation(extent={{100,10},{80,30}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
 
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage imc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
             TsRef=imcData.TsRef,
@@ -1232,8 +1232,8 @@ Default machine parameters are used.</p>
             useSupport=false) annotation (Placement(transformation(extent={{0,10},{20,30}})));
           Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox terminalBoxQS(terminalConnection="D", m=m)
                                                                                                                     annotation (Placement(transformation(extent={{80,26},{60,46}})));
-          parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{80,52},{100,72}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage imc(
+          parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{80,52},{100,72}})));
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
             TsRef=imcData.TsRef,
@@ -1451,7 +1451,7 @@ Simulate for 2.5 seconds and plot (versus time):</p>
                 origin={-70,70},
                 extent={{-10,-10},{10,10}})));
           Utilities.MultiTerminalBox terminalBoxQS(terminalConnection="Y", m=m) annotation (Placement(transformation(extent={{60,26},{40,46}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Blocks.Math.Gain gainQS(k=fNominal/unitFrequency) annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
           Mechanics.Translational.Components.IdealGearR2T idealGearR2TQS(ratio=1/r) annotation (Placement(transformation(extent={{32,10},{12,30}})));
           Mechanics.Translational.Components.Mass massQS(m=JLoad/r^2) annotation (Placement(transformation(extent={{0,10},{-20,30}})));
@@ -1466,7 +1466,7 @@ Simulate for 2.5 seconds and plot (versus time):</p>
                 extent={{10,10},{-10,-10}},
                 rotation=180,
                 origin={80,32})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage imc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
             TsRef=imcData.TsRef,
@@ -1716,7 +1716,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             startTime=4.5,
             duration=5.5) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
           Modelica.Blocks.Tables.CombiTable1Ds combiTable1DsQS(table={{Ptable[j],Itable[j],wtable[j],ctable[j],etable[j]} for j in 1:size(Ptable, 1)}, smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation (Placement(transformation(extent={{40,30},{60,50}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData(
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData imcData(
             statorCoreParameters(PRef=410, VRef=387.9),
             Jr=0.12,
             Rs=0.56,
@@ -1872,9 +1872,9 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           Utilities.MultiTerminalBox
                                 terminalBoxQS(m=m, terminalConnection="Y")
                                                                       annotation (Placement(transformation(extent={{-20,56},{0,76}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData imcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
 
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage imc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage imc(
             p=imcData.p,
             fsNominal=imcData.fsNominal,
             TsRef=imcData.TsRef,
@@ -1983,7 +1983,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
+Default machine parameters of model <em>IM_SquirrelCage</em> are used.
 </html>"),  Diagram(graphics={
                 Text(
                   extent={{20,8},{100,0}},
@@ -2044,7 +2044,7 @@ Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
             effectiveStatorTurns=imsData.effectiveStatorTurns,
             TrOperational=566.3) annotation (Placement(transformation(extent={{20,30},{40,50}})));
           parameter
-            Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
+            Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData
             imsData "Induction machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource vSourceQS(
@@ -2206,7 +2206,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
                   extent={{20,-54},{40,-34}})));
           Utilities.MultiTerminalBox terminalBoxQS(m=m, terminalConnection="Y")
             annotation (Placement(transformation(extent={{20,46},{40,66}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing
             ims(
             Jr=imsData.Jr,
             Js=imsData.Js,
@@ -2291,7 +2291,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
             useSupport=false,
             w_nominal=w_Load) annotation (Placement(transformation(extent={{100,30},{80,50}})));
           parameter
-            Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
+            Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData
             imsData "Induction machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource
@@ -4757,16 +4757,16 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
           final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
                 effectiveStatorTurns^2),
           redeclare final
-            Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientAIMC
+            Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMC
             thermalAmbient(final Tr=TrOperational),
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMC
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMC
             thermalPort,
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMC
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMC
             internalThermalPort,
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMC
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMC
             powerBalance(final lossPowerRotorWinding=sum(rotorCage.resistor.resistor.LossPower),
               final lossPowerRotorCore=0));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
@@ -4821,7 +4821,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
           defaultComponentName="imc",
           Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator, rotor and supply are assumed. The machine models take the following loss effects into account:
+Resistances and stray inductances of the machine refer to an <code>m</code>-phase stator. The symmetry of the stator, rotor and supply are assumed. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -4836,10 +4836,10 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <p>
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">
 IM_SlipRing</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing\">
-Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage\">
-Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">
+Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
+Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage</a>,
 </p>
 </html>"));
       end IM_SquirrelCage;
@@ -4852,16 +4852,16 @@ Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage</a>,
           final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
                 effectiveStatorTurns^2),
           redeclare final
-            Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientAIMS
+            Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMS
             thermalAmbient(final Tr=TrOperational, final mr=mr),
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMS
             thermalPort(final mr=mr),
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMS
             internalThermalPort(final mr=mr),
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMS
             powerBalance(
             final lossPowerRotorWinding=sum(rotor.resistor.resistor.LossPower),
             final lossPowerRotorCore=rotor.core.lossPower,
@@ -5007,10 +5007,10 @@ Resistances and stray inductances of the machine always refer to either stator o
 <p>
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
 IM_SquirrelCage</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing\">
-Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage\">
-Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">
+Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">
+Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage</a>,
 </p>
 </html>"));
       end IM_SlipRing;
@@ -5191,7 +5191,7 @@ Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage</a>,
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={85,170,255})}),
           Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+Resistances and stray inductances of the machine refer to an <code>m</code>-phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -5422,7 +5422,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
                     0,255})}),
           Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+Resistances and stray inductances of the machine refer to an <code>m</code>-phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -5578,7 +5578,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={85,170,255})}),
           Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+Resistances and stray inductances of the machine refer to an <code>m</code>-phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -7868,7 +7868,7 @@ representing the star points of each base system; see
 <p>
 This is a simple current controller.
 The desired RMS values of d  and q component of the quasi-static space phasor current in rotor fixed coordinate system are the inputs <code>id_rms</code> and <code>iq_rms</code>.
-Using the given rotor position input <code>phi</code>, the quasi-static <code>m</code> phase output currents <code>i[m]</code> are calculated.
+Using the given rotor position input <code>phi</code>, the quasi-static <code>m</code>-phase output currents <code>i[m]</code> are calculated.
 The model output can be used to feed a quasi-static current source with phase input to supply synchronous machines.
 </p>
 </html>"));

@@ -783,13 +783,13 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <pre>
 &lt;p&gt;
   The feeder cables are connected to an
-  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.AIM_SquirrelCage&quot;&gt;
+  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
   The feeder cables are connected to an
-  <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.AIM_SquirrelCage\">
+  <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage\">
   induction machine</a>.
 </p>
 </html>"));
@@ -3225,7 +3225,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td> A two inputs MULTIPLEXER for multiple value logic (2 data inputs, 1 select input, 1 output) </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.InductionMachines.</strong></td></tr>
-<tr><td width=\"150\"> AIMC_Initialize </td>
+<tr><td width=\"150\"> IMC_Initialize </td>
     <td> Steady-State Initialization example of InductionMachineSquirrelCage </td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousMachines.</strong></td></tr>
 <tr><td width=\"150\"> SMPM_VoltageSource </td>
@@ -7137,7 +7137,7 @@ The following <strong>components</strong> have been improved:
           <td> The user can choose \"DamperCage = false\" (default: true)
                    to remove all equations for the damper cage from the model.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.InductionMachines. </strong></td></tr>
-<tr><td> AIM_SlipRing</td>
+<tr><td> IM_SlipRing</td>
           <td> Easier parameterization: if the user selects \"useTurnsRatio = false\"
                    (default: true, this is the same behavior as before),
                         parameter TurnsRatio is calculated internally from

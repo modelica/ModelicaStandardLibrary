@@ -282,7 +282,7 @@ RampedRheostat</a></li>
 <h5>Version 1.6.3, 2005-11-25 (Anton Haumer)</h5>
 
 <ul>
-  <li>Easier parameterization of InductionMachines.AIM_SlipRing model</li>
+  <li>Easier parameterization of InductionMachines.IM_SlipRing model</li>
 </ul>
 
 <h5>Version 1.6.2, 2005-10-23 (Anton Haumer)</h5>
@@ -424,7 +424,7 @@ This is the library of electric machine models.
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Machines.BasicMachines.InductionMachines.IM_SquirrelCage
           aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
@@ -487,7 +487,7 @@ This is the library of electric machine models.
                   {70,-30}})));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data"
+        parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data"
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         aimc.is = zeros(3);
@@ -548,7 +548,7 @@ finally reaching nominal speed.</p>
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Machines.BasicMachines.InductionMachines.IM_SquirrelCage
           aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
@@ -614,7 +614,7 @@ finally reaching nominal speed.</p>
           tau_nominal=-TLoad,
           useSupport=false) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}})));
-        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data"
+        parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data"
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         aimc.is = zeros(3);
@@ -679,7 +679,7 @@ load torque quadratic dependent on speed, finally reaching nominal speed.</p>
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Machines.BasicMachines.InductionMachines.IM_SquirrelCage
           aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
@@ -789,7 +789,7 @@ load torque quadratic dependent on speed, finally reaching nominal speed.</p>
                   {70,-30}})));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data"
+        parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data"
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         aimc.is = zeros(3);
@@ -875,7 +875,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.InductionMachines.AIM_SlipRing aims(
+        Machines.BasicMachines.InductionMachines.IM_SlipRing aims(
           p=aimsData.p,
           Jr=aimsData.Jr,
           Js=aimsData.Js,
@@ -948,7 +948,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
           tStart=tStart2,
           m=m)
           annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
-        parameter Utilities.ParameterRecords.AIM_SlipRingData aimsData "Induction machine data"
+        parameter Utilities.ParameterRecords.IM_SlipRingData aimsData "Induction machine data"
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         aims.is = zeros(3);
@@ -1014,7 +1014,7 @@ using a starting resistance. At time tStart2 external rotor resistance is shorte
         parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Machines.BasicMachines.InductionMachines.IM_SquirrelCage
           aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
@@ -1074,7 +1074,7 @@ using a starting resistance. At time tStart2 external rotor resistance is shorte
                   {70,-30}})));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data"
+        parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data"
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         aimc.is[1:2] = zeros(2);
@@ -1140,7 +1140,7 @@ and accelerating inertias.<br>At time tStep a load step is applied.</p>
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
         parameter Modelica.SIunits.Length r=0.05 "Transmission radius";
-        Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Machines.BasicMachines.InductionMachines.IM_SquirrelCage
           aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
@@ -1191,7 +1191,7 @@ and accelerating inertias.<br>At time tStep a load step is applied.</p>
               rotation=270)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data"
+        parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data"
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Blocks.Math.Gain gain(k=fNominal/unitFrequency)
           annotation (Placement(transformation(extent={{-70,50},{-50,70}})));
@@ -1326,7 +1326,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
               origin={30,0})));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
           annotation (Placement(transformation(extent={{20,-24},{40,-4}})));
-        Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Machines.BasicMachines.InductionMachines.IM_SquirrelCage
           aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
@@ -1350,7 +1350,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           alpha20r=aimcData.alpha20r,
           TrOperational=293.15) annotation (Placement(transformation(extent={{20,-40},
                   {40,-20}})));
-        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData(
+        parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData(
           Rs=0.03*16,
           Rr=0.04*16,
           Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*aimcData.fsNominal)*16,
@@ -1483,7 +1483,7 @@ This is a model of a complete inverter drive comprising:
              1462.5*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Machines.BasicMachines.InductionMachines.IM_SquirrelCage
           aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
@@ -1572,7 +1572,7 @@ This is a model of a complete inverter drive comprising:
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={30,-30})));
-        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
+        parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (
             Placement(transformation(
@@ -1696,7 +1696,7 @@ the machine starts from standstill, accelerating inertias against load torque qu
         output Real pf_meas=combiTable1Ds.y[3] "Measured power factor";
         output Real eff_sim=if noEvent(abs(Pel) > Modelica.Constants.small) then Pmech/Pel else 0 "Simulated efficiency";
         output Real eff_meas=combiTable1Ds.y[4] "Measured efficiency";
-        Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Machines.BasicMachines.InductionMachines.IM_SquirrelCage
           aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
@@ -1773,7 +1773,7 @@ the machine starts from standstill, accelerating inertias against load torque qu
               Itable[j],wtable[j],ctable[j],etable[j]} for j in 1:size(Ptable,
               1)}, smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
           annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
-        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData(
+        parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData(
           statorCoreParameters(PRef=410, VRef=387.9),
           Jr=0.12,
           Rs=0.56,
@@ -1920,7 +1920,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+        Machines.BasicMachines.InductionMachines.IM_SquirrelCage
           aimc(
           p=aimcData.p,
           fsNominal=aimcData.fsNominal,
@@ -1974,7 +1974,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                   {70,-30}})));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data"
+        parameter Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data"
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         aimc.wMechanical = wSync;
@@ -6786,7 +6786,7 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.wMechanical: motor's speed</li>
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
-Default machine parameters of model <em>AIM_SquirrelCage</em> are used.
+Default machine parameters of model <em>IM_SquirrelCage</em> are used.
 </html>"));
       end IMC_Transformer;
       annotation (Documentation(info="<html>
@@ -6834,7 +6834,7 @@ This package contains test examples of electric machines.
     package InductionMachines
       "Models of induction machines"
       extends Modelica.Icons.VariantsPackage;
-      model AIM_SquirrelCage
+      model IM_SquirrelCage
         "Induction machine with squirrel cage rotor"
         extends Machines.Interfaces.PartialBasicInductionMachine(
           final idq_ss=airGapS.i_ss,
@@ -6842,14 +6842,14 @@ This package contains test examples of electric machines.
           final idq_rs=airGapS.i_rs,
           final idq_rr=airGapS.i_rr,
           redeclare final
-            Machines.Thermal.InductionMachines.ThermalAmbientAIMC
+            Machines.Thermal.InductionMachines.ThermalAmbientIMC
             thermalAmbient(final Tr=TrOperational),
-          redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMC
+          redeclare final Machines.Interfaces.InductionMachines.ThermalPortIMC
             thermalPort,
-          redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMC
+          redeclare final Machines.Interfaces.InductionMachines.ThermalPortIMC
             internalThermalPort,
           redeclare final
-            Machines.Interfaces.InductionMachines.PowerBalanceAIMC powerBalance(
+            Machines.Interfaces.InductionMachines.PowerBalanceIMC powerBalance(
               final lossPowerRotorWinding=squirrelCageR.LossPower, final
               lossPowerRotorCore=0),
           statorCore(final w=statorCoreParameters.wRef));
@@ -6902,7 +6902,7 @@ This package contains test examples of electric machines.
             points={{-10,-40},{-10,-60},{0,-60},{0,-80}}, color={191,0,0}));
         connect(airGapS.support, internalSupport) annotation (Line(
             points={{-10,0},{-40,0},{-40,-90},{60,-90},{60,-100}}));
-        annotation (defaultComponentName="aimc", Documentation(info="<html>
+        annotation (defaultComponentName="imc", Documentation(info="<html>
 <p><strong>Model of a three-phase induction machine with squirrel cage.</strong><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Both together connected via a stator-fixed <em>AirGap</em> model. The machine models take the following loss effects into account:
 </p>
@@ -7023,23 +7023,23 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </tr>
 </table>
 </html>"));
-      end AIM_SquirrelCage;
+      end IM_SquirrelCage;
 
-      model AIM_SlipRing "Induction machine with slipring rotor"
+      model IM_SlipRing "Induction machine with slipring rotor"
         extends Machines.Interfaces.PartialBasicInductionMachine(
           final idq_ss=airGapS.i_ss,
           final idq_sr=airGapS.i_sr,
           final idq_rs=airGapS.i_rs,
           final idq_rr=airGapS.i_rr,
           redeclare final
-            Machines.Thermal.InductionMachines.ThermalAmbientAIMS
+            Machines.Thermal.InductionMachines.ThermalAmbientIMS
             thermalAmbient(final Tr=TrOperational, final mr=m),
-          redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMS
+          redeclare final Machines.Interfaces.InductionMachines.ThermalPortIMS
             thermalPort(final mr=m),
-          redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMS
+          redeclare final Machines.Interfaces.InductionMachines.ThermalPortIMS
             internalThermalPort(final mr=m),
           redeclare final
-            Machines.Interfaces.InductionMachines.PowerBalanceAIMS powerBalance(
+            Machines.Interfaces.InductionMachines.PowerBalanceIMS powerBalance(
             final lossPowerRotorWinding=sum(rr.resistor.LossPower),
             final lossPowerRotorCore=rotorCore.lossPower,
             final lossPowerBrush=0,
@@ -7178,7 +7178,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(internalSupport, airGapS.support) annotation (Line(
             points={{60,-100},{60,-90},{-40,-90},{-40,0},{-10,0}}));
         annotation (
-          defaultComponentName="aims",
+          defaultComponentName="ims",
           Documentation(info="<html>
 <p><strong>Model of a three-phase induction machine with slipring rotor.</strong><br>
 Resistance and stray inductance of stator and rotor are modeled directly in stator respectively rotor phases, then using space phasor transformation and a stator-fixed <em>AirGap</em> model. The machine models take the following loss effects into account:
@@ -7313,12 +7313,12 @@ turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
                   100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,
                     20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
                     {-60,-20}}, color={0,0,255})}));
-      end AIM_SlipRing;
+      end IM_SlipRing;
       annotation (Documentation(info="<html>
 This package contains models of induction machines, based on space phasor theory:
 <ul>
-<li>AIM_SquirrelCage: induction machine with squirrel cage</li>
-<li>AIM_SlipRing: induction machine with wound rotor</li>
+<li>IM_SquirrelCage: induction machine with squirrel cage</li>
+<li>IM_SlipRing: induction machine with wound rotor</li>
 </ul>
 These models use package SpacePhasors.
 </html>", revisions="<html>
@@ -11711,7 +11711,7 @@ The induction machine models use package SpacePhasors.
   <li> v1.6.2 2005/10/23 Anton Haumer<br>
        selectable DamperCage for Synchronous Machines</li>
   <li> v1.6.3 2005/11/25 Anton Haumer<br>
-       easier parametrization of InductionMachines.AIM_SlipRing model</li>
+       easier parametrization of InductionMachines.IM_SlipRing model</li>
   <li> v1.7.1 2006/02/06 Anton Haumer<br>
        changed some naming of synchronous machines, not affecting existing models</li>
   <li> v2.1.3 2010/02/10 Anton Haumer<br>
@@ -13764,12 +13764,12 @@ where <code>RRef</code> is the value (e.g. resistance) at the reference temperat
     package InductionMachines
       "Thermal parts of induction machines"
       extends Modelica.Icons.VariantsPackage;
-      model ThermalAmbientAIMC
+      model ThermalAmbientIMC
         "Thermal ambient for induction machine with squirrel cage"
         extends
           Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines(
             redeclare final
-            Machines.Interfaces.InductionMachines.ThermalPortAIMC thermalPort);
+            Machines.Interfaces.InductionMachines.ThermalPortIMC thermalPort);
         parameter Modelica.SIunits.Temperature Tr(start=TDefault)
           "Temperature of rotor (squirrel cage)"
           annotation (Dialog(enable=not useTemperatureInputs));
@@ -13805,18 +13805,18 @@ where <code>RRef</code> is the value (e.g. resistance) at the reference temperat
             points={{100,-120},{100,8},{-50,8},{-50,18}}, color={0,0,127}));
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
-                textString="AIMC")}), Documentation(info="<html>
+                textString="IMC")}), Documentation(info="<html>
 Thermal ambient for induction machines with squirrel cage to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </html>"));
-      end ThermalAmbientAIMC;
+      end ThermalAmbientIMC;
 
-      model ThermalAmbientAIMS
+      model ThermalAmbientIMS
         "Thermal ambient for induction machine with slipring"
         extends
           Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines(
             redeclare final
-            Machines.Interfaces.InductionMachines.ThermalPortAIMS thermalPort(
+            Machines.Interfaces.InductionMachines.ThermalPortIMS thermalPort(
               final mr=mr));
         parameter Integer mr=m "Number of rotor phases";
         parameter Modelica.SIunits.Temperature Tr(start=TDefault)
@@ -13870,11 +13870,11 @@ Additionally, all losses = heat flows are recorded.
             points={{100,-118},{100,8},{-50,8},{-50,18}}, color={0,0,127}));
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
-                textString="AIMS")}), Documentation(info="<html>
+                textString="IMS")}), Documentation(info="<html>
 Thermal ambient for induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
 </html>"));
-      end ThermalAmbientAIMS;
+      end ThermalAmbientIMS;
       annotation (Documentation(info="<html>
 Thermal parts for induction machines
 </html>"));
@@ -14512,7 +14512,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li>The default / start values of all nominal temperatures are set to 20&deg;C.</li>
 </ul>
 <h4>Machine specific thermalPorts</h4>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.AIM_SquirrelCage\">Induction machine with squirrel cage</a></h5>
+<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage\">Induction machine with squirrel cage</a></h5>
 <ul>
 <li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPortRotorWinding</code>: heatPort for the rotor cage</li>
@@ -14521,7 +14521,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
 <li><code>heatPortFriction</code>: friction losses</li>
 </ul>
-<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.AIM_SlipRing\">Induction machine with slipring rotor</a></h5>
+<h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SlipRing\">Induction machine with slipring rotor</a></h5>
 <ul>
 <li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPortRotorWinding[m]</code>: m=3 heatPorts for the m=3 rotor phases</li>
@@ -15095,7 +15095,7 @@ Partial power balance of induction machines.
  </html>"));
       end PartialPowerBalanceInductionMachines;
 
-      connector ThermalPortAIMC
+      connector ThermalPortIMC
         "Thermal port of induction machine with squirrel cage"
         extends
           Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines;
@@ -15105,9 +15105,9 @@ Partial power balance of induction machines.
         annotation (Documentation(info="<html>
 Thermal port for induction machine with squirrel cage
 </html>"));
-      end ThermalPortAIMC;
+      end ThermalPortIMC;
 
-      record PowerBalanceAIMC
+      record PowerBalanceIMC
         "Power balance of induction machines with squirrel cage"
         extends
           Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines(
@@ -15118,9 +15118,9 @@ Thermal port for induction machine with squirrel cage
         annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of induction machines with squirrel cage.
  </html>"));
-      end PowerBalanceAIMC;
+      end PowerBalanceIMC;
 
-      connector ThermalPortAIMS
+      connector ThermalPortIMS
         "Thermal port of induction machine with slipring"
         extends
           Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines;
@@ -15134,9 +15134,9 @@ Power balance of induction machines with squirrel cage.
         annotation (Documentation(info="<html>
 Thermal port for induction machine with slipring rotor
 </html>"));
-      end ThermalPortAIMS;
+      end ThermalPortIMS;
 
-      record PowerBalanceAIMS
+      record PowerBalanceIMS
         "Power balance of induction machines with slipring"
         extends
           Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines(
@@ -15149,7 +15149,7 @@ Thermal port for induction machine with slipring rotor
         annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of induction machines with slipring.
  </html>"));
-      end PowerBalanceAIMS;
+      end PowerBalanceIMS;
 
       connector ThermalPortSMPM
         "Thermal port of synchronous machine with permanent magnets"
@@ -16340,7 +16340,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
 </html>"));
       end InductionMachineData;
 
-      record AIM_SquirrelCageData
+      record IM_SquirrelCageData
         "Common parameters for induction machines with squirrel cage"
         extends InductionMachineData;
         import Modelica.Constants.pi;
@@ -16360,14 +16360,14 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0 "Temperature coefficient of rotor resistance at 20 degC"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         annotation (
-          defaultComponentName="aimcData",
+          defaultComponentName="imcData",
           defaultComponentPrefixes="parameter",
           Documentation(info="<html>
 <p>Basic parameters of induction machines with squirrel cage are predefined with default values.</p>
 </html>"));
-      end AIM_SquirrelCageData;
+      end IM_SquirrelCageData;
 
-      record AIM_SlipRingData
+      record IM_SlipRingData
         "Common parameters for induction machines with slip ring"
         extends InductionMachineData;
         import Modelica.Constants.pi;
@@ -16410,12 +16410,12 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           wRef=1) "Rotor core loss parameter record; all parameters refer to rotor side"
           annotation (Dialog(tab="Losses"));
         annotation (
-          defaultComponentName="aimsData",
+          defaultComponentName="imsData",
           defaultComponentPrefixes="parameter",
           Documentation(info="<html>
 <p>Basic parameters of induction machines with slip ring are predefined with default values.</p>
 </html>"));
-      end AIM_SlipRingData;
+      end IM_SlipRingData;
 
       record SM_PermanentMagnetData
         "Common parameters for synchronous machines with permanent magnet"

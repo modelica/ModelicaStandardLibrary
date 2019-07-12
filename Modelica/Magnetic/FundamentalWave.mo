@@ -284,7 +284,7 @@ This way the same torque is generated and the machine currents are related by:
 
 <p>
 The same applies for the rotor parameters of a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">
 slip ring induction machine</a>, where the phase number
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
 is simply replaced by
@@ -1056,7 +1056,7 @@ In this example the eddy current losses are implemented in two different ways. C
             Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(m=m,
                 terminalConnection="Y") annotation (Placement(transformation(extent={{20,56},
                       {40,76}})));
-            Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage
+            Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
               aimcM(
               Jr=aimcData.Jr,
               Js=aimcData.Js,
@@ -1092,7 +1092,7 @@ In this example the eddy current losses are implemented in two different ways. C
               useSupport=false) annotation (Placement(transformation(extent={{100,
                       40},{80,60}})));
             parameter
-              Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
+              Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
               aimcData "Induction machine data" annotation (Placement(transformation(extent={{-100,-100},{-80,
                       -80}})));
             Modelica.Electrical.Analog.Basic.Ground ground3 annotation (Placement(
@@ -1127,7 +1127,7 @@ In this example the eddy current losses are implemented in two different ways. C
             Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox3(
                 terminalConnection="Y", m=m3) annotation (Placement(transformation(
                     extent={{20,-46},{40,-26}})));
-            Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage
+            Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
               aimc3(
               Jr=aimcData.Jr,
               Js=aimcData.Js,
@@ -1238,7 +1238,7 @@ In this example the eddy current losses are implemented in two different ways. C
               Documentation(info="<html>
 <p>
 At start time tStart voltages are supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage\">polyphase induction machines with squirrel cage</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">polyphase induction machines with squirrel cage</a>.
 The machines starts from standstill, accelerating
 inertias against load torque quadratic dependent on speed, finally reaching nominal speed. Two equivalent machines with different numbers of phases are compared and their equal behavior is demonstrated.</p>
 
@@ -1292,7 +1292,7 @@ Simulate for 1.5 seconds and plot (versus time):
             Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox3(
                 terminalConnection="Y", m=m3) annotation (Placement(transformation(
                     extent={{20,-54},{40,-34}})));
-            Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing
+            Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing
               aimsM(
               Jr=aimsData.Jr,
               Js=aimsData.Js,
@@ -1325,7 +1325,7 @@ Simulate for 1.5 seconds and plot (versus time):
               effectiveStatorTurns=aimsData.effectiveStatorTurns,
               TrOperational=293.15) annotation (Placement(transformation(extent={{
                       20,30},{40,50}})));
-            Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing
+            Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing
               aims3(
               p=aimsData.p,
               fsNominal=aimsData.fsNominal,
@@ -1385,7 +1385,7 @@ Simulate for 1.5 seconds and plot (versus time):
               w_nominal=w_Load) annotation (Placement(transformation(extent={{100,-70},
                       {80,-50}})));
             parameter
-              Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
+              Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData
               aimsData "Induction machine data" annotation (Placement(transformation(extent={{-100,-100},{-80,
                       -80}})));
             Electrical.Analog.Basic.Ground groundM annotation (Placement(
@@ -1531,7 +1531,7 @@ Simulate for 1.5 seconds and plot (versus time):
               Documentation(info="<html>
 <p>
 At start time <code>tOn</code> voltages are supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing\">induction machines with sliprings</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">induction machines with sliprings</a>.
 The two machine start from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time tRheostat external rotor resistance is shortened, finally reaching nominal speed. Two equivalent machines with different numbers of phases are compared and their equal behavior is demonstrated.</p>
 
@@ -1614,7 +1614,7 @@ Simulate for 1.5 seconds and plot (versus time):
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
               terminalConnection="D") annotation (Placement(transformation(extent={{-10,-74},
                     {10,-54}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
             aimcM(
             Jr=aimcData.Jr,
             Js=aimcData.Js,
@@ -1639,7 +1639,7 @@ Simulate for 1.5 seconds and plot (versus time):
             effectiveStatorTurns=aimcData.effectiveStatorTurns,
             TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                     -30},{10,-10}})));
-          Modelica.Electrical.Machines.BasicMachines.InductionMachines.AIM_SquirrelCage
+          Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage
             aimcE(
             p=aimcData.p,
             fsNominal=aimcData.fsNominal,
@@ -1682,7 +1682,7 @@ Simulate for 1.5 seconds and plot (versus time):
             useSupport=false) annotation (Placement(transformation(extent={{100,-90},
                     {80,-70}})));
           parameter
-            Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
+            Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
             aimcData "Induction machine data"
             annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
           Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor
@@ -1745,7 +1745,7 @@ Simulate for 1.5 seconds and plot (versus time):
               Tolerance=1e-06), Documentation(info="<html>
 <p>
 At start time tStart three-phase voltage is supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage\">induction machine with squirrel cage</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">induction machine with squirrel cage</a>.
 The machine starts from standstill, accelerating
 inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 
@@ -1776,7 +1776,7 @@ Simulate for 1.5 seconds and plot (versus time):
                1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage aimc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
             p=aimcData.p,
             fsNominal=aimcData.fsNominal,
             TsRef=aimcData.TsRef,
@@ -1833,7 +1833,7 @@ Simulate for 1.5 seconds and plot (versus time):
             TorqueDirection=false,
             tau_nominal=-TLoad,
             useSupport=false) annotation (Placement(transformation(extent={{100,10},{80,30}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
         initial equation
           aimc.is = zeros(3);
           aimc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
@@ -1900,7 +1900,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
                1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage aimc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
             p=aimcData.p,
             fsNominal=aimcData.fsNominal,
             TsRef=aimcData.TsRef,
@@ -2000,7 +2000,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
             tau_nominal=-TLoad,
             useSupport=false) annotation (Placement(transformation(extent={{0,10},{20,30}})));
           Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{80,26},{60,46}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{80,52},{100,72}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{80,52},{100,72}})));
         initial equation
           aimc.is = zeros(3);
           aimc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
@@ -2081,7 +2081,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
           parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage aimc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
             p=aimcData.p,
             fsNominal=aimcData.fsNominal,
             TsRef=aimcData.TsRef,
@@ -2132,7 +2132,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
             offsetTorque=0) annotation (Placement(transformation(extent={{90,-50},
                     {70,-30}})));
           Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         initial equation
           aimc.is[1:2] = zeros(2);
           aimc.rotorCage.electroMagneticConverter.V_m = Complex(0, 0);
@@ -2191,7 +2191,7 @@ Default machine parameters are used.
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
           parameter Modelica.SIunits.Length r=0.05 "Transmission radius";
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
             aimc(
             p=aimcData.p,
             fsNominal=aimcData.fsNominal,
@@ -2235,7 +2235,7 @@ Default machine parameters are used.
                 origin={-70,70},
                 extent={{-10,-10},{10,10}})));
           Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y") annotation (Placement(transformation(extent={{60,26},{40,46}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
           Blocks.Math.Gain gain(k=fNominal/unitFrequency)
             annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
           Mechanics.Translational.Components.IdealGearR2T idealGearR2T(ratio=1/r)
@@ -2314,7 +2314,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
                1462.5*2*Modelica.Constants.pi/60 "Nominal load speed";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
                                                                                            aimc(
             p=aimcData.p,
             fsNominal=aimcData.fsNominal,
@@ -2401,7 +2401,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={30,-20})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
           Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (Placement(transformation(
                 origin={-10,-10},
                 extent={{-10,10},{10,-10}},
@@ -2518,7 +2518,7 @@ finally reaching nominal speed.</p>
           output Real pf_meas=combiTable1Ds.y[3] "Measured power factor";
           output Real eff_sim=if noEvent(abs(Pel) > Modelica.Constants.small) then Pmech/Pel else 0 "Simulated efficiency";
           output Real eff_meas=combiTable1Ds.y[4] "Measured efficiency";
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage aimc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
             p=aimcData.p,
             fsNominal=aimcData.fsNominal,
             TsRef=aimcData.TsRef,
@@ -2589,7 +2589,7 @@ finally reaching nominal speed.</p>
                 Itable[j],wtable[j],ctable[j],etable[j]} for j in 1:size(Ptable,
                 1)}, smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
             annotation (Placement(transformation(extent={{40,30},{60,50}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData(
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData aimcData(
             statorCoreParameters(PRef=410, VRef=387.9),
             Jr=0.12,
             Rs=0.56,
@@ -2721,7 +2721,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage aimc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
             p=aimcData.p,
             fsNominal=aimcData.fsNominal,
             TsRef=aimcData.TsRef,
@@ -2770,7 +2770,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             stepTorque=-TLoad,
             offsetTorque=0) annotation (Placement(transformation(extent={{60,40},{40,60}})));
           Electrical.Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") annotation (Placement(transformation(extent={{-20,56},{0,76}})));
-          parameter Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
+          parameter Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData aimcData "Induction machine data" annotation (Placement(transformation(extent={{70,72},{90,92}})));
         initial equation
           aimc.wMechanical = wSync;
           sum(aimc.is) = 0;
@@ -2871,7 +2871,7 @@ at time tStart a load torque step is applied.</p>
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
               terminalConnection="D") annotation (Placement(transformation(extent={{-10,-74},
                     {10,-54}})));
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing
             aimsM(
             Jr=aimsData.Jr,
             Js=aimsData.Js,
@@ -2902,7 +2902,7 @@ at time tStart a load torque step is applied.</p>
             effectiveStatorTurns=aimsData.effectiveStatorTurns,
             TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                     -30},{10,-10}})));
-          Modelica.Electrical.Machines.BasicMachines.InductionMachines.AIM_SlipRing
+          Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SlipRing
             aimsE(
             p=aimsData.p,
             fsNominal=aimsData.fsNominal,
@@ -2959,7 +2959,7 @@ at time tStart a load torque step is applied.</p>
             w_nominal=w_Load) annotation (Placement(transformation(extent={{100,-90},
                     {80,-70}})));
           parameter
-            Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
+            Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData
             aimsData "Induction machine data"
             annotation (Placement(transformation(extent={{70,72},{90,92}})));
         initial equation
@@ -3024,7 +3024,7 @@ at time tStart a load torque step is applied.</p>
               Tolerance=1e-06), Documentation(info="<html>
 <p>
 At start time <code>tOn</code> three-phase voltage is supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing\">induction machine with sliprings</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">induction machine with sliprings</a>.
 The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time tRheostat external rotor resistance is shortened, finally reaching nominal speed.</p>
 
@@ -6493,7 +6493,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
     extends Modelica.Icons.Package;
     package InductionMachines "Induction machines"
       extends Modelica.Icons.VariantsPackage;
-      model AIM_SquirrelCage
+      model IM_SquirrelCage
         "Induction machine with squirrel cage"
         extends
           Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine(
@@ -6503,16 +6503,16 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
           final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
                 effectiveStatorTurns^2),
           redeclare final
-            Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientAIMC
+            Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMC
             thermalAmbient(final Tr=TrOperational),
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMC
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMC
             thermalPort,
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMC
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMC
             internalThermalPort,
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMC
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMC
             powerBalance(final lossPowerRotorWinding=sum(rotorCage.resistor.resistor.LossPower),
               final lossPowerRotorCore=0));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
@@ -6559,10 +6559,10 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
             points={{10,-10},{10,-30}}, color={255,128,0}));
         annotation (
-          defaultComponentName="aimc",
+          defaultComponentName="imc",
           Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and rotor is assumed. The machine models take the following loss effects into account:
+Resistances and stray inductances of the machine refer to an <code>m</code>-phase stator. The symmetry of the stator and rotor is assumed. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -6575,12 +6575,12 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">IM_SlipRing</a>,
 </p>
 </html>"));
-      end AIM_SquirrelCage;
+      end IM_SquirrelCage;
 
-      model AIM_SlipRing "Induction machine with slip ring rotor"
+      model IM_SlipRing "Induction machine with slip ring rotor"
         parameter Integer mr(min=3) = m "Number of rotor phases";
         extends
           Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine(
@@ -6590,16 +6590,16 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
           final L0(d=2.0*Lm/m/effectiveStatorTurns^2, q=2.0*Lm/m/
                 effectiveStatorTurns^2),
           redeclare final
-            Electrical.Machines.Thermal.InductionMachines.ThermalAmbientAIMS
+            Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMS
             thermalAmbient(final Tr=TrOperational, final mr=mr),
           redeclare final
-            Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS
+            Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMS
             thermalPort(final mr=mr),
           redeclare final
-            Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS
+            Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMS
             internalThermalPort(final mr=mr),
           redeclare final
-            Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS
+            Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMS
             powerBalance(
             final lossPowerRotorWinding=sum(rotor.resistor.resistor.LossPower),
             final lossPowerRotorCore=rotor.core.lossPower,
@@ -6710,7 +6710,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
         connect(airGap.port_rp, rotor.port_n) annotation (Line(
             points={{10,-10},{10,-30}}, color={255,128,0}));
         annotation (
-          defaultComponentName="aims",
+          defaultComponentName="ims",
           Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={0,0,255}),
                      Line(points={{-100,-50},{-100,-20},{-60,-20}}, color=
                    {0,0,255})}),
@@ -6729,10 +6729,10 @@ Resistances and stray inductances of the machine always refer to either stator o
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">IM_SquirrelCage</a>,
 </p>
 </html>"));
-      end AIM_SlipRing;
+      end IM_SlipRing;
       annotation (Documentation(info="<html>
 <p>This package provides squirrel cage and slip ring induction machine models.</p>
 
@@ -6924,7 +6924,7 @@ Resistances and stray inductances of the machine always refer to either stator o
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+Resistances and stray inductances of the machine refer to an <code>m</code>-phase stator. The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
 </p>
 
 <ul>
