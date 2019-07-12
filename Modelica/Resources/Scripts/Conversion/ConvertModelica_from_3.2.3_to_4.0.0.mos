@@ -127,6 +127,56 @@ convertClass("Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector",
               "Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector")
 convertClass("Modelica.ComplexBlocks.Sources.LogFrequencySweep",
               "Modelica.Blocks.Sources.LogFrequencySweep")
+convertClass("Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+              "Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage")
+convertClass("Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+              "Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SlipRing")
+convertClass("Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines",
+              "Modelica.Electrical.Machines.BasicMachines.SynchronousMachines")
+convertClass("Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMC",
+              "Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMC")
+convertClass("Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS",
+              "Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMS")
+convertClass("Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines",
+              "Modelica.Electrical.Machines.Thermal.SynchronousMachines")
+convertClass("Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMC",
+              "Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMC")
+convertClass("Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMC",
+              "Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMC")
+convertClass("Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS",
+              "Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMS")
+convertClass("Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS",
+              "Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMS")
+convertClass("Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData",
+              "Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData")
+convertClass("Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData",
+              "Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData")
+convertClass("Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level",
+              "Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level")
+convertClass("Modelica.Electrical.QuasiStationary.MultiPhase",
+              "Modelica.Electrical.QuasiStatic.Polyphase")
+convertClass("Modelica.Electrical.MultiPhase",
+              "Modelica.Electrical.Polyphase")
+convertClass("Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase",
+              "Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase")
+convertClass("Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter",
+              "Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter")
+convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding")
+convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding",
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding")
+convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage")
+convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing")
+convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines",
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines")
+convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter",
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter")
+convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding")
+convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding",
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding")
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete",
               "ObsoleteModelica4.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding")
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete",
