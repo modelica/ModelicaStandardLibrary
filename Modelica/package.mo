@@ -756,7 +756,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 &lt;figure&gt;
   &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
        alt=&quot;PID_controller.png&quot;&gt;
-  &lt;figcaption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/figcaption&gt;<br>&lt;/figure&gt;</pre>
+  &lt;figcaption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/figcaption&gt;
+&lt;/figure&gt;</pre>
 </pre>
 </html>"));
         end Figures;
