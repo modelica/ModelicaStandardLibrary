@@ -89,7 +89,7 @@ package ObsoleteModelica4 "Library that contains components from Modelica Standa
                   Polygon(
                     points={{0,-80},{0,60},{-6,60},{0,80},{6,60},{0,60},{0,-80}},
                     fillPattern=FillPattern.Solid), Text(extent={{
-                        -150,-120},{150,-160}}, textString = "%name", textColor = {0, 0, 255})}),
+                        -150,-120},{150,-160}}, textString = "%name", lineColor = {0, 0, 255})}),
               Documentation(info="<html>
 <p>
 This model linearly transforms the input voltage signal into a duty cycle. For the unipolar case the input voltage range is between zero and <code>vMax</code>. In case of bipolar input the input voltage is in the range between <code>-vMax</code> and <code>vMax</code>.
