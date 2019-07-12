@@ -13,6 +13,8 @@ convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
               "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
 convertClass("Modelica.Media.IdealGases.MixtureGases.simpleMoistAir",
               "Modelica.Media.IdealGases.MixtureGases.SimpleMoistAir");
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices",
+              "Modelica.Media.Interfaces.Choices");
 convertClass("Modelica.Blocks.Tables.CombiTable1D",
               "Modelica.Blocks.Tables.CombiTable1Dv");
 convertClass("Modelica.Blocks.Tables.CombiTable2D",
