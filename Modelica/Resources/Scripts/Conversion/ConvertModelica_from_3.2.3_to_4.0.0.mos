@@ -127,6 +127,10 @@ convertClass("Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector",
               "Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector")
 convertClass("Modelica.ComplexBlocks.Sources.LogFrequencySweep",
               "Modelica.Blocks.Sources.LogFrequencySweep")
+convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete",
+              "ObsoleteModelica4.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding")
+convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete",
+              "ObsoleteModelica4.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding")
 
 // Change renamed elements of classes
 // mue -> mu
