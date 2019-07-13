@@ -2185,7 +2185,7 @@ and will interpret it in the same way. Short Overview:
 
 <ul>
 <li>This version of the Modelica package is <strong>fully compatible</strong> to Modelica Specification <strong>3.2 revision 2</strong>.<br>&nbsp;</li>
-<li>About <strong>560</strong> issues (including pull requests) have been addressed for this release.
+<li>About <strong>570</strong> issues (including pull requests) have been addressed for this release.
     <ul>
     <li><strong>Version 3.2.3</strong> with respect to 3.2.2:
         <ul>
@@ -2194,8 +2194,8 @@ and will interpret it in the same way. Short Overview:
         <li>The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.<br>&nbsp;</li>
         </ul>
     </li>
-    <li><strong>Version 3.2.3 Build 2</strong> with respect to 3.2.3:<br>
-        About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.2/ResolvedGitHubIssues.html\">5 issues (including pull requests)</a>
+    <li><strong>Version 3.2.3 Build 3</strong> with respect to 3.2.3:<br>
+        About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.3/ResolvedGitHubIssues.html\">13 issues (including pull requests)</a>
         have been addressed for this maintenance release.<br>&nbsp;</li>
     </ul>
     </li>
