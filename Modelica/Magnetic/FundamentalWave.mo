@@ -363,9 +363,7 @@ no. 829420.
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2276\">#2276</a></li>
 <li>Replace wrong permeance image in documentation according to
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2208\">#2208</a></li>
-<li>Added obsolete annotation to
-    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete\">SymmetricMultiPhaseCageWinding_obsolete</a> and
-    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete\">SaliencyCageWinding_obsolete</a>,
+<li>Added obsolete annotation to SymmetricMultiPhaseCageWinding_obsolete and SaliencyCageWinding_obsolete,
     see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a></li>
 <li>Updated documentation of
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>,
