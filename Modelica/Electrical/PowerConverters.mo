@@ -3969,7 +3969,7 @@ applying the firing signals to the
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
         constant Integer m=3 "Number of phases";
-        constant Real y2d=Modelica.Electrical.MultiPhase.Functions.factorY2D(m);
+        constant Real y2d=Modelica.Electrical.Polyphase.Functions.factorY2D(m);
         parameter Modelica.SIunits.Voltage VNominal=100 "Nominal RMS voltage line to line";
         parameter Modelica.SIunits.Current INominal=100*y2d "Nominal RMS current at the terminals";
         parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
@@ -3977,7 +3977,7 @@ applying the firing signals to the
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
         parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           freqHz=fill(fNominal, m),
           V=sqrt(2)*fill(VNominal, m)/y2d)
@@ -3985,7 +3985,7 @@ applying the firing signals to the
               origin={-80,0},
               extent={{10,-10},{-10,10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m)
           annotation (
             Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
@@ -3996,7 +3996,7 @@ applying the firing signals to the
               origin={-80,-60},
               extent={{-10,-10},{10,10}},
               rotation=0)));
-        MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(m=m)
+        Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(m=m)
           annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
@@ -4004,12 +4004,12 @@ applying the firing signals to the
         Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac triac(final m=m,
             useHeatPort=false)
           annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
-        Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(m=m)
+        Modelica.Electrical.Polyphase.Sensors.VoltageSensor voltageSensor(m=m)
           annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-60,0})));
-        Modelica.Electrical.MultiPhase.Basic.Star star1(m=m)
+        Modelica.Electrical.Polyphase.Basic.Star star1(m=m)
           annotation (Placement(
               transformation(
               extent={{-10,10},{10,-10}},
@@ -4034,9 +4034,9 @@ applying the firing signals to the
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-30,-30})));
-        Modelica.Electrical.MultiPhase.Sensors.MultiSensor multiSensor(m=m)
+        Modelica.Electrical.Polyphase.Sensors.MultiSensor multiSensor(m=m)
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-        Modelica.Electrical.MultiPhase.Basic.Star star2(m=m)
+        Modelica.Electrical.Polyphase.Basic.Star star2(m=m)
           annotation (Placement(
               transformation(
               extent={{-10,10},{10,-10}},
@@ -4296,7 +4296,8 @@ Compare starting with firing angle by
               Tolerance=1e-06));
         end Dimmer;
 
-    annotation (Documentation(info="<html>
+        annotation (Documentation(info=
+                                   "<html>
 <p>This package includes templates of the used examples. The templates are partial example models.</p>
 </html>"));
       end ExampleTemplates;
@@ -7836,13 +7837,13 @@ This behaviour is simulated by the two firing gates <code>fire1</code> and <code
     end SinglePhaseTriac;
 
     model PolyphaseTriac "Triodes for alternating current"
-      extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
+      extends Modelica.Electrical.Polyphase.Interfaces.TwoPlug;
       parameter Modelica.SIunits.Resistance Ron(final min=0)=1e-5
         "Forward state-on differential resistance (closed resistance)";
       parameter Modelica.SIunits.Conductance Goff(final min=0)=1e-5
         "Backward state-off conductance (opened conductance)";
       parameter Modelica.SIunits.Voltage Vknee(final min=0)=0 "Forward threshold voltage";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m);
+      extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(final mh=m);
       Modelica.Blocks.Interfaces.BooleanInput fire1[m] annotation (Placement(
             transformation(
             extent={{-20,-20},{20,20}},
@@ -7853,9 +7854,9 @@ This behaviour is simulated by the two firing gates <code>fire1</code> and <code
             extent={{-20,-20},{20,20}},
             rotation=90,
             origin={60,-120})));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPins_p plugToPins_p(final m=m)
+      Modelica.Electrical.Polyphase.Basic.PlugToPins_p plugToPins_p(final m=m)
         annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
-      Modelica.Electrical.MultiPhase.Basic.PlugToPins_n plugToPins_n(final m=m)
+      Modelica.Electrical.Polyphase.Basic.PlugToPins_n plugToPins_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{70,10}})));
       SinglePhaseTriac triac[m](each useHeatPort=useHeatPort)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
