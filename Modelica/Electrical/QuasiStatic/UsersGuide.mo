@@ -349,8 +349,8 @@ The reference angle <code>gamma</code>:
       of a circuit by means of <code>omega = der(gamma)</code>.</li>
   <li>is not a global quantity since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
-  <li>is present only once in a multiphase connector;
-      a multiphase component has only one reference angle common to all phases.</li>
+  <li>is present only once in a polyphase connector;
+      a polyphase component has only one reference angle common to all phases.</li>
   <li>can be either constant or variable, but it has to be consistent in one contiguous circuit.</li>
   <li>is defined by the sources.</li>
 </ul>
@@ -395,7 +395,7 @@ voltages and currents. The main characteristics of the library are:
 
 <p>
 The main intention of this library is the modeling of quasi-static behavior
-of single and multi phase
+of single-phase and polyphase
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit\">AC circuits</a>
 with fixed and variable frequency. Quasi-static theory and applications can be
 found in
@@ -434,31 +434,31 @@ ideal AC DC converter</a>, which is used in the
     <ul>
         <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
         <li>Single-phase <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
-        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
-        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
+        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepVoltageSource\">FrequencySweepVoltageSource</a></li>
+        <li>Polyphase <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepCurrentSource\">FrequencySweepCurrentSource</a></li>
     </ul></li>
     <li>Shortened default component names, see
       <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2301\">#2301</a></li>
     <li>Fixed missing <code>final useConjugateInput = false</code>, see
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2251\">#2251</a>
     <ul>
-      <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Blocks.SymmetricalComponents\">MultiPhase.Blocks.SymmetricalComponents</a></li>
-      <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Blocks.FromSymmetricalComponents\">MultiPhase.Blocks.FromSymmetricalComponents</a></li>
-      <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Blocks.SingleToMultiPhase\">MultiPhase.Blocks.SingleToMultiPhase</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SymmetricalComponents\">Polyphase.Blocks.SymmetricalComponents</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Blocks.FromSymmetricalComponents\">Polyphase.Blocks.FromSymmetricalComponents</a></li>
+      <li><a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SingleToPolyphase\">Polyphase.Blocks.SingleToPolyphase</a></li>
     </ul></li>
 <li>Updated icons of inductors and transformer models, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2210\">#2210</a></li>
 <li>Added polar and power quantities in ideal quasi-static transformer model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2173\">#2173</a></li>
 <li>Removed redundant (and not identical) parameter m from
-    <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
+    <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MutualInductor\">MutualInductor</a>,
     see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2202\">#2202</a></li>
-<li>Added linear multi phase mutual inductor model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2200\">#2200</a></li>
-<li>Added complex impedance and admittance models of single phase and multi phase package, see ticket
+<li>Added linear polyphase mutual inductor model, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2200\">#2200</a></li>
+<li>Added complex impedance and admittance models of single-phase and polyphase package, see ticket
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1870\">#1870</a></li>
 <li>Added magnitude and argument of complex voltages and currents in interface and sensor models, see ticket
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Added active, reactive and apparent power and power factor in interface models, see ticket
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
-<li>Added complex single and multi phase impedance and admittance models (ticket
+<li>Added complex single-phase and polyphase impedance and admittance models (ticket
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1367\">#1367</a>)</li>
 <li>Updated documentation on temperature dependency of resistance and conductance models</li>
 <li>Rewrote source models to simplify initialization (

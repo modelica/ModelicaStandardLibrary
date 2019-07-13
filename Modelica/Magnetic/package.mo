@@ -7,7 +7,7 @@ annotation (
   Documentation(info="<html>
 <p>
 This library contains magnetic components to build especially
-electro-magnetic devices.
+electromagnetic devices.
 </p>
 
 </html>"),

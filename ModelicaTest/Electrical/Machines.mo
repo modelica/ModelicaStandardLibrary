@@ -2,7 +2,7 @@ within ModelicaTest.Electrical;
 package Machines
   extends Modelica.Icons.ExamplesPackage;
   model SMPM_VoltageSourceWithLosses
-    "Test example: PermanentMagnetSynchronousInductionMachine fed by FOC"
+    "Test example: PermanentMagnetSynchronousMachine fed by FOC"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
     constant Integer m=3 "Number of phases";
@@ -13,7 +13,7 @@ package Machines
     parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
     parameter Modelica.SIunits.Inertia JLoad=0.29
       "Load's moment of inertia";
-    Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+    Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet
       smpm(
       phiMechanical(start=0, fixed=true),
       useSupport=false,
@@ -49,12 +49,12 @@ package Machines
       alpha20r=smpmData.alpha20r)
       annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
 
-    Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
+    Modelica.Electrical.Polyphase.Sources.SignalVoltage signalVoltage(
         final m=m) annotation (Placement(transformation(
           origin={-10,50},
           extent={{10,10},{-10,-10}},
           rotation=270)));
-    Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+    Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
         Placement(transformation(extent={{-50,80},{-70,100}})));
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
           transformation(
@@ -80,7 +80,7 @@ package Machines
         w_nominal(displayUnit="rad/s") = wNominal,
       TorqueDirection=false)
       annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
-    Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
+    Modelica.Electrical.Polyphase.Sensors.CurrentSensor currentSensor(m=m)
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -117,7 +117,7 @@ package Machines
           origin={-80,-28},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-    Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (
+    Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (
         Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
@@ -198,12 +198,12 @@ package Machines
     annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
           info="<html>
 <p>
-A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
+A synchronous machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
 The rms values of d- and q-current in rotor fixed coordinate system are controlled by the voltageController,
 and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.</p>
 <p>
-Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
+Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
 </html>"));
   end SMPM_VoltageSourceWithLosses;

@@ -20,7 +20,7 @@ package PowerConverters "Rectifiers, Inverters, DC/DC and AC/AC converters"
 
 <h4>Topology classification</h4>
 
-<p>The PowerConverters library provides bridge and center tap rectifiers for single and multi phase supply, see
+<p>The PowerConverters library provides bridge and center tap rectifiers for single and polyphase supply, see
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC\">AC/DC converters</a>.</p>
 
 <h4>Control</h4>
@@ -46,14 +46,14 @@ contain <code>_Characteristic</code>.
       extends Modelica.Icons.Information;
       annotation (DocumentationClass=true, Documentation(info="<html>
 
-<p>There are a single and multi phase DC/AC converter model provided by the PowerConverters library.</p>
+<p>There are a single-phase and polyphase DC/AC converter model provided by the PowerConverters library.</p>
 
 <h4>Control</h4>
 
 <p>Currently there are 
 <a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM\">space vector PWM</a> and 
 <a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM\">intersective PWM</a> models provided. 
-However, for operating the single phase inverter the PWM
+However, for operating the single-phase inverter the PWM
 <a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM\">controller</a>
 can be used.
 </p>
@@ -210,7 +210,7 @@ email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
     end References;
     annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-This library provides power converters for DC and AC single and multi phase electrical systems. The PowerConverters library contains three types of converters.
+This library provides power converters for DC and AC single-phase and polyphase electrical systems. The PowerConverters library contains three types of converters.
 </p>
 
 <ul>
@@ -229,7 +229,7 @@ AC/AC converters currently only provide dimmer and soft starter with triacs.
 <ul>
   <li>All converter models rely on existing diode, thyristor and switch models provided in the
       <a href=\"modelica://Modelica.Electrical.Analog.Ideal\">Analog.Ideal</a> and the
-      <a href=\"modelica://Modelica.Electrical.MultiPhase.Ideal\">MultiPhase.Ideal</a>
+      <a href=\"modelica://Modelica.Electrical.Polyphase.Ideal\">Polyphase.Ideal</a>
       package of the Modelica Standard Library.</li>
   <li>Switching losses and recovery effects are not considered</li>
   <li>Only conduction losses are taken into account</li>
@@ -246,7 +246,7 @@ AC/AC converters currently only provide dimmer and soft starter with triacs.
   <li>Each converter contains boolean firing inputs provides variables <code>offStart...</code>
       to specify the initial conditions of the off state of each semiconductor</li>
   <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code></li>
-  <li>The number of phases of multi phase converters is not restricted to three</li>
+  <li>The number of phases of polyphase converters is not restricted to three</li>
 </ul>
 
 <h4>Literature</h4>
@@ -294,7 +294,7 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>This example demonstrates the operational behavior of a single phase controlled rectifier with constant firing angle and resistive load.</p>
+<p>This example demonstrates the operational behavior of a single-phase controlled rectifier with constant firing angle and resistive load.</p>
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end Thyristor1Pulse_R;
@@ -329,7 +329,7 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>This example demonstrates the operational behavior of a single phase controlled rectifier with variable firing angle and resistive load. The average load voltage can be controlled by means of the firing angle.</p>
+<p>This example demonstrates the operational behavior of a single-phase controlled rectifier with variable firing angle and resistive load. The average load voltage can be controlled by means of the firing angle.</p>
 <p><br>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2.firingAngle</code> to see control characteristic of this type of rectifier with resistive load.</p>
 </html>"));
         end Thyristor1Pulse_R_Characteristic;
@@ -880,7 +880,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 </html>"));
         end ThyristorBridge2Pulse_DC_Drive;
         annotation (Documentation(info="<html>
-<p>This package includes single phase two pulse bridge rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes single-phase two pulse bridge rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierBridge2Pulse;
 
@@ -1148,7 +1148,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 </html>"));
         end ThyristorCenterTap2Pulse_RLV_Characteristic;
         annotation (Documentation(info="<html>
-<p>This package includes single phase two pulse center tap rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes single-phase two pulse center tap rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierCenterTap2Pulse;
 
@@ -1165,16 +1165,16 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-80,-100},{-60,-80}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
              Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,-30})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_p(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_p(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -1416,7 +1416,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 </html>"));
         end ThyristorCenterTapmPulse_RLV_Characteristic;
         annotation (Documentation(info="<html>
-<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, equals the number of pulses. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes polyphase center tap rectifiers. The number of phases, <code>m</code>, equals the number of pulses. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierCenterTapmPulse;
 
@@ -1431,11 +1431,11 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
           parameter Modelica.SIunits.Resistance R=20 "Load resistance";
 
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -1465,7 +1465,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 transformation(
                 extent={{-10,-10},{10,10}},
                 origin={80,-60})));
-          Modelica.Electrical.MultiPhase.Basic.MultiStarResistance
+          Modelica.Electrical.Polyphase.Basic.MultiStarResistance
             multiStarResistance(final m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -1526,11 +1526,11 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             "Firing angle";
           parameter Modelica.SIunits.Resistance R=20 "Load resistance";
 
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -1570,7 +1570,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 extent={{10,10},{-10,-10}},
                 rotation=180,
                 origin={-30,0})));
-          Modelica.Electrical.MultiPhase.Basic.MultiStarResistance
+          Modelica.Electrical.Polyphase.Basic.MultiStarResistance
             multiStarResistance(final m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -1752,7 +1752,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vdi0=
-              Modelica.Electrical.MultiPhase.Functions.factorY2DC(m)*Vrms
+              Modelica.Electrical.Polyphase.Functions.factorY2DC(m)*Vrms
             "Ideal max. DC voltage";
           parameter Modelica.SIunits.Resistance R=20 "Load resistance";
           parameter Modelica.SIunits.Inductance L=1 "Load resistance"
@@ -1807,7 +1807,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
           parameter Modelica.SIunits.Voltage Vrms=dcpmData.VaNominal/
-              Modelica.Electrical.MultiPhase.Functions.factorY2DC(m)
+              Modelica.Electrical.Polyphase.Functions.factorY2DC(m)
             "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
           parameter Modelica.SIunits.ApparentPower SMains=250E3
@@ -1826,7 +1826,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               *dcpmData.IaNominal/dcpmData.wNominal "Nominal torque";
           output Modelica.SIunits.AngularVelocity w(displayUnit="rpm") = dcpm.wMechanical;
           output Modelica.SIunits.Torque tau=dcpm.tauShaft;
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sinevoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sinevoltage(
             m=m,
             each final V=fill(sqrt(2)*Vrms, m),
             each freqHz=fill(f, m)) annotation (Placement(transformation(
@@ -1910,17 +1910,17 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 extent={{10,-10},{-10,10}},
                 rotation=270,
                 origin={-38,-70})));
-          Modelica.Electrical.MultiPhase.Basic.Resistor rMains(m=m, R=fill(
+          Modelica.Electrical.Polyphase.Basic.Resistor rMains(m=m, R=fill(
                 RMains, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={-80,30})));
-          Modelica.Electrical.MultiPhase.Basic.Inductor lMains(m=m, L=fill(
+          Modelica.Electrical.Polyphase.Basic.Inductor lMains(m=m, L=fill(
                 LMains, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={-80,60})));
-          Modelica.Electrical.MultiPhase.Basic.MultiStarResistance earthing(m=m)
+          Modelica.Electrical.Polyphase.Basic.MultiStarResistance earthing(m=m)
             annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -1986,7 +1986,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 </html>"));
         end ThyristorBridge2mPulse_DC_Drive;
         annotation (Documentation(info="<html>
-<p>This package includes multi phase bridge rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes polyphase bridge rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierBridge2mPulse;
 
@@ -2003,16 +2003,16 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-100},{-70,-80}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
              Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-100,-10})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_p(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_p(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -2042,11 +2042,11 @@ In this example a PM excited DC machine is started with nominal torque at nomina
                 transformation(
                 extent={{-10,-10},{10,10}},
                 origin={80,-70})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_n(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_n(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -2268,7 +2268,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 </html>"));
         end ThyristorCenterTap2mPulse_RLV_Characteristic;
         annotation (Documentation(info="<html>
-<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
+<p>This package includes polyphase center tap rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle.</p>
 </html>"));
       end RectifierCenterTap2mPulse;
 
@@ -2529,16 +2529,16 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
 
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-80,-100},{-60,-80}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
              Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,-30})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_p(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_p(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -2616,11 +2616,11 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
 
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -2658,7 +2658,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
                 extent={{10,10},{-10,-10}},
                 rotation=180,
                 origin={-30,0})));
-          Modelica.Electrical.MultiPhase.Basic.MultiStarResistance
+          Modelica.Electrical.Polyphase.Basic.MultiStarResistance
             multiStarResistance(final m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -2709,16 +2709,16 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
 
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-100},{-70,-80}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
              Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-100,-10})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_p(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_p(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -2756,11 +2756,11 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
                 extent={{10,10},{-10,-10}},
                 rotation=180,
                 origin={-30,0})));
-          Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_n(
+          Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_n(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -2811,10 +2811,10 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
 
     package DCAC "DC to AC converter examples"
       extends Modelica.Icons.ExamplesPackage;
-      package SinglePhaseTwoLevel "Single phase two level inverter examples"
+      package SinglePhaseTwoLevel "Single-phase two level inverter examples"
         extends Modelica.Icons.ExamplesPackage;
         model SinglePhaseTwoLevel_R
-          "Single phase DC to AC converter with resistive load"
+          "Single-phase DC to AC converter with resistive load"
           extends ExampleTemplates.SinglePhaseTwoLevel(sine(
               amplitude=0.5,
               offset=0.5,
@@ -2844,7 +2844,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
         end SinglePhaseTwoLevel_R;
 
         model SinglePhaseTwoLevel_RL
-          "Single phase DC to AC converter with R-L load"
+          "Single-phase DC to AC converter with R-L load"
           extends ExampleTemplates.SinglePhaseTwoLevel(sine(
               amplitude=0.5,
               offset=0.5,
@@ -2882,9 +2882,9 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
         end SinglePhaseTwoLevel_RL;
       end SinglePhaseTwoLevel;
 
-      package MultiPhaseTwoLevel "Multi phase two level inverter example"
+      package PolyphaseTwoLevel "Polyphase two level inverter example"
         extends Modelica.Icons.ExamplesPackage;
-        model MultiPhaseTwoLevel_R "Multi phase DC to AC converter with R load"
+        model PolyphaseTwoLevel_R "Polyphase DC to AC converter with R load"
           extends Modelica.Icons.Example;
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
@@ -2896,15 +2896,15 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
-          Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level inverter(
+          Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level inverter(
               useHeatPort=false, m=m)
             annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
-          Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=
+          Modelica.Electrical.Polyphase.Sensors.CurrentSensor currentSensor(m=
                 m) annotation (Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=90,
                 origin={40,-50})));
-          Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(m=
+          Modelica.Electrical.Polyphase.Sensors.VoltageSensor voltageSensor(m=
                 m) annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
                 rotation=270,
@@ -2926,7 +2926,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 origin={-70,50})));
           Modelica.Blocks.Sources.Sine sine[m](
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             startTime=zeros(m),
             amplitude=fill(0.5, m),
             offset=fill(0.5, m),
@@ -2947,12 +2947,12 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={90,50})));
-          Modelica.Electrical.MultiPhase.Basic.Resistor resistor(m=m, R=fill(R,
+          Modelica.Electrical.Polyphase.Basic.Resistor resistor(m=m, R=fill(R,
                 m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={40,10})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(m=m) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -2993,12 +2993,12 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               Tolerance=1e-06,
               Interval=0.00002),
             Documentation(info="<html>
-<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL\">MultiPhaseTwoLevel_RL</a>.</p>
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL\">PolyphaseTwoLevel_RL</a>.</p>
 </html>"));
-        end MultiPhaseTwoLevel_R;
+        end PolyphaseTwoLevel_R;
 
-        model MultiPhaseTwoLevel_RL
-          "Multi phase DC to AC converter with R-L load"
+        model PolyphaseTwoLevel_RL
+          "Polyphase DC to AC converter with R-L load"
           extends Modelica.Icons.Example;
           parameter Integer m=6 "Number of phases";
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
@@ -3011,15 +3011,15 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
-          Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level inverter(
+          Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level inverter(
               useHeatPort=false, m=m)
             annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
-          Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=
+          Modelica.Electrical.Polyphase.Sensors.CurrentSensor currentSensor(m=
                 m) annotation (Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=90,
                 origin={40,-50})));
-          Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(m=
+          Modelica.Electrical.Polyphase.Sensors.VoltageSensor voltageSensor(m=
                 m) annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
                 rotation=270,
@@ -3041,7 +3041,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 origin={-70,50})));
           Modelica.Blocks.Sources.Sine sine[m](
             phase=-
-                Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+                Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
             startTime=zeros(m),
             amplitude=fill(0.5, m),
             offset=fill(0.5, m),
@@ -3062,17 +3062,17 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={90,50})));
-          Modelica.Electrical.MultiPhase.Basic.Resistor resistor(m=m, R=fill(R,
+          Modelica.Electrical.Polyphase.Basic.Resistor resistor(m=m, R=fill(R,
                 m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={40,10})));
-          Modelica.Electrical.MultiPhase.Basic.Inductor inductor(m=m, L=fill(L,
+          Modelica.Electrical.Polyphase.Basic.Inductor inductor(m=m, L=fill(L,
                 m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={40,-20})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (
+          Modelica.Electrical.Polyphase.Basic.Star star(m=m) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -3121,11 +3121,11 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
             Documentation(info="<html>
 <p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> directly show the switching pattern of the inverter.</p>
 </html>"));
-        end MultiPhaseTwoLevel_RL;
+        end PolyphaseTwoLevel_RL;
 
         model ThreePhaseTwoLevel_PWM "Test of pulse width modulation methods"
           extends Modelica.Icons.Example;
-          import Modelica.Electrical.MultiPhase.Functions.factorY2DC;
+          import Modelica.Electrical.Polyphase.Functions.factorY2DC;
           import Modelica.Constants.pi;
           parameter Real RMS=1 "Reference RMS Y";
           Modelica.Blocks.Sources.Cosine cosine(freqHz=2,
@@ -3139,7 +3139,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
             annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
           Modelica.Electrical.PowerConverters.DCAC.Control.PWM pwm(uMax=sqrt(2*3), f=100)
             annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
-          Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level multiPhase2Level
+          Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level multiPhase2Level
             annotation (Placement(transformation(extent={{-10,40},{10,60}})));
           Modelica.Electrical.Analog.Sources.ConstantVoltage dcPos(V=pwm.uMax/2)
             annotation (Placement(transformation(
@@ -3156,7 +3156,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-50,50})));
-          Modelica.Electrical.MultiPhase.Sensors.PotentialSensor potentialSensor
+          Modelica.Electrical.Polyphase.Sensors.PotentialSensor potentialSensor
             annotation (Placement(transformation(extent={{20,40},{40,60}})));
           Modelica.Blocks.Math.Harmonic harmonic(f=cosine.freqHz, k=1)
             annotation (Placement(transformation(extent={{60,40},{80,60}})));
@@ -3221,7 +3221,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
             Documentation(info="<html>
 <p>
 A reference space vector (formed by real part = cosine and imaginary part = sine) of length &radic;2*RMS and frequency 2 Hz is applied.
-The resulting switching patterns are applied to a threephase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1
+The resulting switching patterns are applied to a three-phase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1
 where 1 is the theoretical maximum voltage from terminal to neutral.
 The resulting voltages with reference to midpoint of the DC voltage are measured.
 </p>
@@ -3243,12 +3243,12 @@ Please note that the filter has a settle time depending on the filter parameters
 </p>
 </html>"));
         end ThreePhaseTwoLevel_PWM;
-      end MultiPhaseTwoLevel;
+      end PolyphaseTwoLevel;
 
       package ExampleTemplates "Templates of examples"
         extends Modelica.Icons.Package;
         partial model SinglePhaseTwoLevel
-          "Single phase two level inverter including control"
+          "Single-phase two level inverter including control"
           extends Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage_n(
@@ -3319,7 +3319,7 @@ Please note that the filter has a settle time depending on the filter parameters
               points={{81,-10},{90,-10},{90,38}}, color={0,0,127}));
           annotation (Documentation(
                 info="<html>
-<p>Single phase two level example template including supply and sensors; load is not yet included.</p>
+<p>Single-phase two level example template including supply and sensors; load is not yet included.</p>
 </html>"));
         end SinglePhaseTwoLevel;
         annotation (Documentation(info="<html>
@@ -3661,7 +3661,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           parameter Modelica.SIunits.Resistance RLoad=V0/ILoad "Load resistance";
           parameter Modelica.SIunits.Voltage V0=Vsource*dutyCycle "No-load output voltage";
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(final V=Vsource)
-            annotation (Placement(transformation(
+                     annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
                 rotation=270,
                 origin={-80,0})));
@@ -3678,7 +3678,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
                 transformation(extent={{-90,-40},{-70,-20}})));
           Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM(
             constantDutyCycle=dutyCycle, f=f)
-            annotation (Placement(transformation(
+                                           annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-30,-40})));
           Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
@@ -3763,7 +3763,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
                 transformation(extent={{-90,-40},{-70,-20}})));
           Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM(
             constantDutyCycle=dutyCycle, f=f)
-            annotation (Placement(transformation(
+                                           annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-30,-40})));
           Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
@@ -3778,7 +3778,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           Analog.Basic.Inductor inductor(i(fixed=true, start=0), final L=L)
             annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
           Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=C, v(fixed=true, start=V0))
-            annotation (Placement(
+                                                               annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
@@ -4054,7 +4054,7 @@ applying the firing signals to the
           annotation (Placement(transformation(extent={{40,20},{60,40}})));
         Machines.Utilities.MultiTerminalBox terminalBox(m=m, terminalConnection="D")
           annotation (Placement(transformation(extent={{10,6},{30,26}})));
-        Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
+        Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
           imc(
           m=m,
           p=aimcData.p,
@@ -4080,7 +4080,7 @@ applying the firing signals to the
           alpha20r=aimcData.alpha20r,
           TrOperational=293.15)
           annotation (Placement(transformation(extent={{10,-10},{30,10}})));
-        parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
+        parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
           annotation (Placement(transformation(extent={{40,-10},{60,10}})));
@@ -4185,9 +4185,9 @@ to firing signals which are applied to the
 </p>
 <p>
 Compare starting with firing angle by 
-<a href=\"modelica://Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_DOL\">starting direct on line</a>,
-<a href=\"modelica://Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_YD\">star-delta starting</a>, and 
-<a href=\"modelica://Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer\">starting via a transformer</a>.
+<a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DOL\">starting direct on line</a>,
+<a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_YD\">star-delta starting</a>, and 
+<a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Transformer\">starting via a transformer</a>.
 </p>
 </html>"));
       end SoftStarter;
@@ -4296,7 +4296,7 @@ Compare starting with firing angle by
               Tolerance=1e-06));
         end Dimmer;
 
-        annotation (Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>This package includes templates of the used examples. The templates are partial example models.</p>
 </html>"));
       end ExampleTemplates;
@@ -4626,14 +4626,14 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
           final vStart=vStart) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={0,10})));
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug ac(final m=m)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-        Modelica.Electrical.MultiPhase.Basic.MultiDelta delta(final m=m)
+        Modelica.Electrical.Polyphase.Basic.MultiDelta delta(final m=m)
           "Delta connection" annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,10})));
-        Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(
+        Modelica.Electrical.Polyphase.Sensors.VoltageSensor voltageSensor(
             final m=m) "Voltage sensor" annotation (Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=270,
@@ -4727,7 +4727,7 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
           final vStart=vStart) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={10,0})));
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug ac(final m=m)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Modelica.Blocks.Interfaces.BooleanOutput fire_p[m] annotation (
             Placement(transformation(
@@ -4739,11 +4739,11 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={60,110})));
-        Modelica.Electrical.MultiPhase.Basic.MultiDelta delta(final m=m)
+        Modelica.Electrical.Polyphase.Basic.MultiDelta delta(final m=m)
           "Delta connection" annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               origin={-80,0})));
-        Modelica.Electrical.MultiPhase.Sensors.PotentialSensor voltageSensor(
+        Modelica.Electrical.Polyphase.Sensors.PotentialSensor voltageSensor(
             final m=m) "Voltage sensor"
           annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
         Modelica.Blocks.Math.Gain gain[m](final k=fill(-1, m))
@@ -5511,7 +5511,7 @@ General information about AC/DC converters can be found at the
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode(
+      Modelica.Electrical.Polyphase.Ideal.IdealDiode diode(
         final m=m,
         final Ron=fill(RonDiode, m),
         final Goff=fill(GoffDiode, m),
@@ -5522,7 +5522,7 @@ General information about AC/DC converters can be found at the
             origin={-10,0},
             extent={{10,10},{-10,-10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{70,10},{90,-10}})));
       Modelica.Thermal.HeatTransfer.Components.ThermalCollector
         thermalCollector(final m=m) if useHeatPort
@@ -5576,7 +5576,7 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a m pulse diode rectifier with center tap. All voltage sources must have one interconnected plug (tap). This rectifiers works only with odd number of phases due the symmetry constrains of even phase numbers implemented in
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 The circuit topology is the same as in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">Examples.ACDC.RectifierCenterTapmPulse</a>.
 </p>
@@ -5602,7 +5602,7 @@ The circuit topology is the same as in
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable1m;
-      Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor(
+      Modelica.Electrical.Polyphase.Ideal.IdealThyristor thyristor(
         final m=m,
         final Ron=fill(RonThyristor, m),
         final Goff=fill(GoffThyristor, m),
@@ -5613,7 +5613,7 @@ The circuit topology is the same as in
             origin={-10,0},
             extent={{10,10},{-10,-10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star(final m=m)
         annotation (Placement(transformation(extent={{70,10},{90,-10}})));
       Modelica.Thermal.HeatTransfer.Components.ThermalCollector
         thermalCollector(final m=m) if useHeatPort
@@ -5673,7 +5673,7 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a m pulse thyristor rectifier with center tap. All voltage sources must have one interconnected plug (tap). This rectifiers works only with odd number of phases due the symmetry constrains of even phase numbers implemented in
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+<a href=\"modelica://Modelica.Electrical.Polyphase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 See example
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">Examples.ACDC.RectifierCenterTapmPulse</a>.
 </p>
@@ -5694,7 +5694,7 @@ See example
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_p(
+      Modelica.Electrical.Polyphase.Ideal.IdealDiode diode_p(
         final m=m,
         final Ron=fill(RonDiode, m),
         final Goff=fill(GoffDiode, m),
@@ -5705,7 +5705,7 @@ See example
             origin={0,40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_n(
+      Modelica.Electrical.Polyphase.Ideal.IdealDiode diode_n(
         final m=m,
         final Ron=fill(RonDiode, m),
         final Goff=fill(GoffDiode, m),
@@ -5716,9 +5716,9 @@ See example
             origin={0,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.Star star_p(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_p(final m=m)
         annotation (Placement(transformation(extent={{70,70},{90,50}})));
-      Modelica.Electrical.MultiPhase.Basic.Star star_n(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_n(final m=m)
         annotation (Placement(transformation(extent={{70,-50},{90,-70}})));
       Modelica.Thermal.HeatTransfer.Components.ThermalCollector
         thermalCollector(final m=m) if useHeatPort
@@ -5778,8 +5778,8 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for polyphase circuits with even phase numbers greater than three the
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
 </p>
 </html>"));
     end DiodeBridge2mPulse;
@@ -5804,7 +5804,7 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
       extends Interfaces.Enable.Enable2m;
-      Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_p(
+      Modelica.Electrical.Polyphase.Ideal.IdealThyristor thyristor_p(
         final m=m,
         final Ron=fill(RonThyristor, m),
         final Goff=fill(GoffThyristor, m),
@@ -5816,7 +5816,7 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
             origin={0,40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_n(
+      Modelica.Electrical.Polyphase.Ideal.IdealThyristor thyristor_n(
         final m=m,
         final Ron=fill(RonThyristor, m),
         final Goff=fill(GoffThyristor, m),
@@ -5828,9 +5828,9 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
             origin={0,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Basic.Star star_p(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_p(final m=m)
         annotation (Placement(transformation(extent={{70,70},{90,50}})));
-      Modelica.Electrical.MultiPhase.Basic.Star star_n(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_n(final m=m)
         annotation (Placement(transformation(extent={{70,-20},{90,-40}})));
       Modelica.Thermal.HeatTransfer.Components.ThermalCollector
         thermalConnector(final m=m) if useHeatPort
@@ -5908,8 +5908,8 @@ General information about AC/DC converters can be found at the
 </p>
 
 <p>
-This is a 2*m pulse thyristor rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. It is important to note that for multi phase circuits with phase even phase numbers greater than three the
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
+This is a 2*m pulse thyristor rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. It is important to note that for polyphase circuits with phase even phase numbers greater than three the
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
 See example
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>.
 </p>
@@ -5941,11 +5941,11 @@ See example
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable1m;
-      Modelica.Electrical.MultiPhase.Basic.Star star_p(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_p(final m=m)
         annotation (Placement(transformation(extent={{70,70},{90,50}})));
-      Modelica.Electrical.MultiPhase.Basic.Star star_n(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_n(final m=m)
         annotation (Placement(transformation(extent={{70,-50},{90,-70}})));
-      Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_p(
+      Modelica.Electrical.Polyphase.Ideal.IdealThyristor thyristor_p(
         final m=m,
         final Ron=fill(RonThyristor, m),
         final Goff=fill(GoffThyristor, m),
@@ -5957,7 +5957,7 @@ See example
             origin={0,40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_n(
+      Modelica.Electrical.Polyphase.Ideal.IdealDiode diode_n(
         final m=m,
         final Ron=fill(RonDiode, m),
         final Goff=fill(GoffDiode, m),
@@ -6052,8 +6052,8 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a 2*m pulse half controlled rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for polyphase circuits with even phase numbers greater than three the
+<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
 </p>
 </html>"));
     end HalfControlledBridge2mPulse;
@@ -6072,7 +6072,7 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_p(
+      Modelica.Electrical.Polyphase.Ideal.IdealDiode diode_p(
         final m=m,
         final Ron=fill(RonDiode, m),
         final Goff=fill(GoffDiode, m),
@@ -6083,7 +6083,7 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
             origin={-10,60},
             extent={{10,10},{-10,-10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_n(
+      Modelica.Electrical.Polyphase.Ideal.IdealDiode diode_n(
         final m=m,
         final Ron=fill(RonDiode, m),
         final Goff=fill(GoffDiode, m),
@@ -6094,9 +6094,9 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
             origin={-10,-60},
             extent={{10,10},{-10,-10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Basic.Star star_p(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_p(final m=m)
         annotation (Placement(transformation(extent={{70,70},{90,50}})));
-      Modelica.Electrical.MultiPhase.Basic.Star star_n(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_n(final m=m)
         annotation (Placement(transformation(extent={{72,-50},{92,-70}})));
       Modelica.Thermal.HeatTransfer.Components.ThermalCollector
         thermalCollector(final m=m) if useHeatPort
@@ -6183,7 +6183,7 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable2m;
-      Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_p(
+      Modelica.Electrical.Polyphase.Ideal.IdealThyristor thyristor_p(
         final m=m,
         final Ron=fill(RonThyristor, m),
         final Goff=fill(GoffThyristor, m),
@@ -6195,7 +6195,7 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
             origin={-10,60},
             extent={{10,10},{-10,-10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_n(
+      Modelica.Electrical.Polyphase.Ideal.IdealThyristor thyristor_n(
         final m=m,
         final Ron=fill(RonThyristor, m),
         final Goff=fill(GoffThyristor, m),
@@ -6207,9 +6207,9 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
             origin={-10,-60},
             extent={{10,10},{-10,-10}},
             rotation=180)));
-      Modelica.Electrical.MultiPhase.Basic.Star star_p(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_p(final m=m)
         annotation (Placement(transformation(extent={{70,70},{90,50}})));
-      Modelica.Electrical.MultiPhase.Basic.Star star_n(final m=m)
+      Modelica.Electrical.Polyphase.Basic.Star star_n(final m=m)
         annotation (Placement(transformation(extent={{72,-50},{92,-70}})));
       Modelica.Thermal.HeatTransfer.Components.ThermalCollector
         thermalCollector(final m=m) if useHeatPort
@@ -6440,7 +6440,7 @@ Let the user choose the PWM type from:
               coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
 <p>
-For a threephase system, 8 space vectors are available according to the following switching patterns:
+For a three-phase system, 8 space vectors are available according to the following switching patterns:
 </p>
 <ul>
 <li>0 [0,0,0] length 0</li>
@@ -6585,7 +6585,7 @@ The switching pattern of the negative fire signal is just the inverse of the pos
               coordinateSystem(preserveAspectRatio=false)),
           Documentation(info="<html>
 <p>
-The intersective PWM transforms the input space phasor <u>u</u> to the three phase voltages,
+The intersective PWM transforms the input space phasor <u>u</u> to the three-phase voltages,
 and compares them with the reference signals.
 As long as the phase voltage is greater than the corresponding reference signal, the corresponding fire signal is true.
 The switching pattern of the negative fire signal is just the inverse of the positive fire signal.
@@ -6594,21 +6594,21 @@ The switching pattern of the negative fire signal is just the inverse of the pos
 The user can choose from 4 different reference signals:
 </p>
 <ul>
-<li>Sawtooth1: sawtooth signal, same phase in all 3 phases</li>
-<li>Sawtooth3: sawtooth signal, phase shift between the 3 phases = period/3</li>
-<li>Triangle1: triangle signal, same phase in all 3 phases</li>
-<li>Triangle3: triangle signal, phase shift between the 3 phases = period/3</li>
+<li>Sawtooth1: sawtooth signal, same phase in all three phases</li>
+<li>Sawtooth3: sawtooth signal, phase shift between the three phases = period/3</li>
+<li>Triangle1: triangle signal, same phase in all three phases</li>
+<li>Triangle3: triangle signal, phase shift between the three phases = period/3</li>
 </ul>
 </html>"));
       end IntersectivePWM;
       annotation (Documentation(info="<html>
 <p>
-Currently there are only threephase PWM implemented (not multiphase).
+Currently there are only three-phase PWM implemented (not polyphase).
 </p>
 </html>"));
     end Control;
 
-    model SinglePhase2Level "Single phase DC to AC converter"
+    model SinglePhase2Level "Single-phase DC to AC converter"
       extends Modelica.Blocks.Icons.Block;
       parameter Modelica.SIunits.Resistance RonTransistor=1e-05
         "Transistor closed resistance";
@@ -6740,17 +6740,17 @@ Currently there are only threephase PWM implemented (not multiphase).
               textString="AC")}),
         Documentation(info="<html>
 <p>
-This is a single phase two level inverter. The boolean signals <code>fire_p</code> and <code>fire_n</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of two transistors and two anti parallel free wheeling diodes.
+This is a single-phase two level inverter. The boolean signals <code>fire_p</code> and <code>fire_n</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of two transistors and two anti parallel free wheeling diodes.
 </p>
 
 <p>
-An example of a single phase inverter with PWM voltage control is included in
+An example of a single-phase inverter with PWM voltage control is included in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel\">Examples.DCAC.SinglePhaseTwoLevel</a>.
 </p>
 </html>"));
     end SinglePhase2Level;
 
-    model MultiPhase2Level "Multi phase DC to AC converter"
+    model Polyphase2Level "Polyphase DC to AC converter"
       extends Modelica.Blocks.Icons.Block;
       extends Interfaces.Enable.Enable2m;
       parameter Modelica.SIunits.Resistance RonTransistor=1e-05
@@ -6769,7 +6769,7 @@ An example of a single phase inverter with PWM voltage control is included in
       extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.ACplug;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
-      Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor transistor_p(
+      Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor transistor_p(
         final m=m,
         final Ron=fill(RonTransistor, m),
         final Goff=fill(GoffTransistor, m),
@@ -6778,7 +6778,7 @@ An example of a single phase inverter with PWM voltage control is included in
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={30,20})));
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_p(
+      Modelica.Electrical.Polyphase.Ideal.IdealDiode diode_p(
         final m=m,
         final Ron=fill(RonDiode, m),
         final Goff=fill(GoffDiode, m),
@@ -6787,12 +6787,12 @@ An example of a single phase inverter with PWM voltage control is included in
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={70,20})));
-      Modelica.Electrical.MultiPhase.Basic.Star star_p(final m=m) annotation (
+      Modelica.Electrical.Polyphase.Basic.Star star_p(final m=m) annotation (
           Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=90,
             origin={50,50})));
-      Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor transistor_n(
+      Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor transistor_n(
         final m=m,
         final Ron=fill(RonTransistor, m),
         final Goff=fill(GoffTransistor, m),
@@ -6801,7 +6801,7 @@ An example of a single phase inverter with PWM voltage control is included in
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={30,-20})));
-      Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_n(
+      Modelica.Electrical.Polyphase.Ideal.IdealDiode diode_n(
         final m=m,
         final Ron=fill(RonDiode, m),
         final Goff=fill(GoffDiode, m),
@@ -6810,7 +6810,7 @@ An example of a single phase inverter with PWM voltage control is included in
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={70,-20})));
-      Modelica.Electrical.MultiPhase.Basic.Star star_n(final m=m) annotation (
+      Modelica.Electrical.Polyphase.Basic.Star star_n(final m=m) annotation (
           Placement(transformation(
             extent={{10,10},{-10,-10}},
             rotation=90,
@@ -6905,10 +6905,10 @@ An example of a single phase inverter with PWM voltage control is included in
               textString="AC")}),
         Documentation(info="<html>
 <p>
-This is a multi phase two level inverter. The boolean signals <code>fire_p[k]</code> and <code>fire_n[k]</code> for any phase <code>k</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of <code>2*m</code> transistors and two anti parallel free wheeling diodes, respectively, where <code>m</code> is the number of phases.
+This is a polyphase two level inverter. The boolean signals <code>fire_p[k]</code> and <code>fire_n[k]</code> for any phase <code>k</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of <code>2*m</code> transistors and two anti parallel free wheeling diodes, respectively, where <code>m</code> is the number of phases.
 </p>
 </html>"));
-    end MultiPhase2Level;
+    end Polyphase2Level;
     annotation (Documentation(info="<html>
 <p>
 General information about DC/AC converters can be found at the
@@ -7460,7 +7460,7 @@ This is a conventional step up chopper (boost converter) model. It consists of a
               color={0,0,255})}),
         Documentation(info="<html>
 <p>
-The H bridge is a four quadrant DC/DC converter. It consists of two single phase DC/AC converters which are controlled differently; see Fig.&nbsp;1.</p>
+The H bridge is a four quadrant DC/DC converter. It consists of two single-phase DC/AC converters which are controlled differently; see Fig.&nbsp;1.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 1:</strong> H bridge</caption>
@@ -8012,9 +8012,9 @@ For <code>useConstantEnable = false</code> the internal signal
         Modelica.SIunits.Power powerAC=vAC*iAC "AC power";
       end ACtwoPin;
       extends Modelica.Icons.InterfacesPackage;
-      partial model ACplug "AC multi phase plug"
+      partial model ACplug "AC polyphase plug"
         parameter Integer m(final min=3) = 3 "Number of phases";
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug ac(final m=m)
           "AC input"
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC potentials";
@@ -8023,12 +8023,12 @@ For <code>useConstantEnable = false</code> the internal signal
         Modelica.SIunits.Power powerTotalAC=sum(powerAC) "AC total power";
       end ACplug;
 
-      partial model ACtwoPlug "Two AC multi phase plugs"
+      partial model ACtwoPlug "Two AC polyphase plugs"
         parameter Integer m(final min=3) = 3 "Number of phases";
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac_p(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug ac_p(final m=m)
           "Positive potential AC input"
           annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug ac_n(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.NegativePlug ac_n(final m=m)
           "Negative potential AC input"
           annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
         Modelica.SIunits.Voltage vAC[m]=ac_p.pin[:].v - ac_n.pin[:].v "AC voltages";
@@ -8084,9 +8084,9 @@ For <code>useConstantEnable = false</code> the internal signal
         Modelica.SIunits.Power powerAC=vAC*iAC "AC power";
       end ACpin;
 
-      partial model ACplug "AC multi phase plug"
+      partial model ACplug "AC polyphase plug"
         parameter Integer m(final min=3) = 3 "Number of phases";
-        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
+        Modelica.Electrical.Polyphase.Interfaces.PositivePlug ac(final m=m)
           "AC output"
           annotation (Placement(transformation(extent={{90,-10},{110,10}})));
         Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC potential";
@@ -8343,10 +8343,10 @@ This partial model provides parameters and the conditional input signal for the 
         Intersective "Intersective PWM")
     "Enumeration defining the PWM type";
     type ReferenceType = enumeration(
-        Sawtooth1 "Sawtooth signal single phase",
-        Sawtooth3 "Sawtooth signal three phase",
-        Triangle1 "Triangle signal single phase",
-        Triangle3 "Triangle signal three phase")
+        Sawtooth1 "Sawtooth signal single-phase",
+        Sawtooth3 "Sawtooth signal three-phase",
+        Triangle1 "Triangle signal single-phase",
+        Triangle3 "Triangle signal three-phase")
       "Enumeration defining the type of reference signal";
     type Voltage2AngleType = enumeration(
         Lin "Linear",
@@ -8364,7 +8364,7 @@ This partial model provides parameters and the conditional input signal for the 
     preferredView="info",
     Documentation(info="<html>
 <p>
-This library provides power converters for DC and AC single and multi phase electrical systems. The PowerConverters library contains four types of converters.
+This library provides power converters for DC and AC single-phase and polyphase electrical systems. The PowerConverters library contains four types of converters.
 </p>
 
 <ul>

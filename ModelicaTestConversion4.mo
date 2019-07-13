@@ -376,6 +376,16 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2693;
+
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C = Modelica.Electrical.QuasiStationary.MultiPhase;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
     end QuasiStatic;
 
     package Machines
@@ -450,6 +460,27 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2929;
+
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C1 = Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage;
+        import C2 = Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing;
+        import C3 = Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines;
+        import C4 = Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMC;
+        import C5 = Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS;
+        import C6 = Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines;
+        import C7 = Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMC;
+        import C8 = Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMC;
+        import C9 = Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS;
+        import C0 = Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS;
+        import CA = Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData;
+        import CB = Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
     end Machines;
 
     package PowerConverters "Rectifiers, Inverters, DC/DC and AC/AC converters"
@@ -491,7 +522,30 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2970;
+
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C = Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
     end PowerConverters;
+
+    package MultiPhase
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C = Modelica.Electrical.MultiPhase;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
+    end MultiPhase;
 
     package Spice3
       extends Modelica.Icons.ExamplesPackage;
@@ -518,6 +572,22 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     extends Modelica.Icons.ExamplesPackage;
     package FundamentalWave
       extends Modelica.Icons.ExamplesPackage;
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C1 = Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase;
+        import C2 = Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter;
+        import C3 = Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding;
+        import C4 = Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding;
+        import C5 = Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage;
+        import C6 = Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing;
+        import C7 = Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
+
       model Issue3030 "Conversion test for #3030"
         extends Modelica.Icons.Example;
         Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete symmetricCage(RRef=1, Lsigma=1) annotation (Placement(transformation(extent={{0,0},{20,20}})));
@@ -537,6 +607,21 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue3030;
     end FundamentalWave;
+
+    package QuasiStatic
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C1 = Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter;
+        import C2 = Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding;
+        import C3 = Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
+    end QuasiStatic;
   end Magnetic;
 
   package Fluid

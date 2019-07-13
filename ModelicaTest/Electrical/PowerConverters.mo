@@ -14,11 +14,11 @@ package PowerConverters
       "Firing angle";
     parameter Modelica.SIunits.Resistance R=20 "Load resistance";
 
-    Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+    Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
       final m=m,
       V=fill(sqrt(2)*Vrms, m),
       phase=-
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+          Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
       freqHz=fill(f, m)) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -58,7 +58,7 @@ package PowerConverters
           extent={{10,10},{-10,-10}},
           rotation=180,
           origin={-30,0})));
-    Modelica.Electrical.MultiPhase.Basic.MultiStarResistance
+    Modelica.Electrical.Polyphase.Basic.MultiStarResistance
       multiStarResistance(final m=m) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -70,7 +70,7 @@ package PowerConverters
           origin={30,30},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Modelica.Electrical.MultiPhase.Basic.Resistor resistor1(m=m, R=fill(1, m))
+    Modelica.Electrical.Polyphase.Basic.Resistor resistor1(m=m, R=fill(1, m))
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=-90,
@@ -161,11 +161,11 @@ package PowerConverters
       parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
       parameter Modelica.SIunits.Frequency f=50 "Frequency";
 
-      Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+      Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
         final m=m,
         V=fill(sqrt(2)*Vrms, m),
         phase=-
-            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+            Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
         freqHz=fill(f, m)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -203,14 +203,14 @@ package PowerConverters
             extent={{10,10},{-10,-10}},
             rotation=180,
             origin={-30,0})));
-      Modelica.Electrical.MultiPhase.Basic.MultiStarResistance
+      Modelica.Electrical.Polyphase.Basic.MultiStarResistance
         multiStarResistance(final m=m) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-80,-60})));
       Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
             transformation(extent={{-90,-100},{-70,-80}})));
-      Modelica.Electrical.MultiPhase.Basic.Resistor innerResistor(m=m, R=fill(1,
+      Modelica.Electrical.Polyphase.Basic.Resistor innerResistor(m=m, R=fill(1,
             m)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,

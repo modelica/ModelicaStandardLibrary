@@ -1,5 +1,5 @@
 within Modelica.Electrical.QuasiStatic;
-package SinglePhase "Single phase AC components"
+package SinglePhase "Single-phase AC components"
   extends Modelica.Icons.Package;
 
   package Examples "Test examples"
@@ -462,7 +462,7 @@ Examples to demonstrate the usage of quasi-static electric components.
 </html>"));
   end Examples;
 
-  package Basic "Basic components for AC singlephase models"
+  package Basic "Basic components for AC single-phase models"
     extends Modelica.Icons.Package;
 
     model Ground "Electrical ground"
@@ -485,7 +485,7 @@ Examples to demonstrate the usage of quasi-static electric components.
               textString="%name",
               textColor={0,0,255})}), Documentation(info="<html>
 <p>
-Ground of a single phase circuit. The potential at the ground node is zero.
+Ground of a single-phase circuit. The potential at the ground node is zero.
 Every electrical circuit, e.g., a series resonance
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance\">
           example</a>, has to contain at least one ground object.
@@ -494,7 +494,7 @@ Every electrical circuit, e.g., a series resonance
 </html>"));
     end Ground;
 
-    model Resistor "Single phase linear resistor"
+    model Resistor "Single-phase linear resistor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
@@ -552,7 +552,7 @@ A linear temperature dependency of the resistance is also taken into account.
 </html>"));
     end Resistor;
 
-    model Conductor "Single phase linear conductor"
+    model Conductor "Single-phase linear conductor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
@@ -611,7 +611,7 @@ A linear temperature dependency of the conductance is also taken into account.
 </html>"));
     end Conductor;
 
-    model Capacitor "Single phase linear capacitor"
+    model Capacitor "Single-phase linear capacitor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       parameter Modelica.SIunits.Capacitance C(start=1) "Capacitance";
@@ -656,7 +656,7 @@ The capacitance <code>C</code> is allowed to be positive, zero, or negative.
 </html>"));
     end Capacitor;
 
-    model Inductor "Single phase linear inductor"
+    model Inductor "Single-phase linear inductor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       parameter Modelica.SIunits.Inductance L(start=1) "Inductance";
@@ -711,7 +711,7 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
 </html>"));
     end Inductor;
 
-    model Impedance "Single phase linear impedance"
+    model Impedance "Single-phase linear impedance"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       import Modelica.ComplexMath.real;
@@ -794,7 +794,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 </html>"));
     end Impedance;
 
-    model Admittance "Single phase linear admittance"
+    model Admittance "Single-phase linear admittance"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       import Modelica.ComplexMath.real;
@@ -876,7 +876,7 @@ Frequency dependency is considered by <code>frequencyDependent = true</code>, di
 </html>"));
     end Admittance;
 
-    model VariableResistor "Single phase variable resistor"
+    model VariableResistor "Single-phase variable resistor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
@@ -947,7 +947,7 @@ A zero crossing of the R signal could cause singularities due to the actual stru
 </html>"));
     end VariableResistor;
 
-    model VariableConductor "Single phase variable conductor"
+    model VariableConductor "Single-phase variable conductor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
@@ -1013,7 +1013,7 @@ A linear temperature dependency of the conductance is also taken into account.
 </html>"));
     end VariableConductor;
 
-    model VariableCapacitor "Single phase variable capacitor"
+    model VariableCapacitor "Single-phase variable capacitor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       Modelica.Blocks.Interfaces.RealInput C(unit="F") "Variable capacitances"
@@ -1075,7 +1075,7 @@ The abstraction of a variable capacitor at quasi-static operation assumes:
 </html>"));
     end VariableCapacitor;
 
-    model VariableInductor "Single phase variable inductor"
+    model VariableInductor "Single-phase variable inductor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       Modelica.Blocks.Interfaces.RealInput L(unit="H") "Variable inductances"
@@ -1146,7 +1146,7 @@ The abstraction of a variable inductor at quasi-static operation assumes:
 </html>"));
     end VariableInductor;
 
-    model VariableImpedance "Single phase variable impedance"
+    model VariableImpedance "Single-phase variable impedance"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.imag;
@@ -1243,7 +1243,7 @@ singularities due to the actual structure of the connected network.
 </html>"));
     end VariableImpedance;
 
-    model VariableAdmittance "Single phase variable admittance"
+    model VariableAdmittance "Single-phase variable admittance"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.imag;
@@ -1349,18 +1349,18 @@ singularities due to the actual structure of the connected network.
             fillPattern=FillPattern.Solid,
             extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
               {100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
-<p>This package hosts basic models for quasi-static single phase circuits.
-Quasi-static theory for single phase circuits can be found in the
+<p>This package hosts basic models for quasi-static single-phase circuits.
+Quasi-static theory for single-phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Basic\">MultiPhase.Basic</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic\">Polyphase.Basic</a>
 
 </html>"));
   end Basic;
 
-  package Ideal "Ideal components for AC singlephase models"
+  package Ideal "Ideal components for AC single-phase models"
     extends Modelica.Icons.Package;
 
     model Idle "Idle branch"
@@ -1951,18 +1951,18 @@ where <code>n</code> is a real number called the turns ratio.</p>
           Line(origin={10,34}, points={{30,-40},{30,-60}}),
           Line(origin={10,34}, points={{30,-60},{80,-60}})}), Documentation(
           info="<html>
-<p>This package hosts ideal models for quasi-static single phase circuits.
-Quasi-static theory for single phase circuits can be found in the
+<p>This package hosts ideal models for quasi-static single-phase circuits.
+Quasi-static theory for single-phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Ideal\">MultiPhase.Ideal</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal\">Polyphase.Ideal</a>
 
 </html>"));
   end Ideal;
 
-  package Sensors "AC singlephase sensors"
+  package Sensors "AC single-phase sensors"
     extends Modelica.Icons.SensorsPackage;
 
     model ReferenceSensor "Sensor of reference angle gamma"
@@ -2285,7 +2285,7 @@ This sensor can be used to measure the complex apparent power.
               textString="V",
               textColor={64,64,64})}),
       Documentation(info="<html>
-<p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.
+<p>This multi sensor measures current, voltage and instantaneous electrical power of a single-phase system and has a separated voltage and current path.
 The pins of the voltage path are pv and nv, the pins of the current path are pc and nc.
 The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 
@@ -2306,18 +2306,18 @@ The internal resistance of the current path is zero, the internal resistance of 
 </html>"));
   end MultiSensor;
     annotation (Documentation(info="<html>
-<p>This package hosts sensors for quasi-static single phase circuits.
-Quasi-static theory for single phase circuits can be found in the
+<p>This package hosts sensors for quasi-static single-phase circuits.
+Quasi-static theory for single-phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sensors\">MultiPhase.Sensors</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Sensors\">Polyphase.Sensors</a>
 
 </html>"));
   end Sensors;
 
-  package Sources "AC singlephase sources"
+  package Sources "AC single-phase sources"
     extends Modelica.Icons.SourcesPackage;
 
     model VoltageSource "Constant AC voltage"
@@ -2574,18 +2574,18 @@ way that on a logarithmic frequency scale, the frequency curve appears linear.</
 </html>"));
     end FrequencySweepCurrentSource;
     annotation (Documentation(info="<html>
-<p>This package hosts sources for quasi-static single phase circuits.
-Quasi-static theory for single phase circuits can be found in the
+<p>This package hosts sources for quasi-static single-phase circuits.
+Quasi-static theory for single-phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Sources\">MultiPhase.Sources</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Sources\">Polyphase.Sources</a>
 
 </html>"));
   end Sources;
 
-  package Interfaces "Interfaces for AC singlephase models"
+  package Interfaces "Interfaces for AC single-phase models"
     extends Modelica.Icons.InterfacesPackage;
 
     connector Pin "Quasi-static single-phase pin"
@@ -2604,9 +2604,9 @@ derived from this base connector.
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">NegativePlug</a>
 </p>
 
 </html>"));
@@ -2641,9 +2641,9 @@ Additionally the reference angle is specified in the connector. The time derivat
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">Pin</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin\">NegativePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">NegativePlug</a>
 </p>
 </html>"));
     end PositivePin;
@@ -2677,9 +2677,9 @@ Additionally the reference angle is specified in the connector. The time derivat
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin\">Pin</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">PositivePin</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Plug\">Plug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug\">Plug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug\">PositivePlug</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug\">NegativePlug</a>
 </p>
 </html>"));
     end NegativePin;
@@ -2775,8 +2775,8 @@ The absolute sensor partial model provides a single
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensor\">RelativeSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor\">PotentialSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.AbsoluteSensor\">MultiPhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">Polyphase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensor\">Polyphase.Interfaces.RelativeSensor</a>
 </p>
 
 </html>"));
@@ -2811,8 +2811,8 @@ The relative sensor partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.AbsoluteSensor\">MultiPhase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">Polyphase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensor\">Polyphase.Interfaces.RelativeSensor</a>
 </p>
 
 </html>"));
@@ -2848,7 +2848,7 @@ The source partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource\">CurrentSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.Source\">MultiPhase.Interfaces.Source</a>.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source\">Polyphase.Interfaces.Source</a>.
 </p>
 </html>"));
     end Source;
@@ -3013,14 +3013,14 @@ At the DC side, only the mean of voltage and current are taken into account.
               points={{2,40},{70,40},{2,40},{70,-50},{2,-50},{2,40},{2,-50}},
               color={0,0,255})}), Documentation(info="<html>
 <p>
-This is a so called Graetz-bridge, a single phase rectifier built from 4 diodes.
+This is a so called Graetz-bridge, a single-phase rectifier built from 4 diodes.
 </p>
 </html>"));
     end GraetzRectifier;
 
     annotation (Documentation(info="<html>
-<p>This package hosts utilities for test examples of quasi-static single phase circuits.
-Quasi-static theory for single phase circuits can be found in the
+<p>This package hosts utilities for test examples of quasi-static single-phase circuits.
+Quasi-static theory for single-phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
@@ -3035,13 +3035,13 @@ Quasi-static theory for single phase circuits can be found in the
           fillPattern=FillPattern.Solid,
           extent={{-20,-20},{20,20}})}, coordinateSystem(extent={{-100,-100},{
             100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
-<p>This package hosts models for quasi-static single phase circuits.
-Quasi-static theory for single phase circuits can be found in the
+<p>This package hosts models for quasi-static single-phase circuits.
+Quasi-static theory for single-phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 </p>
 <h4>See also</h4>
 
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase\">MultiPhase</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase\">Polyphase</a>
 
 </html>"));
 end SinglePhase;
