@@ -17734,30 +17734,30 @@ starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
             fillPattern=FillPattern.Solid),
             Text(
               extent={{-50,40},{0,10}},
-              lineColor={0,0,0},
+              textColor={0,0,0},
               lineThickness=0.5,
               textString="Y3"),
             Text(
               extent={{-50,-60},{0,-90}},
-              lineColor={0,0,0},
+              textColor={0,0,0},
               lineThickness=0.5,
               textString="Y2"),
             Text(
               extent={{0,40},{50,10}},
-              lineColor={0,0,0},
+              textColor={0,0,0},
               lineThickness=0.5,
               textString="D2"),
             Text(
               extent={{0,-60},{50,-90}},
-              lineColor={0,0,0},
+              textColor={0,0,0},
               lineThickness=0.5,
               textString="D3"),             Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
             Text(
               extent={{-150,-150},{150,-110}},
-              lineColor={0,0,0},
+              textColor={0,0,0},
               textString="%layout"),
             Line(
               points={{80,80},{80,20}},
