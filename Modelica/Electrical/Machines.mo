@@ -2072,8 +2072,7 @@ at time tStart a load torque step is applied.</p>
           annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
         Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin2(m=m, k=2)
           annotation (Placement(transformation(extent={{-20,30},{-40,50}})));
-        Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin3(m=m, k=3)
-          if                                                                     settings.connect3
+        Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin3(m=m, k=3) if  settings.connect3
           annotation (Placement(transformation(extent={{-20,-10},{-40,10}})));
         Modelica.Electrical.Analog.Sources.ConstantCurrent
           constantCurrent(I=settings.Idc)
@@ -2132,8 +2131,7 @@ at time tStart a load torque step is applied.</p>
         annotation (experiment(
             StopTime=25,
             Interval=0.001,
-            Tolerance=1e-06,
-            __Dymola_Algorithm="Dassl"), Documentation(info="<html>
+            Tolerance=1e-06), Documentation(info="<html>
 <p>
 The stator windings of an induction machine are fed by a DC current, causing a stationary current space phasor. 
 Since the rotor is turning, voltage is induced in the rotor cage which in turn drives rotor currents. 
@@ -3279,13 +3277,13 @@ achieve constant current and torque.</p>
           Rrq=smpmData.Rrq,
           TrRef=smpmData.TrRef,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
-
           TsOperational=293.15,
           alpha20s=smpmData.alpha20s,
           wMechanical(fixed=true, start=w0),
           TrOperational=293.15,
           alpha20r=smpmData.alpha20r)
           annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+
         Modelica.Mechanics.Rotational.Components.Inertia inertiaLoad(J=JLoad)
           annotation (Placement(transformation(extent={{70,-10},{90,10}})));
         Modelica.Electrical.Machines.Utilities.TerminalBox
