@@ -715,15 +715,14 @@ A freely available book is available in
             "Mains short circuit impedance";
           final parameter Modelica.SIunits.Resistance RMains=ZMains*lamdaMains
             "Mains resistance" annotation (Evaluate=true);
-          final parameter Modelica.SIunits.Inductance LMains=ZMains*sqrt(1 -
-              lamdaMains^2)/(2*pi*f) "Mains inductance"
-            annotation (Evaluate=true);
+          final parameter Modelica.SIunits.Inductance LMains=ZMains*sqrt(1 - lamdaMains^2)/(2*pi*f)
+            "Mains inductance" annotation (Evaluate=true);
           parameter Modelica.SIunits.Inductance Ld=10*dcpmData.La
             "Smoothing inductance" annotation (Evaluate=true);
           final parameter Modelica.SIunits.Torque tauNominal=dcpmData.ViNominal
               *dcpmData.IaNominal/dcpmData.wNominal "Nominal torque";
-          output Modelica.SIunits.AngularVelocity w(displayUnit="rpm") = dcpm.wMechanical;
-          output Modelica.SIunits.Torque tau=dcpm.tauShaft;
+          output Modelica.SIunits.AngularVelocity w(displayUnit="rpm") = dcpm.wMechanical "Angular velocity of drive";
+          output Modelica.SIunits.Torque tau=dcpm.tauShaft "Shaft torque of drive";
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
                 origin={-80,-50},
