@@ -2460,7 +2460,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
               points={{-10,-20},{-10,-28}}, color={0,0,255}));
           annotation (experiment(Interval=0.0001, Tolerance=1e-06, StopTime=1),             Documentation(
                 info="<html>
-<p>At start time tStart single phase voltage is supplied to the induction machine with squirrel cage;
+<p>At start time tStart single-phase voltage is supplied to the induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 finally reaching nominal speed.</p>
 

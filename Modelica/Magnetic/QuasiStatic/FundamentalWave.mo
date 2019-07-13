@@ -735,7 +735,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
           Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(final m=m)
             annotation (Placement(transformation(origin={0,-20},   extent={{-10,-10},{10,
                     10}})));
-          Electrical.Machines.Utilities.MultiTerminalBox     terminalBox(m=m, terminalConnection="Y") annotation (Placement(transformation(extent={{20,-54},{40,-34}})));
+          Electrical.Machines.Utilities.MultiTerminalBox terminalBox(m=m, terminalConnection="Y") annotation (Placement(transformation(extent={{20,-54},{40,-34}})));
           Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
             imc(
             Jr=imcData.Jr,
@@ -4286,7 +4286,7 @@ the conductance for the eddy current loss model is determined by</p>
 </p>
 
 <p>
-where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/N.png\"> is the number of turns of the symmetric electro magnetic coupling.
+where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/N.png\"> is the number of turns of the symmetric electromagnetic coupling.
 </p>
 
 <p>For such an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase system
@@ -7275,7 +7275,7 @@ The partial two port elementary model extends from the partial two port model an
         Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines
         powerBalance(
         final powerStator=
-            Electrical.QuasiStatic.MultiPhase.Functions.activePower(vs,
+            Electrical.QuasiStatic.Polyphase.Functions.activePower(vs,
             is),
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*
@@ -7339,13 +7339,13 @@ The partial two port elementary model extends from the partial two port model an
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={70,-90})));
-      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.PositivePlug
+      Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug
         plug_sp(final m=m) "Positive plug of stator" annotation (Placement(
             transformation(extent={{50,90},{70,110}})));
-      Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces.NegativePlug
+      Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug
         plug_sn(final m=m) "Negative plug of stator" annotation (Placement(
             transformation(extent={{-70,90},{-50,110}})));
-      BasicMachines.Components.SymmetricMultiPhaseWinding stator(
+      BasicMachines.Components.SymmetricPolyphaseWinding stator(
         final useHeatPort=true,
         final m=m,
         final RRef=Rs,
