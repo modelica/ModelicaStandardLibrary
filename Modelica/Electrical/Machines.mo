@@ -2025,7 +2025,7 @@ at time tStart a load torque step is applied.</p>
         import Modelica.Constants.pi;
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.AngularVelocity w0(displayUnit="rev/min")=
-          2*pi*imcData.fsNominal/imcData.p "Initial mehcanical speed";
+          2*pi*imcData.fsNominal/imcData.p "Initial mechanical speed";
         parameter Modelica.SIunits.Inertia JLoad=4*imcData.Jr
           "Load's moment of inertia";
         Modelica.SIunits.Torque tauElectrical=imc.tauElectrical "Electrical torque";
