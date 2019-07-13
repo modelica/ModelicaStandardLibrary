@@ -13,6 +13,14 @@ convertClass("Modelica.Icons.TypeComplex",
               "Complex")
 convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
               "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport",
+              "ObsoleteModelica4.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport")
+convertClass("Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport",
+              "ObsoleteModelica4.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport")
+convertClass("Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport",
+              "ObsoleteModelica4.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport")
+convertClass("Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport",
+              "ObsoleteModelica4.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport")
 convertClass("Modelica.Media.IdealGases.MixtureGases.simpleMoistAir",
               "Modelica.Media.IdealGases.MixtureGases.SimpleMoistAir");
 convertClass("Modelica.Blocks.Tables.CombiTable1D",

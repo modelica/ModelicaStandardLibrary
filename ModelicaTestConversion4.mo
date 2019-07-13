@@ -1205,6 +1205,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2863;
+
+      model Issue3040 "Conversion test for #3040"
+        extends Modelica.Icons.Example;
+        import C1 = Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport;
+        import C2 = Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3040\">#3040</a>.
+</p>
+</html>"));
+      end Issue3040;
     end Rotational;
 
     package Translational
@@ -1224,6 +1235,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue194;
+
+      model Issue3040 "Conversion test for #3040"
+        extends Modelica.Icons.Example;
+        import C1 = Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport;
+        import C2 = Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3040\">#3040</a>.
+</p>
+</html>"));
+      end Issue3040;
     end Translational;
   end Mechanics;
 
