@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package ComplexBlocks
   "Library of basic input/output control blocks with Complex signals"
   extends Modelica.Icons.Package;
