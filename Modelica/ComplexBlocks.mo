@@ -150,6 +150,7 @@ Plot the magnitude locus (in dB) dB versus lg_w and the phase locus versus lg_w.
 
     connector ComplexInput = input Complex "'input Complex' as connector"
       annotation (
+      IconMap(primitivesVisible=false),
       defaultComponentName="u",
       Icon(coordinateSystem(
           extent={{-100,-100},{100,100}},
@@ -178,6 +179,7 @@ Connector with one input signal of type Complex.
 
     connector ComplexOutput = output Complex "'output Complex' as connector"
       annotation (
+      IconMap(primitivesVisible=false),
       defaultComponentName="y",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Polygon(
