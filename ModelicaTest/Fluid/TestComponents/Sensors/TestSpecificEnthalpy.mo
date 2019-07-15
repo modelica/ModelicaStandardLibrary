@@ -21,7 +21,7 @@ model TestSpecificEnthalpy
       package Medium = Modelica.Media.Water.StandardWater)
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
   Modelica.Blocks.Sources.Sine sine1(amplitude=1600e3, offset=1800e3,
-    freqHz=1)                       annotation (Placement(transformation(extent=
+    f=1)                       annotation (Placement(transformation(extent=
            {{-80,-10},{-60,10}})));
 equation
   connect(boundary_prescriberho_1.ports[1], specificEnthalpy.port)

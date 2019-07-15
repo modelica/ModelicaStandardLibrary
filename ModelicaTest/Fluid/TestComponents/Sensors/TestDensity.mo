@@ -11,7 +11,7 @@ model TestDensity
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     zeta=2,
     diameter=0.1) annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
-  Modelica.Blocks.Sources.Sine sine1(freqHz=1)
+  Modelica.Blocks.Sources.Sine sine1(f=1)
                                     annotation (Placement(transformation(extent=
            {{-100,-20},{-80,0}})));
   Modelica.Fluid.Sources.MassFlowSource_h massFlowRate2(nPorts=1,
@@ -33,7 +33,7 @@ model TestDensity
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     zeta=2,
     diameter=0.1) annotation (Placement(transformation(extent={{20,40},{40,60}})));
-  Modelica.Blocks.Sources.Sine sine(freqHz=1)
+  Modelica.Blocks.Sources.Sine sine(f=1)
                                     annotation (Placement(transformation(extent=
            {{-100,50},{-80,70}})));
   Modelica.Fluid.Sources.MassFlowSource_h massFlowRate1(nPorts=1,

@@ -525,7 +525,7 @@ extends Modelica.Icons.ExamplesPackage;
             duration=1,
             height=1e4) annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, f=1)
             annotation (Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
@@ -738,7 +738,7 @@ extends Modelica.Icons.ExamplesPackage;
     height=1000,
     offset=0) annotation (Placement(transformation(
           extent={{-80,-80},{-60,-60}})));
-  Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1/100)
+  Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, f=1/100)
     annotation (Placement(transformation(extent={{
             -40,-80},{-20,-60}})));
   Modelica.Blocks.Sources.Exponentials input_mflow_2(
@@ -887,7 +887,7 @@ extends Modelica.Icons.ExamplesPackage;
             duration=1,
             height=1e4) annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=1e4, freqHz=1)
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=1e4, f=1)
             annotation (Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
@@ -1102,7 +1102,7 @@ extends Modelica.Icons.ExamplesPackage;
             offset=0,
             height=1e4) annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=1, freqHz=1) annotation (
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=1, f=1) annotation (
              Placement(transformation(extent={{-40,-80},{-20,
                     -60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
@@ -2101,7 +2101,7 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.Blocks.Sources.Ramp input_mflow_0(duration=1, height=1e2)
             annotation (Placement(transformation(extent={{
                     -80,-80},{-60,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, f=1)
             annotation (Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
 
@@ -2397,7 +2397,7 @@ extends Modelica.Icons.ExamplesPackage;
             height=1e3,
             offset=0)   annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, f=1)
             annotation (Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
 
@@ -2686,7 +2686,7 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, f=1)
             annotation (Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
 
@@ -2954,7 +2954,7 @@ extends Modelica.Icons.ExamplesPackage;
             offset=0,
             phase=0,
             startTime=0,
-            freqHz=1,
+            f=1,
             amplitude=1) annotation (Placement(
                 transformation(extent={{-40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_v_2(
@@ -3116,7 +3116,7 @@ extends Modelica.Icons.ExamplesPackage;
             phase=0,
             startTime=0,
             amplitude=10,
-            freqHz=1/10) annotation (Placement(
+            f=1/10) annotation (Placement(
                 transformation(extent={{-40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_v_2(
             offset=0,
@@ -3290,7 +3290,7 @@ extends Modelica.Icons.ExamplesPackage;
             offset=0,
             phase=0,
             startTime=0,
-            freqHz=1,
+            f=1,
             amplitude=10) annotation (Placement(
                 transformation(extent={{-40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_v_2(
@@ -3528,7 +3528,7 @@ extends Modelica.Icons.ExamplesPackage;
             offset=0,
             phase=0,
             startTime=0,
-            freqHz=1) annotation (Placement(transformation(
+            f=1) annotation (Placement(transformation(
                   extent={{-40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
             offset=0,
@@ -3882,7 +3882,7 @@ extends Modelica.Icons.ExamplesPackage;
             offset=0,
             phase=0,
             startTime=0,
-            freqHz=1/100) annotation (Placement(
+            f=1/100) annotation (Placement(
                 transformation(extent={{-40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
             offset=0,
@@ -4199,7 +4199,7 @@ extends Modelica.Icons.ExamplesPackage;
             offset=0,
             phase=0,
             startTime=0,
-            freqHz=1) annotation (Placement(transformation(
+            f=1) annotation (Placement(transformation(
                   extent={{-40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
             offset=0,
@@ -4522,7 +4522,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Blocks.Sources.Ramp input_x_0(duration=1, height=1)
             annotation (Placement(transformation(extent={{-60,-38},{-40,-18}})));
-          Modelica.Blocks.Sources.Sine input_x_1(freqHz=1, amplitude=100)
+          Modelica.Blocks.Sources.Sine input_x_1(f=1, amplitude=100)
             annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
           Modelica.Blocks.Sources.Exponentials input_x_2(
             riseTimeConst=1e-1,
@@ -4531,7 +4531,7 @@ extends Modelica.Icons.ExamplesPackage;
             annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
           Modelica.Blocks.Sources.Ramp input_mflow_0(duration=1, height=100)
             annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(freqHz=1, amplitude=100)
+          Modelica.Blocks.Sources.Sine input_mflow_1(f=1, amplitude=100)
             annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
             outMax=100,
@@ -6393,7 +6393,7 @@ extends Modelica.Icons.ExamplesPackage;
             each offset=0,
             each phase=0,
             each startTime=0,
-            each freqHz=1,
+            each f=1,
             each amplitude=100) annotation (Placement(
                 transformation(extent={{-40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2[n](
@@ -6412,7 +6412,7 @@ extends Modelica.Icons.ExamplesPackage;
             offset=0,
             phase=0,
             startTime=0,
-            freqHz=1,
+            f=1,
             amplitude=1)
             annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
           Modelica.Blocks.Sources.Exponentials input_x_2(
@@ -6730,7 +6730,7 @@ extends Modelica.Icons.ExamplesPackage;
 
       public
         Modelica.Blocks.Sources.Sine input_mflow(
-          freqHz=1,
+          f=1,
           offset=0,
           amplitude=1) annotation (Placement(
               transformation(extent={{-100,-50},{-80,-30}})));
@@ -6831,7 +6831,7 @@ This model executes pressure loss calculations out of the <strong> Fluid.Dissipa
 
         //boundary conditions
         Modelica.Blocks.Sources.Sine input_mflow(
-          freqHz=1,
+          f=1,
           offset=0,
           amplitude=0.001) annotation (Placement(
               transformation(extent={{-100,-50},{-80,-30}})));
@@ -6949,7 +6949,7 @@ This model executes pressure loss calculations out of the <strong> Fluid.Dissipa
       public
         Modelica.Blocks.Sources.Sine input_mflow(
           offset=0,
-          freqHz=1,
+          f=1,
           amplitude=10) annotation (Placement(
               transformation(extent={{-200,-12},{-180,8}})));
 
