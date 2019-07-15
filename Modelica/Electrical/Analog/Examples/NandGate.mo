@@ -1,12 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
-encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
-  import Modelica.Electrical.Analog.Basic;
-  import Modelica.Electrical.Analog.Sources;
-  import Modelica.Electrical.Analog.Examples.Utilities;
-  import Modelica.Icons;
-  extends Icons.Example;
+model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
+  extends Modelica.Icons.Example;
 
-  Sources.TrapezoidVoltage VIN1(
+  Modelica.Electrical.Analog.Sources.TrapezoidVoltage VIN1(
     V=3.5,
     startTime=20e-9,
     rising=1e-9,
@@ -17,7 +13,7 @@ encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
         origin={-70,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Sources.TrapezoidVoltage VIN2(
+  Modelica.Electrical.Analog.Sources.TrapezoidVoltage VIN2(
     V=3.5,
     startTime=10e-9,
     rising=1e-9,
@@ -28,17 +24,17 @@ encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
         origin={-70,-30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Sources.RampVoltage VDD(V=5, duration=1e-9) annotation (Placement(
+  Modelica.Electrical.Analog.Sources.RampVoltage VDD(V=5, duration=1e-9) annotation (Placement(
         transformation(
         origin={50,70},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Ground Gnd1 annotation (Placement(transformation(extent={{45,43},{55,53}})));
-  Basic.Ground Gnd4 annotation (Placement(transformation(extent={{-75,-5},{-65,
+  Modelica.Electrical.Analog.Basic.Ground Gnd1 annotation (Placement(transformation(extent={{45,43},{55,53}})));
+  Modelica.Electrical.Analog.Basic.Ground Gnd4 annotation (Placement(transformation(extent={{-75,-5},{-65,
             5}})));
-  Basic.Ground Gnd5 annotation (Placement(transformation(extent={{-75,-55},{-65,
+  Modelica.Electrical.Analog.Basic.Ground Gnd5 annotation (Placement(transformation(extent={{-75,-55},{-65,
             -45}})));
-  Utilities.Nand Nand(C4(v(start=0, fixed=true)),C7(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-40,-45},{
+  Modelica.Electrical.Analog.Examples.Utilities.Nand Nand(C4(v(start=0, fixed=true)),C7(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-40,-45},{
             40,55}})));
 equation
   connect(VDD.n, Gnd1.p) annotation (Line(points={{50,60},{50,53}}, color={0,0,255}));

@@ -354,6 +354,54 @@ package Sources "Time-dependent and controlled voltage and current sources"
 
   end SineVoltage;
 
+  model SineVoltageVariableFrequencyAndAmplitude
+    "Sine voltage source with variable frequency and amplitude"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.VoltageSource;
+    import Modelica.Constants.pi;
+    parameter Modelica.SIunits.Voltage offset=0 "Offset of the sine wave";
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput f(unit="Hz") "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+    Blocks.Interfaces.RealInput V(unit="V") "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={60,120})));
+  equation
+    der(phi) = 2*pi*f;
+    v = offset + V*sin(phi);
+    annotation (defaultComponentName="sineVoltage",
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
+                {-44.2,58.1},{-39.3,65.2},{-34.3,69.2},{-29.4,69.8},{-24.5,67},
+                {-19.6,61},{-14.6,52},{-9,38.6},{-1.98,18.6},{12.79,-26.9},{
+                19.1,-44},{24.8,-56.2},{29.7,-64},{34.6,-68.6},{39.5,-70},{44.5,
+                -67.9},{49.4,-62.5},{54.3,-54.1},{59.9,-41.3},{67,-21.7},{74,0}},
+              color={192,192,192})}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}})),
+      Documentation(revisions="<html>
+<ul>
+<li><em> 1998   </em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>
+This voltage source provides a sinusoidal voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>V</code> to zero.
+</p>
+</html>"));
+  end SineVoltageVariableFrequencyAndAmplitude;
+
   model CosineVoltage "Cosine voltage source"
     parameter SI.Voltage V(start=1) "Amplitude of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
@@ -1434,6 +1482,54 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </html>"));
 
   end SineCurrent;
+
+  model SineCurrentVariableFrequencyAndAmplitude
+    "Sine current source with variable frequency and amplitude"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.CurrentSource;
+    import Modelica.Constants.pi;
+    parameter Modelica.SIunits.Current offset=0 "Offset of the sine wave";
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput f(unit="Hz") "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+    Blocks.Interfaces.RealInput I(unit="A") "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={60,120})));
+  equation
+    der(phi) = 2*pi*f;
+    i = offset +I*sin(phi);
+    annotation (defaultComponentName="sineCurrent",
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
+                {-44.2,58.1},{-39.3,65.2},{-34.3,69.2},{-29.4,69.8},{-24.5,67},
+                {-19.6,61},{-14.6,52},{-9,38.6},{-1.98,18.6},{12.79,-26.9},{
+                19.1,-44},{24.8,-56.2},{29.7,-64},{34.6,-68.6},{39.5,-70},{44.5,
+                -67.9},{49.4,-62.5},{54.3,-54.1},{59.9,-41.3},{67,-21.7},{74,0}},
+              color={192,192,192})}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}})),
+      Documentation(revisions="<html>
+<ul>
+<li><em> 1998   </em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>
+This current source provides a sinusoidal current with variable frequency <code>f</code> and variable amplitude <code>I</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the current can be kept equal to offset with setting the input <code>I</code> to zero.
+</p>
+</html>"));
+  end SineCurrentVariableFrequencyAndAmplitude;
 
   model CosineCurrent "Cosine current source"
     parameter SI.Current I(start=1) "Amplitude of cosine wave";
