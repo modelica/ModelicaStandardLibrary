@@ -11,13 +11,13 @@ model MultiSensorTest
 
   Modelica.SIunits.Current IA=rmsiA.y   "RMS current (Analog)";
   Modelica.SIunits.Current IM[m]=rmsiM.y   "RMS current (Polyphase)";
-  Modelica.SIunits.Current IQS = Modelica.ComplexMath.'abs'(multiSensorQS.i) "RMS current (QuasiStatic SinglePhase)";
-  Modelica.SIunits.Current IQM[m] = Modelica.ComplexMath.'abs'(multiSensorQM.i) "RMS current (QuasiStatic Polyphase)";
+  Modelica.SIunits.Current IQS = Modelica.ComplexMath.abs(multiSensorQS.i) "RMS current (QuasiStatic SinglePhase)";
+  Modelica.SIunits.Current IQM[m] = Modelica.ComplexMath.abs(multiSensorQM.i) "RMS current (QuasiStatic Polyphase)";
 
   Modelica.SIunits.Voltage VA = rmsvA.y "RMS voltage (Analog)";
   Modelica.SIunits.Voltage VM[m] = rmsvM.y "RMS voltage (Polyphase)";
-  Modelica.SIunits.Voltage VQS = Modelica.ComplexMath.'abs'(multiSensorQS.v) "RMS voltage (QuasiStatic SinglePhase)";
-  Modelica.SIunits.Voltage VQM[m] = Modelica.ComplexMath.'abs'(multiSensorQM.v) "RMS voltage (QuasiStatic Polyphase)";
+  Modelica.SIunits.Voltage VQS = Modelica.ComplexMath.abs(multiSensorQS.v) "RMS voltage (QuasiStatic SinglePhase)";
+  Modelica.SIunits.Voltage VQM[m] = Modelica.ComplexMath.abs(multiSensorQM.v) "RMS voltage (QuasiStatic Polyphase)";
 
   Modelica.SIunits.Power powerA = meanpowerA.y "Avareage power (Analog)";
   Modelica.SIunits.Power powerM[m] = meanpowerM.y "Avareage power (Polyphase)";

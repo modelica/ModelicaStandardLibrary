@@ -3,7 +3,7 @@ model VoltageSensor "Voltage sensor"
   extends Interfaces.RelativeSensor;
   QuasiStatic.SinglePhase.Sensors.VoltageSensor voltageSensor[m]
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Modelica.SIunits.Voltage abs_y[m]=Modelica.ComplexMath.'abs'(y)
+  Modelica.SIunits.Voltage abs_y[m]=Modelica.ComplexMath.abs(y)
     "Magnitude of complex voltage";
   Modelica.SIunits.Angle arg_y[m]=Modelica.ComplexMath.arg(y)
     "Argument of complex voltage";

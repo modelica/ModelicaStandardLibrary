@@ -4,12 +4,12 @@ model IdealACDCConverter "Ideal AC DC converter"
   import Modelica.ComplexMath.real;
   import Modelica.ComplexMath.imag;
   import Modelica.ComplexMath.conj;
-  import Modelica.ComplexMath.'abs';
+  import Modelica.ComplexMath.abs;
   import Modelica.ComplexMath.arg;
   Modelica.SIunits.ComplexVoltage vQS=pin_pQS.v - pin_nQS.v "AC QS voltage";
   Modelica.SIunits.ComplexCurrent iQS=pin_pQS.i "AC QS current";
-  output Modelica.SIunits.Voltage vQSabs='abs'(vQS) "Abs(AC QS voltage)";
-  output Modelica.SIunits.Current iQSabs='abs'(iQS) "Abs(AC QS current)";
+  output Modelica.SIunits.Voltage vQSabs=abs(vQS) "Abs(AC QS voltage)";
+  output Modelica.SIunits.Current iQSabs=abs(iQS) "Abs(AC QS current)";
   Modelica.SIunits.ComplexPower sQS=vQS*conj(iQS) "AC QS apparent power";
   Modelica.SIunits.ActivePower pQS=real(sQS) "AC QS active power";
   Modelica.SIunits.ReactivePower qQS=imag(sQS) "AC QS reactive power";
@@ -36,7 +36,7 @@ equation
   //DC current balance
   pin_pDC.i + pin_nDC.i = 0;
   //voltage relation
-  vDC = 'abs'(vQS)*conversionFactor;
+  vDC = abs(vQS)*conversionFactor;
   //power balance
   pQS + pDC = 0;
   //define reactive power

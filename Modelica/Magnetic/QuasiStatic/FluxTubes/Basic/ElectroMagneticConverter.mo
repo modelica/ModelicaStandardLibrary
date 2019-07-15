@@ -44,7 +44,7 @@ equation
   // for information only:
   Psi = N*Phi;
   // Use of abs for positive results; due to Modelica sign conventions for flow into connectors:
-  L_stat = noEvent(if Modelica.ComplexMath.'abs'(i) > eps then Modelica.ComplexMath.'abs'(Psi/i) else Modelica.ComplexMath.'abs'(Psi/eps));
+  L_stat = noEvent(if Modelica.ComplexMath.abs(i) > eps then Modelica.ComplexMath.abs(Psi/i) else Modelica.ComplexMath.abs(Psi/eps));
 
   omega = der(port_p.reference.gamma);
 

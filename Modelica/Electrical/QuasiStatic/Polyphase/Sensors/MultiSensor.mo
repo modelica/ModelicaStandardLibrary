@@ -2,8 +2,7 @@ within Modelica.Electrical.QuasiStatic.Polyphase.Sensors;
 model MultiSensor "Polyphase sensor to measure current, voltage and power"
   extends Modelica.Icons.RoundSensor;
   import Modelica.ComplexMath.conj;
-  import Modelica.ComplexMath.'sum';
-  import Modelica.ComplexMath.'abs';
+  import Modelica.ComplexMath.abs;
   import Modelica.ComplexMath.arg;
   parameter Integer m(min=1) = 3 "Number of phases";
   QuasiStatic.Polyphase.Interfaces.PositivePlug pc(final m=m)
@@ -42,13 +41,13 @@ model MultiSensor "Polyphase sensor to measure current, voltage and power"
         origin={110,-60},
         extent={{10,10},{-10,-10}},
         rotation=180)));
-  output Modelica.SIunits.Current abs_i[m]='abs'(i) "Absolute of complex currents";
+  output Modelica.SIunits.Current abs_i[m]=abs(i) "Absolute of complex currents";
   output Modelica.SIunits.Angle arg_i[m]=arg(i) "Argument of complex currents";
-  output Modelica.SIunits.Voltage abs_v[m]='abs'(v) "Absolute of complex voltages";
+  output Modelica.SIunits.Voltage abs_v[m]=abs(v) "Absolute of complex voltages";
   output Modelica.SIunits.Angle arg_v[m]=arg(v) "Argument of complex voltages";
-  output Modelica.SIunits.ApparentPower abs_apparentPower[m]='abs'(apparentPower) "Absolute of complex apparent power signals";
+  output Modelica.SIunits.ApparentPower abs_apparentPower[m]=abs(apparentPower) "Absolute of complex apparent power signals";
   output Modelica.SIunits.Angle arg_apparentPower[m]=arg(apparentPower) "Argument of complex apparent power signals";
-  output Modelica.SIunits.ApparentPower abs_apparentPowerTotal='abs'(apparentPowerTotal) "Absolute of sum complex apparent power";
+  output Modelica.SIunits.ApparentPower abs_apparentPowerTotal=abs(apparentPowerTotal) "Absolute of sum complex apparent power";
   output Modelica.SIunits.Angle arg_apparentPowerTotal=arg(apparentPowerTotal) "Argument of sum complex apparent power";
 equation
   Connections.branch(pc.reference, nc.reference);

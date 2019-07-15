@@ -807,7 +807,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
       "Output the square root of the input (= principal square root of complex number)"
       extends Interfaces.ComplexSISO;
     equation
-      y = Modelica.ComplexMath.'sqrt'(uInternal);
+      y = Modelica.ComplexMath.sqrt(uInternal);
       annotation (
         defaultComponentName="sqrt1",
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1572,7 +1572,6 @@ Otherwise the output <code>y = u</code>.</p>
     block TransferFunction "Complex Transfer Function"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSISO;
       import Modelica.ComplexMath.j;
-      import Modelica.ComplexMath.'sum';
       parameter Real b[:]={1}
         "Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})";
       parameter Real a[:]={1}

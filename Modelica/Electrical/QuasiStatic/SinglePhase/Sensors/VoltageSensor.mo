@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model VoltageSensor "Voltage sensor"
   extends Interfaces.RelativeSensor;
-  Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.'abs'(y) "Magnitude of complex voltage";
+  Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.abs(y) "Magnitude of complex voltage";
   Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex voltage";
 equation
   i = Complex(0);
