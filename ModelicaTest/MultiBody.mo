@@ -319,9 +319,7 @@ alt=\"model Examples.Elementary.DoublePendulum\">
             transformation(extent={{-54,-40},{-34,-20}})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
         n={1,0,0},
-        boxWidth=0.05,
-        s_offset=-0.2) annotation (Placement(transformation(extent={{12,-80},{
-                32,-60}})));
+        boxWidth=0.05) annotation (Placement(transformation(extent={{12,-80},{32,-60}})));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1},
           diameter=0.05) annotation (Placement(transformation(
             origin={-30,0},
@@ -441,9 +439,7 @@ for rodLength:
         n={1,0,0},
         a(fixed=false),
         s(fixed=true),
-        v(fixed=false),
-        s_offset=-0.2) annotation (Placement(transformation(extent={{12,-80},{
-                32,-60}})));
+        v(fixed=false)) annotation (Placement(transformation(extent={{12,-80},{32,-60}})));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1},
           diameter=0.05) annotation (Placement(transformation(
             origin={-30,0},
@@ -539,9 +535,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         boxWidth=0.01,
         a(fixed=false),
         s(fixed=false),
-        v(fixed=false),
-        s_offset=-0.2) annotation (Placement(transformation(extent={{12,-80},{
-                32,-60}})));
+        v(fixed=false)) annotation (Placement(transformation(extent={{12,-80},{32,-60}})));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1},
           diameter=0.05) annotation (Placement(transformation(
             origin={-30,0},
@@ -643,17 +637,14 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         stateSelect=StateSelect.always,
         a(fixed=false),
         s(fixed=true),
-        v(fixed=true, start=-0.4),
-        s_offset=-0.2) annotation (Placement(transformation(extent={{10,-80},{
-                30,-60}})));
+        v(fixed=true, start=-0.4)) annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=
             0.05) annotation (Placement(transformation(
             origin={40,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(animation=false, r=
-           {1.2,0,0}) annotation (Placement(transformation(extent={{-30,-80},{-10,
-                -60}})));
+           {1.2,0,0}) annotation (Placement(transformation(extent={{-30,-80},{-10,-60}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame
         annotation (Placement(transformation(
             origin={30,30},
@@ -784,9 +775,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         stateSelect=StateSelect.always,
         a(fixed=false),
         s(fixed=true),
-        v(fixed=true, start=-0.2),
-        s_offset=-0.2) annotation (Placement(transformation(extent={{10,-80},{
-                30,-60}})));
+        v(fixed=true, start=-0.2)) annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=
             0.05) annotation (Placement(transformation(
             origin={40,-30},
@@ -10706,9 +10695,7 @@ they were not deleted yet.")}));
         stateSelect=StateSelect.always,
         a(fixed=false, start=1),
         s(fixed=true, start=1),
-        v(fixed=true, start=1),
-        s_offset=0.1) annotation (Placement(transformation(extent={{-50,20},{-30,
-                40}})));
+        v(fixed=true, start=1)) annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(r={1,0,0})
         annotation (Placement(transformation(extent={{-20,20},{0,40}})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic actuatedPrismatic(
