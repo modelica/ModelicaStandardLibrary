@@ -6837,10 +6837,10 @@ This package contains test examples of electric machines.
       model IM_SquirrelCage
         "Induction machine with squirrel cage rotor"
         extends Machines.Interfaces.PartialBasicInductionMachine(
-          final idq_ss=airGapS.i_ss,
-          final idq_sr=airGapS.i_sr,
-          final idq_rs=airGapS.i_rs,
-          final idq_rr=airGapS.i_rr,
+          final idq_ss=airGap.i_ss,
+          final idq_sr=airGap.i_sr,
+          final idq_rs=airGap.i_rs,
+          final idq_rr=airGap.i_rr,
           redeclare final
             Machines.Thermal.InductionMachines.ThermalAmbientIMC
             thermalAmbient(final Tr=TrOperational),
@@ -6855,7 +6855,7 @@ This package contains test examples of electric machines.
           statorCore(final w=statorCoreParameters.wRef));
         output Modelica.SIunits.Current ir[2]=squirrelCageR.i
           "Rotor cage currents";
-        Machines.BasicMachines.Components.AirGapS airGapS(
+        Machines.BasicMachines.Components.AirGapS airGap(
           final p=p,
           final Lm=Lm,
           final m=m) annotation (Placement(transformation(
@@ -6891,16 +6891,16 @@ This package contains test examples of electric machines.
               extent={{-10,-10},{10,10}},
               rotation=270)));
       equation
-        connect(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r)
+        connect(airGap.spacePhasor_r, squirrelCageR.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-30}}, color={0,0,255}));
-        connect(airGapS.flange, inertiaRotor.flange_a) annotation (Line(
+        connect(airGap.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{36,0},{36,0},{70,0}}));
-        connect(lssigma.spacePhasor_b, airGapS.spacePhasor_s) annotation (Line(
+        connect(lssigma.spacePhasor_b, airGap.spacePhasor_s) annotation (Line(
             points={{20,10},{10,10}}, color={0,0,255}));
         connect(squirrelCageR.heatPort, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
             points={{-10,-40},{-10,-60},{0,-60},{0,-80}}, color={191,0,0}));
-        connect(airGapS.support, internalSupport) annotation (Line(
+        connect(airGap.support, internalSupport) annotation (Line(
             points={{-10,0},{-40,0},{-40,-90},{60,-90},{60,-100}}));
         annotation (defaultComponentName="imc", Documentation(info="<html>
 <p><strong>Model of a three-phase induction machine with squirrel cage.</strong><br>
@@ -7027,10 +7027,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 
       model IM_SlipRing "Induction machine with slipring rotor"
         extends Machines.Interfaces.PartialBasicInductionMachine(
-          final idq_ss=airGapS.i_ss,
-          final idq_sr=airGapS.i_sr,
-          final idq_rs=airGapS.i_rs,
-          final idq_rr=airGapS.i_rr,
+          final idq_ss=airGap.i_ss,
+          final idq_sr=airGap.i_sr,
+          final idq_rs=airGap.i_rs,
+          final idq_rr=airGap.i_rr,
           redeclare final
             Machines.Thermal.InductionMachines.ThermalAmbientIMS
             thermalAmbient(final Tr=TrOperational, final mr=m),
@@ -7046,7 +7046,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             final powerRotor=Machines.SpacePhasors.Functions.activePower(vr, ir)),
           statorCore(final w=statorCoreParameters.wRef));
 
-        Machines.BasicMachines.Components.AirGapS airGapS(
+        Machines.BasicMachines.Components.AirGapS airGap(
           final p=p,
           final Lm=Lm,
           final m=m) annotation (Placement(transformation(
@@ -7146,9 +7146,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               rotation=180,
               origin={0,-30})));
       equation
-        connect(lssigma.spacePhasor_b, airGapS.spacePhasor_s) annotation (Line(
+        connect(lssigma.spacePhasor_b, airGap.spacePhasor_s) annotation (Line(
             points={{20,10},{10,10}}, color={0,0,255}));
-        connect(lrsigma.spacePhasor_b, airGapS.spacePhasor_r) annotation (Line(
+        connect(lrsigma.spacePhasor_b, airGap.spacePhasor_r) annotation (Line(
             points={{20,-10},{10,-10}}, color={0,0,255}));
         connect(rr.plug_n, spacePhasorR.plug_p) annotation (Line(
             points={{-80,30},{-80,-40}}, color={0,0,255}));
@@ -7171,11 +7171,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{-70,40},{50,40},{50,-80},{0,-80}}, color={191,0,0}));
         connect(plug_rp, rr.plug_p) annotation (Line(
             points={{-100,60},{-80,60},{-80,50}}, color={0,0,255}));
-        connect(airGapS.flange, inertiaRotor.flange_a) annotation (Line(
+        connect(airGap.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{70,0}}));
         connect(fixed.flange, internalSupport) annotation (Line(
             points={{50,-100},{60,-100}}));
-        connect(internalSupport, airGapS.support) annotation (Line(
+        connect(internalSupport, airGap.support) annotation (Line(
             points={{60,-100},{60,-90},{-40,-90},{-40,0},{-10,0}}));
         annotation (
           defaultComponentName="ims",
@@ -7359,10 +7359,10 @@ These models use package SpacePhasors.
       model SM_PermanentMagnet "Permanent magnet synchronous machine"
         extends Machines.Interfaces.PartialBasicInductionMachine(
           Lssigma(start=0.1/(2*pi*fsNominal)),
-          final idq_ss=airGapR.i_ss,
-          final idq_sr=airGapR.i_sr,
-          final idq_rs=airGapR.i_rs,
-          final idq_rr=airGapR.i_rr,
+          final idq_ss=airGap.i_ss,
+          final idq_sr=airGap.i_sr,
+          final idq_rs=airGap.i_rs,
+          final idq_rr=airGap.i_rr,
           redeclare final
             Machines.Thermal.SynchronousMachines.ThermalAmbientSMPM
             thermalAmbient(
@@ -7390,7 +7390,7 @@ These models use package SpacePhasors.
           each final unit="A") if useDamperCage
           "Damper space phasor current / rotor fixed frame"
           annotation (Placement(visible=false));
-        Machines.BasicMachines.Components.AirGapR airGapR(
+        Machines.BasicMachines.Components.AirGapR airGap(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq,
@@ -7486,15 +7486,15 @@ These models use package SpacePhasors.
         if not useDamperCage then
           damperCageLossPower = 0;
         end if;
-        connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
+        connect(airGap.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-30}}, color={0,0,255}));
-        connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r)
+        connect(airGap.spacePhasor_r, permanentMagnet.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-20},{20,-20}}, color={0,0,255}));
-        connect(airGapR.support, internalSupport) annotation (Line(
+        connect(airGap.support, internalSupport) annotation (Line(
             points={{-10,0},{-40,0},{-40,-90},{60,-90},{60,-100}}));
-        connect(lssigma.spacePhasor_b, airGapR.spacePhasor_s) annotation (Line(
+        connect(lssigma.spacePhasor_b, airGap.spacePhasor_s) annotation (Line(
             points={{20,10},{10,10}}, color={0,0,255}));
-        connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
+        connect(airGap.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{70,0}}));
         connect(permanentMagnet.heatPort, internalThermalPort.heatPortPermanentMagnet)
           annotation (Line(
@@ -7676,10 +7676,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         "Electrical excited synchronous machine with damper cage"
         extends Machines.Interfaces.PartialBasicInductionMachine(
           Lssigma(start=0.1/(2*pi*fsNominal)),
-          final idq_ss=airGapR.i_ss,
-          final idq_sr=airGapR.i_sr,
-          final idq_rs=airGapR.i_rs,
-          final idq_rr=airGapR.i_rr,
+          final idq_ss=airGap.i_ss,
+          final idq_sr=airGap.i_sr,
+          final idq_rs=airGap.i_rs,
+          final idq_rr=airGap.i_rr,
           redeclare final
             Machines.Thermal.SynchronousMachines.ThermalAmbientSMEE
             thermalAmbient(
@@ -7709,7 +7709,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           each final unit="A") if useDamperCage
           "Damper space phasor current / rotor fixed frame"
           annotation (Placement(visible=false));
-        Machines.BasicMachines.Components.AirGapR airGapR(
+        Machines.BasicMachines.Components.AirGapR airGap(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq,
@@ -7847,9 +7847,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         if not useDamperCage then
           damperCageLossPower = 0;
         end if;
-        connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
+        connect(airGap.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-30}}, color={0,0,255}));
-        connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r)
+        connect(airGap.spacePhasor_r, electricalExcitation.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-10},{10,-20},{-60,-20},{-60,-40}}, color={0,0,255}));
         connect(electricalExcitation.pin_en, pin_en) annotation (Line(
             points={{-80,-60},{-100,-60}}, color={0,0,255}));
@@ -7861,7 +7861,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{-80,0},{-80,-10}}, color={0,0,255}));
         connect(lesigma.n, electricalExcitation.pin_ep) annotation (Line(
             points={{-80,-30},{-80,-40}}, color={0,0,255}));
-        connect(lssigma.spacePhasor_b, airGapR.spacePhasor_s) annotation (Line(
+        connect(lssigma.spacePhasor_b, airGap.spacePhasor_s) annotation (Line(
             points={{20,10},{10,10}}, color={0,0,255}));
         connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (
             Line(
@@ -7869,9 +7869,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(re.heatPort, internalThermalPort.heatPortExcitation)
           annotation (Line(
             points={{-70,10},{-60,10},{-60,40},{50,40},{50,-80},{0,-80}}, color={191,0,0}));
-        connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
+        connect(airGap.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{70,0}}));
-        connect(airGapR.support, internalSupport) annotation (Line(
+        connect(airGap.support, internalSupport) annotation (Line(
             points={{-10,0},{-26,0},{-40,0},{-40,-90},{60,-90},{60,-100}}));
 
         connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
@@ -8082,10 +8082,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         "Synchronous machine with reluctance rotor and damper cage"
         extends Machines.Interfaces.PartialBasicInductionMachine(
           Lssigma(start=0.1/(2*pi*fsNominal)),
-          final idq_ss=airGapR.i_ss,
-          final idq_sr=airGapR.i_sr,
-          final idq_rs=airGapR.i_rs,
-          final idq_rr=airGapR.i_rr,
+          final idq_ss=airGap.i_ss,
+          final idq_sr=airGap.i_sr,
+          final idq_rs=airGap.i_rs,
+          final idq_rr=airGap.i_rr,
           redeclare final
             Machines.Thermal.SynchronousMachines.ThermalAmbientSMR
             thermalAmbient(final useDamperCage=useDamperCage, final Tr=
@@ -8110,7 +8110,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           each final unit="A") if useDamperCage
           "Damper space phasor current / rotor fixed frame"
           annotation (Placement(visible=false));
-        Machines.BasicMachines.Components.AirGapR airGapR(
+        Machines.BasicMachines.Components.AirGapR airGap(
           final p=p,
           final Lmd=Lmd,
           final Lmq=Lmq,
@@ -8186,13 +8186,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         if not useDamperCage then
           damperCageLossPower = 0;
         end if;
-        connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (
+        connect(airGap.spacePhasor_r, damperCage.spacePhasor_r) annotation (
             Line(points={{10,-10},{10,-15},{10,-30}}, color={0,0,255}));
-        connect(airGapR.support, internalSupport) annotation (Line(
+        connect(airGap.support, internalSupport) annotation (Line(
             points={{-10,0},{-40,0},{-40,-90},{60,-90},{60,-100}}));
-        connect(lssigma.spacePhasor_b, airGapR.spacePhasor_s) annotation (Line(
+        connect(lssigma.spacePhasor_b, airGap.spacePhasor_s) annotation (Line(
             points={{20,10},{10,10}}, color={0,0,255}));
-        connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
+        connect(airGap.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{70,0}}));
         connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
           annotation (Line(

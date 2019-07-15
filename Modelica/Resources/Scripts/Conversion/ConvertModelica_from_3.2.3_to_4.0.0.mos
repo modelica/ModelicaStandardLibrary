@@ -295,3 +295,10 @@ convertElement({"Modelica.Blocks.Sources.Sine",
                 "Modelica.Electrical.MultiPhase.Sources.SineCurrent",
                 "Modelica.Electrical.MultiPhase.Sources.CosineCurrent"},
                 "freqHz", "f");
+convertElement({"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"},
+                "airGapS", "airGap")
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"},
+                "airGapR", "airGap")

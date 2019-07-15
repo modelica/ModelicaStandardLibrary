@@ -497,6 +497,35 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
     package Machines
       extends Modelica.Icons.ExamplesPackage;
+      model Issue289 "Conversion test for #289"
+        extends Modelica.Icons.Example;
+        model M1
+          extends Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage;
+          Integer numPhases = airGapS.m;
+        end M1;
+        model M2
+          extends Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing;
+          Integer numPhases = airGapS.m;
+        end M2;
+        model M3
+          extends Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet;
+          Integer numPhases = airGapR.m;
+        end M3;
+        model M4
+          extends Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited;
+          Integer numPhases = airGapR.m;
+        end M4;
+        model M5
+          extends Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor;
+          Integer numPhases = airGapR.m;
+        end M5;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/289\">#289</a>.
+</p>
+</html>"));
+      end Issue289;
+
       model Issue1189 "Conversion test for #1189"
         extends Modelica.Icons.Example;
         model M1
