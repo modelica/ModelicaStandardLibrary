@@ -170,8 +170,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         damping=1,
         offset=0,
         startTime=0.1) annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
-    annotation(experiment(Tolerance=1e-06),
-                                       Documentation(info="<html>
+    annotation(experiment(StopTime=1, Tolerance=1e-06), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3035\">#3035</a>.
 </p>
@@ -373,57 +372,39 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           phase=0,
           freqHz=1,
           offset=0,
-          startTime=0.1) annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-40,30})));
+          startTime=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,30})));
         Modelica.Electrical.Analog.Sources.CosineVoltage cosineVoltage(
           V=1,
           phase=0,
           freqHz=1,
           offset=0,
-          startTime=0.1) annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-40,0})));
+          startTime=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,0})));
         Modelica.Electrical.Analog.Sources.ExpSineVoltage expSineVoltage(
           V=1,
           freqHz=1,
           phase=0,
           damping=1,
           offset=0,
-          startTime=0.1) annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-40,-30})));
+          startTime=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,-30})));
         Modelica.Electrical.Analog.Sources.SineCurrent sineCurrent(
           I=1,
           phase=0,
           freqHz=1,
           offset=0,
-          startTime=0.2) annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={20,0})));
+          startTime=0.2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={20,0})));
         Modelica.Electrical.Analog.Sources.CosineCurrent cosineCurrent(
           I=1,
           phase=0,
           freqHz=1,
           offset=0,
-          startTime=0.2) annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={50,0})));
+          startTime=0.2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={50,0})));
         Modelica.Electrical.Analog.Sources.ExpSineCurrent expSineCurrent(
           I=1,
           freqHz=1,
           phase=0,
           damping=1,
           offset=0,
-          startTime=0.2) annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={80,0})));
+          startTime=0.2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={80,0})));
       equation
         connect(sineVoltage.p, sineCurrent.p) annotation (Line(points={{-40,40},{-40,50},{20,50},{20,10}}, color={0,0,255}));
         connect(cosineCurrent.p, sineCurrent.p) annotation (Line(points={{50,10},{50,50},{20,50},{20,10}}, color={0,0,255}));
@@ -434,8 +415,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         connect(sineCurrent.n, ground.p) annotation (Line(points={{20,-10},{20,-50},{0,-50},{0,-60}}, color={0,0,255}));
         connect(cosineCurrent.n, ground.p) annotation (Line(points={{50,-10},{50,-50},{0,-50},{0,-60}}, color={0,0,255}));
         connect(expSineCurrent.n, ground.p) annotation (Line(points={{80,-10},{80,-50},{0,-50},{0,-60}}, color={0,0,255}));
-      annotation(experiment(StopTime=1, Tolerance=1e-06),
-                                         Documentation(info="<html>
+      annotation(experiment(StopTime=1, Tolerance=1e-06), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3035\">#3035</a>.
 </p>
@@ -683,51 +663,30 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
           freqHz=fill(1, m),
           offset=fill(0, m),
-          startTime=fill(0.1, m))
-                         annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-40,20})));
+          startTime=fill(0.1, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,20})));
         Modelica.Electrical.MultiPhase.Sources.CosineVoltage cosineVoltage(
           m=m,
           V=fill(1, m),
           phase=fill(0, m),
           freqHz=fill(1, m),
           offset=fill(0, m),
-          startTime=fill(0.1, m))
-                         annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-40,-20})));
+          startTime=fill(0.1, m)) annotation (Placement(transformation( extent={{-10,-10},{10,10}}, rotation=270, origin={-40,-20})));
         Modelica.Electrical.MultiPhase.Sources.SineCurrent sineCurrent(
           m=m,
           I=fill(1, m),
           phase=fill(0, m),
           freqHz=fill(1, m),
           offset=fill(0, m),
-          startTime=fill(0.2, m))
-                         annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={20,0})));
+          startTime=fill(0.2, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={20,0})));
         Modelica.Electrical.MultiPhase.Sources.CosineCurrent cosineCurrent(
           m=m,
           I=fill(1, m),
           phase=fill(0, m),
           freqHz=fill(1, m),
           offset=fill(0, m),
-          startTime=fill(0.2, m))
-                         annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={50,0})));
-        Modelica.Electrical.MultiPhase.Basic.Star star(m=m)
-                                                       annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={0,-60})));
+          startTime=fill(0.2, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={50,0})));
+        Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={0,-60})));
       equation
-
         connect(star.pin_n, ground.p) annotation (Line(points={{-1.77636e-15,-70},{0,-70},{0,-78},{0,-78},{0,-80}}, color={0,0,255}));
         connect(sineCurrent.plug_n, star.plug_p) annotation (Line(points={{20,-10},{20,-40},{0,-40},{0,-50}}, color={0,0,255}));
         connect(cosineCurrent.plug_n, star.plug_p) annotation (Line(points={{50,-10},{50,-40},{0,-40},{0,-50},{1.77636e-15,-50}}, color={0,0,255}));
@@ -735,8 +694,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         connect(cosineVoltage.plug_p, sineVoltage.plug_n) annotation (Line(points={{-40,-10},{-40,10}}, color={0,0,255}));
         connect(sineVoltage.plug_p, sineCurrent.plug_p) annotation (Line(points={{-40,30},{-40,40},{20,40},{20,10}}, color={0,0,255}));
         connect(cosineCurrent.plug_p, sineCurrent.plug_p) annotation (Line(points={{50,10},{50,40},{20,40},{20,10}}, color={0,0,255}));
-      annotation(experiment(StopTime=1, Tolerance=1e-06),
-                                         Documentation(info="<html>
+      annotation(experiment(StopTime=1, Tolerance=1e-06), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3035\">#3035</a>.
 </p>
