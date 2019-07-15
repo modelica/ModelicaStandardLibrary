@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Copyright (C) 2018, Modelica Association and contributors
+Copyright (C) 2018-2019, Modelica Association and contributors
 All rights reserved.
 
 Generate MSL release notes from closed GitHub issues:
@@ -15,6 +15,7 @@ import re
 import os
 import os.path
 import sys
+import time
 from enum import IntEnum
 from collections import defaultdict
 
@@ -28,6 +29,11 @@ IssueType = IntEnum(
         ('Miscellaneous', 5)
     ]
 )
+
+def check_closed_time(closedDate):
+    cmpDate = '2019-03-20T12:00:00Z'
+    fmt = '%Y-%m-%dT%H:%M:%SZ'
+    return time.strptime(closedDate, fmt) > time.strptime(cmpDate, fmt)
 
 def main(dir, milestone, version):
     owner = 'modelica'
@@ -44,6 +50,8 @@ def main(dir, milestone, version):
 
     while True:
         for issue in data:
+            if not check_closed_time(issue['closed_at']):
+                continue
             cnt = cnt + 1
             labels = [l['name'] for l in issue['labels']]
             # Escape asterisk
@@ -90,7 +98,7 @@ def main(dir, milestone, version):
     with open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'w') as f:
         url = 'https://github.com/{0}/{1}/milestone/{2}'.format(owner, repo, milestone)
         f.write('# GitHub issues resolved for v{0}\n'.format(version))
-        f.write('With respect to MSL [v3.2.3](https://github.com/{2}/{3}/releases/tag/v3.2.3) Build 1, {0} [issues]({1}) were closed.\n\n'.format(cnt, url, owner, repo))
+        f.write('As part of this release {0} [issues]({1}) were closed.\n\n'.format(cnt, url))
         pattern = r'[\#\1](https://github.com/{0}/{1}/issues/\1)'.format(owner, repo)
         for label, data in sorted(issues.items()):
             f.write('## {0}\n'.format(label[3:]))
