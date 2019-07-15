@@ -9,7 +9,7 @@ encapsulated model DifferenceAmplifier
 
   Sources.ExpSineVoltage V1(
     V=0.2,
-    freqHz=0.2e9,
+    f=0.2e9,
     damping=0.1e8) annotation (Placement(transformation(
         origin={-90,-50},
         extent={{-10,-10},{10,10}},

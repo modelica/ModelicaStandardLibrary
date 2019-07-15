@@ -454,7 +454,7 @@ This is the library of electric machine models.
               rotation=270)));
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fNominal, m),
+          f=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,-10},{-10,10}},
@@ -578,7 +578,7 @@ finally reaching nominal speed.</p>
               rotation=270)));
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fNominal, m),
+          f=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,-10},{-10,10}},
@@ -710,7 +710,7 @@ load torque quadratic dependent on speed, finally reaching nominal speed.</p>
               rotation=270)));
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fNominal, m),
+          f=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={-30,90},
               extent={{10,10},{-10,-10}})));
@@ -910,7 +910,7 @@ at start time tStart2 the machine is fed directly from the voltage source, final
               rotation=270)));
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fNominal, m),
+          f=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,-10},{-10,10}},
@@ -1272,7 +1272,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
         Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           final phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-          final freqHz=fill(fNominal, m),
+          final f=fill(fNominal, m),
           final offset=zeros(m),
           final startTime=zeros(m),
           final V=fill(VNominal*sqrt(2/3), m))
@@ -1507,7 +1507,7 @@ This is a model of a complete inverter drive comprising:
           alpha20r=aimcData.alpha20r,
           TrOperational=293.15) annotation (Placement(transformation(extent={{-20,
                   -50},{0,-30}})));
-        Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(freqHz=
+        Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(f=
               fNominal, V=sqrt(2)*VNominal) annotation (Placement(
               transformation(extent={{-50,100},{-70,80}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -1734,7 +1734,7 @@ the machine starts from standstill, accelerating inertias against load torque qu
               rotation=270)));
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fNominal, m),
+          f=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={-70,70},
               extent={{-10,-10},{10,10}},
@@ -1950,7 +1950,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
               rotation=270)));
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fNominal, m),
+          f=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={-70,10},
               extent={{-10,-10},{10,10}},
@@ -2096,7 +2096,7 @@ This package contains test examples of induction machines.
           smrData "Synchronous machine data" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fNominal, m),
+          f=fill(fNominal, m),
           V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
               origin={0,60},
               extent={{10,-10},{-10,10}},
@@ -3172,7 +3172,7 @@ achieve constant current and torque.</p>
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           final V=fill(VNominal*sqrt(2), m),
-          final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
+          final f=fill(fNominal, m)) annotation (Placement(transformation(
                 extent={{-20,80},{-40,100}})));
         Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
@@ -3394,7 +3394,7 @@ This noise is caused by the interaction of the high resistance of the switch and
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
           final V=fill(VNominal*sqrt(2), m),
-          final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
+          final f=fill(fNominal, m)) annotation (Placement(transformation(
                 extent={{-20,80},{-40,100}})));
         Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
             Placement(transformation(extent={{-50,80},{-70,100}})));
@@ -4465,7 +4465,7 @@ Default machine parameters of model <em>DC_SeriesExcited</em> are used.
           height=-1,
           offset=1) annotation (Placement(transformation(extent={{60,0},{40,20}})));
         Modelica.Electrical.Analog.Sources.SineVoltage constantVoltage(V=sqrt(2)
-              *Va, freqHz=50) annotation (Placement(transformation(extent={{0,
+              *Va, f=50) annotation (Placement(transformation(extent={{0,
                   50},{-20,30}})));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -6294,7 +6294,7 @@ This package contains test examples demonstrating control of electric drives.
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Resistance RL[3]=fill(1/3, 3)
           "Load resistance";
-        Modelica.Electrical.Polyphase.Sources.SineVoltage source(freqHz=fill(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage source(f=fill(
               50, 3), V=fill(sqrt(2/3)*100, 3)) annotation (Placement(
               transformation(
               origin={-90,-10},
@@ -6451,7 +6451,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
       model AsymmetricalLoad "Asymmetrical load"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Resistance RL=1 "Load resistance";
-        Modelica.Electrical.Polyphase.Sources.SineVoltage source(freqHz=fill(
+        Modelica.Electrical.Polyphase.Sources.SineVoltage source(f=fill(
               50, 3), V=fill(sqrt(2/3)*100, 3)) annotation (Placement(
               transformation(
               origin={-90,-10},
@@ -6567,7 +6567,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         Modelica.Electrical.Polyphase.Sources.SineVoltage source(
           m=m,
           V=fill(V, m),
-          freqHz=fill(f, m)) annotation (Placement(transformation(
+          f=fill(f, m)) annotation (Placement(transformation(
               origin={-90,-10},
               extent={{-10,10},{10,-10}},
               rotation=270)));

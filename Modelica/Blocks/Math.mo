@@ -3214,7 +3214,7 @@ This block is demonstrated in the examples
     parameter Real x0Sin=0 "Start value of sin integrator state";
     Sources.Cosine      sin1(
       final amplitude=sqrt(2),
-      final freqHz=k*f,
+      final f=k*f,
       final phase=0) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -3222,7 +3222,7 @@ This block is demonstrated in the examples
     Blocks.Sources.Sine sin2(
       final amplitude=sqrt(2),
       final phase=0,
-      final freqHz=k*f) annotation (Placement(transformation(
+      final f=k*f) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,-70})));

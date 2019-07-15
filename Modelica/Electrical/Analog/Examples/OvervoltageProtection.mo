@@ -5,7 +5,7 @@ model OvervoltageProtection "Example for Zener diodes"
  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
    offset=0,
    V=10,
-   freqHz=5) annotation (Placement(transformation(
+   f=5) annotation (Placement(transformation(
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={-66,6})));

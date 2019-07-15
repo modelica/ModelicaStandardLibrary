@@ -43,7 +43,7 @@ model CompareTransformers
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(
     V=Vpeak,
     phase=phi0,
-    freqHz=f,
+    f=f,
     offset=Vdc)
     annotation (Placement(transformation(
         origin={-80,40},
@@ -65,7 +65,7 @@ model CompareTransformers
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage2(
     V=Vpeak,
     phase=phi0,
-    freqHz=f,
+    f=f,
     offset=Vdc)
     annotation (Placement(transformation(
         origin={-80,-50},

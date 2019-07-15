@@ -21,7 +21,7 @@ model AD_DA_conversion "Conversion circuit"
     annotation (Placement(transformation(extent={{44,-40},{64,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
     V=5,
-    freqHz=10,
+    f=10,
     offset=5) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

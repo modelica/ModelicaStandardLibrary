@@ -1013,7 +1013,7 @@ Demonstrate usage of a translational damper component in various configurations.
             transformation(extent={{60,20},{80,40}})));
       Translational.Sources.Force force1 annotation (Placement(transformation(
               extent={{-60,20},{-40,40}})));
-      Modelica.Blocks.Sources.Sine sine1(freqHz=15.9155) annotation (Placement(
+      Modelica.Blocks.Sources.Sine sine1(f=15.9155) annotation (Placement(
             transformation(extent={{-100,20},{-80,40}})));
       Translational.Components.Mass mass2(
         L=1,
@@ -1026,7 +1026,7 @@ Demonstrate usage of a translational damper component in various configurations.
             transformation(extent={{60,-40},{80,-20}})));
       Translational.Sources.Force force2 annotation (Placement(transformation(
               extent={{-60,-40},{-40,-20}})));
-      Modelica.Blocks.Sources.Sine sine2(freqHz=15.9155) annotation (Placement(
+      Modelica.Blocks.Sources.Sine sine2(f=15.9155) annotation (Placement(
             transformation(extent={{-100,-40},{-80,-20}})));
       Translational.Components.Damper damper1(d=10) annotation (Placement(
             transformation(extent={{20,-30},{40,-10}})));
@@ -1101,7 +1101,7 @@ If damping is added the amplitudes are bounded.
         m=1) annotation (Placement(transformation(extent={{30,10},{50,30}})));
       Translational.Sources.Force force annotation (Placement(transformation(
               extent={{-70,10},{-50,30}})));
-      Modelica.Blocks.Sources.Sine sineForce(amplitude=10, freqHz=4)
+      Modelica.Blocks.Sources.Sine sineForce(amplitude=10, f=4)
         annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
     equation
       connect(sineForce.y, force.f)
@@ -1161,7 +1161,7 @@ to see the difference.
         fexp=2) annotation (Placement(transformation(extent={{20,60},{40,80}})));
       Translational.Sources.Force force annotation (Placement(transformation(
               extent={{-20,60},{0,80}})));
-      Modelica.Blocks.Sources.Sine sineForce(amplitude=25, freqHz=0.25)
+      Modelica.Blocks.Sources.Sine sineForce(amplitude=25, f=0.25)
         annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
       Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2(
         L=1,
@@ -1299,7 +1299,7 @@ to see the difference.
             transformation(extent={{20,-20},{40,0}})));
       Translational.Components.Rod rod2(L=0.007) annotation (Placement(
             transformation(extent={{20,10},{40,30}})));
-      Modelica.Blocks.Sources.Sine sineForce(amplitude=150, freqHz=0.01)
+      Modelica.Blocks.Sources.Sine sineForce(amplitude=150, f=0.01)
         annotation (Placement(transformation(extent={{-78,-60},{-58,-40}})));
     equation
       connect(outerContactA.flange_b, springPlateA.flange_a)
@@ -1539,7 +1539,7 @@ one where the brake is implicitly grounded and one where it is grounded explicit
         annotation (Placement(transformation(extent={{-50,-70},{-30,-50}})));
       Sources.Force force
         annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
-      Blocks.Sources.Sine sine1(freqHz=1, amplitude=20)
+      Blocks.Sources.Sine sine1(f=1, amplitude=20)
         annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
       Components.Mass mass2(
         m=1,
@@ -1559,7 +1559,7 @@ one where the brake is implicitly grounded and one where it is grounded explicit
         annotation (Placement(transformation(extent={{-10,50},{10,70}})));
       Components.Brake brake(fn_max=10, useHeatPort=true)
         annotation (Placement(transformation(extent={{20,50},{40,70}})));
-      Blocks.Sources.Sine sine2(amplitude=10, freqHz=2)
+      Blocks.Sources.Sine sine2(amplitude=10, f=2)
         annotation (Placement(transformation(extent={{0,80},{20,100}})));
       Components.MassWithStopAndFriction massWithStopAndFriction(
         L=0.1,
@@ -1701,7 +1701,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
       extends Modelica.Icons.Example;
 
-      Modelica.Blocks.Sources.Sine sine1(freqHz=2, amplitude=10)
+      Modelica.Blocks.Sources.Sine sine1(f=2, amplitude=10)
         annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
       Modelica.Mechanics.Translational.Examples.Utilities.DirectMass directMass(
           m=1.1) annotation (Placement(transformation(extent={{0,40},{20,60}})));

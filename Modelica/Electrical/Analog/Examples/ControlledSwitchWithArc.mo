@@ -41,7 +41,7 @@ model ControlledSwitchWithArc
     off(fixed=true))
                    annotation (Placement(transformation(extent={{0,-50},{20,
             -30}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=1, freqHz=1)
+  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=1, f=1)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

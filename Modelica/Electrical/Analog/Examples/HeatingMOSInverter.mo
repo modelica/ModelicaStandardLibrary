@@ -3,7 +3,7 @@ model HeatingMOSInverter "Heating MOS Inverter"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground G
   annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage Sin(V=5, freqHz=1)
+  Modelica.Electrical.Analog.Sources.SineVoltage Sin(V=5, f=1)
   annotation (Placement(transformation(
         origin={-70,0},
         extent={{-10,-10},{10,10}},

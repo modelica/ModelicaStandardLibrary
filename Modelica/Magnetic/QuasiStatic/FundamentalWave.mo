@@ -716,7 +716,7 @@ Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
              Placement(transformation(extent={{-60,-90},{-80,-70}})));
           Modelica.Electrical.Polyphase.Sources.CosineVoltage cosineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2.0)*VsNominal, m)) annotation (Placement(
                 transformation(
                 origin={-60,-60},
@@ -1030,7 +1030,7 @@ Simulate for 1 second and plot (versus time):
                 origin={30,-30})));
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-30,-10},
                 extent={{10,10},{-10,-10}})));
@@ -1262,7 +1262,7 @@ Default machine parameters are used.</p>
                 extent={{-10,10},{10,-10}})));
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-70,-20},
                 extent={{10,10},{-10,-10}})));
@@ -1904,7 +1904,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                 extent={{-10,10},{10,-10}})));
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2)*VNominal, m))   annotation (Placement(transformation(
                 origin={-70,-30},
                 extent={{-10,-10},{10,10}},
@@ -2183,7 +2183,7 @@ Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
                 origin={-70,-80})));
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2.0)*VsNominal, m)) annotation (Placement(
                 transformation(
                 origin={-60,-60},
@@ -2734,7 +2734,7 @@ Simulate for 0.1 second and plot (versus time):
             annotation (Placement(transformation(extent={{20,46},{40,66}})));
           Modelica.Electrical.Polyphase.Sources.CosineVoltage voltageSource(
             m=m,
-            freqHz=fill(f, m),
+            f=fill(f, m),
             V=fill(sqrt(2)*V, m))
                                annotation (Placement(transformation(
                 origin={-60,-40},
@@ -3452,7 +3452,7 @@ to numerically stabilize the simulation.</p>
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             final V=fill(VsNominal*sqrt(2), m),
-            final freqHz=fill(fsNominal, m)) annotation (Placement(
+            final f=fill(fsNominal, m)) annotation (Placement(
                 transformation(extent={{-20,-30},{-40,-10}})));
           Modelica.Electrical.Polyphase.Sensors.PowerSensor powerSensor(m=m)
             annotation (Placement(transformation(

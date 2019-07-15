@@ -103,7 +103,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Frequency f=10 "Frequency of input voltage";
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-    Sources.SineVoltage vIn1(V=Vin, freqHz=f) annotation (Placement(
+    Sources.SineVoltage vIn1(V=Vin, f=f) annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -152,7 +152,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Frequency f=10 "Frequency of input voltage";
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-    Sources.SineVoltage vIn1(V=Vin, freqHz=f) annotation (Placement(
+    Sources.SineVoltage vIn1(V=Vin, f=f) annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -202,7 +202,7 @@ package OpAmps "Examples with operational amplifiers"
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
     Sources.SineVoltage                                 vIn(V=Vin,
-               freqHz=f)                     annotation (Placement(
+               f=f)                     annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -242,7 +242,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Frequency f=10 "Frequency of input voltage";
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-    Sources.SineVoltage vIn(V=Vin, freqHz=f)
+    Sources.SineVoltage vIn(V=Vin, f=f)
       annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},

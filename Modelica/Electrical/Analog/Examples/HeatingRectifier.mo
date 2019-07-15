@@ -6,7 +6,7 @@ model HeatingRectifier "Heating rectifier"
                 annotation (Placement(transformation(extent={{-20,40},{0,60}})));
   Modelica.Electrical.Analog.Basic.Ground G
   annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=1, freqHz=1)
+  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=1, f=1)
   annotation (Placement(transformation(
         origin={-70,40},
         extent={{-10,-10},{10,10}},

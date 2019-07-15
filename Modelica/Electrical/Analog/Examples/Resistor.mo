@@ -12,7 +12,7 @@ model Resistor "Resistor with simple thermal network"
         origin={-32,34})));
   Modelica.Electrical.Analog.Basic.Ground G
   annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=220, freqHz=1)
+  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=220, f=1)
   annotation (Placement(transformation(
         origin={-70,40},
         extent={{-10,-10},{10,10}},

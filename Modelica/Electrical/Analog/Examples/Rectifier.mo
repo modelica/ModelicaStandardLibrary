@@ -15,18 +15,18 @@ model Rectifier "B6 diode bridge"
   output SI.Voltage uAC[3];
   output SI.Power Losses;
 
-  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(freqHz=f,
+  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(f=f,
        V=VAC*sqrt(2/3))
                       annotation (Placement(transformation(extent={{-70,10},{
             -90,30}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage2(
-    freqHz=f,
+    f=f,
     phase=-2/3*Modelica.Constants.pi,
     V=VAC*sqrt(2/3))
                    annotation (Placement(transformation(extent={{-70,-10},{-90,
             10}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage3(
-    freqHz=f,
+    f=f,
     phase=-4/3*Modelica.Constants.pi,
     V=VAC*sqrt(2/3))
                    annotation (Placement(transformation(extent={{-70,-30},{-90,

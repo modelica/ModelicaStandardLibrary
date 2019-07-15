@@ -267,7 +267,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
       extends Modelica.Icons.Example;
 
-      Modelica.Blocks.Sources.Sine sine1(freqHz=2, amplitude=1000)
+      Modelica.Blocks.Sources.Sine sine1(f=2, amplitude=1000)
         annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
       Modelica.Thermal.HeatTransfer.Examples.Utilities.DirectCapacity
         directCapacity(C=1.1)

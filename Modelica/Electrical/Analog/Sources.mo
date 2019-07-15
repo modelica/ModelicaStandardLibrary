@@ -274,11 +274,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
   model SineVoltage "Sine voltage source"
     parameter SI.Voltage V(start=1) "Amplitude of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of sine wave";
+    parameter SI.Frequency f(start=1) "Frequency of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
         final amplitude=V,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -357,11 +357,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
   model CosineVoltage "Cosine voltage source"
     parameter SI.Voltage V(start=1) "Amplitude of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
+    parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Cosine
         signalSource(
         final amplitude=V,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -442,13 +442,13 @@ package Sources "Time-dependent and controlled voltage and current sources"
 
   model ExpSineVoltage "Exponentially damped sine voltage source"
     parameter SI.Voltage V(start=1) "Amplitude of sine wave";
-    parameter SI.Frequency freqHz(start=2) "Frequency of sine wave";
+    parameter SI.Frequency f(start=2) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
     parameter SI.Damping damping(start=1) "Damping coefficient of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
         final amplitude=V,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase,
         final damping=damping));
     annotation (
@@ -504,7 +504,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
             192,192,192}),Text(
               extent={{-42,88},{9,74}},
               textColor={160,160,164},
-              textString="1/freqHz"),Polygon(
+              textString="1/f"),Polygon(
               points={{-50,73},{-41,75},{-41,71},{-50,73}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -523,7 +523,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="t"),Text(
               extent={{-82,-67},{108,-96}},
               textColor={160,160,164},
-              textString="V*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"),Line(
+              textString="V*exp(-damping*t)*sin(2*pi*f*t+phase)"),Line(
               points={{-50,0},{-50,-40}},
               color={192,192,192},
               pattern=LinePattern.Dash),Line(
@@ -1355,11 +1355,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   model SineCurrent "Sine current source"
     parameter SI.Current I(start=1) "Amplitude of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of sine wave";
+    parameter SI.Frequency f(start=1) "Frequency of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
         final amplitude=I,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -1438,11 +1438,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   model CosineCurrent "Cosine current source"
     parameter SI.Current I(start=1) "Amplitude of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
+    parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Cosine
         signalSource(
         final amplitude=I,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -1525,13 +1525,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 
   model ExpSineCurrent "Exponentially damped sine current source"
     parameter Real I(start=1) "Amplitude of sine wave";
-    parameter SI.Frequency freqHz(start=2) "Frequency of sine wave";
+    parameter SI.Frequency f(start=2) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
     parameter SI.Damping damping(start=1) "Damping coefficient of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
         final amplitude=I,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase,
         final damping=damping));
     annotation (
@@ -1587,7 +1587,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             192,192,192}),Text(
               extent={{-42,88},{9,74}},
               textColor={160,160,164},
-              textString="1/freqHz"),Polygon(
+              textString="1/f"),Polygon(
               points={{-50,73},{-41,75},{-41,71},{-50,73}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1606,7 +1606,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="t"),Text(
               extent={{-82,-67},{108,-96}},
               textColor={160,160,164},
-              textString="I*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"),Line(
+              textString="I*exp(-damping*t)*sin(2*pi*f*t+phase)"),Line(
               points={{-50,0},{-50,-40}},
               color={192,192,192},
               pattern=LinePattern.Dash),Line(
