@@ -725,27 +725,110 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
   package Magnetic
     extends Modelica.Icons.ExamplesPackage;
-    package FundamentalWave
+    package FluxTubes
       extends Modelica.Icons.ExamplesPackage;
       package Issue496 "Conversion test for #194"
         extends Modelica.Icons.ExamplesPackage;
-        partial model PartialTwoPort "Two magnetic ports for graphical modeling"
+        partial model PartialTwoPort
           extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
           annotation (Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
         end PartialTwoPort;
 
-        partial model PartialTwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
+        partial model PartialTwoPortExtended
           extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
           annotation (Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
         end PartialTwoPortExtended;
+
+        partial model PartialFixedShape
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
+        end PartialFixedShape;
+
+        partial model PartialForce
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
+        end PartialForce;
+
+        partial model PartialLeakage
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
+        end PartialLeakage;
+
+        partial model PartialGeneric
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
+        end PartialGeneric;
+
+        partial model PartialGenericHysteresis
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
+        end PartialGenericHysteresis;
+
+        partial model PartialGenericHysteresisTellinen
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
+        end PartialGenericHysteresisTellinen;
+        annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+      end Issue496;
+    end FluxTubes;
+
+    package FundamentalWave
+      extends Modelica.Icons.ExamplesPackage;
+      package Issue496 "Conversion test for #496"
+        extends Modelica.Icons.ExamplesPackage;
+        partial model PartialTwoPortsElementary "Two magnetic ports for graphical modeling"
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
+        end PartialTwoPortsElementary;
+
+        partial model PartialTwoPorts "Two magnetic ports for graphical modeling with additional variables"
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
+        end PartialTwoPorts;
 
         partial model PartialTwoPortElementary "Two magnetic ports for textual modeling"
           extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
@@ -753,7 +836,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
         end PartialTwoPortElementary;
 
         partial model PartialBasicInductionMachine "Partial model for induction machine"
@@ -762,7 +845,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),         experiment(Tolerance=1e-06, StopTime = 1));
         end PartialBasicInductionMachine;
         annotation (Documentation(info="<html>
 <p>
@@ -819,7 +902,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPortsElementary;
 
           partial model PartialTwoPorts "Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n"
@@ -828,7 +911,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPorts;
 
           partial model PartialFixedShape "Base class for flux tubes with fixed shape during simulation"
@@ -837,7 +920,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
           end PartialFixedShape;
 
           partial model PartialLeakage "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
@@ -846,7 +929,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
           end PartialLeakage;
           annotation (Documentation(info="<html>
 <p>
@@ -866,7 +949,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPort;
 
           partial model PartialTwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
@@ -875,7 +958,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPortExtended;
 
           partial model PartialTwoPortElementary "Two magnetic ports for textual modeling"
@@ -884,7 +967,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPortElementary;
 
           partial model BaseInductionMachine "Partial model for induction machine"
@@ -893,7 +976,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"));
+</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
           end BaseInductionMachine;
           annotation (Documentation(info="<html>
 <p>
