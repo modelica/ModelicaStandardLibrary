@@ -2464,9 +2464,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
-    function readTableData =
+    function readTableData = // No longer used, but kept for backward compatibility
       Modelica.Blocks.Tables.Internal.readTimeTableData "Read table data from text or MATLAB MAT-file";
-                             // No longer used, but kept for backward compatibility
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
