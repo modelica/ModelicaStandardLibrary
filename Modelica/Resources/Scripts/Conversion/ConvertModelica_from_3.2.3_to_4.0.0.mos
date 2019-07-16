@@ -206,9 +206,9 @@ convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts",
               "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPorts");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedShape",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.BaseClasses.FixedShape");
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.BaseClasses.Leakage");
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage");
 // Issue #496
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary",
               "Modelica.Magnetic.FluxTubes.Interfaces.TwoPortsElementary")
