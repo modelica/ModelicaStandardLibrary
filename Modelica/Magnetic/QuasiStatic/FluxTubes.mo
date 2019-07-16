@@ -1,4 +1,4 @@
-within Modelica.Magnetic.QuasiStatic;
+﻿within Modelica.Magnetic.QuasiStatic;
 package FluxTubes "Library for modelling of quasi-static electromagnetic devices with lumped magnetic networks"
 
   import SI = Modelica.SIunits;
@@ -1822,6 +1822,514 @@ The permeances of all elements of this package are calculated from their geometr
 </html>"));
   end Shapes;
 
+  package Sensors "Sensors to measure variables in magnetic networks"
+    extends Modelica.Icons.SensorsPackage;
+
+    model ReferenceSensor "Sensor of reference angle gamma"
+      extends FluxTubes.Interfaces.AbsoluteSensor;
+      Modelica.Blocks.Interfaces.RealOutput y "Reference angle" annotation (
+          Placement(transformation(extent={{100,-10},{120,10}})));
+    equation
+      y = port.reference.gamma;
+      annotation (                 Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>This sensor determines the reference angle of the connected quasi-static magnetic system.
+The integral of the angular frequency of the quasi-static magnetic system is equal to the reference angle.
+</p>
+</html>"),
+        Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="rad"), Line(points={{70,0},{100,0}}, color={0,0,127})}));
+    end ReferenceSensor;
+
+    model FrequencySensor "Frequency sensor"
+      extends FluxTubes.Interfaces.AbsoluteSensor;
+      import Modelica.Constants.pi;
+      Modelica.Blocks.Interfaces.RealOutput y annotation (Placement(transformation(
+              extent={{100,-10},{120,10}})));
+    equation
+      2*pi*y = omega;
+      annotation (               Documentation(info="<html>
+<p>
+This sensor can be used to measure the frequency of the reference system.
+The integral of the angular frequency of the quasi-static magnetic system is equal to the reference angle.
+</p>
+</html>"), Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Hz")}));
+    end FrequencySensor;
+
+    model MagneticPotentialSensor "Potential sensor"
+      extends FluxTubes.Interfaces.AbsoluteSensor;
+      Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
+            transformation(extent={{100,-10},{120,10}})));
+    equation
+      y = port.V_m;
+      annotation (defaultComponentName="magPotentialSensor",
+      Documentation(info="<html>
+<p>
+This sensor can be used to measure the complex magnetic potential <code>V_m</code> in a quasi-static magnetic system.
+</p>
+</html>"),
+        Icon(graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A"), Line(points={{70,0},{100,0}}, color={85,170,255})}));
+    end MagneticPotentialSensor;
+
+    model MagneticPotentialDifferenceSensor
+    "Sensor to measure magnetic potential difference"
+      extends FluxTubes.Interfaces.RelativeSensor;
+
+    equation
+      Phi = Complex(0);
+      y = V_m;
+
+      annotation (defaultComponentName="magVoltageSensor",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}),      Diagram(coordinateSystem(
+            preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+This sensor can be used to measure the complex magnetic potential difference <code>V_m</code>
+in a quasi-static magnetic system.
+</p>
+</html>"));
+    end MagneticPotentialDifferenceSensor;
+
+    model MagneticFluxSensor "Sensor to measure magnetic flux"
+      extends FluxTubes.Interfaces.RelativeSensor;
+
+    equation
+      V_m = Complex(0);
+      y = Phi;
+
+      annotation (defaultComponentName="magFluxSensor",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Wb")}),
+        Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+This sensor can be used to measure the complex magnetic flux <code>Phi</code> of a quasi-static magnetic system.
+</p>
+</html>"));
+    end MagneticFluxSensor;
+
+    package Transient "Transient fundamental wave sensors"
+      extends Modelica.Icons.SensorsPackage;
+      model FundamentalWavePermabilitySensor
+      "Sensor of fundamental wave permeability"
+        extends Modelica.Icons.RotationalSensor;
+        parameter Modelica.SIunits.Frequency f "Fundamental wave frequency";
+        parameter Modelica.SIunits.Area A "Area of cross section";
+        parameter Modelica.SIunits.Length l "Length";
+
+        Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort
+          fluxP "Positive port of flux path"
+                annotation (Placement(transformation(
+                extent={{-110,-10},{-90,10}}),
+              iconTransformation(extent={{-110,-10},{-90,10}})));
+        Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort
+          fluxN "Negative port of flux path"
+                annotation (Placement(transformation(
+                extent={{90,-10},{110,10}}),
+              iconTransformation(extent={{90,-10},{110,10}})));
+        Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort
+          potentialP "Positive port of magnetic potential difference path"
+                     annotation (Placement(
+              transformation(extent={{-10,90},{10,110}}),
+              iconTransformation(extent={{-10,90},{10,110}})));
+        Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort
+          potentialN "Negative port of magnetic potential difference path"
+                     annotation (Placement(
+              transformation(extent={{-10,-110},{10,-90}}),
+              iconTransformation(extent={{-10,-110},{10,-90}})));
+        Modelica.Magnetic.FluxTubes.Sensors.MagneticPotentialDifferenceSensor
+          magneticPotentialDifferenceSensor annotation (
+           Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={70,30})));
+        Modelica.Magnetic.FluxTubes.Sensors.MagneticFluxSensor
+          magneticFluxSensor annotation (Placement(
+              transformation(extent={{40,-70},{60,-90}})));
+        Modelica.Blocks.Math.Harmonic harmonicPotential(
+          final f=f,
+          final k=1,
+          final x0Cos=0,
+          final x0Sin=0) "Fundamental wave of magnetic potential difference"
+                         annotation (Placement(
+              transformation(extent={{40,20},{20,40}})));
+        Modelica.Blocks.Math.Harmonic harmonicFlux(
+          final f=f,
+          final k=1,
+          final x0Cos=0,
+          final x0Sin=0) "Fundamental wave of magnetic flux"
+                         annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              origin={30,-10})));
+        Modelica.Blocks.Interfaces.RealOutput mu "Absolute permeability"
+                         annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-40,-110})));
+        Modelica.Blocks.Interfaces.RealOutput mur "Relative permeability"
+                                  annotation (
+            Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-80,-110})));
+        Permeability permeability(final A=A, final l=l)
+        "Determines relative and absolute permeability"
+                                  annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=180,
+              origin={-20,0})));
+      equation
+        connect(magneticPotentialDifferenceSensor.port_n,
+          potentialN) annotation (Line(
+            points={{70,20},{70,-100},{0,-100}},
+            color={255,170,85}));
+        connect(magneticPotentialDifferenceSensor.port_p,
+          potentialP) annotation (Line(
+            points={{70,40},{70,100},{0,100}},
+            color={255,170,85}));
+        connect(magneticFluxSensor.port_p, fluxP)
+          annotation (Line(
+            points={{40,-80},{-100,-80},{-100,0}},
+            color={255,170,85}));
+        connect(magneticFluxSensor.port_n, fluxN)
+          annotation (Line(
+            points={{60,-80},{100,-80},{100,0}},
+            color={255,170,85}));
+        connect(harmonicFlux.u, magneticFluxSensor.Phi)
+          annotation (Line(
+            points={{42,-10},{50,-10},{50,-70}},
+            color={0,0,127}));
+        connect(magneticPotentialDifferenceSensor.V_m,
+          harmonicPotential.u) annotation (Line(
+            points={{60,30},{42,30}},
+            color={0,0,127}));
+        connect(permeability.V_m, harmonicPotential.y_rms)
+          annotation (Line(
+            points={{-8,6},{0,6},{0,36},{19,36}},
+            color={0,0,127}));
+        connect(permeability.Phi, harmonicFlux.y_rms)
+          annotation (Line(
+            points={{-8,-6},{0,-6},{0,-4},{19,-4}},
+            color={0,0,127}));
+        connect(permeability.mur, mur) annotation (Line(
+            points={{-31,6},{-80,6},{-80,-110}},
+            color={0,0,127}));
+        connect(permeability.mu, mu) annotation (Line(
+            points={{-31,-6},{-40,-6},{-40,-110}},
+            color={0,0,127}));
+        annotation (Icon(coordinateSystem(
+                preserveAspectRatio=false), graphics={
+              Text(
+                extent={{-60,-60},{-20,-100}},
+                textColor={64,64,64},
+                textString="H/m"),
+              Line(points={{-90,0},{90,0}}, color={255,128,0}),
+              Line(points={{0,90},{0,70}}, color={255,128,0}),
+              Line(points={{0,-70},{0,-90}}, color={255,128,0})}),
+                                    Diagram(
+              coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+This sensor is used to determined the effective fundamental wave permeability of a saturated lumped circuit reluctance. For this purpose the sensor is placed such way that the magnetic flux and the magnetic potential difference of the investigated reluctance are sensed. The area of cross section and the effective length of the investigated magnetic path have to be provided as parameters.
+</p>
+<p>See example
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor\">NonLinearInductor</a>.</p>
+</html>"));
+      end FundamentalWavePermabilitySensor;
+
+      model Permeability
+      "Determines permeability from flux and magnetic potential difference"
+
+        parameter Modelica.SIunits.Area A
+        "Area of cross section penetrated by flux";
+        parameter Modelica.SIunits.Length l
+        "Length associated with magnetic potential difference";
+
+        Modelica.Blocks.Interfaces.RealInput Phi "Magnetic flux"
+                          annotation (Placement(
+              transformation(extent={{-140,40},{-100,80}})));
+        Modelica.Blocks.Interfaces.RealInput V_m
+        "Magnetic potential difference"   annotation (
+            Placement(transformation(extent={{-140,-80},
+                  {-100,-40}})));
+        Modelica.Blocks.Interfaces.RealOutput mu "Absolute permeability"
+                         annotation (Placement(
+              transformation(extent={{100,50},{120,70}})));
+        Modelica.Blocks.Interfaces.RealOutput mur "Relative Permeability"
+                                  annotation (Placement(
+              transformation(extent={{100,-70},{120,-50}})));
+
+      equation
+        if noEvent(abs(V_m) < Modelica.Constants.eps) then
+           mu = 0;
+           mur = 0;
+        else
+           mu =Phi /V_m*l/A;
+           mur = mu/Modelica.Constants.mu_0;
+        end if;
+
+        annotation (Diagram(coordinateSystem(
+                preserveAspectRatio=false)), Icon(
+              coordinateSystem(preserveAspectRatio=false),
+              graphics={Rectangle(
+                extent={{-100,100},{100,-100}},
+                lineColor={0,0,127},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid), Text(
+                extent={{60,-60},{-60,60}},
+                fillColor={255,170,85},
+                fillPattern=FillPattern.Solid,
+                textString="μ")}),
+        Documentation(info="<html>
+<p>This model determines the absolute and relative permeability from two real inputs:</p>
+<ul>
+<li>RMS magnetic potential difference,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realV_m.png\" alt=\"V_m\"></li>
+<li>RMS magnetic flux,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realPhi.png\" alt=\"Phi\"></li>
+</ul>
+<p>In order to calculate the permeabilities, the area of cross section,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A.png\" alt=\"l\">,
+and the geometric length,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\" alt=\"l\">,
+of the flux path have to be take into account</p>
+<dl><dd>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities.png\" alt=\"Permeabilities\">
+</dd></dl>
+<p>In case that the magnetic potential difference is close to zero, permeabilities yield:</p>
+<dl><dd>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities-0.png\" alt=\"Permeabilities=0\">
+</dd></dl>
+</html>"));
+      end Permeability;
+    annotation (Documentation(info="<html>
+<p>This package contains sensors to be used with transient flux tubes models in order to provide information
+for quasi-static parameters.</p>
+</html>"));
+    end Transient;
+    annotation (Documentation(info="<html>
+<p>
+For analysis of magnetic networks, only magnetic potential differences and magnetic flux are variables of interest. For that reason, a magnetic potential sensor is not provided.
+</p>
+</html>"));
+  end Sensors;
+
+  package Sources
+  "Sources of different complexity of magnetomotive force and magnetic flux"
+    extends Modelica.Icons.SourcesPackage;
+
+    model ConstantMagneticPotentialDifference "Constant magnetomotive force"
+
+      extends FluxTubes.Interfaces.Source;
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
+      parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+      "Magnetic potential difference";
+      Modelica.SIunits.ComplexMagneticFlux Phi(re(start=0),im(start=0))
+      "Magnetic flux from port_p to port_n";
+
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      V_m = port_p.V_m - port_n.V_m;
+      Complex(0) = port_p.Phi + port_n.Phi;
+      Phi = port_p.Phi;
+
+      annotation (
+        defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{90,0},{50,0}}, color={255,170,85}),
+          Line(points={{-50,0},{-90,0}}, color={255,170,85}),
+          Line(points={{-50,0},{50,0}}, color={255,170,85}),
+            Line(points={{-80,20},{-60,20}}, color={255,170,85}),
+            Line(points={{-70,30},{-70,10}}, color={255,170,85}),
+            Line(points={{60,20},{80,20}}, color={255,170,85})}),
+        Documentation(info="<html>
+<p>
+This source provides a constant quasi-static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf),
+at fixed frequency, <code>f</code>.
+</p>
+</html>"));
+    end ConstantMagneticPotentialDifference;
+
+    model SignalMagneticPotentialDifference
+    "Signal-controlled magnetomotive force"
+
+      extends FluxTubes.Interfaces.Source;
+      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
+            transformation(
+            origin={60,120},
+            extent={{-20,-20},{20,20}},
+            rotation=270), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={60,120})));
+      Modelica.ComplexBlocks.Interfaces.ComplexInput V_m annotation (Placement(
+            transformation(
+            origin={-60,120},
+            extent={{-20,-20},{20,20}},
+            rotation=270), iconTransformation(
+            extent={{-20,-20},{20,20}},
+            rotation=270,
+            origin={-60,120})));
+      Modelica.SIunits.ComplexMagneticFlux Phi(re(start=0),im(start=0))
+      "Magnetic flux from port_p to port_n";
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      V_m = port_p.V_m - port_n.V_m;
+      Complex(0) = port_p.Phi + port_n.Phi;
+      Phi = port_p.Phi;
+
+      annotation (
+        defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-90,0},{-50,0}},  color={255,170,85}),
+          Line(points={{50,0},{90,0}},  color={255,170,85}),
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,170,85},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-50,0},{50,0}}, color={255,170,85}),
+            Line(points={{-80,20},{-60,20}}, color={255,170,85}),
+            Line(points={{-70,30},{-70,10}}, color={255,170,85}),
+            Line(points={{60,20},{80,20}}, color={255,170,85})}),
+        Documentation(info="<html>
+<p>
+This source provides a quasi-static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf)
+with signal inputs for:
+</p>
+<ul>
+<li>Complex magnetic potential difference, <code>V_m</code></li>
+<li>Frequency <code>f</code></li>
+</ul>
+</html>"));
+    end SignalMagneticPotentialDifference;
+
+    model ConstantMagneticFlux "Source of constant magnetic flux"
+
+      extends FluxTubes.Interfaces.Source;
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
+      Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+      "Magnetic potential difference between both ports";
+      parameter Modelica.SIunits.ComplexMagneticFlux Phi=Complex(1,0)
+      "Magnetic flux";
+
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      V_m = port_p.V_m - port_n.V_m;
+      Complex(0) = port_p.Phi + port_n.Phi;
+      Phi = port_p.Phi;
+      annotation (
+        defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Polygon(
+            points={{80,0},{60,6},{60,-6},{80,0}},
+            lineColor={255,170,85},
+            fillColor={255,170,85},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{-50,0}},  color={255,170,85}),
+          Line(points={{50,0},{90,0}},  color={255,170,85}),
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,170,85},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,50},{0,-50}}, color={255,170,85})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}})),
+        Documentation(info="<html>
+<p>
+This source provides a constant quasi-static magnetic flux <code>Phi</code> at fixed frequency, <code>f</code>.
+</p>
+</html>"));
+    end ConstantMagneticFlux;
+
+    model SignalMagneticFlux "Signal-controlled magnetic flux source"
+
+      extends FluxTubes.Interfaces.Source;
+      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
+            transformation(
+            origin={60,120},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+      "Magnetic potential difference between both ports";
+      Modelica.ComplexBlocks.Interfaces.ComplexInput Phi annotation (Placement(
+            transformation(
+            origin={-60,120},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      V_m = port_p.V_m - port_n.V_m;
+      Complex(0) = port_p.Phi + port_n.Phi;
+      Phi = port_p.Phi;
+      annotation (
+        defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Polygon(
+            points={{80,0},{60,6},{60,-6},{80,0}},
+            lineColor={255,170,85},
+            fillColor={255,170,85},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{-50,0}},  color={255,170,85}),
+          Line(points={{50,0},{90,0}},  color={255,170,85}),
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,170,85},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,50},{0,-50}}, color={255,170,85})}),
+        Documentation(info="<html>
+<p>
+This source provides a quasi-static magnetic flux with inputs for:
+</p>
+<ul>
+<li>Complex magnetic flux, <code>Phi</code></li>
+<li>Frequency <code>f</code></li>
+</ul>
+</html>"));
+    end SignalMagneticFlux;
+    annotation (Documentation(info="<html>
+<p>
+This package contains sources of a magnetic potential difference or a magnetic flux:
+</p>
+</html>"));
+  end Sources;
+
   package Interfaces "Interfaces of magnetic network components"
     extends Modelica.Icons.InterfacesPackage;
 
@@ -2174,513 +2682,6 @@ for utilisation of this partial model.
 </html>"));
   end BaseClasses;
 
-  package Sources
-  "Sources of different complexity of magnetomotive force and magnetic flux"
-    extends Modelica.Icons.SourcesPackage;
-
-    model ConstantMagneticPotentialDifference "Constant magnetomotive force"
-
-      extends FluxTubes.Interfaces.Source;
-      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-      parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m
-      "Magnetic potential difference";
-      Modelica.SIunits.ComplexMagneticFlux Phi(re(start=0),im(start=0))
-      "Magnetic flux from port_p to port_n";
-
-    equation
-      omega = 2*Modelica.Constants.pi*f;
-      V_m = port_p.V_m - port_n.V_m;
-      Complex(0) = port_p.Phi + port_n.Phi;
-      Phi = port_p.Phi;
-
-      annotation (
-        defaultComponentName="magVoltageSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{90,0},{50,0}}, color={255,170,85}),
-          Line(points={{-50,0},{-90,0}}, color={255,170,85}),
-          Line(points={{-50,0},{50,0}}, color={255,170,85}),
-            Line(points={{-80,20},{-60,20}}, color={255,170,85}),
-            Line(points={{-70,30},{-70,10}}, color={255,170,85}),
-            Line(points={{60,20},{80,20}}, color={255,170,85})}),
-        Documentation(info="<html>
-<p>
-This source provides a constant quasi-static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf),
-at fixed frequency, <code>f</code>.
-</p>
-</html>"));
-    end ConstantMagneticPotentialDifference;
-
-    model SignalMagneticPotentialDifference
-    "Signal-controlled magnetomotive force"
-
-      extends FluxTubes.Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
-            transformation(
-            origin={60,120},
-            extent={{-20,-20},{20,20}},
-            rotation=270), iconTransformation(
-            extent={{-20,-20},{20,20}},
-            rotation=270,
-            origin={60,120})));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput V_m annotation (Placement(
-            transformation(
-            origin={-60,120},
-            extent={{-20,-20},{20,20}},
-            rotation=270), iconTransformation(
-            extent={{-20,-20},{20,20}},
-            rotation=270,
-            origin={-60,120})));
-      Modelica.SIunits.ComplexMagneticFlux Phi(re(start=0),im(start=0))
-      "Magnetic flux from port_p to port_n";
-    equation
-      omega = 2*Modelica.Constants.pi*f;
-      V_m = port_p.V_m - port_n.V_m;
-      Complex(0) = port_p.Phi + port_n.Phi;
-      Phi = port_p.Phi;
-
-      annotation (
-        defaultComponentName="magVoltageSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-90,0},{-50,0}},  color={255,170,85}),
-          Line(points={{50,0},{90,0}},  color={255,170,85}),
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,170,85},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-50,0},{50,0}}, color={255,170,85}),
-            Line(points={{-80,20},{-60,20}}, color={255,170,85}),
-            Line(points={{-70,30},{-70,10}}, color={255,170,85}),
-            Line(points={{60,20},{80,20}}, color={255,170,85})}),
-        Documentation(info="<html>
-<p>
-This source provides a quasi-static magnetic potential difference <code>V_m</code> (or magnetomotive force, mmf)
-with signal inputs for:
-</p>
-<ul>
-<li>Complex magnetic potential difference, <code>V_m</code></li>
-<li>Frequency <code>f</code></li>
-</ul>
-</html>"));
-    end SignalMagneticPotentialDifference;
-
-    model ConstantMagneticFlux "Source of constant magnetic flux"
-
-      extends FluxTubes.Interfaces.Source;
-      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-      Modelica.SIunits.ComplexMagneticPotentialDifference V_m
-      "Magnetic potential difference between both ports";
-      parameter Modelica.SIunits.ComplexMagneticFlux Phi=Complex(1,0)
-      "Magnetic flux";
-
-    equation
-      omega = 2*Modelica.Constants.pi*f;
-      V_m = port_p.V_m - port_n.V_m;
-      Complex(0) = port_p.Phi + port_n.Phi;
-      Phi = port_p.Phi;
-      annotation (
-        defaultComponentName="magFluxSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Polygon(
-            points={{80,0},{60,6},{60,-6},{80,0}},
-            lineColor={255,170,85},
-            fillColor={255,170,85},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}},  color={255,170,85}),
-          Line(points={{50,0},{90,0}},  color={255,170,85}),
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,170,85},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,50},{0,-50}}, color={255,170,85})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}})),
-        Documentation(info="<html>
-<p>
-This source provides a constant quasi-static magnetic flux <code>Phi</code> at fixed frequency, <code>f</code>.
-</p>
-</html>"));
-    end ConstantMagneticFlux;
-
-    model SignalMagneticFlux "Signal-controlled magnetic flux source"
-
-      extends FluxTubes.Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
-            transformation(
-            origin={60,120},
-            extent={{-20,-20},{20,20}},
-            rotation=270)));
-      Modelica.SIunits.ComplexMagneticPotentialDifference V_m
-      "Magnetic potential difference between both ports";
-      Modelica.ComplexBlocks.Interfaces.ComplexInput Phi annotation (Placement(
-            transformation(
-            origin={-60,120},
-            extent={{-20,-20},{20,20}},
-            rotation=270)));
-
-    equation
-      omega = 2*Modelica.Constants.pi*f;
-      V_m = port_p.V_m - port_n.V_m;
-      Complex(0) = port_p.Phi + port_n.Phi;
-      Phi = port_p.Phi;
-      annotation (
-        defaultComponentName="magFluxSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Polygon(
-            points={{80,0},{60,6},{60,-6},{80,0}},
-            lineColor={255,170,85},
-            fillColor={255,170,85},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}},  color={255,170,85}),
-          Line(points={{50,0},{90,0}},  color={255,170,85}),
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,170,85},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,50},{0,-50}}, color={255,170,85})}),
-        Documentation(info="<html>
-<p>
-This source provides a quasi-static magnetic flux with inputs for:
-</p>
-<ul>
-<li>Complex magnetic flux, <code>Phi</code></li>
-<li>Frequency <code>f</code></li>
-</ul>
-</html>"));
-    end SignalMagneticFlux;
-    annotation (Documentation(info="<html>
-<p>
-This package contains sources of a magnetic potential difference or a magnetic flux:
-</p>
-</html>"));
-  end Sources;
-
-  package Sensors "Sensors to measure variables in magnetic networks"
-    extends Modelica.Icons.SensorsPackage;
-
-    model ReferenceSensor "Sensor of reference angle gamma"
-      extends FluxTubes.Interfaces.AbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput y "Reference angle" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}})));
-    equation
-      y = port.reference.gamma;
-      annotation (                 Diagram(coordinateSystem(preserveAspectRatio=false)),
-        Documentation(info="<html>
-<p>This sensor determines the reference angle of the connected quasi-static magnetic system.
-The integral of the angular frequency of the quasi-static magnetic system is equal to the reference angle.
-</p>
-</html>"),
-        Icon(graphics={
-            Text(
-              extent={{-30,-10},{30,-70}},
-              textColor={64,64,64},
-              textString="rad"), Line(points={{70,0},{100,0}}, color={0,0,127})}));
-    end ReferenceSensor;
-
-    model FrequencySensor "Frequency sensor"
-      extends FluxTubes.Interfaces.AbsoluteSensor;
-      import Modelica.Constants.pi;
-      Modelica.Blocks.Interfaces.RealOutput y annotation (Placement(transformation(
-              extent={{100,-10},{120,10}})));
-    equation
-      2*pi*y = omega;
-      annotation (               Documentation(info="<html>
-<p>
-This sensor can be used to measure the frequency of the reference system.
-The integral of the angular frequency of the quasi-static magnetic system is equal to the reference angle.
-</p>
-</html>"), Icon(graphics={
-            Text(
-              extent={{-30,-10},{30,-70}},
-              textColor={64,64,64},
-              textString="Hz")}));
-    end FrequencySensor;
-
-    model MagneticPotentialSensor "Potential sensor"
-      extends FluxTubes.Interfaces.AbsoluteSensor;
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
-            transformation(extent={{100,-10},{120,10}})));
-    equation
-      y = port.V_m;
-      annotation (defaultComponentName="magPotentialSensor",
-      Documentation(info="<html>
-<p>
-This sensor can be used to measure the complex magnetic potential <code>V_m</code> in a quasi-static magnetic system.
-</p>
-</html>"),
-        Icon(graphics={
-            Text(
-              extent={{-30,-10},{30,-70}},
-              textColor={64,64,64},
-              textString="A"), Line(points={{70,0},{100,0}}, color={85,170,255})}));
-    end MagneticPotentialSensor;
-
-    model MagneticPotentialDifferenceSensor
-    "Sensor to measure magnetic potential difference"
-      extends FluxTubes.Interfaces.RelativeSensor;
-
-    equation
-      Phi = Complex(0);
-      y = V_m;
-
-      annotation (defaultComponentName="magVoltageSensor",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-            Text(
-              extent={{-30,-10},{30,-70}},
-              textColor={64,64,64},
-              textString="A")}),      Diagram(coordinateSystem(
-            preserveAspectRatio=false)),
-        Documentation(info="<html>
-<p>
-This sensor can be used to measure the complex magnetic potential difference <code>V_m</code>
-in a quasi-static magnetic system.
-</p>
-</html>"));
-    end MagneticPotentialDifferenceSensor;
-
-    model MagneticFluxSensor "Sensor to measure magnetic flux"
-      extends FluxTubes.Interfaces.RelativeSensor;
-
-    equation
-      V_m = Complex(0);
-      y = Phi;
-
-      annotation (defaultComponentName="magFluxSensor",
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Text(
-              extent={{-30,-10},{30,-70}},
-              textColor={64,64,64},
-              textString="Wb")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false)),
-        Documentation(info="<html>
-<p>
-This sensor can be used to measure the complex magnetic flux <code>Phi</code> of a quasi-static magnetic system.
-</p>
-</html>"));
-    end MagneticFluxSensor;
-
-    package Transient "Transient fundamental wave sensors"
-      extends Modelica.Icons.SensorsPackage;
-      model FundamentalWavePermabilitySensor
-      "Sensor of fundamental wave permeability"
-        extends Modelica.Icons.RotationalSensor;
-        parameter Modelica.SIunits.Frequency f "Fundamental wave frequency";
-        parameter Modelica.SIunits.Area A "Area of cross section";
-        parameter Modelica.SIunits.Length l "Length";
-
-        Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort
-          fluxP "Positive port of flux path"
-                annotation (Placement(transformation(
-                extent={{-110,-10},{-90,10}}),
-              iconTransformation(extent={{-110,-10},{-90,10}})));
-        Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort
-          fluxN "Negative port of flux path"
-                annotation (Placement(transformation(
-                extent={{90,-10},{110,10}}),
-              iconTransformation(extent={{90,-10},{110,10}})));
-        Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort
-          potentialP "Positive port of magnetic potential difference path"
-                     annotation (Placement(
-              transformation(extent={{-10,90},{10,110}}),
-              iconTransformation(extent={{-10,90},{10,110}})));
-        Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort
-          potentialN "Negative port of magnetic potential difference path"
-                     annotation (Placement(
-              transformation(extent={{-10,-110},{10,-90}}),
-              iconTransformation(extent={{-10,-110},{10,-90}})));
-        Modelica.Magnetic.FluxTubes.Sensors.MagneticPotentialDifferenceSensor
-          magneticPotentialDifferenceSensor annotation (
-           Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={70,30})));
-        Modelica.Magnetic.FluxTubes.Sensors.MagneticFluxSensor
-          magneticFluxSensor annotation (Placement(
-              transformation(extent={{40,-70},{60,-90}})));
-        Modelica.Blocks.Math.Harmonic harmonicPotential(
-          final f=f,
-          final k=1,
-          final x0Cos=0,
-          final x0Sin=0) "Fundamental wave of magnetic potential difference"
-                         annotation (Placement(
-              transformation(extent={{40,20},{20,40}})));
-        Modelica.Blocks.Math.Harmonic harmonicFlux(
-          final f=f,
-          final k=1,
-          final x0Cos=0,
-          final x0Sin=0) "Fundamental wave of magnetic flux"
-                         annotation (Placement(
-              transformation(
-              extent={{10,-10},{-10,10}},
-              origin={30,-10})));
-        Modelica.Blocks.Interfaces.RealOutput mu "Absolute permeability"
-                         annotation (Placement(
-              transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-40,-110})));
-        Modelica.Blocks.Interfaces.RealOutput mur "Relative permeability"
-                                  annotation (
-            Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-80,-110})));
-        Permeability permeability(final A=A, final l=l)
-        "Determines relative and absolute permeability"
-                                  annotation (Placement(
-              transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=180,
-              origin={-20,0})));
-      equation
-        connect(magneticPotentialDifferenceSensor.port_n,
-          potentialN) annotation (Line(
-            points={{70,20},{70,-100},{0,-100}},
-            color={255,170,85}));
-        connect(magneticPotentialDifferenceSensor.port_p,
-          potentialP) annotation (Line(
-            points={{70,40},{70,100},{0,100}},
-            color={255,170,85}));
-        connect(magneticFluxSensor.port_p, fluxP)
-          annotation (Line(
-            points={{40,-80},{-100,-80},{-100,0}},
-            color={255,170,85}));
-        connect(magneticFluxSensor.port_n, fluxN)
-          annotation (Line(
-            points={{60,-80},{100,-80},{100,0}},
-            color={255,170,85}));
-        connect(harmonicFlux.u, magneticFluxSensor.Phi)
-          annotation (Line(
-            points={{42,-10},{50,-10},{50,-70}},
-            color={0,0,127}));
-        connect(magneticPotentialDifferenceSensor.V_m,
-          harmonicPotential.u) annotation (Line(
-            points={{60,30},{42,30}},
-            color={0,0,127}));
-        connect(permeability.V_m, harmonicPotential.y_rms)
-          annotation (Line(
-            points={{-8,6},{0,6},{0,36},{19,36}},
-            color={0,0,127}));
-        connect(permeability.Phi, harmonicFlux.y_rms)
-          annotation (Line(
-            points={{-8,-6},{0,-6},{0,-4},{19,-4}},
-            color={0,0,127}));
-        connect(permeability.mur, mur) annotation (Line(
-            points={{-31,6},{-80,6},{-80,-110}},
-            color={0,0,127}));
-        connect(permeability.mu, mu) annotation (Line(
-            points={{-31,-6},{-40,-6},{-40,-110}},
-            color={0,0,127}));
-        annotation (Icon(coordinateSystem(
-                preserveAspectRatio=false), graphics={
-              Text(
-                extent={{-60,-60},{-20,-100}},
-                textColor={64,64,64},
-                textString="H/m"),
-              Line(points={{-90,0},{90,0}}, color={255,128,0}),
-              Line(points={{0,90},{0,70}}, color={255,128,0}),
-              Line(points={{0,-70},{0,-90}}, color={255,128,0})}),
-                                    Diagram(
-              coordinateSystem(preserveAspectRatio=false)),
-        Documentation(info="<html>
-<p>
-This sensor is used to determined the effective fundamental wave permeability of a saturated lumped circuit reluctance. For this purpose the sensor is placed such way that the magnetic flux and the magnetic potential difference of the investigated reluctance are sensed. The area of cross section and the effective length of the investigated magnetic path have to be provided as parameters.
-</p>
-<p>See example
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor\">NonLinearInductor</a>.</p>
-</html>"));
-      end FundamentalWavePermabilitySensor;
-
-      model Permeability
-      "Determines permeability from flux and magnetic potential difference"
-
-        parameter Modelica.SIunits.Area A
-        "Area of cross section penetrated by flux";
-        parameter Modelica.SIunits.Length l
-        "Length associated with magnetic potential difference";
-
-        Modelica.Blocks.Interfaces.RealInput Phi "Magnetic flux"
-                          annotation (Placement(
-              transformation(extent={{-140,40},{-100,80}})));
-        Modelica.Blocks.Interfaces.RealInput V_m
-        "Magnetic potential difference"   annotation (
-            Placement(transformation(extent={{-140,-80},
-                  {-100,-40}})));
-        Modelica.Blocks.Interfaces.RealOutput mu "Absolute permeability"
-                         annotation (Placement(
-              transformation(extent={{100,50},{120,70}})));
-        Modelica.Blocks.Interfaces.RealOutput mur "Relative Permeability"
-                                  annotation (Placement(
-              transformation(extent={{100,-70},{120,-50}})));
-
-      equation
-        if noEvent(abs(V_m) < Modelica.Constants.eps) then
-           mu = 0;
-           mur = 0;
-        else
-           mu =Phi /V_m*l/A;
-           mur = mu/Modelica.Constants.mu_0;
-        end if;
-
-        annotation (Diagram(coordinateSystem(
-                preserveAspectRatio=false)), Icon(
-              coordinateSystem(preserveAspectRatio=false),
-              graphics={Rectangle(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,0,127},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid), Text(
-                extent={{60,-60},{-60,60}},
-                fillColor={255,170,85},
-                fillPattern=FillPattern.Solid,
-                textString="μ")}),
-        Documentation(info="<html>
-<p>This model determines the absolute and relative permeability from two real inputs:</p>
-<ul>
-<li>RMS magnetic potential difference,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realV_m.png\" alt=\"V_m\"></li>
-<li>RMS magnetic flux,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/realPhi.png\" alt=\"Phi\"></li>
-</ul>
-<p>In order to calculate the permeabilities, the area of cross section,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A.png\" alt=\"l\">,
-and the geometric length,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\" alt=\"l\">,
-of the flux path have to be take into account</p>
-<dl><dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities.png\" alt=\"Permeabilities\">
-</dd></dl>
-<p>In case that the magnetic potential difference is close to zero, permeabilities yield:</p>
-<dl><dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/permeabilities-0.png\" alt=\"Permeabilities=0\">
-</dd></dl>
-</html>"));
-      end Permeability;
-    annotation (Documentation(info="<html>
-<p>This package contains sensors to be used with transient flux tubes models in order to provide information
-for quasi-static parameters.</p>
-</html>"));
-    end Transient;
-    annotation (Documentation(info="<html>
-<p>
-For analysis of magnetic networks, only magnetic potential differences and magnetic flux are variables of interest. For that reason, a magnetic potential sensor is not provided.
-</p>
-</html>"));
-  end Sensors;
   annotation (Documentation(info="<html>
 <p>
 This library is intended to provide models for the investigation of

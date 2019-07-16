@@ -7268,6 +7268,294 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
 </html>"));
   end Material;
 
+  package Sensors "Sensors to measure variables in magnetic networks"
+    extends Modelica.Icons.SensorsPackage;
+
+    model MagneticPotentialDifferenceSensor
+      "Sensor to measure magnetic potential difference"
+      extends Modelica.Icons.RotationalSensor;
+      extends Interfaces.TwoPortsElementary;
+
+      Modelica.Blocks.Interfaces.RealOutput V_m(final quantity=
+            "MagneticPotential", final unit="A")
+        "Magnetic potential difference between ports p and n as output signal"
+        annotation (Placement(transformation(
+            origin={0,-100},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      Phi = 0;
+      0 = port_p.Phi + port_n.Phi;
+
+      annotation (defaultComponentName="magVoltageSensor",
+    Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+            Line(points={{-70,0},{-90,0}}, color={255,128,0}),
+            Line(points={{70,0},{90,0}}, color={255,128,0}),
+            Line(points={{0,-90},{0,-70}}, color={0,0,127}),
+            Text(
+              extent={{-150,120},{150,80}},
+              textString="%name",
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}),      Diagram(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-100,0}}, color={255,128,0}),
+              Line(points={{70,0},{100,0}}, color={255,128,0}),Line(
+              points={{0,-100},{0,-70}})}));
+    end MagneticPotentialDifferenceSensor;
+
+    model MagneticFluxSensor "Sensor to measure magnetic flux"
+      extends Interfaces.TwoPortsElementary;
+      extends Modelica.Icons.RotationalSensor;
+
+      Modelica.Blocks.Interfaces.RealOutput Phi(final quantity="MagneticFlux",
+          final unit="Wb")
+        "Magnetic flux from port p to port n as output signal" annotation (
+          Placement(transformation(
+            origin={0,-100},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+    equation
+      port_p.V_m = port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+
+      annotation (defaultComponentName="magFluxSensor",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}, color={255,128,0}),
+                                                                                                            Line(
+              points={{70,0},{90,0}}, color={255,128,0}),
+                                       Text(
+                  extent={{-150,120},{150,80}},
+                  textString="%name",
+                  textColor={0,0,255}),Line(points={{0,-90},{0,-70}}, color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Wb")}));
+    end MagneticFluxSensor;
+    annotation (Documentation(info="<html>
+<p>
+For analysis of magnetic networks, only magnetic potential differences and magnetic flux are variables of interest. For that reason, a magnetic potential sensor is not provided.
+</p>
+</html>"));
+  end Sensors;
+
+  package Sources
+    "Sources of different complexity of magnetomotive force and magnetic flux"
+    extends Modelica.Icons.SourcesPackage;
+
+    model ConstantMagneticPotentialDifference "Constant magnetomotive force"
+
+      extends Interfaces.TwoPortsElementary;
+      parameter SI.MagneticPotentialDifference V_m
+        "Magnetic potential difference";
+      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+
+      annotation (
+        defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{100,0},{50,0}}, color={255,127,0}),
+          Line(points={{-50,0},{-100,0}}, color={255,127,0}),
+          Text(
+            extent={{-150,60},{150,100}},
+            textString="%name",
+            textColor={0,0,255}),
+          Line(points={{-50,0},{50,0}}, color={255,127,0}),
+            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
+            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
+            Line(points={{60,20},{80,20}}, color={255,128,0})}),
+        Documentation(info="<html>
+<p>
+Magnetic circuits under steady-state conditions, i.e., with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
+</p>
+<ul>
+<li>coils with stationary current (di / dt = 0) and</li>
+<li>permanent magnets modelled with <em>Th&eacute;venin</em>'s equivalent magnetic circuit.</li>
+</ul>
+<p>
+For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur.
+</p>
+</html>"));
+    end ConstantMagneticPotentialDifference;
+
+    model SignalMagneticPotentialDifference
+      "Signal-controlled magnetomotive force"
+
+      extends Interfaces.TwoPortsElementary;
+      Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
+        "Magnetic potential difference"
+        annotation (Placement(transformation(
+            origin={0,90},
+            extent={{10,-10},{-10,10}},
+            rotation=90), iconTransformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={0,110})));
+      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+      annotation (
+        defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
+          Line(points={{50,0},{100,0}}, color={255,127,0}),
+          Text(
+            extent={{-150,50},{150,90}},
+            textString="%name",
+            textColor={0,0,255}),
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-50,0},{50,0}}, color={255,127,0}),
+            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
+            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
+            Line(points={{60,20},{80,20}}, color={255,128,0})}),
+        Documentation(info="<html>
+<p>
+In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <em>Faraday</em>'s law:
+</p>
+<pre>
+    v = - d&Psi;/dt
+</pre>
+<p>This reaction can possibly be neglected for</p>
+<ul>
+<li>modelling of electromagnetic actuators under quasi-static conditions (slow current change, slow armature motion),</li>
+<li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
+<li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
+</ul>
+<p>
+In these cases, the magnetic potential difference or magnetomotive force imposed by a coil can easily be modelled with a signal-controlled source. Except for the neglected dynamics, steady-state actuator forces will be calculated properly in actuator models based on these sources.
+</p>
+</html>"));
+    end SignalMagneticPotentialDifference;
+
+    model ConstantMagneticFlux "Source of constant magnetic flux"
+
+      extends Interfaces.TwoPortsElementary;
+      parameter SI.MagneticFlux Phi=1 "Magnetic flux";
+      SI.MagneticPotentialDifference V_m
+        "Magnetic potential difference between both ports";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+      annotation (
+        defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            extent={{-150,60},{150,100}},
+            textString="%name",
+            textColor={0,0,255}),
+          Polygon(
+            points={{80,0},{60,6},{60,-6},{80,0}},
+            lineColor={255,128,0},
+            fillColor={255,128,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
+          Line(points={{50,0},{100,0}}, color={255,127,0}),
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,50},{0,-50}}, color={255,127,0})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}}), graphics={Line(points={{-125,0},{-115,0}}, color={160,160,164}),
+              Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
+              Line(points={{115,0},{125,0}}, color={160,160,164})}),
+        Documentation(info="<html>
+<p>
+Sources of a constant magnetic flux are useful for modelling of permanent magnets with <em>Norton</em>'s magnetic equivalent circuit.
+</p>
+</html>"));
+    end ConstantMagneticFlux;
+
+    model SignalMagneticFlux "Signal-controlled magnetic flux source"
+
+      extends Interfaces.TwoPortsElementary;
+      Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux" annotation (
+          Placement(transformation(
+            origin={0,110},
+            extent={{10,-10},{-10,10}},
+            rotation=90), iconTransformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={0,110})));
+      SI.MagneticPotentialDifference V_m
+        "Magnetic potential difference between both ports";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+      annotation (
+        defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Polygon(
+            points={{80,0},{60,6},{60,-6},{80,0}},
+            lineColor={255,128,0},
+            fillColor={255,128,0},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-150,50},{150,90}},
+            textString="%name",
+            textColor={0,0,255}),
+          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
+          Line(points={{50,0},{100,0}}, color={255,127,0}),
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,50},{0,-50}}, color={255,127,0})}),
+        Documentation(info="<html>
+<p>
+This source of a magnetic flux is intended for test purposes, e.g., for simulation and subsequent plotting of a softmagnetic material's magnetisation characteristics if used together with a non-linear reluctance element.
+</p>
+</html>"));
+    end SignalMagneticFlux;
+
+    annotation (Documentation(info="<html>
+<p>
+This package contains sources of a magnetic potential difference or a magnetic flux:
+</p>
+</html>"));
+  end Sources;
+
   package Interfaces "Interfaces of magnetic network components"
     extends Modelica.Icons.InterfacesPackage;
 
@@ -7735,294 +8023,6 @@ der(b) = dhF/diffHyst * der(hystF);
 </html>"));
     end GenericHysteresisTellinen;
   end BaseClasses;
-
-  package Sources
-    "Sources of different complexity of magnetomotive force and magnetic flux"
-    extends Modelica.Icons.SourcesPackage;
-
-    model ConstantMagneticPotentialDifference "Constant magnetomotive force"
-
-      extends Interfaces.TwoPortsElementary;
-      parameter SI.MagneticPotentialDifference V_m
-        "Magnetic potential difference";
-      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-
-      annotation (
-        defaultComponentName="magVoltageSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{100,0},{50,0}}, color={255,127,0}),
-          Line(points={{-50,0},{-100,0}}, color={255,127,0}),
-          Text(
-            extent={{-150,60},{150,100}},
-            textString="%name",
-            textColor={0,0,255}),
-          Line(points={{-50,0},{50,0}}, color={255,127,0}),
-            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
-            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
-            Line(points={{60,20},{80,20}}, color={255,128,0})}),
-        Documentation(info="<html>
-<p>
-Magnetic circuits under steady-state conditions, i.e., with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
-</p>
-<ul>
-<li>coils with stationary current (di / dt = 0) and</li>
-<li>permanent magnets modelled with <em>Th&eacute;venin</em>'s equivalent magnetic circuit.</li>
-</ul>
-<p>
-For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur.
-</p>
-</html>"));
-    end ConstantMagneticPotentialDifference;
-
-    model SignalMagneticPotentialDifference
-      "Signal-controlled magnetomotive force"
-
-      extends Interfaces.TwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
-        "Magnetic potential difference"
-        annotation (Placement(transformation(
-            origin={0,90},
-            extent={{10,-10},{-10,10}},
-            rotation=90), iconTransformation(
-            extent={{10,-10},{-10,10}},
-            rotation=90,
-            origin={0,110})));
-      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-      annotation (
-        defaultComponentName="magVoltageSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
-          Line(points={{50,0},{100,0}}, color={255,127,0}),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-50,0},{50,0}}, color={255,127,0}),
-            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
-            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
-            Line(points={{60,20},{80,20}}, color={255,128,0})}),
-        Documentation(info="<html>
-<p>
-In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <em>Faraday</em>'s law:
-</p>
-<pre>
-    v = - d&Psi;/dt
-</pre>
-<p>This reaction can possibly be neglected for</p>
-<ul>
-<li>modelling of electromagnetic actuators under quasi-static conditions (slow current change, slow armature motion),</li>
-<li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
-<li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
-</ul>
-<p>
-In these cases, the magnetic potential difference or magnetomotive force imposed by a coil can easily be modelled with a signal-controlled source. Except for the neglected dynamics, steady-state actuator forces will be calculated properly in actuator models based on these sources.
-</p>
-</html>"));
-    end SignalMagneticPotentialDifference;
-
-    model ConstantMagneticFlux "Source of constant magnetic flux"
-
-      extends Interfaces.TwoPortsElementary;
-      parameter SI.MagneticFlux Phi=1 "Magnetic flux";
-      SI.MagneticPotentialDifference V_m
-        "Magnetic potential difference between both ports";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-      annotation (
-        defaultComponentName="magFluxSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-150,60},{150,100}},
-            textString="%name",
-            textColor={0,0,255}),
-          Polygon(
-            points={{80,0},{60,6},{60,-6},{80,0}},
-            lineColor={255,128,0},
-            fillColor={255,128,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
-          Line(points={{50,0},{100,0}}, color={255,127,0}),
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,50},{0,-50}}, color={255,127,0})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Line(points={{-125,0},{-115,0}}, color={160,160,164}),
-              Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
-              Line(points={{115,0},{125,0}}, color={160,160,164})}),
-        Documentation(info="<html>
-<p>
-Sources of a constant magnetic flux are useful for modelling of permanent magnets with <em>Norton</em>'s magnetic equivalent circuit.
-</p>
-</html>"));
-    end ConstantMagneticFlux;
-
-    model SignalMagneticFlux "Signal-controlled magnetic flux source"
-
-      extends Interfaces.TwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux" annotation (
-          Placement(transformation(
-            origin={0,110},
-            extent={{10,-10},{-10,10}},
-            rotation=90), iconTransformation(
-            extent={{10,-10},{-10,10}},
-            rotation=90,
-            origin={0,110})));
-      SI.MagneticPotentialDifference V_m
-        "Magnetic potential difference between both ports";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-      annotation (
-        defaultComponentName="magFluxSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Polygon(
-            points={{80,0},{60,6},{60,-6},{80,0}},
-            lineColor={255,128,0},
-            fillColor={255,128,0},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
-          Line(points={{50,0},{100,0}}, color={255,127,0}),
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,50},{0,-50}}, color={255,127,0})}),
-        Documentation(info="<html>
-<p>
-This source of a magnetic flux is intended for test purposes, e.g., for simulation and subsequent plotting of a softmagnetic material's magnetisation characteristics if used together with a non-linear reluctance element.
-</p>
-</html>"));
-    end SignalMagneticFlux;
-
-    annotation (Documentation(info="<html>
-<p>
-This package contains sources of a magnetic potential difference or a magnetic flux:
-</p>
-</html>"));
-  end Sources;
-
-  package Sensors "Sensors to measure variables in magnetic networks"
-    extends Modelica.Icons.SensorsPackage;
-
-    model MagneticPotentialDifferenceSensor
-      "Sensor to measure magnetic potential difference"
-      extends Modelica.Icons.RotationalSensor;
-      extends Interfaces.TwoPortsElementary;
-
-      Modelica.Blocks.Interfaces.RealOutput V_m(final quantity=
-            "MagneticPotential", final unit="A")
-        "Magnetic potential difference between ports p and n as output signal"
-        annotation (Placement(transformation(
-            origin={0,-100},
-            extent={{10,-10},{-10,10}},
-            rotation=90)));
-      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      Phi = 0;
-      0 = port_p.Phi + port_n.Phi;
-
-      annotation (defaultComponentName="magVoltageSensor",
-    Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-            Line(points={{-70,0},{-90,0}}, color={255,128,0}),
-            Line(points={{70,0},{90,0}}, color={255,128,0}),
-            Line(points={{0,-90},{0,-70}}, color={0,0,127}),
-            Text(
-              extent={{-150,120},{150,80}},
-              textString="%name",
-              textColor={0,0,255}),
-            Text(
-              extent={{-30,-10},{30,-70}},
-              textColor={64,64,64},
-              textString="A")}),      Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-100,0}}, color={255,128,0}),
-              Line(points={{70,0},{100,0}}, color={255,128,0}),Line(
-              points={{0,-100},{0,-70}})}));
-    end MagneticPotentialDifferenceSensor;
-
-    model MagneticFluxSensor "Sensor to measure magnetic flux"
-      extends Interfaces.TwoPortsElementary;
-      extends Modelica.Icons.RotationalSensor;
-
-      Modelica.Blocks.Interfaces.RealOutput Phi(final quantity="MagneticFlux",
-          final unit="Wb")
-        "Magnetic flux from port p to port n as output signal" annotation (
-          Placement(transformation(
-            origin={0,-100},
-            extent={{10,-10},{-10,10}},
-            rotation=90)));
-    equation
-      port_p.V_m = port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-
-      annotation (defaultComponentName="magFluxSensor",
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}, color={255,128,0}),
-                                                                                                            Line(
-              points={{70,0},{90,0}}, color={255,128,0}),
-                                       Text(
-                  extent={{-150,120},{150,80}},
-                  textString="%name",
-                  textColor={0,0,255}),Line(points={{0,-90},{0,-70}}, color={0,0,127}),
-            Text(
-              extent={{-30,-10},{30,-70}},
-              textColor={64,64,64},
-              textString="Wb")}));
-    end MagneticFluxSensor;
-    annotation (Documentation(info="<html>
-<p>
-For analysis of magnetic networks, only magnetic potential differences and magnetic flux are variables of interest. For that reason, a magnetic potential sensor is not provided.
-</p>
-</html>"));
-  end Sensors;
 
   package Utilities "Package with utility functions"
     extends Modelica.Icons.FunctionsPackage;
