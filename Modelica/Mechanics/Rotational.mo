@@ -18,7 +18,8 @@ mechanical</strong> systems, including different types of gearboxes,
 shafts with inertia, external torques, spring/damper elements,
 frictional elements, backlash, elements to measure angle, angular velocity,
 angular acceleration and the cut-torque of a flange. In sublibrary
-<strong>Examples</strong> several examples are present to demonstrate the usage of
+<strong><a href=\"modelica://Modelica.Mechanics.Rotational.Examples\">Examples</a></strong>
+several examples are present to demonstrate the usage of
 the elements. Just open the corresponding example model and simulate
 the model according to the provided description.
 </p>
@@ -37,15 +38,16 @@ systems are available in the simulation tool, the simulation of
 <strong>efficient</strong> and <strong>reliable</strong>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive1.png\" alt=\"drive1\">
-</p>
+</div>
 
 <p>
 A simple example of the usage of this library is given in the
-figure above. This drive consists of a shaft with inertia J1=0.2 which
-is connected via an ideal gearbox with gear ratio=5 to a second shaft
-with inertia J2=5. The left shaft is driven via an external,
+figure above. This drive consists of a shaft <code>J1</code> with inertia
+<var>J</var>&nbsp;=&nbsp;0.2&nbsp;kg.m<sup>2</sup> which
+is connected via an ideal gearbox with gear ratio&nbsp;=&nbsp;5 to a second shaft <code>J2</code>
+with inertia <var>J</var>&nbsp;=&nbsp;5&nbsp;kg.m<sup>2</sup>. The left shaft is driven via an external,
 sinusoidal torque.
 The <strong>filled</strong> and <strong>non-filled grey squares</strong> at the left and
 right side of a component represent <strong>mechanical flanges</strong>.
@@ -53,9 +55,9 @@ Drawing a line between such squares means that the corresponding
 flanges are <strong>rigidly attached</strong> to each other.
 By convention in this library, the connector characterized as a
 <strong>filled</strong> grey square is called <strong>flange_a</strong> and placed at the
-left side of the component in the \"design view\" and the connector
+left side of the component in the &quot;design view&quot; and the connector
 characterized as a <strong>non-filled</strong> grey square is called <strong>flange_b</strong>
-and placed at the right side of the component in the \"design view\".
+and placed at the right side of the component in the &quot;design view&quot;.
 The two connectors are completely <strong>identical</strong>, with the only
 exception that the graphical layout is a little bit different in order
 to distinguish them for easier access of the connector variables.
@@ -69,11 +71,10 @@ possible to connect two springs or two shafts with inertia directly
 together, see figure below.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections1.png\" alt=\"driveConnections1\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections2.png\" alt=\"driveConnections2\">
-</p>
-
+</div>
 </html>"));
 
     end Overview;
@@ -84,24 +85,27 @@ together, see figure below.
       annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 A flange is described by the connector class
-Interfaces.<strong>Flange_a</strong>
-or Interfaces.<strong>Flange_b</strong>. As already noted, the two connector
+<strong><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_a\">Flange_a</a></strong>
+or <strong><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_b\">Flange_b</a></strong>.
+As already noted in section <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.Overview\">Overview</a>,
+the two connector
 classes are completely identical. There is only a difference in the icons,
 in order to easier identify a flange variable in a diagram.
 Both connector classes contain the following variables:
 </p>
-<pre>
-   Modelica.SIunits.Angle       phi  \"Absolute rotation angle of flange\";
-   <strong>flow</strong> Modelica.SIunits.Torque tau  \"Cut-torque in the flange\";
-</pre>
+<blockquote><pre>
+Modelica.SIunits.Angle       phi  &quot;Absolute rotation angle of flange&quot;;
+<strong>flow</strong> Modelica.SIunits.Torque tau  &quot;Cut torque in the flange&quot;;
+</pre></blockquote>
+
 <p>
 If needed, the angular velocity <code>w</code> and the
 angular acceleration <code>a</code> of a flange connector can be
 determined by differentiation of the flange angle <code>phi</code>:
 </p>
-<pre>
-     w = <strong>der</strong>(phi);    a = <strong>der</strong>(w);
-</pre>
+<blockquote><pre>
+w = <strong>der</strong>(phi);    a = <strong>der</strong>(w);
+</pre></blockquote>
 </html>"));
 
     end FlangeConnectors;
@@ -110,21 +114,20 @@ determined by differentiation of the flange angle <code>phi</code>:
       extends Modelica.Icons.Information;
 
       annotation (DocumentationClass=true, Documentation(info="<html>
-
 <p>The following figure shows examples of components equipped with
 a support flange (framed flange in the lower center), which can be used
 to fix components on the ground or on other rotating elements or to combine
 them with force elements. Via Boolean parameter <strong>useSupport</strong>, the
-support torque is enabled or disabled. If it is enabled, it must be connected.
-If it is disabled, it need not be connected.
+support flange is enabled or disabled. If it is enabled, it must be connected.
+If it is disabled, it needs not be connected.
 Enabled support flanges offer, e.g., the possibility to model gearboxes mounted on
 the ground via spring-damper-systems (cf. example
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.ElasticBearing\">ElasticBearing</a>).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing.png\" alt=\"bearing\">
-</p>
+</div>
 
 <p>
 Depending on the setting of <strong>useSupport</strong>, the icon of the corresponding
@@ -133,10 +136,9 @@ For example, the two implementations in the following figure give
 identical results.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing2.png\" alt=\"bearing2\">
-</p>
-
+</div>
 </html>"));
 
     end SupportTorques;
@@ -154,9 +156,9 @@ signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive2.png\" alt=\"drive2\">
-</p>
+</div>
 
 <p>
 In the figure, three identical drive trains are shown. The only
@@ -168,8 +170,8 @@ Due to the 1-dimensional nature of the model, all components are
 basically connected together along one line (more complicated
 cases are discussed below). First, one has to define
 a <strong>positive</strong> direction of this line, called <strong>axis of rotation</strong>.
-In the top part of the figure this is characterized by an arrow
-defined as <code>axis of rotation</code>. The simple rule is now:
+In the top of the figure this is characterized by an arrow
+and a corresponding text. The simple rule is now:
 If a variable of a component is positive and can be interpreted as
 the element of a vector (e.g., torque or angular velocity vector), the
 corresponding vector is directed into the positive direction
@@ -178,36 +180,36 @@ inertias of the figure above are displayed with the positive
 vector direction displayed according to this rule:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive3.png\" alt=\"drive3\">
-</p>
+</div>
 <p>
-The cut-torques <code>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</code>
+The cut-torques <code>J2.flange_a.tau</code>, <code>J4.flange_a.tau</code> and <code>J6.flange_b.tau</code>
 of the right inertias are all identical and are directed into the
 direction of rotation if the values are positive. Similarly,
-the angular velocities <code>J2.w, J4.w, J6.w</code> of the right inertias
+the angular velocities <code>J2.w</code>, <code>J4.w</code> and <code>J6.w</code> of the right inertias
 are all identical and are also directed into the
 direction of rotation if the values are positive. Some special
 cases are shown in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive4.png\" alt=\"drive4\">
-</p>
+</div>
 
 <p>
 In the upper part of the figure, two variants of the connection of an
 external torque and an inertia are shown. In both cases, a positive
 signal input into the torque component accelerates the inertias
-<code>inertia1, inertia2</code> into the positive axis of rotation,
-i.e., the angular accelerations <code>inertia1.a, inertia2.a</code>
-are positive and are directed along the \"axis of rotation\" arrow.
+<code>inertia1</code> and <code>inertia2</code> into the positive axis of rotation,
+i.e., the angular accelerations <code>inertia1.a</code> and <code>inertia2.a</code>
+are positive and are directed along the &quot;axis of rotation&quot; arrow.
 In the lower part of the figure the connection of inertias with
 a planetary gear is shown. Note, that the three flanges of the
 planetary gearbox are located along the axis of rotation and that
 the axis direction determines the positive rotation along these
-flanges. As a result, the positive rotation for <code>inertia4, inertia6</code>
-is as indicated with the additional grey arrows.
+flanges. As a result, the positive rotation for <code>inertia4</code> and <code>inertia6</code>
+is as indicated with the additional black arrows.
 </p>
 </html>"));
 
@@ -224,63 +226,61 @@ elements of this package.
 It is convenient to define a new
 component by inheritance from one of the following base classes,
 which are defined in sublibrary Interfaces:
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces\">Interfaces</a>:
 </p>
+
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th>Name</th><th>Description</th></tr>
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
-  </td>
-  <td>Compliant connection of two rotational 1-dim. flanges
-                   (used for force laws such as a spring or a damper).</td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
-  </td>
-  <td> Same as \"PartialCompliant\", but relative angle and relative speed are
-                    defined as preferred states. Use this partial model if the force law
-                    needs anyway the relative speed. The advantage is that it is usually better
-                    to use relative angles between drive train components
-                    as states, especially, if the angle is not limited (e.g., as for drive trains
-                    in vehicles).
-</td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
-</td>
-  <td> Partial model for a 1-dim. rotational gear consisting of the flange of
-                    an input shaft, the flange of an output shaft and the support.
-  </td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
-</td>
-  <td> Partial model of a torque acting at the flange (accelerates the flange).
-  </td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
-</td>
-  <td>General connection of two rotational 1-dim. flanges.
-  </td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
-</td>
-  <td>Measure absolute flange variables.
-  </td>
-</tr>
-
-<tr>
-  <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
-</td>
-  <td>Measure relative flange variables.
-  </td>
-</tr>
+  <caption align=\"bottom\">List of common base classes for 1-dimensional rotational components</caption>
+  <tr><th>Name</th><th>Description</th></tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
+    </td>
+    <td> Compliant connection of two rotational 1-dim. flanges
+         (used for force laws such as a spring or a damper).
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
+    </td>
+    <td> Same as &quot;PartialCompliant&quot;, but relative angle and relative speed are
+         defined as preferred states. Use this partial model if the force law
+         needs anyway the relative speed. The advantage is that it is usually better
+         to use relative angles between drive train components
+         as states, especially, if the angle is not limited (e.g., as for drive trains
+         in vehicles).
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
+    </td>
+    <td> Partial model for a 1-dim. rotational gear consisting of the flange of
+         an input shaft, the flange of an output shaft and the support.
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
+    </td>
+    <td> Partial model of a torque acting at the flange (accelerates the flange).
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
+    </td>
+    <td> General connection of two rotational 1-dim. flanges.
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
+    </td>
+    <td> Measure absolute flange variables.
+    </td>
+  </tr>
+  <tr>
+    <td><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
+    </td>
+    <td> Measure relative flange variables.
+    </td>
+  </tr>
 </table>
 
 <p>
@@ -302,9 +302,9 @@ Examples for such a definition are given in the following figure
 for an inertia component and a planetary gearbox:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveAxis.png\" alt=\"driveAxis\">
-</p>
+</div>
 
 <p>
 As can be seen, all vectors are directed into the direction
@@ -320,9 +320,9 @@ coordinate system has an influence on the usage of the
 component. But this is not the case, as shown in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/inertias.png\" alt=\"inertias\">
-</p>
+</div>
 
 <p>
 In the figure the <strong>local</strong> axes of rotation of the components
@@ -337,7 +337,8 @@ the left figure it seems to be that the angular velocity vector of
 <code>J2</code> goes from right to left, in reality it goes from
 left to right as shown in the right part of the figure, where the
 local coordinate systems are drawn such that they are aligned.
-Note, that the simple rule stated in section 4 (Sign conventions)
+Note, that the simple rule stated in section
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign conventions</a>
 also determines that
 the angular velocity of <code>J2</code> in the left part of the
 figure is directed from left to right.
@@ -348,7 +349,9 @@ is just necessary, in order that the equations of this component
 are expressed correctly. The selection of the coordinate system
 is arbitrary and has no influence on the usage of the component.
 Especially, the actual direction of, e.g., a cut-torque is most
-easily determined by the rule of section 4. A more strict determination
+easily determined by the rule of section
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign conventions</a>.
+A more strict determination
 by aligning coordinate systems and then using the vector direction
 of the local coordinate systems, often requires a re-drawing of the
 diagram and is therefore less convenient to use.
@@ -361,13 +364,12 @@ diagram and is therefore less convenient to use.
       extends Modelica.Icons.Information;
 
       annotation (DocumentationClass=true, Documentation(info="<html>
-
 <p>
 This library is designed in a fully object oriented way in order that
 components can be connected together in every meaningful combination
 (e.g., direct connection of two springs or two inertias).
 As a consequence, most models lead to a system of
-differential-algebraic equations of <strong>index 3</strong> (= constraint
+differential-algebraic equations (DAE) of <strong>index&nbsp;3</strong> (= constraint
 equations have to be differentiated twice in order to arrive at
 a state space representation) and the Modelica translator or
 the simulator has to cope with this system representation.
@@ -375,7 +377,7 @@ According to our present knowledge, this requires that the
 Modelica translator is able to symbolically differentiate equations
 (otherwise it is e.g., not possible to provide consistent initial
 conditions; even if consistent initial conditions are present, most
-numerical DAE integrators can cope at most with index 2 DAEs).
+numerical DAE integrators can cope at most with index&nbsp;2 DAEs).
 </p>
 <p>
 The elements of this library can be connected together in an
@@ -388,27 +390,28 @@ elements are locked at the same time instant (i.e., there does not exist a
 unique solution) and some simulation systems may not be
 able to handle this situation, since this leads to a singularity during
 simulation. Currently, this type of problem can occur with the
-Coulomb friction elements <strong>BearingFriction, Clutch, Brake, LossyGear</strong> when
-the elements become stuck:
+Coulomb friction elements such as
+<strong>BearingFriction</strong>, <strong>Clutch</strong>, <strong>Brake</strong> or <strong>LossyGear</strong>
+when the elements become stuck:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections3.png\" alt=\"driveConnections3\">
-</p>
+</div>
 <p>
-In the figure above two typical situations are shown: In the upper part of
-the figure, the series connection of rigidly attached BearingFriction and
-Clutch components are shown. This does not hurt, because the BearingFriction
-element can lock the relative motion between the element and the housing,
+In the figure above, two typical situations are shown: In the upper part of
+the figure, the series connection of rigidly attached <code>bearingFriction1</code> and
+<code>clutch</code> components are shown. This does not hurt, because the <code>bearingFriction1</code>
+element can lock the relative motion between the element and the housing (<code>fixed1</code>),
 whereas the clutch element can lock the relative motion between the two
-connected flanges. Contrary, the drive train in the lower part of the figure
-may give rise to simulation problems, because the BearingFriction element
-and the Brake element can lock the relative motion between a flange and
+connected flanges. On the contrary, the drive train in the lower part of the figure
+may give rise to simulation problems, because the <code>bearingFriction2</code> element
+and the <code>brake</code> element can lock the relative motion between a flange and
 the housing and these flanges are rigidly connected together, i.e.,
 essentially the same relative motion can be locked. These difficulties
 may be solved by either introducing a compliance between these flanges
-or by combining the BearingFriction and Brake element into
+or by combining the bearing friction and brake element into
 one component and resolving the ambiguity of the frictional torque in the
-stuck mode. A tool may handle this situation also <strong>automatically</strong>,
+stuck mode of that component. A tool may handle this situation also <strong>automatically</strong>,
 by picking one solution of the infinitely many, e.g., the one where
 the difference to the value of the previous time instant is as small
 as possible.
@@ -423,9 +426,10 @@ as possible.
       annotation (Documentation(info="<html>
 <p>
 Only a few components of the Rotational library use the der(&hellip;) operator
-and are therefore candidates to have states. Most important, component <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Inertia</a>
+and are therefore candidates to have states. Most important, component
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Inertia</a>
 defines the absolute rotation angle and the absolute angular velocity of this
-component as candidate for states. In the \"Advanced\" menu the built-in StateSelect
+component as candidate for states. In the &quot;Advanced&quot; menu the built-in StateSelect
 enumeration can be set to define the priority to use these variables as states.
 Without further action, in most cases a tool will select these variables as states.
 </p>
@@ -441,36 +445,42 @@ For drive trains where the goal is to control the velocity of a load (e.g. the d
 train of a vehicle or the crank angle of an engine),
 the absolute angles of the components are quickly increasing
 during operation. This is critical, because then the step size control of time
-integrators might then no longer work appropriately:
+integrators might no longer work appropriately.
 </p>
 
 <p>
 Integrators with step size control adjust their time step size automatically
-to meet user defined error bounds (\"tolerances\").
-Typically the local error estimate EST_i is compared with a mixed bound for absolute and relative errors.
+to meet user defined error bounds (&quot;tolerances&quot;).
+Typically the local error estimate <var>EST<sub>i</sub></var> is compared with a mixed
+bound for absolute and relative errors.
 </p>
 
-<pre>
-   EST_i &le; abstol_i + reltol_i*|x_i|
-</pre>
+<blockquote><pre>
+EST_i &le; abstol_i + reltol_i*|x_i|
+</pre></blockquote>
 
 <p>
-Here, abstol_i and reltol_i denote the bounds for the absolute and relative error of state variable x_i, respectively. This mixed error bound is used since it is more robust than a pure relative error based error bound if the nominal value x_i  is (very) close to 0.
-In a Modelica simulation model, typically the same relative tolerance reltol is used for all
+Here, <var>abstol<sub>i</sub></var> and <var>reltol<sub>i</sub></var> denote the bounds
+for the absolute and relative error of state variable <var>x<sub>i</sub></var>, respectively.
+This mixed error bound is used since it is more robust than a pure relative error
+based error bound if the nominal value <var>x<sub>i</sub></var>  is (very) close to&nbsp;0.
+In a Modelica simulation model, typically the same relative tolerance <var>reltol</var> is used for all
 states and the absolute tolerances are computed using the relative tolerance and the
 nominal values of the states:
 </p>
 
-<pre>
-   reltol_i = reltol
-   abstol_i = reltol*x_i(nominal)*0.01
-</pre>
+<blockquote><pre>
+reltol_i = reltol
+abstol_i = reltol*x_i(nominal)*0.01
+</pre></blockquote>
 
 <p>
-This error control fails if the state variable x_i grows without bounds (such as for a
+This error control fails if the state variable <var>x<sub>i</sub></var> grows without
+bounds (such as for a
 drive train or the crank angle of a vehicle), since then the allowed error
 also grows without bounds. The effect is that the error control on this variable is practically
-switched off. The correct way to handle this would be to set reltol_i = 0 on such a state
+switched off. The correct way to handle this would be to set
+<var>reltol<sub>i</sub></var>&nbsp;=&nbsp;0 on such a state
 variable and only use an absolute tolerance for the step size control.
 </p>
 
@@ -488,16 +498,16 @@ Therefore, a tool will select in most cases relative angles as states.
 
 <p>
 The relative angles of compliant components are usually small. For example, the
-deformation of a typical elastic component is in the order of 1e-4 rad.
+deformation of a typical elastic component is in the order of 1e-4&nbsp;rad.
 Without further action, the error control would not work properly on variables
 that are so small (so often switching the error control off). The remedy is to define
 explicitly a nominal value on the relative angle. This definition is provided in the
-\"Advanced\" menu of the compliant components with parameter \"phi_nominal\".
-The default value is 1e-4 rad, to be in the order of a compliant deformation of a
+&quot;Advanced&quot; menu of the compliant components with parameter &quot;phi_nominal&quot;.
+The default value is 1e-4&nbsp;rad, to be in the order of a compliant deformation of a
 drive. For some components, like
-a <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Clutch\">Clutch</a>
-this might be too small and a value of phi_nominal=1 might be more appropriate
-(a value of phi_nominal = 1e-4 does not hurt, but just makes the error control
+a <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Clutch\">Clutch</a>,
+this might be too small and a value of phi_nominal&nbsp;=&nbsp;1&nbsp;rad might be more appropriate
+(a value of phi_nominal&nbsp;=&nbsp;1e-4&nbsp;rad does not hurt, but just makes the error control
 unnecessarily stringent).
 </p>
 </html>"));
@@ -520,24 +530,27 @@ Several elements of this library model <strong>Coulomb friction</strong> with th
 <p>
 The friction equations are defined in base model
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>.
-Here are some explanations:
+In the following, there are given explanations.
 </p>
 
 <p>
 Assume first the most simplest friction problem: A block sliding on a surface.
-The friction force \"f\" acts between the block surface and the environment surface and shall be a
-linear function of the relative velocity \"v\" between the two surfaces.
-When the relative velocity becomes zero, the two surfaces are stuck to each other and the friction force is no longer
-a function of \"v\". The element starts sliding again if the friction force becomes larger than the maximum
-static friction force \"f0\". This element could be defined with a parameterized curve description
-leading to the following equations:
+The friction force <var>f</var> acts between the block surface and the environment surface and
+shall be a linear function of the relative velocity <var>v</var> between the two surfaces.
+When the relative velocity becomes zero, the two surfaces are stuck to each other and
+the friction force is no longer a function of <var>v</var>. The element starts sliding
+again if the friction force becomes larger than the maximum static friction force
+<var>f<sub>0</sub></var> (indicated by <code>f0</code> in equations below).
+This element could be defined with a parameterized curve description leading
+to the following equations:
 </p>
 
-<blockquote><pre>forward  = s &gt; 1;
+<blockquote><pre>
+forward  = s &gt;  1;
 backward = s &lt; -1;
-v = if forward then s-1 elseif backward then s+1 else 0;
-f = if forward  then  f0+f1*(s-1) elseif
-       backward then -f0+f1*(s+1) else f0*s;
+v = if forward  then s-1 elseif backward then s+1 else 0;
+f = if forward  then  f0 + f1*(s-1) elseif
+       backward then -f0 + f1*(s+1) else f0*s;
 </pre></blockquote>
 
 <p>
@@ -555,8 +568,9 @@ m*der(v) = u - f
 </pre></blockquote>
 
 <p>
-Note, that \"m\" is the mass of the block and \"u(t)\" is the given driving force.
-If the element is in its \"forward sliding\" mode, that is s &ge; 1, this model is described by:
+Note, that <var>m</var> is the mass of the block and <var>u(t)</var> is the given driving force.
+If the element is in its &quot;forward sliding&quot; mode, that is <var>s</var>&nbsp;&ge;&nbsp;1,
+this model is described by:
 </p>
 
 <blockquote><pre>
@@ -566,58 +580,69 @@ m*der(v) = u - f
 </pre></blockquote>
 
 <p>
-which can be easily transformed into state space form with \"v\" as the state.
-If the block becomes stuck, that is -1 &le; s &le; 1, the equation \"v=0\" becomes
-active and therefore \"v\" can no longer be a state, that is an index
+which can be easily transformed into state space form with&nbsp;<var>v</var> as the state.
+If the block becomes stuck, that is -1&nbsp;&le;&nbsp;<var>s</var>&nbsp;&le;&nbsp;1,
+the equation <var>v</var>&nbsp;=&nbsp;0 becomes
+active and therefore&nbsp;<var>v</var> can no longer be a&nbsp;state, that is an index
 change takes place. Besides the difficulty to handle the variable state change,
 there is a more serious problem:
 </p>
 
 <p>
-Assume that the block is stuck and that \"s\" becomes greater than one. Before the event occurs, s &le; 1
-and v = 0; at the event instant s &gt; 1 because this relation is the event triggering condition. The element
-switches into the forward sliding mode where \"v\" is a state which is initialized with its last value \"v=0\".
-Since \"v\" is a state, \"s\" is computed from \"v\" via \"s := v+1\", resulting in \"s=1\", that is the relation
-\"s &gt; 1\" becomes false and the element switches back into the stuck mode. In other words, it is never possible to
-switch into the forward sliding mode. Taking numerical errors into account, the situation is even worse.
+Assume that the block is stuck and that&nbsp;<var>s</var> becomes greater than one.
+Before the event occurs, <var>s</var>&nbsp;&le;&nbsp;1 and <var>v</var>&nbsp;=&nbsp;0;
+at the event instant <var>s</var>&nbsp;&gt;&nbsp;1 because this relation is the event
+triggering condition. The element switches into the forward sliding mode where <var>v</var>
+is a state which is initialized with its last value <var>v</var>&nbsp;=&nbsp;0.
+Since&nbsp;<var>v</var> is a state, <var>s</var>&nbsp;is computed from&nbsp;<var>v</var>
+via <var>s</var>&nbsp;:=&nbsp;<var>v</var>&nbsp;+&nbsp;1, resulting in <var>s</var>&nbsp;=&nbsp;1,
+that is the relation <var>s</var>&nbsp;&gt;&nbsp;1 becomes false and the element
+switches back into the stuck mode. In other words, it is never possible to switch into
+the forward sliding mode. Taking numerical errors into account, the situation is even worse.
 </p>
 
 <p>
-The key to the solution is the observation that \"v=0\" in the stuck mode and when forward sliding starts, but
-\"der(v) &gt; 0\" when sliding starts and der(v) = 0 in the stuck mode. Since the friction characteristic
+The key to the solution is the observation that <var>v</var>&nbsp;=&nbsp;0 in the stuck
+mode and when forward sliding starts, but der(<var>v</var>)&nbsp;&gt;&nbsp;0 when sliding
+starts and der(<var>v</var>)&nbsp;=&nbsp;0 in the stuck mode. Since the friction characteristic
 at zero velocity is no functional relationship, again a parameterized curve description
-with a new curve parameter \"s_a\" has to be used leading to the following equations (note: at zero velocity):
+with a new curve parameter <var>s<sub>a</sub></var> (denoted also <code>sa</code> below)
+has to be used leading to the following equations (note: at zero velocity):
 </p>
 
 <blockquote><pre>
-startFor  = sa &gt; 1;
+startFor  = sa &gt;  1;
 startBack = sa &lt; -1;
         a = der(v);
         a = if startFor then sa-1 elseif startBack then sa+1 else 0;
-        f = if startFor then f0   elseif startBack then  -f0 else f0*sa;
+        f = if startFor then  f0  elseif startBack then  -f0 else f0*sa;
 </pre></blockquote>
 
 <p>
-At zero velocity, these equations and the equation of the block form a mixed continuous/discrete set of
-equations which has to be solved at event instants (e.g. by a fix point iteration),
-When switching from sliding to stuck mode, the velocity is small or zero. Since the derivative of the constraint
-equation der(v) = 0 is fulfilled in the stuck mode, the velocity remains small even if v = 0 is not explicitly
-taken into account. The approach to use the acceleration der(v) = 0 as \"constraint\" instead of \"v = 0\",
-is often used in multi-body software. The benefit is that the velocity \"v\" remains a state in all switching
-configurations (there is a small, linear drift, but the friction element would have to stay stuck several days
-before the drift becomes too large). Consequently, \"v\" is small but may have any sign when switching
-from stuck to sliding mode; if the friction element starts to slide, say in the forward direction, one has
-to wait until the velocity is really positive, before switching to forward mode (note, that even for
-exact calculation without numerical errors a \"waiting\" phase is necessary, because \"v=0\" when sliding starts).
-Since \"der(v) > 0\", this will occur after a small time period. This \"waiting\" procedure can be
-described by a state machine. Collecting all the pieces together, finally results in the following equations
+At zero velocity, these equations and the equation of the block form a mixed continuous/discrete
+set of equations which has to be solved at event instants (e.g. by a fix point iteration),
+When switching from sliding to stuck mode, the velocity is small or zero.
+Since the derivative of the constraint equation der(<var>v</var>)&nbsp;=&nbsp;0 is fulfilled
+in the stuck mode, the velocity remains small even if <var>v</var>&nbsp;=&nbsp;0 is not explicitly
+taken into account. The approach to use the acceleration der(<var>v</var>)&nbsp;=&nbsp;0 as
+&quot;constraint&quot; instead of <var>v</var>&nbsp;=&nbsp;0, is often used in multi-body software.
+The benefit is that the velocity&nbsp;<var>v</var> remains a state in all switching configurations
+(there is a small, linear drift, but the friction element would have to stay stuck several days
+before the drift becomes too large). Consequently, <var>v</var> is small but may have any sign when
+switching from stuck to sliding mode; if the friction element starts to slide, say in the forward
+direction, one has to wait until the velocity is really positive, before switching to forward
+mode (note, that even for exact calculation without numerical errors a&nbsp;&quot;waiting&quot;
+phase is necessary, because <var>v</var>&nbsp;=&nbsp;0 when sliding starts).
+Since der(<var>v</var>)&nbsp;&gt;&nbsp;0, this will occur after a&nbsp;small time period.
+This &quot;waiting&quot; procedure can be described by a&nbsp;state machine.
+Collecting all the pieces together, finally results in the following equations
 of a simple friction element:
 </p>
 
 <blockquote><pre>
 // part of mixed system of equations
-startFor  = pre(mode) == Stuck and sa &gt; 1;
-startBack = pre(mode) == Stuck and sa  &lt; -1;
+startFor  = pre(mode) == Stuck and sa &gt;  1;
+startBack = pre(mode) == Stuck and sa &lt; -1;
         a = der(v);
         a = if pre(mode) == Forward  or startFor  then  sa - 1    elseif
                pre(mode) == Backward or startBack then  sa + 1    else 0;
@@ -650,24 +675,30 @@ The above approach to model a simplified friction element is slightly generalize
 <h4>Library officers</h4>
 
 <p>
-<strong>Jakub Tobolar</strong> and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
-Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
-Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
-Forschungszentrum Oberpfaffenhofen<br>
-D-82234 Wessling<br>
-Germany
+For current information on library officers please refer to the main
+<a href=\"modelica://Modelica.UsersGuide.Contact\">Contact</a> section.
 </p>
 
-<h4>Contributors to this library</h4>
+<h4>Main contributors</h4>
 
-<ul>
-<li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
-<li> Christian Schweiger (DLR-RM, until 2006).</li>
-<li> <a href=\"https://www.haumer.at/\">Anton Haumer</a><br>
-     Technical Consulting &amp; Electrical Engineering<br>
-     D-93049 Regensburg, Germany<br>
-     email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
-</ul>
+<dl>
+<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-SR)</dd>
+<dd>Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)</dd>
+<dd>Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)</dd>
+<dd>Forschungszentrum Oberpfaffenhofen</dd>
+<dd>D-82234 Wessling</dd>
+<dd>Germany</dd>
+<dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
+<dd>&nbsp;</dd>
+
+<dd>Christian Schweiger (DLR-RM, until 2006)</dd>
+<dd>&nbsp;</dd>
+
+<dd><a href=\"https://www.haumer.at/\">Anton Haumer</a></dd>
+<dd>Technical Consulting &amp; Electrical Engineering</dd>
+<dd>D-93049 Regensburg, Germany</dd>
+<dd>email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></dd>
+</dl>
 </html>"));
     end Contact;
 
