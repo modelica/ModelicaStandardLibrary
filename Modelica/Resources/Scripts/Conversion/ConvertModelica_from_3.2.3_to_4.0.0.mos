@@ -225,8 +225,6 @@ convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric",
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen",
-              "Modelica.Magnetic.FluxTubes.BaseClasses.PartialGenericHysteresisTellinen")
-convertClass("Modelica.Magnetic.FluxTubes.BaseClasses.PartialGenericHysteresisTellinen",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen")
 
 // Change renamed elements of classes
