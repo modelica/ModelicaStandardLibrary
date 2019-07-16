@@ -887,7 +887,7 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
           model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"
             import Modelica.Constants.pi;
             extends Modelica.Icons.ObsoleteModel;
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
+            extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended;
             parameter Integer m=3 "Number of phases";
             parameter Boolean useHeatPort=false
               "Enable / disable (=fixed temperatures) thermal port"
@@ -910,22 +910,22 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
             parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
             parameter Real effectiveTurns=1 "Effective number of turns";
             Modelica.SIunits.Current i[m]=strayInductor.i "Cage currents";
-            Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+            Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
               winding(
               final m=m,
               final effectiveTurns=fill(effectiveTurns, m),
               final orientation=
-                  Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+                  Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
               "Symmetric winding" annotation (Placement(transformation(
                   origin={0,-10},
                   extent={{-10,-10},{10,10}},
                   rotation=90)));
-            Modelica.Electrical.MultiPhase.Basic.Inductor strayInductor(final m=m,
+            Modelica.Electrical.Polyphase.Basic.Inductor strayInductor(final m=m,
                 final L=fill(Lsigma, m)) annotation (Placement(transformation(
                   origin={-20,-30},
                   extent={{10,-10},{-10,10}},
                   rotation=90)));
-            Modelica.Electrical.MultiPhase.Basic.Resistor resistor(
+            Modelica.Electrical.Polyphase.Basic.Resistor resistor(
               final useHeatPort=useHeatPort,
               final m=m,
               final R=fill(RRef, m),
@@ -935,7 +935,7 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
                   origin={-20,-70},
                   extent={{10,10},{-10,-10}},
                   rotation=90)));
-            Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
                 Placement(transformation(extent={{30,-30},{50,-10}})));
             Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                   transformation(
@@ -944,7 +944,7 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
                   rotation=270)));
             Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if useHeatPort "Heat ports of winding resistor" annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
             Modelica.Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=m) if useHeatPort "Connector of thermal rotor resistance heat ports" annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
-            Modelica.Electrical.MultiPhase.Basic.Star starAuxiliary(final m=m)
+            Modelica.Electrical.Polyphase.Basic.Star starAuxiliary(final m=m)
               annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
           equation
             connect(port_p, winding.port_p)
@@ -965,7 +965,7 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
                 points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
             connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
                 points={{-20,-80},{30,-80}}, color={0,0,255}));
-            annotation (defaultComponentName="cage", obsolete="Obsolete model, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536) and #3030 (https://github.com/modelica/ModelicaStandardLibrary/issues/3030), use Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding instead",
+            annotation (defaultComponentName="cage", obsolete="Obsolete model, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536) and #3030 (https://github.com/modelica/ModelicaStandardLibrary/issues/3030), use Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding instead",
               Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                       {100,100}}), graphics={Ellipse(
                           extent={{-80,80},{80,-80}},
@@ -999,14 +999,14 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
 Obsolete symmetric cage model, see 
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and 
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use 
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a> instead.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a> instead.
 </p>
 </html>"));
           end SymmetricMultiPhaseCageWinding;
 
           model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
             extends Modelica.Icons.ObsoleteModel;
-            extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
+            extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended;
             parameter Boolean useHeatPort=false
               "Enable / disable (=fixed temperatures) thermal port"
               annotation (Evaluate=true);
@@ -1034,7 +1034,7 @@ Obsolete symmetric cage model, see
             Modelica.Blocks.Interfaces.RealOutput lossPower(
               final quantity="Power",
               final unit="W") = sum(resistor.resistor.LossPower) "Damper losses";
-            Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+            Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
               winding(
               final m=2,
               final orientation={0,Modelica.Constants.pi/2},
@@ -1043,12 +1043,12 @@ Obsolete symmetric cage model, see
                   origin={0,-10},
                   extent={{-10,-10},{10,10}},
                   rotation=90)));
-            Modelica.Electrical.MultiPhase.Basic.Inductor strayInductor(final m=2,
+            Modelica.Electrical.Polyphase.Basic.Inductor strayInductor(final m=2,
                 final L={Lsigma.d,Lsigma.q}) annotation (Placement(transformation(
                   origin={-20,-30},
                   extent={{10,-10},{-10,10}},
                   rotation=90)));
-            Modelica.Electrical.MultiPhase.Basic.Resistor resistor(
+            Modelica.Electrical.Polyphase.Basic.Resistor resistor(
               final useHeatPort=useHeatPort,
               final m=2,
               final R={RRef.d,RRef.q},
@@ -1058,7 +1058,7 @@ Obsolete symmetric cage model, see
                   origin={-20,-70},
                   extent={{10,10},{-10,-10}},
                   rotation=90)));
-            Modelica.Electrical.MultiPhase.Basic.Star star(final m=2) annotation (
+            Modelica.Electrical.Polyphase.Basic.Star star(final m=2) annotation (
                 Placement(transformation(extent={{30,-90},{50,-70}})));
             Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                   transformation(
