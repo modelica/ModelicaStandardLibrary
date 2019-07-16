@@ -902,7 +902,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
+</html>"), experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPortsElementary;
 
           partial model PartialTwoPorts "Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n"
@@ -911,7 +911,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
+</html>"), experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPorts;
 
           partial model PartialFixedShape "Base class for flux tubes with fixed shape during simulation"
@@ -920,7 +920,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
+</html>"), experiment(Tolerance=1e-06, StopTime = 1));
           end PartialFixedShape;
 
           partial model PartialLeakage "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
@@ -929,7 +929,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
+</html>"), experiment(Tolerance=1e-06, StopTime = 1));
           end PartialLeakage;
           annotation (Documentation(info="<html>
 <p>
@@ -949,7 +949,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
+</html>"), experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPort;
 
           partial model PartialTwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
@@ -958,7 +958,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
+</html>"), experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPortExtended;
 
           partial model PartialTwoPortElementary "Two magnetic ports for textual modeling"
@@ -967,7 +967,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
+</html>"), experiment(Tolerance=1e-06, StopTime = 1));
           end PartialTwoPortElementary;
 
           partial model BaseInductionMachine "Partial model for induction machine"
@@ -976,7 +976,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
 </p>
-</html>"),           experiment(Tolerance=1e-06, StopTime = 1));
+</html>"), experiment(Tolerance=1e-06, StopTime = 1));
           end BaseInductionMachine;
           annotation (Documentation(info="<html>
 <p>
