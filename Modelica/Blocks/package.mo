@@ -1374,6 +1374,24 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
 </html>"));
   end SinCosEncoder;
 
+  model CompareSincExpSine "Compare sinc and exponental sine signal"
+    extends Modelica.Icons.Example;
+    Sources.Sinc sinc(f=5)
+      annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+    Sources.ExpSine expSine1(freqHz=5, damping=5)
+      annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
+    Sources.ExpSine expSine2(
+      freqHz=5,
+      phase=Modelica.Constants.pi/2,
+      damping=5)
+      annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
+    annotation (experiment(Interval=0.0001), Documentation(info="<html>
+<p>
+Compare the sinc signal and an exponentially damped sine.
+</p>
+</html>"));
+  end CompareSincExpSine;
+
   package NoiseExamples
     "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
