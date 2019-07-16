@@ -235,7 +235,7 @@ This user's guide gives a short introduction to the underlying
       Modelica.Magnetic.FluxTubes.Basic.Ground ground_m
         annotation (Placement(transformation(extent={{70,10},{90,30}})));
       Modelica.Electrical.Analog.Sources.SineVoltage source(
-        freqHz=50,
+        f=50,
         phase=pi/2,
         V=230*sqrt(2)) "Voltage applied to inductor" annotation (Placement(
             transformation(
@@ -429,7 +429,7 @@ This model compares a transient-linear magnetic circuit with a quasi-static magn
         annotation (Placement(transformation(extent={{80,10},
                 {100,30}})));
       Modelica.Electrical.Analog.Sources.SineVoltage source(
-        freqHz=50,
+        f=50,
         phase=pi/2,
         V=230*sqrt(2)) "Voltage applied to inductor" annotation (Placement(
             transformation(

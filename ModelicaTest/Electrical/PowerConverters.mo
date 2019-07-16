@@ -19,7 +19,7 @@ package PowerConverters
       V=fill(sqrt(2)*Vrms, m),
       phase=-
           Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-      freqHz=fill(f, m)) annotation (Placement(transformation(
+      f=fill(f, m)) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-80,-30})));
@@ -166,7 +166,7 @@ package PowerConverters
         V=fill(sqrt(2)*Vrms, m),
         phase=-
             Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-        freqHz=fill(f, m)) annotation (Placement(transformation(
+        f=fill(f, m)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-80,-30})));

@@ -722,7 +722,7 @@ This user's guide gives a short introduction to the underlying concept of <stron
       FluxTubes.Basic.Ground ground_m annotation (Placement(transformation(
               extent={{50,-30},{70,-10}})));
       Modelica.Electrical.Analog.Sources.SineVoltage source(
-        freqHz=50,
+        f=50,
         phase=pi/2,
         V=230*sqrt(2)) "Voltage applied to inductor" annotation (Placement(
             transformation(
@@ -2839,7 +2839,7 @@ Compared to the complex Preisach hysteresis model the Tellinen model is very sim
         Modelica.Electrical.Analog.Basic.Ground el_ground
           annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));
         Modelica.Electrical.Analog.Basic.Resistor resistor(R=0.1) annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-        Modelica.Electrical.Analog.Sources.SineVoltage vSource(freqHz=200, V=5) annotation (Placement(transformation(
+        Modelica.Electrical.Analog.Sources.SineVoltage vSource(f=200, V=5) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-50,10})));
@@ -2887,7 +2887,7 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
         Modelica.Electrical.Analog.Basic.Ground el_ground1
           annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
         Modelica.Electrical.Analog.Basic.Resistor resistor1(R=0.05) annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
-        Modelica.Electrical.Analog.Sources.SineVoltage vSource(freqHz=400, V=8) annotation (Placement(transformation(
+        Modelica.Electrical.Analog.Sources.SineVoltage vSource(f=400, V=8) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,0})));
@@ -2955,7 +2955,7 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
         Modelica.Electrical.Analog.Basic.Ground el_ground1
           annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
         Modelica.Electrical.Analog.Basic.Resistor resistor1(R=0.05) annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
-        Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage(freqHz=
+        Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage(f=
              400, V=6) annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=270,
@@ -3008,7 +3008,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         Modelica.Electrical.Analog.Basic.Ground ground2 annotation (Placement(transformation(extent={{-36,-90},{-16,-70}})));
         Modelica.Electrical.Analog.Sources.SineVoltage vSource1(
           offset=0,
-          freqHz=50,
+          f=50,
           V=50) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -3032,7 +3032,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
           t=0.0005) annotation (Placement(transformation(extent={{-40,-15},{-20,5}})));
         Modelica.Electrical.Analog.Sources.SineVoltage vSource2(
           offset=0,
-          freqHz=vSource1.freqHz,
+          f=vSource1.f,
           V=50,
           phase=4.1887902047864) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -3040,7 +3040,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
               origin={-120,-40})));
         Modelica.Electrical.Analog.Sources.SineVoltage vSource3(
           offset=0,
-          freqHz=vSource1.freqHz,
+          f=vSource1.f,
           V=50,
           phase=2.0943951023932) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},

@@ -6,7 +6,7 @@ model TestControlledPump "Test controlled pump"
   Modelica.Blocks.Sources.Sine massFlowRate(
     amplitude=0.5,
     offset=1,
-    freqHz=1/7) annotation (Placement(transformation(extent={{-70,60},{-50,80}})));
+    f=1/7) annotation (Placement(transformation(extent={{-70,60},{-50,80}})));
   Modelica.Fluid.Sources.Boundary_pT source(nPorts=1, redeclare package Medium
       = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
@@ -41,7 +41,7 @@ model TestControlledPump "Test controlled pump"
     offset=1)   annotation (Placement(transformation(extent={{30,60},{10,80}})));
   Modelica.Blocks.Sources.Sine pressure1(
     amplitude=5e5,
-    freqHz=1/7,
+    f=1/7,
     offset=10e5)
                 annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
   Modelica.Fluid.Sources.Boundary_pT source1(nPorts=1,redeclare package Medium

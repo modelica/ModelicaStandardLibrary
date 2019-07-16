@@ -514,12 +514,12 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     import Modelica.Constants.pi;
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
-    parameter SIunits.Frequency freqHz(start=1) "Frequency of sine wave";
+    parameter SIunits.Frequency f(start=1) "Frequency of sine wave";
     parameter SIunits.Angle phase=0 "Phase of sine wave";
     extends Interfaces.SignalSource;
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
-      *pi*freqHz*(time - startTime) + phase));
+      *pi*f*(time - startTime) + phase));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -543,7 +543,7 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
                 {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, smooth = Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
-            textString="freqHz=%freqHz")}),
+            textString="f=%f")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -617,12 +617,12 @@ The Real output y is a sine signal:
     import Modelica.Constants.pi;
     parameter Real amplitude=1 "Amplitude of cosine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
-    parameter SIunits.Frequency freqHz(start=1) "Frequency of cosine wave";
+    parameter SIunits.Frequency f(start=1) "Frequency of cosine wave";
     parameter SIunits.Angle phase=0 "Phase of cosine wave";
     extends Interfaces.SignalSource;
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
-      *pi*freqHz*(time - startTime) + phase));
+      *pi*f*(time - startTime) + phase));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -645,7 +645,7 @@ The Real output y is a sine signal:
                 {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0}}, smooth=Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
-            textString="freqHz=%freqHz"),
+            textString="f=%f"),
           Line(points={{42,1},{53.3,35.2},{60.5,54.1},{66.9,67.4},{72.6,75.6},{
                 78.2,80.1},{83.8,80.8}})}),
       Diagram(coordinateSystem(
@@ -712,14 +712,14 @@ The Real output y is a cosine signal:
     import Modelica.Constants.pi;
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/ExpSine.png"));
-    parameter SIunits.Frequency freqHz(start=2) "Frequency of sine wave";
+    parameter SIunits.Frequency f(start=2) "Frequency of sine wave";
     parameter SIunits.Angle phase=0 "Phase of sine wave";
     parameter SIunits.Damping damping(start=1)
       "Damping coefficient of sine wave";
     extends Interfaces.SignalSource;
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.exp(-
-      (time - startTime)*damping)*Modelica.Math.sin(2*pi*freqHz*(time -
+      (time - startTime)*damping)*Modelica.Math.sin(2*pi*f*(time -
       startTime) + phase));
     annotation (
       Icon(coordinateSystem(
@@ -746,7 +746,7 @@ The Real output y is a cosine signal:
                 {75.2,-20.5},{80,-13.8}}, smooth = Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
-            textString="freqHz=%freqHz")}),
+            textString="f=%f")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -795,7 +795,7 @@ The Real output y is a cosine signal:
           Line(points={{18,73},{-50,73}}, color={95,95,95}),
           Text(
             extent={{-42,83},{9,74}},
-            textString="1/freqHz"),
+            textString="1/f"),
           Polygon(
             points={{-50,73},{-41,75},{-41,71},{-50,73}},
             lineColor={95,95,95},
@@ -817,7 +817,7 @@ The Real output y is a cosine signal:
             textString="t"),
           Text(
             extent={{-83,-69},{100,-96}},
-            textString="amplitude*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"),
+            textString="amplitude*exp(-damping*t)*sin(2*pi*f*t+phase)"),
           Line(points={{-50,0},{-50,-40}}, color={95,95,95}),
           Line(points={{-50,-54},{-50,-72}}, color={95,95,95}),
           Line(points={{-15,-77},{-1,-48}}, color={95,95,95})}),

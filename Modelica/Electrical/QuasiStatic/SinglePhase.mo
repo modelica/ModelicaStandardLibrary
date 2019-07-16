@@ -261,7 +261,7 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
             origin={50,50})));
       Analog.Sources.SineVoltage voltageAC(
         V=sqrt(2)*VAC,
-        freqHz=50,
+        f=50,
         phase=pi/2) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=270,

@@ -19,7 +19,7 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=10,
     offset=-9,
-    freqHz=1) annotation (Placement(transformation(
+    f=1) annotation (Placement(transformation(
         origin={-40,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -35,14 +35,14 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage2(
     V=10,
     offset=0,
-    freqHz=1) annotation (Placement(transformation(
+    f=1) annotation (Placement(transformation(
         origin={-60,40},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage3(
     V=10,
     offset=0,
-    freqHz=1) annotation (Placement(transformation(
+    f=1) annotation (Placement(transformation(
         origin={-20,-40},
         extent={{-10,-10},{10,10}},
         rotation=270)));

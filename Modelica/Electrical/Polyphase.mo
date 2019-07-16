@@ -209,7 +209,7 @@ For the orientation of an arbitrary number of phases m &gt; 3, see the <a href=\
       parameter Real nT=1 "Transformer ratio";
       Sources.SineVoltage sineVoltage(
         V=fill(V, m),
-        freqHz=fill(f, m),
+        f=fill(f, m),
         m=m) annotation (Placement(transformation(
             origin={-80,20},
             extent={{-10,-10},{10,10}},
@@ -298,7 +298,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         "Transformer ratio";
       Sources.SineVoltage sineVoltage(
         V=fill(V, m),
-        freqHz=fill(f, m),
+        f=fill(f, m),
         m=m) annotation (Placement(transformation(
             origin={-80,20},
             extent={{-10,-10},{10,10}},
@@ -392,7 +392,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       final parameter Modelica.SIunits.Current IDC=VDC/RL "Estimated average DC current";
       Sources.SineVoltage sineVoltage(
         m=m,
-        freqHz=fill(f, m),
+        f=fill(f, m),
         V=sqrt(2)*fill(V, m))
                            annotation (Placement(transformation(extent={{10,10},{-10,
                 -10}},
@@ -539,7 +539,7 @@ as well as reactive power measured by powerSensorSpacePhasor and reactivePowerSe
       Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
         final m=m,
         V=fill(sqrt(2)*VRMS, m),
-        freqHz=fill(f, m)) annotation (Placement(transformation(
+        f=fill(f, m)) annotation (Placement(transformation(
             origin={-20,-30},
             extent={{10,-10},{-10,10}},
             rotation=90)));
@@ -3590,14 +3590,14 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
       parameter Modelica.SIunits.Angle phase[m]=-
           Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
         "Phases of sine waves";
-      parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
+      parameter Modelica.SIunits.Frequency f[m](start=fill(1, m))
         "Frequencies of sine waves";
       parameter Modelica.SIunits.Voltage offset[m]=zeros(m) "Voltage offsets";
       parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
       Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage[m](
         final V=V,
         final phase=phase,
-        final freqHz=freqHz,
+        final f=f,
         final offset=offset,
         final startTime=startTime) annotation (Placement(transformation(extent=
                 {{-10,-10},{10,10}})));
@@ -3645,14 +3645,14 @@ with a default phase shift determined by
       parameter Modelica.SIunits.Angle phase[m]=-
           Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
         "Phases of cosine waves";
-      parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
+      parameter Modelica.SIunits.Frequency f[m](start=fill(1, m))
         "Frequencies of cosine waves";
       parameter Modelica.SIunits.Voltage offset[m]=zeros(m) "Voltage offsets";
       parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
       Analog.Sources.CosineVoltage cosineVoltage[m](
         final V=V,
         final phase=phase,
-        final freqHz=freqHz,
+        final f=f,
         final offset=offset,
         final startTime=startTime) annotation (Placement(transformation(extent=
                 {{-10,-10},{10,10}})));
@@ -3789,14 +3789,14 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
       parameter Modelica.SIunits.Angle phase[m]=-
           Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
         "Phases of sine waves";
-      parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
+      parameter Modelica.SIunits.Frequency f[m](start=fill(1, m))
         "Frequencies of sine waves";
       parameter Modelica.SIunits.Current offset[m]=zeros(m) "Current offsets";
       parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
       Modelica.Electrical.Analog.Sources.SineCurrent sineCurrent[m](
         final I=I,
         final phase=phase,
-        final freqHz=freqHz,
+        final f=f,
         final offset=offset,
         final startTime=startTime) annotation (Placement(transformation(extent=
                 {{-10,-10},{10,10}})));
@@ -3846,14 +3846,14 @@ with a default phase shift determined by
       parameter Modelica.SIunits.Angle phase[m]=-
           Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
         "Phases of cosine waves";
-      parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
+      parameter Modelica.SIunits.Frequency f[m](start=fill(1, m))
         "Frequencies of cosine waves";
       parameter Modelica.SIunits.Current offset[m]=zeros(m) "Current offsets";
       parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
       Analog.Sources.CosineCurrent cosineCurrent[m](
         final I=I,
         final phase=phase,
-        final freqHz=freqHz,
+        final f=f,
         final offset=offset,
         final startTime=startTime) annotation (Placement(transformation(extent=
                 {{-10,-10},{10,10}})));

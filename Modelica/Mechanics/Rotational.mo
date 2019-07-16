@@ -701,7 +701,7 @@ sub-sections:
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Torque amplitude=10
         "Amplitude of driving torque";
-      parameter SI.Frequency freqHz=5 "Frequency of driving torque";
+      parameter SI.Frequency f=5 "Frequency of driving torque";
       parameter SI.Inertia Jmotor(min=0) = 0.1 "Motor inertia";
       parameter SI.Inertia Jload(min=0) = 2 "Load inertia";
       parameter Real ratio=10 "Gear ratio";
@@ -729,7 +729,7 @@ sub-sections:
             origin={46,-22},
             extent={{-8,-8},{8,8}},
             rotation=270)));
-      Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, freqHz=freqHz)
+      Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, f=f)
         annotation (Placement(transformation(extent={{-98,-8},{-82,8}})));
     equation
       connect(inertia1.flange_b, idealGear.flange_a)
@@ -774,7 +774,7 @@ in the housing on one side via component Fixed.</p>
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Torque amplitude=10
         "Amplitude of driving torque";
-      parameter SI.Frequency freqHz=5 "Frequency of driving torque";
+      parameter SI.Frequency f=5 "Frequency of driving torque";
       parameter SI.Inertia Jmotor(min=0) = 0.1 "Motor inertia";
       parameter SI.Inertia Jload(min=0) = 2 "Load inertia";
       parameter Real ratio=10 "Gear ratio";
@@ -802,7 +802,7 @@ in the housing on one side via component Fixed.</p>
             origin={46,-22},
             extent={{-8,-8},{8,8}},
             rotation=270)));
-      Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, freqHz=freqHz)
+      Modelica.Blocks.Sources.Sine sine(amplitude=amplitude, f=f)
         annotation (Placement(transformation(extent={{-98,-8},{-82,8}})));
     equation
       connect(inertia1.flange_b, idealGear.flange_a)
@@ -888,7 +888,7 @@ in the housing on one side via component Fixed.</p>
         offset=1,
         startTime=startTime) annotation (Placement(transformation(extent={{-160,
                 -30},{-140,-10}})));
-      Modelica.Blocks.Sources.Sine sine(amplitude=200, freqHz=50/pi)
+      Modelica.Blocks.Sources.Sine sine(amplitude=200, f=50/pi)
         annotation (Placement(transformation(extent={{-160,10},{-140,30}})));
       Modelica.Blocks.Math.Product product annotation (Placement(transformation(
               extent={{-120,-10},{-100,10}})));
@@ -944,7 +944,7 @@ values (defined already in the model):</p>
 
     model CoupledClutches "Drive train with 3 dynamically coupled clutches"
       extends Modelica.Icons.Example;
-      parameter SI.Frequency freqHz=0.2
+      parameter SI.Frequency f=0.2
         "Frequency of sine function to invoke clutch1";
       parameter SI.Time T2=0.4 "Time when clutch2 is invoked";
       parameter SI.Time T3=0.9 "Time when clutch3 is invoked";
@@ -958,7 +958,7 @@ values (defined already in the model):</p>
             transformation(extent={{-100,-10},{-80,10}})));
       Rotational.Components.Clutch clutch1(peak=1.1, fn_max=20) annotation (
           Placement(transformation(extent={{-40,-10},{-20,10}})));
-      Modelica.Blocks.Sources.Sine sin1(amplitude=10, freqHz=5) annotation (
+      Modelica.Blocks.Sources.Sine sin1(amplitude=10, f=5) annotation (
           Placement(transformation(extent={{-130,-10},{-110,10}})));
       Modelica.Blocks.Sources.Step step1(startTime=T2) annotation (Placement(
             transformation(
@@ -986,7 +986,7 @@ values (defined already in the model):</p>
                 110,-10},{130,10}})));
       Modelica.Blocks.Sources.Sine sin2(
         amplitude=1,
-        freqHz=freqHz,
+        f=f,
         phase=1.570796326794897) annotation (Placement(transformation(
             origin={-35,35},
             extent={{-5,-5},{15,15}},
@@ -1075,7 +1075,7 @@ locked, forward sliding.</p>
             transformation(extent={{-70,0},{-50,20}})));
       Rotational.Sources.Torque torque2(useSupport=true) annotation (Placement(
             transformation(extent={{70,0},{50,20}})));
-      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1)
+      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, f=1)
         annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
       Modelica.Blocks.Sources.Ramp load(
         height=5,
@@ -1149,7 +1149,7 @@ gear.mode  :  1 = forward rolling
             transformation(extent={{-110,0},{-90,20}})));
       Rotational.Sources.Torque torque2(useSupport=true) annotation (Placement(
             transformation(extent={{60,0},{40,20}})));
-      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1)
+      Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, f=1)
         annotation (Placement(transformation(extent={{-140,0},{-120,20}})));
       Modelica.Blocks.Sources.Ramp load(
         height=5,
@@ -1461,7 +1461,7 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
 
     model HeatLosses "Demonstrate the modeling of heat losses"
       extends Modelica.Icons.Example;
-      Blocks.Sources.Sine sine(freqHz=5, amplitude=20)
+      Blocks.Sources.Sine sine(f=5, amplitude=20)
         annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
       Sources.Torque torque
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
@@ -1527,7 +1527,7 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
         annotation (Placement(transformation(extent={{0,40},{20,60}})));
       Components.Inertia inertia5(J=2)
         annotation (Placement(transformation(extent={{30,40},{50,60}})));
-      Blocks.Sources.Sine sine2(freqHz=0.2, amplitude=1)
+      Blocks.Sources.Sine sine2(f=0.2, amplitude=1)
         annotation (Placement(transformation(extent={{-20,80},{0,100}})));
       Components.Inertia inertia6(J=2)
         annotation (Placement(transformation(extent={{90,40},{110,60}})));
@@ -1741,7 +1741,7 @@ An eddy current brake reduces the speed of a rotating inertia. Kinetic energy is
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
       extends Modelica.Icons.Example;
 
-      Modelica.Blocks.Sources.Sine sine1(freqHz=2, amplitude=10)
+      Modelica.Blocks.Sources.Sine sine1(f=2, amplitude=10)
         annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
       Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia
         directInertia(J=1.1)
@@ -1900,7 +1900,7 @@ force law in a target system between two inertias.
         annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       Modelica.Blocks.Sources.Sine signalTorque(
         amplitude=10,
-        freqHz=3) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+        f=3) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Modelica.Blocks.Sources.Pulse signalEngagement(
         amplitude=1,
         width=50,
@@ -1952,7 +1952,7 @@ and its lossy power <code>oneWayClutch.lossPower</code>.
       Modelica.Blocks.Sources.Sine signalTorque(
         amplitude=10,
         offset=-torqueLoad.tau_constant,
-        freqHz=2) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+        f=2) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Modelica.Blocks.Sources.Constant signalEngagement(k=0)
         annotation (Placement(transformation(extent={{-20,30},{0,50}})));
     equation

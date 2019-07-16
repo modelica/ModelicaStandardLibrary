@@ -36,7 +36,7 @@ model MultiSensorTest
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltageA(
     V=sqrt(2)*Vrms,
     phase=0,
-    freqHz=f) annotation (Placement(transformation(
+    f=f) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-10,70})));
@@ -51,7 +51,7 @@ model MultiSensorTest
     m=m,
     V=fill(sqrt(2)*Vrms, m),
     phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-    freqHz=fill(f, m))
+    f=fill(f, m))
               annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

@@ -444,7 +444,7 @@ A position controlled drive with limited velocity and limited acceleration (i.e.
       initType=Modelica.Blocks.Types.Init.SteadyState)
       annotation (Placement(transformation(extent={{20,20},{0,40}})));
     Sources.Sine sine(
-      freqHz=2,
+      f=2,
       offset=1,
       startTime=0.2)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -457,7 +457,7 @@ A position controlled drive with limited velocity and limited acceleration (i.e.
       annotation (Placement(transformation(extent={{20,-20},{0,0}})));
     Math.Feedback feedback
       annotation (Placement(transformation(extent={{-40,0},{-60,-20}})));
-    Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.freqHz)
+    Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.f)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
   equation
     connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
@@ -621,7 +621,7 @@ model RealNetwork1 "Demonstrates the usage of blocks from Modelica.Blocks.Math"
 
   Modelica.Blocks.Math.MultiSum add(nu=2)
     annotation (Placement(transformation(extent={{-14,64},{-2,76}})));
-  Sources.Sine sine(amplitude=3, freqHz=0.1)
+  Sources.Sine sine(amplitude=3, f=0.1)
     annotation (Placement(transformation(extent={{-96,60},{-76,80}})));
   Sources.Step integerStep(height=3, startTime=2)
     annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
@@ -708,7 +708,7 @@ end RealNetwork1;
 
     MathInteger.Sum sum(nu=3)
       annotation (Placement(transformation(extent={{-14,64},{-2,76}})));
-    Sources.Sine sine(amplitude=3, freqHz=0.1)
+    Sources.Sine sine(amplitude=3, f=0.1)
       annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
     Math.RealToInteger realToInteger
       annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
@@ -978,7 +978,7 @@ to show how diagram animations can be constructed.
               -20}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) annotation (
         Placement(transformation(extent={{-58,0},{-38,20}})));
-    Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
+    Modelica.Blocks.Sources.Sine sine(f=1) annotation (Placement(
           transformation(extent={{-60,40},{-40,60}})));
 
     Modelica.Blocks.Examples.BusUsage_Utilities.Part part annotation (Placement(
@@ -1177,12 +1177,12 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
     final parameter Real THD1 = V3/V1 "Theoretically obtained THD with respect to fundamental wave";
     final parameter Real THDrms = V3/sqrt(V1^2+V3^2) "Theoretically obtained THD with respect to RMS";
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
-    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage3(V=sqrt(2)*V3, freqHz=3*f1,
+    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage3(V=sqrt(2)*V3, f=3*f1,
       startTime=0.02)                                           annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-40,10})));
-    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(V=sqrt(2)*V1, freqHz=f1,
+    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(V=sqrt(2)*V1, f=f1,
       startTime=0.02)                                           annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,

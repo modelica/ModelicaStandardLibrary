@@ -703,14 +703,14 @@ The magnetic potential difference of the connector therefore also refers to an e
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_e(
           m=m,
           V=fill(1, m),
-          freqHz=fill(1, m)) annotation (Placement(transformation(
+          f=fill(1, m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,60})));
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage_m(
           m=m,
           V=fill(1, m),
-          freqHz=fill(1, m)) annotation (Placement(transformation(
+          f=fill(1, m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-30})));
@@ -837,14 +837,14 @@ In this example the eddy current losses are implemented in two different ways. C
         Modelica.Electrical.Analog.Basic.Ground ground_m
           annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
         Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_e(
-          freqHz=f,
+          f=f,
           V=sqrt(2)*VRMS,
           phase=Modelica.Constants.pi/2) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,70})));
         Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_m(
-          freqHz=f,
+          f=f,
           V=sqrt(2)*VRMS,
           phase=Modelica.Constants.pi/2) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -924,7 +924,7 @@ In this example the eddy current losses are implemented in two different ways. C
               origin={-60,-60})));
         Modelica.Electrical.Polyphase.Sources.SineVoltage voltageSource_e(
           m=m,
-          freqHz=fill(f, m),
+          f=fill(f, m),
           V=fill(sqrt(2)*VRMS, m),
           phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
               m) + fill(Modelica.Constants.pi/2, m)) annotation (Placement(
@@ -934,7 +934,7 @@ In this example the eddy current losses are implemented in two different ways. C
               origin={-60,70})));
         Modelica.Electrical.Polyphase.Sources.SineVoltage voltageSource_m(
           m=m,
-          freqHz=fill(f, m),
+          f=fill(f, m),
           V=fill(sqrt(2)*VRMS, m),
           phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
               m) + fill(Modelica.Constants.pi/2, m)) annotation (Placement(
@@ -1032,7 +1032,7 @@ In this example the eddy current losses are implemented in two different ways. C
                 Placement(transformation(extent={{-70,62},{-90,82}})));
             Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltageM(
               final m=m,
-              freqHz=fill(fNominal, m),
+              f=fill(fNominal, m),
               V=fill(sqrt(2.0)*VsNominal, m),
               phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m)) annotation (Placement(transformation(
@@ -1106,7 +1106,7 @@ In this example the eddy current losses are implemented in two different ways. C
               V=fill(sqrt(2.0)*VsNominal, m3),
               phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m3),
-              freqHz=fill(fNominal, m3)) annotation (Placement(transformation(
+              f=fill(fNominal, m3)) annotation (Placement(transformation(
                   origin={-50,-30},
                   extent={{10,-10},{-10,10}})));
             Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser3(
@@ -1396,7 +1396,7 @@ Simulate for 1.5 seconds and plot (versus time):
                   transformation(extent={{-70,62},{-90,82}})));
             Electrical.Polyphase.Sources.SineVoltage sineVoltageM(
               final m=m,
-              freqHz=fill(fNominal, m),
+              f=fill(fNominal, m),
               V=fill(sqrt(2.0)*VsNominal, m),
               phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m)) annotation (Placement(transformation(
@@ -1427,7 +1427,7 @@ Simulate for 1.5 seconds and plot (versus time):
               V=fill(sqrt(2.0)*VsNominal, m3),
               phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m3),
-              freqHz=fill(fNominal, m3)) annotation (Placement(transformation(
+              f=fill(fNominal, m3)) annotation (Placement(transformation(
                   origin={-50,-30},
                   extent={{10,-10},{-10,10}})));
             Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser3(
@@ -1583,7 +1583,7 @@ Simulate for 1.5 seconds and plot (versus time):
               Placement(transformation(extent={{-50,80},{-70,100}})));
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2.0/3.0)*VsNominal, m)) annotation (Placement(
                 transformation(
                 origin={-30,90},
@@ -1803,7 +1803,7 @@ Simulate for 1.5 seconds and plot (versus time):
                 origin={30,70})));
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-30,90},
                 extent={{10,10},{-10,-10}})));
@@ -1928,7 +1928,7 @@ accelerating inertias against load torque quadratic dependent on speed, finally 
                 extent={{-10,10},{10,-10}})));
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-70,80},
                 extent={{10,10},{-10,-10}})));
@@ -2338,7 +2338,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             effectiveStatorTurns=aimcData.effectiveStatorTurns,
             alpha20r=aimcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-          Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(freqHz=
+          Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(f=
                 fNominal, V=sqrt(2)*VNominal) annotation (Placement(
                 transformation(extent={{-50,90},{-70,70}})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -2550,7 +2550,7 @@ finally reaching nominal speed.</p>
                 extent={{-10,10},{10,-10}})));
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-90,70},
                 extent={{-10,-10},{10,10}},
@@ -2748,7 +2748,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
                 extent={{-10,10},{10,-10}})));
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
-            freqHz=fill(fNominal, m),
+            f=fill(fNominal, m),
             V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
                 origin={-70,70},
                 extent={{-10,-10},{10,10}},
@@ -2843,7 +2843,7 @@ at time tStart a load torque step is applied.</p>
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             V=fill(sqrt(2.0/3.0)*VsNominal, m),
-            freqHz=fill(fNominal, m)) annotation (Placement(transformation(
+            f=fill(fNominal, m)) annotation (Placement(transformation(
                 origin={-30,90},
                 extent={{10,-10},{-10,10}})));
           Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch idealCloser(
@@ -3389,7 +3389,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
               final V=fill(VsNominal*sqrt(2), m3),
               phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m3),
-              final freqHz=fill(fsNominal, m3)) annotation (Placement(
+              final f=fill(fsNominal, m3)) annotation (Placement(
                   transformation(extent={{-20,-30},{-40,-10}})));
             Modelica.Electrical.Polyphase.Sensors.PowerSensor
               electricalPowerSensorM(m=m) annotation (Placement(transformation(
@@ -3573,7 +3573,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                   rotation=270)));
             Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltageM(
               final V=fill(VsNominal*sqrt(2), m),
-              final freqHz=fill(fsNominal, m),
+              final f=fill(fsNominal, m),
               final m=m,
               phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                   m)) annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
@@ -4802,7 +4802,7 @@ to speed to achieve constant current and torque.</p>
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             final V=fill(VNominal*sqrt(2), m),
-            final freqHz=fill(fNominal, m)) annotation (Placement(transformation(
+            final f=fill(fNominal, m)) annotation (Placement(transformation(
                   extent={{-10,40},{-30,60}})));
           Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
               Placement(transformation(extent={{-40,40},{-60,60}})));
@@ -4978,7 +4978,7 @@ This noise is caused by the interaction of the high resistance of the switch and
           Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
             final m=m,
             final V=fill(VsNominal*sqrt(2), m),
-            final freqHz=fill(fsNominal, m)) annotation (Placement(transformation(
+            final f=fill(fsNominal, m)) annotation (Placement(transformation(
                   extent={{-20,80},{-40,100}})));
           Electrical.Machines.Sensors.ElectricalPowerSensor
             electricalPowerSensorM annotation (Placement(transformation(

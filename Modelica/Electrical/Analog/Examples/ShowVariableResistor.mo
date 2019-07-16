@@ -19,7 +19,7 @@ model ShowVariableResistor "Simple demo of a VariableResistor model"
   Modelica.Electrical.Analog.Basic.Resistor R5(R=1)
   annotation (Placement(transformation(extent={{20,-20},{40,0}})));
 
-  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=1, freqHz=1)
+  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=1, f=1)
   annotation (Placement(transformation(
         origin={-90,-30},
         extent={{-10,-10},{10,10}},

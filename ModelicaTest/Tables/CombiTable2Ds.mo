@@ -751,7 +751,7 @@ double mydummyfunc(double dummy_in) {
     Modelica.Blocks.Continuous.Der der_2R annotation(Placement(transformation(extent={{-30,20},{-10,40}})));
     Modelica.Blocks.Sources.Sine sine_R(
       amplitude=3,
-      freqHz=0.5,
+      f=0.5,
       phase=Modelica.Constants.pi/2,
       offset=33) annotation(Placement(transformation(extent={{-130,60},{-110,80}})));
     Modelica.Blocks.Sources.Constant const_R(k=81) annotation(Placement(transformation(extent={{-130,25},{-110,45}})));
@@ -767,7 +767,7 @@ double mydummyfunc(double dummy_in) {
     Modelica.Blocks.Continuous.Der der_2L annotation(Placement(transformation(extent={{-30,-50},{-10,-30}})));
     Modelica.Blocks.Sources.Sine sine_L(
       amplitude=-3,
-      freqHz=0.5,
+      f=0.5,
       phase=Modelica.Constants.pi/2,
       offset=18) annotation(Placement(transformation(extent={{-130,-10},{-110,10}})));
     Modelica.Blocks.Sources.Constant const_L(k=82) annotation(Placement(transformation(extent={{-130,-45},{-110,-25}})));
@@ -861,12 +861,12 @@ double mydummyfunc(double dummy_in) {
     Modelica.Blocks.Continuous.Der der_2R annotation(Placement(transformation(extent={{-30,20},{-10,40}})));
     Modelica.Blocks.Sources.Sine cosine_R(
       amplitude=3,
-      freqHz=10,
+      f=10,
       phase=Modelica.Constants.pi/2,
       offset=33) annotation(Placement(transformation(extent={{-130,60},{-110,80}})));
     Modelica.Blocks.Sources.Sine sine_R(
       amplitude=10,
-      freqHz=1/3,
+      f=1/3,
       offset=81,
       startTime=1) annotation(Placement(transformation(extent={{-130,25},{-110,45}})));
     Modelica.Blocks.Tables.CombiTable2Ds combiTable2D_1L(
@@ -879,12 +879,12 @@ double mydummyfunc(double dummy_in) {
     Modelica.Blocks.Continuous.Der der_2L annotation(Placement(transformation(extent={{-30,-50},{-10,-30}})));
     Modelica.Blocks.Sources.Sine cosine_L(
       amplitude=-3,
-      freqHz=10,
+      f=10,
       phase=Modelica.Constants.pi/2,
       offset=18) annotation(Placement(transformation(extent={{-130,-10},{-110,10}})));
     Modelica.Blocks.Sources.Sine sine_L(
       amplitude=-10,
-      freqHz=1/3,
+      f=1/3,
       offset=82,
       startTime=1) annotation(Placement(transformation(extent={{-130,-45},{-110,-25}})));
     equation

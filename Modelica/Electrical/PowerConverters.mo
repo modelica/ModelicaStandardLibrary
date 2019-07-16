@@ -354,7 +354,7 @@ A freely available book is available in
                 origin={-80,-50},
                 extent={{-10,-10},{10,10}})));
           Modelica.Electrical.Analog.Sources.SineVoltage sinevoltage(V=sqrt(2)*
-                Vrms, freqHz=f) annotation (Placement(transformation(
+                Vrms, f=f) annotation (Placement(transformation(
                 origin={-80,20},
                 extent={{-10,-10},{10,10}},
                 rotation=-90)));
@@ -438,7 +438,7 @@ A freely available book is available in
                 origin={-80,-50},
                 extent={{-10,-10},{10,10}})));
           Modelica.Electrical.Analog.Sources.SineVoltage sinevoltage(V=sqrt(2)*
-                Vrms, freqHz=f) annotation (Placement(transformation(
+                Vrms, f=f) annotation (Placement(transformation(
                 origin={-80,20},
                 extent={{-10,-10},{10,10}},
                 rotation=-90)));
@@ -728,7 +728,7 @@ A freely available book is available in
                 origin={-80,-50},
                 extent={{-10,-10},{10,10}})));
           Modelica.Electrical.Analog.Sources.SineVoltage sinevoltage(V=sqrt(2)*
-                Vrms, freqHz=f) annotation (Placement(transformation(
+                Vrms, f=f) annotation (Placement(transformation(
                 origin={-80,0},
                 extent={{-10,-10},{10,10}},
                 rotation=-90)));
@@ -898,12 +898,12 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 origin={-90,-50},
                 extent={{-10,-10},{10,10}})));
           Modelica.Electrical.Analog.Sources.SineVoltage sinevoltage_n(V=sqrt(2)
-                *Vrms,freqHz=f) annotation (Placement(transformation(
+                *Vrms,f=f) annotation (Placement(transformation(
                 origin={-80,-13.9999},
                 extent={{-9.999890000000001,-10},{10,10}},
                 rotation=-90)));
           Modelica.Electrical.Analog.Sources.SineVoltage sinevoltage_p(V=sqrt(2)
-                *Vrms,freqHz=f) annotation (Placement(transformation(
+                *Vrms,f=f) annotation (Placement(transformation(
                 origin={-80,14},
                 extent={{-10,-10},{10,10}},
                 rotation=-90)));
@@ -1174,7 +1174,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-            freqHz=fill(f, m)) annotation (Placement(transformation(
+            f=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
@@ -1435,7 +1435,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-            freqHz=fill(f, m)) annotation (Placement(transformation(
+            f=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,-30})));
@@ -1530,7 +1530,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-            freqHz=fill(f, m)) annotation (Placement(transformation(
+            f=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,-30})));
@@ -1828,7 +1828,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           Modelica.Electrical.Polyphase.Sources.SineVoltage sinevoltage(
             m=m,
             each final V=fill(sqrt(2)*Vrms, m),
-            each freqHz=fill(f, m)) annotation (Placement(transformation(
+            each f=fill(f, m)) annotation (Placement(transformation(
                 origin={-80,0},
                 extent={{-10,-10},{10,10}},
                 rotation=-90)));
@@ -2012,7 +2012,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-            freqHz=fill(f, m)) annotation (Placement(transformation(
+            f=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
@@ -2046,7 +2046,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-            freqHz=fill(f, m)) annotation (Placement(transformation(
+            f=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,-20})));
@@ -2285,7 +2285,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
           Modelica.Electrical.Analog.Sources.SineVoltage sinevoltage(V=sqrt(2)*
-                Vrms, freqHz=f) annotation (Placement(transformation(
+                Vrms, f=f) annotation (Placement(transformation(
                 origin={-80,0},
                 extent={{-10,-10},{10,10}},
                 rotation=-90)));
@@ -2361,7 +2361,7 @@ single pulse rectifiers</a>; load is not yet included.</p>
                 origin={-80,-50},
                 extent={{-10,-10},{10,10}})));
           Modelica.Electrical.Analog.Sources.SineVoltage sinevoltage(V=sqrt(2)*
-                Vrms, freqHz=f) annotation (Placement(transformation(
+                Vrms, f=f) annotation (Placement(transformation(
                 origin={-80,20},
                 extent={{-10,-10},{10,10}},
                 rotation=-90)));
@@ -2442,12 +2442,12 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
                 origin={-90,-50},
                 extent={{-10,-10},{10,10}})));
           Modelica.Electrical.Analog.Sources.SineVoltage sinevoltage_n(V=sqrt(2)
-                *Vrms,freqHz=f) annotation (Placement(transformation(
+                *Vrms,f=f) annotation (Placement(transformation(
                 origin={-80,-13.9999},
                 extent={{-9.999890000000001,-10},{10,10}},
                 rotation=-90)));
           Modelica.Electrical.Analog.Sources.SineVoltage sinevoltage_p(V=sqrt(2)
-                *Vrms,freqHz=f) annotation (Placement(transformation(
+                *Vrms,f=f) annotation (Placement(transformation(
                 origin={-80,14},
                 extent={{-10,-10},{10,10}},
                 rotation=-90)));
@@ -2538,7 +2538,7 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-            freqHz=fill(f, m)) annotation (Placement(transformation(
+            f=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
@@ -2620,7 +2620,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-            freqHz=fill(f, m)) annotation (Placement(transformation(
+            f=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,-30})));
@@ -2718,7 +2718,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-            freqHz=fill(f, m)) annotation (Placement(transformation(
+            f=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
@@ -2760,7 +2760,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-            freqHz=fill(f, m)) annotation (Placement(transformation(
+            f=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,-20})));
@@ -2817,7 +2817,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
           extends ExampleTemplates.SinglePhaseTwoLevel(sine(
               amplitude=0.5,
               offset=0.5,
-              freqHz=f1));
+              f=f1));
           extends Modelica.Icons.Example;
           parameter Modelica.SIunits.Resistance R=100 "Resistance";
           parameter Modelica.SIunits.Frequency f1=50 "AC frequency";
@@ -2847,7 +2847,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
           extends ExampleTemplates.SinglePhaseTwoLevel(sine(
               amplitude=0.5,
               offset=0.5,
-              freqHz=f1));
+              f=f1));
           extends Modelica.Icons.Example;
           parameter Modelica.SIunits.Resistance R=100 "Resistance";
           parameter Modelica.SIunits.Inductance L=1 "Inductance";
@@ -2929,7 +2929,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
             startTime=zeros(m),
             amplitude=fill(0.5, m),
             offset=fill(0.5, m),
-            freqHz=fill(f1, m)) annotation (Placement(transformation(extent={{-30,
+            f=fill(f1, m)) annotation (Placement(transformation(extent={{-30,
                     -64},{-50,-44}})));
           Modelica.Blocks.Math.Harmonic fundamentalWaveCurrent[m](
             each k=1,
@@ -3044,7 +3044,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
             startTime=zeros(m),
             amplitude=fill(0.5, m),
             offset=fill(0.5, m),
-            freqHz=fill(f1, m)) annotation (Placement(transformation(extent={{-30,
+            f=fill(f1, m)) annotation (Placement(transformation(extent={{-30,
                     -64},{-50,-44}})));
           Modelica.Blocks.Math.Harmonic fundamentalWaveCurrent[m](
             each k=1,
@@ -3127,13 +3127,13 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
           import Modelica.Electrical.Polyphase.Functions.factorY2DC;
           import Modelica.Constants.pi;
           parameter Real RMS=1 "Reference RMS Y";
-          Modelica.Blocks.Sources.Cosine cosine(freqHz=2,
+          Modelica.Blocks.Sources.Cosine cosine(f=2,
             phase=0,
             amplitude=RMS*sqrt(2))
             annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
           Modelica.Blocks.Sources.Sine sine(
             amplitude=cosine.amplitude,
-            freqHz=cosine.freqHz,
+            f=cosine.f,
             phase=cosine.phase)
             annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
           Modelica.Electrical.PowerConverters.DCAC.Control.PWM pwm(uMax=sqrt(2*3), f=100)
@@ -3157,13 +3157,13 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 origin={-50,50})));
           Modelica.Electrical.Polyphase.Sensors.PotentialSensor potentialSensor
             annotation (Placement(transformation(extent={{20,40},{40,60}})));
-          Modelica.Blocks.Math.Harmonic harmonic(f=cosine.freqHz, k=1)
+          Modelica.Blocks.Math.Harmonic harmonic(f=cosine.f, k=1)
             annotation (Placement(transformation(extent={{60,40},{80,60}})));
           Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor
             annotation (Placement(transformation(extent={{-30,-50},{-10,-30}})));
           Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator
             annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
-          Modelica.Blocks.Sources.Constant const(k=cosine.freqHz)
+          Modelica.Blocks.Sources.Constant const(k=cosine.f)
             annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
           Modelica.Blocks.Continuous.Integrator integrator(k=2*pi)
             annotation (Placement(transformation(extent={{-30,-80},{-10,-60}})));
@@ -3172,7 +3172,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
             each analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
             y_start={cosine.amplitude,cosine.phase},
             each order=2,
-            each f_cut=0.5*cosine.freqHz)
+            each f_cut=0.5*cosine.f)
             annotation (Placement(transformation(extent={{30,-50},{50,-30}})));
           Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar toPolar
             annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
@@ -3280,7 +3280,7 @@ Please note that the filter has a settle time depending on the filter parameters
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,50})));
-          Modelica.Blocks.Sources.Sine sine(freqHz=50) annotation (Placement(
+          Modelica.Blocks.Sources.Sine sine(f=50) annotation (Placement(
                 transformation(extent={{-30,-64},{-50,-44}})));
           Modelica.Blocks.Math.Harmonic fundamentalWaveVoltage(f=f, k=1)
             annotation (Placement(transformation(
@@ -3978,7 +3978,7 @@ applying the firing signals to the
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fNominal, m),
+          f=fill(fNominal, m),
           V=sqrt(2)*fill(VNominal, m)/y2d)
           annotation (Placement(transformation(
               origin={-80,0},
@@ -4203,7 +4203,7 @@ Compare starting with firing angle by
           parameter Modelica.SIunits.Impedance ZLoad=Vrms^2/S "Load impedance";
           parameter Modelica.SIunits.Resistance RLoad=ZLoad*powerFactor "Load resistance";
           parameter Modelica.SIunits.Inductance LLoad=ZLoad*sqrt(1 - powerFactor^2)/(2*pi*f) "Load inductance";
-          Analog.Sources.SineVoltage sineVoltage(final V = sqrt(2) * Vrms, freqHz = f)
+          Analog.Sources.SineVoltage sineVoltage(final V = sqrt(2) * Vrms, f = f)
             annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
                 rotation=270,

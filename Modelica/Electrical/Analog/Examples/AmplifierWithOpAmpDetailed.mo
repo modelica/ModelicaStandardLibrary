@@ -14,7 +14,7 @@ model AmplifierWithOpAmpDetailed
         extent={{-9,-9},{9,9}},
         rotation=270,
         origin={21,-23})));
-  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=12, freqHz=1000)
+  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=12, f=1000)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

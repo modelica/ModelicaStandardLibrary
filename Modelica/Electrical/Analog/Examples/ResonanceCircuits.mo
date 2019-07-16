@@ -9,7 +9,7 @@ model ResonanceCircuits
   parameter Real res=1 "Built from f/fResonanace";
   parameter Modelica.SIunits.Frequency f=res*fRes "Source frequency";
 
-  Modelica.Electrical.Analog.Sources.SineCurrent current1(I=1, freqHz=f)
+  Modelica.Electrical.Analog.Sources.SineCurrent current1(I=1, f=f)
     annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -33,7 +33,7 @@ model ResonanceCircuits
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={90,50})));
-  Modelica.Electrical.Analog.Sources.SineVoltage voltage2(V=1, freqHz=f)
+  Modelica.Electrical.Analog.Sources.SineVoltage voltage2(V=1, f=f)
     annotation (
       Placement(transformation(
         extent={{10,-10},{-10,10}},

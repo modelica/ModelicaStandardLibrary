@@ -10,22 +10,27 @@ package ModelicaTestConversion4
       equation
         y = p*time;
       end B;
+
       block B1
         extends Modelica.Blocks.Interfaces.BlockIcon;
         extends B(p=1);
       end B1;
+
       block B2
         extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
         extends B(p=2);
       end B2;
+
       block B3
         extends Modelica.Blocks.Interfaces.DiscreteBlockIcon;
         extends B(p=3);
       end B3;
+
       block B4
         extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
         extends B(p=4);
       end B4;
+
       block B5
         extends Modelica.Blocks.Interfaces.partialBooleanBlockIcon;
         extends B(p=5);
@@ -140,6 +145,37 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2945;
+
+    model Issue3035 "Conversion test for #3035"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Sources.Clock clock(
+        offset=-0.5,
+        startTime=0.5);
+      Modelica.Blocks.Sources.Sine sine(
+        amplitude=1,
+        freqHz=1,
+        phase=0,
+        offset=0,
+        startTime=0.1) annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
+      Modelica.Blocks.Sources.Cosine cosine(
+        amplitude=1,
+        freqHz=1,
+        phase=0,
+        offset=0,
+        startTime=0.1) annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      Modelica.Blocks.Sources.ExpSine expSine(
+        amplitude=1,
+        freqHz=1,
+        phase=0,
+        damping=1,
+        offset=0,
+        startTime=0.1) annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
+    annotation(experiment(StopTime=1, Tolerance=1e-06), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3035\">#3035</a>.
+</p>
+</html>"));
+    end Issue3035;
   end Blocks;
 
   package ComplexBlocks
@@ -324,6 +360,67 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue3024;
+
+      model Issue3035 "Conversion test for #3035"
+        extends Modelica.Icons.Example;
+        Modelica.Blocks.Sources.Clock clock(
+          offset=-0.5,
+          startTime=0.5);
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
+          V=1,
+          phase=0,
+          freqHz=1,
+          offset=0,
+          startTime=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,30})));
+        Modelica.Electrical.Analog.Sources.CosineVoltage cosineVoltage(
+          V=1,
+          phase=0,
+          freqHz=1,
+          offset=0,
+          startTime=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,0})));
+        Modelica.Electrical.Analog.Sources.ExpSineVoltage expSineVoltage(
+          V=1,
+          freqHz=1,
+          phase=0,
+          damping=1,
+          offset=0,
+          startTime=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,-30})));
+        Modelica.Electrical.Analog.Sources.SineCurrent sineCurrent(
+          I=1,
+          phase=0,
+          freqHz=1,
+          offset=0,
+          startTime=0.2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={20,0})));
+        Modelica.Electrical.Analog.Sources.CosineCurrent cosineCurrent(
+          I=1,
+          phase=0,
+          freqHz=1,
+          offset=0,
+          startTime=0.2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={50,0})));
+        Modelica.Electrical.Analog.Sources.ExpSineCurrent expSineCurrent(
+          I=1,
+          freqHz=1,
+          phase=0,
+          damping=1,
+          offset=0,
+          startTime=0.2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={80,0})));
+      equation
+        connect(sineVoltage.p, sineCurrent.p) annotation (Line(points={{-40,40},{-40,50},{20,50},{20,10}}, color={0,0,255}));
+        connect(cosineCurrent.p, sineCurrent.p) annotation (Line(points={{50,10},{50,50},{20,50},{20,10}}, color={0,0,255}));
+        connect(expSineCurrent.p, sineCurrent.p) annotation (Line(points={{80,10},{80,50},{20,50},{20,10}}, color={0,0,255}));
+        connect(sineVoltage.n, cosineVoltage.p) annotation (Line(points={{-40,20},{-40,10}}, color={0,0,255}));
+        connect(cosineVoltage.n, expSineVoltage.p) annotation (Line(points={{-40,-10},{-40,-20}}, color={0,0,255}));
+        connect(expSineVoltage.n, ground.p) annotation (Line(points={{-40,-40},{-40,-50},{0,-50},{0,-60}}, color={0,0,255}));
+        connect(sineCurrent.n, ground.p) annotation (Line(points={{20,-10},{20,-50},{0,-50},{0,-60}}, color={0,0,255}));
+        connect(cosineCurrent.n, ground.p) annotation (Line(points={{50,-10},{50,-50},{0,-50},{0,-60}}, color={0,0,255}));
+        connect(expSineCurrent.n, ground.p) annotation (Line(points={{80,-10},{80,-50},{0,-50},{0,-60}}, color={0,0,255}));
+      annotation(experiment(StopTime=1, Tolerance=1e-06), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3035\">#3035</a>.
+</p>
+</html>"));
+      end Issue3035;
     end Analog;
 
     package Digital
@@ -555,6 +652,54 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2993;
+
+      model Issue3035 "Conversion test for #3035"
+        extends Modelica.Icons.Example;
+        parameter Integer m = 3 "Number of phases";
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-10,-100},{10,-80}})));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          m=m,
+          V=fill(1, m),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+          freqHz=fill(1, m),
+          offset=fill(0, m),
+          startTime=fill(0.1, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,20})));
+        Modelica.Electrical.MultiPhase.Sources.CosineVoltage cosineVoltage(
+          m=m,
+          V=fill(1, m),
+          phase=fill(0, m),
+          freqHz=fill(1, m),
+          offset=fill(0, m),
+          startTime=fill(0.1, m)) annotation (Placement(transformation( extent={{-10,-10},{10,10}}, rotation=270, origin={-40,-20})));
+        Modelica.Electrical.MultiPhase.Sources.SineCurrent sineCurrent(
+          m=m,
+          I=fill(1, m),
+          phase=fill(0, m),
+          freqHz=fill(1, m),
+          offset=fill(0, m),
+          startTime=fill(0.2, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={20,0})));
+        Modelica.Electrical.MultiPhase.Sources.CosineCurrent cosineCurrent(
+          m=m,
+          I=fill(1, m),
+          phase=fill(0, m),
+          freqHz=fill(1, m),
+          offset=fill(0, m),
+          startTime=fill(0.2, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={50,0})));
+        Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={0,-60})));
+      equation
+        connect(star.pin_n, ground.p) annotation (Line(points={{-1.77636e-15,-70},{0,-70},{0,-78},{0,-78},{0,-80}}, color={0,0,255}));
+        connect(sineCurrent.plug_n, star.plug_p) annotation (Line(points={{20,-10},{20,-40},{0,-40},{0,-50}}, color={0,0,255}));
+        connect(cosineCurrent.plug_n, star.plug_p) annotation (Line(points={{50,-10},{50,-40},{0,-40},{0,-50},{1.77636e-15,-50}}, color={0,0,255}));
+        connect(cosineVoltage.plug_n, star.plug_p) annotation (Line(points={{-40,-30},{-40,-40},{0,-40},{0,-50},{1.77636e-15,-50}}, color={0,0,255}));
+        connect(cosineVoltage.plug_p, sineVoltage.plug_n) annotation (Line(points={{-40,-10},{-40,10}}, color={0,0,255}));
+        connect(sineVoltage.plug_p, sineCurrent.plug_p) annotation (Line(points={{-40,30},{-40,40},{20,40},{20,10}}, color={0,0,255}));
+        connect(cosineCurrent.plug_p, sineCurrent.plug_p) annotation (Line(points={{50,10},{50,40},{20,40},{20,10}}, color={0,0,255}));
+      annotation(experiment(StopTime=1, Tolerance=1e-06), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3035\">#3035</a>.
+</p>
+</html>"));
+      end Issue3035;
     end MultiPhase;
 
     package Spice3
@@ -735,6 +880,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         model AbsoluteVelocity
           extends Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity(tansformAbsoluteVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a));
         end AbsoluteVelocity;
+
         model RelativeVelocity
           extends Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity(tansformRelativeVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a));
         end RelativeVelocity;
@@ -925,14 +1071,15 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         extends Modelica.Math.baseIcon1;
         input Real x1;
         output Real y;
-        algorithm
+      algorithm
           y := x1;
       end f1;
+
       function f2
         extends Modelica.Math.baseIcon2;
         input Real x2[1,2];
         output Real y;
-        algorithm
+      algorithm
           y := sum(x2[1,:]);
       end f2;
       Real y = f1(y1) + f2(y2);
@@ -1098,18 +1245,23 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       package P1
         extends Modelica.Icons.Library;
       end P1;
+
       package P2
         extends Modelica.Icons.Library2;
       end P2;
+
       package P3
         extends Modelica.Icons.GearIcon;
       end P3;
+
       package P4
         extends Modelica.Icons.MotorIcon;
       end P4;
+
       package P5
         extends Modelica.Icons.Info;
       end P5;
+
       package P6
         extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
       end P6;
@@ -1149,7 +1301,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         extends Modelica.SIunits.Conversions.ConversionIcon;
         input Real x;
         output Real y;
-        algorithm
+      algorithm
           y := x;
       end f;
       Real y = f(time);

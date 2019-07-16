@@ -37,7 +37,7 @@ model Surfaces
     annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
   Translational.Sources.Position position
     annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
-  Blocks.Sources.Sine sine(amplitude=2, freqHz=0.5)
+  Blocks.Sources.Sine sine(amplitude=2, f=0.5)
     annotation (Placement(transformation(extent={{-80,50},{-60,70}})));
   Parts.FixedTranslation fixedTranslation1(r={0,-1.3,torus.ro + torus.ri},
       animation=false)

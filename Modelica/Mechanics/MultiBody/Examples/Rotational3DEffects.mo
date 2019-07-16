@@ -163,7 +163,7 @@ is much faster.
     inner World world(g=0, driveTrainMechanics3D=true) annotation (Placement(
           transformation(extent={{-60,60},{-40,80}})));
     Forces.Torque torque annotation (Placement(transformation(extent={{0,50},{20,30}})));
-    Blocks.Sources.Sine sine[3](amplitude={1,0,0}, freqHz={1,1,1}) annotation (
+    Blocks.Sources.Sine sine[3](amplitude={1,0,0}, f={1,1,1}) annotation (
         Placement(transformation(extent={{-100,-10},{-80,10}})));
     inner Parts.Fixed fixed annotation (Placement(transformation(extent={{-60,-90},{-40,-70}})));
     Parts.Rotor1D rotor1D(
@@ -240,7 +240,7 @@ Note, the solution with Rotor1D is much more efficient.
     inner World world(g=0, driveTrainMechanics3D=true) annotation (Placement(
           transformation(extent={{-80,10},{-60,30}})));
     Forces.Torque torque annotation (Placement(transformation(extent={{50,30},{70,50}})));
-    Blocks.Sources.Sine sine1[3](amplitude={1,0,0}, freqHz={1,1,1}) annotation (
+    Blocks.Sources.Sine sine1[3](amplitude={1,0,0}, f={1,1,1}) annotation (
        Placement(transformation(extent={{16,70},{36,90}})));
     Parts.Rotor1D rotor1D(
       J=2,
@@ -253,7 +253,7 @@ Note, the solution with Rotor1D is much more efficient.
           transformation(extent={{-30,10},{-10,30}})));
     Rotational.Sources.Position position1(useSupport=true, w(fixed=true))
       annotation (Placement(transformation(extent={{-50,70},{-30,90}})));
-    Blocks.Sources.Sine sine2(amplitude=2, freqHz=1) annotation (Placement(
+    Blocks.Sources.Sine sine2(amplitude=2, f=1) annotation (Placement(
           transformation(extent={{-100,70},{-80,90}})));
     Parts.Mounting1D mounting1D1(n={0,1,0})
                                  annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
@@ -360,7 +360,7 @@ axes of the revolute joints.
     Parts.BodyCylinder cyl2(r={0.4,0,0}, diameter=0.2) annotation (Placement(
           transformation(extent={{80,40},{100,60}})));
     Forces.Torque torque1 annotation (Placement(transformation(extent={{-10,40},{10,60}})));
-    Blocks.Sources.Sine sine[3](amplitude={2,0,0}, freqHz={1,1,1}) annotation (
+    Blocks.Sources.Sine sine[3](amplitude={2,0,0}, f={1,1,1}) annotation (
         Placement(transformation(extent={{-100,60},{-80,80}})));
     Parts.Fixed fixed annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
     Rotational.Components.Inertia inertia1(
@@ -472,17 +472,17 @@ a one-dimensional model that is mounted with an
       annotation (Placement(transformation(extent={{-24,-75},{-14,-65}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque3
       annotation (Placement(transformation(extent={{16,-75},{26,-65}})));
-    Modelica.Blocks.Sources.Sine sine1(amplitude=110, freqHz=5)
+    Modelica.Blocks.Sources.Sine sine1(amplitude=110, f=5)
       annotation (Placement(transformation(extent={{-86,-76},{-74,-64}})));
-    Modelica.Blocks.Sources.Sine sine2(amplitude=120, freqHz=6)
+    Modelica.Blocks.Sources.Sine sine2(amplitude=120, f=6)
       annotation (Placement(transformation(extent={{-44,-76},{-32,-64}})));
-    Modelica.Blocks.Sources.Sine sine3(amplitude=130, freqHz=7)
+    Modelica.Blocks.Sources.Sine sine3(amplitude=130, f=7)
       annotation (Placement(transformation(extent={{-2,-76},{10,-64}})));
     Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D(n=na)
       annotation (Placement(transformation(extent={{-70,36},{-50,56}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
       annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
-    Modelica.Blocks.Sources.Sine sine4(amplitude=140, freqHz=8)
+    Modelica.Blocks.Sources.Sine sine4(amplitude=140, f=8)
       annotation (Placement(transformation(extent={{-92,64},{-80,76}})));
     Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(
       r={0.1,0.1,0.1},

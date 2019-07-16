@@ -61,7 +61,7 @@ package Explanatory
       use_m_flow_in=true,
       T=323.15) annotation (Placement(transformation(extent=
              {{-60,-20},{-40,0}})));
-    Modelica.Blocks.Sources.Sine sine(freqHz=1)
+    Modelica.Blocks.Sources.Sine sine(f=1)
                                       annotation (Placement(transformation(extent=
              {{-100,10},{-80,30}})));
     Modelica.Fluid.Sensors.Temperature T_junction(redeclare package Medium =

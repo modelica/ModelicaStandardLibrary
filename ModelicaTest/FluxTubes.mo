@@ -448,11 +448,11 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={-40,50})));
-      Modelica.Blocks.Sources.Sine sine(amplitude=100, freqHz=2)
+      Modelica.Blocks.Sources.Sine sine(amplitude=100, f=2)
         annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
       Modelica.Magnetic.FluxTubes.Basic.Ground ground
         annotation (Placement(transformation(extent={{-50,0},{-30,20}})));
-      Modelica.Blocks.Sources.Sine sine1(freqHz=2, amplitude=100000)
+      Modelica.Blocks.Sources.Sine sine1(f=2, amplitude=100000)
         annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
       Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifference
         signalSource1 annotation (Placement(transformation(
