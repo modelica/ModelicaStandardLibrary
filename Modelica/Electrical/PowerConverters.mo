@@ -4180,7 +4180,7 @@ reference voltage is converted to firing angle by the
 Firing angle is processed by the 
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse adaptor</a> 
 to firing signals which are applied to the 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.MultiPhaseTriac\">triac</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac\">triac</a>.
 </p>
 <p>
 Compare starting with firing angle by 
