@@ -613,6 +613,99 @@ The Real output y is a sine signal:
 </html>"));
   end Sine;
 
+  block SineVariableFrequencyAndAmplitude
+    "Generate sine signal with variable frequency and amplitude"
+    extends Interfaces.SO;
+    import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Real constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
+    parameter Real offset=0 "Offset of the sine wave";
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput amplitude if not useConstantAmplitude
+      "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=0,
+          origin={-120,60})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=0,
+          origin={-120,-60})));
+  protected
+    Blocks.Interfaces.RealInput amplitude_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=0,
+          origin={-80,60})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=0,
+          origin={-80,-60})));
+    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if useConstantAmplitude
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={-80,30})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+      annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={-80,-30})));
+  equation
+    der(phi) = 2*pi*f_internal;
+    y = offset + amplitude_internal*sin(phi);
+    connect(f, f_internal)
+      annotation (Line(points={{-120,-60},{-80,-60}}, color={0,0,127}));
+    connect(amplitude, amplitude_internal)
+      annotation (Line(points={{-120,60},{-80,60}}, color={0,0,127}));
+    connect(amplitude_constant.y, amplitude_internal)
+      annotation (Line(points={{-80,41},{-80,60}}, color={0,0,127}));
+    connect(f_constant.y, f_internal)
+      annotation (Line(points={{-80,-41},{-80,-60}}, color={0,0,127}));
+    annotation (defaultComponentName="sine",
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
+                59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
+                -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
+                {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, smooth = Smooth.Bezier),
+          Text(
+            extent={{-147,-152},{153,-112}},
+            textString="freqHz=%freqHz")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}})),
+      Documentation(info="<html>
+<p>
+This signal source provides a sinusoidal signal with variable frequency <code>f</code> and variable <code>amplitude</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>amplitude</code> to zero.
+</p>
+</html>"));
+  end SineVariableFrequencyAndAmplitude;
+
   block Cosine "Generate cosine signal"
     import Modelica.Constants.pi;
     parameter Real amplitude=1 "Amplitude of cosine wave"
@@ -2252,8 +2345,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
-    function readTableData = // No longer used, but kept for backward compatibility
+    function readTableData =
       Modelica.Blocks.Tables.Internal.readTimeTableData "Read table data from text or MATLAB MAT-file";
+                             // No longer used, but kept for backward compatibility
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -2856,11 +2950,11 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
       final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToBoolean realToBoolean annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
-    protected
+  protected
       function isValidTable "Check if table is valid"
         extends Modelica.Icons.Function;
         input Real table[:] "Vector of time instants";
-      protected
+    protected
         Integer n=size(table, 1) "Number of table points";
       algorithm
         if n > 0 then
@@ -2875,9 +2969,9 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
       end isValidTable;
 
       parameter Integer n=size(table, 1) "Number of table points";
-    initial algorithm
+  initial algorithm
       isValidTable(table);
-    equation
+  equation
       assert(extrapolation <> Modelica.Blocks.Types.Extrapolation.LastTwoPoints, "Unsuitable extrapolation setting.");
       connect(combiTimeTable.y[1], realToBoolean.u) annotation(Line(points={{-9,0},{8,0}}, color={0,0,127}));
       connect(realToBoolean.y, y) annotation(Line(points={{31,0},{110,0},{110,0}}, color={255,127,0}));
@@ -3190,11 +3284,11 @@ The Integer output y is a step signal:
       final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToInteger realToInteger annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
-    protected
+  protected
       function isValidTable "Check if table is valid"
         extends Modelica.Icons.Function;
         input Real table[:, 2] "Table matrix";
-      protected
+    protected
         Modelica.SIunits.Time t_last;
         Integer n=size(table, 1) "Number of table points";
       algorithm
@@ -3218,9 +3312,9 @@ The Integer output y is a step signal:
       end isValidTable;
 
       parameter Integer n=size(table, 1) "Number of table points";
-    initial algorithm
+  initial algorithm
       isValidTable(table);
-    equation
+  equation
       assert(n > 0, "No table values defined.");
       assert(extrapolation <> Modelica.Blocks.Types.Extrapolation.LastTwoPoints, "Unsuitable extrapolation setting.");
       connect(combiTimeTable.y[1], realToInteger.u) annotation(Line(points={{-9,0},{8,0}}, color={0,0,127}));

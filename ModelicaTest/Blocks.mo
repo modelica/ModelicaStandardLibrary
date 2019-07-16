@@ -1906,14 +1906,12 @@ This shows the improvements in the numerics when balance=true is set.
             {-70,23.5},{-60,23.5}}, color={0,0,127}));
     connect(clock.y, mux2.u[2]) annotation (Line(points={{-79,0},{-70,0},
             {-70,16.5},{-60,16.5}}, color={0,0,127}));
-    connect(clock.y, mux3.u[1]) annotation (Line(points={{-79,0},{-70,
-            0},{-70,-15.3333},{-60,-15.3333}},
-                                            color={0,0,127}));
+    connect(clock.y, mux3.u[1]) annotation (Line(points={{-79,0},{-70,0},{-70,
+            -15.3333},{-60,-15.3333}},      color={0,0,127}));
     connect(clock.y, mux3.u[2]) annotation (Line(points={{-79,0},{-70,0},
             {-70,-20},{-60,-20}}, color={0,0,127}));
-    connect(clock.y, mux3.u[3]) annotation (Line(points={{-79,0},{-70,
-            0},{-70,-24.6667},{-60,-24.6667}},
-                                            color={0,0,127}));
+    connect(clock.y, mux3.u[3]) annotation (Line(points={{-79,0},{-70,0},{-70,
+            -24.6667},{-60,-24.6667}},      color={0,0,127}));
     connect(mux2.y, mux5.u[1:2]) annotation (Line(points={{-39,20},{-34,
             20},{-34,2.8},{-30,2.8}}, color={0,0,127}));
     connect(mux3.y, mux5.u[3:5]) annotation (Line(points={{-39,-20},{-34,
@@ -1927,14 +1925,12 @@ This shows the improvements in the numerics when balance=true is set.
     connect(demux2.u, demux5.y[1:2]) annotation (Line(points={{58,30},
             {46,30},{46,4},{32,4},{32,2.8}},
                                     color={0,0,127}));
-    connect(y3, demux3.y[1]) annotation (Line(points={{110,-20},{96,
-            -20},{96,-35.3333},{80,-35.3333}},
-                                          color={0,0,127}));
+    connect(y3, demux3.y[1]) annotation (Line(points={{110,-20},{96,-20},{96,
+            -35.3333},{80,-35.3333}},     color={0,0,127}));
     connect(y4, demux3.y[2]) annotation (Line(points={{110,-40},{96,-40},
             {96,-40},{80,-40}}, color={0,0,127}));
-    connect(y5, demux3.y[3]) annotation (Line(points={{110,-60},{96,
-            -60},{96,-44.6667},{80,-44.6667}},
-                                          color={0,0,127}));
+    connect(y5, demux3.y[3]) annotation (Line(points={{110,-60},{96,-60},{96,
+            -44.6667},{80,-44.6667}},     color={0,0,127}));
     connect(demux3.u, demux5.y[3:5]) annotation (Line(points={{58,-40},
             {46,-40},{46,-4},{32,-4},{32,-5.6},{32,-5.6}},
                                           color={0,0,127}));
@@ -2045,4 +2041,79 @@ known a priori if the controller is saturated or not, and it is important to enf
 the whole homotopy transformation.</p>
 </html>"));
   end LimPID;
+
+  model VariableSine
+    "Test cases for sine with variable frequency and amplitude"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sine1(
+      useConstantAmplitude=true,
+      useConstantFrequency=true,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,60},{10,80}})));
+    Modelica.Blocks.Continuous.Der der1
+      annotation (Placement(transformation(extent={{20,60},{40,80}})));
+    Modelica.Blocks.Sources.Sine sineAmplitude2(
+      amplitude=0.5,
+      freqHz=2,
+      offset=1) annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sine2(
+      useConstantAmplitude=false,
+      useConstantFrequency=true,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+    Modelica.Blocks.Continuous.Der der2
+      annotation (Placement(transformation(extent={{20,20},{40,40}})));
+    Modelica.Blocks.Sources.Sine sineFrequency3(
+      amplitude=50,
+      freqHz=2,
+      offset=100)
+      annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sine3(
+      useConstantAmplitude=true,
+      useConstantFrequency=false,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
+    Modelica.Blocks.Continuous.Der der3
+      annotation (Placement(transformation(extent={{20,-20},{40,0}})));
+    Modelica.Blocks.Sources.Sine sineAmplitude4(
+      amplitude=0.5,
+      freqHz=2,
+      offset=1)
+      annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
+    Modelica.Blocks.Sources.Sine sineFrequency4(
+      amplitude=50,
+      freqHz=2,
+      offset=100)
+      annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sine4(
+      useConstantAmplitude=false,
+      useConstantFrequency=false,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+    Modelica.Blocks.Continuous.Der der4
+      annotation (Placement(transformation(extent={{20,-70},{40,-50}})));
+  equation
+    connect(sineAmplitude2.y, sine2.amplitude) annotation (Line(points={{-29,30},{
+            -20,30},{-20,36},{-12,36}}, color={0,0,127}));
+    connect(sineFrequency3.y, sine3.f) annotation (Line(points={{-29,-10},{-20,
+            -10},{-20,-16},{-12,-16}},
+                                  color={0,0,127}));
+    connect(sine1.y, der1.u)
+      annotation (Line(points={{11,70},{18,70}}, color={0,0,127}));
+    connect(sine2.y, der2.u)
+      annotation (Line(points={{11,30},{18,30}}, color={0,0,127}));
+    connect(sine3.y, der3.u)
+      annotation (Line(points={{11,-10},{18,-10}}, color={0,0,127}));
+    connect(sine4.y, der4.u)
+      annotation (Line(points={{11,-60},{18,-60}}, color={0,0,127}));
+    connect(sineAmplitude4.y, sine4.amplitude) annotation (Line(points={{-29,-40},
+            {-20,-40},{-20,-54},{-12,-54}}, color={0,0,127}));
+    connect(sineFrequency4.y, sine4.f) annotation (Line(points={{-29,-80},{-20,-80},
+            {-20,-66},{-12,-66}}, color={0,0,127}));
+    annotation (experiment(Interval=0.0001));
+  end VariableSine;
 end Blocks;

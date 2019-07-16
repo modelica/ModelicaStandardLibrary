@@ -2,7 +2,8 @@ within Modelica.Electrical.Analog.Examples;
 model SeriesResonance "Series resonance ciruit"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  Sources.SineVoltageVariableFrequencyAndAmplitude sineVoltage(phi(fixed=true))
+  Sources.SineVoltageVariableFrequencyAndAmplitude sineVoltage(
+      useConstantAmplitude=true,                               phi(fixed=true))
     annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
@@ -20,8 +21,6 @@ model SeriesResonance "Series resonance ciruit"
     annotation (Placement(transformation(extent={{10,10},{30,30}})));
   Sensors.CurrentSensor currentSensor
     annotation (Placement(transformation(extent={{12,-30},{-8,-10}})));
-  Blocks.Sources.Constant const(k=1)
-    annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
   Blocks.Sources.Ramp ramp(
     height=200,
     duration=1,
@@ -41,8 +40,6 @@ equation
     annotation (Line(points={{12,-20},{40,-20},{40,-10}}, color={0,0,255}));
   connect(ramp.y, sineVoltage.f) annotation (Line(points={{-69,20},{-60,20},{-60,
           6},{-52,6}}, color={0,0,127}));
-  connect(const.y, sineVoltage.V) annotation (Line(points={{-69,-20},{-60,-20},{
-          -60,-6},{-52,-6}}, color={0,0,127}));
   connect(ground.p, currentSensor.n)
     annotation (Line(points={{-40,-20},{-8,-20}}, color={0,0,255}));
   annotation (experiment(Interval=0.0001), Documentation(info="<html>

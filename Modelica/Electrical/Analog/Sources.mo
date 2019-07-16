@@ -5,7 +5,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
 
   model SignalVoltage
     "Generic voltage source using the input signal as source voltage"
-
+    extends Modelica.Electrical.Analog.Icons.VoltageSource;
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}})));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
@@ -23,22 +23,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     i = p.i;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Ellipse(
-            extent={{-50,50},{50,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
-          Line(points={{50,0},{90,0}}, color={0,0,255}),
-          Line(points={{-50,0},{50,0}}, color={0,0,255}),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Line(points={{-70,30},{-70,10}}, color={0,0,255}),
-          Line(points={{-80,20},{-60,20}}, color={0,0,255}),
-          Line(points={{60,20},{80,20}}, color={0,0,255})}),
+              100}})),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-96,0},{-50,0}},
             color={0,0,255}), Line(points={{-109,20},{-84,
@@ -74,30 +59,15 @@ package Sources "Time-dependent and controlled voltage and current sources"
   model ConstantVoltage "Source for constant voltage"
     parameter SI.Voltage V(start=1) "Value of constant voltage";
     extends Interfaces.OnePort;
-
+    extends Modelica.Electrical.Analog.Icons.VoltageSource;
   equation
     v = V;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-150,70},{150,110}},
-            textColor={0,0,255},
-            textString="%name"),
-          Line(points={{-70,30},{-70,10}}, color={0,0,255}),
-          Line(points={{-80,20},{-60,20}}, color={0,0,255}),
-          Line(points={{60,20},{80,20}}, color={0,0,255}),
-          Text(
             extent={{-150,-110},{150,-70}},
-            textString="V=%V"),
-          Ellipse(
-            extent={{-50,50},{50,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-50,0},{50,0}}, color={0,0,255}),
-          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
-          Line(points={{50,0},{90,0}}, color={0,0,255})}),
+            textString="V=%V")}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -359,21 +329,52 @@ package Sources "Time-dependent and controlled voltage and current sources"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Icons.VoltageSource;
     import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Modelica.SIunits.Voltage constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
     parameter Modelica.SIunits.Voltage offset=0 "Offset of the sine wave";
     Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
-    Blocks.Interfaces.RealInput f(unit="Hz") "Frequency" annotation (Placement(
-          transformation(
-          extent={{-20,-20},{20,20}},
-          rotation=270,
-          origin={-60,120})));
-    Blocks.Interfaces.RealInput V(unit="V") "Amplitude" annotation (Placement(
+    Blocks.Interfaces.RealInput V(unit="V") if not useConstantAmplitude
+      "Amplitude" annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
           rotation=270,
           origin={60,120})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+  protected
+    Blocks.Interfaces.RealInput V_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={60,80})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={-60,80})));
+    Blocks.Sources.Constant V_constant(final k=constantAmplitude) if useConstantAmplitude
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+      annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
   equation
-    der(phi) = 2*pi*f;
-    v = offset + V*sin(phi);
+    der(phi) = 2*pi*f_internal;
+    v = offset + V_internal*sin(phi);
+    connect(f, f_internal)
+      annotation (Line(points={{-60,120},{-60,80}}, color={0,0,127}));
+    connect(V, V_internal)
+      annotation (Line(points={{60,120},{60,80}}, color={0,0,127}));
+    connect(f_constant.y, f_internal)
+      annotation (Line(points={{-41,80},{-60,80}}, color={0,0,127}));
+    connect(V_constant.y, V_internal)
+      annotation (Line(points={{41,80},{60,80}}, color={0,0,127}));
     annotation (defaultComponentName="sineVoltage",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
@@ -1152,42 +1153,25 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 
   model SignalCurrent
     "Generic current source using the input signal as source current"
-
+    extends Modelica.Electrical.Analog.Icons.CurrentSource;
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}})));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
               -10},{90,10}})));
-    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     Modelica.Blocks.Interfaces.RealInput i(unit="A")
       "Current flowing from pin p to pin n as input signal" annotation (
         Placement(transformation(
           origin={0,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
+    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
   equation
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Ellipse(
-            extent={{-50,50},{50,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
-          Line(points={{50,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-50},{0,50}}, color={0,0,255}),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Polygon(
-            points={{90,0},{60,10},{60,-10},{90,0}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
+              100}})),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -1202,28 +1186,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   model ConstantCurrent "Source for constant current"
     parameter SI.Current I(start=1) "Value of constant current";
     extends Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.CurrentSource;
   equation
     i = I;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(
-            extent={{-50,50},{50,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
-          Line(points={{50,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-50},{0,50}}, color={0,0,255}),
-          Polygon(
-            points={{90,0},{60,10},{60,-10},{90,0}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-150,60},{150,100}},
-            textColor={0,0,255},
-            textString="%name"),
           Text(
             extent={{-150,-100},{150,-60}},
             textString="I=%I")}),
@@ -1488,21 +1456,52 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Icons.CurrentSource;
     import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Modelica.SIunits.Current constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
     parameter Modelica.SIunits.Current offset=0 "Offset of the sine wave";
     Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
-    Blocks.Interfaces.RealInput f(unit="Hz") "Frequency" annotation (Placement(
-          transformation(
-          extent={{-20,-20},{20,20}},
-          rotation=270,
-          origin={-60,120})));
-    Blocks.Interfaces.RealInput I(unit="A") "Amplitude" annotation (Placement(
+    Blocks.Interfaces.RealInput I(unit="A") if not useConstantAmplitude
+      "Amplitude" annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
           rotation=270,
           origin={60,120})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+  protected
+    Blocks.Sources.Constant I_constant(final k=constantAmplitude) if useConstantAmplitude
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+      annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
+    Blocks.Interfaces.RealInput I_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={60,80})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={-60,80})));
   equation
-    der(phi) = 2*pi*f;
-    i = offset +I*sin(phi);
+    der(phi) = 2*pi*f_internal;
+    i = offset + I_internal*sin(phi);
+    connect(f,f_internal)
+      annotation (Line(points={{-60,120},{-60,80}}, color={0,0,127}));
+    connect(I,I_internal)
+      annotation (Line(points={{60,120},{60,80}}, color={0,0,127}));
+    connect(f_constant.y,f_internal)
+      annotation (Line(points={{-41,80},{-60,80}}, color={0,0,127}));
+    connect(I_constant.y,I_internal)
+      annotation (Line(points={{41,80},{60,80}}, color={0,0,127}));
     annotation (defaultComponentName="sineCurrent",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
