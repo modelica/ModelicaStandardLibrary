@@ -9,6 +9,8 @@ convertClass("Modelica.Fluid.Icons.VariantLibrary",
               "Modelica.Icons.VariantsPackage");
 convertClass("Modelica.Fluid.Icons.BaseClassLibrary",
               "Modelica.Icons.BasesPackage");
+convertClass("Modelica.Icons.TypeComplex",
+              "Complex")
 convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
               "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
 convertClass("Modelica.Media.IdealGases.MixtureGases.simpleMoistAir",
