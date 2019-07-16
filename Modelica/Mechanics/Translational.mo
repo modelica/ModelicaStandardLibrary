@@ -387,8 +387,8 @@ variable and only use an absolute tolerance for the step size control.
 
 <p>
 Currently, in Modelica there is no possibility to provide this information.
-In order to reduce this effect, it is advisable to not use absolute angles, but
-relative angles as states. A user can define relative variables as states
+In order to reduce this effect, it is advisable to not use absolute positions, but
+relative positions as states. A user can define relative variables as states
 explicitly with component
 <a href=\"modelica://Modelica.Mechanics.Translational.Components.RelativeStates\">RelativeStates</a>.
 Furthermore, all compliant components, such as
@@ -401,7 +401,7 @@ Therefore, a tool will select in most cases relative positions as states.
 The relative positions of compliant components are usually small.
 Without further action, the error control would not work properly on variables
 that are so small (so often switching the error control off). The remedy is to define
-explicitly a nominal value on the relative angle. This definition is provided in the
+explicitly a nominal value on the relative position. This definition is provided in the
 &quot;Advanced&quot; menu of the compliant components with parameter &quot;s_nominal&quot;.
 The default value is 1e-4&nbsp;m, to be in the order of a compliant deformation of a
 drive.
