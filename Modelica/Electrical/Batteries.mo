@@ -26,14 +26,14 @@ A resistor <code>r0</code> is connected in series to the signal voltage, represe
 The resistance can be specified as linearly dependent on temperature.
 </p>
 <p>
-If <a href=\"modelica://Batteries.BatteryStacks.CellRCStack\">CellRCStack</a> instead of 
-<a href=\"modelica://Batteries.BatteryStacks.CellStack\">CellStack</a> is choosen, 
+If <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellRCStack\">CellRCStack</a> instead of 
+<a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">CellStack</a> is choosen, 
 RC-elements are connected in series to model the transient behaviour of the battery.<br>
 Both models can be used for a single cell <code>Ns = Np = 1</code> as well as a stack built from identical cells.<nr>
 Note that the total inner resistance <code>Ri</code> is the sum of the resistance of resistor <code>r0</code> and the sum of the resistances of the resistors of the RC-elements.
 </p>
 <p>
-For details of parameterization, see <a href=\"modelica://Batteries.UsersGuide.Parameterization\">UsersGuide.Parameterization</a>.
+For details of parameterization, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">UsersGuide.Parameterization</a>.
 </p>
 </html>"));
     end Concept;
@@ -55,7 +55,7 @@ The parameters of a stack built from <code>Np*Ns</code> cells are calculated as 
 <tr><td>Short-circuit current</td>   <td><code>Isc</td>    <td><code>Isc*Np</code></td></tr>
 </table>
 <p>
-The parameters of one cell are summarized n the parameter record <a href=\"modelica://Batteries.ParameterRecords.CellData\">cellData</a>.
+The parameters of one cell are summarized n the parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a>.
 </p>
 <h4>Cell parameters</h4>
 <p>
@@ -75,7 +75,7 @@ Linear temperature dependency of inner resistance can be specified by reference 
 <code>R = R_ref*(1 + alpha*(T - T_ref))</code>.
 </p>
 <p>
-The parameters of optionally used RC-elements are specified by an array of parameter records <a href=\"modelica://Batteries.ParameterRecords.RCData\">rcData</a>:
+The parameters of optionally used RC-elements are specified by an array of parameter records <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a>:
 </p>
 <ul>
 <li><code>R</code> .. Resistance of RC-element</li>
@@ -206,9 +206,9 @@ This library provides battery models, based on the electrical behaviour at the t
 <p>
 All battery models rely on existing components like voltage source, resistor and capacitor models provided in the
 <a href=\"modelica://Modelica.Electrical.Analog\">Analog</a> package of the Modelica Standard Library.<br>
-Explore the <a href=\"modelica://Batteries.UsersGuide.Concept\">concept</a> of the battery models as well as
-<a href=\"modelica://Batteries.UsersGuide.Parameterization\">parameterization</a>. 
-Both are based on the <a href=\"modelica://Batteries.UsersGuide.References\">references</a>. 
+Explore the <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> of the battery models as well as
+<a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>. 
+Both are based on the <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.References\">references</a>. 
 </p>
 <p>
 Each battery is equipped with an optional heat port which can be enabled by the parameter <code>useHeatPort</code>; 
@@ -334,7 +334,7 @@ However, thermal models are not included yet.
 <li><code>battery2</code> is a battery OCV dependency on SOC is specified by a table, with self-discharge and including RC-elements.</li>
 </ul>
 <p>
-Two <a href=\"modelica://Batteries.ParameterRecords.CellData\">parameter records</a> <code>cellData1</code> and <code>cellData2</code> are used to parameterize the battery models.
+Two <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">parameter records</a> <code>cellData1</code> and <code>cellData2</code> are used to parameterize the battery models.
 </p>
 <p>
 First the batteries are discharged with 7 current pulses of 50 A for 1 minute, and breaks between the pulses of 1 minute, ending at SOC = 5 %.<br>
@@ -488,7 +488,7 @@ Charging current in CC mode is 5C which means the battery is theoretically nearl
     end CCCVcharging;
     annotation (Documentation(info="<html>
 <p>
-Collection of examples demonstrating the usage of the <a href=\"modelica://Batteries.SimpleBatteries\">battery models</a>.
+Collection of examples demonstrating the usage of the <a href=\"modelica://Modelica.Electrical.Batteries.SimpleBatteries\">battery models</a>.
 </p>
 </html>"));
   end Examples;
@@ -504,18 +504,18 @@ Collection of examples demonstrating the usage of the <a href=\"modelica://Batte
       annotation (Documentation(info="<html>
 <p>
 The battery is modeled by open-circuit voltage (OCV) dependent on state of charge (SOC), self-discharge and inner resistance, 
-as implemented in partial <a href=\"modelica://Batteries.BaseClasses.BaseCellStack\">BaseCellStack</a>.
+as implemented in partial <a href=\"modelica://Modelica.Electrical.Batteries.BaseClasses.BaseCellStack\">BaseCellStack</a>.
 </p>
 <p>
 This model can be used for a single cell <code>Ns = Np = 1</code> as well as a stack built from identical cells.
 </p>
 <p>
-For details, see <a href=\"modelica://Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Batteries.UsersGuide.Parameterization\">parameterization</a>.
+For details, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
 </p>
 <h4>Note:</h4>
 <p>
-Parameter record array <a href=\"modelica://Batteries.ParameterRecords.RCData\">rcData</a> contained in 
-parameter record <a href=\"modelica://Batteries.ParameterRecords.CellData\">cellData</a> is neglected.
+Parameter record array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a> contained in 
+parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a> is neglected.
 </p>
 </html>"));
     end CellStack;
@@ -584,18 +584,18 @@ parameter record <a href=\"modelica://Batteries.ParameterRecords.CellData\">cell
               thickness=0.5)}),
         Documentation(info="<html>
 <p>
-Extends the model <a href=\"modelica://Batteries.BatteryStacks.CellStack\">CellStack</a> by a series of RC-elements, describing the transient behaviour of the battery.
+Extends the model <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">CellStack</a> by a series of RC-elements, describing the transient behaviour of the battery.
 </p>
 <p>
 This model can be used for a single cell <code>Ns = Np = 1</code> as well as a stack built from identical cells.
 </p>
 <p>
-For details, see <a href=\"modelica://Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Batteries.UsersGuide.Parameterization\">parameterization</a>.
+For details, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
 </p>
 <h4>Note:</h4>
 <p>
-Parameter record array <a href=\"modelica://Batteries.ParameterRecords.RCData\">rcData</a> contained in 
-parameter record <a href=\"modelica://Batteries.ParameterRecords.CellData\">cellData</a> has to be specified.
+Parameter record array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a> contained in 
+parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a> has to be specified.
 </p>
 <p>
 The total inner resistance is the sum of the resistance of resistor <code>r0</code> and the sum of the resistances of the resistors of the RC-elements.
@@ -748,12 +748,12 @@ If <code>useLinearSOCDependency=true</code>, the OCV versus SOC table is built u
 Otherwise, the OCV versus SOC table has to be specified: 1st column = SOC values in ascending order, 2nd column = corresponding OCV values with respect to OCVmax.
 </p>
 <p>
-In a battery model not comprising RC-elements, parameter array <a href=\"modelica://Batteries.ParameterRecords.RCData\">rcData</a> can be ignored; it is set to a default value.<br>
-For a battery model including RC-elements, the size of the array <a href=\"modelica://Batteries.ParameterRecords.RCData\">rcData</a> defines the count of used RC-elements 
+In a battery model not comprising RC-elements, parameter array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a> can be ignored; it is set to a default value.<br>
+For a battery model including RC-elements, the size of the array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a> defines the count of used RC-elements 
 as well as the parameters of these.
 </p>
 <p>
-If utilizing the parameter array <a href=\"modelica://Batteries.ParameterRecords.RCData\">rcData</a>, 
+If utilizing the parameter array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a>, 
 the sum of the resistances <code>rcData.R</code> must not exceed the total inner resistance <cde>Ri</code>.
 </p>
 </html>"));
@@ -803,7 +803,7 @@ The user can easily build up a collection of different battery types by creating
 Dont't forget to add the <code>annotation(defaultComponentPrefixes=\"parameter\");</code> in each individual parameter record.
 </p>
 <p>
-Record <a href=\"modelica://Batteries.ParameterRecords.RCData\">RCData</a> is used in record <a href=\"modelica://Batteries.ParameterRecords.CellData\">CellData</a>.
+Record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">RCData</a> is used in record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">CellData</a>.
 </p>
 </html>"));
   end ParameterRecords;
@@ -1004,11 +1004,11 @@ Collection of utilities that are usefull for battery applications
         Documentation(info="<html>
 <p>
 The battery is modeled by open-circuit voltage (OCV) dependent on state of charge (SOC), a self-discharge component and an inner resistance.<br>
-Parameters are collected in parameter record <a href=\"modelica://Batteries.ParameterRecords.CellData\">cellData</a>.<br>
+Parameters are collected in parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a>.<br>
 All losses are dissipated to the optional <code>heatPort</code>.
 </p>
 <p>
-For details, see <a href=\"modelica://Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Batteries.UsersGuide.Parameterization\">parameterization</a>.
+For details, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
 </p>
 <h4>Note:</h4>
 <p>
