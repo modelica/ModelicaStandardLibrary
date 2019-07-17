@@ -79,8 +79,8 @@ The parameters of optionally used RC-elements are specified by an array of param
 </p>
 <ul>
 <li><code>R</code> .. Resistance of RC-element</li>
-<li><code>Tau</code> .. Time constant of RC-element; if <code>C</code> is specified, <code>Tau</code> can be neglected</li>
-<li><code>C</code> .. Capacitance of RC-element; either specified explicitly or calculated from <code>tau</code> and <code>R</code></li>
+<li><code>T</code> .. Time constant of RC-element; if <code>C</code> is specified, <code>T</code> can be neglected</li>
+<li><code>C</code> .. Capacitance of RC-element; either specified explicitly or calculated from <code>T</code> and <code>R</code></li>
 </ul>
 <p>
 The size of the array of parameter records <code>rcData</code> determines the count of RC-elements instantiated.<br>
@@ -235,7 +235,12 @@ However, thermal models are not included yet.
         Qnom=18000,
         OCVmax=4.2,
         OCVmin=2.5,
-        Isc=1200) annotation (Placement(transformation(extent={{60,20},{80,40}})));
+        Isc=1200,
+        rcData={Modelica.Electrical.Batteries.ParameterRecords.RCData(
+                R=0,
+                T=0,
+                C=0)})
+                  annotation (Placement(transformation(extent={{60,20},{80,40}})));
       BatteryStacks.CellStack battery1(
         Ns=10,
         Np=2,
@@ -261,8 +266,10 @@ However, thermal models are not included yet.
         useLinearSOCDependency=false,
         Idis=0.1,
         Isc=1200,
-        rcData={Batteries.ParameterRecords.RCData(R=0.2*cellData2.Ri, Tau=60),
-            Batteries.ParameterRecords.RCData(R=0.1*cellData2.Ri, Tau=10)})
+        rcData={Modelica.Electrical.Batteries.ParameterRecords.RCData(R=0.2*
+            cellData2.Ri, T=60),
+            Modelica.Electrical.Batteries.ParameterRecords.RCData(R=0.1*
+            cellData2.Ri, T=10)})
         annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
       BatteryStacks.CellRCStack battery2(
         Ns=10,
@@ -437,8 +444,8 @@ but then due to the losses more energy is consumed to recharge the supercap.
         useLinearSOCDependency=false,
         Isc=1200,
         Idis=0.001,
-        rcData={Batteries.ParameterRecords.RCData(R=0.2*cellData.Ri, Tau=60),
-            Batteries.ParameterRecords.RCData(R=0.1*cellData.Ri, Tau=10)})
+        rcData={Batteries.ParameterRecords.RCData(R=0.2*cellData.Ri, T=60),
+            Batteries.ParameterRecords.RCData(R=0.1*cellData.Ri, T=10)})
         annotation (Placement(transformation(extent={{20,-20},{40,0}})));
       BatteryStacks.CellRCStack battery(
         Ns=10,
@@ -497,7 +504,8 @@ Collection of examples demonstrating the usage of the <a href=\"modelica://Model
     extends Modelica.Icons.Package;
     model CellStack
       "Battery with open-circuit voltage dependent on state of charge, self-discharge and inner resistance"
-      extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.Ri/Np));
+      extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.Ri/Np), cellData(
+            rcData={Modelica.Electrical.Batteries.ParameterRecords.RCData(R=0, T=0, C=0)}));
     equation
       connect(r0.n, n)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
@@ -534,7 +542,7 @@ parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRec
         annotation (Placement(transformation(extent={{30,30},{50,10}})));
     equation
       assert(cellData.R0 > 0, "Ri has to be greater than sum(rcParameters.R)");
-      assert(cellData.rcData[1].C > 0, "Parameters of RC-elements undefined!");
+      assert(cellData.rcData[1].R > 0, "Parameters of RC-elements undefined!");
       //connect the RC-elements
       connect(resistor[1].p, r0.n)
         annotation (Line(points={{30,-20},{30,0},{10,0}},color={0,0,255}));
@@ -725,7 +733,7 @@ There is no limit included against too high charging and too low discharging or 
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance";
       parameter Modelica.SIunits.Current Idis=0 "Self-discharge current at SOC = SOCmax"
         annotation(Evaluate=true);
-      parameter RCData rcData[:]={RCData(R=1e-6*Ri,Tau=0)}
+      parameter RCData rcData[:] "Parameter of optional RC-elements"
         annotation (Dialog(group="Optional RC-elements"),
           Placement(transformation(extent={{-10,0},{10,20}})));
       final parameter Integer nRC=size(rcData, 1) "Number of RC-elements"
@@ -781,15 +789,15 @@ the sum of the resistances <code>rcData.R</code> must not exceed the total inner
     record RCData "Parameters of RC-elements"
       extends Modelica.Icons.Record;
       parameter Modelica.SIunits.Resistance R "Resistance of RC-element";
-      parameter Modelica.SIunits.Time Tau "Time constant of RC-element";
-      parameter Modelica.SIunits.Capacitance C=Tau/R "Capacitance of RC-element";
+      parameter Modelica.SIunits.Time T "Time constant of RC-element";
+      parameter Modelica.SIunits.Capacitance C=if R<=0 then 0 else T/R "Capacitance of RC-element";
       annotation(defaultComponentPrefixes="parameter", defaultComponentName="rcData",
       Documentation(info="<html>
 <p>Parameters for RC-elements of battery models:</p>
 <ul>
 <li><code>R</code> .. Resistance of RC-element</li>
-<li><code>Tau</code> .. Time constant of RC-element; if <code>C</code> is specified, <code>Tau</code> can be neglected</li>
-<li><code>C</code> .. Capacitance of RC-element; either specified explicitly or calculated from <code>Tau</code> and <code>R</code></li>
+<li><code>T</code> .. Time constant of RC-element; if <code>C</code> is specified, <code>T</code> can be neglected</li>
+<li><code>C</code> .. Capacitance of RC-element; either specified explicitly or calculated from <code>T</code> and <code>R</code></li>
 </ul>
 </html>"));
     end RCData;
