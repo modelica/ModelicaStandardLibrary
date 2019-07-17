@@ -718,10 +718,11 @@ The Real output y is a cosine signal:
     parameter Boolean useConstantFrequency=false "Enable constant frequency";
     parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
       annotation(Dialog(enable=useConstantFrequency));
-    parameter Real offset=0 "Offset of the sine wave";
+    parameter Real offset=0 "Offset of the sine wave"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/SineVariableFrequencyAndAmplitude.png"));
     Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
-    Blocks.Interfaces.RealInput amplitude if not useConstantAmplitude
-      "Amplitude" annotation (Placement(
+    Blocks.Interfaces.RealInput amplitude if not useConstantAmplitude "Amplitude"
+                  annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
           rotation=0,
@@ -743,11 +744,13 @@ The Real output y is a cosine signal:
           extent={{-2,-2},{2,2}},
           rotation=0,
           origin={-80,-60})));
-    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if useConstantAmplitude
+    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if
+      useConstantAmplitude
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,30})));
-    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if
+      useConstantFrequency
       annotation (Placement(transformation(extent={{10,-10},{-10,10}},
           rotation=90,
           origin={-80,-30})));
@@ -818,7 +821,8 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
   block Sinc "Generate sinc signal"
     import Modelica.Constants.pi;
     import Modelica.Constants.eps;
-    parameter Real amplitude=1 "Amplitude of sine wave";
+    parameter Real amplitude=1 "Amplitude of sine wave"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sinc.png"));
     parameter SIunits.Frequency f(start=1) "Frequency of sine wave";
     extends Interfaces.SignalSource;
   protected
@@ -871,34 +875,17 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(
-            points={{-41,-2},{-31.6,34.2},{-26.1,53.1},{-21.3,66.4},{-17.1,74.6},
-                {-12.9,79.1},{-8.64,79.8},{-4.42,76.6},{-0.201,69.7},{4.02,59.4},
-                {8.84,44.1},{14.9,21.2},{27.5,-30.8},{33,-50.2},{37.8,-64.2},{
-                42,-73.1},{46.2,-78.4},{50.5,-80},{54.7,-77.6},{58.9,-71.5},{
-                63.1,-61.9},{67.9,-47.2},{74,-24.8},{80,0}},
-            color={0,0,255},
-            thickness=0.5,
-            smooth=Smooth.Bezier),
-          Line(
-            points={{-41,-2},{-80,-2}},
-            color={0,0,255},
-            thickness=0.5),
           Text(
             extent={{-87,12},{-40,0}},
             textString="offset"),
-          Line(points={{-41,-2},{-41,-40}}, color={95,95,95}),
-          Text(
-            extent={{-60,-43},{-14,-54}},
-            textString="startTime"),
           Text(
             extent={{75,-47},{100,-60}},
             textString="time"),
           Text(
             extent={{-80,99},{-40,82}},
             textString="y"),
-          Line(points={{-9,80},{43,80}}, color={95,95,95}),
-          Line(points={{-41,-2},{50,-2}}, color={95,95,95}),
+          Line(points={{-80,80},{40,80}},color={95,95,95}),
+          Line(points={{-80,-2},{40,-2}}, color={95,95,95}),
           Polygon(
             points={{33,80},{30,67},{36,67},{33,80}},
             lineColor={95,95,95},
@@ -912,7 +899,16 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{33,80},{33,-2}}, color={95,95,95})}),
+          Line(points={{33,80},{33,-2}}, color={95,95,95}),
+      Line( points={{-80,80},{-76,78.7},{-72,74.8},{-68,68.7},{-64,60.5},{-60,50.9},
+                {-56,40.4},{-52,29.4},{-48,18.7},{-44,8.7},{-40,0},{-36,-7.2},{-32,
+                -12.5},{-28,-15.8},{-24,-17.3},{-20,-17},{-16,-15.1},{-12,-12.1},{
+                -8,-8.3},{-4,-4.1},{0,0},{4,3.7},{8,6.8},{12,9},{16,10.1},{20,10.2},
+                {24,9.3},{28,7.6},{32,5.3},{36,2.7},{40,0},{44,-2.5},{48,-4.7},{52,
+                -6.2},{56,-7.1},{60,-7.3},{64,-6.7},{68,-5.6},{72,-3.9},{76,-2},{80,
+                0}},
+            smooth=Smooth.Bezier,thickness=0.5,
+            color={0,0,255})}),
       Documentation(info="<html>
 <p>
 The Real output y is a sinc signal: <code> amplitude*(sin(2*&pi;*f*t))/((2*&pi;*f*t))</code>
@@ -2464,8 +2460,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
-    function readTableData = // No longer used, but kept for backward compatibility
+    function readTableData =
       Modelica.Blocks.Tables.Internal.readTimeTableData "Read table data from text or MATLAB MAT-file";
+                             // No longer used, but kept for backward compatibility
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
