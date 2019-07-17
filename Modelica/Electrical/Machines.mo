@@ -2627,26 +2627,21 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
         Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smpm.p)
           annotation (Placement(transformation(
-              origin={20,-40},
+              origin={10,-20},
               extent={{-10,10},{10,-10}},
-              rotation=270)));
+              rotation=0)));
         Mechanics.Rotational.Sensors.AngleSensor angleSensor annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={10,0})));
-        Mechanics.Rotational.Sensors.TorqueSensor torqueSensor annotation (
+              origin={30,-20})));
+        Mechanics.Rotational.Sensors.MultiSensor  multiSensor  annotation (
             Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=180,
-              origin={40,-60})));
-        Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (
-            Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=90,
-              origin={30,0})));
+              origin={40,-40})));
         Mechanics.Rotational.Components.Inertia inertiaLoad(J=JLoad)
-          annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
+          annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
         Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           quadraticSpeedDependentTorque(            tau_nominal=-TLoad,
             w_nominal(displayUnit="rad/s") = wNominal)
@@ -2656,16 +2651,17 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (
             Placement(transformation(
-              origin={-10,0},
+              origin={-10,20},
               extent={{-10,-10},{10,10}},
               rotation=270)));
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
         connect(rotorDisplacementAngle.plug_n, smpm.plug_sn) annotation (Line(
-              points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
+              points={{0,-14},{0,-20},{-16,-20},{-16,-30}},   color={0,0,255}));
         connect(rotorDisplacementAngle.plug_p, smpm.plug_sp)
-          annotation (Line(points={{14,-30},{-4,-30}}, color={0,0,255}));
+          annotation (Line(points={{0,-26},{0,-30},{-4,-30}},
+                                                       color={0,0,255}));
         connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
             points={{-16,-30},{-16,-30}},
             color={0,0,255}));
@@ -2673,16 +2669,10 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
             points={{-4,-30},{-4,-30}},
             color={0,0,255}));
         connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
-            points={{0,-40},{10,-40}}));
+            points={{0,-40},{10,-40},{10,-30}}));
         connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
             points={{-10,60},{-10,90},{-50,90}},
             color={0,0,255}));
-        connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (
-            Line(
-            points={{10,-10},{10,-40}}));
-        connect(angleSensor.phi, currentController.phi) annotation (Line(
-            points={{10,11},{10,30},{-40,30},{-40,38}},
-            color={0,0,127}));
         connect(id.y, currentController.id_rms) annotation (Line(
             points={{-69,70},{-60,70},{-60,56},{-52,56}},
             color={0,0,127}));
@@ -2692,8 +2682,8 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
         connect(groundM.p, terminalBox.starpoint) annotation (Line(
             points={{-70,-28},{-20,-28}},
             color={0,0,255}));
-        connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
-            points={{0,-40},{30,-40},{30,-60}}));
+        connect(smpm.flange, multiSensor.flange_a)
+          annotation (Line(points={{0,-40},{30,-40}}));
         connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply)
           annotation (Line(
             points={{-20,-10},{-10,-10},{-10,-28}},
@@ -2706,20 +2696,23 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
             color={0,0,255}));
         connect(currentController.y, signalCurrent.i) annotation (Line(
             points={{-29,50},{-22,50}}, color={0,0,127}));
-        connect(speedSensor.flange, smpm.flange) annotation (Line(
-            points={{30,-10},{30,-40},{0,-40}}));
         connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
           annotation (Line(
-            points={{80,-40},{70,-40}}));
-        connect(torqueSensor.flange_b, inertiaLoad.flange_a) annotation (Line(
-            points={{50,-60},{50,-40}}));
+            points={{80,-40},{80,-40}}));
+        connect(multiSensor.flange_b, inertiaLoad.flange_a)
+          annotation (Line(points={{50,-40},{60,-40}}));
         connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p) annotation (
            Line(
-            points={{-10,40},{-10,10}},
+            points={{-10,40},{-10,30}},
             color={0,0,255}));
         connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
           annotation (Line(
-            points={{-10,-10},{-20,-10}}, color={0,0,255}));
+            points={{-10,10},{-10,-10},{-20,-10}},
+                                          color={0,0,255}));
+        connect(smpm.flange, angleSensor.flange)
+          annotation (Line(points={{0,-40},{30,-40},{30,-30}}, color={0,0,0}));
+        connect(angleSensor.phi, currentController.phi) annotation (Line(points
+              ={{30,-9},{30,34},{-40,34},{-40,38}}, color={0,0,127}));
         annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>A synchronous machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
@@ -2794,13 +2787,8 @@ whereas the stator voltage is influenced by the d-current.</p>
           annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=90,
-              origin={10,0})));
         Modelica.Mechanics.Rotational.Components.Inertia inertiaLoad(J=JLoad)
-          annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
+          annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           quadraticSpeedDependentTorque(            tau_nominal=-TLoad,
             w_nominal(displayUnit="rad/s") = wNominal)
@@ -2822,21 +2810,16 @@ whereas the stator voltage is influenced by the d-current.</p>
           fsNominal=smpm.fsNominal,
           VsOpenCircuit=smpm.VsOpenCircuit)
           annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
-        Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
+        Mechanics.Rotational.Sensors.MultiSensor           multiSensor
           annotation (Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=180,
-              origin={40,-60})));
-        Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=90,
-              origin={30,0})));
+              origin={40,-40})));
         Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smpm.p)
           annotation (Placement(transformation(
-              origin={20,-40},
+              origin={10,-20},
               extent={{-10,10},{10,-10}},
-              rotation=270)));
+              rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
               transformation(
               origin={-80,-28},
@@ -2860,6 +2843,16 @@ whereas the stator voltage is influenced by the d-current.</p>
               origin={-10,20},
               extent={{-10,-10},{10,10}},
               rotation=270)));
+        Sensors.SinCosResolver sinCosResolver(p=1) annotation (Placement(
+              transformation(
+              extent={{-10,10},{10,-10}},
+              rotation=270,
+              origin={30,-20})));
+        Utilities.SinCosEvaluation sinCosEvaluation annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=270,
+              origin={30,10})));
       initial equation
         smpm.is[1:2] = zeros(2);
 
@@ -2874,9 +2867,7 @@ whereas the stator voltage is influenced by the d-current.</p>
             color={0,0,255}));
         connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
           annotation (Line(
-            points={{80,-40},{70,-40}}));
-        connect(smpm.flange, angleSensor.flange) annotation (Line(
-            points={{0,-40},{10,-40},{10,-10}}));
+            points={{80,-40},{80,-40}}));
         connect(star.plug_p, signalVoltage.plug_n) annotation (Line(
             points={{-50,90},{-10,90},{-10,60}},
             color={0,0,255}));
@@ -2889,27 +2880,22 @@ whereas the stator voltage is influenced by the d-current.</p>
         connect(iq.y, voltageController.iq_rms) annotation (Line(
             points={{-69,30},{-60,30},{-60,44},{-52,44}},
             color={0,0,127}));
-        connect(angleSensor.phi, voltageController.phi) annotation (Line(
-            points={{10,11},{10,34},{-34,34},{-34,38}},
-            color={0,0,127}));
         connect(voltageController.y, signalVoltage.v) annotation (Line(
             points={{-29,50},{-22,50}}, color={0,0,127}));
         connect(currentSensor.i, voltageController.iActual) annotation (Line(
             points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}},
             color={0,0,127}));
-        connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
-            points={{50,-40},{50,-60}}));
-        connect(torqueSensor.flange_a, smpm.flange) annotation (Line(
-            points={{30,-60},{30,-40},{0,-40}}));
-        connect(speedSensor.flange, smpm.flange) annotation (Line(
-            points={{30,-10},{30,-40},{0,-40}}));
+        connect(inertiaLoad.flange_a, multiSensor.flange_b)
+          annotation (Line(points={{60,-40},{50,-40}}));
+        connect(multiSensor.flange_a, smpm.flange)
+          annotation (Line(points={{30,-40},{0,-40}}));
         connect(rotorDisplacementAngle.flange, smpm.flange) annotation (Line(
-            points={{10,-40},{0,-40}}));
+            points={{10,-30},{6,-30},{6,-40},{0,-40}}));
         connect(rotorDisplacementAngle.plug_p, smpm.plug_sp) annotation (Line(
-            points={{14,-30},{-4,-30}},
+            points={{0,-26},{6,-26},{6,-30},{-4,-30}},
             color={0,0,255}));
         connect(rotorDisplacementAngle.plug_n, smpm.plug_sn) annotation (Line(
-            points={{26,-30},{26,-20},{-16,-20},{-16,-30}},
+            points={{0,-14},{0,-20},{-16,-20},{-16,-30}},
             color={0,0,255}));
         connect(voltageQuasiRMSSensor.plug_p, currentSensor.plug_n) annotation (
            Line(
@@ -2928,6 +2914,12 @@ whereas the stator voltage is influenced by the d-current.</p>
         connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
            Line(
             points={{-10,40},{-10,30}}, color={0,0,255}));
+        connect(smpm.flange, sinCosResolver.flange)
+          annotation (Line(points={{0,-40},{30,-40},{30,-30}}, color={0,0,0}));
+        connect(sinCosResolver.y, sinCosEvaluation.u)
+          annotation (Line(points={{30,-9},{30,-2}}, color={0,0,127}));
+        connect(sinCosEvaluation.phi, voltageController.phi) annotation (Line(
+              points={{30,21},{30,34},{-34,34},{-34,38}}, color={0,0,127}));
         annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
@@ -12193,6 +12185,78 @@ Note that phi0 has to be set that way, that in shaft position phi0 the flux link
 </p>
 </html>"));
     end HallSensor;
+
+    model SinCosResolver "Sin-Cos-Resolver"
+      import Modelica.Constants.pi;
+      extends
+        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+      parameter Integer p(final min=1, start=2) "Number of pole pairs";
+      parameter Real amplitude=1 "Amplitude of signals";
+      parameter Real offset=1.5 "Offset of signals";
+      parameter Modelica.SIunits.Angle phi0=-pi/p "Initial mechanical angle";
+      Modelica.Blocks.Interfaces.RealOutput y[4] "Track signals"
+        annotation (Placement(transformation(extent={{-100,-10},{-120,10}})));
+    equation
+      flange.tau=0;
+      y[1] = offset + amplitude*cos(p*(flange.phi - phi_support - phi0));
+      y[2] = offset - amplitude*cos(p*(flange.phi - phi_support - phi0));
+      y[3] = offset + amplitude*sin(p*(flange.phi - phi_support - phi0));
+      y[4] = offset - amplitude*sin(p*(flange.phi - phi_support - phi0));
+       annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+            Ellipse(extent={{-70,70},{70,-70}}, lineColor={95,95,95},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-100,0}}, color={95,95,95}),
+            Line(points={{100,0},{70,0}}, color={95,95,95}),
+            Text(
+              extent={{-150,120},{150,80}},
+              textColor={0,0,255},
+              fillColor={255,255,255},
+              textString="%name"),
+            Ellipse(extent={{-20,20},{20,-20}}, lineColor={95,95,95},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                  74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
+                  59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
+                  -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
+                  {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, smooth = Smooth.Bezier),
+            Line(points={{-80,80},{-76.2,79.8},{-70.6,76.6},{-64.9,69.7},{-59.3,
+                  59.4},{-52.9,44.1},{-44.83,21.2},{-27.9,-30.8},{-20.7,-50.2},{-14.3,
+                  -64.2},{-8.7,-73.1},{-3,-78.4},{2.6,-80},{8.2,-77.6},{13.9,-71.5},
+                  {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0}}, smooth=Smooth.Bezier),
+            Line(points={{84,80},{80.2,79.8},{74.6,76.6},{68.9,69.7},{63.3,59.4},{56.9,
+                  44.1},{48.83,21.2},{31.9,-30.8},{24.7,-50.2},{18.3,-64.2},{12.7,-73.1},
+                  {7,-78.4},{1.4,-80},{-4.2,-77.6},{-9.9,-71.5},{-15.5,-61.9},{-21.9,
+                  -47.2},{-30,-24.8},{-38,0}},                  smooth=Smooth.Bezier)}),
+        Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+Simple model of a sin-cos-resolver, i.e. measuring the angle of the flange (w.r.t. the optional support) and providing 4 signals:
+</p>
+<ul>
+<li><code>y[1] = offset + amplitude*cos(p*phi)</code></li>
+<li><code>y[2] = offset - amplitude*cos(p*phi)</code></li>
+<li><code>y[3] = offset + amplitude*sin(p*phi)</code></li>
+<li><code>y[4] = offset - amplitude*sin(p*phi)</code></li>
+</ul>
+<p>
+Thus the sine and cosine signals have <code>p</code> periods per mechanical revolution. 
+Adding an <code>offset</code> &gt; <code>amplitude</code>, the loss of one track can be determined. 
+Subtracting the negated signal from the signal, the offset is removed and a cosine and a sine with doubled amplitude are accessible. 
+From this signal, the angle within one polepair of a machine can be determined for field oriented control. 
+Block <a href=\"modelica://Modelica.Electrical.Machines.Utilities.SinCosEvaluation\">SinCosEvaluation</a> can be used. 
+</p>
+<p>
+This model can be used to export FMUs of drives to develop control strategies in other environments. 
+When switching to a real drive, the same inputs as from the FMU can be used. 
+</p>
+<p>
+Note that phi0 has to be set that way, that in shaft position phi0 the flux linkage of phase 1 is a maximum.
+</p>
+</html>"));
+    end SinCosResolver;
     annotation (Documentation(info="<html>
 This package contains sensors that are useful when modelling machines.
 </html>", revisions="<html>
@@ -17035,6 +17099,90 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
 </p>
 </html>"));
     end VoltageController;
+
+    block SinCosEvaluation "Evaluation of the signals of a sin-cos-resolver"
+      extends Modelica.Blocks.Icons.Block;
+      Blocks.Interfaces.RealInput u[4] "Signal from sin-cos-resolver"
+        annotation (Placement(transformation(extent={{-140,20},{-100,-20}})));
+      Blocks.Math.Feedback
+                    feedbackCos
+        annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
+      Blocks.Math.Feedback
+                    feedbackSin
+        annotation (Placement(transformation(extent={{-70,-30},{-50,-50}})));
+      SpacePhasors.Blocks.Rotator                     rotator
+        annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+      Blocks.Continuous.Integrator
+                            integrator(k=1e6)
+        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+      Blocks.Continuous.Der
+                     der1
+        annotation (Placement(transformation(extent={{60,-70},{80,-50}})));
+      Blocks.Interfaces.RealOutput phi(unit="rad") "Angle"
+        annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+      Blocks.Interfaces.RealOutput w(unit="rad/s") "Angular velocity"
+        annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+    equation
+      connect(u[1], feedbackCos.u1) annotation (Line(points={{-120,15},{-80,15},
+              {-80,40},{-68,40}}, color={0,0,127}));
+      connect(u[2], feedbackCos.u2)
+        annotation (Line(points={{-120,5},{-60,5},{-60,32}}, color={0,0,127}));
+      connect(u[3], feedbackSin.u1) annotation (Line(points={{-120,-5},{-80,-5},
+              {-80,-40},{-68,-40}}, color={0,0,127}));
+      connect(u[4], feedbackSin.u2) annotation (Line(points={{-120,-15},{-60,
+              -15},{-60,-32}}, color={0,0,127}));
+      connect(feedbackCos.y, rotator.u[1]) annotation (Line(points={{-51,40},{
+              -40,40},{-40,0},{-22,0}}, color={0,0,127}));
+      connect(feedbackSin.y, rotator.u[2]) annotation (Line(points={{-51,-40},{
+              -40,-40},{-40,0},{-22,0}}, color={0,0,127}));
+      connect(rotator.y[2], integrator.u)
+        annotation (Line(points={{1,0},{8,0}}, color={0,0,127}));
+      connect(integrator.y, rotator.angle) annotation (Line(points={{31,0},{40,
+              0},{40,-20},{-10,-20},{-10,-12}}, color={0,0,127}));
+      connect(integrator.y, der1.u) annotation (Line(points={{31,0},{40,0},{40,
+              -60},{58,-60}}, color={0,0,127}));
+      connect(integrator.y, phi)
+        annotation (Line(points={{31,0},{110,0}}, color={0,0,127}));
+      connect(der1.y, w)
+        annotation (Line(points={{81,-60},{110,-60}}, color={0,0,127}));
+      annotation (Icon(graphics={
+            Line(points={{-80,80},{-76.2,79.8},{-70.6,76.6},{-64.9,69.7},{-59.3,
+                  59.4},{-52.9,44.1},{-44.83,21.2},{-27.9,-30.8},{-20.7,-50.2},{-14.3,
+                  -64.2},{-8.7,-73.1},{-3,-78.4},{2.6,-80},{8.2,-77.6},{13.9,-71.5},
+                  {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0}}, smooth=Smooth.Bezier),
+            Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                  74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
+                  59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
+                  -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
+                  {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, smooth = Smooth.Bezier)}),
+          Documentation(info="<html>
+<p>
+The <a href=\"modelica://Modelica.Electrical.Machines.Sensors.SinCosResolver\">sin-cos-resolver</a> provides four tracks:
+</p>
+<ul>
+<li>cosine</li>
+<li>minus sine<li>
+<li>sine</li>
+<li>minus cosine<li>
+</ul>
+<p>
+All four tracks have the same amplitude and the same offset &gt; amplitude. Offset is used to detect loss of a track. 
+To remove offset, (minus sine) is subtracted from (sine) and (minus cosine) from (cosine), 
+resulting in a cosine and a sine signal with doubled amplitude but without offset.
+</p>
+<p>
+Interpreting cosine and sine as real and imaginary part of a phasor, one could calculate the angle of the phasor (i.e. transform rectangular coordinates to polar coordinates). 
+This is not very robust if the signals are superimposed with some noise. 
+Therefore the phasor is rotated by an angle that is obtained by a controller. The controller aims at imaginary part equal to zero. 
+The resulting angle is continuous, i.e. differentiating the angle results in 2*&pi;*frequency. 
+If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
+</p>
+<p>
+If the <a href=\"modelica://Modelica.Electrical.Machines.Sensors.SinCosResolver\">sin-cos-resolver</a> provides one period of the tracks during a rotation of 2&pi;/p, 
+the result is the angle with respect to one pole pair and can be directly used for field oriented control.
+</p>
+</html>"));
+    end SinCosEvaluation;
 
     model SwitchYD "Y-D-switch"
       parameter Integer m=3 "Number of phases";
