@@ -589,7 +589,8 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
       model Issue2929 "Conversion test for #2929"
         extends Modelica.Icons.Example;
-        model M = Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer;
+        model M =
+            Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer;
         annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2929\">#2929</a>.
@@ -1407,6 +1408,86 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue940;
+
+      package Issue2479 "Conversion test for #2479"
+        extends Modelica.Icons.ExamplesPackage;
+        partial model SinglePortLeft "Partial model of a single port at the left"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end SinglePortLeft;
+
+        partial model SinglePortBottom "Partial model of a single port at the bottom"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortBottom;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end SinglePortBottom;
+
+        partial model TwoPort "Partial model of two port"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end TwoPort;
+
+        partial model SimpleFriction "Simple friction model"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end SimpleFriction;
+
+        partial model Ambient "Partial model of ambient"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end Ambient;
+
+        partial model AbsoluteSensor "Partial model of absolute sensor"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end AbsoluteSensor;
+
+        partial model RelativeSensor "Partial model of relative sensor"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end RelativeSensor;
+
+        partial model FlowSensor "Partial model of flow sensor"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.FlowSensor;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end FlowSensor;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+      end Issue2479;
     end FluidHeatFlow;
   end Thermal;
 

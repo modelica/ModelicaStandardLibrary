@@ -2487,7 +2487,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Media</strong></td></tr>
 <tr><td width=\"150\">Water_10degC<br>Water_90degC<br>Glycol20_20degC<br>Glycol50_20degC<br>MineralOil</td>
     <td> Several new records defining media properties.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces</strong></td></tr>
 <tr><td width=\"150\">SinglePortLeft</td>
     <td> Replaces the (now obsolete) partial model Ambient and is also used for Sources.AbsolutePressure.</td></tr>
 <tr><td width=\"150\">SinglePortBottom</td>
@@ -2554,7 +2554,7 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow</strong></td></tr>
 <tr><td>Components.IsolatedPipe<br>Components.HeatedPipe</td>
     <td>Extend from the new pipe model with optional heatPort.</td></tr>
-<tr><td>Interfaces.Partials.Ambient</td>
+<tr><td>Interfaces.Ambient</td>
     <td>Extends from SinglePortLeft.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
 <tr><td>baseIcon1<br>baseIcon2</td>
@@ -5814,7 +5814,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
           <td> Changed implementation so that counting unknowns and
                                                 equations is possible without actual values of parameters.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.</strong></td></tr>
 <tr><td>TwoPort</td>
           <td> Introduced <code>parameter Real tapT(final min=0, final max=1)=1</code><br> that defines the temperature of the heatPort
                                                 between inlet and outlet.</td></tr>
@@ -5938,7 +5938,7 @@ units are wrong or errors in documentation):
 <tr><td>SimpleFriction</td>
           <td> The internal parameter k is defined and calculated with the appropriate unit.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.</strong></td></tr>
 <tr><td>SimpleFriction</td>
           <td> The internal parameter k is defined and calculated with the appropriate unit.</td></tr>
 
@@ -7227,7 +7227,7 @@ The following <strong>components</strong> have been improved:
           <td> New implementation based solely on Modelica 2.2 language
                    (previously, the Dymola specific constrain(..) function was used).</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces.</strong></td></tr>
 <tr><td> SimpleFriction</td>
           <td> Calculates friction losses from pressure drop and volume flow.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components.</strong></td></tr>
