@@ -877,7 +877,7 @@ Then, after a pause <code>Tp</code>, a series of <code>n2</code> pulses of <code
             fillPattern=FillPattern.Solid), Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255}),
+            textColor={0,0,255}),
             Polygon(
               points={{20,80},{-50,-20},{0,-20},{-20,-80},{50,20},{0,20},{20,80}},
               lineColor={0,0,255},
