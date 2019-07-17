@@ -2102,7 +2102,7 @@ matrices <code>U</code> and <code>VT</code>.
     extends Modelica.Icons.Function;
     input Real A[:, :] "Rectangular matrix with size(A,1) >= size(A,2)";
     input Boolean pivoting=true
-      "=true, if column pivoting is performed. True is default";
+      "= true, if column pivoting is performed. True is default";
     output Real Q[size(A, 1), size(A, 2)]
       "Rectangular matrix with orthonormal columns such that Q*R=A[:,p]";
     output Real R[size(A, 2), size(A, 2)] "Square upper triangular matrix";
@@ -7889,7 +7889,7 @@ For details of the arguments, see documentation of dgbsv.
 
       input Real H[:, size(H, 1)] "Matrix H with Hessenberg form";
       input Boolean eigenValuesOnly=true
-        "True to compute the eigenvalues. False to compute the Schur form too";
+        "= true, if only eigenvalues are computed, otherwise compute the Schur form too";
       input String compz="N" "Specifies the computation of the Schur vectors";
       input Real Z[:, :]=H "Matrix Z";
       output Real alphaReal[size(H, 1)]
@@ -10957,7 +10957,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.LAPACK.
       input Real alphaImag[size(T, 1)]
         "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
       input Boolean iscontinuous=true
-        "= true,if the according system is continuous. False for discrete systems";
+        "= true, if the according system is continuous. False for discrete systems";
 
       output Real To[size(T, 1), size(T, 2)] "Reordered Schur form";
       output Real Qo[size(T, 1), size(T, 2)] "Reordered Schur vector matrix";
