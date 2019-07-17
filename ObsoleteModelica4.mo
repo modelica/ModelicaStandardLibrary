@@ -137,6 +137,285 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
         points={{-61.0,-45.0},{-61.0,-10.0},{-26.0,-10.0}})}));
   end Electrical;
 
+  package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)"
+    extends Modelica.Icons.Package;
+    package Rotational "Library to model 1-dimensional, rotational mechanical systems"
+      extends Modelica.Icons.Package;
+      package Interfaces "Connectors and partial models for 1D rotational mechanical components"
+        extends Modelica.Icons.Package;
+        partial model PartialElementaryOneFlangeAndSupport
+          "Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2."
+          extends Modelica.Icons.ObsoleteModel;
+          parameter Boolean useSupport=false
+            "= true, if support flange enabled, otherwise implicitly grounded"
+            annotation (
+            Evaluate=true,
+            HideResult=true,
+            choices(checkBox=true));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange "Flange of shaft"
+            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+          Modelica.Mechanics.Rotational.Interfaces.Support support if useSupport "Support/housing of component"
+            annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        protected
+          Modelica.Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau)
+            "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+            annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+          Modelica.Mechanics.Rotational.Components.Fixed fixed if not useSupport
+            "Fixed support/housing, if not useSupport"
+            annotation (Placement(transformation(extent={{10,-96},{30,-76}})));
+        equation
+          connect(internalSupport.flange, support) annotation (Line(
+              points={{0,-80},{0,-100}}));
+          connect(internalSupport.flange, fixed.flange) annotation (Line(
+              points={{0,-80},{20,-80},{20,-86}}));
+          annotation (
+            obsolete = "Obsolete model - use Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2 instead",
+            Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with one flange and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+
+<p>
+If <em>useSupport=true</em>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <em>useSupport=false</em>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+</html>"),
+            Diagram(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={Text(
+                      extent={{25,-97},{65,-98}},
+                      textColor={95,95,95},
+                      textString="(if not useSupport)"),Text(
+                      extent={{-38,-98},{-6,-96}},
+                      textColor={95,95,95},
+                      textString="(if useSupport)")}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                    100,100}}), graphics={Line(
+                      visible=not useSupport,
+                      points={{-50,-120},{-30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-120},{-10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-10,-120},{10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{10,-120},{30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-100},{30,-100}})}));
+        end PartialElementaryOneFlangeAndSupport;
+
+        partial model PartialElementaryTwoFlangesAndSupport
+          "Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2."
+          extends Modelica.Icons.ObsoleteModel;
+          parameter Boolean useSupport=false
+            "= true, if support flange enabled, otherwise implicitly grounded"
+            annotation (
+            Evaluate=true,
+            HideResult=true,
+            choices(checkBox=true));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a "Flange of left shaft" annotation (Placement(
+                transformation(extent={{-110,-10},{-90,10}})));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b "Flange of right shaft" annotation (Placement(
+                transformation(extent={{90,-10},{110,10}})));
+          Modelica.Mechanics.Rotational.Interfaces.Support support if useSupport "Support/housing of component"
+            annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        protected
+          Modelica.Mechanics.Rotational.Interfaces.InternalSupport internalSupport(
+            tau=-flange_a.tau - flange_b.tau)
+            "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+            annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+          Modelica.Mechanics.Rotational.Components.Fixed fixed if not useSupport
+            "Fixed support/housing, if not useSupport"
+            annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
+        equation
+          connect(internalSupport.flange, support) annotation (Line(
+              points={{0,-80},{0,-100}}));
+          connect(internalSupport.flange, fixed.flange) annotation (Line(
+              points={{0,-80},{20,-80},{20,-87}}));
+          annotation (
+            obsolete = "Obsolete model - use Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2 instead",
+            Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with two flanges and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+
+<p>
+If <em>useSupport=true</em>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <em>useSupport=false</em>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+</html>"),
+            Diagram(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={Text(
+                      extent={{24,-97},{64,-98}},
+                      textColor={95,95,95},
+                      textString="(if not useSupport)"),Text(
+                      extent={{-38,-98},{-6,-96}},
+                      textColor={95,95,95},
+                      textString="(if useSupport)")}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                    100,100}}), graphics={Line(
+                      visible=not useSupport,
+                      points={{-50,-120},{-30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-120},{-10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-10,-120},{10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{10,-120},{30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-100},{30,-100}})}));
+        end PartialElementaryTwoFlangesAndSupport;
+      end Interfaces;
+    end Rotational;
+
+    package Translational "Library to model 1-dimensional, translational mechanical systems"
+      extends Modelica.Icons.Package;
+      package Interfaces "Interfaces for 1-dim. translational mechanical components"
+        extends Modelica.Icons.Package;
+        partial model PartialElementaryOneFlangeAndSupport
+          "Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2."
+          extends Modelica.Icons.ObsoleteModel;
+          parameter Boolean useSupport=false
+            "= true, if support flange enabled, otherwise implicitly grounded"
+            annotation (
+            Evaluate=true,
+            HideResult=true,
+            choices(checkBox=true));
+          Modelica.SIunits.Length s
+            "Distance between flange and support (= flange.s - support.s)";
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange "Flange of component" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+
+        protected
+          Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange.f)
+            "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+            annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+          Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport
+            "Fixed support/housing, if not useSupport" annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
+        public
+          Modelica.Mechanics.Translational.Interfaces.Support support if useSupport "Support/housing of component"
+            annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        equation
+          s = flange.s - internalSupport.s;
+          connect(internalSupport.flange, support) annotation (Line(
+              points={{0,-80},{0,-100}}, color={0,127,0}));
+          connect(fixed.flange, internalSupport.flange) annotation (Line(
+              points={{20,-87},{20,-80},{0,-80}}, color={0,127,0}));
+          annotation (
+            obsolete = "Obsolete model - use Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2 instead",
+            Documentation(info="<html>
+    <p>
+This is a 1-dim. translational component with one flange and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+
+<p>
+If <em>useSupport=true</em>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <em>useSupport=false</em>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+
+</html>"),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                    {100,100}}), graphics={Text(
+                      extent={{-38,-98},{-6,-96}},
+                      textColor={95,95,95},
+                      textString="(if useSupport)"),Text(
+                      extent={{24,-97},{64,-98}},
+                      textColor={95,95,95},
+                      textString="(if not useSupport)")}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                    100,100}}), graphics={Line(
+                      visible=not useSupport,
+                      points={{-50,-120},{-30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-120},{-10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-10,-120},{10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{10,-120},{30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-100},{30,-100}})}));
+        end PartialElementaryOneFlangeAndSupport;
+
+        partial model PartialElementaryTwoFlangesAndSupport
+          "Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2."
+          extends Modelica.Icons.ObsoleteModel;
+          parameter Boolean useSupport=false
+            "= true, if support flange enabled, otherwise implicitly grounded"
+            annotation (
+            Evaluate=true,
+            HideResult=true,
+            choices(checkBox=true));
+          extends Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges;
+          Modelica.SIunits.Length s_a "Distance between left flange and support";
+          Modelica.SIunits.Length s_b "Distance between right flange and support";
+        protected
+          Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange_a.f - flange_b.f)
+            "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+            annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+          Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport
+            "Fixed support/housing, if not useSupport"
+            annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
+        public
+          Modelica.Mechanics.Translational.Interfaces.Support support if useSupport "Support/housing of component"
+            annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        equation
+          s_a = flange_a.s - internalSupport.s;
+          s_b = flange_b.s - internalSupport.s;
+          connect(internalSupport.flange, support) annotation (Line(
+              points={{0,-80},{0,-100}}, color={0,127,0}));
+          connect(fixed.flange, internalSupport.flange) annotation (Line(
+              points={{20,-87},{20,-80},{0,-80}}, color={0,127,0}));
+          annotation (
+            obsolete = "Obsolete model - use Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2 instead",
+            Documentation(info="<html>
+<p>
+This is a 1-dim. translational component with two flanges and an additional support.
+It is used e.g., to build up elementary ideal gear components. The component
+contains the force balance, i.e., the sum of the forces of the connectors
+is zero (therefore, components that are based on PartialGear cannot have
+a mass). The support connector needs to be connected
+to avoid the unphysical behavior that the
+support force is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+
+</html>"),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                    {100,100}}), graphics={Text(
+                      extent={{-38,-98},{-6,-96}},
+                      textColor={95,95,95},
+                      textString="(if useSupport)"),Text(
+                      extent={{24,-97},{64,-98}},
+                      textColor={95,95,95},
+                      textString="(if not useSupport)")}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                    100,100}}), graphics={Line(
+                      visible=not useSupport,
+                      points={{-50,-120},{-30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-120},{-10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-10,-120},{10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{10,-120},{30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-100},{30,-100}})}));
+        end PartialElementaryTwoFlangesAndSupport;
+      end Interfaces;
+    end Translational;
+  end Mechanics;
+
   package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
     extends Modelica.Icons.Package;
     package Matrices "Library of functions operating on matrices"
@@ -996,9 +1275,9 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
                           textString="%name")}),
               Documentation(info="<html>
 <p>
-Obsolete symmetric cage model, see 
-<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and 
-<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use 
+Obsolete symmetric cage model, see
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a> instead.
 </p>
 </html>"));
@@ -1116,9 +1395,9 @@ Obsolete symmetric cage model, see
                           textColor={0,0,255},
                           textString="%name")}), Documentation(info="<html>
 <p>
-Obsolete saliency cage model, see 
-<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and 
-<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use 
+Obsolete saliency cage model, see
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a> instead.
 </p>
 </html>"));
