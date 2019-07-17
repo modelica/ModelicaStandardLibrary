@@ -503,18 +503,22 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           extends Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage;
           Integer numPhases = airGapS.m;
         end M1;
+
         model M2
           extends Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing;
           Integer numPhases = airGapS.m;
         end M2;
+
         model M3
           extends Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet;
           Integer numPhases = airGapR.m;
         end M3;
+
         model M4
           extends Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited;
           Integer numPhases = airGapR.m;
         end M4;
+
         model M5
           extends Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor;
           Integer numPhases = airGapR.m;
@@ -618,6 +622,57 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2993;
+
+      model Issue3058 "Conversion test for #3058"
+        extends Modelica.Icons.Example;
+        import Modelica.Constants.pi;
+        parameter Modelica.SIunits.Current Idq[2]={-53.5, 84.6}
+          "Desired d- and q-current";
+        Modelica.Blocks.Sources.Constant id(k=Idq[1])
+          annotation (Placement(transformation(extent={{-30,60},{-10,80}})));
+        Modelica.Blocks.Sources.Constant iq(k=Idq[2])
+          annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
+        Modelica.Electrical.Machines.Utilities.CurrentController
+                                    currentController(p=2)
+          annotation (Placement(transformation(extent={{10,40},{30,60}})));
+        Modelica.Blocks.Sources.Constant id1(k=Idq[1])
+          annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
+        Modelica.Blocks.Sources.Constant iq1(k=Idq[2])
+          annotation (Placement(transformation(extent={{-30,-80},{-10,-60}})));
+        Modelica.Electrical.Machines.Utilities.VoltageController
+                                             voltageController(
+          p=2,
+          Ld=0.4/(2*pi*50),
+          Lq=0.4/(2*pi*50),
+          Rs=0.03,
+          fsNominal=50,
+          VsOpenCircuit=100)
+          annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
+        Modelica.Blocks.Sources.Ramp ramp(duration=1)
+          annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+        Modelica.Blocks.Sources.Constant const[3](each k=0)
+          annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
+      equation
+        connect(iq.y, currentController.iq_rms) annotation (Line(points={{-9,30},{0,30},
+                {0,44},{8,44}},         color={0,0,127}));
+        connect(id.y, currentController.id_rms) annotation (Line(points={{-9,70},{0,70},
+                {0,56},{8,56}},         color={0,0,127}));
+        connect(id1.y, voltageController.id_rms) annotation (Line(points={{-9,-30},{0,
+                -30},{0,-44},{8,-44}},     color={0,0,127}));
+        connect(iq1.y, voltageController.iq_rms) annotation (Line(points={{-9,-70},{0,
+                -70},{0,-56},{8,-56}},     color={0,0,127}));
+        connect(ramp.y, currentController.phi) annotation (Line(points={{59,0},{40,0},
+                {40,20},{20,20},{20,38}}, color={0,0,127}));
+        connect(ramp.y, voltageController.phi) annotation (Line(points={{59,0},{40,0},
+                {40,-80},{26,-80},{26,-62}}, color={0,0,127}));
+        connect(const.y, voltageController.iActual)
+          annotation (Line(points={{-59,-90},{14,-90},{14,-62}}, color={0,0,127}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3058\">#3058</a>.
+</p>
+</html>"));
+      end Issue3058;
     end Machines;
 
     package PowerConverters "Rectifiers, Inverters, DC/DC and AC/AC converters"
