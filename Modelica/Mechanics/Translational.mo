@@ -1712,7 +1712,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
 </html>"));
     end EddyCurrentBrake;
 
-    model Vehicle1D "One-dimensional vehicle with driving resistances"
+    model Vehicle "One-dimensional vehicle with driving resistances"
       extends Modelica.Icons.Example;
       import Modelica.Constants.g_n;
       parameter Modelica.SIunits.Mass m=100 "Mass of vehicle";
@@ -1740,7 +1740,9 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Modelica.Blocks.Math.Gain gain(k=(FDrag + FRoll + FGrav)*D/2)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      Components.Vehicle1D vehicle1D(m=m, J=0,
+      Components.Vehicle vehicle(
+        m=m,
+        J=0,
         D=D,
         A=A,
         cw=cw,
@@ -1752,7 +1754,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         annotation (Placement(transformation(extent={{30,-10},{50,10}})));
       Rotational.Sources.Torque torque
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-      Components.Vehicle1D vehicle1D1(
+      Components.Vehicle vehicle1(
         m=m,
         J=0,
         D=D,
@@ -1766,7 +1768,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         annotation (Placement(transformation(extent={{30,40},{50,60}})));
       Rotational.Sources.Torque torque1
         annotation (Placement(transformation(extent={{0,40},{20,60}})));
-      Components.Vehicle1D vehicle1D2(
+      Components.Vehicle vehicle2(
         m=m,
         J=0,
         D=D,
@@ -1787,26 +1789,26 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
     equation
       connect(combiTimeTable.y[1], gain.u)
         annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
-      connect(combiTimeTable.y[2], vehicle1D.inclination) annotation (Line(points={{-59,0},
-              {-50,0},{-50,-20},{34,-20},{34,-12}},        color={0,0,127}));
+      connect(combiTimeTable.y[2], vehicle.inclination) annotation (Line(points
+            ={{-59,0},{-50,0},{-50,-20},{34,-20},{34,-12}}, color={0,0,127}));
       connect(gain.y, torque.tau)
         annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
-      connect(torque.flange, vehicle1D.flangeR)
+      connect(torque.flange, vehicle.flangeR)
         annotation (Line(points={{20,0},{30,0}}, color={0,0,0}));
-      connect(torque1.flange, vehicle1D1.flangeR)
+      connect(torque1.flange, vehicle1.flangeR)
         annotation (Line(points={{20,50},{30,50}}, color={0,0,0}));
-      connect(vehicle1D.inclination, vehicle1D1.inclination) annotation (Line(
+      connect(vehicle.inclination, vehicle1.inclination) annotation (Line(
             points={{34,-12},{34,-20},{60,-20},{60,30},{34,30},{34,38}}, color=
               {0,0,127}));
-      connect(vehicle1D1.inclination, vehicle1D2.inclination) annotation (Line(
+      connect(vehicle1.inclination, vehicle2.inclination) annotation (Line(
             points={{34,38},{34,30},{74,30},{74,38}}, color={0,0,127}));
       connect(gain.y, gain1.u)
         annotation (Line(points={{-19,0},{-10,0},{-10,18}}, color={0,0,127}));
       connect(gain1.y, torque1.tau)
         annotation (Line(points={{-10,41},{-10,50},{-2,50}}, color={0,0,127}));
-      connect(vehicle1D1.flangeT, multiSensor.flange_a)
+      connect(vehicle1.flangeT, multiSensor.flange_a)
         annotation (Line(points={{50,50},{50,74},{60,74}}, color={0,127,0}));
-      connect(multiSensor.flange_b, vehicle1D2.flangeT)
+      connect(multiSensor.flange_b, vehicle2.flangeT)
         annotation (Line(points={{80,74},{90,74},{90,50}}, color={0,127,0}));
       annotation (experiment(StopTime=60, Interval=0.01), Documentation(info="<html>
 <p>
@@ -1827,7 +1829,7 @@ Force and power between the two vehicles is measured.
 Note: Since the trailer <code>vehicle1D2</code> is coupled tightly with the second vehicle <code>vehicle1D1</code>, initilization of the trailer has to be removed.
 </p>
 </html>"));
-    end Vehicle1D;
+    end Vehicle;
 
     model GenerationOfFMUs
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
@@ -3397,7 +3399,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 </html>"));
     end IdealRollingWheel;
 
-    model Vehicle1D "Simple one-dimensional vehicle model"
+    model Vehicle "Simple one-dimensional vehicle model"
       parameter SI.Mass m "Total mass of vehicle";
       parameter SI.Acceleration g=Modelica.Constants.g_n "Gravitational constant";
       parameter SI.Inertia J "Total rotational inertia of drive train";
@@ -3684,7 +3686,7 @@ fGrav = m*g*sin(alpha)
 </pre>
 </blockquote>
 </html>"));
-    end Vehicle1D;
+    end Vehicle;
 
     model InitializeFlange
       "Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)"
