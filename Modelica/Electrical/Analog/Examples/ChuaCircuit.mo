@@ -1,36 +1,33 @@
 within Modelica.Electrical.Analog.Examples;
-encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
-  import Modelica.Electrical.Analog.Basic;
-  import Modelica.Electrical.Analog.Examples.Utilities;
-  import Modelica.Icons;
-  extends Icons.Example;
+model ChuaCircuit "Chua's circuit, ns, V, A"
+  extends Modelica.Icons.Example;
 
-  Basic.Inductor L(L=18, i(start=0, fixed=true)) annotation (Placement(transformation(
+  Modelica.Electrical.Analog.Basic.Inductor L(L=18, i(start=0, fixed=true)) annotation (Placement(transformation(
         origin={-75,38},
         extent={{-25,-25},{25,25}},
         rotation=270)));
-  Basic.Resistor Ro(R=12.5e-3) annotation (Placement(transformation(
+  Modelica.Electrical.Analog.Basic.Resistor Ro(R=12.5e-3) annotation (Placement(transformation(
         origin={-75,-17},
         extent={{-25,-25},{25,25}},
         rotation=270)));
-  Basic.Conductor G(G=0.565) annotation (Placement(transformation(extent={{-25,38},
+  Modelica.Electrical.Analog.Basic.Conductor G(G=0.565) annotation (Placement(transformation(extent={{-25,38},
             {25,88}})));
-  Basic.Capacitor C1(C=10, v(start=4, fixed=true)) annotation (Placement(transformation(
+  Modelica.Electrical.Analog.Basic.Capacitor C1(C=10, v(start=4, fixed=true)) annotation (Placement(transformation(
         origin={25,3},
         extent={{-25,-25},{25,25}},
         rotation=270)));
-  Basic.Capacitor C2(C=100, v(start=0, fixed=true)) annotation (Placement(transformation(
+  Modelica.Electrical.Analog.Basic.Capacitor C2(C=100, v(start=0, fixed=true)) annotation (Placement(transformation(
         origin={-25,3},
         extent={{-25,-25},{25,25}},
         rotation=270)));
-  Utilities.NonlinearResistor Nr(
+  Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistor Nr(
     Ga(min=-1) = -0.757576,
     Gb(min=-1) = -0.409091,
     Ve=1) annotation (Placement(transformation(
         origin={75,3},
         extent={{-25,-25},{25,25}},
         rotation=270)));
-  Basic.Ground Gnd annotation (Placement(transformation(extent={{-25,-112},{25,
+  Modelica.Electrical.Analog.Basic.Ground Gnd annotation (Placement(transformation(extent={{-25,-112},{25,
             -62}})));
 equation
   connect(L.n, Ro.p) annotation (Line(points={{-75,13},{-75,8}}));

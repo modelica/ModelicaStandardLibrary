@@ -26,6 +26,8 @@ AD_DA_conversion
 GenerationOfFMUs
 ResonanceCircuits
 InvertingAmp
+SeriesResonance
+ParallelResonance
 BatteryDischargeCharge
 OpAmps
 Utilities

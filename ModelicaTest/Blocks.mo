@@ -1906,14 +1906,12 @@ This shows the improvements in the numerics when balance=true is set.
             {-70,23.5},{-60,23.5}}, color={0,0,127}));
     connect(clock.y, mux2.u[2]) annotation (Line(points={{-79,0},{-70,0},
             {-70,16.5},{-60,16.5}}, color={0,0,127}));
-    connect(clock.y, mux3.u[1]) annotation (Line(points={{-79,0},{-70,
-            0},{-70,-15.3333},{-60,-15.3333}},
-                                            color={0,0,127}));
+    connect(clock.y, mux3.u[1]) annotation (Line(points={{-79,0},{-70,0},{-70,
+            -15.3333},{-60,-15.3333}},      color={0,0,127}));
     connect(clock.y, mux3.u[2]) annotation (Line(points={{-79,0},{-70,0},
             {-70,-20},{-60,-20}}, color={0,0,127}));
-    connect(clock.y, mux3.u[3]) annotation (Line(points={{-79,0},{-70,
-            0},{-70,-24.6667},{-60,-24.6667}},
-                                            color={0,0,127}));
+    connect(clock.y, mux3.u[3]) annotation (Line(points={{-79,0},{-70,0},{-70,
+            -24.6667},{-60,-24.6667}},      color={0,0,127}));
     connect(mux2.y, mux5.u[1:2]) annotation (Line(points={{-39,20},{-34,
             20},{-34,2.8},{-30,2.8}}, color={0,0,127}));
     connect(mux3.y, mux5.u[3:5]) annotation (Line(points={{-39,-20},{-34,
@@ -1927,14 +1925,12 @@ This shows the improvements in the numerics when balance=true is set.
     connect(demux2.u, demux5.y[1:2]) annotation (Line(points={{58,30},
             {46,30},{46,4},{32,4},{32,2.8}},
                                     color={0,0,127}));
-    connect(y3, demux3.y[1]) annotation (Line(points={{110,-20},{96,
-            -20},{96,-35.3333},{80,-35.3333}},
-                                          color={0,0,127}));
+    connect(y3, demux3.y[1]) annotation (Line(points={{110,-20},{96,-20},{96,
+            -35.3333},{80,-35.3333}},     color={0,0,127}));
     connect(y4, demux3.y[2]) annotation (Line(points={{110,-40},{96,-40},
             {96,-40},{80,-40}}, color={0,0,127}));
-    connect(y5, demux3.y[3]) annotation (Line(points={{110,-60},{96,
-            -60},{96,-44.6667},{80,-44.6667}},
-                                          color={0,0,127}));
+    connect(y5, demux3.y[3]) annotation (Line(points={{110,-60},{96,-60},{96,
+            -44.6667},{80,-44.6667}},     color={0,0,127}));
     connect(demux3.u, demux5.y[3:5]) annotation (Line(points={{58,-40},
             {46,-40},{46,-4},{32,-4},{32,-5.6},{32,-5.6}},
                                           color={0,0,127}));
@@ -2045,4 +2041,5 @@ known a priori if the controller is saturated or not, and it is important to enf
 the whole homotopy transformation.</p>
 </html>"));
   end LimPID;
+
 end Blocks;

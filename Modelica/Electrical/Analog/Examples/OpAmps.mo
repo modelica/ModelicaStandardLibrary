@@ -1000,6 +1000,8 @@ The output of the integrator part opamp (opAmp2) is a triangular signal of also 
   end LCOscillator;
 
   package OpAmpCircuits "Different circuits with operational amplifiers"
+    extends Modelica.Icons.VariantsPackage;
+
     partial model PartialOpAmp
       "Partial circuit of operational amplifiers"
       extends Modelica.Electrical.Analog.Interfaces.FourPin;
@@ -1083,7 +1085,6 @@ Different functionality is achieved by different circuits.
               fillPattern=FillPattern.None,
               textString="non-inverting")}));
     end Buffer;
-    extends Icons.VariantsPackage;
 
     model Gain "Inverting operational amplifier circuit"
       extends PartialOpAmp;

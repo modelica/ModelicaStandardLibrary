@@ -708,6 +708,324 @@ The Real output y is a cosine signal:
 </html>"));
   end Cosine;
 
+  block SineVariableFrequencyAndAmplitude
+    "Generate sine signal with variable frequency and amplitude"
+    extends Interfaces.SO;
+    import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Real constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
+    parameter Real offset=0 "Offset of the sine wave"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/SineVariableFrequencyAndAmplitude.png"));
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput amplitude if not useConstantAmplitude "Amplitude"
+                  annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=0,
+          origin={-120,60})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=0,
+          origin={-120,-60})));
+  protected
+    Blocks.Interfaces.RealInput amplitude_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=0,
+          origin={-80,60})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=0,
+          origin={-80,-60})));
+    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if
+      useConstantAmplitude
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={-80,30})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if
+      useConstantFrequency
+      annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={-80,-30})));
+  equation
+    der(phi) = 2*pi*f_internal;
+    y = offset + amplitude_internal*sin(phi);
+    connect(f, f_internal)
+      annotation (Line(points={{-120,-60},{-80,-60}}, color={0,0,127}));
+    connect(amplitude, amplitude_internal)
+      annotation (Line(points={{-120,60},{-80,60}}, color={0,0,127}));
+    connect(amplitude_constant.y, amplitude_internal)
+      annotation (Line(points={{-80,41},{-80,60}}, color={0,0,127}));
+    connect(f_constant.y, f_internal)
+      annotation (Line(points={{-80,-41},{-80,-60}}, color={0,0,127}));
+    annotation (defaultComponentName="sine",
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={
+  {-80,0},{-78.4,0},{-76.8,0},{-75.2,0},{-73.6,0.1},
+  {-72,0.1},{-70.4,0.2},{-68.8,0.3},{-67.2,0.4},{-65.6,0.6},
+  {-64,0.8},{-62.4,1.1},{-60.8,1.4},{-59.2,1.8},{-57.6,2.2},
+  {-56,2.7},{-54.4,3.3},{-52.8,3.9},{-51.2,4.6},{-49.6,5.4},
+  {-48,6.2},{-46.4,7.2},{-44.8,8.2},{-43.2,9.2},{-41.6,10.4},
+  {-40,11.6},{-38.4,12.9},{-36.8,14.2},{-35.2,15.6},{-33.6,17.1},
+  {-32,18.6},{-30.4,20.1},{-28.8,21.6},{-27.2,23.1},{-25.6,24.6},
+  {-24,26.1},{-22.4,27.5},{-20.8,28.8},{-19.2,30},{-17.6,31.1},
+  {-16,32},{-14.4,32.7},{-12.8,33.2},{-11.2,33.5},{-9.6,33.5},
+  {-8,33.2},{-6.4,32.5},{-4.8,31.5},{-3.2,30.1},{-1.6,28.4},
+  {0,26.2},{1.6,23.6},{3.2,20.6},{4.8,17.2},{6.4,13.3},
+  {8,9.1},{9.6,4.6},{11.2,-0.3},{12.8,-5.4},{14.4,-10.7},
+  {16,-16.1},{17.6,-21.6},{19.2,-27.1},{20.8,-32.3},{22.4,-37.4},
+  {24,-42.1},{25.6,-46.3},{27.2,-49.9},{28.8,-52.8},{30.4,-54.8},
+  {32,-56},{33.6,-56.1},{35.2,-55.2},{36.8,-53.1},{38.4,-49.8},
+  {40,-45.3},{41.6,-39.7},{43.2,-33},{44.8,-25.3},{46.4,-16.6},
+  {48,-7.3},{49.6,2.6},{51.2,12.8},{52.8,23},{54.4,33},
+  {56,42.5},{57.6,51.2},{59.2,58.8},{60.8,64.9},{62.4,69.3},
+  {64,71.9},{65.6,72.3},{67.2,70.5},{68.8,66.4},{70.4,60},
+  {72,51.4},{73.6,40.8},{75.2,28.4},{76.8,14.7},{78.4,0},
+  {80,-15.1}},     smooth = Smooth.Bezier)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}})),
+      Documentation(info="<html>
+<p>
+This signal source provides a sinusoidal signal with variable frequency <code>f</code> and variable <code>amplitude</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>amplitude</code> to zero.
+</p>
+</html>"));
+  end SineVariableFrequencyAndAmplitude;
+
+  block CosineVariableFrequencyAndAmplitude
+    "Generate cosine signal with variable frequency and amplitude"
+    extends Interfaces.SO;
+    import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Real constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
+    parameter Real offset=0 "Offset of the sine wave"
+      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/CosineVariableFrequencyAndAmplitude.png"));
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput amplitude if not useConstantAmplitude "Amplitude"
+                  annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=0,
+          origin={-120,60})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=0,
+          origin={-120,-60})));
+  protected
+    Blocks.Interfaces.RealInput amplitude_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=0,
+          origin={-80,60})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=0,
+          origin={-80,-60})));
+    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if
+      useConstantAmplitude
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={-80,30})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if
+      useConstantFrequency
+      annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+          rotation=90,
+          origin={-80,-30})));
+  equation
+    der(phi) = 2*pi*f_internal;
+    y = offset + amplitude_internal*cos(phi);
+    connect(f, f_internal)
+      annotation (Line(points={{-120,-60},{-80,-60}}, color={0,0,127}));
+    connect(amplitude, amplitude_internal)
+      annotation (Line(points={{-120,60},{-80,60}}, color={0,0,127}));
+    connect(amplitude_constant.y, amplitude_internal)
+      annotation (Line(points={{-80,41},{-80,60}}, color={0,0,127}));
+    connect(f_constant.y, f_internal)
+      annotation (Line(points={{-80,-41},{-80,-60}}, color={0,0,127}));
+    annotation (defaultComponentName="cosine",
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={
+  {-80,80},{-78.4,79.6},{-76.8,79.2},{-75.2,78.8},{-73.6,78.4},{-72,78},
+  {-70.4,77.5},{-68.8,77.1},{-67.2,76.6},{-65.6,76.1},{-64,75.6},
+  {-62.4,75},{-60.8,74.4},{-59.2,73.7},{-57.6,73},{-56,72.2},
+  {-54.4,71.3},{-52.8,70.3},{-51.2,69.2},{-49.6,68},{-48,66.6},
+  {-46.4,65.2},{-44.8,63.6},{-43.2,61.8},{-41.6,59.9},{-40,57.7},
+  {-38.4,55.5},{-36.8,53},{-35.2,50.3},{-33.6,47.5},{-32,44.4},
+  {-30.4,41.1},{-28.8,37.7},{-27.2,34},{-25.6,30.1},{-24,26.1},
+  {-22.4,21.9},{-20.8,17.5},{-19.2,13},{-17.6,8.3},{-16,3.5},
+  {-14.4,-1.3},{-12.8,-6.2},{-11.2,-11.1},{-9.6,-16},{-8,-20.8},
+  {-6.4,-25.5},{-4.8,-30.1},{-3.2,-34.5},{-1.6,-38.6},{0,-42.4},
+  {1.6,-45.9},{3.2,-49},{4.8,-51.7},{6.4,-53.9},{8,-55.5},
+  {9.6,-56.5},{11.2,-57},{12.8,-56.8},{14.4,-55.9},{16,-54.4},
+  {17.6,-52.2},{19.2,-49.3},{20.8,-45.7},{22.4,-41.5},{24,-36.7},
+  {25.6,-31.4},{27.2,-25.6},{28.8,-19.4},{30.4,-12.9},{32,-6.2},
+  {33.6,0.6},{35.2,7.4},{36.8,14},{38.4,20.4},{40,26.3},
+  {41.6,31.8},{43.2,36.5},{44.8,40.6},{46.4,43.7},{48,45.9},
+  {49.6,47.1},{51.2,47.2},{52.8,46.2},{54.4,44.1},{56,41},
+  {57.6,36.8},{59.2,31.8},{60.8,25.9},{62.4,19.4},{64,12.4},
+  {65.6,5.1},{67.2,-2.2},{68.8,-9.5},{70.4,-16.4},{72,-22.8},
+  {73.6,-28.4},{75.2,-33},{76.8,-36.6},{78.4,-38.9},{80,-39.8}},
+      smooth = Smooth.Bezier)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}})),
+      Documentation(info="<html>
+<p>
+This signal source provides a cosine signal with variable frequency <code>f</code> and variable <code>amplitude</code>, 
+i.e. the phase angle of the cosine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>amplitude</code> to zero.
+</p>
+</html>"));
+  end CosineVariableFrequencyAndAmplitude;
+
+  block Sinc "Generate sinc signal"
+    import Modelica.Constants.pi;
+    import Modelica.Constants.eps;
+    parameter Real amplitude=1 "Amplitude of sine wave"
+    annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sinc.png"));
+    parameter SIunits.Frequency f(start=1) "Frequency of sine wave";
+    extends Interfaces.SignalSource;
+  protected
+    Modelica.SIunits.Angle x=2*pi*f*(time - startTime);
+  equation
+    y = offset + (if time < startTime then 0 else amplitude*
+      (if noEvent(time - startTime)<eps then 1 else (sin(x))/x));
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-147,-152},{153,-112}},
+            textString="f=%f",
+            lineColor={0,0,0}),
+      Line(points={
+        {-80, 80.0},{-76, 78.7},{-72, 74.8},{-68, 68.7},{-64, 60.5},
+        {-60, 50.9},{-56, 40.4},{-52, 29.4},{-48, 18.7},{-44,  8.7},
+        {-40,  0.0},{-36, -7.2},{-32,-12.5},{-28,-15.8},{-24,-17.3},
+        {-20,-17.0},{-16,-15.1},{-12,-12.1},{ -8, -8.3},{ -4, -4.1},
+        {  0,  0.0},{  4,  3.7},{  8,  6.8},{ 12,  9.0},{ 16, 10.1},
+        { 20, 10.2},{ 24,  9.3},{ 28,  7.6},{ 32,  5.3},{ 36,  2.7},
+        { 40,  0.0},{ 44, -2.5},{ 48, -4.7},{ 52, -6.2},{ 56, -7.1},
+        { 60, -7.3},{ 64, -6.7},{ 68, -5.6},{ 72, -3.9},{ 76, -2.0},
+        { 80,  0.0}}, smooth = Smooth.Bezier)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-80,-90},{-80,84}}, color={95,95,95}),
+          Polygon(
+            points={{-80,97},{-84,81},{-76,81},{-80,97}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-99,-40},{85,-40}}, color={95,95,95}),
+          Polygon(
+            points={{97,-40},{81,-36},{81,-45},{97,-40}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-87,12},{-40,0}},
+            textString="offset"),
+          Text(
+            extent={{75,-47},{100,-60}},
+            textString="time"),
+          Text(
+            extent={{-80,99},{-40,82}},
+            textString="y"),
+          Line(points={{-80,80},{40,80}},color={95,95,95}),
+          Line(points={{-80,-2},{40,-2}}, color={95,95,95}),
+          Polygon(
+            points={{33,80},{30,67},{36,67},{33,80}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{37,57},{83,39}},
+            textString="amplitude"),
+          Polygon(
+            points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(points={{33,80},{33,-2}}, color={95,95,95}),
+      Line( points={{-80,80},{-76,78.7},{-72,74.8},{-68,68.7},{-64,60.5},{-60,50.9},
+                {-56,40.4},{-52,29.4},{-48,18.7},{-44,8.7},{-40,0},{-36,-7.2},{-32,
+                -12.5},{-28,-15.8},{-24,-17.3},{-20,-17},{-16,-15.1},{-12,-12.1},{
+                -8,-8.3},{-4,-4.1},{0,0},{4,3.7},{8,6.8},{12,9},{16,10.1},{20,10.2},
+                {24,9.3},{28,7.6},{32,5.3},{36,2.7},{40,0},{44,-2.5},{48,-4.7},{52,
+                -6.2},{56,-7.1},{60,-7.3},{64,-6.7},{68,-5.6},{72,-3.9},{76,-2},{80,
+                0}},
+            smooth=Smooth.Bezier,thickness=0.5,
+            color={0,0,255})}),
+      Documentation(info="<html>
+<p>
+The Real output y is a sinc signal: <code> amplitude*(sin(2*&pi;*f*t))/((2*&pi;*f*t))</code>
+</p>
+</html>"));
+  end Sinc;
+
   block ExpSine "Generate exponentially damped sine signal"
     import Modelica.Constants.pi;
     parameter Real amplitude=1 "Amplitude of sine wave"
@@ -2252,8 +2570,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
-    function readTableData = // No longer used, but kept for backward compatibility
+    function readTableData =
       Modelica.Blocks.Tables.Internal.readTimeTableData "Read table data from text or MATLAB MAT-file";
+                             // No longer used, but kept for backward compatibility
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -2856,11 +3175,11 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
       final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToBoolean realToBoolean annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
-    protected
+  protected
       function isValidTable "Check if table is valid"
         extends Modelica.Icons.Function;
         input Real table[:] "Vector of time instants";
-      protected
+    protected
         Integer n=size(table, 1) "Number of table points";
       algorithm
         if n > 0 then
@@ -2875,9 +3194,9 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
       end isValidTable;
 
       parameter Integer n=size(table, 1) "Number of table points";
-    initial algorithm
+  initial algorithm
       isValidTable(table);
-    equation
+  equation
       assert(extrapolation <> Modelica.Blocks.Types.Extrapolation.LastTwoPoints, "Unsuitable extrapolation setting.");
       connect(combiTimeTable.y[1], realToBoolean.u) annotation(Line(points={{-9,0},{8,0}}, color={0,0,127}));
       connect(realToBoolean.y, y) annotation(Line(points={{31,0},{110,0},{110,0}}, color={255,127,0}));
@@ -3190,11 +3509,11 @@ The Integer output y is a step signal:
       final shiftTime=shiftTime) annotation(Placement(transformation(extent={{-30,-10},{-10,10}})));
     Modelica.Blocks.Math.RealToInteger realToInteger annotation(Placement(transformation(extent={{10,-10},{30,10}})));
 
-    protected
+  protected
       function isValidTable "Check if table is valid"
         extends Modelica.Icons.Function;
         input Real table[:, 2] "Table matrix";
-      protected
+    protected
         Modelica.SIunits.Time t_last;
         Integer n=size(table, 1) "Number of table points";
       algorithm
@@ -3218,9 +3537,9 @@ The Integer output y is a step signal:
       end isValidTable;
 
       parameter Integer n=size(table, 1) "Number of table points";
-    initial algorithm
+  initial algorithm
       isValidTable(table);
-    equation
+  equation
       assert(n > 0, "No table values defined.");
       assert(extrapolation <> Modelica.Blocks.Types.Extrapolation.LastTwoPoints, "Unsuitable extrapolation setting.");
       connect(combiTimeTable.y[1], realToInteger.u) annotation(Line(points={{-9,0},{8,0}}, color={0,0,127}));
