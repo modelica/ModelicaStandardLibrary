@@ -1234,34 +1234,50 @@ theoretical calculations:</p>
       useConstantFrequency=true,
       constantFrequency=100,
       phi(fixed=true))
-      annotation (Placement(transformation(extent={{-10,30},{10,50}})));
+      annotation (Placement(transformation(extent={{-10,60},{10,80}})));
     Modelica.Blocks.Sources.Sine amplitude(
       amplitude=0.5,
       freqHz=2,
       offset=1)
-      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
-    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sineAM(
+      annotation (Placement(transformation(extent={{-52,20},{-32,40}})));
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sinAM(
       useConstantAmplitude=false,
       useConstantFrequency=true,
       constantFrequency=100,
       phi(fixed=true))
-      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+    Sources.CosineVariableFrequencyAndAmplitude cosAM(
+      useConstantAmplitude=false,
+      useConstantFrequency=true,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
     Modelica.Blocks.Sources.Sine frequency(
       amplitude=50,
       freqHz=2,
       offset=100)
       annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
-    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sineFM(
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sinFM(
       useConstantAmplitude=true,
       useConstantFrequency=false,
       constantFrequency=100,
       phi(fixed=true))
       annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
+    Sources.CosineVariableFrequencyAndAmplitude cosFM(
+      useConstantAmplitude=true,
+      useConstantFrequency=false,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
   equation
-    connect(amplitude.y, sineAM.amplitude) annotation (Line(points={{-29,0},{
-            -20,0},{-20,6},{-12,6}}, color={0,0,127}));
-    connect(frequency.y, sineFM.f) annotation (Line(points={{-29,-40},{-20,-40},
-            {-20,-46},{-12,-46}}, color={0,0,127}));
+    connect(amplitude.y, sinAM.amplitude) annotation (Line(points={{-31,30},{-20,30},
+            {-20,36},{-12,36}}, color={0,0,127}));
+    connect(frequency.y, sinFM.f) annotation (Line(points={{-29,-40},{-20,-40},{-20,
+            -46},{-12,-46}}, color={0,0,127}));
+    connect(amplitude.y, cosAM.amplitude) annotation (Line(points={{-31,30},{-20,30},
+            {-20,4},{-12,4}}, color={0,0,127}));
+    connect(frequency.y, cosFM.f) annotation (Line(points={{-29,-40},{-20,-40},{-20,
+            -76},{-12,-76}}, color={0,0,127}));
     annotation (experiment(Interval=0.0001), Documentation(info="<html>
 <p>
 This example demonstrates amplitude modulation (AM) and frequency modulation (FM).
@@ -1279,15 +1295,18 @@ This example demonstrates amplitude modulation (AM) and frequency modulation (FM
       offset=0,
       startTime=0)
       annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
-    Sources.SineVariableFrequencyAndAmplitude cosB(
+    Sources.CosineVariableFrequencyAndAmplitude
+                                              cosB(
       useConstantAmplitude=true,
       offset=1.5,
-      phi(fixed=true, start=pi/2))
+      phi(fixed=true))
       annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
-    Sources.SineVariableFrequencyAndAmplitude cosBminus(
+    Sources.CosineVariableFrequencyAndAmplitude
+                                              cosBminus(
       useConstantAmplitude=true,
+      constantAmplitude=-1,
       offset=1.5,
-      phi(fixed=true, start=-pi/2))
+      phi(fixed=true))
       annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
     Sources.SineVariableFrequencyAndAmplitude sinA(
       useConstantAmplitude=true,
@@ -1296,8 +1315,9 @@ This example demonstrates amplitude modulation (AM) and frequency modulation (FM
       annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));
     Sources.SineVariableFrequencyAndAmplitude sinAminus(
       useConstantAmplitude=true,
+      constantAmplitude=-1,
       offset=1.5,
-      phi(fixed=true, start=pi))
+      phi(fixed=true))
       annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
     Math.Feedback feedbackCos
       annotation (Placement(transformation(extent={{-30,40},{-10,60}})));

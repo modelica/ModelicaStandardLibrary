@@ -324,6 +324,92 @@ package Sources "Time-dependent and controlled voltage and current sources"
 
   end SineVoltage;
 
+  model CosineVoltage "Cosine voltage source"
+    parameter SI.Voltage V(start=1) "Amplitude of cosine wave";
+    parameter SI.Angle phase=0 "Phase of cosine wave";
+    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
+    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Cosine
+        signalSource(
+        final amplitude=V,
+        final freqHz=freqHz,
+        final phase=phase));
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Line(
+            points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,61},{-53.6,52},{-48,
+                38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},{-14.2,-56.2},{-9.3,
+                -64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,-62.5},{15.3,-54.1},
+                {20.9,-41.3},{28,-21.7},{35,0}},
+            color={192,192,192},
+            smooth=Smooth.Bezier), Line(points={{35,0},{44.8,29.9},{51.2,46.5},
+                {56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,
+                192,192})}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={
+            192,192,192}),Polygon(
+              points={{-80,100},{-86,84},{-74,84},{-80,100}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(points={{-99,-40},{100,-40}},
+            color={192,192,192}),Polygon(
+              points={{100,-40},{84,-34},{84,-46},{100,-40}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(
+              points={{-41,78},{-38,78},{-35.42,74.6},{-31.201,67.7},{-26.98,
+              57.4},{-22.16,42.1},{-16.1,19.2},{-3.5,-32.8},{2,-52.2},{6.8,-66.2},
+              {11,-75.1},{15.2,-80.4},{19.5,-82},{23.7,-79.6},{27.9,-73.5},{
+              32.1,-63.9},{36.9,-49.2},{43,-26.8},{49,-2},{49,-2},{57.4,32.2},{
+              62.9,51.1},{67.7,64.4},{71.9,72.6},{76.1,77.1},{80,78}},
+              thickness=0.5),Line(
+              points={{-41,-2},{-80,-2}},
+              thickness=0.5),Text(
+              extent={{-106,-11},{-60,-29}},
+              textColor={160,160,164},
+              textString="offset"),Line(
+              points={{-41,-2},{-41,-40}},
+              color={192,192,192},
+              pattern=LinePattern.Dash),Text(
+              extent={{-60,-43},{-14,-61}},
+              textColor={160,160,164},
+              textString="startTime"),Text(
+              extent={{76,-52},{100,-72}},
+              textColor={160,160,164},
+              textString="time"),Line(
+              points={{-8,78},{45,78}},
+              color={192,192,192},
+              pattern=LinePattern.Dash),Line(
+              points={{-41,-2},{52,-2}},
+              color={192,192,192},
+              pattern=LinePattern.Dash),Polygon(
+              points={{33,78},{30,65},{37,65},{33,78}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Text(
+              extent={{37,57},{83,39}},
+              textColor={160,160,164},
+              textString="V"),Polygon(
+              points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(
+              points={{33,78},{33,-2}},
+              color={192,192,192}),Text(
+              extent={{-69,109},{-4,83}},
+              textColor={160,160,164},
+              textString="v = p.v - n.v"),Line(
+              points={{-41,78},{-41,-2}},
+              thickness=0.5)}),
+      Documentation(revisions="<html>
+<ul>
+<li>Initially implemented by Christian Kral on 2013-05-14</li>
+</ul>
+</html>", info="<html>
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+</html>"));
+
+  end CosineVoltage;
+
   model SineVoltageVariableFrequencyAndAmplitude
     "Sine voltage source with variable frequency and amplitude"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
@@ -420,91 +506,100 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
 </html>"));
   end SineVoltageVariableFrequencyAndAmplitude;
 
-  model CosineVoltage "Cosine voltage source"
-    parameter SI.Voltage V(start=1) "Amplitude of cosine wave";
-    parameter SI.Angle phase=0 "Phase of cosine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
-    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Cosine
-        signalSource(
-        final amplitude=V,
-        final freqHz=freqHz,
-        final phase=phase));
-    annotation (
+  model CosineVoltageVariableFrequencyAndAmplitude
+    "Cosine voltage source with variable frequency and amplitude"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.VoltageSource;
+    import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Modelica.SIunits.Voltage constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
+    parameter Modelica.SIunits.Voltage offset=0 "Offset of the sine wave";
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput V(unit="V") if not useConstantAmplitude
+      "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={60,120})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+  protected
+    Blocks.Interfaces.RealInput V_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={60,80})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={-60,80})));
+    Blocks.Sources.Constant V_constant(final k=constantAmplitude) if useConstantAmplitude
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+      annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
+  equation
+    der(phi) = 2*pi*f_internal;
+    v = offset + V_internal*cos(phi);
+    connect(f, f_internal)
+      annotation (Line(points={{-60,120},{-60,80}}, color={0,0,127}));
+    connect(V, V_internal)
+      annotation (Line(points={{60,120},{60,80}}, color={0,0,127}));
+    connect(f_constant.y, f_internal)
+      annotation (Line(points={{-41,80},{-60,80}}, color={0,0,127}));
+    connect(V_constant.y, V_internal)
+      annotation (Line(points={{41,80},{60,80}}, color={0,0,127}));
+    annotation (defaultComponentName="cosineVoltage",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={Line(
-            points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,61},{-53.6,52},{-48,
-                38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},{-14.2,-56.2},{-9.3,
-                -64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,-62.5},{15.3,-54.1},
-                {20.9,-41.3},{28,-21.7},{35,0}},
-            color={192,192,192},
-            smooth=Smooth.Bezier), Line(points={{35,0},{44.8,29.9},{51.2,46.5},
-                {56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,
-                192,192})}),
+              100}}), graphics={
+          Line(
+            points={{-80,80},{-78.4,79.6},{-76.8,79.2},{-75.2,78.8},{-73.6,78.4},{
+                -72,78},{-70.4,77.5},{-68.8,77.1},{-67.2,76.6},{-65.6,76.1},{-64,75.6},
+                {-62.4,75},{-60.8,74.4},{-59.2,73.7},{-57.6,73},{-56,72.2},{-54.4,
+                71.3},{-52.8,70.3},{-51.2,69.2},{-49.6,68},{-48,66.6},{-46.4,65.2},
+                {-44.8,63.6},{-43.2,61.8},{-41.6,59.9},{-40,57.7},{-38.4,55.5},{-36.8,
+                53},{-35.2,50.3},{-33.6,47.5},{-32,44.4},{-30.4,41.1},{-28.8,37.7},
+                {-27.2,34},{-25.6,30.1},{-24,26.1},{-22.4,21.9},{-20.8,17.5},{-19.2,
+                13},{-17.6,8.3},{-16,3.5},{-14.4,-1.3},{-12.8,-6.2},{-11.2,-11.1},
+                {-9.6,-16},{-8,-20.8},{-6.4,-25.5},{-4.8,-30.1},{-3.2,-34.5},{-1.6,
+                -38.6},{0,-42.4},{1.6,-45.9},{3.2,-49},{4.8,-51.7},{6.4,-53.9},{8,
+                -55.5},{9.6,-56.5},{11.2,-57},{12.8,-56.8},{14.4,-55.9},{16,-54.4},
+                {17.6,-52.2},{19.2,-49.3},{20.8,-45.7},{22.4,-41.5},{24,-36.7},{25.6,
+                -31.4},{27.2,-25.6},{28.8,-19.4},{30.4,-12.9},{32,-6.2},{33.6,0.6},
+                {35.2,7.4},{36.8,14},{38.4,20.4},{40,26.3},{41.6,31.8},{43.2,36.5},
+                {44.8,40.6},{46.4,43.7},{48,45.9},{49.6,47.1},{51.2,47.2},{52.8,46.2},
+                {54.4,44.1},{56,41},{57.6,36.8},{59.2,31.8},{60.8,25.9},{62.4,19.4},
+                {64,12.4},{65.6,5.1},{67.2,-2.2},{68.8,-9.5},{70.4,-16.4},{72,-22.8},
+                {73.6,-28.4},{75.2,-33},{76.8,-36.6},{78.4,-38.9},{80,-39.8}},
+            smooth=Smooth.Bezier,
+            color={192,192,192})}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={
-            192,192,192}),Polygon(
-              points={{-80,100},{-86,84},{-74,84},{-80,100}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(points={{-99,-40},{100,-40}},
-            color={192,192,192}),Polygon(
-              points={{100,-40},{84,-34},{84,-46},{100,-40}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(
-              points={{-41,78},{-38,78},{-35.42,74.6},{-31.201,67.7},{-26.98,
-              57.4},{-22.16,42.1},{-16.1,19.2},{-3.5,-32.8},{2,-52.2},{6.8,-66.2},
-              {11,-75.1},{15.2,-80.4},{19.5,-82},{23.7,-79.6},{27.9,-73.5},{
-              32.1,-63.9},{36.9,-49.2},{43,-26.8},{49,-2},{49,-2},{57.4,32.2},{
-              62.9,51.1},{67.7,64.4},{71.9,72.6},{76.1,77.1},{80,78}},
-              thickness=0.5),Line(
-              points={{-41,-2},{-80,-2}},
-              thickness=0.5),Text(
-              extent={{-106,-11},{-60,-29}},
-              textColor={160,160,164},
-              textString="offset"),Line(
-              points={{-41,-2},{-41,-40}},
-              color={192,192,192},
-              pattern=LinePattern.Dash),Text(
-              extent={{-60,-43},{-14,-61}},
-              textColor={160,160,164},
-              textString="startTime"),Text(
-              extent={{76,-52},{100,-72}},
-              textColor={160,160,164},
-              textString="time"),Line(
-              points={{-8,78},{45,78}},
-              color={192,192,192},
-              pattern=LinePattern.Dash),Line(
-              points={{-41,-2},{52,-2}},
-              color={192,192,192},
-              pattern=LinePattern.Dash),Polygon(
-              points={{33,78},{30,65},{37,65},{33,78}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{37,57},{83,39}},
-              textColor={160,160,164},
-              textString="V"),Polygon(
-              points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(
-              points={{33,78},{33,-2}},
-              color={192,192,192}),Text(
-              extent={{-69,109},{-4,83}},
-              textColor={160,160,164},
-              textString="v = p.v - n.v"),Line(
-              points={{-41,78},{-41,-2}},
-              thickness=0.5)}),
+              100,100}})),
       Documentation(revisions="<html>
 <ul>
-<li>Initially implemented by Christian Kral on 2013-05-14</li>
+<li><em> 1998   </em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
 </ul>
 </html>", info="<html>
-<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+This voltage source provides a cosine voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>V</code> to zero.
+</p>
 </html>"));
-
-  end CosineVoltage;
+  end CosineVoltageVariableFrequencyAndAmplitude;
 
   model ExpSineVoltage "Exponentially damped sine voltage source"
     parameter SI.Voltage V(start=1) "Amplitude of sine wave";
@@ -1468,6 +1563,94 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 
   end SineCurrent;
 
+  model CosineCurrent "Cosine current source"
+    parameter SI.Current I(start=1) "Amplitude of cosine wave";
+    parameter SI.Angle phase=0 "Phase of cosine wave";
+    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
+    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Cosine
+        signalSource(
+        final amplitude=I,
+        final freqHz=freqHz,
+        final phase=phase));
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={Line(
+            points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,61},{-53.6,52},{-48,
+                38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},{-14.2,-56.2},{-9.3,
+                -64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,-62.5},{15.3,-54.1},
+                {20.9,-41.3},{28,-21.7},{35,0}},
+            color={192,192,192},
+            smooth=Smooth.Bezier), Line(points={{35,0},{44.8,29.9},{51.2,46.5},
+                {56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,
+                192,192})}),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={
+            192,192,192}),Polygon(
+              points={{-80,100},{-86,84},{-74,84},{-80,100}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(points={{-99,-40},{85,-40}},
+            color={192,192,192}),Polygon(
+              points={{101,-40},{85,-34},{85,-46},{101,-40}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(
+              points={{-41,-2},{-80,-2}},
+              thickness=0.5),Text(
+              extent={{-106,-11},{-60,-29}},
+              textColor={160,160,164},
+              textString="offset"),Line(
+              points={{-41,-2},{-41,-40}},
+              color={192,192,192},
+              pattern=LinePattern.Dash),Text(
+              extent={{-60,-43},{-14,-61}},
+              textColor={160,160,164},
+              textString="startTime"),Text(
+              extent={{84,-52},{108,-72}},
+              textColor={160,160,164},
+              textString="time"),Line(
+              points={{-10,78},{42,78}},
+              color={192,192,192},
+              pattern=LinePattern.Dash),Line(
+              points={{-41,-2},{5,-2},{5,-2},{51,-2}},
+              color={192,192,192},
+              pattern=LinePattern.Dash),Polygon(
+              points={{33,78},{30,65},{37,65},{33,78}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Text(
+              extent={{37,57},{83,39}},
+              textColor={160,160,164},
+              textString="I"),Polygon(
+              points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),Line(
+              points={{33,78},{33,-2}},
+              color={192,192,192}),Text(
+              extent={{-73,82},{-53,102}},
+              textColor={192,192,192},
+              textString="i"),Line(
+              points={{-41,78},{-41,-2}},
+              thickness=0.5),Line(
+              points={{-41,78},{-38,78},{-35.42,74.6},{-31.201,67.7},{-26.98,
+              57.4},{-22.16,42.1},{-16.1,19.2},{-3.5,-32.8},{2,-52.2},{6.8,-66.2},
+              {11,-75.1},{15.2,-80.4},{19.5,-82},{23.7,-79.6},{27.9,-73.5},{
+              32.1,-63.9},{36.9,-49.2},{43,-26.8},{49,-2}},
+              thickness=0.5),Line(
+              points={{49,-2},{57.4,32.2},{62.9,51.1},{67.7,64.4},{71.9,72.6},{
+              76.1,77.1},{80,78}},
+              thickness=0.5)}),
+      Documentation(revisions="<html>
+<ul>
+<li>Initially implemented by Christian Kral on 2013-05-14</li>
+</ul>
+</html>", info="<html>
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+</html>"));
+
+  end CosineCurrent;
+
   model SineCurrentVariableFrequencyAndAmplitude
     "Sine current source with variable frequency and amplitude"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
@@ -1564,93 +1747,100 @@ and that the parameter <code>startTime</code> is omitted since the current can b
 </html>"));
   end SineCurrentVariableFrequencyAndAmplitude;
 
-  model CosineCurrent "Cosine current source"
-    parameter SI.Current I(start=1) "Amplitude of cosine wave";
-    parameter SI.Angle phase=0 "Phase of cosine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
-    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Cosine
-        signalSource(
-        final amplitude=I,
-        final freqHz=freqHz,
-        final phase=phase));
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Line(
-            points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,61},{-53.6,52},{-48,
-                38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},{-14.2,-56.2},{-9.3,
-                -64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,-62.5},{15.3,-54.1},
-                {20.9,-41.3},{28,-21.7},{35,0}},
-            color={192,192,192},
-            smooth=Smooth.Bezier), Line(points={{35,0},{44.8,29.9},{51.2,46.5},
-                {56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,
-                192,192})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={
-            192,192,192}),Polygon(
-              points={{-80,100},{-86,84},{-74,84},{-80,100}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(points={{-99,-40},{85,-40}},
-            color={192,192,192}),Polygon(
-              points={{101,-40},{85,-34},{85,-46},{101,-40}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(
-              points={{-41,-2},{-80,-2}},
-              thickness=0.5),Text(
-              extent={{-106,-11},{-60,-29}},
-              textColor={160,160,164},
-              textString="offset"),Line(
-              points={{-41,-2},{-41,-40}},
-              color={192,192,192},
-              pattern=LinePattern.Dash),Text(
-              extent={{-60,-43},{-14,-61}},
-              textColor={160,160,164},
-              textString="startTime"),Text(
-              extent={{84,-52},{108,-72}},
-              textColor={160,160,164},
-              textString="time"),Line(
-              points={{-10,78},{42,78}},
-              color={192,192,192},
-              pattern=LinePattern.Dash),Line(
-              points={{-41,-2},{5,-2},{5,-2},{51,-2}},
-              color={192,192,192},
-              pattern=LinePattern.Dash),Polygon(
-              points={{33,78},{30,65},{37,65},{33,78}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{37,57},{83,39}},
-              textColor={160,160,164},
-              textString="I"),Polygon(
-              points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(
-              points={{33,78},{33,-2}},
-              color={192,192,192}),Text(
-              extent={{-73,82},{-53,102}},
-              textColor={192,192,192},
-              textString="i"),Line(
-              points={{-41,78},{-41,-2}},
-              thickness=0.5),Line(
-              points={{-41,78},{-38,78},{-35.42,74.6},{-31.201,67.7},{-26.98,
-              57.4},{-22.16,42.1},{-16.1,19.2},{-3.5,-32.8},{2,-52.2},{6.8,-66.2},
-              {11,-75.1},{15.2,-80.4},{19.5,-82},{23.7,-79.6},{27.9,-73.5},{
-              32.1,-63.9},{36.9,-49.2},{43,-26.8},{49,-2}},
-              thickness=0.5),Line(
-              points={{49,-2},{57.4,32.2},{62.9,51.1},{67.7,64.4},{71.9,72.6},{
-              76.1,77.1},{80,78}},
-              thickness=0.5)}),
+  model CosineCurrentVariableFrequencyAndAmplitude
+    "Cosine current source with variable frequency and amplitude"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.CurrentSource;
+    import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Modelica.SIunits.Current constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
+    parameter Modelica.SIunits.Current offset=0 "Offset of the sine wave";
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput I(unit="A") if not useConstantAmplitude
+      "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={60,120})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+  protected
+    Blocks.Sources.Constant I_constant(final k=constantAmplitude) if useConstantAmplitude
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+      annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
+    Blocks.Interfaces.RealInput I_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={60,80})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={-60,80})));
+  equation
+    der(phi) = 2*pi*f_internal;
+    i = offset + I_internal*cos(phi);
+    connect(f,f_internal)
+      annotation (Line(points={{-60,120},{-60,80}}, color={0,0,127}));
+    connect(I,I_internal)
+      annotation (Line(points={{60,120},{60,80}}, color={0,0,127}));
+    connect(f_constant.y,f_internal)
+      annotation (Line(points={{-41,80},{-60,80}}, color={0,0,127}));
+    connect(I_constant.y,I_internal)
+      annotation (Line(points={{41,80},{60,80}}, color={0,0,127}));
+    annotation (defaultComponentName="cosineCurrent",
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(
+            points={{-80,80},{-78.4,79.6},{-76.8,79.2},{-75.2,78.8},{-73.6,78.4},{
+                -72,78},{-70.4,77.5},{-68.8,77.1},{-67.2,76.6},{-65.6,76.1},{-64,75.6},
+                {-62.4,75},{-60.8,74.4},{-59.2,73.7},{-57.6,73},{-56,72.2},{-54.4,
+                71.3},{-52.8,70.3},{-51.2,69.2},{-49.6,68},{-48,66.6},{-46.4,65.2},
+                {-44.8,63.6},{-43.2,61.8},{-41.6,59.9},{-40,57.7},{-38.4,55.5},{-36.8,
+                53},{-35.2,50.3},{-33.6,47.5},{-32,44.4},{-30.4,41.1},{-28.8,37.7},
+                {-27.2,34},{-25.6,30.1},{-24,26.1},{-22.4,21.9},{-20.8,17.5},{-19.2,
+                13},{-17.6,8.3},{-16,3.5},{-14.4,-1.3},{-12.8,-6.2},{-11.2,-11.1},
+                {-9.6,-16},{-8,-20.8},{-6.4,-25.5},{-4.8,-30.1},{-3.2,-34.5},{-1.6,
+                -38.6},{0,-42.4},{1.6,-45.9},{3.2,-49},{4.8,-51.7},{6.4,-53.9},{8,
+                -55.5},{9.6,-56.5},{11.2,-57},{12.8,-56.8},{14.4,-55.9},{16,-54.4},
+                {17.6,-52.2},{19.2,-49.3},{20.8,-45.7},{22.4,-41.5},{24,-36.7},{25.6,
+                -31.4},{27.2,-25.6},{28.8,-19.4},{30.4,-12.9},{32,-6.2},{33.6,0.6},
+                {35.2,7.4},{36.8,14},{38.4,20.4},{40,26.3},{41.6,31.8},{43.2,36.5},
+                {44.8,40.6},{46.4,43.7},{48,45.9},{49.6,47.1},{51.2,47.2},{52.8,46.2},
+                {54.4,44.1},{56,41},{57.6,36.8},{59.2,31.8},{60.8,25.9},{62.4,19.4},
+                {64,12.4},{65.6,5.1},{67.2,-2.2},{68.8,-9.5},{70.4,-16.4},{72,-22.8},
+                {73.6,-28.4},{75.2,-33},{76.8,-36.6},{78.4,-38.9},{80,-39.8}},
+            smooth=Smooth.Bezier,
+            color={192,192,192})}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}})),
       Documentation(revisions="<html>
 <ul>
-<li>Initially implemented by Christian Kral on 2013-05-14</li>
+<li><em> 1998   </em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
 </ul>
 </html>", info="<html>
-<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+This current source provides a cosine current with variable frequency <code>f</code> and variable amplitude <code>I</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the current can be kept equal to offset with setting the input <code>I</code> to zero.
+</p>
 </html>"));
-
-  end CosineCurrent;
+  end CosineCurrentVariableFrequencyAndAmplitude;
 
   model ExpSineCurrent "Exponentially damped sine current source"
     parameter Real I(start=1) "Amplitude of sine wave";
