@@ -17114,7 +17114,7 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
       SpacePhasors.Blocks.Rotator                     rotator
         annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
       Blocks.Continuous.Integrator
-                            integrator(k=1e6)
+                            integrator(final k=1e6)
         annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       Blocks.Continuous.Der
                      der1
