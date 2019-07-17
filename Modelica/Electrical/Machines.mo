@@ -2807,7 +2807,7 @@ whereas the stator voltage is influenced by the d-current.</p>
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-10,0})));
-        Utilities.CurrentController currentController(
+        Utilities.DQCurrentController currentController(
           p=smpm.p,
           Ld=smpm.Lssigma + smpm.Lmd,
           Lq=smpm.Lssigma + smpm.Lmq,
@@ -16913,7 +16913,7 @@ Boolean parameter <code>useRMS = true</code> causes inputs <code>d</code> and <c
 </html>"));
     end DQToThreePhase;
 
-    model CurrentController "Current controller"
+    model DQCurrentController "Current controller in dq-frame"
       import Modelica.Constants.pi;
       constant Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
@@ -17023,7 +17023,7 @@ Boolean parameter <code>useRMS = true</code> causes inputs <code>d</code> and <c
           points={{11,0},{20,0},{20,6},{30,6}}, color={0,0,127}));
       connect(deCoupling.y, add.u2) annotation (Line(
           points={{11,-30},{20,-30},{20,-6},{30,-6}}, color={0,0,127}));
-      annotation (
+      annotation (defaultComponentName="currentController",
         Icon(graphics={Text(
               extent={{-100,70},{-40,50}},
               textColor={0,0,255},
@@ -17050,7 +17050,7 @@ Boolean parameter <code>useRMS = true</code> causes inputs <code>d</code> and <c
 Note: No care is taken for current or voltage limiting, as well as for field weakening.
 </p>
 </html>"));
-    end CurrentController;
+    end DQCurrentController;
 
     model SwitchYD "Y-D-switch"
       parameter Integer m=3 "Number of phases";

@@ -4475,17 +4475,18 @@ whereas the stator voltage is influenced by the d-current.</p>
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-10,0})));
-          Electrical.Machines.Utilities.CurrentController currentController(
+          Electrical.Machines.Utilities.DQCurrentController currentController(
             p=smpm.p,
             Ld=smpm.Lssigma + smpm.Lmd,
             Lq=smpm.Lssigma + smpm.Lmq,
             Rs=Electrical.Machines.Thermal.convertResistance(
-                smpm.Rs,
-                smpm.TsRef,
-                smpm.alpha20s,
-                smpm.TsOperational),
+                        smpm.Rs,
+                        smpm.TsRef,
+                        smpm.alpha20s,
+                        smpm.TsOperational),
             fsNominal=smpm.fsNominal,
-            VsOpenCircuit=smpm.VsOpenCircuit) annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
+            VsOpenCircuit=smpm.VsOpenCircuit)
+            annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
           Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
             annotation (Placement(transformation(
                 extent={{10,10},{-10,-10}},
