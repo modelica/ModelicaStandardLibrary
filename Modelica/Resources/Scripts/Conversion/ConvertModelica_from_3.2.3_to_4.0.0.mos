@@ -216,9 +216,26 @@ convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts",
               "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPorts");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedShape",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.BaseClasses.FixedShape");
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.BaseClasses.Leakage");
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage");
+// Issue #496
+convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary",
+              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPortsElementary")
+convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts",
+              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPorts")
+convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape",
+              "Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape")
+convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialForce",
+              "Modelica.Magnetic.FluxTubes.BaseClasses.Force")
+convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage",
+              "Modelica.Magnetic.FluxTubes.BaseClasses.Leakage")
+convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric",
+              "Modelica.Magnetic.FluxTubes.BaseClasses.Generic")
+convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis",
+              "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis")
+convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen",
+              "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen")
 
 // Change renamed elements of classes
 // mue -> mu

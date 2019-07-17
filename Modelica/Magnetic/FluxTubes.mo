@@ -4511,7 +4511,7 @@ Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticCo
 
     model ConstantReluctance "Constant reluctance"
 
-      extends FluxTubes.Interfaces.PartialTwoPorts;
+      extends Interfaces.TwoPorts;
 
       parameter SI.Reluctance R_m=1 "Magnetic reluctance";
 
@@ -4540,7 +4540,7 @@ This constant reluctance is provided for test purposes and simple magnetic netwo
 
     model ConstantPermeance "Constant permeance"
 
-      extends FluxTubes.Interfaces.PartialTwoPorts;
+      extends Interfaces.TwoPorts;
 
       parameter SI.Permeance G_m=1 "Magnetic permeance";
 
@@ -4576,7 +4576,7 @@ This constant permeance is provided for test purposes and simple magnetic networ
     model LeakageWithCoefficient
       "Leakage reluctance with respect to the reluctance of a useful flux path (not for dynamic simulation of actuators)"
 
-      extends FluxTubes.Interfaces.PartialLeakage;
+      extends BaseClasses.Leakage;
 
       parameter SI.CouplingCoefficient c_usefulFlux=0.7
         "Ratio useful flux/(leakage flux + useful flux) = useful flux/total flux";
@@ -4607,7 +4607,7 @@ This element must <strong>not</strong> be used <strong>for dynamic simulation of
     model EddyCurrent
       "For modelling of eddy current in a conductive magnetic flux tube"
 
-      extends FluxTubes.Interfaces.PartialTwoPorts;
+      extends Interfaces.TwoPorts;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
         final T=273.15);
 
@@ -4668,7 +4668,7 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
     end EddyCurrent;
 
     model Idle "Idle running branch"
-      extends FluxTubes.Interfaces.PartialTwoPorts;
+      extends Interfaces.TwoPorts;
     equation
       Phi = 0;
       annotation (
@@ -4702,7 +4702,7 @@ This is a simple idle running branch.
     end Idle;
 
     model Short "Short cut branch"
-      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
+      extends Interfaces.TwoPortsElementary;
     equation
       connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
               100,0}}, color={255,128,0}));
@@ -4791,7 +4791,7 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
       model GenericFluxTube
         "Flux tube with fixed cross-section and length; linear or non-linear material characteristics"
 
-        extends FluxTubes.Interfaces.PartialFixedShape;
+        extends BaseClasses.FixedShape;
 
         parameter SI.Length l=0.01 "Length in direction of flux"
           annotation(Dialog(group="Fixed geometry", groupImage=
@@ -4818,7 +4818,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model Cuboid
         "Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics"
 
-        extends FluxTubes.Interfaces.PartialFixedShape;
+        extends BaseClasses.FixedShape;
 
         parameter SI.Length l=0.01 "Length in direction of flux" annotation (
             Dialog(group="Fixed geometry", groupImage=
@@ -4842,7 +4842,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model HollowCylinderAxialFlux
         "(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics"
 
-        extends FluxTubes.Interfaces.PartialFixedShape;
+        extends BaseClasses.FixedShape;
 
         parameter SI.Length l=0.01 "Axial length (in direction of flux)"
           annotation (Dialog(group="Fixed geometry", groupImage=
@@ -4871,7 +4871,7 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
       model HollowCylinderRadialFlux
         "Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics"
 
-        extends FluxTubes.Interfaces.PartialFixedShape;
+        extends BaseClasses.FixedShape;
 
         parameter SI.Length l=0.01 "Width (orthogonal to flux direction)"
                                                  annotation (Dialog(group=
@@ -4923,7 +4923,7 @@ For initial design of magnetic circuits, the relative permeability of possibly n
       model HollowCylinderAxialFlux
         "(Hollow) cylinder with axial flux; constant permeability"
 
-        extends FluxTubes.Interfaces.PartialForce;
+        extends BaseClasses.Force;
 
         SI.Length l=s "Axial length (in direction of flux)" annotation (Dialog(
               group="Variable geometry", groupImage=
@@ -4954,7 +4954,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model HollowCylinderRadialFlux
         "Hollow cylinder with radial flux; constant permeability"
 
-        extends FluxTubes.Interfaces.PartialForce;
+        extends BaseClasses.Force;
 
         SI.Length l=s "Axial length (orthogonal to direction of flux)"
           annotation (Dialog(group="Variable geometry", groupImage=
@@ -4987,7 +4987,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model CuboidParallelFlux
         "Cuboid with flux in direction of motion, e.g., air gap with rectangular cross-section; constant permeability"
 
-        extends FluxTubes.Interfaces.PartialForce;
+        extends BaseClasses.Force;
 
         SI.Length l=s "Axial length (in direction of flux)" annotation (Dialog(
               group="Variable geometry", groupImage=
@@ -5018,7 +5018,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model CuboidOrthogonalFlux
         "Cuboid with flux orthogonal to direction of motion; constant permeability"
 
-        extends FluxTubes.Interfaces.PartialForce;
+        extends BaseClasses.Force;
 
         SI.Length l=s "Length in direction of motion (orthogonal to flux)"
           annotation (Dialog(group="Variable geometry", groupImage=
@@ -5050,7 +5050,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model LeakageAroundPoles
         "Leakage flux tube around cylindrical or prismatic poles"
 
-        extends FluxTubes.Interfaces.PartialForce;
+        extends BaseClasses.Force;
         SI.Length l=s "Axial length (in direction of flux)" annotation (Dialog(
               group="Variable geometry", groupImage=
                 "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/LeakageAroundPoles.png"));
@@ -5114,7 +5114,7 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
       model QuarterCylinder
         "Leakage flux from one edge to the opposite plane through a quarter cylinder"
 
-        extends FluxTubes.Interfaces.PartialLeakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length l=0.1
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edge and plane)"
@@ -5133,7 +5133,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model QuarterHollowCylinder
         "Leakage flux in circumferential direction through a quarter hollow cylinder"
 
-        extends FluxTubes.Interfaces.PartialLeakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length l=0.1
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)"
@@ -5153,7 +5153,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
       model HalfCylinder "Leakage flux through the edges of a half cylinder"
 
-        extends FluxTubes.Interfaces.PartialLeakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length l=0.1
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edges)"
@@ -5173,7 +5173,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model HalfHollowCylinder
         "Leakage flux in circumferential direction through a half hollow cylinder"
 
-        extends FluxTubes.Interfaces.PartialLeakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length l=0.1
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)"
@@ -5194,7 +5194,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model QuarterSphere
         "Leakage flux through the corners of a quarter sphere"
 
-        extends FluxTubes.Interfaces.PartialLeakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Radius r=0.005 "Radius of quarter sphere"
           annotation (Dialog(group="Parameters", groupImage=
@@ -5213,7 +5213,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model QuarterHollowSphere
         "Leakage flux through the edges of a quarter hollow sphere"
 
-        extends FluxTubes.Interfaces.PartialLeakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length t(start=0.01) "Thickness of spherical shell"
           annotation (Dialog(group="Parameters", groupImage=
@@ -5232,7 +5232,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model EighthOfSphere
         "Leakage flux through one edge and the opposite plane of an eighth of a sphere"
 
-        extends FluxTubes.Interfaces.PartialLeakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Radius r=0.01 "Radius of eighth of sphere"
           annotation (Dialog(group="Parameters", groupImage=
@@ -5251,7 +5251,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model EighthOfHollowSphere
         "Leakage flux through one edge and the opposite plane of an eighth of a hollow sphere"
 
-        extends FluxTubes.Interfaces.PartialLeakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Length t(start=0.01) "Thickness of spherical shell"
           annotation (Dialog(group="Parameters", groupImage=
@@ -5270,7 +5270,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model CoaxCylindersEndFaces
         "Leakage flux between the end planes of a inner solid cylinder and a coaxial outer hollow cylinder"
 
-        extends FluxTubes.Interfaces.PartialLeakage;
+        extends BaseClasses.Leakage;
 
         parameter SI.Radius r_0=10e-3 "Radius of inner solid cylinder"
           annotation (Dialog(group="Parameters", groupImage=
@@ -5321,7 +5321,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
         parameter SI.MagneticFieldStrength Hc=120 "Coercitivity" annotation (Dialog(group="Hysteresis"));
         parameter Real K=1 "Slope of hysteresis in the saturation region (K*mu_0)" annotation (Dialog(group="Hysteresis"));
 
-        extends Interfaces.PartialGenericHysteresisTellinen(mu0=K*mu_0);
+        extends BaseClasses.GenericHysteresisTellinen(      mu0=K*mu_0);
 
       protected
         parameter SI.MagneticFluxDensity eps=Js/1000;
@@ -5351,7 +5351,7 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
       model GenericHystTellinenHard
         "Generic flux tube with hard magnetic hysteresis based on the Tellinen model and simple tanh()-functions"
 
-        extends Interfaces.PartialGenericHysteresisTellinen(mu0=K*mu_0);
+        extends BaseClasses.GenericHysteresisTellinen(      mu0=K*mu_0);
 
         //Hysteresis parameter
         parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
@@ -5432,7 +5432,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
             FluxTubes.Material.HysteresisEverettParameter.BaseData()
           "Material properties"
           annotation (Dialog(group="Material"), choicesAllMatching=true);
-        extends Interfaces.PartialGenericHysteresisTellinen(mu0=mat.K*mu_0, sigma=mat.sigma);
+        extends BaseClasses.GenericHysteresisTellinen(      mu0=mat.K*mu_0, sigma=mat.sigma);
 
       protected
         parameter SI.MagneticFluxDensity Js = 0.5 * FluxTubes.Utilities.everett(
@@ -5488,7 +5488,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         parameter Real K = 1
           "Slope of hysteresis in the saturation region (K*mu_0)" annotation(Dialog(group="Hysteresis"));
 
-        extends Interfaces.PartialGenericHysteresisTellinen(mu0=mu_0*K, sigma=mat.sigma);
+        extends BaseClasses.GenericHysteresisTellinen(      mu0=mu_0*K, sigma=mat.sigma);
 
       protected
         constant SI.MagneticFluxDensity unitT=1;
@@ -5539,7 +5539,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
           "Tolerance in Preisach history" annotation(Dialog(group="Advanced"));
         parameter SI.Time t1=1e-6 "Initialization time" annotation(Dialog(group="Advanced"));
 
-        extends Interfaces.PartialGenericHysteresis(sigma=mat.sigma);
+        extends BaseClasses.GenericHysteresis(      sigma=mat.sigma);
 
       protected
         final parameter Real mu0=mat.K*Modelica.Constants.mu_0;
@@ -5725,7 +5725,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
       model GenericHystTellinenPermanentMagnet
         "Permanent magnet based on the Tellinen hysteresis model"
 
-        extends FluxTubes.Interfaces.PartialGenericHysteresisTellinen(mu0=K*
+        extends BaseClasses.GenericHysteresisTellinen(                mu0=K*
               Modelica.Constants.mu_0, MagRel(start=-1, fixed=true));
 
         parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
@@ -5807,7 +5807,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
 
       model GenericLinearPermanentMagnet
         "Permanent Magnet with linear characteristic"
-        extends Interfaces.PartialGeneric;
+        extends BaseClasses.Generic;
 
         parameter Material.HardMagnetic.BaseData mat=
             Material.HardMagnetic.BaseData() "Material" annotation (Dialog(group="Material"),choicesAllMatching=true);
@@ -7268,6 +7268,294 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
 </html>"));
   end Material;
 
+  package Sensors "Sensors to measure variables in magnetic networks"
+    extends Modelica.Icons.SensorsPackage;
+
+    model MagneticPotentialDifferenceSensor
+      "Sensor to measure magnetic potential difference"
+      extends Modelica.Icons.RotationalSensor;
+      extends Interfaces.TwoPortsElementary;
+
+      Modelica.Blocks.Interfaces.RealOutput V_m(final quantity=
+            "MagneticPotential", final unit="A")
+        "Magnetic potential difference between ports p and n as output signal"
+        annotation (Placement(transformation(
+            origin={0,-100},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      Phi = 0;
+      0 = port_p.Phi + port_n.Phi;
+
+      annotation (defaultComponentName="magVoltageSensor",
+    Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+            Line(points={{-70,0},{-90,0}}, color={255,128,0}),
+            Line(points={{70,0},{90,0}}, color={255,128,0}),
+            Line(points={{0,-90},{0,-70}}, color={0,0,127}),
+            Text(
+              extent={{-150,120},{150,80}},
+              textString="%name",
+              textColor={0,0,255}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="A")}),      Diagram(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-100,0}}, color={255,128,0}),
+              Line(points={{70,0},{100,0}}, color={255,128,0}),Line(
+              points={{0,-100},{0,-70}})}));
+    end MagneticPotentialDifferenceSensor;
+
+    model MagneticFluxSensor "Sensor to measure magnetic flux"
+      extends Interfaces.TwoPortsElementary;
+      extends Modelica.Icons.RotationalSensor;
+
+      Modelica.Blocks.Interfaces.RealOutput Phi(final quantity="MagneticFlux",
+          final unit="Wb")
+        "Magnetic flux from port p to port n as output signal" annotation (
+          Placement(transformation(
+            origin={0,-100},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+    equation
+      port_p.V_m = port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+
+      annotation (defaultComponentName="magFluxSensor",
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}, color={255,128,0}),
+                                                                                                            Line(
+              points={{70,0},{90,0}}, color={255,128,0}),
+                                       Text(
+                  extent={{-150,120},{150,80}},
+                  textString="%name",
+                  textColor={0,0,255}),Line(points={{0,-90},{0,-70}}, color={0,0,127}),
+            Text(
+              extent={{-30,-10},{30,-70}},
+              textColor={64,64,64},
+              textString="Wb")}));
+    end MagneticFluxSensor;
+    annotation (Documentation(info="<html>
+<p>
+For analysis of magnetic networks, only magnetic potential differences and magnetic flux are variables of interest. For that reason, a magnetic potential sensor is not provided.
+</p>
+</html>"));
+  end Sensors;
+
+  package Sources
+    "Sources of different complexity of magnetomotive force and magnetic flux"
+    extends Modelica.Icons.SourcesPackage;
+
+    model ConstantMagneticPotentialDifference "Constant magnetomotive force"
+
+      extends Interfaces.TwoPortsElementary;
+      parameter SI.MagneticPotentialDifference V_m
+        "Magnetic potential difference";
+      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+
+      annotation (
+        defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{100,0},{50,0}}, color={255,127,0}),
+          Line(points={{-50,0},{-100,0}}, color={255,127,0}),
+          Text(
+            extent={{-150,60},{150,100}},
+            textString="%name",
+            textColor={0,0,255}),
+          Line(points={{-50,0},{50,0}}, color={255,127,0}),
+            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
+            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
+            Line(points={{60,20},{80,20}}, color={255,128,0})}),
+        Documentation(info="<html>
+<p>
+Magnetic circuits under steady-state conditions, i.e., with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
+</p>
+<ul>
+<li>coils with stationary current (di / dt = 0) and</li>
+<li>permanent magnets modelled with <em>Th&eacute;venin</em>'s equivalent magnetic circuit.</li>
+</ul>
+<p>
+For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur.
+</p>
+</html>"));
+    end ConstantMagneticPotentialDifference;
+
+    model SignalMagneticPotentialDifference
+      "Signal-controlled magnetomotive force"
+
+      extends Interfaces.TwoPortsElementary;
+      Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
+        "Magnetic potential difference"
+        annotation (Placement(transformation(
+            origin={0,90},
+            extent={{10,-10},{-10,10}},
+            rotation=90), iconTransformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={0,110})));
+      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+      annotation (
+        defaultComponentName="magVoltageSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
+          Line(points={{50,0},{100,0}}, color={255,127,0}),
+          Text(
+            extent={{-150,50},{150,90}},
+            textString="%name",
+            textColor={0,0,255}),
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-50,0},{50,0}}, color={255,127,0}),
+            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
+            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
+            Line(points={{60,20},{80,20}}, color={255,128,0})}),
+        Documentation(info="<html>
+<p>
+In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <em>Faraday</em>'s law:
+</p>
+<pre>
+    v = - d&Psi;/dt
+</pre>
+<p>This reaction can possibly be neglected for</p>
+<ul>
+<li>modelling of electromagnetic actuators under quasi-static conditions (slow current change, slow armature motion),</li>
+<li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
+<li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
+</ul>
+<p>
+In these cases, the magnetic potential difference or magnetomotive force imposed by a coil can easily be modelled with a signal-controlled source. Except for the neglected dynamics, steady-state actuator forces will be calculated properly in actuator models based on these sources.
+</p>
+</html>"));
+    end SignalMagneticPotentialDifference;
+
+    model ConstantMagneticFlux "Source of constant magnetic flux"
+
+      extends Interfaces.TwoPortsElementary;
+      parameter SI.MagneticFlux Phi=1 "Magnetic flux";
+      SI.MagneticPotentialDifference V_m
+        "Magnetic potential difference between both ports";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+      annotation (
+        defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            extent={{-150,60},{150,100}},
+            textString="%name",
+            textColor={0,0,255}),
+          Polygon(
+            points={{80,0},{60,6},{60,-6},{80,0}},
+            lineColor={255,128,0},
+            fillColor={255,128,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
+          Line(points={{50,0},{100,0}}, color={255,127,0}),
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,50},{0,-50}}, color={255,127,0})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}}), graphics={Line(points={{-125,0},{-115,0}}, color={160,160,164}),
+              Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
+              Line(points={{115,0},{125,0}}, color={160,160,164})}),
+        Documentation(info="<html>
+<p>
+Sources of a constant magnetic flux are useful for modelling of permanent magnets with <em>Norton</em>'s magnetic equivalent circuit.
+</p>
+</html>"));
+    end ConstantMagneticFlux;
+
+    model SignalMagneticFlux "Signal-controlled magnetic flux source"
+
+      extends Interfaces.TwoPortsElementary;
+      Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux" annotation (
+          Placement(transformation(
+            origin={0,110},
+            extent={{10,-10},{-10,10}},
+            rotation=90), iconTransformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={0,110})));
+      SI.MagneticPotentialDifference V_m
+        "Magnetic potential difference between both ports";
+
+    equation
+      V_m = port_p.V_m - port_n.V_m;
+      Phi = port_p.Phi;
+      0 = port_p.Phi + port_n.Phi;
+      annotation (
+        defaultComponentName="magFluxSource",
+        Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Polygon(
+            points={{80,0},{60,6},{60,-6},{80,0}},
+            lineColor={255,128,0},
+            fillColor={255,128,0},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-150,50},{150,90}},
+            textString="%name",
+            textColor={0,0,255}),
+          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
+          Line(points={{50,0},{100,0}}, color={255,127,0}),
+          Ellipse(
+            extent={{-50,-50},{50,50}},
+            lineColor={255,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,50},{0,-50}}, color={255,127,0})}),
+        Documentation(info="<html>
+<p>
+This source of a magnetic flux is intended for test purposes, e.g., for simulation and subsequent plotting of a softmagnetic material's magnetisation characteristics if used together with a non-linear reluctance element.
+</p>
+</html>"));
+    end SignalMagneticFlux;
+
+    annotation (Documentation(info="<html>
+<p>
+This package contains sources of a magnetic potential difference or a magnetic flux:
+</p>
+</html>"));
+  end Sources;
+
   package Interfaces "Interfaces of magnetic network components"
     extends Modelica.Icons.InterfacesPackage;
 
@@ -7324,8 +7612,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
 
     end NegativeMagneticPort;
 
-    partial model PartialTwoPortsElementary
-      "Partial component with two magnetic ports p and n for textual programming"
+    partial model TwoPortsElementary "Interface component with two magnetic ports for textual programming"
 
       FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
@@ -7339,19 +7626,31 @@ the positive port connector port_p, and the negative port
 connector port_n.
 </p>
 </html>"));
-    end PartialTwoPortsElementary;
+    end TwoPortsElementary;
 
-    partial model PartialTwoPorts
-      "Partial component with magnetic potential difference of the two magnetic ports p and n and magnetic flux Phi from p to n"
+    partial model TwoPortsExtended "Extended two port interface model with alias variables for magnetic voltage and flux"
 
-      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
-      SI.MagneticPotentialDifference V_m
-        "Magnetic potential difference of ports";
+      extends TwoPortsElementary;
+      SI.MagneticPotentialDifference V_m "Magnetic potential difference of ports";
       SI.MagneticFlux Phi(start=0) "Magnetic flux from port_p to port_n";
 
     equation
       V_m = port_p.V_m - port_n.V_m;
       Phi = port_p.Phi;
+
+      annotation (Documentation(info="<html>
+<p>
+It is assumed that the magnetic flux flowing into port_p is identical to the flux flowing out of port_n.
+This magnetic flux is provided explicitly as flux Phi.
+</p>
+</html>"));
+    end TwoPortsExtended;
+
+    partial model TwoPorts "Interface component including flux balance euqation"
+
+      extends TwoPortsExtended;
+
+    equation
       0 = port_p.Phi + port_n.Phi;
 
       annotation (Documentation(info="<html>
@@ -7360,12 +7659,65 @@ It is assumed that the magnetic flux flowing into port_p is identical to the flu
 This magnetic flux is provided explicitly as flux Phi.
 </p>
 </html>"));
-    end PartialTwoPorts;
+    end TwoPorts;
 
-    partial model PartialFixedShape
-      "Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics"
+    partial model ConditionalHeatPort
+      "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-      extends FluxTubes.Interfaces.PartialTwoPorts;
+      parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab="Losses and Heat", group="HeatPort"));
+      parameter Modelica.SIunits.Temperature T=293.15
+        "Fixed device temperature if useHeatPort = false" annotation(Dialog(tab="Losses and Heat", group="HeatPort", enable=not useHeatPort));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T_heatPort, final Q_flow=-LossPower) if useHeatPort
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+            iconTransformation(extent={{-10,-110},{10,-90}})));
+      Modelica.SIunits.Power LossPower
+        "Loss power leaving component via HeatPort";
+      Modelica.SIunits.Temperature T_heatPort "Temperature of HeatPort";
+    equation
+      if not useHeatPort then
+         T_heatPort = T;
+      end if;
+
+      annotation (Documentation(revisions="<html>
+<ul>
+<li><em>February 17, 2009</em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>
+This partial model provides a conditional heating port for the connection to a thermal network.
+</p>
+<ul>
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
+     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
+</ul>
+
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from
+ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
+<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
+on the model behaviour.
+</p>
+</html>"));
+    end ConditionalHeatPort;
+
+    annotation (Documentation(info="<html>
+<p>
+This package contains connectors for the magnetic domain and partial models for lumped magnetic network components.
+</p>
+
+</html>"));
+  end Interfaces;
+
+  package BaseClasses "Base classes of flux tube components"
+    extends Icons.BasesPackage;
+    partial model FixedShape "Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics"
+
+      extends Interfaces.TwoPorts;
 
       parameter Boolean nonLinearPermeability=true
         "= true, if non-linear rel. permeability is used, otherwise constant rel. permeability"
@@ -7419,12 +7771,11 @@ This magnetic flux is provided explicitly as flux Phi.
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model.
 </p>
 </html>"));
-    end PartialFixedShape;
+    end FixedShape;
 
-    partial model PartialForce
-      "Base class for flux tubes with reluctance force generation; constant permeability"
+    partial model Force "Base class for flux tubes with reluctance force generation; constant permeability"
 
-      extends FluxTubes.Interfaces.PartialTwoPorts;
+      extends Interfaces.TwoPorts;
 
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
@@ -7496,12 +7847,11 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force\">Shapes.Force</a> for utilisation of this partial model.
 </p>
 </html>"));
-    end PartialForce;
+    end Force;
 
-    partial model PartialLeakage
-      "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
+    partial model Leakage "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
 
-      extends FluxTubes.Interfaces.PartialTwoPorts;
+      extends Interfaces.TwoPorts;
 
       SI.Reluctance R_m "Magnetic reluctance";
       SI.Permeance G_m "Magnetic permeance";
@@ -7528,10 +7878,10 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> for utilisation of this partial model.
 </p>
 </html>"));
-    end PartialLeakage;
+    end Leakage;
 
-    partial model PartialGeneric "Partial Tellinen hysteresis model"
-      extends Interfaces.PartialTwoPorts;
+    partial model Generic "Partial Tellinen hysteresis model"
+      extends Interfaces.TwoPorts;
 
       // Group Fixed Geometry (Cuboid)
       parameter SI.Length l=0.1 "Length in direction of flux" annotation (Dialog(group="Fixed geometry", groupImage=
@@ -7555,54 +7905,10 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
             Line(points={{70,0},{100,0}}, color={255,128,0})}),
                                      Documentation(info="<html>
 </html>"));
-    end PartialGeneric;
+    end Generic;
 
-    partial model ConditionalHeatPort
-      "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
-
-      parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
-      annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab="Losses and Heat", group="HeatPort"));
-      parameter Modelica.SIunits.Temperature T=293.15
-        "Fixed device temperature if useHeatPort = false" annotation(Dialog(tab="Losses and Heat", group="HeatPort", enable=not useHeatPort));
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T_heatPort, final Q_flow=-LossPower) if useHeatPort
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-            iconTransformation(extent={{-10,-110},{10,-90}})));
-      Modelica.SIunits.Power LossPower
-        "Loss power leaving component via HeatPort";
-      Modelica.SIunits.Temperature T_heatPort "Temperature of HeatPort";
-    equation
-      if not useHeatPort then
-         T_heatPort = T;
-      end if;
-
-      annotation (Documentation(revisions="<html>
-<ul>
-<li><em>February 17, 2009</em>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>", info="<html>
-<p>
-This partial model provides a conditional heating port for the connection to a thermal network.
-</p>
-<ul>
-<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
-     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
-     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
-<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
-</ul>
-
-<p>
-If this model is used, the loss power has to be provided by an equation in the model which inherits from
-ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
-<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
-on the model behaviour.
-</p>
-</html>"));
-    end ConditionalHeatPort;
-
-    partial model PartialGenericHysteresis "Partial hysteresis model"
-      extends Interfaces.PartialGeneric;
+    partial model GenericHysteresis "Partial hysteresis model"
+      extends BaseClasses.Generic;
       extends Interfaces.ConditionalHeatPort(final T=293.15);
 
       parameter Boolean includeEddyCurrents = false
@@ -7650,11 +7956,10 @@ on the model behaviour.
               smooth=Smooth.Bezier,
               origin={-4,0},
               rotation=180)}));
-    end PartialGenericHysteresis;
+    end GenericHysteresis;
 
-    partial model PartialGenericHysteresisTellinen
-      "Partial Tellinen hysteresis model"
-      extends Interfaces.PartialGenericHysteresis;
+    partial model GenericHysteresisTellinen "Partial Tellinen hysteresis model"
+      extends BaseClasses.GenericHysteresis;
 
       //Real MagRel(start=0, min=-100, max=100) "Relative magnetization at initialization (-100-100%)";
       output Boolean asc(start=true) "True when der(Hstat)>0";
@@ -7716,302 +8021,8 @@ der(b) = dhF/diffHyst * der(hystF);
 </table>
 <strong>Fig. 1:</strong> Description of the Tellinen hysteresis model.
 </html>"));
-    end PartialGenericHysteresisTellinen;
-    annotation (Documentation(info="<html>
-<p>
-This package contains connectors for the magnetic domain and partial models for lumped magnetic network components.
-</p>
-
-</html>"));
-  end Interfaces;
-
-  package Sources
-    "Sources of different complexity of magnetomotive force and magnetic flux"
-    extends Modelica.Icons.SourcesPackage;
-
-    model ConstantMagneticPotentialDifference "Constant magnetomotive force"
-
-      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
-      parameter SI.MagneticPotentialDifference V_m
-        "Magnetic potential difference";
-      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-
-      annotation (
-        defaultComponentName="magVoltageSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{100,0},{50,0}}, color={255,127,0}),
-          Line(points={{-50,0},{-100,0}}, color={255,127,0}),
-          Text(
-            extent={{-150,60},{150,100}},
-            textString="%name",
-            textColor={0,0,255}),
-          Line(points={{-50,0},{50,0}}, color={255,127,0}),
-            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
-            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
-            Line(points={{60,20},{80,20}}, color={255,128,0})}),
-        Documentation(info="<html>
-<p>
-Magnetic circuits under steady-state conditions, i.e., with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
-</p>
-<ul>
-<li>coils with stationary current (di / dt = 0) and</li>
-<li>permanent magnets modelled with <em>Th&eacute;venin</em>'s equivalent magnetic circuit.</li>
-</ul>
-<p>
-For modelling of reluctance actuators with this source component it is assumed that the armature is fixed so that no motion-induced flux change d&Phi;/dt can occur.
-</p>
-</html>"));
-    end ConstantMagneticPotentialDifference;
-
-    model SignalMagneticPotentialDifference
-      "Signal-controlled magnetomotive force"
-
-      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
-        "Magnetic potential difference"
-        annotation (Placement(transformation(
-            origin={0,90},
-            extent={{10,-10},{-10,10}},
-            rotation=90), iconTransformation(
-            extent={{10,-10},{-10,10}},
-            rotation=90,
-            origin={0,110})));
-      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-      annotation (
-        defaultComponentName="magVoltageSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
-          Line(points={{50,0},{100,0}}, color={255,127,0}),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-50,0},{50,0}}, color={255,127,0}),
-            Line(points={{-70,30},{-70,10}}, color={255,128,0}),
-            Line(points={{-80,20},{-60,20}}, color={255,128,0}),
-            Line(points={{60,20},{80,20}}, color={255,128,0})}),
-        Documentation(info="<html>
-<p>
-In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <em>Faraday</em>'s law:
-</p>
-<pre>
-    v = - d&Psi;/dt
-</pre>
-<p>This reaction can possibly be neglected for</p>
-<ul>
-<li>modelling of electromagnetic actuators under quasi-static conditions (slow current change, slow armature motion),</li>
-<li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
-<li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
-</ul>
-<p>
-In these cases, the magnetic potential difference or magnetomotive force imposed by a coil can easily be modelled with a signal-controlled source. Except for the neglected dynamics, steady-state actuator forces will be calculated properly in actuator models based on these sources.
-</p>
-</html>"));
-    end SignalMagneticPotentialDifference;
-
-    model ConstantMagneticFlux "Source of constant magnetic flux"
-
-      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
-      parameter SI.MagneticFlux Phi=1 "Magnetic flux";
-      SI.MagneticPotentialDifference V_m
-        "Magnetic potential difference between both ports";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-      annotation (
-        defaultComponentName="magFluxSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-150,60},{150,100}},
-            textString="%name",
-            textColor={0,0,255}),
-          Polygon(
-            points={{80,0},{60,6},{60,-6},{80,0}},
-            lineColor={255,128,0},
-            fillColor={255,128,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
-          Line(points={{50,0},{100,0}}, color={255,127,0}),
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,50},{0,-50}}, color={255,127,0})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Line(points={{-125,0},{-115,0}}, color={160,160,164}),
-              Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
-              Line(points={{115,0},{125,0}}, color={160,160,164})}),
-        Documentation(info="<html>
-<p>
-Sources of a constant magnetic flux are useful for modelling of permanent magnets with <em>Norton</em>'s magnetic equivalent circuit.
-</p>
-</html>"));
-    end ConstantMagneticFlux;
-
-    model SignalMagneticFlux "Signal-controlled magnetic flux source"
-
-      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux" annotation (
-          Placement(transformation(
-            origin={0,110},
-            extent={{10,-10},{-10,10}},
-            rotation=90), iconTransformation(
-            extent={{10,-10},{-10,10}},
-            rotation=90,
-            origin={0,110})));
-      SI.MagneticPotentialDifference V_m
-        "Magnetic potential difference between both ports";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-      annotation (
-        defaultComponentName="magFluxSource",
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-          Polygon(
-            points={{80,0},{60,6},{60,-6},{80,0}},
-            lineColor={255,128,0},
-            fillColor={255,128,0},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Line(points={{-100,0},{-50,0}}, color={255,127,0}),
-          Line(points={{50,0},{100,0}}, color={255,127,0}),
-          Ellipse(
-            extent={{-50,-50},{50,50}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,50},{0,-50}}, color={255,127,0})}),
-        Documentation(info="<html>
-<p>
-This source of a magnetic flux is intended for test purposes, e.g., for simulation and subsequent plotting of a softmagnetic material's magnetisation characteristics if used together with a non-linear reluctance element.
-</p>
-</html>"));
-    end SignalMagneticFlux;
-
-    annotation (Documentation(info="<html>
-<p>
-This package contains sources of a magnetic potential difference or a magnetic flux:
-</p>
-</html>"));
-  end Sources;
-
-  package Sensors "Sensors to measure variables in magnetic networks"
-    extends Modelica.Icons.SensorsPackage;
-
-    model MagneticPotentialDifferenceSensor
-      "Sensor to measure magnetic potential difference"
-      extends Modelica.Icons.RotationalSensor;
-      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
-
-      Modelica.Blocks.Interfaces.RealOutput V_m(final quantity=
-            "MagneticPotential", final unit="A")
-        "Magnetic potential difference between ports p and n as output signal"
-        annotation (Placement(transformation(
-            origin={0,-100},
-            extent={{10,-10},{-10,10}},
-            rotation=90)));
-      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
-
-    equation
-      V_m = port_p.V_m - port_n.V_m;
-      Phi = port_p.Phi;
-      Phi = 0;
-      0 = port_p.Phi + port_n.Phi;
-
-      annotation (defaultComponentName="magVoltageSensor",
-    Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}), graphics={
-            Line(points={{-70,0},{-90,0}}, color={255,128,0}),
-            Line(points={{70,0},{90,0}}, color={255,128,0}),
-            Line(points={{0,-90},{0,-70}}, color={0,0,127}),
-            Text(
-              extent={{-150,120},{150,80}},
-              textString="%name",
-              textColor={0,0,255}),
-            Text(
-              extent={{-30,-10},{30,-70}},
-              textColor={64,64,64},
-              textString="A")}),      Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-100,0}}, color={255,128,0}),
-              Line(points={{70,0},{100,0}}, color={255,128,0}),Line(
-              points={{0,-100},{0,-70}})}));
-    end MagneticPotentialDifferenceSensor;
-
-    model MagneticFluxSensor "Sensor to measure magnetic flux"
-      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
-      extends Modelica.Icons.RotationalSensor;
-
-      Modelica.Blocks.Interfaces.RealOutput Phi(final quantity="MagneticFlux",
-          final unit="Wb")
-        "Magnetic flux from port p to port n as output signal" annotation (
-          Placement(transformation(
-            origin={0,-100},
-            extent={{10,-10},{-10,10}},
-            rotation=90)));
-    equation
-      port_p.V_m = port_n.V_m;
-      Phi = port_p.Phi;
-      0 = port_p.Phi + port_n.Phi;
-
-      annotation (defaultComponentName="magFluxSensor",
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}, color={255,128,0}),
-                                                                                                            Line(
-              points={{70,0},{90,0}}, color={255,128,0}),
-                                       Text(
-                  extent={{-150,120},{150,80}},
-                  textString="%name",
-                  textColor={0,0,255}),Line(points={{0,-90},{0,-70}}, color={0,0,127}),
-            Text(
-              extent={{-30,-10},{30,-70}},
-              textColor={64,64,64},
-              textString="Wb")}));
-    end MagneticFluxSensor;
-    annotation (Documentation(info="<html>
-<p>
-For analysis of magnetic networks, only magnetic potential differences and magnetic flux are variables of interest. For that reason, a magnetic potential sensor is not provided.
-</p>
-</html>"));
-  end Sensors;
+    end GenericHysteresisTellinen;
+  end BaseClasses;
 
   package Utilities "Package with utility functions"
     extends Modelica.Icons.FunctionsPackage;
