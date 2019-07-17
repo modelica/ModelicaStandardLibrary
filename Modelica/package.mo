@@ -2086,7 +2086,7 @@ icons of the Icon layer. Any graphical illustrations shall be moved to the HTML 
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
 <li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a></li>
-<li> Consistent HTML documentation <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">UsersGuide</a></li>
+<li> Consistent <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">HTML documentation</a></li>
 <li> Structure to be provided by a main package
 <ul>
      <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
@@ -2094,7 +2094,8 @@ icons of the Icon layer. Any graphical illustrations shall be moved to the HTML 
      <li> <strong>Components</strong> -- in case of a complex library a more detailed structure can be established.</li>
      <li> <strong>Sensors</strong></li>
      <li> <strong>Sources</strong></li>
-     <li> <strong>Interfaces</strong> containing connectors and partial models.</li>
+     <li> <strong>Interfaces</strong> containing connectors and simple partial interface models.</li>
+     <li> <strong>BaseClasses</strong> containing partial models with physical equations other than trivial and balance equations.</li>
      <li> <strong>Types</strong> containing type, enumeration and choice definitions.</li>
 </ul></li>
 <li> These packages should appear in the listed order.</li>
