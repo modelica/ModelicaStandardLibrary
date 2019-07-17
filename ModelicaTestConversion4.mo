@@ -727,8 +727,8 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     extends Modelica.Icons.ExamplesPackage;
     package FluxTubes
       extends Modelica.Icons.ExamplesPackage;
-      package Issue496 "Conversion test for #194"
-        extends Modelica.Icons.ExamplesPackage;
+      model Issue496 "Conversion test for #496"
+        extends Modelica.Icons.Example;
         partial model PartialTwoPort
           extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
         end PartialTwoPort;
@@ -770,8 +770,8 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
     package FundamentalWave
       extends Modelica.Icons.ExamplesPackage;
-      package Issue496 "Conversion test for #496"
-        extends Modelica.Icons.ExamplesPackage;
+      model Issue496 "Conversion test for #496"
+        extends Modelica.Icons.Example;
         partial model PartialTwoPortsElementary "Two magnetic ports for graphical modeling"
           extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
         end PartialTwoPortsElementary;
@@ -834,8 +834,8 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       extends Modelica.Icons.ExamplesPackage;
       package FluxTubes "Library for modelling of quasi static electromagnetic devices with lumped magnetic networks"
         extends Modelica.Icons.ExamplesPackage;
-        package Issue496 "Conversion test for #194"
-          extends Modelica.Icons.ExamplesPackage;
+        model Issue496 "Conversion test for #496"
+          extends Modelica.Icons.Example;
           partial model PartialTwoPortsElementary "Partial component with two magnetic ports p and n for textual programming"
             extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPortsElementary;
           end PartialTwoPortsElementary;
@@ -861,8 +861,8 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
       package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
         extends Modelica.Icons.ExamplesPackage;
-        package Issue496
-          extends Modelica.Icons.ExamplesPackage;
+        model Issue496 "Conversion test for #496"
+          extends Modelica.Icons.Example;
           partial model PartialTwoPort "Two magnetic ports for graphical modeling"
             extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort;
           end PartialTwoPort;
