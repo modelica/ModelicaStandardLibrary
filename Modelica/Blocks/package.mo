@@ -2512,7 +2512,8 @@ random number generator. This block is used in the example
                 origin={-50,90},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Machines.Utilities.CurrentController currentController(p=smpm.p)
+          Modelica.Electrical.Machines.Utilities.DQToThreePhase dqToThreePhase(
+              p=smpm.p)
             annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
           Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -2604,10 +2605,10 @@ random number generator. This block is used in the example
               points={{-10,60},{-10,90}}, color={0,0,255}));
           connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (Line(
               points={{10,-10},{10,-40}}));
-          connect(angleSensor.phi, currentController.phi) annotation (Line(
-              points={{10,11},{10,30},{-40,30},{-40,38}}, color={0,0,127}));
+          connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points=
+                  {{10,11},{10,30},{-34,30},{-34,38}}, color={0,0,127}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
-              points={{-70,-28},{-19,-28},{-19,-24}}, color={0,0,255}));
+              points={{-70,-28},{-20,-28},{-20,-24}}, color={0,0,255}));
           connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
               points={{0,-40},{40,-40}}));
           connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply) annotation (
@@ -2617,8 +2618,8 @@ random number generator. This block is used in the example
               points={{-50,-10},{-40,-10}}, color={0,0,255}));
           connect(starM.pin_n, groundM.p) annotation (Line(
               points={{-70,-10},{-70,-28}}, color={0,0,255}));
-          connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,50},{-24,50},{-17,50}}, color={0,0,127}));
+          connect(dqToThreePhase.y, signalCurrent.i) annotation (Line(points={{
+                  -29,50},{-22,50},{-22,50}}, color={0,0,127}));
           connect(speedSensor.flange, smpm.flange) annotation (Line(
               points={{30,-10},{30,-40},{0,-40}}));
           connect(torqueSensor.flange_b, inertiaLoad.flange_a) annotation (Line(
@@ -2629,10 +2630,10 @@ random number generator. This block is used in the example
           connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
             annotation (Line(
               points={{-10,-10},{-20,-10}}, color={0,0,255}));
-          connect(id.y, currentController.id_rms) annotation (Line(
-              points={{-69,70},{-60,70},{-60,56},{-52,56}}, color={0,0,127}));
-          connect(currentController.iq_rms, iq_rms1) annotation (Line(
-              points={{-52,44},{-100,44},{-100,60},{-120,60}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-69,70},{-60,
+                  70},{-60,56},{-52,56}}, color={0,0,127}));
+          connect(dqToThreePhase.q, iq_rms1) annotation (Line(points={{-52,44},
+                  {-100,44},{-100,60},{-120,60}}, color={0,0,127}));
           connect(inertiaLoad.flange_b, flange) annotation (Line(
               points={{90,-40},{90,-40},{90,0},{100,0}}));
           connect(angleSensor.phi, addNoise.u2) annotation (Line(

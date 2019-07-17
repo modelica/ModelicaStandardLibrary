@@ -2314,8 +2314,7 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
                1462.5*2*Modelica.Constants.pi/60 "Nominal load speed";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
-          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
-                                                                                           aimc(
+          Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
             p=aimcData.p,
             fsNominal=aimcData.fsNominal,
             TsRef=aimcData.TsRef,
@@ -4286,7 +4285,8 @@ and accelerate the inertias.</p>
                 origin={-90,90},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Electrical.Machines.Utilities.CurrentController currentController(p=smpm.p) annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
+          Electrical.Machines.Utilities.DQToThreePhase dqToThreePhase(p=smpm.p)
+            annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
           Modelica.Blocks.Sources.Constant iq(k=Idq[2])
             annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
           Modelica.Blocks.Sources.Constant id(k=Idq[1])
@@ -4355,12 +4355,12 @@ and accelerate the inertias.</p>
           connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (
               Line(
               points={{10,-10},{10,-40}}));
-          connect(angleSensor.phi, currentController.phi) annotation (Line(
-              points={{10,11},{10,30},{-40,30},{-40,38}}, color={0,0,127}));
-          connect(id.y, currentController.id_rms) annotation (Line(
-              points={{-69,70},{-60,70},{-60,56},{-52,56}}, color={0,0,127}));
-          connect(iq.y, currentController.iq_rms) annotation (Line(
-              points={{-69,30},{-60,30},{-60,44},{-52,44}}, color={0,0,127}));
+          connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points=
+                  {{10,11},{10,30},{-34,30},{-34,38}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-69,70},{-60,
+                  70},{-60,56},{-52,56}}, color={0,0,127}));
+          connect(iq.y, dqToThreePhase.q) annotation (Line(points={{-69,30},{-60,
+                  30},{-60,44},{-52,44}}, color={0,0,127}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
               points={{-70,-28},{-20,-28}}, color={0,0,255}));
           connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
@@ -4372,8 +4372,8 @@ and accelerate the inertias.</p>
               points={{-50,-10},{-40,-10}}, color={0,0,255}));
           connect(starM.pin_n, groundM.p) annotation (Line(
               points={{-70,-10},{-70,-28}}, color={0,0,255}));
-          connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,50},{-22,50}}, color={0,0,127}));
+          connect(dqToThreePhase.y, signalCurrent.i)
+            annotation (Line(points={{-29,50},{-22,50}}, color={0,0,127}));
           connect(speedSensor.flange, smpm.flange) annotation (Line(
               points={{30,-10},{30,-40},{0,-40}}));
           connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
@@ -4475,7 +4475,7 @@ whereas the stator voltage is influenced by the d-current.</p>
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-10,0})));
-          Electrical.Machines.Utilities.VoltageController voltageController(
+          Electrical.Machines.Utilities.CurrentController currentController(
             p=smpm.p,
             Ld=smpm.Lssigma + smpm.Lmd,
             Lq=smpm.Lssigma + smpm.Lmq,
@@ -4540,15 +4540,15 @@ whereas the stator voltage is influenced by the d-current.</p>
               points={{-50,90},{-10,90},{-10,60}}, color={0,0,255}));
           connect(currentSensor.plug_n, terminalBox.plugSupply) annotation (Line(
               points={{-10,-10},{-10,-28}}, color={0,0,255}));
-          connect(id.y, voltageController.id_rms) annotation (Line(
-              points={{-69,70},{-60,70},{-60,56},{-52,56}}, color={0,0,127}));
-          connect(iq.y, voltageController.iq_rms) annotation (Line(
-              points={{-69,30},{-60,30},{-60,44},{-52,44}}, color={0,0,127}));
-          connect(angleSensor.phi, voltageController.phi) annotation (Line(
+          connect(id.y, currentController.id) annotation (Line(points={{-69,70},
+                  {-60,70},{-60,56},{-52,56}}, color={0,0,127}));
+          connect(iq.y, currentController.iq) annotation (Line(points={{-69,30},
+                  {-60,30},{-60,44},{-52,44}}, color={0,0,127}));
+          connect(angleSensor.phi,currentController. phi) annotation (Line(
               points={{10,11},{10,34},{-34,34},{-34,38}}, color={0,0,127}));
-          connect(voltageController.y, signalVoltage.v) annotation (Line(
+          connect(currentController.y, signalVoltage.v) annotation (Line(
               points={{-29,50},{-22,50}}, color={0,0,127}));
-          connect(currentSensor.i, voltageController.iActual) annotation (Line(
+          connect(currentSensor.i,currentController. iActual) annotation (Line(
               points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}}, color={0,0,127}));
           connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
               points={{50,-40},{50,-60}}));
