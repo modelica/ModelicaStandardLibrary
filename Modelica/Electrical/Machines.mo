@@ -2711,8 +2711,8 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
                                           color={0,0,255}));
         connect(smpm.flange, angleSensor.flange)
           annotation (Line(points={{0,-40},{30,-40},{30,-30}}, color={0,0,0}));
-        connect(angleSensor.phi, currentController.phi) annotation (Line(points
-              ={{30,-9},{30,34},{-40,34},{-40,38}}, color={0,0,127}));
+        connect(angleSensor.phi, currentController.phi) annotation (Line(points=
+               {{30,-9},{30,34},{-40,34},{-40,38}}, color={0,0,127}));
         annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>A synchronous machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
@@ -12233,19 +12233,19 @@ Note that phi0 has to be set that way, that in shaft position phi0 the flux link
         Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
-Simple model of a sin-cos-resolver, i.e. measuring the angle of the flange (w.r.t. the optional support) and providing 4 signals:
+Simple model of a sin-cos-resolver, i.e. sensing the angle of the flange <code>phi</code> (w.r.t. the optional support) and multilpied by <code>p</code>,providing 4 signals:
 </p>
 <ul>
-<li><code>y[1] = offset + amplitude*cos(p*phi)</code></li>
-<li><code>y[2] = offset - amplitude*cos(p*phi)</code></li>
-<li><code>y[3] = offset + amplitude*sin(p*phi)</code></li>
-<li><code>y[4] = offset - amplitude*sin(p*phi)</code></li>
+<li><code>y[1] = offset + amplitude*cos(p*(phi - phi0))</code></li>
+<li><code>y[2] = offset - amplitude*cos(p*(phi - phi0))</code></li>
+<li><code>y[3] = offset + amplitude*sin(p*(phi - phi0))</code></li>
+<li><code>y[4] = offset - amplitude*sin(p*(phi - phi0))</code></li>
 </ul>
 <p>
 Thus the sine and cosine signals have <code>p</code> periods per mechanical revolution. 
 Adding an <code>offset</code> &gt; <code>amplitude</code>, the loss of one track can be determined. 
 Subtracting the negated signal from the signal, the offset is removed and a cosine and a sine with doubled amplitude are accessible. 
-From this signal, the angle within one polepair of a machine can be determined for field oriented control. 
+From this signal, the angle within one pole pair of a machine can be determined for field oriented control. 
 Block <a href=\"modelica://Modelica.Electrical.Machines.Utilities.SinCosEvaluation\">SinCosEvaluation</a> can be used. 
 </p>
 <p>
@@ -12254,6 +12254,7 @@ When switching to a real drive, the same inputs as from the FMU can be used.
 </p>
 <p>
 Note that phi0 has to be set that way, that in shaft position phi0 the flux linkage of phase 1 is a maximum.
+In order to sense the mechanical angle of the shaft <code>p = 1</code> has to be set.
 </p>
 </html>"));
     end SinCosResolver;
@@ -17175,7 +17176,7 @@ Interpreting cosine and sine as real and imaginary part of a phasor, one could c
 This is not very robust if the signals are superimposed with some noise. 
 Therefore the phasor is rotated by an angle that is obtained by a controller. The controller aims at imaginary part equal to zero. 
 The resulting angle is continuous, i.e. differentiating the angle results in 2*&pi;*frequency. 
-If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
+If desired, the angle can be wrapped to the interval ]-&pi;, +&pi;].
 </p>
 <p>
 If the <a href=\"modelica://Modelica.Electrical.Machines.Sensors.SinCosResolver\">sin-cos-resolver</a> provides one period of the tracks during a rotation of 2&pi;/p, 
