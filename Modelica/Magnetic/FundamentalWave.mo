@@ -4383,10 +4383,10 @@ and accelerate the inertias.</p>
           connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
             annotation (Line(
               points={{-10,-10},{-20,-10}}, color={0,0,255}));
-          connect(id.y, dqToThreePhase.id_rms) annotation (Line(points={{-69,70},
-                  {-60,70},{-60,56},{-52,56}}, color={0,0,127}));
-          connect(iq.y, dqToThreePhase.iq_rms) annotation (Line(points={{-69,30},
-                  {-60,30},{-60,44},{-52,44}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-69,70},{-60,
+                  70},{-60,56},{-52,56}}, color={0,0,127}));
+          connect(iq.y, dqToThreePhase.q) annotation (Line(points={{-69,30},{-60,
+                  30},{-60,44},{-52,44}}, color={0,0,127}));
           annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
                 info="<html>
 <p>A synchronous machine with permanent magnets accelerates a quadratic speed dependent load from standstill.

@@ -2673,10 +2673,10 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
         connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
             points={{-10,60},{-10,90},{-50,90}},
             color={0,0,255}));
-        connect(id.y, dqToThreePhase.id_rms) annotation (Line(points={{-69,70},
-                {-60,70},{-60,56},{-52,56}}, color={0,0,127}));
-        connect(iq.y, dqToThreePhase.iq_rms) annotation (Line(points={{-69,30},
-                {-60,30},{-60,44},{-52,44}}, color={0,0,127}));
+        connect(id.y, dqToThreePhase.d) annotation (Line(points={{-69,70},{-60,
+                70},{-60,56},{-52,56}}, color={0,0,127}));
+        connect(iq.y, dqToThreePhase.q) annotation (Line(points={{-69,30},{-60,
+                30},{-60,44},{-52,44}}, color={0,0,127}));
         connect(groundM.p, terminalBox.starpoint) annotation (Line(
             points={{-70,-28},{-20,-28}},
             color={0,0,255}));
@@ -16905,12 +16905,10 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
       parameter Integer p "Number of pole pairs";
       parameter Boolean useRMS=true "If true, inputs dq are multiplied by sqrt(2)";
       extends Modelica.Blocks.Interfaces.MO(final nout=m);
-      Modelica.Blocks.Interfaces.RealInput id_rms "d-component"
-                                                  annotation (Placement(
-            transformation(extent={{-140,40},{-100,80}})));
-      Modelica.Blocks.Interfaces.RealInput iq_rms "q-component"
-                                                  annotation (Placement(
-            transformation(extent={{-140,-80},{-100,-40}})));
+      Modelica.Blocks.Interfaces.RealInput d "d-component"
+        annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+      Modelica.Blocks.Interfaces.RealInput q "q-component"
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
       Modelica.Blocks.Interfaces.RealInput phi(unit="rad") "Rotor angle"
                                                            annotation (Placement(
             transformation(
@@ -16936,7 +16934,7 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
                                                                    annotation (
           Placement(transformation(extent={{40,10},{60,-10}})));
     equation
-      connect(iq_rms, toPeak_q.u)
+      connect(q, toPeak_q.u)
         annotation (Line(points={{-120,-60},{-62,-60}}, color={0,0,127}));
       connect(phi, toGamma.u)
         annotation (Line(points={{0,-120},{0,-62}}, color={0,0,127}));
@@ -16944,8 +16942,8 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
         annotation (Line(points={{0,-12},{0,-39},{0,-39}}, color={0,0,127}));
       connect(rotator.y, fromSpacePhasor.u)
         annotation (Line(points={{11,0},{24,0},{38,0}}, color={0,0,127}));
-      connect(toPeak_d.u, id_rms) annotation (Line(
-          points={{-62,60},{-120,60}}, color={0,0,127}));
+      connect(toPeak_d.u, d)
+        annotation (Line(points={{-62,60},{-120,60}}, color={0,0,127}));
       connect(toPeak_d.y, rotator.u[1]) annotation (Line(
           points={{-39,60},{-30,60},{-30,0},{-12,0}},   color={0,0,127}));
       connect(toPeak_q.y, rotator.u[2]) annotation (Line(

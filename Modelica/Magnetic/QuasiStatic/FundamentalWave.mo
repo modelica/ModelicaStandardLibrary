@@ -3193,12 +3193,12 @@ Simulate for 1 second and plot (versus time):
           connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
           connect(id.y, dqToThreePhaseQS.id_rms) annotation (Line(points={{-79,
                   30},{-74,30},{-74,96},{-52,96}}, color={0,0,127}));
-          connect(id.y, dqToThreePhase.id_rms) annotation (Line(points={{-79,30},
-                  {-74,30},{-74,-4},{-52,-4}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-79,30},{-74,
+                  30},{-74,-4},{-52,-4}}, color={0,0,127}));
           connect(iq.y, dqToThreePhaseQS.iq_rms) annotation (Line(points={{-79,
                   -10},{-68,-10},{-68,84},{-52,84}}, color={0,0,127}));
-          connect(iq.y, dqToThreePhase.iq_rms) annotation (Line(points={{-79,
-                  -10},{-68,-10},{-68,-16},{-52,-16}}, color={0,0,127}));
+          connect(iq.y, dqToThreePhase.q) annotation (Line(points={{-79,-10},{-68,
+                  -10},{-68,-16},{-52,-16}}, color={0,0,127}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>

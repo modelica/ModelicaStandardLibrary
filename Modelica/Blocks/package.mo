@@ -2642,10 +2642,10 @@ random number generator. This block is used in the example
                   10}}, color={0,0,127}));
           connect(angleSensor.phi, phi_motor) annotation (Line(points={{10,11},{10,11},{
                   10,22},{10,30},{70,30}}, color={0,0,127}));
-          connect(id.y, dqToThreePhase.id_rms) annotation (Line(points={{-69,70},
-                  {-60,70},{-60,56},{-52,56}}, color={0,0,127}));
-          connect(iq_rms1, dqToThreePhase.iq_rms) annotation (Line(points={{
-                  -120,60},{-100,60},{-100,44},{-52,44}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-69,70},{-60,
+                  70},{-60,56},{-52,56}}, color={0,0,127}));
+          connect(iq_rms1, dqToThreePhase.q) annotation (Line(points={{-120,60},
+                  {-100,60},{-100,44},{-52,44}}, color={0,0,127}));
           annotation (
             Documentation(info="<html>
 <p>
