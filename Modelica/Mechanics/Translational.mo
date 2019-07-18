@@ -3587,24 +3587,18 @@ following references, especially (Armstrong and Canudas de Wit 1996):
                                           color={0,0,0}, origin={-3,-49}, rotation=15),
         Ellipse(extent={{-130,-120},{-30,-20}}, lineColor={0,0,0}, startAngle=0, endAngle=15),
         Polygon(points={{-70,15},{-70,-25},{50,-25},{50,15},{38,25},{-60,25},{-70,15}},
-              lineColor={0,127,0}, fillColor={160,215,160}, fillPattern=FillPattern.Solid, origin={0,
-                  -9},                                                                                      rotation=15),
+              lineColor={0,127,0}, fillColor={160,215,160}, fillPattern=FillPattern.Solid, origin={0,-9}, rotation=15),
         Line(points={{-40,0},{40,0}}, color={95,127,95}, origin={-40,32}, rotation=15),
         Polygon(points={{15,0},{-15,10},{-15,-10},{15,0}}, lineColor={95,127,95}, fillColor={95,127,95},
-                fillPattern =                                                                                        FillPattern.Solid, origin={11,
-                  46},                                                                                                                                  rotation=15),
+                fillPattern = FillPattern.Solid, origin={11,46}, rotation=15),
         Text(extent={{-150,100},{150,60}}, textString="%name", lineColor={0,0,255}),
         Polygon(points={{-20,0},{0,10},{0,4},{20,4},{20,-4},{0,-4},{0,-10},{-20,0}}, lineColor={0,127,0}, fillColor={160,215,160},
-                fillPattern =                                                                                                                  FillPattern.Solid, origin={68,
-                  18},                                                                                                                                                           rotation=15),
-        Text(extent={{-80,-80},{-40,-100}},                    lineColor={0,0,
-                  255},
+                fillPattern = FillPattern.Solid, origin={68,18}, rotation=15),
+        Text(extent={{-80,-80},{-40,-100}}, lineColor={0,0,255},
               textString="inc."),
-        Text(extent={{-20,-80},{20,-100}},                     lineColor={0,0,
-                  255},
+        Text(extent={{-20,-80},{20,-100}}, lineColor={0,0,255},
               textString="cr"),
-        Text(extent={{30,-80},{90,-100}},                      lineColor={0,0,
-                  255},
+        Text(extent={{30,-80},{90,-100}}, lineColor={0,0,255},
               textString="wind"),
         Ellipse(extent={{-50,-34},{-26,-58}},lineColor={0,127,0}, fillPattern=FillPattern.Sphere, fillColor={160,215,160}),
         Ellipse(extent={{20,-16},{44,-40}},  lineColor={0,127,0}, fillPattern=FillPattern.Sphere, fillColor={160,215,160})}),
@@ -3630,7 +3624,7 @@ Furthermore, the consumption of mechanical energy is integrated from power (<cod
 </p>
 <p>
 The velocity <code>v</code> and the driving distance <code>s</code> of the vehicle are provided as variables; 
-the vehicle can be initialzed using these variables.
+the vehicle can be initialized using these variables.
 </p>
 <p>
 <strong>Mass and inertia</strong>
