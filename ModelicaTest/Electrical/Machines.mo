@@ -85,7 +85,7 @@ package Machines
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-10,0})));
-    Modelica.Electrical.Machines.Utilities.VoltageController voltageController(
+    Modelica.Electrical.Machines.Utilities.DQCurrentController dqCurrentController(
       p=smpm.p,
       Ld=smpm.Lssigma + smpm.Lmd,
       Lq=smpm.Lssigma + smpm.Lmq,
@@ -160,15 +160,15 @@ package Machines
         points={{-50,90},{-10,90},{-10,60}}, color={0,0,255}));
     connect(currentSensor.plug_n, terminalBox.plugSupply) annotation (Line(
         points={{-10,-10},{-10,-28}}, color={0,0,255}));
-    connect(id.y, voltageController.id_rms) annotation (Line(
+    connect(id.y, dqCurrentController.id) annotation (Line(
         points={{-69,70},{-60,70},{-60,56},{-52,56}}, color={0,0,127}));
-    connect(iq.y, voltageController.iq_rms) annotation (Line(
+    connect(iq.y, dqCurrentController.iq) annotation (Line(
         points={{-69,30},{-60,30},{-60,44},{-52,44}}, color={0,0,127}));
-    connect(angleSensor.phi, voltageController.phi) annotation (Line(
+    connect(angleSensor.phi, dqCurrentController.phi) annotation (Line(
         points={{10,11},{10,34},{-34,34},{-34,38}}, color={0,0,127}));
-    connect(voltageController.y, signalVoltage.v) annotation (Line(
+    connect(dqCurrentController.y, signalVoltage.v) annotation (Line(
         points={{-29,50},{-17,50}}, color={0,0,127}));
-    connect(currentSensor.i, voltageController.iActual) annotation (Line(
+    connect(currentSensor.i, dqCurrentController.iActual) annotation (Line(
         points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}}, color={0,0,127}));
     connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
         points={{50,-40},{50,-60}}));
@@ -199,7 +199,7 @@ package Machines
           info="<html>
 <p>
 A synchronous machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
-The rms values of d- and q-current in rotor fixed coordinate system are controlled by the voltageController,
+The rms values of d- and q-current in rotor fixed coordinate system are controlled by the dqCurrentController,
 and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.</p>
 <p>
