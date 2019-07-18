@@ -2605,8 +2605,8 @@ random number generator. This block is used in the example
               points={{-10,60},{-10,90}}, color={0,0,255}));
           connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (Line(
               points={{10,-10},{10,-40}}));
-          connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points=
-                  {{10,11},{10,30},{-34,30},{-34,38}}, color={0,0,127}));
+          connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points={{10,11},
+                  {10,30},{-40,30},{-40,38}},          color={0,0,127}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
               points={{-70,-28},{-20,-28},{-20,-24}}, color={0,0,255}));
           connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
@@ -2630,10 +2630,6 @@ random number generator. This block is used in the example
           connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
             annotation (Line(
               points={{-10,-10},{-20,-10}}, color={0,0,255}));
-          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-69,70},{-60,
-                  70},{-60,56},{-52,56}}, color={0,0,127}));
-          connect(dqToThreePhase.q, iq_rms1) annotation (Line(points={{-52,44},
-                  {-100,44},{-100,60},{-120,60}}, color={0,0,127}));
           connect(inertiaLoad.flange_b, flange) annotation (Line(
               points={{90,-40},{90,-40},{90,0},{100,0}}));
           connect(angleSensor.phi, addNoise.u2) annotation (Line(
@@ -2646,6 +2642,10 @@ random number generator. This block is used in the example
                   10}}, color={0,0,127}));
           connect(angleSensor.phi, phi_motor) annotation (Line(points={{10,11},{10,11},{
                   10,22},{10,30},{70,30}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.id_rms) annotation (Line(points={{-69,70},
+                  {-60,70},{-60,56},{-52,56}}, color={0,0,127}));
+          connect(iq_rms1, dqToThreePhase.iq_rms) annotation (Line(points={{
+                  -120,60},{-100,60},{-100,44},{-52,44}}, color={0,0,127}));
           annotation (
             Documentation(info="<html>
 <p>

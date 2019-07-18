@@ -3171,14 +3171,6 @@ Simulate for 1 second and plot (versus time):
               points={{30,50},{30,40},{20,40},{20,20},{10,20}}));
           connect(referenceCurrentSourceQS.plug_p, resistorQS.plug_p) annotation (Line(points={{4.44089e-16,100},{20,100}}, color={85,170,255}));
           connect(resistorQS.plug_n, referenceCurrentSourceQS.plug_n) annotation (Line(points={{20,80},{-6.66134e-16,80}}, color={85,170,255}));
-          connect(id.y, dqToThreePhaseQS.id_rms) annotation (Line(points={{-79,
-                  30},{-74,30},{-74,96},{-52,96}}, color={0,0,127}));
-          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-79,30},{-74,
-                  30},{-74,-4},{-52,-4}}, color={0,0,127}));
-          connect(iq.y, dqToThreePhaseQS.iq_rms) annotation (Line(points={{-79,
-                  -10},{-70,-10},{-70,84},{-52,84}}, color={0,0,127}));
-          connect(iq.y, dqToThreePhase.q) annotation (Line(points={{-79,-10},{-70,
-                  -10},{-70,-16},{-52,-16}}, color={0,0,127}));
           connect(dqToThreePhase.y, signalCurrent.i)
             annotation (Line(points={{-29,-10},{-12,-10}}, color={0,0,127}));
           connect(dqToThreePhaseQS.gamma, referenceCurrentSourceQS.gamma)
@@ -3186,8 +3178,8 @@ Simulate for 1 second and plot (versus time):
                 color={0,0,127}));
           connect(angleSensorQS.phi, dqToThreePhaseQS.phi) annotation (Line(
                 points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
-          connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points=
-                  {{30,-29},{30,-26},{-34,-26},{-34,-22}}, color={0,0,127}));
+          connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points={{30,-29},
+                  {30,-26},{-40,-26},{-40,-22}},           color={0,0,127}));
           connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}));
           connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,30},{24,30}}, color={85,170,255}));
           connect(terminalBoxQS.plugSupply, currentRMSSensorQS.plug_n) annotation (Line(points={{0,32},{0,50}},     color={85,170,255}));
@@ -3199,6 +3191,14 @@ Simulate for 1 second and plot (versus time):
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-50,50},{-40,50}}, color={85,170,255}));
           connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-10,-68}},color={0,0,255}));
           connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
+          connect(id.y, dqToThreePhaseQS.id_rms) annotation (Line(points={{-79,
+                  30},{-74,30},{-74,96},{-52,96}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.id_rms) annotation (Line(points={{-79,30},
+                  {-74,30},{-74,-4},{-52,-4}}, color={0,0,127}));
+          connect(iq.y, dqToThreePhaseQS.iq_rms) annotation (Line(points={{-79,
+                  -10},{-68,-10},{-68,84},{-52,84}}, color={0,0,127}));
+          connect(iq.y, dqToThreePhase.iq_rms) annotation (Line(points={{-79,
+                  -10},{-68,-10},{-68,-16},{-52,-16}}, color={0,0,127}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
