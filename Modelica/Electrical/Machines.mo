@@ -16968,7 +16968,7 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
 Transforms dq currents or voltages to three-phase currents or voltages.
 </p>
 <p>
-The desired d- and q-componenst of the space phasor in rotor fixed coordinate system are given by inputs <code>d</code> and <code>q</code>.
+The desired d- and q-components of the space phasor in rotor fixed coordinate system are given by inputs <code>d</code> and <code>q</code>.
 Using the given rotor position (input <code>phi</code>), the correct three-phase values (output <code>y[3]</code>) are calculated.
 They can be used to feed a current source which in turn feeds an induction machine.
 </p>
