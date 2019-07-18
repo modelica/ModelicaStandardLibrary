@@ -12233,7 +12233,7 @@ Note that phi0 has to be set that way, that in shaft position phi0 the flux link
         Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
-Simple model of a sin-cos-resolver, i.e. sensing the angle of the flange <code>phi</code> (w.r.t. the optional support) and multilpied by <code>p</code>,providing 4 signals:
+Simple model of a sin-cos-resolver, i.e. sensing the angle of the flange <code>phi</code> (w.r.t. the optional support) and multiplied by <code>p</code>, providing 4 signals:
 </p>
 <ul>
 <li><code>y[1] = offset + amplitude*cos(p*(phi - phi0))</code></li>
@@ -12242,18 +12242,18 @@ Simple model of a sin-cos-resolver, i.e. sensing the angle of the flange <code>p
 <li><code>y[4] = offset - amplitude*sin(p*(phi - phi0))</code></li>
 </ul>
 <p>
-Thus the sine and cosine signals have <code>p</code> periods per mechanical revolution. 
-Adding an <code>offset</code> &gt; <code>amplitude</code>, the loss of one track can be determined. 
-Subtracting the negated signal from the signal, the offset is removed and a cosine and a sine with doubled amplitude are accessible. 
-From this signal, the angle within one pole pair of a machine can be determined for field oriented control. 
-Block <a href=\"modelica://Modelica.Electrical.Machines.Utilities.SinCosEvaluation\">SinCosEvaluation</a> can be used. 
+Thus the sine and cosine signals have <code>p</code> periods per mechanical revolution.
+Adding an <code>offset</code> &gt; <code>amplitude</code>, the loss of one track can be determined.
+Subtracting the negated signal from the signal, the offset is removed and a cosine and a sine with doubled amplitude are accessible.
+From this signal, the angle within one pole pair of a machine can be determined for field oriented control.
+Block <a href=\"modelica://Modelica.Electrical.Machines.Utilities.SinCosEvaluation\">SinCosEvaluation</a> can be used.
 </p>
 <p>
-This model can be used to export FMUs of drives to develop control strategies in other environments. 
-When switching to a real drive, the same inputs as from the FMU can be used. 
+This model can be used to export FMUs of drives to develop control strategies in other environments.
+When switching to a real drive, the same inputs as from the FMU can be used.
 </p>
 <p>
-Note that phi0 has to be set that way, that in shaft position phi0 the flux linkage of phase 1 is a maximum.
+Note that <code>phi0</code> has to be set that way, that in shaft position <code>phi0</code> the flux linkage of phase 1 is a maximum.
 In order to sense the mechanical angle of the shaft <code>p = 1</code> has to be set.
 </p>
 </html>"));
@@ -17105,19 +17105,15 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
       extends Modelica.Blocks.Icons.Block;
       Blocks.Interfaces.RealInput u[4] "Signal from sin-cos-resolver"
         annotation (Placement(transformation(extent={{-140,20},{-100,-20}})));
-      Blocks.Math.Feedback
-                    feedbackCos
+      Blocks.Math.Feedback feedbackCos
         annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
-      Blocks.Math.Feedback
-                    feedbackSin
+      Blocks.Math.Feedback feedbackSin
         annotation (Placement(transformation(extent={{-70,-30},{-50,-50}})));
-      SpacePhasors.Blocks.Rotator                     rotator
+      SpacePhasors.Blocks.Rotator rotator
         annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-      Blocks.Continuous.Integrator
-                            integrator(final k=1e6)
+      Blocks.Continuous.Integrator integrator(final k=1e6)
         annotation (Placement(transformation(extent={{10,-10},{30,10}})));
-      Blocks.Continuous.Der
-                     der1
+      Blocks.Continuous.Der der1
         annotation (Placement(transformation(extent={{60,-70},{80,-50}})));
       Blocks.Interfaces.RealOutput phi(unit="rad") "Angle"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
@@ -17167,19 +17163,19 @@ The <a href=\"modelica://Modelica.Electrical.Machines.Sensors.SinCosResolver\">s
 <li>minus cosine<li>
 </ul>
 <p>
-All four tracks have the same amplitude and the same offset &gt; amplitude. Offset is used to detect loss of a track. 
-To remove offset, (minus sine) is subtracted from (sine) and (minus cosine) from (cosine), 
+All four tracks have the same amplitude and the same offset &gt; amplitude. Offset is used to detect loss of a track.
+To remove offset, (minus sine) is subtracted from (sine) and (minus cosine) from (cosine),
 resulting in a cosine and a sine signal with doubled amplitude but without offset.
 </p>
 <p>
-Interpreting cosine and sine as real and imaginary part of a phasor, one could calculate the angle of the phasor (i.e. transform rectangular coordinates to polar coordinates). 
-This is not very robust if the signals are superimposed with some noise. 
-Therefore the phasor is rotated by an angle that is obtained by a controller. The controller aims at imaginary part equal to zero. 
-The resulting angle is continuous, i.e. differentiating the angle results in 2*&pi;*frequency. 
+Interpreting cosine and sine as real and imaginary part of a phasor, one could calculate the angle of the phasor (i.e., transform rectangular coordinates to polar coordinates).
+This is not very robust if the signals are superimposed with some noise.
+Therefore the phasor is rotated by an angle that is obtained by a controller. The controller aims at imaginary part equal to zero.
+The resulting angle is continuous, i.e. differentiating the angle results in 2*&pi;*frequency.
 If desired, the angle can be wrapped to the interval ]-&pi;, +&pi;].
 </p>
 <p>
-If the <a href=\"modelica://Modelica.Electrical.Machines.Sensors.SinCosResolver\">sin-cos-resolver</a> provides one period of the tracks during a rotation of 2&pi;/p, 
+If the <a href=\"modelica://Modelica.Electrical.Machines.Sensors.SinCosResolver\">sin-cos-resolver</a> provides one period of the tracks during a rotation of 2&pi;/p,
 the result is the angle with respect to one pole pair and can be directly used for field oriented control.
 </p>
 </html>"));
@@ -17308,10 +17304,10 @@ If <em>control</em> is true, plug_sp and plug_sn are delta connected and they ar
               extent={{-40,-50},{40,-90}},
               textString="%terminalConnection")}), Documentation(info="<html>
 <p>
-This model represents the internal connections of the terminal box of an electric machine. 
-The parameter <code>terminalConnection</code> is used to switch between star 
-(<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection. 
-The (single-phase) connector <code>starPoint</code> is only available if star connection is selected. 
+This model represents the internal connections of the terminal box of an electric machine.
+The parameter <code>terminalConnection</code> is used to switch between star
+(<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection.
+The (single-phase) connector <code>starPoint</code> is only available if star connection is selected.
 </p>
 </html>"));
     end TerminalBox;
@@ -17370,12 +17366,12 @@ The (single-phase) connector <code>starPoint</code> is only available if star co
               textString="%terminalConnection")}),
         Documentation(info="<html>
 <p>
-This model represents the internal connections of the terminal box of an electric machine. 
-The parameter <code>terminalConnection</code> is used to switch between star 
+This model represents the internal connections of the terminal box of an electric machine.
+The parameter <code>terminalConnection</code> is used to switch between star
 (<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection.
-The star point is a plug with 
-<code>mSystem = Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)</code> phases, 
-representing the star points of each base system; see 
+The star point is a plug with
+<code>mSystem = Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)</code> phases,
+representing the star points of each base system; see
 <a href=\"Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase</a>.
 </p>
 </html>"));
