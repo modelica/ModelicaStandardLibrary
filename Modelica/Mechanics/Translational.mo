@@ -1826,7 +1826,7 @@ Coupling a trailer with the same data but without drive, the driving torque has 
 Force and power between the two vehicles is measured. 
 </p>
 <p>
-Note: Since the trailer <code>vehicle1D2</code> is coupled tightly with the second vehicle <code>vehicle1D1</code>, initilization of the trailer has to be removed.
+Note: Since the trailer <code>vehicle1D2</code> is coupled tightly with the second vehicle <code>vehicle1D1</code>, initialization of the trailer has to be removed.
 </p>
 </html>"));
     end Vehicle;
