@@ -59,7 +59,7 @@ Capacity (i.e. nominal charge) <code>Qnom</code>, inner resistance <code>Ri</cod
 Typical (estimated) values for a certain cell size are, as an example:
 </p>
 <table>
-<tr><td>Capacity</td>             <td><code>Qnom</td><td>5 Ah</td></tr>
+<tr><td>Capacity</td>             <td><code>Qnom</td><td>5 A.h</td></tr>
 <tr><td>Inner resistance</td>     <td><code>Ri</td>  <td>3 m&Omega;</td></tr>
 <tr><td>Short-circuit current</td><td><code>Isc</td> <td>1.2 kA</td></tr>
 </table>

@@ -113,7 +113,7 @@ equation
       Interval=0.1,
       Tolerance=1e-06),
     Documentation(info="<html>
-<p>Two batteries with a nominal charge of 10 Ah starting with an initial SOC = 95 % are compared:</p>
+<p>Two batteries with a nominal charge of 10 A.h starting with an initial SOC = 95 % are compared:</p>
 <ul>
 <li><code>battery1</code> is a battery OCV linearly dependent on SOC, without self-discharge and not comprising RC-elements.</li>
 <li><code>battery2</code> is a battery OCV dependency on SOC is specified by a table, with self-discharge and including RC-elements.</li>

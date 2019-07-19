@@ -2,9 +2,6 @@ within Modelica.Electrical.Batteries;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
 
-
-
-
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This library provides battery models, based on the electrical behaviour at the terminals.
