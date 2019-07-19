@@ -2602,7 +2602,7 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
               origin={-90,90},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Utilities.CurrentController currentController(p=smpm.p)
+        Utilities.DQToThreePhase dqToThreePhase(p=smpm.p)
           annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
         Modelica.Blocks.Sources.Constant iq(k=Idq[2])
           annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
@@ -2673,12 +2673,10 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
         connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
             points={{-10,60},{-10,90},{-50,90}},
             color={0,0,255}));
-        connect(id.y, currentController.id_rms) annotation (Line(
-            points={{-69,70},{-60,70},{-60,56},{-52,56}},
-            color={0,0,127}));
-        connect(iq.y, currentController.iq_rms) annotation (Line(
-            points={{-69,30},{-60,30},{-60,44},{-52,44}},
-            color={0,0,127}));
+        connect(id.y, dqToThreePhase.d) annotation (Line(points={{-69,70},{-60,
+                70},{-60,56},{-52,56}}, color={0,0,127}));
+        connect(iq.y, dqToThreePhase.q) annotation (Line(points={{-69,30},{-60,
+                30},{-60,44},{-52,44}}, color={0,0,127}));
         connect(groundM.p, terminalBox.starpoint) annotation (Line(
             points={{-70,-28},{-20,-28}},
             color={0,0,255}));
@@ -2694,8 +2692,8 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
         connect(starM.pin_n, groundM.p) annotation (Line(
             points={{-70,-10},{-70,-28}},
             color={0,0,255}));
-        connect(currentController.y, signalCurrent.i) annotation (Line(
-            points={{-29,50},{-22,50}}, color={0,0,127}));
+        connect(dqToThreePhase.y, signalCurrent.i)
+          annotation (Line(points={{-29,50},{-22,50}}, color={0,0,127}));
         connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
           annotation (Line(
             points={{80,-40},{80,-40}}));
@@ -2711,8 +2709,8 @@ In practice it is nearly impossible to drive a PMSMD without current controller.
                                           color={0,0,255}));
         connect(smpm.flange, angleSensor.flange)
           annotation (Line(points={{0,-40},{30,-40},{30,-30}}, color={0,0,0}));
-        connect(angleSensor.phi, currentController.phi) annotation (Line(points=
-               {{30,-9},{30,34},{-40,34},{-40,38}}, color={0,0,127}));
+        connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points={{
+                30,-9},{30,34},{-40,34},{-40,38}}, color={0,0,127}));
         annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>A synchronous machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
@@ -2798,7 +2796,7 @@ whereas the stator voltage is influenced by the d-current.</p>
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-10,0})));
-        Machines.Utilities.VoltageController voltageController(
+        Utilities.DQCurrentController dqCurrentController(
           p=smpm.p,
           Ld=smpm.Lssigma + smpm.Lmd,
           Lq=smpm.Lssigma + smpm.Lmq,
@@ -2874,17 +2872,15 @@ whereas the stator voltage is influenced by the d-current.</p>
         connect(currentSensor.plug_n, terminalBox.plugSupply) annotation (Line(
             points={{-10,-10},{-10,-28}},
             color={0,0,255}));
-        connect(id.y, voltageController.id_rms) annotation (Line(
-            points={{-69,70},{-60,70},{-60,56},{-52,56}},
-            color={0,0,127}));
-        connect(iq.y, voltageController.iq_rms) annotation (Line(
-            points={{-69,30},{-60,30},{-60,44},{-52,44}},
-            color={0,0,127}));
-        connect(voltageController.y, signalVoltage.v) annotation (Line(
-            points={{-29,50},{-22,50}}, color={0,0,127}));
-        connect(currentSensor.i, voltageController.iActual) annotation (Line(
-            points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}},
-            color={0,0,127}));
+        connect(id.y, dqCurrentController.id) annotation (Line(points={{-69,70},
+                {-60,70},{-60,56},{-52,56}}, color={0,0,127}));
+        connect(iq.y, dqCurrentController.iq) annotation (Line(points={{-69,30},
+                {-60,30},{-60,44},{-52,44}}, color={0,0,127}));
+        connect(dqCurrentController.y, signalVoltage.v)
+          annotation (Line(points={{-29,50},{-22,50}}, color={0,0,127}));
+        connect(currentSensor.i, dqCurrentController.iActual) annotation (Line(
+              points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}}, color={0,0,
+                127}));
         connect(inertiaLoad.flange_a, multiSensor.flange_b)
           annotation (Line(points={{60,-40},{50,-40}}));
         connect(multiSensor.flange_a, smpm.flange)
@@ -2918,13 +2914,13 @@ whereas the stator voltage is influenced by the d-current.</p>
           annotation (Line(points={{0,-40},{30,-40},{30,-30}}, color={0,0,0}));
         connect(sinCosResolver.y, sinCosEvaluation.u)
           annotation (Line(points={{30,-9},{30,-2}}, color={0,0,127}));
-        connect(sinCosEvaluation.phi, voltageController.phi) annotation (Line(
+        connect(sinCosEvaluation.phi, dqCurrentController.phi) annotation (Line(
               points={{30,21},{30,34},{-34,34},{-34,38}}, color={0,0,127}));
         annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1e-06), Documentation(
               info="<html>
 <p>
 A synchronous machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
-The rms values of d- and q-current in rotor fixed coordinate system are controlled by the voltageController,
+The rms values of d- and q-current in rotor fixed coordinate system are controlled by the dqCurrentController,
 and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.</p>
 
@@ -16904,22 +16900,26 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
 </html>"));
     end FromDQ;
 
-    model CurrentController "Current controller"
-      parameter Integer m=3 "Number of phases";
+    model DQToThreePhase "Transforms dq to three-phase"
+      constant Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
+      parameter Boolean useRMS=true "If true, inputs dq are multiplied by sqrt(2)";
       extends Modelica.Blocks.Interfaces.MO(final nout=m);
-      Modelica.Blocks.Interfaces.RealInput id_rms annotation (Placement(
-            transformation(extent={{-140,40},{-100,80}})));
-      Modelica.Blocks.Interfaces.RealInput iq_rms annotation (Placement(
-            transformation(extent={{-140,-80},{-100,-40}})));
-      Modelica.Blocks.Interfaces.RealInput phi(unit="rad") annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput d "d-component"
+        annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+      Modelica.Blocks.Interfaces.RealInput q "q-component"
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
+      Modelica.Blocks.Interfaces.RealInput phi(unit="rad") "Rotor angle"
+                                                           annotation (Placement(
             transformation(
             origin={0,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
-      Modelica.Blocks.Math.Gain toPeak_d(k=sqrt(2)) annotation (Placement(
+      Modelica.Blocks.Math.Gain toPeak_d(k=if useRMS then sqrt(2) else 1)
+                                                    annotation (Placement(
             transformation(extent={{-60,50},{-40,70}})));
-      Modelica.Blocks.Math.Gain toPeak_q(k=sqrt(2)) annotation (Placement(
+      Modelica.Blocks.Math.Gain toPeak_q(k=if useRMS then sqrt(2) else 1)
+                                                    annotation (Placement(
             transformation(extent={{-60,-70},{-40,-50}})));
       Modelica.Blocks.Math.Gain toGamma(k=-p) annotation (Placement(
             transformation(
@@ -16934,7 +16934,7 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
                                                                    annotation (
           Placement(transformation(extent={{40,10},{60,-10}})));
     equation
-      connect(iq_rms, toPeak_q.u)
+      connect(q, toPeak_q.u)
         annotation (Line(points={{-120,-60},{-62,-60}}, color={0,0,127}));
       connect(phi, toGamma.u)
         annotation (Line(points={{0,-120},{0,-62}}, color={0,0,127}));
@@ -16942,8 +16942,8 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
         annotation (Line(points={{0,-12},{0,-39},{0,-39}}, color={0,0,127}));
       connect(rotator.y, fromSpacePhasor.u)
         annotation (Line(points={{11,0},{24,0},{38,0}}, color={0,0,127}));
-      connect(toPeak_d.u, id_rms) annotation (Line(
-          points={{-62,60},{-120,60}}, color={0,0,127}));
+      connect(toPeak_d.u, d)
+        annotation (Line(points={{-62,60},{-120,60}}, color={0,0,127}));
       connect(toPeak_d.y, rotator.u[1]) annotation (Line(
           points={{-39,60},{-30,60},{-30,0},{-12,0}},   color={0,0,127}));
       connect(toPeak_q.y, rotator.u[2]) annotation (Line(
@@ -16952,30 +16952,39 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
           points={{11,40},{20,40},{20,8},{38,8}}, color={0,0,127}));
       connect(fromSpacePhasor.y, y) annotation (Line(
           points={{61,0},{110,0}}, color={0,0,127}));
-      annotation (
+      annotation (defaultComponentName="dqToThreePhase",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-100,60},{20,40}},
+              extent={{-100,70},{-60,50}},
               textColor={0,0,255},
-              textString="id_rms"), Text(
-              extent={{-100,-40},{20,-60}},
+              textString="d"),               Text(
+              extent={{-100,-50},{-60,-70}},
               textColor={0,0,255},
-              textString="iq_rms")}), Documentation(info="<html>
+              textString="q"),               Text(
+              extent={{-20,-70},{20,-90}},
+              textColor={0,0,255},
+              textString="phi")}),    Documentation(info="<html>
 <p>
-Simple Current-Controller.
+Transforms dq currents or voltages to three-phase currents or voltages.
 </p>
 <p>
-The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"y[3]\") are calculated.
+The desired d- and q-components of the space phasor in rotor fixed coordinate system are given by inputs <code>d</code> and <code>q</code>.
+Using the given rotor position (input <code>phi</code>), the correct three-phase values (output <code>y[3]</code>) are calculated.
 They can be used to feed a current source which in turn feeds an induction machine.
 </p>
+<p>
+Inputs <code>d</code> and <code>q</code> can be given either as peak values (<code>useRMS=false</code>) or as RMS (<code>useRMS=true</code>). 
+The correction by factor &radic;2 is done automatically.
+</p>
 </html>"));
-    end CurrentController;
+    end DQToThreePhase;
 
-    model VoltageController "Voltage controller"
+    model DQCurrentController
+      "Current controller in dq coordinate system"
       import Modelica.Constants.pi;
       constant Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
+      parameter Boolean useRMS=true "If true, inputs dq are multiplied by sqrt(2)";
       parameter Modelica.SIunits.Frequency fsNominal "Nominal frequency";
       parameter Modelica.SIunits.Voltage VsOpenCircuit
         "Open circuit RMS voltage per phase @ fsNominal";
@@ -16987,20 +16996,21 @@ They can be used to feed a current source which in turn feeds an induction machi
       final parameter Modelica.SIunits.MagneticFlux psiM=sqrt(2)*VsOpenCircuit/
           (2*pi*fsNominal) "Approximation of magnetic flux linkage";
       Modelica.SIunits.AngularVelocity omega=p*der(phi);
-      Modelica.SIunits.Voltage Vd=sqrt(2)*(Rs*id_rms - omega*Lq*iq_rms);
-      Modelica.SIunits.Voltage Vq=sqrt(2)*(Rs*iq_rms + omega*Ld*id_rms) + omega
-          *psiM;
+      Modelica.SIunits.Voltage Vd=sqrt(2)*(Rs*id - omega*Lq*iq);
+      Modelica.SIunits.Voltage Vq=sqrt(2)*(Rs*iq + omega*Ld*id) + omega*psiM;
       extends Modelica.Blocks.Interfaces.MO(final nout=m);
-      Modelica.Blocks.Interfaces.RealInput id_rms annotation (Placement(
-            transformation(extent={{-140,40},{-100,80}})));
-      Modelica.Blocks.Interfaces.RealInput iq_rms annotation (Placement(
-            transformation(extent={{-140,-80},{-100,-40}})));
-      Modelica.Blocks.Interfaces.RealInput phi(unit="rad") annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput id "Reference of d-current"
+        annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+      Modelica.Blocks.Interfaces.RealInput iq "Reference of q-current"
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
+      Modelica.Blocks.Interfaces.RealInput phi(unit="rad") "Rotor angle"
+                                                           annotation (Placement(
             transformation(
             origin={60,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
-      Modelica.Blocks.Interfaces.RealInput iActual[m] annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput iActual[m]
+        "Measured three-phase currents"               annotation (Placement(
             transformation(
             origin={-60,-120},
             extent={{20,-20},{-20,20}},
@@ -17013,11 +17023,13 @@ They can be used to feed a current source which in turn feeds an induction machi
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-60,-80})));
-      Modelica.Blocks.Math.Gain toPeak_d(final k=sqrt(2)) annotation (Placement(
+      Modelica.Blocks.Math.Gain toPeak_d(final k=if useRMS then sqrt(2) else 1)
+                                                          annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             origin={-70,60})));
-      Modelica.Blocks.Math.Gain toPeak_q(final k=sqrt(2)) annotation (Placement(
+      Modelica.Blocks.Math.Gain toPeak_q(final k=if useRMS then sqrt(2) else 1)
+                                                          annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             origin={-70,0})));
@@ -17052,10 +17064,10 @@ They can be used to feed a current source which in turn feeds an induction machi
           points={{-60,-120},{-60,-92}}, color={0,0,127}));
       connect(phi, toDQ.phi) annotation (Line(
           points={{60,-120},{60,-80},{-48,-80}}, color={0,0,127}));
-      connect(toPeak_d.u, id_rms) annotation (Line(
-          points={{-82,60},{-120,60}}, color={0,0,127}));
-      connect(toPeak_q.u, iq_rms) annotation (Line(
-          points={{-82,0},{-90,0},{-90,-60},{-120,-60}}, color={0,0,127}));
+      connect(toPeak_d.u, id)
+        annotation (Line(points={{-82,60},{-120,60}}, color={0,0,127}));
+      connect(toPeak_q.u, iq) annotation (Line(points={{-82,0},{-90,0},{-90,-60},{-120,
+              -60}}, color={0,0,127}));
       connect(toPeak_q.y, feedback_q.u1) annotation (Line(
           points={{-59,0},{-38,0}}, color={0,0,127}));
       connect(toPeak_d.y, feedback_d.u1) annotation (Line(
@@ -17078,28 +17090,37 @@ They can be used to feed a current source which in turn feeds an induction machi
           points={{11,0},{20,0},{20,6},{30,6}}, color={0,0,127}));
       connect(deCoupling.y, add.u2) annotation (Line(
           points={{11,-30},{20,-30},{20,-6},{30,-6}}, color={0,0,127}));
-      annotation (
-        Icon(graphics={Text(
-              extent={{-100,60},{20,40}},
-              textColor={0,0,255},
-              textString="id_rms"), Text(
-              extent={{-100,-40},{20,-60}},
-              textColor={0,0,255},
-              textString="iq_rms")}), Documentation(info="<html>
+      annotation (defaultComponentName="dqCurrentController",
+                                      Documentation(info="<html>
 <p>
-Simple Voltage-Controller
+Simple Current controller
 </p>
 <p>
-The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the actual three-phase currents are measured and transformed to the d-q coordinate system.
-Two PI-controller determine the necessary d- and q- voltages, which are transformed back to three-phase (output \"y[3]\").
+The desired d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs <code>id</code> and <code>iq</code>.
+Using the given rotor position (input <code>phi</code>), the actual three-phase currents are measured and transformed to the d-q coordinate system.
+Two PI-controllers determine the necessary d- and q- voltages, which are transformed back to three-phase (output <code>y[3]</code>).
 They can be used to feed a voltage source which in turn feeds a permanent magnet synchronous machine.
+</p>
+<p>
+Inputs <code>d</code> and <code>q</code> can be given either as peak values (<code>useRMS=false</code>) or as RMS (<code>useRMS=true</code>). 
+The correction by factor &radic;2 is done automatically. 
+The measured currents <code>iActual[m]</code> are assumed to be instantaneous values.
 </p>
 <p>
 Note: No care is taken for current or voltage limiting, as well as for field weakening.
 </p>
-</html>"));
-    end VoltageController;
+</html>"),
+        Icon(graphics={                      Text(
+              extent={{-100,70},{-60,50}},
+              textColor={0,0,255},
+              textString="id"),              Text(
+              extent={{-100,-50},{-60,-70}},
+              textColor={0,0,255},
+              textString="iq"),              Text(
+              extent={{42,-70},{82,-90}},
+              textColor={0,0,255},
+              textString="phi")}));
+    end DQCurrentController;
 
     block SinCosEvaluation "Evaluation of the signals of a sin-cos-resolver"
       extends Modelica.Blocks.Icons.Block;

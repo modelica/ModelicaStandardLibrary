@@ -1490,8 +1490,8 @@ Simulate for 2.5 seconds and plot (versus time):</p>
             effectiveStatorTurns=imcData.effectiveStatorTurns,
             alpha20r=imcData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={{60,-90},{40,-70}})));
-          Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor
-                                                            currentQuasiRMSSensor(m=m)
+          Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(
+                                                                                  m=m)
                                                                                   annotation (Placement(transformation(extent={{20,0},{40,-20}})));
           Modelica.Electrical.Machines.Utilities.VfController
                                                      vfController(
@@ -1681,12 +1681,10 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
             alpha20r=imcData.alpha20r) annotation (Placement(transformation(extent={{-20,60},{0,80}})));
           Utilities.MultiTerminalBox terminalBoxQS(terminalConnection="D", m=m)
                                                                            annotation (Placement(transformation(extent={{-20,76},{0,96}})));
-          Electrical.QuasiStatic.Polyphase.Sensors.PowerSensor electricalPowerSensorQS(m=m)
-                                                                                            annotation (Placement(transformation(
+          Electrical.QuasiStatic.Polyphase.Sensors.PowerSensor electricalPowerSensorQS(m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 origin={-40,90})));
-          Electrical.QuasiStatic.Polyphase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m)
-                                                                                                      annotation (Placement(transformation(
+          Electrical.QuasiStatic.Polyphase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m) annotation (Placement(transformation(
                 origin={-70,90},
                 extent={{-10,10},{10,-10}})));
           Electrical.QuasiStatic.Polyphase.Sources.VoltageSource sineVoltageQS(
@@ -2964,8 +2962,8 @@ Simulate for 1 second and plot (versus time):
                 transformation(
                 origin={50,-30},
                 extent={{-10,-10},{10,10}})));
-          Modelica.Electrical.Machines.Utilities.CurrentController
-            currentController(p=smpm.p, m=m)
+          Modelica.Electrical.Machines.Utilities.DQToThreePhase dqToThreePhase(
+              p=smpm.p, m=m)
             annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
           Modelica.Blocks.Sources.Constant iq(k=84.6*3/m)
                                                       annotation (Placement(
@@ -3066,14 +3064,15 @@ Simulate for 1 second and plot (versus time):
           Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox
             terminalBoxQS(terminalConnection="Y", m=m) annotation (Placement(
                 transformation(extent={{-10,26},{10,46}})));
-          Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController currentControllerQS(m=m, p=smpmQS.p) annotation (Placement(transformation(extent={{-50,80},{-30,100}})));
+          Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController
+            dqToThreePhaseQS(m=m, p=smpmQS.p)
+            annotation (Placement(transformation(extent={{-50,80},{-30,100}})));
           Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensorQS
             annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={30,60})));
-          Electrical.QuasiStatic.Polyphase.Sources.ReferenceCurrentSource referenceCurrentSourceQS(m=m)
-                                                                                                        annotation (Placement(transformation(
+          Electrical.QuasiStatic.Polyphase.Sources.ReferenceCurrentSource referenceCurrentSourceQS(m=m) annotation (Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=90,
                 origin={0,90})));
@@ -3161,8 +3160,9 @@ Simulate for 1 second and plot (versus time):
           connect(terminalBoxQS.plug_sp, smpmQS.plug_sp) annotation (Line(
               points={{6,30},{6,30}},
               color={85,170,255}));
-          connect(currentControllerQS.I, referenceCurrentSourceQS.I) annotation (Line(points={{-29,94},{-20,94},{-20,96},{-12,96}},
-                                                                                                                  color={85,170,255}));
+          connect(dqToThreePhaseQS.I, referenceCurrentSourceQS.I) annotation (
+              Line(points={{-29,94},{-20,94},{-20,96},{-12,96}}, color={85,170,
+                  255}));
           connect(referenceCurrentSourceQS.plug_p, starQS.plug_p) annotation (Line(points={{4.44089e-16,100},{50,100}}, color={85,170,255}));
           connect(starQS.pin_n, groundeQS.pin) annotation (Line(
               points={{50,80},{50,80}},
@@ -3171,15 +3171,15 @@ Simulate for 1 second and plot (versus time):
               points={{30,50},{30,40},{20,40},{20,20},{10,20}}));
           connect(referenceCurrentSourceQS.plug_p, resistorQS.plug_p) annotation (Line(points={{4.44089e-16,100},{20,100}}, color={85,170,255}));
           connect(resistorQS.plug_n, referenceCurrentSourceQS.plug_n) annotation (Line(points={{20,80},{-6.66134e-16,80}}, color={85,170,255}));
-          connect(id.y, currentControllerQS.id_rms) annotation (Line(points={{-79,30},{-74,30},{-74,96},{-52,96}}, color={0,0,127}));
-          connect(id.y, currentController.id_rms) annotation (Line(points={{-79,30},{-74,30},{-74,-4},{-52,-4}}, color={0,0,127}));
-          connect(iq.y, currentControllerQS.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,84},{-52,84}}, color={0,0,127}));
-          connect(iq.y, currentController.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,-16},{-52,-16}}, color={0,0,127}));
-          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-12,-10}}, color={0,0,127}));
-          connect(currentControllerQS.gamma, referenceCurrentSourceQS.gamma) annotation (Line(points={{-29,86},{-20,86},{-20,84},{-12,84}},
-                                                                                                                          color={0,0,127}));
-          connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
-          connect(angleSensor.phi, currentController.phi) annotation (Line(points={{30,-29},{30,-26},{-40,-26},{-40,-22}}, color={0,0,127}));
+          connect(dqToThreePhase.y, signalCurrent.i)
+            annotation (Line(points={{-29,-10},{-12,-10}}, color={0,0,127}));
+          connect(dqToThreePhaseQS.gamma, referenceCurrentSourceQS.gamma)
+            annotation (Line(points={{-29,86},{-20,86},{-20,84},{-12,84}},
+                color={0,0,127}));
+          connect(angleSensorQS.phi, dqToThreePhaseQS.phi) annotation (Line(
+                points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
+          connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points={{30,-29},
+                  {30,-26},{-40,-26},{-40,-22}},           color={0,0,127}));
           connect(smpmQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,20},{20,20}}));
           connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,30},{24,30}}, color={85,170,255}));
           connect(terminalBoxQS.plugSupply, currentRMSSensorQS.plug_n) annotation (Line(points={{0,32},{0,50}},     color={85,170,255}));
@@ -3191,6 +3191,14 @@ Simulate for 1 second and plot (versus time):
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-50,50},{-40,50}}, color={85,170,255}));
           connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-10,-68}},color={0,0,255}));
           connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
+          connect(id.y, dqToThreePhaseQS.id_rms) annotation (Line(points={{-79,
+                  30},{-74,30},{-74,96},{-52,96}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-79,30},{-74,
+                  30},{-74,-4},{-52,-4}}, color={0,0,127}));
+          connect(iq.y, dqToThreePhaseQS.iq_rms) annotation (Line(points={{-79,
+                  -10},{-68,-10},{-68,84},{-52,84}}, color={0,0,127}));
+          connect(iq.y, dqToThreePhase.q) annotation (Line(points={{-79,-10},{-68,
+                  -10},{-68,-16},{-52,-16}}, color={0,0,127}));
           annotation (
             experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
             Documentation(info="<html>
@@ -3798,8 +3806,8 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                 transformation(
                 origin={50,-30},
                 extent={{-10,-10},{10,10}})));
-          Modelica.Electrical.Machines.Utilities.CurrentController
-            currentController(p=smr.p, m=m)
+          Modelica.Electrical.Machines.Utilities.DQToThreePhase dqToThreePhase(
+              p=smr.p, m=m)
             annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
           Modelica.Blocks.Sources.Constant iq(k=84.6*3/m)
                                                       annotation (Placement(
@@ -3871,7 +3879,9 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
                 origin={-60,10})));
           Utilities.MultiTerminalBox terminalBoxQS(terminalConnection="Y", m=m)
             annotation (Placement(transformation(extent={{-10,26},{10,46}})));
-          FundamentalWave.Utilities.CurrentController currentControllerQS(m=m, p=smrQS.p) annotation (Placement(transformation(extent={{-50,80},{-30,100}})));
+          FundamentalWave.Utilities.CurrentController dqToThreePhaseQS(m=m, p=
+                smrQS.p)
+            annotation (Placement(transformation(extent={{-50,80},{-30,100}})));
           Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensorQS
             annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -4017,8 +4027,9 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
               points={{-60,20},{-40,20}},
               color={85,170,255}));
-          connect(currentControllerQS.I, referenceCurrentSource.I) annotation (Line(points={{-29,94},{-20,94},{-20,96},{-12,96}},
-                                                                                                                color={85,170,255}));
+          connect(dqToThreePhaseQS.I, referenceCurrentSource.I) annotation (
+              Line(points={{-29,94},{-20,94},{-20,96},{-12,96}}, color={85,170,
+                  255}));
           connect(referenceCurrentSource.plug_p, starQS.plug_p) annotation (
               Line(
               points={{0,100},{50,100}},
@@ -4061,15 +4072,23 @@ Simulate for 30 seconds and plot versus <code>rotorAngle|rotorAngleQS.rotorDispl
           connect(inertiaLoadQS.flange_a, smrQS.flange) annotation (Line(points={{50,20},{42,20},{42,20},{32,20},{32,20},{10,20}}));
           connect(currentRMSSensorQS.plug_p, referenceCurrentSource.plug_n) annotation (Line(points={{0,70},{0,80}}, color={85,170,255}));
           connect(currentRMSSensorQS.plug_n, terminalBoxQS.plugSupply) annotation (Line(points={{0,50},{0,32}}, color={85,170,255}));
-          connect(id.y, currentControllerQS.id_rms) annotation (Line(points={{-79,30},{-74,30},{-74,96},{-52,96}}, color={0,0,127}));
-          connect(id.y, currentController.id_rms) annotation (Line(points={{-79,30},{-74,30},{-74,-4},{-52,-4}}, color={0,0,127}));
-          connect(iq.y, currentControllerQS.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,84},{-52,84}}, color={0,0,127}));
-          connect(iq.y, currentController.iq_rms) annotation (Line(points={{-79,-10},{-70,-10},{-70,-16},{-52,-16}}, color={0,0,127}));
-          connect(angleSensor.phi, currentController.phi) annotation (Line(points={{30,-29},{30,-26},{-40,-26},{-40,-22}}, color={0,0,127}));
-          connect(currentController.y, signalCurrent.i) annotation (Line(points={{-29,-10},{-12,-10}},color={0,0,127}));
-          connect(currentControllerQS.gamma, referenceCurrentSource.gamma) annotation (Line(points={{-29,86},{-20,86},{-20,84},{-12,84}},
-                                                                                                                        color={0,0,127}));
-          connect(angleSensorQS.phi, currentControllerQS.phi) annotation (Line(points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
+          connect(id.y, dqToThreePhaseQS.id_rms) annotation (Line(points={{-79,
+                  30},{-74,30},{-74,96},{-52,96}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-79,30},{-74,
+                  30},{-74,-4},{-52,-4}}, color={0,0,127}));
+          connect(iq.y, dqToThreePhaseQS.iq_rms) annotation (Line(points={{-79,
+                  -10},{-70,-10},{-70,84},{-52,84}}, color={0,0,127}));
+          connect(iq.y, dqToThreePhase.q) annotation (Line(points={{-79,-10},{-70,
+                  -10},{-70,-16},{-52,-16}}, color={0,0,127}));
+          connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points=
+                  {{30,-29},{30,-26},{-34,-26},{-34,-22}}, color={0,0,127}));
+          connect(dqToThreePhase.y, signalCurrent.i)
+            annotation (Line(points={{-29,-10},{-12,-10}}, color={0,0,127}));
+          connect(dqToThreePhaseQS.gamma, referenceCurrentSource.gamma)
+            annotation (Line(points={{-29,86},{-20,86},{-20,84},{-12,84}},
+                color={0,0,127}));
+          connect(angleSensorQS.phi, dqToThreePhaseQS.phi) annotation (Line(
+                points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
           connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-50,50},{-40,50}}, color={85,170,255}));
           connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{-6.66134e-16,50}}, color={85,170,255}));
           connect(starMQS.pin_n, groundMQS.pin) annotation (Line(points={{-50,30},{-50,20},{-60,20}}, color={85,170,255}));

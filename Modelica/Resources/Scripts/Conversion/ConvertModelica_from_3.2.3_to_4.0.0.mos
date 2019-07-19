@@ -253,6 +253,10 @@ convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor"
               "Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensor");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.FlowSensor",
               "Modelica.Thermal.FluidHeatFlow.Interfaces.FlowSensor");
+convertClass("Modelica.Electrical.Machines.Utilities.CurrentController",
+              "Modelica.Electrical.Machines.Utilities.DQToThreePhase");
+convertClass("Modelica.Electrical.Machines.Utilities.VoltageController",
+              "Modelica.Electrical.Machines.Utilities.DQCurrentController");
 
 // Change renamed elements of classes
 // mue -> mu
@@ -271,6 +275,14 @@ convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "Modelica.Mechanics.Rotational.Components.OneWayClutch",
                 "Modelica.Mechanics.Translational.Components.Brake"},
                 "mue0", "mu0");
+convertElement({"Modelica.Electrical.Machines.Utilities.CurrentController"},
+                "id_rms", "d");
+convertElement({"Modelica.Electrical.Machines.Utilities.CurrentController"},
+                "iq_rms", "q");
+convertElement({"Modelica.Electrical.Machines.Utilities.VoltageController"},
+                "id_rms", "id");
+convertElement({"Modelica.Electrical.Machines.Utilities.VoltageController"},
+                "iq_rms", "iq");
 
 convertElement("Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity",
                 "tansformAbsoluteVector", "transformAbsoluteVector");
