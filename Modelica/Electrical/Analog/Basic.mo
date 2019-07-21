@@ -230,6 +230,7 @@ package Basic "Basic electrical components"
     import Modelica.Constants.pi;
     import Modelica.Constants.eps;
     import Modelica.Constants.small;
+    import Modelica.Math.atan;
     parameter SI.Current Inom(start=1) "Nominal current";
     parameter SI.Inductance Lnom(start=1)
       "Nominal inductance at Nominal current";
@@ -244,9 +245,9 @@ package Basic "Basic electrical components"
   initial equation
     (Lnom - Linf)/(Lzer - Linf)=Ipar/Inom*(pi/2 - atan(Ipar/Inom));
   equation
-    assert(Lzer > Lnom + Modelica.Constants.eps, "Lzer (= " + String(Lzer) +
+    assert(Lzer > Lnom*(1 + eps), "Lzer (= " + String(Lzer) +
       ") has to be > Lnom (= " + String(Lnom) + ")");
-    assert(Linf < Lnom - Modelica.Constants.eps, "Linf (= " + String(Linf) +
+    assert(Linf < Lnom*(1 - eps), "Linf (= " + String(Linf) +
       ") has to be < Lnom (= " + String(Lnom) + ")");
     Lact = Linf + (Lzer - Linf)*(if noEvent(abs(i)/Ipar<small) then 1 else atan(i/Ipar)/(i/Ipar));
     Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar);
