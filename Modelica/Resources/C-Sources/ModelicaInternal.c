@@ -599,7 +599,7 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
     {
         /* In case of realpath: Retain trailing slash to match _fullpath behaviour */
         size_t len = strlen(name);
-        if (len > 0 && ('/' == name[len - 1] || '\\' == name[len - 1])) {
+        if (len > 0 && '/' == name[len - 1]) {
             strcat(fullName, "/");
         }
     }
