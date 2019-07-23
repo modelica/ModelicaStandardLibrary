@@ -1,6 +1,6 @@
 within Modelica.Thermal.HeatTransfer.Sensors;
 model RelTemperatureSensor "Relative Temperature sensor"
-  extends Modelica.Icons.TranslationalSensor;
+  extends Modelica.Icons.RectangularSensor;
   Interfaces.HeatPort_a port_a annotation (Placement(transformation(extent={{
             -110,-10},{-90,10}})));
   Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{

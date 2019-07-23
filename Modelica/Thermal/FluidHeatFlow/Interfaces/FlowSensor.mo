@@ -1,6 +1,6 @@
 within Modelica.Thermal.FluidHeatFlow.Interfaces;
 partial model FlowSensor "Partial model of flow sensor"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   extends FluidHeatFlow.BaseClasses.TwoPort(
     final m=0,
     final T0=293.15,

@@ -1,6 +1,6 @@
 within Modelica.Thermal.HeatTransfer.Sensors;
 model HeatFlowSensor "Heat flow rate sensor"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   Modelica.Blocks.Interfaces.RealOutput Q_flow(unit="W")
     "Heat flow from port_a to port_b as output signal" annotation (Placement(
         transformation(

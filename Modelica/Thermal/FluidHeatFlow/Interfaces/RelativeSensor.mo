@@ -1,6 +1,6 @@
 within Modelica.Thermal.FluidHeatFlow.Interfaces;
 partial model RelativeSensor "Partial model of relative sensor"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
     "Sensor's medium" annotation (choicesAllMatching=true);
   FluidHeatFlow.Interfaces.FlowPort_a flowPort_a(final medium=medium)
