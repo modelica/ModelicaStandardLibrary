@@ -285,13 +285,25 @@ package Basic "Basic electrical components"
             textString="%name",
             textColor={0,0,255})}),
       Documentation(info="<html>
-<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
+<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. 
+The inductance decreases as current increases. Note that hysteresis is not taken into account.
+</p>
+<p>
+The approximation is based on the <code>atan</code> function with an additonal linear term:<br>
+<code>Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar)</code><br>
+<code>L = Psi/i = Linf + (Lzer - Linf)*atan(i/Ipar)/(i/Ipar)</code><br>
+This approximation is performant and easy to adjust to a given characteristic with only 4 parameters:
+</p>
 <ul>
-<li>Inom...nominal current</li>
-<li>Lnom...nominal inductance at nominal current</li>
-<li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
-<li>Linf...inductance at large currents; Linf has to be less than Lnom</li>
+<li><code>Inom</code>...nominal current</li>
+<li><code>Lnom</code>...nominal inductance at nominal current</li>
+<li><code>Lzer</code>...inductance near current = 0; Lzer has to be greater than Lnom</li>
+<li><code>Linf</code>...inductance at large currents; Linf has to be less than Lnom</li>
 </ul>
+<p>
+The parameter <code>Ipar</code> is calculated internally from the relationship:<br>
+<code>Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)</code>
+</p>
 </html>", revisions="<html>
 <dl>
   <dt><strong>Main Author:</strong></dt>
@@ -302,6 +314,7 @@ package Basic "Basic electrical components"
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Release Notes:</strong></dt>
+  <dd>Jul 23, 2019: Improved by Anton Haumer</dd>
   <dd>May 27, 2004: Implemented by Anton Haumer</dd>
  </dl>
 </html>"));
