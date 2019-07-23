@@ -1,6 +1,6 @@
 within Modelica.Electrical.Polyphase.Sensors;
 model MultiSensor "Polyphase sensor to measure current, voltage and power"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   parameter Integer m(min=1) = 3 "Number of phases";
   Polyphase.Interfaces.PositivePlug pc(final m=m) "Positive plug, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));

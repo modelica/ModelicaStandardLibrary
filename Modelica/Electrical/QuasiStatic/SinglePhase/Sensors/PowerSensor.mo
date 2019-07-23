@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model PowerSensor "Power sensor"
   import Modelica.ComplexMath.conj;
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   Interfaces.PositivePin currentP annotation (Placement(transformation(
           extent={{-110,-10},{-90,10}})));
   Interfaces.NegativePin currentN annotation (Placement(transformation(

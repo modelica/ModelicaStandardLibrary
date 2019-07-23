@@ -1,6 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Interfaces;
 partial model RelativeSensor "Partial voltage / current sensor"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   extends TwoPlug;
   Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m] annotation (
       Placement(transformation(

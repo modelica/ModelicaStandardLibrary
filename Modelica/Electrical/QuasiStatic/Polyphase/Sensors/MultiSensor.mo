@@ -1,6 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Sensors;
 model MultiSensor "Polyphase sensor to measure current, voltage and power"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   import Modelica.ComplexMath.conj;
   import Modelica.ComplexMath.'sum';
   import Modelica.ComplexMath.'abs';

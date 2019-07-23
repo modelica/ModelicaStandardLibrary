@@ -1,6 +1,6 @@
 within Modelica.Electrical.Polyphase.Sensors;
 model PotentialSensor "Polyphase potential sensor"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   parameter Integer m(final min=1) = 3 "Number of phases";
   Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));

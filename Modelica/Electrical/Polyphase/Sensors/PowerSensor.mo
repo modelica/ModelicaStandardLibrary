@@ -1,6 +1,6 @@
 within Modelica.Electrical.Polyphase.Sensors;
 model PowerSensor "Polyphase instantaneous power sensor"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   parameter Integer m(min=1) = 3 "Number of phases";
   Polyphase.Interfaces.PositivePlug pc(final m=m) "Positive plug, current path"
     annotation (Placement(transformation(extent={{-110,10},{-90,-10}})));

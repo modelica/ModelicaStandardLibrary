@@ -1,6 +1,6 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model MultiSensor "Sensor to measure current, voltage and power"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   import Modelica.ComplexMath.conj;
   import Modelica.ComplexMath.'abs';
   import Modelica.ComplexMath.arg;

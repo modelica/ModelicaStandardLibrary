@@ -1,6 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Interfaces;
 partial model AbsoluteSensor "Partial potential sensor"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   parameter Integer m(min=1) = 3 "Number of phases";
   Modelica.SIunits.AngularVelocity omega;
   PositivePlug plug_p(final m=m)
