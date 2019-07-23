@@ -1,8 +1,9 @@
 within Modelica.Mechanics.MultiBody.Examples.Systems;
 package RobotR3
   "Library to demonstrate robot system models based on the Manutec r3 robot"
+  extends Modelica.Icons.ExamplesPackage;
 
-  model oneAxis
+  model OneAxis
     "Model of one axis of robot (controller, motor, gearbox) with simple load"
 
     extends Modelica.Icons.Example;
@@ -69,9 +70,9 @@ load inertia.
 </html>"),      experiment(StopTime=1.6),
       __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
           "Plot result"));
-  end oneAxis;
+  end OneAxis;
 
-  model fullRobot
+  model FullRobot
     "Six degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics"
     extends Modelica.Icons.Example;
 
@@ -332,11 +333,10 @@ For current settings, the termination condition should indeed be fulfilled right
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png\" alt=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png\" alt=\"model Examples.Systems.RobotR3.FullRobot\">
 </p>
 </html>"));
-  end fullRobot;
-  extends Modelica.Icons.ExamplesPackage;
+  end FullRobot;
 
   package Components "Library of components of the robot"
     extends Modelica.Icons.Package;
@@ -1794,8 +1794,8 @@ alt=\"model Examples.Systems.RobotR3\">
 The following models are available:
 </p>
 <pre>
-   <strong>oneAxis</strong>   Test one axis (controller, motor, gearbox).
-   <strong>fullRobot</strong> Test complete robot model.
+   <strong>OneAxis</strong>   Test one axis (controller, motor, gearbox).
+   <strong>FullRobot</strong> Test complete robot model.
 </pre>
 <p>
 The r3 robot is no longer manufactured. In fact the company
