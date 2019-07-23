@@ -54,13 +54,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 15
+#define MATIO_RELEASE_LEVEL 17
 
 /* Matio version number */
-#define MATIO_VERSION 1515
+#define MATIO_VERSION 1517
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.15"
+#define MATIO_VERSION_STR "1.5.17"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
