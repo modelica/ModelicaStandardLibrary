@@ -2378,11 +2378,13 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>The superfluous parameter <code>limitsAtInit</code> has been removed.</td></tr>
 <tr><td>Nonlinear.DeadZone</td>
     <td>The superfluous parameter <code>deadZoneAtInit</code> has been removed.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Joints</strong></td></tr>
-<tr><td>Prismatic</td>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td>Joints.Prismatic</td>
     <td>The superfluous constant <code>s_offset</code> has been removed.</td></tr>
-<tr><td>Revolute</td>
+<tr><td>Joints.Revolute</td>
     <td>The superfluous constant <code>phi_offset</code> has been removed.</td></tr>
+<tr><td>Parts.Body</td>
+    <td>The superfluous parameter <code>z_a_start</code> has been removed.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer</strong></td></tr>
 <tr><td>Fahrenheit.FromKelvin<br>Rankine.FromKelvin<br>Rankine.ToKelvin</td>
     <td>The superfluous parameter <code>n</code> has been removed.</td></tr>
