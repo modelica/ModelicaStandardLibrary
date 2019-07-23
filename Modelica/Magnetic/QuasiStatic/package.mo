@@ -1,6 +1,6 @@
 within Modelica.Magnetic;
 package QuasiStatic "Quasi-static magnetic package"
-extends Icons.Package;
+extends Modelica.Icons.Package;
 
 annotation (Documentation(info="<html>
 <p>
