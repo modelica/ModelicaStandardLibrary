@@ -257,10 +257,6 @@ package Basic "Basic electrical components"
               100}}), graphics={
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
-          Rectangle(
-            extent={{-60,-10},{60,-20}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={0,0,255}),
           Text(
             extent={{-150,-40},{150,-80}},
             textString="Lnom=%Lnom"),
@@ -283,26 +279,70 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Line(points={{-60,-20},{60,-20}}, color={0,0,255})}),
       Documentation(info="<html>
-<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. 
-The inductance decreases as current increases. Note that hysteresis is not taken into account.
+<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., 
+the value of the inductance depends on the current flowing through the inductor (<strong>Fig.&nbsp;1</strong>). 
+The inductance decreases as current increases. Note, that hysteresis is not taken into account.
 </p>
+
 <p>
-The approximation is based on the <code>atan</code> function with an additonal linear term:<br>
-<code>Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar)</code><br>
-<code>L = Psi/i = Linf + (Lzer - Linf)*atan(i/Ipar)/(i/Ipar)</code><br>
-This approximation is performant and easy to adjust to a given characteristic with only 4 parameters:
+The approximation of the flux linkage is based on the <code>atan</code> function with an additonal linear term, 
+as shown in <strong>Fig.&nbsp;2</strong>:</p>
+
+<pre>
+Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar)
+L = Psi/i = Linf + (Lzer - Linf)*atan(i/Ipar)/(i/Ipar)
+</pre>
+
+<p>
+This approximation is performant and easy to adjust to a given characteristic with only four parameters (<strong>Tab&nbsp;1</strong>).
 </p>
-<ul>
-<li><code>Inom</code>...nominal current</li>
-<li><code>Lnom</code>...nominal inductance at nominal current</li>
-<li><code>Lzer</code>...inductance near current = 0; Lzer has to be greater than Lnom</li>
-<li><code>Linf</code>...inductance at large currents; Linf has to be less than Lnom</li>
-</ul>
+
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Tab.&nbsp;1:</strong>Characteristic parameters of the saturating inductor model</caption>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>Inom</code>.</td>
+    <td>Nominal current</td>
+  </tr>
+  <tr>
+    <td><code>Lnom</code></td>
+    <td>Nominal inductance at nominal current</td>
+  </tr>
+  <tr>
+    <td><code>Lzer</code></td>
+    <td>Inductance near current = 0; <code>Lzer</code> has to be greater than <code>Lnom</code></td>
+  </tr>
+  <tr>
+    <td><code>Linf</code></td>
+    <td>Inductance at large currents; <code>Linf</code> has to be less than <code>Lnom</code></td>
+  </tr>
+</table>
+
 <p>
-The parameter <code>Ipar</code> is calculated internally from the relationship:<br>
-<code>Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)</code>
+The parameter <code>Ipar</code> is calculated internally from the relationship:</p>
+<pre>
+Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
+</pre>
+
+<figure>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i.png\" alt=\"Lact vs. i\">
+<figcaption><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></figcaption>
+</figure>
+
+<figure>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Psi_i.png\" alt=\"Psi vs. i\">
+<figcaption><strong>Fig.&nbsp;2:</strong>Actual flux linkage <code>Psi</code> versus current <code>i</code></figcaption>
+</figure>
+
+<p>The flux slope in <strong>Fig.&nbsp;2</strong> is equal to <code>Lzer</code> for small currents. 
+The limit of the flux slope is <code>Linf</code> as the current <code>i</code> approaches infinity.
+The nominal flux is indicated by the product of the nominal inductance <code>Lnom</code> and the nominal current <code>Inom</code>. 
 </p>
 </html>", revisions="<html>
 <dl>
