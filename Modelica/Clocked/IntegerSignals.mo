@@ -1083,7 +1083,7 @@ contains utility blocks that are used as building blocks for user-relevant block
     "Library of blocks that operate on periodically and non-periodically clocked signals"
     extends Modelica.Icons.Package;
 
-    block IntegerChange
+    block IntegerChange "Indicates integer signal changing"
       extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
 
       Modelica.Blocks.Interfaces.IntegerInput u
@@ -1247,7 +1247,7 @@ y is set to parameter y_start.
         "Output y = offset for time < startTime";
     protected
       Modelica.SIunits.Time simTime;
-    equation
+     equation
       simTime = sample(time);
       y = offset + (if simTime < startTime then 0 else height);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1397,7 +1397,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TimeBase
 <br>
 </p>
 </html>"));
-    end Step;
+     end Step;
 
     annotation (Documentation(info="<html>
 <p>

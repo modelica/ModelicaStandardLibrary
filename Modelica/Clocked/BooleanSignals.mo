@@ -1132,7 +1132,7 @@ contains utility blocks that are used as building blocks for user-relevant block
     "Library of blocks that operate on periodically and non-periodically clocked signals"
     extends Modelica.Icons.Package;
 
-    block BooleanChange
+    block BooleanChange "Indicates Boolean signal changing"
       extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
 
       Modelica.Blocks.Interfaces.BooleanInput u

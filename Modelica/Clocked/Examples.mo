@@ -1208,18 +1208,16 @@ precisely time-synchronized to each other.
       parameter SIunits.Frequency freq = 1/300 "Critical frequency of filter";
       parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
       parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
-      parameter Real a1_inv =  0.2674;
-      parameter Real a21_inv = 1.815;
-      parameter Real a22_inv = 0.4682;
-      parameter Real b_inv =   1.5476;
-      parameter Real k0_inv =  1.05e14;
-      parameter Real eps = 34.2894;
-      parameter Real x10 = 0.42;
-      parameter Real x10_inv = 0.6;
-      parameter Real x20 = 0.01;
-      parameter Real u0 = -0.0224;
+      parameter Real a1_inv =  0.2674 "Process parameter (see references in help)";
+      parameter Real a21_inv = 1.815 "Process parameter (see references in help)";
+      parameter Real a22_inv = 0.4682 "Process parameter (see references in help)";
+      parameter Real b_inv =   1.5476 "Process parameter (see references in help)";
+      parameter Real k0_inv =  1.05e14 "Process parameter (see references in help)";
+      parameter Real eps = 34.2894 "Process parameter (see references in help)";
+      parameter Real x10 = 0.42 "Relative offset between nominal concentration and initial concentration";
+      parameter Real x20 = 0.01 "Relative offset between nominal temperature and initial temperature";
+      parameter Real u0 = -0.0224 "Relative offset between initial cooling temperature and nominal temperature";
       final parameter Real c_start(unit="mol/l") = c0*(1-x10);
-      final parameter Real c_inv_start(unit="mol/l") = c0*(1-x10_inv);
       final parameter SIunits.Temperature T_start = T0*(1+x20);
       final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72);
       final parameter Real T_c_start = T0*(1+u0);
@@ -1493,7 +1491,7 @@ Obviously, the concentration follows reasonably well the desired one. By using a
 </html>"));
     end ControlledMixingUnit;
 
-    model EngineThrottleControl
+    model EngineThrottleControl "Closed-loop throttle control synchronized to the crankshaft angle of an internal combustion engine"
      extends Modelica.Icons.Example;
 
       Modelica.Blocks.Sources.Step speedRef(
@@ -1645,9 +1643,9 @@ to being satisfied, i.e., the state when the clock last ticked.</p>
 </html>"));
     end EngineThrottleControl;
 
-    package Utilities
+    package Utilities "Utilities for the examples"
       extends Modelica.Icons.UtilitiesPackage;
-      package ComponentsThrottleControl
+      package ComponentsThrottleControl "Utilities for the engine throttle control example"
         extends Modelica.Icons.Package;
         block ThrottleBody "Basic throttle body equations"
           extends Modelica.Blocks.Icons.Block;
@@ -1712,7 +1710,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
           m_ao_der = -0.366 + 0.08979*N*P_m - 0.0337*N*P_m^2 + 0.0001*N^2*P_m;
         end IntakeManifold;
 
-        block TorqueGeneration
+        block TorqueGeneration "Torque generation"
         extends Modelica.Blocks.Icons.Block;
           parameter Real AFR = 14.6
             "Air-fuel ratio";
@@ -2156,7 +2154,7 @@ initial equation
         end Engine;
       end ComponentsThrottleControl;
 
-      package ComponentsMixingUnit
+      package ComponentsMixingUnit "Utilities for the mixing unit control example"
         extends Modelica.Icons.Package;
         model MixingUnit
           "Mixing unit demo from Foellinger, Nichtlineare Regelungen II, p. 280"
@@ -2171,12 +2169,12 @@ initial equation
             annotation (Placement(transformation(extent={{100,-80},{140,-40}})));
           parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
           parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
-          parameter Real a1 = 0.2674;
-          parameter Real a21 = 1.815;
-          parameter Real a22 = 0.4682;
-          parameter Real b = 1.5476;
-          parameter Real k0 = 1.05e14;
-          parameter Real eps = 34.2894;
+          parameter Real a1 = 0.2674 "Process parameter (see references in help)";
+          parameter Real a21 = 1.815 "Process parameter (see references in help)";
+          parameter Real a22 = 0.4682 "Process parameter (see references in help)";
+          parameter Real b = 1.5476 "Process parameter (see references in help)";
+          parameter Real k0 = 1.05e14 "Process parameter (see references in help)";
+          parameter Real eps = 34.2894 "Process parameter (see references in help)";
           Real gamma "Reaction speed";
         protected
           parameter SIunits.Time tau0 = 60;
@@ -2231,7 +2229,10 @@ initial equation
                 Line(points={{0,80},{0,16}}),
                 Line(points={{20,80},{20,16}}),
                 Line(points={{-86,-72},{-86,-114}}),
-                Line(points={{-66,-72},{-66,-114}})}));
+                Line(points={{-66,-72},{-66,-114}})}),
+            Documentation(info="<html>
+See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">ControlledMixingUnit</a>.
+</html>"));
         end MixingUnit;
 
         model MixingUnitWithContinuousControl
@@ -2241,20 +2242,19 @@ initial equation
           parameter SIunits.Frequency freq = 1/300 "Critical frequency of filter";
           parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
           parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
-          parameter Real a1_inv =  0.2674;
-          parameter Real a21_inv = 1.815;
-          parameter Real a22_inv = 0.4682;
-          parameter Real b_inv =   1.5476;
-          parameter Real k0_inv =  1.05e14;
-          parameter Real eps = 34.2894;
+          parameter Real a1_inv =  0.2674 "Process parameter (see references in help)";
+          parameter Real a21_inv = 1.815 "Process parameter (see references in help)";
+          parameter Real a22_inv = 0.4682
+                                         "Process parameter (see references in help)";
+          parameter Real b_inv =   1.5476 "Process parameter (see references in help)";
+          parameter Real k0_inv =  1.05e14 "Process parameter (see references in help)";
+          parameter Real eps = 34.2894 "Process parameter (see references in help)";
 
-          parameter Real x10 = 0.42;
-          parameter Real x10_inv = 0.6;
-          parameter Real x20 = 0.01;
-          parameter Real u0 = -0.0224;
+          parameter Real x10 = 0.42 "Relative offset between nominal concentration and initial concentration";
+          parameter Real x20 = 0.01 "Relative offset between nominal temperature and initial temperature";
+          parameter Real u0 = -0.0224 "Relative offset between initial cooling temperature and nominal temperature";
 
           final parameter Real c_start(unit="mol/l") = c0*(1-x10);
-          final parameter Real c_inv_start(unit="mol/l") = c0*(1-x10_inv);
           final parameter SIunits.Temperature T_start = T0*(1+x20);
           final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72);
           final parameter Real T_c_start = T0*(1+u0);
