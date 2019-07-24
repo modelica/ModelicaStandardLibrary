@@ -295,7 +295,40 @@ convertElement("Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunct
 convertElement("Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3",
                 "jucntioncap", "junctioncap");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet",
-                "No automatic conversion can be applied if record components are removed.")
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Bjt3",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineVariables",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Bjt.BjtVariables",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Bjt.Bjt3Variables",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.BJT",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.ModelcardBJT",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Functions.junctionCap",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.SpiceRoot.initJunctionVoltages",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.SpiceRoot.limitJunctionVoltage",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Mos.mos2CalcInitEquations",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Mos.mos2CalcCalcTempDependencies",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCode",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.mos2ModelLineParamsInitEquations",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.drainCur",
+                "No support of automatic conversion for internal classes.")
+convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParameters",
+                "No support of automatic conversion for internal classes.")
+
 convertModifiers({"Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"},
                  fill("",0), {"useHeatPort=false"});
 convertModifiers("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",
