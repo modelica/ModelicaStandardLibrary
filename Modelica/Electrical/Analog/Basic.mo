@@ -231,7 +231,8 @@ package Basic "Basic electrical components"
     import Modelica.Constants.eps;
     import Modelica.Constants.small;
     import Modelica.Math.atan;
-    parameter SI.Current Inom(start=1) "Nominal current";
+    parameter SI.Current Inom(start=1) "Nominal current" annotation(Dialog(
+      groupImage="modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i_tight.png"));
     parameter SI.Inductance Lnom(start=1)
       "Nominal inductance at Nominal current";
     parameter SI.Inductance Lzer(start=2*Lnom)
