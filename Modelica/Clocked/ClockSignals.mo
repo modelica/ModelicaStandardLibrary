@@ -219,7 +219,8 @@ For an example, see
 </html>"));
     end EventClock;
 
-    package Rotational
+    package Rotational "Library of blocks that generate a clock tick each time an observed
+   input angle changes"
       partial block PartialRotationalClock
         "Base class for event clocks that generate a clock tick each time an observed
    input angle changed."
@@ -426,7 +427,7 @@ For an example, see
       end FixedRotationalClock;
     end Rotational;
 
-    package Logical
+    package Logical "Library of blocks for combining several input clock signals by logical combinators"
       partial block PartialLogicalClock
         "Logical clock combining arbitrary many input clock signals according to a
    replaceable logical combinator."
