@@ -1,4 +1,4 @@
-within Modelica.Clocked;
+﻿within Modelica.Clocked;
 package Examples
   "Library of examples to demonstrate the usage of package Modelica.Clocked"
   extends Modelica.Icons.ExamplesPackage;
@@ -1208,25 +1208,25 @@ precisely time-synchronized to each other.
       parameter SIunits.Frequency freq = 1/300 "Critical frequency of filter";
       parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
       parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
-      parameter Real a1_inv =  0.2674 "Process parameter (see references in help)";
-      parameter Real a21_inv = 1.815 "Process parameter (see references in help)";
-      parameter Real a22_inv = 0.4682 "Process parameter (see references in help)";
-      parameter Real b_inv =   1.5476 "Process parameter (see references in help)";
-      parameter Real k0_inv =  1.05e14 "Process parameter (see references in help)";
+      parameter Real a1_inv =  0.2674 "Process parameter of inverse plant model (see references in help)";
+      parameter Real a21_inv = 1.815 "Process parameter of inverse plant model (see references in help)";
+      parameter Real a22_inv = 0.4682 "Process parameter of inverse plant model (see references in help)";
+      parameter Real b_inv =   1.5476 "Process parameter of inverse plant model (see references in help)";
+      parameter Real k0_inv =  1.05e14 "Process parameter of inverse plant model (see references in help)";
       parameter Real eps = 34.2894 "Process parameter (see references in help)";
       parameter Real x10 = 0.42 "Relative offset between nominal concentration and initial concentration";
       parameter Real x20 = 0.01 "Relative offset between nominal temperature and initial temperature";
       parameter Real u0 = -0.0224 "Relative offset between initial cooling temperature and nominal temperature";
-      final parameter Real c_start(unit="mol/l") = c0*(1-x10);
-      final parameter SIunits.Temperature T_start = T0*(1+x20);
-      final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72);
-      final parameter Real T_c_start = T0*(1+u0);
+      final parameter Real c_start(unit="mol/l") = c0*(1-x10) "Initial concentration";
+      final parameter SIunits.Temperature T_start = T0*(1+x20) "Initial temperature";
+      final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72) "Reference concentration";
+      final parameter Real T_c_start = T0*(1+u0) "Initial cooling temperature";
       parameter Real pro=1.5 "Deviations of plant to inverse plant parameters";
-      final parameter Real a1=a1_inv*pro;
-      final parameter Real a21=a21_inv*pro;
-      final parameter Real a22=a22_inv*pro;
-      final parameter Real b=b_inv*pro;
-      final parameter Real k0=k0_inv*pro;
+      final parameter Real a1=a1_inv*pro "Process parameter of plant model (see references in help)";
+      final parameter Real a21=a21_inv*pro "Process parameter of plant model (see references in help)";
+      final parameter Real a22=a22_inv*pro "Process parameter of plant model (see references in help)";
+      final parameter Real b=b_inv*pro "Process parameter of plant model (see references in help)";
+      final parameter Real k0=k0_inv*pro "Process parameter of plant model (see references in help)";
       Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit invMixingUnit(
         c0=c0,
         T0=T0,
@@ -2242,30 +2242,29 @@ See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.Contro
           parameter SIunits.Frequency freq = 1/300 "Critical frequency of filter";
           parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
           parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
-          parameter Real a1_inv =  0.2674 "Process parameter (see references in help)";
-          parameter Real a21_inv = 1.815 "Process parameter (see references in help)";
-          parameter Real a22_inv = 0.4682
-                                         "Process parameter (see references in help)";
-          parameter Real b_inv =   1.5476 "Process parameter (see references in help)";
-          parameter Real k0_inv =  1.05e14 "Process parameter (see references in help)";
+          parameter Real a1_inv =  0.2674 "Process parameter of inverse plant model (see references in help)";
+          parameter Real a21_inv = 1.815 "Process parameter of inverse plant model (see references in help)";
+          parameter Real a22_inv = 0.4682 "Process parameter of inverse plant model (see references in help)";
+          parameter Real b_inv =   1.5476 "Process parameter of inverse plant model (see references in help)";
+          parameter Real k0_inv =  1.05e14 "Process parameter of inverse plant model (see references in help)";
           parameter Real eps = 34.2894 "Process parameter (see references in help)";
 
           parameter Real x10 = 0.42 "Relative offset between nominal concentration and initial concentration";
           parameter Real x20 = 0.01 "Relative offset between nominal temperature and initial temperature";
           parameter Real u0 = -0.0224 "Relative offset between initial cooling temperature and nominal temperature";
 
-          final parameter Real c_start(unit="mol/l") = c0*(1-x10);
-          final parameter SIunits.Temperature T_start = T0*(1+x20);
-          final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72);
-          final parameter Real T_c_start = T0*(1+u0);
+          final parameter Real c_start(unit="mol/l") = c0*(1-x10) "Initial concentration";
+          final parameter SIunits.Temperature T_start = T0*(1+x20) "Initial temperature";
+          final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72) "Reference concentration";
+          final parameter Real T_c_start = T0*(1+u0) "Initial cooling temperature";
 
           parameter Real pro=1.1
             "Deviations of plant to inverse plant parameters";
-          final parameter Real a1=a1_inv*pro;
-          final parameter Real a21=a21_inv*pro;
-          final parameter Real a22=a22_inv*pro;
-          final parameter Real b=b_inv*pro;
-          final parameter Real k0=k0_inv*pro;
+          final parameter Real a1=a1_inv*pro "Process parameter of plant model (see references in help)";
+          final parameter Real a21=a21_inv*pro "Process parameter of plant model (see references in help)";
+          final parameter Real a22=a22_inv*pro "Process parameter of plant model (see references in help)";
+          final parameter Real b=b_inv*pro "Process parameter of plant model (see references in help)";
+          final parameter Real k0=k0_inv*pro "Process parameter of plant model (see references in help)";
 
           Utilities.ComponentsMixingUnit.MixingUnit invMixingUnit(
             c0= c0,
