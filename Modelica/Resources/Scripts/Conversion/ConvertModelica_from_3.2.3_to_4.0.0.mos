@@ -36,6 +36,9 @@ convertClass("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachin
 convertClass("Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer",
               "Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer");
 
+// The Modelica_Synchronous library was integrated into the MSL as Modelica.Clocked
+convertClass("Modelica_Synchronous", "Modelica.Clocked")
+
 // Change renamed elements of classes
 // mue -> mu
 convertClass("Modelica.Constants.mue_0", "Modelica.Constants.mu_0");
