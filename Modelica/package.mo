@@ -758,7 +758,7 @@ and <code>figcaption</code> tag shall be obeyed.</p>
   &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
        alt=&quot;PID_controller.png&quot;&gt;
   &lt;figcaption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/figcaption&gt;
-&lt;/figure&gt;</pre>
+&lt;/figure&gt;
 </pre>
 </html>"));
         end Figures;
