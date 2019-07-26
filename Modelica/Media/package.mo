@@ -4568,11 +4568,6 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
         min=-1.0e5,
         max=1.e5) "Type for mass flow rate with medium specific attributes";
 
-    // Only for backwards compatibility to version 3.2 (
-    // (do not use these definitions in new models, but use Modelica.Media.Interfaces.Choices instead)
-    package Choices = Modelica.Media.Interfaces.Choices annotation (obsolete=
-          "Use Modelica.Media.Interfaces.Choices");
-
     annotation (Documentation(info="<html>
 <p>
 <strong>PartialMedium</strong> is a package and contains all <strong>declarations</strong> for

@@ -1369,6 +1369,21 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2491;
+
+    model Issue3037 "Conversion test for #3037"
+      extends Modelica.Icons.Example;
+      Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables c1 = Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables.T;
+      Modelica.Media.Interfaces.PartialMedium.Choices.Init c2 = Modelica.Media.Interfaces.PartialMedium.Choices.Init.NoInit;
+      Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy c3 = Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy.UserDefined;
+      Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEntropy c4 = Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEntropy.UserDefined;
+      Modelica.Media.Interfaces.PartialMedium.Choices.pd c5 = Modelica.Media.Interfaces.PartialMedium.Choices.pd.default;
+      Modelica.Media.Interfaces.PartialMedium.Choices.Th c6 = Modelica.Media.Interfaces.PartialMedium.Choices.Th.default;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3037\">#3037</a>.
+</p>
+</html>"));
+    end Issue3037;
   end Media;
 
   package Thermal
