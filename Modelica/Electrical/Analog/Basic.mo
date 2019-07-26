@@ -1112,9 +1112,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     Modelica.Electrical.Analog.Interfaces.NegativePin VMin
       "Negative output voltage limitation" annotation (Placement(transformation(
             extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-10,-110},{10,-90}})));
-    SI.Voltage vin "input voltage";
+    SI.Voltage vin "Input voltage";
   protected
-    Real f "auxiliary variable";
+    Real f "Auxiliary variable";
     Real absSlope;
   equation
     in_p.i = 0;

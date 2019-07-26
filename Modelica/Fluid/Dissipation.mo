@@ -677,7 +677,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
           "Mean velocity in gap";
 
         //failure status
-        Real fstatus[3] "check of expected boundary conditions";
+        Real fstatus[3] "Check of expected boundary conditions";
 
         //Documentation
       algorithm
@@ -2402,7 +2402,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
           "Mean velocity";
 
         //failure status
-        Real fstatus[2] "check of expected boundary conditions";
+        Real fstatus[2] "Check of expected boundary conditions";
 
         //Documentation
       algorithm
@@ -2726,7 +2726,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
           "Mean velocity";
 
         //failure status
-        Real fstatus[3] "check of expected boundary conditions";
+        Real fstatus[3] "Check of expected boundary conditions";
 
         //Documentation
       algorithm
@@ -3463,7 +3463,7 @@ Generally this function is numerically best used for the <strong>incompressible 
         Real B=24.8
           "Coefficient considering effect of Reynolds number on zeta_TOT";
         Real exp=0.263 "Exponent for Reynolds number correction";
-        Real pow=(2 - exp) "pressure loss = f(mass flow rate^pow)";
+        Real pow=(2 - exp) "Pressure loss = f(mass flow rate^pow)";
       //   Real k_Re = B/(max(MIN, velocity)*IN_con.d_hyd*IN_var.rho)^exp*IN_var.eta^exp;
 
         SI.Velocity v_min = Re_min*IN_var.eta/(IN_var.rho*d_hyd)
@@ -4726,7 +4726,7 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
         SI.Length C_1=max(MIN, min(IN_con.C_1, IN_con.C_2))
           "Perimeter of small cross sectional area of orifice";
         SI.Length C_2=max(MIN, max(IN_con.C_1, IN_con.C_2))
-          "perimeter of large cross sectional area of orifice";
+          "Perimeter of large cross sectional area of orifice";
         SI.Diameter d_hyd=4*A_1/C_1
           "Hydraulic diameter of small cross sectional area of orifice";
 
@@ -9944,7 +9944,7 @@ documentation available in this package.
               "Choice of void fraction approach";
 
             input Boolean crossSectionalAveraged=true
-              "true == cross sectional averaged void fraction | false == volumetric"
+              "= true, if cross sectional averaged void fraction, otherwise volumetric"
               annotation (Dialog);
 
             //geometry
@@ -10415,7 +10415,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
             input Boolean crossSectionalAveraged=true
-              "true == cross sectional averaged void fraction | false == volumetric"
+              "= true, if cross sectional averaged void fraction, otherwise volumetric"
               annotation (Dialog);
 
             input SI.Density rho_g(min=Modelica.Constants.eps)
@@ -10816,8 +10816,8 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         function LambertW
           "Closed approximation of Lambert's w function for solving f(x) = x exp(x) for x"
           extends Modelica.Icons.Function;
-          input Real y "f(x)";
-          output Real x "W(y)";
+          input Real y "Input f(x)";
+          output Real x "Output W(y)";
         protected
           Real xl;
 
@@ -10838,7 +10838,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
                       Documentation(info="<html>
 
 <p>
-This function calculates an approximation of the <strong> inverse </strong> for
+This function calculates an approximation of the <strong>inverse</strong> for
 </p>
 <pre>
     f(x) = y = x * exp( x )
@@ -10862,8 +10862,8 @@ For y > 10 and higher values the relative deviation is smaller 2%.
         function LambertWIter
           "Iterative form of Lambert's w function for solving f(x) = x exp(x) for x"
           extends Modelica.Icons.Function;
-          input Real y "f(x)";
-          output Real x "W(y)";
+          input Real y "Input f(x)";
+          output Real x "Output W(y)";
           output Integer iter;
         protected
           Real w;
@@ -10918,15 +10918,15 @@ within &infin; > y > -1/e. Please note, that for negative inputs <strong>two</st
 </html>"));
         end LambertWIter;
 
-        function PrandtlNumber "calculation of Prandtl number"
+        function PrandtlNumber "Calculation of Prandtl number"
           extends Modelica.Icons.Function;
           import MIN = Modelica.Constants.eps;
 
           //fluid properties
           input SI.SpecificHeatCapacityAtConstantPressure cp
-            "specific heat capacity of fluid at constant pressure";
-          input SI.DynamicViscosity eta "dynamic viscosity of fluid";
-          input SI.ThermalConductivity lambda "thermal conductivity of fluid";
+            "Specific heat capacity of fluid at constant pressure";
+          input SI.DynamicViscosity eta "Dynamic viscosity of fluid";
+          input SI.ThermalConductivity lambda "Thermal conductivity of fluid";
 
           output SI.PrandtlNumber Pr "Prandtl number";
 
@@ -10935,7 +10935,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <strong>two</st
           annotation (Inline=true, smoothOrder=1);
         end PrandtlNumber;
 
-        function ReynoldsNumber "calculation of Reynolds number"
+        function ReynoldsNumber "Calculation of Reynolds number"
           extends Modelica.Icons.Function;
           import MIN = Modelica.Constants.eps;
 
@@ -10964,10 +10964,10 @@ within &infin; > y > -1/e. Please note, that for negative inputs <strong>two</st
         function SmoothPower
           "Limiting the derivative of function y = if x>=0 then x^pow else -(-x)^pow"
           extends Modelica.Icons.Function;
-          input Real x "input variable";
-          input Real deltax "range for interpolation";
-          input Real pow "exponent for x";
-          output Real y "output variable";
+          input Real x "Input variable";
+          input Real deltax "Range for interpolation";
+          input Real pow "Exponent for x";
+          output Real y "Output variable";
         protected
           Real adeltax=abs(deltax);
           Real C3=(pow - 1)/2*adeltax^(pow - 3);
@@ -11020,11 +11020,11 @@ For |x| &gt; 1 both functions return identical results.
 
         function SmoothPower_der "The derivative of function SmoothPower"
           extends Modelica.Icons.Function;
-          input Real x "input variable";
-          input Real deltax "range of interpolation";
-          input Real pow "exponent for x";
-          input Real dx "derivative of x";
-          output Real dy "derivative of SmoothPower";
+          input Real x "Input variable";
+          input Real deltax "Range of interpolation";
+          input Real pow "Exponent for x";
+          input Real dx "Derivative of x";
+          output Real dy "Derivative of SmoothPower";
         protected
           Real C3;
           Real C1;
@@ -11050,10 +11050,10 @@ For |x| &gt; 1 both functions return identical results.
         function Stepsmoother "Continuous interpolation for x"
 
           extends Modelica.Icons.Function;
-          input Real func "input value for that result = 100%";
-          input Real nofunc "input value for that result = 0%";
-          input Real x "input variable for continuous interpolation";
-          output Real result "output value";
+          input Real func "Input value for that result = 100%";
+          input Real nofunc "Input value for that result = 0%";
+          input Real x "Input variable for continuous interpolation";
+          output Real result "Output value";
 
         protected
           Real m=Modelica.Constants.pi/(func - nofunc);
@@ -11105,12 +11105,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         function Stepsmoother_der "Derivative of function Stepsmoother"
 
           extends Modelica.Icons.Function;
-          input Real func "input for that result = 100%";
-          input Real nofunc "input for that result = 0%";
-          input Real x "input for interpolation";
-          input Real dfunc "derivative of func";
-          input Real dnofunc "derivative of nofunc";
-          input Real dx "derivative of x";
+          input Real func "Input for that result = 100%";
+          input Real nofunc "Input for that result = 0%";
+          input Real x "Input for interpolation";
+          input Real dfunc "Derivative of func";
+          input Real dnofunc "Derivative of nofunc";
+          input Real dx "Derivative of x";
           output Real dresult;
 
         protected
@@ -12583,7 +12583,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         end NominalPressureLossLawDensity;
 
-        record TwoPhaseFlow "base record for two phase Flow"
+        record TwoPhaseFlow "Base record for two phase Flow"
           extends Modelica.Icons.Record;
 
           SI.Density rho_l "Density of liquid"
@@ -12844,10 +12844,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           //T-junction variables
           Boolean united_converging_cross_section=true
-            "true == A_cross_total = 2*A_cross_branch | false == A_cross_total > 2*A_cross_branch"
+            "= true, if A_cross_total = 2*A_cross_branch, otherwise A_cross_total > 2*A_cross_branch"
             annotation (Dialog(group="T-junction"));
           Boolean velocity_reference_branches=true
-            "true == pressure loss coefficients w.r.t. velocity in each passage | false == w.r.t. velocity in total passage"
+            "= true, if pressure loss coefficients w.r.t. velocity in each passage, otherwise w.r.t. velocity in total passage"
             annotation (Dialog(group="T-junction"));
 
           Integer alpha=90 "Angle of branching" annotation (Dialog(group="T-junction"));
