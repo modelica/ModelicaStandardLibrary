@@ -5367,8 +5367,8 @@ Further reading:
         partial model PartialControlledDCPM
           "Partial controlled DC PM drive with H-bridge from battery"
           extends Modelica.Icons.Example;
-          replaceable parameter DriveDataDCPM driveData constrainedby
-            ControlledDCDrives.Utilities.DriveDataDCPM "DC machine data"
+          replaceable parameter DriveDataDCPM driveData constrainedby ControlledDCDrives.Utilities.DriveDataDCPM
+                                                       "DC machine data"
             annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
           Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=driveData.JL)
             annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
@@ -15330,17 +15330,17 @@ Interfaces and partial models for induction machines
         "Nominal armature temperature"
         annotation (Dialog(tab="Nominal parameters"));
       parameter Modelica.SIunits.Resistance Ra(start=0.05)
-        "Armature resistance at TRef"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
+        "Armature resistance at TaRef"
+        annotation (Dialog(tab="Armature"));
       parameter Modelica.SIunits.Temperature TaRef(start=293.15)
         "Reference temperature of armature resistance"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
+        annotation (Dialog(tab="Armature"));
       parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20a(start=
             0) "Temperature coefficient of armature resistance"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
+        annotation (Dialog(tab="Armature"));
       parameter Modelica.SIunits.Inductance La(start=0.0015)
         "Armature inductance"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
+        annotation (Dialog(tab="Armature"));
       extends PartialBasicMachine(
         Jr(start=0.15),
         frictionParameters(wRef=wNominal),
