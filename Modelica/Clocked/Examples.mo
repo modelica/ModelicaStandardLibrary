@@ -2235,7 +2235,7 @@ See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.Contro
 </html>"));
         end MixingUnit;
 
-        model MixingUnitWithContinuousControl
+        model MixingUnitWithContinuousControl "Simple example of a mixing unit where a (continuous) nonlinear inverse plant model is used as feedforward controller"
           extends Modelica.Icons.Example;
           import Modelica.SIunits;
 
