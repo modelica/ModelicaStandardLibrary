@@ -959,7 +959,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
           Text(
             extent={{-147,-152},{153,-112}},
             textString="f=%f",
-            lineColor={0,0,0}),
+            textColor={0,0,0}),
       Line(points={
         {-80, 80.0},{-76, 78.7},{-72, 74.8},{-68, 68.7},{-64, 60.5},
         {-60, 50.9},{-56, 40.4},{-52, 29.4},{-48, 18.7},{-44,  8.7},
