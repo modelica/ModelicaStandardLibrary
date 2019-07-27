@@ -139,6 +139,481 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
 
   package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)"
     extends Modelica.Icons.Package;
+    package MultiBody "Library to model 3-dimensional mechanical systems"
+      extends Modelica.Icons.Package;
+      package Joints "Components that constrain the motion between two frames"
+        extends Modelica.Icons.Package;
+        model Prismatic "Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange, optional distance offset)"
+          extends Modelica.Icons.ObsoleteModel;
+          extends Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint;
+
+          Modelica.Mechanics.Translational.Interfaces.Flange_a axis if useAxisFlange
+            "1-dim. translational flange that drives the joint"
+            annotation (Placement(transformation(extent={{90,50},{70,70}})));
+          Modelica.Mechanics.Translational.Interfaces.Flange_b support if useAxisFlange
+            "1-dim. translational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
+            annotation (Placement(transformation(extent={{-30,50},{-50,70}})));
+
+          parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"
+            annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+          parameter Boolean animation=true "= true, if animation shall be enabled";
+          parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
+            "Axis of translation resolved in frame_a (= same as in frame_b)"
+            annotation (Evaluate=true);
+          parameter Modelica.SIunits.Position s_offset=0
+            "Relative distance offset (distance between frame_a and frame_b = s_offset + s)";
+          parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0}
+            "Vector in width direction of box, resolved in frame_a"
+            annotation (Evaluate=true, Dialog(tab="Animation", group=
+                  "if animation = true", enable=animation));
+          parameter Modelica.SIunits.Distance boxWidth=world.defaultJointWidth
+            "Width of prismatic joint box"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter Modelica.SIunits.Distance boxHeight=boxWidth "Height of prismatic joint box"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+            "Color of prismatic joint box"
+            annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter StateSelect stateSelect=StateSelect.prefer
+            "Priority to use distance s and v=der(s) as states" annotation(Dialog(tab="Advanced"));
+          final parameter Real e[3](each final unit="1")=
+             Modelica.Math.Vectors.normalizeWithAssert(n)
+            "Unit vector in direction of prismatic axis n";
+
+          Modelica.SIunits.Position s(start=0, final stateSelect=stateSelect)
+            "Relative distance between frame_a and frame_b"
+            annotation (unassignedMessage="
+The relative distance s of a prismatic joint cannot be determined.
+Possible reasons:
+- A non-zero mass might be missing on either side of the parts
+  connected to the prismatic joint.
+- Too many StateSelect.always are defined and the model
+  has less degrees of freedom as specified with this setting
+  (remove all StateSelect.always settings).
+");
+
+          Modelica.SIunits.Velocity v(start=0,final stateSelect=stateSelect)
+            "First derivative of s (relative velocity)";
+          Modelica.SIunits.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
+          Modelica.SIunits.Force f "Actuation force in direction of joint axis";
+
+        protected
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape box(
+            shapeType="box",
+            color=boxColor,
+            specularCoefficient=specularCoefficient,
+            length=if noEvent(abs(s + s_offset) > 1.e-6) then s + s_offset else 1.e-6,
+            width=boxWidth,
+            height=boxHeight,
+            lengthDirection=e,
+            widthDirection=boxWidthDirection,
+            r=frame_a.r_0,
+            R=frame_a.R) if world.enableAnimation and animation;
+          Modelica.Mechanics.Translational.Components.Fixed fixed
+            annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+          Modelica.Mechanics.Translational.Interfaces.InternalSupport internalAxis(f = f)
+            annotation (Placement(transformation(extent={{70,50},{90,30}})));
+          Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(f_constant=0) if not useAxisFlange
+            annotation (Placement(transformation(extent={{40,30},{60,50}})));
+        equation
+          v = der(s);
+          a = der(v);
+
+          // relationships between kinematic quantities of frame_a and of frame_b
+          frame_b.r_0 = frame_a.r_0 + Modelica.Mechanics.MultiBody.Frames.resolve1(frame_a.R, e*(s_offset + s));
+          frame_b.R = frame_a.R;
+
+          // Force and torque balance
+          zeros(3) = frame_a.f + frame_b.f;
+          zeros(3) = frame_a.t + frame_b.t + cross(e*(s_offset + s), frame_b.f);
+
+          // d'Alemberts principle
+          f = -e*frame_b.f;
+
+          // Connection to internal connectors
+          s = internalAxis.s;
+
+          connect(fixed.flange, support) annotation (Line(
+              points={{-40,40},{-40,60}}, color={0,127,0}));
+          connect(internalAxis.flange, axis) annotation (Line(
+              points={{80,40},{80,60}}, color={0,127,0}));
+          connect(constantForce.flange, internalAxis.flange) annotation (Line(
+              points={{60,40},{80,40}}, color={0,127,0}));
+          annotation (
+            Icon(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={
+                Rectangle(
+                  extent={{-100,-50},{-30,41}},
+                  pattern=LinePattern.None,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Rectangle(
+                  extent={{-100,40},{-30,50}},
+                  pattern=LinePattern.None,
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Rectangle(
+                  extent={{-30,-30},{100,20}},
+                  pattern=LinePattern.None,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Rectangle(
+                  extent={{-30,20},{100,30}},
+                  pattern=LinePattern.None,
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Line(points={{-30,-50},{-30,50}}),
+                Line(points={{100,-30},{100,21}}),
+                Text(
+                  extent={{60,12},{96,-13}},
+                  lineColor={128,128,128},
+                  textString="b"),
+                Text(
+                  extent={{-95,13},{-60,-9}},
+                  lineColor={128,128,128},
+                  textString="a"),
+                Text(
+                  visible=useAxisFlange,
+                  extent={{-150,-135},{150,-95}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+                Text(
+                  extent={{-150,-90},{150,-60}},
+                  textString="n=%n"),
+                Rectangle(
+                  visible=useAxisFlange,
+                  extent={{90,30},{100,70}},
+                  pattern=LinePattern.None,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Text(
+                  visible=not useAxisFlange,
+                  extent={{-150,60},{150,100}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+            Documentation(
+              obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Prismatic instead",
+              info="<html>
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when the relative distance \"s = 0\".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange \"axis\" represents the driving flange and
+flange \"support\" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
+library.
+
+</p>
+
+<p>
+In the \"Advanced\" menu it can be defined via parameter <strong>stateSelect</strong>
+that the relative distance \"s\" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the relative distance and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+In the following figure the animation of a prismatic
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector \"n\" defining the translation axis
+(here: n = {1,1,0}).
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
+</p>
+
+</html>"));
+        end Prismatic;
+
+        model Revolute "Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange, optional angle offset)"
+          extends Modelica.Icons.ObsoleteModel;
+
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a axis if useAxisFlange
+            "1-dim. rotational flange that drives the joint"
+            annotation (Placement(transformation(extent={{10,90},{-10,110}})));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b support if useAxisFlange
+            "1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
+            annotation (Placement(transformation(extent={{-70,90},{-50,110}})));
+
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
+            "Coordinate system fixed to the joint with one cut-force and cut-torque"
+            annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
+            "Coordinate system fixed to the joint with one cut-force and cut-torque"
+            annotation (Placement(transformation(extent={{84,-16},{116,16}})));
+
+          parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"
+            annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+          parameter Boolean animation=true
+            "= true, if animation shall be enabled (show axis as cylinder)";
+          parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
+            "Axis of rotation resolved in frame_a (= same as in frame_b)"
+            annotation (Evaluate=true);
+          parameter Modelica.SIunits.Angle phi_offset=0
+            "Relative angle offset (angle = phi_offset + phi)";
+          parameter Modelica.SIunits.Distance cylinderLength=world.defaultJointLength
+            "Length of cylinder representing the joint axis"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter Modelica.SIunits.Distance cylinderDiameter=world.defaultJointWidth
+            "Diameter of cylinder representing the joint axis"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+            "Color of cylinder representing the joint axis"
+            annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+            specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter StateSelect stateSelect=StateSelect.prefer
+            "Priority to use joint angle phi and w=der(phi) as states" annotation(Dialog(tab="Advanced"));
+
+          Modelica.SIunits.Angle phi(start=0, final stateSelect=stateSelect)
+            "Relative rotation angle from frame_a to frame_b"
+             annotation (unassignedMessage="
+The rotation angle phi of a revolute joint cannot be determined.
+Possible reasons:
+- A non-zero mass might be missing on either side of the parts
+  connected to the revolute joint.
+- Too many StateSelect.always are defined and the model
+  has less degrees of freedom as specified with this setting
+  (remove all StateSelect.always settings).
+");
+          Modelica.SIunits.AngularVelocity w(start=0, stateSelect=stateSelect)
+            "First derivative of angle phi (relative angular velocity)";
+          Modelica.SIunits.AngularAcceleration a(start=0)
+            "Second derivative of angle phi (relative angular acceleration)";
+          Modelica.SIunits.Torque tau "Driving torque in direction of axis of rotation";
+          Modelica.SIunits.Angle angle "= phi_offset + phi";
+
+        protected
+          outer Modelica.Mechanics.MultiBody.World world;
+          parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(n)
+            "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
+          Modelica.Mechanics.MultiBody.Frames.Orientation R_rel
+            "Relative orientation object from frame_a to frame_b or from frame_b to frame_a";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
+            shapeType="cylinder",
+            color=cylinderColor,
+            specularCoefficient=specularCoefficient,
+            length=cylinderLength,
+            width=cylinderDiameter,
+            height=cylinderDiameter,
+            lengthDirection=e,
+            widthDirection={0,1,0},
+            r_shape=-e*(cylinderLength/2),
+            r=frame_a.r_0,
+            R=frame_a.R) if world.enableAnimation and animation;
+
+        protected
+          Modelica.Mechanics.Rotational.Components.Fixed fixed
+            "support flange is fixed to ground"
+            annotation (Placement(transformation(extent={{-70,70},{-50,90}})));
+          Modelica.Mechanics.Rotational.Interfaces.InternalSupport internalAxis(tau=tau)
+            annotation (Placement(transformation(extent={{-10,90},{10,70}})));
+          Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(tau_constant=0) if not useAxisFlange
+            annotation (Placement(transformation(extent={{40,70},{20,90}})));
+        equation
+          Connections.branch(frame_a.R, frame_b.R);
+
+          assert(cardinality(frame_a) > 0,
+            "Connector frame_a of revolute joint is not connected");
+          assert(cardinality(frame_b) > 0,
+            "Connector frame_b of revolute joint is not connected");
+
+          angle = phi_offset + phi;
+          w = der(phi);
+          a = der(w);
+
+          // relationships between quantities of frame_a and of frame_b
+          frame_b.r_0 = frame_a.r_0;
+
+          if Connections.rooted(frame_a.R) then
+            R_rel = Modelica.Mechanics.MultiBody.Frames.planarRotation(e, phi_offset + phi, w);
+            frame_b.R = Modelica.Mechanics.MultiBody.Frames.absoluteRotation(frame_a.R, R_rel);
+            frame_a.f = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_b.f);
+            frame_a.t = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_b.t);
+          else
+            R_rel = Modelica.Mechanics.MultiBody.Frames.planarRotation(-e, phi_offset + phi, w);
+            frame_a.R = Modelica.Mechanics.MultiBody.Frames.absoluteRotation(frame_b.R, R_rel);
+            frame_b.f = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_a.f);
+            frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_a.t);
+          end if;
+
+          // d'Alemberts principle
+          tau = -frame_b.t*e;
+
+          // Connection to internal connectors
+          phi = internalAxis.phi;
+
+          connect(fixed.flange, support) annotation (Line(
+              points={{-60,80},{-60,100}}));
+          connect(internalAxis.flange, axis) annotation (Line(
+              points={{0,80},{0,100}}));
+          connect(constantTorque.flange, internalAxis.flange) annotation (Line(
+              points={{20,80},{0,80}}));
+          annotation (
+            Icon(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={
+                Rectangle(
+                  extent={{-100,-60},{-30,60}},
+                  lineColor={64,64,64},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={255,255,255},
+                  radius=10),
+                Rectangle(
+                  extent={{30,-60},{100,60}},
+                  lineColor={64,64,64},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={255,255,255},
+                  radius=10),
+                Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
+                Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
+                Text(
+                  extent={{-90,14},{-54,-11}},
+                  lineColor={128,128,128},
+                  textString="a"),
+                Text(
+                  extent={{51,11},{87,-14}},
+                  lineColor={128,128,128},
+                  textString="b"),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-20,80},{-20,60}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{20,80},{20,60}}),
+                Rectangle(
+                  visible=useAxisFlange,
+                  extent={{-10,100},{10,50}},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={192,192,192}),
+                Polygon(
+                  visible=useAxisFlange,
+                  points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}},
+                  lineColor={64,64,64},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Rectangle(
+                  extent={{-30,11},{30,-10}},
+                  lineColor={64,64,64},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Polygon(
+                  visible=useAxisFlange,
+                  points={{10,30},{30,50},{30,-50},{10,-30},{10,30}},
+                  lineColor={64,64,64},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Text(
+                  extent={{-150,-110},{150,-80}},
+                  textString="n=%n"),
+                Text(
+                  visible=useAxisFlange,
+                  extent={{-150,-155},{150,-115}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-20,70},{-60,70},{-60,60}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{20,70},{50,70},{50,60}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-90,100},{-30,100}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-30,100},{-50,80}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-49,100},{-70,80}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-70,100},{-90,80}}),
+                Text(
+                  visible=not useAxisFlange,
+                  extent={{-150,70},{150,110}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+            Documentation(
+              obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Revolute instead",
+              info="<html>
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when the rotation angle \"phi = 0\".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange \"axis\" represents the driving flange and
+flange \"support\" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href=\"modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
+library.
+</p>
+
+<p>
+In the \"Advanced\" menu it can be defined via parameter <strong>stateSelect</strong>
+that the rotation angle \"phi\" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the joint angle and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+If a <strong>planar loop</strong> is present, e.g., consisting of 4 revolute joints
+where the joint axes are all parallel to each other, then there is no
+longer a unique mathematical solution and the symbolic algorithms will
+fail. Usually, an error message will be printed pointing out this
+situation. In this case, one revolute joint of the loop has to be replaced
+by a Joints.RevolutePlanarLoopConstraint joint. The
+effect is that from the 5 constraints of a usual revolute joint,
+3 constraints are removed and replaced by appropriate known
+variables (e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute joints,
+this force is an unknown quantity).
+</p>
+
+<p>
+In the following figure the animation of a revolute
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector \"n\" defining the translation axis
+(here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Revolute.png\">
+</p>
+
+</html>"));
+        end Revolute;
+      end Joints;
+    end MultiBody;
+
     package Rotational "Library to model 1-dimensional, rotational mechanical systems"
       extends Modelica.Icons.Package;
       package Interfaces "Connectors and partial models for 1D rotational mechanical components"
@@ -188,10 +663,10 @@ and instead the component is internally fixed to ground.
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}), graphics={Text(
                       extent={{25,-97},{65,-98}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if not useSupport)"),Text(
                       extent={{-38,-98},{-6,-96}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if useSupport)")}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Line(
@@ -255,10 +730,10 @@ and instead the component is internally fixed to ground.
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}), graphics={Text(
                       extent={{24,-97},{64,-98}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if not useSupport)"),Text(
                       extent={{-38,-98},{-6,-96}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if useSupport)")}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Line(
@@ -328,10 +803,10 @@ and instead the component is internally fixed to ground.
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                     {100,100}}), graphics={Text(
                       extent={{-38,-98},{-6,-96}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if useSupport)"),Text(
                       extent={{24,-97},{64,-98}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if not useSupport)")}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Line(
@@ -394,10 +869,10 @@ connector is not connected).
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                     {100,100}}), graphics={Text(
                       extent={{-38,-98},{-6,-96}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if useSupport)"),Text(
                       extent={{24,-97},{64,-98}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if not useSupport)")}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Line(
@@ -1271,7 +1746,7 @@ connector is not connected).
                     0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
                     255,128,0}),Text(
                           extent={{0,100},{0,140}},
-                          textColor={0,0,255},
+                          lineColor={0,0,255},
                           textString="%name")}),
               Documentation(info="<html>
 <p>
@@ -1392,7 +1867,7 @@ Obsolete symmetric cage model, see
                     0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
                     255,128,0}),Text(
                           extent={{0,100},{0,140}},
-                          textColor={0,0,255},
+                          lineColor={0,0,255},
                           textString="%name")}), Documentation(info="<html>
 <p>
 Obsolete saliency cage model, see

@@ -19,8 +19,6 @@ package Joints "Components that constrain the motion between two frames"
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
       "Axis of translation resolved in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
-    constant SI.Position s_offset=0
-      "Relative distance offset (distance between frame_a and frame_b = s_offset + s)";
     parameter Types.Axis boxWidthDirection={0,1,0}
       "Vector in width direction of box, resolved in frame_a"
       annotation (Evaluate=true, Dialog(tab="Animation", group=
@@ -64,7 +62,7 @@ Possible reasons:
       shapeType="box",
       color=boxColor,
       specularCoefficient=specularCoefficient,
-      length=if noEvent(abs(s + s_offset) > 1.e-6) then s + s_offset else 1.e-6,
+      length=if noEvent(abs(s) > 1.e-6) then s else 1.e-6,
       width=boxWidth,
       height=boxHeight,
       lengthDirection=e,
@@ -82,12 +80,12 @@ Possible reasons:
     a = der(v);
 
     // relationships between kinematic quantities of frame_a and of frame_b
-    frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, e*(s_offset + s));
+    frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, e*s);
     frame_b.R = frame_a.R;
 
     // Force and torque balance
     zeros(3) = frame_a.f + frame_b.f;
-    zeros(3) = frame_a.t + frame_b.t + cross(e*(s_offset + s), frame_b.f);
+    zeros(3) = frame_a.t + frame_b.t + cross(e*s, frame_b.f);
 
     // d'Alemberts principle
     f = -e*frame_b.f;
@@ -224,8 +222,6 @@ vector \"n\" defining the translation axis
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
       "Axis of rotation resolved in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
-    constant SI.Angle phi_offset=0
-      "Relative angle offset (angle = phi_offset + phi)";
     parameter SI.Distance cylinderLength=world.defaultJointLength
       "Length of cylinder representing the joint axis"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -236,7 +232,7 @@ vector \"n\" defining the translation axis
       "Color of cylinder representing the joint axis"
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
-      specularCoefficient =                                                            world.defaultSpecularCoefficient
+      specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter StateSelect stateSelect=StateSelect.prefer
@@ -258,7 +254,7 @@ Possible reasons:
     SI.AngularAcceleration a(start=0)
       "Second derivative of angle phi (relative angular acceleration)";
     SI.Torque tau "Driving torque in direction of axis of rotation";
-    SI.Angle angle "= phi_offset + phi";
+    SI.Angle angle "= phi";
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -295,7 +291,7 @@ Possible reasons:
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of revolute joint is not connected");
 
-    angle = phi_offset + phi;
+    angle = phi;
     w = der(phi);
     a = der(w);
 
@@ -303,12 +299,12 @@ Possible reasons:
     frame_b.r_0 = frame_a.r_0;
 
     if Connections.rooted(frame_a.R) then
-      R_rel = Frames.planarRotation(e, phi_offset + phi, w);
+      R_rel = Frames.planarRotation(e, phi, w);
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       frame_a.f = -Frames.resolve1(R_rel, frame_b.f);
       frame_a.t = -Frames.resolve1(R_rel, frame_b.t);
     else
-      R_rel = Frames.planarRotation(-e, phi_offset + phi, w);
+      R_rel = Frames.planarRotation(-e, phi, w);
       frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel);
       frame_b.f = -Frames.resolve1(R_rel, frame_a.f);
       frame_b.t = -Frames.resolve1(R_rel, frame_a.t);

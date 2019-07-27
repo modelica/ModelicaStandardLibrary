@@ -2018,10 +2018,10 @@ design of sensors apply:
 
 <ul>
 <li>The sensor outputs shall be indicated by its SI unit, not its quantity; the proper SI unit shall be compliant with the unit definitions of
-    <a href=\"modelica://Modelica.SIunits\">SIunits</a>, 
+    <a href=\"modelica://Modelica.SIunits\">SIunits</a>,
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
-<li>For a sensor with a single output signal the SI unit shall be placed withing the sensor, 
+<li>For a sensor with a single output signal the SI unit shall be placed withing the sensor,
     see <strong>Fig.&nbsp;6</strong> and <strong>7</strong></li>
     <ul>
     <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be</li>
@@ -2029,11 +2029,11 @@ design of sensors apply:
         <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
         </ul>
-        
+
     <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be 
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
     </ul>
-<li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal; 
+<li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
     a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong></li>
     <ul>
     <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
@@ -2319,6 +2319,89 @@ more of the following changes.
 </ul>
 </html>"));
 end VersionManagement;
+
+class Version_4_0_0 "Version 4.0.0 (mmm dd, yyyy)"
+  extends Modelica.Icons.ReleaseNotes;
+
+  annotation (Documentation(info="<html>
+<p>
+Version 4.0.0 is ...
+Short Overview:
+</p>
+<ul>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">xxx issues (including pull requests)</a>
+    have been addressed for this release.</li>
+<li><strong>xx</strong> component models and blocks, <strong>xx</strong> example models and <strong>xx</strong> functions are newly included.</li>
+</ul>
+<p>
+The exact difference between package Modelica version 4.0.0 and version 3.2.3 is
+summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/DifferencesTo323.html\">comparison table</a>.
+</p>
+
+<p><br>
+The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+<tr><td> </td>
+    <td>
+    </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>new components</strong></font> have been added to <font color=\"blue\"><strong>existing</strong></font> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>improved</strong></font> in a <font color=\"blue\"><strong>backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
+<tr><td>Nonlinear.Limiter<br>Nonlinear.VariableLimiter<br>Continuous.LimPID</td>
+    <td>The superfluous parameter <code>limitsAtInit</code> has been removed.</td></tr>
+<tr><td>Nonlinear.DeadZone</td>
+    <td>The superfluous parameter <code>deadZoneAtInit</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td>Joints.Prismatic</td>
+    <td>The superfluous constant <code>s_offset</code> has been removed.</td></tr>
+<tr><td>Joints.Revolute</td>
+    <td>The superfluous constant <code>phi_offset</code> has been removed.</td></tr>
+<tr><td>Parts.Body</td>
+    <td>The superfluous parameter <code>z_a_start</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer</strong></td></tr>
+<tr><td>Fahrenheit.FromKelvin<br>Rankine.FromKelvin<br>Rankine.ToKelvin</td>
+    <td>The superfluous parameter <code>n</code> has been removed.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+</html>"));
+end Version_4_0_0;
 
 class Version_3_2_3 "Version 3.2.3 (January 23, 2019)"
   extends Modelica.Icons.ReleaseNotes;
