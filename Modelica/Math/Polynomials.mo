@@ -235,6 +235,79 @@ returned as a vector p[n+1] that has the following definition:
       algorithm
         dy := secondDerivativeValue(p,u)*du;
       end derivativeValue_der;
+
+      encapsulated function roots
+        "Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero"
+        import Modelica.Math.Matrices;
+        import Modelica;
+        extends Modelica.Icons.Function;
+        input Real p[:]
+          "Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]";
+        output Real roots[max(0, size(p, 1) - 1), 2]=fill(
+                  0,
+                  max(0, size(p, 1) - 1),
+                  2)
+          "roots[:,1] and roots[:,2] are the real and imaginary parts of the roots of polynomial p";
+      protected
+        Integer np=size(p, 1);
+        Integer n=size(p, 1) - 1;
+        Real A[max(size(p, 1) - 1, 0), max(size(p, 1) - 1, 0)] "Companion matrix";
+        Real ev[max(size(p, 1) - 1, 0), 2] "Eigenvalues";
+      algorithm
+        if n > 0 then
+          assert(abs(p[1]) > 0,
+            "Computing the roots of a polynomial with function \"Modelica.Math.Vectors.Utilities.roots\"\n"
+             +
+            "failed because the first element of the coefficient vector is zero, but should not be.");
+
+          // companion matrix
+          A[1, :] := -p[2:np]/p[1];
+          A[2:n, :] := [identity(n - 1), zeros(n - 1)];
+
+          // roots are the eigenvalues of the companion matrix
+          roots := Matrices.Utilities.eigenvaluesHessenberg(A);
+        end if;
+        annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+  r = Vectors.Utilities.<strong>roots</strong>(p);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the roots of a polynomial P of x
+</p>
+<blockquote><pre>
+  P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
+</pre></blockquote>
+<p>
+with the coefficient vector <strong>p</strong>. It is assumed that the first element of <strong>p</strong> is not zero, i.e., that the polynomial is of order size(p,1)-1.
+</p>
+<p>
+To compute the roots, the eigenvalues of the corresponding companion matrix <strong>C</strong>
+</p>
+<blockquote><pre>
+         |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
+         |    1            0                0               0           0     |
+         |    0            1      ...       0               0           0     |
+  <strong>C</strong> =    |    .            .      ...       .               .           .     |
+         |    .            .      ...       .               .           .     |
+         |    0            0      ...       0               1           0     |
+</pre></blockquote>
+<p>
+are calculated. These are the roots of the polynomial.<br>
+Since the companion matrix has already Hessenberg form, the transformation to Hessenberg form has not to be performed.
+Function <a href=\"modelica://Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg\">eigenvaluesHessenberg</a><br>
+provides efficient eigenvalue computation for those matrices.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  r = <strong>roots</strong>({1,2,3});
+  // r = [-1.0,  1.41421356237309;
+  //      -1.0, -1.41421356237309]
+  // which corresponds to the roots: -1.0 +/- j*1.41421356237309
+</pre></blockquote>
+</html>"));
+      end roots;
       annotation (Documentation(info="<html>
 <p>
 This package contains functions to operate on polynomials,

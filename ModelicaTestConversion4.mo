@@ -1356,6 +1356,18 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2857;
+
+    model Issue3002 "Conversion test for #3002"
+      extends Modelica.Icons.Example;
+      Real r[2,2];
+    algorithm
+      r := Modelica.Math.Vectors.Utilities.roots({1,0,-1});
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3002\">#3002</a>.
+</p>
+</html>"));
+    end Issue3002;
   end Math;
 
   package Media

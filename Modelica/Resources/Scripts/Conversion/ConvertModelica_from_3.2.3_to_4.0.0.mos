@@ -53,6 +53,8 @@ convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoeff
               "Modelica.SIunits.QuadraticTemperatureCoefficientResistance");
 convertClass("Modelica.Media.Incompressible.TableBased.Polynomials_Temp",
               "Modelica.Math.Polynomials");
+convertClass("Modelica.Math.Vectors.Utilities.roots",
+              "Modelica.Math.Polynomials.roots")
 convertClass("Modelica.Electrical.QuasiStationary",
               "Modelica.Electrical.QuasiStatic");
 convertClass("Modelica.Electrical.Machines.Icons.QuasiStationaryMachine",
