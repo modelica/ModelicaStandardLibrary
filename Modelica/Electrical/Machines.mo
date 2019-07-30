@@ -16602,15 +16602,15 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           "Nominal armature temperature"
           annotation (Dialog(tab="Nominal parameters"));
         parameter Modelica.SIunits.Resistance Ra=0.05
-          "Armature resistance at TRef"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          "Armature resistance at TaRef"
+          annotation (Dialog(tab="Armature"));
         parameter Modelica.SIunits.Temperature TaRef=293.15
           "Reference temperature of armature resistance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          annotation (Dialog(tab="Armature"));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20a=0 "Temperature coefficient of armature resistance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          annotation (Dialog(tab="Armature"));
         parameter Modelica.SIunits.Inductance La=0.0015 "Armature inductance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          annotation (Dialog(tab="Armature"));
         parameter Machines.Losses.FrictionParameters frictionParameters(PRef=0,
             wRef=wNominal) "Friction loss parameter record"
           annotation (Dialog(tab="Losses"));
@@ -16648,7 +16648,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Current IeNominal=1
           "Nominal excitation current" annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Resistance Re=100
-          "Field excitation resistance at TRef"
+          "Field excitation resistance at TeRef"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
@@ -16674,7 +16674,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         extends DcPermanentMagnetData(wNominal=1410*2*pi/60);
         import Modelica.Constants.pi;
         parameter Modelica.SIunits.Resistance Re=0.01
-          "Series excitation resistance at TRef"
+          "Series excitation resistance at TeRef"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
