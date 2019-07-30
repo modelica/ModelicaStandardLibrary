@@ -8570,7 +8570,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current" annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Resistance Re(start=100)
-          "Field excitation resistance at TRef"
+          "Field excitation resistance at Teef"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperature of excitation resistance"
@@ -8817,7 +8817,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               lossPowerSeriesExcitation=re.LossPower),
           core(final w=airGapDC.w));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
-          "Series excitation resistance at TRef"
+          "Series excitation resistance at TeRef"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperature of excitation resistance"
