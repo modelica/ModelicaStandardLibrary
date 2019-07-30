@@ -8570,7 +8570,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current" annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Resistance Re(start=100)
-          "Field excitation resistance at Teef"
+          "Field excitation resistance at TeRef"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperature of excitation resistance"
