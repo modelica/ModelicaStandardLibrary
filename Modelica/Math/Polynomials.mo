@@ -256,7 +256,7 @@ returned as a vector p[n+1] that has the following definition:
       algorithm
         if n > 0 then
           assert(abs(p[1]) > 0,
-            "Computing the roots of a polynomial with function \"Modelica.Math.Vectors.Utilities.roots\"\n"
+            "Computing the roots of a polynomial with function \"Modelica.Math.Polynomials.roots\"\n"
              +
             "failed because the first element of the coefficient vector is zero, but should not be.");
 
@@ -270,7 +270,7 @@ returned as a vector p[n+1] that has the following definition:
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Vectors.Utilities.<strong>roots</strong>(p);
+  r = Polynomials.<strong>roots</strong>(p);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
