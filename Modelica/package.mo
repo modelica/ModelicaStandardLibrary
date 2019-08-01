@@ -2385,6 +2385,9 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>The superfluous constant <code>phi_offset</code> has been removed.</td></tr>
 <tr><td>Parts.Body</td>
     <td>The superfluous parameter <code>z_a_start</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Machines</strong></td></tr>
+<tr><td>PartialPump</td>
+    <td>The superfluous parameter <code>show_NPSHa</code> has been removed.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer</strong></td></tr>
 <tr><td>Fahrenheit.FromKelvin<br>Rankine.FromKelvin<br>Rankine.ToKelvin</td>
     <td>The superfluous parameter <code>n</code> has been removed.</td></tr>
