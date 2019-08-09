@@ -77,6 +77,10 @@ than the maximum abscissa value u_max (=" + String(u_max) + ") defined in the ta
       for i in 1:nout loop
         y[i] = Internal.getTable1DValueNoDer(tableID, i, u);
       end for;
+    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then
+      for i in 1:nout loop
+        y[i] = Internal.getTable1DValueNoDer2(tableID, i, u);
+      end for;
     else
       for i in 1:nout loop
         y[i] = Internal.getTable1DValue(tableID, i, u);
@@ -368,6 +372,10 @@ than the maximum abscissa value u_max (=" + String(u_max) + ") defined in the ta
       for i in 1:n loop
         y[i] = Internal.getTable1DValueNoDer(tableID, i, u[i]);
       end for;
+    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then
+      for i in 1:n loop
+        y[i] = Internal.getTable1DValueNoDer2(tableID, i, u[i]);
+      end for;
     else
       for i in 1:n loop
         y[i] = Internal.getTable1DValue(tableID, i, u[i]);
@@ -611,6 +619,8 @@ than the maximum abscissa value u_max[2] (=" + String(u_max[2]) + ") defined in 
 
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       y = Internal.getTable2DValueNoDer(tableID, u1, u2);
+    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then
+      y = Internal.getTable2DValueNoDer2(tableID, u1, u2);
     else
       y = Internal.getTable2DValue(tableID, u1, u2);
     end if;
@@ -789,6 +799,10 @@ than the maximum abscissa value u_max[2] (=" + String(u_max[2]) + ") defined in 
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for j in 1:n loop
         y[j] = Modelica.Blocks.Tables.Internal.getTable2DValueNoDer(tableID, u1[j], u2[j]);
+      end for;
+    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then
+      for j in 1:n loop
+        y[j] = Modelica.Blocks.Tables.Internal.getTable2DValueNoDer2(tableID, u1[j], u2[j]);
       end for;
     else
       for j in 1:n loop
@@ -1119,6 +1133,22 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTimeTableValueNoDer;
 
+    function getTimeTableValueNoDer2
+      "Interpolate 1-dim. table where first column is time (but do not provide a second derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative(
+          noDerivative=nextTimeEvent,
+          noDerivative=pre_nextTimeEvent) = getDerTimeTableValueNoDer);
+    end getTimeTableValueNoDer2;
+
     function getDerTimeTableValue
       "Derivative of interpolated 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
@@ -1131,7 +1161,40 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative(
+          order=2,
+          noDerivative=nextTimeEvent,
+          noDerivative=pre_nextTimeEvent) = getDer2TimeTableValue);
     end getDerTimeTableValue;
+
+    function getDerTimeTableValueNoDer
+      "Derivative of interpolated 1-dim. table where first column is time (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
+      input Real der_timeIn;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDerTimeTableValueNoDer;
+
+    function getDer2TimeTableValue
+      "Second derivative of interpolated 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
+      input Real der_timeIn;
+      input Real der2_timeIn;
+      output Real der2_y;
+      external"C" der2_y = ModelicaStandardTables_CombiTimeTable_getDer2Value(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn, der2_timeIn)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDer2TimeTableValue;
 
     function getTimeTableTmin
       "Return minimum abscissa value of 1-dim. table where first column is time"
@@ -1196,6 +1259,18 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable1DValueNoDer;
 
+    function getTable1DValueNoDer2
+      "Interpolate 1-dim. table defined by matrix (but do not provide a second derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative = getDerTable1DValueNoDer);
+    end getTable1DValueNoDer2;
+
     function getDerTable1DValue
       "Derivative of interpolated 1-dim. table defined by matrix"
       extends Modelica.Icons.Function;
@@ -1206,7 +1281,33 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative(order=2) = getDer2Table1DValue);
     end getDerTable1DValue;
+
+    function getDerTable1DValueNoDer
+      "Derivative of interpolated 1-dim. table defined by matrix (but do not provide a second derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real der_u;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDerTable1DValueNoDer;
+
+    function getDer2Table1DValue
+      "Second derivative of interpolated 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real der_u;
+      input Real der2_u;
+      output Real der2_y;
+      external"C" der2_y = ModelicaStandardTables_CombiTable1D_getDer2Value(tableID, icol, u, der_u, der2_u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDer2Table1DValue;
 
     function getTable1DAbscissaUmin
       "Return minimum abscissa value of 1-dim. table defined by matrix"
@@ -1261,6 +1362,18 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end getTable2DValueNoDer;
 
+    function getTable2DValueNoDer2
+      "Interpolate 2-dim. table defined by matrix (but do not provide a second derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative = getDerTable2DValueNoDer);
+    end getTable2DValueNoDer2;
+
     function getDerTable2DValue
       "Derivative of interpolated 2-dim. table defined by matrix"
       extends Modelica.Icons.Function;
@@ -1272,7 +1385,36 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative(order=2) = getDer2Table2DValue);
     end getDerTable2DValue;
+
+    function getDerTable2DValueNoDer
+      "Derivative of interpolated 2-dim. table defined by matrix (but do not provide a second derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      input Real der_u1;
+      input Real der_u2;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDerTable2DValueNoDer;
+
+    function getDer2Table2DValue
+      "Second derivative of interpolated 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      input Real der_u1;
+      input Real der_u2;
+      input Real der2_u1;
+      input Real der2_u2;
+      output Real der2_y;
+      external"C" der2_y = ModelicaStandardTables_CombiTable2D_getDer2Value(tableID, u1, u2, der_u1, der_u2, der2_u1, der2_u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDer2Table2DValue;
 
     function getTable2DAbscissaUmin
       "Return minimum abscissa value of 2-dim. table defined by matrix"
