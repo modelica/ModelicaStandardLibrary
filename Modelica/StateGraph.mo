@@ -569,7 +569,7 @@ based on the following references:
 <dl>
 <dt>Andr&eacute;, C. (2003):</dt>
 <dd><a href=\"http://www.i3s.unice.fr/~map/WEBSPORTS/Documents/2003a2005/SSMsemantics.pdf\">
-     Semantics of S.S.M (Safe State Machine).</a>.
+     Semantics of S.S.M (Safe State Machine)</a>.
      I3S Laboratory, UMR 6070 University of Nice-Sophia Antipolis / CNRS.<br>&nbsp;</dd>
 
 <dt>&Aring;rz&eacute;n K.-E. (2004):</dt>
@@ -579,7 +579,7 @@ based on the following references:
 
 <dt>Dressler I. (2004):</dt>
 <dd> <a href=\"http://www.control.lth.se/documents/2004/5726.pdf\">
-     Code Generation From JGrafchart to Modelica.</a>.
+     Code Generation From JGrafchart to Modelica</a>.
      Master thesis, supervisor: Karl-Erik &Aring;rz&eacute;n,
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, March 30, 2004.<br>&nbsp;</dd>

@@ -3635,8 +3635,8 @@ The Algorithm to calculate psi is taken from
 
     annotation (Documentation(info="<html>
 <blockquote><pre>
-(phi,gamma,gamma1) = Matrices.<strong>integralExp</strong>(A,B);
-(phi,gamma,gamma1) = Matrices.<strong>integralExp</strong>(A,B,T=1);
+(phi,gamma,gamma1) = Matrices.<strong>integralExpT</strong>(A,B);
+(phi,gamma,gamma1) = Matrices.<strong>integralExpT</strong>(A,B,T=1);
 </pre></blockquote>
 
 <h4>Description</h4>
