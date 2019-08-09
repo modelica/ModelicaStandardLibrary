@@ -998,36 +998,36 @@ Full steady state initialization is not supported, because the corresponding ini
       parameter Real startTime=1;
       parameter Real T5_batch_level=0.211;
 
-      Modelica.StateGraph.InitialStep InitialStep1
+      Modelica.StateGraph.InitialStep InitialStep1(nIn=1, nOut=1)
         annotation (Placement(transformation(extent={{-180,90},{-160,110}})));
       Modelica.StateGraph.Transition Transition1(enableTimer=true, waitTime=
             startTime) annotation (Placement(transformation(extent={{-150,90},{
                 -130,110}})));
-      Modelica.StateGraph.Step Step1
+      Modelica.StateGraph.Step Step1(nIn=1, nOut=1)
         annotation (Placement(transformation(extent={{-120,90},{-100,110}})));
       Modelica.StateGraph.Transition Transition2(condition=LIS_301 >= 0.13)
         annotation (Placement(transformation(extent={{-90,90},{-70,110}})));
-      Modelica.StateGraph.Step Step2 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step2(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{-60,90},{-40,110}})));
       Modelica.StateGraph.Transition Transition3(
         condition=true,
         enableTimer=true,
         waitTime=500)
         annotation (Placement(transformation(extent={{-30,90},{-10,110}})));
-      Modelica.StateGraph.Step Step3 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step3(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{0,90},{20,110}})));
       Modelica.StateGraph.Transition Transition4(condition=LIS_301 <= 0.01)
         annotation (Placement(transformation(extent={{30,90},{50,110}})));
-      Modelica.StateGraph.Step Step4 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step4(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{60,90},{80,110}})));
       Modelica.StateGraph.Transition Transition5(condition=T5_idle)
         annotation (Placement(transformation(extent={{90,90},{110,110}})));
-      Modelica.StateGraph.Step Step5 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step5(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{120,90},{140,110}})));
       Modelica.StateGraph.Transition Transition6(condition=LIS_501 >=
             T5_batch_level) annotation (Placement(transformation(extent={{150,
                 90},{170,110}})));
-      Modelica.StateGraph.Step Step6 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step6(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{-120,30},{-100,50}})));
       Modelica.StateGraph.Transition Transition7(
         condition=true,
@@ -1036,21 +1036,21 @@ Full steady state initialization is not supported, because the corresponding ini
         annotation (Placement(transformation(extent={{-90,30},{-70,50}})));
       Modelica.StateGraph.Parallel Parallel1 annotation (Placement(
             transformation(extent={{-176,-100},{194,0}})));
-      Modelica.StateGraph.Step Step7 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step7(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{-122,-80},{-102,-60}})));
-      Modelica.StateGraph.Step Step8 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step8(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{-62,-80},{-42,-60}})));
-      Modelica.StateGraph.Step Step9 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step9(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{-2,-80},{18,-60}})));
-      Modelica.StateGraph.Step Step10 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step10(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{58,-80},{78,-60}})));
-      Modelica.StateGraph.Step Step11 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step11(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{118,-80},{138,-60}})));
-      Modelica.StateGraph.Step Step12 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step12(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{-62,-40},{-42,-20}})));
-      Modelica.StateGraph.Step Step13 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step13(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{-2,-40},{18,-20}})));
-      Modelica.StateGraph.Step Step14 annotation (Placement(transformation(
+      Modelica.StateGraph.Step Step14(nIn=1, nOut=1) annotation (Placement(transformation(
               extent={{58,-40},{78,-20}})));
       Modelica.StateGraph.Transition Transition8(condition=T7_idle)
         annotation (Placement(transformation(extent={{-92,-80},{-72,-60}})));

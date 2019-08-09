@@ -360,6 +360,13 @@ convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
 convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
                   {"hideConnector"}, {"use_numberPort=not %hideConnector%"});
 
+convertModifiers({"Modelica.StateGraph.PartialStep",
+                  "Modelica.StateGraph.InitialStep",
+                  "Modelica.StateGraph.InitialStepWithSignal",
+                  "Modelica.StateGraph.Step",
+                  "Modelica.StateGraph.StepWithSignal"},
+                  fill("",0), {"nIn=1", "nOut=1"});
+
 convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheel",
                {"wheelRadius"},
                {"radius"});
