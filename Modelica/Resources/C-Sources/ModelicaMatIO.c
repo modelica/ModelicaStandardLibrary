@@ -289,7 +289,7 @@
 
 #endif
 
-#if defined(HAVE_ZLIB) && HAVE_ZLIB
+#if defined(HAVE_ZLIB)
 #   define ZLIB_BYTE_PTR(a) ((Bytef *)(a))
 #endif
 
@@ -686,7 +686,7 @@ Mat_doubleSwap( double *a )
  */
 #include <stdlib.h>
 
-#if HAVE_ZLIB
+#if defined(HAVE_ZLIB)
 
 /** @cond mat_devman */
 
