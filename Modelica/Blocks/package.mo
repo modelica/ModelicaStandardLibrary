@@ -647,7 +647,7 @@ model RealNetwork1 "Demonstrates the usage of blocks from Modelica.Blocks.Math"
     number=multiSwitch.y,
     significantDigits=1)
     annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
-  Math.LinearDependency linearDependency1(
+  Math.LinearDependency2 linearDependency1(
     y0=1,
     k1=2,
     k2=3) annotation (Placement(transformation(extent={{40,80},{60,100}})));

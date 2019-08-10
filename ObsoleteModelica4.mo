@@ -1,6 +1,39 @@
 within ;
 package ObsoleteModelica4 "Library that contains components from Modelica Standard Library 3.2.3 that have been removed from version 4.0.0"
   extends Modelica.Icons.Package;
+  package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
+    extends Modelica.Icons.Package;
+    package Math "Library of Real mathematical functions as input/output blocks"
+      extends Modelica.Icons.Package;
+      block LinearDependency "Obsolete block - use Modelica.Blocks.Math.LinearDependency2 instead"
+        extends Modelica.Blocks.Interfaces.SI2SO;
+        extends Modelica.Icons.ObsoleteModel;
+        parameter Real y0=0 "Initial value";
+        parameter Real k1=0 "Gain of u1";
+        parameter Real k2=0 "Gain of u2";
+      equation
+        y = y0*(1 + k1*u1 + k2*u2);
+        annotation(obsolete="Obsolete block - use Modelica.Blocks.Math.LinearDependency2 instead",
+            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+              Line(
+                points={{-100,60},{100,0},{-100,-60}},
+                color={0,0,127}),
+              Text(
+                extent={{-14,88},{94,32}},
+                textString="%k1"),
+              Text(
+                extent={{-40,-48},{96,-96}},
+                textString="%k2"),
+              Text(
+                extent={{-94,26},{8,-30}},
+                textString="%y0")}), Documentation(info="<html>
+<p>Determine the linear combination of the two inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code></p>
+<p><strong>Note</strong>, for y0=0 the output is always zero.</p>
+</html>"));
+      end LinearDependency;
+    end Math;
+  end Blocks;
+
   package Electrical "Library of electrical models (analog, digital, machines, polyphase)"
     extends Modelica.Icons.Package;
     package PowerConverters "Rectifiers, Inverters and DC/DC converters"

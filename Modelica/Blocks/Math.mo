@@ -3607,13 +3607,13 @@ provide both values as output.
 </html>"));
   end MinMax;
 
-  block LinearDependency "Output a linear combination of the two inputs"
+  block LinearDependency2 "Output a linear combination of the two inputs"
     extends Modelica.Blocks.Interfaces.SI2SO;
     parameter Real y0=0 "Initial value";
     parameter Real k1=0 "Gain of u1";
     parameter Real k2=0 "Gain of u2";
   equation
-    y = y0*(1 + k1*u1 + k2*u2);
+    y = y0 + k1*u1 + k2*u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Line(
@@ -3628,11 +3628,9 @@ provide both values as output.
           Text(
             extent={{-94,26},{8,-30}},
             textString="%y0")}), Documentation(info="<html>
-<p>Determine the linear combination of the two inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code></p>
-<p><strong>Note</strong>, for y0=0 the output is always zero.</p>
-<p>To improve the implementation, the formula will be changed (non-backwards compatible) in the future: <code>y = y0 + k1*u1 + k2*u2</code></p>
+<p>Determine the linear combination of the two inputs: <code>y = y0 + k1*u1 + k2*u2</code></p>
 </html>"));
-  end LinearDependency;
+  end LinearDependency2;
 
   block Edge "Indicates rising edge of Boolean signal"
     extends Interfaces.BooleanSISO;
