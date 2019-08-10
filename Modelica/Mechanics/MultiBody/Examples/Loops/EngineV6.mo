@@ -18,33 +18,33 @@ model EngineV6
     cylinderDiameter=0.06,
     animation=animation) annotation (Placement(transformation(extent={{-80,30},{-60,10}})));
   inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
-      animateGravity =                                                              false)
+      animateGravity = false)
     annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
   Utilities.Cylinder cylinder1(
     crankAngleOffset=Cv.from_deg(-30),
-    cylinderInclination=Cv.from_deg(-30),
+    cylinderInclinationAngle=Cv.from_deg(-30),
     animation=animation) annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
   Utilities.Cylinder cylinder2(
     crankAngleOffset=Cv.from_deg(90),
-    cylinderInclination=Cv.from_deg(30),
+    cylinderInclinationAngle=Cv.from_deg(30),
     animation=animation) annotation (Placement(transformation(extent={{-20,20},{0,40}})));
   Utilities.Cylinder cylinder3(
-    cylinderInclination=Cv.from_deg(-30),
+    cylinderInclinationAngle=Cv.from_deg(-30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(210))
                          annotation (Placement(transformation(extent={{10,20},{30,40}})));
   Utilities.Cylinder cylinder4(
-    cylinderInclination=Cv.from_deg(30),
+    cylinderInclinationAngle=Cv.from_deg(30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(210))
                          annotation (Placement(transformation(extent={{40,20},{61,40}})));
   Utilities.Cylinder cylinder5(
-    cylinderInclination=Cv.from_deg(-30),
+    cylinderInclinationAngle=Cv.from_deg(-30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(90))
                          annotation (Placement(transformation(extent={{70,20},{90,40}})));
   Utilities.Cylinder cylinder6(
-    cylinderInclination=Cv.from_deg(30),
+    cylinderInclinationAngle=Cv.from_deg(30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(-30))
                          annotation (Placement(transformation(extent={{100,20},{120,40}})));
