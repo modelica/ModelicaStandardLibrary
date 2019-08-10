@@ -2693,7 +2693,7 @@ is represented by a cylinder. This allows to define simple shaped
 3-dimensional characters. An example is shown in the
 following figure:<br>&nbsp;
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedLines.png\" alt=\"model Visualizers.FixedLines\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedLines.png\" alt=\"model Visualizers.Internal.FixedLines\">
 <p>&nbsp;<br>
 The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for parameter <strong>lines</strong>
@@ -2802,10 +2802,10 @@ With model <strong>Lines</strong> a set of dynamic lines is defined
 that are located relatively to frame_a. Every line
 is represented by a cylinder. This allows, e.g., to define simple shaped
 3-dimensional characters. Note, if the lines are fixed relatively to frame_a,
-it is more convenient to use model <strong>Visualizers.FixedLines</strong>.
+it is more convenient to use model <strong>Visualizers.Internal.FixedLines</strong>.
 An example for dynamic lines is shown in the following figure:<br>&nbsp;
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedLines.png\" alt=\"model Visualizers.FixedLines\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedLines.png\" alt=\"model Visualizers.Internal.FixedLines\">
 <p>&nbsp;<br>
 The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for input variable <strong>lines</strong>
