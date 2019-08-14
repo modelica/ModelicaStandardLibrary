@@ -264,7 +264,11 @@ void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
 
     /* Token missing or not identifier. */
     *nextIndex  = startIndex;
-    *identifier = ModelicaAllocateString(0);
+    {
+        char* s = ModelicaAllocateString(0);
+        s[0] = '\0';
+        *identifier = s;
+    }
     return;
 }
 
@@ -491,7 +495,11 @@ void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
     }
 
 Modelica_ERROR:
-    *result = ModelicaAllocateString(0);
+    {
+        char* s = ModelicaAllocateString(0);
+        s[0] = '\0';
+        *result = s;
+    }
     *nextIndex = startIndex;
     return;
 }
