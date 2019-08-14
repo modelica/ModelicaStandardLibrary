@@ -1,8 +1,6 @@
 within Modelica.Magnetic.FluxTubes.UsersGuide;
 package Hysteresis "Hysteresis"
   extends Modelica.Icons.Information;
-
-
   annotation (Documentation(info="<html>
 
 <h4>Introduction</h4>

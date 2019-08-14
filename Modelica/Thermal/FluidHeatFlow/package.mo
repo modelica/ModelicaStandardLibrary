@@ -1,14 +1,6 @@
 within Modelica.Thermal;
 package FluidHeatFlow "Simple components for 1-dimensional incompressible thermo-fluid flow models"
   extends Modelica.Icons.Package;
-
-
-
-
-
-
-
-
   annotation (
     Documentation(info="<html>
 <p>This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g., of electric machines:</p>

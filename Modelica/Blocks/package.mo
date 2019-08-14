@@ -1,10 +1,7 @@
 within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
-
-import SI = Modelica.SIunits;
-
-
-extends Modelica.Icons.Package;
+  import SI = Modelica.SIunits;
+  extends Modelica.Icons.Package;
 
 package Examples
   "Library of examples to demonstrate the usage of package Blocks"
@@ -2967,8 +2964,6 @@ usage of package blocks.
 </p>
 </html>"));
 end Examples;
-
-
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(
         origin={0.0,35.1488},

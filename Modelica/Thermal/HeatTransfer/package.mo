@@ -1,14 +1,6 @@
 within Modelica.Thermal;
 package HeatTransfer "Library of 1-dimensional heat transfer with lumped elements"
   extends Modelica.Icons.Package;
-
-
-
-
-
-
-
-
   annotation (
      Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(

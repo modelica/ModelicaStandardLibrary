@@ -2320,8 +2320,6 @@ Moreover, they have additional properties called enhancements.
 </html>"));
 end Classes;
 
-
-
 package Operators "Operators (+, der, size, ...)"
   extends ModelicaReference.Icons.Information;
   class ElementaryOperators "Elementary operators (+, >, or, ..)"

@@ -13,8 +13,7 @@ block FromSymmetricalComponents
     "Argument of output";
 protected
   final parameter Complex sbTM[m,m]=
-    Modelica.Electrical.Polyphase.Functions.symmetricBackTransformationMatrix(
-                                                                     m);
+    Modelica.Electrical.Polyphase.Functions.symmetricBackTransformationMatrix(m);
 equation
   // Symmetrical components (preferred): y = sbTM*u;
   for j in 1:m loop

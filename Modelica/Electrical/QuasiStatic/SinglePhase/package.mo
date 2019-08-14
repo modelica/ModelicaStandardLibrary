@@ -1,13 +1,6 @@
 within Modelica.Electrical.QuasiStatic;
 package SinglePhase "Single-phase AC components"
   extends Modelica.Icons.Package;
-
-
-
-
-
-
-
   annotation (Icon(graphics={Rectangle(lineColor={0,0,255}, extent={{-50,-50},{
               50,50}}), Rectangle(
           fillColor={170,213,255},

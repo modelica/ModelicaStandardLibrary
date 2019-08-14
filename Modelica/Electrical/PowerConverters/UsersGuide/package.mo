@@ -1,12 +1,6 @@
 within Modelica.Electrical.PowerConverters;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
-
-
-
-
-
-
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This library provides power converters for DC and AC single-phase and polyphase electrical systems. The PowerConverters library contains three types of converters.

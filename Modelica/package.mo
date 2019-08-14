@@ -8589,8 +8589,6 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
-
-
 annotation (
 preferredView="info",
 version="4.0.0-dev",

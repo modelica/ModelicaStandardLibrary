@@ -28,7 +28,6 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 <li>the normal component of field strength and magnetic potential difference.</li>
 </ul>
 
-
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/magnetic_flux_tube_schematic_qs.png\" alt=\"Magnetic flux tube\">
 </p>

@@ -1196,7 +1196,6 @@ algorithm
 </html>"));
 end thermalConductivity;
 
-
   redeclare function extends velocityOfSound
   algorithm
     a := sqrt(isentropicExponent(state)*gasConstant(state)*temperature(state));

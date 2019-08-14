@@ -1,12 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Polyphase;
 package Ideal "Ideal components for AC polyphase models"
   extends Modelica.Icons.Package;
-
-
-
-
-
-
   annotation (Icon(coordinateSystem(extent={{-100,-100},{100,100}},
           preserveAspectRatio=true), graphics={
         Line(origin={10,34}, points={{-100,-60},{-54,-60}}),

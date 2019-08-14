@@ -3279,7 +3279,6 @@ Note, when sticking would occur (tau_c + tau_d &le; 0), then the contact torque
 is explicitly set to zero.
 </p>
 
-
 <p>
 This model of backlash is slightly different to the
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.ElastoBacklash\">ElastoBacklash</a>
@@ -3294,7 +3293,6 @@ component:
 <li> For some models, the ElastoBacklash2 component leads to faster simulations
       (as compared when using the ElastBacklash component).</li>
 </ul>
-
 
 <p>
 See also the discussion

@@ -1,15 +1,6 @@
 within Modelica.Magnetic.QuasiStatic;
 package FundamentalWave "Quasi-static fundamental wave electric machines"
   extends Modelica.Icons.Package;
-
-
-
-
-
-
-
-
-
   annotation (preferredView="info", Documentation(info="<html>
   <p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>

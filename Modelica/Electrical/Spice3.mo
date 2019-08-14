@@ -66,21 +66,6 @@ Vgate 1 0 PULSE(0 5 2s 1s)
 Vdrain 11 0 PULSE(0 5 0s 1s)
 .model MPmos PMOS (gamma=0.37)
 .model MNmos NMOS (gamma=0.37 lambda=0.02)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .tran 0.01 5
 .end</pre></td>
 <td><pre>
@@ -92,8 +77,6 @@ model inverter
   Spice3&hellip;M Mn2(p(LAMBDA=0.02, GAMMA=0.37));
   Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
   Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
-
-
   Spice3.Interfaces.Pin p_in, p_out;
 protected
   Spice3.Interfaces.Pin n0, n1, n2, n11, n13;
@@ -109,7 +92,6 @@ equation
   connect(Mn1.G, n1);   connect(Mn1.S, n0);
   connect(Mn2.B,n0);    connect(Mn2.D, n2);
   connect(Mn2.G, n13);  connect(Mn2.S, n0);
-
 end inverter;
 </pre></td>
 </tr>

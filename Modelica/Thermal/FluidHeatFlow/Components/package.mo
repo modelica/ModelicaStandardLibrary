@@ -1,12 +1,7 @@
 within Modelica.Thermal.FluidHeatFlow;
 package Components "Basic components (pipes, valves)"
   extends Modelica.Icons.Package;
-
-
-
-
-
-annotation (Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>This package contains components.</p>
 <p>
 Pressure drop is taken from partial model SimpleFriction.

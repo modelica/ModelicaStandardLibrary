@@ -1,10 +1,6 @@
 within Modelica.Electrical.PowerConverters.ACDC;
 package Control "Control components for rectifiers"
   extends Modelica.Icons.Package;
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 A generic controller with signal input and <code>2*m</code> firing signals is provided in

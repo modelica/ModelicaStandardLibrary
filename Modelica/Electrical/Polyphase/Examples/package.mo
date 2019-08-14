@@ -1,10 +1,6 @@
 within Modelica.Electrical.Polyphase;
 package Examples "Polyphase test examples"
   extends Modelica.Icons.ExamplesPackage;
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains test examples of analog electrical polyphase circuits.

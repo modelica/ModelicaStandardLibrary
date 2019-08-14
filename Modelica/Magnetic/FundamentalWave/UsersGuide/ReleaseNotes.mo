@@ -72,7 +72,6 @@ this also includes the removal of the rotor cage heat sensor which previously ha
 <li>Corrected wrong parameter description</li>
 </ul>
 
-
 <h5>Version 1.7.2, 2011-06-28</h5>
 
 <ul>

@@ -1,13 +1,6 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase;
 package Sensors "AC single-phase sensors"
   extends Modelica.Icons.SensorsPackage;
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>This package hosts sensors for quasi-static single-phase circuits.
 Quasi-static theory for single-phase circuits can be found in the

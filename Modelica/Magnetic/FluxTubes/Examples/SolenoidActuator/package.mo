@@ -1,9 +1,6 @@
 within Modelica.Magnetic.FluxTubes.Examples;
 package SolenoidActuator "Two models of a reluctance actuator of different modelling depth and their comparison and usage"
   extends Modelica.Icons.ExamplesPackage;
-
-
-
   annotation (Documentation(info="<html>
 <p>
 In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation\">Reluctance Forces</a> of the User's Guide.

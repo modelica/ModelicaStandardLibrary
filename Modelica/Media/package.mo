@@ -2138,7 +2138,6 @@ This User's Guide has the following main parts:
 </html>"));
 end UsersGuide;
 
-
 package Examples
   "Demonstrate usage of property models"
 
@@ -3771,7 +3770,6 @@ Modelica.Media.Examples.Tests.MediaTestModels.
 </p>
 </html>"));
 end Examples;
-
 
 package Interfaces "Interfaces for media models"
   extends Modelica.Icons.InterfacesPackage;
@@ -6815,7 +6813,6 @@ kind of media.
 </html>"));
 end Interfaces;
 
-
 package Common "Data structures and fundamental functions for fluid properties"
 
   extends Modelica.Icons.Package;
@@ -8700,8 +8697,6 @@ provide a package in the following way:
       </address>
 </html>"));
 end Common;
-
-
 annotation (preferredView="info",Documentation(info="<html>
 <p>
 This library contains <a href=\"modelica://Modelica.Media.Interfaces\">interface</a>

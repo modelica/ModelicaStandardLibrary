@@ -767,7 +767,6 @@ Input argument u must be in the range:
 Output argument y is in the range:
 </p>
 
-
 <blockquote>
 <p>
 y_min &le; y &le; y_max

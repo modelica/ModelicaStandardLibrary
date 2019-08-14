@@ -1,9 +1,7 @@
 within Modelica;
 package Electrical "Library of electrical models (analog, digital, machines, polyphase)"
-extends Modelica.Icons.Package;
-
-
-annotation (
+  extends Modelica.Icons.Package;
+  annotation (
   Documentation(info="<html>
 <p>
 This library contains electrical components to build up analog and digital circuits,

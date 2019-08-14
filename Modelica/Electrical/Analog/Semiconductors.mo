@@ -494,7 +494,6 @@ model NPN "Simple BJT according to Ebers-Moll"
   SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
   SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
 
-
   public
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
         transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));

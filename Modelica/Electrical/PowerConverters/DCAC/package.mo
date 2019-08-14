@@ -1,8 +1,6 @@
 within Modelica.Electrical.PowerConverters;
 package DCAC "DC to AC converters"
   extends Modelica.Icons.Package;
-
-
   annotation (Documentation(info="<html>
 <p>
 General information about DC/AC converters can be found at the

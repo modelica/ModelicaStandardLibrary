@@ -1,11 +1,6 @@
 within Modelica.Magnetic.FluxTubes.Shapes;
 package FixedShape "Flux tubes with fixed shape during simulation and linear or non-linear material characteristics"
   extends Modelica.Icons.VariantsPackage;
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation\">UsersGuide.ReluctanceForceCalculation</a> for an explanation of the different flux tube categories and resulting sub-packages.

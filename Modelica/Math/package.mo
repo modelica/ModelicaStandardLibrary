@@ -1,10 +1,7 @@
 within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
-import SI = Modelica.SIunits;
-
-
-extends Modelica.Icons.Package;
-
+  import SI = Modelica.SIunits;
+  extends Modelica.Icons.Package;
 
 package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Package;

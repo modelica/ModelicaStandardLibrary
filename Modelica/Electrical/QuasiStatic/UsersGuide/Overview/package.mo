@@ -1,11 +1,6 @@
 within Modelica.Electrical.QuasiStatic.UsersGuide;
 package Overview "Overview"
   extends Modelica.Icons.Information;
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 The <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>

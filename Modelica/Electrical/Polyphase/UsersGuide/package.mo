@@ -1,10 +1,6 @@
 within Modelica.Electrical.Polyphase;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
-
-
-
-
   annotation (preferredView="info",
     DocumentationClass=true,
     Documentation(info="<html>

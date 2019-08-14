@@ -1,20 +1,7 @@
 within Modelica.Thermal.FluidHeatFlow;
 package Examples "Examples that demonstrate the usage of the FluidHeatFlow components"
   extends Modelica.Icons.ExamplesPackage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-annotation (Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>This package contains test examples:</p>
 
 <ol>
