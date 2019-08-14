@@ -1016,6 +1016,7 @@ END_OF_FILE:
     CloseCachedFile(fileName);
     *endOfFile = 1;
     line = ModelicaAllocateString(0);
+    line[0] = '\0';
     return line;
 
 Modelica_ERROR3:
