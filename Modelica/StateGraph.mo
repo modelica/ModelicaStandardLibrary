@@ -2041,7 +2041,7 @@ package Interfaces "Connectors and partial models"
       fire = enableFire and time >= t_start + waitTime;
     else
       when initial() then
-        t_start = 0;
+        t_start = time;
       end when;
       t_dummy = 0;
       t = 0;
