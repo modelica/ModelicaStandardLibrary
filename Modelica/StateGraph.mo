@@ -2021,9 +2021,7 @@ package Interfaces "Connectors and partial models"
         "Time instant at which the transition would fire, if waitTime would be zero";
     Real t_dummy;
   initial equation
-    if enableTimer then
-       pre(t_start) = time;
-    end if;
+    pre(t_start) = time;
     pre(enableFire) = false;
   equation
     assert(cardinality(inPort) == 1,
@@ -2040,8 +2038,8 @@ package Interfaces "Connectors and partial models"
       t = if enableFire then t_dummy else 0;
       fire = enableFire and time >= t_start + waitTime;
     else
-      when initial() then
-        t_start = time;
+      when false then
+        t_start = time; /* Dummy equation for t_start */
       end when;
       t_dummy = 0;
       t = 0;
