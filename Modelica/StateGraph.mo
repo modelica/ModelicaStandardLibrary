@@ -2039,7 +2039,7 @@ package Interfaces "Connectors and partial models"
       fire = enableFire and time >= t_start + waitTime;
     else
       when false then
-        t_start = time; /* Dummy equation for t_start */
+        t_start = pre(t_start);
       end when;
       t_dummy = 0;
       t = 0;
