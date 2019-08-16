@@ -2243,8 +2243,8 @@ a flange according to a given acceleration.
     parameter Modelica.SIunits.Time shiftTime=startTime
       "Shift time of first table column";
   protected
-    Real a "Interpolation coefficient a of actual interval (y=a*x+b)";
-    Real b "Interpolation coefficient b of actual interval (y=a*x+b)";
+    discrete Real a "Interpolation coefficient a of actual interval (y=a*x+b)";
+    discrete Real b "Interpolation coefficient b of actual interval (y=a*x+b)";
     Integer last(start=1) "Last used lower grid index";
     discrete SIunits.Time nextEvent(start=0, fixed=true) "Next event instant";
     discrete Real nextEventScaled(start=0, fixed=true)
