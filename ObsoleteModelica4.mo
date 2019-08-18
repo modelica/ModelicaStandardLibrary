@@ -48,7 +48,7 @@ on the model behaviour.
 </p>
 </html>"));
         end ConditionalHeatPort;
-      end Interface;
+      end Interfaces;
     end Analog;
 
     package PowerConverters "Rectifiers, Inverters and DC/DC converters"
@@ -1726,7 +1726,7 @@ on the model behaviour.
 </p>
 </html>"));
         end ConditionalHeatPort;
-      end Interfaces
+      end Interfaces;
     end FluxTubes;
 
     package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
