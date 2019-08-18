@@ -382,6 +382,8 @@ convertElement({"Modelica.Electrical.Machines.BasicMachines.Components.InductorD
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor",
                 "variableResistor", "variableConductor");
 
+convertModifiers("Modelica.Blocks.Math.LinearDependency",
+                 {"y0", "k1", "k2"}, {"y0=%y0%", "k1=%y0%*%k1%", "k2=%y0%*%k2%"}, true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.Prismatic"},
                   {"s_offset"}, fill("", 0), true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.Revolute"},
