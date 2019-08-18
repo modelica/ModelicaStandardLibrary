@@ -3,7 +3,7 @@ class HysteresisLosses "Hysteresis losses"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <h4>Hysteresis power losses</h4>
-<p>The total power loss (<code>LossPower</code>) of an hysteresis flux tube element is the sum of the power loss due to the static ferromagnetic hysteresis (<code>LossPowerStat</code>) and the power loss due to eddy currents (<code>LossPowerEddy</code>).</p>
+<p>The total power loss (<code>lossPower</code>) of an hysteresis flux tube element is the sum of the power loss due to the static ferromagnetic hysteresis (<code>LossPowerStat</code>) and the power loss due to eddy currents (<code>LossPowerEddy</code>).</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>

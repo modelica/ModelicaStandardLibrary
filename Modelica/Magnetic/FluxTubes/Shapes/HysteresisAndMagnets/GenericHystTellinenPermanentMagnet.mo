@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets;
 model GenericHystTellinenPermanentMagnet
   "Permanent magnet based on the Tellinen hysteresis model"
 
-  extends BaseClasses.GenericHysteresisTellinen(                mu0=K*
+  extends BaseClasses.GenericHysteresisTellinen(mu0=K*
         Modelica.Constants.mu_0, MagRel(start=-1, fixed=true));
 
   parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));

@@ -6,7 +6,7 @@ model GenericHystTellinenEverett
       FluxTubes.Material.HysteresisEverettParameter.BaseData()
     "Material properties"
     annotation (Dialog(group="Material"), choicesAllMatching=true);
-  extends BaseClasses.GenericHysteresisTellinen(      mu0=mat.K*mu_0, sigma=mat.sigma);
+  extends BaseClasses.GenericHysteresisTellinen(mu0=mat.K*mu_0, sigma=mat.sigma);
 
 protected
   parameter SI.MagneticFluxDensity Js = 0.5 * FluxTubes.Utilities.everett(

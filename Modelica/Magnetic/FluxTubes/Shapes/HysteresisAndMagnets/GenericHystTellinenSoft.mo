@@ -7,7 +7,7 @@ model GenericHystTellinenSoft
   parameter SI.MagneticFieldStrength Hc=120 "Coercitivity" annotation (Dialog(group="Hysteresis"));
   parameter Real K=1 "Slope of hysteresis in the saturation region (K*mu_0)" annotation (Dialog(group="Hysteresis"));
 
-  extends BaseClasses.GenericHysteresisTellinen(      mu0=K*mu_0);
+  extends BaseClasses.GenericHysteresisTellinen(mu0=K*mu_0);
 
 protected
   parameter SI.MagneticFluxDensity eps=Js/1000;

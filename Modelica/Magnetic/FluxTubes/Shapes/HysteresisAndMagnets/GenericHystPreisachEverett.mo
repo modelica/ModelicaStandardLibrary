@@ -13,7 +13,7 @@ model GenericHystPreisachEverett
     "Tolerance in Preisach history" annotation(Dialog(group="Advanced"));
   parameter SI.Time t1=1e-6 "Initialization time" annotation(Dialog(group="Advanced"));
 
-  extends BaseClasses.GenericHysteresis(      sigma=mat.sigma);
+  extends BaseClasses.GenericHysteresis(sigma=mat.sigma);
 
 protected
   final parameter Real mu0=mat.K*Modelica.Constants.mu_0;

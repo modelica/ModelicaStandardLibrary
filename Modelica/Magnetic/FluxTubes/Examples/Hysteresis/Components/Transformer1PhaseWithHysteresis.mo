@@ -89,7 +89,7 @@ model Transformer1PhaseWithHysteresis
   output SI.Power LossPowerStat "Ferromagnetic hysteresis losses";
   output SI.Power LossPowerEddy "Eddy current losses";
 
-  extends Interfaces.ConditionalHeatPort;
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
   parameter Boolean EddyCurrents = false "Enable eddy currents"
     annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), choices(checkBox=true));
   parameter SI.Conductivity sigma = mat.sigma
@@ -160,13 +160,13 @@ equation
   H =core.H;
   //der(MagRel)=0;
 
-  tempSource.T = if useHeatPort then T_heatPort else T;
+  tempSource.T = if useHeatPort then TheatPort else T;
 
   LossPowerWinding =resistor1.lossPower + resistor2.lossPower;
                                                   //AvgWinding.y;
   LossPowerStat =core.LossPowerStat;
   LossPowerEddy =core.LossPowerEddy;
-  LossPower = LossPowerWinding + LossPowerEddy + LossPowerStat;
+  lossPower = LossPowerWinding + LossPowerEddy + LossPowerStat;
 
   connect(winding1.port_n, ground.port) annotation (Line(points={{-40,-20},{-40,-30},{0,-30}}, color={255,127,0}));
   connect(resistor1.n, winding1.p) annotation (Line(points={{-70,0},{-60,0}}, color={0,0,255}));

@@ -48,7 +48,7 @@ This simple model of an single-phase transformer shows the inrush currents due t
   <li>Tolerance: 1e-6</li>
 </ul>
 <p>
-Then plot the flux density of the Core Core.B over the magnetic field strength Core.H and additionally the time course of the primary and secondary current and e.g. the power consumption of the iron core Core.LossPower (see the following figures).
+Then plot the flux density of the Core Core.B over the magnetic field strength Core.H and additionally the time course of the primary and secondary current and e.g. the power consumption of the iron core Core.lossPower (see the following figures).
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">

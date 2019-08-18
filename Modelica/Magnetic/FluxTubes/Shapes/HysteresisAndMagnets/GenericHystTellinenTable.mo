@@ -8,7 +8,7 @@ model GenericHystTellinenTable
   parameter Real K = 1
     "Slope of hysteresis in the saturation region (K*mu_0)" annotation(Dialog(group="Hysteresis"));
 
-  extends BaseClasses.GenericHysteresisTellinen(      mu0=mu_0*K, sigma=mat.sigma);
+  extends BaseClasses.GenericHysteresisTellinen(mu0=mu_0*K, sigma=mat.sigma);
 
 protected
   constant SI.MagneticFluxDensity unitT=1;

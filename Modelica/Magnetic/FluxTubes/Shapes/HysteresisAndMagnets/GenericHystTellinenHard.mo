@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets;
 model GenericHystTellinenHard
   "Generic flux tube with hard magnetic hysteresis based on the Tellinen model and simple tanh()-functions"
 
-  extends BaseClasses.GenericHysteresisTellinen(      mu0=K*mu_0);
+  extends BaseClasses.GenericHysteresisTellinen(mu0=K*mu_0);
 
   //Hysteresis parameter
   parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
