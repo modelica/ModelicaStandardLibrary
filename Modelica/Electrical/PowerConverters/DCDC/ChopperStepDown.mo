@@ -16,7 +16,7 @@ model ChopperStepDown "Step down chopper"
     "Diode forward threshold voltage";
   extends PowerConverters.Interfaces.DCDC.DCtwoPin1;
   extends PowerConverters.Interfaces.DCDC.DCtwoPin2;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   extends Interfaces.Enable.Enable1;
   Modelica.Electrical.Analog.Ideal.IdealGTOThyristor transistor(
@@ -38,7 +38,7 @@ model ChopperStepDown "Step down chopper"
         rotation=90)));
 equation
   if not useHeatPort then
-    LossPower = diode.LossPower + transistor.LossPower;
+    lossPower = diode.lossPower + transistor.lossPower;
   end if;
   connect(diode.n, transistor.n) annotation (Line(
       points={{40,10},{40,60},{10,60}}, color={0,0,255}));

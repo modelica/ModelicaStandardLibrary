@@ -19,7 +19,7 @@ model IM_SlipRing "Induction machine with slip ring rotor"
     redeclare final
       Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMS
       powerBalance(
-      final lossPowerRotorWinding=sum(rotor.resistor.resistor.LossPower),
+      final lossPowerRotorWinding=sum(rotor.resistor.resistor.lossPower),
       final lossPowerRotorCore=rotor.core.lossPower,
       final lossPowerBrush=0,
       final powerRotor=Modelica.Electrical.Polyphase.Functions.activePower(vr,

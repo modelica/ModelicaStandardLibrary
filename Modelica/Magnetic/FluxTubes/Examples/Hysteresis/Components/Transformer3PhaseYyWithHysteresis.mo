@@ -295,7 +295,7 @@ equation
 
   Temp.T = if useHeatPort then T_heatPort else T;
 
-  LossPowerWinding =resistor11.LossPower + resistor12.LossPower + resistor13.LossPower + resistor21.LossPower + resistor22.LossPower + resistor23.LossPower;
+  LossPowerWinding =resistor11.lossPower + resistor12.lossPower + resistor13.lossPower + resistor21.lossPower + resistor22.lossPower + resistor23.lossPower;
   LossPowerStat =core1.LossPowerStat  +core2.LossPowerStat  +core3.LossPowerStat;
   LossPowerEddy =core1.LossPowerEddy  +core2.LossPowerEddy  +core3.LossPowerEddy;
   LossPower = LossPowerWinding + LossPowerEddy + LossPowerStat;

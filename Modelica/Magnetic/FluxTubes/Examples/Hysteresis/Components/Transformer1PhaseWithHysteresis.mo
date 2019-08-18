@@ -162,7 +162,7 @@ equation
 
   tempSource.T = if useHeatPort then T_heatPort else T;
 
-  LossPowerWinding =resistor1.LossPower + resistor2.LossPower;
+  LossPowerWinding =resistor1.lossPower + resistor2.lossPower;
                                                   //AvgWinding.y;
   LossPowerStat =core.LossPowerStat;
   LossPowerEddy =core.LossPowerEddy;

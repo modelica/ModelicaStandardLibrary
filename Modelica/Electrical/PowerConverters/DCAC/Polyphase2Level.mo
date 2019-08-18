@@ -16,7 +16,7 @@ model Polyphase2Level "Polyphase DC to AC converter"
   // parameter Boolean useEnable "Enables enable signal connector";
   extends PowerConverters.Interfaces.DCAC.DCtwoPin;
   extends PowerConverters.Interfaces.DCAC.ACplug;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor transistor_p(
     final m=m,
@@ -69,8 +69,8 @@ model Polyphase2Level "Polyphase DC to AC converter"
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
 equation
   if not useHeatPort then
-    LossPower = sum(transistor_p.idealGTOThyristor.LossPower) + sum(diode_n.idealDiode.LossPower)
-       + sum(transistor_n.idealGTOThyristor.LossPower) + sum(diode_n.idealDiode.LossPower);
+    lossPower = sum(transistor_p.idealGTOThyristor.lossPower) + sum(diode_n.idealDiode.lossPower)
+       + sum(transistor_n.idealGTOThyristor.lossPower) + sum(diode_n.idealDiode.lossPower);
   end if;
   connect(transistor_p.plug_p, star_p.plug_p) annotation (Line(
       points={{30,30},{50,30},{50,40}}, color={0,0,255}));

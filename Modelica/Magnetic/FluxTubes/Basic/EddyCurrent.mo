@@ -3,8 +3,7 @@ model EddyCurrent
   "For modelling of eddy current in a conductive magnetic flux tube"
 
   extends Interfaces.TwoPorts;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-    final T=273.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=273.15);
 
   parameter Boolean useConductance = false
     "Use conductance instead of geometry data and rho"
@@ -25,7 +24,7 @@ model EddyCurrent
     annotation(Dialog(enable=not useConductance));
 
 equation
-  LossPower = V_m*der(Phi);
+  lossPower = V_m*der(Phi);
   V_m =(if useConductance then G else 1/R) * der(Phi);
   //Magnetic voltage drop in magnetic network due to eddy current
   annotation (Icon(coordinateSystem(

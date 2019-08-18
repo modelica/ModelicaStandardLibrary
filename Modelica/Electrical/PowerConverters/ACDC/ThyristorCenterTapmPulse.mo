@@ -15,7 +15,7 @@ model ThyristorCenterTapmPulse
     annotation (choices(checkBox=true));
   extends PowerConverters.Interfaces.ACDC.ACplug;
   extends PowerConverters.Interfaces.ACDC.DCpin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   extends Interfaces.Enable.Enable1m;
   Modelica.Electrical.Polyphase.Ideal.IdealThyristor thyristor(
@@ -38,7 +38,7 @@ equation
   assert(mod(m, 2) == 1,
     "ThyristorCenterTapmPulse: only odd phase numbers are allowed");
   if not useHeatPort then
-    LossPower = sum(thyristor.idealThyristor.LossPower);
+    lossPower = sum(thyristor.idealThyristor.lossPower);
   end if;
   connect(thyristor.plug_n, star.plug_p) annotation (Line(
       points={{0,0},{70,0}}, color={0,0,255}));

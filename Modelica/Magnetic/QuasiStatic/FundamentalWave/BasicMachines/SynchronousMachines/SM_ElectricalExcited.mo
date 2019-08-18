@@ -23,7 +23,7 @@ model SM_ElectricalExcited
       powerBalance(
       final lossPowerRotorWinding=damperCageLossPower,
       final powerExcitation=0,
-      final lossPowerExcitation=excitation.resistor.LossPower,
+      final lossPowerExcitation=excitation.resistor.lossPower,
       final lossPowerBrush=brush.lossPower,
       final lossPowerRotorCore=0));
   // Main field parameters

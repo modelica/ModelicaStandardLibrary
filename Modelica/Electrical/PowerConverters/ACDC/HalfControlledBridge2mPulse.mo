@@ -21,7 +21,7 @@ model HalfControlledBridge2mPulse
     annotation (choices(checkBox=true));
   extends PowerConverters.Interfaces.ACDC.ACplug;
   extends PowerConverters.Interfaces.ACDC.DCtwoPin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   extends Interfaces.Enable.Enable1m;
   Modelica.Electrical.Polyphase.Basic.Star star_p(final m=m)
@@ -60,7 +60,7 @@ model HalfControlledBridge2mPulse
         origin={-60,-46})));
 equation
   if not useHeatPort then
-    LossPower = sum(thyristor_p.idealThyristor.LossPower) + sum(diode_n.idealDiode.LossPower);
+    lossPower = sum(thyristor_p.idealThyristor.lossPower) + sum(diode_n.idealDiode.lossPower);
   end if;
   connect(ac, thyristor_p.plug_p) annotation (Line(
       points={{-100,0},{0,0},{0,30}}, color={0,0,255}));

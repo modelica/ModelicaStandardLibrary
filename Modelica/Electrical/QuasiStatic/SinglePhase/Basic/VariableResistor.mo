@@ -5,7 +5,7 @@ model VariableResistor "Single-phase variable resistor"
   import Modelica.ComplexMath.conj;
   parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(T=T_ref);
   Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
   Modelica.Blocks.Interfaces.RealInput R_ref(unit="Ohm") "Variable resistance"
                           annotation (Placement(transformation(
@@ -16,11 +16,11 @@ model VariableResistor "Single-phase variable resistor"
         rotation=270,
         origin={0,120})));
 equation
-  assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+  assert((1 + alpha_ref*(TheatPort - T_ref)) >= Modelica.Constants.eps,
     "Temperature outside scope of model!");
-  R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
+  R_actual = R_ref*(1 + alpha_ref*(TheatPort - T_ref));
   v = R_actual*i;
-  LossPower = real(v*conj(i));
+  lossPower = real(v*conj(i));
   annotation (defaultComponentName="resistor",
     Icon(graphics={
         Line(points={{60,0},{90,0}}, color={85,170,255}),
@@ -44,7 +44,7 @@ The resistance <code>R</code> is given as input signal.
 
 <p>
 The variable resistor model also has an optional
-<a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">conditional heat port</a>.
 A linear temperature dependency of the resistance is also taken into account.
 </p>
 

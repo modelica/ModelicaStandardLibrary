@@ -17,7 +17,7 @@ model ThyristorCenterTap2Pulse
     annotation (choices(checkBox=true));
   extends PowerConverters.Interfaces.ACDC.ACtwoPin;
   extends PowerConverters.Interfaces.ACDC.DCpin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   extends Interfaces.Enable.Enable2;
   Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p(
@@ -42,7 +42,7 @@ model ThyristorCenterTap2Pulse
         extent={{-10,-10},{10,10}})));
 equation
   if not useHeatPort then
-    LossPower = thyristor_p.LossPower + thyristor_n.LossPower;
+    lossPower = thyristor_p.lossPower + thyristor_n.lossPower;
   end if;
   connect(ac_p, thyristor_p.p) annotation (Line(
       points={{-100,60},{-10,60}}, color={0,0,255}));

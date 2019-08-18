@@ -10,7 +10,7 @@ model DiodeBridge2Pulse "Two pulse Graetz diode rectifier bridge"
     "Diode forward threshold voltage";
   extends PowerConverters.Interfaces.ACDC.ACtwoPin;
   extends PowerConverters.Interfaces.ACDC.DCtwoPin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   Modelica.Electrical.Analog.Ideal.IdealDiode diode_p1(
     final Goff=GoffDiode,
@@ -54,8 +54,8 @@ model DiodeBridge2Pulse "Two pulse Graetz diode rectifier bridge"
         rotation=90)));
 equation
   if not useHeatPort then
-    LossPower = diode_p1.LossPower + diode_p2.LossPower + diode_n1.LossPower
-       + diode_n2.LossPower;
+    lossPower = diode_p1.lossPower + diode_p2.lossPower + diode_n1.lossPower
+       + diode_n2.lossPower;
   end if;
   connect(diode_p2.n, diode_p1.n) annotation (Line(
       points={{40,60},{10,60}}, color={0,0,255}));

@@ -5,7 +5,7 @@ model ControlledTemperature "Control temperature of a resistor"
     "Ambient temperature";
   parameter Modelica.SIunits.TemperatureDifference TDif = 2
     "Error in temperature";
-  output Modelica.SIunits.Temperature TRes(displayUnit="degC") = resistor.T_heatPort "Resulting temperature";
+  output Modelica.SIunits.Temperature TRes(displayUnit="degC") = resistor.TheatPort "Resulting temperature";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={
             {-100,-100},{-80,-80}})));

@@ -8,7 +8,7 @@ model Impedance "Single-phase linear impedance"
   parameter Modelica.SIunits.ComplexImpedance Z_ref(re(start=1),im(start=0)) "Complex impedance R_ref + j*X_ref";
   parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(T=T_ref);
   parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
@@ -18,13 +18,13 @@ model Impedance "Single-phase linear impedance"
   final parameter Modelica.SIunits.Resistance R_ref=real(Z_ref) "Resistive component of impedance, resistance";
   final parameter Modelica.SIunits.Reactance X_ref=imag(Z_ref) "Reactive component of impedance, reactance";
 equation
-  assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+  assert((1 + alpha_ref*(TheatPort - T_ref)) >= Modelica.Constants.eps,
     "Temperature outside scope of model!");
-  R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
+  R_actual = R_ref*(1 + alpha_ref*(TheatPort - T_ref));
   X_actual = X_ref * (if not frequencyDependent then 1 else
     (if X_ref>=0 then omega/(2*Modelica.Constants.pi*f_ref) else 2*Modelica.Constants.pi*f_ref/omega));
   v = Complex(R_actual, X_actual) * i;
-  LossPower = real(v*conj(i));
+  lossPower = real(v*conj(i));
 
   annotation (Icon(graphics={
         Line(points={{60,0},{90,0}}, color={85,170,255}),
@@ -53,7 +53,7 @@ The linear impedance connects the voltage <code><u>v</u></code> with the
 current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code>. The resistive
 component is modeled temperature dependent, so the real part <code>R_actual = real(<u>Z</u>)</code> is determined from
 the actual operating temperature and the reference input resistance <code>real(Z_ref)</code>.
-A <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a> is considered.
+A <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">conditional heat port</a> is considered.
 The reactive component <code>X_actual = imag(<u>Z</u>)</code>
 is equal to <code>imag(Z_ref)</code> if <code>frequencyDependent = false</code>.
 Frequency dependency is considered by <code>frequencyDependent = true</code>, distinguishing two cases:

@@ -6838,7 +6838,7 @@ This package contains test examples of electric machines.
             internalThermalPort,
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceIMC powerBalance(
-              final lossPowerRotorWinding=squirrelCageR.LossPower, final
+              final lossPowerRotorWinding=squirrelCageR.lossPower, final
               lossPowerRotorCore=0),
           statorCore(final w=statorCoreParameters.wRef));
         output Modelica.SIunits.Current ir[2]=squirrelCageR.i
@@ -7028,7 +7028,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             internalThermalPort(final mr=m),
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceIMS powerBalance(
-            final lossPowerRotorWinding=sum(rr.resistor.LossPower),
+            final lossPowerRotorWinding=sum(rr.resistor.lossPower),
             final lossPowerRotorCore=rotorCore.lossPower,
             final lossPowerBrush=0,
             final powerRotor=Machines.SpacePhasors.Functions.activePower(vr, ir)),
@@ -7682,7 +7682,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             Machines.Interfaces.InductionMachines.PowerBalanceSMEE powerBalance(
             final lossPowerRotorWinding=damperCageLossPower,
             final powerExcitation=ve*ie,
-            final lossPowerExcitation=re.LossPower,
+            final lossPowerExcitation=re.lossPower,
             final lossPowerBrush=brush.lossPower,
             final lossPowerRotorCore=0),
           statorCore(final w=statorCoreParameters.wRef));
@@ -8565,7 +8565,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             internalThermalPort,
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCEE
             powerBalance(final powerExcitation=ve*ie, final lossPowerExcitation=
-               re.LossPower),
+               re.lossPower),
           core(final w=airGapDC.w));
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current" annotation (Dialog(tab="Excitation"));
@@ -8814,7 +8814,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             internalThermalPort,
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCSE
             powerBalance(final powerSeriesExcitation=ve*ie, final
-              lossPowerSeriesExcitation=re.LossPower),
+              lossPowerSeriesExcitation=re.lossPower),
           core(final w=airGapDC.w));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
           "Series excitation resistance at TeRef"
@@ -11036,9 +11036,9 @@ This is a model of an inductor, described with space phasors.
           "Reference temperature";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
           "Temperature coefficient of resistance at T_ref";
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+        extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(T=T_ref);
         Modelica.SIunits.Resistance Rr_actual
-          "Actual resistance = Rr*(1 + alpha*(T_heatPort - T_ref))";
+          "Actual resistance = Rr*(1 + alpha*(TheatPort - T_ref))";
         Machines.Interfaces.SpacePhasor spacePhasor_r annotation (Placement(
               transformation(extent={{-110,90},{-90,110}})));
         Modelica.Blocks.Interfaces.RealOutput i[2](
@@ -11046,12 +11046,12 @@ This is a model of an inductor, described with space phasors.
           each final unit="A") = -spacePhasor_r.i_
           "Currents out from squirrel cage";
       equation
-        assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+        assert((1 + alpha*(TheatPort - T_ref)) >= Modelica.Constants.eps,
           "Temperature outside scope of model!");
-        Rr_actual = Rr*(1 + alpha*(T_heatPort - T_ref));
+        Rr_actual = Rr*(1 + alpha*(TheatPort - T_ref));
         spacePhasor_r.v_ = Rr_actual*spacePhasor_r.i_ + Lrsigma*der(
           spacePhasor_r.i_);
-        2/3*LossPower = Rr_actual*(spacePhasor_r.i_[1]*spacePhasor_r.i_[1] +
+        2/3*lossPower = Rr_actual*(spacePhasor_r.i_[1]*spacePhasor_r.i_[1] +
           spacePhasor_r.i_[2]*spacePhasor_r.i_[2]);
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Line(points={{-100,60},{-60,
@@ -11110,29 +11110,26 @@ Material properties alpha of both axis are the same.
           "Reference temperature of both resistances in d- and q-axis";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
           "Temperature coefficient of both resistances in d- and q-axis at T_ref";
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+        extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(T=T_ref);
         Modelica.SIunits.Resistance Rrd_actual
-          "Actual resistance = Rrd*(1 + alpha*(T_heatPort - T_ref))";
+          "Actual resistance = Rrd*(1 + alpha*(TheatPort - T_ref))";
         Modelica.SIunits.Resistance Rrq_actual
-          "Actual resistance = Rrq*(1 + alpha*(T_heatPort - T_ref))";
+          "Actual resistance = Rrq*(1 + alpha*(TheatPort - T_ref))";
         Modelica.Blocks.Interfaces.RealOutput i[2](
           each final quantity="ElectricCurrent",
           each final unit="A") = -spacePhasor_r.i_ "Currents out from damper";
-        Modelica.Blocks.Interfaces.RealOutput lossPower(
-          final quantity="Power",
-          final unit="W") = LossPower "Damper losses";
         Machines.Interfaces.SpacePhasor spacePhasor_r annotation (Placement(
               transformation(extent={{-110,90},{-90,110}})));
       equation
-        assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+        assert((1 + alpha*(TheatPort - T_ref)) >= Modelica.Constants.eps,
           "Temperature outside scope of model!");
-        Rrd_actual = Rrd*(1 + alpha*(T_heatPort - T_ref));
-        Rrq_actual = Rrq*(1 + alpha*(T_heatPort - T_ref));
+        Rrd_actual = Rrd*(1 + alpha*(TheatPort - T_ref));
+        Rrq_actual = Rrq*(1 + alpha*(TheatPort - T_ref));
         spacePhasor_r.v_[1] = Rrd_actual*spacePhasor_r.i_[1] + Lrsigmad*der(
           spacePhasor_r.i_[1]);
         spacePhasor_r.v_[2] = Rrq_actual*spacePhasor_r.i_[2] + Lrsigmaq*der(
           spacePhasor_r.i_[2]);
-        2/3*LossPower = Rrd_actual*spacePhasor_r.i_[1]*spacePhasor_r.i_[1] +
+        2/3*lossPower = Rrd_actual*spacePhasor_r.i_[1]*spacePhasor_r.i_[1] +
           Rrq_actual*spacePhasor_r.i_[2]*spacePhasor_r.i_[2];
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}},
@@ -14849,7 +14846,7 @@ One may also fix the shaft and let rotate the stator; parameter Js is only of im
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
         final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-        final lossPowerStatorWinding=sum(rs.resistor.LossPower),
+        final lossPowerStatorWinding=sum(rs.resistor.lossPower),
         final lossPowerStatorCore=statorCore.lossPower,
         final lossPowerStrayLoad=strayLoad.lossPower,
         final lossPowerFriction=friction.lossPower) "Power balance";
@@ -15363,7 +15360,7 @@ Interfaces and partial models for induction machines
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
         final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-        final lossPowerArmature=ra.LossPower,
+        final lossPowerArmature=ra.lossPower,
         final lossPowerCore=core.lossPower,
         final lossPowerStrayLoad=strayLoad.lossPower,
         final lossPowerFriction=friction.lossPower,
@@ -15784,8 +15781,8 @@ Thermal ports for DC machines
       output Machines.Interfaces.PowerBalanceTransformer powerBalance(
         final power1=Machines.SpacePhasors.Functions.activePower(v1, i1),
         final power2=Machines.SpacePhasors.Functions.activePower(v2, i2),
-        final lossPower1=sum(r1.resistor.LossPower),
-        final lossPower2=sum(r2.resistor.LossPower),
+        final lossPower1=sum(r1.resistor.lossPower),
+        final lossPower2=sum(r2.resistor.lossPower),
         final lossPowerCore=0) "Power balance";
       output Modelica.SIunits.Voltage v1[m]=plug1.pin.v "Primary voltage";
       output Modelica.SIunits.Current i1[m]=plug1.pin.i "Primary current";

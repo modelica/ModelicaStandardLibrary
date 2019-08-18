@@ -15,7 +15,7 @@ model SinglePhase2Level "Single-phase DC to AC converter"
   // parameter Boolean useEnable "Enables enable signal connector";
   extends PowerConverters.Interfaces.DCAC.DCtwoPin;
   extends PowerConverters.Interfaces.DCAC.ACpin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   extends Interfaces.Enable.Enable2;
   Modelica.Electrical.Analog.Ideal.IdealGTOThyristor transistor_p(
@@ -52,8 +52,8 @@ model SinglePhase2Level "Single-phase DC to AC converter"
         origin={70,-20})));
 equation
   if not useHeatPort then
-    LossPower = transistor_p.LossPower + diode_n.LossPower + transistor_n.LossPower
-       + diode_n.LossPower;
+    lossPower = transistor_p.lossPower + diode_n.lossPower + transistor_n.lossPower
+       + diode_n.lossPower;
   end if;
   connect(transistor_p.p, dc_p) annotation (Line(
       points={{30,30},{50,30},{50,60},{-100,60},{-100,60}}, color={0,0,255}));

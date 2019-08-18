@@ -293,6 +293,22 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue197;
 
+      model Issue359 "Conversion test for #359"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Basic.Ground ground;
+        Modelica.Electrical.Analog.Basic.Resistor resistor(R=1, useHeatPort=true);
+        Modelica.SIunits.Temperature T = resistor.T_heatPort;
+        Modelica.SIunits.Power lossPower = resistor.LossPower;
+      equation
+        connect(resistor.p, ground.p);
+        connect(resistor.n, ground.p);
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/359\">#359</a>.
+</p>
+</html>"));
+      end Issue359;
+
       model Issue2361 "Conversion test for #2361"
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(

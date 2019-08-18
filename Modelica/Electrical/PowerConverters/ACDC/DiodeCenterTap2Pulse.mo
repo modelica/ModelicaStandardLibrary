@@ -10,7 +10,7 @@ model DiodeCenterTap2Pulse "Two pulse diode rectifier with center tap"
     "Diode forward threshold voltage";
   extends PowerConverters.Interfaces.ACDC.ACtwoPin;
   extends PowerConverters.Interfaces.ACDC.DCpin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   Modelica.Electrical.Analog.Ideal.IdealDiode diode_p(
     final Ron=RonDiode,
@@ -32,7 +32,7 @@ model DiodeCenterTap2Pulse "Two pulse diode rectifier with center tap"
         extent={{-10,-10},{10,10}})));
 equation
   if not useHeatPort then
-    LossPower = diode_p.LossPower + diode_n.LossPower;
+    lossPower = diode_p.lossPower + diode_n.lossPower;
   end if;
   connect(ac_p, diode_p.p) annotation (Line(
       points={{-100,60},{-10,60}}, color={0,0,255}));

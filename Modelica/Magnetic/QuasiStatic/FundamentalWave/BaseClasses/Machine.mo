@@ -77,7 +77,7 @@ partial model Machine "Base model of machines"
     final powerInertiaStator=inertiaStator.J*inertiaStator.a*
         inertiaStator.w,
     final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-    final lossPowerStatorWinding=sum(stator.resistor.resistor.LossPower),
+    final lossPowerStatorWinding=sum(stator.resistor.resistor.lossPower),
     final lossPowerStatorCore=stator.core.lossPower,
     final lossPowerStrayLoad=strayLoad.lossPower,
     final lossPowerFriction=friction.lossPower) "Power balance";

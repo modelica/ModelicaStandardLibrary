@@ -6,7 +6,7 @@ model VariableImpedance "Single-phase variable impedance"
   import Modelica.ComplexMath.conj;
   parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(T=T_ref);
   Modelica.ComplexBlocks.Interfaces.ComplexInput Z_ref "Variable complex impedance"
     annotation (Placement(transformation(
         origin={0,120},
@@ -24,13 +24,13 @@ model VariableImpedance "Single-phase variable impedance"
   Modelica.SIunits.Resistance R_ref=real(Z_ref) "Resistive component of impedance, resistance";
   Modelica.SIunits.Reactance X_ref=imag(Z_ref) "Reactive component of impedance, reactance";
 equation
-  assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+  assert((1 + alpha_ref*(TheatPort - T_ref)) >= Modelica.Constants.eps,
     "Temperature outside scope of model!");
-  R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
+  R_actual = R_ref*(1 + alpha_ref*(TheatPort - T_ref));
   X_actual = X_ref * (if not frequencyDependent then 1 else
     (if X_ref>=0 then omega/(2*Modelica.Constants.pi*f_ref) else 2*Modelica.Constants.pi*f_ref/omega));
   v = Complex(R_actual, X_actual) * i;
-  LossPower = real(v*conj(i));
+  lossPower = real(v*conj(i));
   annotation (defaultComponentName="impedance",
     Icon(graphics={
         Line(points={{60,0},{90,0}}, color={85,170,255}),

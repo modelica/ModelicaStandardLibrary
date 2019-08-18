@@ -3,6 +3,54 @@ package ObsoleteModelica4 "Library that contains components from Modelica Standa
   extends Modelica.Icons.Package;
   package Electrical "Library of electrical models (analog, digital, machines, polyphase)"
     extends Modelica.Icons.Package;
+    package Analog "Library for analog electrical models"
+      extends Modelica.Icons.Package;
+      package Interfaces "Connectors and partial models for Analog electrical components"
+        extends Modelica.Icons.Package;
+        partial model ConditionalHeatPort "Obsolete model - use Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort instead"
+          extends Modelica.Icons.ObsoleteModel;
+          parameter Boolean useHeatPort = false "= true, if heatPort is enabled"
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+          parameter Modelica.SIunits.Temperature T=293.15
+            "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
+          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T_heatPort, final Q_flow=-LossPower) if useHeatPort
+            "Conditional heat port"
+            annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+                iconTransformation(extent={{-10,-110},{10,-90}})));
+          Modelica.SIunits.Power LossPower "Loss power leaving component via heatPort";
+          Modelica.SIunits.Temperature T_heatPort "Temperature of heatPort";
+        equation
+          if not useHeatPort then
+             T_heatPort = T;
+          end if;
+          annotation (obsolete="Obsolete model - use Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort instead", Documentation(revisions="<html>
+<ul>
+<li><em>February 17, 2009</em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>
+This partial model provides a conditional heating port for the connection to a thermal network.
+</p>
+<ul>
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
+     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
+</ul>
+
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from
+ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
+<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
+on the model behaviour.
+</p>
+</html>"));
+        end ConditionalHeatPort;
+      end Interface;
+    end Analog;
+
     package PowerConverters "Rectifiers, Inverters and DC/DC converters"
       extends Modelica.Icons.Package;
       package DCDC "DC to DC converters"
@@ -1633,7 +1681,7 @@ connector is not connected).
   package Magnetic "Library of magnetic models"
     extends Modelica.Icons.Package;
     package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
-
+      extends Modelica.Icons.Package;
       package BasicMachines "Machine components and modelsElectric machine models based on FundamentalWave package"
         extends Modelica.Icons.Package;
         package Components "Components specially for electric machines"
@@ -1787,7 +1835,7 @@ Obsolete symmetric cage model, see
               each final unit="A") = resistor.i "Currents out from damper";
             Modelica.Blocks.Interfaces.RealOutput lossPower(
               final quantity="Power",
-              final unit="W") = sum(resistor.resistor.LossPower) "Damper losses";
+              final unit="W") = sum(resistor.resistor.lossPower) "Damper losses";
             Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
               winding(
               final m=2,

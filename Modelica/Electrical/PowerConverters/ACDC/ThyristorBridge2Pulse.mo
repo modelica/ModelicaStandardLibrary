@@ -22,7 +22,7 @@ model ThyristorBridge2Pulse "Two pulse Graetz thyristor rectifier bridge"
     annotation (choices(checkBox=true));
   extends PowerConverters.Interfaces.ACDC.ACtwoPin;
   extends PowerConverters.Interfaces.ACDC.DCtwoPin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   extends Interfaces.Enable.Enable2;
   Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p1(
@@ -71,8 +71,8 @@ model ThyristorBridge2Pulse "Two pulse Graetz thyristor rectifier bridge"
         rotation=90)));
 equation
   if not useHeatPort then
-    LossPower = thyristor_p1.LossPower + thyristor_p2.LossPower +
-      thyristor_n1.LossPower + thyristor_n2.LossPower;
+    lossPower = thyristor_p1.lossPower + thyristor_p2.lossPower +
+      thyristor_n1.lossPower + thyristor_n2.lossPower;
   end if;
   connect(thyristor_p2.n, thyristor_p1.n) annotation (Line(
       points={{20,60},{-20,60}}, color={0,0,255}));

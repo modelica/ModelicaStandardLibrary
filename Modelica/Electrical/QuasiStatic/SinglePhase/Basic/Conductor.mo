@@ -6,14 +6,14 @@ model Conductor "Single-phase linear conductor"
   parameter Modelica.SIunits.Conductance G_ref(start=1) "Reference conductance at T_ref";
   parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(T=T_ref);
   Modelica.SIunits.Conductance G_actual "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
 equation
-  assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+  assert((1 + alpha_ref*(TheatPort - T_ref)) >= Modelica.Constants.eps,
     "Temperature outside scope of model!");
-  G_actual = G_ref/(1 + alpha_ref*(T_heatPort - T_ref));
+  G_actual = G_ref/(1 + alpha_ref*(TheatPort - T_ref));
   i = G_actual*v;
-  LossPower = real(v*conj(i));
+  lossPower = real(v*conj(i));
   annotation (Icon(graphics={
         Line(points={{60,0},{90,0}}, color={85,170,255}),
         Line(points={{-90,0},{-60,0}}, color={85,170,255}),
@@ -37,7 +37,7 @@ The conductance <code>G</code> is allowed to be positive, zero, or negative.
 
 <p>
 The conductor model also has an optional
-<a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">conditional heat port</a>.
 A linear temperature dependency of the conductance is also taken into account.
 </p>
 

@@ -3,7 +3,7 @@ model HBridge "H bridge (four quadrant converter)"
   extends Icons.Converter;
   extends PowerConverters.Interfaces.DCDC.DCtwoPin1;
   extends PowerConverters.Interfaces.DCDC.DCtwoPin2;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   parameter Modelica.SIunits.Resistance RonTransistor=1e-05
     "Transistor closed resistance";
@@ -49,7 +49,7 @@ model HBridge "H bridge (four quadrant converter)"
         origin={60,-120})));
 equation
   if not useHeatPort then
-    LossPower = inverter_p.LossPower + inverter_n.LossPower;
+    lossPower = inverter_p.lossPower + inverter_n.lossPower;
   end if;
   connect(inverter_n.heatPort, heatPort) annotation (Line(
       points={{-48,-40},{-48,-70},{-10,-70},{-10,-100},{0,-100}}, color={191,0,0}));

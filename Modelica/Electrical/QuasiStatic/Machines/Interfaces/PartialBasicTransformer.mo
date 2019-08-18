@@ -49,8 +49,8 @@ partial model PartialBasicTransformer
         Modelica.ComplexMath.conj(i1[j])) for j in 1:m}),
     final power2=sum({Modelica.ComplexMath.real(v2[j]*
         Modelica.ComplexMath.conj(-i2[j])) for j in 1:m}),
-    final lossPower1=-sum(r1.resistor.LossPower),
-    final lossPower2=-sum(r2.resistor.LossPower),
+    final lossPower1=-sum(r1.resistor.lossPower),
+    final lossPower2=-sum(r2.resistor.lossPower),
     final lossPowerCore=0) "Power balance";
   output Modelica.SIunits.ComplexVoltage v1[m]=plug1.pin.v
     "Primary voltage";

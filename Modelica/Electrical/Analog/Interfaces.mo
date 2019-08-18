@@ -355,50 +355,6 @@ The reason could be that
 </html>"));
   end TwoPort;
 
-  partial model ConditionalHeatPort
-    "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
-
-    parameter Boolean useHeatPort = false "= true, if heatPort is enabled"
-    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-    parameter SI.Temperature T=293.15
-      "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T_heatPort, final Q_flow=-LossPower) if useHeatPort
-      "Conditional heat port"
-      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-10,-110},{10,-90}})));
-    SI.Power LossPower "Loss power leaving component via heatPort";
-    SI.Temperature T_heatPort "Temperature of heatPort";
-  equation
-    if not useHeatPort then
-       T_heatPort = T;
-    end if;
-
-    annotation (Documentation(revisions="<html>
-<ul>
-<li><em>February 17, 2009</em>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>", info="<html>
-<p>
-This partial model provides a conditional heating port for the connection to a thermal network.
-</p>
-<ul>
-<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
-     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
-     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
-<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, a heat port is available.</li>
-</ul>
-
-<p>
-If this model is used, the loss power has to be provided by an equation in the model which inherits from
-ConditionalHeatingPort model (<strong>lossPower = ...</strong>). As device temperature
-<strong>T_heatPort</strong> can be used to describe the influence of the device temperature
-on the model behaviour.
-</p>
-</html>"));
-  end ConditionalHeatPort;
-
   partial model PartialConditionalHeatPort
     "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop"
     parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
@@ -572,7 +528,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
       "Backward state-off conductance (opened conductance)";
     parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
     Boolean off(start=true) "Switching state";
   protected
     Real s(start=0, final unit="1")
@@ -585,7 +541,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
   equation
     v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
     i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
-    LossPower = v*i;
+    lossPower = v*i;
     annotation (
       Documentation(info="<html>
 <p>
@@ -683,7 +639,7 @@ behavior is <strong>not</strong> modelled.
       "Closed switch resistance";
     parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
   protected
     Boolean off "Indicates off-state";
     Real s(final unit="1") "Auxiliary variable";
@@ -692,7 +648,7 @@ behavior is <strong>not</strong> modelled.
   equation
     v = (s*unitCurrent)*(if off then 1 else Ron);
     i = (s*unitVoltage)*(if off then Goff else 1);
-    LossPower = v*i;
+    lossPower = v*i;
     annotation (
       Documentation(info="<html>
 <p>
@@ -748,7 +704,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+    extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
     Boolean off(start=true) "Indicates off-state (but maybe not quenched)";
   protected
     Boolean quenched(start=true, fixed=true)
@@ -769,7 +725,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     else
       v = Ron*i;
     end if;
-    LossPower = v*i;
+    lossPower = v*i;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={

@@ -11,7 +11,7 @@ model DiodeBridge2mPulse "2*m pulse diode rectifier bridge"
     "Diode forward threshold voltage";
   extends PowerConverters.Interfaces.ACDC.ACplug;
   extends PowerConverters.Interfaces.ACDC.DCtwoPin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   Modelica.Electrical.Polyphase.Ideal.IdealDiode diode_p(
     final m=m,
@@ -44,7 +44,7 @@ model DiodeBridge2mPulse "2*m pulse diode rectifier bridge"
     annotation (Placement(transformation(extent={{10,-100},{30,-80}})));
 equation
   if not useHeatPort then
-    LossPower = sum(diode_p.idealDiode.LossPower) + sum(diode_n.idealDiode.LossPower);
+    lossPower = sum(diode_p.idealDiode.lossPower) + sum(diode_n.idealDiode.lossPower);
   end if;
   connect(ac, diode_p.plug_p) annotation (Line(
       points={{-100,0},{-100,0},{0,0},{0,30}}, color={0,0,255}));

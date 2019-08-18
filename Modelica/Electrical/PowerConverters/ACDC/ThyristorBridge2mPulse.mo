@@ -17,7 +17,7 @@ model ThyristorBridge2mPulse "2*m pulse thyristor rectifier bridge"
     annotation (choices(checkBox=true));
   extends PowerConverters.Interfaces.ACDC.ACplug;
   extends PowerConverters.Interfaces.ACDC.DCtwoPin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
   extends Interfaces.Enable.Enable2m;
   Modelica.Electrical.Polyphase.Ideal.IdealThyristor thyristor_p(
     final m=m,
@@ -60,7 +60,7 @@ model ThyristorBridge2mPulse "2*m pulse thyristor rectifier bridge"
         origin={-20,-36})));
 equation
   if not useHeatPort then
-    LossPower = sum(thyristor_p.idealThyristor.LossPower) + sum(thyristor_n.idealThyristor.LossPower);
+    lossPower = sum(thyristor_p.idealThyristor.lossPower) + sum(thyristor_n.idealThyristor.lossPower);
   end if;
   connect(ac, thyristor_p.plug_p) annotation (Line(
       points={{-100,0},{0,0},{0,30}}, color={0,0,255}));

@@ -4,8 +4,7 @@ model IdealCommutingSwitch "Ideal commuting switch"
   import Modelica.ComplexMath.conj;
   parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
   parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-       293.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
   QuasiStatic.SinglePhase.Interfaces.PositivePin p
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   QuasiStatic.SinglePhase.Interfaces.NegativePin n2
@@ -36,7 +35,7 @@ equation
   n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
   p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
   n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
-  LossPower = real(p.v*conj(p.i)) + real(n1.v*conj(n1.i)) + real(n2.v*conj(
+  lossPower = real(p.v*conj(p.i)) + real(n1.v*conj(n1.i)) + real(n2.v*conj(
     n2.i));
   annotation (defaultComponentName="switch",
     Documentation(info="<html>

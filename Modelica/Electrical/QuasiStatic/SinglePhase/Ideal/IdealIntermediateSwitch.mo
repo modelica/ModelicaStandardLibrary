@@ -4,8 +4,7 @@ model IdealIntermediateSwitch "Ideal intermediate switch"
   import Modelica.ComplexMath.conj;
   parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
   parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-       293.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
   QuasiStatic.SinglePhase.Interfaces.PositivePin p1 annotation (Placement(
         transformation(extent={{-110,30},{-90,50}}), iconTransformation(extent=
             {{-110,30},{-90,50}})));
@@ -52,7 +51,7 @@ equation
   n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*
     unitCurrent - s3*unitVoltage*Goff;
 
-  LossPower = real(p1.v*conj(p1.i)) + real(p2.v*conj(p2.i)) + real(n1.v*
+  lossPower = real(p1.v*conj(p1.i)) + real(p2.v*conj(p2.i)) + real(n1.v*
     conj(n1.i)) + real(n2.v*conj(n2.i));
   annotation (defaultComponentName="switch",
     Documentation(info="<html>

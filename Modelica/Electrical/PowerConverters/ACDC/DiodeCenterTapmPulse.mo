@@ -11,7 +11,7 @@ model DiodeCenterTapmPulse "m pulse diode rectifier with center tap"
     "Diode forward threshold voltage";
   extends PowerConverters.Interfaces.ACDC.ACplug;
   extends PowerConverters.Interfaces.ACDC.DCpin;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=
        293.15);
   Modelica.Electrical.Polyphase.Ideal.IdealDiode diode(
     final m=m,
@@ -33,7 +33,7 @@ equation
   assert(mod(m, 2) == 1,
     "DiodeCenterTapmPulse: only odd phase numbers are allowed");
   if not useHeatPort then
-    LossPower = sum(diode.idealDiode.LossPower);
+    lossPower = sum(diode.idealDiode.lossPower);
   end if;
   connect(diode.plug_n, star.plug_p) annotation (Line(
       points={{0,0},{70,0}}, color={0,0,255}));

@@ -18,7 +18,7 @@ model IM_SquirrelCage
       internalThermalPort,
     redeclare final
       Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMC
-      powerBalance(final lossPowerRotorWinding=sum(rotorCage.resistor.resistor.LossPower),
+      powerBalance(final lossPowerRotorWinding=sum(rotorCage.resistor.resistor.lossPower),
         final lossPowerRotorCore=0));
   parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
         *fsNominal)) "Stator main field inductance" annotation (Dialog(

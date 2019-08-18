@@ -5,7 +5,7 @@ model IdealClosingSwitch "Ideal electrical closer"
   extends QuasiStatic.SinglePhase.Interfaces.OnePort;
   parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
   parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(final T=293.15);
   Modelica.Blocks.Interfaces.BooleanInput control "true => p--n connected, false => switch open"
                                                    annotation (Placement(
         transformation(
@@ -22,7 +22,7 @@ equation
   v = (s*unitCurrent)*(if control then Ron else 1);
   i = (s*unitVoltage)*(if control then 1 else Goff);
 
-  LossPower = real(v*conj(i));
+  lossPower = real(v*conj(i));
   annotation (defaultComponentName="switch",
     Documentation(info="<html>
 <p>

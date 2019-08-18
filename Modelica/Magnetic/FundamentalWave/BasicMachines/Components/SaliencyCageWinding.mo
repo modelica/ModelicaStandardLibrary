@@ -32,7 +32,7 @@ model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
     "RMS current out from damper";
   Modelica.Blocks.Interfaces.RealOutput lossPower(
     final quantity="Power",
-    final unit="W") = sum(resistor.resistor.LossPower) "Damper losses";
+    final unit="W") = sum(resistor.resistor.lossPower) "Damper losses";
   Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter electroMagneticConverter(
     final m=2,
     final orientation={0,Modelica.Constants.pi/2},

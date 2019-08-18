@@ -9,7 +9,7 @@ model EddyCurrentLosses
   parameter Modelica.SIunits.Reluctance R_m=1
     "Reluctance of the magnetic circuit";
   parameter Real N=1 "Number of turns";
-  output Modelica.SIunits.Power lossPower_e=sum(loss_e.conductor.LossPower);
+  output Modelica.SIunits.Power lossPower_e=sum(loss_e.conductor.lossPower);
   output Modelica.SIunits.Power lossPower_m=loss_m.lossPower;
   Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground ground_e
     annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
