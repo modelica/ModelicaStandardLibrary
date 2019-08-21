@@ -2017,13 +2017,11 @@ package Interfaces "Connectors and partial models"
         "Vector of transition output connectors"
       annotation (Placement(transformation(extent={{10,-5},{20,5}})));
     protected
-    Modelica.SIunits.Time t_start
+    discrete Modelica.SIunits.Time t_start
         "Time instant at which the transition would fire, if waitTime would be zero";
     Real t_dummy;
   initial equation
-    if enableTimer then
-       pre(t_start) = time;
-    end if;
+    pre(t_start) = time;
     pre(enableFire) = false;
   equation
     assert(cardinality(inPort) == 1,
@@ -2040,7 +2038,9 @@ package Interfaces "Connectors and partial models"
       t = if enableFire then t_dummy else 0;
       fire = enableFire and time >= t_start + waitTime;
     else
-      t_start = 0;
+      when false then
+        t_start = pre(t_start);
+      end when;
       t_dummy = 0;
       t = 0;
       fire = enableFire;
