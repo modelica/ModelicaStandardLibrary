@@ -281,15 +281,15 @@
 #if HAVE_INTTYPES_H
 #   define __STDC_FORMAT_MACROS
 #endif
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 #   include <zlib.h>
 #endif
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
 #   include <hdf5.h>
 
 #endif
 
-#if defined(HAVE_ZLIB) && HAVE_ZLIB
+#if HAVE_ZLIB
 #   define ZLIB_BYTE_PTR(a) ((Bytef *)(a))
 #endif
 
@@ -311,7 +311,7 @@ struct _mat_t {
     long   bof;             /**< Beginning of file not including any header */
     size_t next_index;      /**< Index/File position of next variable to read */
     size_t num_datasets;    /**< Number of datasets in the file */
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
     hid_t  refs_id;         /**< Id of the /#refs# group in HDF5 */
 #endif
     char **dir;             /**< Names of the datasets in the file */
@@ -323,7 +323,7 @@ struct _mat_t {
  * @endif
  */
 struct matvar_internal {
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
     char      *hdf5_name;   /**< Name */
     hobj_ref_t hdf5_ref;    /**< Reference */
     hid_t      id;          /**< Id */
@@ -331,7 +331,7 @@ struct matvar_internal {
     long       datapos;     /**< Offset from the beginning of the MAT file to the data */
     unsigned   num_fields;  /**< Number of fields */
     char     **fieldnames;  /**< Pointer to fieldnames */
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     z_streamp  z;           /**< zlib compression state */
     void      *data;        /**< Inflated data array */
 #endif
@@ -400,7 +400,7 @@ static int ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
 static int ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
                enum matio_types data_type,int rank,size_t *dims,int *start,
                int *stride,int *edge);
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 static int ReadCompressedDoubleData(mat_t *mat,z_streamp z,double  *data,
                enum matio_types data_type,int len);
 static int ReadCompressedSingleData(mat_t *mat,z_streamp z,float   *data,
@@ -1561,7 +1561,7 @@ Mat_SizeOf(enum matio_types data_type)
         } \
     } while (0)
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 #define READ_COMPRESSED_DATA(T, SwapFunc) \
     do { \
         if ( mat->byteswap ) { \
@@ -1773,7 +1773,7 @@ ReadDoubleData(mat_t *mat,double *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into a double type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2191,7 +2191,7 @@ ReadSingleData(mat_t *mat,float *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into a float type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2251,7 +2251,7 @@ ReadInt64Data(mat_t *mat,mat_int64_t *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into a signed 64-bit integer type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2313,7 +2313,7 @@ ReadUInt64Data(mat_t *mat,mat_uint64_t *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into an unsigned 64-bit integer type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2374,7 +2374,7 @@ ReadInt32Data(mat_t *mat,mat_int32_t *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into a signed 32-bit integer type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2434,7 +2434,7 @@ ReadUInt32Data(mat_t *mat,mat_uint32_t *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into an unsigned 32-bit integer type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2494,7 +2494,7 @@ ReadInt16Data(mat_t *mat,mat_int16_t *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into a signed 16-bit integer type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2554,7 +2554,7 @@ ReadUInt16Data(mat_t *mat,mat_uint16_t *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into an unsigned 16-bit integer type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2614,7 +2614,7 @@ ReadInt8Data(mat_t *mat,mat_int8_t *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into a signed 8-bit integer type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2674,7 +2674,7 @@ ReadUInt8Data(mat_t *mat,mat_uint8_t *data,enum matio_types data_type,int len)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into an unsigned 8-bit integer type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2710,13 +2710,13 @@ ReadCompressedUInt8Data(mat_t *mat,z_streamp z,mat_uint8_t *data,
 #undef READ_DATA_TYPE
 #undef READ_DATA_INT64
 #undef READ_DATA_UINT64
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 #undef READ_COMPRESSED_DATA
 #undef READ_COMPRESSED_DATA_TYPE
 #undef READ_COMPRESSED_DATA_INT64
 #undef READ_COMPRESSED_DATA_UINT64
 #endif
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Reads data of type @c data_type into a char type
  *
  * Reads from the MAT file @c len compressed elements of data type @c data_type
@@ -2990,7 +2990,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
 #undef READ_DATA_SLABN
 #undef READ_DATA_SLABN_RANK_LOOP
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 #define READ_COMPRESSED_DATA_SLABN_RANK_LOOP \
     do { \
         for ( j = 1; j < rank; j++ ) { \
@@ -3420,7 +3420,7 @@ ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
 
 #undef READ_DATA_SLAB2
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 #define READ_COMPRESSED_DATA_SLAB1(ReadDataFunc) \
     do { \
         if ( !stride ) { \
@@ -3722,7 +3722,7 @@ static int       Mat_VarReadDataLinear4(mat_t *mat,matvar_t *matvar,void *data,i
 static matvar_t *Mat_VarReadNextInfo4(mat_t *mat);
 
 #endif
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
 #ifndef MAT73_H
 #define MAT73_H
 
@@ -3774,7 +3774,7 @@ ReadData(mat_t *mat, matvar_t *matvar)
         return;
     else if ( mat->version == MAT_FT_MAT5 )
         Mat_VarRead5(mat,matvar);
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
     else if ( mat->version == MAT_FT_MAT73 )
         Mat_VarRead73(mat,matvar);
 #endif
@@ -4021,7 +4021,7 @@ Mat_CreateVer(const char *matname,const char *hdr_str,enum mat_ft mat_file_ver)
             mat = Mat_Create5(matname,hdr_str);
             break;
         case MAT_FT_MAT73:
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
             mat = Mat_Create73(matname,hdr_str);
 #else
             mat = NULL;
@@ -4094,7 +4094,7 @@ Mat_Open(const char *matname,int mode)
     mat->version       = 0;
     mat->byteswap      = 0;
     mat->num_datasets  = 0;
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
     mat->refs_id       = -1;
 #endif
     mat->dir           = NULL;
@@ -4148,7 +4148,7 @@ Mat_Open(const char *matname,int mode)
         mat->mode          = mode;
         mat->bof           = 0;
         mat->next_index    = 0;
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
         mat->refs_id       = -1;
 #endif
 
@@ -4174,7 +4174,7 @@ Mat_Open(const char *matname,int mode)
 
     if ( mat->version == 0x0200 ) {
         fclose((FILE*)mat->fp);
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
         mat->fp = malloc(sizeof(hid_t));
 
         if ( (mode & 0x01) == MAT_ACC_RDONLY )
@@ -4221,7 +4221,7 @@ Mat_Close( mat_t *mat )
     int err = 0;
 
     if ( NULL != mat ) {
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
         if ( mat->version == 0x0200 ) {
             if ( mat->refs_id > -1 )
                 H5Gclose(mat->refs_id);
@@ -4514,7 +4514,7 @@ Mat_VarCalloc(void)
             free(matvar);
             matvar = NULL;
         } else {
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
             matvar->internal->hdf5_name  = NULL;
             matvar->internal->hdf5_ref   =  0;
             matvar->internal->id         = -1;
@@ -4522,7 +4522,7 @@ Mat_VarCalloc(void)
             matvar->internal->datapos    = 0;
             matvar->internal->num_fields = 0;
             matvar->internal->fieldnames = NULL;
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
             matvar->internal->z          = NULL;
             matvar->internal->data       = NULL;
 #endif
@@ -4875,7 +4875,7 @@ Mat_VarDelete(mat_t *mat, const char *name)
 
             if ( 0 == err ) {
                 char *new_name = strdup_printf("%s",mat->filename);
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
                 if ( mat_file_ver == MAT_FT_MAT73 ) {
                     if ( mat->refs_id > -1 )
                         H5Gclose(mat->refs_id);
@@ -4992,7 +4992,7 @@ Mat_VarDuplicate(const matvar_t *in, int opt)
         memcpy(out->dims,in->dims,in->rank*sizeof(*out->dims));
 
     if ( NULL != in->internal ) {
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
         if ( NULL != in->internal->hdf5_name )
             out->internal->hdf5_name = mat_strdup(in->internal->hdf5_name);
 
@@ -5000,7 +5000,7 @@ Mat_VarDuplicate(const matvar_t *in, int opt)
         out->internal->id       = in->internal->id;
 #endif
         out->internal->datapos  = in->internal->datapos;
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         out->internal->z        = NULL;
         out->internal->data     = NULL;
 #endif
@@ -5015,7 +5015,7 @@ Mat_VarDuplicate(const matvar_t *in, int opt)
             }
         }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         if ( (in->internal->z != NULL) && (NULL != (out->internal->z = (z_streamp)malloc(sizeof(z_stream)))) )
             inflateCopy(out->internal->z,in->internal->z);
         if ( in->internal->data != NULL ) {
@@ -5255,7 +5255,7 @@ Mat_VarFree(matvar_t *matvar)
     }
 
     if ( NULL != matvar->internal ) {
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
             inflateEnd(matvar->internal->z);
             free(matvar->internal->z);
@@ -5287,7 +5287,7 @@ Mat_VarFree(matvar_t *matvar)
             }
         }
 #endif
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
         if ( -1 < matvar->internal->id ) {
             switch ( H5Iget_type(matvar->internal->id) ) {
                 case H5I_GROUP:
@@ -5907,7 +5907,7 @@ Mat_VarReadData(mat_t *mat,matvar_t *matvar,void *data,
             err = Mat_VarReadData5(mat,matvar,data,start,stride,edge);
             break;
         case MAT_FT_MAT73:
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
             err = Mat_VarReadData73(mat,matvar,data,start,stride,edge);
 #else
             err = 1;
@@ -5985,7 +5985,7 @@ Mat_VarReadDataLinear(mat_t *mat,matvar_t *matvar,void *data,int start,
             err = Mat_VarReadDataLinear5(mat,matvar,data,start,stride,edge);
             break;
         case MAT_FT_MAT73:
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
             err = Mat_VarReadDataLinear73(mat,matvar,data,start,stride,edge);
 #else
             err = 1;
@@ -6024,7 +6024,7 @@ Mat_VarReadNextInfo( mat_t *mat )
             matvar = Mat_VarReadNextInfo5(mat);
             break;
         case MAT_FT_MAT73:
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
             matvar = Mat_VarReadNextInfo73(mat);
 #else
             matvar = NULL;
@@ -6259,7 +6259,7 @@ Mat_VarWrite(mat_t *mat,matvar_t *matvar,enum matio_compression compress)
     if ( mat->version == MAT_FT_MAT5 )
         err = Mat_VarWrite5(mat,matvar,compress);
     else if ( mat->version == MAT_FT_MAT73 )
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
         err = Mat_VarWrite73(mat,matvar,compress);
 #else
         err = 1;
@@ -6323,7 +6323,7 @@ Mat_VarWriteAppend(mat_t *mat,matvar_t *matvar,enum matio_compression compress,i
     }
 
     if ( mat->version == MAT_FT_MAT73 ) {
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
         int append = 0;
         {
             /* Check if MAT variable already exists in MAT file */
@@ -6424,7 +6424,7 @@ Mat_Create4(const char* matname)
     mat->bof           = 0;
     mat->next_index    = 0;
     mat->num_datasets  = 0;
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
     mat->refs_id       = -1;
 #endif
     mat->dir           = NULL;
@@ -7317,7 +7317,7 @@ static int GetCellArrayFieldBufSize(matvar_t *matvar, size_t *size);
 static void SetFieldNames(matvar_t *matvar, char *buf, size_t nfields,
                   mat_uint32_t fieldname_length);
 static size_t ReadSparse(mat_t *mat, matvar_t *matvar, int *n, mat_int32_t **v);
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 static int GetMatrixMaxBufSize(matvar_t *matvar, size_t *size);
 #endif
 static int GetEmptyMatrixMaxBufSize(const char *name, int rank, size_t *size);
@@ -7334,7 +7334,7 @@ static int    WriteData(mat_t *mat,void *data,int N,enum matio_types data_type);
 static size_t Mat_WriteEmptyVariable5(mat_t *mat,const char *name,int rank,
                   size_t *dims);
 static void   Mat_VarReadNumeric5(mat_t *mat,matvar_t *matvar,void *data,size_t N);
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 static size_t WriteCompressedCharData(mat_t *mat,z_streamp z,void *data,int N,
                   enum matio_types data_type);
 static size_t WriteCompressedData(mat_t *mat,z_streamp z,void *data,int N,
@@ -7667,7 +7667,7 @@ ReadSparse(mat_t *mat, matvar_t *matvar, int *n, mat_int32_t **v)
     mat_int32_t N = 0;
 
     if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         matvar->internal->z->avail_in = 0;
         InflateDataType(mat,matvar->internal->z,tag);
         if ( mat->byteswap )
@@ -7711,7 +7711,7 @@ ReadSparse(mat_t *mat, matvar_t *matvar, int *n, mat_int32_t **v)
                 nBytes+=4;
             if ( (nBytes % 8) != 0 )
                 (void)fseek((FILE*)mat->fp,8-(nBytes % 8),SEEK_CUR);
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
             nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
                             *v,packed_type,*n);
@@ -7732,7 +7732,7 @@ ReadSparse(mat_t *mat, matvar_t *matvar, int *n, mat_int32_t **v)
     return bytesread;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief determines the number of bytes needed to store the given variable
  *
  * @ingroup mat_internal
@@ -7825,7 +7825,7 @@ Mat_Create5(const char *matname,const char *hdr_str)
     mat->bof           = 128;
     mat->next_index    = 0;
     mat->num_datasets  = 0;
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
     mat->refs_id       = -1;
 #endif
     mat->dir           = NULL;
@@ -7955,7 +7955,7 @@ WriteCharData(mat_t *mat, void *data, int N,enum matio_types data_type)
     return byteswritten;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Writes @c data as compressed character data
  *
  * This function uses the knowledge that the data is part of a character class
@@ -8072,7 +8072,7 @@ WriteData(mat_t *mat,void *data,int N,enum matio_types data_type)
     return nBytes;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /* Compresses the data buffer and writes it to the file */
 static size_t
 WriteCompressedData(mat_t *mat,z_streamp z,void *data,int N,
@@ -8161,7 +8161,7 @@ ReadNextCell( mat_t *mat, matvar_t *matvar )
     cells = (matvar_t **)matvar->data;
 
     if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         mat_uint32_t uncomp_buf[16] = {0,};
         int nbytes;
         mat_uint32_t array_flags;
@@ -8452,7 +8452,7 @@ ReadNextStructField( mat_t *mat, matvar_t *matvar )
         return bytesread;
     }
     if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         mat_uint32_t uncomp_buf[16] = {0,};
         int nbytes;
         mat_uint32_t array_flags, len;
@@ -9200,7 +9200,7 @@ WriteCellArrayField(mat_t *mat,matvar_t *matvar)
     return 0;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Writes the header and data for a given class type
  *
  * @ingroup mat_internal
@@ -9596,7 +9596,7 @@ WriteStructField(mat_t *mat,matvar_t *matvar)
     return 0;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 /** @brief Writes the header and data for a field of a compressed struct array
  *
  * @ingroup mat_internal
@@ -9724,7 +9724,7 @@ Mat_WriteEmptyVariable5(mat_t *mat,const char *name,int rank,size_t *dims)
     return byteswritten;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 static size_t
 Mat_WriteCompressedEmptyVariable5(mat_t *mat,const char *name,int rank,
                                   size_t *dims,z_streamp z)
@@ -9864,7 +9864,7 @@ Mat_VarReadNumeric5(mat_t *mat,matvar_t *matvar,void *data,size_t N)
     mat_uint32_t tag[2];
 
     if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         matvar->internal->z->avail_in = 0;
         InflateDataType(mat,matvar->internal->z,tag);
         if ( mat->byteswap )
@@ -9950,7 +9950,7 @@ Mat_VarReadNumeric5(mat_t *mat,matvar_t *matvar,void *data,size_t N)
             nBytes+=4;
         if ( (nBytes % 8) != 0 )
             (void)fseek((FILE*)mat->fp,8-(nBytes % 8),SEEK_CUR);
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
         switch ( matvar->class_type ) {
             case MAT_C_DOUBLE:
@@ -10034,7 +10034,7 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
         return;
     else if ( matvar->rank == 0 )        /* An empty data set */
         return;
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     else if ( NULL != matvar->internal->data ) {
         /* Data already read in ReadNextStructField or ReadNextCell */
         matvar->data = matvar->internal->data;
@@ -10120,7 +10120,7 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
         case MAT_C_CHAR:
             (void)fseek((FILE*)mat->fp,matvar->internal->datapos,SEEK_SET);
             if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
                 matvar->internal->z->avail_in = 0;
                 InflateDataType(mat,matvar->internal->z,tag);
                 if ( byteswap )
@@ -10191,7 +10191,7 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
                     nBytes+=4;
                 if ( (nBytes % 8) != 0 )
                     (void)fseek((FILE*)mat->fp,8-(nBytes % 8),SEEK_CUR);
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
             } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
                 nBytes = ReadCompressedCharData(mat,matvar->internal->z,
                              (char*)matvar->data,packed_type,(int)nelems);
@@ -10262,7 +10262,7 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
             bytesread += ReadSparse(mat, matvar, &data->njc, &data->jc);
             /*  Read data  */
             if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
                 matvar->internal->z->avail_in = 0;
                 InflateDataType(mat,matvar->internal->z,tag);
                 if ( mat->byteswap )
@@ -10447,7 +10447,7 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
                         nBytes+=4;
                     if ( (nBytes % 8) != 0 )
                         (void)fseek((FILE*)mat->fp,8-(nBytes % 8),SEEK_CUR);
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
                 } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
 #if defined(EXTENDED_SPARSE)
                     switch ( matvar->data_type ) {
@@ -10651,7 +10651,7 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
                         nBytes+=4;
                     if ( (nBytes % 8) != 0 )
                         (void)fseek((FILE*)mat->fp,8-(nBytes % 8),SEEK_CUR);
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
                 } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
 #if defined(EXTENDED_SPARSE)
                     switch ( matvar->data_type ) {
@@ -10794,7 +10794,7 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
     return;
 }
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
 #define GET_DATA_SLABN_RANK_LOOP \
     do { \
         for ( j = 1; j < rank; j++ ) { \
@@ -11360,7 +11360,7 @@ Mat_VarReadData5(mat_t *mat,matvar_t *matvar,void *data,
 {
     int err = 0,real_bytes = 0;
     mat_int32_t tag[2];
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     z_stream z;
 #endif
     size_t bytesread = 0;
@@ -11379,7 +11379,7 @@ Mat_VarReadData5(mat_t *mat,matvar_t *matvar,void *data,
         } else {
             real_bytes = 8+tag[1];
         }
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
         if ( NULL != matvar->internal->data ) {
             /* Data already read in ReadNextStructField or ReadNextCell */
@@ -11457,7 +11457,7 @@ Mat_VarReadData5(mat_t *mat,matvar_t *matvar,void *data,
                     matvar->data_type,matvar->dims,start,stride,edge);
             }
         }
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
             if ( matvar->isComplex ) {
                 mat_complex_split_t *complex_data = (mat_complex_split_t*)data;
@@ -11521,7 +11521,7 @@ Mat_VarReadData5(mat_t *mat,matvar_t *matvar,void *data,
                     matvar->rank,matvar->dims,start,stride,edge);
             }
         }
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
         else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
             if ( matvar->isComplex ) {
                 mat_complex_split_t *complex_data = (mat_complex_split_t*)data;
@@ -11585,7 +11585,7 @@ Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,int start,
 {
     int err = 0, real_bytes = 0;
     mat_int32_t tag[2];
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     z_stream z;
 #endif
     size_t bytesread = 0, nelems = 1;
@@ -11606,7 +11606,7 @@ Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,int start,
         } else {
             real_bytes = 8+tag[1];
         }
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
         if ( NULL != matvar->internal->data ) {
             /* Data already read in ReadNextStructField or ReadNextCell */
@@ -11684,7 +11684,7 @@ Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,int start,
             ReadDataSlab1(mat,data,matvar->class_type,
                           matvar->data_type,start,stride,edge);
         }
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
         if ( matvar->isComplex ) {
             mat_complex_split_t *complex_data = (mat_complex_split_t*)data;
@@ -11755,7 +11755,7 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
     if ( NULL == matvar || NULL == matvar->name )
         return -1;
 
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     if ( compress == MAT_COMPRESSION_NONE ) {
 #else
     {
@@ -11824,7 +11824,7 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
             matvar->class_type = MAT_C_EMPTY;
         }
         WriteType(mat,matvar);
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
     } else if ( compress == MAT_COMPRESSION_ZLIB ) {
         mat_uint32_t comp_buf[512];
         mat_uint32_t uncomp_buf[512] = {0,};
@@ -12011,7 +12011,7 @@ Mat_VarReadNextInfo5( mat_t *mat )
     switch ( data_type ) {
         case MAT_T_COMPRESSED:
         {
-#if defined(HAVE_ZLIB)
+#if HAVE_ZLIB
             mat_uint32_t uncomp_buf[16] = {0,};
             int      nbytes;
             long     bytesread = 0;
@@ -12271,7 +12271,7 @@ Mat_VarReadNextInfo5( mat_t *mat )
 #include <math.h>
 #include <time.h>
 
-#if defined(HAVE_HDF5)
+#if HAVE_HDF5
 
 static const char *ClassNames[] = {
     "",
