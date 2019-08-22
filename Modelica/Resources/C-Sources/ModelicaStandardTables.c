@@ -544,8 +544,10 @@ static void spline2DClose(CubicHermite2D** spline);
 
 /* ----- Interface functions ----- */
 
+#if defined(__clang__)
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wtautological-compare"
+#endif
 
 void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const char* tableName,
                                                  _In_z_ const char* fileName,
@@ -5698,4 +5700,6 @@ static READ_RESULT readTable(_In_z_ const char* fileName, _In_z_ const char* tab
 #endif /* #if !defined(NO_FILE_SYSTEM) */
 }
 
+#if defined(__clang__)
 #pragma clang diagnostic pop
+#endif
