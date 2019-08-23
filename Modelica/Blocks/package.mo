@@ -1391,7 +1391,7 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
 </html>"));
   end SinCosEncoder;
 
-  model CompareSincExpSine "Compare sinc and exponental sine signal"
+  model CompareSincExpSine "Compare sinc and exponential sine signal"
     extends Modelica.Icons.Example;
     Sources.Sinc sinc(f=5)
       annotation (Placement(transformation(extent={{-10,20},{10,40}})));
