@@ -1651,7 +1651,7 @@ truncated normal distribution has more values centered around the mean value 1.
     end Distributions;
 
     model UniformNoiseProperties
-      "Demonstrates the computation of properties for uniformally distributed noise"
+      "Demonstrates the computation of properties for uniformly distributed noise"
       extends Modelica.Icons.Example;
       parameter Real y_min = 0 "Minimum value of band";
       parameter Real y_max = 6 "Maximum value of band";
