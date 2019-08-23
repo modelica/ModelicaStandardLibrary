@@ -1234,7 +1234,7 @@ theoretical calculations:</p>
       annotation (Placement(transformation(extent={{-10,60},{10,80}})));
     Modelica.Blocks.Sources.Sine amplitude(
       amplitude=0.5,
-      freqHz=2,
+      f=2,
       offset=1)
       annotation (Placement(transformation(extent={{-52,20},{-32,40}})));
     Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sinAM(
@@ -1251,7 +1251,7 @@ theoretical calculations:</p>
       annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
     Modelica.Blocks.Sources.Sine frequency(
       amplitude=50,
-      freqHz=2,
+      f=2,
       offset=100)
       annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
     Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sinFM(
@@ -1395,10 +1395,10 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
     extends Modelica.Icons.Example;
     Sources.Sinc sinc(f=5)
       annotation (Placement(transformation(extent={{-10,20},{10,40}})));
-    Sources.ExpSine expSine1(freqHz=5, damping=5)
+    Sources.ExpSine expSine1(f=5, damping=5)
       annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
     Sources.ExpSine expSine2(
-      freqHz=5,
+      f=5,
       phase=Modelica.Constants.pi/2,
       damping=5)
       annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
