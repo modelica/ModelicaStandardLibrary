@@ -546,6 +546,26 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue289;
 
+      model Issue359 "Conversion test for #359"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Machines.BasicMachines.Components.DamperCage damperCage(
+          Lrsigmad=1,
+          Lrsigmaq=1,
+          Rrd=1,
+          Rrq=1) annotation (Placement(transformation(extent={{0,0},{20,20}})));
+        Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation excitation(turnsRatio=1) annotation (Placement(transformation(extent={{-20,0},{-40,20}})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-50,-40},{-30,-20}})));
+        Modelica.SIunits.Power damperCageLossPower = damperCage.lossPower;
+      equation
+        connect(excitation.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(points={{-20,20},{0,20}}, color={0,0,255}));
+        connect(ground.p, excitation.pin_en) annotation (Line(points={{-40,-20},{-40,0}}, color={0,0,255}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/359\">#359</a>.
+</p>
+</html>"));
+      end Issue359;
+
       model Issue1189 "Conversion test for #1189"
         extends Modelica.Icons.Example;
         model M1
@@ -1604,9 +1624,11 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       package P6
         extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
       end P6;
+
       package P7
         extends Modelica.Icons.RotationalSensor;
       end P7;
+
       package P8
         extends Modelica.Icons.TranslationalSensor;
       end P8;

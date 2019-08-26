@@ -492,6 +492,8 @@ convertElement({"Modelica.Electrical.Analog.Basic.Resistor",
                 "Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft",
                 "Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable"},
                 "LossPower", "lossPower")
+convertElement({"Modelica.Electrical.Machines.BasicMachines.Components.DamperCage"},
+                "lossPower","damperCageLossPower")                
 convertElement({"Modelica.Electrical.Analog.Basic.Resistor",
                 "Modelica.Electrical.Analog.Basic.Conductor",
                 "Modelica.Electrical.Analog.Basic.VariableResistor",
