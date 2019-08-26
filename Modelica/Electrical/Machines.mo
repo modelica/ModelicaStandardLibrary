@@ -7470,7 +7470,7 @@ These models use package SpacePhasors.
       equation
         connect(ir, damperCage.i);
         connect(idq_dr, damperCage.i);
-        connect(damperCageLossPower, damperCage.lossPower);
+        connect(damperCageLossPower, damperCage.damperCageLossPower);
         if not useDamperCage then
           damperCageLossPower = 0;
         end if;
@@ -7491,7 +7491,7 @@ These models use package SpacePhasors.
             points={{30,-20},{90,-20},{90,0}}));
         connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{-10,-40},{-10,-80},{0,-80},{0,-80}}, color={191,0,0}));
+            points={{-10,-30},{-10,-80},{0,-80},{0,-80}}, color={191,0,0}));
         connect(internalSupport, permanentMagnet.support) annotation (Line(
             points={{60,-100},{60,-100},{60,-90},{30,-90},{30,-40},{30,-40}}));
         annotation (
@@ -7831,7 +7831,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
       equation
         connect(ir, damperCage.i);
         connect(idq_dr, damperCage.i);
-        connect(damperCageLossPower, damperCage.lossPower);
+        connect(damperCageLossPower, damperCage.damperCageLossPower);
         if not useDamperCage then
           damperCageLossPower = 0;
         end if;
@@ -7856,7 +7856,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{-70,50},{-60,50},{-60,40},{50,40},{50,-80},{0,-80}}, color={191,0,0}));
         connect(re.heatPort, internalThermalPort.heatPortExcitation)
           annotation (Line(
-            points={{-70,10},{-60,10},{-60,40},{50,40},{50,-80},{0,-80}}, color={191,0,0}));
+            points={{-70,20},{-60,20},{-60,40},{50,40},{50,-80},{0,-80}}, color={191,0,0}));
         connect(airGap.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{70,0}}));
         connect(airGap.support, internalSupport) annotation (Line(
@@ -7864,7 +7864,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 
         connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{-10,-40},{-10,-80},{0,-80},{0,-80}}, color={191,0,0}));
+            points={{-10,-30},{-10,-80},{0,-80},{0,-80}}, color={191,0,0}));
         annotation (
           defaultComponentName="smee",
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -8170,7 +8170,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
       equation
         connect(ir, damperCage.i);
         connect(idq_dr, damperCage.i);
-        connect(damperCageLossPower, damperCage.lossPower);
+        connect(damperCageLossPower, damperCage.damperCageLossPower);
         if not useDamperCage then
           damperCageLossPower = 0;
         end if;
@@ -8184,7 +8184,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{10,0},{70,0}}));
         connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{-10,-40},{-10,-60},{-10,-60},{-10,-80},{0,-80}}, color={191,0,0}));
+            points={{-10,-30},{-10,-60},{-10,-60},{-10,-80},{0,-80}}, color={191,0,0}));
         annotation (
           defaultComponentName="smr",
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -11120,6 +11120,9 @@ Material properties alpha of both axis are the same.
           each final unit="A") = -spacePhasor_r.i_ "Currents out from damper";
         Machines.Interfaces.SpacePhasor spacePhasor_r annotation (Placement(
               transformation(extent={{-110,90},{-90,110}})));
+        Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(
+          final quantity="Power",
+          final unit="W") = lossPower "Damper losses";
       equation
         assert((1 + alpha*(TheatPort - T_ref)) >= Modelica.Constants.eps,
           "Temperature outside scope of model!");
