@@ -2189,7 +2189,7 @@ and will interpret it in the same way. Short Overview:
     <ul>
     <li><strong>Version 3.2.3</strong> with respect to 3.2.2:
         <ul>
-        <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">557 issues (including pull requests)</a> have been have been addressed for this release.</li>
+        <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/ResolvedGitHubIssues.html\">557 issues (including pull requests)</a> have been addressed for this release.</li>
         <li><strong>94</strong> component models and blocks, <strong>36</strong> example models and <strong>9</strong> functions are newly included.</li>
         <li>The license has been changed to BSD 3-clause, visit: <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.<br>&nbsp;</li>
         </ul>
