@@ -2150,6 +2150,7 @@ Choose a layout and plot tauElectrical and tauShaft versus wMechanical.
         <em>Hanser</em>,
         ISBN 978-3-446-45218-3, 2017.</td>
     </tr>
+</table>
 </html>"));
       end IMC_DCBraking;
       annotation (Documentation(info="<html>
