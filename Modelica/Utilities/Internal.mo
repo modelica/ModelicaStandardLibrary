@@ -54,12 +54,10 @@ This model is documented at
   model PartialVector "Interface for 3D animation of a vector quantity (force, torque etc)"
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
-      import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      import SI = Modelica.SIunits;
 
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the vector frame" annotation(Dialog);
-      input SI.Position r[3]={0,0,0}
+      input Modelica.SIunits.Position r[3]={0,0,0}
         "Position vector from origin of world frame to origin of vector, resolved in world frame" annotation(Dialog);
       input Real r_value[3]={0,0,0}
         "Value of the vector" annotation(Dialog);
