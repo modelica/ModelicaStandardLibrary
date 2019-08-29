@@ -338,7 +338,7 @@ For current settings, the termination condition should indeed be fulfilled right
 </html>"));
   end FullRobot;
 
-  package Utilities "Library of utility components of the robot"
+  package Utilities "Utility classes for robot examples"
     extends Modelica.Icons.UtilitiesPackage;
 
     expandable connector AxisControlBus "Data bus for one robot axis"

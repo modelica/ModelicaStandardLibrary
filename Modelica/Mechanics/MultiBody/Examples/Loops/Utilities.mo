@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-package Utilities "Utility models for Examples.Loops"
+package Utilities "Utility classes for examples of kinematic loops"
   extends Modelica.Icons.UtilitiesPackage;
 
   model Cylinder "Cylinder with rod and crank of a combustion engine"
