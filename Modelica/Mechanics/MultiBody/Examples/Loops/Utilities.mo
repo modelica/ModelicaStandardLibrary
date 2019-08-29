@@ -13,12 +13,12 @@ package Utilities "Utility models for Examples.Loops"
       "Offset of crank pin from center axis";
     parameter SI.Length crankPinLength=0.1
       "Offset of crank pin from center axis";
-    parameter SI.Angle cylinderInclination=0 "Inclination of cylinder";
+    parameter SI.Angle cylinderInclinationAngle=0 "Inclination of cylinder";
     parameter SI.Angle crankAngleOffset=0 "Offset for crank angle";
     parameter SI.Length cylinderLength=cylinderTopPosition - (pistonLength +
         rodLength - crankPinOffset) "Maximum length of cylinder volume";
 
-    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder piston(
       diameter=0.1,
       r={0,pistonLength,0},
       color={180,180,180},
@@ -26,7 +26,7 @@ package Utilities "Utility models for Examples.Loops"
           origin={20,30},
           extent={{10,10},{-10,-10}},
           rotation=270)));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox Rod(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox connectingRod(
       widthDirection={1,0,0},
       height=0.06,
       color={0,0,200},
@@ -37,12 +37,12 @@ package Utilities "Utility models for Examples.Loops"
           origin={60,-10},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Joints.Revolute B2(
+    Modelica.Mechanics.MultiBody.Joints.Revolute b2(
       n={1,0,0},
       cylinderLength=0.02,
       animation=animation,
       cylinderDiameter=0.055) annotation (Placement(transformation(extent={{30,0},{50,20}})));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox crank4(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
@@ -52,21 +52,21 @@ package Utilities "Utility models for Examples.Loops"
           origin={50,-70},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank3(
       r_shape={-0.01,0,0},
       length=0.12,
       diameter=0.03,
       r={crankPinLength,0,0},
       color={180,180,180},
       animation=animation) annotation (Placement(transformation(extent={{10.5,-60},{30.5,-40}})));
-    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank1(
       diameter=0.05,
       r_shape={-0.01,0,0},
       length=0.12,
       r={crankLength - crankPinLength,0,0},
       color={180,180,180},
       animation=animation) annotation (Placement(transformation(extent={{-50,-100},{-30,-80}})));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox crank2(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
@@ -75,39 +75,39 @@ package Utilities "Utility models for Examples.Loops"
           origin={-10,-70},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Joints.RevolutePlanarLoopConstraint B1(
+    Joints.RevolutePlanarLoopConstraint b1(
       n={1,0,0},
       cylinderLength=0.02,
       animation=animation,
       cylinderDiameter=0.055) annotation (Placement(transformation(extent={{30,-20},{50,-40}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={crankPinLength/2,0,0}, animation=
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation mid(r={crankPinLength/2,0,0}, animation=
           false) annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
-    Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(useAxisFlange=true,
+    Modelica.Mechanics.MultiBody.Joints.Prismatic cylinder(useAxisFlange=true,
       s(start=-0.3),
       n={0,-1,0},
       boxWidth=0.02) annotation (Placement(transformation(
           origin={20,60},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation mounting(r={crankLength,0,0}, animation=
           false) annotation (Placement(transformation(extent={{0,90},{20,110}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation cylinderInclination(
       r={crankLength - crankPinLength/2,0,0},
-      n_y={0,Modelica.Math.cos(cylinderInclination),Modelica.Math.sin(cylinderInclination)},
+      n_y={0,Modelica.Math.cos(cylinderInclinationAngle),Modelica.Math.sin(cylinderInclinationAngle)},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors)
       annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle1(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation crankAngle1(
       n_y={0,Modelica.Math.cos(crankAngleOffset),Modelica.Math.sin(crankAngleOffset)},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors)
       annotation (Placement(transformation(extent={{-90,-100},{-70,-80}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle2(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation crankAngle2(
       n_y={0,Modelica.Math.cos(-crankAngleOffset),Modelica.Math.sin(-crankAngleOffset)},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors)
       annotation (Placement(transformation(extent={{70,-100},{90,-80}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation CylinderTop(r={0,cylinderTopPosition,0},
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylinderTop(r={0,cylinderTopPosition,0},
         animation=false) annotation (Placement(transformation(
           origin={-30,60},
           extent={{-10,-10},{10,10}},
@@ -122,84 +122,84 @@ package Utilities "Utility models for Examples.Loops"
     Interfaces.Frame_a crank_a annotation (Placement(transformation(extent={{-116,-116},{-84,-84}})));
     Interfaces.Frame_a crank_b annotation (Placement(transformation(extent={{84,-116},{116,-84}})));
   equation
-    connect(B1.frame_a, Mid.frame_b) annotation (Line(
+    connect(b1.frame_a, mid.frame_b) annotation (Line(
         points={{30,-30},{20,-30}},
         color={95,95,95},
         thickness=0.5));
-    connect(Rod.frame_a, B1.frame_b) annotation (Line(
+    connect(connectingRod.frame_a, b1.frame_b) annotation (Line(
         points={{60,-20},{60,-30},{50,-30}},
         color={95,95,95},
         thickness=0.5));
-    connect(Cylinder.frame_b, Piston.frame_b) annotation (Line(
+    connect(cylinder.frame_b, piston.frame_b) annotation (Line(
         points={{20,50},{20,40}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank1.frame_a, CrankAngle1.frame_b)
+    connect(crank1.frame_a, crankAngle1.frame_b)
       annotation (Line(
         points={{-50,-90},{-70,-90}},
         color={95,95,95},
         thickness=0.5));
-    connect(B2.frame_a, Piston.frame_a) annotation (Line(
+    connect(b2.frame_a, piston.frame_a) annotation (Line(
         points={{30,10},{20,10},{20,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(Rod.frame_b, B2.frame_b) annotation (Line(
+    connect(connectingRod.frame_b, b2.frame_b) annotation (Line(
         points={{60,0},{60,10},{50,10}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank4.frame_b, CrankAngle2.frame_a) annotation (Line(
+    connect(crank4.frame_b, crankAngle2.frame_a) annotation (Line(
         points={{50,-80},{50,-90},{70,-90}},
         color={95,95,95},
         thickness=0.5));
-    connect(CylinderInclination.frame_b, CylinderTop.frame_a)
+    connect(cylinderInclination.frame_b, cylinderTop.frame_a)
       annotation (Line(
         points={{-50,40},{-30,40},{-30,50}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank1.frame_b, Crank2.frame_a) annotation (Line(
+    connect(crank1.frame_b, crank2.frame_a) annotation (Line(
         points={{-30,-90},{-10,-90},{-10,-80}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank3.frame_b, Crank4.frame_a) annotation (Line(
+    connect(crank3.frame_b, crank4.frame_a) annotation (Line(
         points={{30.5,-50},{50,-50},{50,-60}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank3.frame_a, Crank2.frame_b) annotation (Line(
+    connect(crank3.frame_a, crank2.frame_b) annotation (Line(
         points={{10.5,-50},{-10,-50},{-10,-60}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank2.frame_b, Mid.frame_a) annotation (Line(
+    connect(crank2.frame_b, mid.frame_a) annotation (Line(
         points={{-10,-60},{-10,-30},{0,-30}},
         color={95,95,95},
         thickness=0.5));
-    connect(CylinderTop.frame_b, Cylinder.frame_a) annotation (Line(
+    connect(cylinderTop.frame_b, cylinder.frame_a) annotation (Line(
         points={{-30,70},{-30,80},{20,80},{20,70}},
         color={95,95,95},
         thickness=0.5));
-    connect(CylinderInclination.frame_a, cylinder_a) annotation (Line(
+    connect(cylinderInclination.frame_a, cylinder_a) annotation (Line(
         points={{-70,40},{-80,40},{-80,100},{-100,100}},
         color={95,95,95},
         thickness=0.5));
-    connect(Mounting.frame_a, cylinder_a) annotation (Line(
+    connect(mounting.frame_a, cylinder_a) annotation (Line(
         points={{0,100},{-100,100}},
         color={95,95,95},
         thickness=0.5));
-    connect(Mounting.frame_b, cylinder_b) annotation (Line(
+    connect(mounting.frame_b, cylinder_b) annotation (Line(
         points={{20,100},{100,100}},
         color={95,95,95},
         thickness=0.5));
-    connect(CrankAngle1.frame_a, crank_a) annotation (Line(
+    connect(crankAngle1.frame_a, crank_a) annotation (Line(
         points={{-90,-90},{-100,-90},{-100,-100}},
         color={95,95,95},
         thickness=0.5));
-    connect(CrankAngle2.frame_b, crank_b) annotation (Line(
+    connect(crankAngle2.frame_b, crank_b) annotation (Line(
         points={{90,-90},{100,-90},{100,-100}},
         color={95,95,95},
         thickness=0.5));
 
-    connect(Cylinder.axis, gasForce.flange_b) annotation (Line(points={{26,52},{30,52},{30,50},{50,50}},
+    connect(cylinder.axis, gasForce.flange_b) annotation (Line(points={{26,52},{30,52},{30,50},{50,50}},
                                                                                          color={0,127,0}));
-    connect(Cylinder.support, gasForce.flange_a) annotation (Line(points={{26,64},{30,64},{30,70},{50,70}},     color={0,127,0}));
+    connect(cylinder.support, gasForce.flange_a) annotation (Line(points={{26,64},{30,64},{30,70},{50,70}},     color={0,127,0}));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -395,7 +395,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
       "Offset of crank pin from center axis";
     parameter SI.Length crankPinLength=0.1
       "Offset of crank pin from center axis";
-    parameter Cv.NonSIunits.Angle_deg cylinderInclination=0
+    parameter Cv.NonSIunits.Angle_deg cylinderInclinationAngle=0
       "Inclination of cylinder";
     parameter Cv.NonSIunits.Angle_deg crankAngleOffset=0
       "Offset for crank angle";
@@ -436,18 +436,18 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
         pistonLength + rodLength - crankPinOffset)
       "Maximum length of cylinder volume";
 
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(animation=false, r={crankLength -
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation mid(animation=false, r={crankLength -
           crankPinLength/2,crankPinOffset,0})
       annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation mounting(r={crankLength,0,0}, animation=
           false) annotation (Placement(transformation(extent={{-10,90},{10,110}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation cylinderInclination(
       r={crankLength - crankPinLength/2,0,0},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
-      angle=cylinderInclination) annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle(
+      angle=cylinderInclinationAngle) annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation crankAngle(
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
@@ -465,7 +465,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
           origin={0,0},
           extent={{-20,20},{20,-20}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Parts.BodyShape Rod(
+    Modelica.Mechanics.MultiBody.Parts.BodyShape connectingRod(
       animation=animation,
       r={0,rodLength,0},
       r_CM={0,rodLength/2,0},
@@ -486,7 +486,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
           origin={50,0},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Parts.BodyShape Piston(
+    Modelica.Mechanics.MultiBody.Parts.BodyShape piston(
       animation=animation,
       r={0,pistonLength,0},
       r_CM={0,pistonLength/2,0},
@@ -504,7 +504,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
       I_22=pistonInertia_22,
       I_33=pistonInertia_33) annotation (Placement(transformation(
           origin={50,30},
-          extent={{10,-10},{-10,10}},
+          extent={{10,10},{-10,-10}},
           rotation=270)));
     GasForce2 gasForce(L=cylinderLength, d=0.1)
       annotation (Placement(transformation(
@@ -512,7 +512,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
           extent={{10,10},{-10,-10}},
           rotation=180)));
 
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0})
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation crank(animation=false, r={crankLength,0,0})
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     Interfaces.Frame_a cylinder_a annotation (Placement(transformation(extent={{-116,84},
               {-84,116}})));
@@ -524,47 +524,47 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
               {116,-84}})));
   equation
 
-    connect(jointRRP.frame_ia, Rod.frame_a) annotation (Line(
+    connect(jointRRP.frame_ia, connectingRod.frame_a) annotation (Line(
         points={{20,-16},{50,-16},{50,-10}},
         color={95,95,95},
         thickness=0.5));
-    connect(Mid.frame_b, jointRRP.frame_a) annotation (Line(
+    connect(mid.frame_b, jointRRP.frame_a) annotation (Line(
         points={{-40,-30},{-1.33227e-015,-30},{-1.33227e-015,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(jointRRP.frame_ib, Piston.frame_b) annotation (Line(
+    connect(jointRRP.frame_ib, piston.frame_b) annotation (Line(
         points={{20,16},{30,16},{30,50},{50,50},{50,40}},
         color={95,95,95},
         thickness=0.5));
-    connect(jointRRP.frame_b, CylinderInclination.frame_b) annotation (Line(
+    connect(jointRRP.frame_b, cylinderInclination.frame_b) annotation (Line(
         points={{1.22125e-015,20},{0,20},{0,30},{-40,30}},
         color={95,95,95},
         thickness=0.5));
-    connect(CrankAngle.frame_b, Mid.frame_a) annotation (Line(
+    connect(crankAngle.frame_b, mid.frame_a) annotation (Line(
         points={{-70,-60},{-70,-30},{-60,-30}},
         color={95,95,95},
         thickness=0.5));
-    connect(cylinder_a, CylinderInclination.frame_a) annotation (Line(
+    connect(cylinder_a, cylinderInclination.frame_a) annotation (Line(
         points={{-100,100},{-70,100},{-70,30},{-60,30}},
         color={95,95,95},
         thickness=0.5));
-    connect(cylinder_a, Mounting.frame_a) annotation (Line(
+    connect(cylinder_a, mounting.frame_a) annotation (Line(
         points={{-100,100},{-10,100}},
         color={95,95,95},
         thickness=0.5));
-    connect(cylinder_b, Mounting.frame_b) annotation (Line(
+    connect(cylinder_b, mounting.frame_b) annotation (Line(
         points={{100,100},{10,100}},
         color={95,95,95},
         thickness=0.5));
-    connect(CrankAngle.frame_a, crank_a) annotation (Line(
+    connect(crankAngle.frame_a, crank_a) annotation (Line(
         points={{-70,-80},{-70,-100},{-100,-100}},
         color={95,95,95},
         thickness=0.5));
-    connect(crank_a, Crank.frame_a) annotation (Line(
+    connect(crank_a, crank.frame_a) annotation (Line(
         points={{-100,-100},{-10,-100}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank.frame_b, crank_b) annotation (Line(
+    connect(crank.frame_b, crank_b) annotation (Line(
         points={{10,-100},{100,-100}},
         color={95,95,95},
         thickness=0.5));
@@ -620,7 +620,7 @@ Slider-crank mechanism with analytic handling of kinematic loop to model one cyl
   model Cylinder_analytic_CAD
     "One cylinder with analytic handling of kinematic loop and CAD visualization"
     extends CylinderBase;
-    Visualizers.FixedShape CrankShape(
+    Visualizers.FixedShape crankShape(
       animation=animation,
       shapeType="modelica://Modelica/Resources/Data/Shapes/Engine/crank.dxf",
       lengthDirection={1,0,0},
@@ -636,7 +636,7 @@ Slider-crank mechanism with analytic handling of kinematic loop to model one cyl
           rotation=180)));
   equation
 
-    connect(CrankShape.frame_a, CrankAngle.frame_b)
+    connect(crankShape.frame_a, crankAngle.frame_b)
       annotation (Line(
         points={{-80,-30},{-70,-30},{-70,-60}},
         color={95,95,95},
@@ -660,33 +660,33 @@ Model of one cylinder of an engine with analytic loop handling of the slider cra
 
     Cylinder cylinder1(
       crankAngleOffset=-30,
-      cylinderInclination=-30,
+      cylinderInclinationAngle=-30,
       animation=animation) annotation (Placement(transformation(extent={{-90,
               -10},{-70,10}})));
     Cylinder cylinder2(
       crankAngleOffset=90,
-      cylinderInclination=30,
+      cylinderInclinationAngle=30,
       animation=animation) annotation (Placement(transformation(extent={{-60,
               -10},{-40,10}})));
     Cylinder cylinder3(
-      cylinderInclination=-30,
+      cylinderInclinationAngle=-30,
       animation=animation,
       crankAngleOffset=210)
                            annotation (Placement(transformation(extent={{-30,
               -10},{-10,10}})));
     Cylinder cylinder4(
-      cylinderInclination=30,
+      cylinderInclinationAngle=30,
       animation=animation,
       crankAngleOffset=210)
                            annotation (Placement(transformation(extent={{0,-10},
               {20,10}})));
     Cylinder cylinder5(
-      cylinderInclination=-30,
+      cylinderInclinationAngle=-30,
       animation=animation,
       crankAngleOffset=90) annotation (Placement(transformation(extent={{30,-10},
               {50,10}})));
     Cylinder cylinder6(
-      cylinderInclination=30,
+      cylinderInclinationAngle=30,
       animation=animation,
       crankAngleOffset=-30)
                            annotation (Placement(transformation(extent={{60,-10},
@@ -800,12 +800,12 @@ solved analytically.
 
   partial model Engine1bBase "Model of one cylinder engine with gas force"
 
-    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0})
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder piston(diameter=0.1, r={0,-0.1,0})
       annotation (Placement(transformation(
           origin={80,30},
           extent={{-10,10},{10,-10}},
           rotation=270)));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox Rod2(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox connectingRod(
       widthDirection={1,0,0},
       width=0.02,
       height=0.06,
@@ -814,13 +814,13 @@ solved analytically.
           origin={80,-10},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Joints.Revolute Bearing(useAxisFlange=true,
+    Modelica.Mechanics.MultiBody.Joints.Revolute bearing(useAxisFlange=true,
       n={1,0,0},
       cylinderLength=0.02,
       cylinderDiameter=0.05) annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
     inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
           transformation(extent={{-100,-100},{-80,-80}})));
-    Modelica.Mechanics.Rotational.Components.Inertia Inertia(
+    Modelica.Mechanics.Rotational.Components.Inertia inertia(
       stateSelect=StateSelect.always,
       J=0.1,
       w(fixed=true),
@@ -829,7 +829,7 @@ solved analytically.
         start=0.001,
         displayUnit="rad")) annotation (Placement(transformation(
             extent={{-60,-70},{-40,-50}})));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox crank4(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
@@ -837,11 +837,11 @@ solved analytically.
           origin={70,-80},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=0.03) annotation (
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank3(r={0.1,0,0}, diameter=0.03) annotation (
                                    Placement(transformation(extent={{30,-80},{50,-60}})));
-    Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0})
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank1(diameter=0.05, r={0.1,0,0})
       annotation (Placement(transformation(extent={{-30,-100},{-10,-80}})));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox crank2(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
@@ -850,27 +850,27 @@ solved analytically.
           origin={0,-80},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0})
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation mid(r={0.05,0,0})
       annotation (Placement(transformation(extent={{10,-44},{30,-64}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(                 animation=false, r={0.15,
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(animation=false, r={0.15,
           0.55,0})
       annotation (Placement(transformation(extent={{-60,70},{-40,90}})));
-    Utilities.GasForce2 gasForce(        d=0.1, L=0.35)
+    Utilities.GasForce2 gasForce(d=0.1, L=0.35)
       annotation (Placement(transformation(
           origin={80,70},
           extent={{10,-10},{-10,10}},
           rotation=90)));
   equation
-    connect(world.frame_b, Bearing.frame_a)
+    connect(world.frame_b, bearing.frame_a)
       annotation (Line(
         points={{-80,-90},{-60,-90}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank2.frame_a, Crank1.frame_b) annotation (Line(
+    connect(crank2.frame_a, crank1.frame_b) annotation (Line(
         points={{-4.44089e-016,-90},{-10,-90}},
         color={95,95,95},
         thickness=0.5));
-    connect(Bearing.frame_b, Crank1.frame_a) annotation (Line(
+    connect(bearing.frame_b, crank1.frame_a) annotation (Line(
         points={{-40,-90},{-30,-90}},
         color={95,95,95},
         thickness=0.5));
@@ -878,16 +878,16 @@ solved analytically.
         points={{-80,-90},{-70,-90},{-70,80},{-60,80}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank3.frame_b, Crank4.frame_a) annotation (Line(
+    connect(crank3.frame_b, crank4.frame_a) annotation (Line(
         points={{50,-70},{70,-70}},
         color={95,95,95},
         thickness=0.5));
-    connect(Inertia.flange_b, Bearing.axis) annotation (Line(points={{-40,-60},{-40,-80},{-50,-80}}));
-    connect(Crank2.frame_b, Crank3.frame_a) annotation (Line(
+    connect(inertia.flange_b, bearing.axis) annotation (Line(points={{-40,-60},{-40,-80},{-50,-80}}));
+    connect(crank2.frame_b, crank3.frame_a) annotation (Line(
         points={{6.66134e-016,-70},{30,-70}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank2.frame_b, Mid.frame_a) annotation (Line(
+    connect(crank2.frame_b, mid.frame_a) annotation (Line(
         points={{6.66134e-016,-70},{10,-70},{10,-54}},
         color={95,95,95},
         thickness=0.5));
@@ -907,7 +907,7 @@ difficulty that the cut-forces perpendicular to the loop cannot be
 uniquely computed, as well as the cut-torques within the plane.
 This ambiguity is resolved by using the option <strong>planarCutJoint</strong>
 in the <strong>Advanced</strong> menu of one revolute joint in every planar loop
-(here: joint B1). This option sets the cut-force in direction of the
+(here: joint b1). This option sets the cut-force in direction of the
 axis of rotation, as well as the cut-torques perpendicular to the axis
 of rotation at this joint to zero and makes the problem mathematically
 well-formed.
