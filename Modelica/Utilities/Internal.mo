@@ -68,7 +68,7 @@ This model is documented at
       input Types.SpecularCoefficient specularCoefficient = 0.7
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
                                                                                                             annotation(Dialog);
-      input Boolean pushing=true "If true the vector is pointing towards the origin" annotation(Dialog);
+      input Boolean pushing=true "= true, if the vector is pointing towards the origin" annotation(Dialog);
       input Types.VectorQuantity quantity = Types.VectorQuantity.Force "The quantity of the value" annotation(Dialog);
 
     annotation (
