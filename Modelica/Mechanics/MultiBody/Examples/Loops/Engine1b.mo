@@ -56,7 +56,7 @@ equation
       points={{80,40},{80,55},{30,55},{30,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(b1.frame_b, rod2.frame_a) annotation (Line(
+  connect(b1.frame_b, connectingRod.frame_a) annotation (Line(
       points={{40,-30},{80,-30},{80,-20}},
       color={95,95,95},
       thickness=0.5));

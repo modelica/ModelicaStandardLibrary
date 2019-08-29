@@ -6,7 +6,7 @@ model Engine1a "Model of one cylinder engine"
         origin={30,40},
         extent={{-10,10},{10,-10}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Parts.BodyBox rod(
+  Modelica.Mechanics.MultiBody.Parts.BodyBox connectingRod(
     widthDirection={1,0,0},
     width=0.02,
     height=0.06,
@@ -99,11 +99,11 @@ equation
       points={{20,-30},{10,-30},{10,-44},{30,-44},{30,-54}},
       color={95,95,95},
       thickness=0.5));
-  connect(b1.frame_b, rod.frame_b) annotation (Line(
+  connect(b1.frame_b, connectingRod.frame_b) annotation (Line(
       points={{40,-30},{50,-30},{50,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(rod.frame_a, b2.frame_b) annotation (Line(
+  connect(connectingRod.frame_a, b2.frame_b) annotation (Line(
       points={{50,0},{50,10},{40,10}},
       color={95,95,95},
       thickness=0.5));

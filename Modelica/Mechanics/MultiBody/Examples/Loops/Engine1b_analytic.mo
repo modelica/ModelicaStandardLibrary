@@ -29,8 +29,8 @@ equation
       points={{40,36},{60,36},{60,40},{80,40}},
       color={95,95,95},
       thickness=0.5));
-  connect(jointRRP.frame_ia, rod2.frame_a) annotation (Line(
-      points={{40,4},{60,4},{60,-20},{80,-20},{80,-20}},
+  connect(jointRRP.frame_ia, connectingRod.frame_a) annotation (Line(
+      points={{40,4},{60,4},{60,-20},{80,-20}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=0.5), Documentation(info="<html>

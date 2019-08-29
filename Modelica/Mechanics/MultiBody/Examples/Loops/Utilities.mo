@@ -26,7 +26,7 @@ package Utilities "Utility models for Examples.Loops"
           origin={20,30},
           extent={{10,10},{-10,-10}},
           rotation=270)));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox rod(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox connectingRod(
       widthDirection={1,0,0},
       height=0.06,
       color={0,0,200},
@@ -126,7 +126,7 @@ package Utilities "Utility models for Examples.Loops"
         points={{30,-30},{20,-30}},
         color={95,95,95},
         thickness=0.5));
-    connect(rod.frame_a, b1.frame_b) annotation (Line(
+    connect(connectingRod.frame_a, b1.frame_b) annotation (Line(
         points={{60,-20},{60,-30},{50,-30}},
         color={95,95,95},
         thickness=0.5));
@@ -143,7 +143,7 @@ package Utilities "Utility models for Examples.Loops"
         points={{30,10},{20,10},{20,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(rod.frame_b, b2.frame_b) annotation (Line(
+    connect(connectingRod.frame_b, b2.frame_b) annotation (Line(
         points={{60,0},{60,10},{50,10}},
         color={95,95,95},
         thickness=0.5));
@@ -569,7 +569,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce\">
           origin={0,0},
           extent={{-20,20},{20,-20}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Parts.BodyShape rod(
+    Modelica.Mechanics.MultiBody.Parts.BodyShape connectingRod(
       animation=animation,
       r={0,rodLength,0},
       r_CM={0,rodLength/2,0},
@@ -608,7 +608,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce\">
       I_22=pistonInertia_22,
       I_33=pistonInertia_33) annotation (Placement(transformation(
           origin={50,30},
-          extent={{10,-10},{-10,10}},
+          extent={{10,10},{-10,-10}},
           rotation=270)));
     GasForce2 gasForce(L=cylinderLength, d=0.1)
       annotation (Placement(transformation(
@@ -628,7 +628,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce\">
               {116,-84}})));
   equation
 
-    connect(jointRRP.frame_ia, rod.frame_a) annotation (Line(
+    connect(jointRRP.frame_ia, connectingRod.frame_a) annotation (Line(
         points={{20,-16},{50,-16},{50,-10}},
         color={95,95,95},
         thickness=0.5));
@@ -909,7 +909,7 @@ solved analytically.
           origin={80,30},
           extent={{-10,10},{10,-10}},
           rotation=270)));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox rod2(
+    Modelica.Mechanics.MultiBody.Parts.BodyBox connectingRod(
       widthDirection={1,0,0},
       width=0.02,
       height=0.06,
