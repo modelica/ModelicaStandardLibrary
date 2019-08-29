@@ -8680,5 +8680,21 @@ solved, i.e., robustly and efficiently).
       </td>
   </tr>
 </table>
-</html>"), Icon(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {10, 10}), graphics = {Rectangle(origin = {35, -20}, lineColor = {64, 64, 64}, fillColor = {255, 255, 255}, fillPattern = FillPattern.VerticalCylinder, extent = {{-15, 0}, {15, 105}}), Rectangle(origin = {35, -20}, rotation = 120, lineColor = {64, 64, 64}, fillColor = {255, 255, 255}, fillPattern = FillPattern.VerticalCylinder, extent = {{-15, 0}, {15, 105}}), Ellipse(origin = {35, -20}, rotation = -45, lineColor = {64, 64, 64}, fillColor = {255, 255, 255}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-20, -20}, {20, 20}}), Ellipse(origin = {35, -20}, lineColor = {255, 255, 255}, fillColor = {64, 64, 64}, fillPattern = FillPattern.Solid, extent = {{-10, -10}, {10, 10}})}));
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}), graphics={
+        Polygon(
+          points={{6,6},{28,-2},{54,80},{32,86},{6,6}},
+          lineColor={95,95,95},
+          fillPattern=FillPattern.Sphere,
+          fillColor={255,255,255}),
+        Polygon(
+          points={{-12,-18},{0,-36},{-70,-84},{-82,-66},{-12,-18}},
+          lineColor={95,95,95},
+          fillPattern=FillPattern.Sphere,
+          fillColor={255,255,255}),
+        Ellipse(
+          extent={{-12,8},{34,-38}},
+          lineColor={95,95,95},
+          fillPattern=FillPattern.Sphere,
+          fillColor={95,95,95})}));
 end Joints;
