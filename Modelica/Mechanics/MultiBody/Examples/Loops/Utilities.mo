@@ -551,7 +551,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce\">
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
       angle=cylinderInclinationAngle) annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-    Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle(
+    Modelica.Mechanics.MultiBody.Parts.FixedRotation crankAngle(
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
@@ -616,7 +616,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce\">
           extent={{10,10},{-10,-10}},
           rotation=180)));
 
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0})
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation crank(animation=false, r={crankLength,0,0})
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     Interfaces.Frame_a cylinder_a annotation (Placement(transformation(extent={{-116,84},
               {-84,116}})));
@@ -644,7 +644,7 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce\">
         points={{1.22125e-015,20},{0,20},{0,30},{-40,30}},
         color={95,95,95},
         thickness=0.5));
-    connect(CrankAngle.frame_b, mid.frame_a) annotation (Line(
+    connect(crankAngle.frame_b, mid.frame_a) annotation (Line(
         points={{-70,-60},{-70,-30},{-60,-30}},
         color={95,95,95},
         thickness=0.5));
@@ -660,15 +660,15 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce\">
         points={{100,100},{10,100}},
         color={95,95,95},
         thickness=0.5));
-    connect(CrankAngle.frame_a, crank_a) annotation (Line(
+    connect(crankAngle.frame_a, crank_a) annotation (Line(
         points={{-70,-80},{-70,-100},{-100,-100}},
         color={95,95,95},
         thickness=0.5));
-    connect(crank_a, Crank.frame_a) annotation (Line(
+    connect(crank_a, crank.frame_a) annotation (Line(
         points={{-100,-100},{-10,-100}},
         color={95,95,95},
         thickness=0.5));
-    connect(Crank.frame_b, crank_b) annotation (Line(
+    connect(crank.frame_b, crank_b) annotation (Line(
         points={{10,-100},{100,-100}},
         color={95,95,95},
         thickness=0.5));
@@ -724,7 +724,7 @@ Slider-crank mechanism with analytic handling of kinematic loop to model one cyl
   model Cylinder_analytic_CAD
     "One cylinder with analytic handling of kinematic loop and CAD visualization"
     extends CylinderBase;
-    Visualizers.FixedShape CrankShape(
+    Visualizers.FixedShape crankShape(
       animation=animation,
       shapeType="modelica://Modelica/Resources/Data/Shapes/Engine/crank.dxf",
       lengthDirection={1,0,0},
@@ -740,7 +740,7 @@ Slider-crank mechanism with analytic handling of kinematic loop to model one cyl
           rotation=180)));
   equation
 
-    connect(CrankShape.frame_a, CrankAngle.frame_b)
+    connect(crankShape.frame_a, crankAngle.frame_b)
       annotation (Line(
         points={{-80,-30},{-70,-30},{-70,-60}},
         color={95,95,95},
