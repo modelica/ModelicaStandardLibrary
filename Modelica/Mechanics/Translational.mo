@@ -1733,10 +1733,10 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         annotation(Dialog(enable=false));
       final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alpha) "Grav resistance"
       annotation(Dialog(enable=false));
-      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,0,0; 5,0,0;
-            5,5.6,0; 10.8,5.6,0; 10.8,1,0; 20,1,0; 20,2.8,0.05; 25,2.8,0.05; 25,
-            1,0; 50,1,0; 50,-5,0; 55,-5,0; 55,0,0; 60,0,0],
-                                     extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
+      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
+        table=[0,0,0; 5,0,0; 5,5.6,0; 10.8,5.6,0; 10.8,1,0; 20,1,0; 20,2.8,0.05;
+               25,2.8,0.05; 25, 1,0; 50,1,0; 50,-5,0; 55,-5,0; 55,0,0; 60,0,0],
+        extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Modelica.Blocks.Math.Gain gain(k=(FDrag + FRoll + FGrav)*D/2)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
@@ -1780,7 +1780,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         s(fixed=false),
         v(fixed=false))
         annotation (Placement(transformation(extent={{70,40},{90,60}})));
-      Blocks.Math.Gain          gain1(k=2)
+      Blocks.Math.Gain gain1(k=2)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-10,30})));
@@ -3401,7 +3401,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 
     model Vehicle "Simple one-dimensional vehicle model"
       parameter SI.Mass m "Total mass of vehicle";
-      parameter SI.Acceleration g=Modelica.Constants.g_n "Gravitational constant";
+      parameter SI.Acceleration g=Modelica.Constants.g_n "Constant gravity acceleration";
       parameter SI.Inertia J "Total rotational inertia of drive train";
       parameter SI.Length D "Wheel diameter";
       parameter SI.Area A(start=1) "Cross section of vehicle"
