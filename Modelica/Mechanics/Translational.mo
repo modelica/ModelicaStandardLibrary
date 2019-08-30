@@ -1789,8 +1789,8 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
     equation
       connect(combiTimeTable.y[1], gain.u)
         annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
-      connect(combiTimeTable.y[2], vehicle.inclination) annotation (Line(points
-            ={{-59,0},{-50,0},{-50,-20},{34,-20},{34,-12}}, color={0,0,127}));
+      connect(combiTimeTable.y[2], vehicle.inclination) annotation (Line(points=
+             {{-59,0},{-50,0},{-50,-20},{34,-20},{34,-12}}, color={0,0,127}));
       connect(gain.y, torque.tau)
         annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
       connect(torque.flange, vehicle.flangeR)
@@ -3491,8 +3491,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-40,-40})));
-      Blocks.Math.Gain rollForceGain(final k=-m*g) annotation (Placement(
-            transformation(
+      Blocks.Math.Gain gravForceGain(final k=-m*g) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-60,10})));
@@ -3500,7 +3499,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={0,-10})));
-      Blocks.Math.Gain gravForceGain(final k=-m*g) annotation (Placement(
+      Blocks.Math.Gain rollForceGain(final k=-m*g) annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
@@ -3552,16 +3551,14 @@ following references, especially (Armstrong and Canudas de Wit 1996):
         annotation (Line(points={{-60,-32},{-60,-49}}, color={0,0,127}));
       connect(atan.y, cos.u)
         annotation (Line(points={{-60,-49},{-60,-40},{-52,-40}}, color={0,0,127}));
-      connect(rollForceGain.u, sin.y)
-        annotation (Line(points={{-60,-2},{-60,-9}}, color={0,0,127}));
+      connect(gravForceGain.u, sin.y) annotation (Line(points={{-60,-2},{-60,-9}}, color={0,0,127}));
       connect(cos.y, product.u1)
         annotation (Line(points={{-29,-40},{-6,-40},{-6,-22}}, color={0,0,127}));
-      connect(gravForceGain.u, internalCr) annotation (Line(points={{-6.66134e-16,-72},
+      connect(rollForceGain.u, internalCr) annotation (Line(points={{-6.66134e-16,-72},
               {-6.66134e-16,-82},{0,-82},{0,-90}}, color={0,0,127}));
-      connect(gravForceGain.y, product.u2) annotation (Line(points={{8.88178e-16,-49},
+      connect(rollForceGain.y, product.u2) annotation (Line(points={{8.88178e-16,-49},
               {8.88178e-16,-40},{6,-40},{6,-22}}, color={0,0,127}));
-      connect(rollForceGain.y, gravForce.f)
-        annotation (Line(points={{-60,21},{-60,30},{-52,30}}, color={0,0,127}));
+      connect(gravForceGain.y, gravForce.f) annotation (Line(points={{-60,21},{-60,30},{-52,30}}, color={0,0,127}));
       connect(product.y, rollForce.force)
         annotation (Line(points={{0,1},{0,10},{8,10}}, color={0,0,127}));
       connect(mass.flange_b, dragForce.flange) annotation (Line(points={{50,60},
