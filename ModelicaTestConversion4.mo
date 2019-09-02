@@ -63,6 +63,24 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue813;
 
+    model Issue1724 "Conversion test for #1724"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Math.LinearDependency linearDependency(
+        y0=10,
+        k1=100,
+        k2=1000) annotation(Placement(transformation(extent={{-70,65},{-50,85}})));
+      Modelica.Blocks.Sources.Constant const(k=1) annotation(Placement(transformation(extent={{-115,65},{-95,85}})));
+    equation
+      assert(noEvent(linearDependency.y > 11009 and linearDependency.y < 11011), "Break in backward compatibilityof Modelica.Blocks.Math.LinearDependency");
+      connect(const.y, linearDependency.u1) annotation(Line(points={{-94,75},{-89,75},{-77,75},{-77,81},{-72,81}},color={0,0,127}));
+      connect(const.y, linearDependency.u2) annotation(Line(points={{-94,75},{-89,75},{-77,75},{-77,69},{-72,69}},color={0,0,127}));
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1724\">#1724</a>.
+</p>
+</html>"));
+    end Issue1724;
+
     model Issue2441 "Conversion test for #2441"
       extends Modelica.Icons.Example;
       Modelica.Blocks.Tables.CombiTable1D table1(table=[0,0;0,1]);
