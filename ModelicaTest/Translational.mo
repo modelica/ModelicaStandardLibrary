@@ -183,4 +183,121 @@ extends Modelica.Icons.ExamplesPackage;
       experiment(StopTime=2));
   end TestBraking;
 
+  model Vehicles
+    extends Modelica.Icons.Example;
+    Modelica.Mechanics.Translational.Components.Vehicle vehicleDrag(
+      m=1200,
+      J=2.3,
+      D=0.62,
+      A=2.2,
+      cw=0.31,
+      vWindConstant=-2,
+      crConstant=0,
+      inclinationConstant=0,
+      v(fixed=true, start=27.777777777778)) annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    Modelica.Mechanics.Translational.Components.Vehicle vehicleDragInConst(
+      m=1200,
+      J=2.3,
+      D=0.62,
+      A=2.2,
+      cw=0.31,
+      useWindInput=true,
+      vWindConstant=1,
+      crConstant=0,
+      inclinationConstant=0,
+      v(fixed=true, start=27.777777777778)) annotation (Placement(transformation(extent={{0,40},{20,60}})));
+    Modelica.Mechanics.Translational.Components.Vehicle vehicleDragInVar(
+      m=1200,
+      J=2.3,
+      D=0.62,
+      A=2.2,
+      cw=0.31,
+      useWindInput=true,
+      vWindConstant=1,
+      crConstant=0,
+      inclinationConstant=0,
+      v(fixed=true, start=27.777777777778)) annotation (Placement(transformation(extent={{80,40},{100,60}})));
+    Modelica.Mechanics.Translational.Components.Vehicle vehicleRoll(
+      m=1200,
+      J=2.3,
+      D=0.62,
+      A=0,
+      cw=0.31,
+      crConstant=0.013,
+      inclinationConstant=0,
+      v(fixed=true, start=27.777777777778)) annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+    Modelica.Mechanics.Translational.Components.Vehicle vehicleRollInConst(
+      m=1200,
+      J=2.3,
+      D=0.62,
+      A=0,
+      cw=0.31,
+      usecrInput=true,
+      crConstant=0.013,
+      inclinationConstant=0,
+      v(fixed=true, start=27.777777777778)) annotation (Placement(transformation(extent={{-2,0},{18,20}})));
+    Modelica.Mechanics.Translational.Components.Vehicle vehicleRollInVar(
+      m=1200,
+      J=2.3,
+      D=0.62,
+      A=0,
+      cw=0.31,
+      usecrInput=true,
+      crConstant=0.013,
+      inclinationConstant=0,
+      v(fixed=true, start=27.777777777778)) annotation (Placement(transformation(extent={{78,0},{98,20}})));
+    Modelica.Mechanics.Translational.Components.Vehicle vehicleInclination(
+      m=1200,
+      J=2.3,
+      D=0.62,
+      A=0,
+      cw=0.31,
+      crConstant=0,
+      inclinationConstant=0.05,
+      v(fixed=true, start=27.777777777778)) annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+    Modelica.Mechanics.Translational.Components.Vehicle vehicleInclinationInConst(
+      m=1200,
+      J=2.3,
+      D=0.62,
+      A=0,
+      cw=0.31,
+      crConstant=0,
+      useInclinationInput=true,
+      inclinationConstant=0.12,
+      v(fixed=true, start=27.777777777778)) annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+    Modelica.Mechanics.Translational.Components.Vehicle vehicleInclinationInVar(
+      m=1200,
+      J=2.3,
+      D=0.62,
+      A=0,
+      cw=0.31,
+      crConstant=0,
+      useInclinationInput=true,
+      inclinationConstant=0.12,
+      v(fixed=true, start=27.777777777778)) annotation (Placement(transformation(extent={{80,-40},{100,-20}})));
+    Modelica.Blocks.Sources.Constant const1(k=-2) annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    Modelica.Blocks.Sources.Constant const2(k=0.013) annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+    Modelica.Blocks.Sources.Constant const3(k=0.05) annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+    Modelica.Blocks.Sources.Sine sine1(
+      amplitude=1,
+      f=1,
+      offset=-2) annotation (Placement(transformation(extent={{40,20},{60,40}})));
+    Modelica.Blocks.Sources.Sine sine2(
+      amplitude=0.013,
+      f=0.5,
+      offset=0.013) annotation (Placement(transformation(extent={{40,-20},{60,0}})));
+    Modelica.Blocks.Sources.Sine sine3(
+      amplitude=-0.05,
+      f=1,
+      offset=0.05) annotation (Placement(transformation(extent={{40,-60},{60,-40}})));
+  equation
+    connect(const1.y, vehicleDragInConst.vWind) annotation (Line(points={{-19,30},{16,30},{16,38}}, color={0,0,127}));
+    connect(const2.y, vehicleRollInConst.cr) annotation (Line(points={{-19,-10},{8,-10},{8,-2}}, color={0,0,127}));
+    connect(const3.y, vehicleInclinationInConst.inclination) annotation (Line(points={{-19,-50},{4,-50},{4,-42}}, color={0,0,127}));
+    connect(sine1.y, vehicleDragInVar.vWind) annotation (Line(points={{61,30},{96,30},{96,38}}, color={0,0,127}));
+    connect(sine2.y, vehicleRollInVar.cr) annotation (Line(points={{61,-10},{88,-10},{88,-2}}, color={0,0,127}));
+    connect(sine3.y, vehicleInclinationInVar.inclination) annotation (Line(points={{61,-50},{84,-50},{84,-42}}, color={0,0,127}));
+    annotation (
+      experiment(StopTime=2));
+  end Vehicles;
 end Translational;
