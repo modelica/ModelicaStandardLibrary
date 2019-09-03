@@ -8680,21 +8680,47 @@ solved, i.e., robustly and efficiently).
       </td>
   </tr>
 </table>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}), graphics={
-        Polygon(
-          points={{6,6},{28,-2},{54,80},{32,86},{6,6}},
-          lineColor={95,95,95},
-          fillPattern=FillPattern.Sphere,
-          fillColor={255,255,255}),
-        Polygon(
-          points={{-12,-18},{0,-36},{-70,-84},{-82,-66},{-12,-18}},
-          lineColor={95,95,95},
-          fillPattern=FillPattern.Sphere,
-          fillColor={255,255,255}),
+</html>"),
+    Icon(
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+      graphics={
+        Rectangle(
+          origin={30,-22},
+          lineColor={64,64,64},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.VerticalCylinder,
+          extent={{-20,0},{20,100}},
+          rotation=110),
+        Rectangle(
+          origin={30,-22},
+          lineColor={64,64,64},
+          fillColor={215,215,215},
+          fillPattern=FillPattern.VerticalCylinder,
+          extent={{-20,0},{20,100}}),
+        Rectangle(
+          origin={30,-22},
+          lineColor={64,64,64},
+          extent={{-20,0},{20,100}}),
+        Rectangle(
+          origin={30,-22},
+          lineColor={64,64,64},
+          extent={{-20,0},{20,100}},
+          rotation=110),
         Ellipse(
-          extent={{-12,8},{34,-38}},
-          lineColor={95,95,95},
-          fillPattern=FillPattern.Sphere,
-          fillColor={95,95,95})}));
+          origin={30,-22},
+          rotation=-45,
+          lineColor={64,64,64},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.HorizontalCylinder,
+          extent={{-34,-34},{34,34}}),
+        Ellipse(
+          origin={30,-22},
+          lineColor={64,64,64},
+          fillColor={64,64,64},
+          fillPattern=FillPattern.Solid,
+          extent={{-14,14},{14,-14}}),
+        Ellipse(
+          extent={{-34,34},{34,-34}},
+          lineColor={64,64,64},
+          origin={30,-22})}));
 end Joints;
