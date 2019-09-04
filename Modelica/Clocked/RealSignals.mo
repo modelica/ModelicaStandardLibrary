@@ -285,7 +285,7 @@ signals are sampled with a periodic clock of 20 ms period:<br>
 
       parameter Boolean noisy = false
         "= true, if output should be superimposed with noise"
-        annotation(Evaluate=true,choices(checkBox=true),Dialog(enable=sampled,group="Sampling and noise"));
+        annotation(Evaluate=true,choices(checkBox=true),Dialog(group="Sampling and noise"));
 
       parameter Boolean limited = false "= true, if output is limited"
         annotation(Evaluate=true,choices(checkBox=true),Dialog(group="Limiting and quantization"));
