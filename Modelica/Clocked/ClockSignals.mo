@@ -1,4 +1,4 @@
-within Modelica.Clocked;
+﻿within Modelica.Clocked;
 package ClockSignals "Library of blocks for clocked signals"
   extends Modelica.Icons.Package;
 
@@ -220,7 +220,8 @@ For an example, see
     end EventClock;
 
     package Rotational "Library of blocks that generate a clock tick each time an observed
-   input angle changes"
+  input angle changes"
+      extends Modelica.Icons.Package;
       partial block PartialRotationalClock
         "Base class for event clocks that generate a clock tick each time an observed
    input angle changed."
@@ -428,6 +429,7 @@ For an example, see
     end Rotational;
 
     package Logical "Library of blocks for combining several input clock signals by logical combinators"
+      extends Modelica.Icons.Package;
       partial block PartialLogicalClock
         "Logical clock combining arbitrary many input clock signals according to a
    replaceable logical combinator."
