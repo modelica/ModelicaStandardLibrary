@@ -4,9 +4,6 @@ systems"
 extends Modelica.Icons.Package;
 
   annotation (preferredView="info",
-    versionBuild=1,
-    versionDate="2019-04-03",
-    dateModified = "2019-04-03 17:30:00Z",
   Documentation(info="<html>
 <p>
 Library <strong>Modelica.Clocked</strong> is a Modelica package
