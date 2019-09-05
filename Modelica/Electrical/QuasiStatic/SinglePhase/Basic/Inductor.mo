@@ -8,7 +8,7 @@ equation
   annotation (Icon(graphics={
         Line(points={{60,0},{90,0}}, color={85,170,255}),
         Line(points={{-90,0},{-60,0}}, color={85,170,255}),
-        Text(extent={{150,-50},{-150,-80}}, textString="L=%L"),
+        Text(extent={{150,-40},{-150,-80}}, textString="L=%L"),
         Line(
           points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
           color={0,128,255},
