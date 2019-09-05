@@ -5184,9 +5184,9 @@ extends Modelica.Icons.ExamplesPackage;
           extends Modelica.Icons.Example;
 
           parameter Integer n=size(rho, 1)
-            "number of different fluid density values";
+            "Number of different fluid density values";
           parameter Modelica.SIunits.KinematicViscosity nu=1e-6
-            "kinetic viscosity of fluid";
+            "Kinetic viscosity of fluid";
 
           //general variables
           parameter Modelica.SIunits.Pressure dp_nom=50
@@ -5209,15 +5209,15 @@ extends Modelica.Icons.ExamplesPackage;
 
           //fluid property PARAMETERS
           parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp=
-              4190 "specific heat capacity at constant pressure of fluid"
-            annotation (Dialog(group="FluidProperties"));
+              4190 "Specific heat capacity at constant pressure of fluid"
+            annotation (Dialog(group="Fluid properties"));
           Modelica.SIunits.DynamicViscosity eta[:]={rho[i]*nu for i in 1:n}
-            "dynamic viscosity of fluid" annotation (Dialog(group="FluidProperties"));
+            "Dynamic viscosity of fluid" annotation (Dialog(group="Fluid properties"));
           parameter Modelica.SIunits.ThermalConductivity lambda=0.6
-            "thermal conductivity of fluid"
-            annotation (Dialog(group="FluidProperties"));
-          Modelica.SIunits.Density rho[:]={1e3,1.5e3,2e3} "density of fluid"
-            annotation (Dialog(group="FluidProperties"));
+            "Thermal conductivity of fluid"
+            annotation (Dialog(group="Fluid properties"));
+          Modelica.SIunits.Density rho[:]={1e3,1.5e3,2e3} "Density of fluid"
+            annotation (Dialog(group="Fluid properties"));
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
@@ -5311,7 +5311,7 @@ extends Modelica.Icons.ExamplesPackage;
           extends Modelica.Icons.Example;
 
           parameter Integer n=size(rho, 1)
-            "number of different fluid density values";
+            "Number of different fluid density values";
 
           //general variables
           Modelica.SIunits.Area A_cross=A_cross_nom "Cross sectional area"
@@ -5328,7 +5328,7 @@ extends Modelica.Icons.ExamplesPackage;
           Real exp=2 "Exponent of pressure loss law"
             annotation (Dialog(group="Generic variables"));
           Integer NominalMassFlowRate=1
-            "true == use nominal mass flow rate | false == nominal volume flow rate"
+            "= true, if use nominal mass flow rate, otherwise nominal volume flow rate"
             annotation (Dialog(group="Generic variables"));
           Modelica.SIunits.VolumeFlowRate V_flow_nom=m_flow_nom/rho_nom
             "Nominal volume flow rate (at nominal values of pressure loss and density)"
@@ -5346,7 +5346,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           //fluid property variables
           Modelica.SIunits.Density rho[:]={1e3,1.5e3,2e3} "density of fluid"
-            annotation (Dialog(group="FluidProperties"));
+            annotation (Dialog(group="Fluid properties"));
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records

@@ -38,35 +38,35 @@ model SM_ElectricalExcited
   // Rotor cage parameters
   parameter Boolean useDamperCage(start=true)
     "Enable/disable damper cage" annotation (Dialog(tab=
-          "Nominal resistances and inductances", group="DamperCage"));
+          "Nominal resistances and inductances", group="Damper cage"));
   parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
         fsNominal))
     "Rotor leakage inductance, d-axis, w.r.t. stator side" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
-      group="DamperCage",
+      group="Damper cage",
       enable=useDamperCage));
   parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
     "Rotor leakage inductance, q-axis, w.r.t. stator side" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
-      group="DamperCage",
+      group="Damper cage",
       enable=useDamperCage));
   parameter Modelica.SIunits.Resistance Rrd(start=0.04)
     "Rotor resistance, d-axis, w.r.t. stator side" annotation (Dialog(
       tab="Nominal resistances and inductances",
-      group="DamperCage",
+      group="Damper cage",
       enable=useDamperCage));
   parameter Modelica.SIunits.Resistance Rrq=Rrd
     "Rotor resistance , q-axis, w.r.t. stator side" annotation (Dialog(
       tab="Nominal resistances and inductances",
-      group="DamperCage",
+      group="Damper cage",
       enable=useDamperCage));
   parameter Modelica.SIunits.Temperature TrRef(start=293.15)
     "Reference temperature of damper resistances in d- and q-axis"
     annotation (Dialog(
       tab="Nominal resistances and inductances",
-      group="DamperCage",
+      group="Damper cage",
       enable=useDamperCage));
   parameter
     Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
@@ -74,7 +74,7 @@ model SM_ElectricalExcited
     "Temperature coefficient of damper resistances in d- and q-axis"
     annotation (Dialog(
       tab="Nominal resistances and inductances",
-      group="DamperCage",
+      group="Damper cage",
       enable=useDamperCage));
   // Operational temperature
   parameter Modelica.SIunits.Temperature TrOperational(start=293.15)

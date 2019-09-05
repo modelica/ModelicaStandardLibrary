@@ -24,12 +24,12 @@ model ElectroMagneticConverterWithLeakageInductance
   parameter Real N(start=1, min=Modelica.Constants.eps) "Number of turns";
 
   parameter SI.Length L=10e-3 "Length in direction of flux"
-    annotation (Dialog(tab="LeakageInductance"));
+    annotation (Dialog(tab="Leakage inductance"));
   parameter SI.Area A=10e-6 "Area of cross-section"
-    annotation (Dialog(tab="LeakageInductance"));
+    annotation (Dialog(tab="Leakage inductance"));
   parameter SI.RelativePermeability mu_rel(min=Modelica.Constants.eps) = 1
     "Constant relative permeability of leakage inductance (> 0 required)"
-    annotation (Dialog(tab="LeakageInductance"));
+    annotation (Dialog(tab="Leakage inductance"));
   final parameter SI.Permeance G_m=Modelica.Constants.mu_0*mu_rel*A/L
     "Magnetic permeance of leakage inductance";
 

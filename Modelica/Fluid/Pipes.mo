@@ -910,10 +910,10 @@ This also allows for taking into account friction losses with respect to the act
             //
             replaceable package Medium =
               Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-                annotation(Dialog(tab="Internal Interface",enable=false));
+                annotation(Dialog(tab="Internal interface",enable=false));
 
             parameter Integer n=2 "Number of discrete flow volumes"
-              annotation(Dialog(tab="Internal Interface",enable=false));
+              annotation(Dialog(tab="Internal interface",enable=false));
 
             // Inputs
             input Medium.ThermodynamicState[n] states
@@ -924,7 +924,7 @@ This also allows for taking into account friction losses with respect to the act
             // Geometry parameters and inputs
             parameter Real nParallel
           "number of identical parallel flow devices"
-               annotation(Dialog(tab="Internal Interface",enable=false,group="Geometry"));
+               annotation(Dialog(tab="Internal interface",enable=false,group="Geometry"));
 
             input SI.Area[n] crossAreas
           "Cross flow areas at segment boundaries";
@@ -939,26 +939,26 @@ This also allows for taking into account friction losses with respect to the act
 
             parameter SI.Acceleration g=system.g
           "Constant gravity acceleration"
-              annotation(Dialog(tab="Internal Interface",enable=false,group="Static head"));
+              annotation(Dialog(tab="Internal interface",enable=false,group="Static head"));
 
             // Assumptions
             parameter Boolean allowFlowReversal=system.allowFlowReversal
           "= true to allow flow reversal, false restricts to design direction (states[1] -> states[n+1])"
-              annotation(Dialog(tab="Internal Interface",enable=false,group="Assumptions"), Evaluate=true);
+              annotation(Dialog(tab="Internal interface",enable=false,group="Assumptions"), Evaluate=true);
             parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
           "Formulation of momentum balance"
-              annotation(Dialog(tab="Internal Interface",enable=false,group = "Assumptions"), Evaluate=true);
+              annotation(Dialog(tab="Internal interface",enable=false,group = "Assumptions"), Evaluate=true);
 
             // Initialization
             parameter Medium.MassFlowRate m_flow_start=system.m_flow_start
           "Start value of mass flow rates"
-              annotation(Dialog(tab="Internal Interface",enable=false,group = "Initialization"));
+              annotation(Dialog(tab="Internal interface",enable=false,group = "Initialization"));
             parameter Medium.AbsolutePressure p_a_start
           "Start value for p[1] at design inflow"
-              annotation(Dialog(tab="Internal Interface",enable=false,group = "Initialization"));
+              annotation(Dialog(tab="Internal interface",enable=false,group = "Initialization"));
             parameter Medium.AbsolutePressure p_b_start
           "Start value for p[n+1] at design outflow"
-              annotation(Dialog(tab="Internal Interface",enable=false,group = "Initialization"));
+              annotation(Dialog(tab="Internal interface",enable=false,group = "Initialization"));
 
             //
             // Implementation of momentum balance
@@ -1546,7 +1546,7 @@ b has the same sign of the change of density.</p>
 
       // Geometry parameters and inputs for flow heat transfer
       parameter Real nParallel "number of identical parallel flow devices"
-         annotation(Dialog(tab="Internal Interface",enable=false,group="Geometry"));
+         annotation(Dialog(tab="Internal interface",enable=false,group="Geometry"));
       input SI.Length[n] lengths "Lengths along flow path";
       input SI.Length[n] dimensions
           "Characteristic dimensions for fluid flow (diameter for pipe flow)";
