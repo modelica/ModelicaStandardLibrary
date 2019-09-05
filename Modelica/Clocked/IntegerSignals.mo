@@ -20,7 +20,7 @@ package IntegerSignals "Library of clocked blocks for Integer signals"
             initialScale=0.06),
                          graphics={
             Text(
-              extent={{-200,50},{200,115}},
+              extent={{-150,90},{150,50}},
               textColor={0,0,255},
               textString="%name")}),
         Diagram(coordinateSystem(
@@ -75,7 +75,7 @@ Analog to the corresponding Real signal block examples there exist two elementar
               pattern=LinePattern.Dot,
               thickness=0.5),
             Text(
-              extent={{-200,50},{200,115}},
+              extent={{-150,90},{150,50}},
               textColor={0,0,255},
               textString="%name")}),
         Diagram(coordinateSystem(
@@ -127,13 +127,12 @@ Analog to the corresponding Real signal block example there exists an elementary
               pattern=LinePattern.Dot,
               thickness=0.5),
             Text(
-              extent={{-200,50},{200,115}},
+              extent={{-150,90},{150,50}},
               textColor={0,0,255},
               textString="%name"),
             Text(
-              extent={{-160,-30},{20,-80}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
+              extent={{-150,-40},{20,-90}},
+              textColor={0,0,0},
               textString="n=%n")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
@@ -186,10 +185,7 @@ Analog to the corresponding Real signal block example there exists an elementary
               extent={{52,12},{72,-8}},
               lineColor={255,128,0},
               fillColor={255,128,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-200,-80},{200,-145}},
-              textString="%y_start")}),
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
 This block for Integer signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Hold\">RealSignals.Sampler.Hold</a>).
@@ -244,12 +240,14 @@ Analog to the corresponding Real signal block example there exists an elementary
               pattern=LinePattern.Dot,
               color={255,128,0}),
             Text(
-              extent={{-200,165},{200,100}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(visible=not inferFactor,
-              extent={{-200,-85},{200,-150}},
-              textString="%factor"),
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
+            Text(
+              visible=not inferFactor,
+              extent={{-150,-100},{150,-140}},
+              textString="%factor",
+              textColor={0,0,0}),
             Ellipse(
               extent={{-95,-45},{-65,-75}},
               lineColor={255,128,0},
@@ -349,11 +347,12 @@ Analog to the corresponding Real signal block example there exists an elementary
               color={255,128,0},
               pattern=LinePattern.Dot),
             Text(
-              extent={{-200,175},{200,110}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(visible=not inferFactor,
-              extent={{-200,-85},{200,-150}},
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
+            Text(
+              visible=not inferFactor,
+              extent={{-150,-100},{150,-140}},
               textString="%factor"),
             Ellipse(
               extent={{-95,-45},{-65,-75}},
@@ -450,13 +449,13 @@ Analog to the corresponding Real signal block example there exists an elementary
                                      color={255,128,0},
               pattern=LinePattern.Dot),
             Text(
-              extent={{-200,175},{200,110}},
-              textColor={0,0,255},
-              textString="%name"),
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
             Text(
-              extent={{-200,-85},{200,-150}},
+              extent={{-150,-100},{150,-140}},
               textString="%shiftCounter/%resolution"),
-                                   Line(points={{-80,-50},{-40,-50},{-40,50}},
+            Line(points={{-80,-50},{-40,-50},{-40,50}},
                                      color={255,128,0},
               pattern=LinePattern.Dot),
             Ellipse(
@@ -534,13 +533,14 @@ Analog to the corresponding Real signal block example there exists an elementary
                                      color={255,128,0},
               pattern=LinePattern.Dot),
             Text(
-              extent={{-200,175},{200,110}},
-              textColor={0,0,255},
-              textString="%name"),
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
             Text(
-              extent={{-200,-135},{200,-200}},
+              extent={{-150,-150},{150,-190}},
+              textColor={0,0,0},
               textString="%backCounter/%resolution"),
-                                   Line(points={{-80,-50},{-40,-50},{-40,50}},
+             Line(points={{-80,-50},{-40,-50},{-40,50}},
                                      color={255,128,0},
               pattern=LinePattern.Dot),
             Ellipse(
@@ -569,7 +569,8 @@ Analog to the corresponding Real signal block example there exists an elementary
               fillColor={255,128,0},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-200,-74},{200,-139}},
+              extent={{-150,-100},{150,-140}},
+              textColor={0,0,0},
               textString="y_start=%y_start")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
@@ -612,9 +613,9 @@ Analog to the corresponding Real signal block example there exists an elementary
             initialScale=0.06),
                          graphics={
             Text(
-              extent={{-200,100},{200,160}},
-              textColor={0,0,255},
-              textString="%name"),
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
             Rectangle(
               extent={{-90,90},{88,-88}},
               fillColor={255,255,255},
@@ -701,14 +702,14 @@ Analog to the corresponding Real signal block example there exists an elementary
             initialScale=0.06),
                          graphics={
             Text(
-              extent={{-196,128},{204,188}},
-              textColor={0,0,255},
-              textString="%name"),
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
             Text(
-              extent={{0,-32},{180,-82}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              textString="n=%n"),  Line(points={{-80,-60},{-40,-60},{-40,0},{
+              extent={{0,-40},{140,-80}},
+              textColor={0,0,0},
+              textString="n=%n"),
+            Line(points={{-80,-60},{-40,-60},{-40,0},{
                   0,0},{0,0},{0,0},{0,80},{40,80},{40,40},{80,40},{80,0},{80,
                   0},{80,0},{100,0}},color={255,128,0},
               pattern=LinePattern.Dot),                Line(
@@ -820,9 +821,9 @@ Analog to the corresponding Real signal block example there exists an elementary
                 color={255,128,0},
                 pattern=LinePattern.Dot),
               Text(
-                extent={{-200,175},{200,110}},
-                textColor={0,0,255},
-                textString="%name"),
+                extent={{-150,150},{150,110}},
+                textString="%name",
+                textColor={0,0,255}),
               Ellipse(
                 extent={{-95,-45},{-65,-75}},
                 lineColor={255,128,0},
@@ -858,9 +859,11 @@ Analog to the corresponding Real signal block example there exists an elementary
                 lineColor={255,128,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
-              Text(visible=not inferFactor,
-                extent={{-200,-80},{200,-145}},
-                textString="%factor"),
+              Text(
+                visible=not inferFactor,
+                extent={{-150,-100},{150,-140}},
+                textString="%factor",
+                textColor={0,0,0}),
               Line(
                 points={{80,80},{120,80}},
                 color={215,215,215},
@@ -1145,7 +1148,7 @@ contains utility blocks that are used as building blocks for user-relevant block
               textString="z",
               textColor={255,128,0}),
             Text(
-              extent={{-150,-140},{150,-100}},
+              extent={{-150,-150},{150,-110}},
               textString="y_start=%y_start")}),
         Documentation(info="<html>
 <p>
@@ -1201,7 +1204,7 @@ y is set to parameter y_start.
               pattern=LinePattern.Dot,
               color={255,128,0}),
             Text(
-              extent={{4,-102},{4,-142}},
+              extent={{-150,-110},{150,-150}},
               textString="%shift/%resolution"),
             Ellipse(
               extent={{-90,50},{-70,30}},
@@ -1667,12 +1670,13 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBase
               points={{-60,-40},{-60,0},{-100,0}},
               color={255,128,0}),
             Text(
-              extent={{-200,-80},{200,-145}},
-              textString="%y_start"),
+              extent={{-150,-100},{150,-140}},
+              textString="%y_start",
+              textColor={0,0,0}),
             Text(
-              extent={{-200,129},{200,64}},
-              textColor={0,0,255},
-              textString="%name")}),
+              extent={{-150,130},{150,90}},
+              textString="%name",
+              textColor={0,0,255})}),
         Documentation(info="<html>
 
 </html>"),     Diagram(coordinateSystem(
