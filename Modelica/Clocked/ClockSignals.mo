@@ -21,9 +21,6 @@ package ClockSignals "Library of blocks for clocked signals"
          defaultComponentName="periodicClock1",
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}, initialScale=0.06),
                         graphics={
-            Text(
-              extent={{-200,-110},{200,-175}},
-              textString="%period s"),
             Rectangle(
               extent={{20,58},{40,46}},
               fillPattern=FillPattern.Solid,
@@ -39,8 +36,13 @@ package ClockSignals "Library of blocks for clocked signals"
               pattern=LinePattern.None,
               fillColor={95,95,95}),
             Text(
+              extent={{-150,-110},{150,-150}},
+              textColor={0,0,0},
+              textString="%period"),
+            Text(
               visible=useSolver,
-              extent={{-300,-180},{300,-245}},
+              extent={{-150,-160},{150,-200}},
+              textColor={0,0,0},
               textString="%solverMethod")}),
         Diagram,
         Documentation(info="<html>
@@ -112,9 +114,6 @@ For an example, see
            defaultComponentName="periodicClock1",
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}, initialScale=0.06),
                         graphics={
-            Text(
-              extent={{-200,-110},{200,-175}},
-              textString="%factor %resolution"),
             Rectangle(
               extent={{20,58},{40,46}},
               fillPattern=FillPattern.Solid,
@@ -130,8 +129,13 @@ For an example, see
               lineColor={95,95,95},
               fillColor={95,95,95}),
             Text(
+              extent={{-150,-110},{150,-150}},
+              textColor={0,0,0},
+              textString="%factor %resolution"),
+            Text(
               visible=useSolver,
-              extent={{-300,-180},{300,-245}},
+              extent={{-150,-160},{150,-200}},
+              textColor={0,0,0},
               textString="%solverMethod")}),
         Diagram,
         Documentation(info="<html>
@@ -191,7 +195,8 @@ For an example, see
                         graphics={
             Text(
               visible=useSolver,
-              extent={{-300,-110},{300,-175}},
+              extent={{-150,-110},{150,-150}},
+              textColor={0,0,0},
               textString="%solverMethod")}),
         Diagram,
         Documentation(info="<html>
@@ -422,7 +427,7 @@ For an example, see
 
         annotation (Icon(graphics={
           Text(
-            extent = {{-140,-120},{140,-150}},
+            extent={{-150,-110},{150,-150}},
             textColor = {0,0,0},
             textString = "%trigger_interval%")}));
       end FixedRotationalClock;
@@ -642,13 +647,6 @@ to clocks see
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
               pattern=LinePattern.None),
-            Text(
-              extent={{-200,145},{200,80}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{-200,-85},{200,-150}},
-              textString="%factor"),
             Line(
               points={{-100,0},{-80,0},{-80,-60},{60,-60},{60,0},{100,0}},
               pattern=LinePattern.Dot,
@@ -697,7 +695,15 @@ to clocks see
               fillPattern=FillPattern.Solid,
               lineColor={95,95,95},
               origin={-75,55},
-              rotation=-90)}),
+              rotation=-90),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
+            Text(
+              extent={{-150,-90},{150,-130}},
+              textString="%factor",
+              textColor={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -769,13 +775,6 @@ clock subSample.y is slower as clock subSample.u.
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
               pattern=LinePattern.None),
-            Text(
-              extent={{-200,175},{200,110}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{-200,-85},{200,-150}},
-              textString="%factor"),
                                    Line(points={{-80,-60},{-40,-60},{-40,-60},{0,-60},
                   {0,-60},{0,-60},{0,80},{40,80},{40,80},{80,80},{80,0},{80,0},{80,0},
                   {100,0}},          color={95,95,95},
@@ -835,7 +834,15 @@ clock subSample.y is slower as clock subSample.u.
               fillPattern=FillPattern.Solid,
               lineColor={95,95,95},
               origin={-43,18},
-              rotation=90)}),
+              rotation=90),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
+            Text(
+              extent={{-150,-90},{150,-130}},
+              textString="%factor",
+              textColor={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -912,13 +919,6 @@ clock superSample.y is faster as clock superSample.u.
                                    Line(points={{20,-50},{60,-50},{60,50}},
                                      color={95,95,95},
               pattern=LinePattern.Dot),
-            Text(
-              extent={{-200,175},{200,110}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{-200,-85},{200,-150}},
-              textString="%shiftCounter/%resolution"),
                                    Line(points={{-80,-50},{-40,-50},{-40,50}},
                                      color={95,95,95},
               pattern=LinePattern.Dot),
@@ -947,7 +947,15 @@ clock superSample.y is faster as clock superSample.u.
               extent={{-50,60},{-30,40}},
               lineColor={95,95,95},
               fillColor={95,95,95},
-              fillPattern=FillPattern.Solid)}),
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
+            Text(
+              extent={{-150,-90},{150,-130}},
+              textColor={0,0,0},
+              textString="%shiftCounter/%resolution")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1141,11 +1149,6 @@ a different icon as <code>ClockInput</code> connector.
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{-1,0},{52,50}},  color={95,95,95}),
-            Text(
-            extent={{-300,175},{300,110}},
-            textString="%name",
-            textColor={0,0,255},
-            fontSize=0),
             Rectangle(
               extent={{80,6},{100,-6}},
               fillPattern=FillPattern.Solid,
@@ -1183,7 +1186,11 @@ a different icon as <code>ClockInput</code> connector.
               rotation=135,
               origin={122,-48},
               lineColor={95,95,95},
-              fillColor={95,95,95})}),
+              fillColor={95,95,95}),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255})}),
         Diagram,
         Documentation(info="<html>
 
@@ -1208,8 +1215,7 @@ a different icon as <code>ClockInput</code> connector.
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              textColor={0,0,255},
-              fontSize=0)}));
+              textColor={0,0,255})}));
     end ClockedBlockIcon;
     annotation (Documentation(info="<html>
 <p>

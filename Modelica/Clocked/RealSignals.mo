@@ -17,10 +17,9 @@ package RealSignals "Library of clocked blocks for Real signals"
             grid={2,2},
             initialScale=0.06),
                          graphics={
-            Text(
-              extent={{-200,50},{200,115}},
-              textColor={0,0,255},
-              textString="%name")}),
+       Text(extent={{-150,90},{150,50}},
+            textString="%name",
+            textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -154,10 +153,10 @@ is the left limit of hold.y (= the red, continuous-time signal).
               color={175,175,175},
               pattern=LinePattern.Dot,
               thickness=0.5),
-            Text(
-              extent={{-200,50},{200,115}},
-              textColor={0,0,255},
-              textString="%name")}),
+        Text(
+            extent={{-150,90},{150,50}},
+            textString="%name",
+            textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -234,14 +233,13 @@ samples a sine signal with a periodic clock of 20 ms period:<br>
               pattern=LinePattern.Dot,
               thickness=0.5),
             Text(
-              extent={{-200,50},{200,115}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{-160,-30},{20,-80}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              textString="n=%n")}),
+              extent={{-150,-40},{20,-90}},
+              textColor={0,0,0},
+              textString="n=%n"),
+        Text(
+            extent={{-150,90},{150,50}},
+            textString="%name",
+            textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -407,9 +405,9 @@ signals are sampled with a periodic clock of 20 ms period:<br>
                   10,-52},{30,-52},{30,-32},{50,-32}},
               color={0,0,127}),
             Text(
-              extent={{-200,40},{200,100}},
-              textColor={0,0,255},
-              textString="%name")}),
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -679,7 +677,7 @@ to -1.0 (= the value of parameter hold.y_start).<br>
               fillColor={0,0,127},
               fillPattern=FillPattern.Solid),
             Text(visible=computationalDelay,
-              extent={{-200,-146},{200,-211}},
+              extent={{-150,-150},{150,-190}},
               textString="%shiftCounter/%resolution")}),
         Documentation(info="<html>
 <p>
@@ -811,13 +809,6 @@ from above:<br>
               points={{-80,-60},{-80,0},{-100,0}},
               color={0,0,127},
               pattern=LinePattern.Dot),
-            Text(
-              extent={{-200,165},{200,100}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(visible=not inferFactor,
-              extent={{-200,-85},{200,-150}},
-              textString="%factor"),
             Ellipse(
               extent={{-95,-45},{-65,-75}},
               lineColor={0,0,127},
@@ -859,7 +850,16 @@ from above:<br>
               fillPattern=FillPattern.Solid,
               lineColor={95,95,95},
               origin={-51,26},
-              rotation=-90)}),
+              rotation=-90),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255}),
+            Text(
+              visible=not inferFactor,
+              extent={{-150,-100},{150,-140}},
+              textString="%factor",
+              textColor={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -949,13 +949,6 @@ clock of subSample.y is slower as the clock of subSample.u.
               points={{-80,-60},{-80,0},{-100,0}},
               color={0,0,127},
               pattern=LinePattern.Dot),
-            Text(
-              extent={{-200,175},{200,110}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(visible=not inferFactor,
-              extent={{-200,-85},{200,-150}},
-              textString="%factor"),
             Ellipse(
               extent={{-95,-45},{-65,-75}},
               lineColor={0,0,127},
@@ -1003,7 +996,15 @@ clock of subSample.y is slower as the clock of subSample.u.
               fillPattern=FillPattern.Solid,
               lineColor={95,95,95},
               origin={-49,26},
-              rotation=90)}),
+              rotation=90),
+            Text(
+              visible=not inferFactor,
+              extent={{-150,-100},{150,-140}},
+              textString="%factor"),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1117,13 +1118,6 @@ clock of superSample.y is faster as the clock of superSample.u.
                   80},{110,80},{110,80},{110,80},{120,80}},
               color={0,0,127},
               pattern=LinePattern.Dot),
-            Text(
-              extent={{-200,175},{200,110}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(visible=not inferFactor,
-              extent={{-200,-85},{200,-150}},
-              textString="%factor"),
             Ellipse(
               extent={{-55,-43},{-25,-73}},
               lineColor={0,0,127},
@@ -1156,7 +1150,16 @@ clock of superSample.y is faster as the clock of superSample.u.
               fillPattern=FillPattern.Solid,
               lineColor={95,95,95},
               origin={-61,46},
-              rotation=90)}),
+              rotation=90),
+            Text(
+              visible=not inferFactor,
+              extent={{-150,-100},{150,-140}},
+              textString="%factor",
+              textColor={0,0,0}),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -1248,13 +1251,6 @@ clock of superSampleIpo.y is faster as the clock of superSampleIpo.u.
                                    Line(points={{20,-50},{60,-50},{60,50}},
                                      color={0,0,127},
               pattern=LinePattern.Dot),
-            Text(
-              extent={{-200,175},{200,110}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{-200,-85},{200,-150}},
-              textString="%shiftCounter/%resolution"),
                                    Line(points={{-80,-50},{-40,-50},{-40,50}},
                                      color={0,0,127},
               pattern=LinePattern.Dot),
@@ -1283,7 +1279,14 @@ clock of superSampleIpo.y is faster as the clock of superSampleIpo.u.
               extent={{-50,60},{-30,40}},
               lineColor={0,0,127},
               fillColor={0,0,127},
-              fillPattern=FillPattern.Solid)}),
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-150,-100},{150,-140}},
+              textString="%shiftCounter/%resolution"),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1391,13 +1394,6 @@ The first activation of output y of block shiftSample1 is shifted in time (4/3*2
                                    Line(points={{20,-50},{60,-50},{60,50}},
                                      color={0,0,127},
               pattern=LinePattern.Dot),
-            Text(
-              extent={{-200,175},{200,110}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{-200,-135},{200,-200}},
-              textString="%backCounter/%resolution"),
                                    Line(points={{-80,-50},{-40,-50},{-40,50}},
                                      color={0,0,127},
               pattern=LinePattern.Dot),
@@ -1427,8 +1423,17 @@ The first activation of output y of block shiftSample1 is shifted in time (4/3*2
               fillColor={0,0,127},
               fillPattern=FillPattern.Solid),
             Text(
-              extent={{-200,-74},{200,-139}},
-              textString="y_start=%y_start")}),
+              extent={{-150,-100},{150,-140}},
+              textColor={0,0,0},
+              textString="y_start=%y_start"),
+            Text(
+              extent={{-150,-150},{150,-190}},
+              textColor={0,0,0},
+              textString="%backCounter/%resolution"),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1531,10 +1536,6 @@ The first activation of output y of block backSample1 is shifted (4/3*20ms) befo
             grid={2,2},
             initialScale=0.06),
                          graphics={
-            Text(
-              extent={{-200,100},{200,160}},
-              textColor={0,0,255},
-              textString="%name"),
             Rectangle(
               extent={{-90,90},{88,-88}},
               fillColor={255,255,255},
@@ -1576,7 +1577,11 @@ The first activation of output y of block backSample1 is shifted (4/3*20ms) befo
               points={{0,-100},{0,0}},
               color={175,175,175},
               pattern=LinePattern.Dot,
-              thickness=0.5)}),
+              thickness=0.5),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -1659,17 +1664,15 @@ At every clock tick (that is at every 20ms) the output of the unitDelay1 block i
             initialScale=0.06),
                          graphics={
             Text(
-              extent={{-196,128},{204,188}},
-              textColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{0,-32},{180,-82}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              textString="n=%n"),  Line(points={{-80,-60},{-40,-60},{-40,0},{
-                  0,0},{0,0},{0,0},{0,80},{40,80},{40,40},{80,40},{80,0},{80,
-                  0},{80,0},{100,0}},color={0,0,127},
-              pattern=LinePattern.Dot),                Line(
+              extent={{0,-40},{140,-80}},
+              textColor={0,0,0},
+              textString="n=%n"),
+            Line(
+              points={{-80,-60},{-40,-60},{-40,0},{0,0},{0,0},{0,0},{0,80},{40,80},
+                  {40,40},{80,40},{80,0},{80,0},{80,0},{100,0}},
+              color={0,0,127},
+              pattern=LinePattern.Dot),
+            Line(
               points={{-80,-60},{-80,0},{-106,0}},
               color={0,0,127},
               pattern=LinePattern.Dot),
@@ -1702,7 +1705,11 @@ At every clock tick (that is at every 20ms) the output of the unitDelay1 block i
               points={{0,-100},{0,70}},
               color={175,175,175},
               pattern=LinePattern.Dot,
-              thickness=0.5)}),
+              thickness=0.5),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              textColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -1802,10 +1809,6 @@ of block assignClock1.
                 points={{-80,-60},{-80,0},{-100,0}},
                 color={0,0,127},
                 pattern=LinePattern.Dot),
-              Text(
-                extent={{-200,175},{200,110}},
-                textColor={0,0,255},
-                textString="%name"),
               Ellipse(
                 extent={{-95,-45},{-65,-75}},
                 lineColor={0,0,127},
@@ -1841,9 +1844,11 @@ of block assignClock1.
                 lineColor={0,0,127},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
-              Text(visible=not inferFactor,
-                extent={{-200,-80},{200,-145}},
-                textString="%factor"),
+              Text(
+                visible=not inferFactor,
+                extent={{-150,-100},{150,-140}},
+                textString="%factor",
+                textColor={0,0,0}),
               Line(
                 points={{80,80},{120,80}},
                 color={215,215,215},
@@ -1855,7 +1860,11 @@ of block assignClock1.
                 fillPattern=FillPattern.Solid,
                 lineColor={95,95,95},
                 origin={-71,52},
-                rotation=90)}),
+                rotation=90),
+              Text(
+                extent={{-150,150},{150,110}},
+                textString="%name",
+                textColor={0,0,255})}),
           Diagram(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
@@ -1973,10 +1982,7 @@ initialized a bit differently.
           y = change(y3);
           annotation (
             defaultComponentName="clockToTrigger",
-            Icon(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+            Icon(graphics={
                 Polygon(
                   points={{-80,88},{-88,66},{-72,66},{-80,88}},
                   lineColor={255,0,255},
@@ -1998,10 +2004,6 @@ initialized a bit differently.
               Line(points={{-20,-70},{-20,70}}),
               Line(points={{20,-70},{20,70}}),
               Line(points={{60,-70},{60,70}})}),
-            Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1})),
             Documentation(info="<html>
 <p>
 This block creates a Boolean, continuous time, trigger signal whenever the clock of the input signal is active.
@@ -2059,8 +2061,8 @@ Note, that it is clearly visible in the plot that the \"old-style\" discrete var
             defaultComponentName="clockToSquareWave",
             Icon(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}),
+              graphics={
                 Polygon(
                   points={{-80,88},{-88,66},{-72,66},{-80,88}},
                   lineColor={255,0,255},
@@ -2080,10 +2082,6 @@ Note, that it is clearly visible in the plot that the \"old-style\" discrete var
                   fillPattern=FillPattern.Solid),
                 Line(points={{-80,-70},{-40,-70},{-40,44},
                     {0,44},{0,-70},{40,-70},{40,44},{79,44}})}),
-            Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1})),
             Documentation(info="<html>
 <p>
 This block creates a Boolean, continuous time, square-wave output. Whenever the clock of the input signal is active the Boolean output value changes.
@@ -2849,7 +2847,7 @@ block to model super-sampling with interpolation and filtering.
               color={0,0,127},
               pattern=LinePattern.Dot),
             Text(
-              extent={{-32,-4},{80,-58}},
+              extent={{-30,0},{80,-60}},
               textColor={192,192,192},
               textString="PI"),
             Text(
@@ -2911,7 +2909,7 @@ will give still a similar performance.
               textString="z",
               textColor={0,0,127}),
             Text(
-              extent={{-150,-140},{150,-100}},
+              extent={{-150,-150},{150,-110}},
               textString="y_start=%y_start")}),
         Documentation(info="<html>
 <p>
@@ -2967,7 +2965,7 @@ y is set to parameter y_start.
               pattern=LinePattern.Dot,
               color={0,0,127}),
             Text(
-              extent={{4,-102},{4,-142}},
+              extent={{-150,-110},{150,-150}},
               textString="%shift/%resolution"),
             Ellipse(
               extent={{-90,50},{-70,30}},
@@ -3223,13 +3221,7 @@ states can be set as start values of <strong>x</strong>.</p>
             Text(
               extent={{-90,-12},{90,-90}},
               textColor={0,0,127},
-              textString="a(z)"),
-            Text(
-              extent={{-200,-105},{200,-145}},
-              textString="b=%b"),
-            Text(
-              extent={{-200,-150},{200,-190}},
-              textString="a=%a")}),
+              textString="a(z)")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -3835,7 +3827,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRa
                   -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
                   {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, pattern=LinePattern.Dot),
             Text(
-              extent={{-147,-152},{153,-112}},
+              extent={{-150,-150},{150,-110}},
               textString="freqHz=%freqHz"),
                 Ellipse(
                   extent={{-86,6},{-74,-6}},
@@ -4374,7 +4366,7 @@ The Real output y is a ramp signal. The signal is defined in terms of clock tick
                   -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
                   {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, pattern=LinePattern.Dot),
             Text(
-              extent={{-147,-152},{153,-112}},
+              extent={{-150,-150},{150,-110}},
               textString="periodTicks=%periodTicks"),
                 Ellipse(
                   extent={{-86,6},{-74,-6}},
@@ -4597,12 +4589,13 @@ The Real output y is a sine signal. The signal is defined in terms of clock tick
               points={{-60,-40},{-60,0},{-100,0}},
               color={0,0,127}),
             Text(
-              extent={{-200,-80},{200,-145}},
-              textString="%y_start"),
+              extent={{-150,130},{150,90}},
+              textString="%name",
+              textColor={0,0,255}),
             Text(
-              extent={{-200,129},{200,64}},
-              textColor={0,0,255},
-              textString="%name")}),
+              extent={{-150,-100},{150,-140}},
+              textString="%y_start",
+              textColor={0,0,0})}),
         Documentation(info="<html>
 
 </html>"),     Diagram(coordinateSystem(
