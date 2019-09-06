@@ -893,10 +893,11 @@ argument):</p>
   type AngularVelocity = Real (
       final quantity="AngularVelocity",
       final unit="rad/s");
-  type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit=
-             "rad/s2");
+  type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit="rad/s2");
+  type AngularJerk = Real (final quantity="AngularJerk", final unit="rad/s3");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
   type Acceleration = Real (final quantity="Acceleration", final unit="m/s2");
+  type Jerk = Real (final quantity="Jerk", final unit="m/s3");
 
   // Periodic and related phenomens (chapter 2 of ISO 31-1992)
   type Period = Real (final quantity="Time", final unit="s");
