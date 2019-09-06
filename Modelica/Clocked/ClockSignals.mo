@@ -545,17 +545,17 @@ For an example, see
         annotation (
           Diagram(graphics={
             Polygon(
-              points = {{-94,94},{6,94},{6,94},{6,30},{6,-20},{-94,-20},{-94,94}},
+              points={{-94,100},{6,100},{6,-20},{-94,-20},{-94,100}},
               lineColor = {238,46,47},
               pattern = LinePattern.Dash,
               lineThickness = 0.5),
             Text(
-              extent = {{-94,94},{-54,80}},
-              textColor = {238,46,47},
-              pattern = LinePattern.Dash,
-              lineThickness = 1,
-              textString = "array of\ninput trackers",
-              textStyle = {TextStyle.Bold}),
+              extent={{-90,100},{-20,90}},
+              textColor={238,46,47},
+              pattern=LinePattern.Dash,
+              lineThickness=1,
+              textStyle={TextStyle.Bold},
+                textString="array of input trackers"),
             Rectangle(
               extent = {{14,-26},{96,-72}},
               lineColor = {28,108,200},
