@@ -287,6 +287,44 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2880;
+
+    model Issue3086 "Conversion test for #3086"
+      extends Modelica.Icons.Example;
+      Modelica.StateGraph.InitialStep initialStep annotation (Placement(transformation(extent={{-48,0},{-28,20}})));
+      Modelica.StateGraph.Transition transition1(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.StateGraph.Step step annotation (Placement(transformation(extent={{10,0},{30,20}})));
+      Modelica.StateGraph.Transition transition2(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      inner Modelica.StateGraph.StateGraphRoot stateGraphRoot annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    equation
+      connect(initialStep.outPort[1], transition1.inPort) annotation (Line(points={{-27.5,10},{-14,10}}));
+      connect(transition1.outPort, step.inPort[1]) annotation (Line(points={{-8.5,10},{9,10}}));
+      connect(step.outPort[1], transition2.inPort) annotation (Line(points={{30.5,10},{46,10}}));
+      connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points={{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}));
+      annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3086\">#3086</a>.
+</p>
+</html>"));
+    end Issue3086;
+
+    model Issue3086_WithSignal "Conversion test for #3086"
+      extends Modelica.Icons.Example;
+      Modelica.StateGraph.InitialStepWithSignal initialStep annotation (Placement(transformation(extent={{-48,0},{-28,20}})));
+      Modelica.StateGraph.Transition transition1(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.StateGraph.StepWithSignal step annotation (Placement(transformation(extent={{10,0},{30,20}})));
+      Modelica.StateGraph.Transition transition2(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      inner Modelica.StateGraph.StateGraphRoot stateGraphRoot annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    equation
+      connect(initialStep.outPort[1], transition1.inPort) annotation (Line(points={{-27.5,10},{-14,10}}));
+      connect(transition1.outPort, step.inPort[1]) annotation (Line(points={{-8.5,10},{9,10}}));
+      connect(step.outPort[1], transition2.inPort) annotation (Line(points={{30.5,10},{46,10}}));
+      connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points={{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}));
+      annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3086\">#3086</a>.
+</p>
+</html>"));
+    end Issue3086_WithSignal;
   end StateGraph;
 
   package Electrical
