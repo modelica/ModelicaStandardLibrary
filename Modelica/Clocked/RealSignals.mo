@@ -1510,7 +1510,7 @@ The first activation of output y of block backSample1 is shifted (4/3*20ms) befo
 </html>"));
     end BackSample;
 
-    block AssignClock "Assigns a clock to a clocked Real signal"
+    block AssignClock "Assign a clock to a clocked Real signal"
 
       Modelica.Blocks.Interfaces.RealInput u
         "Connector of clocked, Real input signal"
@@ -1635,7 +1635,7 @@ At every clock tick (that is at every 20ms) the output of the unitDelay1 block i
     end AssignClock;
 
     block AssignClockVectorized
-      "Assigns a clock to a clocked Real signal vector"
+      "Assign a clock to a clocked Real signal vector"
 
       parameter Integer n(min=1)=1
         "Size of input signal vector u (= size of output signal vector y)";
@@ -2113,7 +2113,7 @@ samples a sine signal with a periodic clock of 20 ms period. After that a Boolea
         "Internal blocks and functions that are usually of no interest for the user"
         extends Modelica.Icons.InternalPackage;
         block ComputationalDelay
-          "Delays a clocked signal for at most one period, in order to model a computational delay"
+          "Delay a clocked signal for at most one period, in order to model a computational delay"
         extends Clocked.RealSignals.Interfaces.PartialClockedSISO;
           parameter Integer shiftCounter(min=0,max=resolution) = 0
             "(min=0, max=resolution), computational delay = interval()*shiftCounter/resolution"
@@ -2891,7 +2891,7 @@ will give still a similar performance.
 </html>"));
     end PI;
 
-    block UnitDelay "Delays the clocked input signal for one sample period"
+    block UnitDelay "Delay the clocked input signal for one sample period"
       extends Clocked.RealSignals.Interfaces.PartialClockedSISO(u(final start=
               y_start));
       parameter Real y_start=0 "Value of output signal at first clock tick";
@@ -2934,7 +2934,7 @@ y is set to parameter y_start.
     end UnitDelay;
 
     block FractionalDelay
-      "Delays the clocked input signal for a fractional multiple of the sample period"
+      "Delay the clocked input signal for a fractional multiple of the sample period"
     extends Clocked.RealSignals.Interfaces.PartialClockedSISO;
 
       parameter Integer shift(min=0) = 0
