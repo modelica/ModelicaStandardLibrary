@@ -7,34 +7,34 @@ model Transformer3PhaseYyWithHysteresis
 
   // Tab: Electrical //Group:Primary Winding
   parameter Integer N1=10 "Primary turns"
-    annotation(Dialog(tab="Electrical", group="Primary Winding"));
+    annotation(Dialog(tab="Electrical", group="Primary winding"));
   parameter SI.Length L1(displayUnit="mm") = 1.2*2*(a+b)
     "Mean primary turn length"
-    annotation(Dialog(tab="Electrical", group="Primary Winding"));
+    annotation(Dialog(tab="Electrical", group="Primary winding"));
   parameter SI.Length d1(displayUnit="mm") = 0.5e-3
     "Wire diameter of primary turns"
-    annotation(Dialog(tab="Electrical", group="Primary Winding"));
+    annotation(Dialog(tab="Electrical", group="Primary winding"));
   parameter SI.Resistivity rho1 = 1.678e-8
     "Resistivity of primary winding (at 20degC)"
-    annotation(Dialog(tab="Electrical", group="Primary Winding"));
+    annotation(Dialog(tab="Electrical", group="Primary winding"));
   parameter SI.LinearTemperatureCoefficient alpha1 = 0
-    "Temperature coefficient of primary turns" annotation(Dialog(tab="Electrical", group="Primary Winding"));
+    "Temperature coefficient of primary turns" annotation(Dialog(tab="Electrical", group="Primary winding"));
 
   // Tab: Electrical //Group:Secondary Winding
   parameter Integer N2=10 "Secondary turns"
-     annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+     annotation(Dialog(tab="Electrical", group="Secondary winding"));
   parameter SI.Length L2(displayUnit="mm") = L1
     "Mean secondary turn length"
-    annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+    annotation(Dialog(tab="Electrical", group="Secondary winding"));
   parameter SI.Length d2(displayUnit="mm") = d1
     "Wire diameter of secondary turns"
-    annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+    annotation(Dialog(tab="Electrical", group="Secondary winding"));
   parameter SI.Resistivity rho2 = rho1
     "Resistivity of secondary winding (at 20degC)"
-    annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+    annotation(Dialog(tab="Electrical", group="Secondary winding"));
 
   parameter SI.LinearTemperatureCoefficient alpha2 = alpha1
-    "Temperature coefficient of secondary turns" annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+    "Temperature coefficient of secondary turns" annotation(Dialog(tab="Electrical", group="Secondary winding"));
 
   parameter SI.Length l1(displayUnit="mm") = 40e-3
     "Mean length l1 of core" annotation (Dialog(tab="Core", group="Geometry", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png"));
@@ -92,11 +92,11 @@ model Transformer3PhaseYyWithHysteresis
   output SI.Power LossPowerEddy "Eddy current losses";
 
   extends Interfaces.ConditionalHeatPort;
-  parameter Boolean EddyCurrents = false "Enable eddy currents" annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), choices(checkBox=true));
+  parameter Boolean EddyCurrents = false "Enable eddy currents" annotation(Dialog(tab="Losses and heat", group="Eddy currents"), choices(checkBox=true));
   parameter SI.Conductivity sigma = mat.sigma
-    "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+    "Conductivity of core material" annotation (Dialog(tab="Losses and heat", group="Eddy currents", enable=EddyCurrents));
   parameter SI.Length t(displayUnit="mm") = 0.5e-3
-    "Thickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+    "Thickness of lamination" annotation (Dialog(tab="Losses and heat", group="Eddy currents", enable=EddyCurrents));
 
   parameter SI.Length L_l1=10e-3 "Length of leakage of primary Winding" annotation (Dialog(tab="Leakage"));
   parameter SI.Area A_l1=10e-6

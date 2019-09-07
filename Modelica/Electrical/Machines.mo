@@ -7716,40 +7716,40 @@ These models use package SpacePhasors.
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
-                "Nominal resistances and inductances", group="DamperCage"));
+                "Nominal resistances and inductances", group="Damper cage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
               fsNominal)) "Damper stray inductance in d-axis" annotation (
             Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
           "Damper stray inductance in q-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
           "Damper resistance in d-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Damper resistance in q-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
             start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Losses.PermanentMagnetLossParameters
           permanentMagnetLossParameters(IRef(start=100), wRef(start=2*pi*
@@ -8030,40 +8030,40 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
-                "Nominal resistances and inductances", group="DamperCage"));
+                "Nominal resistances and inductances", group="Damper cage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
               fsNominal)) "Damper stray inductance in d-axis" annotation (
             Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
           "Damper stray inductance in q-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
           "Damper resistance in d-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Damper resistance in q-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
             start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
           "Nominal stator RMS voltage per phase"
@@ -8431,40 +8431,40 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
-                "Nominal resistances and inductances", group="DamperCage"));
+                "Nominal resistances and inductances", group="Damper cage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
               fsNominal)) "Damper stray inductance in d-axis" annotation (
             Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
           "Damper stray inductance in q-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
           "Damper resistance in d-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Damper resistance in q-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
             start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         Machines.BasicMachines.Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
@@ -16858,37 +16858,37 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage=true "Enable / disable damper cage"
           annotation (Evaluate=true,Dialog(tab=
-                "Nominal resistances and inductances", group="DamperCage"));
+                "Nominal resistances and inductances", group="Damper cage"));
         parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*pi*fsNominal)
           "Damper stray inductance in d-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
           "Damper stray inductance in q-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd=0.04
           "Damper resistance in d-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Damper resistance in q-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0 "Temperature coefficient of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         annotation (
           defaultComponentName="smrData",

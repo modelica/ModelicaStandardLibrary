@@ -1141,35 +1141,35 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 
         Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes
           geometry =                                                              Dissipation.Utilities.Types.HTXGeometry_flatTubes.LouverFin
-          "Choice of fin geometry" annotation (Dialog(group="HeatExchanger"));
+          "Choice of fin geometry" annotation (Dialog(group="Heat exchanger"));
 
-        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="HeatExchanger"));
-        SI.Length D_h=0 "Hydraulic diameter" annotation (Dialog(group="HeatExchanger",
+        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="Heat exchanger"));
+        SI.Length D_h=0 "Hydraulic diameter" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 2));
         SI.Length D_m=0 "Major tube diameter for flat tube"
-          annotation (Dialog(group="HeatExchanger"));
-        SI.Length F_l=0 "Fin length" annotation (Dialog(group="HeatExchanger", enable=
+          annotation (Dialog(group="Heat exchanger"));
+        SI.Length F_l=0 "Fin length" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 1));
         SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness" annotation (Dialog(
-              group="HeatExchanger", enable= geometry == 1));
-        SI.Length L_l=0 "Louver length" annotation (Dialog(group="HeatExchanger",
+              group="Heat exchanger", enable= geometry == 1));
+        SI.Length L_l=0 "Louver length" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
-        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="HeatExchanger",
+        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
-        SI.Length T_d=0 "Tube depth" annotation (Dialog(group="HeatExchanger", enable=
+        SI.Length T_d=0 "Tube depth" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 1));
-        SI.Length T_p=0 "Tube pitch" annotation (Dialog(group="HeatExchanger", enable=
+        SI.Length T_p=0 "Tube pitch" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 1));
 
         Real alpha=0 "Lateral fin spacing (s) / free flow height (h)" annotation (
-            Dialog(group="HeatExchanger", enable= geometry == 2));
+            Dialog(group="Heat exchanger", enable= geometry == 2));
         Real gamma=0 "Fin thickness (t) / lateral fin spacing (s)" annotation (Dialog(
-              group="HeatExchanger", enable= geometry == 2));
+              group="Heat exchanger", enable= geometry == 2));
         Real delta=0 "Fin thickness (t) / Fin length (l)" annotation (Dialog(group=
-                "HeatExchanger", enable= geometry == 2));
-        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="HeatExchanger",
+                "Heat exchanger", enable= geometry == 2));
+        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
-        SI.Angle Phi=0 "Louver angle" annotation (Dialog(group="HeatExchanger",
+        SI.Angle Phi=0 "Louver angle" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
 
         annotation (Documentation(info="<html>
@@ -1419,35 +1419,35 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 
         Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes
           geometry =                                                               Dissipation.Utilities.Types.HTXGeometry_roundTubes.PlainFin
-          "Choice of fin geometry" annotation (Dialog(group="HeatExchanger"));
+          "Choice of fin geometry" annotation (Dialog(group="Heat exchanger"));
 
-        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="HeatExchanger"));
+        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="Heat exchanger"));
         SI.Length D_c=0 "Fin collar diameter"
-          annotation (Dialog(group="HeatExchanger"));
+          annotation (Dialog(group="Heat exchanger"));
         SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness"
-          annotation (Dialog(group="HeatExchanger"));
+          annotation (Dialog(group="Heat exchanger"));
         SI.Length L=0 "Heat exchanger length" annotation (Dialog(group=
-                "HeatExchanger", enable= geometry == 2));
-        SI.Length L_h=0 "Louver height" annotation (Dialog(group="HeatExchanger",
+                "Heat exchanger", enable= geometry == 2));
+        SI.Length L_h=0 "Louver height" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 2));
-        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="HeatExchanger",
+        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 2));
-        Integer N=0 "Number of tube rows" annotation (Dialog(group="HeatExchanger",
+        Integer N=0 "Number of tube rows" annotation (Dialog(group="Heat exchanger",
               enable= (geometry == 1 or geometry == 2 or geometry == 3)));
         SI.Length P_d=0 "Pattern depth of wavy fin, wave height" annotation (Dialog(
-              group="HeatExchanger", enable= geometry == 4));
+              group="Heat exchanger", enable= geometry == 4));
         SI.Length P_l=0 "Longitudinal tube pitch" annotation (Dialog(group=
-                "HeatExchanger", enable= (geometry == 1 or geometry == 2 or geometry == 3)));
+                "Heat exchanger", enable= (geometry == 1 or geometry == 2 or geometry == 3)));
         SI.Length P_t=0 "Transverse tube pitch"
-          annotation (Dialog(group="HeatExchanger"));
-        SI.Length S_h=0 "Slit height" annotation (Dialog(group="HeatExchanger",
+          annotation (Dialog(group="Heat exchanger"));
+        SI.Length S_h=0 "Slit height" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 3));
-        SI.Length S_p=0 "Slit pitch" annotation (Dialog(group="HeatExchanger", enable=
+        SI.Length S_p=0 "Slit pitch" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 3));
         SI.Length X_f=0 "Half wave length of wavy fin" annotation (Dialog(group=
-                "HeatExchanger", enable= geometry == 4));
+                "Heat exchanger", enable= geometry == 4));
 
-        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="HeatExchanger"));
+        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="Heat exchanger"));
 
         annotation (Documentation(info="<html>
 This record is used as <strong> input record </strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube\"> kc_roundTube</a> and

@@ -425,18 +425,18 @@ it is open.
 
       parameter Modelica.Fluid.Types.CvTypes CvData=Modelica.Fluid.Types.CvTypes.OpPoint
         "Selection of flow coefficient"
-       annotation(Dialog(group = "Flow Coefficient"));
+       annotation(Dialog(group = "Flow coefficient"));
       parameter SI.Area Av(
         fixed= CvData == Modelica.Fluid.Types.CvTypes.Av,
         start=m_flow_nominal/(sqrt(rho_nominal*dp_nominal))*valveCharacteristic(
             opening_nominal)) "Av (metric) flow coefficient"
-       annotation(Dialog(group = "Flow Coefficient",
+       annotation(Dialog(group = "Flow coefficient",
                          enable = (CvData==Modelica.Fluid.Types.CvTypes.Av)));
       parameter Real Kv = 0 "Kv (metric) flow coefficient [m3/h]"
-      annotation(Dialog(group = "Flow Coefficient",
+      annotation(Dialog(group = "Flow coefficient",
                         enable = (CvData==Modelica.Fluid.Types.CvTypes.Kv)));
       parameter Real Cv = 0 "Cv (US) flow coefficient [USG/min]"
-      annotation(Dialog(group = "Flow Coefficient",
+      annotation(Dialog(group = "Flow coefficient",
                         enable = (CvData==Modelica.Fluid.Types.CvTypes.Cv)));
       parameter SI.Pressure dp_nominal "Nominal pressure drop"
       annotation(Dialog(group="Nominal operating point"));
