@@ -1695,7 +1695,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
           parameter NonSIunits.Pressure_bar P_0 = 0.543
             "Initial value for P_m, (bar)";
           Modelica.Blocks.Interfaces.RealInput m_ai_der(unit="g/s")
-            "Mass flow rate of air into manifold (g/s) "
+            "Mass flow rate of air into manifold (g/s)"
             annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
           Modelica.Blocks.Interfaces.RealInput N(unit="rad/s") "Engine speed (rad/sec)"
             annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
@@ -1717,7 +1717,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
           parameter Real sigma = 15.0
             "Spark advance, BTDC";
           Modelica.Blocks.Interfaces.RealInput m_a(unit="g")
-            "Mass of air charge in cylinder (delayed of 180deg crankshaft rotation) (g) "
+            "Mass of air charge in cylinder (delayed of 180deg crankshaft rotation) (g)"
             annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
           Modelica.Blocks.Interfaces.RealInput N(unit="rad/s") "Engine speed (rad/sec)"
             annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
@@ -1739,7 +1739,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
           Modelica.Blocks.Interfaces.RealInput N_des(unit="rad/s") "Desired speed, (rad/s)" annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
           Modelica.Blocks.Interfaces.RealInput N(unit="rad/s") "Measured speed, (rad/s)" annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
           Modelica.Blocks.Interfaces.RealOutput Theta(start=8.9, unit="deg")
-            "Throttle angle (deg)"                                                      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+            "Throttle angle (deg)" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
         protected
           NonSIunits.Angle_deg x_d(start=8.973, fixed=true);
         /*
@@ -2022,10 +2022,8 @@ initial equation
           Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge
             cylinderAirCharge
             annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
-          Modelica.Mechanics.Rotational.Sources.Torque
-                                    torque(useSupport=false)
-                                   annotation (Placement(transformation(extent={{40,-8},
-                    {56,8}})));
+          Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=false)
+            annotation (Placement(transformation(extent={{40,-8},{56,8}})));
           Modelica.Mechanics.Rotational.Components.Inertia
                                         inertia1(J=0.14, w(fixed=true, start=209),
             phi(fixed=true, start=0))

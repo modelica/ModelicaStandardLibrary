@@ -587,7 +587,7 @@ Analog to the corresponding Real signal block example there exists an elementary
 </html>"));
     end BackSample;
 
-    block AssignClock "Assigns a clock to a clocked Integer signal"
+    block AssignClock "Assign a clock to a clocked Integer signal"
       Modelica.Blocks.Interfaces.IntegerInput u
         "Connector of clocked, Integer input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -674,7 +674,7 @@ Analog to the corresponding Real signal block example there exists an elementary
     end AssignClock;
 
     block AssignClockVectorized
-      "Assigns a clock to a clocked Integer signal vector"
+      "Assign a clock to a clocked Integer signal vector"
       parameter Integer n(min=1)=1
         "Size of input signal vector u (= size of output signal vector y)";
       Modelica.Blocks.Interfaces.IntegerInput u[n]
@@ -1086,7 +1086,7 @@ contains utility blocks that are used as building blocks for user-relevant block
     "Library of blocks that operate on periodically and non-periodically clocked signals"
     extends Modelica.Icons.Package;
 
-    block IntegerChange "Indicates integer signal changing"
+    block IntegerChange "Indicate Integer signal changing"
       extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
 
       Modelica.Blocks.Interfaces.IntegerInput u
@@ -1130,7 +1130,7 @@ contains utility blocks that are used as building blocks for user-relevant block
     </html>"));
     end IntegerChange;
 
-    block UnitDelay "Delays the clocked input signal for one sample period"
+    block UnitDelay "Delay the clocked input signal for one sample period"
       extends Clocked.IntegerSignals.Interfaces.PartialClockedSISO(u(final
             start=y_start));
       parameter Integer y_start=0 "Value of output signal at first clock tick";
@@ -1173,7 +1173,7 @@ y is set to parameter y_start.
     end UnitDelay;
 
     block FractionalDelay
-      "Delays the clocked input signal for a fractional multiple of the sample period"
+      "Delay the clocked input signal for a fractional multiple of the sample period"
     extends Clocked.IntegerSignals.Interfaces.PartialClockedSISO;
 
       parameter Integer shift(min=0) = 0

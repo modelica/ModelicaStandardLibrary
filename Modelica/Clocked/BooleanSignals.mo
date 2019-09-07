@@ -632,13 +632,11 @@ Analog to the corresponding Real signal block example there exists an elementary
 </html>"));
     end BackSample;
 
-    block AssignClock "Assigns a clock to a clocked Boolean signal"
-      Modelica.Blocks.Interfaces.BooleanInput
-                                           u
+    block AssignClock "Assign a clock to a clocked Boolean signal"
+      Modelica.Blocks.Interfaces.BooleanInput u
         "Connector of clocked, Boolean input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.BooleanOutput
-                                            y
+      Modelica.Blocks.Interfaces.BooleanOutput y
         "Connector of clocked, Boolean output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       Clocked.ClockSignals.Interfaces.ClockInput clock annotation (Placement(
@@ -721,15 +719,13 @@ Analog to the corresponding Real signal block example there exists an elementary
     end AssignClock;
 
     block AssignClockVectorized
-      "Assigns a clock to a clocked Boolean signal vector"
+      "Assign a clock to a clocked Boolean signal vector"
       parameter Integer n(min=1)=1
         "Size of input signal vector u (= size of output signal vector y)";
-      Modelica.Blocks.Interfaces.BooleanInput
-                                           u[n]
+      Modelica.Blocks.Interfaces.BooleanInput u[n]
         "Connector of clocked, Boolean input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Blocks.Interfaces.BooleanOutput
-                                            y[n]
+      Modelica.Blocks.Interfaces.BooleanOutput y[n]
         "Connector of clocked, Boolean output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       Clocked.ClockSignals.Interfaces.ClockInput clock annotation (Placement(
@@ -1137,7 +1133,7 @@ contains utility blocks that are used as building blocks for user-relevant block
     "Library of blocks that operate on periodically and non-periodically clocked signals"
     extends Modelica.Icons.Package;
 
-    block BooleanChange "Indicates Boolean signal changing"
+    block BooleanChange "Indicate Boolean signal changing"
       extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
 
       Modelica.Blocks.Interfaces.BooleanInput u
@@ -1181,7 +1177,7 @@ contains utility blocks that are used as building blocks for user-relevant block
     </html>"));
     end BooleanChange;
 
-    block UnitDelay "Delays the clocked input signal for one sample period"
+    block UnitDelay "Delay the clocked input signal for one sample period"
       extends Clocked.BooleanSignals.Interfaces.PartialClockedSISO(u(final
             start=y_start));
       parameter Boolean y_start=false
@@ -1226,7 +1222,7 @@ y is set to parameter y_start.
     end UnitDelay;
 
     block FractionalDelay
-      "Delays the clocked input signal for a fractional multiple of the sample period"
+      "Delay the clocked input signal for a fractional multiple of the sample period"
     extends Clocked.BooleanSignals.Interfaces.PartialClockedSISO;
 
       parameter Integer shift(min=0) = 0

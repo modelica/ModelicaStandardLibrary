@@ -6,7 +6,7 @@ package ClockSignals "Library of blocks for clocked signals"
     extends Modelica.Icons.SourcesPackage;
 
     block PeriodicRealClock
-      "Generates a periodic clock signal with a period defined by a Real number"
+      "Generate a periodic clock signal with a period defined by a Real number"
       parameter Modelica.SIunits.Time period
         "Period of clock (defined as Real number)" annotation(Evaluate=true);
       extends Clocked.ClockSignals.Interfaces.PartialPeriodicClock;
@@ -76,11 +76,11 @@ For an example, see
     end PeriodicRealClock;
 
     block PeriodicExactClock
-      "Generates a periodic clock signal with a period defined by an Integer number with resolution"
+      "Generate a periodic clock signal with a period defined by an Integer number with resolution"
       import Modelica.Clocked.Types.Resolution;
 
       parameter Integer factor(min=0)
-        "Sample factor with respect to resolution"                               annotation(Evaluate=true);
+        "Sample factor with respect to resolution" annotation(Evaluate=true);
       parameter Clocked.Types.Resolution resolution=Resolution.ms "Clock resolution"
         annotation (Evaluate=true, __Dymola_editText=false);
       extends Clocked.ClockSignals.Interfaces.PartialPeriodicClock;
@@ -179,7 +179,7 @@ For an example, see
     end PeriodicExactClock;
 
     block EventClock
-      "Generates a clock signal when the Boolean input changes from false to true"
+      "Generate a clock signal when the Boolean input changes from false to true"
       extends Clocked.ClockSignals.Interfaces.PartialClock;
       Modelica.Blocks.Interfaces.BooleanInput u
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -224,12 +224,10 @@ For an example, see
 </html>"));
     end EventClock;
 
-    package Rotational "Library of blocks that generate a clock tick each time an observed
-  input angle changes"
+    package Rotational "Library of blocks that generate a clock tick each time an observed input angle changes"
       extends Modelica.Icons.Package;
       partial block PartialRotationalClock
-        "Base class for event clocks that generate a clock tick each time an observed
-   input angle changed."
+        "Base class for event clocks that generate a clock tick each time an observed input angle changes"
         extends ClockSignals.Interfaces.PartialClock;
 
         Modelica.Blocks.Interfaces.RealInput angle(unit = "rad")
@@ -240,9 +238,7 @@ For an example, see
      'y'."
           annotation (Placement(transformation(extent = {{100,-50},{120,-30}})));
         Modelica.Blocks.Interfaces.BooleanOutput direction_changed(start = false)
-          "'true', if the rotation direction of the observed angle changed since the
-     last tick of 'y', 'false' otherwise. Sampled with the provided clock signal
-     'y'."
+          "= true, if the rotation direction of the observed angle changed since the last tick of y', otherwise false. Sampled with the provided clock signal y."
           annotation (Placement(transformation(extent = {{100,-90},{120,-70}})));
 
         annotation (Icon(graphics={
@@ -255,13 +251,11 @@ For an example, see
       end PartialRotationalClock;
 
       block RotationalClock
-        "Event clock generating a clock tick each time an observed input angle
-   changed for a rotational-interval given as variable input."
+        "Event clock generating a clock tick each time an observed input angle changed for a rotational-interval given as variable input"
         extends PartialRotationalClock;
 
         Modelica.Blocks.Interfaces.RealInput trigger_interval(unit = "rad")
-          "Rotational-interval the input angle must be changed to trigger the next
-     clock tick."
+          "Rotational-interval the input angle must be changed to trigger the next clock tick"
           annotation (Placement(transformation(extent = {{-140,40},{-100,80}})));
 
         ClockSignals.Clocks.EventClock y_clock(
@@ -388,13 +382,11 @@ For an example, see
       end RotationalClock;
 
       model FixedRotationalClock
-        "Event clock generating a clock tick each time an observed input angle
-   changed for a certain, constant rotational-interval."
+        "Event clock generating a clock tick each time an observed input angle changed for a certain, constant rotational-interval"
         extends PartialRotationalClock;
 
         parameter Modelica.SIunits.Angle trigger_interval = 2*Modelica.Constants.pi
-          "Rotational-interval the input angle must be changed to trigger the next
-     clock tick.";
+          "Rotational-interval the input angle must be changed to trigger the next clock tick";
 
         RotationalClock rotationalClock
           annotation (Placement(transformation(extent = {{-10,-10},{10,10}})));
@@ -436,8 +428,7 @@ For an example, see
     package Logical "Library of blocks for combining several input clock signals by logical combinators"
       extends Modelica.Icons.Package;
       partial block PartialLogicalClock
-        "Logical clock combining arbitrary many input clock signals according to a
-   replaceable logical combinator."
+        "Logical clock combining arbitrary many input clock signals according to a replaceable logical combinator"
         extends Interfaces.PartialClock;
 
         parameter Integer nu = 2
@@ -571,8 +562,7 @@ For an example, see
       end PartialLogicalClock;
 
       block ConjunctiveClock
-        "Logical clock ticking whenever all input clocks ticked at least once, then
-   resets and starts the next conjunctive cycle."
+        "Logical clock ticking whenever all input clocks ticked at least once, then resets and starts the next conjunctive cycle"
         extends PartialLogicalClock(
           redeclare Modelica.Blocks.MathBoolean.And combinator);
 
