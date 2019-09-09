@@ -14,7 +14,6 @@ package RealSignals "Library of clocked blocks for Real signals"
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
        Text(extent={{-150,90},{150,50}},
@@ -23,7 +22,6 @@ package RealSignals "Library of clocked blocks for Real signals"
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -145,7 +143,6 @@ is the left limit of hold.y (= the red, continuous-time signal).
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Line(
@@ -160,7 +157,6 @@ is the left limit of hold.y (= the red, continuous-time signal).
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -224,7 +220,6 @@ samples a sine signal with a periodic clock of 20 ms period:<br>
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Line(
@@ -243,7 +238,6 @@ samples a sine signal with a periodic clock of 20 ms period:<br>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -383,7 +377,6 @@ signals are sampled with a periodic clock of 20 ms period:<br>
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Polygon(
@@ -411,7 +404,6 @@ signals are sampled with a periodic clock of 20 ms period:<br>
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -476,7 +468,6 @@ samples a sine signal with a periodic clock of 20 ms period, and adds the follow
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Ellipse(
@@ -653,7 +644,6 @@ to -1.0 (= the value of parameter hold.y_start).<br>
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Ellipse(
@@ -794,7 +784,6 @@ from above:<br>
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
             graphics={
             Line(
@@ -858,7 +847,6 @@ from above:<br>
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -928,7 +916,6 @@ clock of subSample.y is slower as the clock of subSample.u.
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{-80,-60},{-40,-60},{-40,-60},
                   {0,-60},{0,-60},{0,-60},{0,80},{40,80},{40,80},{80,80},{80,
@@ -997,7 +984,6 @@ clock of subSample.y is slower as the clock of subSample.u.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -1094,7 +1080,6 @@ clock of superSample.y is faster as the clock of superSample.u.
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Line(
@@ -1147,7 +1132,6 @@ clock of superSample.y is faster as the clock of superSample.u.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -1224,7 +1208,6 @@ clock of superSampleIpo.y is faster as the clock of superSampleIpo.u.
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{20,-50},{60,-50},{60,50}},
                                      color={0,0,127},
@@ -1268,7 +1251,6 @@ clock of superSampleIpo.y is faster as the clock of superSampleIpo.u.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -1361,7 +1343,6 @@ The first activation of output y of block shiftSample1 is shifted in time (4/3*2
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{20,-50},{60,-50},{60,50}},
                                      color={0,0,127},
@@ -1409,7 +1390,6 @@ The first activation of output y of block shiftSample1 is shifted in time (4/3*2
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -1505,7 +1485,6 @@ The first activation of output y of block backSample1 is shifted (4/3*20ms) befo
        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{-80,-60},{-40,-60},{-40,0},{
                   0,0},{0,0},{0,0},{0,80},{40,80},{40,40},{80,40},{80,0},{80,
@@ -1551,7 +1530,6 @@ The first activation of output y of block backSample1 is shifted (4/3*20ms) befo
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -1626,7 +1604,6 @@ At every clock tick (that is at every 20ms) the output of the unitDelay1 block i
        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Text(
@@ -1679,7 +1656,6 @@ At every clock tick (that is at every 20ms) the output of the unitDelay1 block i
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -1757,7 +1733,6 @@ of block assignClock1.
          Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
-              grid={2,2},
               initialScale=0.06),
                            graphics={
               Line(
@@ -1829,7 +1804,6 @@ of block assignClock1.
           Diagram(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
-              grid={2,2},
               initialScale=0.06)),
           Documentation(info="<html>
 <p>
@@ -2495,8 +2469,7 @@ as output.
 </p>
 </html>"),      Icon(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics={
+                extent={{-100,-100},{100,100}}), graphics={
                 Line(points={{0,-90},{0,68}}, color={192,192,192}),
                 Polygon(
                   points={{0,90},{-8,68},{8,68},{0,90}},
@@ -2519,8 +2492,7 @@ as output.
                   textColor={0,0,255})}),
                 Diagram(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics={
+                extent={{-100,-100},{100,100}}), graphics={
                 Line(points={{0,-60},{0,50}}, color={192,192,192}),
                 Polygon(
                   points={{0,60},{-5,50},{5,50},{0,60}},
@@ -3071,8 +3043,7 @@ results in the following equations:
 </html>"),
     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-90,15},{-15,90}},
               textString="A",
@@ -3095,8 +3066,7 @@ results in the following equations:
               textColor={0,0,127})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
             Text(
               extent={{-54,50},{52,-10}},
@@ -3172,8 +3142,7 @@ states can be set as start values of <strong>x</strong>.</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{82,0},{-84,0}}, color={0,0,127}),
             Text(
               extent={{-92,92},{86,12}},
@@ -3185,8 +3154,7 @@ states can be set as start values of <strong>x</strong>.</p>
               textString="a(z)")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
             Line(
               points={{40,0},{-44,0}},
@@ -3465,8 +3433,7 @@ clocked signals, will usually result in non-expected behavior.
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
             Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -3510,8 +3477,7 @@ clocked signals, will usually result in non-expected behavior.
                   fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{-80,90},{-86,68},{-74,68},{-80,90}},
               lineColor={95,95,95},
@@ -3606,8 +3572,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSt
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
             Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -3647,8 +3612,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSt
                   fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{-80,90},{-86,68},{-74,68},{-80,90}},
               lineColor={95,95,95},
@@ -3768,8 +3732,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRa
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
             Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -3822,8 +3785,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRa
                   fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,-90},{-80,84}}, color={95,95,95}),
             Polygon(
               points={{-80,97},{-84,81},{-76,81},{-80,97}},
@@ -3950,8 +3912,7 @@ to use the blocks provided in this package than to use the blocks offered by <a 
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
             Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -3995,8 +3956,7 @@ to use the blocks provided in this package than to use the blocks offered by <a 
                   fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{-80,90},{-86,68},{-74,68},{-80,90}},
               lineColor={95,95,95},
@@ -4114,8 +4074,7 @@ The Real output y is a step signal. The signal is defined in terms of clock tick
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
             Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -4155,8 +4114,7 @@ The Real output y is a step signal. The signal is defined in terms of clock tick
                   fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{-80,90},{-86,68},{-74,68},{-80,90}},
               lineColor={95,95,95},
@@ -4307,8 +4265,7 @@ The Real output y is a ramp signal. The signal is defined in terms of clock tick
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
             Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -4361,8 +4318,7 @@ The Real output y is a ramp signal. The signal is defined in terms of clock tick
                   fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,-90},{-80,84}}, color={95,95,95}),
             Polygon(
               points={{-80,97},{-84,81},{-76,81},{-80,97}},
@@ -4531,7 +4487,6 @@ The Real output y is a sine signal. The signal is defined in terms of clock tick
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{-60,-40},{-20,-40},{-20,20},{20,20},
                   {20,60},{60,60},{60,0},{100,0},{100,0},{100,0},{100,0},{120,0}},

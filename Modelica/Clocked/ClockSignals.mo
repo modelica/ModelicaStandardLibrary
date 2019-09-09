@@ -629,7 +629,6 @@ to clocks see
        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Line(
@@ -692,7 +691,6 @@ to clocks see
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -752,7 +750,6 @@ clock subSample.y is slower as clock subSample.u.
        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{-80,-60},{-40,-60},{-40,-60},{0,-60},
                   {0,-60},{0,-60},{0,80},{40,80},{40,80},{80,80},{80,0},{80,0},{80,0},
@@ -825,7 +822,6 @@ clock subSample.y is slower as clock subSample.u.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -887,7 +883,6 @@ clock superSample.y is faster as clock superSample.u.
        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{20,-50},{60,-50},{60,50}},
                                      color={95,95,95},
@@ -932,7 +927,6 @@ clock superSample.y is faster as clock superSample.u.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -1010,8 +1004,8 @@ a clock signal.
               coordinateSystem(extent={{-100,-100},{100,100}},
           preserveAspectRatio=true, initialScale=0.2)),    Diagram(coordinateSystem(
           preserveAspectRatio=true, initialScale=0.2,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Polygon(
+          extent={{-100,-100},{100,100}}),
+          graphics={Polygon(
             points={{0,50},{100,0},{0,-50},{0,50}},
             lineColor={95,95,95},
             fillColor={95,95,95},
@@ -1030,8 +1024,8 @@ Connector with one input signal of type Clock.
                                     annotation (defaultComponentName="y",
     Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Polygon(
+          extent={{-100,-100},{100,100}}),
+          graphics={Polygon(
             points={{-10,6},{10,0},{-10,-6},{-10,6}},
             lineColor={175,175,175},
             fillColor={255,255,255},
@@ -1045,8 +1039,8 @@ Connector with one input signal of type Clock.
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Polygon(
+          extent={{-100,-100},{100,100}}),
+          graphics={Polygon(
             points={{-100,50},{0,0},{-100,-50},{-100,50}},
             lineColor={95,95,95},
             fillColor={255,255,255},
