@@ -172,13 +172,7 @@ Analog to the corresponding Real signal block example there exists an elementary
             extent={{-100,-100},{100,100}},
             grid={2,2},
             initialScale=0.06),
-                         graphics={
-            Rectangle(
-              extent={{-80,80},{80,-80}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
-                                   Line(points={{-80,-60},{-40,-60},{-40,0},{0,0},{0,
+                         graphics={Line(points={{-80,-60},{-40,-60},{-40,0},{0,0},{0,
                   0},{0,0},{0,80},{40,80},{40,40},{80,40},{80,0},{80,0},{80,0},{100,
                   0}},               color={255,0,255}),
                                                        Line(
@@ -265,11 +259,6 @@ Analog to the corresponding Real signal block example there exists an elementary
             grid={2,2},
             initialScale=0.06),
             graphics={
-            Rectangle(
-              extent={{-94,82},{86,-96}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
             Line(
               points={{-100,0},{-80,0},{-80,-60},{60,-60},{60,0},{100,0}},
               pattern=LinePattern.Dot,
@@ -370,13 +359,7 @@ Analog to the corresponding Real signal block example there exists an elementary
             extent={{-100,-100},{100,100}},
             grid={2,2},
             initialScale=0.06),
-                         graphics={
-            Rectangle(
-              extent={{-88,86},{90,-72}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
-                                   Line(points={{-80,-60},{-40,-60},{-40,-60},
+                         graphics={Line(points={{-80,-60},{-40,-60},{-40,-60},
                   {0,-60},{0,-60},{0,-60},{0,80},{40,80},{40,80},{80,80},{80,
                   0},{80,0},{80,0},{100,0}},
                                      color={255,0,255},
@@ -481,13 +464,7 @@ Analog to the corresponding Real signal block example there exists an elementary
             extent={{-100,-100},{100,100}},
             grid={2,2},
             initialScale=0.06),
-                         graphics={
-            Rectangle(
-              extent={{-94,86},{84,-92}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
-                                   Line(points={{20,-50},{60,-50},{60,50}},
+                         graphics={Line(points={{20,-50},{60,-50},{60,50}},
                                      color={255,0,255},
               pattern=LinePattern.Dot),
             Text(
@@ -568,13 +545,7 @@ Analog to the corresponding Real signal block example there exists an elementary
             extent={{-100,-100},{100,100}},
             grid={2,2},
             initialScale=0.06),
-                         graphics={
-            Rectangle(
-              extent={{-90,84},{88,-94}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
-                                   Line(points={{20,-50},{60,-50},{60,50}},
+                         graphics={Line(points={{20,-50},{60,-50},{60,50}},
                                      color={255,0,255},
               pattern=LinePattern.Dot),
             Text(
@@ -660,13 +631,7 @@ Analog to the corresponding Real signal block example there exists an elementary
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              textColor={0,0,255}),
-            Rectangle(
-              extent={{-90,90},{88,-88}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
-                                   Line(points={{-80,-60},{-40,-60},{-40,0},{
+              textColor={0,0,255}),Line(points={{-80,-60},{-40,-60},{-40,0},{
                   0,0},{0,0},{0,0},{0,80},{40,80},{40,40},{80,40},{80,0},{80,
                   0},{80,0},{100,0}},color={255,0,255},
               pattern=LinePattern.Dot),                Line(
@@ -2034,11 +1999,6 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBase
             extent={{-100,-100},{100,100}},
             initialScale=0.06),
           graphics={
-            Rectangle(
-              extent={{-99,40},{99,-40}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
             Line(points={{-100,0},{-45,0}}, color={255,85,255}),
             Ellipse(
               extent={{-25,-10},{-45,10}},

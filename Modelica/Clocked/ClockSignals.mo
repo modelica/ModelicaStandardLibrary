@@ -632,11 +632,6 @@ to clocks see
             grid={2,2},
             initialScale=0.06),
                          graphics={
-            Rectangle(
-              extent={{-80,80},{80,-80}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
             Line(
               points={{-100,0},{-80,0},{-80,-60},{60,-60},{60,0},{100,0}},
               pattern=LinePattern.Dot,
@@ -759,13 +754,7 @@ clock subSample.y is slower as clock subSample.u.
             extent={{-100,-100},{100,100}},
             grid={2,2},
             initialScale=0.06),
-                         graphics={
-            Rectangle(
-              extent={{-90,88},{88,-72}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
-                                   Line(points={{-80,-60},{-40,-60},{-40,-60},{0,-60},
+                         graphics={Line(points={{-80,-60},{-40,-60},{-40,-60},{0,-60},
                   {0,-60},{0,-60},{0,80},{40,80},{40,80},{80,80},{80,0},{80,0},{80,0},
                   {100,0}},          color={95,95,95},
               pattern=LinePattern.Dot,
@@ -900,13 +889,7 @@ clock superSample.y is faster as clock superSample.u.
             extent={{-100,-100},{100,100}},
             grid={2,2},
             initialScale=0.06),
-                         graphics={
-            Rectangle(
-              extent={{-94,86},{84,-92}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              pattern=LinePattern.None),
-                                   Line(points={{20,-50},{60,-50},{60,50}},
+                         graphics={Line(points={{20,-50},{60,-50},{60,50}},
                                      color={95,95,95},
               pattern=LinePattern.Dot),
                                    Line(points={{-80,-50},{-40,-50},{-40,50}},
