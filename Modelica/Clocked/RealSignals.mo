@@ -384,18 +384,17 @@ signals are sampled with a periodic clock of 20 ms period:<br>
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
-            Line(points={{0,-112},{0,-38}},color={192,192,192}),
-            Line(points={{-62,-72},{66,-72}}, color={192,192,192}),
+            Line(points={{0,-100},{0,-38}},color={192,192,192}),
+            Line(points={{-40,-72},{40,-72}}, color={192,192,192}),
             Polygon(
               points={{0,8},{-6,-8},{6,-8},{0,8}},
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
-              origin={74,-72},
+              origin={48,-72},
               rotation=-90),
             Line(
-              points={{-50,-112},{-30,-112},{-30,-92},{-10,-92},{-10,-72},{10,-72},{
-                  10,-52},{30,-52},{30,-32},{50,-32}},
+              points={{-30,-92},{-10,-92},{-10,-72},{10,-72},{10,-52},{30,-52}},
               color={0,0,127}),
             Text(
               extent={{-150,90},{150,50}},
@@ -3306,8 +3305,7 @@ contrary to a general FIR filter.
           Rectangle(extent={{-84,-82},{-18,4}},
                 lineColor={192,192,192}, fillColor={255,255,255},
                 fillPattern=FillPattern.Backward),
-        Line(
-              points={{-84,30},{-72,30},{-52,28},{-32,20},{-26,16},{-22,12},{-18,
+        Line( points={{-84,30},{-72,30},{-52,28},{-32,20},{-26,16},{-22,12},{-18,
                   6},{-14,-4},{-4,-46},{0,-64},{2,-82}},
               color={0,0,127},
               smooth=Smooth.Bezier),
@@ -3315,7 +3313,6 @@ contrary to a general FIR filter.
                 fillPattern =  FillPattern.Solid),
           Line(
               points={{2,-82},{4,-64},{8,-56},{12,-56},{16,-60},{18,-66},{20,-82}},
-
               color={0,0,127},
               smooth=Smooth.Bezier),
           Line(
@@ -3323,7 +3320,6 @@ contrary to a general FIR filter.
                   -66},{34,-70},{36,-78},{36,-82},{36,-74},{38,-68},{40,-66},{
                   44,-66},{46,-68},{48,-72},{50,-78},{50,-82},{50,-78},{52,-70},
                   {54,-68},{58,-68},{62,-72},{64,-76},{64,-78},{64,-80},{64,-82}},
-
               color={0,0,127},
               smooth=Smooth.Bezier),
         Polygon(points={{90,-82},{68,-74},{68,-90},{90,-82}}, lineColor={192,192,192}, fillColor={192,192,192},
@@ -3394,7 +3390,6 @@ At the first clock tick i=1 the past values are filled with u at this clock tick
                 fillPattern=FillPattern.Backward),
           Line(
               points={{2,-82},{4,-64},{8,-56},{12,-56},{16,-60},{18,-66},{20,-82}},
-
               color={0,0,127},
               smooth=Smooth.Bezier),
           Line(
@@ -3402,7 +3397,6 @@ At the first clock tick i=1 the past values are filled with u at this clock tick
                   -66},{34,-70},{36,-78},{36,-82},{36,-74},{38,-68},{40,-66},{
                   44,-66},{46,-68},{48,-72},{50,-78},{50,-82},{50,-78},{52,-70},
                   {54,-68},{58,-68},{62,-72},{64,-76},{64,-78},{64,-80},{64,-82}},
-
               color={0,0,127},
               smooth=Smooth.Bezier),
         Polygon(points={{90,-82},{68,-74},{68,-90},{90,-82}}, lineColor={192,192,192}, fillColor={192,192,192},
