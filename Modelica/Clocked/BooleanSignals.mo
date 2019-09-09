@@ -376,7 +376,7 @@ Analog to the corresponding Real signal block example there exists an elementary
               fillColor={255,0,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-15,96},{15,66}},
+              extent={{-15,95},{15,65}},
               lineColor={255,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
@@ -386,7 +386,7 @@ Analog to the corresponding Real signal block example there exists an elementary
               fillColor={255,0,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{65,16},{95,-14}},
+              extent={{65,15},{95,-15}},
               lineColor={255,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
@@ -396,12 +396,12 @@ Analog to the corresponding Real signal block example there exists an elementary
               fillColor={255,0,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-48,-46},{-18,-76}},
+              extent={{-48,-45},{-18,-75}},
               lineColor={255,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{34,96},{64,66}},
+              extent={{35,95},{65,65}},
               lineColor={255,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
