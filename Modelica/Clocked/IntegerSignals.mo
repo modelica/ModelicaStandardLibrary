@@ -16,7 +16,6 @@ package IntegerSignals "Library of clocked blocks for Integer signals"
        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Text(
@@ -26,7 +25,6 @@ package IntegerSignals "Library of clocked blocks for Integer signals"
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -66,7 +64,6 @@ Analog to the corresponding Real signal block examples there exist two elementar
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Line(
@@ -81,7 +78,6 @@ Analog to the corresponding Real signal block examples there exist two elementar
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -118,7 +114,6 @@ Analog to the corresponding Real signal block example there exists an elementary
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Line(
@@ -137,7 +132,6 @@ Analog to the corresponding Real signal block example there exists an elementary
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -163,7 +157,6 @@ Analog to the corresponding Real signal block example there exists an elementary
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Ellipse(
@@ -227,7 +220,6 @@ Analog to the corresponding Real signal block example there exists an elementary
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
             graphics={
             Line(
@@ -288,7 +280,6 @@ Analog to the corresponding Real signal block example there exists an elementary
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -325,7 +316,6 @@ Analog to the corresponding Real signal block example there exists an elementary
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{-80,-60},{-40,-60},{-40,-60},
                   {0,-60},{0,-60},{0,-60},{0,80},{40,80},{40,80},{80,80},{80,
@@ -394,7 +384,6 @@ Analog to the corresponding Real signal block example there exists an elementary
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -426,7 +415,6 @@ Analog to the corresponding Real signal block example there exists an elementary
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{20,-50},{60,-50},{60,50}},
                                      color={255,128,0},
@@ -470,7 +458,6 @@ Analog to the corresponding Real signal block example there exists an elementary
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -504,7 +491,6 @@ Analog to the corresponding Real signal block example there exists an elementary
        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{20,-50},{60,-50},{60,50}},
                                      color={255,128,0},
@@ -552,7 +538,6 @@ Analog to the corresponding Real signal block example there exists an elementary
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -586,7 +571,6 @@ Analog to the corresponding Real signal block example there exists an elementary
        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Text(
@@ -632,7 +616,6 @@ Analog to the corresponding Real signal block example there exists an elementary
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -669,7 +652,6 @@ Analog to the corresponding Real signal block example there exists an elementary
        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={
             Text(
@@ -720,7 +702,6 @@ Analog to the corresponding Real signal block example there exists an elementary
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06)),
         Documentation(info="<html>
 <p>
@@ -773,7 +754,6 @@ Analog to the corresponding Real signal block example there exists an elementary
          Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
-              grid={2,2},
               initialScale=0.06),
                            graphics={
               Line(
@@ -845,7 +825,6 @@ Analog to the corresponding Real signal block example there exists an elementary
           Diagram(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
-              grid={2,2},
               initialScale=0.06)),
           Documentation(info="<html>
 <p>
@@ -884,8 +863,8 @@ Analog to the corresponding Real signal block example there exists an elementary
             defaultComponentName="clockToTrigger",
             Icon(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}),
+              graphics={
                 Polygon(
                   points={{-80,88},{-88,66},{-72,66},{-80,88}},
                   lineColor={255,0,255},
@@ -909,8 +888,7 @@ Analog to the corresponding Real signal block example there exists an elementary
               Line(points={{60,-70},{60,70}})}),
             Diagram(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={1,1})),
+              extent={{-100,-100},{100,100}})),
             Documentation(info="<html>
 <p>
 This block for Integer signals works similar as the corresponding block for Real signals (see
@@ -939,8 +917,8 @@ This block for Integer signals works similar as the corresponding block for Real
             defaultComponentName="clockToSquareWave",
             Icon(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}),
+              graphics={
                 Polygon(
                   points={{-80,88},{-88,66},{-72,66},{-80,88}},
                   lineColor={255,0,255},
@@ -962,8 +940,7 @@ This block for Integer signals works similar as the corresponding block for Real
                       {0,-70},{40,-70},{40,44},{79,44}})}),
             Diagram(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={1,1})),
+              extent={{-100,-100},{100,100}})),
             Documentation(info="<html>
 <p>
 This block for Integer signals works similar as the corresponding block for Real signals (see
@@ -1616,7 +1593,6 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBase
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.06),
                          graphics={Line(points={{-60,-40},{-20,-40},{-20,20},{20,20},
                   {20,60},{60,60},{60,0},{100,0},{100,0},{100,0},{100,0},{120,0}},

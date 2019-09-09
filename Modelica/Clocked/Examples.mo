@@ -52,8 +52,7 @@ package Examples
           points={{108,-21.8},{108,-26},{-33,-26},{-33,2}},
           color={0,0,127}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-100},
-                {140,100}},
-            grid={2,2}), graphics={
+                {140,100}}), graphics={
             Text(
               extent={{-35,39},{15,33}},
               textColor={255,0,0},
@@ -71,8 +70,7 @@ package Examples
             Rectangle(extent={{40,40},{120,-34}}, lineColor={255,0,0})}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Original simple controlled drive with a
@@ -149,8 +147,8 @@ Original simple controlled drive with a
         pattern=LinePattern.Dot,
         thickness=0.5));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-140,
-              -100},{140,100}},
-            grid={2,2}), graphics={
+              -100},{140,100}}),
+        graphics={
             Text(
               extent={{-41,39},{9,33}},
               textColor={255,0,0},
@@ -168,8 +166,7 @@ Original simple controlled drive with a
             Rectangle(extent={{50,40},{132,-48}}, lineColor={255,0,0})}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Simple controlled drive with discrete-time textbook controller
@@ -247,8 +244,7 @@ modelled as a clocked partition
         pattern=LinePattern.Dot,
         thickness=0.5));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-140,
-              -100},{140,100}},
-            grid={2,2}), graphics={
+              -100},{140,100}}), graphics={
             Text(
               extent={{-41,37},{9,31}},
               textColor={255,0,0},
@@ -266,8 +262,7 @@ modelled as a clocked partition
             Rectangle(extent={{32,40},{104,-40}}, lineColor={255,0,0})}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Simple controlled drive with discrete-timer controller
@@ -348,9 +343,8 @@ taken into account the actual sample period.
         color={175,175,175},
         pattern=LinePattern.Dot,
         thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-140,
-              -100},{140,100}},
-            grid={2,2}), graphics={
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-140,-100},{140,100}}),
+        graphics={
             Text(
               extent={{-41,39},{9,33}},
               textColor={255,0,0},
@@ -368,8 +362,7 @@ taken into account the actual sample period.
             Rectangle(extent={{50,40},{132,-48}}, lineColor={255,0,0})}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This is the same model as
@@ -451,9 +444,8 @@ a Real periodic clock.
         color={175,175,175},
         pattern=LinePattern.Dot,
         thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-140,
-              -100},{140,100}},
-            grid={2,2}), graphics={
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-140,-100},{140,100}}),
+          graphics={
             Text(
               extent={{-41,37},{9,31}},
               textColor={255,0,0},
@@ -471,8 +463,7 @@ a Real periodic clock.
             Rectangle(extent={{36,40},{108,-40}}, lineColor={255,0,0})}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Simple controlled drive with discrete-time controller
@@ -570,8 +561,8 @@ of block <strong>periodicClock</strong> and then selecting
         pattern=LinePattern.Dot,
         thickness=0.5));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-140,
-              -100},{140,100}},
-            grid={2,2}), graphics={
+              -100},{140,100}}),
+        graphics={
             Text(
               extent={{-41,39},{9,33}},
               textColor={255,0,0},
@@ -589,8 +580,7 @@ of block <strong>periodicClock</strong> and then selecting
             Rectangle(extent={{50,40},{132,-48}}, lineColor={255,0,0})}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This is the same model as
@@ -697,8 +687,8 @@ system with one sample period.
           points={{-35,10},{-10.4,10}},
           color={0,0,127}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,
-                -100},{140,100}},
-            grid={2,2}), graphics={
+                -100},{140,100}}),
+        graphics={
             Text(
               extent={{-12,38},{38,32}},
               textColor={255,0,0},
@@ -721,8 +711,7 @@ system with one sample period.
               textString="slow controller")}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Original cascade controlled drive with a
@@ -845,9 +834,8 @@ Original cascade controlled drive with a
           color={175,175,175},
           pattern=LinePattern.Dot,
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,
-                -100},{140,100}},
-            grid={2,2}), graphics={
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-100},{140,100}}),
+        graphics={
             Text(
               extent={{-12,38},{38,32}},
               textColor={255,0,0},
@@ -870,8 +858,7 @@ Original cascade controlled drive with a
               textString="slow controller")}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Cascade control drive with discrete-time controller where one
@@ -988,8 +975,8 @@ clock inference.
           pattern=LinePattern.Dot,
           thickness=0.5));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,
-                -100},{140,100}},
-            grid={2,2}), graphics={
+                -100},{140,100}}),
+        graphics={
             Text(
               extent={{-12,38},{38,32}},
               textColor={255,0,0},
@@ -1012,8 +999,7 @@ clock inference.
               textString="slow controller")}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Cascade control drive with discrete-time controller where one
@@ -1135,9 +1121,8 @@ defined by the super-sampling factor defined at the \"super\" block.
           color={175,175,175},
           pattern=LinePattern.Dot,
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-140,-100},
-                {140,100}},
-            grid={2,2}), graphics={
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-140,-100},{140,100}}),
+        graphics={
             Text(
               extent={{-12,38},{38,32}},
               textColor={255,0,0},
@@ -1160,8 +1145,7 @@ defined by the super-sampling factor defined at the \"super\" block.
               textString="slow controller")}),
        Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
+            extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Cascade control drive with discrete-time controller where two
@@ -4027,18 +4011,16 @@ Elementary example for the documentation of block
         connect(sample1.u, step.y) annotation (Line(
             points={{-61.2,30},{-75,30}},
             color={255,127,0}));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}},
-              grid={1,1})), experiment(StopTime=0.2),
-        Documentation(info="<html>
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
+          experiment(StopTime=0.2),
+          Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
 <a href=\"Modelica.Clocked.IntegerSignals.Sampler.Sample\">Modelica.Clocked.IntegerSignals.Sampler.Sample</a>.
 </p>
 </html>"),Icon(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={1,1})));
+              extent={{-100,-100},{100,100}})));
       end Sample2;
 
       model SampleClocked
@@ -4628,17 +4610,16 @@ Elementary example for the documentation of block
           points={{-8,23},{-13,23},{-13,30},{-18,30}},
           color={255,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}},
-              grid={1,1})), experiment(StopTime=0.2),
-        Documentation(info="<html>
+                -100},{100,100}})),
+          experiment(StopTime=0.2),
+          Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
 <a href=\"Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
 </p>
 </html>"),Icon(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={1,1})));
+              extent={{-100,-100},{100,100}})));
       end Sample2;
 
       model SampleClocked
