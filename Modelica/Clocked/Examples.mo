@@ -2375,10 +2375,6 @@ See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.Contro
           parameter Modelica.SIunits.Frequency f(start=1) "Cut-off frequency";
           parameter Boolean normalized = true
             "= true, if amplitude at f_cut is 3 dB, otherwise unmodified filter";
-            /*
-  parameter Real x_start[n]=zeros(n) "Initial or guess values of states"
-    annotation (Dialog(group="Initialization"));
-*/
           output Real x[n](start=zeros(n)) "Filter states";
         protected
           parameter Real alpha=if normalized then sqrt(2^(1/n) - 1) else 1.0
@@ -2443,9 +2439,9 @@ See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.Contro
 input u and the output y
 as an n-th order filter with <em>critical damping</em>
 characteristics and cut-off frequency f. It is
-a slightly simplified version of the \"Modelica.Blocks.Continuous.CriticalDamping\" block from the MSL 3.2.1.
-It doesn't provide the same initialization capabilities as the MSL block, since the initialization of
-clocked partitions is currently performed different to the continuous time partitions.
+a slightly simplified version of the <a href=\"Modelica.Blocks.Continuous.CriticalDamping\">Modelica.Blocks.Continuous.CriticalDamping</a> block.
+It doesn't provide the same initialization capabilities as the continuous block, since the initialization of
+clocked partitions is currently performed differently to the continuous time partitions.
 </p>
 
 </html>"));
