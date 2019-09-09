@@ -1184,7 +1184,7 @@ contains utility blocks that are used as building blocks for user-relevant block
         "Value of output signal at first clock tick";
     equation
       y = previous(u);
-      annotation (defaultComponentName="UnitDelay1",
+      annotation (defaultComponentName="unitDelay1",
            Icon(graphics={
             Line(points={{-30,0},{30,0}}, color={255,0,255}),
             Text(
