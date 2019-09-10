@@ -4,10 +4,10 @@ model Motor "Second order thermal model of a motor"
   parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC") = 293.15
     "Ambient temperature";
 
-  Modelica.Blocks.Sources.CombiTimeTable lossTable(extrapolation=Modelica.
-        Blocks.Types.Extrapolation.Periodic, smoothness=Modelica.Blocks.
-        Types.Smoothness.ConstantSegments, table=[0,100,500; 360,1000,500;
-        600,100,500]) annotation (Placement(transformation(
+  Modelica.Blocks.Sources.CombiTimeTable lossTable(
+    extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
+    smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
+    table=[0,100,500; 360,1000,500; 600,100,500]) annotation (Placement(transformation(
         origin={-40,70},
         extent={{-10,-10},{10,10}},
         rotation=270)));

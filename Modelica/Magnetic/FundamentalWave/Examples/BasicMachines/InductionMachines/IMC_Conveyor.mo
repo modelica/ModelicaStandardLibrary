@@ -41,8 +41,9 @@ model IMC_Conveyor
     annotation (Placement(transformation(extent={{60,10},{40,30}})));
   Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
     annotation (Placement(transformation(extent={{20,100},{40,80}})));
-  Modelica.Blocks.Sources.CombiTimeTable dutyCycle(table=[0,0; 1,1; 4,1; 5,0;
-        10,0; 11,-1; 14,-1; 15,0; 20,0], extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
+  Modelica.Blocks.Sources.CombiTimeTable dutyCycle(
+    table=[0,0; 1,1; 4,1; 5,0; 10,0; 11,-1; 14,-1; 15,0; 20,0],
+    extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
     annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
   Modelica.Electrical.Machines.Utilities.VfController vfController(
     final m=m,

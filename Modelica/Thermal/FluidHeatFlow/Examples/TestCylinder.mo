@@ -7,7 +7,8 @@ model TestCylinder "Two cylinder system"
   output Modelica.SIunits.Force f2=-cylinder2.f "Force on piston 2";
   output Modelica.SIunits.Force f=springDamper.f "Force of springDamper";
   Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
-    table=[0,0; 0.25,0; 0.25,-1; 0.5,-1; 0.5,0; 0.75,0])
+    table=[0,0; 0.25,-1; 0.5,0; 0.75,0],
+    smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments)
     annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   Modelica.Mechanics.Translational.Sources.Force force
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
