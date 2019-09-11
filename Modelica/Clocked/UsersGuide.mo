@@ -204,8 +204,9 @@ synchronous languages (Benveniste et. al. 2002):</em>
   end Literature;
 
   package ReleaseNotes "Release notes"
+    extends Modelica.Icons.ReleaseNotes;
     class Version_0_93_0 "Version 0.93.0 (April 10, 2019)"
-      extends Modelica.Icons.Information;
+      extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 <p>
 Version 0.93.0 is backward compatible to version 0.92.1
@@ -232,7 +233,7 @@ Version 0.93.0 is backward compatible to version 0.92.1
     end Version_0_93_0;
 
     class Version_0_92_1 "Version 0.92.1 (March 11, 2016)"
-      extends Modelica.Icons.Information;
+      extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 <p>
 Version 0.92.1 is backward compatible to version 0.92
@@ -258,7 +259,7 @@ Changes with respect to version 0.92:
     end Version_0_92_1;
 
     class Version_0_92 "Version 0.92 (Sept. 19, 2013)"
-      extends Modelica.Icons.Information;
+      extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 <p>
 Version 0.92 is backward compatible to version 0.91
@@ -277,10 +278,9 @@ Changes with respect to version 0.91:
 </ul>
 </html>"));
     end Version_0_92;
-    extends Modelica.Icons.Information;
 
     class Version_0_91 "Version 0.91 (Sept. 20, 2012)"
-      extends Modelica.Icons.Information;
+      extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 <p>
 First version of the library provided on the Modelica web page.
@@ -323,7 +323,7 @@ Modelica).
     end Version_0_91;
 
     class Version_0_9 "Version 0.9 (Aug. 28, 2012)"
-      extends Modelica.Icons.Information;
+      extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 <p>
 This library version has been used
