@@ -3747,7 +3747,7 @@ Example used to generate a figure for the documentation of block
           pattern=LinePattern.Dot,
           thickness=0.5));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}})), Documentation(info="<html>
+                {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
 <a href=\"Modelica.Clocked.RealSignals.TimeBasedSources.Step\">Modelica.Clocked.RealSignals.TimeBasedSources.Step</a>.
@@ -3776,7 +3776,7 @@ Example for block
           points={{-45,30},{-25.2,30}},
           color={0,0,127}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}})), Documentation(info="<html>
+                {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
 <a href=\"Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
@@ -3806,7 +3806,7 @@ Example for block
           points={{-45,30},{-25.2,30}},
           color={0,0,127}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}})), Documentation(info="<html>
+                {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
 <a href=\"Modelica.Clocked.RealSignals.TimeBasedSources.Sine\">Modelica.Clocked.RealSignals.TimeBasedSources.Sine</a>.
@@ -3843,7 +3843,7 @@ Example for block
           points={{-51,30},{-25.2,30}},
           color={0,0,127}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}})), Documentation(info="<html>
+                {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
 <a href=\"Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
@@ -3873,7 +3873,7 @@ Example for block
           points={{-51,30},{-25.2,30}},
           color={0,0,127}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}})), Documentation(info="<html>
+                {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
 <a href=\"Modelica.Clocked.RealSignals.TimeBasedSources.Ramp\">Modelica.Clocked.RealSignals.TimeBasedSources.Ramp</a>.
@@ -3906,7 +3906,7 @@ Example for block
           points={{-51,30},{-25.2,30}},
           color={0,0,127}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}})), Documentation(info="<html>
+                {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
 <a href=\"Modelica.Clocked.RealSignals.TickBasedSources.Ramp\">Modelica.Clocked.RealSignals.TickBasedSources.Ramp</a>.
