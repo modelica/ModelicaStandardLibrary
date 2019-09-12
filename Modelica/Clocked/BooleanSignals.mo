@@ -699,9 +699,9 @@ Analog to the corresponding Real signal block example there exists an elementary
               textColor={0,0,255}),
             Text(
               extent={{0,-32},{180,-82}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              textString="n=%n"),  Line(points={{-80,-60},{-40,-60},{-40,0},{
+              textColor={0,0,0},
+              textString="n=%n"),
+            Line(points={{-80,-60},{-40,-60},{-40,0},{
                   0,0},{0,0},{0,0},{0,80},{40,80},{40,40},{80,40},{80,0},{80,
                   0},{80,0},{100,0}},color={255,0,255},
               pattern=LinePattern.Dot),                Line(
@@ -797,11 +797,6 @@ Analog to the corresponding Real signal block example there exists an elementary
               extent={{-100,-100},{100,100}},
               initialScale=0.06),
                            graphics={
-              Rectangle(
-                extent={{-92,90},{88,-90}},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                pattern=LinePattern.None),
               Line(
                 points={{-78,-60},{40,-60},{40,0},{40,0}},
                 color={215,215,215},
@@ -1976,18 +1971,18 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBase
             initialScale=0.06),
           graphics={
             Line(points={{-100,0},{-45,0}}, color={255,0,255}),
-            Ellipse(
-              extent={{-25,-10},{-45,10}},
-              lineColor={255,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
             Line(points={{-35,0},{30,35}}, color={255,0,255}),
             Ellipse(
               extent={{45,-10},{25,10}},
               lineColor={255,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{45,0},{100,0}}, color={255,0,255})}),
+            Line(points={{45,0},{100,0}}, color={255,0,255}),
+            Ellipse(
+              extent={{-25,-10},{-45,10}},
+              lineColor={255,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
