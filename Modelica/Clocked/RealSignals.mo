@@ -2151,10 +2151,10 @@ noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-74,92},{90,68}},
-                  textColor={255,0,0},
+                  textColor={175,175,175},
                   textString="%noiseMax"),
                 Line(points={{-81,78},{-81,-90}}, color={192,192,192}),
-                Line(points={{-89,62},{85,62}}, color={255,0,0}),
+                Line(points={{-89,62},{85,62}}, color={175,175,175}),
                 Line(points={{-81,-17},{-67,-17},{-67,-1},{-59,-1},{-59,-49},{
                       -51,-49},{-51,-27},{-43,-27},{-43,57},{-35,57},{-35,25}},
                      color={0,0,127},
@@ -2171,7 +2171,7 @@ noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
                   lineColor={192,192,192},
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),
-                Line(points={{-90,-54},{84,-54}}, color={255,0,0}),
+                Line(points={{-90,-54},{84,-54}}, color={175,175,175}),
                 Ellipse(
                   extent={{-84,-13},{-78,-19}},
                   lineColor={0,0,127},
@@ -2254,7 +2254,7 @@ noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-80,-62},{98,-84}},
-                  textColor={255,0,0},
+                  textColor={175,175,175},
                   textString="%noiseMin")}));
         end UniformNoise;
 
@@ -2311,10 +2311,10 @@ noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-74,92},{90,68}},
-                  textColor={255,0,0},
+                  textColor={175,175,175},
                   textString="%noiseMax"),
                 Line(points={{-81,78},{-81,-90}}, color={192,192,192}),
-                Line(points={{-89,62},{85,62}}, color={255,0,0}),
+                Line(points={{-89,62},{85,62}}, color={175,175,175}),
                 Line(points={{-81,-17},{-67,-17},{-67,-1},{-59,-1},{-59,-49},{
                       -51,-49},{-51,-27},{-43,-27},{-43,57},{-35,57},{-35,25}},
                                                                        color={0,0,
@@ -2332,7 +2332,7 @@ noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
                   lineColor={192,192,192},
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),
-                Line(points={{-90,-54},{84,-54}}, color={255,0,0}),
+                Line(points={{-90,-54},{84,-54}}, color={175,175,175}),
                 Ellipse(
                   extent={{-84,-13},{-78,-19}},
                   lineColor={0,0,127},
@@ -2415,7 +2415,7 @@ noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
                   fillPattern=FillPattern.Solid),
                 Text(
                   extent={{-80,-62},{98,-84}},
-                  textColor={255,0,0},
+                  textColor={175,175,175},
                   textString="%noiseMin")}));
         end UniformNoiseXorshift64star;
 
