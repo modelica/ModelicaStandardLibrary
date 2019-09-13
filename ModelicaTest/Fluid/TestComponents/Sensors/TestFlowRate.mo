@@ -6,7 +6,7 @@ model TestFlowRate
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     zeta=2,
     diameter=0.1) annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-  Modelica.Blocks.Sources.Sine sine(freqHz=1)
+  Modelica.Blocks.Sources.Sine sine(f=1)
                                     annotation (Placement(transformation(extent=
            {{-100,0},{-80,20}})));
   Modelica.Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,

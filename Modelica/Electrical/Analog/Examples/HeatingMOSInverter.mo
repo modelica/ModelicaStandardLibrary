@@ -3,7 +3,7 @@ model HeatingMOSInverter "Heating MOS Inverter"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground G
   annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage Sin(V=5, freqHz=1)
+  Modelica.Electrical.Analog.Sources.SineVoltage Sin(V=5, f=1)
   annotation (Placement(transformation(
         origin={-70,0},
         extent={{-10,-10},{10,10}},
@@ -51,17 +51,17 @@ equation
   annotation (Line(points={{30,0},{30,-20},{-70,-20}}, color={0,0,255}));
 
   connect(H_PMOS.S, H_NMOS.D)
-  annotation (Line(points={{-20,45},{-20,15}}, color={0,0,255}));
+  annotation (Line(points={{-20,44},{-20,16}}, color={0,0,255}));
   connect(H_NMOS.D, Capacitor1.p)
-  annotation (Line(points={{-20,15},{-20,20},{30,20}}, color={0,0,255}));
+  annotation (Line(points={{-20,16},{-20,20},{30,20}}, color={0,0,255}));
   connect(H_NMOS.B, H_NMOS.S)
-  annotation (Line(points={{-20,10},{-20,5}}, color={0,0,255}));
+  annotation (Line(points={{-20,10},{-20,4}}, color={0,0,255}));
   connect(H_NMOS.S, G.p)
-  annotation (Line(points={{-20,5},{-20,-20},{-70,-20}}, color={0,0,255}));
+  annotation (Line(points={{-20,4},{-20,-20},{-70,-20}}, color={0,0,255}));
   connect(H_PMOS.B, H_PMOS.D)
-  annotation (Line(points={{-20,50},{-20,55}}, color={0,0,255}));
+  annotation (Line(points={{-20,50},{-20,56}}, color={0,0,255}));
   connect(V.p, H_PMOS.D)
-  annotation (Line(points={{50,60},{-20,60},{-20,55}}, color={0,0,255}));
+  annotation (Line(points={{50,60},{-20,60},{-20,56}}, color={0,0,255}));
   connect(V.n, G.p)
   annotation (Line(points={{50,40},{50,-20},{-70,-20}}, color={0,0,255}));
   connect(TC1.port_b, HeatCapacitor1.port)
@@ -82,9 +82,9 @@ equation
                                          annotation (Line(points={{50,-30},{40,
           -30},{40,-60},{60,-60}}, color={191,0,0}));
   connect(Sin.p, H_NMOS.G) annotation (Line(
-      points={{-70,10},{-54,10},{-54,5},{-40,5}}, color={0,0,255}));
+      points={{-70,10},{-54,10},{-54,4},{-40,4}}, color={0,0,255}));
   connect(H_PMOS.G, Sin.p) annotation (Line(
-      points={{-40,45},{-48,45},{-48,44},{-54,44},{-54,10},{-70,10}}, color={0,0,255}));
+      points={{-40,44},{-48,44},{-48,44},{-54,44},{-54,10},{-70,10}}, color={0,0,255}));
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}},

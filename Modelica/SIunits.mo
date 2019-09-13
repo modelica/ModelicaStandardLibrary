@@ -158,7 +158,7 @@ in the declaration as in the example at the beginning.
   Chapter  3: <strong>Mechanics</strong>
   Chapter  4: <strong>Heat</strong>
   Chapter  5: <strong>Electricity and Magnetism</strong>
-  Chapter  6: <strong>Light and Related Electro-Magnetic Radiations</strong>
+  Chapter  6: <strong>Light and Related Electromagnetic Radiations</strong>
   Chapter  7: <strong>Acoustics</strong>
   Chapter  8: <strong>Physical Chemistry</strong>
   Chapter  9: <strong>Atomic and Nuclear Physics</strong>
@@ -850,34 +850,6 @@ The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" retu
               extent={{100,-50},{-16,-98}},
               textString="m/s")}));
     end from_cm2;
-
-    partial function ConversionIcon
-      "This icon will be removed in future Modelica versions."
-      extends Modelica.Icons.ObsoleteModel;
-
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={191,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,0},{30,0}}, color={191,0,0}),
-            Polygon(
-              points={{90,0},{30,20},{30,-20},{90,0}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-115,155},{115,105}},
-              textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
-<p>
-This icon of a <strong>conversion symbol</strong> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
-</p>
-</html>"),
-      obsolete = "Obsolete function - use Modelica.SIunits.Icons.Conversion instead");
-    end ConversionIcon;
     annotation (Documentation(info="<html>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
@@ -921,10 +893,11 @@ argument):</p>
   type AngularVelocity = Real (
       final quantity="AngularVelocity",
       final unit="rad/s");
-  type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit=
-             "rad/s2");
+  type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit="rad/s2");
+  type AngularJerk = Real (final quantity="AngularJerk", final unit="rad/s3");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
   type Acceleration = Real (final quantity="Acceleration", final unit="m/s2");
+  type Jerk = Real (final quantity="Jerk", final unit="m/s3");
 
   // Periodic and related phenomens (chapter 2 of ISO 31-1992)
   type Period = Real (final quantity="Time", final unit="s");
@@ -1288,7 +1261,7 @@ argument):</p>
   type RadiantIntensity = Real (final quantity="RadiantIntensity", final unit=
           "W/sr");
   type Radiance = Real (final quantity="Radiance", final unit="W/(sr.m2)");
-  type RadiantExtiance = Real (final quantity="RadiantExtiance", final unit=
+  type RadiantExitance = Real (final quantity="RadiantExitance", final unit=
           "W/m2");
   type Irradiance = Real (final quantity="Irradiance", final unit="W/m2");
   type Emissivity = Real (final quantity="Emissivity", final unit="1");
@@ -1367,27 +1340,17 @@ argument):</p>
           final unit="1");
   type AcousticAbsorptionCoefficient = Real (final quantity=
           "AcousticAbsorptionCoefficient", final unit="1");
-  type SoundReductionIndex = Real (final quantity="SoundReductionIndex", final unit=
-             "dB");
+  type SoundReductionIndex = Real (final quantity="SoundReductionIndex", final unit="dB");
   type EquivalentAbsorptionArea = Real (final quantity="Area", final unit="m2");
   type ReverberationTime = Real (final quantity="Time", final unit="s");
-  type LoudnessLevel = Real (final quantity="LoudnessLevel", final unit=
-          "phon");
+  type LoudnessLevel = Real (final quantity="LoudnessLevel", final unit="phon");
   type Loudness = Real (final quantity="Loudness", final unit="sone");
-  type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
-          "phon") "Obsolete type, use LoudnessLevel instead!" annotation(
-    obsolete = "Obsolete type - use Modelica.SIunits.LoudnessLevel instead");
-  type Loundness = Real (final quantity="Loundness", final unit="sone")
-    "Obsolete type, use Loudness instead!" annotation(
-    obsolete = "Obsolete type - use Modelica.SIunits.Loudness instead");
 
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
-  type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit=
-             "1");
+  type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit="1");
   type RelativeMolecularMass = Real (final quantity="RelativeMolecularMass",
         final unit="1");
-  type NumberOfMolecules = Real (final quantity="NumberOfMolecules", final unit=
-         "1");
+  type NumberOfMolecules = Real (final quantity="NumberOfMolecules", final unit="1");
   type AmountOfSubstance = Real (
       final quantity="AmountOfSubstance",
       final unit="mol",

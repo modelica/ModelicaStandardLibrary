@@ -14,6 +14,21 @@ AC_SUBST(LIBZLIB)
 AC_SUBST(LIBHDF5)
 dnl Check for HDF5, etc
 
+AC_DEFUN([C_FLAG_CHECK_AND_ADD],
+[dnl
+  AC_MSG_CHECKING([if $CC supports $1])
+  AC_LANG_PUSH([C])
+  ac_saved_cflags="$CFLAGS"
+  CFLAGS="-Werror $1"
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([])],
+    [AC_MSG_RESULT([yes])],
+    [AC_MSG_ERROR([no]) ; CFLAGS="$ac_saved_cflags"]
+  )
+  AC_LANG_POP([C])
+])
+
+C_FLAG_CHECK_AND_ADD([-fno-delete-null-pointer-checks])
+
 AC_SEARCH_LIBS([floor],[m])
 
 LIBS_BEFORE="$LIBS"

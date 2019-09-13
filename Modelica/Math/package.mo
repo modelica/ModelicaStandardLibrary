@@ -1,10 +1,7 @@
 within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
-import SI = Modelica.SIunits;
-
-
-extends Modelica.Icons.Package;
-
+  import SI = Modelica.SIunits;
+  extends Modelica.Icons.Package;
 
 package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Package;
@@ -235,7 +232,7 @@ Vectors.<strong>length</strong>(v);
 The function call \"<code>Vectors.<strong>length</strong>(v)</code>\" returns the
 <strong>Euclidean length</strong> \"<code>sqrt(v*v)</code>\" of vector v.
 The function call is equivalent to Vectors.norm(v). The advantage of
-length(v) over norm(v)\"is that function length(..) is implemented
+length(v) over norm(v) is that function length(..) is implemented
 in one statement and therefore the function is usually automatically
 inlined. Further symbolic processing is therefore possible, which is
 not the case with function norm(..).
@@ -369,7 +366,7 @@ vector elements in reverse order.
     extends Modelica.Icons.Function;
     input Real v[:] "Real vector to be sorted";
     input Boolean ascending=true
-      "= true if ascending order, otherwise descending order";
+      "= true, if ascending order, otherwise descending order";
     output Real sorted_v[size(v, 1)]=v "Sorted vector";
     output Integer indices[size(v, 1)]=1:size(v, 1) "sorted_v = v[indices]";
 
@@ -722,8 +719,8 @@ with scalar c, |c| = ||<strong>a</strong>|| / ||<strong>b</strong>||. <strong>Q<
       import Modelica.Math.Vectors;
 
       input Real a[:] "Real vector a to be reflected";
-      input Real u[size(a, 1)] "householder vector";
-      output Real ra[size(u, 1)] "reflexion of a";
+      input Real u[size(a, 1)] "Householder vector";
+      output Real ra[size(u, 1)] "Reflection of a";
 
     protected
       Real norm_a=Vectors.length(a);
@@ -785,78 +782,6 @@ where <strong>Q</strong> is an orthogonal matrix, i.e.
 </html>"));
     end householderReflection;
 
-    encapsulated function roots
-      "Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero"
-      import Modelica.Math.Matrices;
-      import Modelica;
-      extends Modelica.Icons.Function;
-      input Real p[:]
-        "Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]";
-      output Real roots[max(0, size(p, 1) - 1), 2]=fill(
-                0,
-                max(0, size(p, 1) - 1),
-                2)
-        "roots[:,1] and roots[:,2] are the real and imaginary parts of the roots of polynomial p";
-    protected
-      Integer np=size(p, 1);
-      Integer n=size(p, 1) - 1;
-      Real A[max(size(p, 1) - 1, 0), max(size(p, 1) - 1, 0)] "Companion matrix";
-      Real ev[max(size(p, 1) - 1, 0), 2] "Eigenvalues";
-    algorithm
-      if n > 0 then
-        assert(abs(p[1]) > 0,
-          "Computing the roots of a polynomial with function \"Modelica.Math.Vectors.Utilities.roots\"\n"
-           +
-          "failed because the first element of the coefficient vector is zero, but should not be.");
-
-        // companion matrix
-        A[1, :] := -p[2:np]/p[1];
-        A[2:n, :] := [identity(n - 1), zeros(n - 1)];
-
-        // roots are the eigenvalues of the companion matrix
-        roots := Matrices.Utilities.eigenvaluesHessenberg(A);
-      end if;
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-  r = Vectors.Utilities.<strong>roots</strong>(p);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the roots of a polynomial P of x
-</p>
-<blockquote><pre>
-  P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
-</pre></blockquote>
-<p>
-with the coefficient vector <strong>p</strong>. It is assumed that the first element of <strong>p</strong> is not zero, i.e., that the polynomial is of order size(p,1)-1.
-</p>
-<p>
-To compute the roots, the eigenvalues of the corresponding companion matrix <strong>C</strong>
-</p>
-<blockquote><pre>
-         |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
-         |    1            0                0               0           0     |
-         |    0            1      ...       0               0           0     |
-  <strong>C</strong> =    |    .            .      ...       .               .           .     |
-         |    .            .      ...       .               .           .     |
-         |    0            0      ...       0               1           0     |
-</pre></blockquote>
-<p>
-are calculated. These are the roots of the polynomial.<br>
-Since the companion matrix has already Hessenberg form, the transformation to Hessenberg form has not to be performed.
-Function <a href=\"modelica://Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg\">eigenvaluesHessenberg</a><br>
-provides efficient eigenvalue computation for those matrices.
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-  r = <strong>roots</strong>({1,2,3});
-  // r = [-1.0,  1.41421356237309;
-  //      -1.0, -1.41421356237309]
-  // which corresponds to the roots: -1.0 +/- j*1.41421356237309
-</pre></blockquote>
-</html>"));
-    end roots;
     annotation (Documentation(info="<html>
 <p>
 This package contains utility functions that are utilized by higher level vector
@@ -2102,7 +2027,7 @@ matrices <code>U</code> and <code>VT</code>.
     extends Modelica.Icons.Function;
     input Real A[:, :] "Rectangular matrix with size(A,1) >= size(A,2)";
     input Boolean pivoting=true
-      "True if column pivoting is performed. True is default";
+      "= true, if column pivoting is performed. True is default";
     output Real Q[size(A, 1), size(A, 2)]
       "Rectangular matrix with orthonormal columns such that Q*R=A[:,p]";
     output Real R[size(A, 2), size(A, 2)] "Square upper triangular matrix";
@@ -2380,7 +2305,7 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
     import Modelica.Math.Matrices.LAPACK;
     input Real A[:, size(A, 1)] "Symmetric positive definite matrix";
     input Boolean upper=true
-      "True if the right cholesky factor (upper triangle) should be returned";
+      "= true, if the right Cholesky factor (upper triangle) should be returned";
 
     output Real H[size(A, 1), size(A, 2)]
       "Cholesky factor U (upper=true) or L (upper=false) for A = U'*U or A = L*L'";
@@ -3635,8 +3560,8 @@ The Algorithm to calculate psi is taken from
 
     annotation (Documentation(info="<html>
 <blockquote><pre>
-(phi,gamma,gamma1) = Matrices.<strong>integralExp</strong>(A,B);
-(phi,gamma,gamma1) = Matrices.<strong>integralExp</strong>(A,B,T=1);
+(phi,gamma,gamma1) = Matrices.<strong>integralExpT</strong>(A,B);
+(phi,gamma,gamma1) = Matrices.<strong>integralExpT</strong>(A,B,T=1);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -3695,7 +3620,7 @@ is, e.g., described in
     input Real A[:, size(A, 1)] "Square matrix A in X*A + A'*X = C";
     input Real C[size(A, 1), size(A, 2)] "Square matrix C in X*A + A'*X = C";
     input Boolean ATisSchur=false
-      "True if transpose(A) has already real Schur form";
+      "= true, if transpose(A) has already real Schur form";
     input Real eps=Modelica.Math.Matrices.norm(A, 1)*10*1e-15 "Tolerance eps";
 
   protected
@@ -3908,8 +3833,8 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     input Real A[:, :] "Square matrix A";
     input Real B[:, :] "Square matrix B";
     input Real C[size(A, 1), size(B, 2)] "Matrix C";
-    input Boolean AisSchur=false "True if A has already real Schur form";
-    input Boolean BisSchur=false "True if B has already real Schur form";
+    input Boolean AisSchur=false "= true, if A has already real Schur form";
+    input Boolean BisSchur=false "= true, if B has already real Schur form";
     output Real X[size(A, 1), size(B, 2)]
       "Solution of the continuous Sylvester equation";
 
@@ -4074,7 +3999,7 @@ for more information.
     Integer info;
 
   public
-    output Real X[size(A, 1), size(A, 2)] "stabilizing solution of CARE";
+    output Real X[size(A, 1), size(A, 2)] "Stabilizing solution of CARE";
     output Real alphaReal[2*size(A, 1)]
       "Real parts of eigenvalue=alphaReal+i*alphaImag";
     output Real alphaImag[2*size(A, 1)]
@@ -4249,7 +4174,7 @@ X = [2.0, 1.0;
     input Real C[size(A, 1), size(A, 2)]
       "Square matrix C in A'*X*A + sgn*X = C";
     input Boolean ATisSchur=false
-      "True if transpose(A) has already real Schur form";
+      "= true, if transpose(A) has already real Schur form";
     input Integer sgn=1 "Specifies the sign in A'*X*A + sgn*X = C";
     input Real eps=Matrices.norm(A, 1)*10*Modelica.Constants.eps
       "Tolerance eps";
@@ -4426,8 +4351,8 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     input Real B[:, size(B, 1)] "Square matrix B in A*X*B + sgn*X = C";
     input Real C[size(A, 2), size(B, 1)]
       "Rectangular matrix C in A*X*B + sgn*X = C";
-    input Boolean AisHess=false "True if A has already Hessenberg form";
-    input Boolean BTisSchur=false "True if B' has already real Schur form";
+    input Boolean AisHess=false "= true, if A has already Hessenberg form";
+    input Boolean BTisSchur=false "= true, if B' has already real Schur form";
     input Integer sgn=1 "Specifies the sign in A*X*B + sgn*X = C";
     input Real eps=Matrices.norm(A, 1)*10*Modelica.Constants.eps "Tolerance";
 
@@ -4845,9 +4770,9 @@ X = [14.5623, 9.7082;
     "Sort the rows or columns of a matrix in ascending or descending order"
     extends Modelica.Icons.Function;
     input Real M[:, :] "Matrix to be sorted";
-    input Boolean sortRows=true "= true if rows are sorted, otherwise columns";
+    input Boolean sortRows=true "= true, if rows are sorted, otherwise columns";
     input Boolean ascending=true
-      "= true if ascending order, otherwise descending order";
+      "= true, if ascending order, otherwise descending order";
     output Real sorted_M[size(M, 1), size(M, 2)]=M "Sorted matrix";
     output Integer indices[if sortRows then size(M, 1) else size(M, 2)]
       "sorted_M = if sortRows then M[indices,:] else M[:,indices]";
@@ -5080,7 +5005,7 @@ Function <strong>flipUpDown</strong> computes from matrix <strong>A</strong> a m
 
   package LAPACK
     "Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.FunctionsPackage;
 
     function dgeev
       "Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A"
@@ -5357,7 +5282,7 @@ Lapack documentation
     end dgeev_eigenValues;
 
     function dgelsy
-      "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A"
+      "Compute the minimum-norm solution to a real linear least squares problem with rank deficient A"
 
       extends Modelica.Icons.Function;
       input Real A[:, :];
@@ -5507,7 +5432,7 @@ Lapack documentation
     end dgelsy;
 
     function dgelsy_vec
-      "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A"
+      "Compute the minimum-norm solution to a real linear least squares problem with rank deficient A"
 
       extends Modelica.Icons.Function;
       input Real A[:, :];
@@ -5657,7 +5582,7 @@ Lapack documentation
     end dgelsy_vec;
 
     function dgels_vec
-      "Solves overdetermined or underdetermined real linear equations A*x=b with a b vector"
+      "Solve overdetermined or underdetermined real linear equations A*x=b with a b vector"
 
       extends Modelica.Icons.Function;
       input Real A[:, :];
@@ -6659,7 +6584,7 @@ For details of the arguments, see documentation of dgbsv.
     end dgetrf;
 
     function dgetrs
-      "Solves a system of linear equations with the LU decomposition from dgetrf(..)"
+      "Solve a system of linear equations with the LU decomposition from dgetrf"
 
       extends Modelica.Icons.Function;
       input Real LU[:, size(LU, 1)]
@@ -6735,7 +6660,7 @@ For details of the arguments, see documentation of dgbsv.
     end dgetrs;
 
     function dgetrs_vec
-      "Solves a system of linear equations with the LU decomposition from dgetrf(..)"
+      "Solve a system of linear equations with the LU decomposition from dgetrf"
 
       extends Modelica.Icons.Function;
       input Real LU[:, size(LU, 1)]
@@ -6812,7 +6737,7 @@ For details of the arguments, see documentation of dgbsv.
     end dgetrs_vec;
 
     function dgetri
-      "Computes the inverse of a matrix using the LU factorization from dgetrf(..)"
+      "Compute the inverse of a matrix using the LU factorization from dgetrf"
 
       extends Modelica.Icons.Function;
       input Real LU[:, size(LU, 1)]
@@ -6988,7 +6913,7 @@ For details of the arguments, see documentation of dgbsv.
     end dgeqp3;
 
     function dorgqr
-      "Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqrf"
+      "Generate a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqrf"
 
       extends Modelica.Icons.Function;
       input Real QR[:, :] "QR from dgeqrf";
@@ -7075,7 +7000,7 @@ For details of the arguments, see documentation of dgbsv.
     end dorgqr;
 
     function dgees
-      "Computes real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues"
+      "Compute real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)] "Square matrix";
@@ -7494,7 +7419,7 @@ For details of the arguments, see documentation of dgbsv.
       input Real A[:, size(A, 1)] "Real square matrix A";
       input Real B[size(A, 1), :] "Real matrix B";
       input Boolean transposed=true
-        "True if the equation to be solved is A'*X=B";
+        "= true, if the equation to be solved is A'*X=B";
       output Real X[size(A, 1), size(B, 2)] "Solution matrix";
       output Integer info;
       output Real rcond "reciprocal condition number of the matrix A";
@@ -7771,13 +7696,13 @@ For details of the arguments, see documentation of dgbsv.
       "Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C"
       extends Modelica.Icons.Function;
 
-      input Real A[:, :] "Upper quais-triangular matrix";
-      input Real B[:, :] "Upper quais-triangular matrix";
+      input Real A[:, :] "Upper quasi-triangular matrix";
+      input Real B[:, :] "Upper quasi-triangular matrix";
       input Real C[if tranA then size(A, 1) else size(A, 2), if tranB then size(
         B, 1) else size(B, 2)] "Right side of the Sylvester equation";
 
-      input Boolean tranA=false "True if op(A)=A'";
-      input Boolean tranB=false "True if op(B)=B'";
+      input Boolean tranA=false "= true, if op(A)=A'";
+      input Boolean tranB=false "= true, if op(B)=B'";
       input Integer isgn=1 "Specifies the sign in the equation, +1 or -1";
       output Real X[size(C, 1), size(C, 2)]=C
         "Solution of the Sylvester equation";
@@ -7889,7 +7814,7 @@ For details of the arguments, see documentation of dgbsv.
 
       input Real H[:, size(H, 1)] "Matrix H with Hessenberg form";
       input Boolean eigenValuesOnly=true
-        "True to compute the eigenvalues. False to compute the Schur form too";
+        "= true, if only eigenvalues are computed, otherwise compute the Schur form too";
       input String compz="N" "Specifies the computation of the Schur vectors";
       input Real Z[:, :]=H "Matrix Z";
       output Real alphaReal[size(H, 1)]
@@ -8149,7 +8074,7 @@ For details of the arguments, see documentation of dgbsv.
     end dlange;
 
     function dgecon
-      "Estimates the reciprocal of the condition number of a general real matrix A"
+      "Estimate the reciprocal of the condition number of a general real matrix A"
       extends Modelica.Icons.Function;
 
       input Real LU_of_A[:, :] "LU factorization of a real matrix A";
@@ -8225,18 +8150,18 @@ For details of the arguments, see documentation of dgbsv.
     end dgecon;
 
     function dgehrd
-      "reduces a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H"
+      "Reduce a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)];
       input Integer ilo=1
-        "lowest index where the original matrix had been Hessenbergform";
+        "Lowest index where the original matrix had been Hessenberg form";
       input Integer ihi=size(A, 1)
-        "highest index where the original matrix had been Hessenbergform";
+        "Highest index where the original matrix had been Hessenberg form";
       output Real Aout[size(A, 1), size(A, 2)]=A
-        "contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
+        "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
       output Real tau[max(size(A, 1), 1) - 1]
-        "scalar factors of the elementary reflectors";
+        "Scalar factors of the elementary reflectors";
       output Integer info;
     protected
       Integer n=size(A, 1);
@@ -8343,14 +8268,14 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgehrd;
 
-    function dgeqrf "computes a QR factorization without pivoting"
+    function dgeqrf "Compute a QR factorization without pivoting"
       extends Modelica.Icons.Function;
 
       input Real A[:, :] "Square or rectangular matrix";
       output Real Aout[size(A, 1), size(A, 2)]=A
-        "the upper triangle of the array contains the upper trapezoidal matrix R; the elements below the diagonal, together with the array TAU, represent the orthogonal matrix Q as a product of elementary reflectors";
+        "The upper triangle of the array contains the upper trapezoidal matrix R; the elements below the diagonal, together with the array TAU, represent the orthogonal matrix Q as a product of elementary reflectors";
       output Real tau[min(size(A, 1), size(A, 2))]
-        "scalar factors of the elementary reflectors";
+        "Scalar factors of the elementary reflectors";
       output Integer info;
       output Real work[3*max(1, size(A, 2))];
     protected
@@ -8444,11 +8369,11 @@ For details of the arguments, see documentation of dgbsv.
       output Real alphaImag[size(A, 1)]
         "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
       output Real lEigenVectors[size(A, 1), size(A, 1)]
-        "left eigenvectors of matrix A";
+        "Left eigenvectors of matrix A";
       output Real rEigenVectors[size(A, 1), size(A, 1)]
-        "right eigenvectors of matrix A";
+        "Right eigenvectors of matrix A";
       output Real AS[size(A, 1), size(A, 2)]=A
-        "AS iss the real Schur form of the balanced version of the input matrix A";
+        "AS is the real Schur form of the balanced version of the input matrix A";
       output Integer info;
     protected
       Integer n=size(A, 1);
@@ -8844,9 +8769,9 @@ For details of the arguments, see documentation of dgbsv.
       output Real alphaImag[size(A, 1)] "Imaginary part of alpha";
       output Real beta[size(A, 1)] "Denominator of eigenvalue";
       output Real lEigenVectors[size(A, 1), size(A, 1)]
-        "left eigenvectors of matrix A";
+        "Left eigenvectors of matrix A";
       output Real rEigenVectors[size(A, 1), size(A, 1)]
-        "right eigenvectors of matrix A";
+        "Right eigenvectors of matrix A";
 
       output Integer info;
     protected
@@ -9011,9 +8936,9 @@ For details of the arguments, see documentation of dgbsv.
       output Real alphaImag[size(A, 1)] "Imaginary part of alpha";
       output Real beta[size(A, 1)] "Denominator of eigenvalue";
       output Real lEigenVectors[size(A, 1), size(A, 1)]
-        "left eigenvectors of matrix A";
+        "Left eigenvectors of matrix A";
       output Real rEigenVectors[size(A, 1), size(A, 1)]
-        "right eigenvectors of matrix A";
+        "Right eigenvectors of matrix A";
 
       output Integer info;
     protected
@@ -9544,7 +9469,7 @@ For details of the arguments, see documentation of dgbsv.
     end dhgeqz;
 
     function dormhr
-      "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returned by dgehrd"
+      "Overwrite the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returned by dgehrd"
       extends Modelica.Icons.Function;
 
       input Real C[:, :];
@@ -9553,11 +9478,11 @@ For details of the arguments, see documentation of dgbsv.
       input String side="L";
       input String trans="N";
       input Integer ilo=1
-        "lowest index where the original matrix had been Hessenbergform";
+        "Lowest index where the original matrix had been Hessenberg form";
       input Integer ihi=if side == "L" then size(C, 1) else size(C, 2)
-        "highest index where the original matrix had been Hessenbergform";
+        "Highest index where the original matrix had been Hessenberg form";
       output Real Cout[size(C, 1), size(C, 2)]=C
-        "contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
+        "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
 
       output Integer info;
     protected
@@ -9672,7 +9597,7 @@ For details of the arguments, see documentation of dgbsv.
     end dormhr;
 
     function dormqr
-      "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf"
+      "Overwrite the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf"
       extends Modelica.Icons.Function;
 
       input Real C[:, :];
@@ -9682,7 +9607,7 @@ For details of the arguments, see documentation of dgbsv.
       input String trans="N";
 
       output Real Cout[size(C, 1), size(C, 2)]=C
-        "contains Q*C or Q**T*C or C*Q**T or C*Q";
+        "Contains Q*C or Q**T*C or C*Q**T or C*Q";
 
       output Integer info;
     protected
@@ -9804,9 +9729,9 @@ For details of the arguments, see documentation of dgbsv.
         "Orthogonal matrix Q of Schur vectors returned by DHSEQR";
 
       output Real lEigenVectors[size(T, 1), size(T, 1)]=Q
-        "left eigenvectors of matrix T";
+        "Left eigenvectors of matrix T";
       output Real rEigenVectors[size(T, 1), size(T, 1)]=Q
-        "right eigenvectors of matrix T";
+        "Right eigenvectors of matrix T";
       output Integer info;
 
     protected
@@ -9962,11 +9887,11 @@ For details of the arguments, see documentation of dgbsv.
     end dtrevc;
 
     function dpotrf
-      "Computes the Cholesky factorization of a real symmetric positive definite matrix A"
+      "Compute the Cholesky factorization of a real symmetric positive definite matrix A"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)] "Real symmetric positive definite matrix A";
-      input Boolean upper=true "True if the upper triangle of A is provided";
+      input Boolean upper=true "= true, if the upper triangle of A is provided";
 
       output Real Acholesky[size(A, 1), size(A, 1)]=A "Cholesky factor";
       output Integer info;
@@ -10035,11 +9960,11 @@ For details of the arguments, see documentation of dgbsv.
       input Real A[:, :] "Input matrix A";
       input Real B[:, :] "Input matrix B";
       input Real alpha=1 "Factor alpha";
-      input Boolean right=true "True if A is right multiplication";
-      input Boolean upper=true "True if A is upper triangular";
-      input Boolean trans=false "True if op(A) means transposed(A)";
+      input Boolean right=true "= true, if A is right multiplication";
+      input Boolean upper=true "= true, if A is upper triangular";
+      input Boolean trans=false "= true, if op(A) means transposed(A)";
       input Boolean unitTriangular=false
-        "True if A is unit triangular, i.e., all diagonal elements of A are equal to 1";
+        "= true, if A is unit triangular, i.e., all diagonal elements of A are equal to 1";
 
       output Real X[size(B, 1), size(B, 2)]=B
         "Matrix Bout=alpha*op( A )*B, or B := alpha*B*op( A )";
@@ -10179,17 +10104,17 @@ For details of the arguments, see documentation of dgbsv.
     end dtrsm;
 
     function dorghr
-      "Generates a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD"
+      "Generate a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)]
         "Square matrix with the elementary reflectors";
       input Integer ilo=1
-        "lowest index where the original matrix had been Hessenbergform - ilo must have the same value as in the previous call of DGEHRD";
+        "Lowest index where the original matrix had been Hessenberg form - ilo must have the same value as in the previous call of DGEHRD";
       input Integer ihi=size(A, 1)
-        "highest index where the original matrix had been Hessenbergform - ihi must have the same value as in the previous call of DGEHRD";
+        "Highest index where the original matrix had been Hessenberg form - ihi must have the same value as in the previous call of DGEHRD";
       input Real tau[max(0, size(A, 1) - 1)]
-        "scalar factors of the elementary reflectors";
+        "Scalar factors of the elementary reflectors";
       output Real Aout[size(A, 1), size(A, 2)]=A
         "Orthogonal matrix as a result of elementary reflectors";
       output Integer info;
@@ -10797,9 +10722,9 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 
       input Real A[:, size(A, 1)] "Square matrix A";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenbergform";
+        "Lowest index where the original matrix had been Hessenberg form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenbergform";
+        "Highest index where the original matrix had been Hessenberg form";
       output Real H[size(A, 1), size(A, 2)] "Upper Hessenberg form";
       output Real V[size(A, 1), size(A, 2)]
         "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
@@ -10957,7 +10882,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.LAPACK.
       input Real alphaImag[size(T, 1)]
         "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
       input Boolean iscontinuous=true
-        "True if the according system is continuous. False for discrete systems";
+        "= true, if the according system is continuous. False for discrete systems";
 
       output Real To[size(T, 1), size(T, 2)] "Reordered Schur form";
       output Real Qo[size(T, 1), size(T, 2)] "Reordered Schur vector matrix";
@@ -11040,7 +10965,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
       extends Modelica.Icons.Function;
 
       import Modelica.Math.Matrices;
-      import Modelica.Math.Vectors;
+      import Modelica.Math.Polynomials;
 
       input Real Rk[:, size(Rk, 1)];
       input Real Vk[size(Rk, 1), size(Rk, 2)];
@@ -11060,7 +10985,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
       gamma_k := Matrices.trace(Vk*Vk);
 
       if gamma_k > Modelica.Constants.eps then
-        p := Vectors.Utilities.roots({4*gamma_k,6*beta_k,2*(alpha_k - 2*beta_k),
+        p := Polynomials.roots({4*gamma_k,6*beta_k,2*(alpha_k - 2*beta_k),
           -2*alpha_k});
         h := false;
         for i1 in 1:3 loop

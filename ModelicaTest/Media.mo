@@ -753,7 +753,7 @@ is given to compare the approximation.
 </html>"),experiment(StopTime=1));
     end FlueGas;
 
-    package N2AsMix "air and steam mixture (no condensation!, pseudo-mixture)"
+    package N2AsMix "Mixture gas IdealGas.SingleMedia.N2 medium model"
       extends Modelica.Media.IdealGases.Common.MixtureGasNasa(
         mediumName="Nitrogen",
         data={Modelica.Media.IdealGases.Common.SingleGasesData.N2},
@@ -833,7 +833,7 @@ is given to compare the approximation.
     // </html>"));
     //   end TestMedia;
 
-    model IdealGasN2Mix "Test IdealGas.SingleMedia.N2 medium model"
+    model IdealGasN2Mix "Test mixture gas IdealGas.SingleMedia.N2 medium model"
       extends Modelica.Icons.Example;
 
       parameter Modelica.SIunits.Volume V=1 "Size of volume";
@@ -965,8 +965,7 @@ is given to compare the approximation.
           redeclare package Medium = Medium,
           m_flow=1,
           T=system.T_ambient,
-          nPorts=1) annotation (Placement(transformation(extent={{-80,-2},{-60,
-                  18}})));
+          nPorts=1) annotation (Placement(transformation(extent={{-80,-2},{-60,18}})));
         Modelica.Fluid.Sources.FixedBoundary ambient(
           redeclare package Medium = Medium,
           nPorts=1,
@@ -1170,7 +1169,7 @@ is given to compare the approximation.
         end Glycol47;
 
         model Essotherm650
-          "Test Modelica.Media.Incompressible.Examples.Essotherm65"
+          "Test Modelica.Media.Incompressible.Examples.Essotherm650"
           extends Modelica.Icons.Example;
           extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
@@ -1256,10 +1255,10 @@ is given to compare the approximation.
       end Water;
 
       package LinearFluid
-        "Test models of library Modelica.Media.Incompressible"
+        "Test models of library Modelica.Media.CompressibleLiquids"
         extends Modelica.Icons.ExamplesPackage;
         model LinearColdWater
-          "Test Modelica.Media.Incompressible.Examples.Glycol47"
+          "Test linear cold water"
           extends Modelica.Icons.Example;
           extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =
@@ -1270,7 +1269,7 @@ is given to compare the approximation.
         end LinearColdWater;
 
         model LinearWater_pT
-          "Test Modelica.Media.Incompressible.Examples.Essotherm65"
+          "Test liquid linear water"
           extends Modelica.Icons.Example;
           extends ModelicaTest.Media.TestsWithFluid.Components.PartialTestModel(
               redeclare package Medium =

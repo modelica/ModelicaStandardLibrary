@@ -1196,7 +1196,6 @@ algorithm
 </html>"));
 end thermalConductivity;
 
-
   redeclare function extends velocityOfSound
   algorithm
     a := sqrt(isentropicExponent(state)*gasConstant(state)*temperature(state));
@@ -1264,13 +1263,14 @@ end thermalConductivity;
   redeclare function extends density_derX
 
   algorithm
-    dddX[Water] := pressure(state)*(steam.R - dryair.R)/((steam.R - dryair.R)
-      *state.X[Water]*temperature(state) + dryair.R*temperature(state))^2;
-    dddX[Air] := pressure(state)*(dryair.R - steam.R)/((dryair.R - steam.R)*
-      state.X[Air]*temperature(state) + steam.R*temperature(state))^2;
+    dddX[Water] := - pressure(state)*(steam.R - dryair.R)/(((steam.R - dryair.R)
+      *state.X[Water] + dryair.R)^2*temperature(state));
+    dddX[Air] := - pressure(state)*(dryair.R - steam.R)/((steam.R + (dryair.R - steam.R)*
+      state.X[Air])^2*temperature(state));
 
     annotation (Documentation(revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2019-05-14        Stefan Wischhusen: Corrected derivatives.</p>
 </html>"));
   end density_derX;
 
@@ -1371,7 +1371,7 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
           X[Water]/MMX[Water]*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)
         *p/reference_p),
           0.0,
-          1e-9) - Utilities.smoothMax(
+          1e-9) + Utilities.smoothMax(
           (1 - X[Water])/MMX[Air]*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)
         *p/reference_p),
           0.0,
@@ -1384,6 +1384,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 </html>",
         revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
@@ -1422,18 +1423,18 @@ Specific entropy of moist air is computed from pressure, temperature and composi
           0.0,
           1e-9,
           (Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/
-        reference_p) + (X[Water]/Y[Water]*(X[Air]*MMX[Water]/(X[Air]*MMX[
-        Water] + X[Water]*MMX[Air])^2)))*dX[Water] + X[Water]*reference_p/p*
+        reference_p) + (X[Water]/Y[Water]*(MMX[Air]*MMX[Water]/(X[Air]*MMX[
+        Water] + X[Water]*MMX[Air])^2)))*dX[Water] + X[Water]/p*
         dp,
           0,
-          0) - 1/MMX[Air]*Utilities.smoothMax_der(
+          0) + 1/MMX[Air]*Utilities.smoothMax_der(
           (1 - X[Water])*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)
         *p/reference_p),
           0.0,
           1e-9,
           (Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/
-        reference_p) + (X[Air]/Y[Air]*(X[Water]*MMX[Air]/(X[Air]*MMX[Water]
-         + X[Water]*MMX[Air])^2)))*dX[Air] + X[Air]*reference_p/p*dp,
+        reference_p) + (X[Air]/Y[Air]*(MMX[Water]*MMX[Air]/(X[Air]*MMX[Water]
+         + X[Water]*MMX[Air])^2)))*dX[Air] + X[Air]/p*dp,
           0,
           0));
     annotation (
@@ -1444,6 +1445,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 </html>",
         revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},

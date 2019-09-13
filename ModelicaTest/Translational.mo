@@ -38,28 +38,28 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{60,20},{80,40}})));
     Modelica.Mechanics.Translational.Sources.Position position(v(fixed=true))
       annotation (Placement(transformation(extent={{-70,-20},{-50,0}})));
-    Modelica.Blocks.Sources.Sine sine(freqHz=1)
+    Modelica.Blocks.Sources.Sine sine(f=1)
                                       annotation (Placement(transformation(
             extent={{-100,-20},{-80,0}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass4(m=1)
       annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
     Modelica.Mechanics.Translational.Sources.Speed position1
       annotation (Placement(transformation(extent={{-70,-60},{-50,-40}})));
-    Modelica.Blocks.Sources.Sine sine1(freqHz=1)
+    Modelica.Blocks.Sources.Sine sine1(f=1)
                                        annotation (Placement(transformation(
             extent={{-100,-60},{-80,-40}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass5(m=1)
       annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
     Modelica.Mechanics.Translational.Sources.Accelerate position2
       annotation (Placement(transformation(extent={{-70,-100},{-50,-80}})));
-    Modelica.Blocks.Sources.Sine sine2(freqHz=1)
+    Modelica.Blocks.Sources.Sine sine2(f=1)
                                        annotation (Placement(transformation(
             extent={{-100,-100},{-80,-80}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass6(m=1)
       annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
     Modelica.Mechanics.Translational.Sources.Move position3
       annotation (Placement(transformation(extent={{30,-20},{50,0}})));
-    Modelica.Blocks.Sources.Sine sine3[3](freqHz={1,1,1})
+    Modelica.Blocks.Sources.Sine sine3[3](f={1,1,1})
                                           annotation (Placement(transformation(
             extent={{0,-20},{20,0}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass7(m=1)
@@ -69,7 +69,7 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Mechanics.Translational.Components.RelativeStates relativeStates(s_rel(
           fixed=true), v_rel(fixed=true))
       annotation (Placement(transformation(extent={{-20,80},{0,100}})));
-    Modelica.Blocks.Sources.Sine sine4(freqHz=1)
+    Modelica.Blocks.Sources.Sine sine4(f=1)
                                        annotation (Placement(transformation(
             extent={{-100,20},{-80,40}})));
   equation

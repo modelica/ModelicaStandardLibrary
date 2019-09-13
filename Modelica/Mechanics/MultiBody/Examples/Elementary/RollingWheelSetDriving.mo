@@ -32,10 +32,10 @@ model RollingWheelSetDriving
     animation=true,
     width=0.04)
     annotation (Placement(transformation(extent={{20,-20},{40,0}})));
-  Modelica.Blocks.Sources.Sine sine1(freqHz=1, amplitude=2)
+  Modelica.Blocks.Sources.Sine sine1(f=1, amplitude=2)
     annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
   Modelica.Blocks.Sources.Sine sine2(
-    freqHz=1,
+    f=1,
     amplitude=2,
     phase=1.5707963267949)
     annotation (Placement(transformation(extent={{60,30},{40,50}})));

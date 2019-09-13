@@ -5,7 +5,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
 
   model SignalVoltage
     "Generic voltage source using the input signal as source voltage"
-
+    extends Modelica.Electrical.Analog.Icons.VoltageSource;
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}})));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
@@ -23,22 +23,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     i = p.i;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Ellipse(
-            extent={{-50,50},{50,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
-          Line(points={{50,0},{90,0}}, color={0,0,255}),
-          Line(points={{-50,0},{50,0}}, color={0,0,255}),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Line(points={{-70,30},{-70,10}}, color={0,0,255}),
-          Line(points={{-80,20},{-60,20}}, color={0,0,255}),
-          Line(points={{60,20},{80,20}}, color={0,0,255})}),
+              100}})),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-96,0},{-50,0}},
             color={0,0,255}), Line(points={{-109,20},{-84,
@@ -74,30 +59,15 @@ package Sources "Time-dependent and controlled voltage and current sources"
   model ConstantVoltage "Source for constant voltage"
     parameter SI.Voltage V(start=1) "Value of constant voltage";
     extends Interfaces.OnePort;
-
+    extends Modelica.Electrical.Analog.Icons.VoltageSource;
   equation
     v = V;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-150,70},{150,110}},
-            textColor={0,0,255},
-            textString="%name"),
-          Line(points={{-70,30},{-70,10}}, color={0,0,255}),
-          Line(points={{-80,20},{-60,20}}, color={0,0,255}),
-          Line(points={{60,20},{80,20}}, color={0,0,255}),
-          Text(
             extent={{-150,-110},{150,-70}},
-            textString="V=%V"),
-          Ellipse(
-            extent={{-50,50},{50,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-50,0},{50,0}}, color={0,0,255}),
-          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
-          Line(points={{50,0},{90,0}}, color={0,0,255})}),
+            textString="V=%V")}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -274,11 +244,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
   model SineVoltage "Sine voltage source"
     parameter SI.Voltage V(start=1) "Amplitude of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of sine wave";
+    parameter SI.Frequency f(start=1) "Frequency of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
         final amplitude=V,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -357,11 +327,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
   model CosineVoltage "Cosine voltage source"
     parameter SI.Voltage V(start=1) "Amplitude of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
+    parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Cosine
         signalSource(
         final amplitude=V,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -440,15 +410,206 @@ package Sources "Time-dependent and controlled voltage and current sources"
 
   end CosineVoltage;
 
+  model SineVoltageVariableFrequencyAndAmplitude
+    "Sine voltage source with variable frequency and amplitude"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.VoltageSource;
+    import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Modelica.SIunits.Voltage constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
+    parameter Modelica.SIunits.Voltage offset=0 "Offset of the sine wave";
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput V(unit="V") if not useConstantAmplitude
+      "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={60,120})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+  protected
+    Blocks.Interfaces.RealInput V_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={60,80})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={-60,80})));
+    Blocks.Sources.Constant V_constant(final k=constantAmplitude) if useConstantAmplitude
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+      annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
+  equation
+    der(phi) = 2*pi*f_internal;
+    v = offset + V_internal*sin(phi);
+    connect(f, f_internal)
+      annotation (Line(points={{-60,120},{-60,80}}, color={0,0,127}));
+    connect(V, V_internal)
+      annotation (Line(points={{60,120},{60,80}}, color={0,0,127}));
+    connect(f_constant.y, f_internal)
+      annotation (Line(points={{-41,80},{-60,80}}, color={0,0,127}));
+    connect(V_constant.y, V_internal)
+      annotation (Line(points={{41,80},{60,80}}, color={0,0,127}));
+    annotation (defaultComponentName="sineVoltage",
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={
+  {-80,0},{-78.4,0},{-76.8,0},{-75.2,0},{-73.6,0.1},
+  {-72,0.1},{-70.4,0.2},{-68.8,0.3},{-67.2,0.4},{-65.6,0.6},
+  {-64,0.8},{-62.4,1.1},{-60.8,1.4},{-59.2,1.8},{-57.6,2.2},
+  {-56,2.7},{-54.4,3.3},{-52.8,3.9},{-51.2,4.6},{-49.6,5.4},
+  {-48,6.2},{-46.4,7.2},{-44.8,8.2},{-43.2,9.2},{-41.6,10.4},
+  {-40,11.6},{-38.4,12.9},{-36.8,14.2},{-35.2,15.6},{-33.6,17.1},
+  {-32,18.6},{-30.4,20.1},{-28.8,21.6},{-27.2,23.1},{-25.6,24.6},
+  {-24,26.1},{-22.4,27.5},{-20.8,28.8},{-19.2,30},{-17.6,31.1},
+  {-16,32},{-14.4,32.7},{-12.8,33.2},{-11.2,33.5},{-9.6,33.5},
+  {-8,33.2},{-6.4,32.5},{-4.8,31.5},{-3.2,30.1},{-1.6,28.4},
+  {0,26.2},{1.6,23.6},{3.2,20.6},{4.8,17.2},{6.4,13.3},
+  {8,9.1},{9.6,4.6},{11.2,-0.3},{12.8,-5.4},{14.4,-10.7},
+  {16,-16.1},{17.6,-21.6},{19.2,-27.1},{20.8,-32.3},{22.4,-37.4},
+  {24,-42.1},{25.6,-46.3},{27.2,-49.9},{28.8,-52.8},{30.4,-54.8},
+  {32,-56},{33.6,-56.1},{35.2,-55.2},{36.8,-53.1},{38.4,-49.8},
+  {40,-45.3},{41.6,-39.7},{43.2,-33},{44.8,-25.3},{46.4,-16.6},
+  {48,-7.3},{49.6,2.6},{51.2,12.8},{52.8,23},{54.4,33},
+  {56,42.5},{57.6,51.2},{59.2,58.8},{60.8,64.9},{62.4,69.3},
+  {64,71.9},{65.6,72.3},{67.2,70.5},{68.8,66.4},{70.4,60},
+  {72,51.4},{73.6,40.8},{75.2,28.4},{76.8,14.7},{78.4,0},
+  {80,-15.1}}, color={192,192,192},  smooth = Smooth.Bezier)}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}})),
+      Documentation(revisions="<html>
+<ul>
+<li><em> 1998   </em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>
+This voltage source provides a sinusoidal voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>V</code> to zero.
+</p>
+</html>"));
+  end SineVoltageVariableFrequencyAndAmplitude;
+
+  model CosineVoltageVariableFrequencyAndAmplitude
+    "Cosine voltage source with variable frequency and amplitude"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.VoltageSource;
+    import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Modelica.SIunits.Voltage constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
+    parameter Modelica.SIunits.Voltage offset=0 "Offset of the sine wave";
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput V(unit="V") if not useConstantAmplitude
+      "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={60,120})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+  protected
+    Blocks.Interfaces.RealInput V_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={60,80})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={-60,80})));
+    Blocks.Sources.Constant V_constant(final k=constantAmplitude) if useConstantAmplitude
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+      annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
+  equation
+    der(phi) = 2*pi*f_internal;
+    v = offset + V_internal*cos(phi);
+    connect(f, f_internal)
+      annotation (Line(points={{-60,120},{-60,80}}, color={0,0,127}));
+    connect(V, V_internal)
+      annotation (Line(points={{60,120},{60,80}}, color={0,0,127}));
+    connect(f_constant.y, f_internal)
+      annotation (Line(points={{-41,80},{-60,80}}, color={0,0,127}));
+    connect(V_constant.y, V_internal)
+      annotation (Line(points={{41,80},{60,80}}, color={0,0,127}));
+    annotation (defaultComponentName="cosineVoltage",
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(
+            points={{-80,80},{-78.4,79.6},{-76.8,79.2},{-75.2,78.8},{-73.6,78.4},{
+                -72,78},{-70.4,77.5},{-68.8,77.1},{-67.2,76.6},{-65.6,76.1},{-64,75.6},
+                {-62.4,75},{-60.8,74.4},{-59.2,73.7},{-57.6,73},{-56,72.2},{-54.4,
+                71.3},{-52.8,70.3},{-51.2,69.2},{-49.6,68},{-48,66.6},{-46.4,65.2},
+                {-44.8,63.6},{-43.2,61.8},{-41.6,59.9},{-40,57.7},{-38.4,55.5},{-36.8,
+                53},{-35.2,50.3},{-33.6,47.5},{-32,44.4},{-30.4,41.1},{-28.8,37.7},
+                {-27.2,34},{-25.6,30.1},{-24,26.1},{-22.4,21.9},{-20.8,17.5},{-19.2,
+                13},{-17.6,8.3},{-16,3.5},{-14.4,-1.3},{-12.8,-6.2},{-11.2,-11.1},
+                {-9.6,-16},{-8,-20.8},{-6.4,-25.5},{-4.8,-30.1},{-3.2,-34.5},{-1.6,
+                -38.6},{0,-42.4},{1.6,-45.9},{3.2,-49},{4.8,-51.7},{6.4,-53.9},{8,
+                -55.5},{9.6,-56.5},{11.2,-57},{12.8,-56.8},{14.4,-55.9},{16,-54.4},
+                {17.6,-52.2},{19.2,-49.3},{20.8,-45.7},{22.4,-41.5},{24,-36.7},{25.6,
+                -31.4},{27.2,-25.6},{28.8,-19.4},{30.4,-12.9},{32,-6.2},{33.6,0.6},
+                {35.2,7.4},{36.8,14},{38.4,20.4},{40,26.3},{41.6,31.8},{43.2,36.5},
+                {44.8,40.6},{46.4,43.7},{48,45.9},{49.6,47.1},{51.2,47.2},{52.8,46.2},
+                {54.4,44.1},{56,41},{57.6,36.8},{59.2,31.8},{60.8,25.9},{62.4,19.4},
+                {64,12.4},{65.6,5.1},{67.2,-2.2},{68.8,-9.5},{70.4,-16.4},{72,-22.8},
+                {73.6,-28.4},{75.2,-33},{76.8,-36.6},{78.4,-38.9},{80,-39.8}},
+            smooth=Smooth.Bezier,
+            color={192,192,192})}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}})),
+      Documentation(revisions="<html>
+<ul>
+<li><em> 1998   </em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>
+This voltage source provides a cosine voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>V</code> to zero.
+</p>
+</html>"));
+  end CosineVoltageVariableFrequencyAndAmplitude;
+
   model ExpSineVoltage "Exponentially damped sine voltage source"
     parameter SI.Voltage V(start=1) "Amplitude of sine wave";
-    parameter SI.Frequency freqHz(start=2) "Frequency of sine wave";
+    parameter SI.Frequency f(start=2) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
     parameter SI.Damping damping(start=1) "Damping coefficient of sine wave";
     extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
         final amplitude=V,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase,
         final damping=damping));
     annotation (
@@ -504,7 +665,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
             192,192,192}),Text(
               extent={{-42,88},{9,74}},
               textColor={160,160,164},
-              textString="1/freqHz"),Polygon(
+              textString="1/f"),Polygon(
               points={{-50,73},{-41,75},{-41,71},{-50,73}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -523,7 +684,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               textString="t"),Text(
               extent={{-82,-67},{108,-96}},
               textColor={160,160,164},
-              textString="V*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"),Line(
+              textString="V*exp(-damping*t)*sin(2*pi*f*t+phase)"),Line(
               points={{-50,0},{-50,-40}},
               color={192,192,192},
               pattern=LinePattern.Dash),Line(
@@ -1104,42 +1265,25 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 
   model SignalCurrent
     "Generic current source using the input signal as source current"
-
+    extends Modelica.Electrical.Analog.Icons.CurrentSource;
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}})));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
               -10},{90,10}})));
-    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     Modelica.Blocks.Interfaces.RealInput i(unit="A")
       "Current flowing from pin p to pin n as input signal" annotation (
         Placement(transformation(
           origin={0,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
+    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
   equation
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Ellipse(
-            extent={{-50,50},{50,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
-          Line(points={{50,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-50},{0,50}}, color={0,0,255}),
-          Text(
-            extent={{-150,50},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Polygon(
-            points={{90,0},{60,10},{60,-10},{90,0}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
+              100}})),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -1154,28 +1298,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   model ConstantCurrent "Source for constant current"
     parameter SI.Current I(start=1) "Value of constant current";
     extends Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.CurrentSource;
   equation
     i = I;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(
-            extent={{-50,50},{50,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
-          Line(points={{50,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-50},{0,50}}, color={0,0,255}),
-          Polygon(
-            points={{90,0},{60,10},{60,-10},{90,0}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-150,60},{150,100}},
-            textColor={0,0,255},
-            textString="%name"),
           Text(
             extent={{-150,-100},{150,-60}},
             textString="I=%I")}),
@@ -1355,11 +1483,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   model SineCurrent "Sine current source"
     parameter SI.Current I(start=1) "Amplitude of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of sine wave";
+    parameter SI.Frequency f(start=1) "Frequency of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Sine
         signalSource(
         final amplitude=I,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -1438,11 +1566,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
   model CosineCurrent "Cosine current source"
     parameter SI.Current I(start=1) "Amplitude of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
-    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
+    parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Cosine
         signalSource(
         final amplitude=I,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -1523,15 +1651,206 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 
   end CosineCurrent;
 
+  model SineCurrentVariableFrequencyAndAmplitude
+    "Sine current source with variable frequency and amplitude"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.CurrentSource;
+    import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Modelica.SIunits.Current constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
+    parameter Modelica.SIunits.Current offset=0 "Offset of the sine wave";
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput I(unit="A") if not useConstantAmplitude
+      "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={60,120})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+  protected
+    Blocks.Sources.Constant I_constant(final k=constantAmplitude) if useConstantAmplitude
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+      annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
+    Blocks.Interfaces.RealInput I_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={60,80})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={-60,80})));
+  equation
+    der(phi) = 2*pi*f_internal;
+    i = offset + I_internal*sin(phi);
+    connect(f,f_internal)
+      annotation (Line(points={{-60,120},{-60,80}}, color={0,0,127}));
+    connect(I,I_internal)
+      annotation (Line(points={{60,120},{60,80}}, color={0,0,127}));
+    connect(f_constant.y,f_internal)
+      annotation (Line(points={{-41,80},{-60,80}}, color={0,0,127}));
+    connect(I_constant.y,I_internal)
+      annotation (Line(points={{41,80},{60,80}}, color={0,0,127}));
+    annotation (defaultComponentName="sineCurrent",
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={
+  {-80,0},{-78.4,0},{-76.8,0},{-75.2,0},{-73.6,0.1},
+  {-72,0.1},{-70.4,0.2},{-68.8,0.3},{-67.2,0.4},{-65.6,0.6},
+  {-64,0.8},{-62.4,1.1},{-60.8,1.4},{-59.2,1.8},{-57.6,2.2},
+  {-56,2.7},{-54.4,3.3},{-52.8,3.9},{-51.2,4.6},{-49.6,5.4},
+  {-48,6.2},{-46.4,7.2},{-44.8,8.2},{-43.2,9.2},{-41.6,10.4},
+  {-40,11.6},{-38.4,12.9},{-36.8,14.2},{-35.2,15.6},{-33.6,17.1},
+  {-32,18.6},{-30.4,20.1},{-28.8,21.6},{-27.2,23.1},{-25.6,24.6},
+  {-24,26.1},{-22.4,27.5},{-20.8,28.8},{-19.2,30},{-17.6,31.1},
+  {-16,32},{-14.4,32.7},{-12.8,33.2},{-11.2,33.5},{-9.6,33.5},
+  {-8,33.2},{-6.4,32.5},{-4.8,31.5},{-3.2,30.1},{-1.6,28.4},
+  {0,26.2},{1.6,23.6},{3.2,20.6},{4.8,17.2},{6.4,13.3},
+  {8,9.1},{9.6,4.6},{11.2,-0.3},{12.8,-5.4},{14.4,-10.7},
+  {16,-16.1},{17.6,-21.6},{19.2,-27.1},{20.8,-32.3},{22.4,-37.4},
+  {24,-42.1},{25.6,-46.3},{27.2,-49.9},{28.8,-52.8},{30.4,-54.8},
+  {32,-56},{33.6,-56.1},{35.2,-55.2},{36.8,-53.1},{38.4,-49.8},
+  {40,-45.3},{41.6,-39.7},{43.2,-33},{44.8,-25.3},{46.4,-16.6},
+  {48,-7.3},{49.6,2.6},{51.2,12.8},{52.8,23},{54.4,33},
+  {56,42.5},{57.6,51.2},{59.2,58.8},{60.8,64.9},{62.4,69.3},
+  {64,71.9},{65.6,72.3},{67.2,70.5},{68.8,66.4},{70.4,60},
+  {72,51.4},{73.6,40.8},{75.2,28.4},{76.8,14.7},{78.4,0},
+  {80,-15.1}}, color={192,192,192},  smooth = Smooth.Bezier)}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}})),
+      Documentation(revisions="<html>
+<ul>
+<li><em> 1998   </em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>
+This current source provides a sinusoidal current with variable frequency <code>f</code> and variable amplitude <code>I</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the current can be kept equal to offset with setting the input <code>I</code> to zero.
+</p>
+</html>"));
+  end SineCurrentVariableFrequencyAndAmplitude;
+
+  model CosineCurrentVariableFrequencyAndAmplitude
+    "Cosine current source with variable frequency and amplitude"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Icons.CurrentSource;
+    import Modelica.Constants.pi;
+    parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
+    parameter Modelica.SIunits.Current constantAmplitude=1 "Constant amplitude"
+      annotation(Dialog(enable=useConstantAmplitude));
+    parameter Boolean useConstantFrequency=false "Enable constant frequency";
+    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+      annotation(Dialog(enable=useConstantFrequency));
+    parameter Modelica.SIunits.Current offset=0 "Offset of the sine wave";
+    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    Blocks.Interfaces.RealInput I(unit="A") if not useConstantAmplitude
+      "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={60,120})));
+    Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
+      "Frequency" annotation (Placement(
+          transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={-60,120})));
+  protected
+    Blocks.Sources.Constant I_constant(final k=constantAmplitude) if useConstantAmplitude
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
+      annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
+    Blocks.Interfaces.RealInput I_internal "Amplitude" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={60,80})));
+    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+          transformation(
+          extent={{-2,-2},{2,2}},
+          rotation=270,
+          origin={-60,80})));
+  equation
+    der(phi) = 2*pi*f_internal;
+    i = offset + I_internal*cos(phi);
+    connect(f,f_internal)
+      annotation (Line(points={{-60,120},{-60,80}}, color={0,0,127}));
+    connect(I,I_internal)
+      annotation (Line(points={{60,120},{60,80}}, color={0,0,127}));
+    connect(f_constant.y,f_internal)
+      annotation (Line(points={{-41,80},{-60,80}}, color={0,0,127}));
+    connect(I_constant.y,I_internal)
+      annotation (Line(points={{41,80},{60,80}}, color={0,0,127}));
+    annotation (defaultComponentName="cosineCurrent",
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(
+            points={{-80,80},{-78.4,79.6},{-76.8,79.2},{-75.2,78.8},{-73.6,78.4},{
+                -72,78},{-70.4,77.5},{-68.8,77.1},{-67.2,76.6},{-65.6,76.1},{-64,75.6},
+                {-62.4,75},{-60.8,74.4},{-59.2,73.7},{-57.6,73},{-56,72.2},{-54.4,
+                71.3},{-52.8,70.3},{-51.2,69.2},{-49.6,68},{-48,66.6},{-46.4,65.2},
+                {-44.8,63.6},{-43.2,61.8},{-41.6,59.9},{-40,57.7},{-38.4,55.5},{-36.8,
+                53},{-35.2,50.3},{-33.6,47.5},{-32,44.4},{-30.4,41.1},{-28.8,37.7},
+                {-27.2,34},{-25.6,30.1},{-24,26.1},{-22.4,21.9},{-20.8,17.5},{-19.2,
+                13},{-17.6,8.3},{-16,3.5},{-14.4,-1.3},{-12.8,-6.2},{-11.2,-11.1},
+                {-9.6,-16},{-8,-20.8},{-6.4,-25.5},{-4.8,-30.1},{-3.2,-34.5},{-1.6,
+                -38.6},{0,-42.4},{1.6,-45.9},{3.2,-49},{4.8,-51.7},{6.4,-53.9},{8,
+                -55.5},{9.6,-56.5},{11.2,-57},{12.8,-56.8},{14.4,-55.9},{16,-54.4},
+                {17.6,-52.2},{19.2,-49.3},{20.8,-45.7},{22.4,-41.5},{24,-36.7},{25.6,
+                -31.4},{27.2,-25.6},{28.8,-19.4},{30.4,-12.9},{32,-6.2},{33.6,0.6},
+                {35.2,7.4},{36.8,14},{38.4,20.4},{40,26.3},{41.6,31.8},{43.2,36.5},
+                {44.8,40.6},{46.4,43.7},{48,45.9},{49.6,47.1},{51.2,47.2},{52.8,46.2},
+                {54.4,44.1},{56,41},{57.6,36.8},{59.2,31.8},{60.8,25.9},{62.4,19.4},
+                {64,12.4},{65.6,5.1},{67.2,-2.2},{68.8,-9.5},{70.4,-16.4},{72,-22.8},
+                {73.6,-28.4},{75.2,-33},{76.8,-36.6},{78.4,-38.9},{80,-39.8}},
+            smooth=Smooth.Bezier,
+            color={192,192,192})}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}})),
+      Documentation(revisions="<html>
+<ul>
+<li><em> 1998   </em>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>", info="<html>
+<p>
+This current source provides a cosine current with variable frequency <code>f</code> and variable amplitude <code>I</code>, 
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+and that the parameter <code>startTime</code> is omitted since the current can be kept equal to offset with setting the input <code>I</code> to zero.
+</p>
+</html>"));
+  end CosineCurrentVariableFrequencyAndAmplitude;
+
   model ExpSineCurrent "Exponentially damped sine current source"
     parameter Real I(start=1) "Amplitude of sine wave";
-    parameter SI.Frequency freqHz(start=2) "Frequency of sine wave";
+    parameter SI.Frequency f(start=2) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
     parameter SI.Damping damping(start=1) "Damping coefficient of sine wave";
     extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.ExpSine
         signalSource(
         final amplitude=I,
-        final freqHz=freqHz,
+        final f=f,
         final phase=phase,
         final damping=damping));
     annotation (
@@ -1587,7 +1906,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             192,192,192}),Text(
               extent={{-42,88},{9,74}},
               textColor={160,160,164},
-              textString="1/freqHz"),Polygon(
+              textString="1/f"),Polygon(
               points={{-50,73},{-41,75},{-41,71},{-50,73}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1606,7 +1925,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="t"),Text(
               extent={{-82,-67},{108,-96}},
               textColor={160,160,164},
-              textString="I*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"),Line(
+              textString="I*exp(-damping*t)*sin(2*pi*f*t+phase)"),Line(
               points={{-50,0},{-50,-40}},
               color={192,192,192},
               pattern=LinePattern.Dash),Line(

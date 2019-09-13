@@ -51,7 +51,7 @@ model PlanarLoops_analytic
         rotation=90)));
   Modelica.Mechanics.Rotational.Sources.Position position(useSupport=true)
     annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
-  Modelica.Blocks.Sources.Sine sine(amplitude=0.7, freqHz=1)
+  Modelica.Blocks.Sources.Sine sine(amplitude=0.7, f=1)
     annotation (Placement(transformation(
         origin={-110,30},
         extent={{-10,-10},{10,10}},

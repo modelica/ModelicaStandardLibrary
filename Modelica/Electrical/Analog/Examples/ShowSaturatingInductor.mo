@@ -17,7 +17,7 @@ model ShowSaturatingInductor
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=U,
     phase=phase,
-    freqHz=f)
+    f=f)
     annotation (Placement(transformation(
         origin={-60,-6},
         extent={{-10,-10},{10,10}},

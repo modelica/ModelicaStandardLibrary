@@ -1541,7 +1541,7 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
   model RelativeAngles "Measure relative angles between two frame connectors"
     extends Internal.PartialRelativeSensor
       annotation(IconMap(primitivesVisible=false));
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Modelica.Blocks.Interfaces.RealOutput angles[3](
       each final quantity="Angle",
@@ -1750,7 +1750,7 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
     import Modelica.Mechanics.MultiBody.Types;
 
     extends Interfaces.PartialTwoFrames;
-    extends Modelica.Icons.TranslationalSensor;
+    extends Modelica.Icons.RectangularSensor;
     Modelica.Blocks.Interfaces.RealOutput distance
       "Distance between the origin of frame_a and the origin of frame_b"
       annotation (Placement(transformation(
@@ -2287,7 +2287,7 @@ with negative sign at frame_a.
   end CutForceAndTorque;
 
   model Power "Measure power flowing from frame_a to frame_b"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Modelica.Blocks.Interfaces.RealOutput power(quantity="Power",unit="W")
@@ -2327,7 +2327,7 @@ as output signal <strong>power</strong>.
   end Power;
 
   model TransformAbsoluteVector "Transform absolute vector in to another frame"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
       "Coordinate system from which absolute kinematic quantities are measured"
@@ -2517,7 +2517,7 @@ transformed output vector as \"Real r_out[3]\";
   package Internal "Internal package, should not be used by user"
     extends Modelica.Icons.InternalPackage;
     partial model PartialAbsoluteSensor "Base class for absolute sensor models"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Coordinate system a of which the absolute kinematic quantities are measured" annotation (Placement(
@@ -2543,7 +2543,7 @@ This partial class can be used for sensors defined either by components or by eq
 
     model PartialAbsoluteBaseSensor
       "Base class for absolute sensor models defined by equations (frame_resolve must be connected exactly once)"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Coordinate system from which kinematic quantities are measured" annotation (Placement(
@@ -2592,7 +2592,7 @@ The connector frame_resolve is always enabled and must be connected exactly once
 
     partial model PartialRelativeSensor
       "Base class for relative sensor models"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Coordinate system a" annotation (Placement(
@@ -2632,7 +2632,7 @@ This partial class can be used for sensors defined either by components or by eq
 
     model PartialRelativeBaseSensor
       "Base class for relative sensor models defined by equations (frame_resolve must be connected exactly once)"
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Coordinate system a (measurement is between frame_a and frame_b)" annotation (Placement(
@@ -3012,7 +3012,7 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
       import Modelica.Mechanics.MultiBody.Frames;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
 
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
 
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_in=
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
@@ -3238,7 +3238,7 @@ is always enabled and must be connected</strong>.
     partial model PartialCutForceSensor
       "Base class to measure cut force and/or torque between two frames, defined by components"
 
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Coordinate system a" annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));
@@ -3304,7 +3304,7 @@ with the blocks of package Modelica.Blocks.
     partial model PartialCutForceBaseSensor
       "Base class to measure cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)"
 
-      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Icons.RoundSensor;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Coordinate system a" annotation (Placement(
             transformation(extent={{-116,-16},{-84,16}})));

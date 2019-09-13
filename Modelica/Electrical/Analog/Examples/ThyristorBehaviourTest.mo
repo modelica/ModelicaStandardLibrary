@@ -4,7 +4,7 @@ model ThyristorBehaviourTest "Thyristor demonstration example"
 
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{18,-40},{38,-20}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(          V=30, freqHz=
+  Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(          V=30, f=
         10000)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

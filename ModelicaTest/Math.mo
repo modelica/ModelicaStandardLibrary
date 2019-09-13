@@ -618,6 +618,7 @@ extends Modelica.Icons.ExamplesPackage;
     import Modelica.ComplexMath.j;
     extends Modelica.Icons.Function;
     import Modelica.Math.Vectors;
+    import Modelica.Math.Polynomials;
     import Modelica.Math.Vectors.Utilities;
     import Modelica.Utilities.Streams;
 
@@ -657,7 +658,7 @@ extends Modelica.Icons.ExamplesPackage;
     assert(abs(r) <eps, "\"Vectors.Utilities.householderReflection()\" failed");
 
   //  ##########   roots   ##########
-    rr := Vectors.Utilities.roots(a);
+    rr := Polynomials.roots(a);
     for i in 1:size(rc,1) loop
        rc[i] := rr[i,1]*ca[1] + rr[i,2]*ca[2];
     end for;
@@ -672,7 +673,7 @@ extends Modelica.Icons.ExamplesPackage;
     end for;
 
     Streams.print("r = "+String(r));
-    assert(abs(r) <eps, "\"Vectors.Utilities.roots()\" failed");
+    assert(abs(r) <eps, "\"Polynomials.roots()\" failed");
 
   //  ##########   interpolate   ##########
     (yi, iNew) :=Vectors.interpolate(x,y,6.5,4);

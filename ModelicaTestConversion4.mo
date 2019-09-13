@@ -10,22 +10,27 @@ package ModelicaTestConversion4
       equation
         y = p*time;
       end B;
+
       block B1
         extends Modelica.Blocks.Interfaces.BlockIcon;
         extends B(p=1);
       end B1;
+
       block B2
         extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
         extends B(p=2);
       end B2;
+
       block B3
         extends Modelica.Blocks.Interfaces.DiscreteBlockIcon;
         extends B(p=3);
       end B3;
+
       block B4
         extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
         extends B(p=4);
       end B4;
+
       block B5
         extends Modelica.Blocks.Interfaces.partialBooleanBlockIcon;
         extends B(p=5);
@@ -57,6 +62,24 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue813;
+
+    model Issue1724 "Conversion test for #1724"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Math.LinearDependency linearDependency(
+        y0=10,
+        k1=100,
+        k2=1000) annotation(Placement(transformation(extent={{-70,65},{-50,85}})));
+      Modelica.Blocks.Sources.Constant const(k=1) annotation(Placement(transformation(extent={{-115,65},{-95,85}})));
+    equation
+      assert(noEvent(linearDependency.y > 11009 and linearDependency.y < 11011), "Break in backward compatibilityof Modelica.Blocks.Math.LinearDependency");
+      connect(const.y, linearDependency.u1) annotation(Line(points={{-94,75},{-89,75},{-77,75},{-77,81},{-72,81}},color={0,0,127}));
+      connect(const.y, linearDependency.u2) annotation(Line(points={{-94,75},{-89,75},{-77,75},{-77,69},{-72,69}},color={0,0,127}));
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1724\">#1724</a>.
+</p>
+</html>"));
+    end Issue1724;
 
     model Issue2441 "Conversion test for #2441"
       extends Modelica.Icons.Example;
@@ -140,7 +163,55 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2945;
+
+    model Issue3035 "Conversion test for #3035"
+      extends Modelica.Icons.Example;
+      Modelica.Blocks.Sources.Clock clock(
+        offset=-0.5,
+        startTime=0.5);
+      Modelica.Blocks.Sources.Sine sine(
+        amplitude=1,
+        freqHz=1,
+        phase=0,
+        offset=0,
+        startTime=0.1) annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
+      Modelica.Blocks.Sources.Cosine cosine(
+        amplitude=1,
+        freqHz=1,
+        phase=0,
+        offset=0,
+        startTime=0.1) annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      Modelica.Blocks.Sources.ExpSine expSine(
+        amplitude=1,
+        freqHz=1,
+        phase=0,
+        damping=1,
+        offset=0,
+        startTime=0.1) annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
+    annotation(experiment(StopTime=1, Tolerance=1e-06), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3035\">#3035</a>.
+</p>
+</html>"));
+    end Issue3035;
   end Blocks;
+
+  package ComplexBlocks
+    "Library of basic input/output control blocks with Complex signals"
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue2157 "Conversion test for #2157"
+      extends Modelica.Icons.Example;
+      Modelica.ComplexBlocks.Sources.LogFrequencySweep logSweep(
+        wMin=0.01,
+        wMax=100,
+        duration=1) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2157\">#2157</a>.
+</p>
+</html>"));
+    end Issue2157;
+  end ComplexBlocks;
 
   package Constants
     extends Modelica.Icons.ExamplesPackage;
@@ -216,6 +287,44 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2880;
+
+    model Issue3086 "Conversion test for #3086"
+      extends Modelica.Icons.Example;
+      Modelica.StateGraph.InitialStep initialStep annotation (Placement(transformation(extent={{-48,0},{-28,20}})));
+      Modelica.StateGraph.Transition transition1(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.StateGraph.Step step annotation (Placement(transformation(extent={{10,0},{30,20}})));
+      Modelica.StateGraph.Transition transition2(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      inner Modelica.StateGraph.StateGraphRoot stateGraphRoot annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    equation
+      connect(initialStep.outPort[1], transition1.inPort) annotation (Line(points={{-27.5,10},{-14,10}}));
+      connect(transition1.outPort, step.inPort[1]) annotation (Line(points={{-8.5,10},{9,10}}));
+      connect(step.outPort[1], transition2.inPort) annotation (Line(points={{30.5,10},{46,10}}));
+      connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points={{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}));
+      annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3086\">#3086</a>.
+</p>
+</html>"));
+    end Issue3086;
+
+    model Issue3086_WithSignal "Conversion test for #3086"
+      extends Modelica.Icons.Example;
+      Modelica.StateGraph.InitialStepWithSignal initialStep annotation (Placement(transformation(extent={{-48,0},{-28,20}})));
+      Modelica.StateGraph.Transition transition1(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.StateGraph.StepWithSignal step annotation (Placement(transformation(extent={{10,0},{30,20}})));
+      Modelica.StateGraph.Transition transition2(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      inner Modelica.StateGraph.StateGraphRoot stateGraphRoot annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    equation
+      connect(initialStep.outPort[1], transition1.inPort) annotation (Line(points={{-27.5,10},{-14,10}}));
+      connect(transition1.outPort, step.inPort[1]) annotation (Line(points={{-8.5,10},{9,10}}));
+      connect(step.outPort[1], transition2.inPort) annotation (Line(points={{30.5,10},{46,10}}));
+      connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points={{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}));
+      annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3086\">#3086</a>.
+</p>
+</html>"));
+    end Issue3086_WithSignal;
   end StateGraph;
 
   package Electrical
@@ -297,6 +406,77 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2899;
+
+      model Issue3024 "Conversion test for #3024"
+        extends Modelica.Icons.Example;
+        import pi = Modelica.Electrical.Analog.Basic.OpAmpDetailed.Pi;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3024\">#3024</a>.
+</p>
+</html>"));
+      end Issue3024;
+
+      model Issue3035 "Conversion test for #3035"
+        extends Modelica.Icons.Example;
+        Modelica.Blocks.Sources.Clock clock(
+          offset=-0.5,
+          startTime=0.5);
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(
+          V=1,
+          phase=0,
+          freqHz=1,
+          offset=0,
+          startTime=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,30})));
+        Modelica.Electrical.Analog.Sources.CosineVoltage cosineVoltage(
+          V=1,
+          phase=0,
+          freqHz=1,
+          offset=0,
+          startTime=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,0})));
+        Modelica.Electrical.Analog.Sources.ExpSineVoltage expSineVoltage(
+          V=1,
+          freqHz=1,
+          phase=0,
+          damping=1,
+          offset=0,
+          startTime=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,-30})));
+        Modelica.Electrical.Analog.Sources.SineCurrent sineCurrent(
+          I=1,
+          phase=0,
+          freqHz=1,
+          offset=0,
+          startTime=0.2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={20,0})));
+        Modelica.Electrical.Analog.Sources.CosineCurrent cosineCurrent(
+          I=1,
+          phase=0,
+          freqHz=1,
+          offset=0,
+          startTime=0.2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={50,0})));
+        Modelica.Electrical.Analog.Sources.ExpSineCurrent expSineCurrent(
+          I=1,
+          freqHz=1,
+          phase=0,
+          damping=1,
+          offset=0,
+          startTime=0.2) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={80,0})));
+      equation
+        connect(sineVoltage.p, sineCurrent.p) annotation (Line(points={{-40,40},{-40,50},{20,50},{20,10}}, color={0,0,255}));
+        connect(cosineCurrent.p, sineCurrent.p) annotation (Line(points={{50,10},{50,50},{20,50},{20,10}}, color={0,0,255}));
+        connect(expSineCurrent.p, sineCurrent.p) annotation (Line(points={{80,10},{80,50},{20,50},{20,10}}, color={0,0,255}));
+        connect(sineVoltage.n, cosineVoltage.p) annotation (Line(points={{-40,20},{-40,10}}, color={0,0,255}));
+        connect(cosineVoltage.n, expSineVoltage.p) annotation (Line(points={{-40,-10},{-40,-20}}, color={0,0,255}));
+        connect(expSineVoltage.n, ground.p) annotation (Line(points={{-40,-40},{-40,-50},{0,-50},{0,-60}}, color={0,0,255}));
+        connect(sineCurrent.n, ground.p) annotation (Line(points={{20,-10},{20,-50},{0,-50},{0,-60}}, color={0,0,255}));
+        connect(cosineCurrent.n, ground.p) annotation (Line(points={{50,-10},{50,-50},{0,-50},{0,-60}}, color={0,0,255}));
+        connect(expSineCurrent.n, ground.p) annotation (Line(points={{80,-10},{80,-50},{0,-50},{0,-60}}, color={0,0,255}));
+      annotation(experiment(StopTime=1, Tolerance=1e-06), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3035\">#3035</a>.
+</p>
+</html>"));
+      end Issue3035;
     end Analog;
 
     package Digital
@@ -359,10 +539,53 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2693;
+
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C = Modelica.Electrical.QuasiStationary.MultiPhase;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
     end QuasiStatic;
 
     package Machines
       extends Modelica.Icons.ExamplesPackage;
+      model Issue289 "Conversion test for #289"
+        extends Modelica.Icons.Example;
+        model M1
+          extends Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage;
+          Integer numPhases = airGapS.m;
+        end M1;
+
+        model M2
+          extends Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing;
+          Integer numPhases = airGapS.m;
+        end M2;
+
+        model M3
+          extends Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet;
+          Integer numPhases = airGapR.m;
+        end M3;
+
+        model M4
+          extends Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited;
+          Integer numPhases = airGapR.m;
+        end M4;
+
+        model M5
+          extends Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor;
+          Integer numPhases = airGapR.m;
+        end M5;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/289\">#289</a>.
+</p>
+</html>"));
+      end Issue289;
+
       model Issue1189 "Conversion test for #1189"
         extends Modelica.Icons.Example;
         model M1
@@ -426,14 +649,199 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
       model Issue2929 "Conversion test for #2929"
         extends Modelica.Icons.Example;
-        model M = Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer;
+        model M =
+            Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer;
         annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2929\">#2929</a>.
 </p>
 </html>"));
       end Issue2929;
+
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C1 = Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage;
+        import C2 = Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing;
+        import C3 = Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines;
+        import C4 = Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMC;
+        import C5 = Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS;
+        import C6 = Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines;
+        import C7 = Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMC;
+        import C8 = Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMC;
+        import C9 = Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS;
+        import C0 = Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS;
+        import CA = Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData;
+        import CB = Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
+
+      model Issue3058 "Conversion test for #3058"
+        extends Modelica.Icons.Example;
+        import Modelica.Constants.pi;
+        parameter Modelica.SIunits.Current Idq[2]={-53.5, 84.6}
+          "Desired d- and q-current";
+        Modelica.Blocks.Sources.Constant id(k=Idq[1])
+          annotation (Placement(transformation(extent={{-30,60},{-10,80}})));
+        Modelica.Blocks.Sources.Constant iq(k=Idq[2])
+          annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
+        Modelica.Electrical.Machines.Utilities.CurrentController
+                                    currentController(p=2)
+          annotation (Placement(transformation(extent={{10,40},{30,60}})));
+        Modelica.Blocks.Sources.Constant id1(k=Idq[1])
+          annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
+        Modelica.Blocks.Sources.Constant iq1(k=Idq[2])
+          annotation (Placement(transformation(extent={{-30,-80},{-10,-60}})));
+        Modelica.Electrical.Machines.Utilities.VoltageController
+                                             voltageController(
+          p=2,
+          Ld=0.4/(2*pi*50),
+          Lq=0.4/(2*pi*50),
+          Rs=0.03,
+          fsNominal=50,
+          VsOpenCircuit=100)
+          annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
+        Modelica.Blocks.Sources.Ramp ramp(duration=1)
+          annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+        Modelica.Blocks.Sources.Constant const[3](each k=0)
+          annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
+      equation
+        connect(iq.y, currentController.iq_rms) annotation (Line(points={{-9,30},{0,30},
+                {0,44},{8,44}},         color={0,0,127}));
+        connect(id.y, currentController.id_rms) annotation (Line(points={{-9,70},{0,70},
+                {0,56},{8,56}},         color={0,0,127}));
+        connect(id1.y, voltageController.id_rms) annotation (Line(points={{-9,-30},{0,
+                -30},{0,-44},{8,-44}},     color={0,0,127}));
+        connect(iq1.y, voltageController.iq_rms) annotation (Line(points={{-9,-70},{0,
+                -70},{0,-56},{8,-56}},     color={0,0,127}));
+        connect(ramp.y, currentController.phi) annotation (Line(points={{59,0},{40,0},
+                {40,20},{20,20},{20,38}}, color={0,0,127}));
+        connect(ramp.y, voltageController.phi) annotation (Line(points={{59,0},{40,0},
+                {40,-80},{26,-80},{26,-62}}, color={0,0,127}));
+        connect(const.y, voltageController.iActual)
+          annotation (Line(points={{-59,-90},{14,-90},{14,-62}}, color={0,0,127}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3058\">#3058</a>.
+</p>
+</html>"));
+      end Issue3058;
     end Machines;
+
+    package PowerConverters "Rectifiers, Inverters, DC/DC and AC/AC converters"
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue2970 "Conversion test for #2970"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle
+          adaptor(vMax=100)
+          annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+        Modelica.Blocks.Sources.Ramp ramp(
+          height=200,
+          duration=1,
+          offset=-100)
+          annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+        Modelica.Blocks.Sources.Sine sine(freqHz=50)
+          annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+        Modelica.Blocks.Sources.Ramp rampAngle(
+          height=Modelica.Constants.pi,
+          duration=1,
+          offset=0) annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
+        Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse signal2mPulse(
+          m=1,
+          useConstantFiringAngle=false,
+          useFilter=true,
+          f=50,
+          fCut=100,
+          vStart={0})
+          annotation (Placement(transformation(extent={{18,-60},{38,-40}})));
+        Boolean toBeConverted;
+      equation
+        // The following line shall be converted by the conversion script
+        toBeConverted = signal2mPulse.negativeEqual[1].y;
+        connect(ramp.y, adaptor.v) annotation (Line(points={{-19,0},{18,0}},color={0,0,127}));
+        connect(sine.y, signal2mPulse.v[1]) annotation (Line(points={{-19,-50},{16,-50}},color={0,0,127}));
+        connect(rampAngle.y, signal2mPulse.firingAngle) annotation (Line(points={{-19,-90},{28,-90},{28,-62}},color={0,0,127}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2970\">#2970</a>.
+</p>
+</html>"));
+      end Issue2970;
+
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C = Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
+    end PowerConverters;
+
+    package MultiPhase
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C = Modelica.Electrical.MultiPhase;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
+
+      model Issue3035 "Conversion test for #3035"
+        extends Modelica.Icons.Example;
+        parameter Integer m = 3 "Number of phases";
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-10,-100},{10,-80}})));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          m=m,
+          V=fill(1, m),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+          freqHz=fill(1, m),
+          offset=fill(0, m),
+          startTime=fill(0.1, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={-40,20})));
+        Modelica.Electrical.MultiPhase.Sources.CosineVoltage cosineVoltage(
+          m=m,
+          V=fill(1, m),
+          phase=fill(0, m),
+          freqHz=fill(1, m),
+          offset=fill(0, m),
+          startTime=fill(0.1, m)) annotation (Placement(transformation( extent={{-10,-10},{10,10}}, rotation=270, origin={-40,-20})));
+        Modelica.Electrical.MultiPhase.Sources.SineCurrent sineCurrent(
+          m=m,
+          I=fill(1, m),
+          phase=fill(0, m),
+          freqHz=fill(1, m),
+          offset=fill(0, m),
+          startTime=fill(0.2, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={20,0})));
+        Modelica.Electrical.MultiPhase.Sources.CosineCurrent cosineCurrent(
+          m=m,
+          I=fill(1, m),
+          phase=fill(0, m),
+          freqHz=fill(1, m),
+          offset=fill(0, m),
+          startTime=fill(0.2, m)) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={50,0})));
+        Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270, origin={0,-60})));
+      equation
+        connect(star.pin_n, ground.p) annotation (Line(points={{-1.77636e-15,-70},{0,-70},{0,-78},{0,-78},{0,-80}}, color={0,0,255}));
+        connect(sineCurrent.plug_n, star.plug_p) annotation (Line(points={{20,-10},{20,-40},{0,-40},{0,-50}}, color={0,0,255}));
+        connect(cosineCurrent.plug_n, star.plug_p) annotation (Line(points={{50,-10},{50,-40},{0,-40},{0,-50},{1.77636e-15,-50}}, color={0,0,255}));
+        connect(cosineVoltage.plug_n, star.plug_p) annotation (Line(points={{-40,-30},{-40,-40},{0,-40},{0,-50},{1.77636e-15,-50}}, color={0,0,255}));
+        connect(cosineVoltage.plug_p, sineVoltage.plug_n) annotation (Line(points={{-40,-10},{-40,10}}, color={0,0,255}));
+        connect(sineVoltage.plug_p, sineCurrent.plug_p) annotation (Line(points={{-40,30},{-40,40},{20,40},{20,10}}, color={0,0,255}));
+        connect(cosineCurrent.plug_p, sineCurrent.plug_p) annotation (Line(points={{50,10},{50,40},{20,40},{20,10}}, color={0,0,255}));
+      annotation(experiment(StopTime=1, Tolerance=1e-06), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3035\">#3035</a>.
+</p>
+</html>"));
+      end Issue3035;
+    end MultiPhase;
 
     package Spice3
       extends Modelica.Icons.ExamplesPackage;
@@ -456,8 +864,201 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end Spice3;
   end Electrical;
 
+  package Magnetic
+    extends Modelica.Icons.ExamplesPackage;
+    package FluxTubes
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue496 "Conversion test for #496"
+        extends Modelica.Icons.Example;
+        partial model PartialTwoPort
+          extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+        end PartialTwoPort;
+
+        partial model PartialTwoPortExtended
+          extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
+        end PartialTwoPortExtended;
+
+        partial model PartialFixedShape
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
+        end PartialFixedShape;
+
+        partial model PartialForce
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
+        end PartialForce;
+
+        partial model PartialLeakage
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        end PartialLeakage;
+
+        partial model PartialGeneric
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric;
+        end PartialGeneric;
+
+        partial model PartialGenericHysteresis
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis;
+        end PartialGenericHysteresis;
+
+        partial model PartialGenericHysteresisTellinen
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen;
+        end PartialGenericHysteresisTellinen;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+      end Issue496;
+    end FluxTubes;
+
+    package FundamentalWave
+      extends Modelica.Icons.ExamplesPackage;
+      model Issue496 "Conversion test for #496"
+        extends Modelica.Icons.Example;
+        partial model PartialTwoPortsElementary "Two magnetic ports for graphical modeling"
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+        end PartialTwoPortsElementary;
+
+        partial model PartialTwoPorts "Two magnetic ports for graphical modeling with additional variables"
+          extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+        end PartialTwoPorts;
+
+        partial model PartialTwoPortElementary "Two magnetic ports for textual modeling"
+          extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
+        end PartialTwoPortElementary;
+
+        partial model PartialBasicInductionMachine "Partial model for induction machine"
+          extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine;
+        end PartialBasicInductionMachine;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+      end Issue496;
+
+      model Issue2993 "Conversion test for #2993"
+        extends Modelica.Icons.Example;
+        import C1 = Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase;
+        import C2 = Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter;
+        import C3 = Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding;
+        import C4 = Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding;
+        import C5 = Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage;
+        import C6 = Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing;
+        import C7 = Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines;
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+      end Issue2993;
+
+      model Issue3030 "Conversion test for #3030"
+        extends Modelica.Icons.Example;
+        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete symmetricCage(RRef=1, Lsigma=1) annotation (Placement(transformation(extent={{0,0},{20,20}})));
+        Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete saliencyCage(RRef(d(start=1), q(start=1)), Lsigma(d(start=1), q(start=1))) annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+        Modelica.Magnetic.FundamentalWave.Components.Ground ground annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-30,-10})));
+      equation
+        connect(ground.port_p, symmetricCage.port_p) annotation (Line(points={{-20,-10},{-10,-10},{-10,10},{0,10}}, color={255,128,0}));
+        connect(ground.port_p, saliencyCage.port_p) annotation (Line(points={{-20,-10},{-10,-10},{-10,-30},{0,-30}}, color={255,128,0}));
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
+          Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>.
+</p>
+</html>"));
+      end Issue3030;
+    end FundamentalWave;
+
+    package QuasiStatic
+      extends Modelica.Icons.ExamplesPackage;
+      package FluxTubes "Library for modelling of quasi static electromagnetic devices with lumped magnetic networks"
+        extends Modelica.Icons.ExamplesPackage;
+        model Issue496 "Conversion test for #496"
+          extends Modelica.Icons.Example;
+          partial model PartialTwoPortsElementary "Partial component with two magnetic ports p and n for textual programming"
+            extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+          end PartialTwoPortsElementary;
+
+          partial model PartialTwoPorts "Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n"
+            extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts;
+          end PartialTwoPorts;
+
+          partial model PartialFixedShape "Base class for flux tubes with fixed shape during simulation"
+            extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedShape;
+          end PartialFixedShape;
+
+          partial model PartialLeakage "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
+            extends Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage;
+          end PartialLeakage;
+          annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+        end Issue496;
+      end FluxTubes;
+
+      package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
+        extends Modelica.Icons.ExamplesPackage;
+        model Issue496 "Conversion test for #496"
+          extends Modelica.Icons.Example;
+          partial model PartialTwoPort "Two magnetic ports for graphical modeling"
+            extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort;
+          end PartialTwoPort;
+
+          partial model PartialTwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
+            extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended;
+          end PartialTwoPortExtended;
+
+          partial model PartialTwoPortElementary "Two magnetic ports for textual modeling"
+            extends Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortElementary;
+          end PartialTwoPortElementary;
+
+          partial model BaseInductionMachine "Partial model for induction machine"
+            extends Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine;
+          end BaseInductionMachine;
+          annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/496\">#496</a>.
+</p>
+</html>"));
+        end Issue496;
+
+        model Issue2993 "Conversion test for #2993"
+          extends Modelica.Icons.Example;
+          import C1 = Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter;
+          import C2 = Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding;
+          import C3 = Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding;
+          annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2993\">#2993</a>.
+</p>
+</html>"));
+        end Issue2993;
+      end FundamentalWave;
+    end QuasiStatic;
+  end Magnetic;
+
   package Fluid
     extends Modelica.Icons.ExamplesPackage;
+    model Issue813 "Conversion test for #813"
+      extends Modelica.Icons.Example;
+      package P1
+        extends Modelica.Fluid.Icons.VariantLibrary;
+      end P1;
+
+      package P2
+        extends Modelica.Fluid.Icons.BaseClassLibrary;
+      end P2;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
+</p>
+</html>"));
+    end Issue813;
+
     package Dissipation
       extends Modelica.Icons.ExamplesPackage;
       model Issue940 "Conversion test for #940"
@@ -541,6 +1142,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         model AbsoluteVelocity
           extends Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity(tansformAbsoluteVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a));
         end AbsoluteVelocity;
+
         model RelativeVelocity
           extends Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity(tansformRelativeVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a));
         end RelativeVelocity;
@@ -698,6 +1300,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2863;
+
+      model Issue3040 "Conversion test for #3040"
+        extends Modelica.Icons.Example;
+        import C1 = Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport;
+        import C2 = Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3040\">#3040</a>.
+</p>
+</html>"));
+      end Issue3040;
     end Rotational;
 
     package Translational
@@ -717,6 +1330,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue194;
+
+      model Issue3040 "Conversion test for #3040"
+        extends Modelica.Icons.Example;
+        import C1 = Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport;
+        import C2 = Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3040\">#3040</a>.
+</p>
+</html>"));
+      end Issue3040;
     end Translational;
   end Mechanics;
 
@@ -731,14 +1355,15 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         extends Modelica.Math.baseIcon1;
         input Real x1;
         output Real y;
-        algorithm
+      algorithm
           y := x1;
       end f1;
+
       function f2
         extends Modelica.Math.baseIcon2;
         input Real x2[1,2];
         output Real y;
-        algorithm
+      algorithm
           y := sum(x2[1,:]);
       end f2;
       Real y = f1(y1) + f2(y2);
@@ -787,6 +1412,18 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2857;
+
+    model Issue3002 "Conversion test for #3002"
+      extends Modelica.Icons.Example;
+      Real r[2,2];
+    algorithm
+      r := Modelica.Math.Vectors.Utilities.roots({1,0,-1});
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3002\">#3002</a>.
+</p>
+</html>"));
+    end Issue3002;
   end Math;
 
   package Media
@@ -800,6 +1437,21 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2491;
+
+    model Issue3037 "Conversion test for #3037"
+      extends Modelica.Icons.Example;
+      Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables c1 = Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables.T;
+      Modelica.Media.Interfaces.PartialMedium.Choices.Init c2 = Modelica.Media.Interfaces.PartialMedium.Choices.Init.NoInit;
+      Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy c3 = Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy.UserDefined;
+      Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEntropy c4 = Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEntropy.UserDefined;
+      Modelica.Media.Interfaces.PartialMedium.Choices.pd c5 = Modelica.Media.Interfaces.PartialMedium.Choices.pd.default;
+      Modelica.Media.Interfaces.PartialMedium.Choices.Th c6 = Modelica.Media.Interfaces.PartialMedium.Choices.Th.default;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3037\">#3037</a>.
+</p>
+</html>"));
+    end Issue3037;
   end Media;
 
   package Thermal
@@ -894,41 +1546,152 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue940;
+
+      package Issue2479 "Conversion test for #2479"
+        extends Modelica.Icons.ExamplesPackage;
+        partial model SinglePortLeft "Partial model of a single port at the left"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end SinglePortLeft;
+
+        partial model SinglePortBottom "Partial model of a single port at the bottom"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortBottom;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end SinglePortBottom;
+
+        partial model TwoPort "Partial model of two port"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end TwoPort;
+
+        partial model SimpleFriction "Simple friction model"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end SimpleFriction;
+
+        partial model Ambient "Partial model of ambient"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end Ambient;
+
+        partial model AbsoluteSensor "Partial model of absolute sensor"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end AbsoluteSensor;
+
+        partial model RelativeSensor "Partial model of relative sensor"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end RelativeSensor;
+
+        partial model FlowSensor "Partial model of flow sensor"
+          extends Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.FlowSensor;
+          annotation (Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+        end FlowSensor;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2479\">#2479</a>.
+</p>
+</html>"));
+      end Issue2479;
     end FluidHeatFlow;
   end Thermal;
 
   package Icons
     extends Modelica.Icons.ExamplesPackage;
-    model Issue813 "Conversion test for #813"
+    model Issue340 "Conversion test for #340"
       extends Modelica.Icons.Example;
       package P1
         extends Modelica.Icons.Library;
       end P1;
+
       package P2
         extends Modelica.Icons.Library2;
       end P2;
+
       package P3
         extends Modelica.Icons.GearIcon;
       end P3;
+
       package P4
         extends Modelica.Icons.MotorIcon;
       end P4;
+
       package P5
         extends Modelica.Icons.Info;
       end P5;
+
       package P6
         extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
       end P6;
+      package P7
+        extends Modelica.Icons.RotationalSensor;
+      end P7;
+      package P8
+        extends Modelica.Icons.TranslationalSensor;
+      end P8;
       annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/813\">#813</a>.
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/340\">#340</a>.
 </p>
 </html>"));
-    end Issue813;
+    end Issue340;
+
+    model Issue3036 "Conversion test for #3036"
+      extends Modelica.Icons.Example;
+      Modelica.Icons.TypeComplex c = Modelica.Icons.TypeComplex(0, 1);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3036\">#3036</a>.
+</p>
+</html>"));
+    end Issue3036;
   end Icons;
 
   package SIunits
     extends Modelica.Icons.ExamplesPackage;
+    model Issue147 "Conversion test for #147"
+      extends Modelica.Icons.Example;
+      Modelica.SIunits.RadiantExtiance x(displayUnit="W/cm2") = 1;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/147\">#147</a>.
+</p>
+</html>"));
+    end Issue147;
+
     model Issue385 "Conversion test for #385"
       extends Modelica.Icons.Example;
       Modelica.SIunits.FluxiodQuantum x(displayUnit="Wb") = 1;
@@ -938,6 +1701,34 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue385;
+
+    model Issue415 "Conversion test for #415"
+      extends Modelica.Icons.Example;
+      function f
+        extends Modelica.SIunits.Conversions.ConversionIcon;
+        input Real x;
+        output Real y;
+      algorithm
+          y := x;
+      end f;
+      Real y = f(time);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/415\">#415</a>.
+</p>
+</html>"));
+    end Issue415;
+
+    model Issue1159 "Conversion test for #1159"
+      extends Modelica.Icons.Example;
+      Modelica.SIunits.LoundnessLevel x(displayUnit="phon") = 1;
+      Modelica.SIunits.Loundness y(displayUnit="sone") = 1;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1159\">#1159</a>.
+</p>
+</html>"));
+    end Issue1159;
 
     model Issue2944 "Conversion test for #2944"
       extends Modelica.Icons.Example;

@@ -1112,9 +1112,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     Modelica.Electrical.Analog.Interfaces.NegativePin VMin
       "Negative output voltage limitation" annotation (Placement(transformation(
             extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-10,-110},{10,-90}})));
-    SI.Voltage vin "input voltage";
+    SI.Voltage vin "Input voltage";
   protected
-    Real f "auxiliary variable";
+    Real f "Auxiliary variable";
     Real absSlope;
   equation
     in_p.i = 0;
@@ -1187,9 +1187,6 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
 
     // number of intervals: 2500, stop time: 0.003
     parameter SI.Time Ts=0.0000012 "Sampling time";
-
-    // constant expressions
-    constant Real Pi=3.141592654 "Obsolete constant pi; will be removed in future release";
 
     // power supply
     final parameter SI.Voltage vcp_abs=abs(vcp)

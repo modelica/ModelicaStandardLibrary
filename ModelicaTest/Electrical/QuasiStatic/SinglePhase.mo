@@ -1,5 +1,5 @@
 within ModelicaTest.Electrical.QuasiStatic;
-package SinglePhase "Single phase quasi static package"
+package SinglePhase "Single-phase quasi-static package"
   extends Modelica.Icons.ExamplesPackage;
   model SerialConnection "Example of serial connections"
     extends Modelica.Icons.Example;
@@ -68,7 +68,7 @@ package SinglePhase "Single phase quasi static package"
     connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-14},{-62,-14}}, color={0,0,127}));
     annotation (      experiment(StopTime=1),
       Documentation(info="<html>
-<p>Serial connection of different single phase basic components</p>
+<p>Serial connection of different single-phase basic components</p>
 </html>"));
   end SerialConnection;
 
@@ -154,7 +154,7 @@ package SinglePhase "Single phase quasi static package"
     connect(currentSensor.pin_p, variableAdmittance.pin_n) annotation (Line(points={{-60,-20},{-35,-20},{-10,-20}}, color={85,170,255}));
     connect(currentSensor.pin_n, voltageSource.pin_n) annotation (Line(points={{-80,-20},{-90,-20},{-90,0}}, color={85,170,255}));
     annotation (experiment(StopTime=1),      Documentation(info="<html>
-<p>Serial connection of different single phase ideal components and temperature dependent basic components</p>
+<p>Serial connection of different single-phase ideal components and temperature dependent basic components</p>
 </html>"));
   end Ideal;
 

@@ -439,7 +439,7 @@ directly utilized by a user.
 </html>"));
   end MaterialProperty;
 
-  partial class RotationalSensor "Icon representing a round measurement device"
+  partial class RoundSensor "Icon representing a round measurement device"
 
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
@@ -472,9 +472,9 @@ directly utilized by a user.
 This icon is designed for a <strong>rotational sensor</strong> model.
 </p>
 </html>"));
-  end RotationalSensor;
+  end RoundSensor;
 
-  partial class TranslationalSensor
+  partial class RectangularSensor
     "Icon representing a linear measurement device"
 
     annotation (
@@ -486,9 +486,9 @@ This icon is designed for a <strong>rotational sensor</strong> model.
           Polygon(
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            points={{0.0,-40.0},{-10.0,-16.0},{10.0,-16.0},{0.0,-40.0}}),
-          Line(points={{0.0,0.0},{0.0,-16.0}}),
-          Line(points={{-70.0,0.0},{0.0,0.0}}),
+            points={{-40,-40},{-50,-16},{-30,-16},{-40,-40}}),
+          Line(points={{-40,0},{-40,-16}}),
+          Line(points={{-70,0},{-40,0}}),
           Line(points={{-50.0,-40.0},{-50.0,-60.0}}),
           Line(points={{-30.0,-40.0},{-30.0,-60.0}}),
           Line(points={{-10.0,-40.0},{-10.0,-60.0}}),
@@ -499,7 +499,7 @@ This icon is designed for a <strong>rotational sensor</strong> model.
 <p>
 This icon is designed for a <strong>translational sensor</strong> model.
 </p></html>"));
-  end TranslationalSensor;
+  end RectangularSensor;
 
   partial function Function "Icon for functions"
 
@@ -552,30 +552,6 @@ This icon is indicates a record.
 </p>
 </html>"));
   end Record;
-
-  operator record TypeComplex = Complex
-    "Obsolete class kept only for backwards compatibility (use Complex instead)"
-    annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid,
-              extent={{-100.0,-100.0},{100.0,100.0}},
-              radius=25.0),
-            Text(
-              textColor={255,255,255},
-              extent={{-90.0,-50.0},{90.0,50.0}},
-              textString="C")}),
-                        Documentation(info="<html>
-<p>
-Obsolete class, only kept for backwards compatibility.
-The type classes TypeReal, TypeInteger etc. have been introduced to associate an icon to the
-built-in base classes Real, Integer etc. Instead for Complex, an icon is already introduced in its
-definition (which is not possible for the built-in classes). Therefore, TypeComplex is just an alias
-to Complex and is therefore superfluous.
-</p>
-</html>"),
-    obsolete = "Obsolete operator record - use Complex instead");
 
   type TypeReal "Icon for Real types"
       extends Real;

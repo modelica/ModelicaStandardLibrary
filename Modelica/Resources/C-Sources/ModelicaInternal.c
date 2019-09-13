@@ -30,6 +30,10 @@
 */
 
 /* Release Notes:
+      Jun. 24, 2019: by Thomas Beutlich
+                     Fixed uninitialized memory and realpath behaviour in
+                     ModelicaInternal_fullPathName (ticket #3003)
+
       Jun. 28, 2018: by Hans Olsson, Dassault Systemes
                      Proper error message when out of string memory
                      in ModelicaInternal_readLine (ticket #2676)
@@ -212,8 +216,8 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
 
   #if defined(__MINGW32__) || defined(__CYGWIN__) /* MinGW and Cygwin have dirent.h */
     #include <dirent.h>
-  #else /* include the opendir/readdir/closedir implementation for _WIN32 */
-    #include "win32_dirent.c"
+  #else /* include the opendir/readdir/closedir interface for _WIN32 */
+    #include "win32_dirent.h"
   #endif
 
 #elif defined(_POSIX_) || defined(__GNUC__)
@@ -588,9 +592,18 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
             name, strerror(errno));
         return "";
     }
-    fullName = ModelicaAllocateString(strlen(tempName));
+    fullName = ModelicaAllocateString(strlen(tempName) + 1);
     strcpy(fullName, tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
+#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
+    {
+        /* In case of realpath: Retain trailing slash to match _fullpath behaviour */
+        size_t len = strlen(name);
+        if (len > 0 && '/' == name[len - 1]) {
+            strcat(fullName, "/");
+        }
+    }
+#endif
 #elif defined(_POSIX_)
     char* fullName;
     char localbuf[BUFFER_LENGTH];
@@ -605,6 +618,9 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
         /* Any name beginning with "/" is regarded as already being a full path. */
         strcpy(fullName, cwd);
         strcat(fullName, "/");
+    }
+    else {
+        fullName[0] = '\0';
     }
     strcat(fullName, name);
 #else
@@ -1000,6 +1016,7 @@ END_OF_FILE:
     CloseCachedFile(fileName);
     *endOfFile = 1;
     line = ModelicaAllocateString(0);
+    line[0] = '\0';
     return line;
 
 Modelica_ERROR3:

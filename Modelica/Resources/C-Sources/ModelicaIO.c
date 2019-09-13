@@ -178,6 +178,11 @@ static int IsNumber(char* token);
 static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) MODELICA_NONNULLATTR;
   /* Cycle-based in-place array transposition */
 
+#if defined(__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wtautological-compare"
+#endif
+
 void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
                                 _In_z_ const char* matrixName,
                                 _Out_ int* dim) {
@@ -1076,5 +1081,9 @@ static void transpose(_Inout_ double* table, size_t nRow, size_t nCol) {
         }
     }
 }
+
+#if defined(__clang__)
+#pragma clang diagnostic pop
+#endif
 
 #endif

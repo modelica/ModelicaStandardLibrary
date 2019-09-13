@@ -4615,7 +4615,6 @@ Ideal mixture of saturated humid air and ice
 <li>&eta; of ice is neglected</li>
 </ul>
 
-
 <h5>Saturation pressure of water in moist air</h5>
 <p>
 The saturation pressure p<sub>ds</sub> of water in moist air is calculated by p<sub>ds</sub> = f*p<sub>sat</sub>, where
@@ -4626,7 +4625,6 @@ The saturation pressure p<sub>ds</sub> of water in moist air is calculated by p<
 <li>p<sub>sat</sub> for T &ge; 273.16 K is the saturation pressure from [4]</li>
 <li>p<sub>sat</sub> for T &lt; 273.16 K is the saturation pressure from [8]</li>
 </ul>
-
 
 <h5>Dissociation</h5>
 <p>
@@ -4682,7 +4680,6 @@ and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</strong>. J. Phys. Chem. R
 Nitrogen, Oxygen, Argon, and Air</strong>. International Journal of Thermophysics, Vol. 25, No. 1, January 2004
 </dd>
 </dl>
-
 
 <h4>Verification</h4>
 <p>

@@ -65,7 +65,7 @@ package Blocks "Test models for Modelica.Blocks"
           rotation=90)));
     Modelica.Blocks.Continuous.Der der1 annotation (Placement(transformation(
             extent={{40,-140},{60,-120}})));
-    Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
+    Modelica.Blocks.Sources.Sine sine(f=1) annotation (Placement(
           transformation(extent={{0,-140},{20,-120}})));
   equation
     connect(ramp.y, integrator.u)
@@ -291,7 +291,7 @@ package Blocks "Test models for Modelica.Blocks"
       annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
     Modelica.Blocks.Nonlinear.DeadZone deadZone(uMax=1)
       annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
-    Modelica.Blocks.Sources.Sine sine(amplitude=2, freqHz=1) annotation (
+    Modelica.Blocks.Sources.Sine sine(amplitude=2, f=1) annotation (
         Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Constant constPos(k=+1) annotation (Placement(
           transformation(extent={{-80,-20},{-60,0}})));
@@ -332,29 +332,29 @@ package Blocks "Test models for Modelica.Blocks"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Nonlinear.Limiter limiter1(uMax=1.1)
       annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
-    Modelica.Blocks.Sources.Sine sine1(amplitude=1.5, freqHz=2)
+    Modelica.Blocks.Sources.Sine sine1(amplitude=1.5, f=2)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Blocks.Nonlinear.Limiter limiter2(uMax=1.1, strict=true)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
     Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter1
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-    Modelica.Blocks.Sources.Sine sine2(amplitude=1.5, freqHz=2)
+    Modelica.Blocks.Sources.Sine sine2(amplitude=1.5, f=2)
       annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
     Modelica.Blocks.Sources.Sine sine2a(
       amplitude=0.3,
-      freqHz=4,
+      f=4,
       offset=1.0)
       annotation (Placement(transformation(extent={{-80,-8},{-60,12}})));
     Modelica.Blocks.Sources.Sine sine2ab(
       amplitude=0.3,
-      freqHz=4,
+      f=4,
       offset=-1.0)
       annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
     Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter2(strict=true)
       annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
     Modelica.Blocks.Nonlinear.SlewRateLimiter slewRateLimiter1(Rising=13)
       annotation (Placement(transformation(extent={{40,60},{60,80}})));
-    Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, freqHz=2)
+    Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, f=2)
       annotation (Placement(transformation(extent={{0,60},{20,80}})));
     Modelica.Blocks.Continuous.Der der1
       annotation (Placement(transformation(extent={{72,60},{92,80}})));
@@ -819,7 +819,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
       yMax=4,
       initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{60,0},{80,20}})));
-    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=10, freqHz=2)
+    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=10, f=2)
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -924,7 +924,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
       annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
     Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(threshold=0.1)
       annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
-    Modelica.Blocks.Sources.Sine sine(amplitude=2, freqHz=0.5)
+    Modelica.Blocks.Sources.Sine sine(amplitude=2, f=0.5)
       annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
     Modelica.Blocks.Logical.GreaterEqualThreshold greaterEqualThreshold(
         threshold=-0.1)
@@ -1095,14 +1095,14 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
 
   model RootMeanSquare
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Math.Mean mean1(f=expSine.freqHz)
+    Modelica.Blocks.Math.Mean mean1(f=expSine.f)
       annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
     Modelica.Blocks.Sources.ExpSine expSine(
-      freqHz=2,
+      f=2,
       damping=0.5,
       offset=-0.5)
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-    Modelica.Blocks.Math.RootMeanSquare rootMeanSquare(f=expSine.freqHz)
+    Modelica.Blocks.Math.RootMeanSquare rootMeanSquare(f=expSine.f)
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   equation
     connect(expSine.y, mean1.u) annotation (Line(
@@ -1115,7 +1115,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
   model FirstOrderHold "Test first order hold of Discrete package"
     extends Modelica.Icons.Example;
     parameter Real period=0.05;
-    Modelica.Blocks.Sources.Sine sine(freqHz=1, offset=0.5)
+    Modelica.Blocks.Sources.Sine sine(f=1, offset=0.5)
       annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
     Modelica.Blocks.Discrete.ZeroOrderHold zeroOrderHold(samplePeriod=period)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
@@ -1161,7 +1161,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
       annotation (Placement(transformation(extent={{-20,80},{0,100}})));
     Modelica.Blocks.Sources.Cosine cosine(
       offset=0.5,
-      freqHz=2,
+      f=2,
       amplitude=1,
       phase=Modelica.Constants.pi/4)
       annotation (Placement(transformation(extent={{-80,80},{-60,100}})));
@@ -1206,7 +1206,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
   model ConversionBlocks
     extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.Cosine cosine(
-      freqHz=2,
+      f=2,
       amplitude=10,
       offset=10)
       annotation (Placement(transformation(extent={{-80,100},{-60,120}})));
@@ -1528,7 +1528,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     Modelica.Blocks.Math.Feedback compare2
       annotation (Placement(transformation(extent={{-4,-40},{16,-20}})));
     Modelica.Blocks.Sources.Sine Sine(startTime=0.1, offset=0.1,
-      freqHz=2)
+      f=2)
       annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
   equation
     assert(abs(compare1.y) <= 1e-3, "PadeDelay: Old and new implementation does not give the same result");
@@ -1579,7 +1579,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     Modelica.Blocks.Math.Feedback compare2
       annotation (Placement(transformation(extent={{-4,-40},{16,-20}})));
     Modelica.Blocks.Sources.Sine Sine(               offset=0.1,
-      freqHz=2,
+      f=2,
       startTime=0.01)
       annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
     Modelica.Blocks.Nonlinear.PadeDelay padeDelay1a(
@@ -1806,7 +1806,7 @@ This shows the improvements in the numerics when balance=true is set.
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Time samplePeriod=0.02
       "Sample period of component";
-    Modelica.Blocks.Sources.Sine sine(freqHz=3)
+    Modelica.Blocks.Sources.Sine sine(f=3)
       annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
     Modelica.Blocks.Discrete.Sampler sampler(samplePeriod=samplePeriod)
       annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
@@ -1866,7 +1866,7 @@ This shows the improvements in the numerics when balance=true is set.
    Modelica.Blocks.Logical.Hysteresis
                hysteresis(uLow=-0.5, uHigh=0.5)   annotation (Placement(transformation(extent={{12,-9},
               {30,9}})));
-    Modelica.Blocks.Sources.Sine Signal(freqHz=1) "temperature in warm well"
+    Modelica.Blocks.Sources.Sine Signal(f=1) "temperature in warm well"
       annotation (Placement(transformation(extent={{-34,-9},{-16,9}})));
   equation
 
@@ -1906,14 +1906,12 @@ This shows the improvements in the numerics when balance=true is set.
             {-70,23.5},{-60,23.5}}, color={0,0,127}));
     connect(clock.y, mux2.u[2]) annotation (Line(points={{-79,0},{-70,0},
             {-70,16.5},{-60,16.5}}, color={0,0,127}));
-    connect(clock.y, mux3.u[1]) annotation (Line(points={{-79,0},{-70,
-            0},{-70,-15.3333},{-60,-15.3333}},
-                                            color={0,0,127}));
+    connect(clock.y, mux3.u[1]) annotation (Line(points={{-79,0},{-70,0},{-70,
+            -15.3333},{-60,-15.3333}},      color={0,0,127}));
     connect(clock.y, mux3.u[2]) annotation (Line(points={{-79,0},{-70,0},
             {-70,-20},{-60,-20}}, color={0,0,127}));
-    connect(clock.y, mux3.u[3]) annotation (Line(points={{-79,0},{-70,
-            0},{-70,-24.6667},{-60,-24.6667}},
-                                            color={0,0,127}));
+    connect(clock.y, mux3.u[3]) annotation (Line(points={{-79,0},{-70,0},{-70,
+            -24.6667},{-60,-24.6667}},      color={0,0,127}));
     connect(mux2.y, mux5.u[1:2]) annotation (Line(points={{-39,20},{-34,
             20},{-34,2.8},{-30,2.8}}, color={0,0,127}));
     connect(mux3.y, mux5.u[3:5]) annotation (Line(points={{-39,-20},{-34,
@@ -1927,14 +1925,12 @@ This shows the improvements in the numerics when balance=true is set.
     connect(demux2.u, demux5.y[1:2]) annotation (Line(points={{58,30},
             {46,30},{46,4},{32,4},{32,2.8}},
                                     color={0,0,127}));
-    connect(y3, demux3.y[1]) annotation (Line(points={{110,-20},{96,
-            -20},{96,-35.3333},{80,-35.3333}},
-                                          color={0,0,127}));
+    connect(y3, demux3.y[1]) annotation (Line(points={{110,-20},{96,-20},{96,
+            -35.3333},{80,-35.3333}},     color={0,0,127}));
     connect(y4, demux3.y[2]) annotation (Line(points={{110,-40},{96,-40},
             {96,-40},{80,-40}}, color={0,0,127}));
-    connect(y5, demux3.y[3]) annotation (Line(points={{110,-60},{96,
-            -60},{96,-44.6667},{80,-44.6667}},
-                                          color={0,0,127}));
+    connect(y5, demux3.y[3]) annotation (Line(points={{110,-60},{96,-60},{96,
+            -44.6667},{80,-44.6667}},     color={0,0,127}));
     connect(demux3.u, demux5.y[3:5]) annotation (Line(points={{58,-40},
             {46,-40},{46,-4},{32,-4},{32,-5.6},{32,-5.6}},
                                           color={0,0,127}));
@@ -2045,4 +2041,5 @@ known a priori if the controller is saturated or not, and it is important to enf
 the whole homotopy transformation.</p>
 </html>"));
   end LimPID;
+
 end Blocks;

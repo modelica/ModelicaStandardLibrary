@@ -4,7 +4,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   extends Modelica.Icons.SensorsPackage;
 
   model PotentialSensor "Sensor to measure the potential"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Interfaces.PositivePin p "pin to be measured" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
@@ -18,15 +18,16 @@ package Sensors "Potential, voltage, current, and power sensors"
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-29,-11},{30,-70}},
-            textString="V"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Line(points={{100,0},{70,0}}, color={0,0,127}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Text(
+            extent={{-30,-10},{30,-70}},
+            textString="V",
+            textColor={64,64,64})}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -39,7 +40,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   end PotentialSensor;
 
   model VoltageSensor "Sensor to measure the voltage between two pins"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Interfaces.PositivePin p "positive pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
@@ -60,16 +61,17 @@ package Sensors "Potential, voltage, current, and power sensors"
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-29,-11},{30,-70}},
-            textString="V"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
           Line(points={{0,-100},{0,-70}}, color={0,0,127}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Text(
+            extent={{-30,-10},{30,-70}},
+            textString="V",
+            textColor={64,64,64})}),
       Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -82,7 +84,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   end VoltageSensor;
 
   model CurrentSensor "Sensor to measure the current in a branch"
-    extends Modelica.Icons.RotationalSensor;
+    extends Modelica.Icons.RoundSensor;
 
     Interfaces.PositivePin p "positive pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
@@ -103,16 +105,17 @@ package Sensors "Potential, voltage, current, and power sensors"
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-29,-11},{30,-70}},
-            textString="A"),
           Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
             textColor={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,-100},{0,-70}}, color={0,0,127})}),
+          Line(points={{0,-100},{0,-70}}, color={0,0,127}),
+          Text(
+            extent={{-30,-10},{30,-70}},
+            textColor={64,64,64},
+            textString="A")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -132,7 +135,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   end CurrentSensor;
 
 model PowerSensor "Sensor to measure the power"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   Modelica.Electrical.Analog.Interfaces.PositivePin pc
       "Positive pin, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
@@ -185,10 +188,12 @@ equation
       Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
       Text(textColor = {0,0,255}, extent={{-150,110},{150,150}},   textString = "%name"),
       Line(points = {{0,70},{0,40}}),
-      Text(extent = {{-29,-70},{30,-11}},
-            textString="P")}),
+        Text(
+            extent={{-30,-10},{30,-70}},
+            textColor={64,64,64},
+            textString="W")}),
     Documentation(info="<html>
-<p>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
+<p>This power sensor measures instantaneous electrical power of a single-phase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>January 12, 2006</em> by Anton Haumer implemented</li>
@@ -197,7 +202,7 @@ equation
 end PowerSensor;
 
 model MultiSensor "Sensor to measure current, voltage and power"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   Modelica.Electrical.Analog.Interfaces.PositivePin pc
       "Positive pin, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
@@ -248,16 +253,19 @@ equation
                                                 color={28,108,200}),
         Text(
           extent={{-100,-40},{-60,-80}},
-          textString="p"),
+            textColor={64,64,64},
+            textString="W"),
         Text(
           extent={{-80,-60},{-40,-100}},
-          textString="i"),
+            textColor={64,64,64},
+            textString="A"),
         Text(
           extent={{40,-60},{80,-100}},
-          textString="v"),
+            textColor={64,64,64},
+            textString="V"),
       Text(textColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name")}),
     Documentation(info="<html>
-<p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path.
+<p>This multi sensor measures current, voltage and instantaneous electrical power of a single-phase system and has a separated voltage and current path.
 The pins of the voltage path are pv and nv, the pins of the current path are pc and nc.
 The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>

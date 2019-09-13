@@ -1,13 +1,11 @@
 within Modelica;
 package Magnetic "Library of magnetic models"
-extends Modelica.Icons.Package;
-
-
-annotation (
+  extends Modelica.Icons.Package;
+  annotation (
   Documentation(info="<html>
 <p>
 This library contains magnetic components to build especially
-electro-magnetic devices.
+electromagnetic devices.
 </p>
 
 </html>"),

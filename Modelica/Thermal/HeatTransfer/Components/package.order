@@ -1,0 +1,9 @@
+HeatCapacitor
+ThermalConductor
+ThermalResistor
+Convection
+ConvectiveResistor
+BodyRadiation
+ThermalCollector
+GeneralHeatFlowToTemperatureAdaptor
+GeneralTemperatureToHeatFlowAdaptor

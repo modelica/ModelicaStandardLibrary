@@ -3,7 +3,7 @@ model GenerationOfFMUs
   "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
   extends Modelica.Icons.Example;
 
-  Modelica.Blocks.Sources.Sine sine12(freqHz=2, amplitude=1)
+  Modelica.Blocks.Sources.Sine sine12(f=2, amplitude=1)
     annotation (Placement(transformation(extent={{-100,70},{-80,90}})));
   Modelica.Electrical.Analog.Examples.Utilities.DirectCapacitor
     directCapacitor1(C=1e-3)
@@ -36,7 +36,7 @@ model GenerationOfFMUs
     annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
   Modelica.Electrical.Analog.Basic.Ground ground3b
     annotation (Placement(transformation(extent={{60,10},{80,30}})));
-  Modelica.Blocks.Sources.Sine sine34(freqHz=2, amplitude=1)
+  Modelica.Blocks.Sources.Sine sine34(f=2, amplitude=1)
     annotation (Placement(transformation(extent={{-100,-30},{-80,-10}})));
   Modelica.Electrical.Analog.Examples.Utilities.DirectInductor directInductor3(
       L=1e-3) annotation (Placement(transformation(extent={{0,-30},{20,-10}})));

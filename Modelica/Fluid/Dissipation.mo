@@ -677,7 +677,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
           "Mean velocity in gap";
 
         //failure status
-        Real fstatus[3] "check of expected boundary conditions";
+        Real fstatus[3] "Check of expected boundary conditions";
 
         //Documentation
       algorithm
@@ -1141,35 +1141,35 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 
         Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes
           geometry =                                                              Dissipation.Utilities.Types.HTXGeometry_flatTubes.LouverFin
-          "Choice of fin geometry" annotation (Dialog(group="HeatExchanger"));
+          "Choice of fin geometry" annotation (Dialog(group="Heat exchanger"));
 
-        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="HeatExchanger"));
-        SI.Length D_h=0 "Hydraulic diameter" annotation (Dialog(group="HeatExchanger",
+        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="Heat exchanger"));
+        SI.Length D_h=0 "Hydraulic diameter" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 2));
         SI.Length D_m=0 "Major tube diameter for flat tube"
-          annotation (Dialog(group="HeatExchanger"));
-        SI.Length F_l=0 "Fin length" annotation (Dialog(group="HeatExchanger", enable=
+          annotation (Dialog(group="Heat exchanger"));
+        SI.Length F_l=0 "Fin length" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 1));
         SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness" annotation (Dialog(
-              group="HeatExchanger", enable= geometry == 1));
-        SI.Length L_l=0 "Louver length" annotation (Dialog(group="HeatExchanger",
+              group="Heat exchanger", enable= geometry == 1));
+        SI.Length L_l=0 "Louver length" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
-        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="HeatExchanger",
+        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
-        SI.Length T_d=0 "Tube depth" annotation (Dialog(group="HeatExchanger", enable=
+        SI.Length T_d=0 "Tube depth" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 1));
-        SI.Length T_p=0 "Tube pitch" annotation (Dialog(group="HeatExchanger", enable=
+        SI.Length T_p=0 "Tube pitch" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 1));
 
         Real alpha=0 "Lateral fin spacing (s) / free flow height (h)" annotation (
-            Dialog(group="HeatExchanger", enable= geometry == 2));
+            Dialog(group="Heat exchanger", enable= geometry == 2));
         Real gamma=0 "Fin thickness (t) / lateral fin spacing (s)" annotation (Dialog(
-              group="HeatExchanger", enable= geometry == 2));
+              group="Heat exchanger", enable= geometry == 2));
         Real delta=0 "Fin thickness (t) / Fin length (l)" annotation (Dialog(group=
-                "HeatExchanger", enable= geometry == 2));
-        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="HeatExchanger",
+                "Heat exchanger", enable= geometry == 2));
+        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
-        SI.Angle Phi=0 "Louver angle" annotation (Dialog(group="HeatExchanger",
+        SI.Angle Phi=0 "Louver angle" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
 
         annotation (Documentation(info="<html>
@@ -1419,35 +1419,35 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 
         Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes
           geometry =                                                               Dissipation.Utilities.Types.HTXGeometry_roundTubes.PlainFin
-          "Choice of fin geometry" annotation (Dialog(group="HeatExchanger"));
+          "Choice of fin geometry" annotation (Dialog(group="Heat exchanger"));
 
-        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="HeatExchanger"));
+        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="Heat exchanger"));
         SI.Length D_c=0 "Fin collar diameter"
-          annotation (Dialog(group="HeatExchanger"));
+          annotation (Dialog(group="Heat exchanger"));
         SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness"
-          annotation (Dialog(group="HeatExchanger"));
+          annotation (Dialog(group="Heat exchanger"));
         SI.Length L=0 "Heat exchanger length" annotation (Dialog(group=
-                "HeatExchanger", enable= geometry == 2));
-        SI.Length L_h=0 "Louver height" annotation (Dialog(group="HeatExchanger",
+                "Heat exchanger", enable= geometry == 2));
+        SI.Length L_h=0 "Louver height" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 2));
-        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="HeatExchanger",
+        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 2));
-        Integer N=0 "Number of tube rows" annotation (Dialog(group="HeatExchanger",
+        Integer N=0 "Number of tube rows" annotation (Dialog(group="Heat exchanger",
               enable= (geometry == 1 or geometry == 2 or geometry == 3)));
         SI.Length P_d=0 "Pattern depth of wavy fin, wave height" annotation (Dialog(
-              group="HeatExchanger", enable= geometry == 4));
+              group="Heat exchanger", enable= geometry == 4));
         SI.Length P_l=0 "Longitudinal tube pitch" annotation (Dialog(group=
-                "HeatExchanger", enable= (geometry == 1 or geometry == 2 or geometry == 3)));
+                "Heat exchanger", enable= (geometry == 1 or geometry == 2 or geometry == 3)));
         SI.Length P_t=0 "Transverse tube pitch"
-          annotation (Dialog(group="HeatExchanger"));
-        SI.Length S_h=0 "Slit height" annotation (Dialog(group="HeatExchanger",
+          annotation (Dialog(group="Heat exchanger"));
+        SI.Length S_h=0 "Slit height" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 3));
-        SI.Length S_p=0 "Slit pitch" annotation (Dialog(group="HeatExchanger", enable=
+        SI.Length S_p=0 "Slit pitch" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 3));
         SI.Length X_f=0 "Half wave length of wavy fin" annotation (Dialog(group=
-                "HeatExchanger", enable= geometry == 4));
+                "Heat exchanger", enable= geometry == 4));
 
-        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="HeatExchanger"));
+        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="Heat exchanger"));
 
         annotation (Documentation(info="<html>
 This record is used as <strong> input record </strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube\"> kc_roundTube</a> and
@@ -2402,7 +2402,7 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
           "Mean velocity";
 
         //failure status
-        Real fstatus[2] "check of expected boundary conditions";
+        Real fstatus[2] "Check of expected boundary conditions";
 
         //Documentation
       algorithm
@@ -2726,7 +2726,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
           "Mean velocity";
 
         //failure status
-        Real fstatus[3] "check of expected boundary conditions";
+        Real fstatus[3] "Check of expected boundary conditions";
 
         //Documentation
       algorithm
@@ -3463,7 +3463,7 @@ Generally this function is numerically best used for the <strong>incompressible 
         Real B=24.8
           "Coefficient considering effect of Reynolds number on zeta_TOT";
         Real exp=0.263 "Exponent for Reynolds number correction";
-        Real pow=(2 - exp) "pressure loss = f(mass flow rate^pow)";
+        Real pow=(2 - exp) "Pressure loss = f(mass flow rate^pow)";
       //   Real k_Re = B/(max(MIN, velocity)*IN_con.d_hyd*IN_var.rho)^exp*IN_var.eta^exp;
 
         SI.Velocity v_min = Re_min*IN_var.eta/(IN_var.rho*d_hyd)
@@ -4530,37 +4530,42 @@ This record is used as <strong> input record </strong> for the pressure loss fun
         output SI.Pressure DP "Output for function dp_volumeFlowRate_DP";
 
       protected
-        Real a=max(Modelica.Constants.eps, abs(IN_con.a));
-        Real b=max(Modelica.Constants.eps, abs(IN_con.b));
+        Real a=abs(IN_con.a);
+        Real b=abs(IN_con.b);
 
         SI.VolumeFlowRate V_flow=m_flow/max(Modelica.Constants.eps, IN_var.rho)
           "Volume flow rate";
-        SI.Pressure dp_min=IN_con.dp_min
+        SI.Pressure dp_min=max(Modelica.Constants.eps, abs(IN_con.dp_min))
           "Start of approximation for decreasing pressure loss";
-        SI.VolumeFlowRate V_flow_smooth=if IN_con.a > 0 then -(b/(2*a) + ((-b/(2*a))^
-            2 + dp_min/a)^0.5) else dp_min/b
+        SI.VolumeFlowRate V_flow_smooth=if a > 0 and b <= 0 then (dp_min/a)^0.5 else 0
           "Start of approximation for decreasing volume flow rate";
 
         //Documentation
 
       algorithm
-        DP := a*Dissipation.Utilities.Functions.General.SmoothPower(
+        assert(a+b>0, "Please provide non-zero factors for either a or b of function dp=a*V_flow^2 + b*V_flow");
+
+        // Please note the function is reqularized for zero flow with the parameter b if b>0.
+
+        DP := a*(if a>0 and b<=0 then Dissipation.Utilities.Functions.General.SmoothPower(
                 V_flow,
                 V_flow_smooth,
-                2) + b*V_flow;
+                2) elseif a>0 and b>0 then V_flow*abs(V_flow) else 0) + b*V_flow;
       annotation (Inline=false, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
 <p>
-Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
+Calculation of a generic pressure loss with linear and/or quadratic dependence on volume flow rate. <strong>Please note that the sum of a and b has to be greater zero</strong>.
 The function can be used to calculate pressure loss at known mass flow rate <strong> or </strong> mass flow rate at known pressure loss.
 </p>
 
 <p>
 Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
 </p>
+</html>", revisions="<html>
+2018-11-21 Stefan Wischhusen: Fixed problem for linear case (a=0 and b>0) and obsolete regularization for a>0 and b>0.
 </html>"));
       end dp_volumeFlowRate_DP;
 
@@ -4586,33 +4591,42 @@ Generally this  function is numerically best used for the <strong> incompressibl
           "Output for function dp_volumeFlowRate_MFLOW";
 
       protected
-        Real a=max(Modelica.Constants.eps, abs(IN_con.a));
-        Real b=max(Modelica.Constants.eps, abs(IN_con.b));
+        Real a=abs(IN_con.a);
+        Real b=abs(IN_con.b);
 
-        SI.Pressure dp_min=IN_con.dp_min
+        SI.Pressure dp_min=max(Modelica.Constants.eps, abs(IN_con.dp_min))
           "Start of approximation for decreasing pressure loss";
 
         //Documentation
 
       algorithm
-        M_FLOW := IN_var.rho*(-b/(2*a) +
-          Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
-                (b/(2*a))^2 + (1/a)*dp,
-                (b/(2*a))^2 + (1/a)*dp_min,
-                0.5));
+        assert(a+b>0, "Please provide non-zero factors for either a or b of function dp=a*V_flow^2 + b*V_flow");
+
+        // Please note the function is reqularized for zero flow with the parameter b if b>0.
+
+        M_FLOW := IN_var.rho*(if a>0 and b<=0 then
+                Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
+                (1/a)*dp,
+                (1/a)*dp_min,
+                0.5)
+                elseif a>0 and b>0 then
+                sign(dp)*(-b/(2*a) + sqrt((b/(2*a))^2 + (1/a)*abs(dp)))
+                else b*dp);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
 <p>
-Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
+Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate. <strong>Please note that the sum of a and b has to be greater zero</strong>.
 The function can be used to calculate pressure loss at known mass flow rate <strong> or </strong> mass flow rate at known pressure loss.
 </p>
 
 <p>
 Generally this  function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
 </p>
+</html>",       revisions="<html>
+2018-11-21 Stefan Wischhusen: Fixed problem for linear case (a=0 and b>0) and obsolete regularization for a>0 and b>0.
 </html>"));
       end dp_volumeFlowRate_MFLOW;
 
@@ -4624,7 +4638,7 @@ Generally this  function is numerically best used for the <strong> compressible 
           Modelica.Fluid.Dissipation.Utilities.Records.General.QuadraticVFLOW;
 
         SI.Pressure dp_min=0.1
-          "Start of approximation for decreasing pressure loss";
+          "Start of approximation for decreasing pressure loss (only used for b=0)";
 
         annotation (Documentation(info="<html>
 This record is used as <strong> input record </strong> for the pressure loss function
@@ -4726,7 +4740,7 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
         SI.Length C_1=max(MIN, min(IN_con.C_1, IN_con.C_2))
           "Perimeter of small cross sectional area of orifice";
         SI.Length C_2=max(MIN, max(IN_con.C_1, IN_con.C_2))
-          "perimeter of large cross sectional area of orifice";
+          "Perimeter of large cross sectional area of orifice";
         SI.Diameter d_hyd=4*A_1/C_1
           "Hydraulic diameter of small cross sectional area of orifice";
 
@@ -9944,7 +9958,7 @@ documentation available in this package.
               "Choice of void fraction approach";
 
             input Boolean crossSectionalAveraged=true
-              "true == cross sectional averaged void fraction | false == volumetric"
+              "= true, if cross sectional averaged void fraction, otherwise volumetric"
               annotation (Dialog);
 
             //geometry
@@ -10415,7 +10429,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
             input Boolean crossSectionalAveraged=true
-              "true == cross sectional averaged void fraction | false == volumetric"
+              "= true, if cross sectional averaged void fraction, otherwise volumetric"
               annotation (Dialog);
 
             input SI.Density rho_g(min=Modelica.Constants.eps)
@@ -10767,8 +10781,9 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
         algorithm
           Re := Re1*(lambda2/lambda2_1)^(1 + dx*(c2 + dx*c3));
-          annotation (Inline=false, smoothOrder=5, 
-		  Documentation(revisions="<html>
+          annotation (Inline=false, smoothOrder=5,
+            Documentation(revisions=
+                            "<html>
 2018-11-20 Stefan Wischhusen: Renamed function from CubicInterpolation_DP to CubicInterpolation_Re.
 </html>"));
         end CubicInterpolation_Re;
@@ -10808,7 +10823,8 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         algorithm
           lambda2 := 64*Re1*(Re/Re1)^(1 + dx*(c2 + dx*c3));
           annotation (Inline=false, smoothOrder=5,
-		  Documentation(revisions="<html>
+            Documentation(revisions=
+                            "<html>
 2018-11-20 Stefan Wischhusen: Renamed function from CubicInterpolation_MFLOW to CubicInterpolation_lambda.
 </html>"));
         end CubicInterpolation_lambda;
@@ -10816,8 +10832,8 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         function LambertW
           "Closed approximation of Lambert's w function for solving f(x) = x exp(x) for x"
           extends Modelica.Icons.Function;
-          input Real y "f(x)";
-          output Real x "W(y)";
+          input Real y "Input f(x)";
+          output Real x "Output W(y)";
         protected
           Real xl;
 
@@ -10838,7 +10854,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
                       Documentation(info="<html>
 
 <p>
-This function calculates an approximation of the <strong> inverse </strong> for
+This function calculates an approximation of the <strong>inverse</strong> for
 </p>
 <pre>
     f(x) = y = x * exp( x )
@@ -10862,8 +10878,8 @@ For y > 10 and higher values the relative deviation is smaller 2%.
         function LambertWIter
           "Iterative form of Lambert's w function for solving f(x) = x exp(x) for x"
           extends Modelica.Icons.Function;
-          input Real y "f(x)";
-          output Real x "W(y)";
+          input Real y "Input f(x)";
+          output Real x "Output W(y)";
           output Integer iter;
         protected
           Real w;
@@ -10918,15 +10934,15 @@ within &infin; > y > -1/e. Please note, that for negative inputs <strong>two</st
 </html>"));
         end LambertWIter;
 
-        function PrandtlNumber "calculation of Prandtl number"
+        function PrandtlNumber "Calculation of Prandtl number"
           extends Modelica.Icons.Function;
           import MIN = Modelica.Constants.eps;
 
           //fluid properties
           input SI.SpecificHeatCapacityAtConstantPressure cp
-            "specific heat capacity of fluid at constant pressure";
-          input SI.DynamicViscosity eta "dynamic viscosity of fluid";
-          input SI.ThermalConductivity lambda "thermal conductivity of fluid";
+            "Specific heat capacity of fluid at constant pressure";
+          input SI.DynamicViscosity eta "Dynamic viscosity of fluid";
+          input SI.ThermalConductivity lambda "Thermal conductivity of fluid";
 
           output SI.PrandtlNumber Pr "Prandtl number";
 
@@ -10935,7 +10951,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <strong>two</st
           annotation (Inline=true, smoothOrder=1);
         end PrandtlNumber;
 
-        function ReynoldsNumber "calculation of Reynolds number"
+        function ReynoldsNumber "Calculation of Reynolds number"
           extends Modelica.Icons.Function;
           import MIN = Modelica.Constants.eps;
 
@@ -10964,10 +10980,10 @@ within &infin; > y > -1/e. Please note, that for negative inputs <strong>two</st
         function SmoothPower
           "Limiting the derivative of function y = if x>=0 then x^pow else -(-x)^pow"
           extends Modelica.Icons.Function;
-          input Real x "input variable";
-          input Real deltax "range for interpolation";
-          input Real pow "exponent for x";
-          output Real y "output variable";
+          input Real x "Input variable";
+          input Real deltax "Range for interpolation";
+          input Real pow "Exponent for x";
+          output Real y "Output variable";
         protected
           Real adeltax=abs(deltax);
           Real C3=(pow - 1)/2*adeltax^(pow - 3);
@@ -11020,11 +11036,11 @@ For |x| &gt; 1 both functions return identical results.
 
         function SmoothPower_der "The derivative of function SmoothPower"
           extends Modelica.Icons.Function;
-          input Real x "input variable";
-          input Real deltax "range of interpolation";
-          input Real pow "exponent for x";
-          input Real dx "derivative of x";
-          output Real dy "derivative of SmoothPower";
+          input Real x "Input variable";
+          input Real deltax "Range of interpolation";
+          input Real pow "Exponent for x";
+          input Real dx "Derivative of x";
+          output Real dy "Derivative of SmoothPower";
         protected
           Real C3;
           Real C1;
@@ -11050,10 +11066,10 @@ For |x| &gt; 1 both functions return identical results.
         function Stepsmoother "Continuous interpolation for x"
 
           extends Modelica.Icons.Function;
-          input Real func "input value for that result = 100%";
-          input Real nofunc "input value for that result = 0%";
-          input Real x "input variable for continuous interpolation";
-          output Real result "output value";
+          input Real func "Input value for that result = 100%";
+          input Real nofunc "Input value for that result = 0%";
+          input Real x "Input variable for continuous interpolation";
+          output Real result "Output value";
 
         protected
           Real m=Modelica.Constants.pi/(func - nofunc);
@@ -11105,12 +11121,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         function Stepsmoother_der "Derivative of function Stepsmoother"
 
           extends Modelica.Icons.Function;
-          input Real func "input for that result = 100%";
-          input Real nofunc "input for that result = 0%";
-          input Real x "input for interpolation";
-          input Real dfunc "derivative of func";
-          input Real dnofunc "derivative of nofunc";
-          input Real dx "derivative of x";
+          input Real func "Input for that result = 100%";
+          input Real nofunc "Input for that result = 0%";
+          input Real x "Input for interpolation";
+          input Real dfunc "Derivative of func";
+          input Real dnofunc "Derivative of nofunc";
+          input Real dx "Derivative of x";
           output Real dresult;
 
         protected
@@ -12583,7 +12599,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         end NominalPressureLossLawDensity;
 
-        record TwoPhaseFlow "base record for two phase Flow"
+        record TwoPhaseFlow "Base record for two phase Flow"
           extends Modelica.Icons.Record;
 
           SI.Density rho_l "Density of liquid"
@@ -12844,10 +12860,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           //T-junction variables
           Boolean united_converging_cross_section=true
-            "true == A_cross_total = 2*A_cross_branch | false == A_cross_total > 2*A_cross_branch"
+            "= true, if A_cross_total = 2*A_cross_branch, otherwise A_cross_total > 2*A_cross_branch"
             annotation (Dialog(group="T-junction"));
           Boolean velocity_reference_branches=true
-            "true == pressure loss coefficients w.r.t. velocity in each passage | false == w.r.t. velocity in total passage"
+            "= true, if pressure loss coefficients w.r.t. velocity in each passage, otherwise w.r.t. velocity in total passage"
             annotation (Dialog(group="T-junction"));
 
           Integer alpha=90 "Angle of branching" annotation (Dialog(group="T-junction"));

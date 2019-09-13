@@ -103,7 +103,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Frequency f=10 "Frequency of input voltage";
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-    Sources.SineVoltage vIn1(V=Vin, freqHz=f) annotation (Placement(
+    Sources.SineVoltage vIn1(V=Vin, f=f) annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -152,7 +152,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Frequency f=10 "Frequency of input voltage";
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-    Sources.SineVoltage vIn1(V=Vin, freqHz=f) annotation (Placement(
+    Sources.SineVoltage vIn1(V=Vin, f=f) annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -202,7 +202,7 @@ package OpAmps "Examples with operational amplifiers"
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
     Sources.SineVoltage                                 vIn(V=Vin,
-               freqHz=f)                     annotation (Placement(
+               f=f)                     annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -242,7 +242,7 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Frequency f=10 "Frequency of input voltage";
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-    Sources.SineVoltage vIn(V=Vin, freqHz=f)
+    Sources.SineVoltage vIn(V=Vin, f=f)
       annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
@@ -1000,6 +1000,8 @@ The output of the integrator part opamp (opAmp2) is a triangular signal of also 
   end LCOscillator;
 
   package OpAmpCircuits "Different circuits with operational amplifiers"
+    extends Modelica.Icons.VariantsPackage;
+
     partial model PartialOpAmp
       "Partial circuit of operational amplifiers"
       extends Modelica.Electrical.Analog.Interfaces.FourPin;
@@ -1083,7 +1085,6 @@ Different functionality is achieved by different circuits.
               fillPattern=FillPattern.None,
               textString="non-inverting")}));
     end Buffer;
-    extends Icons.VariantsPackage;
 
     model Gain "Inverting operational amplifier circuit"
       extends PartialOpAmp;

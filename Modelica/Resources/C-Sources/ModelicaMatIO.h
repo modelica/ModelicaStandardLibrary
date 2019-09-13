@@ -54,13 +54,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 15
+#define MATIO_RELEASE_LEVEL 17
 
 /* Matio version number */
-#define MATIO_VERSION 1515
+#define MATIO_VERSION 1517
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.15"
+#define MATIO_VERSION_STR "1.5.17"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -103,6 +103,12 @@
 /* Include integer type header */
 #if defined(HAVE_MATIO_STDINT_H)
 #include <stdint.h>
+#elif defined(_MSC_VER)
+#define HAVE_MATIO_STDINT_H 1
+#include "stdint_msvc.h"
+#endif
+
+#if defined(HAVE_MATIO_STDINT_H)
 typedef int16_t mat_int16_t;
 typedef int32_t mat_int32_t;
 typedef int64_t mat_int64_t;

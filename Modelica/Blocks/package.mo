@@ -1,10 +1,7 @@
 within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
-import SI = Modelica.SIunits;
-
-
-extends Modelica.Icons.Package;
-
+  import SI = Modelica.SIunits;
+  extends Modelica.Icons.Package;
 
 package Examples
   "Library of examples to demonstrate the usage of package Blocks"
@@ -444,7 +441,7 @@ A position controlled drive with limited velocity and limited acceleration (i.e.
       initType=Modelica.Blocks.Types.Init.SteadyState)
       annotation (Placement(transformation(extent={{20,20},{0,40}})));
     Sources.Sine sine(
-      freqHz=2,
+      f=2,
       offset=1,
       startTime=0.2)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -457,7 +454,7 @@ A position controlled drive with limited velocity and limited acceleration (i.e.
       annotation (Placement(transformation(extent={{20,-20},{0,0}})));
     Math.Feedback feedback
       annotation (Placement(transformation(extent={{-40,0},{-60,-20}})));
-    Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.freqHz)
+    Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.f)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
   equation
     connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
@@ -621,7 +618,7 @@ model RealNetwork1 "Demonstrates the usage of blocks from Modelica.Blocks.Math"
 
   Modelica.Blocks.Math.MultiSum add(nu=2)
     annotation (Placement(transformation(extent={{-14,64},{-2,76}})));
-  Sources.Sine sine(amplitude=3, freqHz=0.1)
+  Sources.Sine sine(amplitude=3, f=0.1)
     annotation (Placement(transformation(extent={{-96,60},{-76,80}})));
   Sources.Step integerStep(height=3, startTime=2)
     annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
@@ -708,7 +705,7 @@ end RealNetwork1;
 
     MathInteger.Sum sum(nu=3)
       annotation (Placement(transformation(extent={{-14,64},{-2,76}})));
-    Sources.Sine sine(amplitude=3, freqHz=0.1)
+    Sources.Sine sine(amplitude=3, f=0.1)
       annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
     Math.RealToInteger realToInteger
       annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
@@ -978,7 +975,7 @@ to show how diagram animations can be constructed.
               -20}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) annotation (
         Placement(transformation(extent={{-58,0},{-38,20}})));
-    Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
+    Modelica.Blocks.Sources.Sine sine(f=1) annotation (Placement(
           transformation(extent={{-60,40},{-40,60}})));
 
     Modelica.Blocks.Examples.BusUsage_Utilities.Part part annotation (Placement(
@@ -1177,12 +1174,12 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
     final parameter Real THD1 = V3/V1 "Theoretically obtained THD with respect to fundamental wave";
     final parameter Real THDrms = V3/sqrt(V1^2+V3^2) "Theoretically obtained THD with respect to RMS";
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
-    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage3(V=sqrt(2)*V3, freqHz=3*f1,
+    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage3(V=sqrt(2)*V3, f=3*f1,
       startTime=0.02)                                           annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-40,10})));
-    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(V=sqrt(2)*V1, freqHz=f1,
+    Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(V=sqrt(2)*V1, f=f1,
       startTime=0.02)                                           annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -1226,6 +1223,191 @@ theoretical calculations:</p>
 </ul>
 </html>"));
   end TotalHarmonicDistortion;
+
+  model Modulation "Demonstrate amplitude modulation an frequency modulation"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sine(
+      useConstantAmplitude=true,
+      useConstantFrequency=true,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,60},{10,80}})));
+    Modelica.Blocks.Sources.Sine amplitude(
+      amplitude=0.5,
+      f=2,
+      offset=1)
+      annotation (Placement(transformation(extent={{-52,20},{-32,40}})));
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sinAM(
+      useConstantAmplitude=false,
+      useConstantFrequency=true,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+    Sources.CosineVariableFrequencyAndAmplitude cosAM(
+      useConstantAmplitude=false,
+      useConstantFrequency=true,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
+    Modelica.Blocks.Sources.Sine frequency(
+      amplitude=50,
+      f=2,
+      offset=100)
+      annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sinFM(
+      useConstantAmplitude=true,
+      useConstantFrequency=false,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
+    Sources.CosineVariableFrequencyAndAmplitude cosFM(
+      useConstantAmplitude=true,
+      useConstantFrequency=false,
+      constantFrequency=100,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+  equation
+    connect(amplitude.y, sinAM.amplitude) annotation (Line(points={{-31,30},{-20,30},
+            {-20,36},{-12,36}}, color={0,0,127}));
+    connect(frequency.y, sinFM.f) annotation (Line(points={{-29,-40},{-20,-40},{-20,
+            -46},{-12,-46}}, color={0,0,127}));
+    connect(amplitude.y, cosAM.amplitude) annotation (Line(points={{-31,30},{-20,30},
+            {-20,4},{-12,4}}, color={0,0,127}));
+    connect(frequency.y, cosFM.f) annotation (Line(points={{-29,-40},{-20,-40},{-20,
+            -76},{-12,-76}}, color={0,0,127}));
+    annotation (experiment(Interval=0.0001), Documentation(info="<html>
+<p>
+This example demonstrates amplitude modulation (AM) and frequency modulation (FM).
+</p>
+</html>"));
+  end Modulation;
+
+  model SinCosEncoder "Evaluation of a sinusoidal encoder"
+    extends Modelica.Icons.Example;
+    import Modelica.Constants.pi;
+    Modelica.SIunits.AngularVelocity w=2*pi*ramp.y "2*pi*f";
+    Sources.Ramp ramp(
+      height=100,
+      duration=1,
+      offset=0,
+      startTime=0)
+      annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
+    Sources.CosineVariableFrequencyAndAmplitude
+                                              cosB(
+      useConstantAmplitude=true,
+      offset=1.5,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+    Sources.CosineVariableFrequencyAndAmplitude
+                                              cosBminus(
+      useConstantAmplitude=true,
+      constantAmplitude=-1,
+      offset=1.5,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
+    Sources.SineVariableFrequencyAndAmplitude sinA(
+      useConstantAmplitude=true,
+      offset=1.5,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));
+    Sources.SineVariableFrequencyAndAmplitude sinAminus(
+      useConstantAmplitude=true,
+      constantAmplitude=-1,
+      offset=1.5,
+      phi(fixed=true))
+      annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+    Math.Feedback feedbackCos
+      annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
+    Math.Feedback feedbackSin
+      annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
+    Electrical.Machines.SpacePhasors.Blocks.Rotator rotator
+      annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+    Continuous.Integrator integrator(k=1e6)
+      annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+    Continuous.Der der1
+      annotation (Placement(transformation(extent={{80,-10},{100,10}})));
+    Math.WrapAngle wrapAngle(positiveRange=false)
+      annotation (Placement(transformation(extent={{80,20},{100,40}})));
+    Electrical.Machines.SpacePhasors.Blocks.ToPolar toPolar
+      annotation (Placement(transformation(extent={{10,20},{30,40}})));
+  equation
+    connect(ramp.y, sinA.f) annotation (Line(points={{-79,0},{-70,0},{-70,-26},{-62,
+            -26}},color={0,0,127}));
+    connect(ramp.y, sinAminus.f) annotation (Line(points={{-79,0},{-70,0},{-70,-56},
+            {-62,-56}}, color={0,0,127}));
+    connect(ramp.y, cosBminus.f) annotation (Line(points={{-79,0},{-70,0},{-70,14},
+            {-62,14}}, color={0,0,127}));
+    connect(ramp.y, cosB.f) annotation (Line(points={{-79,0},{-70,0},{-70,44},{-62,
+            44}}, color={0,0,127}));
+    connect(cosBminus.y, feedbackCos.u2)
+      annotation (Line(points={{-39,20},{-20,20},{-20,42}}, color={0,0,127}));
+    connect(cosB.y, feedbackCos.u1)
+      annotation (Line(points={{-39,50},{-28,50}}, color={0,0,127}));
+    connect(sinA.y, feedbackSin.u1)
+      annotation (Line(points={{-39,-20},{-28,-20}}, color={0,0,127}));
+    connect(sinAminus.y, feedbackSin.u2)
+      annotation (Line(points={{-39,-50},{-20,-50},{-20,-28}}, color={0,0,127}));
+    connect(feedbackCos.y, rotator.u[1])
+      annotation (Line(points={{-11,50},{0,50},{0,0},{8,0}}, color={0,0,127}));
+    connect(feedbackSin.y, rotator.u[2])
+      annotation (Line(points={{-11,-20},{0,-20},{0,0},{8,0}}, color={0,0,127}));
+    connect(rotator.y[2], integrator.u)
+      annotation (Line(points={{31,0},{38,0}}, color={0,0,127}));
+    connect(integrator.y, rotator.angle) annotation (Line(points={{61,0},{70,0},{70,
+            -20},{20,-20},{20,-12}}, color={0,0,127}));
+    connect(integrator.y, der1.u)
+      annotation (Line(points={{61,0},{78,0}}, color={0,0,127}));
+    connect(integrator.y, wrapAngle.u)
+      annotation (Line(points={{61,0},{70,0},{70,30},{78,30}}, color={0,0,127}));
+    connect(feedbackCos.y, toPolar.u[1])
+      annotation (Line(points={{-11,50},{0,50},{0,30},{8,30}}, color={0,0,127}));
+    connect(feedbackSin.y, toPolar.u[2]) annotation (Line(points={{-11,-20},{0,-20},
+            {0,30},{8,30}}, color={0,0,127}));
+    annotation (experiment(Interval=5e-05, Tolerance=1e-05), Documentation(info="<html>
+<p>
+This examples demonstrates robust evaluation of a sin-cos-encoder.
+</p>
+<p>
+The sin-cos-encoder provides four tracks:
+</p>
+<ul>
+<li>cosine</li>
+<li>minus sine<li>
+<li>sine</li>
+<li>minus cosine<li>
+</ul>
+<p>
+All four tracks have the same amplitude and the same offset &gt; amplitude. Offset is used to detect loss of a track. 
+To remove offset, (minus sine) is subtracted from (sine) and (minus cosine) from (cosine), 
+resulting in a cosine and a sine signal with doubled amplitude but without offset.
+</p>
+<p>
+Interpreting cosine and sine as real and imaginary part of a phasor, one could calculate the angle of the phasor (i.e. transform rectangular coordinates to polar coordinates). 
+This is not very robust if the signals are superimposed with some noise. 
+Therefore the phasor is rotated by an angle that is obtained by a controller. The controller aims at imaginary part equal to zero. 
+The resulting angle is continuous, i.e. differentiating the angle results in 2*&pi;*frequency. 
+If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
+</p>
+</html>"));
+  end SinCosEncoder;
+
+  model CompareSincExpSine "Compare sinc and exponential sine signal"
+    extends Modelica.Icons.Example;
+    Sources.Sinc sinc(f=5)
+      annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+    Sources.ExpSine expSine1(f=5, damping=5)
+      annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
+    Sources.ExpSine expSine2(
+      f=5,
+      phase=Modelica.Constants.pi/2,
+      damping=5)
+      annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
+    annotation (experiment(Interval=0.0001), Documentation(info="<html>
+<p>
+Compare the sinc signal and an exponentially damped sine.
+</p>
+</html>"));
+  end CompareSincExpSine;
 
   package NoiseExamples
     "Library of examples to demonstrate the usage of package Blocks.Noise"
@@ -1469,7 +1651,7 @@ truncated normal distribution has more values centered around the mean value 1.
     end Distributions;
 
     model UniformNoiseProperties
-      "Demonstrates the computation of properties for uniformally distributed noise"
+      "Demonstrates the computation of properties for uniformly distributed noise"
       extends Modelica.Icons.Example;
       parameter Real y_min = 0 "Minimum value of band";
       parameter Real y_max = 6 "Maximum value of band";
@@ -2274,7 +2456,7 @@ random number generator. This block is used in the example
         extends Modelica.Icons.Package;
 
         model MotorWithCurrentControl
-          "Synchronous induction machine with current controller and measurement noise"
+          "Synchronous machine with current controller and measurement noise"
           extends Modelica.Electrical.Machines.Icons.TransientMachine;
           constant Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
@@ -2286,7 +2468,7 @@ random number generator. This block is used in the example
           parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
           parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
 
-          Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+          Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpm(
             p=smpmData.p,
             fsNominal=smpmData.fsNominal,
@@ -2315,21 +2497,22 @@ random number generator. This block is used in the example
             TrOperational=293.15,
             alpha20r=smpmData.alpha20r)
             annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-          Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(final m=m)
+          Modelica.Electrical.Polyphase.Sources.SignalCurrent signalCurrent(final m=m)
             annotation (Placement(transformation(
                 origin={-10,50},
                 extent={{-10,10},{10,-10}},
                 rotation=270)));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+          Modelica.Electrical.Polyphase.Basic.Star star(final m=m)
             annotation (Placement(transformation(extent={{-10,80},{-30,100}})));
           Modelica.Electrical.Analog.Basic.Ground ground
             annotation (Placement(transformation(
                 origin={-50,90},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Electrical.Machines.Utilities.CurrentController currentController(p=smpm.p)
+          Modelica.Electrical.Machines.Utilities.DQToThreePhase dqToThreePhase(
+              p=smpm.p)
             annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
-          Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (Placement(transformation(
+          Modelica.Electrical.Polyphase.Basic.Star starM(final m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-60,-10})));
@@ -2419,10 +2602,10 @@ random number generator. This block is used in the example
               points={{-10,60},{-10,90}}, color={0,0,255}));
           connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (Line(
               points={{10,-10},{10,-40}}));
-          connect(angleSensor.phi, currentController.phi) annotation (Line(
-              points={{10,11},{10,30},{-40,30},{-40,38}}, color={0,0,127}));
+          connect(angleSensor.phi, dqToThreePhase.phi) annotation (Line(points={{10,11},
+                  {10,30},{-40,30},{-40,38}},          color={0,0,127}));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
-              points={{-70,-28},{-19,-28},{-19,-24}}, color={0,0,255}));
+              points={{-70,-28},{-20,-28},{-20,-24}}, color={0,0,255}));
           connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
               points={{0,-40},{40,-40}}));
           connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply) annotation (
@@ -2432,8 +2615,8 @@ random number generator. This block is used in the example
               points={{-50,-10},{-40,-10}}, color={0,0,255}));
           connect(starM.pin_n, groundM.p) annotation (Line(
               points={{-70,-10},{-70,-28}}, color={0,0,255}));
-          connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,50},{-24,50},{-17,50}}, color={0,0,127}));
+          connect(dqToThreePhase.y, signalCurrent.i) annotation (Line(points={{
+                  -29,50},{-22,50},{-22,50}}, color={0,0,127}));
           connect(speedSensor.flange, smpm.flange) annotation (Line(
               points={{30,-10},{30,-40},{0,-40}}));
           connect(torqueSensor.flange_b, inertiaLoad.flange_a) annotation (Line(
@@ -2444,10 +2627,6 @@ random number generator. This block is used in the example
           connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
             annotation (Line(
               points={{-10,-10},{-20,-10}}, color={0,0,255}));
-          connect(id.y, currentController.id_rms) annotation (Line(
-              points={{-69,70},{-60,70},{-60,56},{-52,56}}, color={0,0,127}));
-          connect(currentController.iq_rms, iq_rms1) annotation (Line(
-              points={{-52,44},{-100,44},{-100,60},{-120,60}}, color={0,0,127}));
           connect(inertiaLoad.flange_b, flange) annotation (Line(
               points={{90,-40},{90,-40},{90,0},{100,0}}));
           connect(angleSensor.phi, addNoise.u2) annotation (Line(
@@ -2460,10 +2639,14 @@ random number generator. This block is used in the example
                   10}}, color={0,0,127}));
           connect(angleSensor.phi, phi_motor) annotation (Line(points={{10,11},{10,11},{
                   10,22},{10,30},{70,30}}, color={0,0,127}));
+          connect(id.y, dqToThreePhase.d) annotation (Line(points={{-69,70},{-60,
+                  70},{-60,56},{-52,56}}, color={0,0,127}));
+          connect(iq_rms1, dqToThreePhase.q) annotation (Line(points={{-120,60},
+                  {-100,60},{-100,44},{-52,44}}, color={0,0,127}));
           annotation (
             Documentation(info="<html>
 <p>
-A synchronous induction machine with permanent magnets, current controller and
+A synchronous machine with permanent magnets, current controller and
 measurement noise of &plusmn;0.01 rad accelerates a quadratic speed dependent load from standstill.
 The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
 and fed to the machine. The result shows that the torque is influenced by the q-current,
@@ -2472,7 +2655,7 @@ whereas the stator voltage is influenced by the d-current.
 
 <p>
 Default machine parameters of model
-<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>
+<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>
 are used.
 </p>
 
@@ -2781,8 +2964,6 @@ usage of package blocks.
 </p>
 </html>"));
 end Examples;
-
-
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(
         origin={0.0,35.1488},

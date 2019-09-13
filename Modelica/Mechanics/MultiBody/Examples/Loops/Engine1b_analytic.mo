@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Engine1b_analytic
   "Model of one cylinder engine with gas force and analytic loop handling"
   extends Modelica.Icons.Example;
-  extends Utilities.Engine1bBase(Inertia(w(start=0)));
+  extends Utilities.Engine1bBase(inertia(w(start=0)));
   Joints.Assemblies.JointRRP jointRRP(
     n_a={1,0,0},
     n_b={0,-1,0},
@@ -13,7 +13,7 @@ model Engine1b_analytic
         extent={{-20,20},{20,-20}},
         rotation=90)));
 equation
-  connect(Mid.frame_b, jointRRP.frame_a) annotation (Line(
+  connect(mid.frame_b, jointRRP.frame_a) annotation (Line(
       points={{30,-54},{30,-54},{30,-40},{20,-40},{20,0}},
       color={95,95,95},
       thickness=0.5));
@@ -25,12 +25,12 @@ equation
                                      color={0,127,0}));
   connect(jointRRP.bearing, gasForce.flange_a) annotation (Line(points={{28,40},{28,80},{80,80}},
                                          color={0,127,0}));
-  connect(jointRRP.frame_ib, Piston.frame_a) annotation (Line(
+  connect(jointRRP.frame_ib, piston.frame_a) annotation (Line(
       points={{40,36},{60,36},{60,40},{80,40}},
       color={95,95,95},
       thickness=0.5));
-  connect(jointRRP.frame_ia, Rod2.frame_a) annotation (Line(
-      points={{40,4},{60,4},{60,-20},{80,-20},{80,-20}},
+  connect(jointRRP.frame_ia, connectingRod.frame_a) annotation (Line(
+      points={{40,4},{60,4},{60,-20},{80,-20}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=0.5), Documentation(info="<html>

@@ -28,7 +28,7 @@ model TestValveCompressible "Test case for incompressible fluid valve"
             {84,80}})));
   Modelica.Blocks.Sources.Sine downstreamPressure(
     amplitude=5e5,
-    freqHz=1,
+    f=1,
     offset=6e5,
     phase=2.2165681500328)
     annotation (Placement(transformation(extent={{14,20},{34,40}})));

@@ -55,19 +55,19 @@ model IdealMixing1 "Test properties of ideal mixing"
         rotation=270)));
   Modelica.Blocks.Sources.Sine sine1(
     amplitude=0.05e5,
-    freqHz=2,
+    f=2,
     offset=1e5,
     phase=0.013962634015955) annotation (Placement(transformation(extent={{
             -100,-20},{-80,0}})));
   Modelica.Blocks.Sources.Sine sine2(
     amplitude=10,
-    freqHz=1,
+    f=1,
     phase=0.0017453292519943,
     offset=300) annotation (Placement(transformation(extent={{-100,-58},{-80,
             -38}})));
   Modelica.Blocks.Sources.Sine sine3(
     amplitude=0.05e5,
-    freqHz=2,
+    f=2,
     offset=1e5) annotation (Placement(transformation(
         origin={0,70},
         extent={{10,-10},{-10,10}},

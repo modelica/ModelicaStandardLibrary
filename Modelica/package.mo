@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 3.2.3"
+package Modelica "Modelica Standard Library - Version 4.0.0-dev"
 extends Modelica.Icons.Package;
 
 package UsersGuide "User's Guide"
@@ -45,7 +45,7 @@ main sub-libraries:
  <td>
  <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a><br>
             Electrical asynchronous-, synchronous-, and DC-machines
- (motors and generators) as well as 3-phase transformers.
+ (motors and generators) as well as three-phase transformers.
  </td>
 </tr>
 
@@ -54,7 +54,7 @@ main sub-libraries:
  </td>
  <td>
  <a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a><br>
-Based on magnetic flux tubes concepts. Especially to model electro-magnetic actuators. Nonlinear shape, force, leakage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
+Based on magnetic flux tubes concepts. Especially to model electromagnetic actuators. Nonlinear shape, force, leakage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
  </td>
 </tr>
 
@@ -217,9 +217,9 @@ variables is explained in section \"Connector Equations\" below):
      <br>Pin, PositivePin, NegativePin</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPins.png\"></td></tr>
 
-<tr><td><strong>electrical<br>multi-phase</strong></td>
+<tr><td><strong>electrical<br>polyphase</strong></td>
    <td colspan=\"3\">vector of electrical pins</td>
-   <td><a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces\">Modelica.Electrical.MultiPhase.Interfaces</a>
+   <td><a href=\"modelica://Modelica.Electrical.Polyphase.Interfaces\">Modelica.Electrical.Polyphase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
 
@@ -231,7 +231,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>SpacePhasor</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
-<tr><td><strong>quasi-static<br>single phase</strong></td>
+<tr><td><strong>quasi-static<br>single-phase</strong></td>
    <td>complex electrical potential</td>
    <td>complex electrical current</td>
    <td></td>
@@ -240,11 +240,11 @@ variables is explained in section \"Connector Equations\" below):
      <br>Pin, PositivePin, NegativePin</td>
    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticSinglePhasePins.png\"></td></tr>
 
-<tr><td><strong>quasi-static<br>multi-phase</strong></td>
-   <td colspan=\"3\">vector of quasi-static single phase pins</td>
-   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces\">Modelica.Electrical.QuasiStatic.MultiPhase.Interfaces</a>
+<tr><td><strong>quasi-static<br>polyphase</strong></td>
+   <td colspan=\"3\">vector of quasi-static single-phase pins</td>
+   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces\">Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
-   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticMultiPhasePlugs.png\"></td></tr>
+   <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStaticPolyphasePlugs.png\"></td></tr>
 
 <tr><td><strong>electrical<br>digital</strong></td>
    <td>Integer (1..9)</td>
@@ -783,13 +783,13 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <pre>
 &lt;p&gt;
   The feeder cables are connected to an
-  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage&quot;&gt;
+  &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
   The feeder cables are connected to an
-  <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">
+  <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage\">
   induction machine</a>.
 </p>
 </html>"));
@@ -1809,9 +1809,9 @@ In the Modelica Standard Library the following color schemes apply:</p>
     <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalMachines.png\"></td>
   </tr>
   <tr>
-    <td>Modelica.Electrical.MultiPhase</td>
+    <td>Modelica.Electrical.Polyphase</td>
     <td>{0,0,255}</td>
-    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalMultiPhase.png\"></td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleElectricalPolyphase.png\"></td>
   </tr>
   <tr>
     <td>Modelica.Electrical.QuasiStatic</td>
@@ -1922,8 +1922,6 @@ and the most significant parameter can be displayed within the vertical Diagram 
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
            alt=\"Typical placement of component name\">
     </td>
-  </tr>
-  <tr>
     <td> (b)
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_dimensions.png\"
            alt=\"Typical dimensions of icon and its entities\">
@@ -2011,17 +2009,84 @@ Preferred connector locations are:</p>
   </tr>
 </table>
 
+<h4>Sensors</h4>
+
+<p>
+Based on <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2628\">#2628</a> the following guidelines for the
+design of sensors apply:
+</p>
+
+<ul>
+<li>The sensor outputs shall be indicated by its SI unit, not its quantity; the proper SI unit shall be compliant with the unit definitions of
+    <a href=\"modelica://Modelica.SIunits\">SIunits</a>,
+    e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
+<li>The text color of the SI units is {64,64,64} in RGB code</li>
+<li>For a sensor with a single output signal the SI unit shall be placed withing the sensor,
+    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong></li>
+    <ul>
+    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be</li>
+        <ul>
+        <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
+        <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
+        </ul>
+
+    <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be 
+        <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
+    </ul>
+<li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
+    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong></li>
+    <ul>
+    <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
+    <li>Text width: 40 units (or 30 units, minimum 20 units, if required)</li>
+    </ul>
+</ul>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</caption>
+  <tr>
+    <td> (a)
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+    <td> (b)
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round2.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+  </tr>
+</table>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 7</strong>: Rectangular sensor </caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+  </tr>
+</table>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
+           alt=\"Icon of connector corner\">
+    </td>
+  </tr>
+</table>
+
 <h4>Diagram icons</h4>
 
 <p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the
 icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
+
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
 <li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a></li>
-<li> Consistent HTML documentation <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">UsersGuide</a></li>
+<li> Consistent <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">HTML documentation</a></li>
 <li> Structure to be provided by a main package
 <ul>
      <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
@@ -2029,7 +2094,8 @@ icons of the Icon layer. Any graphical illustrations shall be moved to the HTML 
      <li> <strong>Components</strong> -- in case of a complex library a more detailed structure can be established.</li>
      <li> <strong>Sensors</strong></li>
      <li> <strong>Sources</strong></li>
-     <li> <strong>Interfaces</strong> containing connectors and partial models.</li>
+     <li> <strong>Interfaces</strong> containing connectors and simple partial interface models.</li>
+     <li> <strong>BaseClasses</strong> containing partial models with physical equations other than trivial and balance equations.</li>
      <li> <strong>Types</strong> containing type, enumeration and choice definitions.</li>
 </ul></li>
 <li> These packages should appear in the listed order.</li>
@@ -2254,6 +2320,92 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_4_0_0 "Version 4.0.0 (mmm dd, yyyy)"
+  extends Modelica.Icons.ReleaseNotes;
+
+  annotation (Documentation(info="<html>
+<p>
+Version 4.0.0 is ...
+Short Overview:
+</p>
+<ul>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">xxx issues (including pull requests)</a>
+    have been addressed for this release.</li>
+<li><strong>xx</strong> component models and blocks, <strong>xx</strong> example models and <strong>xx</strong> functions are newly included.</li>
+</ul>
+<p>
+The exact difference between package Modelica version 4.0.0 and version 3.2.3 is
+summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/DifferencesTo323.html\">comparison table</a>.
+</p>
+
+<p><br>
+The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+<tr><td> </td>
+    <td>
+    </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>new components</strong></font> have been added to <font color=\"blue\"><strong>existing</strong></font> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>improved</strong></font> in a <font color=\"blue\"><strong>backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
+<tr><td>Nonlinear.Limiter<br>Nonlinear.VariableLimiter<br>Continuous.LimPID</td>
+    <td>The superfluous parameter <code>limitsAtInit</code> has been removed.</td></tr>
+<tr><td>Nonlinear.DeadZone</td>
+    <td>The superfluous parameter <code>deadZoneAtInit</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td>Joints.Prismatic</td>
+    <td>The superfluous constant <code>s_offset</code> has been removed.</td></tr>
+<tr><td>Joints.Revolute</td>
+    <td>The superfluous constant <code>phi_offset</code> has been removed.</td></tr>
+<tr><td>Parts.Body</td>
+    <td>The superfluous parameter <code>z_a_start</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Machines</strong></td></tr>
+<tr><td>PartialPump</td>
+    <td>The superfluous parameter <code>show_NPSHa</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer</strong></td></tr>
+<tr><td>Fahrenheit.FromKelvin<br>Rankine.FromKelvin<br>Rankine.ToKelvin</td>
+    <td>The superfluous parameter <code>n</code> has been removed.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+</html>"));
+end Version_4_0_0;
+
 class Version_3_2_3 "Version 3.2.3 (January 23, 2019)"
   extends Modelica.Icons.ReleaseNotes;
 
@@ -2286,7 +2438,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes\">Modelica.Magnetic.QuasiStatic.FluxTubes</a></td>
     <td>
-    This library provides models for the investigation of quasi static electromagnetic devices with lumped magnetic networks
+    This library provides models for the investigation of quasi-static electromagnetic devices with lumped magnetic networks
     in a comparable way as <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
     (This library was developed by Christian Kral).
     </td></tr>
@@ -2342,13 +2494,13 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sensors</strong></td></tr>
 <tr><td width=\"150\">MultiSensor</td>
     <td> Measures voltage, current and power simultaneously.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Sensors</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Sensors</strong></td></tr>
 <tr><td width=\"150\">MultiSensor</td>
     <td> Measures voltage, current and active power for each phase as well as total power simultaneously.</td></tr>
 <tr><td width=\"150\">AronSensor</td>
-    <td> Measures active power for a threephase system by two singlephase power sensors in an Aron circuit.</td></tr>
+    <td> Measures active power for a three-phase system by two single-phase power sensors in an Aron circuit.</td></tr>
 <tr><td width=\"150\">ReactivePowerSensor</td>
-    <td> Measures reactive power for a threephase system.</td></tr>
+    <td> Measures reactive power for a three-phase system.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples</strong></td></tr>
 <tr><td width=\"150\">SMEE_DOL</td>
     <td> Electrically excited synchronous machine, starting direct on line via the damper cage,
@@ -2368,14 +2520,14 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</strong></td></tr>
 <tr><td width=\"150\">MultiSensor</td>
     <td> Measures voltage, current and apparent power simultaneously.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.MultiPhase.Sensors</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</strong></td></tr>
 <tr><td width=\"150\">MultiSensor</td>
     <td> Measures voltage, current and apparent power for m phases as well as total apparent power simultaneously.</td></tr>
 <tr><td width=\"150\">AronSensor</td>
-    <td> Measures active power for a threephase system by two singlephase power sensors in an Aron circuit.</td></tr>
+    <td> Measures active power for a three-phase system by two single-phase power sensors in an Aron circuit.</td></tr>
 <tr><td width=\"150\">ReactivePowerSensor</td>
-    <td> Measures reactive power for a threephase system.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.{SinglePhase, MultiPhase}.Sources</strong></td></tr>
+    <td> Measures reactive power for a three-phase system.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.QuasiStatic.{SinglePhase, Polyphase}.Sources</strong></td></tr>
 <tr><td width=\"150\">FrequencySweepVoltageSource<br>FrequencySweepCurrentSource</td>
     <td> Voltage source and current source with integrated frequency sweep.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
@@ -2421,7 +2573,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Media</strong></td></tr>
 <tr><td width=\"150\">Water_10degC<br>Water_90degC<br>Glycol20_20degC<br>Glycol50_20degC<br>MineralOil</td>
     <td> Several new records defining media properties.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces</strong></td></tr>
 <tr><td width=\"150\">SinglePortLeft</td>
     <td> Replaces the (now obsolete) partial model Ambient and is also used for Sources.AbsolutePressure.</td></tr>
 <tr><td width=\"150\">SinglePortBottom</td>
@@ -2488,7 +2640,7 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow</strong></td></tr>
 <tr><td>Components.IsolatedPipe<br>Components.HeatedPipe</td>
     <td>Extend from the new pipe model with optional heatPort.</td></tr>
-<tr><td>Interfaces.Partials.Ambient</td>
+<tr><td>Interfaces.Ambient</td>
     <td>Extends from SinglePortLeft.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
 <tr><td>baseIcon1<br>baseIcon2</td>
@@ -2750,7 +2902,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
     <td>
-    This library provides quasi-static models of multiphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
+    This library provides quasi-static models of polyphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
     to the transient models in <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a>.<br>
     Quasistatic means that electric transients are neglected, voltages and currents are supposed to be sinusoidal. Mechanical and thermal transients are taken into account.<br>
     This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
@@ -3159,25 +3311,25 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td width=\"150\"> MUX2x1</td>
     <td> A two inputs MULTIPLEXER for multiple value logic (2 data inputs, 1 select input, 1 output) </td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</strong></td></tr>
-<tr><td width=\"150\"> AIMC_Initialize </td>
-    <td> Steady-State Initialization example of AsynchronousInductionMachineSquirrelCage </td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.InductionMachines.</strong></td></tr>
+<tr><td width=\"150\"> IMC_Initialize </td>
+    <td> Steady-State Initialization example of InductionMachineSquirrelCage </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousMachines.</strong></td></tr>
 <tr><td width=\"150\"> SMPM_VoltageSource </td>
-    <td> PermanentMagnetSynchronousInductionMachine example fed by FOC </td></tr>
+    <td> PermanentMagnetSynchronousMachine example fed by FOC </td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Examples.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Examples.</strong></td></tr>
 <tr><td width=\"150\"> TestSensors </td>
-    <td> Example for multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor </td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Sensors.</strong></td></tr>
+    <td> Example for polyphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Sensors.</strong></td></tr>
 <tr><td width=\"150\"> VoltageQuasiRMSSensor </td>
-    <td> Continuous quasi voltage RMS sensor for multi phase system </td></tr>
+    <td> Continuous quasi voltage RMS sensor for polyphase system </td></tr>
 <tr><td width=\"150\"> CurrentQuasiRMSSensor </td>
-    <td> Continuous quasi current RMS sensor for multi phase system </td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Blocks.</strong></td></tr>
+    <td> Continuous quasi current RMS sensor for polyphase system </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Blocks.</strong></td></tr>
 <tr><td width=\"150\"> QuasiRMS </td>
-    <td> Determine quasi RMS value of a multi-phase system </td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Functions.</strong></td></tr>
+    <td> Determine quasi RMS value of a polyphase system </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Functions.</strong></td></tr>
 <tr><td width=\"150\"> quasiRMS </td>
     <td> Calculate continuous quasi RMS value of input </td></tr>
 <tr><td width=\"150\"> activePower </td>
@@ -3210,12 +3362,12 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
     <td>  Semiconductor capacitor model </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.</strong></td></tr>
-<tr><td width=\"150\"> AIMC_DOL_MultiPhase<br>
-                                      AIMS_Start_MultiPhase<br>
-                                      SMPM_Inverter_MultiPhase<br>
-                                      SMEE_Generator_MultiPhase<br>
-                                      SMR_Inverter_MultiPhase</td>
-    <td> Multi-phase machine examples </td></tr>
+<tr><td width=\"150\"> IMC_DOL_Polyphase<br>
+                                      IMS_Start_Polyphase<br>
+                                      SMPM_Inverter_Polyphase<br>
+                                      SMEE_Generator_Polyphase<br>
+                                      SMR_Inverter_Polyphase</td>
+    <td> Polyphase machine examples </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Fluid.Sensors.</strong></td></tr>
 <tr><td width=\"150\"> MassFractions<br>
@@ -3414,7 +3566,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 
 <tr><td><a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a></td>
     <td>
-    Library for quasi-static electrical singlephase and multiphase AC simulation.<br>
+    Library for quasi-static electrical single-phase and polyphase AC simulation.<br>
     This library allows very fast simulations of electrical circuits with sinusoidal
     currents and voltages by only taking into account the quasi-static, periodic part
     and neglecting non-periodic transients.<br>
@@ -3642,17 +3794,17 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
                       WiredX </td>
     <td> Transfer gates, buffers, inverters and wired node.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Basic</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Basic</strong></td></tr>
 <tr><td> MutualInductor </td>
-    <td> Multi phase inductor providing a mutual inductance matrix model.</td></tr>
+    <td> Polyphase inductor providing a mutual inductance matrix model.</td></tr>
 <tr><td> ZeroInductor </td>
-    <td> Multi phase zero sequence inductor.</td></tr>
+    <td> Polyphase zero sequence inductor.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines</strong></td></tr>
 <tr><td> Examples </td>
     <td> Structured according to machine types:<br>
-                      AsynchronousInductionMachines<br>
-                      SynchronousInductionMachines<br>
+                      InductionMachines<br>
+                      SynchronousMachines<br>
                       DCMachines<br>
                       Transformers </td></tr>
 <tr><td> Losses.* </td>
@@ -3667,19 +3819,19 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td> Icons.* </td>
     <td> Icons for transient and quasi-static electrical machines and transformers.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.InductionMachines.</strong></td></tr>
 <tr><td> AIMC_withLosses </td>
-    <td> Asynchronous induction machine with squirrel cage with losses </td></tr>
+    <td> Induction machine with squirrel cage with losses </td></tr>
 <tr><td> AIMC_Transformer </td>
-    <td> Asynchronous induction machine with squirrel cage - transformer starting </td></tr>
+    <td> Induction machine with squirrel cage - transformer starting </td></tr>
 <tr><td> AIMC_withLosses </td>
-    <td> Test example of an asynchronous induction machine with squirrel cage with losses </td></tr>
+    <td> Test example of an induction machine with squirrel cage with losses </td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.SynchronousMachines.</strong></td></tr>
 <tr><td> SMPM_CurrentSource </td>
-    <td> Permanent magnet synchronous induction machine fed by a current source </td></tr>
+    <td> Permanent magnet synchronous machine fed by a current source </td></tr>
 <tr><td> SMEE_LoadDump </td>
-    <td> Electrical excited synchronous induction machine with voltage controller </td></tr>
+    <td> Electrical excited synchronous machine with voltage controller </td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.DCMachines.</strong></td></tr>
 <tr><td> DCSE_SinglePhase </td>
@@ -3710,9 +3862,9 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Utilities</strong></td></tr>
 <tr><td> SwitchedRheostat </td>
-    <td> Switched rheostat, used for starting asynchronous induction motors with slipring rotor.</td></tr>
+    <td> Switched rheostat, used for starting induction motors with slipring rotor.</td></tr>
 <tr><td> RampedRheostat </td>
-    <td> Ramped rheostat, used for starting asynchronous induction motors with slipring rotor.</td></tr>
+    <td> Ramped rheostat, used for starting induction motors with slipring rotor.</td></tr>
 <tr><td> SynchronousMachineData </td>
     <td> The parameters of the synchronous machine model with electrical excitation (and damper) are calculated
                       from parameters normally given in a technical description,
@@ -3974,7 +4126,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
                       for the signal type. Default is \"infinite number of periods
                       (nperiods=-1).</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.</strong></td></tr>
-<tr><td> MultiPhase.*</td>
+<tr><td> Polyphase.*</td>
     <td> All dissipative components have now an optional heatPort connector
                       to which the dissipated losses are transported in form of heat.
                        </td></tr>
@@ -4289,7 +4441,7 @@ have been fixed:
     <td>Strangeness with final parameters with no value but a start value</td>
 </tr>
 
-<tr><td colspan=\"2\"><br><strong>Modelica.Electrical.MultiPhase</strong></td></tr>
+<tr><td colspan=\"2\"><br><strong>Modelica.Electrical.Polyphase</strong></td></tr>
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/173\">#173</a></td>
     <td>m-phase mutual inductor</td>
@@ -4297,17 +4449,17 @@ have been fixed:
 
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/200\">#200</a></td>
-    <td>adjust Multiphase to Analog</td>
+    <td>adjust Polyphase to Analog</td>
 </tr>
 
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/277\">#277</a></td>
-    <td>Improve/fix documentation of Modelica.Electrical.Multiphase</td>
+    <td>Improve/fix documentation of Modelica.Electrical.Polyphase</td>
 </tr>
 
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/352\">#352</a></td>
-    <td>Odd annotation in Modelica.Electrical.MultiPhase.Sources.SignalVoltage</td>
+    <td>Odd annotation in Modelica.Electrical.Polyphase.Sources.SignalVoltage</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><strong>Modelica.Fluid</strong></td></tr>
@@ -4609,7 +4761,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     <td>
      Components to model magnetic devices based on the magnetic flux tubes concepts.
      Especially to model
-     electro-magnetic actuators. Nonlinear shape, force, leakage, and
+     electromagnetic actuators. Nonlinear shape, force, leakage, and
      Material models. Material data for steel, electric sheet, pure iron,
      Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
     </td></tr>
@@ -4689,7 +4841,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td> ZDiode<br>Thyristor</td>
     <td> Zener Diode with 3 working areas and simple thyristor model.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Ideal.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Ideal.</strong></td></tr>
 <tr><td> OpenerWithArc<br>CloserWithArc</td>
     <td> New switches with simple arc model (as in Modelica.Electrical.Analog.Ideal.</td></tr>
 
@@ -4744,7 +4896,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td> ThermalCollector</td>
     <td> New auxiliary model to collect the heat flows
                       from m heatports to a single heatport;
-                      useful for multiphase resistors (with heatports)
+                      useful for polyphase resistors (with heatports)
                       as a junction of the m heatports.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Icons.</strong></td></tr>
@@ -4790,11 +4942,11 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <tr><td> Diode, ZDiode, PMOS, NMOS, NPN, PNP</td>
     <td> Conditional heatport added for coupling to thermal network.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Basic</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Basic</strong></td></tr>
 <tr><td> Resistor, Conductor, VariableResistor, VariableConductor</td>
     <td> Conditional heatport added for coupling to thermal network (as in Modelica.Electrical.Analog).</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase.Ideal</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase.Ideal</strong></td></tr>
 <tr><td> Thyristors, Switches, IdealDiode</td>
     <td> Conditional heatport added for coupling to thermal network (as in Modelica.Electrical.Analog).</td></tr>
 
@@ -4835,7 +4987,7 @@ units are wrong or errors in documentation):
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines</strong></td></tr>
 <tr><td> All machine models</td>
     <td> The conditional heatports of the instantiated resistors
-                        (which are new in Modelica.Electrical.Analog and Modelica.Electrical.MultiPhase)
+                        (which are new in Modelica.Electrical.Analog and Modelica.Electrical.Polyphase)
                         are finally switched off until a thermal connector design for machines is implemented.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Modelica.Media.Air.MoistAir</strong></td></tr>
@@ -5388,7 +5540,7 @@ should be automatic):
           <td> The heatPort has to be connected; otherwise the component Resistor (without heatPort) has to be used.<br>
                                                 cardinality() is only used to check whether the heatPort is connected.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Electrical.MultiPhase.Examples.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Polyphase.Examples.</strong></td></tr>
 <tr><td> </td>
           <td> Changed the instance names of components used in the examples to more up-to-date style.</td></tr>
 
@@ -5401,12 +5553,12 @@ should be automatic):
                                                 parameter SIunits.AngularVelocity wNominal</td></tr>
 <tr><td> </td>
           <td> Changed the following component variable and parameter names to be more concise:<br>
-                                                Removed suffix \"DamperCage\" from all synchronous induction machines
+                                                Removed suffix \"DamperCage\" from all synchronous machines
                                                 since the user can choose whether the damper cage is present or not.<br><code>
                                                 RotorAngle ... RotorDisplacementAngle<br>
                                                 J_Rotor ... Jr<br>
-                                                Rr ........ Rrd (damper of synchronous induction machines)<br>
-                                                Lrsigma ... Lrsigmad (damper of synchronous induction machines)<br>
+                                                Rr ........ Rrd (damper of synchronous machines)<br>
+                                                Lrsigma ... Lrsigmad (damper of synchronous machines)<br>
                                                 phi_mechanical ... phiMechanical<br>
                                                 w_mechanical ..... wMechanical<br>
                                                 rpm_mechanical ... rpmMechanical<br>
@@ -5415,7 +5567,7 @@ should be automatic):
                                                 TurnsRatio ....... turnsRatio    (AIMS)<br>
                                                 VsNom ............ VsNominal     (AIMS)<br>
                                                 Vr_Lr ............ VrLockedRotor (AIMS)<br>
-                                                DamperCage ....... useDamperCage (synchronous induction machines)<br>
+                                                DamperCage ....... useDamperCage (synchronous machines)<br>
                                                 V0 ............... VsOpenCicuit  (SMPM)<br>
                                                 Ie0 .............. IeOpenCicuit  (SMEE)
                                                 </code></td></tr>
@@ -5715,8 +5867,8 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
           <td> New parameter \"useSupport\" to optionally enable a support connector.</td></tr>
 
 <tr><td colspan=\"2\"><strong>Icons.</strong></td></tr>
-<tr><td> TranslationalSensor<br>
-                                                RotationalSensor</td>
+<tr><td> RectangularSensor<br>
+                                                RoundSensor</td>
           <td> Removed drawing from the diagram layer (kept drawing only in
                                                 icon layer),<br> in order that this icon can be used in situations
                                                 where components are dragged in the diagram layer.</td></tr>
@@ -5748,7 +5900,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
           <td> Changed implementation so that counting unknowns and
                                                 equations is possible without actual values of parameters.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.</strong></td></tr>
 <tr><td>TwoPort</td>
           <td> Introduced <code>parameter Real tapT(final min=0, final max=1)=1</code><br> that defines the temperature of the heatPort
                                                 between inlet and outlet.</td></tr>
@@ -5872,7 +6024,7 @@ units are wrong or errors in documentation):
 <tr><td>SimpleFriction</td>
           <td> The internal parameter k is defined and calculated with the appropriate unit.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Thermal.FluidHeatFlow.Interfaces.</strong></td></tr>
 <tr><td>SimpleFriction</td>
           <td> The internal parameter k is defined and calculated with the appropriate unit.</td></tr>
 
@@ -5954,16 +6106,16 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
           </td>
 </tr>
 <tr><td> AIMC_Steinmetz </td>
-          <td> Asynchronous induction machine squirrel cage with Steinmetz connection
+          <td> Induction machine squirrel cage with Steinmetz connection
           </td>
 </tr>
 
 <tr><td colspan=\"2\"><strong>Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td> BasicAIM </td>
-          <td> Partial model for asynchronous induction machine
+          <td> Partial model for induction machine
           </td></tr>
 <tr><td> BasicSM </td>
-          <td> Partial model for synchronous induction machine
+          <td> Partial model for synchronous machine
           </td></tr>
 <tr><td> PartialAirGap </td>
           <td> Partial air gap model
@@ -5975,7 +6127,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
           <td> Partial air gap model of a DC machine
           </td></tr>
 <tr><td> BasicTransformer </td>
-          <td> Partial model of threephase transformer
+          <td> Partial model of three-phase transformer
           </td></tr>
 <tr><td> PartialCore </td>
           <td> Partial model of transformer core with 3 windings
@@ -6161,7 +6313,7 @@ have been <font color=\"blue\"><strong>improved</strong></font>:
 </tr>
 
 <tr><td colspan=\"2\"><strong>Electrical.</strong></td></tr>
-<tr><td> Analog<br>MultiPhase</td>
+<tr><td> Analog<br>Polyphase</td>
           <td> Improved some icons.
           </td>
 </tr>
@@ -6616,21 +6768,21 @@ units are wrong or errors in documentation):
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><strong>Electrical.MultiPhase.Basic.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Polyphase.Basic.</strong></td></tr>
 <tr><td> Conductor</td>
           <td> Changed wrong type of parameter G from SIunits.Resistance to
                    SIunits.Conductance.
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><strong>Electrical.MultiPhase.Interfaces.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Polyphase.Interfaces.</strong></td></tr>
 <tr><td> Plug<br></td>
           <td> Made used \"pin\" connectors non-graphical (otherwise,
                    there are difficulties to connect to Plug).
            </td>
 </tr>
 
-<tr><td colspan=\"2\"><strong>Electrical.MultiPhase.Sources.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Polyphase.Sources.</strong></td></tr>
 <tr><td> SineCurrent</td>
           <td> Changed wrong type of parameter offset from SIunits.Voltage to
                    SIunits.Current.
@@ -6924,9 +7076,9 @@ The following <strong>new components</strong> have been added to <strong>existin
           <td> New package that provides blocks for unit conversions.
                    UnitConversions.ConvertAllBlocks allows to select all
                    available conversions from a menu.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.</strong></td></tr>
 <tr><td> SM_ElectricalExcitedDamperCage</td>
-          <td> Electrical excited synchronous induction machine with damper cage</td></tr>
+          <td> Electrical excited synchronous machine with damper cage</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td> ElectricalExcitation </td>
           <td> Electrical excitation for electrical excited synchronous
@@ -6939,7 +7091,7 @@ The following <strong>new components</strong> have been added to <strong>existin
                    are used, assuming a symmetrical damper.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Examples.</strong></td></tr>
 <tr><td> SMEE_Gen </td>
-          <td> Test example 7: ElectricalExcitedSynchronousInductionMachine
+          <td> Test example 7: ElectricalExcitedSynchronousMachine
                    as Generator</td></tr>
 <tr><td> Utilities.TerminalBox</td>
           <td> Terminal box for three-phase induction machines to choose
@@ -7065,14 +7217,14 @@ The following <strong>components</strong> have been improved:
 <tr><td> Diode</td>
           <td> smooth() operator included to improve numerics.</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines. </strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.SynchronousMachines. </strong></td></tr>
 <tr><td> SM_PermanentMagnetDamperCage<br>
                    SM_ElectricalExcitedDamperCage<br>
                    SM_ReluctanceRotorDamperCage</td>
           <td> The user can choose \"DamperCage = false\" (default: true)
                    to remove all equations for the damper cage from the model.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines. </strong></td></tr>
-<tr><td> AIM_SlipRing</td>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.BasicMachines.InductionMachines. </strong></td></tr>
+<tr><td> IM_SlipRing</td>
           <td> Easier parameterization: if the user selects \"useTurnsRatio = false\"
                    (default: true, this is the same behavior as before),
                         parameter TurnsRatio is calculated internally from
@@ -7161,7 +7313,7 @@ The following <strong>components</strong> have been improved:
           <td> New implementation based solely on Modelica 2.2 language
                    (previously, the Dymola specific constrain(..) function was used).</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Interfaces.</strong></td></tr>
 <tr><td> SimpleFriction</td>
           <td> Calculates friction losses from pressure drop and volume flow.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Thermal.FluidHeatFlow.Components.</strong></td></tr>
@@ -7505,7 +7657,7 @@ class Version_1_6 "Version 1.6 (June 21, 2004)"
 
    annotation (Documentation(info="<html>
 
-<p> Added 1 new library (Electrical.MultiPhase), 17 new components,
+<p> Added 1 new library (Electrical.Polyphase), 17 new components,
         improved 3 existing components
         in the Modelica.Electrical library and improved 3 types
         in the Modelica.SIunits library. Furthermore,
@@ -7538,8 +7690,8 @@ class Version_1_6 "Version 1.6 (June 21, 2004)"
           <td>Simple NPN BJT according to Ebers-Moll with heating port</td></tr>
 <tr><td>HeatingPNP</td>
           <td>Simple PNP BJT according to Ebers-Moll with heating port</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Electrical.MultiPhase</strong><br>
-          A new library for multi-phase electrical circuits</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Polyphase</strong><br>
+          A new library for polyphase electrical circuits</td></tr>
 </table>
 <p>
 <strong>New examples</strong>
@@ -7956,7 +8108,7 @@ class Contact "Contact"
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.Multiphase</td>
+<td align=\"left\">Electrical.Polyphase</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
@@ -8153,7 +8305,7 @@ of the Modelica package (many more people have contributed to the design):
    <td>Consultant, Regensburg,<br>Germany</td>
    <td>Modelica.ComplexBlocks<br>
                       Modelica.Electrical.Machines<br>
-                      Modelica.Electrical.Multiphase<br>
+                      Modelica.Electrical.Polyphase<br>
                       Modelica.Electrical.QuasiStatic<br>
                       Modelica.Magnetics.FundamentalWave<br>
                       Modelica.Mechanics.Rotational<br>
@@ -8177,7 +8329,7 @@ of the Modelica package (many more people have contributed to the design):
      Vienna, Austria</td>
    <td>Modelica.ComplexBlocks<br>
                       Modelica.Electrical.Machines<br>
-                      Modelica.Electrical.MultiPhase<br>
+                      Modelica.Electrical.Polyphase<br>
                       Modelica.Electrical.QuasiStatic<br>
                       Modelica.Magnetics.FundamentalWave<br>
                       Modelica.Mechanics.Rotational<br>
@@ -8372,7 +8524,7 @@ User's Guides that can be accessed by the following links:
 
 <tr>
   <td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide\">FundamentalWave</a></td>
-  <td>Library for quasi static fundamental wave electric machines</td>
+  <td>Library for quasi-static fundamental wave electric machines</td>
 </tr>
 
 <tr>
@@ -8391,7 +8543,7 @@ User's Guides that can be accessed by the following links:
 </tr>
 
 <tr>
-  <td><a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide\">MultiPhase</a></td>
+  <td><a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide\">Polyphase</a></td>
   <td>Library for electrical components of one or more phases</td>
 </tr>
 
@@ -8402,7 +8554,7 @@ User's Guides that can be accessed by the following links:
 
 <tr>
   <td><a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide\">QuasiStatic</a></td>
-  <td>Library for quasi-static electrical singlephase and multiphase AC simulation</td>
+  <td>Library for quasi-static electrical single-phase and polyphase AC simulation</td>
 </tr>
 
 <tr><td><a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>
@@ -8437,8 +8589,6 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
-
-
 annotation (
 preferredView="info",
 version="4.0.0-dev",

@@ -1,0 +1,8 @@
+SignalVoltage
+ConstantVoltage
+SineVoltage
+CosineVoltage
+SignalCurrent
+ConstantCurrent
+SineCurrent
+CosineCurrent

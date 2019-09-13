@@ -3214,7 +3214,7 @@ This block is demonstrated in the examples
     parameter Real x0Sin=0 "Start value of sin integrator state";
     Sources.Cosine      sin1(
       final amplitude=sqrt(2),
-      final freqHz=k*f,
+      final f=k*f,
       final phase=0) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -3222,7 +3222,7 @@ This block is demonstrated in the examples
     Blocks.Sources.Sine sin2(
       final amplitude=sqrt(2),
       final phase=0,
-      final freqHz=k*f) annotation (Placement(transformation(
+      final f=k*f) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,-70})));
@@ -3613,7 +3613,7 @@ provide both values as output.
     parameter Real k1=0 "Gain of u1";
     parameter Real k2=0 "Gain of u2";
   equation
-    y = y0*(1 + k1*u1 + k2*u2);
+    y = y0 + k1*u1 + k2*u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Line(
@@ -3628,9 +3628,7 @@ provide both values as output.
           Text(
             extent={{-94,26},{8,-30}},
             textString="%y0")}), Documentation(info="<html>
-<p>Determine the linear combination of the two inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code></p>
-<p><strong>Note</strong>, for y0=0 the output is always zero.</p>
-<p>To improve the implementation, the formula will be changed (non-backwards compatible) in the future: <code>y = y0 + k1*u1 + k2*u2</code></p>
+<p>Determine the linear combination of the two inputs: <code>y = y0 + k1*u1 + k2*u2</code></p>
 </html>"));
   end LinearDependency;
 

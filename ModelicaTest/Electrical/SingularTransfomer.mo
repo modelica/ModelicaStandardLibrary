@@ -5,7 +5,7 @@ model SingularTransfomer
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(
     V=220,
     phase=0,
-    freqHz=50,
+    f=50,
     offset=0) annotation (Placement(transformation(
         origin={-82,40},
         extent={{-10,-10},{10,10}},

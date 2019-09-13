@@ -15,18 +15,18 @@ model Rectifier "B6 diode bridge"
   output SI.Voltage uAC[3];
   output SI.Power Losses;
 
-  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(freqHz=f,
+  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(f=f,
        V=VAC*sqrt(2/3))
                       annotation (Placement(transformation(extent={{-70,10},{
             -90,30}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage2(
-    freqHz=f,
+    f=f,
     phase=-2/3*Modelica.Constants.pi,
     V=VAC*sqrt(2/3))
                    annotation (Placement(transformation(extent={{-70,-10},{-90,
             10}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage3(
-    freqHz=f,
+    f=f,
     phase=-4/3*Modelica.Constants.pi,
     V=VAC*sqrt(2/3))
                    annotation (Placement(transformation(extent={{-70,-30},{-90,
@@ -180,7 +180,7 @@ annotation (
           textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
   Documentation(info="<html>
-<p>The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current.
+<p>The rectifier example shows a B6 diode bridge fed by a three-phase sinusoidal voltage, loaded by a DC current.
 DC capacitors start at ideal no-load voltage, thus making easier initial transient.</p>
 <p>Simulate until T=0.1 s. Plot in separate windows:
 <br>uDC ... DC-voltage

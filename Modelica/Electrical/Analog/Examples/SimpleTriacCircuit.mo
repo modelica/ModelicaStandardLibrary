@@ -12,7 +12,7 @@ model SimpleTriacCircuit "Simple triac test circuit"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={60,30})));
-  Modelica.Electrical.Analog.Sources.SineVoltage V(V=30, freqHz=10000)
+  Modelica.Electrical.Analog.Sources.SineVoltage V(V=30, f=10000)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

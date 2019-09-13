@@ -1,6 +1,896 @@
 within ;
 package ObsoleteModelica4 "Library that contains components from Modelica Standard Library 3.2.3 that have been removed from version 4.0.0"
   extends Modelica.Icons.Package;
+  package Electrical "Library of electrical models (analog, digital, machines, polyphase)"
+    extends Modelica.Icons.Package;
+    package PowerConverters "Rectifiers, Inverters and DC/DC converters"
+      extends Modelica.Icons.Package;
+      package DCDC "DC to DC converters"
+        extends Modelica.Icons.Package;
+        package Control "Control components for DC to DC converters"
+          extends Modelica.Icons.Package;
+          block VoltageToDutyCycle "Obsolete block - use Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle instead"
+            extends Modelica.Icons.ObsoleteModel;
+            parameter Boolean useBipolarVoltage = true
+              "Enables bipolar input voltage range";
+            parameter Boolean useConstantMaximumVoltage=true
+              "Enables constant maximum voltage";
+            parameter Modelica.SIunits.Voltage vMax=0
+              "Maximum voltage range mapped to dutyCycle = 1"
+              annotation(Dialog(enable=useConstantMaximumVoltage));
+            Modelica.Blocks.Interfaces.RealInput v "Voltage" annotation (Placement(
+                  transformation(extent={{-140,-20},{-100,20}}), iconTransformation(
+                    extent={{-140,-20},{-100,20}})));
+            Modelica.Blocks.Interfaces.RealOutput dutyCycle "Duty cycle" annotation (
+                Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(
+                    extent={{100,-10},{120,10}})));
+            Modelica.Blocks.Math.Division divisionUnipolar if not useBipolarVoltage
+              annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+            Modelica.Blocks.Math.Division divisionBipolar if useBipolarVoltage
+              annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+            Modelica.Blocks.Math.Add add(k1=0.5, k2=1) if useBipolarVoltage
+              annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
+            Modelica.Blocks.Sources.Constant offset(final k=0.5) if useBipolarVoltage
+              "Offset of 0.5 in case of bipolar operation"
+              annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+            Modelica.Blocks.Interfaces.RealInput vMaxExt if not useConstantMaximumVoltage
+              "External maximum voltage" annotation (Placement(transformation(
+                  extent={{-20,-20},{20,20}},
+                  rotation=270,
+                  origin={0,120}), iconTransformation(
+                  extent={{-20,-20},{20,20}},
+                  rotation=270,
+                  origin={0,120})));
+            Modelica.Blocks.Sources.Constant vMaxConst(final k=vMax) if
+              useConstantMaximumVoltage "Offset of 0.5 in case of bipolar operation"
+              annotation (Placement(transformation(extent={{40,70},{20,90}})));
+          protected
+            Modelica.Blocks.Interfaces.RealInput vMaxInt "External maximum voltage"
+              annotation (Placement(transformation(
+                  extent={{-4,-4},{4,4}},
+                  rotation=180,
+                  origin={0,80})));
+          equation
+            connect(divisionBipolar.y, add.u1) annotation (Line(points={{-19,-30},{-10,-30},
+                    {-10,-44},{-2,-44}}, color={0,0,127}));
+            connect(offset.y, add.u2) annotation (Line(
+                points={{-19,-70},{-10,-70},{-10,-56},{-2,-56}},  color={0,0,127}));
+            connect(divisionUnipolar.y, dutyCycle) annotation (Line(points={{-19,30},{40,30},
+                    {40,0},{110,0}}, color={0,0,127}));
+            connect(add.y, dutyCycle) annotation (Line(
+                points={{21,-50},{40,-50},{40,0},{110,0}},  color={0,0,127}));
+            connect(v, divisionUnipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
+                    36},{-42,36}}, color={0,0,127}));
+            connect(v, divisionBipolar.u1) annotation (Line(points={{-120,0},{-80,0},{-80,
+                    -24},{-42,-24}}, color={0,0,127}));
+            connect(vMaxExt, vMaxInt)
+              annotation (Line(points={{0,120},{0,80}}, color={0,0,127}));
+            connect(vMaxInt, divisionUnipolar.u2) annotation (Line(points={{0,80},{-60,80},
+                    {-60,24},{-42,24}}, color={0,0,127}));
+            connect(vMaxInt, vMaxConst.y)
+              annotation (Line(points={{0,80},{19,80}}, color={0,0,127}));
+            connect(vMaxInt, divisionBipolar.u2) annotation (Line(points={{0,80},{-60,80},
+                    {-60,-36},{-42,-36}}, color={0,0,127}));
+            annotation (obsolete="Obsolete block - use Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle instead",
+              defaultComponentName="adaptor", Icon(graphics={
+                  Rectangle(
+                    extent={{-100,100},{100,-100}},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),
+                  Line(
+                    points={{0,-60},{60,60}},
+                    pattern=LinePattern.Dash),
+                  Line(
+                    points={{-60,-60},{60,60}}),
+                  Polygon(
+                    points={{-78,-60},{-76,-60},{62,-60},{62,-54},{82,-60},{62,-66},{62,-60},
+                        {62,-60},{-78,-60}},
+                    fillPattern=FillPattern.Solid),
+                  Polygon(
+                    points={{0,-80},{0,60},{-6,60},{0,80},{6,60},{0,60},{0,-80}},
+                    fillPattern=FillPattern.Solid), Text(extent={{
+                        -150,-120},{150,-160}}, textString = "%name", lineColor = {0, 0, 255})}),
+              Documentation(info="<html>
+<p>
+This model linearly transforms the input voltage signal into a duty cycle. For the unipolar case the input voltage range is between zero and <code>vMax</code>. In case of bipolar input the input voltage is in the range between <code>-vMax</code> and <code>vMax</code>.
+</p>
+<p>
+Note: This block is replaced by the improved <a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle\">Voltage2DutyCycle</a> block.
+</p>
+</html>"));
+          end VoltageToDutyCycle;
+        end Control;
+      end DCDC;
+      annotation (Icon(graphics={
+            Line(
+              points={{-78,0},{80,0}},
+              color={95,95,95}),
+            Polygon(points={{36,0},{-34,50},{-34,-50},{36,0}}, lineColor={95,95,95}),
+            Line(
+              points={{36,50},{36,-52}},
+              color={95,95,95})}));
+    end PowerConverters;
+    annotation (Icon(graphics={
+      Rectangle(
+        origin={20.3125,82.8571},
+        extent={{-45.3125,-57.8571},{4.6875,-27.8571}}),
+      Line(
+        origin={7.0,50.0},
+        points={{18.0,-10.0},{53.0,-10.0},{53.0,-45.0}}),
+      Line(
+        origin={9.0,54.0},
+        points={{31.0,-49.0},{71.0,-49.0}}),
+      Line(
+        origin={8.0,48.0},
+        points={{32.0,-58.0},{72.0,-58.0}}),
+      Line(
+        origin={6.2593,48.0},
+        points={{53.7407,-58.0},{53.7407,-93.0},{-66.2593,-93.0},{-66.2593,-58.0}}),
+      Line(
+        origin={-3.0,45.0},
+        points={{-72.0,-55.0},{-42.0,-55.0}}),
+      Line(
+        origin={-2.0,55.0},
+        points={{-83.0,-50.0},{-33.0,-50.0}}),
+      Line(
+        origin={1.0,50.0},
+        points={{-61.0,-45.0},{-61.0,-10.0},{-26.0,-10.0}})}));
+  end Electrical;
+
+  package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)"
+    extends Modelica.Icons.Package;
+    package MultiBody "Library to model 3-dimensional mechanical systems"
+      extends Modelica.Icons.Package;
+      package Joints "Components that constrain the motion between two frames"
+        extends Modelica.Icons.Package;
+        model Prismatic "Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange, optional distance offset)"
+          extends Modelica.Icons.ObsoleteModel;
+          extends Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint;
+
+          Modelica.Mechanics.Translational.Interfaces.Flange_a axis if useAxisFlange
+            "1-dim. translational flange that drives the joint"
+            annotation (Placement(transformation(extent={{90,50},{70,70}})));
+          Modelica.Mechanics.Translational.Interfaces.Flange_b support if useAxisFlange
+            "1-dim. translational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
+            annotation (Placement(transformation(extent={{-30,50},{-50,70}})));
+
+          parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"
+            annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+          parameter Boolean animation=true "= true, if animation shall be enabled";
+          parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
+            "Axis of translation resolved in frame_a (= same as in frame_b)"
+            annotation (Evaluate=true);
+          parameter Modelica.SIunits.Position s_offset=0
+            "Relative distance offset (distance between frame_a and frame_b = s_offset + s)";
+          parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0}
+            "Vector in width direction of box, resolved in frame_a"
+            annotation (Evaluate=true, Dialog(tab="Animation", group=
+                  "if animation = true", enable=animation));
+          parameter Modelica.SIunits.Distance boxWidth=world.defaultJointWidth
+            "Width of prismatic joint box"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter Modelica.SIunits.Distance boxHeight=boxWidth "Height of prismatic joint box"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+            "Color of prismatic joint box"
+            annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter StateSelect stateSelect=StateSelect.prefer
+            "Priority to use distance s and v=der(s) as states" annotation(Dialog(tab="Advanced"));
+          final parameter Real e[3](each final unit="1")=
+             Modelica.Math.Vectors.normalizeWithAssert(n)
+            "Unit vector in direction of prismatic axis n";
+
+          Modelica.SIunits.Position s(start=0, final stateSelect=stateSelect)
+            "Relative distance between frame_a and frame_b"
+            annotation (unassignedMessage="
+The relative distance s of a prismatic joint cannot be determined.
+Possible reasons:
+- A non-zero mass might be missing on either side of the parts
+  connected to the prismatic joint.
+- Too many StateSelect.always are defined and the model
+  has less degrees of freedom as specified with this setting
+  (remove all StateSelect.always settings).
+");
+
+          Modelica.SIunits.Velocity v(start=0,final stateSelect=stateSelect)
+            "First derivative of s (relative velocity)";
+          Modelica.SIunits.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
+          Modelica.SIunits.Force f "Actuation force in direction of joint axis";
+
+        protected
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape box(
+            shapeType="box",
+            color=boxColor,
+            specularCoefficient=specularCoefficient,
+            length=if noEvent(abs(s + s_offset) > 1.e-6) then s + s_offset else 1.e-6,
+            width=boxWidth,
+            height=boxHeight,
+            lengthDirection=e,
+            widthDirection=boxWidthDirection,
+            r=frame_a.r_0,
+            R=frame_a.R) if world.enableAnimation and animation;
+          Modelica.Mechanics.Translational.Components.Fixed fixed
+            annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+          Modelica.Mechanics.Translational.Interfaces.InternalSupport internalAxis(f = f)
+            annotation (Placement(transformation(extent={{70,50},{90,30}})));
+          Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(f_constant=0) if not useAxisFlange
+            annotation (Placement(transformation(extent={{40,30},{60,50}})));
+        equation
+          v = der(s);
+          a = der(v);
+
+          // relationships between kinematic quantities of frame_a and of frame_b
+          frame_b.r_0 = frame_a.r_0 + Modelica.Mechanics.MultiBody.Frames.resolve1(frame_a.R, e*(s_offset + s));
+          frame_b.R = frame_a.R;
+
+          // Force and torque balance
+          zeros(3) = frame_a.f + frame_b.f;
+          zeros(3) = frame_a.t + frame_b.t + cross(e*(s_offset + s), frame_b.f);
+
+          // d'Alemberts principle
+          f = -e*frame_b.f;
+
+          // Connection to internal connectors
+          s = internalAxis.s;
+
+          connect(fixed.flange, support) annotation (Line(
+              points={{-40,40},{-40,60}}, color={0,127,0}));
+          connect(internalAxis.flange, axis) annotation (Line(
+              points={{80,40},{80,60}}, color={0,127,0}));
+          connect(constantForce.flange, internalAxis.flange) annotation (Line(
+              points={{60,40},{80,40}}, color={0,127,0}));
+          annotation (
+            Icon(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={
+                Rectangle(
+                  extent={{-100,-50},{-30,41}},
+                  pattern=LinePattern.None,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Rectangle(
+                  extent={{-100,40},{-30,50}},
+                  pattern=LinePattern.None,
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Rectangle(
+                  extent={{-30,-30},{100,20}},
+                  pattern=LinePattern.None,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Rectangle(
+                  extent={{-30,20},{100,30}},
+                  pattern=LinePattern.None,
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Line(points={{-30,-50},{-30,50}}),
+                Line(points={{100,-30},{100,21}}),
+                Text(
+                  extent={{60,12},{96,-13}},
+                  lineColor={128,128,128},
+                  textString="b"),
+                Text(
+                  extent={{-95,13},{-60,-9}},
+                  lineColor={128,128,128},
+                  textString="a"),
+                Text(
+                  visible=useAxisFlange,
+                  extent={{-150,-135},{150,-95}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+                Text(
+                  extent={{-150,-90},{150,-60}},
+                  textString="n=%n"),
+                Rectangle(
+                  visible=useAxisFlange,
+                  extent={{90,30},{100,70}},
+                  pattern=LinePattern.None,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Text(
+                  visible=not useAxisFlange,
+                  extent={{-150,60},{150,100}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+            Documentation(
+              obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Prismatic instead",
+              info="<html>
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when the relative distance \"s = 0\".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange \"axis\" represents the driving flange and
+flange \"support\" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
+library.
+
+</p>
+
+<p>
+In the \"Advanced\" menu it can be defined via parameter <strong>stateSelect</strong>
+that the relative distance \"s\" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the relative distance and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+In the following figure the animation of a prismatic
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector \"n\" defining the translation axis
+(here: n = {1,1,0}).
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
+</p>
+
+</html>"));
+        end Prismatic;
+
+        model Revolute "Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange, optional angle offset)"
+          extends Modelica.Icons.ObsoleteModel;
+
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a axis if useAxisFlange
+            "1-dim. rotational flange that drives the joint"
+            annotation (Placement(transformation(extent={{10,90},{-10,110}})));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b support if useAxisFlange
+            "1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
+            annotation (Placement(transformation(extent={{-70,90},{-50,110}})));
+
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
+            "Coordinate system fixed to the joint with one cut-force and cut-torque"
+            annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
+            "Coordinate system fixed to the joint with one cut-force and cut-torque"
+            annotation (Placement(transformation(extent={{84,-16},{116,16}})));
+
+          parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"
+            annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+          parameter Boolean animation=true
+            "= true, if animation shall be enabled (show axis as cylinder)";
+          parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
+            "Axis of rotation resolved in frame_a (= same as in frame_b)"
+            annotation (Evaluate=true);
+          parameter Modelica.SIunits.Angle phi_offset=0
+            "Relative angle offset (angle = phi_offset + phi)";
+          parameter Modelica.SIunits.Distance cylinderLength=world.defaultJointLength
+            "Length of cylinder representing the joint axis"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter Modelica.SIunits.Distance cylinderDiameter=world.defaultJointWidth
+            "Diameter of cylinder representing the joint axis"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+            "Color of cylinder representing the joint axis"
+            annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+            specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter StateSelect stateSelect=StateSelect.prefer
+            "Priority to use joint angle phi and w=der(phi) as states" annotation(Dialog(tab="Advanced"));
+
+          Modelica.SIunits.Angle phi(start=0, final stateSelect=stateSelect)
+            "Relative rotation angle from frame_a to frame_b"
+             annotation (unassignedMessage="
+The rotation angle phi of a revolute joint cannot be determined.
+Possible reasons:
+- A non-zero mass might be missing on either side of the parts
+  connected to the revolute joint.
+- Too many StateSelect.always are defined and the model
+  has less degrees of freedom as specified with this setting
+  (remove all StateSelect.always settings).
+");
+          Modelica.SIunits.AngularVelocity w(start=0, stateSelect=stateSelect)
+            "First derivative of angle phi (relative angular velocity)";
+          Modelica.SIunits.AngularAcceleration a(start=0)
+            "Second derivative of angle phi (relative angular acceleration)";
+          Modelica.SIunits.Torque tau "Driving torque in direction of axis of rotation";
+          Modelica.SIunits.Angle angle "= phi_offset + phi";
+
+        protected
+          outer Modelica.Mechanics.MultiBody.World world;
+          parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(n)
+            "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
+          Modelica.Mechanics.MultiBody.Frames.Orientation R_rel
+            "Relative orientation object from frame_a to frame_b or from frame_b to frame_a";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
+            shapeType="cylinder",
+            color=cylinderColor,
+            specularCoefficient=specularCoefficient,
+            length=cylinderLength,
+            width=cylinderDiameter,
+            height=cylinderDiameter,
+            lengthDirection=e,
+            widthDirection={0,1,0},
+            r_shape=-e*(cylinderLength/2),
+            r=frame_a.r_0,
+            R=frame_a.R) if world.enableAnimation and animation;
+
+        protected
+          Modelica.Mechanics.Rotational.Components.Fixed fixed
+            "support flange is fixed to ground"
+            annotation (Placement(transformation(extent={{-70,70},{-50,90}})));
+          Modelica.Mechanics.Rotational.Interfaces.InternalSupport internalAxis(tau=tau)
+            annotation (Placement(transformation(extent={{-10,90},{10,70}})));
+          Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(tau_constant=0) if not useAxisFlange
+            annotation (Placement(transformation(extent={{40,70},{20,90}})));
+        equation
+          Connections.branch(frame_a.R, frame_b.R);
+
+          assert(cardinality(frame_a) > 0,
+            "Connector frame_a of revolute joint is not connected");
+          assert(cardinality(frame_b) > 0,
+            "Connector frame_b of revolute joint is not connected");
+
+          angle = phi_offset + phi;
+          w = der(phi);
+          a = der(w);
+
+          // relationships between quantities of frame_a and of frame_b
+          frame_b.r_0 = frame_a.r_0;
+
+          if Connections.rooted(frame_a.R) then
+            R_rel = Modelica.Mechanics.MultiBody.Frames.planarRotation(e, phi_offset + phi, w);
+            frame_b.R = Modelica.Mechanics.MultiBody.Frames.absoluteRotation(frame_a.R, R_rel);
+            frame_a.f = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_b.f);
+            frame_a.t = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_b.t);
+          else
+            R_rel = Modelica.Mechanics.MultiBody.Frames.planarRotation(-e, phi_offset + phi, w);
+            frame_a.R = Modelica.Mechanics.MultiBody.Frames.absoluteRotation(frame_b.R, R_rel);
+            frame_b.f = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_a.f);
+            frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_a.t);
+          end if;
+
+          // d'Alemberts principle
+          tau = -frame_b.t*e;
+
+          // Connection to internal connectors
+          phi = internalAxis.phi;
+
+          connect(fixed.flange, support) annotation (Line(
+              points={{-60,80},{-60,100}}));
+          connect(internalAxis.flange, axis) annotation (Line(
+              points={{0,80},{0,100}}));
+          connect(constantTorque.flange, internalAxis.flange) annotation (Line(
+              points={{20,80},{0,80}}));
+          annotation (
+            Icon(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={
+                Rectangle(
+                  extent={{-100,-60},{-30,60}},
+                  lineColor={64,64,64},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={255,255,255},
+                  radius=10),
+                Rectangle(
+                  extent={{30,-60},{100,60}},
+                  lineColor={64,64,64},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={255,255,255},
+                  radius=10),
+                Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
+                Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
+                Text(
+                  extent={{-90,14},{-54,-11}},
+                  lineColor={128,128,128},
+                  textString="a"),
+                Text(
+                  extent={{51,11},{87,-14}},
+                  lineColor={128,128,128},
+                  textString="b"),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-20,80},{-20,60}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{20,80},{20,60}}),
+                Rectangle(
+                  visible=useAxisFlange,
+                  extent={{-10,100},{10,50}},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={192,192,192}),
+                Polygon(
+                  visible=useAxisFlange,
+                  points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}},
+                  lineColor={64,64,64},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Rectangle(
+                  extent={{-30,11},{30,-10}},
+                  lineColor={64,64,64},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Polygon(
+                  visible=useAxisFlange,
+                  points={{10,30},{30,50},{30,-50},{10,-30},{10,30}},
+                  lineColor={64,64,64},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Text(
+                  extent={{-150,-110},{150,-80}},
+                  textString="n=%n"),
+                Text(
+                  visible=useAxisFlange,
+                  extent={{-150,-155},{150,-115}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-20,70},{-60,70},{-60,60}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{20,70},{50,70},{50,60}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-90,100},{-30,100}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-30,100},{-50,80}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-49,100},{-70,80}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-70,100},{-90,80}}),
+                Text(
+                  visible=not useAxisFlange,
+                  extent={{-150,70},{150,110}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+            Documentation(
+              obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Revolute instead",
+              info="<html>
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when the rotation angle \"phi = 0\".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange \"axis\" represents the driving flange and
+flange \"support\" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href=\"modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
+library.
+</p>
+
+<p>
+In the \"Advanced\" menu it can be defined via parameter <strong>stateSelect</strong>
+that the rotation angle \"phi\" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the joint angle and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+If a <strong>planar loop</strong> is present, e.g., consisting of 4 revolute joints
+where the joint axes are all parallel to each other, then there is no
+longer a unique mathematical solution and the symbolic algorithms will
+fail. Usually, an error message will be printed pointing out this
+situation. In this case, one revolute joint of the loop has to be replaced
+by a Joints.RevolutePlanarLoopConstraint joint. The
+effect is that from the 5 constraints of a usual revolute joint,
+3 constraints are removed and replaced by appropriate known
+variables (e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute joints,
+this force is an unknown quantity).
+</p>
+
+<p>
+In the following figure the animation of a revolute
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector \"n\" defining the translation axis
+(here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Revolute.png\">
+</p>
+
+</html>"));
+        end Revolute;
+      end Joints;
+    end MultiBody;
+
+    package Rotational "Library to model 1-dimensional, rotational mechanical systems"
+      extends Modelica.Icons.Package;
+      package Interfaces "Connectors and partial models for 1D rotational mechanical components"
+        extends Modelica.Icons.Package;
+        partial model PartialElementaryOneFlangeAndSupport
+          "Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2."
+          extends Modelica.Icons.ObsoleteModel;
+          parameter Boolean useSupport=false
+            "= true, if support flange enabled, otherwise implicitly grounded"
+            annotation (
+            Evaluate=true,
+            HideResult=true,
+            choices(checkBox=true));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange "Flange of shaft"
+            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+          Modelica.Mechanics.Rotational.Interfaces.Support support if useSupport "Support/housing of component"
+            annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        protected
+          Modelica.Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau)
+            "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+            annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+          Modelica.Mechanics.Rotational.Components.Fixed fixed if not useSupport
+            "Fixed support/housing, if not useSupport"
+            annotation (Placement(transformation(extent={{10,-96},{30,-76}})));
+        equation
+          connect(internalSupport.flange, support) annotation (Line(
+              points={{0,-80},{0,-100}}));
+          connect(internalSupport.flange, fixed.flange) annotation (Line(
+              points={{0,-80},{20,-80},{20,-86}}));
+          annotation (
+            obsolete = "Obsolete model - use Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2 instead",
+            Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with one flange and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+
+<p>
+If <em>useSupport=true</em>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <em>useSupport=false</em>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+</html>"),
+            Diagram(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={Text(
+                      extent={{25,-97},{65,-98}},
+                      lineColor={95,95,95},
+                      textString="(if not useSupport)"),Text(
+                      extent={{-38,-98},{-6,-96}},
+                      lineColor={95,95,95},
+                      textString="(if useSupport)")}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                    100,100}}), graphics={Line(
+                      visible=not useSupport,
+                      points={{-50,-120},{-30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-120},{-10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-10,-120},{10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{10,-120},{30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-100},{30,-100}})}));
+        end PartialElementaryOneFlangeAndSupport;
+
+        partial model PartialElementaryTwoFlangesAndSupport
+          "Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2."
+          extends Modelica.Icons.ObsoleteModel;
+          parameter Boolean useSupport=false
+            "= true, if support flange enabled, otherwise implicitly grounded"
+            annotation (
+            Evaluate=true,
+            HideResult=true,
+            choices(checkBox=true));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a "Flange of left shaft" annotation (Placement(
+                transformation(extent={{-110,-10},{-90,10}})));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b "Flange of right shaft" annotation (Placement(
+                transformation(extent={{90,-10},{110,10}})));
+          Modelica.Mechanics.Rotational.Interfaces.Support support if useSupport "Support/housing of component"
+            annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        protected
+          Modelica.Mechanics.Rotational.Interfaces.InternalSupport internalSupport(
+            tau=-flange_a.tau - flange_b.tau)
+            "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+            annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+          Modelica.Mechanics.Rotational.Components.Fixed fixed if not useSupport
+            "Fixed support/housing, if not useSupport"
+            annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
+        equation
+          connect(internalSupport.flange, support) annotation (Line(
+              points={{0,-80},{0,-100}}));
+          connect(internalSupport.flange, fixed.flange) annotation (Line(
+              points={{0,-80},{20,-80},{20,-87}}));
+          annotation (
+            obsolete = "Obsolete model - use Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2 instead",
+            Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with two flanges and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+
+<p>
+If <em>useSupport=true</em>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <em>useSupport=false</em>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+</html>"),
+            Diagram(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={Text(
+                      extent={{24,-97},{64,-98}},
+                      lineColor={95,95,95},
+                      textString="(if not useSupport)"),Text(
+                      extent={{-38,-98},{-6,-96}},
+                      lineColor={95,95,95},
+                      textString="(if useSupport)")}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                    100,100}}), graphics={Line(
+                      visible=not useSupport,
+                      points={{-50,-120},{-30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-120},{-10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-10,-120},{10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{10,-120},{30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-100},{30,-100}})}));
+        end PartialElementaryTwoFlangesAndSupport;
+      end Interfaces;
+    end Rotational;
+
+    package Translational "Library to model 1-dimensional, translational mechanical systems"
+      extends Modelica.Icons.Package;
+      package Interfaces "Interfaces for 1-dim. translational mechanical components"
+        extends Modelica.Icons.Package;
+        partial model PartialElementaryOneFlangeAndSupport
+          "Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2."
+          extends Modelica.Icons.ObsoleteModel;
+          parameter Boolean useSupport=false
+            "= true, if support flange enabled, otherwise implicitly grounded"
+            annotation (
+            Evaluate=true,
+            HideResult=true,
+            choices(checkBox=true));
+          Modelica.SIunits.Length s
+            "Distance between flange and support (= flange.s - support.s)";
+          Modelica.Mechanics.Translational.Interfaces.Flange_b flange "Flange of component" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+
+        protected
+          Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange.f)
+            "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+            annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+          Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport
+            "Fixed support/housing, if not useSupport" annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
+        public
+          Modelica.Mechanics.Translational.Interfaces.Support support if useSupport "Support/housing of component"
+            annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        equation
+          s = flange.s - internalSupport.s;
+          connect(internalSupport.flange, support) annotation (Line(
+              points={{0,-80},{0,-100}}, color={0,127,0}));
+          connect(fixed.flange, internalSupport.flange) annotation (Line(
+              points={{20,-87},{20,-80},{0,-80}}, color={0,127,0}));
+          annotation (
+            obsolete = "Obsolete model - use Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2 instead",
+            Documentation(info="<html>
+    <p>
+This is a 1-dim. translational component with one flange and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+
+<p>
+If <em>useSupport=true</em>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <em>useSupport=false</em>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+
+</html>"),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                    {100,100}}), graphics={Text(
+                      extent={{-38,-98},{-6,-96}},
+                      lineColor={95,95,95},
+                      textString="(if useSupport)"),Text(
+                      extent={{24,-97},{64,-98}},
+                      lineColor={95,95,95},
+                      textString="(if not useSupport)")}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                    100,100}}), graphics={Line(
+                      visible=not useSupport,
+                      points={{-50,-120},{-30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-120},{-10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-10,-120},{10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{10,-120},{30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-100},{30,-100}})}));
+        end PartialElementaryOneFlangeAndSupport;
+
+        partial model PartialElementaryTwoFlangesAndSupport
+          "Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2."
+          extends Modelica.Icons.ObsoleteModel;
+          parameter Boolean useSupport=false
+            "= true, if support flange enabled, otherwise implicitly grounded"
+            annotation (
+            Evaluate=true,
+            HideResult=true,
+            choices(checkBox=true));
+          extends Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges;
+          Modelica.SIunits.Length s_a "Distance between left flange and support";
+          Modelica.SIunits.Length s_b "Distance between right flange and support";
+        protected
+          Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange_a.f - flange_b.f)
+            "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+            annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+          Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport
+            "Fixed support/housing, if not useSupport"
+            annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
+        public
+          Modelica.Mechanics.Translational.Interfaces.Support support if useSupport "Support/housing of component"
+            annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        equation
+          s_a = flange_a.s - internalSupport.s;
+          s_b = flange_b.s - internalSupport.s;
+          connect(internalSupport.flange, support) annotation (Line(
+              points={{0,-80},{0,-100}}, color={0,127,0}));
+          connect(fixed.flange, internalSupport.flange) annotation (Line(
+              points={{20,-87},{20,-80},{0,-80}}, color={0,127,0}));
+          annotation (
+            obsolete = "Obsolete model - use Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2 instead",
+            Documentation(info="<html>
+<p>
+This is a 1-dim. translational component with two flanges and an additional support.
+It is used e.g., to build up elementary ideal gear components. The component
+contains the force balance, i.e., the sum of the forces of the connectors
+is zero (therefore, components that are based on PartialGear cannot have
+a mass). The support connector needs to be connected
+to avoid the unphysical behavior that the
+support force is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+
+</html>"),
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                    {100,100}}), graphics={Text(
+                      extent={{-38,-98},{-6,-96}},
+                      lineColor={95,95,95},
+                      textString="(if useSupport)"),Text(
+                      extent={{24,-97},{64,-98}},
+                      lineColor={95,95,95},
+                      textString="(if not useSupport)")}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                    100,100}}), graphics={Line(
+                      visible=not useSupport,
+                      points={{-50,-120},{-30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-120},{-10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-10,-120},{10,-100}}),Line(
+                      visible=not useSupport,
+                      points={{10,-120},{30,-100}}),Line(
+                      visible=not useSupport,
+                      points={{-30,-100},{30,-100}})}));
+        end PartialElementaryTwoFlangesAndSupport;
+      end Interfaces;
+    end Translational;
+  end Mechanics;
+
   package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
     extends Modelica.Icons.Package;
     package Matrices "Library of functions operating on matrices"
@@ -740,6 +1630,257 @@ package ObsoleteModelica4 "Library that contains components from Modelica Standa
     end tempInterpol2;
   end Math;
 
+  package Magnetic "Library of magnetic models"
+    extends Modelica.Icons.Package;
+    package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
+
+      package BasicMachines "Machine components and modelsElectric machine models based on FundamentalWave package"
+        extends Modelica.Icons.Package;
+        package Components "Components specially for electric machines"
+          extends Modelica.Icons.Package;
+          model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"
+            import Modelica.Constants.pi;
+            extends Modelica.Icons.ObsoleteModel;
+            extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended;
+            parameter Integer m=3 "Number of phases";
+            parameter Boolean useHeatPort=false
+              "Enable / disable (=fixed temperatures) thermal port"
+              annotation (Evaluate=true);
+            parameter Modelica.SIunits.Resistance RRef
+              "Winding resistance per phase at TRef";
+            parameter Modelica.SIunits.Temperature TRef(start=293.15)
+              "Reference temperature of winding";
+            parameter
+              Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+              alpha20(start=0) "Temperature coefficient of winding at 20 degC";
+            final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+                Modelica.Electrical.Machines.Thermal.convertAlpha(
+                      alpha20,
+                      TRef,
+                      293.15) "Temperature coefficient of winding at reference temperature";
+            parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+              "Operational temperature of winding"
+              annotation (Dialog(enable=not useHeatPort));
+            parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
+            parameter Real effectiveTurns=1 "Effective number of turns";
+            Modelica.SIunits.Current i[m]=strayInductor.i "Cage currents";
+            Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
+              winding(
+              final m=m,
+              final effectiveTurns=fill(effectiveTurns, m),
+              final orientation=
+                  Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
+              "Symmetric winding" annotation (Placement(transformation(
+                  origin={0,-10},
+                  extent={{-10,-10},{10,10}},
+                  rotation=90)));
+            Modelica.Electrical.Polyphase.Basic.Inductor strayInductor(final m=m,
+                final L=fill(Lsigma, m)) annotation (Placement(transformation(
+                  origin={-20,-30},
+                  extent={{10,-10},{-10,10}},
+                  rotation=90)));
+            Modelica.Electrical.Polyphase.Basic.Resistor resistor(
+              final useHeatPort=useHeatPort,
+              final m=m,
+              final R=fill(RRef, m),
+              final T_ref=fill(TRef, m),
+              final alpha=fill(alphaRef, m),
+              final T=fill(TOperational, m)) annotation (Placement(transformation(
+                  origin={-20,-70},
+                  extent={{10,10},{-10,-10}},
+                  rotation=90)));
+            Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
+                Placement(transformation(extent={{30,-30},{50,-10}})));
+            Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+                  transformation(
+                  origin={70,-20},
+                  extent={{-10,10},{10,-10}},
+                  rotation=270)));
+            Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if useHeatPort "Heat ports of winding resistor" annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+            Modelica.Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=m) if useHeatPort "Connector of thermal rotor resistance heat ports" annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
+            Modelica.Electrical.Polyphase.Basic.Star starAuxiliary(final m=m)
+              annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
+          equation
+            connect(port_p, winding.port_p)
+              annotation (Line(points={{-100,0},{-10,0}}, color={255,128,0}));
+            connect(winding.port_n, port_n) annotation (Line(points={{10,0},
+                    {100,0}}, color={255,128,0}));
+            connect(ground.p, star.pin_n) annotation (Line(points={{60,-20},{56,-20},
+                    {50,-20}}, color={0,0,255}));
+            connect(strayInductor.plug_n, resistor.plug_p)
+              annotation (Line(points={{-20,-40},{-20,-60}}, color={0,0,255}));
+            connect(strayInductor.plug_p, winding.plug_p) annotation (Line(
+                points={{-20,-20},{-10,-20}}, color={0,0,255}));
+            connect(star.plug_p, winding.plug_n) annotation (Line(
+                points={{30,-20},{10,-20}}, color={0,0,255}));
+            connect(thermalCollector.port_a, resistor.heatPort) annotation (Line(
+                points={{-40,-70},{-30,-70}}, color={191,0,0}));
+            connect(thermalCollector.port_b, heatPortWinding) annotation (Line(
+                points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
+            connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
+                points={{-20,-80},{30,-80}}, color={0,0,255}));
+            annotation (defaultComponentName="cage", obsolete="Obsolete model, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536) and #3030 (https://github.com/modelica/ModelicaStandardLibrary/issues/3030), use Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding instead",
+              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                      {100,100}}), graphics={Ellipse(
+                          extent={{-80,80},{80,-80}},
+                          fillColor={175,175,175},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{-20,76},{20,36}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{28,46},{68,6}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{28,-8},{68,-48}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{-20,-36},{20,-76}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{-68,-6},{-28,-46}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{-66,50},{-26,10}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
+                    0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                    255,128,0}),Text(
+                          extent={{0,100},{0,140}},
+                          lineColor={0,0,255},
+                          textString="%name")}),
+              Documentation(info="<html>
+<p>
+Obsolete symmetric cage model, see
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a> instead.
+</p>
+</html>"));
+          end SymmetricMultiPhaseCageWinding;
+
+          model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
+            extends Modelica.Icons.ObsoleteModel;
+            extends Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended;
+            parameter Boolean useHeatPort=false
+              "Enable / disable (=fixed temperatures) thermal port"
+              annotation (Evaluate=true);
+            parameter Modelica.Magnetic.FundamentalWave.Types.SalientResistance
+              RRef(d(start=1), q(start=1)) "Salient cage resistance";
+            parameter Modelica.SIunits.Temperature TRef(start=293.15)
+              "Reference temperature of winding";
+            parameter
+              Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+              alpha20(start=0) "Temperature coefficient of winding at 20 degC";
+            final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+                Modelica.Electrical.Machines.Thermal.convertAlpha(
+                      alpha20,
+                      TRef,
+                      293.15) "Temperature coefficient of winding at reference temperature";
+            parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+              "Operational temperature of winding"
+              annotation (Dialog(enable=not useHeatPort));
+            parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance
+              Lsigma(d(start=1), q(start=1)) "Salient cage stray inductance";
+            parameter Real effectiveTurns=1 "Effective number of turns";
+            Modelica.Blocks.Interfaces.RealOutput i[2](
+              each final quantity="ElectricCurrent",
+              each final unit="A") = resistor.i "Currents out from damper";
+            Modelica.Blocks.Interfaces.RealOutput lossPower(
+              final quantity="Power",
+              final unit="W") = sum(resistor.resistor.LossPower) "Damper losses";
+            Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
+              winding(
+              final m=2,
+              final orientation={0,Modelica.Constants.pi/2},
+              final effectiveTurns=fill(effectiveTurns, 2)) "Symmetric winding"
+              annotation (Placement(transformation(
+                  origin={0,-10},
+                  extent={{-10,-10},{10,10}},
+                  rotation=90)));
+            Modelica.Electrical.Polyphase.Basic.Inductor strayInductor(final m=2,
+                final L={Lsigma.d,Lsigma.q}) annotation (Placement(transformation(
+                  origin={-20,-30},
+                  extent={{10,-10},{-10,10}},
+                  rotation=90)));
+            Modelica.Electrical.Polyphase.Basic.Resistor resistor(
+              final useHeatPort=useHeatPort,
+              final m=2,
+              final R={RRef.d,RRef.q},
+              final T_ref=fill(TRef, 2),
+              final alpha=fill(alphaRef, 2),
+              final T=fill(TOperational, 2)) annotation (Placement(transformation(
+                  origin={-20,-70},
+                  extent={{10,10},{-10,-10}},
+                  rotation=90)));
+            Modelica.Electrical.Polyphase.Basic.Star star(final m=2) annotation (
+                Placement(transformation(extent={{30,-90},{50,-70}})));
+            Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+                  transformation(
+                  origin={70,-80},
+                  extent={{-10,10},{10,-10}},
+                  rotation=270)));
+            Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if useHeatPort "Heat ports of winding resistor" annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+            Modelica.Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=2) if useHeatPort "Connector of thermal rotor resistance heat ports" annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
+          equation
+            connect(port_p, winding.port_p)
+              annotation (Line(points={{-100,0},{-10,0}}, color={255,128,0}));
+            connect(winding.port_n, port_n)
+              annotation (Line(points={{10,0},{100,0}}, color={255,128,0}));
+            connect(ground.p, star.pin_n)
+              annotation (Line(points={{60,-80},{50,-80}}, color={0,0,255}));
+            connect(strayInductor.plug_n, resistor.plug_p)
+              annotation (Line(points={{-20,-40},{-20,-60}}, color={0,0,255}));
+            connect(winding.plug_n, resistor.plug_n) annotation (Line(
+                points={{10,-20},{20,-20},{20,-80},{-20,-80}}, color={0,0,255}));
+            connect(star.plug_p, winding.plug_n) annotation (Line(
+                points={{30,-80},{20,-80},{20,-20},{10,-20}}, color={0,0,255}));
+            connect(strayInductor.plug_p, winding.plug_p) annotation (Line(
+                points={{-20,-20},{-10,-20}}, color={0,0,255}));
+            connect(thermalCollector.port_b, heatPortWinding) annotation (Line(
+                points={{-40,-90},{-40,-100},{0,-100}}, color={191,0,0}));
+            connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
+                points={{-30,-70},{-40,-70}}, color={191,0,0}));
+            annotation (defaultComponentName="cage", obsolete="Obsolete model, see #1536 (https://github.com/modelica/ModelicaStandardLibrary/issues/1536) and #3030 (https://github.com/modelica/ModelicaStandardLibrary/issues/3030), use Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding instead",
+              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                      -100},{100,100}}), graphics={Ellipse(
+                          extent={{-80,80},{80,-80}},
+                          fillColor={175,175,175},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{-20,76},{20,36}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{28,46},{68,6}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{28,-8},{68,-48}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{-20,-36},{20,-76}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{-68,-6},{-28,-46}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Ellipse(
+                          extent={{-66,50},{-26,10}},
+                          fillColor={255,255,255},
+                          fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
+                    0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                    255,128,0}),Text(
+                          extent={{0,100},{0,140}},
+                          lineColor={0,0,255},
+                          textString="%name")}), Documentation(info="<html>
+<p>
+Obsolete saliency cage model, see
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1536\">#1536</a> and
+<a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>, use
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a> instead.
+</p>
+</html>"));
+          end SaliencyCageWinding;
+        end Components;
+      end BasicMachines;
+    end FundamentalWave;
+  end Magnetic;
   annotation (uses(Modelica(version="4.0.0-dev")),
               version="4.0.0-dev",
               versionBuild=1,

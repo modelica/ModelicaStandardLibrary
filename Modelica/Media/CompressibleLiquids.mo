@@ -24,6 +24,7 @@ package CompressibleLiquids "Compressible liquid models"
 
   package LinearColdWater "Cold water model with linear compressibility"
     extends Media.Interfaces.PartialLinearFluid(
+      mediumName="Linear cold water",
       constantJacobian=true,
       reference_p=101325,
       reference_T=278.15,
@@ -51,7 +52,9 @@ package CompressibleLiquids "Compressible liquid models"
   package LinearWater_pT_Ambient
     "Liquid, linear compressibility water model at 1.01325 bar and 25 degree Celsius"
     extends Modelica.Media.CompressibleLiquids.Common.LinearWater_pT(
-                           reference_p = 101325, reference_T = 298.15);
+      mediumName="Liquid linear water",
+      reference_p = 101325,
+      reference_T = 298.15);
   redeclare function extends dynamicViscosity "Dynamic viscosity of water"
   algorithm
     eta := 8.9e-4;

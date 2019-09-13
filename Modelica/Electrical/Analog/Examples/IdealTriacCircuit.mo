@@ -8,7 +8,7 @@ model IdealTriacCircuit "Ideal triac test circuit"
       Placement(transformation(
         extent={{-10,-10},{12,12}},
         origin={-44,32})));
-  Modelica.Electrical.Analog.Sources.SineVoltage V(V=5, freqHz=2)
+  Modelica.Electrical.Analog.Sources.SineVoltage V(V=5, f=2)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={-42,-20})));

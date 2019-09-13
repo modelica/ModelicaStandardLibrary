@@ -1,11 +1,8 @@
 within Modelica.Electrical;
 package Analog "Library for analog electrical models"
-import SI = Modelica.SIunits;
-
-
-extends Modelica.Icons.Package;
-
-annotation (Documentation(info="<html>
+  import SI = Modelica.SIunits;
+  extends Modelica.Icons.Package;
+  annotation (Documentation(info="<html>
 <p>
 This package contains packages for analog electrical components:</p>
 <ul>

@@ -12,7 +12,7 @@ model TestPressure
   Modelica.Fluid.Sensors.RelativePressure relativePressure(redeclare package
       Medium = Modelica.Media.Water.StandardWater)
     annotation (Placement(transformation(extent={{20,34},{40,54}})));
-  Modelica.Blocks.Sources.Sine sine(freqHz=1)
+  Modelica.Blocks.Sources.Sine sine(f=1)
                                     annotation (Placement(transformation(extent=
            {{-100,0},{-80,20}})));
   Modelica.Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,

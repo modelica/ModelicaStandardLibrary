@@ -6,9 +6,9 @@ package Sources "Define fixed or prescribed boundary conditions"
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p=true "select p or d"
       annotation (Evaluate = true,
-                  Dialog(group = "Boundary pressure or Boundary density"));
+                  Dialog(group = "Boundary pressure or boundary density"));
     parameter Medium.AbsolutePressure p=Medium.p_default "Boundary pressure"
-      annotation (Dialog(group = "Boundary pressure or Boundary density",
+      annotation (Dialog(group = "Boundary pressure or boundary density",
                          enable = use_p));
   parameter Medium.Density d=
    (if use_T then Medium.density_pTX(
@@ -16,17 +16,17 @@ package Sources "Define fixed or prescribed boundary conditions"
     else Medium.density_phX(
                     Medium.p_default,Medium.h_default,Medium.X_default))
       "Boundary density"
-      annotation (Dialog(group = "Boundary pressure or Boundary density",
+      annotation (Dialog(group = "Boundary pressure or boundary density",
                          enable=not use_p));
     parameter Boolean use_T=true "select T or h"
       annotation (Evaluate = true,
-                  Dialog(group = "Boundary temperature or Boundary specific enthalpy"));
+                  Dialog(group = "Boundary temperature or boundary specific enthalpy"));
     parameter Medium.Temperature T = Medium.T_default "Boundary temperature"
-      annotation (Dialog(group = "Boundary temperature or Boundary specific enthalpy",
+      annotation (Dialog(group = "Boundary temperature or boundary specific enthalpy",
                          enable = use_T));
     parameter Medium.SpecificEnthalpy h = Medium.h_default
       "Boundary specific enthalpy"
-      annotation (Dialog(group="Boundary temperature or Boundary specific enthalpy",
+      annotation (Dialog(group="Boundary temperature or boundary specific enthalpy",
                   enable = not use_T));
     parameter Medium.MassFraction X[Medium.nX](
          quantity=Medium.substanceNames) = Medium.X_default

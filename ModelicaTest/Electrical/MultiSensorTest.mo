@@ -10,19 +10,19 @@ model MultiSensorTest
   final parameter Modelica.SIunits.Inductance L = X/(2*pi*f) "Inducance";
 
   Modelica.SIunits.Current IA=rmsiA.y   "RMS current (Analog)";
-  Modelica.SIunits.Current IM[m]=rmsiM.y   "RMS current (MultiPhase)";
+  Modelica.SIunits.Current IM[m]=rmsiM.y   "RMS current (Polyphase)";
   Modelica.SIunits.Current IQS = Modelica.ComplexMath.'abs'(multiSensorQS.i) "RMS current (QuasiStatic SinglePhase)";
-  Modelica.SIunits.Current IQM[m] = Modelica.ComplexMath.'abs'(multiSensorQM.i) "RMS current (QuasiStatic MultiPhase)";
+  Modelica.SIunits.Current IQM[m] = Modelica.ComplexMath.'abs'(multiSensorQM.i) "RMS current (QuasiStatic Polyphase)";
 
   Modelica.SIunits.Voltage VA = rmsvA.y "RMS voltage (Analog)";
-  Modelica.SIunits.Voltage VM[m] = rmsvM.y "RMS voltage (MultiPhase)";
+  Modelica.SIunits.Voltage VM[m] = rmsvM.y "RMS voltage (Polyphase)";
   Modelica.SIunits.Voltage VQS = Modelica.ComplexMath.'abs'(multiSensorQS.v) "RMS voltage (QuasiStatic SinglePhase)";
-  Modelica.SIunits.Voltage VQM[m] = Modelica.ComplexMath.'abs'(multiSensorQM.v) "RMS voltage (QuasiStatic MultiPhase)";
+  Modelica.SIunits.Voltage VQM[m] = Modelica.ComplexMath.'abs'(multiSensorQM.v) "RMS voltage (QuasiStatic Polyphase)";
 
   Modelica.SIunits.Power powerA = meanpowerA.y "Avareage power (Analog)";
-  Modelica.SIunits.Power powerM[m] = meanpowerM.y "Avareage power (MultiPhase)";
+  Modelica.SIunits.Power powerM[m] = meanpowerM.y "Avareage power (Polyphase)";
   Modelica.SIunits.Power powerQS = multiSensorQS.apparentPower.re "Active power (QuasiStatic SinglePhase)";
-  Modelica.SIunits.Power powerQM[m] = multiSensorQM.apparentPower.re "Active power (QuasiStatic MultiPhase)";
+  Modelica.SIunits.Power powerQM[m] = multiSensorQM.apparentPower.re "Active power (QuasiStatic Polyphase)";
 
   Modelica.Electrical.Analog.Basic.Resistor resistorA(R=R) annotation (Placement(transformation(extent={{40,70},{60,90}})));
   Modelica.Electrical.Analog.Basic.Inductor inductorA(L=L, i(fixed=true,
@@ -36,22 +36,22 @@ model MultiSensorTest
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltageA(
     V=sqrt(2)*Vrms,
     phase=0,
-    freqHz=f) annotation (Placement(transformation(
+    f=f) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-10,70})));
-  Modelica.Electrical.MultiPhase.Basic.Resistor resistorM(m=m, R=fill(R, m)) annotation (Placement(transformation(extent={{40,10},
+  Modelica.Electrical.Polyphase.Basic.Resistor resistorM(m=m, R=fill(R, m)) annotation (Placement(transformation(extent={{40,10},
             {60,30}})));
-  Modelica.Electrical.MultiPhase.Basic.Inductor inductorM(m=m, L=fill(L, m),
+  Modelica.Electrical.Polyphase.Basic.Inductor inductorM(m=m, L=fill(L, m),
     i(start=zeros(m), each fixed=true))                                           annotation (Placement(transformation(extent={{70,10},
             {90,30}})));
-  Modelica.Electrical.MultiPhase.Sensors.MultiSensor multiSensorM(m=m)
+  Modelica.Electrical.Polyphase.Sensors.MultiSensor multiSensorM(m=m)
     annotation (Placement(transformation(extent={{10,10},{30,30}})));
-  Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltageM(
+  Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltageM(
     m=m,
     V=fill(sqrt(2)*Vrms, m),
-    phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-    freqHz=fill(f, m))
+    phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
+    f=fill(f, m))
               annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -59,7 +59,7 @@ model MultiSensorTest
   Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-60,0})));
-  Modelica.Electrical.MultiPhase.Basic.Star starM(m=m) annotation (Placement(transformation(extent={{-18,-10},
+  Modelica.Electrical.Polyphase.Basic.Star starM(m=m) annotation (Placement(transformation(extent={{-18,-10},
             {-38,10}})));
   Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor resistorQS(R_ref=R) annotation (Placement(transformation(extent={{40,-40},
             {60,-20}})));
@@ -81,21 +81,21 @@ model MultiSensorTest
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-10,-40})));
-  Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Resistor resistorQM(m=m, R_ref=fill(R, m))                                                                         annotation (Placement(transformation(extent={{40,-80},{60,-60}})));
-  Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Inductor inductorQM(m=m, L=fill(L, m)) annotation (Placement(transformation(extent={{70,-80},{90,-60}})));
-  Modelica.Electrical.QuasiStatic.MultiPhase.Sensors.MultiSensor
+  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor resistorQM(m=m, R_ref=fill(R, m))                                                                         annotation (Placement(transformation(extent={{40,-80},{60,-60}})));
+  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor inductorQM(m=m, L=fill(L, m)) annotation (Placement(transformation(extent={{70,-80},{90,-60}})));
+  Modelica.Electrical.QuasiStatic.Polyphase.Sensors.MultiSensor
     multiSensorQM(m=m)
     annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
-  Modelica.Electrical.QuasiStatic.MultiPhase.Sources.VoltageSource sineVoltageQM(
+  Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource sineVoltageQM(
     m=m,
     f=f,
-    phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+    phi=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
     V=fill(Vrms, m),
     gamma(fixed=true, start=0))                                            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-10,-80})));
-  Modelica.Electrical.QuasiStatic.MultiPhase.Basic.Star starQM(m=m) annotation (Placement(transformation(extent={{-18,-100},{-38,-80}})));
+  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star starQM(m=m) annotation (Placement(transformation(extent={{-18,-100},{-38,-80}})));
   Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundQM annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
