@@ -1413,7 +1413,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue2857;
 
-    model Issue3002 "Conversion test for #3002"
+    model Issue3002_roots "Conversion test for #3002"
       extends Modelica.Icons.Example;
       Real r[2,2];
     algorithm
@@ -1423,7 +1423,20 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3002\">#3002</a>.
 </p>
 </html>"));
-    end Issue3002;
+    end Issue3002_roots;
+
+    model Issue3002_householder "Conversion test for #3002"
+      extends Modelica.Icons.Example;
+      function f1 = Modelica.Math.Matrices.Utilities.householderReflection;
+      function f2 = Modelica.Math.Matrices.Utilities.householderSimilarityTransformation;
+      function f3 = Modelica.Math.Vectors.Utilities.householderReflection;
+      function f4 = Modelica.Math.Vectors.Utilities.householderVector;
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3002\">#3002</a>.
+</p>
+</html>"));
+    end Issue3002_householder;
   end Math;
 
   package Media

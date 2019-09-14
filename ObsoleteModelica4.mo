@@ -893,6 +893,157 @@ connector is not connected).
 
   package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
     extends Modelica.Icons.Package;
+    package Vectors "Library of functions operating on vectors"
+      package Utilities "Utility functions that should not be directly utilized by the user"
+        extends Modelica.Icons.UtilitiesPackage;
+        function householderVector "Calculate a normalized householder vector to reflect vector a onto vector b"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          import Modelica.Math.Vectors.norm;
+
+          input Real a[:] "Real vector to be reflected";
+          input Real b[size(a, 1)] "Real vector b vector a is mapped onto";
+          output Real u[size(a, 1)] "Householder vector to map a onto b";
+        protected
+          Real norm_a=norm(a, 2);
+          Real norm_b=norm(b, 2);
+          Real alpha;
+
+        algorithm
+          assert(norm_b > 0,
+            "Vector b in function householderVector is zero vector, but at least one element should be different from zero");
+          assert(norm_a > 0,
+            "Vector a in function householderVector is zero vector, but at least one element should be different from zero");
+          alpha := if norm(a + norm_a/norm_b*b, 2) > norm(a - norm_a/norm_b*b, 2)
+             then norm_a/norm_b else -norm_a/norm_b;
+          u := (a + alpha*b)/length(a + alpha*b);
+
+          annotation (
+            obsolete = "Obsolete function - use Modelica_LinearSystems2.Math.Vectors.householderVector instead",
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.Utilities.<strong>householderVector</strong>(a,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>householderVector(a, b)</code>\" returns the normalized Householder vector
+<strong>u</strong> for Householder reflection of input vector <strong>a</strong> onto vector <strong>b</strong>, i.e., Householder vector <strong>u</strong> is the normal
+vector of the reflection plane. Algebraically, the reflection is performed by transformation matrix <strong>Q</strong>
+</p>
+<blockquote>
+<p>
+<strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
+</p>
+</blockquote>
+i.e., vector <strong>a</strong> is mapped to
+<blockquote>
+<p>
+<strong>a</strong> -> <strong>Q</strong>*<strong>a</strong>=c*<strong>b</strong>
+</p>
+</blockquote>
+with scalar c, |c| = ||<strong>a</strong>|| / ||<strong>b</strong>||. <strong>Q</strong>*<strong>a</strong> is the reflection of <strong>a</strong> about the hyperplane orthogonal to <strong>u</strong>.
+<strong>Q</strong> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
+</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  a = {2, -4, -2, -1};
+  b = {1, 0, 0, 0};
+
+  u = <strong>householderVector</strong>(a,b);    // {0.837, -0.478, -0.239, -0.119}
+                               // Computation (identity(4) - 2*matrix(u)*transpose(matrix(u)))*a results in
+                               // {-5, 0, 0, 0} = -5*b
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a><br>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
+</html>", revisions="<html>
+<ul>
+<li><em>2010/04/30 </em>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+
+</html>"));
+        end householderVector;
+
+        function householderReflection "Reflect a vector a on a plane with orthogonal vector u"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          import Modelica.Math.Vectors;
+
+          input Real a[:] "Real vector a to be reflected";
+          input Real u[size(a, 1)] "Householder vector";
+          output Real ra[size(u, 1)] "Reflection of a";
+
+        protected
+          Real norm_a=Vectors.length(a);
+          Real h=2*u*a;
+
+        algorithm
+          ra := a - h*u;
+
+          // Values close to zero are set to zero.
+          for i in 1:size(ra, 1) loop
+            ra[i] := if abs(ra[i]) >= norm_a*1e-12 then ra[i] else 0;
+          end for;
+
+          annotation (
+            obsolete = "Obsolete function - use Modelica_LinearSystems2.Math.Vectors.householderReflexion instead",
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.Utilities.<strong>householderReflection</strong>(a,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function \"<code>householderReflection(a, u)</code>\" performs the reflection of vector
+<strong>a</strong> about a plane orthogonal to vector <strong>u</strong> (Householder vector).
+Algebraically the operation is defined by
+</p>
+<blockquote>
+<p>
+<strong>b</strong>=<strong>Q</strong>*<strong>a</strong>
+</p>
+</blockquote>
+with
+<blockquote>
+<p>
+   <strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
+</p>
+</blockquote>
+where <strong>Q</strong> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
+</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  a = {2, -4, -2, -1};
+  u = {0.837, -0.478, -0.239, -0.119};
+
+  <strong>householderReflection</strong>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Utilities.householderVector</a><br>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
+
+</html>", revisions="<html>
+<ul>
+<li><em>2010/04/30 </em>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+        end householderReflection;
+      end Utilities;
+    end Vectors;
+
     package Matrices "Library of functions operating on matrices"
       extends Modelica.Icons.Package;
       package LAPACK "Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)"
@@ -1504,6 +1655,176 @@ connector is not connected).
 "));
         end dgeqpf;
       end LAPACK;
+
+      package Utilities "Utility functions that should not be directly utilized by the user"
+        extends Modelica.Icons.UtilitiesPackage;
+        function householderReflection
+          "Reflect each of the vectors a_i of matrix  A=[a_1, a_2, ..., a_n] on a plane with orthogonal vector u"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          import Modelica.Math.Vectors;
+
+          input Real A[:, :] "Rectangular matrix";
+          input Real u[size(A, 1)] "Householder vector";
+
+          output Real RA[size(A, 1), size(A, 2)] "Reflection of A";
+
+        protected
+          Integer n=size(A, 2);
+          Real h;
+          Real lu=(Vectors.length(u))^2;
+
+        algorithm
+          for i in 1:n loop
+            h := scalar(2*transpose(matrix(u))*A[:, i]/lu);
+            RA[:, i] := A[:, i] - h*u;
+          end for;
+
+          annotation (
+            obsolete = "Obsolete function - use Modelica_LinearSystems2.Math.Matrices.householderReflexion instead",
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<strong>householderReflection</strong>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Householder reflection (transformation)
+</p>
+<blockquote>
+ <strong>Ar</strong> = <strong>Q</strong>*<strong>A</strong>
+</blockquote>
+with
+<blockquote>
+ <strong>Q</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>)
+</blockquote>
+<p>
+where <strong>u</strong> is Householder vector, i.e., the normal vector of the reflection plane.
+</p>
+<p>
+Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+// First step of QR decomposition
+  import   ObsoleteModelica4.Math.Vectors.Utilities;
+
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real Ar[3,3];
+  Real u[:];
+
+  u=Utilities.householderVector(A[:,1],{1,0,0});
+  // u= {0.763, 0.646, 0}
+
+  Ar=householderReflection(A,u);
+ // Ar = [-6.0828,   -5.2608,   -4.4388;
+ //        0.0,      -1.1508,   -2.3016;
+ //        0.0,       2.0,       0.0]
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.housholderSimilarityTransformation</a>,<br>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
+</p>
+</html>", revisions="<html>
+<ul>
+<li><em>2010/04/30 </em>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+        end householderReflection;
+
+        function householderSimilarityTransformation
+          "Perform the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u'"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          import Modelica.Math.Vectors;
+
+          input Real A[:, size(A, 1)] "Square matrix A";
+          input Real u[size(A, 1)] "Householder vector";
+          output Real SAS[size(A, 1), size(A, 1)] "Transformation of matrix A";
+
+        protected
+          Integer na=size(A, 1);
+          Real S[size(A, 1), size(A, 1)] "Symmetric matrix";
+          Integer i;
+        algorithm
+          if na > 0 then
+            S := -2*matrix(u)*transpose(matrix(u))/(Vectors.length(u)*
+              Vectors.length(u));
+            for i in 1:na loop
+              S[i, i] := 1.0 + S[i, i];
+            end for;
+            SAS := S*A*S;
+          else
+            SAS := fill(
+                    0.0,
+                    0,
+                    0);
+          end if;
+
+          annotation (
+            obsolete = "Obsolete function - use Modelica_LinearSystems2.Math.Matrices.householderSimilarityTransformation instead",
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+  As = Matrices.<strong>householderSimilarityTransformation</strong>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Householder similarity transformation
+</p>
+<blockquote>
+ <strong>As</strong> = <strong>S</strong>*<strong>A</strong>*<strong>S</strong>
+</blockquote>
+with
+<blockquote>
+ <strong>S</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>).
+</blockquote>
+<p>
+This transformation is widely used for transforming non-symmetric matrices to a Hessenberg form.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+// First step of Hessenberg decomposition
+  import   ObsoleteModelica4.Math.Vectors.Utilities;
+
+  Real A[4,4] = [1,2,3,4;
+                 3,4,5,6;
+                 9,8,7,6;
+                 1,2,0,0];
+  Real Ar[4,4];
+  Real u[4]={0,0,0,0};
+
+  u[2:4]=Utilities.householderVector(A[2:4,1],{1,0,0});
+  // u= = {0, 0.8107, 0.5819, 0.0647}
+
+  Ar=householderSimilarityTransformation(A,u);
+ //  Ar = [1.0,     -3.8787,    -1.2193,    3.531;
+          -9.5394, 11.3407,      6.4336,   -5.9243;
+           0.0,     3.1307,      0.7525,   -3.3670;
+           0.0,     0.8021,     -1.1656,   -1.0932]
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a>,<br>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
+</p>
+</html>", revisions="<html>
+<ul>
+<li><em>2010/04/30 </em>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+        end householderSimilarityTransformation;
+      end Utilities;
     end Matrices;
 
     function tempInterpol1

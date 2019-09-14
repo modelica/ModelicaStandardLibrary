@@ -283,7 +283,6 @@ extends Modelica.Icons.ExamplesPackage;
 
     Real H1[5,5];
     Real U1[5,5];
-    Real u[5];
 
     Real N[:,:]= fill(0,0,0);
     Real Xn[0,0];
@@ -471,19 +470,6 @@ extends Modelica.Icons.ExamplesPackage;
     (sigma8, U8, VT8) := Matrices.singularValues(A8);
     Modelica.Utilities.Streams.print("SingularValues with zero dimensions");
 
-  //  ##########   Utilities tests without result verification   ##########
-    u[2:5] := Modelica.Math.Vectors.Utilities.householderVector(A1[2:5,1],{1,0,0,0});
-    H1 := Matrices.Utilities.householderReflection(A1,u);
-    H1 := Matrices.Utilities.householderSimilarityTransformation(A1,u);
-    u := H1[:,1];
-    H1 := Matrices.Utilities.toUpperHessenberg(A1);
-    r := Modelica.Math.Vectors.norm(u-H1[:,1]);
-    Modelica.Utilities.Streams.print("Vectors.norm rf = "+String(r));
-    assert(abs(r)<eps, "\"Utilities\"");
-
-    Xn := Matrices.Utilities.householderReflection(N,fill(0,0));
-    Xn := Matrices.Utilities.householderSimilarityTransformation(N,fill(0,0));
-
     ok := true;
   end Matrices2;
 
@@ -625,15 +611,9 @@ extends Modelica.Icons.ExamplesPackage;
   //  input String logFile = "ModelicaTestLog.txt" "Filename where the log is stored";
     output Boolean ok;
   protected
-    Real c;
     Real r;
     Real eps=1e-13;
     Real a[4] = {2, -4, -2, -1};
-    Real b[4] = {1, 0, 0, 0};
-    Real a2[size(a,1)];
-    Real a3[size(a,1)];
-    Real u[4];
-    Real P[4,4];
     Real rr[size(a,1)-1,2];
     Complex rc[3];
     Complex h;
@@ -643,20 +623,6 @@ extends Modelica.Icons.ExamplesPackage;
     Real iNew;
     Complex ca[2] = {Complex(1,0), j};
   algorithm
-  //  ##########   Householder vector   ##########
-    u := Vectors.Utilities.householderVector(a,b);
-    P := identity(size(u,1)) - 2*matrix(u)*transpose(matrix(u))/(u*u);
-    a2 := P*a;
-    c := a2[1]/b[1];
-    r := Vectors.norm(a2-c*b);
-    Streams.print("r = "+String(r));
-    assert(abs(r) <eps, "\"Vectors.Utilities.householderVector()\" failed");
-
-    a3 := Vectors.Utilities.householderReflection(a,u);
-    r := Vectors.norm(a2-a3);
-    Streams.print("r = "+String(r));
-    assert(abs(r) <eps, "\"Vectors.Utilities.householderReflection()\" failed");
-
   //  ##########   roots   ##########
     rr := Polynomials.roots(a);
     for i in 1:size(rc,1) loop
