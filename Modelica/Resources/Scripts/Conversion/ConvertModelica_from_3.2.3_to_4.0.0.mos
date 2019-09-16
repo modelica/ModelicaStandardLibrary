@@ -85,6 +85,14 @@ convertClass("Modelica.Math.baseIcon1",
               "Modelica.Math.Icons.AxisLeft")
 convertClass("Modelica.Math.baseIcon2",
               "Modelica.Math.Icons.AxisCenter")
+convertClass("Modelica.Math.Matrices.Utilities.householderReflection",
+              "ObsoleteModelica4.Math.Matrices.Utilities.householderReflection")
+convertClass("Modelica.Math.Matrices.Utilities.householderSimilarityTransformation",
+              "ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation")
+convertClass("Modelica.Math.Vectors.Utilities.householderReflection",
+              "ObsoleteModelica4.Math.Vectors.Utilities.householderReflection")
+convertClass("Modelica.Math.Vectors.Utilities.householderVector",
+              "ObsoleteModelica4.Math.Vectors.Utilities.householderVector")
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
               "Modelica.Electrical.Analog.Basic.Resistor");
 convertClass("Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle",
