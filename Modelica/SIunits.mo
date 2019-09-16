@@ -1355,18 +1355,19 @@ argument):</p>
       final quantity="AmountOfSubstance",
       final unit="mol",
       min=0);
-  type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol",min=0);
+  type Molality = Real (final quantity="Molality", final unit="mol/kg");
+  type MolalConcentration = Molality;
+  type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol", min=0);
   type MolarVolume = Real (final quantity="MolarVolume", final unit="m3/mol", min=0);
   type MolarDensity = Real (final quantity="MolarDensity", unit="mol/m3");
+  type Molarity = MolarDensity;
+  type MolarConcentration = MolarDensity;
   type MolarEnergy = Real (final quantity="MolarEnergy", final unit="J/mol", nominal=2e4);
   type MolarInternalEnergy = MolarEnergy;
-  type MolarHeatCapacity = Real (final quantity="MolarHeatCapacity", final unit=
-         "J/(mol.K)");
-  type MolarEntropy = Real (final quantity="MolarEntropy", final unit=
-          "J/(mol.K)");
+  type MolarHeatCapacity = Real (final quantity="MolarHeatCapacity", final unit="J/(mol.K)");
+  type MolarEntropy = Real (final quantity="MolarEntropy", final unit="J/(mol.K)");
   type MolarEnthalpy = MolarEnergy;
-  type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit=
-          "mol/s");
+  type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit="mol/s");
   type NumberDensityOfMolecules = Real (final quantity=
           "NumberDensityOfMolecules", final unit="m-3");
   type MolecularConcentration = Real (final quantity="MolecularConcentration",
@@ -1440,8 +1441,7 @@ argument):</p>
          "1");
   type FaradayConstant = Real (final quantity="FaradayConstant", final unit=
           "C/mol");
-  type IonicStrength = Real (final quantity="IonicStrength", final unit=
-          "mol/kg");
+  type IonicStrength = Molality;
   type DegreeOfDissociation = Real (final quantity="DegreeOfDissociation",
         final unit="1");
   type ElectrolyticConductivity = Real (final quantity=
