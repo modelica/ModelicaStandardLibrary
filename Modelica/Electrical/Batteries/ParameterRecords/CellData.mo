@@ -25,7 +25,7 @@ record CellData "Parameters of a battery cell"
   parameter Modelica.SIunits.Current Isc "Short-circuit current at SOC = SOCmax; if Ri is specified, Isc is not applied";
   parameter Modelica.SIunits.Resistance Ri=OCVmax/Isc "Total inner resistance";
   parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance";
+  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance at T_ref";
   parameter Modelica.SIunits.Current Idis=0 "Self-discharge current at SOC = SOCmax"
     annotation(Evaluate=true);
   parameter RCData rcData[:] "Parameter of optional RC-elements"
