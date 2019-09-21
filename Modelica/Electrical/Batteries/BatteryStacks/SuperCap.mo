@@ -8,7 +8,7 @@ model SuperCap "Simple model of a supercapacitor"
   parameter Modelica.SIunits.ElectricCharge Qnom=C*Vnom "Nominal charge";
   parameter Modelica.SIunits.Resistance Rs "Series resistance";
   parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance";
+  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance at T_ref";
   parameter Modelica.SIunits.Current Idis=0 "Self-discharge current at nominal voltage"
     annotation(Evaluate=true);
   extends Modelica.Electrical.Analog.Interfaces.PartialConditionalHeatPort;
