@@ -22,7 +22,7 @@ record CellData "Parameters of a battery cell"
   parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
     "Smoothness of table interpolation"
     annotation(Dialog(group="OCV versus SOC", enable=not useLinearSOCDependency));
-  parameter Modelica.SIunits.Current Isc "Short-circuit current at SOC = SOCmax";
+  parameter Modelica.SIunits.Current Isc "Short-circuit current at SOC = SOCmax; if Ri is specified, Isc is not applied";
   parameter Modelica.SIunits.Resistance Ri=OCVmax/Isc "Total inner resistance";
   parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance";
