@@ -43,7 +43,7 @@ record CellData "Parameters of a battery cell"
 <li>OCV versus SOC characteristic</li>
 <li>Short-circuit current; used to calculate inner resistance, can be neglected if inner resistance is specified explicitly</li>
 <li>Inner resistance; either calculated from short circuit current, or specified explicitly</li>
-<li>array of records <code>rcData</code> for battery models comprising RC-elements<li>
+<li>Array of records <code>rcData</code> for battery models comprising RC-elements</li>
 </ul>
 <h4>Note:</h4>
 <p>
