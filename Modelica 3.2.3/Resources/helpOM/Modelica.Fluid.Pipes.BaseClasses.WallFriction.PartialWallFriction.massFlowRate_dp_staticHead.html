@@ -1,6 +1,4 @@
-<?xml version="1.0"?>
-<!DOCTYPE html>
-
+<?xml version="1.0"?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
@@ -23,14 +21,14 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_d
   input SI.DynamicViscosity mu_b "Dynamic viscosity at port_b (dummy if use_mu = false)";
   input SI.Length length "Length of pipe";
   input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-  input Real g_times_height_ab "Gravity times (Height(port_b) - Height(port_a))";
+  input Real g_times_height_ab(unit = "m2/s2") "Gravity times (Height(port_b) - Height(port_a))";
   input SI.Area crossArea = pi * diameter ^ 2 / 4 "Inner cross section area";
-  input SI.Length roughness(min = 0) = 2.5e-5 "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
+  input Modelica.Fluid.Types.Roughness roughness = 2.5e-5 "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
   input SI.AbsolutePressure dp_small = 1 "Regularization of zero flow if |dp| &lt; dp_small (dummy if use_dp_small = false)";
   input SI.ReynoldsNumber Re_turbulent = 4000 "Turbulent flow if Re &gt;= Re_turbulent (dummy if use_Re_turbulent = false)";
   output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
 end massFlowRate_dp_staticHead;</pre></blockquote>
 <hr/>
-Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
+Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
 </body>
 </html>

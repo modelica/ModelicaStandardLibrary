@@ -1,6 +1,4 @@
-<?xml version="1.0"?>
-<!DOCTYPE html>
-
+<?xml version="1.0"?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
@@ -28,11 +26,11 @@ Calculate pressure drop due to friction as function of mass flow rate</pre>
   input SI.Area crossArea "Inner cross section area";
   input SI.ReynoldsNumber Re1 "Boundary between laminar regime and transition";
   input SI.ReynoldsNumber Re2 "Boundary between transition and turbulent regime";
-  input Real Delta "Relative roughness";
+  input Real Delta(min = 0) "Relative roughness";
   output SI.Pressure dp_fric "Pressure loss due to friction (dp_fric = port_a.p - port_b.p - dp_grav)";
   output Real ddp_fric_dm_flow "Derivative of pressure drop with mass flow rate";
 end dp_fric_of_m_flow;</pre></blockquote>
 <hr/>
-Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
+Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
 </body>
 </html>

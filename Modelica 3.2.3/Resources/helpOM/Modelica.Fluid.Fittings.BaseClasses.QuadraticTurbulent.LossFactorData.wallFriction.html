@@ -1,6 +1,4 @@
-<?xml version="1.0"?>
-<!DOCTYPE html>
-
+<?xml version="1.0"?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
@@ -84,17 +82,18 @@ short summary:</p>
 <blockquote>
 <pre>encapsulated function wallFriction
   import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+  import Modelica.Fluid.Types.Roughness;
   import lg = Modelica.Math.log10;
   import SI = Modelica.SIunits;
   input SI.Length length "Length of pipe" annotation(
     Dialog);
   input SI.Diameter diameter "Inner diameter of pipe" annotation(
     Dialog);
-  input SI.Length roughness(min = 1e-10) "Absolute roughness of pipe (&gt; 0 required, details see info layer)" annotation(
+  input Roughness roughness(min = 1e-10) "Absolute roughness of pipe (&gt; 0 required, details see info layer)" annotation(
     Dialog);
   output LossFactorData data "Pressure loss factors for both flow directions";
 end wallFriction;</pre></blockquote>
 <hr/>
-Generated at 2019-01-24T09:03:13Z by <a href="http://openmodelica.org">OpenModelica 1.14.0~dev-130-gefa44fb</a>
+Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
 </body>
 </html>
