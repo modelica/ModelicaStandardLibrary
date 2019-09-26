@@ -31,7 +31,7 @@ IssueType = IntEnum(
 )
 
 def check_closed_time(closedDate):
-    cmpDate = '2019-03-20T12:00:00Z'
+    cmpDate = '2019-09-21T12:00:00Z'
     fmt = '%Y-%m-%dT%H:%M:%SZ'
     return time.strptime(closedDate, fmt) > time.strptime(cmpDate, fmt)
 
@@ -144,10 +144,10 @@ if __name__ == '__main__':
     module_dir, module_name = os.path.split(__file__)
     if len(sys.argv) == 1:
         milestone = 59
-        version = '3.2.3+build.3'
+        version = '3.2.3+build.4'
     elif len(sys.argv) == 2:
         milestone = sys.argv[1]
-        version = '3.2.3+build.3'
+        version = '3.2.3+build.4'
     elif len(sys.argv) > 2:
         milestone = sys.argv[1]
         version = sys.argv[2]
