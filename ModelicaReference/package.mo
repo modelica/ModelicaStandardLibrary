@@ -996,7 +996,7 @@ If true, the model developer proposes to inline the function after the function 
 
 <h4>Example usage</h4>
 <p>
-<code>InlineAfterIndexReduction = true</code> is for example used in <a href=\"modelica://Modelica.Mechanics.Rotational.Sources.Move\">Modelica.Mechanics.Rotational.Sources.Move</a> to define that an input signal is the derivative of another input signal.
+<code>InlineAfterIndexReduction = true</code> is for example used in <a href=\"modelica://Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor\">Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor</a> to define that an input signal is the derivative of another input signal.
 </p>
 </html>"));
   end InlineAfterIndexReduction;
@@ -1396,10 +1396,11 @@ In a top-level class, the version number and the dependency to earlier versions 
      Defines that user models using the VERSION-NUMBER can be upgraded to
      the CURRENT-VERSION-NUMBER of the current class without any changes.<br>&nbsp;</li>
 
-<li> <code>conversion ( from (version = VERSION-NUMBER, script = \"?\") ) </code><br>
-     Defines that user models using the VERSION-NUMBER can be upgraded to
-     the CURRENT-VERSION-NUMBER of the current class by applying the given
-     script. The semantics of the conversion script is not defined.<br>&nbsp;</li>
+<li> <code>conversion ( from (version = VERSION-NUMBER, [to = VERSION_NUMBER \",\"] script = \"?\" ) ) </code><br>
+     Defines that user models using the VERSION-NUMBER or any of the given VERSION-NUMBER can be upgraded to the given VERSION-NUMBER 
+	 (if the to-tag is missing this is the CURRENT-VERSION-NUMBER) of the current class by applying the given conversion rules. 
+	 <em>The to-tag is added for clarity and optionally allows a tool to convert in multiple steps.</em>
+	 <br>&nbsp;</li>
 
 <li> <code>uses(IDENT (version = VERSION-NUMBER) )</code><br>
      Defines that classes within this top-level class uses version
@@ -1846,191 +1847,12 @@ The external C-functions may be defined in the following way:
   class 'function' "function"
     extends ModelicaReference.Icons.Information;
 
+ 
+
+class 'function partial application' "function partial application"
+    extends ModelicaReference.Icons.Information;
+
     annotation (Documentation(info="<html>
-<p>
-Define specialized class <em>function</em>
-</p>
-<h4>Examples</h4>
-
-<pre><strong>function</strong> si
-  <strong>input</strong> Real x;
-  <strong>output</strong> Real y;
-<strong>algorithm</strong>
-  y = <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
-<strong>end</strong> si;</pre>
-
-<img src=\"modelica://ModelicaReference/Resources/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
-
-<h4>Syntax</h4>
-
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>function</strong>
-   IDENT class_specifier
-
-class_specifier :
-   string_comment composition <strong>end</strong> IDENT
-   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
-
-<p>See Modelica Language Specification for further details.</p>
-
-<h4>Description</h4>
-
-<p>The keyword function is used to define functions as known from programming
-languages. Each part of a function interface must
-either have causality equal to input or output. A function may not be used in connections.
-In functions, no equations or initial algorithm and at most
-one algorithm clause are allowed. Calling a function requires
-either an algorithm clause or an external function interface.</p>
-
-<p>
-The syntax and semantics of a function have many similarities to those of the block
-specialized class. A function has many of the properties of a general class,
-e.g., being able to inherit other functions, or to redeclare or modify
-elements of a function declaration.
-</p>
-
-<p>
-Modelica functions have the following restrictions compared to a
-general Modelica class:
-</p>
-
-<ul>
-<li> Each input formal parameter of the function must be
-     prefixed by the keyword input, and each result formal parameter
-     by the keyword output. All public variables are formal parameters.</li>
-
-<li> Input formal parameters are read-only after being bound to the
-     actual arguments or default values, i.e., they may not be assigned
-     values in the body of the function.</li>
-
-<li> A function may not be used in connections, may have no equations,
-     may have no initial algorithm, and can have at most one algorithm
-     section, which, if present, is the body of the function.</li>
-
-<li> A function may have zero or one external function interface, which,
-     if present, is the external definition of the function.</li>
-
-<li> For a function to be called in a simulation model, it must have
-     either an algorithm section or an external function interface as
-     its body, and it may not be partial.</li>
-
-<li> A function cannot contain calls to the Modelica built-in operators
-     der, initial, terminal, sample, pre, edge, change, reinit, delay,
-     cardinality, to the operators of the built-in package Connections,
-     and is not allowed to contain when-statements.</li>
-
-<li> The dimension sizes not declared with (:) of each array result or
-     array local variable [i.e., a non-input components] of a function must
-     be either given by the input formal parameters, or given by constant
-     or parameter expressions, or by expressions containing combinations
-     of those. If an output or a local array dimension is declared with (:),
-     the size of the dimension can be changed in the function. A size change
-     takes place by assigning a full array with the respective sizes to the
-     dynamically sized array on the left hand side of an equal sign.</li>
-
-<li> The local variables of a function are not automatically initialized to
-     the implicit default values of the data type [(e.g., 0.0 for Real)
-     for performance reasons. It is the responsibility of the user to
-     provide explicit defaults or to define the values of such variables
-     before they are referenced.]</li>
-
-<li> Components of a function will inside the function behave as though
-     they had discrete-time variability.</li>
-</ul>
-
-<p>
-Modelica functions have the following enhancements compared to a general Modelica class:
-</p>
-
-<ul>
-<li> A function may be called using the conventional positional calling syntax
-     for passing arguments.</li>
-
-<li> A function can be recursive.</li>
-
-<li> A formal parameter or local variable may be initialized
-     through an assignment (:=) of a default value in its declaration.
-     Initialization through an equation is not possible.</li>
-
-<li> A function is dynamically instantiated when it is called rather than
-     being statically instantiated by an instance declaration,
-     which is the case for other kinds of classes.</li>
-
-<li> A function may have an external function interface specifier as its body.</li>
-
-<li> A function may have a return statement in its algorithm section body.</li>
-
-<li> A function allows dimension sizes declared with (:) to be resized
-     for non-input array variables (so the actual dimension need not to be known when
-     the function is translated).</li>
-</ul>
-
-<p>
-A function may have a function as an input argument.
-The declared type of such an input formal parameter in a function can be
-the class-name of a partial function that has no replaceable elements.
-It cannot be the class-name of a record [i.e., <em>record constructor functions are not
-allowed in this context.</em>] Such an input formal parameter of function type
-can also have an optional functional default value. Example:
-</p>
-
-<blockquote><pre>
-<strong>function</strong> quadrature \"Integrate function y=integrand(x) from x1 to x2\"
-  <strong>input</strong>  Real x1;
-  <strong>input</strong>  Real x2;
-  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function, see below
-  // With default: input Integrand integrand := Modelica.Math.sin;
-  <strong>output</strong> Real integral;
-<strong>algorithm</strong>
-  integral :=(x2-x1)*(integrand(x1) + integrand(x2))/2;
-<strong>end</strong> quadrature;
-
-<strong>partial function</strong> Integrand
-  <strong>input</strong>  Real x;
-  <strong>output</strong> Real y;
-<strong>end</strong> Integrand;
-</pre></blockquote>
-
-<p>
-A functional argument can be provided in one of the following forms
-to be passed to a formal parameter of function type in a function call
-(see examples below):
-</p>
-<ol>
-<li> as a function name,</li>
-<li> as a function partial application,</li>
-<li> as a function that is a component,</li>
-<li> as a function partial application of a function that is a component.</li>
-</ol>
-
-<p>
-In all cases the provided function must be \"function type compatible\"
-to the corresponding formal parameter of function type. Example:
-</p>
-
-<blockquote><pre>
-// A function as a positional input argument according to case (a)
-<strong>function</strong> Parabola
-   <strong>extends</strong> Integrand;
-<strong>algorithm</strong>
-   y = x*x;
-<strong>end</strong> Parabola;
-
-area = quadrature(0, 1, Parabola);
-
-// The quadrature2 example below uses a function integrand that
-// is a component as input argument according to case (c):
-<strong>function</strong> quadrature2 \"Integrate function y=integrand(x) from x1 to x2\"
-  <strong>input</strong>  Real x1;
-  <strong>input</strong>  Real x2;
-  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function type
-  <strong>output</strong> Real integral;
-<strong>algorithm</strong>
-   integral := quadrature(x1,       (x1+x2)/2, integrand)+
-               quadrature((x1+x2)/2, x2,       integrand);
-<strong>end</strong> quadrature2;
-</pre></blockquote>
-
 <p>
 A function partial application is a function call with certain
 formal parameters bound to expressions. A function partial application
@@ -2144,6 +1966,214 @@ a component, according to case (d) above:
 <strong>end</strong> surfaceQuadrature;
 </pre></blockquote>
 </html>"));
+  end 'function partial application';
+  
+  class 'pure function' "pure function"
+    extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+	<p>
+Modelica functions are normally pure which makes it easy for humans to reason about the code 
+since they behave as mathematical functions, and possible for compilers to optimize.</p>
+<ul>
+<li>
+Pure Modelica functions always give the same output values or errors for the same input values 
+and only the output values influence the simulation result, i.e. is seen as equivalent to a mathematical map from input values to output values. 
+Some input values may map to errors. Pure functions are thus allowed to fail by 
+calling assert, or ModelicaError in C-code, or dividing by zero. 
+Such errors will only be reported when and if the function is called.
+Pure Modelica functions are not assumed to be thread-safe.</li>
+<li>A Modelica function which does not have the pure function properties is impure.</li>
+</ul>
+<p>The declaration of functions follow these rules:</p>
+<ul>
+<li>Functions defined in Modelica (non-external) are normally assumed to be pure (the exception is the deprecated case below), 
+if they are impure they shall be marked with the impure keyword. They can be explicitly marked as pure.</li>
+<li>External functions must be explicitly declared with pure or impure.</li>
+<li>A deprecated semantics is that external functions (and functions defined in Modelica directly or indirectly calling them) 
+without pure or impure keyword are assumed to be impure – but without any restriction on calling them. 
+Except for the function Modelica.Utilities.Streams.print diagnostics must be given if called in a simulation model.</li>
+</ul>
+	</html>"));
+  end 'pure function';
+     annotation (Documentation(info="<html>
+<p>
+Define specialized class <em>function</em>
+</p>
+<h4>Examples</h4>
+
+<pre><strong>function</strong> si
+  <strong>input</strong> Real x;
+  <strong>output</strong> Real y;
+<strong>algorithm</strong>
+  y = <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
+<strong>end</strong> si;</pre>
+
+<img src=\"modelica://ModelicaReference/Resources/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+
+<h4>Syntax</h4>
+
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] [ <strong>pure </strong> | <strong>impure </strong>] <strong>function</strong>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+
+<p>See Modelica Language Specification for further details.</p>
+
+<h4>Description</h4>
+
+<p>The keyword function is used to define functions as known from programming
+languages.
+</p>
+
+<p>
+The syntax and semantics of a function have many similarities to those of the block
+specialized class. A function has many of the properties of a general class,
+e.g., being able to inherit other functions, or to redeclare or modify
+elements of a function declaration.
+</p>
+
+<p>
+Modelica functions have the following restrictions compared to a
+general Modelica class:
+</p>
+
+<ul>
+<li> Each input formal parameter of the function must be
+     prefixed by the keyword input, and each result formal parameter
+     by the keyword output. All public variables are formal parameters.</li>
+
+<li> Input formal parameters are read-only after being bound to the
+     actual arguments or default values, i.e., they may not be assigned
+     values in the body of the function.</li>
+
+<li> A function may not be used in connections, may not have equations, may not have initial algorithms.</li>
+
+<li> A function can have at most one algorithm section or one external function interface (not both), which, if present, is the body of the function.</li>
+
+<li> For a function to be called in a simulation model, the function may not be partial,
+     and the output variables must be assigned inside the function either in declaration assignments 
+	 or in an algorithm section, or have an external function interface as its body, or be defined as a function partial derivative. 
+	 The output variables of a function should be computed.</li>
+
+<li> A function cannot contain calls to the Modelica built-in operators
+     der, initial, terminal, sample, pre, edge, change, reinit, delay,
+     cardinality, inStream, actualStream, to the operators of the built-in package Connections,
+     and is not allowed to contain when-statements.</li>
+
+<li> The dimension sizes not declared with (:) of each array result or
+     array local variable [i.e., a non-input components] of a function must
+     be either given by the input formal parameters, or given by constant
+     or parameter expressions, or by expressions containing combinations
+     of those. If an output or a local array dimension is declared with (:),
+     the size of the dimension can be changed in the function. A size change
+     takes place by assigning a full array with the respective sizes to the
+     dynamically sized array on the left hand side of an equal sign.</li>
+
+<li> The local variables of a function are not automatically initialized to
+     the implicit default values of the data type [(e.g., 0.0 for Real)
+     for performance reasons. It is the responsibility of the user to
+     provide explicit defaults or to define the values of such variables
+     before they are referenced.]</li>
+
+<li> Components of a function will inside the function behave as though
+     they had discrete-time variability.</li>
+</ul>
+
+<p>
+Modelica functions have the following enhancements compared to a general Modelica class:
+</p>
+
+<ul>
+<li> A function may be called using a mix of positional (as in conventional programming languages) and named arguments.</li>
+
+<li> A function can be recursive.</li>
+
+<li> A formal parameter or local variable may be initialized
+     through a binding (=) of a default value in its declaration.
+     Initialization through an equation is not possible.</li>
+
+<li> A function is dynamically instantiated when it is called rather than
+     being statically instantiated by an instance declaration,
+     which is the case for other kinds of classes.</li>
+
+<li> A function may have an external function interface specifier as its body.</li>
+
+<li> A function may have a return statement in its algorithm section body.</li>
+
+<li> A function allows dimension sizes declared with (:) to be resized
+     for non-input array variables (so the actual dimension need not to be known when
+     the function is translated).</li>
+</ul>
+
+<p>
+A function may have a function as an input argument.
+The declared type of such an input formal parameter in a function can be
+the class-name of a partial function that has no replaceable elements.
+It cannot be the class-name of a record [i.e., <em>record constructor functions are not
+allowed in this context.</em>] Such an input formal parameter of function type
+can also have an optional functional default value. Example:
+</p>
+
+<blockquote><pre>
+<strong>function</strong> quadrature \"Integrate function y=integrand(x) from x1 to x2\"
+  <strong>input</strong>  Real x1;
+  <strong>input</strong>  Real x2;
+  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function, see below
+  // With default: input Integrand integrand := Modelica.Math.sin;
+  <strong>output</strong> Real integral;
+<strong>algorithm</strong>
+  integral :=(x2-x1)*(integrand(x1) + integrand(x2))/2;
+<strong>end</strong> quadrature;
+
+<strong>partial function</strong> Integrand
+  <strong>input</strong>  Real x;
+  <strong>output</strong> Real y;
+<strong>end</strong> Integrand;
+</pre></blockquote>
+
+<p>
+A functional argument can be provided in one of the following forms
+to be passed to a formal parameter of function type in a function call
+(see examples below):
+</p>
+<ol>
+<li> as a function name,</li>
+<li> as a function partial application,</li>
+<li> as a function that is a component,</li>
+<li> as a function partial application of a function that is a component.</li>
+</ol>
+
+<p>
+In all cases the provided function must be \"function type compatible\"
+to the corresponding formal parameter of function type. Example:
+</p>
+
+<blockquote><pre>
+// A function as a positional input argument according to case (a)
+<strong>function</strong> Parabola
+   <strong>extends</strong> Integrand;
+<strong>algorithm</strong>
+   y = x*x;
+<strong>end</strong> Parabola;
+
+area = quadrature(0, 1, Parabola);
+
+// The quadrature2 example below uses a function integrand that
+// is a component as input argument according to case (c):
+<strong>function</strong> quadrature2 \"Integrate function y=integrand(x) from x1 to x2\"
+  <strong>input</strong>  Real x1;
+  <strong>input</strong>  Real x2;
+  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function type
+  <strong>output</strong> Real integral;
+<strong>algorithm</strong>
+   integral := quadrature(x1,       (x1+x2)/2, integrand)+
+               quadrature((x1+x2)/2, x2,       integrand);
+<strong>end</strong> quadrature2;
+</pre></blockquote></html>"));
   end 'function';
 
   class 'model' "model"
@@ -7048,12 +7078,16 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
       <td>2019-09-27</td>
       <td><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
       <td>
+	  Update to Modelica Specification 3.4 (except grammar):
       <ul>
-      <li>Update to Modelica Specification 3.4 (except grammar).
-	  </li>
+      <li>Change of missingInnerMessage, to indicate that it less important.</li>
+	  <li>Example for InlineAfterIndexReduction.</li>
+	  <li>Version conversions are specified, and to-version is possible.</li>
+	  <li>The function section was rewritten, and pure functions added as a sub-class, and function partial application also moved to a sub-class.</li>
+	  <li>Remaining: synchronous, state machines, specifying conversions(?), ...</li>
       </ul>
       </td>
-	 </tr>
+	</tr>
     <tr>
       <td></td>
       <td>2017-09-22</td>
