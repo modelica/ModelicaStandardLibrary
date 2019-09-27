@@ -1084,7 +1084,7 @@ This annotation is for example used in  <a href=\"modelica://Modelica.Media.Wate
 
     annotation (Documentation(info="<html>
 <p>
-Warning message, if inner declaration is missing
+Diagnostics message, if inner declaration is missing
 </p>
 
 <h4>Examples</h4>
@@ -1106,6 +1106,7 @@ Warning message, if inner declaration is missing
 
 <p>
 When an outer component of the class does not have a corresponding inner component, the string message may be used as a diagnostic message.
+However, the inner component is automatically added - if unique - regardless of this annotation.
 </p>
 
 </html>"));
@@ -7024,7 +7025,7 @@ This package is a reference to Modelica keywords,
 <a href=\"modelica://ModelicaReference.Operators\">Modelica builtin operators</a>
 , and the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
 It is based on the
-<a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Language Specification version 3.2 Revision 2</a> from 30th July 2013. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
+<a href=\"https://www.modelica.org/documents/ModelicaSpec34.pdf\">Modelica Language Specification version 3.4</a> from 10th April 2017. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
 </p>
 
 <p>
@@ -7042,6 +7043,17 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
       <th>Author</th>
       <th>Comment</th>
     </tr>
+	<tr>
+      <td></td>
+      <td>2019-09-27</td>
+      <td><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
+      <td>
+      <ul>
+      <li>Update to Modelica Specification 3.4 (except grammar).
+	  </li>
+      </ul>
+      </td>
+	 </tr>
     <tr>
       <td></td>
       <td>2017-09-22</td>
@@ -7054,6 +7066,7 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
       <li>Some stylistic improvements of the English text</li>
       </ul>
       </td>
+	 </tr>
      <tr>
       <td></td>
       <td>2013-07-26</td>
