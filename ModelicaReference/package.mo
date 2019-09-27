@@ -6404,7 +6404,7 @@ that it cannot be instantiated. For example, defining
 
 <p>
 is illegal. A partial class can only be used in an \"extends\" clause to inherit from it
-or in a \"constrained\" clause to define the constraints of a replaceable class.
+or in a \"constrainedby\" clause to define the constraints of a replaceable class.
 </p>
 
 </html>"));
@@ -7084,6 +7084,7 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
 	  <li>Example for InlineAfterIndexReduction.</li>
 	  <li>Version conversions are specified, and to-version is possible.</li>
 	  <li>The function section was rewritten, and pure functions added as a sub-class, and function partial application also moved to a sub-class.</li>
+	  <li>Correct constrained to constrainedby (could also be constraining-clause).</li>
 	  <li>Remaining: synchronous, state machines, specifying conversions(?), ...</li>
       </ul>
       </td>
