@@ -2056,7 +2056,7 @@ library (will be replaced by a color editor).
 </html>"));
     end DoubleArrow;
 
-    model Vector "Visualizing a vector quantity (force, torque etc)"
+    model Vector "Visualizing a vector quantity (force, torque, etc.)"
 
       extends ModelicaServices.Animation.Vector;
       extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector;
@@ -2064,33 +2064,35 @@ library (will be replaced by a color editor).
       annotation (
         Documentation(info="<html>
 <p>
-Model <strong>Vector</strong> defines an vector that is dynamically
+Model <strong>Vector</strong> defines a&nbsp;vector that is dynamically
 visualized at the defined location (see variables below).
-The difference compared to Arrow is that the vector-length does not represent a physical length, but a different 3-dimensional quantity
+The difference compared to Arrow is that the vector-length does not represent
+a&nbsp;physical length, but a&nbsp;different 3-dimensional quantity
 (such as force, torque, speed, &hellip;).
 
 That allows the vectors of similar quantities to be scaled appropriately during post-processing.
 </p>
 
-
 <p>
 The variables under heading <strong>Parameters</strong> below
 are declared as (time varying) <strong>input</strong> variables.
-If the default equation is not appropriate, a corresponding
+If the default equation is not appropriate, a&nbsp;corresponding
 modifier equation has to be provided in the
-model where an <strong>Vector</strong> instance is used, e.g., in the form
+model where a&nbsp;<strong>Vector</strong> instance is used, e.g., in the form
 </p>
-<pre>
-    Visualizers.Advanced.Vector arrow(r_value = {sin(time),cos(time),0});
-</pre>
+<blockquote><pre>
+Visualizers.Advanced.Vector vectorForce(r_value = {sin(time),cos(time),0});
+</pre></blockquote>
 
 <p>
 Variable <strong>color</strong> is an Integer vector with 3 elements,
-{r, g, b}, and specifies the color of the shape.
-{r, g, b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given in the range 0&nbsp;&hellip;&nbsp;255.
-The predefined type <strong>MultiBody.Types.Color</strong> contains a menu definition of the colors 
-used in the MultiBody library together with a color editor.
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{{r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
+Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
+The predefined type
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
+contains a menu definition of the colors 
+used in the MultiBody library together with a&nbsp;color editor.
 </p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
