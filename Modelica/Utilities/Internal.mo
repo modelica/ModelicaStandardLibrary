@@ -51,7 +51,7 @@ This model is documented at
 
   end PartialShape;
 
-  model PartialVector "Interface for 3D animation of a vector quantity (force, torque etc)"
+    model PartialVector "Interface for 3D animation of a vector quantity (force, torque etc)"
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
 
@@ -78,7 +78,7 @@ This model is documented at
 </p>
 
 </html>"));
-   end PartialVector;
+    end PartialVector;
 
     model PartialSurface "Interface for 3D animation of surfaces"
 
@@ -189,7 +189,7 @@ package FileSystem
     extends Modelica.Icons.Function;
     input String name "Name of file, directory, pipe etc.";
     output Types.FileType fileType "Type of file";
-  external "C" fileType=  ModelicaInternal_stat(name) annotation(Library="ModelicaExternalC");
+  external "C" fileType = ModelicaInternal_stat(name) annotation(Library="ModelicaExternalC");
   annotation(__ModelicaAssociation_Impure=true);
   end stat;
 

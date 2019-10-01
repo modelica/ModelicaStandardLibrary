@@ -2056,8 +2056,7 @@ library (will be replaced by a color editor).
 </html>"));
     end DoubleArrow;
 
-    model Vector
-          "Visualizing a vector quantity (force, torque etc)"
+    model Vector "Visualizing a vector quantity (force, torque etc)"
 
       extends ModelicaServices.Animation.Vector;
       extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector;
