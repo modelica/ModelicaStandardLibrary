@@ -5588,7 +5588,7 @@ The outer control loop is formed by the speed controller which is parameterized 
 </p>
 <p>
 At time=0.2 s a reference speed step is applied, causing the drive to accelerate to the desired speed.
-At time=0.8 s a load torque step is applied, causing to drive to decelerate until the speed controller brings the drive back to the desired speed.
+At time=0.8 s a load torque step is applied, causing the drive to decelerate until the speed controller brings the drive back to the desired speed.
 </p>
 <p>
 You may try a slewRateLimiter instead of the prefilter to limit the speed rise i.e. the torque.
@@ -5666,7 +5666,7 @@ The outer control loop is formed by the position controller which is parameteriz
 </p>
 <p>
 At time=0.2 s the kinematicPTP starts to prescribe the reference position with limited speed and limited acceleration.
-At time=2.3 s a load torque step is applied, causing to drive to slightly leave the end position until the position controller brings the drive back to the desired position.
+At time=2.3 s a load torque step is applied, causing the drive to slightly leave the end position until the position controller brings the drive back to the desired position.
 </p>
 <p>
 Further reading:
