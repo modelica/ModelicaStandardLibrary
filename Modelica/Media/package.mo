@@ -2233,11 +2233,9 @@ package Examples
     der_T = der(smoothState.T);
 
     annotation (Documentation(info="<html>
-<p>An example for using ideal gas properties and how to compute
-  isentropic enthalpy changes.
-  The function that is implemented is approximate, but usually
-   very good: the second medium record medium2
-   is given to compare the approximation.
+<p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
+The function that is implemented is approximate, but usually very good: the second medium record medium2
+is given to compare the approximation.
 </p>
 </html>"), experiment(StopTime=1));
   end IdealGasH2O;
@@ -2303,7 +2301,7 @@ package Examples
     parameter Modelica.SIunits.MassFlowRate m_flow_ext=0.01
       "Fixed mass flow rate in to volume 1 and in to volume 2";
     parameter Modelica.SIunits.EnthalpyFlowRate H_flow_ext=5000
-      "Fixed enthalpy flow rate in to volume and in to volume 2";
+      "Fixed enthalpy flow rate in to volume 1 and in to volume 2";
 
     package Medium1 = Modelica.Media.IdealGases.MixtureGases.CombustionAir
       "Medium model";
@@ -2316,7 +2314,7 @@ package Examples
         stateSelect=StateSelect.prefer),
       X(start={0.8,0.2}));
     Real m1(quantity=Medium1.mediumName, start=1.0);
-    SI.InternalEnergy U1;
+    Modelica.SIunits.InternalEnergy U1;
     Medium1.SpecificHeatCapacity cp1=Medium1.specificHeatCapacityCp(medium1.state);
     Medium1.DynamicViscosity eta1=Medium1.dynamicViscosity(medium1.state);
     Medium1.ThermalConductivity lambda1=Medium1.thermalConductivity(medium1.state);
@@ -2332,7 +2330,7 @@ package Examples
         stateSelect=StateSelect.prefer),
       X(start={0.1,0.1,0.1,0.2,0.2,0.3}));
     Real m2(quantity=Medium2.mediumName, start=1.0);
-    SI.InternalEnergy U2;
+    Modelica.SIunits.InternalEnergy U2;
     Medium2.SpecificHeatCapacity cp2=Medium2.specificHeatCapacityCp(medium2.state);
     Medium2.DynamicViscosity eta2=Medium2.dynamicViscosity(medium2.state);
     Medium2.ThermalConductivity lambda2=Medium2.thermalConductivity(medium2.state);
@@ -2420,10 +2418,7 @@ package Examples
     der_p = der(smoothState.p);
     der_T = der(smoothState.T);
     annotation (Documentation(info="<html>
-<p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
-The function that is implemented is approximate, but usually very good: the second medium record medium2
-is given to compare the approximation.
-</p>
+
 </html>"), experiment(StopTime=1.0, Tolerance=1e-005));
   end MoistAir;
 
