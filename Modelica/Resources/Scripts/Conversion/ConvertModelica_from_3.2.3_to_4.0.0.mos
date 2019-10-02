@@ -341,6 +341,11 @@ convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.drainCur",
 convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParameters",
                 "No support of automatic conversion for internal classes.")
 
+convertMessage("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex",
+                "No support of automatic conversion for makeshift record MyComplex.")
+convertMessage("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplexF",
+                "No support of automatic conversion for makeshift package MyComplexF.")
+
 convertModifiers({"Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"},
                  fill("",0), {"useHeatPort=false"});
 convertModifiers("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",
