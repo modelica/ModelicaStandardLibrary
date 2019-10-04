@@ -14,26 +14,26 @@ model Engine1b_analytic
         rotation=90)));
 equation
   connect(mid.frame_b, jointRRP.frame_a) annotation (Line(
-      points={{30,-54},{30,-54},{30,-40},{20,-40},{20,0}},
+      points={{40,-54},{50,-54},{50,-46},{20,-46},{20,0}},
       color={95,95,95},
       thickness=0.5));
   connect(jointRRP.frame_b, cylPosition.frame_b) annotation (Line(
-      points={{20,40},{20,80},{-40,80}},
+      points={{20,40},{20,90},{-40,90}},
       color={95,95,95},
       thickness=0.5));
-  connect(jointRRP.axis, gasForce.flange_b) annotation (Line(points={{36,40},{36,60},{80,60}},
-                                     color={0,127,0}));
-  connect(jointRRP.bearing, gasForce.flange_a) annotation (Line(points={{28,40},{28,80},{80,80}},
-                                         color={0,127,0}));
+  connect(jointRRP.axis, gasForce.flange_b) annotation (Line(points={{36,40},{
+          36,60},{80,60},{80,66}},   color={0,127,0}));
+  connect(jointRRP.bearing, gasForce.flange_a) annotation (Line(points={{28,40},
+          {28,90},{80,90},{80,86}},      color={0,127,0}));
   connect(jointRRP.frame_ib, piston.frame_a) annotation (Line(
-      points={{40,36},{60,36},{60,40},{80,40}},
+      points={{40,36},{60,36},{60,54},{80,54},{80,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(jointRRP.frame_ia, connectingRod.frame_a) annotation (Line(
-      points={{40,4},{60,4},{60,-20},{80,-20}},
+  connect(connectingRod.frame_b, jointRRP.frame_ia) annotation (Line(
+      points={{80,-20},{80,-30},{60,-30},{60,4},{40,4}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=0.5), Documentation(info="<html>
+  annotation (experiment(StopTime=5), Documentation(info="<html>
 <p>
 This is the same model as
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.

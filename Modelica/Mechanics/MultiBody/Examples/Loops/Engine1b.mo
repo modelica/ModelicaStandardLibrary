@@ -6,11 +6,13 @@ model Engine1b
   Joints.RevolutePlanarLoopConstraint b2(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{20,20},{40,0}})));
+    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{20,-20},
+            {40,-40}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute b1(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{20,0},{
+            40,20}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic cylinder(
     useAxisFlange=true,
     boxWidth=0.02,
@@ -18,66 +20,65 @@ model Engine1b
         origin={30,70},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Parts.FixedTranslation rod1(r={0,0.2,0}, animation=false) annotation (
+  Parts.FixedTranslation rod1(r={0,-0.2,0},animation=false) annotation (
       Placement(transformation(
         origin={50,-10},
-        extent={{-10,-10},{10,10}},
+        extent={{10,-10},{-10,10}},
         rotation=90)));
   Parts.FixedTranslation rod3(r={0,-0.1,0}, animation=false) annotation (
       Placement(transformation(
-        origin={30,40},
+        origin={30,38},
         extent={{10,-10},{-10,10}},
         rotation=90)));
 equation
-  connect(b1.frame_b, rod1.frame_a) annotation (Line(
-      points={{40,-30},{50,-30},{50,-20}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(rod1.frame_b, b2.frame_b) annotation (Line(
-      points={{50,0},{50,10},{40,10}},
-      color={95,95,95},
-      thickness=0.5));
   connect(cylinder.frame_b, rod3.frame_a) annotation (Line(
-      points={{30,60},{30,50}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(b2.frame_a, rod3.frame_b) annotation (Line(
-      points={{20,10},{10,10},{10,24},{30,24},{30,30}},
+      points={{30,60},{30,48}},
       color={95,95,95},
       thickness=0.5));
   connect(cylPosition.frame_b, cylinder.frame_a) annotation (Line(
-      points={{-40,80},{30,80}},
+      points={{-40,90},{30,90},{30,80}},
       color={95,95,95},
       thickness=0.5));
-  connect(gasForce.flange_a, cylinder.support) annotation (Line(points={{80,80},{40,80},{40,74},{36,74}},
-                                                      color={0,127,0}));
-  connect(cylinder.axis, gasForce.flange_b) annotation (Line(points={{36,62},{40,62},{40,60},{80,60}}, color={0,127,0}));
-  connect(piston.frame_a, rod3.frame_a) annotation (Line(
-      points={{80,40},{80,55},{30,55},{30,50}},
+  connect(gasForce.flange_a, cylinder.support) annotation (Line(points={{80,86},
+          {80,90},{40,90},{40,74},{36,74}},           color={0,127,0}));
+  connect(cylinder.axis, gasForce.flange_b) annotation (Line(points={{36,62},{
+          40,62},{40,60},{80,60},{80,66}},                                                             color={0,127,0}));
+  connect(piston.frame_a, cylinder.frame_b) annotation (Line(
+      points={{80,50},{80,54},{30,54},{30,60}},
       color={95,95,95},
       thickness=0.5));
-  connect(b1.frame_b, connectingRod.frame_a) annotation (Line(
+  connect(rod3.frame_b, b1.frame_a) annotation (Line(
+      points={{30,28},{30,24},{0,24},{0,10},{20,10}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(mid.frame_b, b2.frame_a) annotation (Line(
+      points={{40,-54},{50,-54},{50,-46},{0,-46},{0,-30},{20,-30}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(b2.frame_b, connectingRod.frame_b) annotation (Line(
       points={{40,-30},{80,-30},{80,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(mid.frame_b, b1.frame_a) annotation (Line(
-      points={{30,-54},{30,-44},{10,-44},{10,-30},{20,-30}},
+  connect(b2.frame_b, rod1.frame_b) annotation (Line(
+      points={{40,-30},{50,-30},{50,-20}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(b1.frame_b, rod1.frame_a) annotation (Line(
+      points={{40,10},{50,10},{50,0}},
       color={95,95,95},
       thickness=0.5));
   annotation (
-    experiment(StopTime=0.5),
+    experiment(StopTime=5),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={Rectangle(
-          extent={{-28,100},{60,-42}},
+          extent={{-30,100},{60,-42}},
           lineColor={255,0,0},
           lineThickness=0.5),Text(
-          extent={{-25,100},{55,91}},
+          extent={{-30,0},{30,-20}},
           textColor={255,0,0},
-          textString="jointRRP in model"),Text(
-          extent={{-24,96},{51,78}},
-          textColor={255,0,0},
-          textString="Loops.Engine1b_analytic")}),
+          textString="jointRRP in model
+Loops.Engine1b_analytic")}),
     Documentation(info="<html>
 <p>
 This is a model of the mechanical part of one cylinder of an engine.

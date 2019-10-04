@@ -3,7 +3,7 @@ model Engine1a "Model of one cylinder engine"
   extends Modelica.Icons.Example;
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder piston(diameter=0.1, r={0,-0.1,
         0}) annotation (Placement(transformation(
-        origin={30,40},
+        origin={80,40},
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.BodyBox connectingRod(
@@ -12,13 +12,14 @@ model Engine1a "Model of one cylinder engine"
     height=0.06,
     r={0,-0.2,0},
     color={0,0,200}) annotation (Placement(transformation(
-        origin={50,-10},
+        origin={80,-10},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Modelica.Mechanics.MultiBody.Joints.Revolute b2(
+  Modelica.Mechanics.MultiBody.Joints.Revolute b1(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{20,0},{40,20}})));
+    cylinderDiameter=0.05)
+    annotation (Placement(transformation(extent={{20,0},{40,20}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute bearing(
     useAxisFlange=true,
     n={1,0,0},
@@ -30,33 +31,33 @@ model Engine1a "Model of one cylinder engine"
     stateSelect=StateSelect.always,
     phi(fixed=true, start=0),
     w(fixed=true, start=10),
-    J=1) annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
+    J=1) annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox crank4(
     height=0.05,
     widthDirection={1,0,0},
     width=0.02,
     r={0,-0.1,0}) annotation (Placement(transformation(
-        origin={70,-80},
+        origin={80,-78},
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank1(diameter=0.05, r={0.1,
         0,0}) annotation (Placement(transformation(extent={{-30,-100},{-10,-80}})));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank3(r={0.1,0,0}, diameter=
-        0.03) annotation (Placement(transformation(extent={{30,-80},{50,-60}})));
+        0.03) annotation (Placement(transformation(extent={{40,-76},{60,-56}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox crank2(
     r={0,0.1,0},
     height=0.05,
     widthDirection={1,0,0},
     width=0.02) annotation (Placement(transformation(
-        origin={0,-80},
+        origin={0,-78},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Joints.RevolutePlanarLoopConstraint b1(
+  Joints.RevolutePlanarLoopConstraint b2(
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (Placement(transformation(extent={{20,-20},{40,-40}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation mid(r={0.05,0,0})
-    annotation (Placement(transformation(extent={{10,-44},{30,-64}})));
+    annotation (Placement(transformation(extent={{20,-44},{40,-64}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic cylinder(
     boxWidth=0.02,
     n={0,-1,0},
@@ -65,18 +66,19 @@ model Engine1a "Model of one cylinder engine"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(animation=
-        false, r={0.15,0.45,0}) annotation (Placement(transformation(extent={{-60,70},{-40,90}})));
+        false, r={0.15,0.45,0}) annotation (Placement(transformation(extent={{-60,80},
+            {-40,100}})));
 equation
   connect(world.frame_b, bearing.frame_a) annotation (Line(
       points={{-80,-90},{-60,-90}},
       color={95,95,95},
       thickness=0.5));
   connect(crank2.frame_a, crank1.frame_b) annotation (Line(
-      points={{-4.44089e-016,-90},{-10,-90}},
+      points={{-4.44089e-16,-88},{0,-88},{0,-90},{-10,-90}},
       color={95,95,95},
       thickness=0.5));
   connect(crank2.frame_b, crank3.frame_a) annotation (Line(
-      points={{0,-70},{30,-70}},
+      points={{0,-68},{0,-66},{40,-66}},
       color={95,95,95},
       thickness=0.5));
   connect(bearing.frame_b, crank1.frame_a) annotation (Line(
@@ -84,41 +86,41 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(cylPosition.frame_b, cylinder.frame_a) annotation (Line(
-      points={{-40,80},{30,80}},
+      points={{-40,90},{30,90},{30,80}},
       color={95,95,95},
       thickness=0.5));
   connect(world.frame_b, cylPosition.frame_a) annotation (Line(
-      points={{-80,-90},{-70,-90},{-70,80},{-60,80}},
+      points={{-80,-90},{-70,-90},{-70,90},{-60,90}},
       color={95,95,95},
       thickness=0.5));
   connect(crank3.frame_b, crank4.frame_a) annotation (Line(
-      points={{50,-70},{70,-70}},
+      points={{60,-66},{80,-66},{80,-68}},
       color={95,95,95},
       thickness=0.5));
-  connect(b1.frame_a, mid.frame_b) annotation (Line(
-      points={{20,-30},{10,-30},{10,-44},{30,-44},{30,-54}},
+  connect(b2.frame_a, mid.frame_b) annotation (Line(
+      points={{20,-30},{0,-30},{0,-46},{50,-46},{50,-54},{40,-54}},
       color={95,95,95},
       thickness=0.5));
-  connect(b1.frame_b, connectingRod.frame_b) annotation (Line(
-      points={{40,-30},{50,-30},{50,-20}},
+  connect(b2.frame_b, connectingRod.frame_b) annotation (Line(
+      points={{40,-30},{80,-30},{80,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(connectingRod.frame_a, b2.frame_b) annotation (Line(
-      points={{50,0},{50,10},{40,10}},
+  connect(connectingRod.frame_a, b1.frame_b) annotation (Line(
+      points={{80,0},{80,10},{40,10}},
       color={95,95,95},
       thickness=0.5));
-  connect(b2.frame_a, piston.frame_b) annotation (Line(
-      points={{20,10},{10,10},{10,24},{30,24},{30,30}},
+  connect(b1.frame_a, piston.frame_b) annotation (Line(
+      points={{20,10},{0,10},{0,24},{80,24},{80,30}},
       color={95,95,95},
       thickness=0.5));
   connect(inertia.flange_b, bearing.axis)
-    annotation (Line(points={{-40,-60},{-40,-80},{-50,-80}}));
+    annotation (Line(points={{-40,-50},{-30,-50},{-30,-70},{-50,-70},{-50,-80}}));
   connect(mid.frame_a, crank2.frame_b) annotation (Line(
-      points={{10,-54},{10,-70},{0,-70}},
+      points={{20,-54},{0,-54},{0,-68}},
       color={95,95,95},
       thickness=0.5));
   connect(cylinder.frame_b, piston.frame_a) annotation (Line(
-      points={{30,60},{30,50}},
+      points={{30,60},{30,54},{80,54},{80,50}},
       color={95,95,95},
       thickness=0.5));
   annotation (Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
