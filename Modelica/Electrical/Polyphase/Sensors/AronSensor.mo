@@ -75,9 +75,10 @@ Contains two
 to measure total active power in a three-phase system.
 </p>
 <p>
-This device works only for sinusoidal voltages and currents in three-phase systems without neutral.
+This device works only in three-phase systems without neutral.
 </p>
 <p>
+Massimo Ceraolo: Electric Power Systems - University of PISA <br>
 Elmar Schr&uuml;fer, Leonhard Reindl, Bernhard Zagar: Elektrische Messtechnik. Carl Hanser Verlag.<br>
 Reinhard Lerch: Elektrische Messtechnik. Springer Vieweg.
 </p>
