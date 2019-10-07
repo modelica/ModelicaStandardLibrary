@@ -350,7 +350,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
-The two way switch has a positive pin p and two negative pins n1 and n2.
+The two-way switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the control pin. If its voltage exceeds the value of the parameter level,
 the pin p is connected with the negative pin n2. Otherwise, the pin p is
