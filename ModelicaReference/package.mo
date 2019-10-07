@@ -1084,7 +1084,7 @@ This annotation is for example used in  <a href=\"modelica://Modelica.Media.Wate
 
     annotation (Documentation(info="<html>
 <p>
-Diagnostics message, if inner declaration is missing
+Diagnostic message, if inner declaration is missing
 </p>
 
 <h4>Examples</h4>
@@ -1398,9 +1398,9 @@ In a top-level class, the version number and the dependency to earlier versions 
 
 <li> <code>conversion ( from (version = VERSION-NUMBER, [to = VERSION_NUMBER \",\"] script = \"?\" ) ) </code><br>
      Defines that user models using the VERSION-NUMBER or any of the given VERSION-NUMBER can be upgraded to the given VERSION-NUMBER 
-	 (if the to-tag is missing this is the CURRENT-VERSION-NUMBER) of the current class by applying the given conversion rules. 
-	 <em>The to-tag is added for clarity and optionally allows a tool to convert in multiple steps.</em>
-	 <br>&nbsp;</li>
+     (if the to-tag is missing this is the CURRENT-VERSION-NUMBER) of the current class by applying the given conversion rules. 
+     <em>The to-tag is added for clarity and optionally allows a tool to convert in multiple steps.</em>
+     <br>&nbsp;</li>
 
 <li> <code>uses(IDENT (version = VERSION-NUMBER) )</code><br>
      Defines that classes within this top-level class uses version
@@ -1972,7 +1972,7 @@ a component, according to case (d) above:
     extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
-	<p>
+    <p>
 Modelica functions are normally pure which makes it easy for humans to reason about the code 
 since they behave as mathematical functions, and possible for compilers to optimize.</p>
 <ul>
@@ -1994,7 +1994,7 @@ if they are impure they shall be marked with the impure keyword. They can be exp
 without pure or impure keyword are assumed to be impure – but without any restriction on calling them. 
 Except for the function Modelica.Utilities.Streams.print diagnostics must be given if called in a simulation model.</li>
 </ul>
-	</html>"));
+    </html>"));
   end 'pure function';
      annotation (Documentation(info="<html>
 <p>
@@ -2056,8 +2056,8 @@ general Modelica class:
 
 <li> For a function to be called in a simulation model, the function may not be partial,
      and the output variables must be assigned inside the function either in declaration assignments 
-	 or in an algorithm section, or have an external function interface as its body, or be defined as a function partial derivative. 
-	 The output variables of a function should be computed.</li>
+     or in an algorithm section, or have an external function interface as its body, or be defined as a function partial derivative. 
+     The output variables of a function should be computed.</li>
 
 <li> A function cannot contain calls to the Modelica built-in operators
      der, initial, terminal, sample, pre, edge, change, reinit, delay,
@@ -7073,22 +7073,22 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
       <th>Author</th>
       <th>Comment</th>
     </tr>
-	<tr>
+    <tr>
       <td></td>
       <td>2019-09-27</td>
       <td><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
       <td>
-	  Update to Modelica Specification 3.4 (except grammar):
+      Update to Modelica Specification 3.4 (except grammar):
       <ul>
       <li>Change of missingInnerMessage, to indicate that it less important.</li>
-	  <li>Example for InlineAfterIndexReduction.</li>
-	  <li>Version conversions are specified, and to-version is possible.</li>
-	  <li>The function section was rewritten, and pure functions added as a sub-class, and function partial application also moved to a sub-class.</li>
-	  <li>Correct constrained to constrainedby (could also be constraining-clause).</li>
-	  <li>Remaining: synchronous, state machines, specifying conversions(?), ...</li>
+      <li>Example for InlineAfterIndexReduction.</li>
+      <li>Version conversions are specified, and to-version is possible.</li>
+      <li>The function section was rewritten, and pure functions added as a sub-class, and function partial application also moved to a sub-class.</li>
+      <li>Correct constrained to constrainedby (could also be constraining-clause).</li>
+      <li>Remaining: synchronous, state machines, specifying conversions(?), ...</li>
       </ul>
       </td>
-	</tr>
+    </tr>
     <tr>
       <td></td>
       <td>2017-09-22</td>
@@ -7101,7 +7101,7 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
       <li>Some stylistic improvements of the English text</li>
       </ul>
       </td>
-	 </tr>
+     </tr>
      <tr>
       <td></td>
       <td>2013-07-26</td>
