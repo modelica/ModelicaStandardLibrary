@@ -2299,9 +2299,9 @@ is given to compare the approximation.
 
     parameter Modelica.SIunits.Volume V=1 "Fixed size of volume 1 and volume 2";
     parameter Modelica.SIunits.MassFlowRate m_flow_ext=0.01
-      "Fixed mass flow rate in to volume 1 and in to volume 2";
+      "Fixed mass flow rate into volume 1 and into volume 2";
     parameter Modelica.SIunits.EnthalpyFlowRate H_flow_ext=5000
-      "Fixed enthalpy flow rate in to volume 1 and in to volume 2";
+      "Fixed enthalpy flow rate into volume 1 and into volume 2";
 
     package Medium1 = Modelica.Media.IdealGases.MixtureGases.CombustionAir
       "Medium model";
