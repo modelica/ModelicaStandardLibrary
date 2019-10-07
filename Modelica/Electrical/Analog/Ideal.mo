@@ -147,7 +147,7 @@ Otherwise, the GTO thyristor is locking.
               thickness=0.5)}));
   end IdealGTOThyristor;
 
-  model IdealCommutingSwitch "Ideal commuting switch"
+  model IdealTwoWaySwitch "Ideal commuting switch"
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
@@ -183,7 +183,7 @@ Otherwise, the GTO thyristor is locking.
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
-The commuting switch has a positive pin p and two negative pins n1 and n2.
+The two way switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
@@ -227,7 +227,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
             extent={{-150,90},{150,50}},
             textString="%name",
             textColor={0,0,255})}));
-  end IdealCommutingSwitch;
+  end IdealTwoWaySwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
@@ -315,7 +315,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
               100,100}})));
   end IdealIntermediateSwitch;
 
-  model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
+  model ControlledIdealTwoWaySwitch "Controlled ideal commuting switch"
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
@@ -350,7 +350,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
-The commuting switch has a positive pin p and two negative pins n1 and n2.
+The two way switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the control pin. If its voltage exceeds the value of the parameter level,
 the pin p is connected with the negative pin n2. Otherwise, the pin p is
@@ -395,7 +395,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
             extent={{-150,90},{150,50}},
             textString="%name",
             textColor={0,0,255})}));
-  end ControlledIdealCommutingSwitch;
+  end ControlledIdealTwoWaySwitch;
 
   model ControlledIdealIntermediateSwitch
     "Controlled ideal intermediate switch"
