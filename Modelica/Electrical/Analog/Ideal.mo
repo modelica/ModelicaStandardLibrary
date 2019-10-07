@@ -147,7 +147,7 @@ Otherwise, the GTO thyristor is locking.
               thickness=0.5)}));
   end IdealGTOThyristor;
 
-  model IdealTwoWaySwitch "Ideal commuting switch"
+  model IdealTwoWaySwitch "Ideal two-way switch"
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
@@ -315,7 +315,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
               100,100}})));
   end IdealIntermediateSwitch;
 
-  model ControlledIdealTwoWaySwitch "Controlled ideal commuting switch"
+  model ControlledIdealTwoWaySwitch "Controlled ideal two-way switch"
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
