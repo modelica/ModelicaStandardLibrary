@@ -1754,8 +1754,8 @@ package Interfaces "Connectors and partial models"
   extends Modelica.Icons.InterfacesPackage;
 
   connector Step_in "Input port of a step"
-    output Boolean occupied "true, if step is active" annotation (HideResult=true);
-    input Boolean set "true, if transition fires and step is activated" annotation (HideResult=true);
+    output Boolean occupied "= true, if step is active" annotation (HideResult=true);
+    input Boolean set "= true, if transition fires and step is activated" annotation (HideResult=true);
     annotation (
    Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1772,9 +1772,9 @@ package Interfaces "Connectors and partial models"
   end Step_in;
 
   connector Step_out "Output port of a step"
-    output Boolean available "true, if step is active" annotation (HideResult=true);
+    output Boolean available "= true, if step is active" annotation (HideResult=true);
 
-    input Boolean reset "true, if transition fires and step is deactivated"
+    input Boolean reset "= true, if transition fires and step is deactivated"
       annotation (HideResult=true);
 
     annotation (Icon(coordinateSystem(
@@ -1795,10 +1795,10 @@ package Interfaces "Connectors and partial models"
 
   connector Transition_in "Input port of a transition"
     input Boolean available
-        "true, if step connected to the transition input is active"
+        "= true, if step connected to the transition input is active"
       annotation (HideResult=true);
     output Boolean reset
-        "true, if transition fires and the step connected to the transition input is deactivated"
+        "= true, if transition fires and the step connected to the transition input is deactivated"
       annotation (HideResult=true);
 
     annotation (Icon(coordinateSystem(
@@ -1817,10 +1817,10 @@ package Interfaces "Connectors and partial models"
 
   connector Transition_out "Output port of a transition"
     input Boolean occupied
-        "true, if step connected to the transition output is active"
+        "= true, if step connected to the transition output is active"
       annotation (HideResult=true);
     output Boolean set
-        "true, if transition fires and step connected to the transition output becomes active"
+        "= true, if transition fires and step connected to the transition output becomes active"
       annotation (HideResult=true);
 
     annotation (Icon(coordinateSystem(
@@ -1841,8 +1841,8 @@ package Interfaces "Connectors and partial models"
 
   connector CompositeStep_resume
       "Input port of a step (used for resume connector of a CompositeStep)"
-    output Boolean occupied "true, if step is active" annotation (HideResult=true);
-    input Boolean set "true, if transition fires and step is activated"
+    output Boolean occupied "= true, if step is active" annotation (HideResult=true);
+    input Boolean set "= true, if transition fires and step is activated"
       annotation (HideResult=true);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -1853,9 +1853,9 @@ package Interfaces "Connectors and partial models"
   connector CompositeStep_suspend
       "Output port of a step (used for suspend connector of a CompositeStep)"
 
-    output Boolean available "true, if step is active" annotation (HideResult=true);
+    output Boolean available "= true, if step is active" annotation (HideResult=true);
 
-    input Boolean reset "true, if transition fires and step is deactivated"
+    input Boolean reset "= true, if transition fires and step is deactivated"
       annotation (HideResult=true);
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1898,7 +1898,7 @@ package Interfaces "Connectors and partial models"
      and both components inherit from PartialStep
   */
     output Boolean localActive
-        "= true if step is active, otherwise the step is not active"
+        "= true, if step is active, otherwise the step is not active"
       annotation (HideResult=true);
     Interfaces.Step_in inPort[nIn] "Vector of step input connectors"
       annotation (Placement(transformation(extent={{-120,10},{-100,-10}})));
@@ -1987,7 +1987,7 @@ package Interfaces "Connectors and partial models"
         "Wait time before transition fires"
       annotation (Dialog(group="Timer", enable=enableTimer));
     output Modelica.SIunits.Time t
-        "= actual waiting time (transition will fire when t > waitTime)";
+        "Actual waiting time (transition will fire when t > waitTime)";
     output Boolean enableFire "= true, if all firing conditions are true";
     output Boolean fire "= true, if transition fires" annotation (HideResult=true);
 
@@ -2048,8 +2048,8 @@ package Interfaces "Connectors and partial models"
   model CompositeStepState
       "Communication channel between CompositeSteps and steps in the CompositeStep"
 
-    output Boolean suspend = false;
-    output Boolean resume =  false;
+    output Boolean suspend = false "= true, if suspend transition of CompositeStep fires";
+    output Boolean resume =  false "= true, if resume transition of CompositeStep fires";
     CompositeStepStatePort_out subgraphStatePort;
 
   /*
@@ -2072,7 +2072,7 @@ end Interfaces;
 block InitialStep "Initial step (= step that is active when simulation starts)"
 
   output Boolean active
-      "= true if step is active, otherwise the step is not active";
+      "= true, if step is active, otherwise the step is not active";
 
   extends Interfaces.PartialStep;
 
@@ -2133,7 +2133,7 @@ end InitialStepWithSignal;
 block Step "Ordinary step (= step that is not active when simulation starts)"
 
   output Boolean active
-      "= true if step is active, otherwise the step is not active";
+      "= true, if step is active, otherwise the step is not active";
 
   extends Interfaces.PartialStep;
 
@@ -2288,9 +2288,9 @@ block Alternative
 connector Step_in_forAlternative
       "Input port of a step (has special icon for usage in component 'Alternative')"
 
-  output Boolean occupied "true, if step is active"
+  output Boolean occupied "= true, if step is active"
     annotation (HideResult=true);
-  input Boolean set "true, if transition fires and step is activated"
+  input Boolean set "= true, if transition fires and step is activated"
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
@@ -2308,9 +2308,9 @@ end Step_in_forAlternative;
 connector Step_out_forAlternative
       "Output port of a step (has special icon for usage in component 'Alternative')"
 
-  output Boolean available "true, if step is active"
+  output Boolean available "= true, if step is active"
     annotation (HideResult=true);
-  input Boolean reset "true, if transition fires and step is deactivated"
+  input Boolean reset "= true, if transition fires and step is deactivated"
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
@@ -2393,10 +2393,10 @@ connector Transition_in_forParallel
       "Input port of a transition (has special icon for usage in component 'Parallel')"
 
   input Boolean available
-        "true, if step connected to the transition input is active"
+        "= true, if step connected to the transition input is active"
     annotation (HideResult=true);
   output Boolean reset
-        "true, if transition fires and the step connected to the transition input is deactivated"
+        "= true, if transition fires and the step connected to the transition input is deactivated"
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
@@ -2434,10 +2434,10 @@ connector Transition_out_forParallel
       "Output port of a transition (has special icon for usage in component 'Parallel')"
 
   input Boolean occupied
-        "true, if step connected to the transition output is active"
+        "= true, if step connected to the transition output is active"
     annotation (HideResult=true);
   output Boolean set
-        "true, if transition fires and step connected to the transition output becomes active"
+        "= true, if transition fires and step connected to the transition output becomes active"
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
@@ -2529,7 +2529,7 @@ partial model PartialCompositeStep
                   resume  = Modelica.Math.BooleanVectors.anyTrue(resume.set) or outerState.subgraphStatePort.resume)
       "Communication port between the CompositeStep and the steps within the CompositeStep";
   output Boolean active
-      "= true if step is active, otherwise the step is not active";
+      "= true, if step is active, otherwise the step is not active";
   StateGraph.Interfaces.Step_in inPort annotation (Placement(transformation(
             extent={{-170,10},{-150,-10}})));
   StateGraph.Interfaces.Step_out outPort annotation (Placement(transformation(
