@@ -183,7 +183,7 @@ Otherwise, the GTO thyristor is locking.
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
-The two way switch has a positive pin p and two negative pins n1 and n2.
+The two-way switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
