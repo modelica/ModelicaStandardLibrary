@@ -270,6 +270,9 @@ convertClass("Modelica.Electrical.Machines.Utilities.CurrentController",
 convertClass("Modelica.Electrical.Machines.Utilities.VoltageController",
               "Modelica.Electrical.Machines.Utilities.DQCurrentController");
 
+// The Modelica_Synchronous library was integrated into the MSL as Modelica.Clocked
+convertClass("Modelica_Synchronous", "Modelica.Clocked")
+
 // Change renamed elements of classes
 // mue -> mu
 convertClass("Modelica.Constants.mue_0", "Modelica.Constants.mu_0");
