@@ -3,14 +3,14 @@ model Engine1b
   "Model of one cylinder engine with gas force and preparation for assembly joint JointRRP"
   extends Modelica.Icons.Example;
   extends Utilities.Engine1bBase(inertia(w(start=0)));
-  Joints.RevolutePlanarLoopConstraint b2(
-    n={1,0,0},
-    cylinderLength=0.02,
-    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{40,-30},{60,-50}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute b1(
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+  Joints.RevolutePlanarLoopConstraint b2(
+    n={1,0,0},
+    cylinderLength=0.02,
+    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{40,-30},{60,-50}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic cylinder(
     useAxisFlange=true,
     boxWidth=0.02,

@@ -830,16 +830,6 @@ solved analytically.
         start=0.001,
         displayUnit="rad")) annotation (Placement(transformation(
             extent={{-60,-60},{-40,-40}})));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox crank4(
-      height=0.05,
-      widthDirection={1,0,0},
-      width=0.02,
-      r={0,-0.1,0}) annotation (Placement(transformation(
-          origin={90,-80},
-          extent={{10,-10},{-10,10}},
-          rotation=90)));
-    Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank3(r={0.1,0,0}, diameter=0.03)
-      annotation (Placement(transformation(extent={{40,-76},{60,-56}})));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank1(diameter=0.05, r={0.1,0,0})
       annotation (Placement(transformation(extent={{-30,-100},{-10,-80}})));
     Modelica.Mechanics.MultiBody.Parts.BodyBox crank2(
@@ -847,9 +837,19 @@ solved analytically.
       widthDirection={1,0,0},
       width=0.02,
       r={0,0.1,0})
-                  annotation (Placement(transformation(
+      annotation (Placement(transformation(
           origin={0,-80},
           extent={{-10,-10},{10,10}},
+          rotation=90)));
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank3(r={0.1,0,0}, diameter=0.03) annotation (
+                                   Placement(transformation(extent={{40,-76},{60,-56}})));
+    Modelica.Mechanics.MultiBody.Parts.BodyBox crank4(
+      height=0.05,
+      widthDirection={1,0,0},
+      width=0.02,
+      r={0,-0.1,0}) annotation (Placement(transformation(
+          origin={90,-80},
+          extent={{10,-10},{-10,10}},
           rotation=90)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation mid(r={0.05,0,0})
       annotation (Placement(transformation(extent={{-10,10},{10,-10}},
