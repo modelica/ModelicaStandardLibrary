@@ -802,7 +802,7 @@ solved analytically.
 
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder piston(diameter=0.1, r={0,-0.1,0})
       annotation (Placement(transformation(
-          origin={80,40},
+          origin={90,40},
           extent={{-10,10},{10,-10}},
           rotation=270)));
     Modelica.Mechanics.MultiBody.Parts.BodyBox connectingRod(
@@ -811,8 +811,8 @@ solved analytically.
       height=0.06,
       color={0,0,200},
       r={0,-0.2,0})
-                   annotation (Placement(transformation(
-          origin={80,-10},
+      annotation (Placement(transformation(
+          origin={90,-20},
           extent={{10,-10},{-10,10}},
           rotation=90)));
     Modelica.Mechanics.MultiBody.Joints.Revolute bearing(useAxisFlange=true,
@@ -835,12 +835,11 @@ solved analytically.
       widthDirection={1,0,0},
       width=0.02,
       r={0,-0.1,0}) annotation (Placement(transformation(
-          origin={80,-78},
+          origin={90,-80},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank3(r={0.1,0,0}, diameter=0.03) annotation (
-                                   Placement(transformation(extent={{40,-76},{
-              60,-56}})));
+    Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank3(r={0.1,0,0}, diameter=0.03)
+      annotation (Placement(transformation(extent={{40,-76},{60,-56}})));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank1(diameter=0.05, r={0.1,0,0})
       annotation (Placement(transformation(extent={{-30,-100},{-10,-80}})));
     Modelica.Mechanics.MultiBody.Parts.BodyBox crank2(
@@ -849,19 +848,18 @@ solved analytically.
       width=0.02,
       r={0,0.1,0})
                   annotation (Placement(transformation(
-          origin={0,-78},
+          origin={0,-80},
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation mid(r={0.05,0,0})
-      annotation (Placement(transformation(extent={{20,-44},{40,-64}})));
+      annotation (Placement(transformation(extent={{-10,10},{10,-10}},
+          rotation=0,
+          origin={20,-40})));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(animation=false, r={0.15,
           0.45,0})
-      annotation (Placement(transformation(extent={{-60,80},{-40,100}})));
-    Utilities.GasForce2 gasForce(d=0.1, L=0.35)
-      annotation (Placement(transformation(
-          origin={80,76},
-          extent={{10,-10},{-10,10}},
-          rotation=90)));
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+          rotation=90,
+          origin={-70,40})));
   equation
     connect(world.frame_b, bearing.frame_a)
       annotation (Line(
@@ -869,7 +867,7 @@ solved analytically.
         color={95,95,95},
         thickness=0.5));
     connect(crank2.frame_a, crank1.frame_b) annotation (Line(
-        points={{-4.44089e-16,-88},{0,-88},{0,-90},{-10,-90}},
+        points={{-4.44089e-16,-90},{-10,-90}},
         color={95,95,95},
         thickness=0.5));
     connect(bearing.frame_b, crank1.frame_a) annotation (Line(
@@ -877,21 +875,20 @@ solved analytically.
         color={95,95,95},
         thickness=0.5));
     connect(world.frame_b, cylPosition.frame_a) annotation (Line(
-        points={{-80,-90},{-70,-90},{-70,90},{-60,90}},
+        points={{-80,-90},{-70,-90},{-70,30}},
         color={95,95,95},
         thickness=0.5));
     connect(crank3.frame_b, crank4.frame_a) annotation (Line(
-        points={{60,-66},{80,-66},{80,-68}},
+        points={{60,-66},{90,-66},{90,-70}},
         color={95,95,95},
         thickness=0.5));
-    connect(inertia.flange_b, bearing.axis) annotation (Line(points={{-40,-50},
-            {-30,-50},{-30,-70},{-50,-70},{-50,-80}}));
+    connect(inertia.flange_b, bearing.axis) annotation (Line(points={{-40,-50},{-40,-70},{-50,-70},{-50,-80}}));
     connect(crank2.frame_b, crank3.frame_a) annotation (Line(
-        points={{6.66134e-16,-68},{0,-68},{0,-66},{40,-66}},
+        points={{6.66134e-16,-70},{6.66134e-16,-66},{40,-66}},
         color={95,95,95},
         thickness=0.5));
     connect(crank2.frame_b, mid.frame_a) annotation (Line(
-        points={{6.66134e-16,-68},{0,-68},{0,-54},{20,-54}},
+        points={{6.66134e-16,-70},{6.66134e-16,-40},{10,-40}},
         color={95,95,95},
         thickness=0.5));
     annotation (
