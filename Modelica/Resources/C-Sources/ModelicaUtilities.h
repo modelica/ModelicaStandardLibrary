@@ -44,106 +44,37 @@
 #ifndef MODELICA_UTILITIES_H
 #define MODELICA_UTILITIES_H
 
+#include "hedley.h"
 #include <stddef.h>
 #include <stdarg.h>
 
-#if defined(__cplusplus)
-extern "C" {
-#endif
+HEDLEY_BEGIN_C_DECLS
 
 /*
   Some of the functions never return to the caller. In order to compile
   external Modelica C-code in most compilers, noreturn attributes need to
   be present to avoid warnings or errors.
-
-  The following macros handle noreturn attributes according to the latest
-  C11/C++11 standard with fallback to GNU, Clang or MSVC extensions if using
-  an older compiler.
 */
-
-#if __STDC_VERSION__ >= 201112L
-#define MODELICA_NORETURN _Noreturn
-#define MODELICA_NORETURNATTR
-#elif defined(__cplusplus) && __cplusplus >= 201103L
-#if (defined(__GNUC__) && __GNUC__ >= 5) || \
-    (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 4 && __GNUC_MINOR__ >= 8)
-#define MODELICA_NORETURN [[noreturn]]
-#define MODELICA_NORETURNATTR
-#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
-      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8)
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR __attribute__((noreturn))
-#elif defined(__GNUC__)
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR
-#else
-#define MODELICA_NORETURN [[noreturn]]
-#define MODELICA_NORETURNATTR
-#endif
-#elif defined(__clang__)
-/* Encapsulated for Clang since GCC fails to process __has_attribute */
-#if __has_attribute(noreturn)
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR __attribute__((noreturn))
-#else
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR
-#endif
-#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
-      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8) || \
-      (defined(__SUNPRO_C) && __SUNPRO_C >= 0x5110)
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR __attribute__((noreturn))
-#elif (defined(_MSC_VER) && _MSC_VER >= 1200) || \
-       defined(__BORLANDC__)
-#define MODELICA_NORETURN __declspec(noreturn)
-#define MODELICA_NORETURNATTR
-#else
-#define MODELICA_NORETURN
-#define MODELICA_NORETURNATTR
-#endif
-
-/*
-  The following macros handle format attributes for type-checks against a
-  format string.
-*/
-
-#if defined(__clang__)
-/* Encapsulated for Clang since GCC fails to process __has_attribute */
-#if __has_attribute(format)
-#define MODELICA_FORMATATTR_PRINTF __attribute__((format(printf, 1, 2)))
-#define MODELICA_FORMATATTR_VPRINTF __attribute__((format(printf, 1, 0)))
-#else
-#define MODELICA_FORMATATTR_PRINTF
-#define MODELICA_FORMATATTR_VPRINTF
-#endif
-#elif defined(__GNUC__) && __GNUC__ >= 3
-#define MODELICA_FORMATATTR_PRINTF __attribute__((format(printf, 1, 2)))
-#define MODELICA_FORMATATTR_VPRINTF __attribute__((format(printf, 1, 0)))
-#else
-#define MODELICA_FORMATATTR_PRINTF
-#define MODELICA_FORMATATTR_VPRINTF
-#endif
 
 void ModelicaMessage(const char *string);
 /*
 Output the message string (no format control).
 */
 
-
-void ModelicaFormatMessage(const char *string, ...) MODELICA_FORMATATTR_PRINTF;
+HEDLEY_PRINTF_FORMAT(1, 2)
+void ModelicaFormatMessage(const char *string, ...);
 /*
 Output the message under the same format control as the C-function printf.
 */
 
-
-void ModelicaVFormatMessage(const char *string, va_list args) MODELICA_FORMATATTR_VPRINTF;
+HEDLEY_PRINTF_FORMAT(1, 0)
+void ModelicaVFormatMessage(const char *string, va_list args);
 /*
 Output the message under the same format control as the C-function vprintf.
 */
 
-
-MODELICA_NORETURN void ModelicaError(const char *string) MODELICA_NORETURNATTR;
+HEDLEY_NO_RETURN
+void ModelicaError(const char *string);
 /*
 Output the error message string (no format control). This function
 never returns to the calling function, but handles the error
@@ -155,31 +86,35 @@ void ModelicaWarning(const char *string);
 Output the warning message string (no format control).
 */
 
-void ModelicaFormatWarning(const char *string, ...) MODELICA_FORMATATTR_PRINTF;
+HEDLEY_PRINTF_FORMAT(1, 2)
+void ModelicaFormatWarning(const char *string, ...);
 /*
 Output the warning message under the same format control as the C-function printf.
 */
 
-void ModelicaVFormatWarning(const char *string, va_list args) MODELICA_FORMATATTR_VPRINTF;
+HEDLEY_PRINTF_FORMAT(1, 0)
+void ModelicaVFormatWarning(const char *string, va_list args);
 /*
 Output the warning message under the same format control as the C-function vprintf.
 */
 
-MODELICA_NORETURN void ModelicaFormatError(const char *string, ...) MODELICA_NORETURNATTR MODELICA_FORMATATTR_PRINTF;
+HEDLEY_NO_RETURN
+HEDLEY_PRINTF_FORMAT(1, 2)
+void ModelicaFormatError(const char *string, ...);
 /*
 Output the error message under the same format control as the C-function
 printf. This function never returns to the calling function,
 but handles the error similarly to an assert in the Modelica code.
 */
 
-
-MODELICA_NORETURN void ModelicaVFormatError(const char *string, va_list args) MODELICA_NORETURNATTR MODELICA_FORMATATTR_VPRINTF;
+HEDLEY_NO_RETURN
+HEDLEY_PRINTF_FORMAT(1, 0)
+void ModelicaVFormatError(const char *string, va_list args);
 /*
 Output the error message under the same format control as the C-function
 vprintf. This function never returns to the calling function,
 but handles the error similarly to an assert in the Modelica code.
 */
-
 
 char* ModelicaAllocateString(size_t len);
 /*
@@ -190,7 +125,6 @@ calling program, as for any other array. If an error occurs, this
 function does not return, but calls "ModelicaError".
 */
 
-
 char* ModelicaAllocateStringWithErrorReturn(size_t len);
 /*
 Same as ModelicaAllocateString, except that in case of error, the
@@ -200,8 +134,6 @@ resources use ModelicaError or ModelicaFormatError to signal
 the error.
 */
 
-#if defined(__cplusplus)
-}
-#endif
+HEDLEY_END_C_DECLS
 
 #endif
