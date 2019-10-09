@@ -442,3 +442,7 @@ convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInduction
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"},
                 "airGapR", "airGap")
+convertClass("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
+             "Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch");
+convertClass("Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch",
+             "Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch");
