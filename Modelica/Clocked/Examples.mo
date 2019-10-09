@@ -2566,7 +2566,7 @@ simplified realistic applications.
         annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Clocked.RealSignals.Sampler.SampleClocked sample1
           annotation (Placement(transformation(extent={{16,52},{28,64}})));
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-24,48},{-4,68}})));
@@ -2604,7 +2604,7 @@ Example used to generate a figure for the documentation of block
         annotation (Placement(transformation(extent={{-26,24},{-14,36}})));
         Modelica.Clocked.RealSignals.Sampler.SampleClocked sample1
           annotation (Placement(transformation(extent={{10,56},{22,68}})));
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-30,52},{-10,72}})));
@@ -2642,7 +2642,7 @@ Example used to generate a figure for the documentation of block
           annotation (Placement(transformation(extent={{-22,24},{-10,36}})));
         Modelica.Clocked.RealSignals.Sampler.SampleClocked sample1
           annotation (Placement(transformation(extent={{14,54},{26,66}})));
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-26,50},{-6,70}})));
@@ -2675,7 +2675,7 @@ Example used to generate a figure for the documentation of block
 
         Modelica.Blocks.Sources.Sine angle_input(
           amplitude = 10,
-          freqHz = 1)
+          f = 1)
           annotation (Placement(transformation(extent = {{-70,-10},{-50,10}})));
         Modelica.Blocks.Sources.Pulse trigger_interval_input(
           amplitude = 2,
@@ -2727,11 +2727,11 @@ Example used to generate a figure for the documentation of block
 
         Modelica.Blocks.Sources.Sine sine_angle_input(
           amplitude = 10,
-          freqHz = 1)
+          f = 1)
           annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
         Modelica.Blocks.Sources.Cosine cosine_angle_input(
           amplitude = 10,
-          freqHz = 1)
+          f = 1)
           annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
         Modelica.Blocks.Sources.Pulse trigger_interval_input(
           amplitude = 2,
@@ -2840,7 +2840,7 @@ sub-library.
       model Sample1 "Example of a Sample block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -2963,7 +2963,7 @@ Example used to generate a figure for the documentation of block
       model SampleClocked "Example of a SampleClocked block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -2997,7 +2997,7 @@ Example used to generate a figure for the documentation of block
          extends Modelica.Icons.Example;
 
         Modelica.Blocks.Sources.Sine sine2(
-        freqHz=2,
+        f=2,
         offset=0.1,
         startTime=0)
           annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
@@ -3007,7 +3007,7 @@ Example used to generate a figure for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-28,-6},{-16,6}})));
-        Modelica.Blocks.Sources.Sine sine1(startTime=0, freqHz=3)
+        Modelica.Blocks.Sources.Sine sine1(startTime=0, f=3)
           annotation (Placement(transformation(extent={{-80,-2},{-60,18}})));
       equation
       connect(periodicClock.y, sample.clock) annotation (Line(
@@ -3035,7 +3035,7 @@ Example used to generate a figure for the documentation of block
         "Example of a SampleWithADeffects block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           startTime=0,
           amplitude=0.95)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3079,7 +3079,7 @@ Example used to generate a figure for the documentation of block
       model Hold "Example of a Hold block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3123,7 +3123,7 @@ Example used to generate a figure for the documentation of block
         "Example of a HoldWithDAeffects block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           startTime=0,
         amplitude=2)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3174,7 +3174,7 @@ Example used to generate a figure for the documentation of block
         "Example of a HoldWithDAeffects block for Real signals (with a computational delay of one sample period)"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           startTime=0,
         amplitude=2)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3224,7 +3224,7 @@ Example used to generate a figure for the documentation of block
       model SubSample "Example of a SubSample block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3262,7 +3262,7 @@ Example used to generate a figure for the documentation of block
       model SuperSample "Example of a SuperSample block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3302,7 +3302,7 @@ Example used to generate a figure for the documentation of block
         "Example of a SuperSampleInterpolated block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3341,7 +3341,7 @@ Example used to generate a figure for the documentation of block
       model ShiftSample "Example of a ShiftSample block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3379,7 +3379,7 @@ Example used to generate a figure for the documentation of block
       model BackSample "Example of a BackSample block for Real signals"
          extends Modelica.Icons.Example;
 
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3532,7 +3532,7 @@ Example used to generate a figure for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3584,7 +3584,7 @@ Example used to generate a figure for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3642,7 +3642,7 @@ Example used to generate a figure for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3689,7 +3689,7 @@ Example used to generate a figure for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3800,7 +3800,7 @@ Example used to generate a figure for the documentation of block
         Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock periodicClock(
             factor=20, resolution=Modelica.Clocked.Types.Resolution.ms)
           annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
-        Modelica.Blocks.Sources.Sine sine(freqHz=2,
+        Modelica.Blocks.Sources.Sine sine(f=2,
           offset=0.1,
           startTime=0)
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
@@ -3900,7 +3900,7 @@ Example for block
         periodicClock1(period=0.1)
         annotation (Placement(transformation(extent={{-70,-18},{-58,-6}})));
       Modelica.Clocked.RealSignals.TimeBasedSources.Sine
-                                                    sine(freqHz=2)
+                                                    sine(f=2)
         annotation (Placement(transformation(extent={{-66,20},{-46,40}})));
       equation
 
@@ -3935,7 +3935,7 @@ Example for block
           startTick=4)
         annotation (Placement(transformation(extent={{-72,20},{-52,40}})));
       Modelica.Blocks.Sources.Sine sineRef(
-        freqHz=1,
+        f=1,
         phase=1/5*(2*Modelica.Constants.pi),
         startTime=0.3)
         annotation (Placement(transformation(extent={{-72,58},{-52,78}})));

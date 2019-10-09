@@ -271,6 +271,8 @@ convertClass("Modelica.Electrical.Machines.Utilities.VoltageController",
               "Modelica.Electrical.Machines.Utilities.DQCurrentController");
 
 // The Modelica_Synchronous library was integrated into the MSL as Modelica.Clocked
+convertElement({"Modelica_Synchronous.RealSignals.TimeBasedSources.Sin"},
+                           "freqHz", "f");
 convertClass("Modelica_Synchronous", "Modelica.Clocked")
 
 // Change renamed elements of classes

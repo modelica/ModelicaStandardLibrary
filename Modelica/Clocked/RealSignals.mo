@@ -3724,7 +3724,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRa
         block Sine "Generate sine signal"
           extends Interfaces.PartialClockedSO;
           parameter Real amplitude=1 "Amplitude of sine wave";
-          parameter Modelica.SIunits.Frequency freqHz(start=1)
+          parameter Modelica.SIunits.Frequency f(start=1)
         "Frequency of sine wave";
           parameter Modelica.SIunits.Angle phase=0 "Phase of sine wave";
           parameter Real offset=0 "Offset of output signal";
@@ -3737,7 +3737,7 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRa
         equation
           simTime = sample(time);
           y = offset + (if simTime < startTime then 0 else amplitude*
-            Modelica.Math.sin(2*pi*freqHz*(simTime - startTime) + phase));
+            Modelica.Math.sin(2*pi*f*(simTime - startTime) + phase));
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=false,
