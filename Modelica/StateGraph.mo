@@ -1944,8 +1944,11 @@ package Interfaces "Connectors and partial models"
     outer Interfaces.CompositeStepState stateGraphRoot;
     model OuterStatePort
       CompositeStepStatePort_in subgraphStatePort;
+      input Boolean localActive;
+    equation
+      subgraphStatePort.activeSteps = if localActive then 1.0 else 0.0;
     end OuterStatePort;
-    OuterStatePort outerStatePort;
+    OuterStatePort outerStatePort(localActive=localActive);
 
     Boolean newActive "Value of active in the next iteration"
       annotation (HideResult=true);
@@ -1982,9 +1985,6 @@ package Interfaces "Connectors and partial models"
     when outerStatePort.subgraphStatePort.suspend then
       oldActive = localActive;
     end when;
-
-    // Report state to CompositeStep
-    outerStatePort.subgraphStatePort.activeSteps = if localActive then 1.0 else 0.0;
 
     // Report state to input and output transitions
     for i in 1:nIn loop
@@ -2585,8 +2585,11 @@ partial model PartialCompositeStep
       "Block containing the port that is connected to the outer stateGraphRoot"
     Interfaces.CompositeStepStatePort_in subgraphStatePort
         "Port connected to outer stateGraphRoot";
+    input Boolean active;
+  equation
+    subgraphStatePort.activeSteps = if active then 1.0 else 0.0;
   end OuterState;
-  OuterState outerState;
+  OuterState outerState(active=active);
 
   protected
   model InnerState
@@ -2602,9 +2605,7 @@ initial equation
   // pre(active) = pre(newActive);
 equation
   // connect to outer CompositeStep
-
   connect(outerState.subgraphStatePort, stateGraphRoot.subgraphStatePort);
-  outerState.subgraphStatePort.activeSteps = if active then 1.0 else 0.0;
 
   // set active flag  of CompositeStep
   activeSteps = -integer(innerState.stateGraphRoot.subgraphStatePort.activeSteps);
