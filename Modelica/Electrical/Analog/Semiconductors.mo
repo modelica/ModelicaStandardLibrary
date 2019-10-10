@@ -45,21 +45,28 @@ package Semiconductors
       Documentation(info="<html>
 <p>
 The simple diode is an electrical one port, where a heat port is added, which is
-defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic
-resistance <em>R</em>. The diode formula is:
+defined in the Modelica.Thermal library. It consists of the diode itself and a parallel ohmic
+resistance <em>R</em>. If <em>useTemperatureDependency</em> is set to <em>true</em>, the diode formula is:
 </p>
 <pre>
-                v/vt_t
-  i  =  ids ( e        - 1).
+               v/N/vt_t
+  i  =  Ids (e          - 1)
 
 </pre>
-where vt_t depends on the temperature of the heat port:
+where <em>vt_t</em> depends on the temperature of the heat port:
 <pre>
   vt_t = k*temp/q
 </pre>
 <p>
-If the exponent <em>v/vt_t</em> reaches the limit <em>Maxexp</em>, the diode characteristic is linearly
-continued to avoid overflow.<br>
+If <em>useTemperatureDependency</em> is set to <em>false</em>, the diode formula utilizes the voltage equivalent of the temperature, i.e.,
+</p>
+<pre>
+               v/Vt
+  i  =  Ids (e      - 1).
+
+</pre>
+<p>
+If the exponent <em>v/N/vt_t</em> or <em>v/Vt</em>, respectively, reaches the limit <em>Maxexp</em>, the diode characteristic is linearly continued to avoid overflow.<br>
 The thermal power is calculated by <em>i*v</em>.
 </p>
 </html>", revisions="<html>
