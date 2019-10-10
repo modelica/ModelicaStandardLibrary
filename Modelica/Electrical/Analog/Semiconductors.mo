@@ -8,7 +8,7 @@ package Semiconductors
   model Diode "Simple diode with heating port"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter SI.Current Ids=1e-6 "Saturation current";
-    parameter Boolean useTemperatureDependency = false "= true, if diode current depends on temperature, otherwise utilize the voltage equivalent of temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter Boolean useTemperatureDependency = false "= true, if the diode current depends on temperature, otherwise utilizes the voltage equivalent of temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)" annotation(Dialog(enable=not useTemperatureDependency));
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15 "Max. exponent for linear continuation";
     parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
