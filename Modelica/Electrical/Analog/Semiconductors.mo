@@ -8,14 +8,14 @@ package Semiconductors
   model Diode "Simple diode with heating port"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter SI.Current Ids=1e-6 "Saturation current";
-    parameter Boolean useTemperatureDependency = false "= true, if TODO";
+    parameter Boolean useTemperatureDependency = false "= true, if diode current depends on temperature, otherwise utilize the voltage equivalent of temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)" annotation(Dialog(enable=not useTemperatureDependency));
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15 "Max. exponent for linear continuation";
     parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
-    parameter Real EG=1.11 "Activation energy";
-    parameter Real N=1 "Emission coefficient";
-    parameter SI.Temperature TNOM=300.15 "Parameter measurement temperature";
-    parameter Real XTI=3 "Temperature exponent of saturation current";
+    parameter Real EG=1.11 "Activation energy" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real N=1 "Emission coefficient" annotation(Dialog(enable=useTemperatureDependency));
+    parameter SI.Temperature TNOM=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real XTI=3 "Temperature exponent of saturation current" annotation(Dialog(enable=useTemperatureDependency));
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
 
     SI.Voltage vt_t "Temperature voltage";
@@ -29,12 +29,16 @@ package Semiconductors
     htemp = T_heatPort;
     vt_t = k*htemp/q;
 
-    id = exlin((v/(N*vt_t)), Maxexp) - 1;
+    if useTemperatureDependency then
+      id = exlin((v/(N*vt_t)), Maxexp) - 1;
+      i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
+    else
+      id = exlin(v/Vt, Maxexp) - 1;
+      i = smooth(1, Ids*(exlin(v/Vt, Maxexp) - 1) + v/R);
+    end if;
 
     aux = (htemp/TNOM - 1)*EG/(N*vt_t);
     auxp = exp(aux);
-
-    i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
 
     LossPower = i*v;
     annotation (defaultComponentName="diode",
@@ -81,7 +85,8 @@ The thermal power is calculated by <em>i*v</em>.
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Text(
             extent={{-150,-40},{150,-80}},
-            textString="Vt=%Vt"),
+            textString="Vt=%Vt",
+            visible=not useTemperatureDependency),
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
