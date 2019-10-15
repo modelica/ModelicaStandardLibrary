@@ -1088,8 +1088,6 @@ locked, forward sliding.</p>
     model LossyGearDemo1
       "Example to show that gear efficiency may lead to stuck motion"
       extends Modelica.Icons.Example;
-      SI.Power PowerLoss=gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau
-          *der(gear.flange_b.phi) "Power lost in the gear";
       Rotational.Components.LossyGear gear(
         ratio=2,
         lossTable=[0, 0.5, 0.5, 0, 0],
@@ -1149,11 +1147,11 @@ You may plot:
 </p>
 <pre>
 Inertia1.w,
-Inertia2.w : angular velocities of inertias
-powerLoss  : power lost in the gear
-gear.mode  :  1 = forward rolling
-              0 = stuck (w=0)
-             -1 = backward rolling
+Inertia2.w     : angular velocities of inertias
+gear.lossPower : power lost in the gear
+gear.mode      :  1 = forward rolling
+                  0 = stuck (w=0)
+                 -1 = backward rolling
 </pre>
 </html>"), experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo1;
@@ -1161,9 +1159,6 @@ gear.mode  :  1 = forward rolling
     model LossyGearDemo2
       "Example to show combination of LossyGear and BearingFriction"
       extends Modelica.Icons.Example;
-      SI.Power PowerLoss=gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau
-          *der(gear.flange_b.phi) "Power lost in the gear";
-
       Rotational.Components.LossyGear gear(
         ratio=2,
         lossTable=[0, 0.5, 0.5, 0, 0],
@@ -1232,14 +1227,14 @@ You may plot:
 </p>
 <pre>
 Inertia1.w,
-Inertia2.w          : angular velocities of inertias
-powerLoss           : power lost in the gear
-bearingFriction.mode:  1 = forward rolling
-                       0 = stuck (w=0)
-                      -1 = backward rolling
-gear.mode           :  1 = forward rolling
-                       0 = stuck (w=0)
-                      -1 = backward rolling
+Inertia2.w           : angular velocities of inertias
+gear.lossPower       : power lost in the gear
+bearingFriction.mode :  1 = forward rolling
+                        0 = stuck (w=0)
+                       -1 = backward rolling
+gear.mode            :  1 = forward rolling
+                        0 = stuck (w=0)
+                       -1 = backward rolling
 </pre>
 <p>Note: This combination of LossyGear and BearingFriction is not recommended to use,
 as component LossyGear includes the functionality of component BearingFriction
