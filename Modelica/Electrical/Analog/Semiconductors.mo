@@ -34,7 +34,7 @@ package Semiconductors
       i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
     else
       id = exlin(v/Vt, Maxexp) - 1;
-      i = smooth(1, Ids*(exlin(v/Vt, Maxexp) - 1) + v/R);
+      i = smooth(1, Ids*id + v/R);
     end if;
 
     aux = (htemp/TNOM - 1)*EG/(N*vt_t);
