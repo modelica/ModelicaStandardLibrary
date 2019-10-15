@@ -30,11 +30,11 @@ package Semiconductors
     vt_t = k*htemp/q;
 
     if useTemperatureDependency then
-      id = exlin((v/(N*vt_t)), Maxexp) - 1;
-      i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
+      id = Ids*(exlin(v/(N*vt_t), Maxexp) - 1);
+      i = id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
     else
-      id = exlin(v/Vt, Maxexp) - 1;
-      i = smooth(1, Ids*id + v/R);
+      id = Ids*(exlin(v/Vt, Maxexp) - 1);
+      i = smooth(1, id + v/R);
     end if;
 
     aux = (htemp/TNOM - 1)*EG/(N*vt_t);
