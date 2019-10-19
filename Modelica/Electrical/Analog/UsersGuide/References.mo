@@ -18,7 +18,7 @@ class References "References"
 
   <tr>
     <td>[<a href=\"https://www.springer.com/de/book/9783540151609\">Hoefer1985</a>]</td>
-    <td>E. E. E. Hoefer, H. Nielinger, <em>SPICE: Analyseprogramm f&umlu;r elektronische Schaltungen<em>,
+    <td>E. E. E. Hoefer, H. Nielinger, <em>SPICE: Analyseprogramm f&uuml;r elektronische Schaltungen<em>,
         Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985</td> 
   </tr>
 
@@ -35,6 +35,15 @@ class References "References"
     <td>R. Malaric, <em>Instrumentation and Measurement in Electrical Engineering</em>, BrownWalker Press, 2011</td>
   </tr>
 
+  <tr>
+    <td>[Spiro1990]</td>
+    <td>H. Spiro, H, <em>Simulation integrierter Schaltungen</em>, R. Oldenbourg Verlag M&uuml;nchen Wien, 1990</td>
+  </tr>
+
+  <tr>
+    <td>[Vlach1983]</td>
+    <td>J. Vlach, K. Singal, <em>Computer methods for circuit analysis and design</em>, Van Nostrand Reinhold, New York 1983</td>
+  </tr>
 </table>
 </html>"));
 end References;
