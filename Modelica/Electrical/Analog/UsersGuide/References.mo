@@ -31,11 +31,6 @@ class References "References"
   </tr>
 
   <tr>
-    <td>[<a href=\"http://brownwalker.com/book/1612335004\">Malaric2011</a>]</td>
-    <td>R. Malaric, <em>Instrumentation and Measurement in Electrical Engineering</em>, BrownWalker Press, 2011</td>
-  </tr>
-
-  <tr>
     <td>[Spiro1990]</td>
     <td>H. Spiro, H, <em>Simulation integrierter Schaltungen</em>, R. Oldenbourg Verlag M&uuml;nchen Wien, 1990</td>
   </tr>
