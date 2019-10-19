@@ -110,8 +110,7 @@ model SymmetricPolyphaseWinding
     "Core loss model (currently eddy currents only)" annotation (Placement(
         transformation(extent={{-10,-10},{10,10}}, origin={50,-40})));
   Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Permeance stray(final G_m(
-        d=2*Lsigma/m/effectiveTurns^2, q=2*Lsigma/m/effectiveTurns^2))
-    "Stray reluctance equivalent to ideally coupled stray inductances"
+        d=2*Lsigma/m/effectiveTurns^2, q=2*Lsigma/m/effectiveTurns^2)) "Stray permeance equivalent to ideally coupled stray inductances"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
