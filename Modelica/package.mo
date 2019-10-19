@@ -888,6 +888,7 @@ can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.User
      not with <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
 <li> Tables have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.</li>
 <li> Each table must have a table caption.</li>
+<li>The table caption shall go on top of the table.</li>
 <li> Table headers and entries start with capital letters.</li>
 </ol>
 
@@ -914,7 +915,7 @@ can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.User
   &lt;/tr&gt;
 &lt;/table&gt;
 </pre>
-<p>appears as</p>
+<p>It appears as:</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Caption starts with a capital letter</caption>
   <tr>
@@ -935,7 +936,7 @@ can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.User
 
 <p>In this case of table captions, the table name (Tab.) including the table enumeration (1,2,...)
 has to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>. The table name
-and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to be enumerated manually.</p>
+and enumeration should look like this: <strong>Tab. 1:</strong>. Tables have to be enumerated manually.</p>
 
 <pre>
 &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
@@ -954,7 +955,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
   &lt;/tr&gt;
 &lt;/table&gt;
 </pre>
-<p>appears as</p>
+<p>It appears as:</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Tab. 2:</strong> Caption starts with a capital letter</caption>
   <tr>
