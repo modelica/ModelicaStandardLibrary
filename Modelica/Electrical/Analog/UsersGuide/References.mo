@@ -7,7 +7,7 @@ class References "References"
 
   <tr>
     <td>[<a href=\"https://ieeexplore.ieee.org/document/1447963\">Branin2012</a>]</td>
-    <td>F. H. Branin Jr., &quot;Transient Analysis of Lossless Transmission Lines&quot;, <em>Proceedings of the IEEE</em>, 
+    <td>F. H. Branin Jr., &quot;Transient Analysis of Lossless Transmission Lines&quot;, <em>Proceedings of the IEEE</em>,
         vol. 55, pp. 2012-2013, 1967</td>
   </tr>
 
@@ -17,16 +17,16 @@ class References "References"
   </tr>
 
   <tr>
-    <td>[<a href=\"https://www.springer.com/de/book/9783540151609\">Hoefer1985</a>]</td>
+    <td>[<a href=\"https://www.springer.com/us/book/9783540151609\">Hoefer1985</a>]</td>
     <td>E. E. E. Hoefer, H. Nielinger, <em>SPICE: Analyseprogramm f&uuml;r elektronische Schaltungen<em>,
-        Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985</td> 
+        Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985</td>
   </tr>
 
   <tr>
     <td>[Johnson1991]</td>
-    <td>B. Johnson, T. Quarles, A. R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, 
-        <em>SPICE3 Version 3e User&#39;s Manual</em>, 
-        Department of Electrical Engineering and Computer Sciences, 
+    <td>B. Johnson, T. Quarles, A. R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli,
+        <em>SPICE3 Version 3e User&#39;s Manual</em>,
+        Department of Electrical Engineering and Computer Sciences,
         University of California, Berkley p. 12, p. 106 - 107, April 1, 1991</td>
   </tr>
 
