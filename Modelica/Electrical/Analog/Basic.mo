@@ -1375,11 +1375,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
 
     annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
-<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <strong>input</strong>, <strong>frequency response</strong>, <strong>gain</strong>, <strong>slew rate</strong> and an <strong>output</strong> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <strong>[CP92]</strong>.</p>
-<p>Using <strong>[CP92]</strong> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
-<dl><dt><strong>Reference:</strong> </dt>
-<dd><strong>[CP92]</strong> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992 </dd>
-</dl></html>", revisions="<html>
+<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <strong>input</strong>, <strong>frequency response</strong>, <strong>gain</strong>, <strong>slew rate</strong> and an <strong>output</strong> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Conelly1992</a>].</p>
+<p>Using [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Conelly1992</a>] Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
+</html>",      revisions="<html>
 <dl>
 <dt><em>June 17, 2009</em></dt>
 <dd>by Susann Wolf initially implemented</dd>
