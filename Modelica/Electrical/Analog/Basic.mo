@@ -283,13 +283,13 @@ package Basic "Basic electrical components"
             textColor={0,0,255}),
           Line(points={{-60,-20},{60,-20}}, color={0,0,255})}),
       Documentation(info="<html>
-<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., 
-the value of the inductance depends on the current flowing through the inductor (<strong>Fig.&nbsp;1</strong>). 
+<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e.,
+the value of the inductance depends on the current flowing through the inductor (<strong>Fig.&nbsp;1</strong>).
 The inductance decreases as current increases. Note, that hysteresis is not taken into account.
 </p>
 
 <p>
-The approximation of the flux linkage is based on the <code>atan</code> function with an additonal linear term, 
+The approximation of the flux linkage is based on the <code>atan</code> function with an additional linear term,
 as shown in <strong>Fig.&nbsp;2</strong>:</p>
 
 <pre>
@@ -341,9 +341,9 @@ Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
 <figcaption><strong>Fig.&nbsp;2:</strong>Actual flux linkage <code>Psi</code> versus current <code>i</code></figcaption>
 </figure>
 
-<p>The flux slope in <strong>Fig.&nbsp;2</strong> is equal to <code>Lzer</code> for small currents. 
+<p>The flux slope in <strong>Fig.&nbsp;2</strong> is equal to <code>Lzer</code> for small currents.
 The limit of the flux slope is <code>Linf</code> as the current <code>i</code> approaches infinity.
-The nominal flux is indicated by the product of the nominal inductance <code>Lnom</code> and the nominal current <code>Inom</code>. 
+The nominal flux is indicated by the product of the nominal inductance <code>Lnom</code> and the nominal current <code>Inom</code>.
 </p>
 </html>", revisions="<html>
 <dl>
