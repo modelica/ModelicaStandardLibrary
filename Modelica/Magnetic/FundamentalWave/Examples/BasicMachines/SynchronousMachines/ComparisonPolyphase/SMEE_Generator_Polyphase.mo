@@ -1,4 +1,4 @@
-within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines.ComparisonPolyphase;
+within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase;
 model SMEE_Generator_Polyphase
   "Electrical excited polyphase synchronous machine operating as generator"
 

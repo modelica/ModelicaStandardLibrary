@@ -1,4 +1,4 @@
-within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines;
+within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines;
 model SMPM_VoltageSource
   "Test example: PermanentMagnetSynchronousMachine fed by FOC"
   extends Modelica.Icons.Example;

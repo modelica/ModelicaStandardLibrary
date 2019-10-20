@@ -1,21 +1,16 @@
-within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines;
-model SMEE_LoadDump
-  "Test example: ElectricalExcitedSynchronousMachine with voltage controller"
+within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines;
+model SMEE_Rectifier
+  "Test example: ElectricalExcitedSynchronousMachine with rectifier"
 
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
   parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*smeeData.fsNominal
       /smee.p "Nominal speed";
-  parameter Modelica.SIunits.Impedance ZNominal=3*smeeData.VsNominal^2/
-      smeeData.SNominal "Nominal load impedance";
-  parameter Real powerFactor(
-    min=0,
-    max=1) = 0.8 "Load power factor";
-  parameter Modelica.SIunits.Resistance RLoad=ZNominal*powerFactor
+  parameter Modelica.SIunits.Voltage VDC0=sqrt(2*3)*smeeData.VsNominal
+    "No-load DC voltage";
+  parameter Modelica.SIunits.Resistance RLoad=VDC0^2/smeeData.SNominal
     "Load resistance";
-  parameter Modelica.SIunits.Inductance LLoad=ZNominal*sqrt(1 -
-      powerFactor^2)/(2*pi*smeeData.fsNominal) "Load inductance";
   parameter Modelica.SIunits.Voltage Ve0=smee.IeOpenCircuit*
       Modelica.Electrical.Machines.Thermal.convertResistance(
             smee.Re,
@@ -25,8 +20,6 @@ model SMEE_LoadDump
   parameter Real k=2*Ve0/smeeData.VsNominal "Voltage controller: gain";
   parameter Modelica.SIunits.Time Ti=smeeData.Td0Transient/2
     "Voltage controller: integral time constant";
-  output Real controlError=(setPointGain.y - voltageQuasiRMSSensor.V)/
-      smeeData.VsNominal;
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
     smee(
     fsNominal=smeeData.fsNominal,
@@ -48,6 +41,7 @@ model SMEE_LoadDump
     statorCoreParameters(VRef=100),
     strayLoadParameters(IRef=100),
     brushParameters(ILinear=0.01),
+    ir(each fixed=true),
     Rs=smeeData.Rs*m/3,
     Lssigma=smeeData.Lssigma*m/3,
     Lmd=smeeData.Lmd*m/3,
@@ -94,11 +88,12 @@ model SMEE_LoadDump
     annotation (Placement(transformation(extent={{0,-24},{20,-4}})));
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(
-        origin={-90,0},
-        extent={{-10,-10},{10,10}})));
+        origin={-20,60},
+        extent={{-10,-10},{10,10}},
+        rotation=90)));
   Modelica.Mechanics.Rotational.Sources.Speed speed
     annotation (Placement(transformation(extent={{50,-40},{30,-20}})));
-  Modelica.Blocks.Sources.Ramp speedRamp(height=wNominal, duration=1)
+  Modelica.Blocks.Sources.Constant constantSpeed(k=wNominal)
     annotation (Placement(transformation(extent={{80,-40},{60,-20}})));
   Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
     annotation (Placement(transformation(
@@ -108,9 +103,6 @@ model SMEE_LoadDump
   Modelica.Blocks.Math.Gain setPointGain(k=(smeeData.VsNominal/wNominal)/
         unitMagneticFlux)
     annotation (Placement(transformation(extent={{-50,-90},{-70,-70}})));
-  Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(
-      ToSpacePhasor1(y(each start=1E-3, each fixed=true))) annotation (
-      Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270)));
   Modelica.Blocks.Continuous.LimPID voltageController(
     controllerType=Modelica.Blocks.Types.SimpleController.PI,
     k=k,
@@ -129,41 +121,67 @@ model SMEE_LoadDump
       Placement(transformation(
         origin={-30,-60},
         extent={{-10,-10},{10,10}})));
-  Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
-    annotation (Placement(transformation(
-        origin={10,30},
-        extent={{-10,10},{10,-10}},
-        rotation=270)));
-  Modelica.Blocks.Sources.BooleanPulse loadControl(period=4, startTime=2)
-    annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
-  Modelica.Electrical.Polyphase.Ideal.CloserWithArc switch(
-    m=m,
-    Ron=fill(1e-5, m),
-    Goff=fill(1e-5, m),
-    V0=fill(30, m),
-    dVdt=fill(10e3, m),
-    Vmax=fill(60, m),
-    closerWithArc(off(start=fill(true, m), fixed=fill(true, m))))
-    annotation (Placement(transformation(extent={{0,40},{-20,60}})));
-  Modelica.Electrical.Polyphase.Basic.Resistor loadResistor(m=m, R=fill(
-        RLoad, m))
-    annotation (Placement(transformation(extent={{-30,40},{-50,60}})));
-  Modelica.Electrical.Polyphase.Basic.Inductor loadInductor(m=m, L=fill(
-        LLoad, m))
-    annotation (Placement(transformation(extent={{-60,40},{-80,60}})));
-  Modelica.Electrical.Polyphase.Basic.Star star(m=m) annotation (
+  Modelica.Electrical.Polyphase.Basic.Star star1(m=m) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={-20,90})));
+  Modelica.Electrical.Polyphase.Ideal.IdealDiode idealDiode1(
+    m=m,
+    Ron=fill(1E-5, m),
+    Goff=fill(1E-5, m),
+    Vknee=fill(0, m)) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={0,80})));
+  Modelica.Electrical.Polyphase.Ideal.IdealDiode idealDiode2(
+    m=m,
+    Ron=fill(1E-5, m),
+    Goff=fill(1E-5, m),
+    Vknee=fill(0, m)) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={0,40})));
+  Modelica.Electrical.Polyphase.Basic.Star star2(m=m) annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={-20,30})));
+  Modelica.Electrical.Analog.Basic.Capacitor capacitor1(C=2*10E-6, v(
+        fixed=true, start=0)) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-90,30})));
+        origin={-40,80})));
+  Modelica.Electrical.Analog.Basic.Capacitor capacitor2(C=2*10E-6, v(
+        fixed=true, start=0)) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={-40,40})));
+  Modelica.Electrical.Analog.Basic.Resistor resistor(R=RLoad) annotation (
+     Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={-50,60})));
+  Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor
+    annotation (Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=270,
+        origin={-80,60})));
+  Modelica.Blocks.Continuous.Filter filter(
+    analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
+    filterType=Modelica.Blocks.Types.FilterType.LowPass,
+    order=2,
+    f_cut=20,
+    gain=1/sqrt(2*3),
+    normalized=true) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={-60,0})));
 protected
   constant Modelica.SIunits.MagneticFlux unitMagneticFlux=1
     annotation (HideResult=true);
-public
-  Modelica.Blocks.Routing.BooleanReplicator booleanReplicator(nout=m)
-    annotation (Placement(transformation(extent={{-50,90},{-30,70}})));
 initial equation
-  smee.airGap.V_msr = Complex(0, 0);
+  smee.is[1:2] = zeros(2);
   //conditional damper cage currents are defined as fixed start values
   smee.ie = 0;
 equation
@@ -177,52 +195,52 @@ equation
       points={{-30,-40},{-20,-40},{-20,-36},{0,-36}}, color={0,0,255}));
   connect(excitationVoltage.n, groundExcitation.p) annotation (Line(
       points={{-30,-40},{-30,-50}}, color={0,0,255}));
-  connect(voltageQuasiRMSSensor.plug_n, smee.plug_sn) annotation (Line(
-      points={{0,-10},{4,-10},{4,-20}}, color={0,0,255}));
-  connect(voltageQuasiRMSSensor.plug_p, smee.plug_sp) annotation (Line(
-      points={{0,10},{16,10},{16,-20}}, color={0,0,255}));
-  connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
-    annotation (Line(
-      points={{10,-18},{10,20}}, color={0,0,255}));
   connect(smee.flange, speed.flange) annotation (Line(
       points={{20,-30},{30,-30}}));
   connect(speed.flange, speedSensor.flange) annotation (Line(
       points={{30,-30},{30,-40}}));
-  connect(speedRamp.y, speed.w_ref) annotation (Line(
+  connect(constantSpeed.y, speed.w_ref) annotation (Line(
       points={{59,-30},{52,-30}}, color={0,0,127}));
   connect(setPointGain.y, voltageController.u_s) annotation (Line(
       points={{-71,-80},{-80,-80},{-80,-30},{-72,-30}}, color={0,0,127}));
   connect(speedSensor.w, setPointGain.u) annotation (Line(
       points={{30,-61},{30,-80},{-48,-80}}, color={0,0,127}));
-  connect(voltageQuasiRMSSensor.V, voltageController.u_m) annotation (
-      Line(
-      points={{-11,0},{-60,0},{-60,-18}}, color={0,0,127}));
   connect(voltageController.y, excitationVoltage.v) annotation (Line(
       points={{-49,-30},{-42,-30}}, color={0,0,127}));
-  connect(loadInductor.plug_p, loadResistor.plug_n) annotation (Line(
-      points={{-60,50},{-50,50}}, color={0,0,255}));
-  connect(loadResistor.plug_p, switch.plug_n) annotation (Line(
-      points={{-30,50},{-20,50}}, color={0,0,255}));
-  connect(switch.plug_p, currentQuasiRMSSensor.plug_p) annotation (Line(
-      points={{0,50},{10,50},{10,40}}, color={0,0,255}));
-  connect(star.plug_p, loadInductor.plug_n) annotation (Line(
-      points={{-90,40},{-90,50},{-80,50}}, color={0,0,255}));
-  connect(star.pin_n, ground.p) annotation (Line(
-      points={{-90,20},{-90,10}}, color={0,0,255}));
-  connect(loadControl.y, booleanReplicator.u) annotation (Line(points={{-59,80},{-52,80}}, color={255,0,255}));
-  connect(booleanReplicator.y, switch.control) annotation (Line(points={{-29,80},{-10,80},{-10,62}}, color={255,0,255}));
-  annotation (experiment(StopTime=10, Interval=1E-4, Tolerance=1e-06), Documentation(info="<html>
-<p>An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
-Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.</p>
-
-<p>Simulate for 10 seconds and plot:</p>
-
-<ul>
-<li>voltageQuasiRMSSensor.V</li>
-<li>smee.tauElectrical</li>
-<li>smee.ie</li>
-</ul>
+  connect(idealDiode1.plug_p, idealDiode2.plug_n) annotation (Line(
+      points={{0,70},{0,50}}, color={0,0,255}));
+  connect(idealDiode2.plug_p, star2.plug_p) annotation (Line(
+      points={{0,30},{-10,30}}, color={0,0,255}));
+  connect(idealDiode1.plug_n, star1.plug_p) annotation (Line(
+      points={{0,90},{-10,90}}, color={0,0,255}));
+  connect(capacitor2.n, star2.pin_n) annotation (Line(
+      points={{-40,30},{-30,30}}, color={0,0,255}));
+  connect(capacitor1.p, star1.pin_n) annotation (Line(
+      points={{-40,90},{-30,90}}, color={0,0,255}));
+  connect(capacitor1.n, capacitor2.p) annotation (Line(
+      points={{-40,70},{-40,50}}, color={0,0,255}));
+  connect(capacitor1.n, ground.p) annotation (Line(
+      points={{-40,70},{-40,60},{-30,60}}, color={0,0,255}));
+  connect(filter.y, voltageController.u_m) annotation (Line(
+      points={{-60,-11},{-60,-18}}, color={0,0,127}));
+  connect(voltageSensor.v, filter.u) annotation (Line(
+      points={{-69,60},{-60,60},{-60,12}}, color={0,0,127}));
+  connect(terminalBox.plugSupply, idealDiode2.plug_n) annotation (Line(
+      points={{10,-18},{10,60},{0,60},{0,50}}, color={0,0,255}));
+  connect(resistor.p, capacitor1.p) annotation (Line(
+      points={{-50,70},{-50,90},{-40,90}}, color={0,0,255}));
+  connect(resistor.n, capacitor2.n) annotation (Line(
+      points={{-50,50},{-50,30},{-40,30}}, color={0,0,255}));
+  connect(voltageSensor.n, capacitor2.n) annotation (Line(
+      points={{-80,50},{-80,30},{-40,30}}, color={0,0,255}));
+  connect(voltageSensor.p, capacitor1.p) annotation (Line(
+      points={{-80,70},{-80,90},{-40,90}}, color={0,0,255}));
+  annotation (experiment(StopTime=1.1, Interval=1E-4, Tolerance=1e-06), Documentation(
+        info="<html>
+<p>An electrically excited synchronous generator is driven with constant speed.
+Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
 
 <p>Default machine parameters are used</p>
+
 </html>"));
-end SMEE_LoadDump;
+end SMEE_Rectifier;
