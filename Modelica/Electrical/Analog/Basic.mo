@@ -298,11 +298,11 @@ L = Psi/i = Linf + (Lzer - Linf)*atan(i/Ipar)/(i/Ipar)
 </pre>
 
 <p>
-This approximation is with good performance and easy to adjust to a given characteristic with only four parameters (<strong>Tab&nbsp;1</strong>).
+This approximation is with good performance and easy to adjust to a given characteristic with only four parameters (<strong>Tab.&nbsp;1</strong>).
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Tab.&nbsp;1:</strong>Characteristic parameters of the saturating inductor model</caption>
+  <caption align=\"bottom\"><strong>Tab.&nbsp;1:</strong> Characteristic parameters of the saturating inductor model</caption>
   <tr>
     <th>Variable</th>
     <th>Description</th>
@@ -331,15 +331,23 @@ The parameter <code>Ipar</code> is calculated internally from the relationship:<
 Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
 </pre>
 
-<figure>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i.png\" alt=\"Lact vs. i\">
-<figcaption><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></figcaption>
-</figure>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i.png\" alt=\"Lact vs. i\">
+    </td>
+  </tr>
+</table>
 
-<figure>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Psi_i.png\" alt=\"Psi vs. i\">
-<figcaption><strong>Fig.&nbsp;2:</strong>Actual flux linkage <code>Psi</code> versus current <code>i</code></figcaption>
-</figure>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig.&nbsp;2:</strong> Actual flux linkage <code>Psi</code> versus current <code>i</code></caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Psi_i.png\" alt=\"Psi vs. i\">
+    </td>
+  </tr>
+</table>
 
 <p>The flux slope in <strong>Fig.&nbsp;2</strong> is equal to <code>Lzer</code> for small currents.
 The limit of the flux slope is <code>Linf</code> as the current <code>i</code> approaches infinity.
