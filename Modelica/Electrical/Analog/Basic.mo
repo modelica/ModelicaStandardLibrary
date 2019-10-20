@@ -298,7 +298,7 @@ L = Psi/i = Linf + (Lzer - Linf)*atan(i/Ipar)/(i/Ipar)
 </pre>
 
 <p>
-This approximation is performant and easy to adjust to a given characteristic with only four parameters (<strong>Tab&nbsp;1</strong>).
+This approximation is with good performance and easy to adjust to a given characteristic with only four parameters (<strong>Tab&nbsp;1</strong>).
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
