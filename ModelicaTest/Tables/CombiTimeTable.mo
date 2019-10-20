@@ -3,52 +3,53 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 
-  partial model Test0
-    Modelica.Blocks.Sources.CombiTimeTable t_new
-      annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-    Modelica.Blocks.Continuous.Der d_t_new
-      annotation (Placement(transformation(extent={{0,0},{20,20}})));
-  equation
-    connect(t_new.y[1], d_t_new.u) annotation (Line(
-        points={{-19,10},{-2,10}},
-        color={0,0,127},
-        thickness=0.0625));
-  end Test0;
+  partial model Test
+    Modelica.Blocks.Sources.CombiTimeTable t_new annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+  end Test;
 
-  partial model Test0_noDer
-    Modelica.Blocks.Sources.CombiTimeTable t_new
-      annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-  end Test0_noDer;
+  partial model TestDer
+    extends Test;
+    Modelica.Blocks.Continuous.Der d_t_new annotation(Placement(transformation(extent={{0,0},{20,20}})));
+  equation
+    connect(t_new.y[1], d_t_new.u) annotation(Line(points={{-19,10},{-2,10}}, color={0,0,127}));
+  end TestDer;
+
+  partial model TestDer2
+    extends TestDer;
+    Modelica.Blocks.Continuous.Der d2_t_new annotation(Placement(transformation(extent={{40,0},{60,20}})));
+  equation
+    connect(d_t_new.y, d2_t_new.u) annotation(Line(points={{21,10},{26,10},{33,10},{38,10}}, color={0,0,127}));
+  end TestDer2;
 
   model Test1 "Periodic, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0.1,0},{0.3,0},{0.5,-1},{0.51,-2},{0.51,-3},{
+    extends TestDer(t_new(table={{0.1,0},{0.3,0},{0.5,-1},{0.51,-2},{0.51,-3},{
             0.6,-2},{0.7,-2},{0.7,-2},{1,-4}}, extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test1;
 
   model Test2 "Single row, startTime = 0, t_min = 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1}}));
+    extends TestDer(t_new(table={{0,1}}));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test2;
 
   model Test3 "Single row, startTime = 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0.5,1}}));
+    extends TestDer(t_new(table={{0.5,1}}));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test3;
 
   model Test4 "Two columns, Akima (Ticket #1028)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0.3, 0; 0.4, 1; 0.5, 0; 0.6, -1; 0.7, 0],
+    extends TestDer2(t_new(table=[0.3, 0; 0.4, 1; 0.5, 0; 0.6, -1; 0.7, 0],
           smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test4;
 
   model Test5 "Three columns, Akima (Ticket #1028)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0.3, 0, 0; 0.4, 1, -1; 0.5, 0, 0; 0.6, -1, 1;
+    extends TestDer2(t_new(table=[0.3, 0, 0; 0.4, 1, -1; 0.5, 0, 0; 0.6, -1, 1;
             0.7, 0, 0], smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Continuous.Der d_t_new2
       annotation (Placement(transformation(extent={{0,30},{20,50}})));
@@ -62,7 +63,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test6 "Periodic, startTime > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.1,0},{0.2,0},{0.3,0},{0.5,-1},{0.51,-2},{0.51,-3},{0.6,-2},{
             0.7,-2},{0.7,-2},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
@@ -72,7 +73,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test7 "Third column, Akima (Ticket #1028)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
         table=[0.3, 0, 0; 0.4, 1, -1; 0.5, 0, 0; 0.6, -1, 1; 0.7, 0, 0],
         columns={3},
         smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
@@ -81,7 +82,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test8 "Three columns, Akima (Ticket #1028)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
         table=[0.3, 0, 0; 0.4, 1, -1; 0.5, 0, 0; 0.6, -1, 1; 0.7, 0, 0],
         columns={2,3},
         smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
@@ -90,7 +91,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test9 "Two time events (Ticket #628)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0; 2.5, 0; 2.5, 1; 3, 1; 3, 0]));
+    extends TestDer(t_new(table=[0, 0; 2.5, 0; 2.5, 1; 3, 1; 3, 0]));
     annotation (experiment(StartTime=0, StopTime=3.5));
   end Test9;
 
@@ -305,19 +306,19 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test15 "Two rows, start time > 0, t_min = 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1},{1,0}}, startTime=0.5));
+    extends TestDer(t_new(table={{0,1},{1,0}}, startTime=0.5));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test15;
 
   model Test16 "Two rows, start time > 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0.25,1},{1.25,0}}, startTime=0.25));
+    extends TestDer(t_new(table={{0.25,1},{1.25,0}}, startTime=0.25));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test16;
 
   model Test17 "Two rows, start time > 0, t_min = 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0,1},{1,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.5));
@@ -326,7 +327,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test18 "Two rows, start time > 0, t_min > 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.25,1},{1.25,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.25));
@@ -335,19 +336,19 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test19 "Three rows, start time > 0, t_min = 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1},{0.5,2},{1,0}}, startTime=0.5));
+    extends TestDer(t_new(table={{0,1},{0.5,2},{1,0}}, startTime=0.5));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test19;
 
   model Test20 "Three rows, start time > 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1},{0.5,2},{1,0}}, startTime=0.25));
+    extends TestDer(t_new(table={{0,1},{0.5,2},{1,0}}, startTime=0.25));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test20;
 
   model Test21 "Three rows, start time > 0, t_min = 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0,1},{0.5,2},{1,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.5));
@@ -356,7 +357,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test22 "Three rows, start time > 0, t_min > 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0,1},{0.5,2},{1,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.25));
@@ -365,19 +366,19 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test23 "Four rows, event, start time > 0, t_min = 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1},{0.5,2},{0.5,2},{1,0}}, startTime=0.5));
+    extends TestDer(t_new(table={{0,1},{0.5,2},{0.5,2},{1,0}}, startTime=0.5));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test23;
 
   model Test24 "Four rows, event, start time > 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1},{0.5,2},{0.5,2},{1,0}}, startTime=0.25));
+    extends TestDer(t_new(table={{0,1},{0.5,2},{0.5,2},{1,0}}, startTime=0.25));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test24;
 
   model Test25 "Four rows, event, start time > 0, t_min = 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0,1},{0.5,2},{0.5,2},{1,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.5));
@@ -386,7 +387,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test26 "Four rows, event, start time > 0, t_min > 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0,1},{0.5,2},{0.5,2},{1,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.25));
@@ -395,20 +396,20 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test27 "Three rows, last two same, start time > 0, t_min = 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1},{1,0},{1,0}}, startTime=0.5));
+    extends TestDer(t_new(table={{0,1},{1,0},{1,0}}, startTime=0.5));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test27;
 
   model Test28 "Three rows, last two same, start time > 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1},{1,0},{1,0}}, startTime=0.25));
+    extends TestDer(t_new(table={{0,1},{1,0},{1,0}}, startTime=0.25));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test28;
 
   model Test29
     "Three rows, last two same, start time > 0, t_min = 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0,1},{1,0},{1,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.5));
@@ -418,7 +419,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
   model Test30
     "Three rows, last two same, start time > 0, t_min > 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0,1},{1,0},{1,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.25));
@@ -427,20 +428,20 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test31 "Three rows, first two same, start time > 0, t_min = 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1},{0,1},{1,0}}, startTime=0.5));
+    extends TestDer(t_new(table={{0,1},{0,1},{1,0}}, startTime=0.5));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test31;
 
   model Test32 "Three rows, first two same, start time > 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0,1},{0,1},{1,0}}, startTime=0.25));
+    extends TestDer(t_new(table={{0,1},{0,1},{1,0}}, startTime=0.25));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test32;
 
   model Test33
     "Three rows, first two same, start time > 0, t_min = 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0,1},{0,1},{1,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.5));
@@ -450,7 +451,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
   model Test34
     "Three rows, first two same, start time > 0, t_min > 0, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0,1},{0,1},{1,0}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
         startTime=0.25));
@@ -459,14 +460,14 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test35 "Problematic Akima (Ticket #1039)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 5; 1, 3; 2, 1; 3, 1; 4, 1; 5, 3], smoothness=
+    extends TestDer2(t_new(table=[0, 5; 1, 3; 2, 1; 3, 1; 4, 1; 5, 3], smoothness=
             Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     annotation (experiment(StartTime=0, StopTime=3));
   end Test35;
 
   model Test36 "Problematic Akima (Ticket #1039), flipped"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 3; 1, 1; 2, 1; 3, 1; 4, 3; 5, 5], smoothness=
+    extends TestDer2(t_new(table=[0, 3; 1, 1; 2, 1; 3, 1; 4, 3; 5, 5], smoothness=
             Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     annotation (experiment(StartTime=0, StopTime=3));
   end Test36;
@@ -474,7 +475,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
   model Test37
     "Two time events (Ticket #628), constant segments, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(
+    extends Test(t_new(
         table=[0, 0; 2.5, 1; 3, 0],
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
@@ -483,7 +484,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test38 "Two time events (Ticket #628), constant segments, periodic"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(
+    extends Test(t_new(
         table=[0, 0; 2.5, 1; 3, 0],
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic));
@@ -493,7 +494,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
   model Test39
     "Two time events (Ticket #628), constant segments, periodic, startTime > 0"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(
+    extends Test(t_new(
         table=[0, 0; 2.5, 1; 3, 0],
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
@@ -503,14 +504,14 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test40 "Two time events (Ticket #628), periodic"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0; 2.5, 0; 2.5, 1; 3, 1; 3, 0], extrapolation
+    extends TestDer(t_new(table=[0, 0; 2.5, 0; 2.5, 1; 3, 1; 3, 0], extrapolation
           =Modelica.Blocks.Types.Extrapolation.Periodic));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test40;
 
   model Test41 "Two time events (Ticket #628), periodic, startTime > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table=[0, 0; 2.5, 0; 2.5, 1; 3, 1; 3, 0],
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
         startTime=5));
@@ -519,14 +520,14 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test42 "Periodic, startTime = 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0.6,-2},{0.7,-2},{0.7,-2},{1,-4}},
+    extends TestDer(t_new(table={{0.6,-2},{0.7,-2},{0.7,-2},{1,-4}},
           extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test42;
 
   model Test43 "Periodic, startTime > 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.6,-2},{0.7,-2},{0.7,-2},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
         startTime=0.5));
@@ -535,7 +536,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test44 "Periodic, startTime > t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.6,-2},{0.7,-2},{0.7,-2},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
         startTime=0.7));
@@ -544,7 +545,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test45 "Periodic, startTime > t_max, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.6,-2},{0.7,-2},{0.7,-2},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
         startTime=1.5));
@@ -553,14 +554,14 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test46 "Periodic, startTime = 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{
+    extends TestDer(t_new(table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{
             0.7,-2},{1,-5},{1,-6},{1,-4}}, extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test46;
 
   model Test47 "Periodic, startTime > 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
@@ -570,7 +571,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test48 "Periodic, startTime > t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
@@ -580,7 +581,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test49 "Periodic, startTime > t_max, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
@@ -590,7 +591,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test50 "ASCII Text file (Very long line length)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="longLine",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt"),
@@ -600,14 +601,14 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test51 "Periodic, startTime = 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table={{0.6,-2},{0.6,-3},{0.7,-2},{1,-5},{1,-6},{1,-4}},
+    extends TestDer(t_new(table={{0.6,-2},{0.6,-3},{0.7,-2},{1,-5},{1,-6},{1,-4}},
           extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test51;
 
   model Test52 "Periodic, startTime > 0, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.6,-2},{0.6,-3},{0.7,-2},{1,-5},{1,-6},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
         startTime=0.5));
@@ -616,7 +617,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test53 "Periodic, startTime > t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.6,-2},{0.6,-3},{0.7,-2},{1,-5},{1,-6},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
         startTime=0.7));
@@ -625,7 +626,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test54 "Periodic, startTime > t_max, t_min > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         table={{0.6,-2},{0.6,-3},{0.7,-2},{1,-5},{1,-6},{1,-4}},
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
         startTime=1.5));
@@ -634,7 +635,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test55 "MAT-File v4"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v4.mat")));
@@ -643,7 +644,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test56 "MAT-File v6"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")));
@@ -652,7 +653,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test57 "MAT-File v7"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")));
@@ -662,7 +663,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
   /*
   model Test58 "MAT-File v7.3"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")));
@@ -672,7 +673,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test59 "ASCII Text file"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
@@ -681,7 +682,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test60 "ASCII Text file (TAB separated)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="a_tab",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
@@ -690,7 +691,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test61 "Periodic, startTime = 0, t_min > 0, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(
+    extends Test(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
@@ -700,7 +701,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test62 "Periodic, startTime > 0, t_min > 0, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(
+    extends Test(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
@@ -711,7 +712,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test63 "Periodic, startTime > t_min > 0, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(
+    extends Test(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
@@ -722,7 +723,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test64 "Periodic, startTime > t_max, t_min > 0, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(
+    extends Test(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
@@ -733,14 +734,14 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
 
   model Test65 "Two columns, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(table=[0.3, 0; 0.4, 1; 0.5, 0; 0.6, -1; 0.7, 0],
+    extends Test(t_new(table=[0.3, 0; 0.4, 1; 0.5, 0; 0.6, -1; 0.7, 0],
           smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test65;
 
   model Test66_usertab "Test utilizing the usertab.c interface"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(tableOnFile=true, tableName="TestTable_1D_Time"));
+    extends TestDer(t_new(tableOnFile=true, tableName="TestTable_1D_Time"));
   protected
     encapsulated function getUsertab
       import Modelica;
@@ -918,58 +919,55 @@ double mydummyfunc(double* dummy_in) {
 
   model Test73 "Fritsch-Butland, test data set (Ticket #1039)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,5;1,3;2,1;3,1;4,1;5,3],
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1));
     Modelica.Blocks.Sources.CombiTimeTable t_new_2(
       table=[0,5;1,3;2,1;3,1;4,1;5,3],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
     equation
-      connect(t_new_2.y[1],d_t_new_2.u) annotation(Line(
-        points={{-19,-20},{-2,-20}},
-        color={0,0,127},
-        thickness=0.0625));
+      connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
+      connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test73;
 
   model Test74 "Fritsch-Butland, data set AKIMA 3 (Ticket #1717)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,10;2,10;3,10;5,10;6,10;8,10;9,10.5;11,15;12,50;14,60;15,85],
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1));
     Modelica.Blocks.Sources.CombiTimeTable t_new_2(
       table=[0,10;2,10;3,10;5,10;6,10;8,10;9,10.5;11,15;12,50;14,60;15,85],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
     equation
-      connect(t_new_2.y[1],d_t_new_2.u) annotation(Line(
-        points={{-19,-20},{-2,-20}},
-        color={0,0,127},
-        thickness=0.0625));
+      connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
+      connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=15));
   end Test74;
 
   model Test75 "Fritsch-Butland, data set RPN 14 (Ticket #1717)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[7.99,0;8.09,2.76429e-5;8.19,4.37498e-2;8.7,0.169183;9.2,0.469428;10,0.94374;12,0.998636;15,0.999919;20,0.999994],
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1));
     Modelica.Blocks.Sources.CombiTimeTable t_new_2(
       table=[7.99,0;8.09,2.76429e-5;8.19,4.37498e-2;8.7,0.169183;9.2,0.469428;10,0.94374;12,0.998636;15,0.999919;20,0.999994],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
     equation
-      connect(t_new_2.y[1],d_t_new_2.u) annotation(Line(
-        points={{-19,-20},{-2,-20}},
-        color={0,0,127},
-        thickness=0.0625));
+      connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
+      connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=7.99, StopTime=20));
   end Test75;
 
   model Test76 "Single row, Akima (Ticket #1820)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,1,2,3],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     annotation (experiment(StartTime=0, StopTime=1));
@@ -977,52 +975,49 @@ double mydummyfunc(double* dummy_in) {
 
   model Test77 "Steffen, test data set (Ticket #1814)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,5;1,3;2,1;3,1;4,1;5,3],
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2));
     Modelica.Blocks.Sources.CombiTimeTable t_new_2(
       table=[0,5;1,3;2,1;3,1;4,1;5,3],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
     equation
-      connect(t_new_2.y[1],d_t_new_2.u) annotation(Line(
-        points={{-19,-20},{-2,-20}},
-        color={0,0,127},
-        thickness=0.0625));
+      connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
+      connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test77;
 
   model Test78 "Steffen, data set AKIMA 3 (Ticket #1814)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,10;2,10;3,10;5,10;6,10;8,10;9,10.5;11,15;12,50;14,60;15,85],
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2));
     Modelica.Blocks.Sources.CombiTimeTable t_new_2(
       table=[0,10;2,10;3,10;5,10;6,10;8,10;9,10.5;11,15;12,50;14,60;15,85],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
     equation
-      connect(t_new_2.y[1],d_t_new_2.u) annotation(Line(
-        points={{-19,-20},{-2,-20}},
-        color={0,0,127},
-        thickness=0.0625));
+      connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
+      connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=15));
   end Test78;
 
   model Test79 "Steffen, data set RPN 14 (Ticket #1814)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[7.99,0;8.09,2.76429e-5;8.19,4.37498e-2;8.7,0.169183;9.2,0.469428;10,0.94374;12,0.998636;15,0.999919;20,0.999994],
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2));
     Modelica.Blocks.Sources.CombiTimeTable t_new_2(
       table=[7.99,0;8.09,2.76429e-5;8.19,4.37498e-2;8.7,0.169183;9.2,0.469428;10,0.94374;12,0.998636;15,0.999919;20,0.999994],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
     equation
-      connect(t_new_2.y[1],d_t_new_2.u) annotation(Line(
-        points={{-19,-20},{-2,-20}},
-        color={0,0,127},
-        thickness=0.0625));
+      connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
+      connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=7.99, StopTime=20));
   end Test79;
 
@@ -1079,7 +1074,7 @@ double mydummyfunc(double* dummy_in) {
 
   model Test84 "Text file with UTF-8 BOM and comments (Ticket #2404)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
         fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
@@ -1088,7 +1083,7 @@ double mydummyfunc(double* dummy_in) {
 
   model Test85 "Single time event at t_min=t_max > startTime = 0 (Ticket #2724)"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(
+    extends Test(t_new(
       table=[1,10;1,11],
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
     annotation (experiment(StartTime=0, StopTime=3));
@@ -1096,7 +1091,7 @@ double mydummyfunc(double* dummy_in) {
 
   model Test86 "Two time events (Ticket #2724)"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(
+    extends Test(t_new(
       table=[1,10;1,11;2,12],
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
     annotation (experiment(StartTime=0, StopTime=3));
