@@ -6,7 +6,7 @@ package Analog "Library for analog electrical models"
 
   annotation (Documentation(info="<html>
 <p>
-This package contains packages for single phase electrical components, see
+This package contains packages for single-phase electrical components, see
 <a href=\"modelica://Modelica.Electrical.Analog.UsersGuide\">User&#39;s Guide</a></p>
 </html>"), Icon(graphics={
         Line(
