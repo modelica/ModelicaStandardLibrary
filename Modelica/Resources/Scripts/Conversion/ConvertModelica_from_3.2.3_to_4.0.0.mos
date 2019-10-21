@@ -95,6 +95,8 @@ convertClass("Modelica.Math.Vectors.Utilities.householderVector",
               "ObsoleteModelica4.Math.Vectors.Utilities.householderVector")
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
               "Modelica.Electrical.Analog.Basic.Resistor");
+convertClass("Modelica.Electrical.Analog.Semiconductors.HeatingDiode",
+              "Modelica.Electrical.Analog.Semiconductors.Diode");
 convertClass("Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle",
               "ObsoleteModelica4.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle");
 convertClass("Modelica.Blocks.Interfaces.BlockIcon",
@@ -418,6 +420,8 @@ convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
 convertElement("Modelica.Electrical.Analog.Basic.HeatingResistor",
                {"R_ref"},
                {"R"});
+convertModifiers({"Modelica.Electrical.Analog.Semiconductors.HeatingDiode"},
+                  fill("",0), {"useTemperatureDependency=true"});
 convertElement("Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse",
                {"negativeEqual"},
                {"greaterNegative"});

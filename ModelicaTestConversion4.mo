@@ -438,7 +438,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2361;
 
-      model Issue2899 "Conversion test for #2899"
+      model Issue2899Resistor "Conversion test for #2899"
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation(Placement(transformation(extent={{-30,-20},{-10,0}})));
@@ -453,7 +453,43 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
 </p>
 </html>"));
-      end Issue2899;
+      end Issue2899Resistor;
+
+      model Issue2899Diode "Conversion test for #2899"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Semiconductors.HeatingDiode diode1(useHeatPort=false, N=1.5) annotation(Placement(transformation(extent={{-95,40},{-75,60}})));
+        Modelica.Electrical.Analog.Basic.Ground ground1 annotation(Placement(transformation(extent={{-130,-5},{-110,15}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(
+          V=1, freqHz=1) annotation(Placement(transformation(origin={-120,35}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Electrical.Analog.Basic.Capacitor capacitor1(
+          v(start=0, fixed=true), C=1) annotation(Placement(transformation(extent={{-55,40},{-35,60}})));
+        Modelica.Electrical.Analog.Basic.Resistor resistor1(R=1) annotation(Placement(transformation(extent={{-55,70},{-35,90}})));
+        Modelica.Electrical.Analog.Semiconductors.Diode diode2(useHeatPort=false, Vt=0.05) annotation(Placement(transformation(extent={{15,40},{35,60}})));
+        Modelica.Electrical.Analog.Basic.Ground ground2 annotation(Placement(transformation(extent={{-20,-5},{0,15}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage2(
+          V=1, freqHz=1) annotation(Placement(transformation(origin={-10,35}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Electrical.Analog.Basic.Capacitor capacitor2(
+          v(start=0, fixed=true), C=1) annotation(Placement(transformation(extent={{55,40},{75,60}})));
+        Modelica.Electrical.Analog.Basic.Resistor resistor2(R=1) annotation(Placement(transformation(extent={{55,70},{75,90}})));
+      equation
+        connect(sineVoltage1.p,diode1.p) annotation(Line(points={{-120,45},{-120,50},{-100,50},{-95,50}}, color={0,0,255}));
+        connect(sineVoltage1.n,ground1.p) annotation(Line(points={{-120,25},{-120,15}}, color={0,0,255}));
+        connect(diode1.n,capacitor1.p) annotation(Line(points={{-75,50},{-70,50},{-60,50},{-55,50}}, color={0,0,255}));
+        connect(resistor1.p,capacitor1.p) annotation(Line(points={{-55,80},{-60,80},{-60,50},{-55,50}}, color={0,0,255}));
+        connect(resistor1.n,capacitor1.n) annotation(Line(points={{-35,80},{-30,80},{-30,50},{-35,50}}, color={0,0,255}));
+        connect(sineVoltage1.n,capacitor1.n) annotation(Line(points={{-120,25},{-120,20},{-30,20},{-30,50},{-35,50}}, color={0,0,255}));
+        connect(sineVoltage2.n,capacitor2.n) annotation(Line(points={{-10,25},{-10,20},{80,20},{80,50},{75,50}}, color={0,0,255}));
+        connect(resistor2.n,capacitor2.n) annotation(Line(points={{75,80},{80,80},{80,50},{75,50}}, color={0,0,255}));
+        connect(resistor2.p,capacitor2.p) annotation(Line(points={{55,80},{50,80},{50,50},{55,50}}, color={0,0,255}));
+        connect(diode2.n,capacitor2.p) annotation(Line(points={{35,50},{40,50},{50,50},{55,50}}, color={0,0,255}));
+        connect(sineVoltage2.n,ground2.p) annotation(Line(points={{-10,25},{-10,15}}, color={0,0,255}));
+        connect(sineVoltage2.p,diode2.p) annotation(Line(points={{-10,45},{-10,50},{10,50},{15,50}}, color={0,0,255}));
+        annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
+</p>
+</html>"));
+      end Issue2899Diode;
 
       model Issue3024 "Conversion test for #3024"
         extends Modelica.Icons.Example;
