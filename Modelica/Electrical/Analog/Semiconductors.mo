@@ -725,12 +725,12 @@ equation
   htemp = T_heatPort;
   vt_t = k*htemp/q;
 
-  id = exlin((v/(N*vt_t)), Maxexp) - 1;
+  id = Ids*(exlin(v/(N*vt_t), Maxexp) - 1);
 
   aux = (htemp/TNOM - 1)*EG/(N*vt_t);
   auxp = exp(aux);
 
-  i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
+  i = id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
 
   LossPower = i*v;
   annotation (defaultComponentName="diode",
