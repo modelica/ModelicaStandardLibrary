@@ -446,9 +446,8 @@ convertClass("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
              "Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch");
 convertClass("Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch",
              "Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch");
-// Issue #3075
-convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"},
-                "reluctance","stray");
+convertElement("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding",
+                {"reluctance"}, {"stray"});
 convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
                 "Modelica.Magnetic.QuasiStationary.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"},
-                "strayReluctance","stray");
+                "strayReluctance", "stray");
