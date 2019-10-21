@@ -1,10 +1,6 @@
 within Modelica.Electrical.Analog;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
-
-
-
-
   annotation (
     preferredView="info",
     DocumentationClass=true,
@@ -23,7 +19,5 @@ The Analog package contains the following components:
 <li><a href=\"modelica://Modelica.Electrical.Analog.Sources\">Sources</a>: time-dependent and controlled voltage and current sources</li>
 <li><a href=\"modelica://Modelica.Electrical.Analog.Icons\">Icons</a>: domain specific icons</li>
 </ul>
-
-
 </html>"));
 end UsersGuide;
