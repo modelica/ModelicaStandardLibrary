@@ -227,7 +227,12 @@ package Basic "Basic electrical components"
 
   model SaturatingInductor "Simple model of an inductor with saturation"
     extends Modelica.Electrical.Analog.Interfaces.OnePort(i(start=0));
-    parameter SI.Current Inom(start=1) "Nominal current";
+    import Modelica.Constants.pi;
+    import Modelica.Constants.eps;
+    import Modelica.Constants.small;
+    import Modelica.Math.atan;
+    parameter SI.Current Inom(start=1) "Nominal current" annotation(Dialog(
+      groupImage="modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i_tight.png"));
     parameter SI.Inductance Lnom(start=1)
       "Nominal inductance at Nominal current";
     parameter SI.Inductance Lzer(start=2*Lnom)
@@ -239,25 +244,20 @@ package Basic "Basic electrical components"
   protected
     parameter SI.Current Ipar(start=Inom/10, fixed=false);
   initial equation
-    (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2 -
-      Modelica.Math.atan(Ipar/Inom));
+    (Lnom - Linf)/(Lzer - Linf)=Ipar/Inom*(pi/2 - atan(Ipar/Inom));
   equation
-    assert(Lzer > Lnom + Modelica.Constants.eps, "Lzer (= " + String(Lzer) +
+    assert(Lzer > Lnom*(1 + eps), "Lzer (= " + String(Lzer) +
       ") has to be > Lnom (= " + String(Lnom) + ")");
-    assert(Linf < Lnom - Modelica.Constants.eps, "Linf (= " + String(Linf) +
+    assert(Linf < Lnom*(1 - eps), "Linf (= " + String(Linf) +
       ") has to be < Lnom (= " + String(Lnom) + ")");
-    (Lact - Linf)*i/Ipar = (Lzer - Linf)*noEvent(Modelica.Math.atan(i/Ipar));
-    Psi = Lact*i;
+    Lact = Linf + (Lzer - Linf)*(if noEvent(abs(i)/Ipar<small) then 1 else atan(i/Ipar)/(i/Ipar));
+    Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar);
     v = der(Psi);
     annotation (defaultComponentName="inductor",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
-          Rectangle(
-            extent={{-60,-10},{60,-20}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={0,0,255}),
           Text(
             extent={{-150,-40},{150,-80}},
             textString="Lnom=%Lnom"),
@@ -280,15 +280,79 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Line(points={{-60,-20},{60,-20}}, color={0,0,255})}),
       Documentation(info="<html>
-<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
-<ul>
-<li>Inom...nominal current</li>
-<li>Lnom...nominal inductance at nominal current</li>
-<li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
-<li>Linf...inductance at large currents; Linf has to be less than Lnom</li>
-</ul>
+<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e.,
+the value of the inductance depends on the current flowing through the inductor (<strong>Fig.&nbsp;1</strong>).
+The inductance decreases as current increases. Note, that hysteresis is not taken into account.
+</p>
+
+<p>
+The approximation of the flux linkage is based on the <code>atan</code> function with an additional linear term,
+as shown in <strong>Fig.&nbsp;2</strong>:</p>
+
+<pre>
+Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar)
+L = Psi/i = Linf + (Lzer - Linf)*atan(i/Ipar)/(i/Ipar)
+</pre>
+
+<p>
+This approximation is with good performance and easy to adjust to a given characteristic with only four parameters (<strong>Tab.&nbsp;1</strong>).
+</p>
+
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Tab.&nbsp;1:</strong> Characteristic parameters of the saturating inductor model</caption>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>Inom</code>.</td>
+    <td>Nominal current</td>
+  </tr>
+  <tr>
+    <td><code>Lnom</code></td>
+    <td>Nominal inductance at nominal current</td>
+  </tr>
+  <tr>
+    <td><code>Lzer</code></td>
+    <td>Inductance near current = 0; <code>Lzer</code> has to be greater than <code>Lnom</code></td>
+  </tr>
+  <tr>
+    <td><code>Linf</code></td>
+    <td>Inductance at large currents; <code>Linf</code> has to be less than <code>Lnom</code></td>
+  </tr>
+</table>
+
+<p>
+The parameter <code>Ipar</code> is calculated internally from the relationship:</p>
+<pre>
+Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
+</pre>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i.png\" alt=\"Lact vs. i\">
+    </td>
+  </tr>
+</table>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig.&nbsp;2:</strong> Actual flux linkage <code>Psi</code> versus current <code>i</code></caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Psi_i.png\" alt=\"Psi vs. i\">
+    </td>
+  </tr>
+</table>
+
+<p>The flux slope in <strong>Fig.&nbsp;2</strong> is equal to <code>Lzer</code> for small currents.
+The limit of the flux slope is <code>Linf</code> as the current <code>i</code> approaches infinity.
+The nominal flux is indicated by the product of the nominal inductance <code>Lnom</code> and the nominal current <code>Inom</code>.
+</p>
 </html>", revisions="<html>
 <dl>
   <dt><strong>Main Author:</strong></dt>
@@ -299,6 +363,7 @@ package Basic "Basic electrical components"
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Release Notes:</strong></dt>
+  <dd>Jul 23, 2019: Improved by Anton Haumer</dd>
   <dd>May 27, 2004: Implemented by Anton Haumer</dd>
  </dl>
 </html>"));

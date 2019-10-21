@@ -1,4 +1,4 @@
-within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines;
+within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines;
 model SMPM_Braking
   "Test example: PermanentMagnetSynchronousMachine acting as brake"
   extends Modelica.Icons.Example;

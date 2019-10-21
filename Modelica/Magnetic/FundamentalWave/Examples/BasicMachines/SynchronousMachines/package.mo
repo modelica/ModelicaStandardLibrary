@@ -1,4 +1,4 @@
 within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines;
-package SnychronousMachines "Synchronous machines examples"
+package SynchronousMachines "Synchronous machines examples"
   extends Modelica.Icons.ExamplesPackage;
-end SnychronousMachines;
+end SynchronousMachines;

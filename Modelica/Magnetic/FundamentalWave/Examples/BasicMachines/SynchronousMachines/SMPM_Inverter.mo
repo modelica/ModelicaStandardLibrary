@@ -1,4 +1,4 @@
-within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines;
+within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines;
 model SMPM_Inverter
   "Starting of permanent magnet synchronous machine with inverter"
   extends Modelica.Icons.Example;

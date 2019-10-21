@@ -2604,6 +2604,10 @@ than the maximum abscissa value t_max (=" + String(t_max) + ") defined in the ta
       for i in 1:nout loop
         y[i] = p_offset[i] + Internal.getTimeTableValueNoDer(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
       end for;
+    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then
+      for i in 1:nout loop
+        y[i] = p_offset[i] + Internal.getTimeTableValueNoDer2(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
+      end for;
     else
       for i in 1:nout loop
         y[i] = p_offset[i] + Internal.getTimeTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));

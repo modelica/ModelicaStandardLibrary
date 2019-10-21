@@ -4581,9 +4581,7 @@ on the model behaviour.
     parameter Real NRD = 1 "Number of squares of the drain diffusions";
     parameter Real NRS = 1 "Number of squares of the source diffusions";
   //--------------------------------------------------------------------------------------
-  //need to be Boolean instead of integer, will be changed with the next Modelica version
-  //via converting script
-    parameter Integer OFF = 0
+    parameter Integer OFF(min=0, max=1) = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
   //--------------------------------------------------------------------------------------
     parameter SI.Voltage IC_VDS = -1e40

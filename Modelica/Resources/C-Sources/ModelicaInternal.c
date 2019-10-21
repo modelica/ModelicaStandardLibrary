@@ -30,6 +30,10 @@
 */
 
 /* Release Notes:
+      Oct. 10, 2019: by Thomas Beutlich
+                     Fixed month and year correction in ModelicaInternal_getTime
+                     (ticket #3143)
+
       Jun. 24, 2019: by Thomas Beutlich
                      Fixed uninitialized memory and realpath behaviour in
                      ModelicaInternal_fullPathName (ticket #3003)
@@ -1279,14 +1283,14 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
     struct tm tres;
 #endif
 
-    time( &calendarTime );               /* Retrieve sec time */
+    time(&calendarTime);                        /* Retrieve sec time */
 #if defined(_POSIX_)
     tlocal = localtime_r(&calendarTime, &tres); /* Time fields in local time zone */
 #elif defined(_MSC_VER) && _MSC_VER >= 1400
     localtime_s(&tres, &calendarTime);          /* Time fields in local time zone */
     tlocal = &tres;
 #else
-    tlocal = localtime( &calendarTime );        /* Time fields in local time zone */
+    tlocal = localtime(&calendarTime);          /* Time fields in local time zone */
 #endif
 
     /* Get millisecond resolution depending on platform */
@@ -1302,9 +1306,7 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
 #else
         _ftime( &timebuffer );                    /* Retrieve ms time */
 #endif
-        ms0 = (int)(timebuffer.millitm);          /* Convert unsigned int to int */
-        tlocal->tm_mon  = tlocal->tm_mon + 1;     /* Correct for month starting at 1 */
-        tlocal->tm_year = tlocal->tm_year + 1900; /* Correct for 4-digit year */
+        ms0 = (int)(timebuffer.millitm);        /* Convert unsigned int to int */
     }
 #else
     {
@@ -1320,7 +1322,7 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
     *min = tlocal->tm_min;
     *hour = tlocal->tm_hour;
     *mday = tlocal->tm_mday;
-    *mon = tlocal->tm_mon;
-    *year = tlocal->tm_year;
+    *mon = 1 + tlocal->tm_mon;      /* Correct for month starting at 1 */
+    *year = 1900 + tlocal->tm_year; /* Correct for 4-digit year */
 #endif
 }

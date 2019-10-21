@@ -6,12 +6,12 @@ model SwitchedCapacitor "Switched capacitor which can represent a positive or ne
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse(period=clock) annotation (Placement(transformation(extent={{-8,70},{12,90}})));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor(C=clock/max(Modelica.Constants.eps*oneOhm,abs(R)))
                                                                   annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
-  Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1
+  Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch IdealCommutingSwitch1
     annotation (Placement(transformation(
           origin={-50,0},
           extent={{-10,10},{10,-10}},
           rotation=180)));
-  Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch2
+  Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch IdealCommutingSwitch2
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   Modelica.Electrical.Analog.Basic.Ground Ground1
     annotation (Placement(transformation(

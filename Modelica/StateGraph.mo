@@ -507,14 +507,6 @@ library:
      The \"Parallel\" component is both used as \"composite step\" (so only one branch),
      as well as \"parallel step\" (so several execution branches).<br>&nbsp;</li>
 
-<li> <strong>Conveniently connecting components</strong><br>
-     Connecting components of a state machine in Modelica means to provide
-     new vector dimensions and to provide a vector index to connect to.
-     In StateGraph2, the new \"connectorSizing\" annotation is used and
-     therefore all this is now performed automatically (from a users point
-     of view, these actions are hidden; this is not the case in
-     StateGraph1 and makes the usage of the StateGraph1 library clumsy).<br>&nbsp;</li>
-
 <li> <strong>Safer state machines</strong><br>
      It is no longer possible to construct a wrong state machine in the sense that properties
      of the graph are violated (e.g., two initial steps, or branching wrongly out of a parallel
@@ -802,11 +794,11 @@ package Examples
 
   model FirstExample "A first simple StateGraph example"
     extends Modelica.Icons.Example;
-    InitialStep initialStep annotation (Placement(transformation(extent={{-48,0},
+    InitialStep initialStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-48,0},
                 {-28,20}})));
     Transition transition1(enableTimer=true, waitTime=1)
       annotation (Placement(transformation(extent={{-20,0},{0,20}})));
-    Step step annotation (Placement(transformation(extent={{10,0},{30,20}})));
+    Step step(nIn=1, nOut=1) annotation (Placement(transformation(extent={{10,0},{30,20}})));
     Transition transition2(enableTimer=true, waitTime=1)
       annotation (Placement(transformation(extent={{40,0},{60,20}})));
       inner StateGraphRoot stateGraphRoot
@@ -827,11 +819,10 @@ package Examples
   model FirstExample_Variant2
       "A variant of the first simple StateGraph example"
     extends Modelica.Icons.Example;
-    InitialStep initialStep annotation (Placement(transformation(extent={{-70,0},
-                {-50,20}})));
+    InitialStep initialStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
     Transition transition1(enableTimer=true, waitTime=1)
       annotation (Placement(transformation(extent={{-42,0},{-22,20}})));
-    StepWithSignal step
+    StepWithSignal step(nIn=1, nOut=1)
               annotation (Placement(transformation(extent={{-14,0},{6,20}})));
     TransitionWithSignal transition2
       annotation (Placement(transformation(extent={{52,0},{72,20}})));
@@ -864,11 +855,10 @@ package Examples
   model FirstExample_Variant3
       "A variant of the first simple StateGraph example"
     extends Modelica.Icons.Example;
-    InitialStep initialStep annotation (Placement(transformation(extent={{-70,0},
-                {-50,20}})));
+    InitialStep initialStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
     Transition transition1(enableTimer=true, waitTime=1)
       annotation (Placement(transformation(extent={{-42,0},{-22,20}})));
-    StepWithSignal step
+    StepWithSignal step(nIn=1, nOut=1)
               annotation (Placement(transformation(extent={{-14,0},{6,20}})));
     TransitionWithSignal transition2
       annotation (Placement(transformation(extent={{56,0},{76,20}})));
@@ -905,19 +895,19 @@ package Examples
 
     extends Modelica.Icons.Example;
 
-    InitialStep step0 annotation (
+    InitialStep step0(nIn=1, nOut=1) annotation (
           Placement(transformation(extent={{-140,-100},{-120,-80}})));
     Transition transition1(enableTimer=true, waitTime=1)
       annotation (Placement(
             transformation(extent={{-100,-100},{-80,-80}})));
-    Step step1 annotation (
+    Step step1(nIn=1, nOut=1) annotation (
           Placement(transformation(extent={{-10,-40},{10,-20}})));
     Transition transition2(enableTimer=true, waitTime=1)
       annotation (Placement(
             transformation(extent={{90,-100},{110,-80}})));
-    Step step6 annotation (Placement(
+    Step step6(nIn=1, nOut=1) annotation (Placement(
             transformation(extent={{120,-100},{140,-80}})));
-    Step step2 annotation (
+    Step step2(nIn=1, nOut=1) annotation (
           Placement(transformation(extent={{-98,40},{-78,60}})));
     Transition transition3(enableTimer=true, waitTime=1)
       annotation (Placement(
@@ -925,9 +915,9 @@ package Examples
     Transition transition4(enableTimer=true, waitTime=1)
       annotation (Placement(
             transformation(extent={{-42,40},{-22,60}})));
-    Step step3 annotation (Placement(
+    Step step3(nIn=1, nOut=1) annotation (Placement(
             transformation(extent={{-8,80},{12,100}})));
-    Step step4 annotation (Placement(
+    Step step4(nIn=1, nOut=1) annotation (Placement(
             transformation(extent={{-8,40},{12,60}})));
     Transition transition5(enableTimer=true, waitTime=1)
       annotation (Placement(
@@ -935,7 +925,7 @@ package Examples
     Transition transition6(enableTimer=true, waitTime=1)
       annotation (Placement(
             transformation(extent={{26,40},{46,60}})));
-    Step step5 annotation (Placement(
+    Step step5(nIn=1, nOut=1) annotation (Placement(
             transformation(extent={{80,40},{100,60}})));
     Modelica.Blocks.Sources.RealExpression setReal(y=time)
       annotation (Placement(transformation(extent={{21,-160},{41,-140}})));
@@ -945,7 +935,7 @@ package Examples
       annotation (Placement(transformation(extent={{-77,-160},{-19,-140}})));
     Transition transition4a(enableTimer=true, waitTime=1)
       annotation (Placement(transformation(extent={{-42,0},{-22,20}})));
-    Step step4a annotation (Placement(
+    Step step4a(nIn=1, nOut=1) annotation (Placement(
             transformation(extent={{-8,0},{12,20}})));
     Transition transition6a(enableTimer=true, waitTime=2)
       annotation (Placement(
@@ -1039,17 +1029,17 @@ has a higher priority to fire as alternative.split[2]).
     Utilities.CompositeStep compositeStep
                                      annotation (Placement(transformation(
               extent={{-10,5},{20,35}})));
-    InitialStep step0 annotation (
+    InitialStep step0(nIn=1, nOut=1) annotation (
           Placement(transformation(extent={{-89,-10},{-69,10}})));
     Transition transition1(enableTimer=true, waitTime=1)
       annotation (Placement(
             transformation(extent={{-59,-10},{-39,10}})));
-    Step step1 annotation (Placement(
+    Step step1(nIn=1, nOut=1) annotation (Placement(
             transformation(extent={{-4,-30},{16,-10}})));
     Transition transition2(enableTimer=true, waitTime=1)
       annotation (Placement(
             transformation(extent={{45,-10},{65,10}})));
-    Step step6 annotation (Placement(
+    Step step6(nIn=1, nOut=1) annotation (Placement(
             transformation(extent={{71,-10},{91,10}})));
     TransitionWithSignal transition7 annotation (Placement(transformation(
               extent={{10,-70},{-10,-50}})));
@@ -1098,11 +1088,9 @@ is that the alternative paths are included in a \"CompositeStep\".
 
     extends Modelica.Icons.Example;
 
-    Utilities.CompositeStep1 compositeStep
-                                annotation (Placement(transformation(extent={{
+    Utilities.CompositeStep1 compositeStep annotation (Placement(transformation(extent={{
                 -20,25},{10,55}})));
-    InitialStep initialStep
-                      annotation (
+    InitialStep initialStep(nIn=1, nOut=1) annotation (
           Placement(transformation(extent={{-80,30},{-60,50}})));
     Transition transition1(enableTimer=true, waitTime=1)
       annotation (Placement(
@@ -1113,7 +1101,7 @@ is that the alternative paths are included in a \"CompositeStep\".
     Transition transition3(enableTimer=true, waitTime=2)
       annotation (Placement(
             transformation(extent={{-55,-30},{-35,-10}})));
-    Step step1 annotation (Placement(transformation(extent={{-24,-30},{-4,-10}})));
+    Step step1(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-24,-30},{-4,-10}})));
     Transition transition4(enableTimer=true, waitTime=1)
       annotation (Placement(
             transformation(extent={{10,-30},{30,-10}})));
@@ -1272,7 +1260,7 @@ buttons:
       parameter Real limit=0.98 "Limit level of tank 1";
       parameter Modelica.SIunits.Time waitTime=3 "Wait time";
 
-      InitialStep s1(nIn=2)
+      InitialStep s1(nIn=2, nOut=1)
         annotation (Placement(transformation(extent={{-72,30},{-52,50}})));
       MakeProduct makeProduct(limit=limit, waitTime=waitTime)
         annotation (Placement(transformation(extent={{-20,25},{10,55}})));
@@ -1285,7 +1273,7 @@ buttons:
               origin={-23,-1},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-      Step s2(nOut=2)
+      Step s2(nIn=1, nOut=2)
               annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
       Transition T4(condition=start)
         annotation (Placement(transformation(
@@ -1294,8 +1282,7 @@ buttons:
               rotation=90)));
       Transition T5(condition=shut) annotation (Placement(transformation(extent=
                  {{-6,-60},{14,-40}})));
-      Step emptyTanks annotation (Placement(transformation(extent={{22,-60},{42,
-                  -40}})));
+      Step emptyTanks(nIn=1, nOut=1) annotation (Placement(transformation(extent={{22,-60},{42,-40}})));
       Transition T6(condition=level1+level2<0.001)
         annotation (Placement(transformation(extent={{45,-60},{65,-40}})));
       Modelica.Blocks.Interfaces.BooleanInput start
@@ -1408,17 +1395,17 @@ buttons:
 
       Modelica.Blocks.Interfaces.RealInput level1
         annotation (Placement(transformation(extent={{-190,-140},{-150,-100}})));
-      Step fillTank1 annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
+      Step fillTank1(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
       Transition T1(condition=level1 > limit)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Step fillTank2 annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      Step fillTank2(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Transition T3(condition=level1 < 0.001)
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-      Step emptyTank2 annotation (Placement(transformation(extent={{120,-10},{140,10}})));
-      Step wait1 annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Step emptyTank2(nIn=1, nOut=1) annotation (Placement(transformation(extent={{120,-10},{140,10}})));
+      Step wait1(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Transition T2(enableTimer=true, waitTime=waitTime)
         annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
-      Step wait2 annotation (Placement(transformation(extent={{54,-10},{74,10}})));
+      Step wait2(nIn=1, nOut=1) annotation (Placement(transformation(extent={{54,-10},{74,10}})));
       Transition T4(enableTimer=true, waitTime=waitTime)
         annotation (Placement(transformation(extent={{82,-10},{102,10}})));
     equation
@@ -1624,9 +1611,9 @@ buttons:
       Transition transition4(enableTimer=true, waitTime=1)
         annotation (Placement(
               transformation(extent={{-64,-10},{-44,10}})));
-      Step step3 annotation (
+      Step step3(nIn=1, nOut=1) annotation (
             Placement(transformation(extent={{-10,50},{10,70}})));
-      Step step4 annotation (
+      Step step4(nIn=1, nOut=1) annotation (
             Placement(transformation(extent={{-10,-10},{10,10}})));
       Transition transition5(enableTimer=true, waitTime=2)
         annotation (Placement(
@@ -1637,15 +1624,13 @@ buttons:
       Transition transition4a(enableTimer=true, waitTime=1)
         annotation (Placement(
               transformation(extent={{-64,-70},{-44,-50}})));
-      Step step4a annotation (
+      Step step4a(nIn=1, nOut=1) annotation (
             Placement(transformation(extent={{-10,-70},{10,-50}})));
       Transition transition6a(enableTimer=true, waitTime=2)
         annotation (Placement(
               transformation(extent={{36,-70},{56,-50}})));
-      Step initStep annotation (Placement(transformation(extent={{-140,-10},{
-                  -120,10}})));
-      Step exitStep annotation (Placement(transformation(extent={{120,-10},{140,
-                  10}})));
+      Step initStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
+      Step exitStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{120,-10},{140,10}})));
       Alternative Alternative1(nBranches=3) annotation (Placement(
               transformation(extent={{-98,-90},{98,90}})));
     equation
@@ -1692,10 +1677,8 @@ buttons:
         condition=time >= 8)
         annotation (Placement(
               transformation(extent={{-60,20},{-40,40}})));
-      Step initStep annotation (Placement(transformation(extent={{-140,-10},{
-                  -120,10}})));
-      Step exitStep annotation (Placement(transformation(extent={{110,-10},{130,
-                  10}})));
+      Step initStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
+      Step exitStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{110,-10},{130,10}})));
       CompositeStep2 compositeStep11(waitTime=3)
                                            annotation (Placement(transformation(
                 extent={{-20,15},{10,45}})));
@@ -1750,8 +1733,8 @@ buttons:
       extends PartialCompositeStep;
       Transition transition(enableTimer=true, waitTime=waitTime)
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
-      Step initStep annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
-      Step exitStep annotation (Placement(transformation(extent={{110,-10},{130,10}})));
+      Step initStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
+      Step exitStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{110,-10},{130,10}})));
       parameter Modelica.SIunits.Time waitTime=2 "Waiting time in this composite step";
     equation
       connect(exitStep.outPort[1], outPort)
@@ -1771,8 +1754,8 @@ package Interfaces "Connectors and partial models"
   extends Modelica.Icons.InterfacesPackage;
 
   connector Step_in "Input port of a step"
-    output Boolean occupied "true, if step is active" annotation (HideResult=true);
-    input Boolean set "true, if transition fires and step is activated" annotation (HideResult=true);
+    output Boolean occupied "= true, if step is active" annotation (HideResult=true);
+    input Boolean set "= true, if transition fires and step is activated" annotation (HideResult=true);
     annotation (
    Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1789,9 +1772,9 @@ package Interfaces "Connectors and partial models"
   end Step_in;
 
   connector Step_out "Output port of a step"
-    output Boolean available "true, if step is active" annotation (HideResult=true);
+    output Boolean available "= true, if step is active" annotation (HideResult=true);
 
-    input Boolean reset "true, if transition fires and step is deactivated"
+    input Boolean reset "= true, if transition fires and step is deactivated"
       annotation (HideResult=true);
 
     annotation (Icon(coordinateSystem(
@@ -1812,10 +1795,10 @@ package Interfaces "Connectors and partial models"
 
   connector Transition_in "Input port of a transition"
     input Boolean available
-        "true, if step connected to the transition input is active"
+        "= true, if step connected to the transition input is active"
       annotation (HideResult=true);
     output Boolean reset
-        "true, if transition fires and the step connected to the transition input is deactivated"
+        "= true, if transition fires and the step connected to the transition input is deactivated"
       annotation (HideResult=true);
 
     annotation (Icon(coordinateSystem(
@@ -1834,10 +1817,10 @@ package Interfaces "Connectors and partial models"
 
   connector Transition_out "Output port of a transition"
     input Boolean occupied
-        "true, if step connected to the transition output is active"
+        "= true, if step connected to the transition output is active"
       annotation (HideResult=true);
     output Boolean set
-        "true, if transition fires and step connected to the transition output becomes active"
+        "= true, if transition fires and step connected to the transition output becomes active"
       annotation (HideResult=true);
 
     annotation (Icon(coordinateSystem(
@@ -1858,8 +1841,8 @@ package Interfaces "Connectors and partial models"
 
   connector CompositeStep_resume
       "Input port of a step (used for resume connector of a CompositeStep)"
-    output Boolean occupied "true, if step is active" annotation (HideResult=true);
-    input Boolean set "true, if transition fires and step is activated"
+    output Boolean occupied "= true, if step is active" annotation (HideResult=true);
+    input Boolean set "= true, if transition fires and step is activated"
       annotation (HideResult=true);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -1870,9 +1853,9 @@ package Interfaces "Connectors and partial models"
   connector CompositeStep_suspend
       "Output port of a step (used for suspend connector of a CompositeStep)"
 
-    output Boolean available "true, if step is active" annotation (HideResult=true);
+    output Boolean available "= true, if step is active" annotation (HideResult=true);
 
-    input Boolean reset "true, if transition fires and step is deactivated"
+    input Boolean reset "= true, if transition fires and step is deactivated"
       annotation (HideResult=true);
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1889,8 +1872,7 @@ package Interfaces "Connectors and partial models"
         "= true, if suspend transition of CompositeStep fires";
     input Boolean resume "= true, if resume transition of CompositeStep fires";
     Real activeStepsDummy
-        "Dummy variable in order that connector fulfills restriction of connector"
-                                                                                annotation(HideResult=true);
+        "Dummy variable in order that connector fulfills restriction of connector" annotation(HideResult=true);
     flow Real activeSteps "Number of active steps in the CompositeStep";
   end CompositeStepStatePort_in;
 
@@ -1901,23 +1883,22 @@ package Interfaces "Connectors and partial models"
         "= true, if suspend transition of CompositeStep fires";
     output Boolean resume "= true, if resume transition of CompositeStep fires";
     Real activeStepsDummy
-        "Dummy variable in order that connector fulfills restriction of connector"
-                                                                                 annotation(HideResult=true);
+        "Dummy variable in order that connector fulfills restriction of connector" annotation(HideResult=true);
     flow Real activeSteps "Number of active steps in the CompositeStep";
   end CompositeStepStatePort_out;
 
   partial block PartialStep
       "Partial step with one input and one output transition port"
 
-    parameter Integer nIn(min=0) = 1 "Number of input connections";
-    parameter Integer nOut(min=0) = 1 "Number of output connections";
+    parameter Integer nIn(min=0) = 0 "Number of input connections" annotation(Dialog(connectorSizing=true), HideResult=true);
+    parameter Integer nOut(min=0) = 0 "Number of output connections" annotation(Dialog(connectorSizing=true), HideResult=true);
 
     /* localActive is introduced since component 'Step' has Boolean variable 'active'
      and component 'StepWithSignal' has connector instance 'active' defined
      and both components inherit from PartialStep
   */
     output Boolean localActive
-        "= true if step is active, otherwise the step is not active"
+        "= true, if step is active, otherwise the step is not active"
       annotation (HideResult=true);
     Interfaces.Step_in inPort[nIn] "Vector of step input connectors"
       annotation (Placement(transformation(extent={{-120,10},{-100,-10}})));
@@ -1927,8 +1908,11 @@ package Interfaces "Connectors and partial models"
     outer Interfaces.CompositeStepState stateGraphRoot;
     model OuterStatePort
       CompositeStepStatePort_in subgraphStatePort;
+      input Boolean localActive;
+    equation
+      subgraphStatePort.activeSteps = if localActive then 1.0 else 0.0;
     end OuterStatePort;
-    OuterStatePort outerStatePort;
+    OuterStatePort outerStatePort(localActive=localActive);
 
     Boolean newActive "Value of active in the next iteration"
       annotation (HideResult=true);
@@ -1965,9 +1949,6 @@ package Interfaces "Connectors and partial models"
     when outerStatePort.subgraphStatePort.suspend then
       oldActive = localActive;
     end when;
-
-    // Report state to CompositeStep
-    outerStatePort.subgraphStatePort.activeSteps = if localActive then 1.0 else 0.0;
 
     // Report state to input and output transitions
     for i in 1:nIn loop
@@ -2006,7 +1987,7 @@ package Interfaces "Connectors and partial models"
         "Wait time before transition fires"
       annotation (Dialog(group="Timer", enable=enableTimer));
     output Modelica.SIunits.Time t
-        "= actual waiting time (transition will fire when t > waitTime)";
+        "Actual waiting time (transition will fire when t > waitTime)";
     output Boolean enableFire "= true, if all firing conditions are true";
     output Boolean fire "= true, if transition fires" annotation (HideResult=true);
 
@@ -2067,8 +2048,8 @@ package Interfaces "Connectors and partial models"
   model CompositeStepState
       "Communication channel between CompositeSteps and steps in the CompositeStep"
 
-    output Boolean suspend = false;
-    output Boolean resume =  false;
+    output Boolean suspend = false "= true, if suspend transition of CompositeStep fires";
+    output Boolean resume =  false "= true, if resume transition of CompositeStep fires";
     CompositeStepStatePort_out subgraphStatePort;
 
   /*
@@ -2091,7 +2072,7 @@ end Interfaces;
 block InitialStep "Initial step (= step that is active when simulation starts)"
 
   output Boolean active
-      "= true if step is active, otherwise the step is not active";
+      "= true, if step is active, otherwise the step is not active";
 
   extends Interfaces.PartialStep;
 
@@ -2152,7 +2133,7 @@ end InitialStepWithSignal;
 block Step "Ordinary step (= step that is not active when simulation starts)"
 
   output Boolean active
-      "= true if step is active, otherwise the step is not active";
+      "= true, if step is active, otherwise the step is not active";
 
   extends Interfaces.PartialStep;
 
@@ -2307,9 +2288,9 @@ block Alternative
 connector Step_in_forAlternative
       "Input port of a step (has special icon for usage in component 'Alternative')"
 
-  output Boolean occupied "true, if step is active"
+  output Boolean occupied "= true, if step is active"
     annotation (HideResult=true);
-  input Boolean set "true, if transition fires and step is activated"
+  input Boolean set "= true, if transition fires and step is activated"
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
@@ -2327,9 +2308,9 @@ end Step_in_forAlternative;
 connector Step_out_forAlternative
       "Output port of a step (has special icon for usage in component 'Alternative')"
 
-  output Boolean available "true, if step is active"
+  output Boolean available "= true, if step is active"
     annotation (HideResult=true);
-  input Boolean reset "true, if transition fires and step is deactivated"
+  input Boolean reset "= true, if transition fires and step is deactivated"
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
@@ -2412,10 +2393,10 @@ connector Transition_in_forParallel
       "Input port of a transition (has special icon for usage in component 'Parallel')"
 
   input Boolean available
-        "true, if step connected to the transition input is active"
+        "= true, if step connected to the transition input is active"
     annotation (HideResult=true);
   output Boolean reset
-        "true, if transition fires and the step connected to the transition input is deactivated"
+        "= true, if transition fires and the step connected to the transition input is deactivated"
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
@@ -2453,10 +2434,10 @@ connector Transition_out_forParallel
       "Output port of a transition (has special icon for usage in component 'Parallel')"
 
   input Boolean occupied
-        "true, if step connected to the transition output is active"
+        "= true, if step connected to the transition output is active"
     annotation (HideResult=true);
   output Boolean set
-        "true, if transition fires and step connected to the transition output becomes active"
+        "= true, if transition fires and step connected to the transition output becomes active"
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
@@ -2548,7 +2529,7 @@ partial model PartialCompositeStep
                   resume  = Modelica.Math.BooleanVectors.anyTrue(resume.set) or outerState.subgraphStatePort.resume)
       "Communication port between the CompositeStep and the steps within the CompositeStep";
   output Boolean active
-      "= true if step is active, otherwise the step is not active";
+      "= true, if step is active, otherwise the step is not active";
   StateGraph.Interfaces.Step_in inPort annotation (Placement(transformation(
             extent={{-170,10},{-150,-10}})));
   StateGraph.Interfaces.Step_out outPort annotation (Placement(transformation(
@@ -2568,8 +2549,11 @@ partial model PartialCompositeStep
       "Block containing the port that is connected to the outer stateGraphRoot"
     Interfaces.CompositeStepStatePort_in subgraphStatePort
         "Port connected to outer stateGraphRoot";
+    input Boolean active;
+  equation
+    subgraphStatePort.activeSteps = if active then 1.0 else 0.0;
   end OuterState;
-  OuterState outerState;
+  OuterState outerState(active=active);
 
   protected
   model InnerState
@@ -2585,9 +2569,7 @@ initial equation
   // pre(active) = pre(newActive);
 equation
   // connect to outer CompositeStep
-
   connect(outerState.subgraphStatePort, stateGraphRoot.subgraphStatePort);
-  outerState.subgraphStatePort.activeSteps = if active then 1.0 else 0.0;
 
   // set active flag  of CompositeStep
   activeSteps = -integer(innerState.stateGraphRoot.subgraphStatePort.activeSteps);

@@ -1,4 +1,4 @@
-within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines;
+within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines;
 model SMR_Inverter
   "Starting of synchronous reluctance machine with inverter"
   extends Modelica.Icons.Example;

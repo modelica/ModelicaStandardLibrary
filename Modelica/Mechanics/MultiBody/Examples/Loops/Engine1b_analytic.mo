@@ -9,31 +9,36 @@ model Engine1b_analytic
     animation=false,
     rRod1_ia={0,0.2,0},
     rRod2_ib={0,-0.1,0}) annotation (Placement(transformation(
-        origin={20,20},
+        origin={40,20},
         extent={{-20,20},{20,-20}},
+        rotation=90)));
+  Utilities.GasForce2 gasForce(d=0.1, L=0.35)
+    annotation (Placement(transformation(
+        origin={90,80},
+        extent={{10,-10},{-10,10}},
         rotation=90)));
 equation
   connect(mid.frame_b, jointRRP.frame_a) annotation (Line(
-      points={{30,-54},{30,-54},{30,-40},{20,-40},{20,0}},
+      points={{30,-40},{40,-40},{40,0}},
       color={95,95,95},
       thickness=0.5));
   connect(jointRRP.frame_b, cylPosition.frame_b) annotation (Line(
-      points={{20,40},{20,80},{-40,80}},
+      points={{40,40},{40,60},{-70,60},{-70,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(jointRRP.axis, gasForce.flange_b) annotation (Line(points={{36,40},{36,60},{80,60}},
-                                     color={0,127,0}));
-  connect(jointRRP.bearing, gasForce.flange_a) annotation (Line(points={{28,40},{28,80},{80,80}},
-                                         color={0,127,0}));
+  connect(jointRRP.axis, gasForce.flange_b)
+    annotation (Line(points={{56,40},{56,70},{90,70}}, color={0,127,0}));
+  connect(jointRRP.bearing, gasForce.flange_a)
+    annotation (Line(points={{48,40},{48,90},{90,90}}, color={0,127,0}));
   connect(jointRRP.frame_ib, piston.frame_a) annotation (Line(
-      points={{40,36},{60,36},{60,40},{80,40}},
+      points={{60,36},{60,60},{90,60},{90,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(jointRRP.frame_ia, connectingRod.frame_a) annotation (Line(
-      points={{40,4},{60,4},{60,-20},{80,-20}},
+  connect(connectingRod.frame_b, jointRRP.frame_ia) annotation (Line(
+      points={{90,-30},{90,-40},{60,-40},{60,4}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=0.5), Documentation(info="<html>
+  annotation (experiment(StopTime=5), Documentation(info="<html>
 <p>
 This is the same model as
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.

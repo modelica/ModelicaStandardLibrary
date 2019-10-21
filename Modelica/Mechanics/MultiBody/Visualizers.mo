@@ -830,7 +830,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
       annotation (
         obsolete = "Obsolete model - use ground visualization feature in Modelica.Mechanics.MultiBody.World, or use model Modelica.Mechanics.MultiBody.Visualizers.Rectangle instead",
         Icon(
-          coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {10, 10}),
+          coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}),
           graphics = {
             Polygon(lineColor = {255, 255, 255}, fillColor = {126, 181, 78}, fillPattern = FillPattern.Solid, points = {{-100, -30}, {20, -90}, {100, 0}, {-10, 40}}),
             Text(textColor = {64, 64, 64}, extent = {{20, 70}, {60, 100}}, textString = "z", horizontalAlignment = TextAlignment.Left),
@@ -908,7 +908,8 @@ This shape visualizes the x-y plane by a box.
           Polygon(fillColor = {156, 203, 255}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{0.803, -51.958}, {11.03, -53.644}, {20.576, -54.192}, {29.425, -53.684}, {37.562, -52.2}, {44.974, -49.821}, {51.644, -46.628}, {57.559, -42.703}, {62.704, -38.126}, {67.064, -32.978}, {70.624, -27.34}, {73.369, -21.294}, {75.285, -14.92}, {76.358, -8.3}, {76.572, -1.513}, {75.912, 5.358}, {74.365, 12.233}, {71.914, 19.03}, {68.546, 25.669}, {64.246, 32.069}, {68.464, 23.809}, {71.022, 16.316}, {71.227, 10.492}, {68.389, 7.237}, {61.817, 7.45}, {63.346, 1.807}, {64.026, -4.042}, {63.843, -9.992}, {62.781, -15.937}, {60.828, -21.772}, {57.969, -27.392}, {54.19, -32.691}, {49.477, -37.563}, {43.817, -41.905}, {37.194, -45.61}, {29.595, -48.574}, {21.006, -50.69}, {11.414, -51.853}, {0.803, -51.958}}, smooth = Smooth.Bezier),
           Polygon(fillColor = {10, 90, 224}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{-45.225, -15.029}, {-49.203, -8.642}, {-52.162, -1.742}, {-54.02, 5.476}, {-54.695, 12.821}, {-54.106, 20.097}, {-52.17, 27.112}, {-48.806, 33.671}, {-43.932, 39.581}, {-37.465, 44.648}, {-31.91, 47.581}, {-25.763, 49.807}, {-19.146, 51.3}, {-12.181, 52.031}, {-4.989, 51.974}, {2.308, 51.103}, {9.588, 49.389}, {16.73, 46.807}, {23.612, 43.33}, {30.112, 38.929}, {36.108, 33.579}, {41.479, 27.252}, {35.949, 35.695}, {30.184, 42.766}, {24.221, 48.561}, {18.099, 53.176}, {11.854, 56.706}, {5.525, 59.247}, {-0.853, 60.892}, {-7.24, 61.739}, {-13.601, 61.881}, {-19.897, 61.415}, {-26.091, 60.436}, {-34.854, 57.822}, {-42.105, 53.874}, {-47.925, 48.813}, {-52.395, 42.856}, {-55.596, 36.221}, {-57.609, 29.128}, {-58.514, 21.794}, {-58.393, 14.437}, {-57.327, 7.278}, {-55.396, 0.533}, {-52.681, -5.579}, {-49.264, -10.839}, {-45.225, -15.029}}, smooth = Smooth.Bezier),
           Polygon(fillColor = {156, 203, 255}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{-61.245, -15.029}, {-64.25, -7.37}, {-66.703, 0.324}, {-68.557, 7.994}, {-69.768, 15.582}, {-70.289, 23.03}, {-70.075, 30.28}, {-69.08, 37.274}, {-67.259, 43.954}, {-64.565, 50.261}, {-60.954, 56.138}, {-56.379, 61.526}, {-50.794, 66.368}, {-44.155, 70.605}, {-38.685, 73.337}, {-32.863, 75.726}, {-26.675, 77.722}, {-20.107, 79.277}, {-13.142, 80.344}, {-5.768, 80.876}, {2.031, 80.823}, {10.27, 80.138}, {18.963, 78.773}, {28.124, 76.68}, {17.648, 80.219}, {7.69, 82.637}, {-1.726, 84.047}, {-10.579, 84.565}, {-18.845, 84.302}, {-26.501, 83.375}, {-33.526, 81.896}, {-39.897, 79.98}, {-45.592, 77.74}, {-50.587, 75.291}, {-54.86, 72.746}, {-61.395, 67.72}, {-66.745, 62.054}, {-70.958, 55.843}, {-74.083, 49.184}, {-76.168, 42.174}, {-77.262, 34.908}, {-77.413, 27.483}, {-76.671, 19.994}, {-75.082, 12.539}, {-72.697, 5.213}, {-69.564, -1.888}, {-65.73, -8.667}, {-61.245, -15.029}}, smooth = Smooth.Bezier),
-          Polygon(lineColor = {64, 64, 64}, fillColor = {255, 255, 255}, points = {{-42.048, 32.604}, {-36.102, 37.608}, {-29.329, 40.96}, {-21.973, 42.833}, {-14.275, 43.397}, {-6.477, 42.824}, {1.179, 41.286}, {8.45, 38.956}, {15.096, 36.005}, {20.873, 32.604}, {25.864, 28.942}, {31.126, 24.443}, {36.304, 19.198}, {41.044, 13.302}, {44.991, 6.847}, {47.79, -0.074}, {49.086, -7.367}, {48.525, -14.94}, {45.751, -22.698}, {40.409, -30.55}, {33.361, -37.212}, {25.834, -41.649}, {18.025, -44.139}, {10.129, -44.963}, {2.342, -44.4}, {-5.14, -42.728}, {-12.121, -40.228}, {-18.405, -37.179}, {-23.796, -33.86}, {-28.099, -30.55}, {-32.136, -26.889}, {-36.606, -22.388}, {-41.128, -17.142}, {-45.318, -11.244}, {-48.793, -4.788}, {-51.17, 2.134}, {-52.067, 9.427}, {-51.101, 16.999}, {-47.889, 24.756}, {-42.048, 32.604}})}, coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})),
+          Polygon(lineColor = {64, 64, 64}, fillColor = {255, 255, 255}, points = {{-42.048, 32.604}, {-36.102, 37.608}, {-29.329, 40.96}, {-21.973, 42.833}, {-14.275, 43.397}, {-6.477, 42.824}, {1.179, 41.286}, {8.45, 38.956}, {15.096, 36.005}, {20.873, 32.604}, {25.864, 28.942}, {31.126, 24.443}, {36.304, 19.198}, {41.044, 13.302}, {44.991, 6.847}, {47.79, -0.074}, {49.086, -7.367}, {48.525, -14.94}, {45.751, -22.698}, {40.409, -30.55}, {33.361, -37.212}, {25.834, -41.649}, {18.025, -44.139}, {10.129, -44.963}, {2.342, -44.4}, {-5.14, -42.728}, {-12.121, -40.228}, {-18.405, -37.179}, {-23.796, -33.86}, {-28.099, -30.55}, {-32.136, -26.889}, {-36.606, -22.388}, {-41.128, -17.142}, {-45.318, -11.244}, {-48.793, -4.788}, {-51.17, 2.134}, {-52.067, 9.427}, {-51.101, 16.999}, {-47.889, 24.756}, {-42.048, 32.604}})},
+        coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true)),
       Documentation(info = "<html> <p>
 Model <strong>Torus</strong> visualizes a torus. The center of the torus is located at
 connector frame_a (visualized by the red coordinate system in the figure below).
@@ -1012,7 +1013,7 @@ the last point of the parametrization coincide in this case.
           Polygon(lineColor = {64, 64, 64}, fillColor = {191, 191, 191}, fillPattern = FillPattern.HorizontalCylinder, points = {{-12.5, 0}, {-14.213, -19.134}, {-19.09, -35.355}, {-26.39, -46.194}, {-35, -50}, {-43.61, -46.194}, {-50.91, -35.355}, {-55.787, -19.134}, {-57.5, 0}, {-55.787, 19.134}, {-50.91, 35.355}, {-43.61, 46.194}, {-35, 50}, {-26.39, 46.194}, {-19.09, 35.355}, {-14.213, 19.134}, {-12.5, 0}}, smooth = Smooth.Bezier),
           Text(textColor = {0,0,255}, extent = {{-150, 100}, {150, 140}}, textString = "%name"),
           Rectangle(origin = {6.091, 0}, lineColor = {95, 95, 95}, fillColor = {215, 215, 215}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-102.091, -8}, {-19.142, 8}})},
-        coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {5, 5})),
+        coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true)),
       Documentation(info = "<html>
 <p>
 Model <strong>VoluminousWheel</strong> provides a simple visualization of a tire using
@@ -1132,7 +1133,8 @@ connector frame_a (visualized by the red coordinate system in the figure below).
           Polygon(origin = {-5, 0}, fillColor = {253, 77, 0}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{71.667, 33.5}, {71.667, 33.5}, {65.667, 33.333}, {59.289, 30.796}, {53.882, 23.57}, {51.227, 16.645}, {49.571, 8.651}, {49, 0}, {49.571, -8.651}, {51.227, -16.645}, {53.882, -23.57}, {59.289, -30.796}, {65.667, -33.333}, {71.667, -33.5}, {71.667, -33.5}}, smooth = Smooth.Bezier),
           Polygon(origin = {-5, 0}, fillColor = {252, 52, 0}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{74.5, 33.5}, {74.5, 33.5}, {69.833, 33.333}, {63.455, 30.796}, {58.048, 23.57}, {55.394, 16.645}, {53.738, 8.651}, {53.167, 0}, {53.738, -8.651}, {55.394, -16.645}, {58.048, -23.57}, {63.455, -30.796}, {69.833, -33.333}, {74, -33.5}, {74.5, -34}}, smooth = Smooth.Bezier),
           Polygon(origin = {-5, 0}, fillColor = {251, 0, 7}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{74, 33.333}, {67.622, 30.796}, {62.215, 23.57}, {59.56, 16.645}, {57.904, 8.651}, {57.333, 0}, {57.904, -8.651}, {59.56, -16.645}, {62.215, -23.57}, {67.622, -30.796}, {74, -33.333}}, smooth = Smooth.Bezier),
-          Polygon(origin = {-5, 0}, lineColor = {107, 0, 4}, fillColor = {251, 0, 7}, fillPattern = FillPattern.Sphere, points = {{90.667, 0}, {90.096, 8.651}, {88.44, 16.645}, {85.785, 23.57}, {80.378, 30.796}, {74, 33.333}, {67.622, 30.796}, {62.215, 23.57}, {59.56, 16.645}, {57.904, 8.651}, {57.333, 0}, {57.904, -8.651}, {59.56, -16.645}, {62.215, -23.57}, {67.622, -30.796}, {74, -33.333}, {80.378, -30.796}, {85.785, -23.57}, {88.44, -16.645}, {90.096, -8.651}, {90.667, 0}}, smooth=Smooth.Bezier),                                                                                                                                                                                                        Line(origin = {-5, 0}, points = {{-76, 33.333}, {-76, 33.333}, {-82.378, 30.796}, {-87.785, 23.57}, {-90.44, 16.645}, {-92.096, 8.651}, {-92.667, 0}, {-92.096, -8.651}, {-90.44, -16.645}, {-87.785, -23.57}, {-82.378, -30.796}, {-76, -33.333}, {-76, -33.333}, {74, -33.333}, {74, -33.333}, {80.378, -30.796}, {85.785, -23.57}, {88.44, -16.645}, {90.096, -8.651}, {90.667, 0}, {90.096, 8.651}, {88.44, 16.645}, {85.785, 23.57}, {80.378, 30.796}, {74, 33.333}, {74, 33.333}, {-76, 33.333}}, color = {64, 64, 64}, arrowSize = 8, smooth = Smooth.Bezier)}, coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {5, 5})),
+          Polygon(origin = {-5, 0}, lineColor = {107, 0, 4}, fillColor = {251, 0, 7}, fillPattern = FillPattern.Sphere, points = {{90.667, 0}, {90.096, 8.651}, {88.44, 16.645}, {85.785, 23.57}, {80.378, 30.796}, {74, 33.333}, {67.622, 30.796}, {62.215, 23.57}, {59.56, 16.645}, {57.904, 8.651}, {57.333, 0}, {57.904, -8.651}, {59.56, -16.645}, {62.215, -23.57}, {67.622, -30.796}, {74, -33.333}, {80.378, -30.796}, {85.785, -23.57}, {88.44, -16.645}, {90.096, -8.651}, {90.667, 0}}, smooth=Smooth.Bezier),                                                                                                                                                                                                        Line(origin = {-5, 0}, points = {{-76, 33.333}, {-76, 33.333}, {-82.378, 30.796}, {-87.785, 23.57}, {-90.44, 16.645}, {-92.096, 8.651}, {-92.667, 0}, {-92.096, -8.651}, {-90.44, -16.645}, {-87.785, -23.57}, {-82.378, -30.796}, {-76, -33.333}, {-76, -33.333}, {74, -33.333}, {74, -33.333}, {80.378, -30.796}, {85.785, -23.57}, {88.44, -16.645}, {90.096, -8.651}, {90.667, 0}, {90.096, 8.651}, {88.44, 16.645}, {85.785, 23.57}, {80.378, 30.796}, {74, 33.333}, {74, 33.333}, {-76, 33.333}}, color = {64, 64, 64}, arrowSize = 8, smooth = Smooth.Bezier)},
+        coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true)),
     Documentation(info = "<html>
 <p> 
 Model <strong>PipeWithScalarField</strong> visualizes a pipe and a scalar
@@ -2077,8 +2079,8 @@ library (will be replaced by a color editor).
     model Shape
       "Visualizing an elementary object with variable size; all data have to be set as modifiers (see info layer)"
 
-       extends ModelicaServices.Animation.Shape;
-       extends
+      extends ModelicaServices.Animation.Shape;
+      extends
         Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape;
 
         annotation (
@@ -2395,7 +2397,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
            Polygon(fillColor = {251, 0, 7}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{74, 33.333}, {67.622, 30.796}, {62.215, 23.57}, {59.56, 16.645}, {57.904, 8.651}, {57.333, 0}, {57.904, -8.651}, {59.56, -16.645}, {62.215, -23.57}, {67.622, -30.796}, {74, -33.333}}, smooth = Smooth.Bezier),
            Polygon(lineColor = {107, 0, 4}, fillColor = {251, 0, 7}, fillPattern = FillPattern.Sphere, points = {{90.667, 0}, {90.096, 8.651}, {88.44, 16.645}, {85.785, 23.57}, {80.378, 30.796}, {74, 33.333}, {67.622, 30.796}, {62.215, 23.57}, {59.56, 16.645}, {57.904, 8.651}, {57.333, 0}, {57.904, -8.651}, {59.56, -16.645}, {62.215, -23.57}, {67.622, -30.796}, {74, -33.333}, {80.378, -30.796}, {85.785, -23.57}, {88.44, -16.645}, {90.096, -8.651}, {90.667, 0}}, smooth=Smooth.Bezier),
            Line(points = {{-76, 33.333}, {-76, 33.333}, {-82.378, 30.796}, {-87.785, 23.57}, {-90.44, 16.645}, {-92.096, 8.651}, {-92.667, 0}, {-92.096, -8.651}, {-90.44, -16.645}, {-87.785, -23.57}, {-82.378, -30.796}, {-76, -33.333}, {-76, -33.333}, {74, -33.333}, {74, -33.333}, {80.378, -30.796}, {85.785, -23.57}, {88.44, -16.645}, {90.096, -8.651}, {90.667, 0}, {90.096, 8.651}, {88.44, 16.645}, {85.785, 23.57}, {80.378, 30.796}, {74, 33.333}, {74, 33.333}, {-76, 33.333}}, color = {64, 64, 64}, arrowSize = 8, smooth = Smooth.Bezier)},
-         coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})),
+         coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true)),
        Documentation(info = "<html>
 <p>
 Model <strong>PipeWithScalarField</strong> visualizes a pipe and a scalar
@@ -2658,7 +2660,7 @@ since they all have frame connectors).
   end Advanced;
 
   package Internal
-    "Visualizers that will be replaced by improved versions in the future (do not use them)"
+    "Makeshift visualizers for display of three-dimensional fonts using cylinders"
 
     extends Modelica.Icons.InternalPackage;
 
@@ -2885,8 +2887,8 @@ and are defined by parameters.
 <p>
 This package contains components to construct 3-dim. fonts
 with \"cylinder\" elements for the animation window.
-This is just a temporary hack until 3-dim. fonts are supported in
-Modelica tools. The components are used to construct the \"x\", \"y\",
+This is a makeshift as long as the support of 3-dim. fonts is not specified in the
+Modelica language. The components are used to construct the \"x\", \"y\",
 \"z\" labels of coordinates systems in the animation.
 </p>
 </html>"));
@@ -2965,8 +2967,11 @@ This is a vector with 3 elements,
 Note, r g, b are given as Integer[3] in the ranges 0&nbsp;&hellip;&nbsp;255,
 respectively.
 </p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {10, 10}), graphics={  Polygon(origin = {4.391, -1}, lineColor = {128, 128, 128}, fillColor = {255, 255, 255},
-            fillPattern =                                                                                                                                                                                                        FillPattern.Solid, points = {{-14.391, 86}, {75.609, 66}, {15.609, 26}, {-84.391, 56}}),
-           Polygon(origin = {18.391, -30}, lineColor = {128, 128, 128}, fillColor = {128, 128, 128}, fillPattern = FillPattern.Solid, points = {{61.609, 95}, {1.609, 55}, {1.609, -55}, {61.609, -5}}),
-           Polygon(origin = {-11.843, -48.757}, lineColor = {128, 128, 128}, fillColor = {191, 191, 191}, fillPattern = FillPattern.Solid, points = {{31.843, 73.757}, {31.843, -36.243}, {-68.157, 3.757}, {-68.157, 103.757}})}));
+</html>"),
+    Icon(
+      coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}),
+      graphics={
+        Polygon(origin = {4.391, -1}, lineColor = {128, 128, 128}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, points = {{-14.391, 86}, {75.609, 66}, {15.609, 26}, {-84.391, 56}}),
+        Polygon(origin = {18.391, -30}, lineColor = {128, 128, 128}, fillColor = {128, 128, 128}, fillPattern = FillPattern.Solid, points = {{61.609, 95}, {1.609, 55}, {1.609, -55}, {61.609, -5}}),
+        Polygon(origin = {-11.843, -48.757}, lineColor = {128, 128, 128}, fillColor = {191, 191, 191}, fillPattern = FillPattern.Solid, points = {{31.843, 73.757}, {31.843, -36.243}, {-68.157, 3.757}, {-68.157, 103.757}})}));
 end Visualizers;

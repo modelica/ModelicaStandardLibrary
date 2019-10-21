@@ -19,13 +19,13 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-20,0})));
-  Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,0; 0,1; 60,1;
-        60,0; 120,0; 120,1; 180,1; 180,0; 240,0; 240,1; 300,1; 300,0; 360,0;
-        360,1; 420,1; 420,0; 480,0; 480,1; 540,1; 540,0; 600,0; 600,1; 660,1;
-        660,0; 720,0; 720,-1; 780,-1; 780,0; 840,0; 840,-1; 900,-1; 900,0;
-        960,0; 960,-1; 1020,-1; 1020,0; 1080,0; 1080,-1; 1140,-1; 1140,0;
-        1200,0; 1200,-1; 1260,-1; 1260,0; 1320,0; 1320,-1; 1380,-1; 1380,0;
-        1440,0],                extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
+  Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
+        table=[0,0; 60,1; 120,0; 180,1; 240,0; 300,1; 360,0;
+        420,1; 480,0; 540,1; 600,0; 600,1; 660,0; 720,-1; 780,0;
+        840,-1; 900,0; 960,-1; 1020,0; 1080,-1; 1140,0; 1200,-1;
+        1260,0; 1320,-1; 1380,0; 1440,0],
+        extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
+        smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments)
     annotation (Placement(transformation(extent={{-88,-10},{-68,10}})));
   Modelica.Blocks.Continuous.FirstOrder
     firstOrder(

@@ -28,11 +28,11 @@ model RollingWheelSetPulling "Rolling wheel set that is pulled by a force"
   Modelica.Mechanics.MultiBody.Parts.Body body(m=0.01, r_CM={0,0,0},
     animation=false)
     annotation (Placement(transformation(extent={{60,-10},{80,10}})));
-  Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(table=[0,1,0,0; 1,1,
-        0,0; 2,0,2,0; 3,0,2,0])
+  Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
+    table=[0,1,0,0; 1,1,0,0; 2,0,2,0; 3,0,2,0])
     annotation (Placement(transformation(extent={{-20,30},{0,50}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(
-                       r={0.2,0,0},
+    r={0.2,0,0},
     animation=true,
     width=0.04)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));

@@ -35,10 +35,10 @@ package Lines
         start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
     parameter SI.LinearTemperatureCoefficient alpha_R=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
-      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+    parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -108,7 +108,7 @@ package Lines
 <br> The resistances are calculated with : R=r*length/(N+1).
 <br> The inductances are calculated with : L=l*length/(N+1).
 <br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.</p>
-<p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the OLine becomes temperature sensitive due to their resistors which resistances are calculated by <code>R_actual = R*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G/(1 + alpha*(T_heatPort - T_ref)).</code></p>
+<p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the OLine becomes temperature sensitive due to their resistors which resistances are calculated by <code>R_actual = R*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G/(1 + alpha*(heatPort.T - T_ref)).</code></p>
 <p>Note, this is different to the lumped line model of SPICE.</p>
 
 <dl><dt><strong>References:</strong> </dt>
@@ -171,10 +171,10 @@ package Lines
       each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
       7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
     parameter SI.LinearTemperatureCoefficient alpha_R=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
-      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+    parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -204,10 +204,10 @@ package Lines
       parameter Real Gl[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Conductance matrix";
       parameter SI.LinearTemperatureCoefficient alpha_R
-        "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+        "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
       parameter SI.LinearTemperatureCoefficient alpha_G
-        "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-      parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
+        "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+      parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
         annotation (
         Evaluate=true,
         HideResult=true,
@@ -308,7 +308,7 @@ package Lines
       parameter Real Ll[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Inductance matrix";
       parameter SI.LinearTemperatureCoefficient alpha_R
-        "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+        "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
       parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
         annotation (
         Evaluate=true,
@@ -479,7 +479,7 @@ package Lines
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
 </blockquote>
 
-<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R_actual = R*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G/(1 + alpha*(T_heatPort - T_ref)).</p>
+<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R_actual = R*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G/(1 + alpha*(heatPort.T - T_ref)).</p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
@@ -539,8 +539,8 @@ package Lines
         start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
     parameter SI.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
+    parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,

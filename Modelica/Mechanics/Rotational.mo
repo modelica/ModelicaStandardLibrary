@@ -6434,7 +6434,7 @@ blocks of the block library Modelica.Blocks.Sources.
         output Real q;
       algorithm
         q := q_qd_qdd[1];
-        annotation (derivative(noDerivative=q_qd_qdd) = position_der, LateInline=true);
+        annotation (derivative(noDerivative=q_qd_qdd) = position_der, InlineAfterIndexReduction=true);
       end position;
 
       function position_der
@@ -6449,7 +6449,7 @@ blocks of the block library Modelica.Blocks.Sources.
         qd := q_qd_qdd[2];
         annotation (derivative(
             noDerivative=q_qd_qdd,
-            order=2) = position_der2, LateInline=true);
+            order=2) = position_der2, InlineAfterIndexReduction=true);
       end position_der;
 
       function position_der2

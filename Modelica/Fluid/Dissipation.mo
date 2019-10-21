@@ -1141,35 +1141,35 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 
         Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes
           geometry =                                                              Dissipation.Utilities.Types.HTXGeometry_flatTubes.LouverFin
-          "Choice of fin geometry" annotation (Dialog(group="HeatExchanger"));
+          "Choice of fin geometry" annotation (Dialog(group="Heat exchanger"));
 
-        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="HeatExchanger"));
-        SI.Length D_h=0 "Hydraulic diameter" annotation (Dialog(group="HeatExchanger",
+        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="Heat exchanger"));
+        SI.Length D_h=0 "Hydraulic diameter" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 2));
         SI.Length D_m=0 "Major tube diameter for flat tube"
-          annotation (Dialog(group="HeatExchanger"));
-        SI.Length F_l=0 "Fin length" annotation (Dialog(group="HeatExchanger", enable=
+          annotation (Dialog(group="Heat exchanger"));
+        SI.Length F_l=0 "Fin length" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 1));
         SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness" annotation (Dialog(
-              group="HeatExchanger", enable= geometry == 1));
-        SI.Length L_l=0 "Louver length" annotation (Dialog(group="HeatExchanger",
+              group="Heat exchanger", enable= geometry == 1));
+        SI.Length L_l=0 "Louver length" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
-        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="HeatExchanger",
+        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
-        SI.Length T_d=0 "Tube depth" annotation (Dialog(group="HeatExchanger", enable=
+        SI.Length T_d=0 "Tube depth" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 1));
-        SI.Length T_p=0 "Tube pitch" annotation (Dialog(group="HeatExchanger", enable=
+        SI.Length T_p=0 "Tube pitch" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 1));
 
         Real alpha=0 "Lateral fin spacing (s) / free flow height (h)" annotation (
-            Dialog(group="HeatExchanger", enable= geometry == 2));
+            Dialog(group="Heat exchanger", enable= geometry == 2));
         Real gamma=0 "Fin thickness (t) / lateral fin spacing (s)" annotation (Dialog(
-              group="HeatExchanger", enable= geometry == 2));
+              group="Heat exchanger", enable= geometry == 2));
         Real delta=0 "Fin thickness (t) / Fin length (l)" annotation (Dialog(group=
-                "HeatExchanger", enable= geometry == 2));
-        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="HeatExchanger",
+                "Heat exchanger", enable= geometry == 2));
+        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
-        SI.Angle Phi=0 "Louver angle" annotation (Dialog(group="HeatExchanger",
+        SI.Angle Phi=0 "Louver angle" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 1));
 
         annotation (Documentation(info="<html>
@@ -1419,35 +1419,35 @@ Calculation of the mean convective heat transfer coefficient <strong> kc </stron
 
         Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes
           geometry =                                                               Dissipation.Utilities.Types.HTXGeometry_roundTubes.PlainFin
-          "Choice of fin geometry" annotation (Dialog(group="HeatExchanger"));
+          "Choice of fin geometry" annotation (Dialog(group="Heat exchanger"));
 
-        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="HeatExchanger"));
+        SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="Heat exchanger"));
         SI.Length D_c=0 "Fin collar diameter"
-          annotation (Dialog(group="HeatExchanger"));
+          annotation (Dialog(group="Heat exchanger"));
         SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness"
-          annotation (Dialog(group="HeatExchanger"));
+          annotation (Dialog(group="Heat exchanger"));
         SI.Length L=0 "Heat exchanger length" annotation (Dialog(group=
-                "HeatExchanger", enable= geometry == 2));
-        SI.Length L_h=0 "Louver height" annotation (Dialog(group="HeatExchanger",
+                "Heat exchanger", enable= geometry == 2));
+        SI.Length L_h=0 "Louver height" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 2));
-        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="HeatExchanger",
+        SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 2));
-        Integer N=0 "Number of tube rows" annotation (Dialog(group="HeatExchanger",
+        Integer N=0 "Number of tube rows" annotation (Dialog(group="Heat exchanger",
               enable= (geometry == 1 or geometry == 2 or geometry == 3)));
         SI.Length P_d=0 "Pattern depth of wavy fin, wave height" annotation (Dialog(
-              group="HeatExchanger", enable= geometry == 4));
+              group="Heat exchanger", enable= geometry == 4));
         SI.Length P_l=0 "Longitudinal tube pitch" annotation (Dialog(group=
-                "HeatExchanger", enable= (geometry == 1 or geometry == 2 or geometry == 3)));
+                "Heat exchanger", enable= (geometry == 1 or geometry == 2 or geometry == 3)));
         SI.Length P_t=0 "Transverse tube pitch"
-          annotation (Dialog(group="HeatExchanger"));
-        SI.Length S_h=0 "Slit height" annotation (Dialog(group="HeatExchanger",
+          annotation (Dialog(group="Heat exchanger"));
+        SI.Length S_h=0 "Slit height" annotation (Dialog(group="Heat exchanger",
               enable= geometry == 3));
-        SI.Length S_p=0 "Slit pitch" annotation (Dialog(group="HeatExchanger", enable=
+        SI.Length S_p=0 "Slit pitch" annotation (Dialog(group="Heat exchanger", enable=
                geometry == 3));
         SI.Length X_f=0 "Half wave length of wavy fin" annotation (Dialog(group=
-                "HeatExchanger", enable= geometry == 4));
+                "Heat exchanger", enable= geometry == 4));
 
-        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="HeatExchanger"));
+        SI.Length delta_f=0 "Fin thickness" annotation (Dialog(group="Heat exchanger"));
 
         annotation (Documentation(info="<html>
 This record is used as <strong> input record </strong> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube\"> kc_roundTube</a> and
@@ -4530,37 +4530,42 @@ This record is used as <strong> input record </strong> for the pressure loss fun
         output SI.Pressure DP "Output for function dp_volumeFlowRate_DP";
 
       protected
-        Real a=max(Modelica.Constants.eps, abs(IN_con.a));
-        Real b=max(Modelica.Constants.eps, abs(IN_con.b));
+        Real a=abs(IN_con.a);
+        Real b=abs(IN_con.b);
 
         SI.VolumeFlowRate V_flow=m_flow/max(Modelica.Constants.eps, IN_var.rho)
           "Volume flow rate";
-        SI.Pressure dp_min=IN_con.dp_min
+        SI.Pressure dp_min=max(Modelica.Constants.eps, abs(IN_con.dp_min))
           "Start of approximation for decreasing pressure loss";
-        SI.VolumeFlowRate V_flow_smooth=if IN_con.a > 0 then -(b/(2*a) + ((-b/(2*a))^
-            2 + dp_min/a)^0.5) else dp_min/b
+        SI.VolumeFlowRate V_flow_smooth=if a > 0 and b <= 0 then (dp_min/a)^0.5 else 0
           "Start of approximation for decreasing volume flow rate";
 
         //Documentation
 
       algorithm
-        DP := a*Dissipation.Utilities.Functions.General.SmoothPower(
+        assert(a+b>0, "Please provide non-zero factors for either a or b of function dp=a*V_flow^2 + b*V_flow");
+
+        // Please note the function is reqularized for zero flow with the parameter b if b>0.
+
+        DP := a*(if a>0 and b<=0 then Dissipation.Utilities.Functions.General.SmoothPower(
                 V_flow,
                 V_flow_smooth,
-                2) + b*V_flow;
+                2) elseif a>0 and b>0 then V_flow*abs(V_flow) else 0) + b*V_flow;
       annotation (Inline=false, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
 <p>
-Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
+Calculation of a generic pressure loss with linear and/or quadratic dependence on volume flow rate. <strong>Please note that the sum of a and b has to be greater zero</strong>.
 The function can be used to calculate pressure loss at known mass flow rate <strong> or </strong> mass flow rate at known pressure loss.
 </p>
 
 <p>
 Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
 </p>
+</html>", revisions="<html>
+2018-11-21 Stefan Wischhusen: Fixed problem for linear case (a=0 and b>0) and obsolete regularization for a>0 and b>0.
 </html>"));
       end dp_volumeFlowRate_DP;
 
@@ -4586,33 +4591,42 @@ Generally this  function is numerically best used for the <strong> incompressibl
           "Output for function dp_volumeFlowRate_MFLOW";
 
       protected
-        Real a=max(Modelica.Constants.eps, abs(IN_con.a));
-        Real b=max(Modelica.Constants.eps, abs(IN_con.b));
+        Real a=abs(IN_con.a);
+        Real b=abs(IN_con.b);
 
-        SI.Pressure dp_min=IN_con.dp_min
+        SI.Pressure dp_min=max(Modelica.Constants.eps, abs(IN_con.dp_min))
           "Start of approximation for decreasing pressure loss";
 
         //Documentation
 
       algorithm
-        M_FLOW := IN_var.rho*(-b/(2*a) +
-          Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
-                (b/(2*a))^2 + (1/a)*dp,
-                (b/(2*a))^2 + (1/a)*dp_min,
-                0.5));
+        assert(a+b>0, "Please provide non-zero factors for either a or b of function dp=a*V_flow^2 + b*V_flow");
+
+        // Please note the function is reqularized for zero flow with the parameter b if b>0.
+
+        M_FLOW := IN_var.rho*(if a>0 and b<=0 then
+                Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
+                (1/a)*dp,
+                (1/a)*dp_min,
+                0.5)
+                elseif a>0 and b>0 then
+                sign(dp)*(-b/(2*a) + sqrt((b/(2*a))^2 + (1/a)*abs(dp)))
+                else b*dp);
       annotation (Inline=true, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
 <p>
-Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
+Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate. <strong>Please note that the sum of a and b has to be greater zero</strong>.
 The function can be used to calculate pressure loss at known mass flow rate <strong> or </strong> mass flow rate at known pressure loss.
 </p>
 
 <p>
 Generally this  function is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
 </p>
+</html>",       revisions="<html>
+2018-11-21 Stefan Wischhusen: Fixed problem for linear case (a=0 and b>0) and obsolete regularization for a>0 and b>0.
 </html>"));
       end dp_volumeFlowRate_MFLOW;
 
@@ -4624,7 +4638,7 @@ Generally this  function is numerically best used for the <strong> compressible 
           Modelica.Fluid.Dissipation.Utilities.Records.General.QuadraticVFLOW;
 
         SI.Pressure dp_min=0.1
-          "Start of approximation for decreasing pressure loss";
+          "Start of approximation for decreasing pressure loss (only used for b=0)";
 
         annotation (Documentation(info="<html>
 This record is used as <strong> input record </strong> for the pressure loss function
@@ -10767,8 +10781,9 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
         algorithm
           Re := Re1*(lambda2/lambda2_1)^(1 + dx*(c2 + dx*c3));
-          annotation (Inline=false, smoothOrder=5, 
-		  Documentation(revisions="<html>
+          annotation (Inline=false, smoothOrder=5,
+            Documentation(revisions=
+                            "<html>
 2018-11-20 Stefan Wischhusen: Renamed function from CubicInterpolation_DP to CubicInterpolation_Re.
 </html>"));
         end CubicInterpolation_Re;
@@ -10808,7 +10823,8 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         algorithm
           lambda2 := 64*Re1*(Re/Re1)^(1 + dx*(c2 + dx*c3));
           annotation (Inline=false, smoothOrder=5,
-		  Documentation(revisions="<html>
+            Documentation(revisions=
+                            "<html>
 2018-11-20 Stefan Wischhusen: Renamed function from CubicInterpolation_MFLOW to CubicInterpolation_lambda.
 </html>"));
         end CubicInterpolation_lambda;

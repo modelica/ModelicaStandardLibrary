@@ -85,6 +85,14 @@ convertClass("Modelica.Math.baseIcon1",
               "Modelica.Math.Icons.AxisLeft")
 convertClass("Modelica.Math.baseIcon2",
               "Modelica.Math.Icons.AxisCenter")
+convertClass("Modelica.Math.Matrices.Utilities.householderReflection",
+              "ObsoleteModelica4.Math.Matrices.Utilities.householderReflection")
+convertClass("Modelica.Math.Matrices.Utilities.householderSimilarityTransformation",
+              "ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation")
+convertClass("Modelica.Math.Vectors.Utilities.householderReflection",
+              "ObsoleteModelica4.Math.Vectors.Utilities.householderReflection")
+convertClass("Modelica.Math.Vectors.Utilities.householderVector",
+              "ObsoleteModelica4.Math.Vectors.Utilities.householderVector")
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
               "Modelica.Electrical.Analog.Basic.Resistor");
 convertClass("Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle",
@@ -362,6 +370,13 @@ convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
 convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
                   {"hideConnector"}, {"use_numberPort=not %hideConnector%"});
 
+convertModifiers({"Modelica.StateGraph.PartialStep",
+                  "Modelica.StateGraph.InitialStep",
+                  "Modelica.StateGraph.InitialStepWithSignal",
+                  "Modelica.StateGraph.Step",
+                  "Modelica.StateGraph.StepWithSignal"},
+                  fill("",0), {"nIn=1", "nOut=1"});
+
 convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheel",
                {"wheelRadius"},
                {"radius"});
@@ -427,3 +442,7 @@ convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInduction
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"},
                 "airGapR", "airGap")
+convertClass("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
+             "Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch");
+convertClass("Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch",
+             "Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch");

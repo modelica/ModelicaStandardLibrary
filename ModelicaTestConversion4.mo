@@ -287,6 +287,44 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2880;
+
+    model Issue3086 "Conversion test for #3086"
+      extends Modelica.Icons.Example;
+      Modelica.StateGraph.InitialStep initialStep annotation (Placement(transformation(extent={{-48,0},{-28,20}})));
+      Modelica.StateGraph.Transition transition1(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.StateGraph.Step step annotation (Placement(transformation(extent={{10,0},{30,20}})));
+      Modelica.StateGraph.Transition transition2(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      inner Modelica.StateGraph.StateGraphRoot stateGraphRoot annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    equation
+      connect(initialStep.outPort[1], transition1.inPort) annotation (Line(points={{-27.5,10},{-14,10}}));
+      connect(transition1.outPort, step.inPort[1]) annotation (Line(points={{-8.5,10},{9,10}}));
+      connect(step.outPort[1], transition2.inPort) annotation (Line(points={{30.5,10},{46,10}}));
+      connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points={{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}));
+      annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3086\">#3086</a>.
+</p>
+</html>"));
+    end Issue3086;
+
+    model Issue3086_WithSignal "Conversion test for #3086"
+      extends Modelica.Icons.Example;
+      Modelica.StateGraph.InitialStepWithSignal initialStep annotation (Placement(transformation(extent={{-48,0},{-28,20}})));
+      Modelica.StateGraph.Transition transition1(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.StateGraph.StepWithSignal step annotation (Placement(transformation(extent={{10,0},{30,20}})));
+      Modelica.StateGraph.Transition transition2(enableTimer=true, waitTime=1) annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      inner Modelica.StateGraph.StateGraphRoot stateGraphRoot annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    equation
+      connect(initialStep.outPort[1], transition1.inPort) annotation (Line(points={{-27.5,10},{-14,10}}));
+      connect(transition1.outPort, step.inPort[1]) annotation (Line(points={{-8.5,10},{9,10}}));
+      connect(step.outPort[1], transition2.inPort) annotation (Line(points={{30.5,10},{46,10}}));
+      connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points={{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}));
+      annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3086\">#3086</a>.
+</p>
+</html>"));
+    end Issue3086_WithSignal;
   end StateGraph;
 
   package Electrical
@@ -310,6 +348,54 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue197;
+
+      model Issue778 "Conversion test for #778"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation(Placement(transformation(extent={{-20,-100},{0,-80}})));
+        Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=1) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-80,0})));
+        Modelica.Electrical.Analog.Basic.Resistor r1(R=2)
+          annotation(Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={20,20})));
+        Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch twoWay annotation (Placement(transformation(extent={{-40,50},{-20,30}})));
+        Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch controlledTwoWay annotation (Placement(transformation(extent={{40,70},{60,50}})));
+        Modelica.Electrical.Analog.Basic.Resistor r2(R=1)
+          annotation(Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={20,-20})));
+        Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+        Modelica.Electrical.Analog.Basic.Resistor r3(R=1)
+          annotation(Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={80,20})));
+        Modelica.Electrical.Analog.Basic.Resistor r4(R=2)
+          annotation(Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={80,-20})));
+      equation
+        connect(ground.p, constantVoltage.n) annotation (Line(points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
+        connect(r1.n, r2.p) annotation (Line(points={{20,10},{20,-10}}, color={0,0,255}));
+        connect(r2.n, constantVoltage.n) annotation (Line(points={{20,-30},{20,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
+        connect(constantVoltage.p, twoWay.p) annotation (Line(points={{-80,10},{-80,40},{-40,40}}, color={0,0,255}));
+        connect(twoWay.n2, r1.p) annotation (Line(points={{-20,40},{20,40},{20,30}}, color={0,0,255}));
+        connect(twoWay.n1, r2.p) annotation (Line(points={{-20,36},{-16,36},{-16,0},{20,0},{20,-10}}, color={0,0,255}));
+        connect(booleanStep.y, twoWay.control) annotation (Line(points={{-39,0},{-30,0},{-30,28}}, color={255,0,255}));
+        connect(controlledTwoWay.p, twoWay.p) annotation (Line(points={{40,60},{-80,60},{-80,40},{-40,40}}, color={0,0,255}));
+        connect(controlledTwoWay.control, r2.p) annotation (Line(points={{50,50},{50,0},{20,0},{20,-10}}, color={0,0,255}));
+        connect(controlledTwoWay.n2, r3.p) annotation (Line(points={{60,60},{80,60},{80,30}}, color={0,0,255}));
+        connect(controlledTwoWay.n1, r4.p) annotation (Line(points={{60,56},{68,56},{68,0},{80,0},{80,-10}}, color={0,0,255}));
+        connect(r3.n, r4.p) annotation (Line(points={{80,10},{80,-10}}, color={0,0,255}));
+        connect(r4.n, constantVoltage.n) annotation (Line(points={{80,-30},{80,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/778\">#778</a>.
+</p>
+</html>"));
+      end Issue778;
 
       model Issue2361 "Conversion test for #2361"
         extends Modelica.Icons.Example;
@@ -1375,7 +1461,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue2857;
 
-    model Issue3002 "Conversion test for #3002"
+    model Issue3002_roots "Conversion test for #3002"
       extends Modelica.Icons.Example;
       Real r[2,2];
     algorithm
@@ -1385,7 +1471,20 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3002\">#3002</a>.
 </p>
 </html>"));
-    end Issue3002;
+    end Issue3002_roots;
+
+    model Issue3002_householder "Conversion test for #3002"
+      extends Modelica.Icons.Example;
+      function f1 = Modelica.Math.Matrices.Utilities.householderReflection;
+      function f2 = Modelica.Math.Matrices.Utilities.householderSimilarityTransformation;
+      function f3 = Modelica.Math.Vectors.Utilities.householderReflection;
+      function f4 = Modelica.Math.Vectors.Utilities.householderVector;
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3002\">#3002</a>.
+</p>
+</html>"));
+    end Issue3002_householder;
   end Math;
 
   package Media
@@ -1618,9 +1717,11 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       package P6
         extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
       end P6;
+
       package P7
         extends Modelica.Icons.RotationalSensor;
       end P7;
+
       package P8
         extends Modelica.Icons.TranslationalSensor;
       end P8;

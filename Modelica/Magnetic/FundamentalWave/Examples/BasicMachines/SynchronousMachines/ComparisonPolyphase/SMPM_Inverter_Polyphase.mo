@@ -1,4 +1,4 @@
-within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SnychronousMachines.ComparisonPolyphase;
+within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase;
 model SMPM_Inverter_Polyphase
   "Starting of polyphase permanent magnet synchronous machine with inverter"
 
