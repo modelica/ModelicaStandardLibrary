@@ -302,7 +302,7 @@ equation
 <p>
 The PMOS model is a simple model of a p-channel metal-oxide semiconductor
 FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for H. Spiro.
+For more details please care for [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
 </p>
 <p>
 The model does not consider capacitances. A high drain-source resistance RDS
@@ -312,11 +312,9 @@ is included to avoid numerical difficulties.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
 </p>
-<dl>
-<dt><strong>References:</strong></dt>
-<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-  Muenchen Wien 1990.</dd>
-</dl>
+
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
+
 <p>
 Some typical parameter sets are:
 </p>
@@ -422,7 +420,7 @@ equation
 <p>
 The NMOS model is a simple model of a n-channel metal-oxide semiconductor
 FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for H. Spiro.
+For more details please care for [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
 </p>
 <p>
 The model does not consider capacitances. A high drain-source resistance RDS
@@ -455,11 +453,7 @@ behavior is <strong>not</strong> modelled yet. The parameters are not temperatur
   20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
 </pre>
 
-<dl>
-<dt><strong>References:</strong></dt>
-<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-Muenchen Wien 1990.</dd>
-</dl>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
 </html>",
  revisions="<html>
 <ul>
@@ -583,12 +577,8 @@ A typical parameter set is:
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </pre>
-<dl>
-<dt><strong>References:</strong></dt>
-<dd>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983
-on page 317 ff.</dd>
-</dl>
+
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Vlach1993</a>, pp. 317]</p>
 </html>",
  revisions="<html>
 <ul>
@@ -699,12 +689,8 @@ A typical parameter set is:
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </pre>
-<dl>
-<dt><strong>References:</strong></dt>
-<dd>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983
-on page 317 ff.</dd>
-</dl>
+
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Vlach1993</a>, pp. 317]</p>
 </html>",
  revisions="<html>
 <ul>
@@ -829,8 +815,7 @@ end PNP;
   12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
   20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
 </pre>
-<p><strong>References:</strong></p>
-<p>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990.</p>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
 </html>",  revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -928,9 +913,8 @@ end PNP;
 <p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
-<dl><dt><strong>References:</strong> </dt>
-<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </dd>
-</dl><p>Some typical parameter sets are:</p>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
+<p>Some typical parameter sets are:</p>
 <pre>
   W       L      Beta        Vt    K2     K5      DW       DL
   m       m      A/V^2       V     -      -       m        m
@@ -1057,8 +1041,7 @@ end PNP;
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
-<p><strong>References:</strong></p>
-<p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff.</p>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Vlach1983</a>]</p>
 </html>",  revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -1168,8 +1151,7 @@ end PNP;
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
-<p><strong>References:</strong></p>
-<p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff.</p>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Vlach1983</a>]</p>
 </html>",  revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
