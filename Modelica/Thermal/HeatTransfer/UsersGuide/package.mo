@@ -1,10 +1,6 @@
 within Modelica.Thermal.HeatTransfer;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
-
-
-
-
   annotation (
     preferredView="info",
     DocumentationClass=true,
