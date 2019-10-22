@@ -6,7 +6,7 @@ class References "References"
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 
   <tr>
-    <td>[<a href=\"https://ieeexplore.ieee.org/document/1447963\">Branin2012</a>]</td>
+    <td>[<a href=\"https://ieeexplore.ieee.org/document/1447963\">Branin1967</a>]</td>
     <td>F. H. Branin Jr., &quot;Transient analysis of lossless transmission lines&quot;, <em>Proceedings of the IEEE</em>,
         vol. 55, pp. 2012-2013, 1967</td>
   </tr>

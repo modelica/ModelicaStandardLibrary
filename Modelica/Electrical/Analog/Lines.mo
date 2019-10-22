@@ -648,10 +648,10 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (defaultComponentName="line",
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
+<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
 
 <p><strong>References:</strong> 
-   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin2012</a>],
+   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
    [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
 </html>",      revisions="<html>
 <ul>
@@ -717,9 +717,9 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (defaultComponentName="line",
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
+<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
 <p><strong>References:</strong> 
-   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin2012</a>],
+   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
    [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
 </html>",      revisions="<html>
 <dl>
@@ -780,9 +780,9 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (defaultComponentName="line",
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
+<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
 <p><strong>References:</strong> 
-   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin2012</a>],
+   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
    [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
 </html>",      revisions="<html>
 <ul>
@@ -825,7 +825,6 @@ The capacitances are calculated with: C=c*length/N.
               textString="TLine3",
               textColor={0,0,255})}));
   end TLine3;
-
   annotation (Documentation(info="<html>
 <p>This package contains lossy and lossless segmented transmission lines, and LC distributed line models. The line models do not yet possess a conditional heating port.</p>
 </html>", revisions="<html>
