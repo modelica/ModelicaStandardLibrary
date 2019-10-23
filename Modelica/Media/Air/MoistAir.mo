@@ -1365,17 +1365,10 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
       "Molar fraction";
 
   algorithm
-    s := Modelica.Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*(1 - X[
-      Water]) + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*
-      X[Water] - Modelica.Constants.R*(Utilities.smoothMax(
-          X[Water]/MMX[Water]*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)
-        *p/reference_p),
-          0.0,
-          1e-9) + Utilities.smoothMax(
-          (1 - X[Water])/MMX[Air]*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)
-        *p/reference_p),
-          0.0,
-          1e-9));
+    s:= Modelica.Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*(1 - X[Water])
+    + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*X[Water]
+    - Modelica.Constants.R*(Utilities.smoothMax(X[Water]/MMX[Water],0.0,1e-9)*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/reference_p)
+    + Utilities.smoothMax((1 - X[Water])/MMX[Air],0.0,1e-9)*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/reference_p));
     annotation (
       derivative=s_pTX_der,
       Inline=false,
@@ -1385,6 +1378,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
         revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 <p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
+<p>2019-09-10        Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
@@ -1405,38 +1399,39 @@ Specific entropy of moist air is computed from pressure, temperature and composi
   protected
     MoleFraction[2] Y=massToMoleFractions(X, {steam.MM,dryair.MM})
       "Molar fraction";
+    MolarMass MM "Molar mass";
 
   algorithm
-    ds := Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der(
-          dryair,
-          T,
-          dT)*(1 - X[Water]) +
-      Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der(
-          steam,
-          T,
-          dT)*X[Water] + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(
-      dryair, T)*dX[Air] + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(
-      steam, T)*dX[Water] - Modelica.Constants.R*(1/MMX[Water]*
-      Utilities.smoothMax_der(
-          X[Water]*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/
-        reference_p),
-          0.0,
-          1e-9,
-          (Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/
-        reference_p) + (X[Water]/Y[Water]*(MMX[Air]*MMX[Water]/(X[Air]*MMX[
-        Water] + X[Water]*MMX[Air])^2)))*dX[Water] + X[Water]/p*
-        dp,
-          0,
-          0) + 1/MMX[Air]*Utilities.smoothMax_der(
-          (1 - X[Water])*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)
-        *p/reference_p),
-          0.0,
-          1e-9,
-          (Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/
-        reference_p) + (X[Air]/Y[Air]*(MMX[Water]*MMX[Air]/(X[Air]*MMX[Water]
-         + X[Water]*MMX[Air])^2)))*dX[Air] + X[Air]/p*dp,
-          0,
-          0));
+    MM := MMX[Water]*MMX[Air]/(X[Water]*MMX[Air] + X[Air]*MMX[Water]);
+
+
+    ds := IdealGases.Common.Functions.s0_Tlow_der(
+      dryair,
+      T,
+      dT)*(1 - X[Water]) + IdealGases.Common.Functions.s0_Tlow_der(
+      steam,
+      T,
+      dT)*X[Water] + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*dX[Air] + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*dX[Water] - Modelica.Constants.R*(1/MMX[Water]*(Utilities.smoothMax_der(
+      X[Water],
+      0.0,
+      1e-9,
+      dX[Water],
+      0.0,
+      0.0)*(Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/reference_p) + MM/MMX[Air]) + dp/p*Utilities.smoothMax(
+      X[Water],
+      0.0,
+      1e-9)) + 1/MMX[Air]*(Utilities.smoothMax_der(
+      X[Air],
+      0.0,
+      1e-9,
+      dX[Air],
+      0.0,
+      0.0)*(Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/reference_p) + MM/MMX[Water]) + dp/p*Utilities.smoothMax(
+      X[Air],
+      0.0,
+      1e-9)));
+
+
     annotation (
       Inline=false,
       smoothOrder=1,
@@ -1446,6 +1441,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
         revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 <p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
+<p>2019-09-10        Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
