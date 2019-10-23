@@ -76,7 +76,10 @@ If fire gets false, the current has to fall below Vknee*Goff, then the thyristor
             color={127,0,0},
             pattern=LinePattern.Dot),
           Line(points={{30,20},{58,48}}, color={0,0,255}),
-          Line(points={{100,90},{100,100}}, color={0,0,255})}),
+          Line(
+            points={{100,100},{100,90},{58,48}},
+            color={255,0,255},
+            pattern=LinePattern.Dash)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
@@ -138,8 +141,11 @@ Otherwise, the GTO thyristor is locking.
             fillPattern=FillPattern.Solid,
             fillColor={0,0,255}),
           Line(points={{30,10},{68,48}}, color={0,0,255}),
-          Line(points={{100,90},{100,100}}, color={0,0,255}),
-          Line(points={{30,22},{56,48}}, color={0,0,255})}),
+          Line(points={{30,22},{56,48}}, color={0,0,255}),
+          Line(
+            points={{100,100},{100,80},{68,48}},
+            color={255,0,255},
+            pattern=LinePattern.Dash)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
