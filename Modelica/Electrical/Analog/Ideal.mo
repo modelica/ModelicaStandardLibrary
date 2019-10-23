@@ -1421,7 +1421,10 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
             extent={{-150,150},{150,110}},
             textString="%name",
             textColor={0,0,255}),
-          Line(points={{-100,-100},{-100,-80}}, color={0,0,255})}),
+          Line(
+            points={{-100,-100},{-100,-80}},
+            color={255,0,255},
+            pattern=LinePattern.Dash)}),
                                     Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
 
