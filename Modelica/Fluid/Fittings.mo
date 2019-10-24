@@ -230,8 +230,8 @@ with the volume flow rate:
 </p>
 
 <blockquote><pre>
-    dp     = a*V_flow^2 + b*V_flow
-    m_flow = rho*V_flow
+dp     = a*V_flow^2 + b*V_flow
+m_flow = rho*V_flow
 </pre></blockquote>
 
 <p>

@@ -6224,7 +6224,7 @@ You can perform an inverse calculation from <strong>kc_evenGapLaminar_KC</strong
 The mean convective heat transfer coefficient <strong> kc</strong> for an even gap is calculated through the corresponding Nusselt number <strong> Nu_lam</strong> according to <em>[VDI 2002, p. Gb 7, eq. 43]</em> :
 </p>
 <blockquote><pre>
-    Nu_lam = [(Nu_1)^3 + (Nu_2)^3 + (Nu_3)^3]^(1/3)
+Nu_lam = [(Nu_1)^3 + (Nu_2)^3 + (Nu_3)^3]^(1/3)
 </pre></blockquote>
 
 <p>
@@ -6232,7 +6232,7 @@ with the corresponding mean convective heat transfer coefficient <strong> kc </s
 </p>
 
 <blockquote><pre>
-    kc =  Nu_lam * lambda / d_hyd
+kc =  Nu_lam * lambda / d_hyd
 </pre></blockquote>
 
 <p>
@@ -6443,21 +6443,21 @@ You can perform an inverse calculation from <strong>kc_evenGapTurbulent_KC</stro
 The mean convective heat transfer coefficient <strong> kc</strong> for an even gap is calculated through the corresponding Nusselt number <strong> Nu_turb</strong> according to <em> Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</em>
 </p>
 <blockquote><pre>
-    Nu_turb =(zeta/8)*Re*Pr/{1+12.7*[zeta/8]^(0.5)*[Pr^(2/3) -1]}*{1+[d_hyd/L]^(2/3)}
+Nu_turb =(zeta/8)*Re*Pr/{1+12.7*[zeta/8]^(0.5)*[Pr^(2/3) -1]}*{1+[d_hyd/L]^(2/3)}
 </pre></blockquote>
 
 <p>
 where the pressure loss coefficient <strong> zeta </strong> according to <em> Konakov in [VDI 2002, p. Ga 5, eq. 27]</em> is determined by
 </p>
 <blockquote><pre>
-    zeta =  1/[1.8*log10(Re) - 1.5]^2
+zeta =  1/[1.8*log10(Re) - 1.5]^2
 </pre></blockquote>
 
 <p>
 resulting to the corresponding mean convective heat transfer coefficient <strong> kc </strong>
 </p>
 <blockquote><pre>
-    kc =  Nu_turb * lambda / d_hyd
+kc =  Nu_turb * lambda / d_hyd
 </pre></blockquote>
 
 <p>
@@ -6548,22 +6548,22 @@ The mean convective heat transfer coefficient <strong> kc </strong> is approxima
 Roughest approximation according to Dittus/Boelter (1930):
 </p>
 <blockquote><pre>
-    Nu_1 = 0.023 * Re^(4/5) * Pr^(exp_Pr)
+Nu_1 = 0.023 * Re^(4/5) * Pr^(exp_Pr)
 </pre></blockquote>
 
 <p>
 Middle approximation according to Sieder/Tate (1936) considering the temperature dependence of the fluid properties:
 </p>
 <blockquote><pre>
-    Nu_2 = 0.023 * Re^(4/5) * Pr^(1/3) * (eta/eta_wall)^(0.14)
+Nu_2 = 0.023 * Re^(4/5) * Pr^(1/3) * (eta/eta_wall)^(0.14)
 </pre></blockquote>
 
 <p>
 Finest approximation according to Gnielinski (1976):
 </p>
 <blockquote><pre>
-    Nu_3 = 0.0214 * [Re^(0.8) - 100] * Pr^(0.4) for Pr &le; 1.5
-         = 0.012 * [Re^(0.87) - 280] * Pr^(0.4) for Pr &gt; 1.5
+Nu_3 = 0.0214 * [Re^(0.8) - 100] * Pr^(0.4) for Pr &le; 1.5
+     = 0.012 * [Re^(0.87) - 280] * Pr^(0.4) for Pr &gt; 1.5
 </pre></blockquote>
 
 <p>
@@ -6571,7 +6571,7 @@ The mean convective heat transfer coefficient <strong> kc </strong> is calculate
 </p>
 
 <blockquote><pre>
-    kc =  Nu * lambda / d_hyd
+kc =  Nu * lambda / d_hyd
 </pre></blockquote>
 
 <p>
@@ -6671,7 +6671,7 @@ You can perform an inverse calculation from <strong>kc_flatTube_KC</strong>, whe
 The mean convective heat transfer coefficient <strong> kc </strong> for heat exchanger is calculated through the corresponding Coulburn factor <strong> j </strong>:
 </p>
 <blockquote><pre>
-    j = f(geometry, Re)
+j = f(geometry, Re)
 </pre></blockquote>
 
 <p>
@@ -6679,7 +6679,7 @@ with the resulting mean convective heat transfer coefficient <strong> kc </stron
 </p>
 
 <blockquote><pre>
-    kc =  j * Re_L_p * Pr^(1/3) * lambda / L_p (Louver fin)
+kc =  j * Re_L_p * Pr^(1/3) * lambda / L_p (Louver fin)
 </pre></blockquote>
 
  <p>
@@ -6687,7 +6687,7 @@ or
 </p>
 
 <blockquote><pre>
-    kc =  j * Re_D_h * Pr^(1/3) * lambda / D_h (Rectangular offset strip fin)
+kc =  j * Re_D_h * Pr^(1/3) * lambda / D_h (Rectangular offset strip fin)
 </pre></blockquote>
 
 <p>
@@ -6768,7 +6768,7 @@ The mean convective heat transfer coefficient <strong> kc </strong> for heat exc
 </p>
 
 <blockquote><pre>
-    j = f(geometry, Re)
+j = f(geometry, Re)
 </pre></blockquote>
 
 <p>
@@ -6776,7 +6776,7 @@ with the resulting mean convective heat transfer coefficient <strong> kc </stron
 </p>
 
 <blockquote><pre>
-    kc =  j * Re * Pr^(1/3) * lambda / D_c
+kc =  j * Re * Pr^(1/3) * lambda / D_c
 </pre></blockquote>
 
 <p>
@@ -7068,14 +7068,14 @@ The critical Reynolds number <strong> Re_crit </strong> in a helical pipe depend
 The mean convective heat transfer coefficient <strong> kc </strong> for helical pipes is calculated through the corresponding Nusselt number <strong> Nu </strong> according to <em>[VDI 2002, p. Ga 2, eq. 6]</em>:
 </p>
 <blockquote><pre>
-    Nu = (zeta_TOT/8)*Re*Pr/{1 + 12.7*(zeta_TOT/8)^0.5*[Pr^(2/3)-1]},
+Nu = (zeta_TOT/8)*Re*Pr/{1 + 12.7*(zeta_TOT/8)^0.5*[Pr^(2/3)-1]},
 </pre></blockquote>
 
 <p>
 where the influence of the pressure loss on the heat transfer calculation is considered through
 </p>
 <blockquote><pre>
-    zeta_TOT = 0.3164*Re^(-0.25) + 0.03*(d_hyd/d_coil)^(0.5) and
+zeta_TOT = 0.3164*Re^(-0.25) + 0.03*(d_hyd/d_coil)^(0.5) and
 </pre></blockquote>
 
 <p>
@@ -7083,7 +7083,7 @@ and the resulting mean convective heat transfer coefficient <strong> kc </strong
 </p>
 
 <blockquote><pre>
-    kc =  Nu * lambda / d_hyd
+kc =  Nu * lambda / d_hyd
 </pre></blockquote>
 
 <p>
@@ -7176,14 +7176,14 @@ You can perform an inverse calculation from <strong>kc_laminar_KC</strong>, wher
 The mean convective heat transfer coefficient <strong> kc</strong> for flat plate is calculated through the corresponding Nusselt number <strong> Nu_lam</strong> according to <em>[VDI 2002, p. Gd 1, eq. 1]</em> :
 </p>
 <blockquote><pre>
-    Nu_lam = 0.664 * Re^(0.5) * (Pr)^(1/3)
+Nu_lam = 0.664 * Re^(0.5) * (Pr)^(1/3)
 </pre></blockquote>
 
 <p>
 and the corresponding mean convective heat transfer coefficient <strong> kc </strong>:
 </p>
 <blockquote><pre>
-    kc =  Nu_lam * lambda / L
+kc =  Nu_lam * lambda / L
 </pre></blockquote>
 
 <p>
@@ -7320,7 +7320,7 @@ The mean convective heat transfer coefficient <strong> kc</strong> for flat plat
 </p>
 
 <blockquote><pre>
-    Nu_turb = (0.037 * Re^0.8 * Pr) / (1 + 2.443/Re^0.1 * (Pr^(2/3)-1))
+Nu_turb = (0.037 * Re^0.8 * Pr) / (1 + 2.443/Re^0.1 * (Pr^(2/3)-1))
 </pre></blockquote>
 
 <p>
@@ -7328,7 +7328,7 @@ and the corresponding mean convective heat transfer coefficient <strong> kc </st
 </p>
 
 <blockquote><pre>
-    kc =  Nu_turb * lambda / L
+kc =  Nu_turb * lambda / L
 </pre></blockquote>
 
 <p>
@@ -7417,21 +7417,21 @@ The mean convective heat transfer coefficient <strong> kc </strong> of a straigh
 </p>
 
 <blockquote><pre>
-    Nu_TD = [3.66^3 + 0.7^3 + {1.615*(Re*Pr*d_hyd/L)^1/3 - 0.7}^3]^1/3
+Nu_TD = [3.66^3 + 0.7^3 + {1.615*(Re*Pr*d_hyd/L)^1/3 - 0.7}^3]^1/3
 </pre></blockquote>
 
 <p>
 <strong> Uniform heat flux in developed fluid flow (heatTransferBoundary == Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF)</strong> according to <em>[VDI 2002, p. Ga 4, eq. 19]</em> :
 </p>
 <blockquote><pre>
-    Nu_qD = [4.364^3 + 0.6^3 + {1.953*(Re*Pr*d_hyd/L)^1/3 - 0.6}^3]^1/3
+Nu_qD = [4.364^3 + 0.6^3 + {1.953*(Re*Pr*d_hyd/L)^1/3 - 0.6}^3]^1/3
 </pre></blockquote>
 
 <p>
 <strong> Uniform wall temperature in undeveloped fluid flow (heatTransferBoundary == Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF)</strong> according to <em>[VDI 2002, p. Ga 2, eq. 12]</em> :
 </p>
 <blockquote><pre>
-    Nu_TU = [3.66^3 + 0.7^3 + {1.615*(Re*Pr*d_hyd/L)^1/3 - 0.7}^3 + {(2/[1+22*Pr])^1/6*(Re*Pr*d_hyd/L)^0.5}^3]^1/3
+Nu_TU = [3.66^3 + 0.7^3 + {1.615*(Re*Pr*d_hyd/L)^1/3 - 0.7}^3 + {(2/[1+22*Pr])^1/6*(Re*Pr*d_hyd/L)^0.5}^3]^1/3
 </pre></blockquote>
 
 <p>
@@ -7439,7 +7439,7 @@ The mean convective heat transfer coefficient <strong> kc </strong> of a straigh
 </p>
 
 <blockquote><pre>
-    Nu_qU = [4.364^3 + 0.6^3 + {1.953*(Re*Pr*d_hyd/L)^1/3 - 0.6}^3 + {0.924*Pr^1/3*[Re*d_hyd/L]^0.5}^3]^1/3.
+Nu_qU = [4.364^3 + 0.6^3 + {1.953*(Re*Pr*d_hyd/L)^1/3 - 0.6}^3 + {0.924*Pr^1/3*[Re*d_hyd/L]^0.5}^3]^1/3.
 </pre></blockquote>
 
 <p>
@@ -7447,7 +7447,7 @@ The corresponding mean convective heat transfer coefficient <strong> kc </strong
 </p>
 
 <blockquote><pre>
-    kc =  Nu * lambda / d_hyd
+kc =  Nu * lambda / d_hyd
 </pre></blockquote>
 
 <p>
@@ -7600,7 +7600,7 @@ The mean convective heat transfer coefficient <strong> kc </strong> for smooth s
 </p>
 
 <blockquote><pre>
-    Nu = 0.023 * Re^(4/5) * Pr^(1/3).
+Nu = 0.023 * Re^(4/5) * Pr^(1/3).
 </pre></blockquote>
 
 <p>
@@ -7612,7 +7612,7 @@ The mean convective heat transfer coefficient <strong> kc </strong> for rough st
 </p>
 
 <blockquote><pre>
-    Nu = (zeta/8)*Re*Pr/(1 + 12.7*(zeta/8)^0.5*(Pr^(2/3)-1))*(1+(d_hyd/L)^(2/3)),
+Nu = (zeta/8)*Re*Pr/(1 + 12.7*(zeta/8)^0.5*(Pr^(2/3)-1))*(1+(d_hyd/L)^(2/3)),
 </pre></blockquote>
 
 <p>
@@ -7620,7 +7620,7 @@ where the influence of the pressure loss on the heat transfer calculation is con
 </p>
 
 <blockquote><pre>
-    zeta =  (1.8*log10(Re)-1.5)^-2.
+zeta =  (1.8*log10(Re)-1.5)^-2.
 </pre></blockquote>
 
 <p>
@@ -7628,7 +7628,7 @@ The mean convective heat transfer coefficient <strong> kc </strong> in dependenc
 </p>
 
 <blockquote><pre>
-    kc =  Nu * lambda / d_hyd
+kc =  Nu * lambda / d_hyd
 </pre></blockquote>
 
 <p>
@@ -7705,7 +7705,7 @@ The local two phase heat transfer coefficient <strong> kc_2ph </strong> during b
 </p>
 
 <blockquote><pre>
-    kc_2ph = E_fc*E_fc_hor*kc_fc+S_nb+S_nb_hor*kc_nb
+kc_2ph = E_fc*E_fc_hor*kc_fc+S_nb+S_nb_hor*kc_nb
 </pre></blockquote>
 
 <p>
@@ -7852,7 +7852,7 @@ This function shall be used inside of the restricted limits according to the ref
 The pressure loss <strong>dp </strong>for curved bends is determined by:
 </p>
 <blockquote><pre>
-    dp = zeta_TOT * (rho/2) * velocity^2
+dp = zeta_TOT * (rho/2) * velocity^2
 </pre></blockquote>
 <p>
 with
@@ -7885,9 +7885,9 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <blockquote><pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre></blockquote>
 <p>where <strong>k_Re</strong> depends on the relative curvature radius <strong>R_0/d_hyd </strong></p>
 <blockquote><pre>
-      k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
-      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
-      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre></blockquote></li>
+k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
+k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
+k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre></blockquote></li>
 <li><p><strong>Turbulent regime (Re &ge; 3e5) with independence </strong>of local resistance coefficient on Reynolds number</p>
 <blockquote><pre>      zeta_LOC = A1*B1*C1</pre></blockquote></li>
 </ul>
@@ -8040,7 +8040,7 @@ This function shall be used inside of the restricted limits according to the ref
 </p>
 
 <blockquote><pre>
-    dp = zeta_TOT * (rho/2) * velocity^2
+dp = zeta_TOT * (rho/2) * velocity^2
 </pre></blockquote>
 
 <p>
@@ -8058,7 +8058,7 @@ The pressure loss coefficient <strong> zeta_TOT </strong> of an edged bend can b
 </p>
 
 <blockquote><pre>
-    zeta_TOT = A * C1 * zeta_LOC * CF_Fri* CF_Re <em>[Idelchik 2006, p. 366, diag. 6-7] </em> and <em>[Miller 1984, p. 149, sec. 9.4]</em>
+zeta_TOT = A * C1 * zeta_LOC * CF_Fri* CF_Re <em>[Idelchik 2006, p. 366, diag. 6-7] </em> and <em>[Miller 1984, p. 149, sec. 9.4]</em>
 </pre></blockquote>
 
 <p>
@@ -8077,14 +8077,14 @@ with
 The correction factor <strong> CF_Fri </strong> regarding the influence of surface roughness is determined as ratio of the Darcy friction factor for rough surfaces to smooth surfaces according to <em>[Miller, p. 207, eq. 9.3]:</em>
 </p>
 <blockquote><pre>
-    CF_Fri = lambda_FRI_rough / lambda_FRI_smooth
+CF_Fri = lambda_FRI_rough / lambda_FRI_smooth
 </pre></blockquote>
 
 <p>
 and the Darcy friction factors <strong>lambda_FRI</strong> are calculated with an approximated Colebrook-White law according to <em>[Miller, p. 191, eq. 8.4]:</em>
 </p>
 <blockquote><pre>
-    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
 </pre></blockquote>
 
 <p>
@@ -8112,7 +8112,7 @@ Nevertheless the transition point from the laminar to the transition regime is s
 </p>
 
 <blockquote><pre>
-    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
+Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
 </pre></blockquote>
 
 <p>
@@ -8257,7 +8257,7 @@ The pressure loss <strong>dp</strong> for channels is determined by:
 </p>
 
 <blockquote><pre>
-    dp = zeta_TOT * (rho/2) * velocity^2
+dp = zeta_TOT * (rho/2) * velocity^2
 </pre></blockquote>
 
 <p>
@@ -8280,7 +8280,7 @@ The pressure loss of these channels is similar to its calculation in straight pi
 <ul>
   <li><strong>Laminar regime (Re &le; Re_lam_leave)</strong>:
      <blockquote><pre>
-      zeta_TOT = CF_lam/Re * (L/d_hyd)
+zeta_TOT = CF_lam/Re * (L/d_hyd)
      </pre></blockquote></li>
   <li><p><strong>Transition regime (Re_lam_leave &le; 4e4)</strong></p>
         <p>This calculation is done using a smoothing function interpolating between the laminar and the turbulent flow regime.</p></li>
@@ -8365,7 +8365,7 @@ The pressure loss <strong>dp</strong> for the compressible case [Mass flow rate 
 </p>
 
 <blockquote><pre>
-    m_flow = (R_s/Km)^(1/exp)*(rho_m)^(1/exp)*dp^(1/exp)
+m_flow = (R_s/Km)^(1/exp)*(rho_m)^(1/exp)*dp^(1/exp)
 </pre></blockquote>
 
 <p>
@@ -8373,8 +8373,8 @@ for the underlying base equation using ideal gas law as follows:
 </p>
 
 <blockquote><pre>
-    dp^2 = p_2^2 - p_1^2 = Km*m_flow^exp*(T_2 + T_1)
-    dp   = p_2 - p_1     = Km*m_flow^exp*T_m/p_m, Eq.2 with [dp] = Pa, [m_flow] = kg/s
+dp^2 = p_2^2 - p_1^2 = Km*m_flow^exp*(T_2 + T_1)
+dp   = p_2 - p_1     = Km*m_flow^exp*T_m/p_m, Eq.2 with [dp] = Pa, [m_flow] = kg/s
 </pre></blockquote>
 
 <p>
@@ -8382,7 +8382,7 @@ so that the coefficient <strong> Km </strong> is calculated out of Eq.2:
 </p>
 
 <blockquote><pre>
-    Km = dp*R_s*rho_m / m_flow^exp , [Km] = [Pa^2/{(kg/s)^exp*K}]
+Km = dp*R_s*rho_m / m_flow^exp , [Km] = [Pa^2/{(kg/s)^exp*K}]
 </pre></blockquote>
 
 <p>
@@ -8417,8 +8417,8 @@ Pressure loss due to local losses gives the following definition of <strong> Km 
 </p>
 
 <blockquote><pre>
-    dp        = zeta_LOC * (rho_m/2)*velocity^2 is leading to
-      Km,LOC  = (8/&pi;^2)*R_s*zeta_LOC/(d_hyd)^4, considering the cross sectional area of pipes.
+dp        = zeta_LOC * (rho_m/2)*velocity^2 is leading to
+  Km,LOC  = (8/&pi;^2)*R_s*zeta_LOC/(d_hyd)^4, considering the cross sectional area of pipes.
 </pre></blockquote>
 
 <p>
@@ -8426,8 +8426,8 @@ and pressure loss due to friction is leading to
 </p>
 
 <blockquote><pre>
-    dp        = lambda_FRI*L/d_hyd * (rho_m/2)*velocity^2
-      Km,FRI  = (8/&pi;^2)*R_s*lambda_FRI*L/(d_hyd)^5, considering the cross sectional area of pipes.
+dp        = lambda_FRI*L/d_hyd * (rho_m/2)*velocity^2
+  Km,FRI  = (8/&pi;^2)*R_s*lambda_FRI*L/(d_hyd)^5, considering the cross sectional area of pipes.
 </pre></blockquote>
 
 <p>
@@ -8528,12 +8528,12 @@ To avoid numerical difficulties this pressure loss function is linear smoothed f
  <li>
  small mass flow rates, where
  <blockquote><pre>
-    m_flow &le; (0.01*rho/rho_nom*(1/eta*eta_nom)^(exp_eta))^(1/exp) and
+m_flow &le; (0.01*rho/rho_nom*(1/eta*eta_nom)^(exp_eta))^(1/exp) and
   </pre></blockquote>
  </li>
  <li> small pressure losses, where
  <blockquote><pre>
-    dp &le; 0.01*dp_nom)
+dp &le; 0.01*dp_nom)
  </pre></blockquote>
  </li>
 </ul>
@@ -8542,7 +8542,7 @@ Note that the density (rho) and dynamic viscosity (eta) of the fluid are defined
 </p>
 
 <blockquote><pre>
-    nue = eta / rho
+nue = eta / rho
 </pre></blockquote>
 
 <p>
@@ -8637,7 +8637,7 @@ The fraction of mean flow velocities (v/v_nom) can be calculated through its cor
 </p>
 
 <blockquote><pre>
-    v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
+v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
 </pre></blockquote>
 
 <p>
@@ -8739,7 +8739,7 @@ The mass flow rate <strong>m_flow</strong> is determined by:
 </p>
 
 <blockquote><pre>
-    m_flow = rho*A_cross*(dp/(zeta_TOT *(rho/2))^0.5
+m_flow = rho*A_cross*(dp/(zeta_TOT *(rho/2))^0.5
 </pre></blockquote>
 
 <p>
@@ -8879,7 +8879,7 @@ The local pressure loss <strong>dp</strong> is generally determined by:
 </p>
 
 <blockquote><pre>
-    dp = 0.5 * zeta_LOC * rho * |v_1|*v_1
+dp = 0.5 * zeta_LOC * rho * |v_1|*v_1
 </pre></blockquote>
 
 <p>
@@ -8897,7 +8897,7 @@ The local resistance coefficient <strong> zeta_LOC </strong> of a sudden expansi
 </p>
 
 <blockquote><pre>
-    zeta_LOC = (1 - A_1/A_2)^2  <em>[Idelchik 2006, p. 208, diag. 4-1] </em>
+zeta_LOC = (1 - A_1/A_2)^2  <em>[Idelchik 2006, p. 208, diag. 4-1] </em>
 </pre></blockquote>
 
 <p>
@@ -8905,7 +8905,7 @@ and for sudden contraction:
 </p>
 
 <blockquote><pre>
-    zeta_LOC = 0.5*(1 - A_1/A_2)^0.75  <em>[Idelchik 2006, p. 216-217, diag. 4-9] </em>
+zeta_LOC = 0.5*(1 - A_1/A_2)^0.75  <em>[Idelchik 2006, p. 216-217, diag. 4-9] </em>
 </pre></blockquote>
 
 <p>
@@ -8975,7 +8975,7 @@ The pressure loss <strong>dp</strong> for a thick edged orifice is determined by
 </p>
 
 <blockquote><pre>
-    dp = zeta_TOT * (rho/2) * (velocity_1)^2
+dp = zeta_TOT * (rho/2) * (velocity_1)^2
 </pre></blockquote>
 
 <p>
@@ -8993,7 +8993,7 @@ The pressure loss coefficient <strong> zeta_TOT </strong> of a thick edged orifi
 </p>
 
 <blockquote><pre>
-    zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <em>[Idelchik 2006, p. 222, diag. 4-15] </em>
+zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <em>[Idelchik 2006, p. 222, diag. 4-15] </em>
 </pre></blockquote>
 
 <p>
@@ -9015,8 +9015,8 @@ The geometry factor <strong> tau </strong> is determined by <em>[Idelchik 2006, 
 </p>
 
 <blockquote><pre>
-    tau = (2.4 - l_bar)*10^(-phi)
-    phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
+tau = (2.4 - l_bar)*10^(-phi)
+phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
 </pre></blockquote>
 
 <h4>Verification</h4>
@@ -9093,7 +9093,7 @@ The pressure loss <strong>dp</strong> for straight pipes is determined by:
 </p>
 
 <blockquote><pre>
-    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
 </pre></blockquote>
 
 <p>
@@ -9115,7 +9115,7 @@ The Darcy friction factor <strong>lambda_FRI</strong> of straight pipes for the 
  <li><strong> Laminar flow regime </strong> is restricted to a Reynolds number <strong> Re </strong> &le; 2000</li>
  <li>and calculated through:
      <blockquote><pre>
-     lambda_FRI = 64/Re
+lambda_FRI = 64/Re
      </pre></blockquote>
      <p>
      with
@@ -9124,7 +9124,7 @@ The Darcy friction factor <strong>lambda_FRI</strong> of straight pipes for the 
      <tr><td><strong> lambda_FRI     </strong></td><td> as Darcy friction factor [-],</td></tr>
      <tr><td><strong> Re             </strong></td><td> as Reynolds number [-].</td></tr>
      </table>
-      </li>
+     </li>
 </ul>
 
 <p>
@@ -9199,7 +9199,7 @@ This function shall be used within the restricted limits according to the refere
 The pressure loss <strong>dp</strong> for straight pipes is determined by:
 
 <blockquote><pre>
-    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
 </pre></blockquote>
 
 <p>
@@ -9223,14 +9223,14 @@ The Darcy friction factor <strong>lambda_FRI</strong> for straight pipes is calc
 </p>
 
 <blockquote><pre>
-    lambda_FRI = 64/Re
+lambda_FRI = 64/Re
 </pre></blockquote>
 
 <p>
 The Darcy friction factor <strong>lambda_FRI</strong> in the laminar regime is independent of the surface roughness <strong> k </strong> as long as the relative roughness <strong> k </strong> is smaller than 0.007. A greater relative roughness <strong> k </strong> than 0.007 is leading to an earlier leaving of the Hagen-Poiseuille law at some value of Reynolds number <strong> Re_lam_leave </strong>. The leaving of the laminar regime in dependence of the relative roughness <strong> k </strong> is calculated according to <em>[Samoilenko in Idelchik 2006, p. 81, sect. 2-1-21]</em> as:
 </p>
 <blockquote><pre>
-    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.93 else 0.0065/k)
+Re_lam_leave = 754*exp(if k &le; 0.007 then 0.93 else 0.0065/k)
 </pre></blockquote>
 
 <p>
@@ -9247,7 +9247,7 @@ transition regime. This deviation can be neglected due to the uncertainty in det
 <strong> Smooth surface (roughness = Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Neglected) </strong> w.r.t. <strong> Blasius </strong> law in the turbulent regime according to <em>[Idelchik 2006, p. 77, sec. 15]</em>:
 </p>
 <blockquote><pre>
-    lambda_FRI = 0.3164*Re^(-0.25)
+lambda_FRI = 0.3164*Re^(-0.25)
 </pre></blockquote>
 
 <p>
@@ -9268,7 +9268,7 @@ of the surface roughness <strong> K </strong> .
 <strong> Rough surface (roughness = Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered) </strong> w.r.t. <strong> Colebrook-White </strong> law in the turbulent regime according to <em>[Miller 1984, p. 191, eq. 8.4]</em>:
 </p>
 <blockquote><pre>
-    lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
+lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
 </pre></blockquote>
 
 <p>
@@ -9357,7 +9357,7 @@ The pressure loss <strong>dp</strong> for straight pipes is determined by:
 </p>
 
 <blockquote><pre>
-    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
 </pre></blockquote>
 
 <p>
@@ -9380,7 +9380,7 @@ The Darcy friction factor <strong>lambda_FRI</strong> for a straight pipe in the
 </p>
 
 <blockquote><pre>
-    lambda_FRI = 0.3164*Re^(-0.25)
+lambda_FRI = 0.3164*Re^(-0.25)
 </pre></blockquote>
 
 <p>
@@ -9402,7 +9402,7 @@ of the surface roughness <strong> K </strong> .
 </p>
 
 <blockquote><pre>
-    lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
+lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
 </pre></blockquote>
 
 <p>
@@ -9477,7 +9477,7 @@ The two phase pressure loss <strong> dp_2ph </strong> of straight pipes is deter
 </p>
 
 <blockquote><pre>
-    dp_2ph = dp_fri + dp_mom + dp_geo
+dp_2ph = dp_fri + dp_mom + dp_geo
 </pre></blockquote>
 
 <p>
@@ -9499,7 +9499,7 @@ Here the mass flow rate quality <strong>(x_flow)</strong> is used to describe tw
 </p>
 
 <blockquote><pre>
-    x_flow = mdot_g/(mdot_g+mdot_l)
+x_flow = mdot_g/(mdot_g+mdot_l)
 </pre></blockquote>
 
 <p>
@@ -9526,7 +9526,7 @@ The two phase frictional pressure loss results from a frictional pressure loss a
 </p>
 
 <blockquote><pre>
-    dp_fri = dp_1ph*phi_i
+dp_fri = dp_1ph*phi_i
 </pre></blockquote>
 
 <p>
@@ -9545,11 +9545,11 @@ The liquid frictional pressure loss is calculated with the <strong>total mass fl
 The correlations of Friedel and Chisholm differ in their calculation of the two phase multiplier:
 </p>
 <blockquote><pre>
-    phi_friedel = (1 - x_flow)^2 + x_flow^2*(rho_l/rho_g)*(lambda_g/lambda_l)
-                + 3.43*x_flow^0.685*(1 - x_flow)^0.24*(rho_l/rho_g)^0.8*(eta_g/eta_l)^0.22*(1 - eta_g/eta_l)^0.89*(1/Fr_l^(0.048))*(1/We_l^(0.0334))
+phi_friedel = (1 - x_flow)^2 + x_flow^2*(rho_l/rho_g)*(lambda_g/lambda_l)
+            + 3.43*x_flow^0.685*(1 - x_flow)^0.24*(rho_l/rho_g)^0.8*(eta_g/eta_l)^0.22*(1 - eta_g/eta_l)^0.89*(1/Fr_l^(0.048))*(1/We_l^(0.0334))
 </pre></blockquote>
 <blockquote><pre>
-    phi_chisholm = 1 + (gamma^2 - 1)*(B*x_flow^((2 - n_exp)/2)*(1 - x_flow)^((2 -n_exp)/2) + x_flow^(2 - n_exp))
+phi_chisholm = 1 + (gamma^2 - 1)*(B*x_flow^((2 - n_exp)/2)*(1 - x_flow)^((2 -n_exp)/2) + x_flow^(2 - n_exp))
 </pre></blockquote>
 
 <p>
@@ -9585,7 +9585,7 @@ The momentum pressure loss occurs for a changing mass flow rate quality due to c
 </p>
 
 <blockquote><pre>
-    dp_mom = mdot_A^2*[[((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_out - [((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_in]
+dp_mom = mdot_A^2*[[((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_out - [((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_in]
 </pre></blockquote>
 
 <p>
@@ -9630,7 +9630,7 @@ The geodetic pressure loss <strong>dp_geo</strong> can be considered (geodeticPr
 </p>
 
 <blockquote><pre>
-    dp_geo = (epsilon*rho_g +(1-epsilon)*rho_l)*g*L*sin(phi)
+dp_geo = (epsilon*rho_g +(1-epsilon)*rho_l)*g*L*sin(phi)
 </pre></blockquote>
 
 <p>
@@ -9747,9 +9747,9 @@ The mass flow rate <strong>m_flow</strong> for valves out of pressure loss is de
 </p>
 
 <blockquote><pre>
-    m_flow = [rho * dp * Av^2 / (zeta_TOT/2]^0.5
-    m_flow = (2/zeta_TOT)^0.5 * Av * (rho * dp)^0.5
-    m_flow = valveCharacteristic * Av * (rho * dp)^0.5
+m_flow = [rho * dp * Av^2 / (zeta_TOT/2]^0.5
+m_flow = (2/zeta_TOT)^0.5 * Av * (rho * dp)^0.5
+m_flow = valveCharacteristic * Av * (rho * dp)^0.5
 </pre></blockquote>
 
 <p>
@@ -10888,7 +10888,7 @@ for a detailed explanation.
 This function calculates an approximation of the <strong>inverse</strong> for
 </p>
 <blockquote><pre>
-    f(x) = y = x * exp( x )
+f(x) = y = x * exp( x )
 </pre></blockquote>
 
 <p>
@@ -10955,7 +10955,7 @@ For y > 10 and higher values the relative deviation is smaller 2%.
 This function calculates an approximation of the <strong> inverse </strong> for
 </p>
 <blockquote><pre>
-    f(x) = y = x * exp( x )
+f(x) = y = x * exp( x )
 </pre></blockquote>
 
 <p>

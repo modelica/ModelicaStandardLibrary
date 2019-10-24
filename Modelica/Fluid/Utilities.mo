@@ -522,7 +522,7 @@ k1=1, k2=3 is shown in the next figure:
 This function is used to approximate the equation
 </p>
 <blockquote><pre>
-    y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
+y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
 </pre></blockquote>
 
 <p>
