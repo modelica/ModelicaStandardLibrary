@@ -303,17 +303,15 @@ package R134a "R134a: Medium model for R134a"
 Example:
 </p>
 <blockquote><pre>
-     parameter Medium.AbsolutePressure p = 3e5;
-     parameter Medium.SpecificEnthalpy h = 4.2e5;
+parameter Medium.AbsolutePressure p = 3e5;
+parameter Medium.SpecificEnthalpy h = 4.2e5;
 
-     Medium.Density rho;
+Medium.Density rho;
 
-     <strong>equation</strong>
+<strong>equation</strong>
 
-     rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
+rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
 </pre></blockquote>
-
-
 </html>"));
     end setState_phX;
 
@@ -352,14 +350,14 @@ Example:
 Example:
 </p>
 <blockquote><pre>
-     parameter Medium.Density d = 4;
-     parameter Medium.Temperature T = 298;
+parameter Medium.Density d = 4;
+parameter Medium.Temperature T = 298;
 
-     Medium.SpecficEntropy s;
+Medium.SpecficEntropy s;
 
-     <strong>equation</strong>
+<strong>equation</strong>
 
-     s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
+s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
 </pre></blockquote>
 
 </html>"));
@@ -401,14 +399,14 @@ Example:
 Example:
 </p>
 <blockquote><pre>
-     parameter Medium.AbsolutePressure p = 3e5;
-     parameter Medium.SpecficEntropy s = 1.7e3;
+parameter Medium.AbsolutePressure p = 3e5;
+parameter Medium.SpecficEntropy s = 1.7e3;
 
-     Medium.SpecficEnthalpy h;
+Medium.SpecficEnthalpy h;
 
-     <strong>equation</strong>
+<strong>equation</strong>
 
-     h = Medium.specificEnthalpy(setState_psX(p, s, fill(0, Medium.nX)));
+h = Medium.specificEnthalpy(setState_psX(p, s, fill(0, Medium.nX)));
 </pre></blockquote>
 </html>"));
     end setState_psX;
@@ -435,14 +433,14 @@ Example:
 Example:
 </p>
 <blockquote><pre>
-     parameter Medium.AbsolutePressure p = 3e5;
-     parameter Medium.Temperature T = 290;
+parameter Medium.AbsolutePressure p = 3e5;
+parameter Medium.Temperature T = 290;
 
-     Medium.Density rho;
+Medium.Density rho;
 
-     <strong>equation</strong>
+<strong>equation</strong>
 
-     rho = Medium.density(setState_pTX(p, T, fill(0, Medium.nX)));
+rho = Medium.density(setState_pTX(p, T, fill(0, Medium.nX)));
 </pre></blockquote>
 <p>
 Please note, that in contrast to setState_phX, setState_dTX and setState_psX this function can not calculate properties in the two-phase region since pressure and temperature are dependent variables. A guard function will be called if the temperature difference to the phase boundary is lower than 1K or the pressure difference to the critical pressure is lower than 1000 Pa.
@@ -469,13 +467,13 @@ Please note, that in contrast to setState_phX, setState_dTX and setState_psX thi
 Example:
 </p>
 <blockquote><pre>
-    Medium.AbsolutePressure p=3e5;
-    // Viscosity on the liquid phase boundary
-    Modelica.SIunits.DynamicViscosity eta_liq;
+Medium.AbsolutePressure p=3e5;
+// Viscosity on the liquid phase boundary
+Modelica.SIunits.DynamicViscosity eta_liq;
 
-    equation
+equation
 
-    eta_liq = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
+eta_liq = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
 </pre></blockquote>
 
 <h4> Restrictions</h4>
@@ -503,13 +501,13 @@ Example:
 Example:
 </p>
 <blockquote><pre>
-    Medium.AbsolutePressure p=3e5;
-    // Viscosity on the vapor phase boundary
-    Modelica.SIunits.DynamicViscosity eta_vap;
+Medium.AbsolutePressure p=3e5;
+// Viscosity on the vapor phase boundary
+Modelica.SIunits.DynamicViscosity eta_vap;
 
-    equation
+equation
 
-    eta_vap = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
+eta_vap = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
 </pre></blockquote>
 
 <h4> Restrictions</h4>
@@ -1755,19 +1753,19 @@ for a given efficiency.
 Example:
 </p>
 <blockquote><pre>
-     Medium.AbsolutePressure p_downstream=10e5;
-     Medium.SpecificEnthalpy h_downstream=4.1e5;
-     Medium.AbsolutePressure p_upstream=3e5;
-     Medium.SpecificEnthalpy h_upstream=4.0e5;
+  Medium.AbsolutePressure p_downstream=10e5;
+  Medium.SpecificEnthalpy h_downstream=4.1e5;
+  Medium.AbsolutePressure p_upstream=3e5;
+  Medium.SpecificEnthalpy h_upstream=4.0e5;
 
-     // Isentropic efficiency of a compressor:
-     Real eta_is;
+  // Isentropic efficiency of a compressor:
+  Real eta_is;
 
-    equation
+equation
 
-     h_is = isentropicEnthalpy(p_downstream, Medium.setState_phX(p_upstream, h_upstream));
+  h_is = isentropicEnthalpy(p_downstream, Medium.setState_phX(p_upstream, h_upstream));
 
-     eta_is = (h_is-h_upstream)/(h_downstream - h_upstream);
+  eta_is = (h_is-h_upstream)/(h_downstream - h_upstream);
 </pre></blockquote>
 
 <h4>Restrictions</h4>

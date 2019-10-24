@@ -514,40 +514,40 @@ for gases that use a data record from Modelica.Media.IdealGases.FluidData.
 Currently these are the following gases:
 </p>
 <blockquote><pre>
-  Ar
-  C2H2_vinylidene
-  C2H4
-  C2H5OH
-  C2H6
-  C3H6_propylene
-  C3H7OH
-  C3H8
-  C4H8_1_butene
-  C4H9OH
-  C4H10_n_butane
-  C5H10_1_pentene
-  C5H12_n_pentane
-  C6H6
-  C6H12_1_hexene
-  C6H14_n_heptane
-  C7H14_1_heptene
-  C8H10_ethylbenz
-  CH3OH
-  CH4
-  CL2
-  CO
-  CO2
-  F2
-  H2
-  H2O
-  He
-  N2
-  N2O
-  NH3
-  NO
-  O2
-  SO2
-  SO3
+Ar
+C2H2_vinylidene
+C2H4
+C2H5OH
+C2H6
+C3H6_propylene
+C3H7OH
+C3H8
+C4H8_1_butene
+C4H9OH
+C4H10_n_butane
+C5H10_1_pentene
+C5H12_n_pentane
+C6H6
+C6H12_1_hexene
+C6H14_n_heptane
+C7H14_1_heptene
+C8H10_ethylbenz
+CH3OH
+CH4
+CL2
+CO
+CO2
+F2
+H2
+H2O
+He
+N2
+N2O
+NH3
+NO
+O2
+SO2
+SO3
 </pre></blockquote>
 <p>
 <strong>Sources for model and literature:</strong><br>

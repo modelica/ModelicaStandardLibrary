@@ -298,31 +298,31 @@ equations for code generation (note the equations related to X are
 removed, because SimpleAir consists of a single substance only):
 </p>
 <blockquote><pre>
-    M  = V*medium.d;
-    U  = M*medium.u;
+M  = V*medium.d;
+U  = M*medium.u;
 
-    // balance equations
-    <strong>der</strong>(M)  = port.m_flow;
-    <strong>der</strong>(U)  = port.H_flow;
+// balance equations
+<strong>der</strong>(M)  = port.m_flow;
+<strong>der</strong>(U)  = port.H_flow;
 
-    // abbreviations introduced to get simpler terms
-    p = medium.p;
-    T = medium.T;
-    d = medium.d;
-    u = medium.u;
-    h = medium.h;
+// abbreviations introduced to get simpler terms
+p = medium.p;
+T = medium.T;
+d = medium.d;
+u = medium.u;
+h = medium.h;
 
-    // medium equations
-    d = fd(p,T);
-    h = fh(p,T);
-    u = h - p/d;
+// medium equations
+d = fd(p,T);
+h = fh(p,T);
+u = h - p/d;
 
-    // equations derived <strong>automatically</strong> by a Modelica tool due to index reduction
-    <strong>der</strong>(U) = <strong>der</strong>(M)*u + M*<strong>der</strong>(u);
-    <strong>der</strong>(M) = V*<strong>der</strong>(d);
-    <strong>der</strong>(u) = <strong>der</strong>(h) - <strong>der</strong>(p)/d - p/<strong>der</strong>(d);
-    <strong>der</strong>(d) = <strong>der</strong>(fd,p)*<strong>der</strong>(p) + <strong>der</strong>(fd,T)*<strong>der</strong>(T);
-    <strong>der</strong>(h) = <strong>der</strong>(fh,p)*<strong>der</strong>(p) + <strong>der</strong>(fd,T)*<strong>der</strong>(T);
+// equations derived <strong>automatically</strong> by a Modelica tool due to index reduction
+<strong>der</strong>(U) = <strong>der</strong>(M)*u + M*<strong>der</strong>(u);
+<strong>der</strong>(M) = V*<strong>der</strong>(d);
+<strong>der</strong>(u) = <strong>der</strong>(h) - <strong>der</strong>(p)/d - p/<strong>der</strong>(d);
+<strong>der</strong>(d) = <strong>der</strong>(fd,p)*<strong>der</strong>(p) + <strong>der</strong>(fd,T)*<strong>der</strong>(T);
+<strong>der</strong>(h) = <strong>der</strong>(fh,p)*<strong>der</strong>(p) + <strong>der</strong>(fd,T)*<strong>der</strong>(T);
 </pre></blockquote>
 <p>
 Note, that \"der(y,x)\" is an operator that characterizes
@@ -410,7 +410,7 @@ Modelica.Media.Examples.Utilities.ShortPipe</a>):
 The <strong>semiLinear</strong>(..) operator is basically defined as:
 </p>
 <blockquote><pre>
-    semiLinear(m_flow, ha, hb) = if m_flow &ge; 0 then m_flow*ha else m_flow*hb;
+semiLinear(m_flow, ha, hb) = if m_flow &ge; 0 then m_flow*ha else m_flow*hb;
 </pre></blockquote>
 
 <p>
@@ -434,8 +434,8 @@ linear system of equations:
      The linear system of equations can be analytically solved
      with the result
      <blockquote><pre>
-     medium1.h = medium2.h = port1.h = port2.h
-     0 = port1.H_flow + port2.H_flow
+medium1.h = medium2.h = port1.h = port2.h
+0 = port1.H_flow + port2.H_flow
      </pre></blockquote>
      Therefore, no problems with zero mass flow rate are present.</li>
 
@@ -1055,17 +1055,17 @@ for nx variables (= p, T, d, u, h, Xi) from Medium.BaseProperties,
 e.g., in the form:
 </p>
 <blockquote><pre>
-     <strong>replaceable</strong> package Medium = Medium.Interfaces.PartialMedium;
-     Medium.BaseProperties medium1 (p(start=1e5, fixed=<strong>not</strong> Medium.singleState),
-                                    T(start=300, fixed=<strong>true</strong>));
-     Medium.BaseProperties medium2;
-  <strong>initial equation</strong>
-     <strong>if not</strong> Medium.singleState <strong>then</strong>
-        medium2.p = 1e5;
-     <strong>end if</strong>;
-     medium2.T = 300;
-  <strong>equation</strong>
-  </pre></blockquote>
+   <strong>replaceable</strong> package Medium = Medium.Interfaces.PartialMedium;
+   Medium.BaseProperties medium1 (p(start=1e5, fixed=<strong>not</strong> Medium.singleState),
+                                  T(start=300, fixed=<strong>true</strong>));
+   Medium.BaseProperties medium2;
+<strong>initial equation</strong>
+   <strong>if not</strong> Medium.singleState <strong>then</strong>
+      medium2.p = 1e5;
+   <strong>end if</strong>;
+   medium2.T = 300;
+<strong>equation</strong>
+</pre></blockquote>
 <p>
 If initial conditions are not provided for the independent
 medium variables, non-linear systems of equations may
@@ -1429,27 +1429,27 @@ BaseProperties in order that the instance of that record inside BaseProperties
 properties can be computed as a function of p and T. Then, ThermodynamicState
 should be redeclared as follows:</p>
 <blockquote><pre>
-  <strong>redeclare replaceable record</strong> ThermodynamicState
-    AbsolutePressure p \"Absolute pressure of medium\";
-    Temperature T \"Temperature of medium\";
-  <strong>end</strong> ThermodynamicState;
+<strong>redeclare replaceable record</strong> ThermodynamicState
+  AbsolutePressure p \"Absolute pressure of medium\";
+  Temperature T \"Temperature of medium\";
+<strong>end</strong> ThermodynamicState;
 </pre></blockquote>
 <p>
 and the following equations should be added to BaseProperties:
 </p>
 <blockquote><pre>
-  state.p = p;
-  state.T = T;
+state.p = p;
+state.T = T;
 </pre></blockquote>
 <p>
 The additional functions can now be implemented by redeclaring the functions
 defined in the base class and adding their algorithms, e.g.:
 </p>
 <blockquote><pre>
-    <strong>redeclare function extends</strong> dynamicViscosity \"Return dynamic viscosity\"
-    <strong>algorithm</strong>
-      eta := 10 - state.T*0.3 + state.p*0.2;
-    <strong>end</strong> dynamicViscosity;
+<strong>redeclare function extends</strong> dynamicViscosity \"Return dynamic viscosity\"
+<strong>algorithm</strong>
+  eta := 10 - state.T*0.3 + state.p*0.2;
+<strong>end</strong> dynamicViscosity;
 </pre></blockquote>
 </html>"));
     end BasicDefinition;
@@ -1530,7 +1530,7 @@ be defined that is called to compute h:
 </p>
 
 <blockquote><pre>
-    h = h_pT(p,T);
+h = h_pT(p,T);
 </pre></blockquote>
 
 <p>
@@ -1625,10 +1625,10 @@ connection equations:
 </p>
 
 <blockquote><pre>
-    p1=p2=p3;
-    h1=h2=h3;
-    0 = m_flow1 + m_flow2 + m_flow3;
-    0 = H_flow1 + H_flow2 + H_flow3;
+p1=p2=p3;
+h1=h2=h3;
+0 = m_flow1 + m_flow2 + m_flow3;
+0 = H_flow1 + H_flow2 + H_flow3;
 </pre></blockquote>
 
 <p>
@@ -1659,8 +1659,8 @@ However, due to the connector, only the two equations
 </p>
 
 <blockquote><pre>
-   p1 = p2;
-   h1 = h2;
+p1 = p2;
+h1 = h2;
 </pre></blockquote>
 
 <p>
@@ -1671,10 +1671,10 @@ present:
 </p>
 
 <blockquote><pre>
-    h1 = h(p1,T1);
-    h2 = h(p2,T2);
-    p1 = p2;
-    h1 = h2;
+h1 = h(p1,T1);
+h2 = h(p2,T2);
+p1 = p2;
+h1 = h2;
 </pre></blockquote>
 
 <p>
@@ -1682,10 +1682,10 @@ These equations can be solved in the following way:
 </p>
 
 <blockquote><pre>
-    h1 := h(p1,T1)
-    p2 := p1;
-    h2 := h1;
-    0  := h2 - h(p2,T2);   // non-linear system of equations for T2
+h1 := h(p1,T1)
+p2 := p1;
+h2 := h1;
+0  := h2 - h(p2,T2);   // non-linear system of equations for T2
 </pre></blockquote>
 
 <p>
@@ -1696,7 +1696,7 @@ this non-linear system of equations by the equation:
 </p>
 
 <blockquote><pre>
-   T2 := T1;
+T2 := T1;
 </pre></blockquote>
 
 <p>
@@ -1704,8 +1704,8 @@ because after alias substitution there are two function calls
 </p>
 
 <blockquote><pre>
-    h1 := h(p1,T1);
-    h1 := h(p1,T2);
+h1 := h(p1,T1);
+h1 := h(p1,T2);
 </pre></blockquote>
 
 <p>
@@ -1746,18 +1746,18 @@ It is assumed that medium equations in a balance volume
 are defined in the following way:
 </p>
 <blockquote><pre>
-    <strong>package</strong> Medium = Modelica.Media.Interfaces.PartialMedium;
-    Medium.BaseProperties medium;
-  <strong>equation</strong>
-     // mass balance
-       <strong>der</strong>(M)  = port_a.m_flow + port_b.m_flow;
-       <strong>der</strong>(MX) = port_a_mX_flow + port_b_mX_flow;
-             M = V*medium.d;
-            MX = M*medium.X;
+  <strong>package</strong> Medium = Modelica.Media.Interfaces.PartialMedium;
+  Medium.BaseProperties medium;
+<strong>equation</strong>
+   // mass balance
+     <strong>der</strong>(M)  = port_a.m_flow + port_b.m_flow;
+     <strong>der</strong>(MX) = port_a_mX_flow + port_b_mX_flow;
+           M = V*medium.d;
+          MX = M*medium.X;
 
-     // Energy balance
-     U = M*medium.u;
-     <strong>der</strong>(U) = port_a.H_flow+port_b.H_flow;
+   // Energy balance
+   U = M*medium.u;
+   <strong>der</strong>(U) = port_a.H_flow+port_b.H_flow;
 </pre></blockquote>
 <p>
 <strong>Single Substance Media</strong>
@@ -1782,18 +1782,18 @@ p, T are preferred states (i.e., StateSelect.prefer is set)
 and there are three equations written in the form:
 </p>
 <blockquote><pre>
-   d = fd(p,T)
-   u = fu(p,T)
-   h = fh(p,T)
+d = fd(p,T)
+u = fu(p,T)
+h = fh(p,T)
 </pre></blockquote>
 <p>
 Index reduction leads to the equations:
 </p>
 <blockquote><pre>
-   <strong>der</strong>(M) = V*<strong>der</strong>(d)
-   <strong>der</strong>(U) = <strong>der</strong>(M)*u + M*<strong>der</strong>(u)
-   <strong>der</strong>(d) = <strong>der</strong>(fd,p)*<strong>der</strong>(p) + <strong>der</strong>(fd,T)*<strong>der</strong>(T)
-   <strong>der</strong>(u) = <strong>der</strong>(fu,p)*<strong>der</strong>(p) + <strong>der</strong>(fu,T)*<strong>der</strong>(T)
+<strong>der</strong>(M) = V*<strong>der</strong>(d)
+<strong>der</strong>(U) = <strong>der</strong>(M)*u + M*<strong>der</strong>(u)
+<strong>der</strong>(d) = <strong>der</strong>(fd,p)*<strong>der</strong>(p) + <strong>der</strong>(fd,T)*<strong>der</strong>(T)
+<strong>der</strong>(u) = <strong>der</strong>(fu,p)*<strong>der</strong>(p) + <strong>der</strong>(fu,T)*<strong>der</strong>(T)
 </pre></blockquote>
 <p>
 Note, that <strong>der</strong>(y,x) is the partial derivative of y with respect to x
@@ -1816,15 +1816,15 @@ of equations in <strong>der</strong>(p) and <strong>der</strong>(T) after elimin
 An ideal gas with one substance is written in the form
 </p>
 <blockquote><pre>
-  <strong>redeclare model extends</strong> BaseProperties(
-     T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
-     p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)
-  <strong>equation</strong>
-     h = h(T);
+<strong>redeclare model extends</strong> BaseProperties(
+   T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
+   p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)
+<strong>equation</strong>
+   h = h(T);
      u = h - R_s*T;
      p = d*R_s*T;
-      ...
-  <strong>end</strong> BaseProperties;
+    ...
+<strong>end</strong> BaseProperties;
 </pre></blockquote>
 <p>
 If p, T are preferred states, these equations are <strong>not</strong>
@@ -1890,16 +1890,16 @@ p, T and Xi are defined as preferred states and
 the equations are written in the form:
 </p>
 <blockquote><pre>
-   d = fp(p,T,Xi);
-   u = fu(p,T,Xi);
-   h = fh(p,T,Xi);
+d = fp(p,T,Xi);
+u = fu(p,T,Xi);
+h = fh(p,T,Xi);
 </pre></blockquote>
 <p>
 Since the balance equations are written in the form:
 </p>
 <blockquote><pre>
-              M = V*medium.d;
-            MXi = M*medium.Xi;
+  M = V*medium.d;
+MXi = M*medium.Xi;
 </pre></blockquote>
 <p>
 The variables M and MXi appearing differentiated in the
@@ -1923,10 +1923,10 @@ which might be used in the following way:
 </p>
 
 <blockquote><pre>
-  <strong>model</strong> TestOfMyMedium
-     <strong>extends</strong> Modelica.Media.Examples.Utilities.PartialTestModel(
-              <strong>redeclare package</strong> Medium = MyMedium);
-  <strong>end</strong> TestOfMyMedium;
+<strong>model</strong> TestOfMyMedium
+   <strong>extends</strong> Modelica.Media.Examples.Utilities.PartialTestModel(
+            <strong>redeclare package</strong> Medium = MyMedium);
+<strong>end</strong> TestOfMyMedium;
 </pre></blockquote>
 
 <p>
@@ -4152,7 +4152,7 @@ For further information, see the <a href=\"modelica://Modelica.Media.UsersGuide\
 This function is used to approximate the equation
 </p>
 <blockquote><pre>
-    state = <strong>if</strong> x &gt; 0 <strong>then</strong> state_a <strong>else</strong> state_b;
+state = <strong>if</strong> x &gt; 0 <strong>then</strong> state_a <strong>else</strong> state_b;
 </pre></blockquote>
 
 <p>
@@ -4160,8 +4160,8 @@ by a smooth characteristic, so that the expression is continuous and differentia
 </p>
 
 <blockquote><pre>
-   state := <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> state_a <strong>else</strong>
-                      <strong>if</strong> x &lt; -x_small <strong>then</strong> state_b <strong>else</strong> f(state_a, state_b));
+state := <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> state_a <strong>else</strong>
+                   <strong>if</strong> x &lt; -x_small <strong>then</strong> state_b <strong>else</strong> f(state_a, state_b));
 </pre></blockquote>
 
 <p>
@@ -4179,10 +4179,10 @@ region (otherwise state.X is either state_a.X or state_b.X):
 </p>
 
 <blockquote><pre>
-    X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
-    X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
-       ...
-    X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+   ...
+X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
 </pre></blockquote>
 
 <p>
@@ -4190,11 +4190,11 @@ or
 </p>
 
 <blockquote><pre>
-    X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
-    X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
-       ...
-    X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
-    c     = (x/x_small)*((x/x_small)^2 - 3)/4
+X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+   ...
+X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+c     = (x/x_small)*((x/x_small)^2 - 3)/4
 </pre></blockquote>
 
 <p>
@@ -4202,9 +4202,9 @@ Summing all mass fractions together results in
 </p>
 
 <blockquote><pre>
-    sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
-           = c*(1 - 1) + (1 + 1)/2
-           = 1
+sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+       = c*(1 - 1) + (1 + 1)/2
+       = 1
 </pre></blockquote>
 
 </html>"));
@@ -8311,7 +8311,7 @@ end BridgmansTablesForWater;
 This function is used to approximate the equation
 </p>
 <blockquote><pre>
-    y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
+y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
 </pre></blockquote>
 
 <p>
@@ -8339,10 +8339,10 @@ region (otherwise X is either X_a or X_b):
 </p>
 
 <blockquote><pre>
-    X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
-    X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
-       ...
-    X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+   ...
+X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
 </pre></blockquote>
 
 <p>
@@ -8350,11 +8350,11 @@ or
 </p>
 
 <blockquote><pre>
-    X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
-    X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
-       ...
-    X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
-    c     = (x/x_small)*((x/x_small)^2 - 3)/4
+X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+   ...
+X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+c     = (x/x_small)*((x/x_small)^2 - 3)/4
 </pre></blockquote>
 
 <p>
@@ -8362,9 +8362,9 @@ Summing all mass fractions together results in
 </p>
 
 <blockquote><pre>
-    sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
-           = c*(1 - 1) + (1 + 1)/2
-           = 1
+sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+       = c*(1 - 1) + (1 + 1)/2
+       = 1
 </pre></blockquote>
 </html>"));
   end smoothStep;
