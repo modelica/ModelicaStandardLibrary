@@ -2479,11 +2479,11 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
        by Christian Schweiger:<br>
        Corrected interface from
 <blockquote><pre>
-    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4];
+parameter Real table[:, :]=[0, 0; 1, 1; 2, 4];
 </pre></blockquote>
        to
 <blockquote><pre>
-    parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
+parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
 </pre></blockquote>
        </li>
 <li><em>Nov. 7, 1999</em>

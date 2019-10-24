@@ -140,9 +140,9 @@ values of the last two sampled input signals.
 This block describes a unit delay:
 </p>
 <blockquote><pre>
-          1
-     y = --- * u
-          z
+     1
+y = --- * u
+     z
 </pre></blockquote>
 <p>
 that is, the output signal y is the input signal u of the
@@ -226,9 +226,9 @@ transfer function between the input signal u and the output
 signal y. The numerator has the order nb-1, the denominator
 has the order na-1.</p>
 <blockquote><pre>
-          b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
-   y(z) = -------------------------------------------- * u(z)
-          a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
+       b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
+y(z) = -------------------------------------------- * u(z)
+       a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
 </pre></blockquote>
 <p>State variables <strong>x</strong> are defined according to
 <strong>controller canonical</strong> form. Initial values of the
@@ -307,8 +307,8 @@ The <strong>discrete state space</strong> block defines the relation
 between the input u and the output y in state space form:
 </p>
 <blockquote><pre>
-    x = A * pre(x) + B * u
-    y = C * pre(x) + D * u
+x = A * pre(x) + B * u
+y = C * pre(x) + D * u
 </pre></blockquote>
 <p>
 where pre(x) is the value of the discrete state x at
@@ -317,19 +317,19 @@ The input is a vector of length nu, the output is a vector
 of length ny and nx is the number of states. Accordingly
 </p>
 <blockquote><pre>
-        A has the dimension: A(nx,nx),
-        B has the dimension: B(nx,nu),
-        C has the dimension: C(ny,nx),
-        D has the dimension: D(ny,nu)
+A has the dimension: A(nx,nx),
+B has the dimension: B(nx,nu),
+C has the dimension: C(ny,nx),
+D has the dimension: D(ny,nu)
 </pre></blockquote>
 <p>
 Example:
 </p>
 <blockquote><pre>
-     parameter: A = [0.12, 2;3, 1.5]
-     parameter: B = [2, 7;3, 1]
-     parameter: C = [0.1, 2]
-     parameter: D = zeros(ny,nu)
+parameter: A = [0.12, 2;3, 1.5]
+parameter: B = [2, 7;3, 1]
+parameter: C = [0.1, 2]
+parameter: D = zeros(ny,nu)
 
 results in the following equations:
   [x[1]]   [0.12  2.00] [pre(x[1])]   [2.0  7.0] [u[1]]

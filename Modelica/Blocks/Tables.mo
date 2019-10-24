@@ -649,20 +649,20 @@ where:
 Example:
 </p>
 <blockquote><pre>
-           |       |       |       |
-           |  1.0  |  2.0  |  3.0  |  // u2
-       ----*-------*-------*-------*
-       1.0 |  1.0  |  3.0  |  5.0  |
-       ----*-------*-------*-------*
-       2.0 |  2.0  |  4.0  |  6.0  |
-       ----*-------*-------*-------*
-     // u1
-   is defined as
-      table = [0.0,   1.0,   2.0,   3.0;
-               1.0,   1.0,   3.0,   5.0;
-               2.0,   2.0,   4.0,   6.0]
-   If, e.g., the input u1 is 1.0, input u2 is 1.0 and smoothness is LinearSegments, the output y is 1.0,
-       e.g., the input u1 is 2.0, input u2 is 1.5 and smoothness is LinearSegments, the output y is 3.0.
+        |       |       |       |
+        |  1.0  |  2.0  |  3.0  |  // u2
+    ----*-------*-------*-------*
+    1.0 |  1.0  |  3.0  |  5.0  |
+    ----*-------*-------*-------*
+    2.0 |  2.0  |  4.0  |  6.0  |
+    ----*-------*-------*-------*
+  // u1
+is defined as
+   table = [0.0,   1.0,   2.0,   3.0;
+            1.0,   1.0,   3.0,   5.0;
+            2.0,   2.0,   4.0,   6.0]
+If, e.g., the input u1 is 1.0, input u2 is 1.0 and smoothness is LinearSegments, the output y is 1.0,
+    e.g., the input u1 is 2.0, input u2 is 1.5 and smoothness is LinearSegments, the output y is 3.0.
 </pre></blockquote>
 <ul>
 <li>The interpolation interval is found by a binary search where the interval used in the
@@ -834,20 +834,20 @@ where:
 Example:
 </p>
 <blockquote><pre>
-           |       |       |       |
-           |  1.0  |  2.0  |  3.0  |  // u2
-       ----*-------*-------*-------*
-       1.0 |  1.0  |  3.0  |  5.0  |
-       ----*-------*-------*-------*
-       2.0 |  2.0  |  4.0  |  6.0  |
-       ----*-------*-------*-------*
-     // u1
-   is defined as
-      table = [0.0,   1.0,   2.0,   3.0;
-               1.0,   1.0,   3.0,   5.0;
-               2.0,   2.0,   4.0,   6.0]
-   If, e.g., the input u1 is {1.0}, input u2 is {1.0} and smoothness is LinearSegments, the output y is {1.0},
-       e.g., the input u1 is {2.0}, input u2 is {1.5} and smoothness is LinearSegments, the output y is {3.0}.
+        |       |       |       |
+        |  1.0  |  2.0  |  3.0  |  // u2
+    ----*-------*-------*-------*
+    1.0 |  1.0  |  3.0  |  5.0  |
+    ----*-------*-------*-------*
+    2.0 |  2.0  |  4.0  |  6.0  |
+    ----*-------*-------*-------*
+  // u1
+is defined as
+   table = [0.0,   1.0,   2.0,   3.0;
+            1.0,   1.0,   3.0,   5.0;
+            2.0,   2.0,   4.0,   6.0]
+If, e.g., the input u1 is {1.0}, input u2 is {1.0} and smoothness is LinearSegments, the output y is {1.0},
+    e.g., the input u1 is {2.0}, input u2 is {1.5} and smoothness is LinearSegments, the output y is {3.0}.
 </pre></blockquote>
 <ul>
 <li>The interpolation interval is found by a binary search where the interval used in the

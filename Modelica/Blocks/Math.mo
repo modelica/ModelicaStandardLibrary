@@ -558,7 +558,7 @@ This block computes output <em>y</em> as
 input <em>u</em>:
 </p>
 <blockquote><pre>
-    y = k * u;
+y = k * u;
 </pre></blockquote>
 
 </html>"),
@@ -602,7 +602,7 @@ This blocks computes output vector <strong>y</strong> as <em>product</em> of the
 gain matrix <strong>K</strong> with the input signal vector <strong>u</strong>:
 </p>
 <blockquote><pre>
-    <strong>y</strong> = <strong>K</strong> * <strong>u</strong>;
+<strong>y</strong> = <strong>K</strong> * <strong>u</strong>;
 </pre></blockquote>
 <p>
 Example:
@@ -816,17 +816,17 @@ This blocks computes output <strong>y</strong> as
 <strong>u</strong>:
 </p>
 <blockquote><pre>
-    <strong>y</strong> = <strong>u</strong>[1] + <strong>u</strong>[2] + ...;
+<strong>y</strong> = <strong>u</strong>[1] + <strong>u</strong>[2] + ...;
 </pre></blockquote>
 <p>
 Example:
 </p>
 <blockquote><pre>
-     parameter:   nin = 3;
+   parameter:   nin = 3;
 
-  results in the following equations:
+results in the following equations:
 
-     y = u[1] + u[2] + u[3];
+   y = u[1] + u[2] + u[3];
 </pre></blockquote>
 
 </html>"),
@@ -863,17 +863,17 @@ commanded input <strong>u1</strong> and the feedback
 input <strong>u2</strong>:
 </p>
 <blockquote><pre>
-    <strong>y</strong> = <strong>u1</strong> - <strong>u2</strong>;
+<strong>y</strong> = <strong>u1</strong> - <strong>u2</strong>;
 </pre></blockquote>
 <p>
 Example:
 </p>
 <blockquote><pre>
-     parameter:   n = 2
+   parameter:   n = 2
 
-  results in the following equations:
+results in the following equations:
 
-     y = u1 - u2
+   y = u1 - u2
 </pre></blockquote>
 
 </html>"),
@@ -920,17 +920,17 @@ This blocks computes output <strong>y</strong> as <em>sum</em> of the
 two input signals <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <blockquote><pre>
-    <strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong>;
+<strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong>;
 </pre></blockquote>
 <p>
 Example:
 </p>
 <blockquote><pre>
-     parameter:   k1= +2, k2= -3
+   parameter:   k1= +2, k2= -3
 
-  results in the following equations:
+results in the following equations:
 
-     y = 2 * u1 - 3 * u2
+   y = 2 * u1 - 3 * u2
 </pre></blockquote>
 
 </html>"),
@@ -986,17 +986,17 @@ This blocks computes output <strong>y</strong> as <em>sum</em> of the
 three input signals <strong>u1</strong>, <strong>u2</strong> and <strong>u3</strong>:
 </p>
 <blockquote><pre>
-    <strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong> + k3*<strong>u3</strong>;
+<strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong> + k3*<strong>u3</strong>;
 </pre></blockquote>
 <p>
 Example:
 </p>
 <blockquote><pre>
-     parameter:   k1= +2, k2= -3, k3=1;
+   parameter:   k1= +2, k2= -3, k3=1;
 
-  results in the following equations:
+results in the following equations:
 
-     y = 2 * u1 - 3 * u2 + u3;
+   y = 2 * u1 - 3 * u2 + u3;
 </pre></blockquote>
 
 </html>"),
@@ -1042,7 +1042,7 @@ This blocks computes the output <strong>y</strong>
 as <em>product</em> of the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <blockquote><pre>
-    y = u1 * u2;
+y = u1 * u2;
 </pre></blockquote>
 
 </html>"),
@@ -1082,7 +1082,7 @@ This block computes the output <strong>y</strong>
 by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
 <blockquote><pre>
-    y = u1 / u2;
+y = u1 / u2;
 </pre></blockquote>
 
 </html>"),
@@ -1186,7 +1186,7 @@ This blocks computes the output <strong>y</strong>
 as <em>absolute value</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>abs</strong>( u );
+y = <strong>abs</strong>( u );
 </pre></blockquote>
 <p>
 The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
@@ -1260,9 +1260,9 @@ This blocks computes the output <strong>y</strong>
 as <strong>sign</strong> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-         1  <strong>if</strong> u &gt; 0
-    y =  0  <strong>if</strong> u == 0
-        -1  <strong>if</strong> u &lt; 0
+     1  <strong>if</strong> u &gt; 0
+y =  0  <strong>if</strong> u == 0
+    -1  <strong>if</strong> u &lt; 0
 </pre></blockquote>
 <p>
 The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
@@ -1327,7 +1327,7 @@ This blocks computes the output <strong>y</strong>
 as <em>square root</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>sqrt</strong>( u );
+y = <strong>sqrt</strong>( u );
 </pre></blockquote>
 <p>
 The input shall be zero or positive.
@@ -1405,7 +1405,7 @@ This blocks computes the output <strong>y</strong>
 as <strong>sine</strong> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>sin</strong>( u );
+y = <strong>sin</strong>( u );
 </pre></blockquote>
 
 <p>
@@ -1486,7 +1486,7 @@ This blocks computes the output <strong>y</strong>
 as <strong>cos</strong> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>cos</strong>( u );
+y = <strong>cos</strong>( u );
 </pre></blockquote>
 
 <p>
@@ -1565,7 +1565,7 @@ This blocks computes the output <strong>y</strong>
 as <strong>tan</strong> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>tan</strong>( u );
+y = <strong>tan</strong>( u );
 </pre></blockquote>
 
 <p>
@@ -1644,7 +1644,7 @@ This blocks computes the output <strong>y</strong> as the
 <em>sine-inverse</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>asin</strong>( u );
+y = <strong>asin</strong>( u );
 </pre></blockquote>
 <p>
 The absolute value of the input <strong>u</strong> need to
@@ -1725,7 +1725,7 @@ This blocks computes the output <strong>y</strong> as the
 <em>cosine-inverse</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>acos</strong>( u );
+y = <strong>acos</strong>( u );
 </pre></blockquote>
 <p>
 The absolute value of the input <strong>u</strong> need to
@@ -1810,7 +1810,7 @@ This blocks computes the output <strong>y</strong> as the
 <em>tangent-inverse</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y= <strong>atan</strong>( u );
+y= <strong>atan</strong>( u );
 </pre></blockquote>
 
 <p>
@@ -1901,7 +1901,7 @@ This blocks computes the output <strong>y</strong> as the
 input <strong>u2</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>atan2</strong>( u1, u2 );
+y = <strong>atan2</strong>( u1, u2 );
 </pre></blockquote>
 <p>
 u1 and u2 shall not be zero at the same time instant.
@@ -1989,7 +1989,7 @@ This blocks computes the output <strong>y</strong> as the
 <em>hyperbolic sine</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>sinh</strong>( u );
+y = <strong>sinh</strong>( u );
 </pre></blockquote>
 
 <p>
@@ -2070,7 +2070,7 @@ This blocks computes the output <strong>y</strong> as the
 <em>hyperbolic cosine</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>cosh</strong>( u );
+y = <strong>cosh</strong>( u );
 </pre></blockquote>
 
 <p>
@@ -2151,7 +2151,7 @@ This blocks computes the output <strong>y</strong> as the
 <em>hyperbolic tangent</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>tanh</strong>( u );
+y = <strong>tanh</strong>( u );
 </pre></blockquote>
 
 <p>
@@ -2231,7 +2231,7 @@ This blocks computes the output <strong>y</strong> as the
 <em>exponential</em> (of base e) of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>exp</strong>( u );
+y = <strong>exp</strong>( u );
 </pre></blockquote>
 
 <p>
@@ -2302,13 +2302,13 @@ power to the parameter <em>base</em> of the input <strong>u</strong>.
 If the boolean parameter <strong>useExp</strong> is true, the output is determined by:
 </p>
 <blockquote><pre>
-    y = <strong>exp</strong> ( u * <strong>log</strong> (base) )
+y = <strong>exp</strong> ( u * <strong>log</strong> (base) )
 </pre></blockquote>
 <p>
 otherwise:
 </p>
 <blockquote><pre>
-    y = base <strong>^</strong> u;
+y = base <strong>^</strong> u;
 </pre></blockquote>
 
 
@@ -2376,7 +2376,7 @@ This blocks computes the output <strong>y</strong> as the
 <em>logarithm</em> to the parameter <em>base</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>log</strong>( u ) / <strong>log</strong>( base );
+y = <strong>log</strong>( u ) / <strong>log</strong>( base );
 </pre></blockquote>
 <p>
 An error occurs if the input <strong>u</strong> is
@@ -2460,7 +2460,7 @@ This blocks computes the output <strong>y</strong> as the
 <em>base 10 logarithm</em> of the input <strong>u</strong>:
 </p>
 <blockquote><pre>
-    y = <strong>log10</strong>( u );
+y = <strong>log10</strong>( u );
 </pre></blockquote>
 <p>
 An error occurs if the input <strong>u</strong> is

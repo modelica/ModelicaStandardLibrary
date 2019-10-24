@@ -597,9 +597,9 @@ The delay is approximated by a Pade approximation, i.e., by
 a transfer function
 </p>
 <blockquote><pre>
-           b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
-   y(s) = --------------------------------------------- * u(s)
-           a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
+        b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
+y(s) = --------------------------------------------- * u(s)
+        a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
 </pre></blockquote>
 <p>
 where the coefficients b[:] and a[:] are calculated such that the

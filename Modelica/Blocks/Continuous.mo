@@ -67,9 +67,9 @@ This blocks computes output <strong>y</strong> as
 the gain <em>k</em>:
 </p>
 <blockquote><pre>
-         k
-     y = - u
-         s
+    k
+y = - u
+    s
 </pre></blockquote>
 
 <p>
@@ -335,9 +335,9 @@ input u and the output y
 as <em>approximated derivative</em>:
 </p>
 <blockquote><pre>
-             k * s
-     y = ------------ * u
-            T * s + 1
+        k * s
+y = ------------ * u
+       T * s + 1
 </pre></blockquote>
 <p>
 If you would like to be able to change easily between different
@@ -417,9 +417,9 @@ This blocks defines the transfer function between the input u
 and the output y as <em>first order</em> system:
 </p>
 <blockquote><pre>
-               k
-     y = ------------ * u
-            T * s + 1
+          k
+y = ------------ * u
+       T * s + 1
 </pre></blockquote>
 <p>
 If you would like to be able to change easily between different
@@ -512,9 +512,9 @@ This blocks defines the transfer function between the input u and
 the output y as <em>second order</em> system:
 </p>
 <blockquote><pre>
-                             k
-     y = ---------------------------------------- * u
-            ( s / w )^2 + 2*D*( s / w ) + 1
+                    k
+y = --------------------------------- * u
+     ( s / w )^2 + 2*D*( s / w ) + 1
 </pre></blockquote>
 <p>
 If you would like to be able to change easily between different
@@ -633,12 +633,12 @@ This blocks defines the transfer function between the input u and
 the output y as <em>PI</em> system:
 </p>
 <blockquote><pre>
-                 1
-   y = k * (1 + ---) * u
-                T*s
-           T*s + 1
-     = k * ------- * u
+              1
+y = k * (1 + ---) * u
              T*s
+        T*s + 1
+  = k * ------- * u
+          T*s
 </pre></blockquote>
 <p>
 If you would like to be able to change easily between different
@@ -1290,9 +1290,9 @@ u and the output y
 as (nb = dimension of b, na = dimension of a):
 </p>
 <blockquote><pre>
-           b[1]*s^[nb-1] + b[2]*s^[nb-2] + ... + b[nb]
-   y(s) = --------------------------------------------- * u(s)
-           a[1]*s^[na-1] + a[2]*s^[na-2] + ... + a[na]
+        b[1]*s^[nb-1] + b[2]*s^[nb-2] + ... + b[nb]
+y(s) = --------------------------------------------- * u(s)
+        a[1]*s^[na-1] + a[2]*s^[na-2] + ... + a[na]
 </pre></blockquote>
 <p>
 State variables <strong>x</strong> are defined according to <strong>controller canonical</strong>
@@ -1307,15 +1307,15 @@ Initial values of the states <strong>x</strong> can be set via parameter <strong
 Example:
 </p>
 <blockquote><pre>
-     TransferFunction g(b = {2,4}, a = {1,3});
+TransferFunction g(b = {2,4}, a = {1,3});
 </pre></blockquote>
 <p>
 results in the following transfer function:
 </p>
 <blockquote><pre>
-        2*s + 4
-   y = --------- * u
-         s + 3
+     2*s + 4
+y = --------- * u
+      s + 3
 </pre></blockquote>
 </html>"),
       Icon(
@@ -1391,28 +1391,28 @@ between the input u and the output
 y in state space form:
 </p>
 <blockquote><pre>
-
-    der(x) = A * x + B * u
-        y  = C * x + D * u
+der(x) = A * x + B * u
+    y  = C * x + D * u
 </pre></blockquote>
 <p>
 The input is a vector of length nu, the output is a vector
 of length ny and nx is the number of states. Accordingly
 </p>
 <blockquote><pre>
-        A has the dimension: A(nx,nx),
-        B has the dimension: B(nx,nu),
-        C has the dimension: C(ny,nx),
-        D has the dimension: D(ny,nu)
+A has the dimension: A(nx,nx),
+B has the dimension: B(nx,nu),
+C has the dimension: C(ny,nx),
+D has the dimension: D(ny,nu)
 </pre></blockquote>
 <p>
 Example:
 </p>
 <blockquote><pre>
-     parameter: A = [0.12, 2;3, 1.5]
-     parameter: B = [2, 7;3, 1]
-     parameter: C = [0.1, 2]
-     parameter: D = zeros(ny,nu)
+parameter: A = [0.12, 2;3, 1.5]
+parameter: B = [2, 7;3, 1]
+parameter: C = [0.1, 2]
+parameter: D = zeros(ny,nu)
+
 results in the following equations:
   [der(x[1])]   [0.12  2.00] [x[1]]   [2.0  7.0] [u[1]]
   [         ] = [          ]*[    ] + [        ]*[    ]
@@ -1766,11 +1766,11 @@ The critical damping filter is defined as
 </p>
 
 <blockquote><pre>
-    &alpha; = <strong>if</strong> normalized <strong>then</strong> <strong>sqrt</strong>(2^(1/n) - 1) <strong>else</strong> 1 // frequency correction factor
-    &omega; = 2*&pi;*f/&alpha;
-              1
-    y = ------------- * u
-         (s/w + 1)^n
+&alpha; = <strong>if</strong> normalized <strong>then</strong> <strong>sqrt</strong>(2^(1/n) - 1) <strong>else</strong> 1 // frequency correction factor
+&omega; = 2*&pi;*f/&alpha;
+          1
+y = ------------- * u
+     (s/w + 1)^n
 
 </pre></blockquote>
 
@@ -4020,7 +4020,7 @@ This representation has the following transfer function:
         Bn(0)
 H(p) = -------
         Bn(p)
- </pre></blockquote>
+</pre></blockquote>
 <p>with the denominator polynomial</p>
 <blockquote><pre>
          n             n  (2n - k)!       p^k
@@ -4032,7 +4032,7 @@ Bn(p) = sum c_k*p^k = sum ----------- * -------   (1)
                (2n)!     1
 Bn(0) = c_0 = ------- * ---- .                    (2)
                 n!      2^n
- </pre></blockquote>
+</pre></blockquote>
 <p>Although the coefficients c_k are integer numbers, it is not advisable to use the
 polynomials in an unfactorized form because the coefficients are fast growing with order
 n (c_0 is approximately 0.3e24 and 0.8e59 for order n=20 and order n=40
