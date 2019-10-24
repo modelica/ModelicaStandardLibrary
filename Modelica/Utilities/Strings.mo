@@ -100,11 +100,11 @@ Compares two strings. If the optional argument caseSensitive=false,
 upper case letters are treated as if they would be lower case letters.
 The result of the comparison is returned as:
 </p>
-<pre>
+<blockquote><pre>
   result = Modelica.Utilities.Types.Compare.Less     // string1 &lt; string2
          = Modelica.Utilities.Types.Compare.Equal    // string1 = string2
          = Modelica.Utilities.Types.Compare.Greater  // string1 &gt; string2
-</pre>
+</pre></blockquote>
 <p>
 Comparison is with regards to lexicographical order,
 e.g., \"a\" &lt; \"b\";
@@ -588,9 +588,9 @@ that holds the type of the token and the value of the token:
 Variable token.tokenType is an enumeration (emulated as a package
 with constants) that can have the following values:
 </p>
-<pre>
+<blockquote><pre>
    import T = Modelica.Utilities.Types.TokenType;
-</pre>
+</pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td>T.RealToken</td>
       <td>Modelica Real literal (e.g., 1.23e-4)</td></tr>
@@ -1003,12 +1003,12 @@ Strings.<strong>syntaxError</strong>(string, index, message);
 Function <strong>syntaxError</strong> prints an error message in the
 following form:
 </p>
-<pre>
+<blockquote><pre>
    Syntax error at column &lt;index&gt; of
    &lt;string&gt;
        ^       // shows character that is wrong
    &lt;message&gt;
-</pre>
+</pre></blockquote>
 <p>
 where the strings within &lt;..&gt; are the actual values of the
 input arguments of the function.
@@ -1044,14 +1044,14 @@ Starts scanning of \"string\" at position \"startIndex\".
 First skips white space and scans afterwards a number
 of type Real with an optional sign according to the Modelica grammar:
 </p>
-<pre>
+<blockquote><pre>
     real     ::= [sign] unsigned [fraction] [exponent]
     sign     ::= '+' | '-'
     unsigned ::= digit [unsigned]
     fraction ::= '.' [unsigned]
     exponent ::= ('e' | 'E') [sign] unsigned
     digit    ::= '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
-</pre>
+</pre></blockquote>
 <p>
 If successful, the function returns nextIndex = index of character
 directly after the found real number, as well as the value
@@ -1288,14 +1288,14 @@ functions in package \"Strings\".
 <p>
 Library \"Advanced\" provides the following functions:
 </p>
-<pre>
+<blockquote><pre>
   (nextIndex, realNumber)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>        (string, startIndex, unsigned=false);
   (nextIndex, integerNumber) = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>     (string, startIndex, unsigned=false);
   (nextIndex, string2)       = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>      (string, startIndex);
   (nextIndex, identifier)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>  (string, startIndex);
    nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipWhiteSpace\">skipWhiteSpace</a>  (string, startIndex);
    nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a>(string, startIndex);
-</pre>
+</pre></blockquote>
 <p>
 All functions perform the following actions:
 </p>

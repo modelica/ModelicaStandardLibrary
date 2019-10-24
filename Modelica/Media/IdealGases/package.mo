@@ -42,7 +42,7 @@ the data from a commercial or public data base. A public source of the needed da
 <p>
 Data records for heat capacity, specific enthalpy and specific entropy exist for the following substances and ions:
 </p>
-<pre>
+<blockquote><pre>
  Ag        BaOH+           C2H4O_ethylen_o DF      In2I4    Nb      ScO2
  Ag+       Ba_OH_2         CH3CHO_ethanal  DOCl    In2I6    Nb+     Sc2O
  Ag-       BaS             CH3COOH         DO2     In2O     Nb-     Sc2O2
@@ -221,5 +221,5 @@ Data records for heat capacity, specific enthalpy and specific entropy exist for
  BaO       CH3CN           D-              In2F4   Na2SO4   Sc-
  BaO+      CH3CO_acetyl    DBr             In2F6   Na3Cl3   ScO
  BaOH      C2H4            DCl             In2I2   Na3F3    ScO+
-</pre></html>"));
+</pre></blockquote></html>"));
 end IdealGases;

@@ -31,7 +31,7 @@ function.
 <p>
 The following operations are supported (pi=3.14.. is a predefined constant):
 </p>
-<pre>
+<blockquote><pre>
    +, -
    *, /
    (expression)
@@ -45,7 +45,7 @@ The following operations are supported (pi=3.14.. is a predefined constant):
    exp(expression)
    log(expression)
    pi
-</pre>
+</pre></blockquote>
 <h4>Example</h4>
 <blockquote><pre>
   calculator(\"2+3*(4-1)\");  // returns 11
@@ -217,7 +217,7 @@ implement the corresponding part of the grammar.
 <p>
 The following operations are supported (pi=3.14.. is a predefined constant):
 </p>
-<pre>
+<blockquote><pre>
    +, -
    *, /
    (expression)
@@ -231,7 +231,7 @@ The following operations are supported (pi=3.14.. is a predefined constant):
    exp(expression)
    log(expression)
    pi
-</pre>
+</pre></blockquote>
 <p>
 The optional argument \"startIndex\" defines at which position
 scanning of the expression starts.
@@ -245,7 +245,7 @@ the error occurred.
 <p>
 This function parses the following grammar
 </p>
-<pre>
+<blockquote><pre>
   expression: [ add_op ] term { add_op term }
   add_op    : \"+\" | \"-\"
   term      : primary { mul_op primary }
@@ -263,7 +263,7 @@ This function parses the following grammar
               | atan
               | exp
               | log
-</pre>
+</pre></blockquote>
 <p>
 Note, in Examples.readRealParameter it is shown, how the expression
 function can be used as part of another scan operation.

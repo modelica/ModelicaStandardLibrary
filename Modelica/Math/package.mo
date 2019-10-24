@@ -1053,9 +1053,9 @@ x = Matrices.<strong>leastSquares</strong>(A,b);
 Returns a solution of equation A*x = b in a least
 square sense (A may be rank deficient):
 </p>
-<pre>
+<blockquote><pre>
   minimize | A*x - b |
-</pre>
+</pre></blockquote>
 
 <p>
 Several different cases can be distinguished (note, <strong>rank</strong> is an
@@ -1125,10 +1125,10 @@ i.e., QR or LQ factorization of A with column pivoting.
 The function first computes a QR factorization with column pivoting:
 </p>
 
-<pre>
+<blockquote><pre>
       A * P = Q * [ R11 R12 ]
                   [  0  R22 ]
-</pre>
+</pre></blockquote>
 
 <p>
 with R11 defined as the largest leading submatrix whose estimated
@@ -1142,19 +1142,19 @@ by orthogonal transformations from the right, arriving at the
 complete orthogonal factorization:
 </p>
 
-<pre>
+<blockquote><pre>
      A * P = Q * [ T11 0 ] * Z
                  [  0  0 ]
-</pre>
+</pre></blockquote>
 
 <p>
 The minimum-norm solution is then
 </p>
 
-<pre>
+<blockquote><pre>
      x = P * Z' [ inv(T11)*Q1'*b ]
                 [        0       ]
-</pre>
+</pre></blockquote>
 
 <p>
 where Q1 consists of the first \"rank\" columns of Q.
@@ -1203,9 +1203,9 @@ X = Matrices.<strong>leastSquares2</strong>(A,B);
 Returns a solution of equation A*X = B in a least
 square sense (A may be rank deficient):
 </p>
-<pre>
+<blockquote><pre>
   minimize | A*X - B |
-</pre>
+</pre></blockquote>
 
 <p>
 Several different cases can be distinguished (note, <strong>rank</strong> is an
@@ -1275,10 +1275,10 @@ i.e., QR or LQ factorization of A with column pivoting.
 The function first computes a QR factorization with column pivoting:
 </p>
 
-<pre>
+<blockquote><pre>
       A * P = Q * [ R11 R12 ]
                   [  0  R22 ]
-</pre>
+</pre></blockquote>
 
 <p>
 with R11 defined as the largest leading submatrix whose estimated
@@ -1292,19 +1292,19 @@ by orthogonal transformations from the right, arriving at the
 complete orthogonal factorization:
 </p>
 
-<pre>
+<blockquote><pre>
      A * P = Q * [ T11 0 ] * Z
                  [  0  0 ]
-</pre>
+</pre></blockquote>
 
 <p>
 The minimum-norm solution is then
 </p>
 
-<pre>
+<blockquote><pre>
      X = P * Z' [ inv(T11)*Q1'*B ]
                 [        0       ]
-</pre>
+</pre></blockquote>
 
 <p>
 where Q1 consists of the first \"rank\" columns of Q.
@@ -1709,11 +1709,9 @@ With function
 a real block diagonal matrix is constructed from the eigenvalues
 such that
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
 A = eigenvectors * eigenValueMatrix(eigenvalues) * inv(eigenvectors)
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 provided the eigenvector matrix \"eigenvectors\" can be inverted
 (an inversion is possible, if all eigenvalues are different;
@@ -1730,8 +1728,7 @@ the same).
   eval := Matrices.eigenValues(A);  // eval = [-0.618, 0;
                                     //          8.0  , 0;
                                     //          1.618, 0];
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 </p>
@@ -1788,14 +1785,12 @@ element of <strong>J</strong> is the real eigenvalue.
 Otherwise, eigenvalue i and conjugate complex eigenvalue i+1
 are used to construct a 2 by 2 diagonal block of <strong>J</strong>:
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
   J[i  , i]   := eigenvalues[i,1];
   J[i  , i+1] := eigenvalues[i,2];
   J[i+1, i]   := eigenvalues[i+1,2];
   J[i+1, i+1] := eigenvalues[i+1,1];
-</pre>
-</blockquote>
+</pre></blockquote>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </html>"));
@@ -1940,12 +1935,10 @@ This allows to, e.g., estimate the row-rank
 of <strong>R</strong> (which is the same row-rank as <strong>A</strong>). Furthermore,
 <strong>R</strong> can be partitioned in two parts
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
    <strong>A</strong>[:,<strong>p</strong>] = <strong>Q</strong> * [<strong>R</strong><sub>1</sub>, <strong>R</strong><sub>2</sub>;
                  <strong>0</strong>,  <strong>0</strong>]
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 where <strong>R</strong><sub>1</sub> is a regular, upper triangular matrix.
 </p>
@@ -2325,8 +2318,7 @@ or computation of eigenvalues.
 
 <h4>Example</h4>
 
-<blockquote>
-<pre>       - A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
+<blockquote><pre>       - A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
        - Matrices.norm(A, 1);
          = 1020.0
        - (T,B)=Matrices.balance(A)
@@ -2338,8 +2330,7 @@ or computation of eigenvalues.
              2.56,  0.32,   10.0]
        - Matrices.norm(B, 1);
          = 12.265625
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 The Algorithm is taken from
@@ -2439,19 +2430,19 @@ which based on the <code>balance</code> function from EISPACK.
 This function returns a vector scale, such that with T=diagonal(scale) system matrix S_scale
 </p>
 
-<pre>             |inv(T)*A*T, inv(T)*B|
+<blockquote><pre>             |inv(T)*A*T, inv(T)*B|
    S_scale = |                    |
              |       C*T,     0   |
-</pre>
+</pre></blockquote>
 
 <p>
 has a better condition as system matrix S
 </p>
 
-<pre>       |A, B|
+<blockquote><pre>       |A, B|
    S = |    |
        |C, 0|
-</pre>
+</pre></blockquote>
 <p>
 that is, conditionNumber(S_scale) &le; conditionNumber(S). The elements of vector scale
 are multiples of 2 which means that this function does not introduce round-off errors.
@@ -2461,9 +2452,9 @@ are multiples of 2 which means that this function does not introduce round-off e
 Balancing a linear dynamic system in state space form
 </p>
 
-<pre>  der(x) = A*x + B*u
+<blockquote><pre>  der(x) = A*x + B*u
       y  = C*x + D*u
-</pre>
+</pre></blockquote>
 
 <p>
 means to find a state transformation x_new = T*x = diagonal(scale)*x
@@ -2472,8 +2463,7 @@ so that the transformed system is better suited for numerical algorithms.
 
 <h4>Example</h4>
 
-<blockquote>
-<pre>import Modelica.Math.Matrices;
+<blockquote><pre>import Modelica.Math.Matrices;
 
 A = [1, -10,  1000; 0.01,  0,  10; 0.005,  -0.01,  10];
 B = [100, 10; 1,0; -0.003, 1];
@@ -2490,8 +2480,7 @@ scale = {16, 1, 0.0625}
 norm(A)  = 1000.15, norm(B)  = 100.504, norm(C)  = 100.006
 norm(As) = 10.8738, norm(Bs) = 16.0136, norm(Cs) = 10.2011
 err = 0
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 The algorithm is taken from
@@ -3144,8 +3133,7 @@ phi = Matrices.<strong>exp</strong>(A,T=1);
 <p>
 This function computes the exponential e<sup><strong>A</strong>T</sup> of matrix <strong>A</strong>, i.e.
 </p>
-<blockquote>
-<pre>                            (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
+<blockquote><pre>                            (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
      <font size=4> <strong>&Phi;</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
                               2!       3!
 </pre></blockquote>
@@ -3154,8 +3142,8 @@ This function computes the exponential e<sup><strong>A</strong>T</sup> of matrix
 e.g., the sampling time.
 <strong>A</strong> may be singular. With the exponential of a matrix it is, e.g., possible
 to compute the solution of a linear system of differential equations</p>
-<pre>    der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   ->   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
-</pre>
+<blockquote><pre>    der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   ->   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
+</pre></blockquote>
 
 <h4>Algorithmic details:</h4>
 
@@ -3300,10 +3288,10 @@ The function uses a Taylor series expansion with Balancing and
 scaling/squaring to approximate the integral <strong>&Psi;</strong> of the matrix
 exponential <strong>&Phi;</strong>=e^(AT):
 </p>
-<pre>                                 AT^2   A^2 * T^3          A^k * T^(k+1)
+<blockquote><pre>                                 AT^2   A^2 * T^3          A^k * T^(k+1)
         <strong>&Psi;</strong> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
                                   2!        3!                (k+1)!
-</pre>
+</pre></blockquote>
 <p>
 <strong>&Phi;</strong> is calculated through <strong>&Phi;</strong> = I + A*<strong>&Psi;</strong>, so A may be singular. <strong>&Gamma;</strong> is
 simply <strong>&Psi;</strong>*B.
@@ -3325,10 +3313,10 @@ guarantees minimum rounding errors in the following series
 expansion. The re-scaling based on the equation&nbsp; exp(A*2T) = exp(AT)^2.
 The needed re-scaling formula for psi thus becomes:
 </p>
-<pre>         <strong>&Phi;</strong> = <strong>&Phi;</strong>'*<strong>&Phi;</strong>'
+<blockquote><pre>         <strong>&Phi;</strong> = <strong>&Phi;</strong>'*<strong>&Phi;</strong>'
    I + A*<strong>&Psi;</strong> = I + 2A*<strong>&Psi;</strong>' + A^2*<strong>&Psi;</strong>'^2
          <strong>&Psi;</strong> = A*<strong>&Psi;</strong>'^2 + 2*<strong>&Psi;</strong>'
-</pre>
+</pre></blockquote>
 <p>
 where psi' is the scaled result from the series expansion while psi is the
 re-scaled matrix.
@@ -3337,9 +3325,9 @@ re-scaled matrix.
 The function is normally used to discretize a state-space system as the
 zero-order-hold equivalent:
 </p>
-<pre>      x(k+1) = <strong>&Phi;</strong>*x(k) + <strong>&Gamma;</strong>*u(k)
+<blockquote><pre>      x(k+1) = <strong>&Phi;</strong>*x(k) + <strong>&Gamma;</strong>*u(k)
         y(k) = C*x(k) + D*u(k)
-</pre>
+</pre></blockquote>
 <p>
 The zero-order-hold sampling, also known as step-invariant method, gives
 exact values of the state variables, under the assumption that the control
@@ -3351,12 +3339,12 @@ is described in
 <dd><strong>Computer Controlled Systems - Theory and Design</strong><br>
     Third Edition, p. 32</dd>
 </dl>
-<pre><strong>Syntax:</strong>
+<blockquote><pre><strong>Syntax:</strong>
       (phi,gamma) = Matrices.expIntegral(A,B,T)
                        A,phi: [n,n] square matrices
                      B,gamma: [n,m] input matrix
                            T: scalar, e.g., sampling time
-</pre>
+</pre></blockquote>
 <p>
 The Algorithm to calculate psi is taken from
 </p>
@@ -3420,17 +3408,17 @@ B, gamma, and gamma1 are (n,m) matrices.
 <p>
 The function calculates the matrices phi,gamma,gamma1 through the equation:
 </p>
-<pre>                                 [ A B 0 ]
+<blockquote><pre>                                 [ A B 0 ]
 [phi gamma gamma1] = [I 0 0]*exp([ 0 0 I ]*T)
                                  [ 0 0 0 ]
-</pre>
+</pre></blockquote>
 
 <p>
 The matrices define the discretized first-order-hold equivalent of
 a state-space system:
 </p>
-<pre>      x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
-</pre>
+<blockquote><pre>      x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
+</pre></blockquote>
 <p>
 The first-order-hold sampling, also known as ramp-invariant method, gives
 more smooth control signals as the ZOH equivalent. First-order-hold sampling
@@ -3628,11 +3616,11 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 </p>
 
 <h4>References</h4>
-<pre>
+<blockquote><pre>
   [1] Bartels, R.H. and Stewart G.W.
       Algorithm 432: Solution of the matrix equation AX + XB = C.
       Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</pre>
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -3770,11 +3758,11 @@ for more information.
 </p>
 
 <h4>References</h4>
-<pre>
+<blockquote><pre>
   [1] Bartels, R.H. and Stewart G.W.
       Algorithm 432: Solution of the matrix equation AX + XB = C.
       Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</pre>
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -3970,11 +3958,11 @@ for more information.
 </p>
 
 <h4>References</h4>
-<pre>
+<blockquote><pre>
   [1] Laub, A.J.
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</pre>
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4144,11 +4132,11 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 </p>
 
 <h4>References</h4>
-<pre>
+<blockquote><pre>
   [1] Bartels, R.H. and Stewart G.W.
       Algorithm 432: Solution of the matrix equation AX + XB = C.
       Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</pre>
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4349,12 +4337,12 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
 </p>
 
 <h4>References</h4>
-<pre>
+<blockquote><pre>
   [1] Golub, G.H., Nash, S. and Van Loan, C.F.
       A Hessenberg-Schur method for the problem AX + XB = C.
       IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
 
-</pre>
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4572,11 +4560,11 @@ according to <strong>S</strong>, the solution <strong>X</strong> can be calculat
 </pre></blockquote>
 
 <h4>References</h4>
-<pre>
+<blockquote><pre>
   [1] Laub, A.J.
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</pre>
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4741,9 +4729,9 @@ output argument, the indices of the sorted rows or columns with respect
 to the original matrix are given, such that
 </p>
 
-<pre>
+<blockquote><pre>
    sorted_M = <strong>if</strong> sortedRow <strong>then</strong> M[indices,:] <strong>else</strong> M[:,indices];
-</pre>
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -10179,14 +10167,14 @@ system equation.<br>
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<pre>
+<blockquote><pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
   [2] Datta, B.N.
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
-</pre>
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -10346,14 +10334,14 @@ system equation.
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<pre>
+<blockquote><pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
   [2] Datta, B.N.
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
-</pre>
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -10710,11 +10698,11 @@ With t_k_min the norm of the next residual of the algorithm will be minimized.<b
 See [1] for more information
 </p>
 <h4>References</h4>
-<pre>
+<blockquote><pre>
   [1] Benner, P., Byers, R.
       An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
       IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
-</pre>
+</pre></blockquote>
 
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
@@ -11972,9 +11960,9 @@ algorithm
 This function returns the area hyperbolic cosine of its
 input argument u. The valid range of u is
 </p>
-<pre>
+<blockquote><pre>
   +1 &le; u &lt; +&infin;
-</pre>
+</pre></blockquote>
 <p>
 If the function is called with u &lt; 1, an error occurs.
 The function cosh(u) has two inverse functions (the curve

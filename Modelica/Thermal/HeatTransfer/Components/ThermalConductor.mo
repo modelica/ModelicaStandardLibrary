@@ -57,18 +57,18 @@ e.g., with one of the following equations:
 <li><p>
     Conductance for a <strong>box</strong> geometry under the assumption
     that heat flows along the box length:</p>
-    <pre>
+    <blockquote><pre>
     G = k*A/L
     k: Thermal conductivity (material constant)
     A: Area of box
     L: Length of box
-    </pre>
+    </pre></blockquote>
     </li>
 <li><p>
     Conductance for a <strong>cylindrical</strong> geometry under the assumption
     that heat flows from the inside to the outside radius
     of the cylinder:</p>
-    <pre>
+    <blockquote><pre>
     G = 2*pi*k*L/log(r_out/r_in)
     pi   : Modelica.Constants.pi
     k    : Thermal conductivity (material constant)
@@ -76,10 +76,10 @@ e.g., with one of the following equations:
     log  : Modelica.Math.log;
     r_out: Outer radius of cylinder
     r_in : Inner radius of cylinder
-    </pre>
+    </pre></blockquote>
     </li>
 </ul>
-<pre>
+<blockquote><pre>
     Typical values for k at 20 degC in W/(m.K):
       aluminium   220
       concrete      1
@@ -88,6 +88,6 @@ e.g., with one of the following equations:
       silver      407
       steel        45 .. 15 (V2A)
       wood         0.1 ... 0.2
-</pre>
+</pre></blockquote>
 </html>"));
 end ThermalConductor;

@@ -76,7 +76,7 @@ for an explanation of both actuator models.</p>
 <p>
 A voltage step at time t=0 is applied to both actuator models. In each model, the armature and an attached load mass perform a stroke between the two stoppers included in cActuator.armature and pmActuator.armature respectively. <strong>Simulate for 0.05 s</strong> and plot vs. time (same physical quantities together in a common diagram for comparison):
 </p>
-<pre>
+<blockquote><pre>
     cActuator.p.i                     // input current to converter constant model
     pmActuator.p.i                    // input current to permeance model
     cActuator.armature.flange_a.f     // actuator force of converter constant model
@@ -85,7 +85,7 @@ A voltage step at time t=0 is applied to both actuator models. In each model, th
     pmActuator.x                      // armature position of permeance model
     cActuator.L                       // inductance of converter constant model
     pmActuator.L                      // inductance of permeance model
-</pre>
+</pre></blockquote>
 <p>
 The initial current rise in both actuator models is due to the inductance of the actuator coil. After acceleration of the armature and the load, the current decreases due to the motion-induced back-emf. Bouncing occurs when the armatures of both models arrive at the stopper at maximum armature position. The bouncing is rather intense due to the absence of any kind of external friction in this simple example (apart from the nonlinear damping in the stopper elements). After decay of the bouncing, both actuators operate under conditions valid for a blocked armature.
 </p>

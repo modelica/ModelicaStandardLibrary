@@ -918,11 +918,11 @@ The left image below shows a torus with <var>R</var>&nbsp;=&nbsp;0.5&nbsp;m and
 The right images below shows the torus with the additional parameter
 settings:
 </p>
-<pre>
+<blockquote><pre>
   opening    =   45 degree
   startAngle = -135 degree
   stopAngle  =  135 degree
-</pre>
+</pre></blockquote>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png\">
@@ -1167,12 +1167,10 @@ The color coding is shown in the next figure. It was generated with
 using the following call:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
 colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png\">
@@ -1821,11 +1819,9 @@ can be used with less problems in a model, since in a model an Integer
 type could only be used in a when-clause. Typical declaration of a color value:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
   Real color[3](each min=0, each max=255);
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 This definition is also available as type
@@ -1919,9 +1915,9 @@ If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
-<pre>
+<blockquote><pre>
     Visualizers.Advanced.Arrow arrow(diameter = sin(time));
-</pre>
+</pre></blockquote>
 
 <p>
 Variable <strong>color</strong> is an Integer vector with 3 elements,
@@ -2063,9 +2059,9 @@ If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
-<pre>
+<blockquote><pre>
     Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
-</pre>
+</pre></blockquote>
 <p>
 Variable <strong>color</strong> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of the shape.
@@ -2277,9 +2273,9 @@ interface <a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces.partialSu
 that returns the x-, y-, z- coordinate of every control point in form of 3 arrays X, Y, Z, and an optional color array C, if every control point shall have a different color:
 </p>
 
-<pre>
+<blockquote><pre>
   Real X[nu,nv], Y[nu,nv], Z[nu,nv], C[nu,nv,3];
-</pre>
+</pre></blockquote>
 
 <p>
 An example of a parameterized surface with color coding is shown in the next figure:
@@ -2431,12 +2427,10 @@ The color coding is shown in the next figure. It was generated with
 using the following call:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
 colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png\">
@@ -2565,12 +2559,10 @@ The color coding is shown in the next figure. It was generated with
 using the following call:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
 colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, heading=\"Temperature in C\");
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png\">
@@ -2758,9 +2750,9 @@ following figure:<br>&nbsp;
 The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for parameter <strong>lines</strong>
 </p>
-<pre>
+<blockquote><pre>
    lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
-</pre>
+</pre></blockquote>
 <p>
 Via parameter vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
 coordinate system is defined. The points defined with parameter
@@ -2870,9 +2862,9 @@ An example for dynamic lines is shown in the following figure:<br>&nbsp;
 The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for input variable <strong>lines</strong>
 </p>
-<pre>
+<blockquote><pre>
    lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
-</pre>
+</pre></blockquote>
 <p>
 Via vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
 coordinate system is defined. The points defined with variable

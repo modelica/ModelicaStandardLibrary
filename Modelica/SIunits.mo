@@ -17,7 +17,7 @@ a variable is the <strong>unit</strong> in which the <strong>equations</strong> 
 for example:
 </p>
 
-<pre>   <strong>model</strong> MassOnGround
+<blockquote><pre>   <strong>model</strong> MassOnGround
      <strong>parameter</strong> Real m(quantity=\"Mass\", unit=\"kg\") \"Mass\";
      <strong>parameter</strong> Real f(quantity=\"Force\", unit=\"N\") \"Driving force\";
      Real s(unit=\"m\") \"Position of mass\";
@@ -26,7 +26,7 @@ for example:
      <strong>der</strong>(s) = v;
      m*<strong>der</strong>(v) = f;
    <strong>end</strong> MassOnGround;
-</pre>
+</pre></blockquote>
 
 <p>
 This means that the equations in the equation section are only correct
@@ -64,9 +64,9 @@ For example, after providing a value for \"m\" and \"f\" in a parameter
 menu of an instance of MassOnGround, a tool might generate the following code:
 </p>
 
-<pre>
+<blockquote><pre>
    MassOnGround myObject(m(displayUnit=\"g\")=2, f=3);
-</pre>
+</pre></blockquote>
 
 <p>
 The meaning is that in the equations a value of \"2\" is used
@@ -88,25 +88,25 @@ and \"min\" can, however, be changed in a model via a modification. The example 
 might therefore be alternatively also defined as:
 </p>
 
-<pre>   <strong>model</strong> MassOnGround
+<blockquote><pre>   <strong>model</strong> MassOnGround
      <strong>parameter</strong> Modelica.SIunits.Mass  m \"Mass\";
      <strong>parameter</strong> Modelica.SIunits.Force f \"Driving force\";
      ...
    <strong>end</strong> MassOnGround;
-</pre>
+</pre></blockquote>
 
 <p>
 or in a short hand notation as
 </p>
 
-<pre>
+<blockquote><pre>
    <strong>model</strong> MassOnGround
      <strong>import</strong> SI = Modelica.SIunits;
      <strong>parameter</strong> SI.Mass  m \"Mass\";
      <strong>parameter</strong> SI.Force f \"Driving force\";
      ...
    <strong>end</strong> MassOnGround;
-</pre>
+</pre></blockquote>
 
 <p>
 For some often
@@ -119,13 +119,13 @@ in the declaration as in the example at the beginning.
 <p>
 <strong>Complex units</strong> are also included in Modelica.SIunits. A complex unit is declared as:
 </p>
-<pre>
+<blockquote><pre>
   <strong>model</strong> QuasiStaticMachine
     <strong>parameter</strong> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400)
        \"Nominal complex power\";
    ...
    <strong>end</strong> QuasiStaticMachine;
-</pre>
+</pre></blockquote>
 </html>"));
 
   end HowToUseSIunits;
@@ -152,7 +152,7 @@ in the declaration as in the example at the beginning.
 <li>Similar quantities, such as \"Length, Breadth, Height, Thickness,
     Radius\" are defined as the same quantity (here: \"Length\").</li>
 <li>The ordering of the type declarations in this package follows ISO 31:
-<pre>
+<blockquote><pre>
   Chapter  1: <strong>Space and Time</strong>
   Chapter  2: <strong>Periodic and Related Phenomena</strong>
   Chapter  3: <strong>Mechanics</strong>
@@ -166,7 +166,7 @@ in the declaration as in the example at the beginning.
   Chapter 11: (not defined in ISO 31-1992)
   Chapter 12: <strong>Characteristic Numbers</strong>
   Chapter 13: <strong>Solid State Physics</strong>
-</pre>
+</pre></blockquote>
 </li>
 <li>Conversion functions between SI and non-SI units are available in subpackage
     <strong>Conversions</strong>.</li>
@@ -857,7 +857,7 @@ corresponding SI Units defined in package Modelica.SIunits and vice
 versa. It is recommended to use these functions in the following
 way (note, that all functions have one Real input and one Real output
 argument):</p>
-<pre>
+<blockquote><pre>
   <strong>import</strong> Modelica.SIunits;
   <strong>import</strong> Modelica.SIunits.Conversions.{from_degC, from_deg, from_rpm};
      ...
@@ -865,7 +865,7 @@ argument):</p>
   <strong>parameter</strong> SIunits.Angle           phi = from_deg(180);   // convert 180 degree to radian
   <strong>parameter</strong> SIunits.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
                                                            // to radian per seconds
-</pre>
+</pre></blockquote>
 
 </html>"));
   end Conversions;
@@ -1831,10 +1831,10 @@ which is only valid in the rotor-fixed coordinate system.
 on units, e.g.,
 </p>
 
-<pre>   <strong>type</strong> Angle = Real(<strong>final</strong> quantity = \"Angle\",
+<blockquote><pre>   <strong>type</strong> Angle = Real(<strong>final</strong> quantity = \"Angle\",
                      <strong>final</strong> unit     = \"rad\",
                      displayUnit    = \"deg\");
-</pre>
+</pre></blockquote>
 
 <p>
 Some of the types are derived SI units that are utilized in package Modelica

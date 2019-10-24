@@ -486,9 +486,9 @@ Only density is a function of T and p. All other quantities
 are solely a function of T. The properties
 are valid in the range:
 </p>
-<pre>
+<blockquote><pre>
    200 K &le; T &le; 6000 K
-</pre>
+</pre></blockquote>
 <p>
 The following quantities are always computed:
 </p>
@@ -513,7 +513,7 @@ Note, dynamic viscosity and thermal conductivity are only provided
 for gases that use a data record from Modelica.Media.IdealGases.FluidData.
 Currently these are the following gases:
 </p>
-<pre>
+<blockquote><pre>
   Ar
   C2H2_vinylidene
   C2H4
@@ -548,7 +548,7 @@ Currently these are the following gases:
   O2
   SO2
   SO3
-</pre>
+</pre></blockquote>
 <p>
 <strong>Sources for model and literature:</strong><br>
 Original Data: Computer program for calculation of complex chemical

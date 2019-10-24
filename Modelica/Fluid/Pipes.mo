@@ -652,7 +652,7 @@ The options include (default: av_vb):
 <p>
 When connecting two components, e.g., two pipes, the momentum balance across the connection point reduces to
 </p>
-<pre>pipe1.port_b.p = pipe2.port_a.p</pre>
+<blockquote><pre>pipe1.port_b.p = pipe2.port_a.p</pre></blockquote>
 <p>
 This is only true if the flow velocity remains the same on each side of the connection.
 Consider using a fitting for any significant change in diameter or fluid density, if the resulting effects,
@@ -1277,9 +1277,9 @@ The details of the pipe wall friction model are described in the
 Basically, different variants of the equation
 </p>
 
-<pre>
+<blockquote><pre>
    dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2.
-</pre>
+</pre></blockquote>
 
 <p>
 
@@ -1688,9 +1688,9 @@ Heat transfer correlations for pipe models
 <p>
 Calculation of Reynolds Number
 </p>
-<pre>
+<blockquote><pre>
    Re = |v|&rho;D/&mu;
-</pre>
+</pre></blockquote>
 <p>
 a measure of the relationship between inertial forces (v&rho;) and viscous forces (D/&mu;).
 </p>
@@ -1728,11 +1728,11 @@ The following table gives examples for the characteristic dimension D and the ve
         Re := abs(m_flow)*D/A/mu;
         annotation (Documentation(info="<html>Simplified calculation of Reynolds Number for flow through pipes or orifices;
               using the mass flow rate <code>m_flow</code> instead of the velocity <code>v</code> to express inertial forces.
-<pre>
+<blockquote><pre>
   Re = |m_flow|*diameter/A/&mu;
 with
   m_flow = v*&rho;*A
-</pre>
+</pre></blockquote>
 See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">
           Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>.
 </html>"));
@@ -3475,9 +3475,9 @@ The details of the pipe wall friction model are described in the
 Basically, different variants of the equation
 </p>
 
-<pre>
+<blockquote><pre>
    dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
-</pre>
+</pre></blockquote>
 
 <p>
 are used, where the friction loss factor &lambda; is shown
@@ -3537,9 +3537,9 @@ The details of the underlying pipe wall friction model are described in the
 Basically, different variants of the equation
 </p>
 
-<pre>
+<blockquote><pre>
    dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
-</pre>
+</pre></blockquote>
 
 <p>
 are used, where the friction loss factor &lambda; is shown

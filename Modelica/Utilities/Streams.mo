@@ -378,10 +378,10 @@ to strings with the builtin operator
 <a href=\"modelica://ModelicaReference.Operators.'String()'\">ModelicaReference.Operators.'String()'</a>(...).
 Example:
 </p>
-<pre>
+<blockquote><pre>
   <strong>if</strong> x &lt; 0 <strong>or</strong> x &gt; 1 <strong>then</strong>
      Streams.error(\"x (= \" + String(x) + \") has to be in the range 0 .. 1\");
   <strong>end if</strong>;
-</pre>
+</pre></blockquote>
 </html>"));
 end Streams;

@@ -327,14 +327,14 @@ And and to Xor in the final sum.</p>
 <strong>a</strong> * <strong>b</strong> + <strong>a</strong> * <strong>b</strong> = <strong>a</strong> Xor <strong>b</strong> = <strong>c</strong>
 <br>(It is an interconnection to Xor.)
 <br>
-<pre>
+<blockquote><pre>
    <strong>a</strong>     <strong>b</strong>     <strong>c</strong>      <strong>s</strong>     <strong>t</strong>
 
    1     0     1      0     1
    0     1     1      0     2
    1     1     0      1     3
    0     0     0      0     4
-</pre>
+</pre></blockquote>
 <p>
 <strong>t</strong> is the pick-up instant of the next bit(s) in the simulation.
 The simulation stop time should be 5 seconds.
@@ -389,9 +389,9 @@ The simulation stop time should be 5 seconds.
 <br>
 <br>
 <strong>t</strong> is the pick-up instant of the next bit(s) in the simulation.</p>
-<pre>   <strong>a</strong>.y      <strong>b</strong>.y      <strong>c</strong>.y     <strong>c</strong>out        <strong>h</strong>.s        <strong>t</strong> </pre>
+<blockquote><pre>   <strong>a</strong>.y      <strong>b</strong>.y      <strong>c</strong>.y     <strong>c</strong>out        <strong>h</strong>.s        <strong>t</strong> </pre></blockquote>
 
-<pre>
+<blockquote><pre>
      1        0        0        0          1        1
      0        1        0        0          1        2
      0        0        1        0          1        3
@@ -400,7 +400,7 @@ The simulation stop time should be 5 seconds.
      1        0        1        1          0        6
      1        1        1        1          1        7
      0        0        0        0          0        8
-</pre>
+</pre></blockquote>
 <p>
 The simulation stop time should be 10 seconds.
 </p>
@@ -507,7 +507,7 @@ Four FullAdders are combined to built a four bit adder unit.
 <br>
 In dependence on time five additions are carried out:
 <br>
-<pre>
+<blockquote><pre>
 at t = 0                            at t = 1
  a       0 0 0 0                       a      1 1 1 0
  b    +  0 0 0 0                       b   +  1 0 1 1
@@ -521,18 +521,18 @@ at t = 4
  a      1 1 0 0
  b   +  1 1 1 0
  <strong>s    0 0 1 0 1</strong>
- </pre>
+ </pre></blockquote>
 <p>
 To show the influence of delay a large delay time of 0.1s is chosen.
 Furthermore, all signals are initialized with U, the uninitialized value.
 Please remember, that the nine logic values are coded by the numbers 1,...,9.
 The summands a and b can be found at the output signals of the taba and tabb sources.
 The result can be seen in the output signals of the FullAdders according to:</p>
-<pre>
+<blockquote><pre>
       a                       <strong>a4</strong>.y      <strong>a3</strong>.y      <strong>a2</strong>.y      <strong>a1</strong>.y
       b                       <strong>b4</strong>.y      <strong>b3</strong>.y      <strong>b2</strong>.y      <strong>b1</strong>.y
       sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s</strong>  <strong>Adder2.s</strong>  <strong>Adder1.s</strong>
-</pre>
+</pre></blockquote>
 <p>The simulation stop time has to be 5s.</p>
 </html>"),            experiment(StopTime=5));
         end Adder4;
@@ -3952,7 +3952,7 @@ Conversion of a nine valued digital input into a X01 digital output without
 any delay according to IEEE 1164 To_X01 function.
 </p>
 <p><strong>Conversion Table:</strong></p>
-<pre>
+<blockquote><pre>
   input                  output
   'U' (coded by 1)       'X'  (coded by 2)
   'X' (coded by 2)       'X'  (coded by 2)
@@ -3963,7 +3963,7 @@ any delay according to IEEE 1164 To_X01 function.
   'L' (coded by 7)       '0'  (coded by 3)
   'H' (coded by 8)       '1'  (coded by 4)
   '-' (coded by 9)       'X'  (coded by 2)
-</pre>
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4022,7 +4022,7 @@ Conversion of a nine valued digital input into a X01Z digital output without
 any delay according to IEEE 1164 To_X01Z function.
 </p>
 <p><strong>Conversion Table:</strong></p>
-<pre>
+<blockquote><pre>
  input                  output
  'U' (coded by 1)       'X'  (coded by 2)
  'X' (coded by 2)       'X'  (coded by 2)
@@ -4033,7 +4033,7 @@ any delay according to IEEE 1164 To_X01Z function.
  'L' (coded by 7)       '0'  (coded by 3)
  'H' (coded by 8)       '1'  (coded by 4)
  '-' (coded by 9)       'X'  (coded by 2)
-</pre>
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4092,7 +4092,7 @@ Conversion of a nine valued digital input into a UX01 digital output without
 any delay according to IEEE 1164 To_UX01 function.
 </p>
 <p><strong>Conversion Table:</strong></p>
-<pre>
+<blockquote><pre>
  input                  output
  'U' (coded by 1)       'U'  (coded by 1)
  'X' (coded by 2)       'X'  (coded by 2)
@@ -4103,7 +4103,7 @@ any delay according to IEEE 1164 To_UX01 function.
  'L' (coded by 7)       '0'  (coded by 3)
  'H' (coded by 8)       '1'  (coded by 4)
  '-' (coded by 9)       'X'  (coded by 2)
-</pre>
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4157,11 +4157,11 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <p>
 Conversion of a Boolean input into a digital output without any delay according to:
 </p>
-<pre>
+<blockquote><pre>
  input      output
  true       '1'  (coded by 4)
  false      '0'  (coded by 3)
-</pre>
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4210,7 +4210,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <p>
 Conversion of a digital input into a Boolean output without any delay according to:
 </p>
-<pre>
+<blockquote><pre>
  input                 output
  'U'  (coded by 1)     false
  'X'  (coded by 2)     false
@@ -4221,7 +4221,7 @@ Conversion of a digital input into a Boolean output without any delay according 
  'L'  (coded by 7)     false
  'H'  (coded by 8)     true
  '-'  (coded by 9)     false
-</pre>
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4278,12 +4278,12 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <p>
 Conversion of a real input into a digital output without any delay according to:
 </p>
-<pre>
+<blockquote><pre>
                                  condition            output
       first check:               input greater upp    lupp
       second check:              input larger low     llow
                                  else                 lmid
-</pre>
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4348,7 +4348,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <p>
 Conversion of a digital input into a Real output without any delay according to:
 </p>
-<pre>
+<blockquote><pre>
   input                 output
   'U'  (coded by 1)     val_U
   'X'  (coded by 2)     val_X
@@ -4359,7 +4359,7 @@ Conversion of a digital input into a Real output without any delay according to:
   'L'  (coded by 7)     val_L
   'H'  (coded by 8)     val_H
   '-'  (coded by 9)     val_m
-</pre>
+</pre></blockquote>
 <p>
 The values val... are given by parameters.</p>
 <p>If the signal width is greater than 1 this conversion is done for each signal.
@@ -4562,7 +4562,7 @@ The values val... are given by parameters.</p>
   <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
 
   *  = do not care
   U  = L.'U'
@@ -4575,7 +4575,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -4701,7 +4701,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -4713,7 +4713,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -4748,7 +4748,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -4760,7 +4760,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5000,7 +5000,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>1</td> <td>NC</td> <td>8</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5013,7 +5013,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5162,7 +5162,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>0</td> <td>NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5175,7 +5175,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5223,7 +5223,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>1</td> <td>NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5236,7 +5236,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5379,7 +5379,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
 
   *  = do not care
   ~  = not equal
@@ -5388,7 +5388,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5512,7 +5512,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5520,7 +5520,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5600,7 +5600,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5608,7 +5608,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5813,7 +5813,7 @@ Clock transition definitions:
 
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5821,7 +5821,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5968,7 +5968,7 @@ Clock transition definitions:
 
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5976,7 +5976,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -6067,7 +6067,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0</td> <td>1</td>  <td>1</td> <td>NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -6075,7 +6075,7 @@ Clock transition definitions:
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -6179,9 +6179,9 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
+<blockquote><pre>
   UX: if dataIn == U then U else X
-</pre>
+</pre></blockquote>
 </html>"));
     end NXFERGATE;
 
@@ -6261,10 +6261,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UW</td></tr>
 </table>
 
-<pre>
+<blockquote><pre>
   UW: if dataIn == U then U else W
   Strength Reduced: 0 -> L, 1 -> H, X -> W
-</pre>
+</pre></blockquote>
 </html>"));
     end NRXFERGATE;
 
@@ -6343,9 +6343,9 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
+<blockquote><pre>
   UX: if dataIn == U then U else X
-</pre>
+</pre></blockquote>
 </html>"));
     end PXFERGATE;
 
@@ -6503,10 +6503,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
+<blockquote><pre>
   UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3sTable
-</pre>
+</pre></blockquote>
 </html>"));
     end BUF3S;
 
@@ -6582,10 +6582,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
+<blockquote><pre>
   UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3slTable
-</pre>
+</pre></blockquote>
 </html>"));
     end BUF3SL;
 
@@ -6666,10 +6666,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
+<blockquote><pre>
   UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3sTable
-</pre>
+</pre></blockquote>
 </html>"));
     end INV3S;
 
@@ -6750,10 +6750,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
+<blockquote><pre>
   UX: if dataIn == U then U else X
   DataOut*: Strength map for DataOut according to tristate table Buf3slTable
-</pre>
+</pre></blockquote>
 </html>"));
     end INV3SL;
 
@@ -6876,14 +6876,14 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   <tr><td>X</td>  <td>X in Addr</td>      <td>no write</td>  </tr>
 </table>
 
-<pre>
+<blockquote><pre>
 
   *  = do not care
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
   Z  = L.'Z'
-</pre>
+</pre></blockquote>
 
 <p><strong>Simultaneous read/write operations are allowed.
 Firstly Write is carried out, then Read.</strong></p>
@@ -6962,14 +6962,14 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   <tr><td>X</td> <td>*</td> <td>X over all</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
 
   *  = do not care
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
   Z  = L.'Z'
-</pre>
+</pre></blockquote>
 
 </html>", revisions="<html>
 <dl>
@@ -7105,13 +7105,13 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 <td><p>X</p></td>
 </tr>
 </table>
-<pre>
+<blockquote><pre>
 
   *  = don&#39;t care
   0  = L.&#39;0&#39; or L.&#39;L&#39;
   1  = L.&#39;1&#39; or L.&#39;H&#39;
   X  = L.&#39;X&#39; or L.&#39;W&#39; or L.&#39;Z&#39; or L.&#39;-&#39;
-  U  = L.&#39;U&#39; </pre>
+  U  = L.&#39;U&#39; </pre></blockquote>
 </html>", revisions="<html>
 <dl>
 <dt><em>January 24, 2011</em></dt>

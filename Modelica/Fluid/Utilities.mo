@@ -288,9 +288,9 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
 <p>
 Approximates the function
 </p>
-<pre>
+<blockquote><pre>
    y = <strong>if</strong> x &ge; 0 <strong>then</strong> <strong>sqrt</strong>(k1*x) <strong>else</strong> -<strong>sqrt</strong>(k2*<strong>abs</strong>(x)), with k1, k2 &ge; 0
-</pre>
+</pre></blockquote>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
 the function is described by two polynomials of third order
@@ -435,9 +435,9 @@ k1=1, k2=3 is shown in the next figure:</p>
 <p>
 Approximates the function
 </p>
-<pre>
+<blockquote><pre>
    y = <strong>if</strong> x &ge; 0 <strong>then</strong> k1*x*x <strong>else</strong> -k2*x*x, with k1, k2 > 0
-</pre>
+</pre></blockquote>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
 the function is described by two polynomials of third order
@@ -521,18 +521,18 @@ k1=1, k2=3 is shown in the next figure:
 <p>
 This function is used to approximate the equation
 </p>
-<pre>
+<blockquote><pre>
     y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
-</pre>
+</pre></blockquote>
 
 <p>
 by a smooth characteristic, so that the expression is continuous and differentiable:
 </p>
 
-<pre>
+<blockquote><pre>
    y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
                  <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
-</pre>
+</pre></blockquote>
 
 <p>
 In the region -x_small &lt; x &lt; x_small a 2nd order polynomial is used

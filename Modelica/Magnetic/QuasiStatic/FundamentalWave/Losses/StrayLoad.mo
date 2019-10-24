@@ -44,9 +44,9 @@ Instead, the dissipated losses are considered through an equivalent braking torq
 <p>
 The stray load loss torque is
 </p>
-<pre>
+<blockquote><pre>
   tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
-</pre>
+</pre></blockquote>
 <p>
 where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
 The dependency of the stray load torque on the angular velocity is modeled by the exponent <code>power_w</code>.

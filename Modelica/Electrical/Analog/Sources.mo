@@ -1243,7 +1243,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
-<pre>   table = [0  0
+<blockquote><pre>   table = [0  0
             1  0
             1  1
             2  4
@@ -1252,7 +1252,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
 If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the voltage v =  2.5,
     e.g., time = 2.0, the voltage v =  4.0,
-    e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation). </pre>
+    e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation). </pre></blockquote>
 <p><br>  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>", revisions="<html>
 <ul>
@@ -2472,7 +2472,7 @@ and that the parameter <code>startTime</code> is omitted since the current can b
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
-<pre>   table = [0  0
+<blockquote><pre>   table = [0  0
             1  0
             1  1
             2  4
@@ -2481,7 +2481,7 @@ and that the parameter <code>startTime</code> is omitted since the current can b
 If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the current i =  2.5,
     e.g., time = 2.0, the current i =  4.0,
-    e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation). </pre>
+    e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation). </pre></blockquote>
 <p><br> Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>", revisions="<html>
 <ul>

@@ -121,8 +121,8 @@ system of equation is solved and therefore initialization always works.
 To be precise, the following trivial non-linear equation is actually solved
 for rodLength:
 </p>
-<pre>
+<blockquote><pre>
    rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
-</pre>
+</pre></blockquote>
 </html>"));
 end Fourbar2;

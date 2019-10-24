@@ -1398,19 +1398,19 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-<pre>
+<blockquote><pre>
    y = u(time - delayTime) for time &gt; time.start + delayTime
      = u(time.start)       for time &le; time.start + delayTime
-</pre>
+</pre></blockquote>
 <p>
 The delay is approximated by a Pade approximation, i.e., by
 a transfer function
 </p>
-<pre>
+<blockquote><pre>
            b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
    y(s) = --------------------------------------------- * u(s)
            a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
-</pre>
+</pre></blockquote>
 <p>
 where the coefficients b[:] and a[:] are calculated such that the
 coefficients of the Taylor expansion of the delay exp(-T*s) around s=0

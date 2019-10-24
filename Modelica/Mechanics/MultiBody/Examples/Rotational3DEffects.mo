@@ -588,7 +588,7 @@ of the flanges have to be calculated. In this example model, this is performed i
 angular velocity of the support frame):
 </p>
 
-<pre>
+<blockquote><pre>
     import Modelica.Mechanics.MultiBody.Frames;
     import SI=Modelica.SIunits;
     SI.Power           bevelGearPower;
@@ -597,7 +597,7 @@ angular velocity of the support frame):
     bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
                      (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
                      ws*bevelGear.frame_a.t;
-</pre>
+</pre></blockquote>
 <p>
 The total energy flow bevelGearPower must be zero. If a relative tolerance of 1e-4 is used
 for simulation, bevelGearPower is in the order of 1e-8 (and smaller for a smaller relative

@@ -581,10 +581,10 @@ Files.<strong>assertNew</strong>(name, message=\"This is not allowed\");
 Triggers an assert, if \"name\" is an existing file or
 directory. The error message has the following structure:
 </p>
-<pre>
+<blockquote><pre>
   File \"&lt;name&gt;\" already exists.
   &lt;message&gt;
-</pre>
+</pre></blockquote>
 </html>"));
 end assertNew;
 
@@ -670,13 +670,13 @@ Documentation(info="<html>
 Function <strong>splitPathName</strong>(..) splits a path name into its parts.
 </p>
 <h4>Example</h4>
-<pre>
+<blockquote><pre>
   (directory, name, extension) = Files.splitPathName(\"C:/user/test/input.txt\")
 
   -> directory = \"C:/user/test/\"
      name      = \"input\"
      extension = \".txt\"
-</pre>
+</pre></blockquote>
 </html>"));
 end splitPathName;
 
@@ -763,9 +763,9 @@ As a general convention of this package, '/' is used as directory
 separator both for input and output arguments of all functions.
 For example:
 </p>
-<pre>
+<blockquote><pre>
    exist(\"Modelica/Mechanics/Rotational.mo\");
-</pre>
+</pre></blockquote>
 <p>
 The functions provide the mapping to the directory separator of the
 underlying operating system. Note, that on Windows system the usage

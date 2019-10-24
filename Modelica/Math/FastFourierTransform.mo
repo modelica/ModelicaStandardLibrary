@@ -79,9 +79,9 @@ package FastFourierTransform
 In this example the signal y
 </p>
 
-<pre>
+<blockquote><pre>
    y = 5 + 3*sin(2*pi*f1) + 1.5*cos(2*pi*f2)
-</pre>
+</pre></blockquote>
 
 <p>
 is sampled and an FFT is computed from the sampled signal (default: f1 = 2 Hz, f2 = 3 Hz).
@@ -89,10 +89,10 @@ In the public part the FFT is stored up to f_max (internally in the protected pa
 With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the following results are achieved:
 </p>
 
-<pre>   fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
+<blockquote><pre>   fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
    fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of sine
    fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of cosine
-</pre>
+</pre></blockquote>
 
 <p>
 A plot of the resulting FFT is shown in the next image:
@@ -263,7 +263,7 @@ realFFTinfo(f_max=170, f_resolution=0.3)
 results in the following output:
 </p>
 
-<pre>
+<blockquote><pre>
 ... Real FFT properties
  Desired:
     f_max         = 170 Hz
@@ -276,7 +276,7 @@ results in the following output:
     Maximum FFT frequency      = 864 Hz (= 0.3*5760/2; f={0,0.3,0.6,...,864} Hz)
     Number of frequency points = 2881 (= 5760/2+1)
     Simulation time            = 3.33275 s
-</pre>
+</pre></blockquote>
 
 <h4>See also</h4>
 <p>
@@ -393,8 +393,8 @@ ns = realFFTinfo(f_max=170, f_resolution=0.3)
 results in the following output:
 </p>
 
-<pre>   ns = 5760
-</pre>
+<blockquote><pre>   ns = 5760
+</pre></blockquote>
 
 <h4>See also</h4>
 <p>
@@ -471,10 +471,10 @@ Function <strong>realFFT</strong> computes a real FFT (Fast Fourier Transform) o
 in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
 
-<pre>   info = 0: Successful FFT computation.
+<blockquote><pre>   info = 0: Successful FFT computation.
    info = 1: size(u,1) is not even.
    info = 3: Another error.
-</pre>
+</pre></blockquote>
 
 <p>
 Note, in the original publication about the efficient computation of FFT (Cooley and Tukey, 1965),
@@ -668,11 +668,11 @@ The function computes a real FFT (Fast Fourier Transform) of u and returns the r
 in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
 
-<pre>   info = 0: Successful FFT computation.
+<blockquote><pre>   info = 0: Successful FFT computation.
    info = 1: size(u,1) is not even.
    info = 2: size(work,1) is not correct (= a protected utility array).
    info = 3: Another error.
-</pre>
+</pre></blockquote>
 
 <p>
 Note, in the original publication about the efficient computation of FFT (Cooley and Tukey, 1965),
@@ -795,9 +795,9 @@ For an example see <a href=\"modelica://Modelica.Math.FastFourierTransform.Examp
 where the following signal is computed during simulation
 </p>
 
-<pre>
+<blockquote><pre>
    y = 5 + 3*sin(2*pi*2) + 1.5*cos(2*pi*3)
-</pre>
+</pre></blockquote>
 
 <p>
 the continuous-time signal y is sampled and the FFT is computed with a call to realFFT(f_max=4, f_resolution=0.2),

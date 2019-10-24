@@ -292,10 +292,10 @@ The inductance decreases as current increases. Note, that hysteresis is not take
 The approximation of the flux linkage is based on the <code>atan</code> function with an additional linear term,
 as shown in <strong>Fig.&nbsp;2</strong>:</p>
 
-<pre>
+<blockquote><pre>
 Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar)
 L = Psi/i = Linf + (Lzer - Linf)*atan(i/Ipar)/(i/Ipar)
-</pre>
+</pre></blockquote>
 
 <p>
 This approximation is with good performance and easy to adjust to a given characteristic with only four parameters (<strong>Tab.&nbsp;1</strong>).
@@ -327,9 +327,9 @@ This approximation is with good performance and easy to adjust to a given charac
 
 <p>
 The parameter <code>Ipar</code> is calculated internally from the relationship:</p>
-<pre>
+<blockquote><pre>
 Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
-</pre>
+</pre></blockquote>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></caption>
@@ -390,9 +390,9 @@ The nominal flux is indicated by the product of the nominal inductance <code>Lno
     annotation (
       Documentation(info="<html>
 <p>The transformer is a two port. The left port voltage <em>v1</em>, left port current <em>i1</em>, right port voltage <em>v2</em> and right port current <em>i2</em> are connected by the following relation:</p>
-<pre>         | v1 |         | L1   M  |  | i1&#39; |
+<blockquote><pre>         | v1 |         | L1   M  |  | i1&#39; |
          |    |    =    |         |  |     |
-         | v2 |         | M    L2 |  | i2&#39; |</pre>
+         | v2 |         | M    L2 |  | i2&#39; |</pre></blockquote>
 <p><em>L1</em>, <em>L2</em>, and <em>M</em> are the primary, secondary, and coupling inductances respectively.</p>
 </html>", revisions="<html>
 <ul>
@@ -654,8 +654,8 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (
       Documentation(info="<html>
 <p>A gyrator is a two-port element defined by the following equations:</p>
-<pre>    i1 =  G2 * v2
-    i2 = -G1 * v1</pre>
+<blockquote><pre>    i1 =  G2 * v2
+    i2 = -G1 * v1</pre></blockquote>
 <p>where the constants <em>G1</em>, <em>G2</em> are called the gyration conductance.</p>
 </html>", revisions="<html>
 <ul>
@@ -988,7 +988,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (defaultComponentName="vcv",
       Documentation(info="<html>
 <p>The linear voltage-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port voltage v1 via</p>
-<pre>    v2 = v1 * gain. </pre>
+<blockquote><pre>    v2 = v1 * gain. </pre></blockquote>
 <p>The left port current is zero. Any voltage gain can be chosen.</p>
 </html>", revisions="<html>
 <ul>
@@ -1030,7 +1030,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (defaultComponentName="vcc",
       Documentation(info="<html>
 <p>The linear voltage-controlled current source is a TwoPort. The right port current i2 is controlled by the left port voltage v1 via</p>
-<pre>    i2 = v1 * transConductance. </pre>
+<blockquote><pre>    i2 = v1 * transConductance. </pre></blockquote>
 <p>The left port current is zero. Any transConductance can be chosen.</p>
 </html>", revisions="<html>
 <ul>
@@ -1081,7 +1081,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (defaultComponentName="ccv",
       Documentation(info="<html>
 <p>The linear current-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port current i1 via</p>
-<pre>    v2 = i1 * transResistance. </pre>
+<blockquote><pre>    v2 = i1 * transResistance. </pre></blockquote>
 <p>The left port voltage is zero. Any transResistance can be chosen.</p>
 </html>", revisions="<html>
 <ul>
@@ -1124,7 +1124,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (defaultComponentName="ccc",
       Documentation(info="<html>
 <p>The linear current-controlled current source is a TwoPort. The right port current i2 is controlled by the left port current i1 via</p>
-<pre>    i2 = i1 * gain. </pre>
+<blockquote><pre>    i2 = i1 * gain. </pre></blockquote>
 <p>The left port voltage is zero. Any current gain can be chosen.</p>
 </html>", revisions="<html>
 <ul>

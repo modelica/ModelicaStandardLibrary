@@ -11,11 +11,11 @@ Flux tube elements with generation of a reluctance force are intended for modell
 <p>
 The derivative of each element's permeance with respect to armature position <code>dGmBydx</code> is calculated from the derivative of the flux tube's permeance with respect to its varying dimension dGmBydl and the derivative of this dimension with respect to armature position <code>dlBydx</code>:</p>
 
-<pre>
+<blockquote><pre>
     dG_m   dG_m   dl
     ---- = ---- * --
      dx     dl    dx
-</pre>
+</pre></blockquote>
 
 <p>
 The parameter <code>dlBydx</code> must be set in each flux tube element to +1 or -1 according to the definition of the armature co-ordinate and the position of the element in a device's magnetic circuit. Proper match between armature motion and resulting variation of the flux tube length assures that the element's reluctance force acts in the right direction.

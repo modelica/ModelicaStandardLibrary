@@ -397,10 +397,10 @@ them in to the frame defined by <strong>resolveInFrame</strong>.
 <p>
 For example, if resolveInFrame = <strong>Types.ResolveInFrameA.frame_a</strong>, then
 </p>
-<pre>
+<blockquote><pre>
    v0 = <strong>der</strong>(frame_a.r0);
    v  = resolve2(frame_a.R, v0);
-</pre>
+</pre></blockquote>
 <p>
 is returned, i.e., the derivative of the absolute distance from the
 world frame to the origin of frame_a, resolved in frame_a.
@@ -420,9 +420,9 @@ around angles[2] along the x-axis, and finally it is rotated around
 angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
-<pre>
+<blockquote><pre>
     -&pi; &lt;= angles[i] &lt;= &pi;
-</pre>
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via parameter <strong>guessAngle1</strong> (default = 0) the
@@ -439,11 +439,11 @@ The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
+<blockquote><pre>
   sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
            = <strong>{3,1,3}</strong>  // Euler angle sequence
            = <strong>{3,2,1}</strong>
-</pre>
+</pre></blockquote>
 </html>"));
   end AbsoluteSensor;
 
@@ -865,10 +865,10 @@ vector in another frame.
 For example, if resolveInFrame = <strong>Types.ResolveInFrameAB.frame_b</strong>, then
 </p>
 
-<pre>
+<blockquote><pre>
    r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
    v_rel = <strong>der</strong>(r_rel);
-</pre>
+</pre></blockquote>
 
 <p>
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
@@ -878,9 +878,9 @@ resolved in frame_b. If
 v_rel is additionally transformed to:
 </p>
 
-<pre>
+<blockquote><pre>
    v_rel = resolve1(frame_b.R, <strong>der</strong>(r_rel))
-</pre>
+</pre></blockquote>
 
 <p>
 The cut-force and the cut-torque in frame_resolve are
@@ -896,9 +896,9 @@ around angles[2] along the x-axis, and finally it is rotated around
 angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
-<pre>
+<blockquote><pre>
     -&pi; &lt;= angles[i] &lt;= &pi;
-</pre>
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via parameter <strong>guessAngle1</strong> (default = 0) the
@@ -915,11 +915,11 @@ The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
+<blockquote><pre>
   sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
            = <strong>{3,1,3}</strong>  // Euler angle sequence
            = <strong>{3,2,1}</strong>
-</pre>
+</pre></blockquote>
 </html>"));
   end RelativeSensor;
 
@@ -1213,9 +1213,9 @@ around angles[2] along the x-axis, and finally it is rotated around
 angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
-<pre>
+<blockquote><pre>
     -&pi; &lt;= angles[i] &lt;= &pi;
-</pre>
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via parameter <strong>guessAngle1</strong> (default = 0) the
@@ -1232,11 +1232,11 @@ The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
+<blockquote><pre>
   sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
            = <strong>{3,1,3}</strong>  // Euler angle sequence
            = <strong>{3,2,1}</strong>
-</pre>
+</pre></blockquote>
 </html>"));
   end AbsoluteAngles;
 
@@ -1659,9 +1659,9 @@ around angles[2] along the x-axis, and finally it is rotated around
 angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
-<pre>
+<blockquote><pre>
     -&pi; &lt;= angles[i] &lt;= &pi;
-</pre>
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via parameter <strong>guessAngle1</strong> (default = 0) the
@@ -1678,11 +1678,11 @@ The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
+<blockquote><pre>
   sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
            = <strong>{3,1,3}</strong>  // Euler angle sequence
            = <strong>{3,2,1}</strong>
-</pre>
+</pre></blockquote>
 </html>"));
   end RelativeAngles;
 

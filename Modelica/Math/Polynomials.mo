@@ -154,9 +154,9 @@ p(u) of degree \"n\" that fits the data \"p(u[i]) - y[i]\"
 in a least squares sense. The polynomial is
 returned as a vector p[n+1] that has the following definition:
 </p>
-<pre>
+<blockquote><pre>
   p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
-</pre>
+</pre></blockquote>
 </html>"));
       end fitting;
 

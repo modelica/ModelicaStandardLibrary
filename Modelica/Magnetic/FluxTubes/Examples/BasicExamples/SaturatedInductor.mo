@@ -74,11 +74,11 @@ equation
 This model demonstrates the effects of non-linear magnetisation characteristics of soft magnetic materials (hysteresis neglected). A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape. Set the <strong>tolerance</strong> to <strong>1e-7</strong>, <strong>simulate for 0.1 s</strong> and plot for example:
 </p>
 
-<pre>
+<blockquote><pre>
     coil.i vs. time           // non-harmonic current due to saturation of the core material
     r_mFe.mu_r vs. r_mFe.B    // relative permeability vs. flux density inside core
     r_mFe.B vs. r_mFe.H       // magnetisation curve B(H); hysteresis neglected
-</pre>
+</pre></blockquote>
 
 <p>
 The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g., selection of one of the electric sheets in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient initial design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.

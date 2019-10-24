@@ -302,7 +302,7 @@ package R134a "R134a: Medium model for R134a"
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
      parameter Medium.AbsolutePressure p = 3e5;
      parameter Medium.SpecificEnthalpy h = 4.2e5;
 
@@ -311,7 +311,7 @@ Example:
      <strong>equation</strong>
 
      rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
-</pre>
+</pre></blockquote>
 
 
 </html>"));
@@ -351,7 +351,7 @@ Example:
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
      parameter Medium.Density d = 4;
      parameter Medium.Temperature T = 298;
 
@@ -360,7 +360,7 @@ Example:
      <strong>equation</strong>
 
      s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
-</pre>
+</pre></blockquote>
 
 </html>"));
     end setState_dTX;
@@ -400,7 +400,7 @@ Example:
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
      parameter Medium.AbsolutePressure p = 3e5;
      parameter Medium.SpecficEntropy s = 1.7e3;
 
@@ -409,7 +409,7 @@ Example:
      <strong>equation</strong>
 
      h = Medium.specificEnthalpy(setState_psX(p, s, fill(0, Medium.nX)));
-</pre>
+</pre></blockquote>
 </html>"));
     end setState_psX;
 
@@ -434,7 +434,7 @@ Example:
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
      parameter Medium.AbsolutePressure p = 3e5;
      parameter Medium.Temperature T = 290;
 
@@ -443,7 +443,7 @@ Example:
      <strong>equation</strong>
 
      rho = Medium.density(setState_pTX(p, T, fill(0, Medium.nX)));
-</pre>
+</pre></blockquote>
 <p>
 Please note, that in contrast to setState_phX, setState_dTX and setState_psX this function can not calculate properties in the two-phase region since pressure and temperature are dependent variables. A guard function will be called if the temperature difference to the phase boundary is lower than 1K or the pressure difference to the critical pressure is lower than 1000 Pa.
 </p>
@@ -468,7 +468,7 @@ Please note, that in contrast to setState_phX, setState_dTX and setState_psX thi
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
     Medium.AbsolutePressure p=3e5;
     // Viscosity on the liquid phase boundary
     Modelica.SIunits.DynamicViscosity eta_liq;
@@ -476,7 +476,7 @@ Example:
     equation
 
     eta_liq = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
-</pre>
+</pre></blockquote>
 
 <h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
@@ -502,7 +502,7 @@ Example:
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
     Medium.AbsolutePressure p=3e5;
     // Viscosity on the vapor phase boundary
     Modelica.SIunits.DynamicViscosity eta_vap;
@@ -510,7 +510,7 @@ Example:
     equation
 
     eta_vap = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
-</pre>
+</pre></blockquote>
 
 <h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
@@ -1754,7 +1754,7 @@ for a given efficiency.
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
      Medium.AbsolutePressure p_downstream=10e5;
      Medium.SpecificEnthalpy h_downstream=4.1e5;
      Medium.AbsolutePressure p_upstream=3e5;
@@ -1768,7 +1768,7 @@ Example:
      h_is = isentropicEnthalpy(p_downstream, Medium.setState_phX(p_upstream, h_upstream));
 
      eta_is = (h_is-h_upstream)/(h_downstream - h_upstream);
-</pre>
+</pre></blockquote>
 
 <h4>Restrictions</h4>
 <p>

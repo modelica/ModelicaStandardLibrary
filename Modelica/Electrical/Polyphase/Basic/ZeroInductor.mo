@@ -13,9 +13,9 @@ equation
 Model of a polyphase zero sequence inductor.
 </p>
 <h4>Implementation</h4>
-<pre>
+<blockquote><pre>
   v = Lzero*sum(der(i)) = Lzero*der(sum(i))
-</pre>
+</pre></blockquote>
 
 </html>"),
        Icon(graphics={

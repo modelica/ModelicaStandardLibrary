@@ -2454,7 +2454,7 @@ The table interpolation has the following properties:
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
    table = [0, 0;
             1, 0;
             1, 1;
@@ -2465,7 +2465,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the output y =  2.5,
     e.g., time = 2.0, the output y =  4.0,
     e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation).
-</pre>
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/TimeTable.png\"
@@ -2478,13 +2478,13 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 <li><em>Oct. 21, 2002</em>
        by Christian Schweiger:<br>
        Corrected interface from
-<pre>
+<blockquote><pre>
     parameter Real table[:, :]=[0, 0; 1, 1; 2, 4];
-</pre>
+</pre></blockquote>
        to
-<pre>
+<blockquote><pre>
     parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
-</pre>
+</pre></blockquote>
        </li>
 <li><em>Nov. 7, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
@@ -2644,7 +2644,7 @@ The table interpolation has the following properties:
 <li><strong>Discontinuities</strong> are allowed for (constant or) linear interpolation,
     by providing the same time point twice in the table.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
-<pre>
+<blockquote><pre>
   smoothness = 1: Linear interpolation
              = 2: Akima interpolation: Smooth interpolation by cubic Hermite
                   splines such that der(y) is continuous, also if extrapolated.
@@ -2659,10 +2659,10 @@ The table interpolation has the following properties:
                   Hermite splines such that der(y) is continuous, also if
                   extrapolated. Additionally, overshoots and edge cases of the
                   original Akima interpolation method are avoided.
-</pre></li>
+</pre></blockquote></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
-<pre>
+<blockquote><pre>
   extrapolation = 1: Hold the first or last value of the table,
                      if outside of the table scope.
                 = 2: Extrapolate by using the derivative at the first/last table
@@ -2672,7 +2672,7 @@ The table interpolation has the following properties:
                      two table points.).
                 = 3: Periodically repeat the table data (periodical function).
                 = 4: No extrapolation, i.e. extrapolation triggers an error
-</pre></li>
+</pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the table values of this row are just returned.</li>
 <li>Via parameters <strong>shiftTime</strong> and <strong>offset</strong> the curve defined
@@ -2686,11 +2686,11 @@ The table interpolation has the following properties:
     interpolation by linear segments.
     This generates continuously differentiable values for the integrator.
     Via parameter <strong>timeEvents</strong> it is defined how the time events are generated:
-<pre>
+<blockquote><pre>
   timeEvents = 1: Always generate time events at interval boundaries
              = 2: Generate time events at discontinuities (defined by duplicated sample points)
              = 3: No time events at interval boundaries
-</pre>
+</pre></blockquote>
     For interpolation by constant segments time events are always generated at interval boundaries.
     For smooth interpolation by cubic Hermite splines no time events are generated at interval boundaries.</li>
 <li>Via parameter <strong>timeScale</strong> the first column of the table array can
@@ -2709,7 +2709,7 @@ The table interpolation has the following properties:
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
    table = [0, 0;
             1, 0;
             1, 1;
@@ -2721,17 +2721,17 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the output y =  2.5,
     e.g., time = 2.0, the output y =  4.0,
     e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation via last 2 points).
-</pre>
+</pre></blockquote>
 <p>
 The table matrix can be defined in the following ways:
 </p>
 <ol>
 <li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
     and the other parameters have the following values:
-<pre>
+<blockquote><pre>
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
-</pre></li>
+</pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". Both text and MATLAB MAT-file format is possible.
     (The text format is described below).
@@ -2739,13 +2739,13 @@ The table matrix can be defined in the following ways:
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
     by command
-<pre>
+<blockquote><pre>
    save tables.mat tab1 tab2 tab3
-</pre>
+</pre></blockquote>
     or Scilab by command
-<pre>
+<blockquote><pre>
    savematfile tables.mat tab1 tab2 tab3
-</pre>
+</pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
     <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
@@ -2762,7 +2762,7 @@ source code are removed by the C-preprocessor, such that no access to files take
 If tables are read from a text file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
-<pre>
+<blockquote><pre>
 -----------------------------------------------------
 #1
 double tab1(6,2)   # comment line
@@ -2780,7 +2780,7 @@ double tab2(6,2)   # another comment line
   6  18
   8  32
 -----------------------------------------------------
-</pre>
+</pre></blockquote>
 <p>
 Note, that the first two characters in the file need to be
 \"#1\" (a line comment defining the version number of the file format).
@@ -3241,7 +3241,7 @@ The table interpolation has the following properties:
     changes its value to the negated value of the previous one.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
-<pre>
+<blockquote><pre>
   extrapolation = 1: Hold the <strong>startValue</strong> or last value of the table,
                      if outside of the table scope.
                 = 2: Extrapolate by using the derivative at the first/last table
@@ -3249,7 +3249,7 @@ The table interpolation has the following properties:
                      (This setting is not suitable and triggers an assert.)
                 = 3: Periodically repeat the table data (periodical function).
                 = 4: No extrapolation, i.e. extrapolation triggers an error
-</pre></li>
+</pre></blockquote></li>
 <li>Via parameter <strong>shiftTime</strong> the curve defined by the table can be shifted
     in time.
     The time instants stored in the table are therefore <strong>relative</strong>
@@ -3267,7 +3267,7 @@ The table interpolation has the following properties:
 The precise semantics is:
 </p>
 
-<pre>
+<blockquote><pre>
   <strong>if</strong> size(table,1) == 0 <strong>then</strong>
      y = startValue;
   <strong>else</strong>
@@ -3277,7 +3277,7 @@ The precise semantics is:
      // table[3] &le; time &lt; table[4]: y = not startValue
      // ...
   <strong>end if</strong>;
-</pre>
+</pre></blockquote>
 </html>"));
   end BooleanTable;
 
@@ -3329,10 +3329,10 @@ the button according to the table has a higher priority as resetting
 the button. Example:
 </p>
 
-<pre>
+<blockquote><pre>
   RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on});
   RadioButtonSource stop (buttonTimeTable={2,4}, reset={start.on});
-</pre>
+</pre></blockquote>
 
 <p>
 The \"start\" button is pressed at time=1 s and time=3 s,
@@ -3591,7 +3591,7 @@ The table interpolation has the following properties:
     the second column of the table matrix does not contain Integer values.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
-<pre>
+<blockquote><pre>
   extrapolation = 1: Hold the first or last value of the table,
                      if outside of the table scope.
                 = 2: Extrapolate by using the derivative at the first/last table
@@ -3599,7 +3599,7 @@ The table interpolation has the following properties:
                      (This setting is not suitable and triggers an assert.)
                 = 3: Periodically repeat the table data (periodical function).
                 = 4: No extrapolation, i.e. extrapolation triggers an error
-</pre></li>
+</pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the table values of this row are just returned.</li>
 <li>Via parameter <strong>shiftTime</strong> the curve defined by the table can be shifted
@@ -3613,12 +3613,12 @@ The table interpolation has the following properties:
 <p>
 Example:
 </p>
-<pre>
+<blockquote><pre>
    table = [  0, 1;
               1, 4;
             1.5, 5;
               2, 6];
-</pre>
+</pre></blockquote>
 <p>
 results in the following output:
 </p>

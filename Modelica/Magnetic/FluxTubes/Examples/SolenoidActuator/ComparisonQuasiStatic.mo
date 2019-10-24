@@ -94,11 +94,11 @@ Similar to static force-stroke measurements on real actuators, the armatures of 
 Set the <strong>tolerance</strong> to <strong>1e-7</strong> and <strong>simulate for 10 s</strong>. Plot in one common window the electromagnetic force of the two magnetic network models and the FEA reference <strong>vs. armature position x_set.y</strong>:
 </p>
 
-<pre>
+<blockquote><pre>
     simpleSolenoid.armature.flange_a.f     // electromagnetic force of simple magnetic network model
     advancedSolenoid.armature.flange_a.f   // electromagnetic force of advanced magnetic network model
     comparisonWithFEA.y[1]                 // electromagnetic force obtained with FEA as reference
-</pre>
+</pre></blockquote>
 
 <p>
 Electromagnetic or reluctance forces always act towards a decrease of air gap lengths. With the defined armature position coordinate x, the forces of the models are negative.
@@ -108,7 +108,7 @@ Electromagnetic or reluctance forces always act towards a decrease of air gap le
 The magnetic flux through the armature and the actuator's static inductance both illustrate the differences between the two magnetic network models. Similar to the forces, compare these quantities in one common plot window for each variable (plot vs. armature position x_set.y):
 </p>
 
-<pre>
+<blockquote><pre>
     simpleSolenoid.G_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
     advancedSolenoid.G_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
     comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference
@@ -116,7 +116,7 @@ The magnetic flux through the armature and the actuator's static inductance both
     simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model
     advancedSolenoid.L_statTot             // series connection of both partial coils of advanced network model
     comparisonWithFEA.y[3]                 // static inductance obtained with FEA as reference
-</pre>
+</pre></blockquote>
 
 <p>
 As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.

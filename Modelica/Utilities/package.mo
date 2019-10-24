@@ -67,13 +67,13 @@ Below the major design decisions of this library are summarized.
      can replace (expensive) string copy operations by pointer
      copy operations. For example, when sorting a set of strings
      the following type of operations occur:
-     <pre>
+     <blockquote><pre>
      String s[:], s_temp;
       ...
      s_temp := s[i];
      s[i]   := s[j];
      s[j]   := s_temp;
-     </pre>
+     </pre></blockquote>
      Formally, three strings are copied. Due to the feature
      sketched above, a Modelica tool can replace this
      copy operation by pointer assignments, a very \"cheap\"

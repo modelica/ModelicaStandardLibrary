@@ -1826,8 +1826,7 @@ The truncated distribution functions are derived from the underlying distributio
 functions in the following way:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
 // Original distributions
     pdf = Distributions.XXX.density(u,..);
     cdf = Distributions.XXX.cumulative(u,...);
@@ -1835,7 +1834,7 @@ cdf_min = Distributions.XXX.cumulative(u_min,...);
 cdf_max = Distributions.XXX.cumulative(u_max,...);
 
 // Truncated distributions
-</pre>
+</pre></blockquote>
 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function</em></strong></th><th><strong><em>Transformation</em></strong></th></tr>
