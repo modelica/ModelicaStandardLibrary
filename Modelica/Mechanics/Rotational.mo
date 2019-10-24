@@ -2968,16 +2968,16 @@ to the linear spring/damper characteristic:
 </p>
 
 <blockquote><pre>
-    // Torque characteristic when phi_rel > phi_rel0
-    <strong>if</strong> phi_rel - phi_rel0 &lt; b/2 <strong>then</strong>
-       tau_c = 0;          // spring torque
-       tau_d = 0;          // damper torque
-       flange_b.tau = 0;
-    <strong>else</strong>
-       tau_c = c*(phi_rel - phi_rel0);    // spring torque
-       tau_d = d*<strong>der</strong>(phi_rel);            // damper torque
-       flange_b.tau = <strong>if</strong> tau_c + tau_d &le; 0 <strong>then</strong> 0 <strong>else</strong> tau_c + <strong>min</strong>( tau_c, tau_d );
-    <strong>end if</strong>;
+// Torque characteristic when phi_rel > phi_rel0
+<strong>if</strong> phi_rel - phi_rel0 &lt; b/2 <strong>then</strong>
+   tau_c = 0;          // spring torque
+   tau_d = 0;          // damper torque
+   flange_b.tau = 0;
+<strong>else</strong>
+   tau_c = c*(phi_rel - phi_rel0);    // spring torque
+   tau_d = d*<strong>der</strong>(phi_rel);            // damper torque
+   flange_b.tau = <strong>if</strong> tau_c + tau_d &le; 0 <strong>then</strong> 0 <strong>else</strong> tau_c + <strong>min</strong>( tau_c, tau_d );
+<strong>end if</strong>;
 </pre></blockquote>
 
 <p>
@@ -3262,16 +3262,16 @@ the linear spring/damper characteristic to:
 </p>
 
 <blockquote><pre>
-    // Torque characteristic when phi_rel > phi_rel0
-    <strong>if</strong> phi_rel - phi_rel0 &lt; b/2 <strong>then</strong>
-       tau_c = 0;          // spring torque
-       tau_d = 0;          // damper torque
-       flange_b.tau = 0;
-    <strong>else</strong>
-       tau_c = c*(phi_rel - phi_rel0);    // spring torque
-       tau_d = d*<strong>der</strong>(phi_rel);            // damper torque
-       flange_b.tau = <strong>if</strong> tau_c + tau_d &le; 0 <strong>then</strong> 0 <strong>else</strong> tau_c + tau_d;
-    <strong>end if</strong>;
+// Torque characteristic when phi_rel > phi_rel0
+<strong>if</strong> phi_rel - phi_rel0 &lt; b/2 <strong>then</strong>
+   tau_c = 0;          // spring torque
+   tau_d = 0;          // damper torque
+   flange_b.tau = 0;
+<strong>else</strong>
+   tau_c = c*(phi_rel - phi_rel0);    // spring torque
+   tau_d = d*<strong>der</strong>(phi_rel);            // damper torque
+   flange_b.tau = <strong>if</strong> tau_c + tau_d &le; 0 <strong>then</strong> 0 <strong>else</strong> tau_c + tau_d;
+<strong>end if</strong>;
 </pre></blockquote>
 
 <p>
@@ -3456,18 +3456,18 @@ by table \"tau_pos\" as function of the absolute angular velocity \"w\".
 E.g.
 </p>
 <blockquote><pre>
-       w | tau
-      ---+-----
-       0 |   0
-       1 |   2
-       2 |   5
-       3 |   8
+ w | tau
+---+-----
+ 0 |   0
+ 1 |   2
+ 2 |   5
+ 3 |   8
 </pre></blockquote>
 <p>
 gives the following table:
 </p>
 <blockquote><pre>
-   tau_pos = [0, 0; 1, 2; 2, 5; 3, 8];
+tau_pos = [0, 0; 1, 2; 2, 5; 3, 8];
 </pre></blockquote>
 <p>
 Currently, only linear interpolation in the table is supported.
@@ -3705,7 +3705,7 @@ account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
 <blockquote><pre>
-        frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w) * <strong>fn</strong>
+frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w) * <strong>fn</strong>
 </pre></blockquote>
 <p>
    Typical values of coefficients of friction <strong>mu</strong>:
@@ -3721,7 +3721,7 @@ distributions:
    assumption of a uniform rate of wear at the interfaces:
 </p>
 <blockquote><pre>
-         <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
+<strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
 </pre></blockquote>
 <p>
     The positive part of the friction characteristic <strong>mu</strong>(w),
@@ -3739,7 +3739,7 @@ distributions:
    called the  maximum static friction torque, computed via:
 </p>
 <blockquote><pre>
-       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
 </pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -3862,7 +3862,7 @@ account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
 <blockquote><pre>
-        frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong>fn</strong>
+frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong>fn</strong>
 </pre></blockquote>
 <p>
    Typical values of coefficients of friction <strong>mu</strong>:
@@ -3878,7 +3878,7 @@ distributions:
    assumption of a uniform rate of wear at the interfaces:
 </p>
 <blockquote><pre>
-         <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
+<strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
 </pre></blockquote>
 <p>
     The positive part of the friction characteristic <strong>mu</strong>(w_rel),
@@ -3896,7 +3896,7 @@ distributions:
    called the  maximum static friction torque, computed via:
 </p>
 <blockquote><pre>
-       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w_rel=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w_rel=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
 </pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -5439,8 +5439,8 @@ Flange <strong>flange</strong> is <strong>forced</strong> to move relative to fl
 according to the input signal u
 </p>
 <blockquote><pre>
-    u[1]: angle of flange
-    u[2]: angular velocity of flange
+u[1]: angle of flange
+u[2]: angular velocity of flange
 </pre></blockquote>
 <p>
 The user has to guarantee that the input signals are consistent to each other,
@@ -5510,8 +5510,8 @@ Flange <strong>flange</strong> is <strong>forced</strong> to move relative to fl
 according to the input signals:
 </p>
 <blockquote><pre>
-    u[1]: angle of flange
-    u[2]: angular velocity of flange
+u[1]: angle of flange
+u[2]: angular velocity of flange
 </pre></blockquote>
 <p>
 The user has to guarantee that the input signals are consistent to each other,
@@ -6474,9 +6474,9 @@ Flange <strong>flange</strong> is <strong>forced</strong> to move relative to fl
 according to the input signals:
 </p>
 <blockquote><pre>
-    u[1]: angle of flange
-    u[2]: angular velocity of flange
-    u[3]: angular acceleration of flange
+u[1]: angle of flange
+u[2]: angular velocity of flange
+u[3]: angular acceleration of flange
 </pre></blockquote>
 <p>
 The user has to guarantee that the input signals are consistent to each other,

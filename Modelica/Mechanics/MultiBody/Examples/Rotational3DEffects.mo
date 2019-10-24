@@ -589,14 +589,14 @@ angular velocity of the support frame):
 </p>
 
 <blockquote><pre>
-    import Modelica.Mechanics.MultiBody.Frames;
-    import SI=Modelica.SIunits;
-    SI.Power           bevelGearPower;
-    SI.AngularVelocity ws[3] = Frames.angularVelocity2(bevelGear.frame_a.R);
-  <strong>equation</strong>
-    bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
-                     (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
-                     ws*bevelGear.frame_a.t;
+  import Modelica.Mechanics.MultiBody.Frames;
+  import SI=Modelica.SIunits;
+  SI.Power           bevelGearPower;
+  SI.AngularVelocity ws[3] = Frames.angularVelocity2(bevelGear.frame_a.R);
+<strong>equation</strong>
+  bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
+                   (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
+                   ws*bevelGear.frame_a.t;
 </pre></blockquote>
 <p>
 The total energy flow bevelGearPower must be zero. If a relative tolerance of 1e-4 is used

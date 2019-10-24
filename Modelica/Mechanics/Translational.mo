@@ -2773,15 +2773,15 @@ If s_rel0 = 0, the equations are:
 </p>
 
 <blockquote><pre>
-    <strong>if</strong> s_rel &ge; 0 <strong>then</strong>
-       f = 0;    // contact force
-    <strong>else</strong>
-       f_c  = -c*|s_rel|^n;          // contact spring force (Hertzian contact force)
-       f_d2 = d*<strong>der</strong>(s_rel);         // linear contact damper force
-       f_d  = <strong>if</strong> f_d2 &lt;  f_c <strong>then</strong>  f_c <strong>else</strong>
-              <strong>if</strong> f_d2 &gt; -f_c <strong>then</strong> -f_c <strong>else</strong> f_d2;  // bounded damper force
-       f    = f_c + f_d;            // contact force
-    <strong>end if</strong>;
+<strong>if</strong> s_rel &ge; 0 <strong>then</strong>
+   f = 0;    // contact force
+<strong>else</strong>
+   f_c  = -c*|s_rel|^n;          // contact spring force (Hertzian contact force)
+   f_d2 = d*<strong>der</strong>(s_rel);         // linear contact damper force
+   f_d  = <strong>if</strong> f_d2 &lt;  f_c <strong>then</strong>  f_c <strong>else</strong>
+          <strong>if</strong> f_d2 &gt; -f_c <strong>then</strong> -f_c <strong>else</strong> f_d2;  // bounded damper force
+   f    = f_c + f_d;            // contact force
+<strong>end if</strong>;
 </pre></blockquote>
 
 <p>
@@ -2927,12 +2927,12 @@ by table \"f_pos\" as function of the absolute velocity \"v\".
 E.g.
 </p>
 <blockquote><pre>
-       v |   f
-      ---+-----
-       0 |   0
-       1 |   2
-       2 |   5
-       3 |   8
+ v |   f
+---+-----
+ 0 |   0
+ 1 |   2
+ 2 |   5
+ 3 |   8
 </pre></blockquote>
 <p>
 gives the following table:
@@ -3156,7 +3156,7 @@ account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
 <blockquote><pre>
-        frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
+frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
 </pre></blockquote>
 <p>
    Typical values of coefficients of friction <strong>mu</strong>:
@@ -3181,7 +3181,7 @@ distributions:
    called the  maximum static friction force, computed via:
 </p>
 <blockquote><pre>
-       frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
 </pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -4636,9 +4636,9 @@ Flange <strong>flange_b</strong> is <strong>forced</strong> to move relative to 
 according to the input signals:
 </p>
 <blockquote><pre>
-    u[1]: position of flange
-    u[2]: velocity of flange
-    u[3]: acceleration of flange
+u[1]: position of flange
+u[2]: velocity of flange
+u[3]: acceleration of flange
 </pre></blockquote>
 <p>
 The user has to guarantee that the input signals are consistent to each other,

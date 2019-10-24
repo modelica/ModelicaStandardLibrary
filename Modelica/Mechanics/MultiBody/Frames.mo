@@ -544,10 +544,10 @@ angle = Frames.<strong>planarRotationAngle</strong>(e, v1, v2);
 A call to this function of the form
 </p>
 <blockquote><pre>
-    Real[3]                e, v1, v2;
-    Modelica.SIunits.Angle angle;
-  <strong>equation</strong>
-    angle = <strong>planarRotationAngle</strong>(e, v1, v2);
+  Real[3]                e, v1, v2;
+  Modelica.SIunits.Angle angle;
+<strong>equation</strong>
+  angle = <strong>planarRotationAngle</strong>(e, v1, v2);
 </pre></blockquote>
 <p>
 computes the rotation angle \"<strong>angle</strong>\" of a planar
@@ -557,13 +557,13 @@ and in frame&nbsp;2 (<strong>v2</strong>). Therefore, the result of this functio
 fulfills the following equation:
 </p>
 <blockquote><pre>
-    v2 = <strong>resolve2</strong>(<strong>planarRotation</strong>(e,angle), v1)
+v2 = <strong>resolve2</strong>(<strong>planarRotation</strong>(e,angle), v1)
 </pre></blockquote>
 <p>
 The rotation angle is returned in the range
 </p>
 <blockquote><pre>
-    -&pi; &lt;= angle &lt;= &pi;
+-&pi; &lt;= angle &lt;= &pi;
 </pre></blockquote>
 <p>
 This function makes the following assumptions on the input arguments
@@ -2173,7 +2173,7 @@ is vector <strong>v</strong> resolved in frame 1 and <strong>v</strong><sub>2</s
 vector <strong>v</strong> resolved in frame 2, the following relationship holds:
 </p>
 <blockquote><pre>
-    <strong>v</strong><sub>2</sub> = <strong>T</strong> * <strong>v</strong><sub>1</sub>
+<strong>v</strong><sub>2</sub> = <strong>T</strong> * <strong>v</strong><sub>1</sub>
 </pre></blockquote>
 <p>
 The <strong>inverse</strong> orientation

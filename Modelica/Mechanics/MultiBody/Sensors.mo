@@ -421,7 +421,7 @@ angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
 <blockquote><pre>
-    -&pi; &lt;= angles[i] &lt;= &pi;
+-&pi; &lt;= angles[i] &lt;= &pi;
 </pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -897,7 +897,7 @@ angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
 <blockquote><pre>
-    -&pi; &lt;= angles[i] &lt;= &pi;
+-&pi; &lt;= angles[i] &lt;= &pi;
 </pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -1214,7 +1214,7 @@ angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
 <blockquote><pre>
-    -&pi; &lt;= angles[i] &lt;= &pi;
+-&pi; &lt;= angles[i] &lt;= &pi;
 </pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -1660,7 +1660,7 @@ angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
 <blockquote><pre>
-    -&pi; &lt;= angles[i] &lt;= &pi;
+-&pi; &lt;= angles[i] &lt;= &pi;
 </pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.

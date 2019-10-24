@@ -1916,7 +1916,7 @@ modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
 <blockquote><pre>
-    Visualizers.Advanced.Arrow arrow(diameter = sin(time));
+Visualizers.Advanced.Arrow arrow(diameter = sin(time));
 </pre></blockquote>
 
 <p>
@@ -2060,7 +2060,7 @@ modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
 <blockquote><pre>
-    Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
+Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
 </pre></blockquote>
 <p>
 Variable <strong>color</strong> is an Integer vector with 3 elements,

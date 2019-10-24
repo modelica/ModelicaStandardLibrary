@@ -2901,14 +2901,14 @@ For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of the rod, this might be defined as:
 </p>
 <blockquote><pre>
-    Modelica.Mechanics.MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
-    Modelica.Mechanics.MultiBody.Visualizers.FixedShape    shape(shapeType       = \"box\",
-                                              lengthDirection = jointUS.eRod_ia,
-                                              widthDirection  = jointUS.e2_ia,
-                                              length          = jointUS.rodLength/2,
-                                              width           = jointUS.rodLength/10);
-  <strong>equation</strong>
-    <strong>connect</strong>(jointUS.frame_ia, shape.frame_a);
+  Modelica.Mechanics.MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape    shape(shapeType       = \"box\",
+                                            lengthDirection = jointUS.eRod_ia,
+                                            widthDirection  = jointUS.e2_ia,
+                                            length          = jointUS.rodLength/2,
+                                            width           = jointUS.rodLength/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUS.frame_ia, shape.frame_a);
 </pre></blockquote>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -4795,14 +4795,14 @@ For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of rod 1, this might be defined as:
 </p>
 <blockquote><pre>
-    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSR(rRod1_ia={1.2, 1, 0.2});
-    Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
-                                               lengthDirection = jointUSR.eRod1_ia,
-                                               widthDirection  = jointUSR.e2_ia,
-                                               length          = jointUSR.rod1Length/2,
-                                               width           = jointUSR.rod1Length/10);
-  <strong>equation</strong>
-    <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
+  Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSR(rRod1_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
+                                             lengthDirection = jointUSR.eRod1_ia,
+                                             widthDirection  = jointUSR.e2_ia,
+                                             length          = jointUSR.rod1Length/2,
+                                             width           = jointUSR.rod1Length/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
 </pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
@@ -5285,14 +5285,14 @@ For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of rod 1, this might be defined as:
 </p>
 <blockquote><pre>
-    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia={1.2, 1, 0.2});
-    Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
-                                               lengthDirection = jointUSP.eRod1_ia,
-                                               widthDirection  = jointUSP.e2_ia,
-                                               length          = jointUSP.rod1Length/2,
-                                               width           = jointUSP.rod1Length/10);
-  <strong>equation</strong>
-    <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
+  Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
+                                             lengthDirection = jointUSP.eRod1_ia,
+                                             widthDirection  = jointUSP.e2_ia,
+                                             length          = jointUSP.rod1Length/2,
+                                             width           = jointUSP.rod1Length/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
 </pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
@@ -7972,7 +7972,7 @@ in direction of the rotation
 axis is (RC shall be the name of the instance of RevoluteWithLengthConstraint):
 </p>
 <blockquote><pre>
-    0 = RC.axis.tau + RC.e*RC.frame_b.t;
+0 = RC.axis.tau + RC.e*RC.frame_b.t;
 </pre></blockquote>
 <p>
 If this equation is used, usually the force in the length constraint
@@ -8333,7 +8333,7 @@ in direction of the translation
 axis is (RC shall be the name of the instance of PrismaticWithLengthConstraint):
 </p>
 <blockquote><pre>
-    0 = RC.axis.f + RC.e*RC.frame_b.f;
+0 = RC.axis.f + RC.e*RC.frame_b.f;
 </pre></blockquote>
 <p>
 If this equation is used, usually the force in the length constraint
