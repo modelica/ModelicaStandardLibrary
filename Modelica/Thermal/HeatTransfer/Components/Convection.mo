@@ -88,10 +88,10 @@ from properties of the fluid flowing over the solid. Examples:
 to [<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Fischer2017</a>, p. 452]:
 </p>
 <blockquote><pre>
-    h = 7.8*v^0.78 [W/(m2.K)] (forced convection)
-      = 12         [W/(m2.K)] (free convection)
-    where
-      v: Air velocity in [m/s]
+h = 7.8*v^0.78 [W/(m2.K)] (forced convection)
+  = 12         [W/(m2.K)] (free convection)
+where
+  v: Air velocity in [m/s]
 </pre></blockquote>
 <p><strong>Laminar</strong> flow with constant velocity of a fluid along a
 <strong>flat plate</strong> where the heat flow rate from the plate
@@ -99,21 +99,21 @@ to the fluid (= solid.Q_flow) is kept constant
 (according to [<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Holman2010</a>, p.265]):
 </p>
 <blockquote><pre>
-   h  = Nu*k/x;
-   Nu = 0.453*Re^(1/2)*Pr^(1/3);
-   where
-      h  : Heat transfer coefficient
-      Nu : = h*x/k       (Nusselt number)
-      Re : = v*x*rho/mu  (Reynolds number)
-      Pr : = cp*mu/k     (Prandtl number)
-      v  : Absolute velocity of fluid
-      x  : distance from leading edge of flat plate
-      rho: density of fluid (material constant
-      mu : dynamic viscosity of fluid (material constant)
-      cp : specific heat capacity of fluid (material constant)
-      k  : thermal conductivity of fluid (material constant)
-   and the equation for h holds, provided
-      Re &lt; 5e5 and 0.6 &lt; Pr &lt; 50
+h  = Nu*k/x;
+Nu = 0.453*Re^(1/2)*Pr^(1/3);
+where
+   h  : Heat transfer coefficient
+   Nu : = h*x/k       (Nusselt number)
+   Re : = v*x*rho/mu  (Reynolds number)
+   Pr : = cp*mu/k     (Prandtl number)
+   v  : Absolute velocity of fluid
+   x  : distance from leading edge of flat plate
+   rho: density of fluid (material constant
+   mu : dynamic viscosity of fluid (material constant)
+   cp : specific heat capacity of fluid (material constant)
+   k  : thermal conductivity of fluid (material constant)
+and the equation for h holds, provided
+   Re &lt; 5e5 and 0.6 &lt; Pr &lt; 50
 </pre></blockquote>
 </html>"),
        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
