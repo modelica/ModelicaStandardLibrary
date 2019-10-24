@@ -14057,9 +14057,9 @@ From the temperature coefficient <code>alpha1</code> at temperature <code>T1</co
 the temperature coefficient <code>alpha2</code> at temperature <code>T2</code> is calculated:
 </p>
 <blockquote><pre>
-                alpha1
-  alpha2 = ------------------------
-            1 + alpha1 * (T2 - T1)
+              alpha1
+alpha2 = ------------------------
+          1 + alpha1 * (T2 - T1)
 </pre></blockquote>
 </html>"));
     end convertAlpha;
@@ -14080,9 +14080,9 @@ the temperature coefficient <code>alpha2</code> at temperature <code>T2</code> i
 From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code>
 </p>
 <blockquote><pre>
-                        alpha20
-  alphaRef = -------------------------------
-              1 + alpha20 * (TRef - 293.15)
+                      alpha20
+alphaRef = -------------------------------
+            1 + alpha20 * (TRef - 293.15)
 </pre></blockquote>
 <p>
 is determined; using this value, actual resistance <code>R</code> with respect to the actual temperature <code>T</code> is calculated by
@@ -14118,9 +14118,9 @@ This avoids problems if the function is used to calculate linear temperature dep
 From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code>
 </p>
 <blockquote><pre>
-                        alpha20
-  alphaRef = -------------------------------
-              1 + alpha20 * (TRef - 293.15)
+                      alpha20
+alphaRef = -------------------------------
+            1 + alpha20 * (TRef - 293.15)
 </pre></blockquote>
 <p>
 is determined; using this value, actual value (e.g. resistance <code>R</code>) with respect to the actual temperature <code>T</code> is calculated by
@@ -14870,9 +14870,9 @@ They are modeled as <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resist
 The linear temperature coefficient <code>alpha20</code> at 20&deg;C = 293.15 K has to be converted to reference temperature <code>TRef</code>:
 </p>
 <blockquote><pre>
-                        alpha20
-  alphaRef = -------------------------------
-              1 + alpha20 * (TRef - 293.15)
+                      alpha20
+alphaRef = -------------------------------
+            1 + alpha20 * (TRef - 293.15)
 </pre></blockquote>
 <p>
 For this reason, the function <a href=\"modelica://Modelica.Electrical.Machines.Thermal.convertAlpha\">convertAlpha</a> is provided.

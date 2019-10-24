@@ -2440,24 +2440,26 @@ The right port voltage at pin p2 (=p2.v) is controlled by the left port voltage 
 via
 </p>
 <blockquote><pre>
-    p2.v = p1.v * gain.
+p2.v = p1.v * gain.
 </pre></blockquote>
 <p>
 The left port current is zero. Any voltage gain can be chosen.
 </p>
+<p>
 The corresponding SPICE description
+</p>
 <blockquote><pre>
-    Ename N+ N- NC+ NC- VALUE
+Ename N+ N- NC+ NC- VALUE
 </pre></blockquote>
 <p>is translated to Modelica:</p>
 <blockquote><pre>
-    Ename -> Spice3.Basic.E_VCV Ename
-    (Ename is the name of the Modelica instance)
-    N+ -> p2.v
-    N- -> n2.v
-    NC+ -> p1.v
-    NC- -> n1.v
-    VALUE -> gain
+Ename -> Spice3.Basic.E_VCV Ename
+(Ename is the name of the Modelica instance)
+N+ -> p2.v
+N- -> n2.v
+NC+ -> p1.v
+NC- -> n1.v
+VALUE -> gain
 </pre></blockquote>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -2494,14 +2496,14 @@ The right port current at pin p2 (=p2.i) is controlled by the left port voltage 
 via
 </p>
 <blockquote><pre>
-    p2.i = p1.v * transConductance.
+p2.i = p1.v * transConductance.
 </pre></blockquote>
 <p>
 The left port current is zero. Any transConductance can be chosen.
 </p>
 The corresponding SPICE description
 <blockquote><pre>
-    Gname N+ N- NC+ NC- VALUE
+Gname N+ N- NC+ NC- VALUE
 </pre></blockquote>
 <p>is translated to Modelica:</p>
 <blockquote><pre>
@@ -2547,23 +2549,35 @@ The corresponding SPICE description
       annotation (
         Documentation(info="<html>
 <p>The linear current-controlled voltage source is a TwoPort. The &quot;right&quot; port voltage at pin 2 (=p2.v) is controlled by the &quot;left&quot; port current at pin p1(=p1.i) via</p>
-<blockquote><pre>    p2.v = p1.i * transResistance.</pre></blockquote>
-<p>The controlling port voltage is zero. Any transResistance can be chosen.</p>
-<p>The corresponding SPICE description</p>
-<blockquote><pre>    Hname N+ N- VNAM VALUE</pre></blockquote>
+<blockquote><pre>
+p2.v = p1.i * transResistance.
+</pre></blockquote>
+<p>The controlling port voltage is zero. Any transResistance can be chosen.
+The corresponding SPICE description</p>
+<blockquote><pre>
+Hname N+ N- VNAM VALUE
+</pre></blockquote>
 <p>is translated to Modelica:</p>
-<blockquote><pre>    Hname -&gt; Spice3.Basic.H_CCV Hname
-    (Hname is the name of the Modelica instance)
-    N+ -&gt; p2.v
-    N- -&gt; n2.v  </pre></blockquote>
+<blockquote><pre>
+Hname -&gt; Spice3.Basic.H_CCV Hname
+(Hname is the name of the Modelica instance)
+N+ -&gt; p2.v
+N- -&gt; n2.v
+</pre></blockquote>
 <p>The voltage source VNAM has the two nodes NV+ and NV-:</p>
-<blockquote><pre>                   VNAM VN+ VN- VALUE_V</pre></blockquote>
-<p>The current through VNAM hast to be led through the CCV.</p><p>Therefore VNAM has to be disconnected and an additional</p><p>node NV_AD has to be added.</p>
-<blockquote><pre>    NV_AD -&gt; p1.i
-    NV- -&gt; n1.i</pre></blockquote>
+<blockquote><pre>
+VNAM VN+ VN- VALUE_V
+</pre></blockquote>
+<p>The current through VNAM hast to be led through the CCV.
+Therefore VNAM has to be disconnected and an additional
+node NV_AD has to be added.</p>
+<blockquote><pre>
+NV_AD -&gt; p1.i
+NV- -&gt; n1.i</pre></blockquote>
 <p>On this way the current, that flows through the voltage source VNAM, flows through the CCV.</p>
 <blockquote><pre>
-    VALUE -&gt; transResistance </pre></blockquote>
+VALUE -&gt; transResistance
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,

@@ -389,17 +389,16 @@ The simulation stop time should be 5 seconds.
 <br>
 <br>
 <strong>t</strong> is the pick-up instant of the next bit(s) in the simulation.</p>
-<blockquote><pre>   <strong>a</strong>.y      <strong>b</strong>.y      <strong>c</strong>.y     <strong>c</strong>out        <strong>h</strong>.s        <strong>t</strong> </pre></blockquote>
-
 <blockquote><pre>
-     1        0        0        0          1        1
-     0        1        0        0          1        2
-     0        0        1        0          1        3
-     1        1        0        1          0        4
-     0        1        1        1          0        5
-     1        0        1        1          0        6
-     1        1        1        1          1        7
-     0        0        0        0          0        8
+<strong>a</strong>.y      <strong>b</strong>.y     <strong>c</strong>.y      <strong>c</strong>out       <strong>h</strong>.s        <strong>t</strong>
+1        0        0        0          1        1
+0        1        0        0          1        2
+0        0        1        0          1        3
+1        1        0        1          0        4
+0        1        1        1          0        5
+1        0        1        1          0        6
+1        1        1        1          1        7
+0        0        0        0          0        8
 </pre></blockquote>
 <p>
 The simulation stop time should be 10 seconds.
@@ -521,7 +520,7 @@ at t = 4
  a      1 1 0 0
  b   +  1 1 1 0
  <strong>s    0 0 1 0 1</strong>
- </pre></blockquote>
+</pre></blockquote>
 <p>
 To show the influence of delay a large delay time of 0.1s is chosen.
 Furthermore, all signals are initialized with U, the uninitialized value.
@@ -529,9 +528,9 @@ Please remember, that the nine logic values are coded by the numbers 1,...,9.
 The summands a and b can be found at the output signals of the taba and tabb sources.
 The result can be seen in the output signals of the FullAdders according to:</p>
 <blockquote><pre>
-      a                       <strong>a4</strong>.y      <strong>a3</strong>.y      <strong>a2</strong>.y      <strong>a1</strong>.y
-      b                       <strong>b4</strong>.y      <strong>b3</strong>.y      <strong>b2</strong>.y      <strong>b1</strong>.y
-      sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s</strong>  <strong>Adder2.s</strong>  <strong>Adder1.s</strong>
+a                    <strong>a4</strong>.y      <strong>a3</strong>.y      <strong>a2</strong>.y      <strong>a1</strong>.y
+b                    <strong>b4</strong>.y      <strong>b3</strong>.y      <strong>b2</strong>.y      <strong>b1</strong>.y
+sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s</strong>  <strong>Adder2.s</strong>  <strong>Adder1.s</strong>
 </pre></blockquote>
 <p>The simulation stop time has to be 5s.</p>
 </html>"),            experiment(StopTime=5));
@@ -4279,10 +4278,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
 Conversion of a real input into a digital output without any delay according to:
 </p>
 <blockquote><pre>
-                                 condition            output
-      first check:               input greater upp    lupp
-      second check:              input larger low     llow
-                                 else                 lmid
+                           condition            output
+first check:               input greater upp    lupp
+second check:              input larger low     llow
+                           else                 lmid
 </pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.

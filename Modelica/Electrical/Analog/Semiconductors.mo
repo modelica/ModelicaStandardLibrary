@@ -49,21 +49,19 @@ defined in the Modelica.Thermal library. It consists of the diode itself and a p
 resistance <em>R</em>. If <em>useTemperatureDependency</em> is set to <em>true</em>, the diode formula is:
 </p>
 <blockquote><pre>
-               v/N/vt_t
-  i  =  Ids (e          - 1)
-
+           v/N/vt_t
+i = Ids (e          - 1)
 </pre></blockquote>
 where <em>vt_t</em> depends on the temperature of the heat port:
 <blockquote><pre>
-  vt_t = k*temp/q
+vt_t = k*temp/q
 </pre></blockquote>
 <p>
 If <em>useTemperatureDependency</em> is set to <em>false</em>, the diode formula utilizes the voltage equivalent of the temperature, i.e.,
 </p>
 <blockquote><pre>
-               v/Vt
-  i  =  Ids (e      - 1).
-
+           v/Vt
+i = Ids (e      - 1).
 </pre></blockquote>
 <p>
 If the exponent <em>v/N/vt_t</em> or <em>v/Vt</em>, respectively, reaches the limit <em>Maxexp</em>, the diode characteristic is linearly continued to avoid overflow.<br>
