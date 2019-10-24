@@ -308,9 +308,9 @@ to the original vector are given, such that sorted_v = v[indices].
 
 <h4>Example</h4>
 <blockquote><pre>
-  (v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
-       -> v2 = {-1, 2, 3, 6, 8}
-          i2 = {1, 5, 3, 4, 2}
+(v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+    -> v2 = {-1, 2, 3, 6, 8}
+       i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
 
 </html>"));

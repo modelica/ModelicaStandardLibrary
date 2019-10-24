@@ -153,7 +153,7 @@ in \"step4\", a \"SetBoolean\" block may be connected to the
 valve model using the following condition:
 </p>
 <blockquote><pre>
-    valve = step1.active <strong>or</strong> step2.active
+valve = step1.active <strong>or</strong> step2.active
 </pre></blockquote>
 <p>
 Via the Modelica operators <strong>edge</strong>(..) and <strong>change</strong>(..),
@@ -227,7 +227,7 @@ In a StateGraph, there would be typically a \"SetBoolean\" component
 in the \"stateMachine\" component stating:
 </p>
 <blockquote><pre>
-    openValve = superstate1.superstate2.step1.active;
+openValve = superstate1.superstate2.step1.active;
 </pre></blockquote>
 <p>
 As a result, the \"superstate1\" component can be used in

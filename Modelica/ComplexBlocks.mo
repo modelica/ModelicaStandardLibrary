@@ -439,7 +439,7 @@ This block computes output <code>y</code> as
 <em>conjugate complex</em> input <code>u</code>.
 </p>
 <blockquote><pre>
-    y = Modelica.ComplexMath.conj(u)
+y = Modelica.ComplexMath.conj(u)
 </pre></blockquote>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -476,7 +476,7 @@ This block computes output <code>y</code> as
 input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> either the original or the conjugate complex input signal are processed.
 </p>
 <blockquote><pre>
-    y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
+y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
 </pre></blockquote>
 <p><strong>Example:</strong> If <code>useConjugateInput = true</code> and <code>k = 2</code> the output signal <code>y = 2 * Modelica.ComplexMath.conj(u)</code>.</p>
 </html>"),
@@ -510,17 +510,17 @@ This blocks computes output <code>y</code> as
 <code>u</code>:
 </p>
 <blockquote><pre>
-    y = u[1] + u[2] + ...;
+y = u[1] + u[2] + ...;
 </pre></blockquote>
 <p>
 Example:
 </p>
 <blockquote><pre>
-     parameter:   nin = 3;
+  parameter:   nin = 3;
 
-  results in the following equations:
+results in the following equations:
 
-     y = u[1] + u[2] + u[3];
+  y = u[1] + u[2] + u[3];
 </pre></blockquote>
 
 </html>"),
@@ -577,7 +577,7 @@ input <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</cod
 result in the following equation:
 </p>
 <blockquote><pre>
-     y = Modelica.ComplexMath.conj(u1) - u2
+y = Modelica.ComplexMath.conj(u1) - u2
 </pre></blockquote>
 
 </html>"),
@@ -614,7 +614,7 @@ This blocks computes output <code>y</code> as <em>sum</em> of the
 two input signals <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
 </p>
 <blockquote><pre>
-  y = k1*u1Internal + k2*u2Internal;
+y = k1*u1Internal + k2*u2Internal;
 </pre></blockquote>
 <p>
 <strong>Example</strong> parameters:
@@ -629,7 +629,7 @@ two input signals <code>u1</code> and <code>u2</code>. Optionally, either input 
 result in the following equation:
 </p>
 <blockquote><pre>
-     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2
+y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2
 </pre></blockquote>
 
 </html>"),
@@ -699,10 +699,10 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
 </ul>
 
 <p>
-  result in the following equation:
+result in the following equation:
 </p>
 <blockquote><pre>
-     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
+y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
 </pre></blockquote>
 
 </html>"),
@@ -769,7 +769,7 @@ by <em>dividing</em> the corresponding elements of
 the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = u1Internal / u2Internal;
+y = u1Internal / u2Internal;
 </pre></blockquote>
 
 <p><strong>Example:</strong> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) / u2</code>.</p>
@@ -837,7 +837,7 @@ This blocks computes the output <code>y</code>
 as <em>square root</em> of the input <code>u</code> (= principal square root of the complex input). Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>sqrt</strong>(uInternal);
+y = <strong>sqrt</strong>(uInternal);
 </pre></blockquote>
 </html>"));
     end Sqrt;
@@ -876,7 +876,7 @@ This blocks computes the output <code>y</code>
 as <strong>sine</strong> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>sin</strong>(uInternal);
+y = <strong>sin</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -920,7 +920,7 @@ This blocks computes the output <code>y</code>
 as <strong>cos</strong> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>cos</strong>(uInternal);
+y = <strong>cos</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -964,7 +964,7 @@ This blocks computes the output <code>y</code>
 as <strong>tan</strong> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>tan</strong>(uInternal);
+y = <strong>tan</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -1006,7 +1006,7 @@ This blocks computes the output <code>y</code> as the
 <em>sine-inverse</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>asin</strong>(uInternal);
+y = <strong>asin</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -1049,7 +1049,7 @@ This blocks computes the output <code>y</code> as the
 <em>cosine-inverse</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>acos</strong>(uInternal);
+y = <strong>acos</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -1092,7 +1092,7 @@ This blocks computes the output <code>y</code> as the
 <em>tangent-inverse</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y= <strong>atan</strong>(uInternal);
+y= <strong>atan</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -1135,7 +1135,7 @@ This blocks computes the output <code>y</code> as the
 <em>hyperbolic sine</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>sinh</strong>(uInternal);
+y = <strong>sinh</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -1180,7 +1180,7 @@ This blocks computes the output <code>y</code> as the
 <em>hyperbolic cosine</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>cosh</strong>(uInternal);
+y = <strong>cosh</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -1223,7 +1223,7 @@ This blocks computes the output <code>y</code> as the
 <em>hyperbolic tangent</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>tanh</strong>(uInternal);
+y = <strong>tanh</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -1265,7 +1265,7 @@ This blocks computes the output <code>y</code> as the
 <em>exponential</em> (of base e) of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>exp</strong>(uInternal);
+y = <strong>exp</strong>(uInternal);
 </pre></blockquote>
 
 <p>
@@ -1309,7 +1309,7 @@ This blocks computes the output <code>y</code> as the
 <em>natural (base e) logarithm</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-    y = <strong>log</strong>(uInternal);
+y = <strong>log</strong>(uInternal);
 </pre></blockquote>
 <p>
 An error occurs if the elements of the input <code>u</code> is zero.
@@ -1607,9 +1607,9 @@ Otherwise the output <code>y = u</code>.</p>
 The complex input u is multiplied by the complex transfer function (depending on frequency input w) to obtain the complex output y (nb = dimension of b, na = dimension of a):
 </p>
 <blockquote><pre>
-           b[1]*(jw)^[nb-1] + b[2]*(jw)^[nb-2] + ... + b[nb]
-   y(jw) = ------------------------------------------------- * u(jw)
-           a[1]*(jw)^[na-1] + a[2]*(jw)^[na-2] + ... + a[na]
+        b[1]*(jw)^[nb-1] + b[2]*(jw)^[nb-2] + ... + b[nb]
+y(jw) = ------------------------------------------------- * u(jw)
+        a[1]*(jw)^[na-1] + a[2]*(jw)^[na-2] + ... + a[na]
 </pre></blockquote>
 </html>"));
     end TransferFunction;
