@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package ComplexBlocks
   "Library of basic input/output control blocks with Complex signals"
   extends Modelica.Icons.Package;
@@ -510,7 +510,7 @@ This blocks computes output <code>y</code> as
 <code>u</code>:
 </p>
 <blockquote><pre>
-    <code>y</code> = <code>u</code>[1] + <code>u</code>[2] + ...;
+    y = u[1] + u[2] + ...;
 </pre></blockquote>
 <p>
 Example:
