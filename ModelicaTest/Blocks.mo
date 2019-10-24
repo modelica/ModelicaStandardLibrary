@@ -711,13 +711,12 @@ package Blocks "Test models for Modelica.Blocks"
       Documentation(info="<html>
 <p>These test models demonstrate the use of the advanced homotopy options <code>homotopyType</code>
 of the <code>Limiter</code> and <code>VariableLimiter blocks</code>.</p>
-<p>The models represent a basic control system using a PI with anti-windup in three different configurations:
+<p>The models represent a basic control system using a PI with anti-windup in three different configurations:</p>
 <ol>
 <li>The loop is initialized in steady-state with the upper saturation active and <code>homotopyType=UpperLimit</code></li>
 <li>The loop is initialized in steady-state with the lower saturation active and <code>homotopyType=LowerLimit</code></li>
 <li>The loop is initialized in steady-state with the upper saturation active and <code>homotopyType=NoHomotopy</code></li>
 </ol>
-</p>
 <p>The <code>mustUseHomotopy</code>block forces the tool to use homotopy-based initialization; in order to do so,
 a system with two solutions x = 0 and x = 100 is provided. The start value leads to the convergence to x = 0; only
 if homotopy is active, the solution accepted by the assert statement (x = 100) is obtained.</p>
