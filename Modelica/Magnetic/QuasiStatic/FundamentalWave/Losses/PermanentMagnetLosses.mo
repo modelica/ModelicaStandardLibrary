@@ -35,7 +35,7 @@ Instead, the dissipated losses are considered through an equivalent braking torq
 The permanent magnet loss torque is
 </p>
 <blockquote><pre>
-  tau = PRef/wRef * (c + (1 - c) * (i/IRef)^power_I) * (w/wRef)^power_w
+tau = PRef/wRef * (c + (1 - c) * (i/IRef)^power_I) * (w/wRef)^power_w
 </pre></blockquote>
 <p>
 where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.

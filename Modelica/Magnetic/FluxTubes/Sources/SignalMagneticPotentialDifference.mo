@@ -43,7 +43,7 @@ equation
 In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <em>Faraday</em>'s law:
 </p>
 <blockquote><pre>
-    v = - d&Psi;/dt
+v = - d&Psi;/dt
 </pre></blockquote>
 <p>This reaction can possibly be neglected for</p>
 <ul>

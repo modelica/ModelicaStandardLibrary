@@ -75,9 +75,9 @@ This model demonstrates the effects of non-linear magnetisation characteristics 
 </p>
 
 <blockquote><pre>
-    coil.i vs. time           // non-harmonic current due to saturation of the core material
-    r_mFe.mu_r vs. r_mFe.B    // relative permeability vs. flux density inside core
-    r_mFe.B vs. r_mFe.H       // magnetisation curve B(H); hysteresis neglected
+coil.i vs. time           // non-harmonic current due to saturation of the core material
+r_mFe.mu_r vs. r_mFe.B    // relative permeability vs. flux density inside core
+r_mFe.B vs. r_mFe.H       // magnetisation curve B(H); hysteresis neglected
 </pre></blockquote>
 
 <p>

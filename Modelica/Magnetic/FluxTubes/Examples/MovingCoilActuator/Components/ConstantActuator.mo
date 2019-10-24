@@ -85,8 +85,8 @@ Similar to rotational DC-Motors, the electro-mechanical energy conversion of tra
 </p>
 
 <blockquote><pre>
-      F = c * i
-    V_i = c * v
+  F = c * i
+V_i = c * v
 </pre></blockquote>
 
 <p>
@@ -94,7 +94,7 @@ with electrodynamic or <em>Lorentz</em> force F, converter constant c, current i
 </p>
 
 <blockquote><pre>
-    c = B * l.
+c = B * l.
 </pre></blockquote>
 
 <p>

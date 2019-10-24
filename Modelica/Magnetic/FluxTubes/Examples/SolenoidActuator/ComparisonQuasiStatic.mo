@@ -95,9 +95,9 @@ Set the <strong>tolerance</strong> to <strong>1e-7</strong> and <strong>simulate
 </p>
 
 <blockquote><pre>
-    simpleSolenoid.armature.flange_a.f     // electromagnetic force of simple magnetic network model
-    advancedSolenoid.armature.flange_a.f   // electromagnetic force of advanced magnetic network model
-    comparisonWithFEA.y[1]                 // electromagnetic force obtained with FEA as reference
+simpleSolenoid.armature.flange_a.f     // electromagnetic force of simple magnetic network model
+advancedSolenoid.armature.flange_a.f   // electromagnetic force of advanced magnetic network model
+comparisonWithFEA.y[1]                 // electromagnetic force obtained with FEA as reference
 </pre></blockquote>
 
 <p>
@@ -109,13 +109,13 @@ The magnetic flux through the armature and the actuator's static inductance both
 </p>
 
 <blockquote><pre>
-    simpleSolenoid.G_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
-    advancedSolenoid.G_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
-    comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference
+simpleSolenoid.G_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
+advancedSolenoid.G_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
+comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference
 
-    simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model
-    advancedSolenoid.L_statTot             // series connection of both partial coils of advanced network model
-    comparisonWithFEA.y[3]                 // static inductance obtained with FEA as reference
+simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model
+advancedSolenoid.L_statTot             // series connection of both partial coils of advanced network model
+comparisonWithFEA.y[3]                 // static inductance obtained with FEA as reference
 </pre></blockquote>
 
 <p>

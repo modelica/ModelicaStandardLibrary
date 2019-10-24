@@ -164,9 +164,9 @@ In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActua
 </p>
 
 <blockquote><pre>
-        1  2 dL
-    F = - i  --  + c i
-        2    dx
+    1  2 dL
+F = - i  --  + c i
+    2    dx
 </pre></blockquote>
 
 <p>

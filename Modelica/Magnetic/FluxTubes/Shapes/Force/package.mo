@@ -12,9 +12,9 @@ Flux tube elements with generation of a reluctance force are intended for modell
 The derivative of each element's permeance with respect to armature position <code>dGmBydx</code> is calculated from the derivative of the flux tube's permeance with respect to its varying dimension dGmBydl and the derivative of this dimension with respect to armature position <code>dlBydx</code>:</p>
 
 <blockquote><pre>
-    dG_m   dG_m   dl
-    ---- = ---- * --
-     dx     dl    dx
+dG_m   dG_m   dl
+---- = ---- * --
+ dx     dl    dx
 </pre></blockquote>
 
 <p>

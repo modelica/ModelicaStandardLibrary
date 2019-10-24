@@ -169,8 +169,8 @@ The electromagnetic energy conversion is given by <em>Ampere</em>'s law and <em>
 </p>
 
 <blockquote><pre>
-    V_m = i * N
-    N * d&Phi;/dt = -v
+V_m = i * N
+N * d&Phi;/dt = -v
 </pre></blockquote>
 
 <p>
