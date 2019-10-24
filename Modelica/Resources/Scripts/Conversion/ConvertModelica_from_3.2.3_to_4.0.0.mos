@@ -95,6 +95,8 @@ convertClass("Modelica.Math.Vectors.Utilities.householderVector",
               "ObsoleteModelica4.Math.Vectors.Utilities.householderVector")
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
               "Modelica.Electrical.Analog.Basic.Resistor");
+convertClass("Modelica.Electrical.Analog.Semiconductors.HeatingDiode",
+              "Modelica.Electrical.Analog.Semiconductors.Diode");
 convertClass("Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle",
               "ObsoleteModelica4.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle");
 convertClass("Modelica.Blocks.Interfaces.BlockIcon",
@@ -341,6 +343,11 @@ convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.drainCur",
 convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParameters",
                 "No support of automatic conversion for internal classes.")
 
+convertMessage("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex",
+                "No support of automatic conversion for makeshift record MyComplex.")
+convertMessage("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplexF",
+                "No support of automatic conversion for makeshift package MyComplexF.")
+
 convertModifiers({"Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"},
                  fill("",0), {"useHeatPort=false"});
 convertModifiers("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",
@@ -418,6 +425,8 @@ convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
 convertElement("Modelica.Electrical.Analog.Basic.HeatingResistor",
                {"R_ref"},
                {"R"});
+convertModifiers({"Modelica.Electrical.Analog.Semiconductors.HeatingDiode"},
+                  fill("",0), {"useTemperatureDependency=true"});
 convertElement("Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse",
                {"negativeEqual"},
                {"greaterNegative"});
