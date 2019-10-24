@@ -68,11 +68,11 @@ Below the major design decisions of this library are summarized.
      copy operations. For example, when sorting a set of strings
      the following type of operations occur:
      <blockquote><pre>
-     String s[:], s_temp;
-      ...
-     s_temp := s[i];
-     s[i]   := s[j];
-     s[j]   := s_temp;
+String s[:], s_temp;
+ ...
+s_temp := s[i];
+s[i]   := s[j];
+s[j]   := s_temp;
      </pre></blockquote>
      Formally, three strings are copied. Due to the feature
      sketched above, a Modelica tool can replace this

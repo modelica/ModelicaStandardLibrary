@@ -1045,12 +1045,12 @@ First skips white space and scans afterwards a number
 of type Real with an optional sign according to the Modelica grammar:
 </p>
 <blockquote><pre>
-    real     ::= [sign] unsigned [fraction] [exponent]
-    sign     ::= '+' | '-'
-    unsigned ::= digit [unsigned]
-    fraction ::= '.' [unsigned]
-    exponent ::= ('e' | 'E') [sign] unsigned
-    digit    ::= '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
+real     ::= [sign] unsigned [fraction] [exponent]
+sign     ::= '+' | '-'
+unsigned ::= digit [unsigned]
+fraction ::= '.' [unsigned]
+exponent ::= ('e' | 'E') [sign] unsigned
+digit    ::= '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
 </pre></blockquote>
 <p>
 If successful, the function returns nextIndex = index of character
