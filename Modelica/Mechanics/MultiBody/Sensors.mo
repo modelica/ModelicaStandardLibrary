@@ -398,8 +398,8 @@ them in to the frame defined by <strong>resolveInFrame</strong>.
 For example, if resolveInFrame = <strong>Types.ResolveInFrameA.frame_a</strong>, then
 </p>
 <blockquote><pre>
-   v0 = <strong>der</strong>(frame_a.r0);
-   v  = resolve2(frame_a.R, v0);
+v0 = <strong>der</strong>(frame_a.r0);
+v  = resolve2(frame_a.R, v0);
 </pre></blockquote>
 <p>
 is returned, i.e., the derivative of the absolute distance from the
@@ -440,9 +440,9 @@ only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <blockquote><pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
 </pre></blockquote>
 </html>"));
   end AbsoluteSensor;
@@ -866,8 +866,8 @@ For example, if resolveInFrame = <strong>Types.ResolveInFrameAB.frame_b</strong>
 </p>
 
 <blockquote><pre>
-   r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
-   v_rel = <strong>der</strong>(r_rel);
+r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
+v_rel = <strong>der</strong>(r_rel);
 </pre></blockquote>
 
 <p>
@@ -879,7 +879,7 @@ v_rel is additionally transformed to:
 </p>
 
 <blockquote><pre>
-   v_rel = resolve1(frame_b.R, <strong>der</strong>(r_rel))
+v_rel = resolve1(frame_b.R, <strong>der</strong>(r_rel))
 </pre></blockquote>
 
 <p>
@@ -916,9 +916,9 @@ only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <blockquote><pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
 </pre></blockquote>
 </html>"));
   end RelativeSensor;
@@ -1233,9 +1233,9 @@ only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <blockquote><pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
 </pre></blockquote>
 </html>"));
   end AbsoluteAngles;
@@ -1679,9 +1679,9 @@ only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
 <blockquote><pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
 </pre></blockquote>
 </html>"));
   end RelativeAngles;

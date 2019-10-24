@@ -31,9 +31,9 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  Streams.print(\"x = \" + String(x));
-  Streams.print(\"y = \" + String(y));
-  Streams.print(\"x = \" + String(y), \"mytestfile.txt\");
+Streams.print(\"x = \" + String(x));
+Streams.print(\"y = \" + String(y));
+Streams.print(\"x = \" + String(y), \"mytestfile.txt\");
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -139,7 +139,7 @@ Line breaks are characterized by \"\\n\" in the string.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  Streams.error(\"x (= \" + String(x) + \")\\nhas to be in the range 0 .. 1\");
+Streams.error(\"x (= \" + String(x) + \")\\nhas to be in the range 0 .. 1\");
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -379,9 +379,9 @@ to strings with the builtin operator
 Example:
 </p>
 <blockquote><pre>
-  <strong>if</strong> x &lt; 0 <strong>or</strong> x &gt; 1 <strong>then</strong>
-     Streams.error(\"x (= \" + String(x) + \") has to be in the range 0 .. 1\");
-  <strong>end if</strong>;
+<strong>if</strong> x &lt; 0 <strong>or</strong> x &gt; 1 <strong>then</strong>
+   Streams.error(\"x (= \" + String(x) + \") has to be in the range 0 .. 1\");
+<strong>end if</strong>;
 </pre></blockquote>
 </html>"));
 end Streams;

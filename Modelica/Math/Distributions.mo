@@ -35,8 +35,8 @@ For more details, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  density(0.5)    // = 1
-  density(0,-1,1) // = 0.5
+density(0.5)    // = 1
+density(0,-1,1) // = 0.5
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -106,8 +106,8 @@ For more details, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  cumulative(0.5)    // = 0.5
-  cumulative(0,-1,1) // = 0.5
+cumulative(0.5)    // = 0.5
+cumulative(0,-1,1) // = 0.5
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -185,8 +185,8 @@ For more details, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  quantile(0.5)      // = 0.5
-  quantile(0.5,-1,1) // = 0
+quantile(0.5)      // = 0.5
+quantile(0.5,-1,1) // = 0
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -300,8 +300,8 @@ For more details, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  density(0.5)     // = 0.3520653267642995
-  density(3,1,0.5) // = 0.00026766045152977074
+density(0.5)     // = 0.3520653267642995
+density(3,1,0.5) // = 0.00026766045152977074
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -371,8 +371,8 @@ For more details, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  cumulative(0.5)      // = 0.6914624612740131
-  cumulative(0,1,0.5)  // = 0.15865525393145707
+cumulative(0.5)      // = 0.6914624612740131
+cumulative(0,1,0.5)  // = 0.15865525393145707
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -455,8 +455,8 @@ For more details, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  quantile(0.001)     // = -3.090232306167813;
-  quantile(0.5,1,0.5) // = 1
+quantile(0.001)     // = -3.090232306167813;
+quantile(0.5,1,0.5) // = 1
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -599,8 +599,8 @@ of truncated distributions, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  density(0.5)                // = 1.041828977196953
-  density(0.5,-1.5,1.5,1,0.9) // = 0.5365495585520803
+density(0.5)                // = 1.041828977196953
+density(0.5,-1.5,1.5,1,0.9) // = 0.5365495585520803
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -691,8 +691,8 @@ of truncated distributions, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  cumulative(0.5)                 // = 0.5
-  cumulative(0.5,-1.5,1.5,1,0.9)  // = 0.4046868865634537
+cumulative(0.5)                 // = 0.5
+cumulative(0.5,-1.5,1.5,1,0.9)  // = 0.4046868865634537
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -791,8 +791,8 @@ of truncated distributions, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  quantile(0.001)           // = 0.001087357613043849;
-  quantile(0.5,0,1,0.5,0.9) // = 0.5
+quantile(0.001)           // = 0.001087357613043849;
+quantile(0.5,0,1,0.5,0.9) // = 0.5
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -936,8 +936,8 @@ For more details, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  density(0.5)     // = 0.36787944117144233
-  density(1,0.5,2) // = 0.14652511110987343
+density(0.5)     // = 0.36787944117144233
+density(1,0.5,2) // = 0.14652511110987343
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -1016,8 +1016,8 @@ For more details, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  cumulative(0.5)       // = 0.3934693402873666
-  cumulative(0.5,0.5,1) // = 0.6321205588285577
+cumulative(0.5)       // = 0.3934693402873666
+cumulative(0.5,0.5,1) // = 0.6321205588285577
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -1095,8 +1095,8 @@ For more details, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  quantile(0)         // = 0
-  quantile(0.5,1,0.5) // = 0.41627730557884884
+quantile(0)         // = 0
+quantile(0.5,1,0.5) // = 0.41627730557884884
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -1234,8 +1234,8 @@ of truncated distributions, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  density(0.5)             // = 0.9595173756674719
-  density(0.5,0,0.8,0.5,2) // = 1.5948036466479143
+density(0.5)             // = 0.9595173756674719
+density(0.5,0,0.8,0.5,2) // = 1.5948036466479143
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -1325,8 +1325,8 @@ of truncated distributions, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  cumulative(0.5)             // = 0.6224593312018546
-  cumulative(0.5,0,0.8,0.5,2) // = 0.6850805314988328
+cumulative(0.5)             // = 0.6224593312018546
+cumulative(0.5,0,0.8,0.5,2) // = 0.6850805314988328
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -1426,8 +1426,8 @@ of truncated distributions, see
 
 <h4>Example</h4>
 <blockquote><pre>
-  quantile(0.001)           // = 0.0006323204312624211;
-  quantile(0.5,0,1,0.5,0.9) // = 0.256951787882498
+quantile(0.001)           // = 0.0006323204312624211;
+quantile(0.5,0,1,0.5,0.9) // = 0.256951787882498
 </pre></blockquote>
 
 <h4>See also</h4>

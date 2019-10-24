@@ -1981,7 +1981,7 @@ on the origin of frame_a along the line from the origin of frame_a to the origin
 of frame_b according to the equation:
 </p>
 <blockquote><pre>
-   f = c*(s - s_unstretched);
+f = c*(s - s_unstretched);
 </pre></blockquote>
 <p>
 where \"c\" and \"s_unstretched\" are parameters and \"s\" is the
@@ -2069,7 +2069,7 @@ on the origin of frame_a along the line from the origin of frame_a to the origin
 of frame_b according to the equation:
 </p>
 <blockquote><pre>
-   f = d*<strong>der</strong>(s);
+f = d*<strong>der</strong>(s);
 </pre></blockquote>
 <p>
 where \"d\" is a parameter, \"s\" is the
@@ -2221,7 +2221,7 @@ on the origin of frame_a along the line from the origin of frame_a to the origin
 of frame_b according to the equation:
 </p>
 <blockquote><pre>
-   f = c*(s - s_unstretched) + d*<strong>der</strong>(s);
+f = c*(s - s_unstretched) + d*<strong>der</strong>(s);
 </pre></blockquote>
 <p>
 where \"c\", \"s_unstretched\" and \"d\" are parameters, \"s\" is the
@@ -2381,9 +2381,9 @@ and der(s) is the time derivative of s.
 acting as line force between frame_a and frame_b:
 </p>
 <blockquote><pre>
-  frame_a --> damper ----> spring --> frame_b
-          |              |
-          |-- s_damper --|  (s_damper is the state variable of this system)
+frame_a --> damper ----> spring --> frame_b
+        |              |
+        |-- s_damper --|  (s_damper is the state variable of this system)
 </pre></blockquote>
 <p>
 A <strong>force f</strong> is exerted on the origin of frame_b and with opposite sign
@@ -2391,8 +2391,8 @@ on the origin of frame_a along the line from the origin of frame_a to the origin
 of frame_b according to the equations:
 </p>
 <blockquote><pre>
-   f = c*(s - s_unstretched - s_damper);
-   f = d*der(s_damper);
+f = c*(s - s_unstretched - s_damper);
+f = d*der(s_damper);
 </pre></blockquote>
 <p>
 where \"c\", \"s_unstretched\" and \"d\" are parameters, \"s\" is the

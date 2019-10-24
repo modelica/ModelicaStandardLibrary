@@ -919,9 +919,9 @@ The right images below shows the torus with the additional parameter
 settings:
 </p>
 <blockquote><pre>
-  opening    =   45 degree
-  startAngle = -135 degree
-  stopAngle  =  135 degree
+opening    =   45 degree
+startAngle = -135 degree
+stopAngle  =  135 degree
 </pre></blockquote>
 
 <blockquote>
@@ -1820,7 +1820,7 @@ type could only be used in a when-clause. Typical declaration of a color value:
 </p>
 
 <blockquote><pre>
-  Real color[3](each min=0, each max=255);
+Real color[3](each min=0, each max=255);
 </pre></blockquote>
 
 <p>
@@ -2274,7 +2274,7 @@ that returns the x-, y-, z- coordinate of every control point in form of 3 array
 </p>
 
 <blockquote><pre>
-  Real X[nu,nv], Y[nu,nv], Z[nu,nv], C[nu,nv,3];
+Real X[nu,nv], Y[nu,nv], Z[nu,nv], C[nu,nv,3];
 </pre></blockquote>
 
 <p>
@@ -2751,7 +2751,7 @@ The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for parameter <strong>lines</strong>
 </p>
 <blockquote><pre>
-   lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
 </pre></blockquote>
 <p>
 Via parameter vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
@@ -2863,7 +2863,7 @@ The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for input variable <strong>lines</strong>
 </p>
 <blockquote><pre>
-   lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
 </pre></blockquote>
 <p>
 Via vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional

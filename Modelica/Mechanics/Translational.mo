@@ -2722,7 +2722,7 @@ a nonlinear spring force can be modeled:
 </p>
 
 <blockquote><pre>
-   desiredContactForce = c*|s_rel - s_rel0|^n + d*<strong>der</strong>(s_rel)
+desiredContactForce = c*|s_rel - s_rel0|^n + d*<strong>der</strong>(s_rel)
 </pre></blockquote>
 
 <p>
@@ -2759,7 +2759,7 @@ Analysis in Multibody Systems, Nonlinear Dynamics 5, pp. 193-207, 1994,
 </p>
 
 <blockquote><pre>
-   f = c*s_rel^n + (d*s_rel^n)*<strong>der</strong>(s_rel)
+f = c*s_rel^n + (d*s_rel^n)*<strong>der</strong>(s_rel)
 </pre></blockquote>
 
 <p>
@@ -2938,7 +2938,7 @@ E.g.
 gives the following table:
 </p>
 <blockquote><pre>
-   f_pos = [0, 0; 1, 2; 2, 5; 3, 8];
+f_pos = [0, 0; 1, 2; 2, 5; 3, 8];
 </pre></blockquote>
 <p>
 Currently, only linear interpolation in the table is supported.
@@ -2964,7 +2964,7 @@ to slide when the friction force exceeds a threshold value,
 called the maximum static friction force, computed via:
 </p>
 <blockquote><pre>
-   maximum_static_friction = <strong>peak</strong> * sliding_friction(v=0)  (<strong>peak</strong> >= 1)
+maximum_static_friction = <strong>peak</strong> * sliding_friction(v=0)  (<strong>peak</strong> >= 1)
 </pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -3641,7 +3641,7 @@ friction force is calculated from a force balance due to the requirement that th
 absolute acceleration shall be zero. The elements begin to slide when the friction
 force exceeds a threshold value, called the maximum static friction force, computed via:</p>
 <blockquote><pre>
-   maximum_static_friction =  F_Coulomb + F_Stribeck
+maximum_static_friction =  F_Coulomb + F_Stribeck
 </pre></blockquote>
 <p>
 <font color=\"#ff0000\"> <strong>This requires the states Stop.s and Stop.v</strong> </font>. If these states are eliminated during the index reduction
@@ -5855,8 +5855,8 @@ flange. A flange is described by a Modelica connector containing
 the following variables:
 </p>
 <blockquote><pre>
-   Modelica.SIunits.Position s    \"Absolute position of flange\";
-   <strong>flow</strong> Modelica.SIunits.Force f  \"Cut-force in the flange\";
+Modelica.SIunits.Position s    \"Absolute position of flange\";
+<strong>flow</strong> Modelica.SIunits.Force f  \"Cut-force in the flange\";
 </pre></blockquote>
 
 <p>

@@ -80,7 +80,7 @@ In this example the signal y
 </p>
 
 <blockquote><pre>
-   y = 5 + 3*sin(2*pi*f1) + 1.5*cos(2*pi*f2)
+y = 5 + 3*sin(2*pi*f1) + 1.5*cos(2*pi*f2)
 </pre></blockquote>
 
 <p>
@@ -796,7 +796,7 @@ where the following signal is computed during simulation
 </p>
 
 <blockquote><pre>
-   y = 5 + 3*sin(2*pi*2) + 1.5*cos(2*pi*3)
+y = 5 + 3*sin(2*pi*2) + 1.5*cos(2*pi*3)
 </pre></blockquote>
 
 <p>

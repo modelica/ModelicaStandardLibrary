@@ -64,9 +64,9 @@ It may be used for complicated solid geometries and fluid flow over the solid by
 convective thermal conductance Gc by measurements. The basic constitutive equation for convection is
 </p>
 <blockquote><pre>
-   Q_flow = Gc*(solid.T - fluid.T);
-   Q_flow: Heat flow rate from connector 'solid' (e.g., a plate)
-      to connector 'fluid' (e.g., the surrounding air)
+Q_flow = Gc*(solid.T - fluid.T);
+Q_flow: Heat flow rate from connector 'solid' (e.g., a plate)
+   to connector 'fluid' (e.g., the surrounding air)
 </pre></blockquote>
 <p>
 Gc = G.signal[1] is an input signal to the component, since Gc is
@@ -75,9 +75,9 @@ of the speed of a cooling fan. For simple situations,
 Gc may be <em>calculated</em> according to
 </p>
 <blockquote><pre>
-   Gc = A*h
-   A: Convection area (e.g., perimeter*length of a box)
-   h: Heat transfer coefficient
+Gc = A*h
+A: Convection area (e.g., perimeter*length of a box)
+h: Heat transfer coefficient
 </pre></blockquote>
 <p>
 where the heat transfer coefficient h is calculated

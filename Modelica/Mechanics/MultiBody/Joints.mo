@@ -2891,9 +2891,9 @@ In the public interface of the UniversalSpherical joint, the following
 (final) <strong>parameters</strong> are provided:
 </p>
 <blockquote><pre>
-  <strong>parameter</strong> Real rodLength(unit=\"m\")  \"Length of rod\";
-  <strong>parameter</strong> Real eRod_ia[3] \"Unit vector along rod, resolved in frame_ia\";
-  <strong>parameter</strong> Real e2_ia  [3] \"Unit vector along axis 2, resolved in frame_ia\";
+<strong>parameter</strong> Real rodLength(unit=\"m\")  \"Length of rod\";
+<strong>parameter</strong> Real eRod_ia[3] \"Unit vector along rod, resolved in frame_ia\";
+<strong>parameter</strong> Real e2_ia  [3] \"Unit vector along axis 2, resolved in frame_ia\";
 </pre></blockquote>
 <p>
 This allows a more convenient definition of data which is related to the rod.
@@ -4785,9 +4785,9 @@ In the public interface of the JointUSR joint, the following
 (final) <strong>parameters</strong> are provided:
 </p>
 <blockquote><pre>
-  <strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
-  <strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
-  <strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
+<strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
+<strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
+<strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
 </pre></blockquote>
 <p>
 This allows a more convenient definition of data which is related to rod 1.
@@ -5275,9 +5275,9 @@ In the public interface of the JointUSP joint, the following
 (final) <strong>parameters</strong> are provided:
 </p>
 <blockquote><pre>
-  <strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
-  <strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
-  <strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
+<strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
+<strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
+<strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
 </pre></blockquote>
 <p>
 This allows a more convenient definition of data which is related to rod 1.

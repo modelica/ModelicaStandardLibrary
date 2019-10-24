@@ -53,19 +53,19 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2.12, -4.34, -2.56, -1.67};
-  <strong>toString</strong>(v);
-                         // = \"
-                         //           2.12
-                         //          -4.34
-                         //          -2.56
-                         //          -1.67\"
-  <strong>toString</strong>(v,\"vv\",1);
-                         // = \"vv =
-                         //           2
-                         //          -4
-                         //          -3
-                         //          -2\"
+v = {2.12, -4.34, -2.56, -1.67};
+<strong>toString</strong>(v);
+                       // = \"
+                       //           2.12
+                       //          -4.34
+                       //          -2.56
+                       //          -1.67\"
+<strong>toString</strong>(v,\"vv\",1);
+                       // = \"vv =
+                       //           2
+                       //          -4
+                       //          -3
+                       //          -2\"
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -201,12 +201,12 @@ Note, for any vector norm the following inequality holds:
 </pre></blockquote>
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2, -4, -2, -1};
-  <strong>norm</strong>(v,1);    // = 9
-  <strong>norm</strong>(v,2);    // = 5
-  <strong>norm</strong>(v);      // = 5
-  <strong>norm</strong>(v,10.5); // = 4.00052597412635
-  <strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
+v = {2, -4, -2, -1};
+<strong>norm</strong>(v,1);    // = 9
+<strong>norm</strong>(v,2);    // = 5
+<strong>norm</strong>(v);      // = 5
+<strong>norm</strong>(v,10.5); // = 4.00052597412635
+<strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -239,8 +239,8 @@ not the case with function norm(..).
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2, -4, -2, -1};
-  <strong>length</strong>(v);  // = 5
+v = {2, -4, -2, -1};
+<strong>length</strong>(v);  // = 5
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -287,8 +287,8 @@ is usually inlined and symbolic processing is applied.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  <strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
-  <strong>normalize</strong>({0,0,0});  // = {0,0,0}
+<strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+<strong>normalize</strong>({0,0,0});  // = {0,0,0}
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -327,8 +327,8 @@ is usually inlined and symbolic processing is applied.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  <strong>normalizeWithAssert</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
-  <strong>normalizeWithAssert</strong>({0,0,0});  // error (an assert is triggered)
+<strong>normalizeWithAssert</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+<strong>normalizeWithAssert</strong>({0,0,0});  // error (an assert is triggered)
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -357,7 +357,7 @@ vector elements in reverse order.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  <strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}
+<strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}
 </pre></blockquote>
 </html>"));
   end reverse;
@@ -435,9 +435,9 @@ to the original vector are given, such that sorted_v = v[indices].
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  (v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
-       -> v2 = {-1, 2, 3, 6, 8}
-          i2 = {1, 5, 3, 4, 2}
+(v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+     -> v2 = {-1, 2, 3, 6, 8}
+        i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
 </html>"));
   end sort;
@@ -803,17 +803,17 @@ prefix \"&lt;name&gt; =\" is left out.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  A = [2.12, -4.34; -2.56, -1.67];
+A = [2.12, -4.34; -2.56, -1.67];
 
-  toString(A);
-  // = \"
-  //      2.12   -4.34
-  //     -2.56   -1.67\";
+toString(A);
+// = \"
+//      2.12   -4.34
+//     -2.56   -1.67\";
 
-  toString(A,\"A\",1);
-  // = \"A =
-  //         2     -4
-  //        -3     -2\"
+toString(A,\"A\",1);
+// = \"A =
+//         2     -4
+//        -3     -2\"
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -1054,7 +1054,7 @@ Returns a solution of equation A*x = b in a least
 square sense (A may be rank deficient):
 </p>
 <blockquote><pre>
-  minimize | A*x - b |
+minimize | A*x - b |
 </pre></blockquote>
 
 <p>
@@ -1204,7 +1204,7 @@ Returns a solution of equation A*X = B in a least
 square sense (A may be rank deficient):
 </p>
 <blockquote><pre>
-  minimize | A*X - B |
+minimize | A*X - B |
 </pre></blockquote>
 
 <p>
@@ -1786,10 +1786,10 @@ Otherwise, eigenvalue i and conjugate complex eigenvalue i+1
 are used to construct a 2 by 2 diagonal block of <strong>J</strong>:
 </p>
 <blockquote><pre>
-  J[i  , i]   := eigenvalues[i,1];
-  J[i  , i+1] := eigenvalues[i,2];
-  J[i+1, i]   := eigenvalues[i+1,2];
-  J[i+1, i+1] := eigenvalues[i+1,1];
+J[i  , i]   := eigenvalues[i,1];
+J[i  , i+1] := eigenvalues[i,2];
+J[i+1, i]   := eigenvalues[i+1,2];
+J[i+1, i+1] := eigenvalues[i+1,1];
 </pre></blockquote>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
@@ -1845,16 +1845,16 @@ matrices <code>U</code> and <code>VT</code>.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3,  4;
-       3, 4,  5, -2;
-      -1, 2, -3,  5];
-  (sigma, U, VT) = singularValues(A);
-  results in:
-     sigma = {8.33, 6.94, 2.31};
-  i.e.
-     Sigma = [8.33,    0,    0, 0;
-                 0, 6.94,    0, 0;
-                 0,    0, 2.31, 0]
+A = [1, 2,  3,  4;
+     3, 4,  5, -2;
+    -1, 2, -3,  5];
+(sigma, U, VT) = singularValues(A);
+results in:
+   sigma = {8.33, 6.94, 2.31};
+i.e.
+   Sigma = [8.33,    0,    0, 0;
+               0, 6.94,    0, 0;
+               0,    0, 2.31, 0]
 </pre></blockquote>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
@@ -1936,8 +1936,8 @@ of <strong>R</strong> (which is the same row-rank as <strong>A</strong>). Furthe
 <strong>R</strong> can be partitioned in two parts
 </p>
 <blockquote><pre>
-   <strong>A</strong>[:,<strong>p</strong>] = <strong>Q</strong> * [<strong>R</strong><sub>1</sub>, <strong>R</strong><sub>2</sub>;
-                 <strong>0</strong>,  <strong>0</strong>]
+<strong>A</strong>[:,<strong>p</strong>] = <strong>Q</strong> * [<strong>R</strong><sub>1</sub>, <strong>R</strong><sub>2</sub>;
+              <strong>0</strong>,  <strong>0</strong>]
 </pre></blockquote>
 <p>
 where <strong>R</strong><sub>1</sub> is a regular, upper triangular matrix.
@@ -2005,27 +2005,27 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <strong
 
 <h4>Example</h4>
 <blockquote><pre>
- A  = [1, 2,  3;
-       6, 5,  4;
-       1, 0,  0];
+A  = [1, 2,  3;
+      6, 5,  4;
+      1, 0,  0];
 
- (H, U) = hessenberg(A);
+(H, U) = hessenberg(A);
 
-  results in:
+results in:
 
- H = [1.0,  -2.466,  2.630;
-     -6.083, 5.514, -3.081;
-      0.0,   0.919, -0.514]
+H = [1.0,  -2.466,  2.630;
+    -6.083, 5.514, -3.081;
+     0.0,   0.919, -0.514]
 
- U = [1.0,    0.0,      0.0;
-      0.0,   -0.9864,  -0.1644;
-      0.0,   -0.1644,   0.9864]
+U = [1.0,    0.0,      0.0;
+     0.0,   -0.9864,  -0.1644;
+     0.0,   -0.1644,   0.9864]
 
-  and therefore,
+and therefore,
 
- U*H*transpose(U) = [1.0, 2.0, 3.0;
-                     6.0, 5.0, 4.0;
-                     1.0, 0.0, 0.0]
+U*H*transpose(U) = [1.0, 2.0, 3.0;
+                    6.0, 5.0, 4.0;
+                    1.0, 0.0, 0.0]
 
 </pre></blockquote>
 
@@ -2093,7 +2093,7 @@ Function <strong>realSchur</strong> calculates the real Schur form of a real squ
 </p>
 
 <blockquote><pre>
- <strong>A</strong> = <strong>QZ</strong>*<strong>S</strong>*transpose(<strong>QZ</strong>)
+<strong>A</strong> = <strong>QZ</strong>*<strong>S</strong>*transpose(<strong>QZ</strong>)
 </pre></blockquote>
 
 <p>
@@ -2898,7 +2898,7 @@ Vectors.<strong>norm</strong>(A*v,p) &le; Matrices.<strong>norm</strong>(A,p)*Ve
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Matrices.<strong>frobeniusNorm</strong>(A);
+r = Matrices.<strong>frobeniusNorm</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -10146,7 +10146,7 @@ This function provides a Newton-like method for solving continuous algebraic Ric
 convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
 </p>
 <blockquote><pre>
- <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
+<strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
 </pre></blockquote>
 <p>
 is taken in the direction to minimize the Frobenius norm of the residual

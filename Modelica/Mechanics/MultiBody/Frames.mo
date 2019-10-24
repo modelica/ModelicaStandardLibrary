@@ -1338,11 +1338,11 @@ a frame 2 using quaternions (also called <strong>Euler parameters</strong>)
 according to the following definition:
 </p>
 <blockquote><pre>
-   Quaternions.Orientation Q;
-   Real  n[3];
-   Real  phi(unit=\"rad\");
-   Q = [ n*sin(phi/2)
-           cos(phi/2) ]
+Quaternions.Orientation Q;
+Real  n[3];
+Real  phi(unit=\"rad\");
+Q = [ n*sin(phi/2)
+        cos(phi/2) ]
 </pre></blockquote>
 <p>
 where \"n\" is the <strong>axis of rotation</strong> to rotate frame 1 into
@@ -2022,11 +2022,11 @@ position vectors and orientation objects.
 The used variables have the following declaration:
 </p>
 <blockquote><pre>
-   Quaternions.Orientation Q, Q1, Q2, Q_rel, Q_inv;
-   Real[3,3]   T, T_inv;
-   Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, res_ori, phi;
-   Real[6]     res_equal;
-   Real        L, angle;
+Quaternions.Orientation Q, Q1, Q2, Q_rel, Q_inv;
+Real[3,3]   T, T_inv;
+Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, res_ori, phi;
+Real[6]     res_equal;
+Real        L, angle;
 </pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
@@ -2162,8 +2162,8 @@ This type describes the <strong>rotation</strong> from a <strong>frame 1</strong
 An instance <strong>R</strong> of type <strong>Orientation</strong> has the following interpretation:
 </p>
 <blockquote><pre>
-   <strong>T</strong> = [<strong>e</strong><sub>x</sub>, <strong>e</strong><sub>y</sub>, <strong>e</strong><sub>z</sub>];
-       e.g., <strong>T</strong> = [1,0,0; 0,1,0; 0,0,1]
+<strong>T</strong> = [<strong>e</strong><sub>x</sub>, <strong>e</strong><sub>y</sub>, <strong>e</strong><sub>z</sub>];
+    e.g., <strong>T</strong> = [1,0,0; 0,1,0; 0,0,1]
 </pre></blockquote>
 <p>
 where <strong>e</strong><sub>x</sub>,<strong>e</strong><sub>y</sub>,<strong>e</strong><sub>z</sub>
@@ -3435,10 +3435,10 @@ transformation matrices.
 The used variables have the following declaration:
 </p>
 <blockquote><pre>
-   Orientation T, T1, T2, T_rel, T_inv;
-   Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
-   Real[6]     res_equal;
-   Real        L, angle;
+Orientation T, T1, T2, T_rel, T_inv;
+Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
+Real[6]     res_equal;
+Real        L, angle;
 </pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
@@ -3744,11 +3744,11 @@ by providing essentially type <strong>Orientation</strong> together with
 The used variables have the following declaration:
 </p>
 <blockquote><pre>
-   Frames.Orientation R, R1, R2, R_rel, R_inv;
-   Real[3,3]   T, T_inv;
-   Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
-   Real[6]     res_equal;
-   Real        L, angle;
+Frames.Orientation R, R1, R2, R_rel, R_inv;
+Real[3,3]   T, T_inv;
+Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
+Real[6]     res_equal;
+Real        L, angle;
 </pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>

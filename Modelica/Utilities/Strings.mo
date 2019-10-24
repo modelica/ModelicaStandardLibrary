@@ -47,8 +47,8 @@ if endIndex &gt; length(string), an assert is triggered.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  string1 := \"This is line 111\";
-  string2 := Strings.substring(string1,9,12); // string2 = \"line\"
+string1 := \"This is line 111\";
+string2 := Strings.substring(string1,9,12); // string2 = \"line\"
 </pre></blockquote>
 </html>"));
   end substring;
@@ -101,9 +101,9 @@ upper case letters are treated as if they would be lower case letters.
 The result of the comparison is returned as:
 </p>
 <blockquote><pre>
-  result = Modelica.Utilities.Types.Compare.Less     // string1 &lt; string2
-         = Modelica.Utilities.Types.Compare.Equal    // string1 = string2
-         = Modelica.Utilities.Types.Compare.Greater  // string1 &gt; string2
+result = Modelica.Utilities.Types.Compare.Less     // string1 &lt; string2
+       = Modelica.Utilities.Types.Compare.Equal    // string1 = string2
+       = Modelica.Utilities.Types.Compare.Greater  // string1 &gt; string2
 </pre></blockquote>
 <p>
 Comparison is with regards to lexicographical order,
@@ -166,10 +166,10 @@ only of white space characters. Otherwise, false is returned.
 
 <h4>Example</h4>
 <blockquote><pre>
-  isEmpty(\"\");       // returns true
-  isEmpty(\"   \");    // returns true
-  isEmpty(\"  abc\");  // returns false
-  isEmpty(\"a\");      // returns false
+isEmpty(\"\");       // returns true
+isEmpty(\"   \");    // returns true
+isEmpty(\"  abc\");  // returns false
+isEmpty(\"a\");      // returns false
 </pre></blockquote>
 </html>"));
   end isEmpty;
@@ -444,9 +444,9 @@ and upper case letters are not distinguished.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  s1 = {\"force\", \"angle\", \"pressure\"};
-  s2 = Strings.sort(s1);
-       -> s2 = {\"angle\", \"force\", \"pressure\"};
+s1 = {\"force\", \"angle\", \"pressure\"};
+s2 = Strings.sort(s1);
+     -> s2 = {\"angle\", \"force\", \"pressure\"};
 </pre></blockquote>
 </html>"));
   end sort;
@@ -470,8 +470,8 @@ Returns an Integer hash value of the provided string
 
 <h4>Example</h4>
 <blockquote><pre>
-  hashString(\"this is a test\")     // =  1827717433
-  hashString(\"Controller.noise1\")  // = -1025762750
+hashString(\"this is a test\")     // =  1827717433
+hashString(\"Controller.noise1\")  // = -1025762750
 </pre></blockquote>
 </html>",   revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -589,7 +589,7 @@ Variable token.tokenType is an enumeration (emulated as a package
 with constants) that can have the following values:
 </p>
 <blockquote><pre>
-   import T = Modelica.Utilities.Types.TokenType;
+import T = Modelica.Utilities.Types.TokenType;
 </pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td>T.RealToken</td>
@@ -617,20 +617,20 @@ is not allowed to start with a \"+\" or \"-\" sign.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  import Modelica.Utilities.Strings;
-  import T = Modelica.Utilities.Types.TokenType;
-  (token, index) := Strings.scanToken(string);
-  <strong>if</strong> token.tokenType == T.RealToken <strong>then</strong>
-     realValue := token.real;
-  <strong>elseif</strong> token.tokenType == T.IntegerToken <strong>then</strong>
-     integerValue := token.integer;
-  <strong>elseif</strong> token.tokenType == T.BooleanToken <strong>then</strong>
-     booleanValue := token.boolean;
-  <strong>elseif</strong> token.tokenType == T.Identifier <strong>then</strong>
-     name := token.string;
-  <strong>else</strong>
-     Strings.syntaxError(string,index,\"Expected Real, Integer, Boolean or identifier token\");
-  <strong>end if</strong>;
+import Modelica.Utilities.Strings;
+import T = Modelica.Utilities.Types.TokenType;
+(token, index) := Strings.scanToken(string);
+<strong>if</strong> token.tokenType == T.RealToken <strong>then</strong>
+   realValue := token.real;
+<strong>elseif</strong> token.tokenType == T.IntegerToken <strong>then</strong>
+   integerValue := token.integer;
+<strong>elseif</strong> token.tokenType == T.BooleanToken <strong>then</strong>
+   booleanValue := token.boolean;
+<strong>elseif</strong> token.tokenType == T.Identifier <strong>then</strong>
+   name := token.string;
+<strong>else</strong>
+   Strings.syntaxError(string,index,\"Expected Real, Integer, Boolean or identifier token\");
+<strong>end if</strong>;
 </pre></blockquote>
 </html>"));
   end scanToken;
@@ -1004,10 +1004,10 @@ Function <strong>syntaxError</strong> prints an error message in the
 following form:
 </p>
 <blockquote><pre>
-   Syntax error at column &lt;index&gt; of
-   &lt;string&gt;
-       ^       // shows character that is wrong
-   &lt;message&gt;
+Syntax error at column &lt;index&gt; of
+&lt;string&gt;
+    ^       // shows character that is wrong
+&lt;message&gt;
 </pre></blockquote>
 <p>
 where the strings within &lt;..&gt; are the actual values of the
@@ -1289,12 +1289,12 @@ functions in package \"Strings\".
 Library \"Advanced\" provides the following functions:
 </p>
 <blockquote><pre>
-  (nextIndex, realNumber)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>        (string, startIndex, unsigned=false);
-  (nextIndex, integerNumber) = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>     (string, startIndex, unsigned=false);
-  (nextIndex, string2)       = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>      (string, startIndex);
-  (nextIndex, identifier)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>  (string, startIndex);
-   nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipWhiteSpace\">skipWhiteSpace</a>  (string, startIndex);
-   nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a>(string, startIndex);
+(nextIndex, realNumber)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>        (string, startIndex, unsigned=false);
+(nextIndex, integerNumber) = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>     (string, startIndex, unsigned=false);
+(nextIndex, string2)       = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>      (string, startIndex);
+(nextIndex, identifier)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>  (string, startIndex);
+ nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipWhiteSpace\">skipWhiteSpace</a>  (string, startIndex);
+ nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a>(string, startIndex);
 </pre></blockquote>
 <p>
 All functions perform the following actions:

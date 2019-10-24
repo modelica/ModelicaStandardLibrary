@@ -114,15 +114,15 @@ component may be measured or calculated and multiplied with the
 compute C:
 </p>
 <blockquote><pre>
-   C = cp*m.
-   Typical values for cp at 20 degC in J/(kg.K):
-      aluminium   896
-      concrete    840
-      copper      383
-      iron        452
-      silver      235
-      steel       420 ... 500 (V2A)
-      wood       2500
+C = cp*m.
+Typical values for cp at 20 degC in J/(kg.K):
+   aluminium   896
+   concrete    840
+   copper      383
+   iron        452
+   silver      235
+   steel       420 ... 500 (V2A)
+   wood       2500
 </pre></blockquote>
 </html>"));
 end HeatCapacitor;

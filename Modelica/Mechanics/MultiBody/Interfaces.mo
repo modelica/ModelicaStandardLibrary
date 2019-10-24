@@ -465,9 +465,9 @@ the cut-force and cut-torque at frame_b has to be defined as
 a function of the following relative quantities:
 </p>
 <blockquote><pre>
-  r_rel_b[3]: Position vector from origin of frame_a to origin
-              of frame_b, resolved in frame_b
-  R_rel     : Relative orientation object to rotate from frame_a to frame_b
+r_rel_b[3]: Position vector from origin of frame_a to origin
+            of frame_b, resolved in frame_b
+R_rel     : Relative orientation object to rotate from frame_a to frame_b
 </pre></blockquote>
 <p>
 Assume that force f = {100,0,0} should be applied on the body
@@ -475,12 +475,12 @@ to which this force element is attached at frame_b, then
 the definition should be:
 </p>
 <blockquote><pre>
-   <strong>model</strong> Constant_x_Force
-      extends Modelica.Mechanics.MultiBody.Interfaces.PartialForce;
-   <strong>equation</strong>
-      frame_b.f = {-100, 0, 0};
-      frame_b.t = zeros(3);
-   <strong>end</strong> Constant_x_Force;
+<strong>model</strong> Constant_x_Force
+   extends Modelica.Mechanics.MultiBody.Interfaces.PartialForce;
+<strong>equation</strong>
+   frame_b.f = {-100, 0, 0};
+   frame_b.t = zeros(3);
+<strong>end</strong> Constant_x_Force;
 </pre></blockquote>
 <p>
 Note, that frame_b.f and frame_b.t are flow variables and therefore
@@ -602,13 +602,13 @@ of the relative distance <strong>s</strong> and its derivative <strong>der</stro
 has to be defined. Example:
 </p>
 <blockquote><pre>
-   <strong>model</strong> Spring
-      <strong>parameter</strong> Real c \"spring constant\",
-      <strong>parameter</strong> Real s_unstretched \"unstretched spring length\";
-      <strong>extends</strong> Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce;
-   <strong>equation</strong>
-      f = c*(s-s_unstretched);
-   <strong>end</strong> Spring;
+<strong>model</strong> Spring
+   <strong>parameter</strong> Real c \"spring constant\",
+   <strong>parameter</strong> Real s_unstretched \"unstretched spring length\";
+   <strong>extends</strong> Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce;
+<strong>equation</strong>
+   f = c*(s-s_unstretched);
+<strong>end</strong> Spring;
 </pre></blockquote>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={

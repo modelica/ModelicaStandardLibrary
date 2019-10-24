@@ -9,8 +9,8 @@ connector HeatPort_a
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
 <blockquote><pre>
-   T       Temperature in [Kelvin].
-   Q_flow  Heat flow rate in [Watt].
+T       Temperature in [Kelvin].
+Q_flow  Heat flow rate in [Watt].
 </pre></blockquote>
 <p>According to the Modelica sign convention, a <strong>positive</strong> heat flow
 rate <strong>Q_flow</strong> is considered to flow <strong>into</strong> a component. This

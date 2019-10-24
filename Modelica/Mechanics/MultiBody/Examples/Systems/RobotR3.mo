@@ -1794,8 +1794,8 @@ alt=\"model Examples.Systems.RobotR3\">
 The following models are available:
 </p>
 <blockquote><pre>
-   <strong>OneAxis</strong>   Test one axis (controller, motor, gearbox).
-   <strong>FullRobot</strong> Test complete robot model.
+<strong>OneAxis</strong>   Test one axis (controller, motor, gearbox).
+<strong>FullRobot</strong> Test complete robot model.
 </pre></blockquote>
 <p>
 The r3 robot is no longer manufactured. In fact the company
@@ -1804,19 +1804,19 @@ The parameters of this robot have been determined by measurements
 in the laboratory of DLR. The measurement procedure is described in:
 </p>
 <blockquote><pre>
-   Tuerk S. (1990): Zur Modellierung der Dynamik von Robotern mit
-       rotatorischen Gelenken. Fortschrittberichte VDI, Reihe 8, Nr. 211,
-       VDI-Verlag 1990.
+Tuerk S. (1990): Zur Modellierung der Dynamik von Robotern mit
+    rotatorischen Gelenken. Fortschrittberichte VDI, Reihe 8, Nr. 211,
+    VDI-Verlag 1990.
 </pre></blockquote>
 <p>
 The robot model is described in detail in
 </p>
 <blockquote><pre>
-   Otter M. (1995): Objektorientierte Modellierung mechatronischer
-       Systeme am Beispiel geregelter Roboter. Dissertation,
-       Fortschrittberichte VDI, Reihe 20, Nr. 147, VDI-Verlag 1995.
-       This report can be downloaded as compressed postscript file
-       from: <a href=\"http://www.robotic.dlr.de/Martin.Otter\">http://www.robotic.dlr.de/Martin.Otter</a>.
+Otter M. (1995): Objektorientierte Modellierung mechatronischer
+    Systeme am Beispiel geregelter Roboter. Dissertation,
+    Fortschrittberichte VDI, Reihe 20, Nr. 147, VDI-Verlag 1995.
+    This report can be downloaded as compressed postscript file
+    from: <a href=\"http://www.robotic.dlr.de/Martin.Otter\">http://www.robotic.dlr.de/Martin.Otter</a>.
 </pre></blockquote>
 <p>
 The path planning is performed in a simple way by using essentially

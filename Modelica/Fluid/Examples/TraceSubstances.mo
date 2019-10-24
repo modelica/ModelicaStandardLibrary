@@ -230,7 +230,7 @@ CO2 concentration to <code>C={100} kg/kg</code>, and scaled the mass flow rate u
 </p>
 
 <blockquote><pre>
-  m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
+m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
 </pre></blockquote>
 
 <p>

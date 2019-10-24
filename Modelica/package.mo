@@ -162,12 +162,12 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 
 <tr><td>
  <blockquote><pre>
- A = [1,2,3;
-   3,4,5;
-   2,1,4];
- b = {10,22,12};
- x = Matrices.solve(A,b);
- Matrices.eigenValues(A);
+A = [1,2,3;
+  3,4,5;
+  2,1,4];
+b = {10,22,12};
+x = Matrices.solve(A,b);
+Matrices.eigenValues(A);
  </pre></blockquote>
  </td>
  <td>
@@ -431,8 +431,8 @@ are connected together with
 </p>
 
 <blockquote><pre>
-   <strong>connect</strong>(c1,c2);
-   <strong>connect</strong>(c1,c3);
+<strong>connect</strong>(c1,c2);
+<strong>connect</strong>(c1,c3);
 </pre></blockquote>
 
 <p>

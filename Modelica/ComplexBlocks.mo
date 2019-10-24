@@ -563,8 +563,8 @@ commanded input <code>u1</code> and the feedback
 input <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
 </p>
 <blockquote><pre>
-  y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
-    - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
+y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+  - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
 </pre></blockquote>
 <p>
 <strong>Example</strong> parameters:
@@ -683,9 +683,9 @@ This blocks computes output <code>y</code> as <em>sum</em> of the
 three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Optionally, inputs <code>u1</code> and <code>u2</code> and <code>u3</code> can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> and <code>useConjugateInput3</code> are <code>true</code>, respectively.
 </p>
 <blockquote><pre>
-  y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
-    + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
-    + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);</pre></blockquote>
+y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+  + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
+  + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);</pre></blockquote>
 <p>
 <strong>Example</strong> parameters:
 </p>
@@ -729,7 +729,7 @@ as <em>product</em> of the corresponding elements of
 the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.
 </p>
 <blockquote><pre>
-  y = u1Inernal * u2Internal;
+y = u1Inernal * u2Internal;
 </pre></blockquote>
 
 <p><strong>Example:</strong> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) * u2</code>.</p>

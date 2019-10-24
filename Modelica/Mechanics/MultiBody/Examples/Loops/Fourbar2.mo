@@ -122,7 +122,7 @@ To be precise, the following trivial non-linear equation is actually solved
 for rodLength:
 </p>
 <blockquote><pre>
-   rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
+rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
 </pre></blockquote>
 </html>"));
 end Fourbar2;

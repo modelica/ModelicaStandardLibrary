@@ -381,10 +381,10 @@ This error message is due to an annotation in
 the Frame connector.
 </p>
 <blockquote><pre>
-  <strong>connector</strong> Frame
-     ...
-     <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
-  <strong>end</strong> Frame;
+<strong>connector</strong> Frame
+   ...
+   <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
+<strong>end</strong> Frame;
 </pre></blockquote>
 <p>
 If no assignment can be found for some

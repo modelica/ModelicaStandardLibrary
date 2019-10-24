@@ -250,7 +250,7 @@ non-linear systems are small and local as opposed to large and over all volumes.
 Entropy is calculated as
 </p>
 <blockquote><pre>
-  s = s0 + integral(Cp(T)/T,dt)
+s = s0 + integral(Cp(T)/T,dt)
 </pre></blockquote>
 <p>
 which is only exactly true for a fluid with constant density d=d0.

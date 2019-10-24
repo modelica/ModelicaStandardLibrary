@@ -155,7 +155,7 @@ in a least squares sense. The polynomial is
 returned as a vector p[n+1] that has the following definition:
 </p>
 <blockquote><pre>
-  p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
+p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
 </pre></blockquote>
 </html>"));
       end fitting;
@@ -277,7 +277,7 @@ r = Polynomials.<strong>roots</strong>(p);
 This function computes the roots of a polynomial P of x
 </p>
 <blockquote><pre>
-  P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
+P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
 </pre></blockquote>
 <p>
 with the coefficient vector <strong>p</strong>. It is assumed that the first element of <strong>p</strong> is not zero, i.e., that the polynomial is of order size(p,1)-1.

@@ -487,7 +487,7 @@ are solely a function of T. The properties
 are valid in the range:
 </p>
 <blockquote><pre>
-   200 K &le; T &le; 6000 K
+200 K &le; T &le; 6000 K
 </pre></blockquote>
 <p>
 The following quantities are always computed:

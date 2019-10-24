@@ -2935,12 +2935,12 @@ spring/damper characteristic:
 </p>
 
 <blockquote><pre>
-   desiredContactTorque = c*phi_contact + d*<strong>der</strong>(phi_contact)
+desiredContactTorque = c*phi_contact + d*<strong>der</strong>(phi_contact)
 
-            phi_contact = phi_rel - phi_rel0 - b/2 <strong>if</strong> phi_rel - phi_rel0 &gt;  b/2
-                        = phi_rel - phi_rel0 + b/2 <strong>if</strong> phi_rel - phi_rel0 &lt; -b/2
+         phi_contact = phi_rel - phi_rel0 - b/2 <strong>if</strong> phi_rel - phi_rel0 &gt;  b/2
+                     = phi_rel - phi_rel0 + b/2 <strong>if</strong> phi_rel - phi_rel0 &lt; -b/2
 
-            phi_rel     = flange_b.phi - flange_a.phi;
+         phi_rel     = flange_b.phi - flange_a.phi;
 </pre></blockquote>
 
 <p>
@@ -3237,12 +3237,12 @@ spring/damper characteristic:
 </p>
 
 <blockquote><pre>
-   desiredContactTorque = c*phi_contact + d*<strong>der</strong>(phi_contact)
+desiredContactTorque = c*phi_contact + d*<strong>der</strong>(phi_contact)
 
-            phi_contact = phi_rel - phi_rel0 - b/2 <strong>if</strong> phi_rel - phi_rel0 &gt;  b/2
-                        = phi_rel - phi_rel0 + b/2 <strong>if</strong> phi_rel - phi_rel0 &lt; -b/2
+         phi_contact = phi_rel - phi_rel0 - b/2 <strong>if</strong> phi_rel - phi_rel0 &gt;  b/2
+                     = phi_rel - phi_rel0 + b/2 <strong>if</strong> phi_rel - phi_rel0 &lt; -b/2
 
-            phi_rel     = flange_b.phi - flange_a.phi;
+         phi_rel     = flange_b.phi - flange_a.phi;
 </pre></blockquote>
 
 <p>
@@ -3493,7 +3493,7 @@ to slide when the friction torque exceeds a threshold value,
 called the maximum static friction torque, computed via:
 </p>
 <blockquote><pre>
-   maximum_static_friction = <strong>peak</strong> * sliding_friction(w=0)  (<strong>peak</strong> >= 1)
+maximum_static_friction = <strong>peak</strong> * sliding_friction(w=0)  (<strong>peak</strong> >= 1)
 </pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
@@ -4619,7 +4619,7 @@ sun teeth zs. For example, if there are 100 ring teeth and
 zp has to fulfill the following relationship:
 </p>
 <blockquote><pre>
-   <strong>zp := (zr - zs) / 2</strong>
+<strong>zp := (zr - zs) / 2</strong>
 </pre></blockquote>
 <p>
 Therefore, in the above example zp = 25 is required.
@@ -4960,7 +4960,7 @@ This component defines the kinematic constraint:
 </p>
 
 <blockquote><pre>
-  (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
+(flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
 </pre></blockquote>
 </html>"), Icon(
         coordinateSystem(preserveAspectRatio=true,
@@ -5097,7 +5097,7 @@ no rolling resistance. This component defines the kinematic constraint:
 </p>
 
 <blockquote><pre>
-   (flangeR.phi - internalSupportR.phi) * radius = (flangeT.s - internalSupportT.s);
+(flangeR.phi - internalSupportR.phi) * radius = (flangeT.s - internalSupportT.s);
 </pre></blockquote>
 </html>"));
     end IdealRollingWheel;

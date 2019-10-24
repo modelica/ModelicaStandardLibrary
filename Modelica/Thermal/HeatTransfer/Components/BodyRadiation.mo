@@ -66,14 +66,14 @@ range 0..1. Epsilon=1, if the body absorbs all radiation (= black body).
 Epsilon=0, if the body reflects all radiation and does not absorb any.
 </p>
 <blockquote><pre>
-   Typical values for epsilon:
-   aluminium, polished    0.04
-   copper, polished       0.04
-   gold, polished         0.02
-   paper                  0.09
-   rubber                 0.95
-   silver, polished       0.02
-   wood                   0.85..0.9
+Typical values for epsilon:
+aluminium, polished    0.04
+copper, polished       0.04
+gold, polished         0.02
+paper                  0.09
+rubber                 0.95
+silver, polished       0.02
+wood                   0.85..0.9
 </pre></blockquote>
 <p><strong>Analytical Equations for Gr</strong></p>
 <p>
