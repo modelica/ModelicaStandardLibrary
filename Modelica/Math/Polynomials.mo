@@ -270,7 +270,7 @@ returned as a vector p[n+1] that has the following definition:
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Polynomials.<strong>roots</strong>(p);
+r = Polynomials.<strong>roots</strong>(p);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -286,12 +286,12 @@ with the coefficient vector <strong>p</strong>. It is assumed that the first ele
 To compute the roots, the eigenvalues of the corresponding companion matrix <strong>C</strong>
 </p>
 <blockquote><pre>
-         |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
-         |    1            0                0               0           0     |
-         |    0            1      ...       0               0           0     |
-  <strong>C</strong> =    |    .            .      ...       .               .           .     |
-         |    .            .      ...       .               .           .     |
-         |    0            0      ...       0               1           0     |
+       |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
+       |    1            0                0               0           0     |
+       |    0            1      ...       0               0           0     |
+<strong>C</strong> =    |    .            .      ...       .               .           .     |
+       |    .            .      ...       .               .           .     |
+       |    0            0      ...       0               1           0     |
 </pre></blockquote>
 <p>
 are calculated. These are the roots of the polynomial.<br>
@@ -301,10 +301,10 @@ provides efficient eigenvalue computation for those matrices.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  r = <strong>roots</strong>({1,2,3});
-  // r = [-1.0,  1.41421356237309;
-  //      -1.0, -1.41421356237309]
-  // which corresponds to the roots: -1.0 +/- j*1.41421356237309
+r = <strong>roots</strong>({1,2,3});
+// r = [-1.0,  1.41421356237309;
+//      -1.0, -1.41421356237309]
+// which corresponds to the roots: -1.0 +/- j*1.41421356237309
 </pre></blockquote>
 </html>"));
       end roots;

@@ -1126,8 +1126,8 @@ The function first computes a QR factorization with column pivoting:
 </p>
 
 <blockquote><pre>
-      A * P = Q * [ R11 R12 ]
-                  [  0  R22 ]
+A * P = Q * [ R11 R12 ]
+            [  0  R22 ]
 </pre></blockquote>
 
 <p>
@@ -1143,8 +1143,8 @@ complete orthogonal factorization:
 </p>
 
 <blockquote><pre>
-     A * P = Q * [ T11 0 ] * Z
-                 [  0  0 ]
+A * P = Q * [ T11 0 ] * Z
+            [  0  0 ]
 </pre></blockquote>
 
 <p>
@@ -1152,8 +1152,8 @@ The minimum-norm solution is then
 </p>
 
 <blockquote><pre>
-     x = P * Z' [ inv(T11)*Q1'*b ]
-                [        0       ]
+x = P * Z' [ inv(T11)*Q1'*b ]
+           [        0       ]
 </pre></blockquote>
 
 <p>
@@ -1276,8 +1276,8 @@ The function first computes a QR factorization with column pivoting:
 </p>
 
 <blockquote><pre>
-      A * P = Q * [ R11 R12 ]
-                  [  0  R22 ]
+A * P = Q * [ R11 R12 ]
+            [  0  R22 ]
 </pre></blockquote>
 
 <p>
@@ -1293,8 +1293,8 @@ complete orthogonal factorization:
 </p>
 
 <blockquote><pre>
-     A * P = Q * [ T11 0 ] * Z
-                 [  0  0 ]
+A * P = Q * [ T11 0 ] * Z
+            [  0  0 ]
 </pre></blockquote>
 
 <p>
@@ -1302,8 +1302,8 @@ The minimum-norm solution is then
 </p>
 
 <blockquote><pre>
-     X = P * Z' [ inv(T11)*Q1'*B ]
-                [        0       ]
+X = P * Z' [ inv(T11)*Q1'*B ]
+           [        0       ]
 </pre></blockquote>
 
 <p>
@@ -1991,8 +1991,8 @@ called as: <code>(,R,p) = QR(A)</code>.
 
 <h4>Syntax</h4>
 <blockquote><pre>
-         H = Matrices.<strong>hessenberg</strong>(A);
-    (H, U) = Matrices.<strong>hessenberg</strong>(A);
+     H = Matrices.<strong>hessenberg</strong>(A);
+(H, U) = Matrices.<strong>hessenberg</strong>(A);
  </pre></blockquote>
 
 <h4>Description</h4>
@@ -2188,9 +2188,9 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
 <h4>Syntax</h4>
 
 <blockquote><pre>
-         H = Matrices.<strong>cholesky</strong>(A);
-         H = Matrices.<strong>cholesky</strong>(A, upper=true);
- </pre></blockquote>
+H = Matrices.<strong>cholesky</strong>(A);
+H = Matrices.<strong>cholesky</strong>(A, upper=true);
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -2199,8 +2199,8 @@ The optional Boolean input \"upper\" specifies whether the upper or the lower tr
 </p>
 
 <blockquote><pre>
- A = H'*H   if upper is true (H is upper triangular)
- A = H*H'   if upper is false (H is lower triangular)
+A = H'*H   if upper is true (H is upper triangular)
+A = H*H'   if upper is false (H is lower triangular)
 </pre></blockquote>
 
 <p>
@@ -2210,24 +2210,24 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
 <h4>Example</h4>
 
 <blockquote><pre>
-  A  = [1, 0,  0;
-        6, 5,  0;
-        1, -2,  2];
-  S = A*transpose(A);
+A  = [1, 0,  0;
+      6, 5,  0;
+      1, -2,  2];
+S = A*transpose(A);
 
-  H = Matrices.cholesky(S);
+H = Matrices.cholesky(S);
 
-  results in:
+results in:
 
-  H = [1.0,  6.0,  1.0;
-       0.0,  5.0, -2.0;
-       0.0,  0.0,  2.0]
+H = [1.0,  6.0,  1.0;
+     0.0,  5.0, -2.0;
+     0.0,  0.0,  2.0]
 
-  with
+with
 
-  transpose(H)*H = [1.0,  6.0,   1;
-                    6.0, 61.0,  -4.0;
-                    1.0, -4.0,   9.0] //=S
+transpose(H)*H = [1.0,  6.0,   1;
+                  6.0, 61.0,  -4.0;
+                  1.0, -4.0,   9.0] //=S
 
 </pre></blockquote>
 
@@ -2318,18 +2318,19 @@ or computation of eigenvalues.
 
 <h4>Example</h4>
 
-<blockquote><pre>       - A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
-       - Matrices.norm(A, 1);
-         = 1020.0
-       - (T,B)=Matrices.balance(A)
-       - T
-         = {256, 16, 0.5}
-       - B
-         =  [1,     0.625,   1.953125;
-             0.16,  0,       0.3125;
-             2.56,  0.32,   10.0]
-       - Matrices.norm(B, 1);
-         = 12.265625
+<blockquote><pre>
+- A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
+- Matrices.norm(A, 1);
+  = 1020.0
+- (T,B)=Matrices.balance(A)
+- T
+  = {256, 16, 0.5}
+- B
+  =  [1,     0.625,   1.953125;
+      0.16,  0,       0.3125;
+      2.56,  0.32,   10.0]
+- Matrices.norm(B, 1);
+  = 12.265625
 </pre></blockquote>
 
 <p>
@@ -2430,18 +2431,20 @@ which based on the <code>balance</code> function from EISPACK.
 This function returns a vector scale, such that with T=diagonal(scale) system matrix S_scale
 </p>
 
-<blockquote><pre>             |inv(T)*A*T, inv(T)*B|
-   S_scale = |                    |
-             |       C*T,     0   |
+<blockquote><pre>
+          |inv(T)*A*T, inv(T)*B|
+S_scale = |                    |
+          |       C*T,     0   |
 </pre></blockquote>
 
 <p>
 has a better condition as system matrix S
 </p>
 
-<blockquote><pre>       |A, B|
-   S = |    |
-       |C, 0|
+<blockquote><pre>
+    |A, B|
+S = |    |
+    |C, 0|
 </pre></blockquote>
 <p>
 that is, conditionNumber(S_scale) &le; conditionNumber(S). The elements of vector scale
@@ -2452,8 +2455,9 @@ are multiples of 2 which means that this function does not introduce round-off e
 Balancing a linear dynamic system in state space form
 </p>
 
-<blockquote><pre>  der(x) = A*x + B*u
-      y  = C*x + D*u
+<blockquote><pre>
+der(x) = A*x + B*u
+    y  = C*x + D*u
 </pre></blockquote>
 
 <p>
@@ -2463,7 +2467,8 @@ so that the transformed system is better suited for numerical algorithms.
 
 <h4>Example</h4>
 
-<blockquote><pre>import Modelica.Math.Matrices;
+<blockquote><pre>
+import Modelica.Math.Matrices;
 
 A = [1, -10,  1000; 0.01,  0,  10; 0.005,  -0.01,  10];
 B = [100, 10; 1,0; -0.003, 1];
@@ -2513,7 +2518,7 @@ which is based on the <code>balance</code> function from EISPACK.
     annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Matrices.<strong>trace</strong>(A);
+r = Matrices.<strong>trace</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -2523,13 +2528,13 @@ This function computes the trace, i.e., the sum of the elements in the diagonal 
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 3;
-       2, 1];
-  r = trace(A);
+A = [1, 3;
+     2, 1];
+r = trace(A);
 
-  results in:
+results in:
 
-  r = 2.0
+r = 2.0
 </pre></blockquote>
 
 </html>", revisions="<html>
@@ -2724,13 +2729,13 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2;
-       2, 1];
-  r = conditionNumber(A);
+A = [1, 2;
+     2, 1];
+r = conditionNumber(A);
 
-  results in:
+results in:
 
-  r = 3.0
+r = 3.0
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -2787,13 +2792,13 @@ If rcond(A) is near 1.0, <strong>A</strong> is well conditioned and <strong>A</s
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2;
-       2, 1];
-  r = rcond(A);
+A = [1, 2;
+     2, 1];
+r = rcond(A);
 
-  results in:
+results in:
 
-  r = 0.3333
+r = 0.3333
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -2904,14 +2909,13 @@ This function computes the Frobenius norm of a general real matrix <strong>A</st
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2;
-       2, 1];
-  r = frobeniusNorm(A);
+A = [1, 2;
+     2, 1];
+r = frobeniusNorm(A);
 
-  results in:
+results in:
 
-  r = 3.162;
-
+r = 3.162;
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -2979,7 +2983,7 @@ The nullspace is obtained by SVD method. That is, matrix <strong>A</strong> is d
 </p>
 
 <blockquote><pre>
- <strong>A</strong> = <strong>U</strong>*<strong>S</strong>*transpose(<strong>V</strong>)
+<strong>A</strong> = <strong>U</strong>*<strong>S</strong>*transpose(<strong>V</strong>)
 </pre></blockquote>
 
 <p>
@@ -2987,8 +2991,8 @@ with the orthonormal matrices <strong>U</strong> and <strong>V</strong> and the 
 </p>
 
 <blockquote><pre>
- <strong>S</strong> = [<strong>S</strong>1, <strong>0</strong>]
- <strong>S</strong>1 = [diag(s); <strong>0</strong>]
+<strong>S</strong> = [<strong>S</strong>1, <strong>0</strong>]
+<strong>S</strong>1 = [diag(s); <strong>0</strong>]
 </pre></blockquote>
 
 <p>
@@ -2996,7 +3000,7 @@ and the singular values <strong>s</strong>={s1, s2, ..., sr} of <strong>A</stron
 </p>
 
 <blockquote><pre>
- transpose(<strong>U</strong>)*<strong>A</strong>*<strong>V</strong> = [<strong>S</strong>1, <strong>0</strong>].
+transpose(<strong>U</strong>)*<strong>A</strong>*<strong>V</strong> = [<strong>S</strong>1, <strong>0</strong>].
 </pre></blockquote>
 
 <p>
@@ -3007,31 +3011,31 @@ Matrix <strong>S</strong>1 obviously has full column rank and therefore, the lef
 The nullity of matrix <strong>A</strong> is the dimension of the nullspace of <strong>A</strong>. In view of the above, it becomes clear that nullity holds
 </p>
 <blockquote><pre>
- nullity = n - r
+nullity = n - r
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
- n = number of columns of matrix <strong>A</strong>
- r = rank(<strong>A</strong>)
+n = number of columns of matrix <strong>A</strong>
+r = rank(<strong>A</strong>)
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3, 1;
-       3, 4,  5, 2;
-      -1, 2, -3, 3];
-  (Z, nullity) = nullspace(A);
+A = [1, 2,  3, 1;
+     3, 4,  5, 2;
+    -1, 2, -3, 3];
+(Z, nullity) = nullspace(A);
 
-  results in:
+results in:
 
-  Z=[0.1715;
-    -0.686;
-     0.1715;
-     0.686]
+Z=[0.1715;
+  -0.686;
+   0.1715;
+   0.686]
 
-  nullity = 1
+nullity = 1
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -3133,16 +3137,18 @@ phi = Matrices.<strong>exp</strong>(A,T=1);
 <p>
 This function computes the exponential e<sup><strong>A</strong>T</sup> of matrix <strong>A</strong>, i.e.
 </p>
-<blockquote><pre>                            (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
-     <font size=4> <strong>&Phi;</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
-                              2!       3!
+<blockquote><pre>
+                       (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
+<font size=4> <strong>&Phi;</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
+                         2!       3!
 </pre></blockquote>
 
 <p>where e=2.71828..., <strong>A</strong> is an n x n matrix with real elements and T is a real number,
 e.g., the sampling time.
 <strong>A</strong> may be singular. With the exponential of a matrix it is, e.g., possible
 to compute the solution of a linear system of differential equations</p>
-<blockquote><pre>    der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   ->   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
+<blockquote><pre>
+der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   ->   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
 </pre></blockquote>
 
 <h4>Algorithmic details:</h4>
@@ -3288,9 +3294,10 @@ The function uses a Taylor series expansion with Balancing and
 scaling/squaring to approximate the integral <strong>&Psi;</strong> of the matrix
 exponential <strong>&Phi;</strong>=e^(AT):
 </p>
-<blockquote><pre>                                 AT^2   A^2 * T^3          A^k * T^(k+1)
-        <strong>&Psi;</strong> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
-                                  2!        3!                (k+1)!
+<blockquote><pre>
+                         AT^2   A^2 * T^3          A^k * T^(k+1)
+<strong>&Psi;</strong> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
+                          2!        3!                (k+1)!
 </pre></blockquote>
 <p>
 <strong>&Phi;</strong> is calculated through <strong>&Phi;</strong> = I + A*<strong>&Psi;</strong>, so A may be singular. <strong>&Gamma;</strong> is
@@ -3313,9 +3320,10 @@ guarantees minimum rounding errors in the following series
 expansion. The re-scaling based on the equation&nbsp; exp(A*2T) = exp(AT)^2.
 The needed re-scaling formula for psi thus becomes:
 </p>
-<blockquote><pre>         <strong>&Phi;</strong> = <strong>&Phi;</strong>'*<strong>&Phi;</strong>'
-   I + A*<strong>&Psi;</strong> = I + 2A*<strong>&Psi;</strong>' + A^2*<strong>&Psi;</strong>'^2
-         <strong>&Psi;</strong> = A*<strong>&Psi;</strong>'^2 + 2*<strong>&Psi;</strong>'
+<blockquote><pre>
+      <strong>&Phi;</strong> = <strong>&Phi;</strong>'*<strong>&Phi;</strong>'
+I + A*<strong>&Psi;</strong> = I + 2A*<strong>&Psi;</strong>' + A^2*<strong>&Psi;</strong>'^2
+      <strong>&Psi;</strong> = A*<strong>&Psi;</strong>'^2 + 2*<strong>&Psi;</strong>'
 </pre></blockquote>
 <p>
 where psi' is the scaled result from the series expansion while psi is the
@@ -3325,8 +3333,9 @@ re-scaled matrix.
 The function is normally used to discretize a state-space system as the
 zero-order-hold equivalent:
 </p>
-<blockquote><pre>      x(k+1) = <strong>&Phi;</strong>*x(k) + <strong>&Gamma;</strong>*u(k)
-        y(k) = C*x(k) + D*u(k)
+<blockquote><pre>
+x(k+1) = <strong>&Phi;</strong>*x(k) + <strong>&Gamma;</strong>*u(k)
+  y(k) = C*x(k) + D*u(k)
 </pre></blockquote>
 <p>
 The zero-order-hold sampling, also known as step-invariant method, gives
@@ -3417,7 +3426,8 @@ The function calculates the matrices phi,gamma,gamma1 through the equation:
 The matrices define the discretized first-order-hold equivalent of
 a state-space system:
 </p>
-<blockquote><pre>      x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
+<blockquote><pre>
+x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
 </pre></blockquote>
 <p>
 The first-order-hold sampling, also known as ramp-invariant method, gives
@@ -3583,8 +3593,8 @@ is, e.g., described in
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<strong>continuousLyapunov</strong>(A, C);
-         X = Matrices.<strong>continuousLyapunov</strong>(A, C, ATisSchur, eps);
+X = Matrices.<strong>continuousLyapunov</strong>(A, C);
+X = Matrices.<strong>continuousLyapunov</strong>(A, C, ATisSchur, eps);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -3593,7 +3603,7 @@ This function computes the solution <strong>X</strong> of the continuous-time Ly
 </p>
 
 <blockquote><pre>
- <strong>X</strong>*<strong>A</strong> + <strong>A</strong>'*<strong>X</strong> = <strong>C</strong>
+<strong>X</strong>*<strong>A</strong> + <strong>A</strong>'*<strong>X</strong> = <strong>C</strong>
 </pre></blockquote>
 
 <p>
@@ -3605,7 +3615,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 </p>
 
 <blockquote><pre>
- <strong>Y</strong>*<strong>R</strong>' + <strong>R</strong>*<strong>Y</strong> = <strong>D</strong>
+<strong>Y</strong>*<strong>R</strong>' + <strong>R</strong>*<strong>Y</strong> = <strong>D</strong>
 </pre></blockquote>
 
 <p>
@@ -3617,31 +3627,31 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 
 <h4>References</h4>
 <blockquote><pre>
-  [1] Bartels, R.H. and Stewart G.W.
-      Algorithm 432: Solution of the matrix equation AX + XB = C.
-      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+[1] Bartels, R.H. and Stewart G.W.
+    Algorithm 432: Solution of the matrix equation AX + XB = C.
+    Comm. ACM., Vol. 15, pp. 820-826, 1972.
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3,  4;
-       3, 4,  5, -2;
-      -1, 2, -3, -5;
-       0, 2,  0,  6];
+A = [1, 2,  3,  4;
+     3, 4,  5, -2;
+    -1, 2, -3, -5;
+     0, 2,  0,  6];
 
-  C =  [-2, 3, 1, 0;
-        -6, 8, 0, 1;
-         2, 3, 4, 5;
-        0, -2, 0, 0];
+C =  [-2, 3, 1, 0;
+      -6, 8, 0, 1;
+       2, 3, 4, 5;
+      0, -2, 0, 0];
 
-  X = continuousLyapunov(A, C);
+X = continuousLyapunov(A, C);
 
-  results in:
+results in:
 
-  X = [1.633, -0.761,  0.575, -0.656;
-      -1.158,  1.216,  0.047,  0.343;
-      -1.066, -0.052, -0.916,  1.61;
-      -2.473,  0.717, -0.986,  1.48]
+X = [1.633, -0.761,  0.575, -0.656;
+    -1.158,  1.216,  0.047,  0.343;
+    -1.066, -0.052, -0.916,  1.61;
+    -2.473,  0.717, -0.986,  1.48]
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -3721,8 +3731,8 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     annotation (Documentation(info="<html>
  <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<strong>continuousSylvester</strong>(A, B, C);
-         X = Matrices.<strong>continuousSylvester</strong>(A, B, C, AisSchur, BisSchur);
+X = Matrices.<strong>continuousSylvester</strong>(A, B, C);
+X = Matrices.<strong>continuousSylvester</strong>(A, B, C, AisSchur, BisSchur);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -3731,7 +3741,7 @@ Function <strong>continuousSylvester</strong> computes the solution <strong>X</s
 </p>
 
 <blockquote><pre>
- <strong>A</strong>*<strong>X</strong> + <strong>X</strong>*<strong>B</strong> = <strong>C</strong>.
+<strong>A</strong>*<strong>X</strong> + <strong>X</strong>*<strong>B</strong> = <strong>C</strong>.
 </pre></blockquote>
 
 <p>
@@ -3742,7 +3752,7 @@ using the Schur method for Sylvester equations proposed by Bartels and Stewart [
 In a nutshell, the problem is reduced to the corresponding problem
 </p>
 <blockquote><pre>
- <strong>S</strong>*<strong>Y</strong> + <strong>Y</strong>*<strong>T</strong> = <strong>D</strong>.
+<strong>S</strong>*<strong>Y</strong> + <strong>Y</strong>*<strong>T</strong> = <strong>D</strong>.
 </pre></blockquote>
 <p>
 with <strong>S</strong>=<strong>U</strong>'*<strong>A</strong>*<strong>U</strong> is the real Schur of <strong>A</strong>,  <strong>T</strong>=<strong>V</strong>'*<strong>T</strong>*<strong>V</strong> is the real Schur form of <strong>B</strong> and
@@ -3759,39 +3769,40 @@ for more information.
 
 <h4>References</h4>
 <blockquote><pre>
-  [1] Bartels, R.H. and Stewart G.W.
-      Algorithm 432: Solution of the matrix equation AX + XB = C.
-      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+[1] Bartels, R.H. and Stewart G.W.
+    Algorithm 432: Solution of the matrix equation AX + XB = C.
+    Comm. ACM., Vol. 15, pp. 820-826, 1972.
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [17.0,   24.0,   1.0,   8.0,   15.0 ;
-       23.0,    5.0,   7.0,  14.0,   16.0 ;
-        0.0,    6.0,  13.0,  20.0,   22.0;
-        0.0,    0.0,  19.0,  21.0,    3.0 ;
-        0.0,    0.0,   0.0,   2.0,    9.0];
+A = [17.0,   24.0,   1.0,   8.0,   15.0 ;
+     23.0,    5.0,   7.0,  14.0,   16.0 ;
+      0.0,    6.0,  13.0,  20.0,   22.0;
+      0.0,    0.0,  19.0,  21.0,    3.0 ;
+      0.0,    0.0,   0.0,   2.0,    9.0];
 
-  B =  [8.0, 1.0, 6.0;
-        0.0, 5.0, 7.0;
-        0.0, 9.0, 2.0];
+B =  [8.0, 1.0, 6.0;
+      0.0, 5.0, 7.0;
+      0.0, 9.0, 2.0];
 
-  C = [62.0,  -12.0, 26.0;
-       59.0,  -10.0, 31.0;
-       70.0,  -6.0,   9.0;
-       35.0,  31.0,  -7.0;
-       36.0, -15.0,   7.0];
+C = [62.0,  -12.0, 26.0;
+     59.0,  -10.0, 31.0;
+     70.0,  -6.0,   9.0;
+     35.0,  31.0,  -7.0;
+     36.0, -15.0,   7.0];
 
-  X = continuousSylvester(A, B, C);
+X = continuousSylvester(A, B, C);
 
-  results in:
+results in:
 
-  X = [0.0,  0.0,  1.0;
-       1.0,  0.0,  0.0;
-       0.0,  1.0,  0.0;
-       1.0,  1.0, -1.0;
-       2.0, -2.0,  1.0];
+X = [0.0,  0.0,  1.0;
+     1.0,  0.0,  0.0;
+     0.0,  1.0,  0.0;
+     1.0,  1.0, -1.0;
+     2.0, -2.0,  1.0];
 </pre></blockquote>
+
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,
@@ -3887,8 +3898,8 @@ for more information.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-                                X = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q);
-        (X, alphaReal, alphaImag) = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q, true);
+                        X = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q);
+(X, alphaReal, alphaImag) = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q, true);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -3897,7 +3908,7 @@ Function <strong>continuousRiccati</strong> computes the solution <strong>X</str
 </p>
 
 <blockquote><pre>
- <strong>A</strong>'*<strong>X</strong> + <strong>X</strong>*<strong>A</strong> - <strong>X</strong>*<strong>G</strong>*<strong>X</strong> + <strong>Q</strong> = <strong>0</strong>
+<strong>A</strong>'*<strong>X</strong> + <strong>X</strong>*<strong>A</strong> - <strong>X</strong>*<strong>G</strong>*<strong>X</strong> + <strong>Q</strong> = <strong>0</strong>
 </pre></blockquote>
 
 <p>
@@ -3959,27 +3970,27 @@ for more information.
 
 <h4>References</h4>
 <blockquote><pre>
-  [1] Laub, A.J.
-      A Schur Method for Solving Algebraic Riccati equations.
-      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+[1] Laub, A.J.
+    A Schur Method for Solving Algebraic Riccati equations.
+    IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [0.0, 1.0;
-       0.0, 0.0];
+A = [0.0, 1.0;
+     0.0, 0.0];
 
-  B = [0.0;
-       1.0];
+B = [0.0;
+     1.0];
 
-  R = [1];
+R = [1];
 
-  Q = [1.0, 0.0;
-       0.0, 2.0];
+Q = [1.0, 0.0;
+     0.0, 2.0];
 
 X = continuousRiccati(A, B, R, Q);
 
-  results in:
+results in:
 
 X = [2.0, 1.0;
      1.0, 2.0];
@@ -4091,8 +4102,8 @@ X = [2.0, 1.0;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<strong>discreteLyapunov</strong>(A, C);
-         X = Matrices.<strong>discreteLyapunov</strong>(A, C, ATisSchur, sgn, eps);
+X = Matrices.<strong>discreteLyapunov</strong>(A, C);
+X = Matrices.<strong>discreteLyapunov</strong>(A, C, ATisSchur, sgn, eps);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4101,7 +4112,7 @@ This function computes the solution <strong>X</strong> of the discrete-time Lyap
 </p>
 
 <blockquote><pre>
- <strong>A</strong>'*<strong>X</strong>*<strong>A</strong> + sgn*<strong>X</strong> = <strong>C</strong>
+<strong>A</strong>'*<strong>X</strong>*<strong>A</strong> + sgn*<strong>X</strong> = <strong>C</strong>
 </pre></blockquote>
 
 <p>
@@ -4109,7 +4120,7 @@ where sgn=1 or sgn =-1. For sgn = -1, the discrete Lyapunov equation is a specia
 </p>
 
 <blockquote><pre>
- <strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
+<strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
 </pre></blockquote>
 
 <p>
@@ -4121,7 +4132,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 </p>
 
 <blockquote><pre>
- <strong>R</strong>*<strong>Y</strong>*<strong>R</strong>' + sgn*<strong>Y</strong> = <strong>D</strong>.
+<strong>R</strong>*<strong>Y</strong>*<strong>R</strong>' + sgn*<strong>Y</strong> = <strong>D</strong>.
 </pre></blockquote>
 
 <p>
@@ -4133,31 +4144,31 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 
 <h4>References</h4>
 <blockquote><pre>
-  [1] Bartels, R.H. and Stewart G.W.
-      Algorithm 432: Solution of the matrix equation AX + XB = C.
-      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+[1] Bartels, R.H. and Stewart G.W.
+    Algorithm 432: Solution of the matrix equation AX + XB = C.
+    Comm. ACM., Vol. 15, pp. 820-826, 1972.
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3,  4;
-       3, 4,  5, -2;
-      -1, 2, -3, -5;
-       0, 2,  0,  6];
+A = [1, 2,  3,  4;
+     3, 4,  5, -2;
+    -1, 2, -3, -5;
+     0, 2,  0,  6];
 
-  C =  [-2,  3, 1, 0;
-        -6,  8, 0, 1;
-         2,  3, 4, 5;
-         0, -2, 0, 0];
+C =  [-2,  3, 1, 0;
+      -6,  8, 0, 1;
+       2,  3, 4, 5;
+       0, -2, 0, 0];
 
-  X = discreteLyapunov(A, C, sgn=-1);
+X = discreteLyapunov(A, C, sgn=-1);
 
-  results in:
+results in:
 
-  X  = [7.5735,   -3.1426,  2.7205, -2.5958;
-       -2.6105,    1.2384, -0.9232,  0.9632;
-        6.6090,   -2.6775,  2.6415, -2.6928;
-       -0.3572,    0.2298,  0.0533, -0.27410];
+X  = [7.5735,   -3.1426,  2.7205, -2.5958;
+     -2.6105,    1.2384, -0.9232,  0.9632;
+      6.6090,   -2.6775,  2.6415, -2.6928;
+     -0.3572,    0.2298,  0.0533, -0.27410];
 
 </pre></blockquote>
 
@@ -4298,8 +4309,8 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<strong>discreteSylvester</strong>(A, B, C);
-         X = Matrices.<strong>discreteSylvester</strong>(A, B, C, AisHess, BTisSchur, sgn, eps);
+X = Matrices.<strong>discreteSylvester</strong>(A, B, C);
+X = Matrices.<strong>discreteSylvester</strong>(A, B, C, AisHess, BTisSchur, sgn, eps);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4308,8 +4319,7 @@ Function <strong>discreteSylvester</strong> computes the solution <strong>X</str
 </p>
 
 <blockquote><pre>
- <strong>A</strong>*<strong>X</strong>*<strong>B</strong> + sgn*<strong>X</strong> = <strong>C</strong>.
-
+<strong>A</strong>*<strong>X</strong>*<strong>B</strong> + sgn*<strong>X</strong> = <strong>C</strong>.
 </pre></blockquote>
 
 <p>
@@ -4318,14 +4328,14 @@ For sgn = -1, the discrete Sylvester equation is also known as Stein equation:
 </p>
 
 <blockquote><pre>
- <strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
+<strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
 </pre></blockquote>
 
 <p>
 In a nutshell, the problem is reduced to the corresponding problem
 </p>
 <blockquote><pre>
- <strong>H</strong>*<strong>Y</strong>*<strong>S</strong>' + sgn*<strong>Y</strong> = <strong>F</strong>.
+<strong>H</strong>*<strong>Y</strong>*<strong>S</strong>' + sgn*<strong>Y</strong> = <strong>F</strong>.
 </pre></blockquote>
 
 <p>
@@ -4338,32 +4348,31 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
 
 <h4>References</h4>
 <blockquote><pre>
-  [1] Golub, G.H., Nash, S. and Van Loan, C.F.
-      A Hessenberg-Schur method for the problem AX + XB = C.
-      IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
-
+[1] Golub, G.H., Nash, S. and Van Loan, C.F.
+    A Hessenberg-Schur method for the problem AX + XB = C.
+    IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1.0,   2.0,   3.0;
-       6.0,   7.0,   8.0;
-       9.0,   2.0,   3.0];
+A = [1.0,   2.0,   3.0;
+     6.0,   7.0,   8.0;
+     9.0,   2.0,   3.0];
 
-  B = [7.0,   2.0,   3.0;
-       2.0,   1.0,   2.0;
-       3.0,   4.0,   1.0];
+B = [7.0,   2.0,   3.0;
+     2.0,   1.0,   2.0;
+     3.0,   4.0,   1.0];
 
-  C = [271.0,   135.0,   147.0;
-       923.0,   494.0,   482.0;
-       578.0,   383.0,   287.0];
+C = [271.0,   135.0,   147.0;
+     923.0,   494.0,   482.0;
+     578.0,   383.0,   287.0];
 
-  X = discreteSylvester(A, B, C);
+X = discreteSylvester(A, B, C);
 
-  results in:
-  X = [2.0,   3.0,   6.0;
-       4.0,   7.0,   1.0;
-       5.0,   3.0,   2.0];
+results in:
+X = [2.0,   3.0,   6.0;
+     4.0,   7.0,   1.0;
+     5.0,   3.0,   2.0];
 
 </pre></blockquote>
 
@@ -4474,8 +4483,8 @@ no or infinitely many solutions (input A is singular).");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-                                 X = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q);
-         (X, alphaReal, alphaImag) = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q, true);
+                        X = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q);
+(X, alphaReal, alphaImag) = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q, true);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4485,7 +4494,7 @@ Function <strong>discreteRiccati</strong> computes the solution <strong>X</stron
 </p>
 
 <blockquote><pre>
- <strong>A</strong>'*<strong>X</strong>*<strong>A</strong> - <strong>X</strong> - <strong>A</strong>'*<strong>X</strong>*<strong>B</strong>*inv(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>*<strong>B</strong>)*<strong>B</strong>'*<strong>X</strong>*<strong>A</strong> + <strong>Q</strong> = <strong>0</strong>
+<strong>A</strong>'*<strong>X</strong>*<strong>A</strong> - <strong>X</strong> - <strong>A</strong>'*<strong>X</strong>*<strong>B</strong>*inv(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>*<strong>B</strong>)*<strong>B</strong>'*<strong>X</strong>*<strong>A</strong> + <strong>Q</strong> = <strong>0</strong>
 </pre></blockquote>
 
 <p>
@@ -4561,23 +4570,23 @@ according to <strong>S</strong>, the solution <strong>X</strong> can be calculat
 
 <h4>References</h4>
 <blockquote><pre>
-  [1] Laub, A.J.
-      A Schur Method for Solving Algebraic Riccati equations.
-      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+[1] Laub, A.J.
+    A Schur Method for Solving Algebraic Riccati equations.
+    IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
- A  = [4.0    3.0]
-      -4.5,  -3.5];
+A  = [4.0    3.0]
+     -4.5,  -3.5];
 
- B  = [ 1.0;
-       -1.0];
+B  = [ 1.0;
+      -1.0];
 
- R = [1.0];
+R = [1.0];
 
- Q = [9.0, 6.0;
-      6.0, 4.0]
+Q = [9.0, 6.0;
+     6.0, 4.0]
 
 X = discreteRiccati(A, B, R, Q);
 
@@ -4730,16 +4739,16 @@ to the original matrix are given, such that
 </p>
 
 <blockquote><pre>
-   sorted_M = <strong>if</strong> sortedRow <strong>then</strong> M[indices,:] <strong>else</strong> M[:,indices];
+sorted_M = <strong>if</strong> sortedRow <strong>then</strong> M[indices,:] <strong>else</strong> M[:,indices];
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  (M2, i2) := Matrices.sort([2, 1,  0;
-                             2, 0, -1]);
-       -> M2 = [2, 0, -1;
-                2, 1, 0 ];
-          i2 = {2,1};
+(M2, i2) := Matrices.sort([2, 1,  0;
+                           2, 0, -1]);
+     -> M2 = [2, 0, -1;
+              2, 1, 0 ];
+        i2 = {2,1};
 </pre></blockquote>
 </html>"));
   end sort;
@@ -4754,7 +4763,7 @@ to the original matrix are given, such that
     annotation (Inline=true, Documentation(info="<html>
  <h4>Syntax</h4>
 <blockquote><pre>
-         A_flr = Matrices.<strong>flipLeftRight</strong>(A);
+A_flr = Matrices.<strong>flipLeftRight</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4764,17 +4773,17 @@ Function <strong>flipLeftRight</strong> computes from matrix <strong>A</strong> 
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3;
-       3, 4,  5;
-      -1, 2, -3];
+A = [1, 2,  3;
+     3, 4,  5;
+    -1, 2, -3];
 
-  A_flr = flipLeftRight(A);
+A_flr = flipLeftRight(A);
 
-  results in:
+results in:
 
-  A_flr = [3, 2,  1;
-           5, 4,  3;
-          -3, 2, -1]
+A_flr = [3, 2,  1;
+         5, 4,  3;
+        -3, 2, -1]
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -4800,7 +4809,7 @@ Function <strong>flipLeftRight</strong> computes from matrix <strong>A</strong> 
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         A_fud = Matrices.<strong>flipUpDown</strong>(A);
+A_fud = Matrices.<strong>flipUpDown</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4810,17 +4819,17 @@ Function <strong>flipUpDown</strong> computes from matrix <strong>A</strong> a m
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3;
-       3, 4,  5;
-      -1, 2, -3];
+A = [1, 2,  3;
+     3, 4,  5;
+    -1, 2, -3];
 
-  A_fud = flipUpDown(A);
+A_fud = flipUpDown(A);
 
-  results in:
+results in:
 
-  A_fud  = [-1, 2, -3;
-             3, 4,  5;
-             1, 2,  3]
+A_fud  = [-1, 2, -3;
+           3, 4,  5;
+           1, 2,  3]
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -10128,8 +10137,8 @@ This package contains a direct interface to the LAPACK subroutines
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           X = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0);
-      (X, r) = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
+     X = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0);
+(X, r) = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -10137,28 +10146,27 @@ This function provides a Newton-like method for solving continuous algebraic Ric
 convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
 </p>
 <blockquote><pre>
-  <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
+ <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
 </pre></blockquote>
 <p>
 is taken in the direction to minimize the Frobenius norm of the residual
 </p>
 <blockquote><pre>
-    r = || <strong>X</strong>_i+1*<strong>A</strong> +<strong>A</strong>'*<strong>X</strong>_i+1 - <strong>X</strong>_i+1*<strong>G</strong>*<strong>X</strong>_i+1 + <strong>Q</strong> ||.
+r = || <strong>X</strong>_i+1*<strong>A</strong> +<strong>A</strong>'*<strong>X</strong>_i+1 - <strong>X</strong>_i+1*<strong>G</strong>*<strong>X</strong>_i+1 + <strong>Q</strong> ||.
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
-        -1
-  G = <strong>B</strong>*<strong>R</strong> *<strong>B</strong>'
+      -1
+G = <strong>B</strong>*<strong>R</strong> *<strong>B</strong>'
 </pre></blockquote>
-<p>
 
+<p>
 The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. The iteration is terminated if either
 maxSteps iteration steps have been performed or the relative change <strong>delta</strong>_i/<strong>X</strong>_i became smaller than eps.
 </p>
 <p>
-
 With an appropriate initial value <strong>X</strong>0 a sufficiently accurate solution might be reach within a few iteration steps. Although a Lyapunov equation
 of order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
@@ -10168,49 +10176,48 @@ The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
 <blockquote><pre>
-  [1] Benner, P., Byers, R.
-      An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
-      IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
-  [2] Datta, B.N.
-      Numerical Methods for Linear Control Systems
-      Elsevier Academic Press, 2004.
+[1] Benner, P., Byers, R.
+    An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+    IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+[2] Datta, B.N.
+    Numerical Methods for Linear Control Systems
+    Elsevier Academic Press, 2004.
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-     A=[0.0,         1.0,         0.0,         0.0;
-        0.0,        -1.890,       3.900e-01,  -5.530;
-        0.0,        -3.400e-02,  -2.980,       2.430;
-        3.400e-02,  -1.100e-03,  -9.900e-01,  -2.100e-01];
+A=[0.0,         1.0,         0.0,         0.0;
+   0.0,        -1.890,       3.900e-01,  -5.530;
+   0.0,        -3.400e-02,  -2.980,       2.430;
+   3.400e-02,  -1.100e-03,  -9.900e-01,  -2.100e-01];
 
-     B=[ 0.0,         0.0;
-         3.600e-01,  -1.60;
-        -9.500e-01,  -3.200e-02;
-         3.000e-02,   0.0];
+B=[ 0.0,         0.0;
+    3.600e-01,  -1.60;
+   -9.500e-01,  -3.200e-02;
+    3.000e-02,   0.0];
 
-     R=[1, 0; 0, 1];
+R=[1, 0; 0, 1];
 
-     Q=[2.313,       2.727,       6.880e-01,   2.300e-02;
-        2.727,       4.271,       1.148,       3.230e-01;
-        6.880e-01,   1.148,       3.130e-01,   1.020e-01;
-        2.300e-02,   3.230e-01,   1.020e-01,   8.300e-02];
+Q=[2.313,       2.727,       6.880e-01,   2.300e-02;
+   2.727,       4.271,       1.148,       3.230e-01;
+   6.880e-01,   1.148,       3.130e-01,   1.020e-01;
+   2.300e-02,   3.230e-01,   1.020e-01,   8.300e-02];
 
-    X0=identity(4);
+X0=identity(4);
 
-    (X,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0);
+(X,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0);
 
-  //  X = [1.3239,  0.9015,  0.5466, -1.7672;
-           0.9015,  0.9607,  0.4334, -1.1989;
-           0.5466,  0.4334,  0.4605, -1.3633;
-          -1.7672, -1.1989, -1.3633,  4.4612]
-  // r =  2.48809423389491E-015
+// X = [1.3239,  0.9015,  0.5466, -1.7672;
+        0.9015,  0.9607,  0.4334, -1.1989;
+        0.5466,  0.4334,  0.4605, -1.3633;
+       -1.7672, -1.1989, -1.3633,  4.4612]
+// r =  2.48809423389491E-015
 
-    (,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0,4);
+(,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0,4);
 
-   // r =  0.0004;
-
-<br>
+// r =  0.0004;
 </pre></blockquote>
+
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">Matrices.Utilities.discreteRiccatiIterative</a><br>
 <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>
@@ -10292,8 +10299,8 @@ The algorithm is taken from [1] and [2].
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           X = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0);
-      (X, r) = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
+     X = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0);
+(X, r) = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -10301,23 +10308,22 @@ This function provides a Newton-like method for solving discrete-time algebraic 
 convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
 </p>
 <blockquote><pre>
-  <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
+<strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
 </pre></blockquote>
 <p>
 is taken in the direction to minimize the Frobenius norm of the residual
 </p>
 <blockquote><pre>
-  r = || <strong>A</strong>'<strong>X</strong>_i+1*<strong>A</strong> - <strong>X</strong>_i+1 - <strong>A</strong>'<strong>X</strong>_i+1*<strong>G</strong>_i*<strong>X</strong>_i+1*<strong>A</strong> + <strong>Q</strong> ||
+r = || <strong>A</strong>'<strong>X</strong>_i+1*<strong>A</strong> - <strong>X</strong>_i+1 - <strong>A</strong>'<strong>X</strong>_i+1*<strong>G</strong>_i*<strong>X</strong>_i+1*<strong>A</strong> + <strong>Q</strong> ||
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
-                       -1
-  G_i = <strong>B</strong>*(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>_i*<strong>B</strong>) *<strong>B</strong>'
+                     -1
+G_i = <strong>B</strong>*(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>_i*<strong>B</strong>) *<strong>B</strong>'
 </pre></blockquote>
 <p>
-
 Output <code>r</code> is the norm of the residual of the last iteration.<br>
 </p>
 <p>
@@ -10325,7 +10331,6 @@ The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. Th
 maxSteps iteration steps have been performed or the relative change <strong>delta</strong>_i/<strong>X</strong>_i became smaller than eps.
 </p>
 <p>
-
 With an appropriate initial value <strong>X</strong>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
 order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
@@ -10335,44 +10340,45 @@ The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
 <blockquote><pre>
-  [1] Benner, P., Byers, R.
-      An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
-      IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
-  [2] Datta, B.N.
-      Numerical Methods for Linear Control Systems
-      Elsevier Academic Press, 2004.
+[1] Benner, P., Byers, R.
+    An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+    IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+[2] Datta, B.N.
+    Numerical Methods for Linear Control Systems
+    Elsevier Academic Press, 2004.
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-     A  = [0.9970,    0.0000,    0.0000,    0.0000;
-           1.0000,    0.0000,    0.0000,    0.0000;
-           0.0000,    1.0000,    0.0000,    0.0000;
-           0.0000,    0.0000,    1.0000,    0.0000];
+A  = [0.9970,    0.0000,    0.0000,    0.0000;
+      1.0000,    0.0000,    0.0000,    0.0000;
+      0.0000,    1.0000,    0.0000,    0.0000;
+      0.0000,    0.0000,    1.0000,    0.0000];
 
-     B  = [0.0150;
-           0.0000;
-           0.0000;
-           0.0000];
+B  = [0.0150;
+      0.0000;
+      0.0000;
+      0.0000];
 
-     R = [0.2500];
+R = [0.2500];
 
-     Q = [0, 0, 0, 0;
-          0, 0, 0, 0;
-          0, 0, 0, 0;
-          0, 0, 0, 1];
+Q = [0, 0, 0, 0;
+     0, 0, 0, 0;
+     0, 0, 0, 0;
+     0, 0, 0, 1];
 
-    X0=identity(4);
+X0=identity(4);
 
-    (X,r) = Matrices.Utilities.discreteRiccatiIterative(A, B, R, Q, X0);
+(X,r) = Matrices.Utilities.discreteRiccatiIterative(A, B, R, Q, X0);
 
-  //  X = [30.625, 0.0, 0.0, 0.0;
-            0.0,   1.0, 0.0, 0.0;
-            0.0,   0.0, 1.0, 0.0;
-            0.0,   0.0, 0.0, 1.0];
+//  X = [30.625, 0.0, 0.0, 0.0;
+          0.0,   1.0, 0.0, 0.0;
+          0.0,   0.0, 1.0, 0.0;
+          0.0,   0.0, 0.0, 1.0];
 
-  // r =   3.10862446895044E-015
+// r =   3.10862446895044E-015
 </pre></blockquote>
+
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
 <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>
@@ -10434,8 +10440,8 @@ The algorithm is taken from [1] and [2].
     annotation (Documentation(info="<html>
    <h4>Syntax</h4>
 <blockquote><pre>
-         H = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A);
-         (H, V, tau, info) = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A,ilo, ihi);
+                H = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A);
+(H, V, tau, info) = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A,ilo, ihi);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -10448,18 +10454,17 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.
 
 <h4>Example</h4>
 <blockquote><pre>
- A  = [1, 2, 3;
-       6, 5, 4;
-       1, 0, 0];
+A  = [1, 2, 3;
+      6, 5, 4;
+      1, 0, 0];
 
- H = toUpperHessenberg(A);
+H = toUpperHessenberg(A);
 
-  results in:
+results in:
 
- H = [1.0,  -2.466,  2.630;
-     -6.083, 5.514, -3.081;
-      0.0,   0.919, -0.514]
-
+H = [1.0,  -2.466,  2.630;
+    -6.083, 5.514, -3.081;
+     0.0,   0.919, -0.514]
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -10497,8 +10502,8 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           ev = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
-   (ev, info) = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
+        ev = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
+(ev, info) = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -10514,18 +10519,18 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.LAPACK.
 
 <h4>Example</h4>
 <blockquote><pre>
-     Real A[3,3] = [1,2,3;
-                    9,8,7;
-                    0,1,0];
+Real A[3,3] = [1,2,3;
+               9,8,7;
+               0,1,0];
 
-     Real ev[3,2];
+Real ev[3,2];
 
-     ev := Matrices.Utilities.eigenvaluesHessenberg(A);
+ev := Matrices.Utilities.eigenvaluesHessenberg(A);
 
-  // ev  = [10.7538,    0.0;
-            -0.8769,    1.0444;
-            -0.8769,   -1.0444]
-  // = {10.7538,  -0.8769 +- i*1.0444}
+// ev  = [10.7538,    0.0;
+          -0.8769,    1.0444;
+          -0.8769,   -1.0444]
+// = {10.7538,  -0.8769 +- i*1.0444}
 </pre></blockquote>
 <br>
 
@@ -10611,16 +10616,16 @@ reordered eigenvalues respectively.
 
 <h4>Example</h4>
 <blockquote><pre>
-  T := [-1,2, 3,4;
-         0,2, 6,5;
-         0,0,-3,5;
-         0,0, 0,6];
-  To := Matrices.Utilities.reorderRSF(T,identity(4),{-1, 2, -3, 6},{0, 0, 0, 0}, true);
+T := [-1,2, 3,4;
+       0,2, 6,5;
+       0,0,-3,5;
+       0,0, 0,6];
+To := Matrices.Utilities.reorderRSF(T,identity(4),{-1, 2, -3, 6},{0, 0, 0, 0}, true);
 
-  // To = [-1.0, -0.384, 3.585, 4.0;
-  //        0.0, -3.0,   6.0,   0.64;
-  //        0.0,  0.0,   2.0,   7.04;
-  //        0.0,  0.0,   0.0,   6.0]
+// To = [-1.0, -0.384, 3.585, 4.0;
+//        0.0, -3.0,   6.0,   0.64;
+//        0.0,  0.0,   2.0,   7.04;
+//        0.0,  0.0,   0.0,   6.0]
 </pre></blockquote>
 <p>
 See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSchur</a>
@@ -10680,7 +10685,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           tk = Matrices.Utilities.<strong>findLocal_tk</strong>(Rk, Vk);
+tk = Matrices.Utilities.<strong>findLocal_tk</strong>(Rk, Vk);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -10690,7 +10695,7 @@ and <a href=\"modelica://Modelica.Math.Matrices.Utilities.discreteRiccatiIterati
 The function computes the local minimum of the function f_k(t_k)
 </p>
 <blockquote><pre>
-  f_k(t_k) = alpha_k*(1-t_k)^2 + 2*beta_k*(1-t)*t^2 + gamma_k*t^4
+f_k(t_k) = alpha_k*(1-t_k)^2 + 2*beta_k*(1-t)*t^2 + gamma_k*t^4
 </pre></blockquote>
 <p>
 by calculating the zeros of the derivation d f_k/d t_k. It is known that the function f_k(t_k) has a local minimum at some value t_k_min in [0, 2].<br>
@@ -10699,9 +10704,9 @@ See [1] for more information
 </p>
 <h4>References</h4>
 <blockquote><pre>
-  [1] Benner, P., Byers, R.
-      An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
-      IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+[1] Benner, P., Byers, R.
+    An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+    IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -11961,7 +11966,7 @@ This function returns the area hyperbolic cosine of its
 input argument u. The valid range of u is
 </p>
 <blockquote><pre>
-  +1 &le; u &lt; +&infin;
++1 &le; u &lt; +&infin;
 </pre></blockquote>
 <p>
 If the function is called with u &lt; 1, an error occurs.
