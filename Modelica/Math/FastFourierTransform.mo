@@ -245,9 +245,9 @@ with the only difference that just the amplitudes of the FFT are stored on file 
         info="<html>
 <h4>Syntax</h4>
 
-<blockquote><p>
+<blockquote><pre>
 <strong>realFFTinfo</strong>(f_max, f_resolution, f_max_factor=5);
-</p></blockquote>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -334,9 +334,9 @@ results in the following output:
       info="<html>
 <h4>Syntax</h4>
 
-<blockquote><p>
+<blockquote><pre>
 ns = <strong>realFFTsamplePoints</strong>(f_max, f_resolution, f_max_factor=5);
-</p></blockquote>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -459,9 +459,9 @@ ns = 5760
       info="<html>
 <h4>Syntax</h4>
 
-<blockquote><p>
+<blockquote><pre>
 (info, amplitudes, phases) = <strong>realFFT</strong>(u);
-</p></blockquote>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -585,9 +585,9 @@ which is a complete example where an FFT is computed during simulation and store
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 
-<blockquote><p>
+<blockquote><pre>
 success = <strong>realFFTwriteToFile</strong>(t_computed, fileName, f_max, amplitudes, phases, format);
-</p></blockquote>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
