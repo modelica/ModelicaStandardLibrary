@@ -2312,6 +2312,7 @@ annotation(version      = \"3.2.3\",
         Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
         expand the above \"revisionId\" place holder to something like:
         <blockquote><pre>revisionId = \"c04e23a0d 2019-01-23 12:00:00 +0200$\"</pre></blockquote>
+     </blockquote>
      </li>
 </ul>
 
