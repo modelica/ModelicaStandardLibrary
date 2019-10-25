@@ -886,7 +886,7 @@ This shape visualizes the x-y plane by a box.
       "= true: 3D model will be displayed without faces"
       annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
     input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
-      "Color of surface" annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
+      "Color of surface" annotation(Dialog(enable=animation, colorSelector=true, group="Material properties"));
     input Types.SpecularCoefficient specularCoefficient = 0.7
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
     input Real transparency=0
