@@ -846,7 +846,7 @@ equation of the integrator:
 </p>
 
 <blockquote><pre>
-   <strong>der</strong>(y) = k*u;
+<strong>der</strong>(y) = k*u;
 </pre></blockquote>
 
 <p>
@@ -1198,7 +1198,7 @@ equation of the integrator:
 </p>
 
 <blockquote><pre>
-   <strong>der</strong>(y) = k*u;
+<strong>der</strong>(y) = k*u;
 </pre></blockquote>
 
 <p>
@@ -2106,11 +2106,10 @@ The filters are implemented in the following, reliable way:
 <li> The resulting first and second order transfer functions are implemented in
      state space form, using the \"eigen value\" representation of a transfer function:
      <blockquote><pre>
-
-  // second order block with eigen values: a +/- jb
-  <strong>der</strong>(x1) = a*x1 - b*x2 + (a^2 + b^2)/b*u;
-  <strong>der</strong>(x2) = b*x1 + a*x2;
-       y  = x2;
+// second order block with eigen values: a +/- jb
+<strong>der</strong>(x1) = a*x1 - b*x2 + (a^2 + b^2)/b*u;
+<strong>der</strong>(x2) = b*x1 + a*x2;
+     y  = x2;
      </pre></blockquote>
      The dc-gain from the input to the output of this block is one and the selected
      states are in the order of the input (if \"u\" is in the order of \"one\", then the
@@ -2686,16 +2685,16 @@ The goal is to implement the filter in the following form:
 </p>
 
 <blockquote><pre>
-  // real pole:
-   der(x) = r*x - r*u
-       y  = x
+// real pole:
+ der(x) = r*x - r*u
+     y  = x
 
-  // complex conjugate poles:
-  der(x1) = a*x1 - b*x2 + ku*u;
-  der(x2) = b*x1 + a*x2;
-       y  = x2;
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = x2;
 
-            ku = (a^2 + b^2)/b
+          ku = (a^2 + b^2)/b
 </pre></blockquote>
 <p>
 This representation has the following transfer function:
@@ -2794,22 +2793,22 @@ The goal is to implement the filter in the following form:
 </p>
 
 <blockquote><pre>
-  // real pole:
-   der(x) = r*x - r*u
-       y  = -x + u
+// real pole:
+ der(x) = r*x - r*u
+     y  = -x + u
 
-  // complex conjugate poles:
-  der(x1) = a*x1 - b*x2 + ku*u;
-  der(x2) = b*x1 + a*x2;
-       y  = k1*x1 + k2*x2 + u;
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = k1*x1 + k2*x2 + u;
 
-            ku = (a^2 + b^2)/b
-            k1 = 2*a/ku
-            k2 = (a^2 - b^2) / (b*ku)
-               = (a^2 - b^2) / (a^2 + b^2)
-               = (1 - (b/a)^2) / (1 + (b/a)^2)
+          ku = (a^2 + b^2)/b
+          k1 = 2*a/ku
+          k2 = (a^2 - b^2) / (b*ku)
+             = (a^2 - b^2) / (a^2 + b^2)
+             = (1 - (b/a)^2) / (1 + (b/a)^2)
 
-</pre></blockquote>
+pre></blockquote>
 <p>
 This representation has the following transfer function:
 </p>
@@ -2912,14 +2911,14 @@ The goal is to implement the filter in the following form:
 </p>
 
 <blockquote><pre>
-  // complex conjugate poles:
-  der(x1) = a*x1 - b*x2 + ku*u;
-  der(x2) = b*x1 + a*x2;
-       y  = k1*x1 + k2*x2;
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = k1*x1 + k2*x2;
 
-            ku = (a^2 + b^2)/b
-            k1 = cn/ku
-            k2 = cn*a/(b*ku)
+          ku = (a^2 + b^2)/b
+          k1 = cn/ku
+          k2 = cn*a/(b*ku)
 </pre></blockquote>
 <p>
 This representation has the following transfer function:
@@ -3008,14 +3007,14 @@ The goal is to implement the filter in the following form:
 </p>
 
 <blockquote><pre>
-  // complex conjugate poles:
-  der(x1) = a*x1 - b*x2 + ku*u;
-  der(x2) = b*x1 + a*x2;
-       y  = k1*x1 + k2*x2 + u;
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = k1*x1 + k2*x2 + u;
 
-            ku = (a^2 + b^2)/b
-            k1 = 2*a/ku
-            k2 = (c0 + a^2 - b^2)/(b*ku)
+          ku = (a^2 + b^2)/b
+          k1 = 2*a/ku
+          k2 = (c0 + a^2 - b^2)/(b*ku)
 </pre></blockquote>
 <p>
 This representation has the following transfer function:
@@ -4079,7 +4078,9 @@ Bn(p) = sum w0^k*c_k*(p/w0)^k
 <p>of the normalized transfer function H'(p'). There exist n/2 of conjugate complex
 pairs of zeros (beta +-j*gamma) if n is even and one additional real zero (alpha) if n is
 odd. Finally, the coefficients a, b1_k, b2_k of the polynomials</p>
-<blockquote><pre> a*p + 1,  n is odd </pre></blockquote>
+<blockquote><pre>
+a*p + 1,  n is odd
+</pre></blockquote>
 <p>and</p>
 <blockquote><pre>
 b2_k*p^2 + b1_k*p + 1,   k = 1,... div(n,2)
@@ -4547,7 +4548,7 @@ A band pass with bandwidth \"w\" is determined from a low pass
 </p>
 
 <blockquote><pre>
-  1/(p^2 + a*p + b)
+1/(p^2 + a*p + b)
 </pre></blockquote>
 
 <p>
@@ -4555,7 +4556,7 @@ with the transformation
 </p>
 
 <blockquote><pre>
-  new(p) = (p + 1/p)/w
+new(p) = (p + 1/p)/w
 </pre></blockquote>
 
 <p>
@@ -4563,10 +4564,10 @@ This results in the following derivation:
 </p>
 
 <blockquote><pre>
-  1/(p^2 + a*p + b) -> 1/( (p+1/p)^2/w^2 + a*(p + 1/p)/w + b )
-                     = 1 /( ( p^2 + 1/p^2 + 2)/w^2 + (p + 1/p)*a/w + b )
-                     = w^2*p^2 / (p^4 + 2*p^2 + 1 + (p^3 + p)a*w + b*w^2*p^2)
-                     = w^2*p^2 / (p^4 + a*w*p^3 + (2+b*w^2)*p^2 + a*w*p + 1)
+1/(p^2 + a*p + b) -> 1/( (p+1/p)^2/w^2 + a*(p + 1/p)/w + b )
+                   = 1 /( ( p^2 + 1/p^2 + 2)/w^2 + (p + 1/p)*a/w + b )
+                   = w^2*p^2 / (p^4 + 2*p^2 + 1 + (p^3 + p)a*w + b*w^2*p^2)
+                   = w^2*p^2 / (p^4 + a*w*p^3 + (2+b*w^2)*p^2 + a*w*p + 1)
 </pre></blockquote>
 
 <p>
@@ -4576,9 +4577,9 @@ polynomial can be represented (with the unknowns \"c\" and \"alpha\"):
 </p>
 
 <blockquote><pre>
-  g(p) = w^2*p^2 / ( (p*alpha)^2 + c*(p*alpha) + 1) * ( (p/alpha)^2 + c*(p/alpha) + 1)
-       = w^2*p^2 / ( p^4 + c*(alpha + 1/alpha)*p^3 + (alpha^2 + 1/alpha^2 + c^2)*p^2
-                                                   + c*(alpha + 1/alpha)*p + 1 )
+g(p) = w^2*p^2 / ( (p*alpha)^2 + c*(p*alpha) + 1) * ( (p/alpha)^2 + c*(p/alpha) + 1)
+     = w^2*p^2 / ( p^4 + c*(alpha + 1/alpha)*p^3 + (alpha^2 + 1/alpha^2 + c^2)*p^2
+                                                 + c*(alpha + 1/alpha)*p + 1 )
 </pre></blockquote>
 
 <p>
@@ -4586,12 +4587,12 @@ Comparison of coefficients:
 </p>
 
 <blockquote><pre>
-  c*(alpha + 1/alpha) = a*w           -> c = a*w / (alpha + 1/alpha)
-  alpha^2 + 1/alpha^2 + c^2 = 2+b*w^2 -> equation to determine alpha
+c*(alpha + 1/alpha) = a*w           -> c = a*w / (alpha + 1/alpha)
+alpha^2 + 1/alpha^2 + c^2 = 2+b*w^2 -> equation to determine alpha
 
-  alpha^4 + 1 + a^2*w^2*alpha^4/(1+alpha^2)^2 = (2+b*w^2)*alpha^2
-    or z = alpha^2
-  z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1 = 0
+alpha^4 + 1 + a^2*w^2*alpha^4/(1+alpha^2)^2 = (2+b*w^2)*alpha^2
+  or z = alpha^2
+z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1 = 0
 </pre></blockquote>
 
 <p>
@@ -4600,12 +4601,12 @@ a real zero of a fourth order polynomial):
 </p>
 
 <blockquote><pre>
-   solve: 0 = f(z)  = z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1  for \"z\"
-              f(0)  = 1  &gt; 0
-              f(1)  = 1 + a^2*w^2/4 - (2+b*w^2) + 1
-                    = (a^2/4 - b)*w^2  &lt; 0
-                    // since b - a^2/4 > 0 requirement for complex conjugate poles
-   -> 0 &lt; z &lt; 1
+solve: 0 = f(z)  = z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1  for \"z\"
+           f(0)  = 1  &gt; 0
+           f(1)  = 1 + a^2*w^2/4 - (2+b*w^2) + 1
+                 = (a^2/4 - b)*w^2  &lt; 0
+                 // since b - a^2/4 > 0 requirement for complex conjugate poles
+-> 0 &lt; z &lt; 1
 </pre></blockquote>
 
 <p>
@@ -4678,10 +4679,10 @@ This is due to the basic equation of an integrator:
 </p>
 
 <blockquote><pre>
-  <strong>initial equation</strong>
-     <strong>der</strong>(y) = 0;   // Init.SteadyState
-  <strong>equation</strong>
-     <strong>der</strong>(y) = k*u;
+<strong>initial equation</strong>
+   <strong>der</strong>(y) = 0;   // Init.SteadyState
+<strong>equation</strong>
+   <strong>der</strong>(y) = k*u;
 </pre></blockquote>
 
 <p>

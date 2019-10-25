@@ -275,16 +275,18 @@ Additionally, the dimensions of the input connector signals and
 the output connector signals have to be explicitly defined via the
 parameters 'nin' and 'nout'.</p>
 <p>Example:</p>
-<blockquote><pre>     nin = 7 \"Number of inputs\";
-     nout = 4 \"Number of outputs\";
-     extract[nout] = {6,3,3,2} \"Extracting vector\";
+<blockquote><pre>
+nin  = 7 \"Number of inputs\";
+nout = 4 \"Number of outputs\";
+extract[nout] = {6,3,3,2} \"Extracting vector\";
 </pre></blockquote>
 <p>extracts four output signals (nout=4) from the seven elements of the
 input vector (nin=7):</p>
-<blockquote><pre>   output no. 1 is set equal to input no. 6
-   output no. 2 is set equal to input no. 3
-   output no. 3 is set equal to input no. 3
-   output no. 4 is set equal to input no. 2
+<blockquote><pre>
+output no. 1 is set equal to input no. 6
+output no. 2 is set equal to input no. 3
+output no. 3 is set equal to input no. 3
+output no. 4 is set equal to input no. 2
 </pre></blockquote>
 </html>"));
 end ExtractSignal;
@@ -385,7 +387,8 @@ equation
 <p>This block extracts a scalar output signal out the
 vector of input signals dependent on the Integer
 value of the additional u index:</p>
-<blockquote><pre>    y = u [ index ] ;
+<blockquote><pre>
+y = u [ index ] ;
 </pre></blockquote>
 <p>where index is an additional Integer input signal.</p>
 </html>"));

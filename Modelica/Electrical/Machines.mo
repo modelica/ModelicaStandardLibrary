@@ -13410,14 +13410,14 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
 The friction losses are considered by the equations
 </p>
 <blockquote><pre>
-   tau / tauRef = (+w / wRef) ^ power_w    for w &gt; +wLinear
- - tau / tauRef = (-w / wRef) ^ power_w    for w &lt; -wLinear
+  tau / tauRef = (+w / wRef) ^ power_w    for w &gt; +wLinear
+- tau / tauRef = (-w / wRef) ^ power_w    for w &lt; -wLinear
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
-  tauRef * wRef = PRef
+tauRef * wRef = PRef
 </pre></blockquote>
 <p>
 being the friction torque at the reference angular velocity
@@ -13428,13 +13428,13 @@ approximately 1.5 for axial ventilation and approximately 2.0 for radial ventila
 For stability reasons the friction torque <code>tau</code> is approximated by a linear curve
 </p>
 <blockquote><pre>
-  tau / tauLinear = w / wLinear
+tau / tauLinear = w / wLinear
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
-  tauLinear = tauRef*(wLinear/wRef) ^ power_w
+tauLinear = tauRef*(wLinear/wRef) ^ power_w
 </pre></blockquote>
 <p>
 in the range <code> -wLinear &le; w &le; wLinear</code> with <code>wLinear = 0.001 * wRef</code>. The relationship of torque
@@ -13544,7 +13544,7 @@ Instead, the dissipated losses are considered through an equivalent braking torq
 The stray load loss torque is
 </p>
 <blockquote><pre>
-  tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
+tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
 </pre></blockquote>
 <p>
 where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
@@ -13595,7 +13595,7 @@ Instead, the dissipated losses are considered through an equivalent braking torq
 The permanent magnet loss torque is
 </p>
 <blockquote><pre>
-  tau = PRef/wRef * (c + (1 - c) * (i/IRef)^power_I) * (w/wRef)^power_w
+tau = PRef/wRef * (c + (1 - c) * (i/IRef)^power_I) * (w/wRef)^power_w
 </pre></blockquote>
 <p>
 where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
@@ -13672,7 +13672,7 @@ Core losses can be separated into <strong>eddy current</strong> and <strong>hyst
 can thus be expressed as
 </p>
 <blockquote><pre>
-  P = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (V / VRef)^2
+P = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (V / VRef)^2
 </pre></blockquote>
 <p>
 where <code>w</code> is the actual angular remagnetization velocity and <code>V</code> is the actual voltage.
@@ -13850,7 +13850,7 @@ e.g., used for initial equations.
 The stray load loss torque is
 </p>
 <blockquote><pre>
-  tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
+tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
 </pre></blockquote>
 <p>
 where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
@@ -13908,7 +13908,7 @@ Core losses can be separated into <em>eddy current</em> and <em>hysteresis</em> 
 can thus be expressed as
 </p>
 <blockquote><pre>
-  p = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (v / VRef)^2
+p = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (v / VRef)^2
 </pre></blockquote>
 <p>
 where <code>w</code> is the actual angular velocity and <code>v</code> is the actual voltage. The term <code>ratioHysteresis</code> is the ratio
@@ -14088,9 +14088,9 @@ alphaRef = -------------------------------
 is determined; using this value, actual resistance <code>R</code> with respect to the actual temperature <code>T</code> is calculated by
 </p>
 <blockquote><pre>
-   R
-  ------ = 1 + alphaRef * (T - TRef)
-   RRef
+  R
+------ = 1 + alphaRef * (T - TRef)
+ RRef
 </pre></blockquote>
 <p>
 where <code>RRef</code> is the resistance at the reference temperature <code>TRef</code>.
@@ -14126,9 +14126,9 @@ alphaRef = -------------------------------
 is determined; using this value, actual value (e.g. resistance <code>R</code>) with respect to the actual temperature <code>T</code> is calculated by
 </p>
 <blockquote><pre>
-   R
-  ------ = 1 + alphaRef * (T - TRef)
-   RRef
+  R
+------ = 1 + alphaRef * (T - TRef)
+ RRef
 </pre></blockquote>
 <p>
 where <code>RRef</code> is the value (e.g. resistance) at the reference temperature <code>TRef</code>.
@@ -14854,7 +14854,7 @@ Up to now, only Ohmic losses in stator and rotor windings are implemented.
 They are modeled as <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">linearly temperature dependent resistors</a>:
 </p>
 <blockquote><pre>
-   ROperational = RRef * (1 + alphaRef * (TOperational - TRef))
+ROperational = RRef * (1 + alphaRef * (TOperational - TRef))
 </pre></blockquote>
 <h5>Parameters:</h5>
 <ul>

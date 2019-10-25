@@ -533,7 +533,7 @@ instances:
 </p>
 
 <blockquote><pre>
-   InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
+InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
 </pre></blockquote>
 </html>"));
   end InverseBlockConstraints;
@@ -608,13 +608,13 @@ gain matrix <strong>K</strong> with the input signal vector <strong>u</strong>:
 Example:
 </p>
 <blockquote><pre>
-   parameter: <strong>K</strong> = [0.12 2; 3 1.5]
+parameter: <strong>K</strong> = [0.12 2; 3 1.5]
 
-   results in the following equations:
+results in the following equations:
 
-     | y[1] |     | 0.12  2.00 |   | u[1] |
-     |      |  =  |            | * |      |
-     | y[2] |     | 3.00  1.50 |   | u[2] |
+  | y[1] |     | 0.12  2.00 |   | u[1] |
+  |      |  =  |            | * |      |
+  | y[2] |     | 3.00  1.50 |   | u[2] |
 </pre></blockquote>
 
 </html>"),
@@ -781,9 +781,9 @@ false, y is set to parameter \"y_default\".
 </p>
 
 <blockquote><pre>
-  // Conceptual equation (not valid Modelica)
-  i = 'first element of u[:] that is true';
-  y = <strong>if</strong> i==0 <strong>then</strong> y_default <strong>else</strong> expr[i];
+// Conceptual equation (not valid Modelica)
+i = 'first element of u[:] that is true';
+y = <strong>if</strong> i==0 <strong>then</strong> y_default <strong>else</strong> expr[i];
 </pre></blockquote>
 
 <p>
@@ -2540,8 +2540,9 @@ Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
 This block computes the output <strong>y</strong>
 as <em>nearest integer value</em> of the input <strong>u</strong>:
 </p>
-<blockquote><pre>    y = <strong>integer</strong>( <strong>floor</strong>( u + 0.5 ) )  for  u &gt; 0;
-    y = <strong>integer</strong>( <strong>ceil </strong>( u - 0.5 ) )  for  u &lt; 0;
+<blockquote><pre>
+y = <strong>integer</strong>( <strong>floor</strong>( u + 0.5 ) )  for  u &gt; 0;
+y = <strong>integer</strong>( <strong>ceil </strong>( u - 0.5 ) )  for  u &lt; 0;
 </pre></blockquote>
 </html>"));
   end RealToInteger;
@@ -2575,7 +2576,8 @@ as <em>nearest integer value</em> of the input <strong>u</strong>:
 This block computes the output <strong>y</strong>
 as <em>Real equivalent</em> of the Integer input <strong>u</strong>:
 </p>
-<blockquote><pre>    y = u;
+<blockquote><pre>
+y = u;
 </pre></blockquote>
 <p>where <strong>u</strong> is of Integer and <strong>y</strong> of Real type.</p>
 </html>"));
@@ -2596,7 +2598,8 @@ as <em>Real equivalent</em> of the Integer input <strong>u</strong>:
 This block computes the output <strong>y</strong>
 as <em>Real equivalent</em> of the Boolean input <strong>u</strong>:
 </p>
-<blockquote><pre>    y = <strong>if</strong> u <strong>then</strong> realTrue <strong>else</strong> realFalse;
+<blockquote><pre>
+y = <strong>if</strong> u <strong>then</strong> realTrue <strong>else</strong> realFalse;
 </pre></blockquote>
 <p>where <strong>u</strong> is of Boolean and <strong>y</strong> of Real type,
 and <strong>realTrue</strong> and <strong>realFalse</strong> are parameters.
@@ -2634,7 +2637,8 @@ and <strong>realTrue</strong> and <strong>realFalse</strong> are parameters.
 This block computes the output <strong>y</strong>
 as <em>Integer equivalent</em> of the Boolean input <strong>u</strong>:
 </p>
-<blockquote><pre>    y = <strong>if</strong> u <strong>then</strong> integerTrue <strong>else</strong> integerFalse;
+<blockquote><pre>
+y = <strong>if</strong> u <strong>then</strong> integerTrue <strong>else</strong> integerFalse;
 </pre></blockquote>
 <p>where <strong>u</strong> is of Boolean and <strong>y</strong> of Integer type,
 and <strong>integerTrue</strong> and <strong>integerFalse</strong> are parameters.
@@ -2673,7 +2677,8 @@ This block computes the Boolean output <strong>y</strong>
 from the Real input <strong>u</strong> by the equation:
 </p>
 
-<blockquote><pre>    y = u &ge; threshold;
+<blockquote><pre>
+y = u &ge; threshold;
 </pre></blockquote>
 
 <p>
@@ -2713,7 +2718,8 @@ This block computes the Boolean output <strong>y</strong>
 from the Integer input <strong>u</strong> by the equation:
 </p>
 
-<blockquote><pre>    y = u &ge; threshold;
+<blockquote><pre>
+y = u &ge; threshold;
 </pre></blockquote>
 
 <p>
@@ -2776,8 +2782,8 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
 </p>
 
 <blockquote><pre>
-  y_abs = abs(u_re + j*u_im) = sqrt( u_re<sup>2</sup> + u_im<sup>2</sup> )
-  y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
+y_abs = abs(u_re + j*u_im) = sqrt( u_re<sup>2</sup> + u_im<sup>2</sup> )
+y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
 </pre></blockquote>
 </html>"));
   end RectangularToPolar;
@@ -2817,8 +2823,8 @@ The input values of this block are the polar components <code>uabs</code> and <c
 This block calculates the components <code>y_re</code> and <code>y_im</code> of the rectangular representation of this phasor.
 </p>
 <blockquote><pre>
-   y_re = u_abs * cos( u_arg )
-   y_im = u_abs * sin( u_arg )
+y_re = u_abs * cos( u_arg )
+y_im = u_abs * sin( u_arg )
 </pre></blockquote>
 </html>"));
   end PolarToRectangular;
@@ -2942,9 +2948,11 @@ Note: The output is updated after each period defined by 1/f.
 </table>
 </html>",                                   info="<html>
 <p>This block continuously calculates the mean value of its input signal. It uses the function:</p>
-<blockquote><pre>    integral( u over time)
-y = ----------------------
-      time - startTime</pre></blockquote>
+<blockquote><pre>
+     integral( u over time)
+y = ------------------------
+        time - startTime
+</pre></blockquote>
 <p>This can be used to determine the empirical expectation value of a random signal, such as generated by the <a href=\"modelica://Modelica.Blocks.Noise\">Noise</a> blocks.</p>
 <p>The parameter t_eps is used to guard against division by zero (the mean value computation
 starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time instant y = u).</p>
@@ -3061,12 +3069,14 @@ Note: The output is updated after each period defined by 1/f.
 </td></tr>
 
 </table>
-</html>",                                   info="<html>
+</html>", info="<html>
 <p>
 This block calculates the empirical variance of its input signal. It is based on the formula
 (but implemented in a more reliable numerical way):
 </p>
-<blockquote><pre>y = mean(  (u - mean(u))^2  )</pre></blockquote>
+<blockquote><pre>
+y = mean(  (u - mean(u))^2  )
+</pre></blockquote>
 
 <p>The parameter t_eps is used to guard against division by zero (the variance computation
 starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time instant y = 0).</p>
@@ -3150,9 +3160,11 @@ This block is demonstrated in the examples
 </td></tr>
 
 </table>
-</html>",                                   info="<html>
+</html>", info="<html>
 <p>This block calculates the standard deviation of its input signal. The standard deviation is the square root of the signal&#39;s variance:</p>
-<blockquote><pre>y = sqrt( variance(u) )</pre></blockquote>
+<blockquote><pre>
+y = sqrt( variance(u) )
+</pre></blockquote>
 <p>
 The <a href=\"modelica://Modelica.Blocks.Math.Variance\">Variance</a> block is used to
 calculate variance(u).
@@ -3551,7 +3563,8 @@ output <code>y = 0</code> and <code>valid</code> is set to <code>false</code>.</
 This block computes the output <strong>y</strong> as <em>maximum</em>
 of the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<blockquote><pre>    y = <strong>max</strong> ( u1 , u2 );
+<blockquote><pre>
+y = <strong>max</strong> ( u1 , u2 );
 </pre></blockquote>
 </html>"));
   end Max;
@@ -3569,7 +3582,8 @@ of the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 This block computes the output <strong>y</strong> as <em>minimum</em> of
 the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<blockquote><pre>    y = <strong>min</strong> ( u1 , u2 );
+<blockquote><pre>
+y = <strong>min</strong> ( u1 , u2 );
 </pre></blockquote>
 </html>"));
   end Min;
@@ -3639,7 +3653,8 @@ provide both values as output.
 This block sets the Boolean output <strong>y</strong> to true,
 when the Boolean input <strong>u</strong> shows a <em>rising edge</em>:
 </p>
-<blockquote><pre>    y = <strong>edge</strong>( u );
+<blockquote><pre>
+y = <strong>edge</strong>( u );
 </pre></blockquote>
 </html>"));
   end Edge;
@@ -3658,7 +3673,8 @@ This block sets the Boolean output <strong>y</strong> to true, when the
 Boolean input <strong>u</strong> shows a <em>rising or falling edge</em>,
 i.e., when the signal changes:
 </p>
-<blockquote><pre>    y = <strong>change</strong>( u );
+<blockquote><pre>
+y = <strong>change</strong>( u );
 </pre></blockquote>
 </html>"));
   end BooleanChange;
@@ -3676,7 +3692,8 @@ i.e., when the signal changes:
 This block sets the Boolean output <strong>y</strong> to true, when the
 Integer input <strong>u</strong> changes:
 </p>
-<blockquote><pre>    y = <strong>change</strong>( u );
+<blockquote><pre>
+y = <strong>change</strong>( u );
 </pre></blockquote>
 </html>"));
   end IntegerChange;

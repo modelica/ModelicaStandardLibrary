@@ -2645,33 +2645,33 @@ The table interpolation has the following properties:
     by providing the same time point twice in the table.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <blockquote><pre>
-  smoothness = 1: Linear interpolation
-             = 2: Akima interpolation: Smooth interpolation by cubic Hermite
-                  splines such that der(y) is continuous, also if extrapolated.
-             = 3: Constant segments
-             = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
-                  Hermite splines such that y preserves the monotonicity and
-                  der(y) is continuous, also if extrapolated.
-             = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
-                  splines such that y preserves the monotonicity and der(y)
-                  is continuous, also if extrapolated.
-             = 6: Modified Akima interpolation: Smooth interpolation by cubic
-                  Hermite splines such that der(y) is continuous, also if
-                  extrapolated. Additionally, overshoots and edge cases of the
-                  original Akima interpolation method are avoided.
+smoothness = 1: Linear interpolation
+           = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                Hermite splines such that y preserves the monotonicity and
+                der(y) is continuous, also if extrapolated.
+           = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                splines such that y preserves the monotonicity and der(y)
+                is continuous, also if extrapolated.
+           = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                Hermite splines such that der(y) is continuous, also if
+                extrapolated. Additionally, overshoots and edge cases of the
+                original Akima interpolation method are avoided.
 </pre></blockquote></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
 <blockquote><pre>
-  extrapolation = 1: Hold the first or last value of the table,
-                     if outside of the table scope.
-                = 2: Extrapolate by using the derivative at the first/last table
-                     points if outside of the table scope.
-                     (If smoothness is LinearSegments or ConstantSegments
-                     this means to extrapolate linearly through the first/last
-                     two table points.).
-                = 3: Periodically repeat the table data (periodical function).
-                = 4: No extrapolation, i.e. extrapolation triggers an error
+extrapolation = 1: Hold the first or last value of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the table values of this row are just returned.</li>
@@ -2687,9 +2687,9 @@ The table interpolation has the following properties:
     This generates continuously differentiable values for the integrator.
     Via parameter <strong>timeEvents</strong> it is defined how the time events are generated:
 <blockquote><pre>
-  timeEvents = 1: Always generate time events at interval boundaries
-             = 2: Generate time events at discontinuities (defined by duplicated sample points)
-             = 3: No time events at interval boundaries
+timeEvents = 1: Always generate time events at interval boundaries
+           = 2: Generate time events at discontinuities (defined by duplicated sample points)
+           = 3: No time events at interval boundaries
 </pre></blockquote>
     For interpolation by constant segments time events are always generated at interval boundaries.
     For smooth interpolation by cubic Hermite splines no time events are generated at interval boundaries.</li>
@@ -2729,8 +2729,8 @@ The table matrix can be defined in the following ways:
 <li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
     and the other parameters have the following values:
 <blockquote><pre>
-   tableName is \"NoName\" or has only blanks,
-   fileName  is \"NoName\" or has only blanks.
+tableName is \"NoName\" or has only blanks,
+fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". Both text and MATLAB MAT-file format is possible.
@@ -2740,11 +2740,11 @@ The table matrix can be defined in the following ways:
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
     by command
 <blockquote><pre>
-   save tables.mat tab1 tab2 tab3
+save tables.mat tab1 tab2 tab3
 </pre></blockquote>
     or Scilab by command
 <blockquote><pre>
-   savematfile tables.mat tab1 tab2 tab3
+savematfile tables.mat tab1 tab2 tab3
 </pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
@@ -3242,13 +3242,13 @@ The table interpolation has the following properties:
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
 <blockquote><pre>
-  extrapolation = 1: Hold the <strong>startValue</strong> or last value of the table,
-                     if outside of the table scope.
-                = 2: Extrapolate by using the derivative at the first/last table
-                     points if outside of the table scope.
-                     (This setting is not suitable and triggers an assert.)
-                = 3: Periodically repeat the table data (periodical function).
-                = 4: No extrapolation, i.e. extrapolation triggers an error
+extrapolation = 1: Hold the <strong>startValue</strong> or last value of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (This setting is not suitable and triggers an assert.)
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>Via parameter <strong>shiftTime</strong> the curve defined by the table can be shifted
     in time.
@@ -3268,15 +3268,15 @@ The precise semantics is:
 </p>
 
 <blockquote><pre>
-  <strong>if</strong> size(table,1) == 0 <strong>then</strong>
-     y = startValue;
-  <strong>else</strong>
-     //            time &lt; table[1]: y = startValue
-     // table[1] &le; time &lt; table[2]: y = not startValue
-     // table[2] &le; time &lt; table[3]: y = startValue
-     // table[3] &le; time &lt; table[4]: y = not startValue
-     // ...
-  <strong>end if</strong>;
+<strong>if</strong> size(table,1) == 0 <strong>then</strong>
+   y = startValue;
+<strong>else</strong>
+   //            time &lt; table[1]: y = startValue
+   // table[1] &le; time &lt; table[2]: y = not startValue
+   // table[2] &le; time &lt; table[3]: y = startValue
+   // table[3] &le; time &lt; table[4]: y = not startValue
+   // ...
+<strong>end if</strong>;
 </pre></blockquote>
 </html>"));
   end BooleanTable;
@@ -3330,8 +3330,8 @@ the button. Example:
 </p>
 
 <blockquote><pre>
-  RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on});
-  RadioButtonSource stop (buttonTimeTable={2,4}, reset={start.on});
+RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on});
+RadioButtonSource stop (buttonTimeTable={2,4}, reset={start.on});
 </pre></blockquote>
 
 <p>
@@ -3592,13 +3592,13 @@ The table interpolation has the following properties:
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
 <blockquote><pre>
-  extrapolation = 1: Hold the first or last value of the table,
-                     if outside of the table scope.
-                = 2: Extrapolate by using the derivative at the first/last table
-                     points if outside of the table scope.
-                     (This setting is not suitable and triggers an assert.)
-                = 3: Periodically repeat the table data (periodical function).
-                = 4: No extrapolation, i.e. extrapolation triggers an error
+extrapolation = 1: Hold the first or last value of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (This setting is not suitable and triggers an assert.)
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the table values of this row are just returned.</li>
@@ -3614,10 +3614,10 @@ The table interpolation has the following properties:
 Example:
 </p>
 <blockquote><pre>
-   table = [  0, 1;
-              1, 4;
-            1.5, 5;
-              2, 6];
+table = [  0, 1;
+           1, 4;
+         1.5, 5;
+           2, 6];
 </pre></blockquote>
 <p>
 results in the following output:

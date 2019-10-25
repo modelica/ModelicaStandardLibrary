@@ -406,8 +406,8 @@ function of the input with a slope of 1.
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
 <blockquote><pre>
-   y = u(time - delayTime) for time &gt; time.start + delayTime
-     = u(time.start)       for time &le; time.start + delayTime
+y = u(time - delayTime) for time &gt; time.start + delayTime
+  = u(time.start)       for time &le; time.start + delayTime
 </pre></blockquote>
 </html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
@@ -589,8 +589,8 @@ The Input signal is delayed by a given time instant, or more precisely:
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
 <blockquote><pre>
-   y = u(time - delayTime) for time &gt; time.start + delayTime
-     = u(time.start)       for time &le; time.start + delayTime
+y = u(time - delayTime) for time &gt; time.start + delayTime
+  = u(time.start)       for time &le; time.start + delayTime
 </pre></blockquote>
 <p>
 The delay is approximated by a Pade approximation, i.e., by
@@ -752,14 +752,15 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
 <blockquote><pre>
-   y = u(time - delayTime) for time &gt; time.start + delayTime
-     = u(time.start)       for time &le; time.start + delayTime
+y = u(time - delayTime) for time &gt; time.start + delayTime
+  = u(time.start)       for time &le; time.start + delayTime
 </pre></blockquote>
 <p>
 where delayTime is an additional input signal which must follow
 the following relationship:
 </p>
-<blockquote><pre>  0 &le; delayTime &le; delayMax
+<blockquote><pre>
+0 &le; delayTime &le; delayMax
 </pre></blockquote>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={

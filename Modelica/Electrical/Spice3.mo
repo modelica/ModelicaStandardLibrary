@@ -67,7 +67,8 @@ Vdrain 11 0 PULSE(0 5 0s 1s)
 .model MPmos PMOS (gamma=0.37)
 .model MNmos NMOS (gamma=0.37 lambda=0.02)
 .tran 0.01 5
-.end</pre></blockquote></td>
+.end
+</pre></blockquote></td>
 <td><blockquote><pre>
 model inverter
   Spice3.Basic.Ground g;
@@ -2507,14 +2508,13 @@ Gname N+ N- NC+ NC- VALUE
 </pre></blockquote>
 <p>is translated to Modelica:</p>
 <blockquote><pre>
-
-    Gname -> Spice3.Basic.G_VCC Gname
-    (Gname is the name of the Modelica instance)
-    N+ -> p2.i
-    N- -> n2.i
-    NC+ -> p1 .v
-    NC- -> n1.v
-    VALUE -> transConductance
+Gname -> Spice3.Basic.G_VCC Gname
+(Gname is the name of the Modelica instance)
+N+ -> p2.i
+N- -> n2.i
+NC+ -> p1 .v
+NC- -> n1.v
+VALUE -> transConductance
 </pre></blockquote>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -2573,7 +2573,8 @@ Therefore VNAM has to be disconnected and an additional
 node NV_AD has to be added.</p>
 <blockquote><pre>
 NV_AD -&gt; p1.i
-NV- -&gt; n1.i</pre></blockquote>
+NV- -&gt; n1.i
+</pre></blockquote>
 <p>On this way the current, that flows through the voltage source VNAM, flows through the CCV.</p>
 <blockquote><pre>
 VALUE -&gt; transResistance
@@ -2608,24 +2609,36 @@ VALUE -&gt; transResistance
       annotation (
         Documentation(info="<html>
 <p>The linear current-controlled current source is a TwoPort. The &quot;right&quot; port current at pin 2 (=p2.i) is controlled by the &quot;left&quot; port current at pin p1(=p1.i) via</p>
-<blockquote><pre>    p2.i = p1.i * gain.</pre></blockquote>
+<blockquote><pre>
+p2.i = p1.i * gain.
+</pre></blockquote>
 <p>The controlling port voltage is zero. Any current gain can be chosen.</p>
 <p>The corresponding SPICE description</p>
-<blockquote><pre>    Fname N+ N- VNAM VALUE</pre></blockquote>
+<blockquote><pre>
+Fname N+ N- VNAM VALUE
+</pre></blockquote>
 <p>is translated to Modelica:</p>
-<blockquote><pre>    Fname -&gt; Spice3.Basic.F_CCC Fname
-    (Fname is the name of the Modelica instance)
-    N+ -&gt; p2.i
-    N- -&gt; n2.i  </pre></blockquote>
+<blockquote><pre>
+Fname -&gt; Spice3.Basic.F_CCC Fname
+(Fname is the name of the Modelica instance)
+N+ -&gt; p2.i
+N- -&gt; n2.i
+</pre></blockquote>
 <p>The voltage source VNAM has the two nodes NV+ and NV-:</p>
-<blockquote><pre>                   VNAM NV+ NV- VALUE_V</pre></blockquote>
+<blockquote><pre>
+VNAM NV+ NV- VALUE_V
+</pre></blockquote>
 <p>The current through VNAM hast to be led through the CCC.</p>
 <p>Therefore VNAM has to be disconnected and an additional</p>
 <p>node NV_AD has to be added.</p>
-<blockquote><pre>    NV_AD -&gt; p1.i
-    NV- -&gt; n1.i</pre></blockquote>
+<blockquote><pre>
+NV_AD -&gt; p1.i
+NV- -&gt; n1.i
+</pre></blockquote>
 <p>On this way the current, that flows through the voltage source VNAM, flows through the CCC.</p>
-<blockquote><pre>    VALUE -&gt; gain </pre></blockquote>
+<blockquote><pre>
+VALUE -&gt; gain
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -3289,7 +3302,8 @@ Christoph Clau&szlig;
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
-<blockquote><pre>   table = [0  0
+<blockquote><pre>
+   table = [0  0
             1  0
             1  1
             2  4
@@ -3663,7 +3677,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 
 <p>Example:</p>
-<blockquote><pre>   table = [0  0
+<blockquote><pre>
+   table = [0  0
             1  0
             1  1
             2  4
@@ -3903,10 +3918,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear voltage controlled voltage source. The &quot;right&quot; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &quot;left&quot; port vector of voltages at the pin vector pc[:] via</p>
-<blockquote><pre>    p2.v - n2.v = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)</pre></blockquote>
+<blockquote><pre>
+p2.v - n2.v = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)
+</pre></blockquote>
 <p>The controlling port (left) current vector is zero.</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
-<blockquote><pre>f = a0 +
+<blockquote><pre>
+f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
     a(.)s2&sup2; + a(.)s2s3 + ... + a(.)s2sN +
@@ -3916,16 +3934,20 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     a(.)s1&sup3; + a(.)s1&sup2;s2 + a(.)s1&sup2;s3 + ... + a(.)s1&sup2;sN +
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
-    a(.)sN&sup3; + ... </pre></blockquote>
+    a(.)sN&sup3; + ...
+</pre></blockquote>
 <p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
 <p>In connection with the VCV, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
 <p>The corresponding SPICE description of the VCV polynomial source is the following:</p>
-<blockquote><pre>    Ename A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre></blockquote>
+<blockquote><pre>
+Ename A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...
+</pre></blockquote>
 <p>where Ename is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped,</p>
 <p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p>
 <p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<blockquote><pre>Ename -&gt; E_VCV_POLY name
+<blockquote><pre>
+Ename -&gt; E_VCV_POLY name
 A1, A2 -&gt; pins name.p2, name.p1
 N -&gt; parameter N
 E11 -&gt; name.pc[2]
@@ -3933,7 +3955,8 @@ E12 -&gt; name.pc[1]
 ...
 E1N -&gt; name.pc[N]
 E2N -&gt; name.pc[N-1]
-P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre></blockquote>
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
@@ -3998,10 +4021,13 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre></blockq
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear voltage controlled current source. The right port current at pin p2 (=p2.i) is controlled by the left port vector of voltages at the pin vector pc[:] via</p>
-<blockquote><pre>    p2.i = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)</pre></blockquote>
+<blockquote><pre>
+p2.i = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)
+</pre></blockquote>
 <p>The controlling port (left) current vector is zero.</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
-<blockquote><pre>f = a0 +
+<blockquote><pre>
+f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
     a(.)s2&sup2; + a(.)s2s3 + ... + a(.)s2sN +
@@ -4011,16 +4037,20 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre></blockq
     a(.)s1&sup3; + a(.)s1&sup2;s2 + a(.)s1&sup2;s3 + ... + a(.)s1&sup2;sN +
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
-    a(.)sN&sup3; + ... </pre></blockquote>
+    a(.)sN&sup3; + ...
+</pre></blockquote>
 <p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
 <p>In connection with the VCC, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
 <p>The corresponding SPICE description of the VCC polynomial source is the following:</p>
-<blockquote><pre>    Gname A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre></blockquote>
+<blockquote><pre>
+Gname A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...
+</pre></blockquote>
 <p>where Gname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated,</p>
 <p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p>
 <p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<blockquote><pre>Gname -&gt; G_VCC_POLY name
+<blockquote><pre>
+Gname -&gt; G_VCC_POLY name
 A1, A2 -&gt; pins name.p2, name.p1
 N -&gt; parameter N
 E11 -&gt; name.pc[2]
@@ -4028,7 +4058,8 @@ E12 -&gt; name.pc[1]
 ...
 E1N -&gt; name.pc[N]
 E2N -&gt; name.pc[N-1]
-P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre></blockquote>
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
@@ -4094,12 +4125,17 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre></block
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear current controlled voltage source. The right port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the left port vector of currents at pin pc (=pc.i) via</p>
-<blockquote><pre>    p2.v - n2.v = f(pc[2].i, pc[4].i,...)</pre></blockquote>
+<blockquote><pre>
+p2.v - n2.v = f(pc[2].i, pc[4].i,...)
+</pre></blockquote>
 <p>The controlling port (left) current vector is zero.</p>
 <p>The corresponding SPICE description</p>
-<blockquote><pre>    Hname A1 A2 POLY(N) V1...VN P0 P1...</pre></blockquote>
+<blockquote><pre>
+Hname A1 A2 POLY(N) V1...VN P0 P1...
+</pre></blockquote>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
-<blockquote><pre>f = a0 +
+<blockquote><pre>
+f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
     a(.)s2&sup2; + a(.)s2s3 + ... + a(.)s2sN +
@@ -4109,22 +4145,34 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre></block
     a(.)s1&sup3; + a(.)s1&sup2;s2 + a(.)s1&sup2;s3 + ... + a(.)s1&sup2;sN +
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
-    a(.)sN&sup3; + ... </pre></blockquote>
+    a(.)sN&sup3; + ...
+</pre></blockquote>
 <p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p>In Modelica the controlling pins have to be connected to the CCV in that way, that the required currents flow through the according pins of the CCV:</p><p>s1 = pc[2].i, s2 = pc[4].i, s3 = pc[6].i,...</p><p>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p>The corresponding SPICE description of the CCV polynomial source is the following:</p>
-<blockquote><pre>    Hname A1 A2 POLY(N) V1...VN P0 P1...</pre></blockquote>
+<blockquote><pre>
+Hname A1 A2 POLY(N) V1...VN P0 P1...
+</pre></blockquote>
 <p>where Hname is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<blockquote><pre>Hname -&gt; H_CCV_POLY name
+<blockquote><pre>
+Hname -&gt; H_CCV_POLY name
 A1, A2 -&gt; pins name.p2, name.p1
-N -&gt; parameter N</pre></blockquote>
+N -&gt; parameter N
+</pre></blockquote>
 <p>V1 (...VN) is declared in SPICE:</p>
-<blockquote><pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre></blockquote>
+<blockquote><pre>
+V1 V1+ V1- type of voltage source (constant, pulse, sin...)
+</pre></blockquote>
 <p>In Modelica the currents through V1...VN has to be led through the CCV. Therefore V1...VN have to be disconnected and additional nodes</p>
-<blockquote><pre>   V1_AD...VN_AD</pre></blockquote>
+<blockquote><pre>
+V1_AD...VN_AD
+</pre></blockquote>
 <p>have to be added. In the case, that the SPICE source is</p>
-<blockquote><pre>   V1 n+ n- 0,</pre></blockquote>
+<blockquote><pre>
+V1 n+ n- 0,
+</pre></blockquote>
 <p>this source can be eliminated.</p>
-<blockquote><pre>V1_AD -&gt; name.pc[2]
+<blockquote><pre>
+V1_AD -&gt; name.pc[2]
 V1- -&gt; name.pc[1]
 ...
 VN_AD -&gt; name.pc[N]
@@ -4196,10 +4244,13 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear current controlled current source. The &quot;right&quot; port current at pin p2 (=p2.i) is controlled by the &quot;left&quot; port vector of currents at pin pc[:] via</p>
-<blockquote><pre>    p2.i = f(pc[2].i, pc[4].i,...)</pre></blockquote>
+<blockquote><pre>
+p2.i = f(pc[2].i, pc[4].i,...)
+</pre></blockquote>
 <p>The controlling port (left) voltage is zero for each pair: pc[2].v - pc[1].v = 0, ...</p><p>Furthermore the currents of each pair are pc[2].i + pc[1].i = 0, ...</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
-<blockquote><pre>f = a0 +
+<blockquote><pre>
+f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
     a(.)s2&sup2; + a(.)s2s3 + ... + a(.)s2sN +
@@ -4209,22 +4260,33 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
     a(.)s1&sup3; + a(.)s1&sup2;s2 + a(.)s1&sup2;s3 + ... + a(.)s1&sup2;sN +
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
-    a(.)sN&sup3; + ... </pre></blockquote>
+    a(.)sN&sup3; + ...
+</pre></blockquote>
 <p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p>In Modelica the controlling pins have to be connected to the CCC in that way, that the required currents flow through the according pins of the CCC:</p><p>s1=pc[2].i, s2=pc[4].i, s3=pc[6].i,...</p><p>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p>The corresponding SPICE description of the CCC polynomial source is the following:</p>
-<blockquote><pre>    Fname A1 A2 POLY(N) V1...VN P0 P1...</pre></blockquote>
+<blockquote><pre>
+Fname A1 A2 POLY(N) V1...VN P0 P1...
+</pre></blockquote>
 <p>where Fname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<blockquote><pre>Fname -&gt; F_CCC_POLY name
+<blockquote><pre>
+Fname -&gt; F_CCC_POLY name
 A1, A2 -&gt; pins name.p2, name.p1
-N -&gt; parameter N</pre></blockquote>
+N -&gt; parameter N
+</pre></blockquote>
 <p>V1 (...VN) is declared in SPICE:</p>
-<blockquote><pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre></blockquote>
+<blockquote><pre>
+V1 V1+ V1- type of voltage source (constant, pulse, sin...)
+</pre></blockquote>
 <p>In Modelica the currents through V1...VN has to be led through the CCC. Therefore V1...VN have to be disconnected and additional nodes</p>
-<blockquote><pre>   V1_AD...VN_AD</pre></blockquote>
+<blockquote><pre>
+V1_AD...VN_AD
+</pre></blockquote>
 <p>have to be added. In the case, that the SPICE source is</p>
-<blockquote><pre>   V1 n+ n- 0,</pre></blockquote>
+<blockquote><pre>   V1 n+ n- 0,
+</pre></blockquote>
 <p>this source can be eliminated.</p>
-<blockquote><pre>V1_AD -&gt; name.pc[2]
+<blockquote><pre>
+V1_AD -&gt; name.pc[2]
 V1- -&gt; name.pc[1]
 ...
 VN_AD -&gt; name.pc[N]
@@ -6432,7 +6494,9 @@ on the model behaviour.
           "Device temperature";
 
         annotation (Documentation(info="<html>
-<blockquote><pre>This function mosfetRenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</pre></blockquote>
+<blockquote><pre>
+This function mosfetRenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).
+</pre></blockquote>
 </html>"));
       end mosfetRenameParametersDev;
 
@@ -6553,7 +6617,9 @@ on the model behaviour.
         SI.Charge m_qgb(start=0.);
 
         annotation (Documentation(info="<html>
-<blockquote><pre>This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).</pre></blockquote>
+<blockquote><pre>
+This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).
+</pre></blockquote>
 </html>"));
       end MosCalc;
 

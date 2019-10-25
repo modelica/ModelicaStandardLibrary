@@ -82,7 +82,7 @@ must be dragged resulting in a declaration
 </p>
 
 <blockquote><pre>
-   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+<strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
 </pre></blockquote>
 
 <p>
@@ -484,7 +484,7 @@ must be dragged resulting in a declaration
 </p>
 
 <blockquote><pre>
-   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+<strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
 </pre></blockquote>
 
 <p>

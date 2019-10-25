@@ -234,12 +234,14 @@ y(z) = -------------------------------------------- * u(z)
 <strong>controller canonical</strong> form. Initial values of the
 states can be set as start values of <strong>x</strong>.</p>
 <p>Example:</p>
-<blockquote><pre>     Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
+<blockquote><pre>
+Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
 </pre></blockquote>
 <p>results in the following transfer function:</p>
-<blockquote><pre>        2*z + 4
-   y = --------- * u
-         z + 3
+<blockquote><pre>
+     2*z + 4
+y = --------- * u
+      z + 3
 </pre></blockquote>
 
 </html>", revisions="<html>

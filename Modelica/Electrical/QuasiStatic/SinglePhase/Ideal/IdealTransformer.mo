@@ -175,8 +175,8 @@ equation
 The ideal transformer is a two-port circuit element without magnetization. Voltages and currents are ideally transformed:
 </p>
 <blockquote><pre>
- v1 =  v2*n;
- i2 = -i1*n;
+v1 =  v2*n;
+i2 = -i1*n;
 </pre></blockquote>
 <p>
 where <code>n</code> is a real number called the turns ratio.</p>

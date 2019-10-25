@@ -482,7 +482,7 @@ For a linear, single input, single output system
 </p>
 
 <blockquote><pre>
-   y = n(s)/d(s) * u   // plant model
+y = n(s)/d(s) * u   // plant model
 </pre></blockquote>
 
 <p>
@@ -491,7 +491,7 @@ the denominator polynomial:
 </p>
 
 <blockquote><pre>
-   u = d(s)/n(s) * y   // inverse plant model
+u = d(s)/n(s) * y   // inverse plant model
 </pre></blockquote>
 
 <p>
@@ -504,7 +504,7 @@ This can be interpreted as filtering the desired output signal y:
 </p>
 
 <blockquote><pre>
-   u = d(s)/(n(s)*f(s)) * y  // inverse plant model with filtered y
+u = d(s)/(n(s)*f(s)) * y  // inverse plant model with filtered y
 </pre></blockquote>
 
 <p>
@@ -1043,10 +1043,11 @@ the buses for this example are defined. Both the \"ControlBus\" and the \"SubCon
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
 is defined as:
 </p>
-<blockquote><pre>  <strong>expandable connector</strong> ControlBus
-      <strong>extends</strong> Modelica.Icons.ControlBus;
-      <strong>annotation</strong> ();
-  <strong>end</strong> ControlBus;
+<blockquote><pre>
+<strong>expandable connector</strong> ControlBus
+    <strong>extends</strong> Modelica.Icons.ControlBus;
+    <strong>annotation</strong> ();
+<strong>end</strong> ControlBus;
 </pre></blockquote>
 <p>
 Note, the \"annotation\" in the connector is important since the color
@@ -1072,7 +1073,8 @@ The \"Add variable/New name\" field allows the user to define the name of the si
 the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of the form:
 </p>
 
-<blockquote><pre>     <strong>connect</strong>(sine.y, controlBus.realSignal1)
+<blockquote><pre>
+<strong>connect</strong>(sine.y, controlBus.realSignal1)
 </pre></blockquote>
 
 <p>
@@ -1083,16 +1085,17 @@ the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" a
 For example \"Internal.ControlBus\" is defined as:
 </p>
 
-<blockquote><pre>  <strong>expandable connector</strong> StandardControlBus
-    <strong>extends</strong> BusUsage_Utilities.Interfaces.ControlBus;
+<blockquote><pre>
+<strong>expandable connector</strong> StandardControlBus
+  <strong>extends</strong> BusUsage_Utilities.Interfaces.ControlBus;
 
-    <strong>import</strong> SI = Modelica.SIunits;
-    SI.AngularVelocity    realSignal1   \"First Real signal\";
-    SI.Velocity           realSignal2   \"Second Real signal\";
-    Integer               integerSignal \"Integer signal\";
-    Boolean               booleanSignal \"Boolean signal\";
-    StandardSubControlBus subControlBus \"Combined signal\";
-  <strong>end</strong> StandardControlBus;
+  <strong>import</strong> SI = Modelica.SIunits;
+  SI.AngularVelocity    realSignal1   \"First Real signal\";
+  SI.Velocity           realSignal2   \"Second Real signal\";
+  Integer               integerSignal \"Integer signal\";
+  Boolean               booleanSignal \"Boolean signal\";
+  StandardSubControlBus subControlBus \"Combined signal\";
+<strong>end</strong> StandardControlBus;
 </pre></blockquote>
 
 <p>
@@ -3027,12 +3030,12 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
        Introduced a replaceable signal type into
        Blocks.Interfaces.RealInput/RealOutput:
 <blockquote><pre>
-   replaceable type SignalType = Real
+replaceable type SignalType = Real
 </pre></blockquote>
        in order that the type of the signal of an input/output block
        can be changed to a physical type, for example:
 <blockquote><pre>
-   Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
+Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
 </pre></blockquote>
       </li>
 <li><em>Sept. 18, 1999</em>

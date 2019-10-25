@@ -104,47 +104,47 @@ where the first column \"table[:,1]\" contains the grid points and the
 other columns contain the data to be interpolated. Example:
 </p>
 <blockquote><pre>
-   table = [0,  0;
-            1,  1;
-            2,  4;
-            4, 16]
-   If, e.g., the input u = 1.0, the output y =  1.0,
-       e.g., the input u = 1.5, the output y =  2.5,
-       e.g., the input u = 2.0, the output y =  4.0,
-       e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
+table = [0,  0;
+         1,  1;
+         2,  4;
+         4, 16]
+If, e.g., the input u = 1.0, the output y =  1.0,
+    e.g., the input u = 1.5, the output y =  2.5,
+    e.g., the input u = 2.0, the output y =  4.0,
+    e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
 </pre></blockquote>
 <ul>
 <li>The interpolation interval is found by a binary search where the interval used in the
     last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <blockquote><pre>
-  smoothness = 1: Linear interpolation
-             = 2: Akima interpolation: Smooth interpolation by cubic Hermite
-                  splines such that der(y) is continuous, also if extrapolated.
-             = 3: Constant segments
-             = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
-                  Hermite splines such that y preserves the monotonicity and
-                  der(y) is continuous, also if extrapolated.
-             = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
-                  splines such that y preserves the monotonicity and der(y)
-                  is continuous, also if extrapolated.
-             = 6: Modified Akima interpolation: Smooth interpolation by cubic
-                  Hermite splines such that der(y) is continuous, also if
-                  extrapolated. Additionally, overshoots and edge cases of the
-                  original Akima interpolation method are avoided.
+smoothness = 1: Linear interpolation
+           = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                Hermite splines such that y preserves the monotonicity and
+                der(y) is continuous, also if extrapolated.
+           = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                splines such that y preserves the monotonicity and der(y)
+                is continuous, also if extrapolated.
+           = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                Hermite splines such that der(y) is continuous, also if
+                extrapolated. Additionally, overshoots and edge cases of the
+                original Akima interpolation method are avoided.
 </pre></blockquote></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
 <blockquote><pre>
-  extrapolation = 1: Hold the first or last value of the table,
-                     if outside of the table scope.
-                = 2: Extrapolate by using the derivative at the first/last table
-                     points if outside of the table scope.
-                     (If smoothness is LinearSegments or ConstantSegments
-                     this means to extrapolate linearly through the first/last
-                     two table points.).
-                = 3: Periodically repeat the table data (periodical function).
-                = 4: No extrapolation, i.e. extrapolation triggers an error
+extrapolation = 1: Hold the first or last value of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, the table value is returned,
     independent of the value of the input signal.</li>
@@ -157,8 +157,8 @@ The table matrix can be defined in the following ways:
 <li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
     and the other parameters have the following values:
 <blockquote><pre>
-   tableName is \"NoName\" or has only blanks,
-   fileName  is \"NoName\" or has only blanks.
+tableName is \"NoName\" or has only blanks,
+fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". Both text and MATLAB MAT-file format is possible.
@@ -168,11 +168,11 @@ The table matrix can be defined in the following ways:
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
     by command
 <blockquote><pre>
-   save tables.mat tab1 tab2 tab3
+save tables.mat tab1 tab2 tab3
 </pre></blockquote>
     or Scilab by command
 <blockquote><pre>
-   savematfile tables.mat tab1 tab2 tab3
+savematfile tables.mat tab1 tab2 tab3
 </pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
@@ -403,47 +403,47 @@ where the first column \"table[:,1]\" contains the grid points and the
 other columns contain the data to be interpolated. Example:
 </p>
 <blockquote><pre>
-   table = [0,  0;
-            1,  1;
-            2,  4;
-            4, 16]
-   If, e.g., the input u = 1.0, the output y =  1.0,
-       e.g., the input u = 1.5, the output y =  2.5,
-       e.g., the input u = 2.0, the output y =  4.0,
-       e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
+table = [0,  0;
+         1,  1;
+         2,  4;
+         4, 16]
+If, e.g., the input u = 1.0, the output y =  1.0,
+    e.g., the input u = 1.5, the output y =  2.5,
+    e.g., the input u = 2.0, the output y =  4.0,
+    e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
 </pre></blockquote>
 <ul>
 <li>The interpolation interval is found by a binary search where the interval used in the
     last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <blockquote><pre>
-  smoothness = 1: Linear interpolation
-             = 2: Akima interpolation: Smooth interpolation by cubic Hermite
-                  splines such that der(y) is continuous, also if extrapolated.
-             = 3: Constant segments
-             = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
-                  Hermite splines such that y preserves the monotonicity and
-                  der(y) is continuous, also if extrapolated.
-             = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
-                  splines such that y preserves the monotonicity and der(y)
-                  is continuous, also if extrapolated.
-             = 6: Modified Akima interpolation: Smooth interpolation by cubic
-                  Hermite splines such that der(y) is continuous, also if
-                  extrapolated. Additionally, overshoots and edge cases of the
-                  original Akima interpolation method are avoided.
+smoothness = 1: Linear interpolation
+           = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                Hermite splines such that y preserves the monotonicity and
+                der(y) is continuous, also if extrapolated.
+           = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                splines such that y preserves the monotonicity and der(y)
+                is continuous, also if extrapolated.
+           = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                Hermite splines such that der(y) is continuous, also if
+                extrapolated. Additionally, overshoots and edge cases of the
+                original Akima interpolation method are avoided.
 </pre></blockquote></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
 <blockquote><pre>
-  extrapolation = 1: Hold the first or last value of the table,
-                     if outside of the table scope.
-                = 2: Extrapolate by using the derivative at the first/last table
-                     points if outside of the table scope.
-                     (If smoothness is LinearSegments or ConstantSegments
-                     this means to extrapolate linearly through the first/last
-                     two table points.).
-                = 3: Periodically repeat the table data (periodical function).
-                = 4: No extrapolation, i.e. extrapolation triggers an error
+extrapolation = 1: Hold the first or last value of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one row</strong>, the table value is returned,
     independent of the value of the input signal.</li>
@@ -456,8 +456,8 @@ The table matrix can be defined in the following ways:
 <li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
     and the other parameters have the following values:
 <blockquote><pre>
-   tableName is \"NoName\" or has only blanks,
-   fileName  is \"NoName\" or has only blanks.
+tableName is \"NoName\" or has only blanks,
+fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". Both text and MATLAB MAT-file format is possible.
@@ -467,11 +467,11 @@ The table matrix can be defined in the following ways:
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
     by command
 <blockquote><pre>
-   save tables.mat tab1 tab2 tab3
+save tables.mat tab1 tab2 tab3
 </pre></blockquote>
     or Scilab by command
 <blockquote><pre>
-   savematfile tables.mat tab1 tab2 tab3
+savematfile tables.mat tab1 tab2 tab3
 </pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
@@ -669,26 +669,26 @@ If, e.g., the input u1 is 1.0, input u2 is 1.0 and smoothness is LinearSegments,
     last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <blockquote><pre>
-  smoothness = 1: Bilinear interpolation
-             = 2: Bivariate Akima interpolation: Smooth interpolation by bicubic Hermite
-                  splines such that der(y) is continuous, also if extrapolated.
-             = 3: Constant segments
-             = 4: Fritsch-Butland interpolation: Not supported
-             = 5: Steffen interpolation: Not supported
-             = 6: Modified Akima interpolation: Not supported
+smoothness = 1: Bilinear interpolation
+           = 2: Bivariate Akima interpolation: Smooth interpolation by bicubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Not supported
+           = 5: Steffen interpolation: Not supported
+           = 6: Modified Akima interpolation: Not supported
 </pre></blockquote></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
 <blockquote><pre>
-  extrapolation = 1: Hold the first or last values of the table,
-                     if outside of the table scope.
-                = 2: Extrapolate by using the derivative at the first/last table
-                     points if outside of the table scope.
-                     (If smoothness is LinearSegments or ConstantSegments
-                     this means to extrapolate linearly through the first/last
-                     two table points.).
-                = 3: Periodically repeat the table data (periodical function).
-                = 4: No extrapolation, i.e. extrapolation triggers an error
+extrapolation = 1: Hold the first or last values of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
     independent of the value of the input signal.</li>
@@ -702,8 +702,8 @@ The table matrix can be defined in the following ways:
 <li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
     and the other parameters have the following values:
 <blockquote><pre>
-   tableName is \"NoName\" or has only blanks,
-   fileName  is \"NoName\" or has only blanks.
+tableName is \"NoName\" or has only blanks,
+fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". Both text and MATLAB MAT-file format is possible.
@@ -713,11 +713,11 @@ The table matrix can be defined in the following ways:
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
     by command
 <blockquote><pre>
-   save tables.mat tab1 tab2 tab3
+save tables.mat tab1 tab2 tab3
 </pre></blockquote>
     or Scilab by command
 <blockquote><pre>
-   savematfile tables.mat tab1 tab2 tab3
+savematfile tables.mat tab1 tab2 tab3
 </pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
@@ -854,26 +854,26 @@ If, e.g., the input u1 is {1.0}, input u2 is {1.0} and smoothness is LinearSegme
     last call is used as start interval.</li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <blockquote><pre>
-  smoothness = 1: Bilinear interpolation
-             = 2: Bivariate Akima interpolation: Smooth interpolation by bicubic Hermite
-                  splines such that der(y) is continuous, also if extrapolated.
-             = 3: Constant segments
-             = 4: Fritsch-Butland interpolation: Not supported
-             = 5: Steffen interpolation: Not supported
-             = 6: Modified Akima interpolation: Not supported
+smoothness = 1: Bilinear interpolation
+           = 2: Bivariate Akima interpolation: Smooth interpolation by bicubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Not supported
+           = 5: Steffen interpolation: Not supported
+           = 6: Modified Akima interpolation: Not supported
 </pre></blockquote></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
 <blockquote><pre>
-  extrapolation = 1: Hold the first or last values of the table,
-                     if outside of the table scope.
-                = 2: Extrapolate by using the derivative at the first/last table
-                     points if outside of the table scope.
-                     (If smoothness is LinearSegments or ConstantSegments
-                     this means to extrapolate linearly through the first/last
-                     two table points.).
-                = 3: Periodically repeat the table data (periodical function).
-                = 4: No extrapolation, i.e. extrapolation triggers an error
+extrapolation = 1: Hold the first or last values of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></blockquote></li>
 <li>If the table has only <strong>one element</strong>, the table value is returned,
     independent of the value of the input signal.</li>
@@ -887,8 +887,8 @@ The table matrix can be defined in the following ways:
 <li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
     and the other parameters have the following values:
 <blockquote><pre>
-   tableName is \"NoName\" or has only blanks,
-   fileName  is \"NoName\" or has only blanks.
+tableName is \"NoName\" or has only blanks,
+fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
     \"tableName\". Both text and MATLAB MAT-file format is possible.
@@ -898,11 +898,11 @@ The table matrix can be defined in the following ways:
     It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
     by command
 <blockquote><pre>
-   save tables.mat tab1 tab2 tab3
+save tables.mat tab1 tab2 tab3
 </pre></blockquote>
     or Scilab by command
 <blockquote><pre>
-   savematfile tables.mat tab1 tab2 tab3
+savematfile tables.mat tab1 tab2 tab3
 </pre></blockquote>
     when the three tables tab1, tab2, tab3 should be used from the model.<br>
     Note, a fileName can be defined as URI by using the helper function
