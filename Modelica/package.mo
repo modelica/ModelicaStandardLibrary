@@ -563,11 +563,12 @@ Modelica code in the HTML documentation.
 </p>
 
 <ol>
-<li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
-     should to be used, e.g.,<br>
+<li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code>
+     and <code>&lt;/code&gt;</code> should to be used, e.g.,<br>
      <code><strong>parameter</strong> Modelica.SIunits.Time tStart &quot;Start time&quot;</code></li>
-<li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
-<li> Multi line or single line code shall not be indented.</li>
+<li> Write multi or single line code segments as quoted preformatted text, i.e. embedded within
+     <code>&lt;blockquote&gt;&lt;pre&gt;</code> and <code>&lt;/pre&gt;&lt;/blockquote&gt;</code> tags.</li>
+<li> Multi line or single line code shall not be additionally indented.</li>
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
 <li> In code segments use bold to emphasize Modelica keywords.</li>
 </ol>
@@ -577,12 +578,13 @@ Modelica code in the HTML documentation.
 <h5>Example 1</h5>
 
 <blockquote><pre>
-&lt;pre&gt;
+&lt;blockquote&gt;&lt;pre&gt;
 &lt;strong&gt;connector&lt;/strong&gt; Frame
    ...
    &lt;strong&gt;flow&lt;/strong&gt; SI.Force f[3] &lt;strong&gt;annotation&lt;/strong&gt;(unassignedMessage=&quot;...&quot;);
 &lt;strong&gt;end&lt;/strong&gt; Frame;
-&lt;/pre&gt;</pre></blockquote>
+&lt;/pre&gt;&lt;/blockquote&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
@@ -596,9 +598,9 @@ Modelica code in the HTML documentation.
 <h5>Example 2</h5>
 
 <blockquote><pre>
-&lt;pre&gt;
+&lt;blockquote&gt;&lt;pre&gt;
 &lt;strong&gt;parameter&lt;/strong&gt; Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
-&lt;/pre&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
 </pre></blockquote>
 
 <p>appears as</p>
