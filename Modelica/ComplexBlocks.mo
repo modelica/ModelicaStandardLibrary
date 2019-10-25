@@ -685,7 +685,8 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
 <blockquote><pre>
 y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
   + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
-  + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);</pre></blockquote>
+  + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);
+</pre></blockquote>
 <p>
 <strong>Example</strong> parameters:
 </p>
@@ -1770,16 +1771,18 @@ Additionally, the dimensions of the input connector signals and
 the output connector signals have to be explicitly defined via the
 parameters 'nin' and 'nout'.</p>
 <p>Example:</p>
-<blockquote><pre>     nin = 7 \"Number of inputs\";
-     nout = 4 \"Number of outputs\";
-     extract[nout] = {6,3,3,2} \"Extracting vector\";
+<blockquote><pre>
+nin  = 7 \"Number of inputs\";
+nout = 4 \"Number of outputs\";
+extract[nout] = {6,3,3,2} \"Extracting vector\";
 </pre></blockquote>
 <p>extracts four output signals (nout=4) from the seven elements of the
 input vector (nin=7):</p>
-<blockquote><pre>   output no. 1 is set equal to input no. 6
-   output no. 2 is set equal to input no. 3
-   output no. 3 is set equal to input no. 3
-   output no. 4 is set equal to input no. 2
+<blockquote><pre>
+output no. 1 is set equal to input no. 6
+output no. 2 is set equal to input no. 3
+output no. 3 is set equal to input no. 3
+output no. 4 is set equal to input no. 2
 </pre></blockquote>
 </html>"));
   end ExtractSignal;
@@ -1882,7 +1885,8 @@ input vector (nin=7):</p>
 <p>This block extracts a scalar output signal out the
 vector of input signals dependent on the Integer
 value of the additional u index:</p>
-<blockquote><pre>    y = u [ index ] ;
+<blockquote><pre>
+y = u [ index ] ;
 </pre></blockquote>
 <p>where index is an additional Integer input signal.</p>
 </html>"));

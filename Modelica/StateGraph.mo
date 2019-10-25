@@ -212,7 +212,7 @@ consider the case that a state machine has the following
 hierarchy:
 </p>
 <blockquote><pre>
-   stateMachine.superstate1.superstate2.step1
+stateMachine.superstate1.superstate2.step1
 </pre></blockquote>
 <p>
 Within \"step1\" a StateChart would, e.g., access variable
@@ -463,7 +463,7 @@ components, the Boolean state of the valves are computed.
 For example, the output y of \"setValve2\" is computed as:
 </p>
 <blockquote><pre>
-  y = makeProduct.fillTank2.active or emptyTanks.active
+y = makeProduct.fillTank2.active or emptyTanks.active
 </pre></blockquote>
 <p>
 i.e., valve2 is open, when step \"makeProduct.fillTank2 or when

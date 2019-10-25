@@ -163,8 +163,8 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 <tr><td>
  <blockquote><pre>
 A = [1,2,3;
-  3,4,5;
-  2,1,4];
+     3,4,5;
+     2,1,4];
 b = {10,22,12};
 x = Matrices.solve(A,b);
 Matrices.eigenValues(A);
@@ -440,25 +440,25 @@ then this leads to the following equations:
 </p>
 
 <blockquote><pre>
-  // Potential variables are identical
-  c1.p = c2.p;
-  c1.p = c3.p;
+// Potential variables are identical
+c1.p = c2.p;
+c1.p = c3.p;
 
-  // The sum of the flow variables is zero
-  0 = c1.f + c2.f + c3.f;
+// The sum of the flow variables is zero
+0 = c1.f + c2.f + c3.f;
 
-  /* The sum of the product of flow variables and upstream stream variables is zero
-     (this implicit set of equations is explicitly solved when generating code;
-     the \"&lt;undefined&gt;\" parts are defined in such a way that
-     inStream(..) is continuous).
-  */
-  0 = c1.f*(<strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> c1.s) +
-      c2.f*(<strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> c2.s) +
-      c3.f*(<strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> c3.s);
+/* The sum of the product of flow variables and upstream stream variables is zero
+   (this implicit set of equations is explicitly solved when generating code;
+   the \"&lt;undefined&gt;\" parts are defined in such a way that
+   inStream(..) is continuous).
+*/
+0 = c1.f*(<strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> c1.s) +
+    c2.f*(<strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> c2.s) +
+    c3.f*(<strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> c3.s);
 
-  <strong>inStream</strong>(c1.s) = <strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
-  <strong>inStream</strong>(c2.s) = <strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
-  <strong>inStream</strong>(c3.s) = <strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+<strong>inStream</strong>(c1.s) = <strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+<strong>inStream</strong>(c2.s) = <strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+<strong>inStream</strong>(c3.s) = <strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
 </pre></blockquote>
 
 </html>"));
@@ -501,7 +501,8 @@ For more complex case scenarios, an unordered list should be used. In this case 
   &lt;li&gt; If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model.
        Cage parameters must be specified in this case.&lt;/li&gt;
   &lt;li&gt; If &lt;code&gt;useCage == false&lt;/code&gt;, the damper cage is omitted.&lt;/li&gt;
-&lt;/ul&gt;</pre></blockquote>
+&lt;/ul&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
@@ -529,7 +530,8 @@ In a more equation oriented case, additional equations or code segments can be a
   y[i,1] = a[i] &lt;br&gt;
   y[i,2] = b[i]
   &lt;/li&gt;
-&lt;/ul&gt;</pre></blockquote>
+&lt;/ul&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
@@ -773,7 +775,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <blockquote><pre>
 &lt;a href=&quot;modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&quot;&gt;
-         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre></blockquote>
+         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;
+</pre></blockquote>
 <p>appears as</p>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
@@ -785,7 +788,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   The feeder cables are connected to an
   &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
-&lt;/p&gt;</pre></blockquote>
+&lt;/p&gt;
+</pre></blockquote>
 <p>appears as</p>
 <p>
   The feeder cables are connected to an
@@ -864,7 +868,8 @@ More details about electric machine modeling
 can be found in [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
 and
 [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
-&lt;/p&gt;</pre></blockquote>
+&lt;/p&gt;
+</pre></blockquote>
 <p>appears as</p>
 <p>
 More details about electric machine modeling
@@ -1695,7 +1700,8 @@ The authors would like to thank following persons for their support ...
       &lt;td&gt;A. Haumer&lt;/td&gt;
       &lt;td&gt;Initial version&lt;/td&gt;
     &lt;/tr&gt;
-&lt;/table&gt;</pre></blockquote>
+&lt;/table&gt;
+</pre></blockquote>
 
 <p>This code appears then as in the \"Revisions\" section below.</p>
 
@@ -7868,10 +7874,12 @@ block Step \"Generate step signals of type Real\"
 <p>Replaced usage of built-in function <code>exp</code> by Modelica.Math.exp.</p>
 <p><em>Modelica.Blocks.Sources.TimeTable</em></p>
 <p>Interface definition changed from</p>
-<blockquote><pre>    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
+<blockquote><pre>
+parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
 </pre></blockquote>
 <p>to</p>
-<blockquote><pre>    parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
+<blockquote><pre>
+parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
 </pre></blockquote>
 <p>Did the same for subfunction <em>getInterpolationCoefficients</em>.</p>
 <p>Bug in <em>getInterpolationCoefficients</em> for startTime <> 0 fixed:</p>
