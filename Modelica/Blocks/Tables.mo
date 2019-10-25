@@ -1343,8 +1343,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     function getTable2DValue "Interpolate 2-dim. table defined by matrix"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
-      input Real u1 "First abscissa value";
-      input Real u2 "Second abscissa value";
+      input Real u1 "Value of first independent variable";
+      input Real u2 "Value of second independent variable";
       output Real y "Interpolated value";
       external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -1355,8 +1355,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       "Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
-      input Real u1 "First abscissa value";
-      input Real u2 "Second abscissa value";
+      input Real u1 "Value of first independent variable";
+      input Real u2 "Value of second independent variable";
       output Real y "Interpolated value";
       external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -1366,8 +1366,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       "Interpolate 2-dim. table defined by matrix (but do not provide a second derivative function)"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
-      input Real u1 "First abscissa value";
-      input Real u2 "Second abscissa value";
+      input Real u1 "Value of first independent variable";
+      input Real u2 "Value of second independent variable";
       output Real y "Interpolated value";
       external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -1378,10 +1378,10 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       "Derivative of interpolated 2-dim. table defined by matrix"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
-      input Real u1 "First abscissa value";
-      input Real u2 "Second abscissa value";
-      input Real der_u1 "Derivative of first abscissa value";
-      input Real der_u2 "Derivative of second abscissa value";
+      input Real u1 "Value of first independent variable";
+      input Real u2 "Value of second independent variable";
+      input Real der_u1 "Derivative of first independent variable";
+      input Real der_u2 "Derivative of second independent variable";
       output Real der_y "Derivative of interpolated value";
       external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -1392,10 +1392,10 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       "Derivative of interpolated 2-dim. table defined by matrix (but do not provide a second derivative function)"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
-      input Real u1 "First abscissa value";
-      input Real u2 "Second abscissa value";
-      input Real der_u1 "Derivative of first abscissa value";
-      input Real der_u2 "Derivative of second abscissa value";
+      input Real u1 "Value of first independent variable";
+      input Real u2 "Value of second independent variable";
+      input Real der_u1 "Derivative of first independent variable";
+      input Real der_u2 "Derivative of second independent variable";
       output Real der_y "Derivative of interpolated value";
       external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -1405,12 +1405,12 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       "Second derivative of interpolated 2-dim. table defined by matrix"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
-      input Real u1 "First abscissa value";
-      input Real u2 "Second abscissa value";
-      input Real der_u1 "Derivative of first abscissa value";
-      input Real der_u2 "Derivative of second abscissa value";
-      input Real der2_u1 "Second derivative of first abscissa value";
-      input Real der2_u2 "Second derivative of second abscissa value";
+      input Real u1 "Value of first independent variable";
+      input Real u2 "Value of second independent variable";
+      input Real der_u1 "Derivative of first independent variable";
+      input Real der_u2 "Derivative of second independent variable";
+      input Real der2_u1 "Second derivative of first independent variable";
+      input Real der2_u2 "Second derivative of second independent variable";
       output Real der2_y "Second derivative of interpolated value";
       external"C" der2_y = ModelicaStandardTables_CombiTable2D_getDer2Value(tableID, u1, u2, der_u1, der_u2, der2_u1, der2_u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
