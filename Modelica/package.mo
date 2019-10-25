@@ -2299,11 +2299,13 @@ There are some special guidelines for changes to the maintenance branch.
      \"versionBuild\" number needs to be incremented by one. At the same time the \"dateModified\" field
      needs to be updated.<br>
      Example:
-         <blockquote><pre>  annotation(version      = \"3.2.3\",
-             versionDate  = \"2019-01-23\",
-             versionBuild = 2,
-             dateModified = \"2019-01-23 07:40:19Z\",
-             revisionId   = \"$F&#8203;ormat:%h %ci$\")</pre></blockquote>
+         <blockquote><pre>
+annotation(version      = \"3.2.3\",
+           versionDate  = \"2019-01-23\",
+           versionBuild = 2,
+           dateModified = \"2019-01-23 07:40:19Z\",
+           revisionId   = \"$F&#8203;ormat:%h %ci$\")
+         </pre></blockquote>
      The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits.<br>
      Example:
      <blockquote>
@@ -5401,7 +5403,7 @@ The following changes are present for the whole library:
 
 <li> Nearly all parameters defined in the Modelica Standard Library had been
          defined with a default equation, e.g.,
-         <blockquote><pre>   <strong>parameter</strong> Modelica.SIunits.Resistance R=1; </pre></blockquote>
+         <blockquote><pre><strong>parameter</strong> Modelica.SIunits.Resistance R=1; </pre></blockquote>
          Physical parameters, such as a resistance, mass, gear ratio, do not have a meaningful
          default and in nearly all cases, the user of the corresponding component has to
          provide values for such parameters. If the user forgets this, a tool
@@ -5411,7 +5413,7 @@ The following changes are present for the whole library:
          parameter declarations in the Modelica Standard Library have been changed, so
          that the previous default becomes a start value. For example, the above
          declaration is changed to:
-         <blockquote><pre>   <strong>parameter</strong> Modelica.SIunits.Resistance R(start=1);  </pre></blockquote>
+         <blockquote><pre><strong>parameter</strong> Modelica.SIunits.Resistance R(start=1);  </pre></blockquote>
          This is a backward compatible change and completely equivalent from the perspective
          of the Modelica language. It is, however, advised that tools will print a warning
          or optionally an error message, if the start value of a parameter is defined, but
