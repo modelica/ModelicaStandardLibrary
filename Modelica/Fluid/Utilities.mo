@@ -289,7 +289,7 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
 Approximates the function
 </p>
 <blockquote><pre>
-   y = <strong>if</strong> x &ge; 0 <strong>then</strong> <strong>sqrt</strong>(k1*x) <strong>else</strong> -<strong>sqrt</strong>(k2*<strong>abs</strong>(x)), with k1, k2 &ge; 0
+y = <strong>if</strong> x &ge; 0 <strong>then</strong> <strong>sqrt</strong>(k1*x) <strong>else</strong> -<strong>sqrt</strong>(k2*<strong>abs</strong>(x)), with k1, k2 &ge; 0
 </pre></blockquote>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
@@ -436,7 +436,7 @@ k1=1, k2=3 is shown in the next figure:</p>
 Approximates the function
 </p>
 <blockquote><pre>
-   y = <strong>if</strong> x &ge; 0 <strong>then</strong> k1*x*x <strong>else</strong> -k2*x*x, with k1, k2 > 0
+y = <strong>if</strong> x &ge; 0 <strong>then</strong> k1*x*x <strong>else</strong> -k2*x*x, with k1, k2 > 0
 </pre></blockquote>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
@@ -530,8 +530,8 @@ by a smooth characteristic, so that the expression is continuous and differentia
 </p>
 
 <blockquote><pre>
-   y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
-                 <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
+y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
+              <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
 </pre></blockquote>
 
 <p>

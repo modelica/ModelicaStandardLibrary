@@ -36,14 +36,14 @@ incompressible case </strong>, where the pressure loss (DP) is calculated in dep
 known mass flow rate (m_flow)
 </p>
 <blockquote><pre>
-   DP = f(m_flow,...)
+DP = f(m_flow,...)
 </pre></blockquote>
 <p>
 or a <strong> compressible case </strong> , where the mass flow rate (M_FLOW) is calculated in
 dependence of a known pressure loss (dp)
 </p>
 <blockquote><pre>
-   M_FLOW = f(dp,...).
+M_FLOW = f(dp,...).
 </pre></blockquote>
 <p>
 In both cases one target variable (DP for the compressible or M_FLOW for the
@@ -60,14 +60,14 @@ between them is still missing. Here the implementation for the compressible case
 flow model will be explained as example.
 </p>
 <blockquote><pre>
-   model straightPipe
-    //compressible case M_FLOW = f(dp)
-     Modelica.SIunits.Pressure dp \"Input pressure loss\";
-     Modelica.SIunits.MassFlowRate M_FLOW \"Output mass flow rate\";
-   end straightPipe
+ model straightPipe
+  //compressible case M_FLOW = f(dp)
+   Modelica.SIunits.Pressure dp \"Input pressure loss\";
+   Modelica.SIunits.MassFlowRate M_FLOW \"Output mass flow rate\";
+ end straightPipe
 
-   equation
-  end straightPipe
+ equation
+end straightPipe
 </pre></blockquote>
 
 <h4>Step 2: Choose pressure loss <strong> function </strong> of interest</h4>
@@ -78,7 +78,7 @@ of a straight pipe to be modelled can be found by browsing through the <strong>
 Fluid.Dissipation </strong> library and looking up the function of interest, here:
 </p>
 <blockquote><pre>
-   Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW
+Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW
 </pre></blockquote>
 
 <p>
@@ -86,14 +86,14 @@ This HTPL correlation for the compressible case of a straight pipe have to be dr
 dropped in the equation section of the <strong> equation layer </strong> of the model in Step 1.
 </p>
 <blockquote><pre>
-   model straightPipe
-    //compressible case M_FLOW = f(dp)
-     Modelica.SIunits.Pressure dp \"Input pressure loss\";
-     Modelica.SIunits.MassFlowRate M_FLOW \"Output mass flow rate\";
+model straightPipe
+  //compressible case M_FLOW = f(dp)
+  Modelica.SIunits.Pressure dp \"Input pressure loss\";
+  Modelica.SIunits.MassFlowRate M_FLOW \"Output mass flow rate\";
 
-    equation
-    Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_<strong>MFLOW</strong>
-   end straightPipe
+equation
+  Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_<strong>MFLOW</strong>
+end straightPipe
 </pre></blockquote>
 
 <h4>Step 3: Choose corresponding pressure loss <strong> records </strong>
@@ -118,15 +118,15 @@ Now the equation layer of the model in Step 1 should look similar to the followi
 (without comments and annotation):
 </p>
 <blockquote><pre>
-  model straightPipe
-   ...
-   //records
-   Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con <strong>IN_con</strong>;
-   Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var <strong>IN_var</strong>;
+model straightPipe
+  ...
+  //records
+  Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con <strong>IN_con</strong>;
+  Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var <strong>IN_var</strong>;
 
-   equation
-   Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW
-  end straightPipe
+equation
+  Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW
+end straightPipe
 </pre></blockquote>
 
 <h4>Step 4: Build function-record construction </h4>
@@ -7744,7 +7744,7 @@ The local two phase heat transfer coefficient <strong> kc_2ph </strong> during c
 </p>
 
 <blockquote><pre>
-  kc_2ph = kc_1ph*[(1 - x_flow)^0.8 + 3.8*x_flow^0.76*(1 - x_flow)^0.04/p_red^0.38]
+kc_2ph = kc_1ph*[(1 - x_flow)^0.8 + 3.8*x_flow^0.76*(1 - x_flow)^0.04/p_red^0.38]
 </pre></blockquote>
 
 <p>
@@ -7752,8 +7752,8 @@ where the convective heat transfer coefficient <strong> kc_1ph </strong> assumin
 </p>
 
 <blockquote><pre>
-  kc_1ph = 0.023*Re_l^0.8*Pr_l^0.4*lambda_l/d_hyd
- </pre></blockquote>
+kc_1ph = 0.023*Re_l^0.8*Pr_l^0.4*lambda_l/d_hyd
+</pre></blockquote>
 
 <p>
 with
@@ -8133,7 +8133,7 @@ In addition the influence or decreasing Reynolds numbers <strong> Re </strong> o
 </p>
 
 <blockquote><pre>
-   CF_Re = B/Re^exp for Re &le; 2e5
+CF_Re = B/Re^exp for Re &le; 2e5
 </pre></blockquote>
 
 <p>
@@ -8390,7 +8390,7 @@ where the mean density <strong> rho_m </strong> is calculated according to the i
 </p>
 
 <blockquote><pre>
-   rho_m = p_m / (R_s*T_m) , p_m = (p_1 + p_2)/2 and T_m = (T_1 + T_2)/2.
+rho_m = p_m / (R_s*T_m) , p_m = (p_1 + p_2)/2 and T_m = (T_1 + T_2)/2.
 </pre></blockquote>
 
 <p>
@@ -8493,14 +8493,14 @@ The generic pressure loss <strong>dp</strong> is determined for:
  <li>
  compressible case [Mass flow rate = f(dp)]:
   <blockquote><pre>
-   m_flow = m_flow_nom*[(dp/dp_nom)*(rho/rho_nom)]^(1/exp)*(eta_nom/eta)^(exp_eta/exp)
-   </pre></blockquote>
+m_flow = m_flow_nom*[(dp/dp_nom)*(rho/rho_nom)]^(1/exp)*(eta_nom/eta)^(exp_eta/exp)
+  </pre></blockquote>
  </li>
  <li>
  incompressible case [Pressure loss = f(m_flow)]:
   <blockquote><pre>
-   dp = dp_nom*(m_flow/m_flow_nom)^exp*(rho_nom/rho)*(eta/eta_nom)^exp_eta
-   </pre></blockquote>
+dp = dp_nom*(m_flow/m_flow_nom)^exp*(rho_nom/rho)*(eta/eta_nom)^exp_eta
+  </pre></blockquote>
   </li>
 </ul>
 
@@ -8603,7 +8603,7 @@ In the following the pressure loss <strong>dp</strong> is generally determined f
 </p>
 
 <blockquote><pre>
-   dp/dp_nom = (zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)*(v/v_nom)^exp
+dp/dp_nom = (zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)*(v/v_nom)^exp
 </pre></blockquote>
 
 <p>
@@ -8629,7 +8629,7 @@ The fraction of mean flow velocities (v/v_nom) can be calculated through its cor
 </p>
 
 <blockquote><pre>
-   v/v_nom = (m_flow/m_flow_nom)*(A_cross_nom/A_cross)*(rho_nom/rho)
+v/v_nom = (m_flow/m_flow_nom)*(A_cross_nom/A_cross)*(rho_nom/rho)
 </pre></blockquote>
 
 <p>
@@ -8660,7 +8660,7 @@ Here the <strong> compressible case </strong> [Mass flow rate = f(dp)] determine
 </p>
 
 <blockquote><pre>
-   m_flow = m_flow_nom*(A_cross/A_cross_nom)*(rho_nom/rho)^(exp_density/exp)*[(dp/dp_nom)*(zeta_TOT_nom/zeta_TOT)]^(1/exp);
+m_flow = m_flow_nom*(A_cross/A_cross_nom)*(rho_nom/rho)^(exp_density/exp)*[(dp/dp_nom)*(zeta_TOT_nom/zeta_TOT)]^(1/exp);
 </pre></blockquote>
 
 <p>
@@ -8668,7 +8668,7 @@ where the exponent for the fraction of densities is determined w.r.t. the chosen
 </p>
 
 <blockquote><pre>
-  exp_density = if NominalMassFlowRate == Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then 1-exp else 1
+exp_density = if NominalMassFlowRate == Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then 1-exp else 1
 </pre></blockquote>
 
 <p>
@@ -8686,7 +8686,7 @@ To avoid numerical difficulties this pressure loss function is linear smoothed f
 </p>
 
 <blockquote><pre>
-   dp &le; 0.01*dp_nom
+dp &le; 0.01*dp_nom
 </pre></blockquote>
 
 <p>
@@ -8799,7 +8799,7 @@ quadratic dependence of the pressure loss on the volume flow rate.
 The mass flow rate <strong>m_flow</strong> for the compressible case [Mass flow rate = f(dp)] is determined to <em> [see Wischhusen] </em>:
 </p>
 <blockquote><pre>
- m_flow = rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5]
+m_flow = rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5]
 </pre></blockquote>
 <p>
 with
@@ -11031,7 +11031,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <strong>two</st
 The function is used to limit the derivative of the following function at x=0:
 </p>
 <blockquote><pre>
-   y = <strong>if</strong> x &ge; 0 <strong>then</strong> x<sup><strong>pow</strong></sup> <strong>else</strong> -(-x)<sup><strong>pow</strong></sup>;  // pow &gt; 0
+y = <strong>if</strong> x &ge; 0 <strong>then</strong> x<sup><strong>pow</strong></sup> <strong>else</strong> -(-x)<sup><strong>pow</strong></sup>;  // pow &gt; 0
 </pre></blockquote>
 
 <p>

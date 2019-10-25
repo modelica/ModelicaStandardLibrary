@@ -1278,7 +1278,7 @@ Basically, different variants of the equation
 </p>
 
 <blockquote><pre>
-   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2.
+dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2.
 </pre></blockquote>
 
 <p>
@@ -1689,7 +1689,7 @@ Heat transfer correlations for pipe models
 Calculation of Reynolds Number
 </p>
 <blockquote><pre>
-   Re = |v|&rho;D/&mu;
+Re = |v|&rho;D/&mu;
 </pre></blockquote>
 <p>
 a measure of the relationship between inertial forces (v&rho;) and viscous forces (D/&mu;).
@@ -3476,7 +3476,7 @@ Basically, different variants of the equation
 </p>
 
 <blockquote><pre>
-   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
+dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
 </pre></blockquote>
 
 <p>
@@ -3538,7 +3538,7 @@ Basically, different variants of the equation
 </p>
 
 <blockquote><pre>
-   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
+dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
 </pre></blockquote>
 
 <p>

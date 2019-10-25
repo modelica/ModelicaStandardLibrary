@@ -142,16 +142,16 @@ For a single substance medium, the connector definition in
 Modelica.Fluid.Interfaces.FluidPort reduces to
 </p>
 <blockquote><pre>
-  <strong>connector</strong> FluidPort
-     <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
-              \"Medium model of the fluid\";
-     <strong>flow</strong> Medium.MassFlowRate m_flow;
-              \"Mass flow rate from the connection point into the component\";
-     Medium.AbsolutePressure p
-              \"Thermodynamic pressure in the connection point\";
-     <strong>stream</strong> Medium.SpecificEnthalpy h_outflow
-               \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
-  <strong>end</strong> FluidPort;
+<strong>connector</strong> FluidPort
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
+           \"Medium model of the fluid\";
+  <strong>flow</strong> Medium.MassFlowRate m_flow;
+           \"Mass flow rate from the connection point into the component\";
+  Medium.AbsolutePressure p
+           \"Thermodynamic pressure in the connection point\";
+  <strong>stream</strong> Medium.SpecificEnthalpy h_outflow
+            \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
+<strong>end</strong> FluidPort;
 </pre></blockquote>
 <p>
 The first statement defines the Medium flowing through the connector.
@@ -160,8 +160,8 @@ are defined that contain medium specific values for the min, max and
 nominal attributes. Furthermore, Medium.MassFlowRate is defined as:
 </p>
 <blockquote><pre>
-   <strong>type</strong> MassFlowRate =
-      Modelica.SIunits.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
+<strong>type</strong> MassFlowRate =
+   Modelica.SIunits.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
 </pre></blockquote>
 <p>
 Generally, with the current library design, it is necessary to explicitly select the medium
@@ -498,9 +498,9 @@ The standard pressure drop equation
 </p>
 
 <blockquote><pre>
-   dp = port_a - port_b;
-   m_flow = sqrt(2/(zeta*diameter))*if dp >= 0 then  sqrt(dp)
-                                               else -sqrt(-dp)
+dp = port_a - port_b;
+m_flow = sqrt(2/(zeta*diameter))*if dp >= 0 then  sqrt(dp)
+                                            else -sqrt(-dp)
 </pre></blockquote>
 
 <p>
@@ -799,7 +799,7 @@ account by the following formula derived by Voronin
 <em>[Voronin 1959; Idelchik 1994, p. 97, sect. 2.1.81]</em>:
 </p>
 <blockquote><pre>
-  &lambda;_comp = &lambda;*(1 + (&kappa;-1)/2 * Ma^2)^(-0.47)
+&lambda;_comp = &lambda;*(1 + (&kappa;-1)/2 * Ma^2)^(-0.47)
 </pre></blockquote>
 <p>
 where &kappa; is the isentropic coefficient
@@ -822,8 +822,8 @@ In the \"Advanced menu\" it is possible via parameter
 pressure drop equation is actually evaluated (<strong>default</strong> is from_dp = <strong>true</strong>):
 </p>
 <blockquote><pre>
-   from_dp = <strong>true</strong>:   m_flow = f1(dp)
-           = <strong>false</strong>:  dp     = f2(m_flow)
+from_dp = <strong>true</strong>:   m_flow = f1(dp)
+        = <strong>false</strong>:  dp     = f2(m_flow)
 </pre></blockquote>
 <p>
 \"from_dp\" can be useful to avoid nonlinear systems of equations
@@ -888,7 +888,7 @@ The basic equation for valves is:
 </p>
 
 <blockquote><pre>
-  q = Av*sqrt(dp/rho)
+q = Av*sqrt(dp/rho)
 </pre></blockquote>
 
 <p>
@@ -900,7 +900,7 @@ Europe:
 </p>
 
 <blockquote><pre>
-  q = Kv sqrt(dp/(rho/rho0)) , with [q] = m3/h, [dp] = bar
+q = Kv sqrt(dp/(rho/rho0)) , with [q] = m3/h, [dp] = bar
 </pre></blockquote>
 
 <p>
@@ -908,7 +908,7 @@ US:
 </p>
 
 <blockquote><pre>
-  q = Cv sqrt(dp/(rho/rho0)) , with [q] = USG/min, [dp] = psi
+q = Cv sqrt(dp/(rho/rho0)) , with [q] = USG/min, [dp] = psi
 </pre></blockquote>
 
 <p>

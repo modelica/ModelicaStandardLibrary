@@ -871,15 +871,15 @@ The loss factors are given for mass flow rates from
 port_a to port_b as:
 </p>
 <blockquote><pre>
-  turbulent flow (Idelchik 1994, diagram 2-5, p. 117)
-     zeta = (L/D)/(2*lg(3.7 / &Delta;))^2, for Re >= 560/&Delta;
-&nbsp;
-     for Re &ge; 560/&Delta; the loss factor does not depend on the
-     Reynolds number. For Re &ge; 4000, the flow is turbulent,
-     but depends both on &Delta; and slightly on Re.
-&nbsp;
-  laminar flow (Idelchik 1994, diagram 2-1, p. 110):
-     zeta = 64*(L/D)/Re
+turbulent flow (Idelchik 1994, diagram 2-5, p. 117)
+   zeta = (L/D)/(2*lg(3.7 / &Delta;))^2, for Re >= 560/&Delta;
+
+   for Re &ge; 560/&Delta; the loss factor does not depend on the
+   Reynolds number. For Re &ge; 4000, the flow is turbulent,
+   but depends both on &Delta; and slightly on Re.
+
+laminar flow (Idelchik 1994, diagram 2-1, p. 110):
+   zeta = 64*(L/D)/Re
 </pre></blockquote>
 <p>
 where
@@ -1022,15 +1022,15 @@ The loss factors are given for mass flow rates from
 port_a to port_b as:
 </p>
 <blockquote><pre>
-   A_a &lt; A_b (Idelchik 1994, diagram 4-1, p. 208):
-      zeta = dp/(rho_a*v_a^2/2)
-           = (1 - A_a/A_b)^2 for Re_a &ge; 3.3e3 (turbulent flow)
-      zeta = 30/Re           for Re_a &lt; 10    (laminar flow)
-&nbsp;
-   A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
-      zeta = dp/(rho_b*v_b^2/2)
-           = 0.5*(1 - A_b/A_a)^0.75 for Re_b &ge; 1e4 (turbulent flow)
-      zeta = 30/Re                  for Re_a &lt; 10  (laminar flow)
+A_a &lt; A_b (Idelchik 1994, diagram 4-1, p. 208):
+   zeta = dp/(rho_a*v_a^2/2)
+        = (1 - A_a/A_b)^2 for Re_a &ge; 3.3e3 (turbulent flow)
+   zeta = 30/Re           for Re_a &lt; 10    (laminar flow)
+
+A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
+   zeta = dp/(rho_b*v_b^2/2)
+        = 0.5*(1 - A_b/A_a)^0.75 for Re_b &ge; 1e4 (turbulent flow)
+   zeta = 30/Re                  for Re_a &lt; 10  (laminar flow)
 </pre></blockquote>
 </html>"));
        end suddenExpansion;
@@ -1135,22 +1135,22 @@ Loss factor for mass flow rate from port_a to port_b
 (Idelchik 1994, diagram 4-14, p. 221):
 </p>
 <blockquote><pre>
-   zeta = [(1-A0/A1) + 0.707*(1-A0/A1)^0.375]^2*(A1/A0)^2
-          for Re(A0) >= 1e5,  independent of alpha
+zeta = [(1-A0/A1) + 0.707*(1-A0/A1)^0.375]^2*(A1/A0)^2
+       for Re(A0) >= 1e5,  independent of alpha
 </pre></blockquote>
 <p>
 Loss factor for mass flow rate from port_b to port_a
 (Idelchik 1994, diagram 4-13, p. 220, with A2=A1):
 </p>
 <blockquote><pre>
-   zeta = k*(1 - A0/A1)^0.75 + (1 - A0/A1)^2 + 2*sqrt(k*(1-A0/A1)^0.375) + (1- A0/A1)
-          k  = 0.13 + 0.34*10^(-(3.4*LD+88.4*LD^2.3))
-               (there is a typing error in the formula in diagram 4-13, the above
-                equation corresponds to table (a) in diagram 4-12)
-          LD = L/D0
-          for Re(A0) >= 1e4, 40 deg &le; alpha &le; 60 deg
-                             for other values of alpha, k is given as table
-                             in diagram 3-7 (this is not yet included in the function)
+zeta = k*(1 - A0/A1)^0.75 + (1 - A0/A1)^2 + 2*sqrt(k*(1-A0/A1)^0.375) + (1- A0/A1)
+       k  = 0.13 + 0.34*10^(-(3.4*LD+88.4*LD^2.3))
+            (there is a typing error in the formula in diagram 4-13, the above
+             equation corresponds to table (a) in diagram 4-12)
+       LD = L/D0
+       for Re(A0) >= 1e4, 40 deg &le; alpha &le; 60 deg
+                          for other values of alpha, k is given as table
+                          in diagram 3-7 (this is not yet included in the function)
 </pre
 </html>"));
        end sharpEdgedOrifice;
