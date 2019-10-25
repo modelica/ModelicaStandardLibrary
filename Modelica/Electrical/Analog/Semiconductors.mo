@@ -252,7 +252,7 @@ Stefan Vorkoetter - new model proposed.</li>
           Line(points={{30,-40},{20,-40}}, color={28,108,200})}));
   end ZDiode;
 
-  model NMOS "Simple MOS Transistor with heating port"
+  model NMOS "Simple NMOS transistor with heating port"
 
     Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
       annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
@@ -318,7 +318,7 @@ Stefan Vorkoetter - new model proposed.</li>
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
 </p>
 <pre>
-  W       L      Beta         Vt      K2     K5       DW       DL
+  W       L      Beta         Vt      K2     K5       dW       dL
   m       m      A/V^2        V       -      -        m        m
   12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
   60.e-6  3.e-6  0.048e-3     0.1     0.08   0.68    -1.2e-6  -0.9e-6      enhancement
@@ -373,7 +373,7 @@ Stefan Vorkoetter - new model proposed.</li>
               textColor={0,0,255})}));
   end NMOS;
 
-  model PMOS "Simple PMOS Transistor with heating port"
+  model PMOS "Simple PMOS transistor with heating port"
 
     Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
       annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
@@ -440,7 +440,7 @@ Stefan Vorkoetter - new model proposed.</li>
 <p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
 <p>Some typical parameter sets are:</p>
 <pre>
-  W       L      Beta        Vt    K2     K5      DW       DL
+  W       L      Beta        Vt    K2     K5      dW       dL
   m       m      A/V^2       V     -      -       m        m
   50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
   20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
