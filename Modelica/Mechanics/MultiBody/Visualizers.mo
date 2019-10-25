@@ -966,7 +966,7 @@ the last point of the parametrization coincide in this case.
     parameter SI.Radius rw = (width/2);
     parameter SI.Radius rCurvature2 = if rCurvature > rw then rCurvature else rw;
     parameter SI.Radius h =     sqrt(1-(rw/rCurvature2)*(rw/rCurvature2))*rCurvature2;
-    parameter SI.Radius ri =    rTire-rCurvature2;
+    parameter SI.Position ri =    rTire-rCurvature2;
     parameter SI.Radius rRim2 = if rRim < 0 then 0 else if rRim > ri+h then ri+h else rRim;
 
       Visualizers.Advanced.Shape pipe(
