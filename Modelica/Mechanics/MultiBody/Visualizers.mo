@@ -874,8 +874,8 @@ This shape visualizes the x-y plane by a box.
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
 
-    parameter Modelica.SIunits.Radius ri=0.5 "Inner radius of torus" annotation(Dialog(enable=animation));
-    parameter Modelica.SIunits.Radius ro=0.1 "Outer radius of torus (=width/2)"
+    parameter Modelica.SIunits.Radius ri=0.5 "Major radius (distance from center of torus to center of tube)" annotation(Dialog(enable=animation));
+    parameter Modelica.SIunits.Radius ro=0.1 "Minor radius (radius of tube)"
       annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Angle startAngle=-3.1415926535898
@@ -892,8 +892,8 @@ This shape visualizes the x-y plane by a box.
     input Real transparency=0
       "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
                                  annotation(Dialog(enable=animation,group="Material properties"));
-    parameter Integer n_ri=40 "Number of points along ri" annotation(Dialog(enable=animation,tab="Discretization"));
-    parameter Integer n_ro=20 "Number of points along ro" annotation(Dialog(enable=animation,tab="Discretization"));
+    parameter Integer n_ri=40 "Number of points along major radius ri" annotation(Dialog(enable=animation,tab="Discretization"));
+    parameter Integer n_ro=20 "Number of points along minor radius ro" annotation(Dialog(enable=animation,tab="Discretization"));
 
   protected
     Advanced.Surface surface(
@@ -967,7 +967,7 @@ the last point of the parametrization coincide in this case.
     parameter SI.Radius rTire=0.25 "Radius of the tire";
     parameter SI.Radius rRim= 0.14 "Radius of the rim";
     parameter SI.Radius width=0.25 "Width of the tire";
-    parameter SI.Radius rCurvature=0.30 "Radius of the curvature of the tire";
+    parameter SI.Radius rCurvature=0.30 "Radius of the tire's cross section";
 
     parameter Modelica.Mechanics.MultiBody.Types.RealColor color={64,64,64}
       "Color of tire" annotation(Dialog(enable=animation, colorSelector=true, group="Material properties"));
@@ -980,7 +980,7 @@ the last point of the parametrization coincide in this case.
     parameter SI.Radius rw = (width/2);
     parameter SI.Radius rCurvature2 = if rCurvature > rw then rCurvature else rw;
     parameter SI.Radius h =     sqrt(1-(rw/rCurvature2)*(rw/rCurvature2))*rCurvature2;
-    parameter SI.Radius ri =    rTire-rCurvature2;
+    parameter SI.Length ri =    rTire-rCurvature2;
     parameter SI.Radius rRim2 = if rRim < 0 then 0 else if rRim > ri+h then ri+h else rRim;
 
       Visualizers.Advanced.Shape pipe(
@@ -2390,8 +2390,8 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
       function torus "Function defining the surface characteristic of a torus"
         extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
-        input Modelica.SIunits.Radius ri=1 "Inner radius of torus" annotation(Dialog);
-        input Modelica.SIunits.Radius ro=0.2 "Outer radius of torus (=width/2)" annotation(Dialog);
+        input Modelica.SIunits.Length ri=1 "Major radius (distance from center of torus to center of tube)" annotation(Dialog);
+        input Modelica.SIunits.Length ro=0.2 "Minor radius (radius of tube)" annotation(Dialog);
         input Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog);
         input Modelica.SIunits.Angle startAngle= -Modelica.Constants.pi
           "Start angle of torus slice" annotation(Dialog);
