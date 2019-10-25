@@ -16,7 +16,7 @@ package Semiconductors
     parameter Real N=1 "Emission coefficient" annotation(Dialog(enable=useTemperatureDependency));
     parameter SI.Temperature TNOM=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
     parameter Real XTI=3 "Temperature exponent of saturation current" annotation(Dialog(enable=useTemperatureDependency));
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
 
     SI.Voltage vt_t "Temperature voltage";
     SI.Current id "Diode current";
@@ -275,7 +275,7 @@ Stefan Vorkoetter - new model proposed.</li>
     parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
     parameter Real kvt=-6.96e-3 "Fitting parameter for Vt" annotation(Dialog(enable=useTemperatureDependency));
     parameter Real kk2=6e-4 "Fitting parameter for K2" annotation(Dialog(enable=useTemperatureDependency));
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
   protected
     Real v;
     Real uds;
@@ -396,7 +396,7 @@ Stefan Vorkoetter - new model proposed.</li>
     parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
     parameter Real kvt=-2.9e-3 "Fitting parameter for Vt" annotation(Dialog(enable=useTemperatureDependency));
     parameter Real kk2=6.2e-4 "Fitting parameter for K2" annotation(Dialog(enable=useTemperatureDependency));
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
   protected
     Real v;
     Real uds;
