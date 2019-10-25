@@ -3417,7 +3417,8 @@ B, gamma, and gamma1 are (n,m) matrices.
 <p>
 The function calculates the matrices phi,gamma,gamma1 through the equation:
 </p>
-<blockquote><pre>                                 [ A B 0 ]
+<blockquote><pre>
+                                 [ A B 0 ]
 [phi gamma gamma1] = [I 0 0]*exp([ 0 0 I ]*T)
                                  [ 0 0 0 ]
 </pre></blockquote>

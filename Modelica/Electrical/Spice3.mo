@@ -4282,7 +4282,8 @@ V1 V1+ V1- type of voltage source (constant, pulse, sin...)
 V1_AD...VN_AD
 </pre></blockquote>
 <p>have to be added. In the case, that the SPICE source is</p>
-<blockquote><pre>   V1 n+ n- 0,
+<blockquote><pre>
+V1 n+ n- 0,
 </pre></blockquote>
 <p>this source can be eliminated.</p>
 <blockquote><pre>

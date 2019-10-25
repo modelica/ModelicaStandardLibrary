@@ -6870,19 +6870,25 @@ centrifugal forces.
 The mean convective heat transfer coefficient <strong> kc </strong> for helical pipes is calculated through the corresponding Nusselt number <strong> Nu </strong> according to <em>[VDI 2002, p. Gc 2, eq. 5]</em> :
 </p>
 
-<blockquote><pre>    Nu = 3.66 + 0.08*[1 + 0.8*(d_hyd/d_coil)^0.9]*Re^m*Pr^(1/3)<br></pre></blockquote>
+<blockquote><pre>
+Nu = 3.66 + 0.08*[1 + 0.8*(d_hyd/d_coil)^0.9]*Re^m*Pr^(1/3)
+</pre></blockquote>
 
 <p>
 with the exponent <strong> m </strong> for the Reynolds number
 </p>
 
-<blockquote><pre>    m = 0.5 + 0.2903*(d_hyd/d_coil)^0.194</pre></blockquote>
+<blockquote><pre>
+m = 0.5 + 0.2903*(d_hyd/d_coil)^0.194
+</pre></blockquote>
 
 <p>
 and the resulting mean convective heat transfer coefficient <strong> kc </strong>
 </p>
 
-<blockquote><pre>    kc =  Nu * lambda / d_hyd</pre></blockquote>
+<blockquote><pre>
+kc =  Nu * lambda / d_hyd
+</pre></blockquote>
 
 <p>
 with
@@ -7878,18 +7884,26 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 </p>
 <ul>
 <li><p><strong>Laminar regime (Re &le; Re_lam_leave)</strong>:</p>
-<blockquote><pre>      zeta_LOC = A2/Re + A1*B1*C1</pre></blockquote></li>
+<blockquote><pre>
+zeta_LOC = A2/Re + A1*B1*C1
+</pre></blockquote>
+</li>
 <li><p><strong>Transition regime (Re_lam_leave &le; 4e4)</strong></p>
 <p> This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime.</p></li>
 <li><p><strong>Turbulent regime (4e4 &le; 3e5) with dependence </strong> of local resistance coefficient on Reynolds number:</p>
-<blockquote><pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre></blockquote>
+<blockquote><pre>
+zeta_LOC = k_Re * (A1*B1*C1)
+</pre></blockquote>
 <p>where <strong>k_Re</strong> depends on the relative curvature radius <strong>R_0/d_hyd </strong></p>
 <blockquote><pre>
 k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
 k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
 k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre></blockquote></li>
 <li><p><strong>Turbulent regime (Re &ge; 3e5) with independence </strong>of local resistance coefficient on Reynolds number</p>
-<blockquote><pre>      zeta_LOC = A1*B1*C1</pre></blockquote></li>
+<blockquote><pre>
+zeta_LOC = A1*B1*C1
+</pre></blockquote>
+</li>
 </ul>
 
 <p>with</p>
@@ -7919,11 +7933,17 @@ k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre></blockquot
 </tr>
 </table>
 <p><br/><br/>The pressure loss coefficient <strong>zeta_TOT </strong>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <strong>zeta_LOC </strong>multiplied with a correction factor <strong>CF </strong>for surface roughness according to <em>[Miller, p. 209, eq. 9.4]:</em></p>
-<blockquote><pre>    zeta_TOT = CF*zeta_LOC </pre></blockquote>
+<blockquote><pre>
+zeta_TOT = CF*zeta_LOC
+</pre></blockquote>
 <p>where the correction factor <strong>CF </strong>is determined from the Darcy friction factor of a straight pipe having the bend flow path length</p>
-<blockquote><pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre></blockquote>
+<blockquote><pre>
+CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC
+</pre></blockquote>
 <p>and the Darcy friction factors <strong>lambda_FRI_rough </strong>is calculated with an approximated Colebrook-White law according to <em>[Miller, p. 191, eq. 8.4]:</em></p>
-<blockquote><pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre></blockquote>
+<blockquote><pre>
+lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+</pre></blockquote>
 <p>with</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><strong>delta </strong></p></td>
@@ -7956,7 +7976,9 @@ k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre></blockquot
 </table>
 <p><br/>The correction for surface roughness through <strong>CF </strong>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <strong>Re &ge; 4e4 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>. There is no correction due to roughness in the laminar regime up to <strong>Re &le; 6.5e3 </strong>according to <em>[Idelchik 2006, p. 336, sec. 15]</em>.</p>
 <p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <em>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</em> as:</p>
-<blockquote><pre>    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)</pre></blockquote>
+<blockquote><pre>
+Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
+</pre></blockquote>
 <p>with</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><strong>k = K /d_hyd </strong></p></td>

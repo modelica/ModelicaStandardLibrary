@@ -389,8 +389,9 @@ simple, generic orifice, where the loss factor &zeta; is provided
 for one flow direction (e.g., from loss table of a book):
 </p>
 
-<blockquote><pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
 </pre></blockquote>
 
 <p>
@@ -1168,10 +1169,11 @@ It is also an option to provide the loss factor <strong>only</strong> for the
 <p>
 The following equations are used:
 </p>
-<blockquote><pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
-      = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
-        Re = |v|*D*&rho;/&mu;
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+   = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+     Re = |v|*D*&rho;/&mu;
 </pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>flow type</strong></td>
@@ -1640,9 +1642,10 @@ It is also an option to provide the loss factor <strong>only</strong> for the
 <p>
 The following equations are used:
 </p>
-<blockquote><pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
-        Re = |v|*D*&rho;/&mu;
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+     Re = |v|*D*&rho;/&mu;
 </pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>flow type</strong></td>
@@ -1894,9 +1897,10 @@ It is also an option to provide the loss factor <strong>only</strong> for the
 <p>
 The following equations are used:
 </p>
-<blockquote><pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
-        Re = |v|*D*&rho;/&mu;
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+     Re = |v|*D*&rho;/&mu;
 </pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>flow type</strong></td>
@@ -2040,9 +2044,10 @@ It is also an option to provide the loss factor <strong>only</strong> for the
 Basically, the pressure drop is defined by the following
 equation:
 </p>
-<blockquote><pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
-      = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+   = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
 </pre></blockquote>
 <p>
 where

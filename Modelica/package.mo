@@ -7883,12 +7883,13 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] \"Table matrix (t
 </pre></blockquote>
 <p>Did the same for subfunction <em>getInterpolationCoefficients</em>.</p>
 <p>Bug in <em>getInterpolationCoefficients</em> for startTime <> 0 fixed:</p>
-<blockquote><pre>        ...
-                end if;
-          end if;
-          <strong>// Take into account startTime \"a*(time - startTime) + b\"
-          b := b - a*startTime;</strong>
-        end getInterpolationCoefficients;
+<blockquote><pre>
+...
+        end if;
+  end if;
+  <strong>// Take into account startTime \"a*(time - startTime) + b\"
+  b := b - a*startTime;</strong>
+end getInterpolationCoefficients;
 </pre></blockquote>
 <p><em>Modelica.Blocks.Sources.BooleanStep</em></p>
 <blockquote><pre>

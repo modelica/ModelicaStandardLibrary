@@ -455,41 +455,42 @@ In the Modelica.Fluid library, such a situation is handled
 with the following code fragment
 (from Interfaces.PartialTwoPortTransport):
 </p>
-<blockquote><pre>    <strong>replaceable package</strong> Medium =
-                   Modelica.Media.Interfaces.PartialMedium
-                   <strong>annotation</strong>(choicesAllMatching = <strong>true</strong>);
+<blockquote><pre>
+  <strong>replaceable package</strong> Medium =
+                 Modelica.Media.Interfaces.PartialMedium
+                 <strong>annotation</strong>(choicesAllMatching = <strong>true</strong>);
 
-    Interfaces.FluidPort_a port_a(<strong>redeclare package</strong> Medium = Medium);
-    Interfaces.FluidPort_b port_b(<strong>redeclare package</strong> Medium = Medium);
+  Interfaces.FluidPort_a port_a(<strong>redeclare package</strong> Medium = Medium);
+  Interfaces.FluidPort_b port_b(<strong>redeclare package</strong> Medium = Medium);
 
-    Medium.ThermodynamicState port_a_state_inflow
-                    \"Medium state close to port_a for inflowing mass flow\";
-    Medium.ThermodynamicState port_b_state_inflow
-                    \"Medium state close to port_b for inflowing mass flow\";
+  Medium.ThermodynamicState port_a_state_inflow
+                  \"Medium state close to port_a for inflowing mass flow\";
+  Medium.ThermodynamicState port_b_state_inflow
+                  \"Medium state close to port_b for inflowing mass flow\";
 
-  <strong>equation</strong>
-    // Isenthalpic state transformation (no storage and no loss of energy)
-    port_a.h_outflow  = <strong>inStream</strong>(port_b.h_outflow);
-    port_b.h_outflow  = <strong>inStream</strong>(port_a.h_outflow);
+<strong>equation</strong>
+  // Isenthalpic state transformation (no storage and no loss of energy)
+  port_a.h_outflow  = <strong>inStream</strong>(port_b.h_outflow);
+  port_b.h_outflow  = <strong>inStream</strong>(port_a.h_outflow);
 
-    port_a.Xi_outflow = <strong>inStream</strong>(port_b.Xi_outflow);
-    port_b.Xi_outflow = <strong>inStream</strong>(port_a.Xi_outflow);
+  port_a.Xi_outflow = <strong>inStream</strong>(port_b.Xi_outflow);
+  port_b.Xi_outflow = <strong>inStream</strong>(port_a.Xi_outflow);
 
-    // Mass balance
-    port_a.m_flow + port_b.m_flow = 0;
+  // Mass balance
+  port_a.m_flow + port_b.m_flow = 0;
 
-    // Medium states for inflowing medium
-    port_a_state_inflow = Medium.setState_phX(port_a.p, port_b.h_outflow, port_b.Xi_outflow);
-    port_b_state_inflow = Medium.setState_phX(port_b.p, port_a.h_outflow, port_a.Xi_outflow);
+  // Medium states for inflowing medium
+  port_a_state_inflow = Medium.setState_phX(port_a.p, port_b.h_outflow, port_b.Xi_outflow);
+  port_b_state_inflow = Medium.setState_phX(port_b.p, port_a.h_outflow, port_a.Xi_outflow);
 
-    // Densities close to the parts when mass flows in to the respective port
-    port_a_rho_inflow = Medium.density(port_a_state_inflow);
-    port_b_rho_inflow = Medium.density(port_b_state_inflow);
+  // Densities close to the parts when mass flows in to the respective port
+  port_a_rho_inflow = Medium.density(port_a_state_inflow);
+  port_b_rho_inflow = Medium.density(port_b_state_inflow);
 
-    // Pressure drop correlation (k_ab, k_ba are the loss factors for the two flow
-    // directions; e.g., for a circular device: k = 8*zeta/(pi*diameter)^2)^2)
-    m_flow = Utilities.regRoot2(port_a.p - port_b.p, dp_small,
-                                port_a_rho_inflow/k1, port_b_rho_inflow/k2);
+  // Pressure drop correlation (k_ab, k_ba are the loss factors for the two flow
+  // directions; e.g., for a circular device: k = 8*zeta/(pi*diameter)^2)^2)
+  m_flow = Utilities.regRoot2(port_a.p - port_b.p, dp_small,
+                              port_a_rho_inflow/k1, port_b_rho_inflow/k2);
 </pre></blockquote>
 <p>
 The medium states for inflowing media can be used to compute density and dynamic
@@ -559,7 +560,8 @@ demonstrate what problems occur and how to regularize the characteristics:
 In several empirical formulae, expressions of the following form
 are present, e.g., for turbulent flow in a pipe:
 </p>
-<blockquote><pre>   y = <strong>if</strong> x &lt; 0 <strong>then</strong> -<strong>sqrt</strong>( <strong>abs</strong>(x) ) <strong>else</strong> <strong>sqrt</strong>(x)
+<blockquote><pre>
+y = <strong>if</strong> x &lt; 0 <strong>then</strong> -<strong>sqrt</strong>( <strong>abs</strong>(x) ) <strong>else</strong> <strong>sqrt</strong>(x)
 </pre></blockquote>
 <p>
 A plot of this characteristic is shown in the next figure:
@@ -588,7 +590,8 @@ Since this results in an imaginary number, an error occurs.
 It would be possible to fix this, by using the <strong>noEvent</strong>() operator
 to explicitly switch of an event:
 </p>
-<blockquote><pre>   y = <strong>if</strong> <strong>noEvent</strong>(x &lt; 0) <strong>then</strong> -<strong>sqrt</strong>( <strong>abs</strong>(x) ) <strong>else</strong> <strong>sqrt</strong>(x)
+<blockquote><pre>
+y = <strong>if</strong> <strong>noEvent</strong>(x &lt; 0) <strong>then</strong> -<strong>sqrt</strong>( <strong>abs</strong>(x) ) <strong>else</strong> <strong>sqrt</strong>(x)
 </pre></blockquote>
 <p>
 Still, it is highly likely that good integrators will not work well
@@ -604,7 +607,8 @@ such critical functions are provided in sublibrary Modelica.Fluid.Utilities.
 The above sqrt() type function is computed by function <strong>Utilities.regRoot</strong>().
 This function is defined as:
 </p>
-<blockquote><pre>     y := x/(x*x+delta*delta)^0.25;
+<blockquote><pre>
+y := x/(x*x+delta*delta)^0.25;
 </pre></blockquote>
 <p>
 where \"delta\" is the size of the small region around zero where the
@@ -709,7 +713,9 @@ The pressure loss characteristic is divided into three regions:
      assumptions of steady flow, constant pressure gradient and constant
      density and viscosity (= Hagen-Poiseuille flow) leading to &lambda;2 = 64*Re.
      Therefore:
-     <blockquote><pre> dp = 128*&mu;*L/(&pi;*D^4*&rho;)*m_flow </pre></blockquote><br>&nbsp;
+     <blockquote><pre>
+dp = 128*&mu;*L/(&pi;*D^4*&rho;)*m_flow
+     </pre></blockquote><br>&nbsp;
 </li>
 
 <li> <strong>Region 3</strong>:
@@ -731,7 +737,9 @@ The pressure loss characteristic is divided into three regions:
      approximation of the inverse of the Colebrook-White equation
      <em>[Swamee and Jain 1976;
      Miller 1990, p. 191, eq.(8.4)]</em> adapted to &lambda;2:
-     <blockquote><pre>&lambda;2 = 0.25*(Re/lg(&Delta;/3.7 + 5.74/Re^0.9))^2</pre></blockquote>
+     <blockquote><pre>
+&lambda;2 = 0.25*(Re/lg(&Delta;/3.7 + 5.74/Re^0.9))^2
+     </pre></blockquote>
      The pressure drop is then computed as dp = k2*&lambda;2*sign(m_flow).
      These are the <strong>blue</strong> curves in the diagrams above.<br>&nbsp;</li>
 

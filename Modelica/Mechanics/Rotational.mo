@@ -956,15 +956,17 @@ in the housing on one side via component Fixed.</p>
 <p>This drive train contains a frictional <strong>clutch</strong> and a <strong>brake</strong>.
 Simulate the system for 1 second using the following initial
 values (defined already in the model):</p>
-<blockquote><pre>   inertia1.w =  90 (or brake.w)
-   inertia2.w =  90
-   inertia3.w = 100
+<blockquote><pre>
+inertia1.w =  90 (or brake.w)
+inertia2.w =  90
+inertia3.w = 100
 </pre></blockquote>
 <p>Plot the output signals</p>
-<blockquote><pre>   tMotor      Torque of motor
-   tClutch     Torque in clutch
-   tBrake      Torque in brake
-   tSpring     Torque in spring
+<blockquote><pre>
+tMotor      Torque of motor
+tClutch     Torque in clutch
+tBrake      Torque in brake
+tSpring     Torque in spring
 </pre></blockquote>
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>

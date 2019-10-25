@@ -89,9 +89,10 @@ In the public part the FFT is stored up to f_max (internally in the protected pa
 With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the following results are achieved:
 </p>
 
-<blockquote><pre>   fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
-   fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of sine
-   fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of cosine
+<blockquote><pre>
+fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
+fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of sine
+fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of cosine
 </pre></blockquote>
 
 <p>
@@ -393,7 +394,8 @@ ns = realFFTinfo(f_max=170, f_resolution=0.3)
 results in the following output:
 </p>
 
-<blockquote><pre>   ns = 5760
+<blockquote><pre>
+ns = 5760
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -471,9 +473,10 @@ Function <strong>realFFT</strong> computes a real FFT (Fast Fourier Transform) o
 in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
 
-<blockquote><pre>   info = 0: Successful FFT computation.
-   info = 1: size(u,1) is not even.
-   info = 3: Another error.
+<blockquote><pre>
+info = 0: Successful FFT computation.
+info = 1: size(u,1) is not even.
+info = 3: Another error.
 </pre></blockquote>
 
 <p>
@@ -668,10 +671,11 @@ The function computes a real FFT (Fast Fourier Transform) of u and returns the r
 in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
 
-<blockquote><pre>   info = 0: Successful FFT computation.
-   info = 1: size(u,1) is not even.
-   info = 2: size(work,1) is not correct (= a protected utility array).
-   info = 3: Another error.
+<blockquote><pre>
+info = 0: Successful FFT computation.
+info = 1: size(u,1) is not even.
+info = 2: size(work,1) is not correct (= a protected utility array).
+info = 3: Another error.
 </pre></blockquote>
 
 <p>
@@ -769,7 +773,8 @@ If this is not possible, success = false, and e2, e3, e5 are dummy values.
 </p>
 
 <h4>Example</h4>
-<blockquote><pre>(success, e2, e3, e5) = prime235Factorization(60)   // success=true, e2=2, e3=1, e5=1 (= 2^2*3^1*5^1)
+<blockquote><pre>
+(success, e2, e3, e5) = prime235Factorization(60)   // success=true, e2=2, e3=1, e5=1 (= 2^2*3^1*5^1)
 (success, e2, e3, e5) = prime235Factorization(7)    // success=false
 </pre></blockquote>
 </html>"));
