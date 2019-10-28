@@ -531,6 +531,49 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2899MOS;
 
+
+      model Issue2899NPN "Conversion test for #2899"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Semiconductors.HeatingNPN npn(useHeatPort=true) annotation (Placement(transformation(extent={{-2,40},{18,60}})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-42,12},{-22,32}})));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc(G=0.01) annotation (Placement(transformation(origin={8,22}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=0.1) annotation (Placement(transformation(origin={8,-6}, extent={{-10,-10},{10,10}}, rotation=180)));
+      initial equation
+        heatCapacitor.T= 293.15;
+      equation
+        connect(npn.B, ground.p) annotation (Line(points={{-2,50},{-26,50},{-26,32},{-32,32}}, color={0,0,255}));
+        connect(npn.E, ground.p) annotation (Line(points={{18,44},{-14,44},{-14,32},{-32,32}}, color={0,0,255}));
+        connect(npn.C, ground.p) annotation (Line(points={{18,56},{-16,56},{-16,32},{-32,32}}, color={0,0,255}));
+        connect(npn.heatPort, tc.port_a) annotation (Line(points={{8,40},{8,32}}, color={191,0,0}));
+        connect(tc.port_b, heatCapacitor.port) annotation (Line(points={{8,12},{8,4}}, color={191,0,0}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
+</p>
+</html>"));
+      end Issue2899NPN;
+
+      model Issue2899PNP "Conversion test for #2899"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Semiconductors.HeatingPNP pnp annotation (Placement(transformation(extent={{-2,40},{18,60}})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-42,12},{-22,32}})));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc(G=0.01) annotation (Placement(transformation(origin={8,22}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=0.1) annotation (Placement(transformation(origin={8,-6}, extent={{-10,-10},{10,10}}, rotation=180)));
+      initial equation
+        heatCapacitor.T= 293.15;
+      equation
+        connect(pnp.B, ground.p) annotation (Line(points={{-2,50},{-26,50},{-26,32},{-32,32}}, color={0,0,255}));
+        connect(pnp.E, ground.p) annotation (Line(points={{18,44},{-14,44},{-14,32},{-32,32}}, color={0,0,255}));
+        connect(pnp.C, ground.p) annotation (Line(points={{18,56},{-16,56},{-16,32},{-32,32}}, color={0,0,255}));
+        connect(pnp.heatPort, tc.port_a) annotation (Line(points={{8,40},{8,32}}, color={191,0,0}));
+        connect(tc.port_b, heatCapacitor.port) annotation (Line(points={{8,12},{8,4}}, color={191,0,0}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
+</p>
+</html>"));
+      end Issue2899PNP;
+
       model Issue3024 "Conversion test for #3024"
         extends Modelica.Icons.Example;
         import pi = Modelica.Electrical.Analog.Basic.OpAmpDetailed.Pi;
