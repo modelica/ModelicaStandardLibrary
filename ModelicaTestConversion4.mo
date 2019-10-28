@@ -491,6 +491,46 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2899Diode;
 
+      model Issue2899MOS "Conversion test for #2899"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage sinV(V=5, freqHz=1) annotation (Placement(transformation(origin={-70,0}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=0.00001, v(start=0, fixed=true)) annotation (Placement(transformation(origin={30,10}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=0.01) annotation (Placement(transformation(origin={70,-60}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc1(G=0.01) annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
+        Modelica.Electrical.Analog.Semiconductors.HeatingPMOS pMOS(useHeatPort=true) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+        Modelica.Electrical.Analog.Semiconductors.HeatingNMOS nMOS(useHeatPort=true) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+        Modelica.Electrical.Analog.Sources.RampVoltage rampV(V=5, duration=1e-2) annotation (Placement(transformation(origin={50,50}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc2(G=0.01) annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
+        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedT(T=300) annotation (Placement(transformation(origin={90,-30}, extent={{-10,-10},{10,10}}, rotation=180)));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc3(G=0.01) annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
+      initial equation
+        heatCapacitor.T= 293.15;
+      equation
+        connect(sinV.n, ground.p) annotation (Line(points={{-70,-10},{-70,-20}}, color={0,0,255}));
+        connect(capacitor.n, ground.p) annotation (Line(points={{30,0},{30,-20},{-70,-20}}, color={0,0,255}));
+        connect(pMOS.S, nMOS.D) annotation (Line(points={{-20,44},{-20,16}}, color={0,0,255}));
+        connect(nMOS.D, capacitor.p) annotation (Line(points={{-20,16},{-20,20},{30,20}}, color={0,0,255}));
+        connect(nMOS.B, nMOS.S) annotation (Line(points={{-20,10},{-20,4}}, color={0,0,255}));
+        connect(nMOS.S, ground.p) annotation (Line(points={{-20,4},{-20,-20},{-70,-20}}, color={0,0,255}));
+        connect(pMOS.B, pMOS.D) annotation (Line(points={{-20,50},{-20,56}}, color={0,0,255}));
+        connect(rampV.p, pMOS.D) annotation (Line(points={{50,60},{-20,60},{-20,56}}, color={0,0,255}));
+        connect(rampV.n, ground.p) annotation (Line(points={{50,40},{50,-20},{-70,-20}}, color={0,0,255}));
+        connect(tc1.port_b, heatCapacitor.port) annotation (Line(points={{20,-40},{40,-40},{40,-60},{60,-60}}, color={191,0,0}));
+        connect(tc2.port_b, heatCapacitor.port) annotation (Line(points={{20,-80},{40,-80},{40,-60},{60,-60}}, color={191,0,0}));
+        connect(tc1.port_a, pMOS.heatPort) annotation (Line(points={{0,-40},{-10,-40},{-10,40},{-30,40}}, color={191,0,0}));
+        connect(tc2.port_a, nMOS.heatPort) annotation (Line(points={{0,-80},{-30,-80},{-30,0}}, color={191,0,0}));
+        connect(tc3.port_b, fixedT.port) annotation (Line(points={{70,-30},{80,-30}}, color={191,0,0}));
+        connect(tc3.port_a, heatCapacitor.port) annotation (Line(points={{50,-30},{40,-30},{40,-60},{60,-60}}, color={191,0,0}));
+        connect(sinV.p, nMOS.G) annotation (Line(points={{-70,10},{-54,10},{-54,4},{-40,4}}, color={0,0,255}));
+        connect(pMOS.G, sinV.p) annotation (Line(points={{-40,44},{-48,44},{-48,44},{-54,44},{-54,10},{-70,10}}, color={0,0,255}));
+        annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
+</p>
+</html>"));
+      end Issue2899MOS;
+
       model Issue3024 "Conversion test for #3024"
         extends Modelica.Icons.Example;
         import pi = Modelica.Electrical.Analog.Basic.OpAmpDetailed.Pi;

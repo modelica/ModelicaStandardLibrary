@@ -16,7 +16,7 @@ package Semiconductors
     parameter Real N=1 "Emission coefficient" annotation(Dialog(enable=useTemperatureDependency));
     parameter SI.Temperature TNOM=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
     parameter Real XTI=3 "Temperature exponent of saturation current" annotation(Dialog(enable=useTemperatureDependency));
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
 
     SI.Voltage vt_t "Temperature voltage";
     SI.Current id "Diode current";
@@ -252,186 +252,73 @@ Stefan Vorkoetter - new model proposed.</li>
           Line(points={{30,-40},{20,-40}}, color={28,108,200})}));
   end ZDiode;
 
-model PMOS "Simple MOS Transistor"
+  model NMOS "Simple NMOS transistor with heating port"
 
-  Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-  Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
-  Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-  Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
-            -10},{110,10}})));
-  parameter SI.Length W=20.0e-6 "Width";
-  parameter SI.Length L=6.0e-6 "Length";
-  parameter SI.Transconductance Beta=0.0105e-3
-      "Transconductance parameter";
-  parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
-  parameter Real K2=0.41 "Bulk threshold parameter";
-  parameter Real K5=0.839 "Reduction of pinch-off region";
-  parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
-  parameter SI.Length dL=-2.1e-6 "Shortening of channel";
-  parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+    Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
+      annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
+      annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin S "Source"
+      annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+    parameter SI.Length W=20.e-6 "Width";
+    parameter SI.Length L=6.e-6 "Length";
+    parameter SI.Transconductance Beta=0.041e-3 "Transconductance parameter";
+    parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
+    parameter Real K2=1.144 "Bulk threshold parameter";
+    parameter Real K5=0.7311 "Reduction of pinch-off region";
+    parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
+    parameter SI.Length dL=-1.5e-6 "Shortening of channel";
+    parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
+    parameter Boolean useTemperatureDependency = false "= true, if parameters Beta, K2 and Vt depend on temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real kvt=-6.96e-3 "Fitting parameter for Vt" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real kk2=6e-4 "Fitting parameter for K2" annotation(Dialog(enable=useTemperatureDependency));
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
   protected
-  Real v;
-  Real uds;
-  Real ubs;
-  Real ugst;
-  Real ud;
-  Real us;
-  Real id;
-  Real gds;
+    Real v;
+    Real uds;
+    Real ubs;
+    Real ugst;
+    Real ud;
+    Real us;
+    Real id;
+    Real gds;
+    Real beta_t;
+    Real vt_t;
+    Real k2_t;
+  equation
+    assert(L + dL > 0, "NMOS: Effective length must be positive");
+    assert(W + dW > 0, "NMOS: Effective width must be positive");
+    assert(T_heatPort > 0,"NMOS: Temperature must be positive");
+    gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
+    v = beta_t*(W + dW)/(L + dL);
+    ud = smooth(0,if (D.v < S.v) then S.v else D.v);
+    us = smooth(0,if (D.v < S.v) then D.v else S.v);
+    uds = ud - us;
+    ubs = smooth(0,if (B.v > us) then 0 else B.v - us);
+    ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
+    id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
+      ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
 
-equation
-  assert(L + dL > 0, "PMOS: Effective length must be positive");
-  assert(W + dW > 0, "PMOS: Effective width  must be positive");
-  gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
-  v = Beta*(W + dW)/(L + dL);
-  ud = smooth(0,if (D.v > S.v) then S.v else D.v);
-  us = smooth(0,if (D.v > S.v) then D.v else S.v);
-  uds = ud - us;
-  ubs = smooth(0,if (B.v < us) then 0 else B.v - us);
-  ugst = (G.v - us - Vt + K2*ubs)*K5;
-  id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
-    ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
-  G.i = 0;
-  D.i = smooth(0,if (D.v > S.v) then -id else id);
-  S.i = smooth(0,if (D.v > S.v) then id else -id);
-  B.i = 0;
-  LossPower = D.i * (D.v - S.v);
-  annotation (
-    Documentation(info="<html>
-<p>
-The PMOS model is a simple model of a p-channel metal-oxide semiconductor
-FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
-</p>
-<p>
-The model does not consider capacitances. A high drain-source resistance RDS
-is included to avoid numerical difficulties.
-<br><br>
-<strong>Please note:</strong>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
-</p>
+    beta_t = if useTemperatureDependency then Beta*pow((T_heatPort/Tnom), -1.5) else Beta;
+    vt_t = if useTemperatureDependency then Vt*(1 + (T_heatPort - Tnom)*kvt) else Vt;
+    k2_t = if useTemperatureDependency then K2*(1 + (T_heatPort - Tnom)*kk2) else K2;
 
-<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
-
-<p>
-Some typical parameter sets are:
+    G.i = 0;
+    D.i = smooth(0,if (D.v < S.v) then -id else id);
+    S.i = smooth(0,if (D.v < S.v) then id else -id);
+    B.i = 0;
+    LossPower = D.i*(D.v - S.v);
+    annotation (defaultComponentName="nMOS",
+      Documentation(info="<html>
+<p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
 </p>
 <pre>
-  W       L      Beta        Vt    K2     K5      DW       DL
-  m       m      A/V^2       V     -      -       m        m
-  50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
-  20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
-  30.e-6  5.e-6  0.0059e-3  -0.3   0.98   1.01    0       -3.9e-6
-  30.e-6  5.e-6  0.0152e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
-  30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
-  30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
-  20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
-</pre>
-
-</html>",
- revisions="<html>
-<ul>
-<li><em> March 11, 2009   </em>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-<li><em>December 7, 2005   </em>
-       by Christoph Clauss<br>
-       error in RDS calculation deleted</li>
-<li><em> 1998   </em>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
-          Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
-          Line(points={{10,80},{10,39}}, color={0,0,255}),
-          Line(points={{10,20},{10,-21}}, color={0,0,255}),
-          Line(points={{10,-40},{10,-81}}, color={0,0,255}),
-          Line(points={{10,60},{91,60}}, color={0,0,255}),
-          Line(points={{10,0},{90,0}}, color={0,0,255}),
-          Line(points={{10,-60},{90,-60}}, color={0,0,255}),
-          Polygon(
-            points={{60,0},{40,5},{40,-5},{60,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-150,130},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Line(
-            visible=useHeatPort,
-            points={{0,-90},{0,0}},
-            color={127,0,0},
-            pattern=LinePattern.Dot)}));
-end PMOS;
-
-model NMOS "Simple MOS Transistor"
-
-  Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-  Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
-  Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-  Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
-            -10},{110,10}})));
-  parameter SI.Length W=20.e-6 "Width";
-  parameter SI.Length L=6.e-6 "Length";
-  parameter SI.Transconductance Beta=0.041e-3 "Transconductance parameter";
-  parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
-  parameter Real K2=1.144 "Bulk threshold parameter";
-  parameter Real K5=0.7311 "Reduction of pinch-off region";
-  parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
-  parameter SI.Length dL=-1.5e-6 "Shortening of channel";
-  parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
-  protected
-  Real v;
-  Real uds;
-  Real ubs;
-  Real ugst;
-  Real ud;
-  Real us;
-  Real id;
-  Real gds;
-
-equation
-  assert(L + dL > 0, "NMOS: Effective length must be positive");
-  assert(W + dW > 0, "NMOS: Effective width  must be positive");
-  gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
-  v = Beta*(W + dW)/(L + dL);
-  ud = smooth(0,if (D.v < S.v) then S.v else D.v);
-  us = if (D.v < S.v) then D.v else S.v;
-  uds = ud - us;
-  ubs = smooth(0,if (B.v > us) then 0 else B.v - us);
-  ugst = (G.v - us - Vt + K2*ubs)*K5;
-  id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(ugst
-     - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
-  G.i = 0;
-  D.i = smooth(0,if (D.v < S.v) then -id else id);
-  S.i = smooth(0,if (D.v < S.v) then id else -id);
-  B.i = 0;
-  LossPower = D.i * (D.v - S.v);
-  annotation (
-    Documentation(info="<html>
-<p>
-The NMOS model is a simple model of a n-channel metal-oxide semiconductor
-FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
-</p>
-<p>
-The model does not consider capacitances. A high drain-source resistance RDS
-is included to avoid numerical difficulties.
-<br><br>
-<strong>Please note:</strong>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
-</p>
-<pre>
-  W       L      Beta         Vt      K2     K5       DW       DL
+  W       L      Beta         Vt      K2     K5       dW       dL
   m       m      A/V^2        V       -      -        m        m
   12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
   60.e-6  3.e-6  0.048e-3     0.1     0.08   0.68    -1.2e-6  -0.9e-6      enhancement
@@ -452,10 +339,8 @@ behavior is <strong>not</strong> modelled yet. The parameters are not temperatur
   12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
   20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
 </pre>
-
 <p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
-</html>",
- revisions="<html>
+</html>",  revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -463,37 +348,140 @@ behavior is <strong>not</strong> modelled yet. The parameters are not temperatur
 <li><em>December 7, 2005   </em>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
-<li><em> 1998   </em>
-       by Christoph Clauss<br> initially implemented<br>
+<li><em>March 31, 2004   </em>
+       by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
-          Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
-          Line(points={{10,80},{10,39}}, color={0,0,255}),
-          Line(points={{10,20},{10,-21}}, color={0,0,255}),
-          Line(points={{10,-40},{10,-81}}, color={0,0,255}),
-          Line(points={{10,60},{91,60}}, color={0,0,255}),
-          Line(points={{10,0},{90,0}}, color={0,0,255}),
-          Line(points={{10,-60},{90,-60}}, color={0,0,255}),
-          Polygon(
-            points={{40,0},{60,5},{60,-5},{40,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(
-            visible=useHeatPort,
-            points={{0,-100},{0,0}},
-            color={127,0,0},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-150,130},{150,90}},
-            textString="%name",
-            textColor={0,0,255})}));
-end NMOS;
+</html>"), Icon(coordinateSystem(
+    preserveAspectRatio=true,
+    extent={{-100,-100},{100,100}}), graphics={
+    Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
+    Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
+    Line(points={{10,80},{10,39}}, color={0,0,255}),
+    Line(points={{10,20},{10,-21}}, color={0,0,255}),
+    Line(points={{10,-40},{10,-81}}, color={0,0,255}),
+    Line(points={{10,60},{91,60}}, color={0,0,255}),
+    Line(points={{10,0},{90,0}}, color={0,0,255}),
+    Line(points={{10,-60},{90,-60}}, color={0,0,255}),
+    Polygon(
+      points={{40,0},{60,5},{60,-5},{40,0}},
+      fillColor={0,0,255},
+      fillPattern=FillPattern.Solid,
+      lineColor={0,0,255}),
+    Text(extent={{-150,130},{150,90}},
+      textString="%name",
+              textColor={0,0,255})}));
+  end NMOS;
+
+  model PMOS "Simple PMOS transistor with heating port"
+
+    Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
+      annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
+      annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin S "Source"
+      annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+    parameter SI.Length W=20.0e-6 "Width";
+    parameter SI.Length L=6.0e-6 "Length";
+    parameter SI.Transconductance Beta=0.0105e-3 "Transconductance parameter";
+    parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
+    parameter Real K2=0.41 "Bulk threshold parameter";
+    parameter Real K5=0.839 "Reduction of pinch-off region";
+    parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
+    parameter SI.Length dL=-2.1e-6 "Shortening of channel";
+    parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
+    parameter Boolean useTemperatureDependency = false "= true, if parameters Beta, K2 and Vt depend on temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real kvt=-2.9e-3 "Fitting parameter for Vt" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real kk2=6.2e-4 "Fitting parameter for K2" annotation(Dialog(enable=useTemperatureDependency));
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
+  protected
+    Real v;
+    Real uds;
+    Real ubs;
+    Real ugst;
+    Real ud;
+    Real us;
+    Real id;
+    Real gds;
+    Real beta_t;
+    Real vt_t;
+    Real k2_t;
+  equation
+    assert(L + dL > 0, "PMOS: Effective length must be positive");
+    assert(W + dW > 0, "PMOS: Effective width must be positive");
+    assert(T_heatPort > 0,"PMOS: Temperature must be positive");
+    gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
+    v = beta_t*(W + dW)/(L + dL);
+    ud = smooth(0,if (D.v > S.v) then S.v else D.v);
+    us = smooth(0,if (D.v > S.v) then D.v else S.v);
+    uds = ud - us;
+    ubs = smooth(0,if (B.v < us) then 0 else B.v - us);
+    ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
+    id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
+      ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
+
+    beta_t = if useTemperatureDependency then Beta*pow((T_heatPort/Tnom), -1.5) else Beta;
+    vt_t = if useTemperatureDependency then Vt*(1 + (T_heatPort - Tnom)*kvt) else Vt;
+    k2_t = if useTemperatureDependency then K2*(1 + (T_heatPort - Tnom)*kk2) else K2;
+
+    G.i = 0;
+    D.i = smooth(0,if (D.v > S.v) then -id else id);
+    S.i = smooth(0,if (D.v > S.v) then id else -id);
+    B.i = 0;
+    LossPower = D.i*(D.v - S.v);
+    annotation (defaultComponentName="pMOS",
+      Documentation(info="<html>
+<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
+<p>Some typical parameter sets are:</p>
+<pre>
+  W       L      Beta        Vt    K2     K5      dW       dL
+  m       m      A/V^2       V     -      -       m        m
+  50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
+  20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
+  30.e-6  5.e-6  0.0059e-3  -0.3   0.98   1.01    0       -3.9e-6
+  30.e-6  5.e-6  0.0152e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+  30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+  30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
+  20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
+</pre>
+</html>",  revisions="<html>
+<ul>
+<li><em> March 11, 2009   </em>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
+<li><em>December 7, 2005   </em>
+       by Christoph Clauss<br>
+       error in RDS calculation deleted</li>
+<li><em>March 31, 2004   </em>
+       by Christoph Clauss<br> implemented<br>
+       </li>
+</ul>
+</html>"), Icon(coordinateSystem(
+    preserveAspectRatio=true,
+    extent={{-100,-100},{100,100}}), graphics={
+    Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
+    Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
+    Line(points={{10,80},{10,39}}, color={0,0,255}),
+    Line(points={{10,20},{10,-21}}, color={0,0,255}),
+    Line(points={{10,-40},{10,-81}}, color={0,0,255}),
+    Line(points={{10,60},{91,60}}, color={0,0,255}),
+    Line(points={{10,0},{90,0}}, color={0,0,255}),
+    Line(points={{10,-60},{90,-60}}, color={0,0,255}),
+    Polygon(
+      points={{60,0},{40,5},{40,-5},{60,0}},
+      fillColor={0,0,255},
+      fillPattern=FillPattern.Solid,
+      lineColor={0,0,255}),
+    Text(extent={{-150,130},{150,90}},
+      textString="%name",
+              textColor={0,0,255})}));
+  end PMOS;
 
 model NPN "Simple BJT according to Ebers-Moll"
   parameter Real Bf=50 "Forward beta";
@@ -727,237 +715,6 @@ A typical parameter set is:
             textString="%name",
             textColor={0,0,255})}));
 end PNP;
-
-        model HeatingNMOS "Simple MOS Transistor with heating port"
-
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
-            annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
-            annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
-            annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
-            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-          parameter SI.Length W=20.e-6 "Width";
-          parameter SI.Length L=6.e-6 "Length";
-          parameter SI.Transconductance Beta=0.041e-3 "Transconductance parameter";
-          parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
-          parameter Real K2=1.144 "Bulk threshold parameter";
-          parameter Real K5=0.7311 "Reduction of pinch-off region";
-          parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
-          parameter SI.Length dL=-1.5e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
-          parameter Real kvt=-6.96e-3 "Fitting parameter for Vt";
-          parameter Real kk2=6e-4 "Fitting parameter for K2";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-             useHeatPort=true);
-  protected
-          Real v;
-          Real uds;
-          Real ubs;
-          Real ugst;
-          Real ud;
-          Real us;
-          Real id;
-          Real gds;
-          Real beta_t;
-          Real vt_t;
-          Real k2_t;
-        equation
-          assert(L + dL > 0, "Heating NMOS: Effective length must be positive");
-          assert(W + dW > 0, "Heating NMOS: Effective width  must be positive");
-          assert(T_heatPort > 0,"Heating NMOS: Temperature must be positive");
-          gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
-          v = beta_t*(W + dW)/(L + dL);
-          ud = smooth(0,if (D.v < S.v) then S.v else D.v);
-          us = smooth(0,if (D.v < S.v) then D.v else S.v);
-          uds = ud - us;
-          ubs = smooth(0,if (B.v > us) then 0 else B.v - us);
-          ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
-          id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
-            ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
-
-          beta_t = Beta*pow((T_heatPort/Tnom), -1.5);
-          vt_t = Vt*(1 + (T_heatPort - Tnom)*kvt);
-          k2_t = K2*(1 + (T_heatPort - Tnom)*kk2);
-
-          G.i = 0;
-          D.i = smooth(0,if (D.v < S.v) then -id else id);
-          S.i = smooth(0,if (D.v < S.v) then id else -id);
-          B.i = 0;
-          LossPower = D.i*(D.v - S.v);
-          annotation (defaultComponentName="nMOS",
-            Documentation(info="<html>
-<p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
-<br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
-<br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
-</p>
-<pre>
-  W       L      Beta         Vt      K2     K5       DW       DL
-  m       m      A/V^2        V       -      -        m        m
-  12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
-  60.e-6  3.e-6  0.048e-3     0.1     0.08   0.68    -1.2e-6  -0.9e-6      enhancement
-  12.e-6  4.e-6  0.0625e-3   -0.8     0.21   0.78    -1.2e-6  -0.9e-6      zero
-  50.e-6  8.e-6  0.0299e-3    0.24    1.144  0.7311  -5.4e-6  -4.e-6
-  20.e-6  6.e-6  0.041e-3     0.8     1.144  0.7311  -2.5e-6  -1.5e-6
-  30.e-6  9.e-6  0.025e-3    -4.0     0.861  0.878   -3.4e-6  -1.74e-6
-  30.e-6  5.e-6  0.031e-3     0.6     1.5    0.72     0       -3.9e-6
-  50.e-6  6.e-6  0.0414e-3   -3.8     0.34   0.8     -1.6e-6  -2.e-6       depletion
-  50.e-6  5.e-6  0.03e-3      0.37    0.23   0.86    -1.6e-6  -2.e-6       enhancement
-  50.e-6  6.e-6  0.038e-3    -0.9     0.23   0.707   -1.6e-6  -2.e-6       zero
-  20.e-6  4.e-6  0.06776e-3   0.5409  0.065  0.71    -0.8e-6  -0.2e-6
-  20.e-6  4.e-6  0.06505e-3   0.6209  0.065  0.71    -0.8e-6  -0.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.6909  0.03   0.8     -0.3e-6  -0.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.4909  0.03   0.8     -0.3e-6  -0.2e-6
-  12.e-6  4.e-6  0.023e-3    -4.5     0.29   0.6      0        0           depletion
-  60.e-6  3.e-6  0.022e-3     0.1     0.11   0.65     0        0           enhancement
-  12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
-  20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
-</pre>
-<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
-</html>",  revisions="<html>
-<ul>
-<li><em> March 11, 2009   </em>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-<li><em>December 7, 2005   </em>
-       by Christoph Clauss<br>
-       error in RDS calculation deleted</li>
-<li><em>March 31, 2004   </em>
-       by Christoph Clauss<br> implemented<br>
-       </li>
-</ul>
-</html>"), Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
-          Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
-          Line(points={{10,80},{10,39}}, color={0,0,255}),
-          Line(points={{10,20},{10,-21}}, color={0,0,255}),
-          Line(points={{10,-40},{10,-81}}, color={0,0,255}),
-          Line(points={{10,60},{91,60}}, color={0,0,255}),
-          Line(points={{10,0},{90,0}}, color={0,0,255}),
-          Line(points={{10,-60},{90,-60}}, color={0,0,255}),
-          Polygon(
-            points={{40,0},{60,5},{60,-5},{40,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(     extent={{-150,130},{150,90}},
-            textString="%name",
-                    textColor={0,0,255})}));
-        end HeatingNMOS;
-
-        model HeatingPMOS "Simple PMOS Transistor with heating port"
-
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
-            annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
-            annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
-            annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
-            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-          parameter SI.Length W=20.0e-6 "Width";
-          parameter SI.Length L=6.0e-6 "Length";
-          parameter SI.Transconductance Beta=0.0105e-3 "Transconductance parameter";
-          parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
-          parameter Real K2=0.41 "Bulk threshold parameter";
-          parameter Real K5=0.839 "Reduction of pinch-off region";
-          parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
-          parameter SI.Length dL=-2.1e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
-          parameter Real kvt=-2.9e-3 "Fitting parameter for Vt";
-          parameter Real kk2=6.2e-4 "Fitting parameter for K2";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-             useHeatPort=true);
-  protected
-          Real v;
-          Real uds;
-          Real ubs;
-          Real ugst;
-          Real ud;
-          Real us;
-          Real id;
-          Real gds;
-          Real beta_t;
-          Real vt_t;
-          Real k2_t;
-        equation
-          assert(L + dL > 0, "HeatingPMOS: Effective length must be positive");
-          assert(W + dW > 0, "HeatingPMOS: Effective width  must be positive");
-          assert(T_heatPort > 0,"HeatingPMOS: Temperature must be positive");
-          gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
-          v = beta_t*(W + dW)/(L + dL);
-          ud = smooth(0,if (D.v > S.v) then S.v else D.v);
-          us = smooth(0,if (D.v > S.v) then D.v else S.v);
-          uds = ud - us;
-          ubs = smooth(0,if (B.v < us) then 0 else B.v - us);
-          ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
-          id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
-            ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
-
-          beta_t = Beta*pow((T_heatPort/Tnom), -1.5);
-          vt_t = Vt*(1 + (T_heatPort - Tnom)*kvt);
-          k2_t = K2*(1 + (T_heatPort - Tnom)*kk2);
-
-          G.i = 0;
-          D.i = smooth(0,if (D.v > S.v) then -id else id);
-          S.i = smooth(0,if (D.v > S.v) then id else -id);
-          B.i = 0;
-          LossPower = D.i*(D.v - S.v);
-          annotation (defaultComponentName="pMOS",
-            Documentation(info="<html>
-<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
-<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
-<br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
-<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
-<p>Some typical parameter sets are:</p>
-<pre>
-  W       L      Beta        Vt    K2     K5      DW       DL
-  m       m      A/V^2       V     -      -       m        m
-  50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
-  20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
-  30.e-6  5.e-6  0.0059e-3  -0.3   0.98   1.01    0       -3.9e-6
-  30.e-6  5.e-6  0.0152e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
-  30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
-  30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
-  20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
-</pre>
-</html>",  revisions="<html>
-<ul>
-<li><em> March 11, 2009   </em>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-<li><em>December 7, 2005   </em>
-       by Christoph Clauss<br>
-       error in RDS calculation deleted</li>
-<li><em>March 31, 2004   </em>
-       by Christoph Clauss<br> implemented<br>
-       </li>
-</ul>
-</html>"), Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
-          Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
-          Line(points={{10,80},{10,39}}, color={0,0,255}),
-          Line(points={{10,20},{10,-21}}, color={0,0,255}),
-          Line(points={{10,-40},{10,-81}}, color={0,0,255}),
-          Line(points={{10,60},{91,60}}, color={0,0,255}),
-          Line(points={{10,0},{90,0}}, color={0,0,255}),
-          Line(points={{10,-60},{90,-60}}, color={0,0,255}),
-          Polygon(
-            points={{60,0},{40,5},{40,-5},{60,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(     extent={{-150,130},{150,90}},
-            textString="%name",
-                    textColor={0,0,255})}));
-        end HeatingPMOS;
 
         model HeatingNPN "Simple NPN BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
