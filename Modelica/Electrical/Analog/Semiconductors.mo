@@ -846,7 +846,6 @@ public
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Line(points={{30,20},{100,90},{100,100}},
                                                  color={0,0,255}),
-          Line(points={{40,50},{60,30}}, color={0,0,255}),
           Text(
             extent={{-150,-40},{150,-80}},
             textString="%name",

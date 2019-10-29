@@ -69,14 +69,16 @@ If fire gets false, the current has to fall below Vknee*Goff, then the thyristor
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{40,50},{60,30}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
             pattern=LinePattern.Dot),
-          Line(points={{30,20},{58,48}}, color={0,0,255}),
-          Line(points={{100,90},{100,100}}, color={0,0,255})}),
+          Line(points={{30,20},{60,50}}, color={0,0,255}),
+          Line(
+            points={{100,100},{100,90},{60,50}},
+            color={255,0,255},
+            pattern=LinePattern.Dash)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
@@ -121,14 +123,14 @@ Otherwise, the GTO thyristor is locking.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{48,52},{68,32}}, color={0,0,255}),
+          Line(points={{48,52},{64,36}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
             pattern=LinePattern.Dot),
           Polygon(
-            points={{44,43},{44,36},{51,36},{44,43}},
+            points={{42,45},{42,38},{49,38},{42,45}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={0,0,255}),
@@ -137,9 +139,17 @@ Otherwise, the GTO thyristor is locking.
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={0,0,255}),
-          Line(points={{30,10},{68,48}}, color={0,0,255}),
-          Line(points={{100,90},{100,100}}, color={0,0,255}),
-          Line(points={{30,22},{56,48}}, color={0,0,255})}),
+          Line(points={{30,10},{60,40}}, color={0,0,255}),
+          Line(points={{30,26},{52,48}}, color={0,0,255}),
+          Line(
+            points={{100,100},{100,88},{62,50}},
+            color={255,0,255},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{58,44}},
+            color={255,0,255},
+            pattern=LinePattern.Dash),
+          Line(points={{62,50},{56,44}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
@@ -1411,7 +1421,10 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
             extent={{-150,150},{150,110}},
             textString="%name",
             textColor={0,0,255}),
-          Line(points={{-100,-100},{-100,-80}}, color={0,0,255})}),
+          Line(
+            points={{-100,-100},{-100,-80}},
+            color={255,0,255},
+            pattern=LinePattern.Dash)}),
                                     Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
 
