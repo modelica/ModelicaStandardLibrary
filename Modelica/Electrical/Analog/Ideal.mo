@@ -74,9 +74,9 @@ If fire gets false, the current has to fall below Vknee*Goff, then the thyristor
             points={{0,-100},{0,-20}},
             color={127,0,0},
             pattern=LinePattern.Dot),
-          Line(points={{30,10},{60,40}}, color={0,0,255}),
+          Line(points={{30,20},{60,50}}, color={0,0,255}),
           Line(
-            points={{100,100},{100,80},{60,40}},
+            points={{100,100},{100,90},{60,50}},
             color={255,0,255},
             pattern=LinePattern.Dash)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
