@@ -1,10 +1,6 @@
 within Modelica.Thermal.HeatTransfer;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
-
-
-
-
   annotation (
     preferredView="info",
     DocumentationClass=true,
@@ -42,8 +38,8 @@ The variables of a HeatPort connector are the temperature <strong>T</strong> at 
 and the heat flow rate <strong>Q_flow</strong> flowing into the component (if Q_flow is positive,
 the heat flows into the element, otherwise it flows out of the element):
 </p>
-<pre>   Modelica.SIunits.Temperature  T  \"absolute temperature at port in Kelvin\";
-   Modelica.SIunits.HeatFlowRate Q_flow  \"flow rate at the port in Watt\";
+<pre>   Modelica.SIunits.Temperature  T  \"Absolute temperature at port in Kelvin\";
+   Modelica.SIunits.HeatFlowRate Q_flow  \"Flow rate at the port in Watt\";
 </pre>
 <p>
 Note, that all temperatures of this package, including initial conditions,
