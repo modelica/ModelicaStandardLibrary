@@ -11,8 +11,8 @@ class References "References"
   </tr>
 
   <tr>
-    <td>[Holman1997]</td>
-    <td>J. P. Holman, <em>Heat Transfer</em>, 8th edition, McGraw-Hill, 1997</td>
+    <td>[<a href=\"https://www.academia.edu/38166004/Heat_Transfer_10thEdition_by_JP_Holman.pdf\">Holman2010</a>]</td>
+    <td>J. P. Holman, <em>Heat Transfer</em>, 10th edition, McGraw-Hill, 2010</td>
   </tr>
   <tr>
     <td>[<a href=\"https://www.springer.com/us/book/9780792373674\">Tiller2001</a>]</td>

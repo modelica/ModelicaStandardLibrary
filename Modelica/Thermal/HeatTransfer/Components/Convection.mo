@@ -96,7 +96,7 @@ to [<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Fischer1999<
 <p><strong>Laminar</strong> flow with constant velocity of a fluid along a
 <strong>flat plate</strong> where the heat flow rate from the plate
 to the fluid (= solid.Q_flow) is kept constant
-(according to [<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Holman1997</a>, p.270]):
+(according to [<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Holman2010</a>, p.265]):
 </p>
 <pre>
    h  = Nu*k/x;
