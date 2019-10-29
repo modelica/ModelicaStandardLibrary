@@ -6,8 +6,8 @@ class References "References"
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 
   <tr>
-    <td>[Fischer1999]</td>
-    <td>R. Fischer, <em>Elektrische Maschinen</em> (in German), 10th edition, Hanser-Verlag, 1999</td>
+    <td>[<a href=\"https://www.hanser-elibrary.com/isbn/9783446452183\">Fischer2017</a>]</td>
+    <td>R. Fischer, <em>Elektrische Maschinen</em> (in German), 17th edition, Hanser-Verlag, 2017</td>
   </tr>
 
   <tr>

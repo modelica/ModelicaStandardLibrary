@@ -85,7 +85,7 @@ from properties of the fluid flowing over the solid. Examples:
 </p>
 <p>
 <strong>Machines cooled by air</strong> (empirical, very rough approximation according
-to [<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Fischer1999</a>, p. 378]:
+to [<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Fischer2017</a>, p. 452]:
 </p>
 <pre>
     h = 7.8*v^0.78 [W/(m2.K)] (forced convection)
