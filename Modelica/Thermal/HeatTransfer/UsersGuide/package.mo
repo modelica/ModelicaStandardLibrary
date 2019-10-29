@@ -1,6 +1,7 @@
 within Modelica.Thermal.HeatTransfer;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
+
   annotation (
     preferredView="info",
     DocumentationClass=true,
@@ -50,7 +51,7 @@ respectively. Additionally, in package <strong>SIunits.Conversions</strong> conv
 functions between the units Kelvin and Celsius, Fahrenheit, Rankine are
 provided. These functions may be used in the following way:
 </p>
-<pre>  <strong>import</strong> SI=Modelica.SIunits;
+<pre>  <strong>import</strong> Modelica.SIunits;
   <strong>import</strong> Modelica.SIunits.Conversions.*;
      ...
   <strong>parameter</strong> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
