@@ -10746,33 +10746,34 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         extends Modelica.Icons.FunctionsPackage;
 
         function CubicInterpolation_Re
+          "Cubic Hermite spline interpolation of the Reynolds number in transition regime of the Moody diagram (inverse formulation)"
           extends Modelica.Icons.Function;
           import Modelica.Math;
-          input Real Re_turbulent;
-          input SI.ReynoldsNumber Re1;
-          input SI.ReynoldsNumber Re2;
-          input Real Delta;
-          input Real lambda2;
-          output SI.ReynoldsNumber Re;
-          // point lg(lambda2(Re1)) with derivative at lg(Re1)
+          input Real Re_turbulent "Unused input";
+          input SI.ReynoldsNumber Re1 "Boundary Reynolds number for laminar regime";
+          input SI.ReynoldsNumber Re2 "Boundary Reynolds number for turbulent regime";
+          input Real Delta "Relative roughness";
+          input Real lambda2 "Modified friction coefficient (= independent variable)";
+          output SI.ReynoldsNumber Re "Interpolated Reynolds number in transition region";
         protected
-          Real x1=Math.log10(64*Re1);
-          Real y1=Math.log10(Re1);
-          Real yd1=1;
+          // Point x1=lg(lambda2(Re1)) with derivative yd1=1 at y1=lg(Re1)
+          Real x1=Math.log10(64*Re1) "Lower abscissa value";
+          Real y1=Math.log10(Re1) "Lower ordinate value";
+          Real yd1=1 "Left boundary slope";
 
-          // Point lg(lambda2(Re2)) with derivative at lg(Re2)
+          // Point x2=lg(lambda2(Re2)) with derivative yd2 at y2≈lg(Re2)
           Real aux1=(0.5/Math.log(10))*5.74*0.9;
           Real aux2=Delta/3.7 + 5.74/Re2^0.9;
           Real aux3=Math.log10(aux2);
           Real L2=0.25*(Re2/aux3)^2;
           Real aux4=2.51/sqrt(L2) + 0.27*Delta;
           Real aux5=-2*sqrt(L2)*Math.log10(aux4);
-          Real x2=Math.log10(L2);
-          Real y2=Math.log10(aux5);
-          Real yd2=0.5 + (2.51/Math.log(10))/(aux5*aux4);
+          Real x2=Math.log10(L2) "Upper abscissa value";
+          Real y2=Math.log10(aux5) "Upper ordinate value";
+          Real yd2=0.5 + (2.51/Math.log(10))/(aux5*aux4) "Right boundary slope";
 
-          // Constants: Cubic polynomial between lg(Re1) and lg(Re2)
-          Real diff_x=x2 - x1;
+          // Constants: Cubic polynomial between x1=lg(lambda2(Re1)) and x2=lg(lambda2(Re2))
+          Real diff_x=x2 - x1 "Interval length";
           Real m=(y2 - y1)/diff_x;
           Real c2=(3*m - 2*yd1 - yd2)/diff_x;
           Real c3=(yd1 + yd2 - 2*m)/(diff_x*diff_x);
@@ -10780,51 +10781,81 @@ The heterogeneous approaches are analytically derived by minimising the momentum
           Real dx=Math.log10(lambda2/lambda2_1);
 
         algorithm
-          Re := Re1*(lambda2/lambda2_1)^(1 + dx*(c2 + dx*c3));
+          // Prefer optimized interpolation formula for Re to avoid cubicHermite function call
+          // Re := 10^Modelica.Fluid.Utilities.cubicHermite(Math.log10(lambda2), x1, x2, y1, y2, yd1, yd2);
+          Re := Re1*(lambda2/lambda2_1)^(yd1 + dx*(c2 + dx*c3));
           annotation (Inline=false, smoothOrder=5,
-            Documentation(revisions=
-                            "<html>
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Re = <strong>CubicInterpolation_Re</strong>(0, Re1, Re2, Delta, lambda2);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>CubicInterpolation_Re</strong>(..) approximates the Reynolds number
+<code>Re</code> in the transition regime between laminar and turbulent flow
+of the Moody diagram by an inverse formulation of a cubic Hermite spline interpolation. See <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">
+Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction</a> (especially <strong>Region 2</strong>)
+for a detailed explanation.
+</p>
+</html>", revisions="<html>
 2018-11-20 Stefan Wischhusen: Renamed function from CubicInterpolation_DP to CubicInterpolation_Re.
 </html>"));
         end CubicInterpolation_Re;
 
         function CubicInterpolation_lambda
+          "Cubic Hermite spline interpolation of the modified friction coefficient in transition regime of the Moody diagram (direct formulation)"
           extends Modelica.Icons.Function;
           import Modelica.Math;
-          input SI.ReynoldsNumber Re;
-          input SI.ReynoldsNumber Re1;
-          input SI.ReynoldsNumber Re2;
-          input Real Delta;
-          output Real lambda2;
-          // point lg(lambda2(Re1)) with derivative at lg(Re1)
+          input SI.ReynoldsNumber Re "Reynolds number (= independent variable)";
+          input SI.ReynoldsNumber Re1 "Boundary Reynolds number for laminar regime";
+          input SI.ReynoldsNumber Re2 "Boundary Reynolds number for turbulent regime";
+          input Real Delta "Relative roughness";
+          output Real lambda2 "Interpolated modified friction coefficient in transition regime";
         protected
-          Real x1=Math.log10(Re1);
-          Real y1=Math.log10(64*Re1);
-          Real yd1=1;
+          // Point x1=lg(Re1) with derivative yd1=1 at y1=lg(lambda2(Re1))
+          Real x1=Math.log10(Re1) "Lower abscissa value";
+          Real y1=Math.log10(64*Re1) "Lower ordinate value";
+          Real yd1=1 "Left boundary slope";
 
-          // Point lg(lambda2(Re2)) with derivative at lg(Re2)
+          // Point x2=lg(Re2) with derivative yd2 at y2=lg(lambda2(Re2))
           Real aux1=(0.5/Math.log(10))*5.74*0.9;
           Real aux2=Delta/3.7 + 5.74/Re2^0.9;
           Real aux3=Math.log10(aux2);
           Real L2=0.25*(Re2/aux3)^2;
           Real aux4=2.51/sqrt(L2) + 0.27*Delta;
           Real aux5=-2*sqrt(L2)*Math.log10(aux4);
-          Real x2=Math.log10(Re2);
-          Real y2=Math.log10(L2);
-          Real yd2=2 + 4*aux1/(aux2*aux3*(Re2)^0.9);
+          Real x2=Math.log10(Re2) "Upper abscissa value";
+          Real y2=Math.log10(L2) "Upper ordinate value";
+          Real yd2=2 + 4*aux1/(aux2*aux3*(Re2)^0.9) "Right boundary slope";
 
-          // Constants: Cubic polynomial between lg(Re1) and lg(Re2)
-          Real diff_x=x2 - x1;
+          // Constants: Cubic polynomial between x1=lg(Re1) and x2=lg(Re2)
+          Real diff_x=x2 - x1 "Interval length";
           Real m=(y2 - y1)/diff_x;
           Real c2=(3*m - 2*yd1 - yd2)/diff_x;
           Real c3=(yd1 + yd2 - 2*m)/(diff_x*diff_x);
           Real dx=Math.log10(Re/Re1);
 
         algorithm
-          lambda2 := 64*Re1*(Re/Re1)^(1 + dx*(c2 + dx*c3));
+          // Prefer optimized interpolation formula for lambda2 to avoid cubicHermite function call
+          // lambda2 := 10^Modelica.Fluid.Utilities.cubicHermite(Math.log10(Re), x1, x2, y1, y2, yd1, yd2);
+          lambda2 := 64*Re1*(Re/Re1)^(yd1 + dx*(c2 + dx*c3));
           annotation (Inline=false, smoothOrder=5,
-            Documentation(revisions=
-                            "<html>
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+lambda2 = <strong>CubicInterpolation_lambda</strong>(Re, Re1, Re2, Delta);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>CubicInterpolation_lambda</strong>(..) approximates the modified friction coefficient
+<code>lambda2</code>=<code>lambda*Re^2</code> in the transition regime between laminar and turbulent flow
+of the Moody diagram by a (direct) cubic Hermite spline interpolation.
+See <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">
+Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction</a> (especially <strong>Region 2</strong>)
+for a detailed explanation.
+</p>
+</html>", revisions="<html>
 2018-11-20 Stefan Wischhusen: Renamed function from CubicInterpolation_MFLOW to CubicInterpolation_lambda.
 </html>"));
         end CubicInterpolation_lambda;
