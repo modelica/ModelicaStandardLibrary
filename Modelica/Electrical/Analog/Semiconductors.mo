@@ -20,7 +20,7 @@ package Semiconductors
 
     SI.Voltage vt_t "Temperature voltage";
     SI.Current id "Diode current";
-    protected
+  protected
     SI.Temperature htemp "Auxiliary temperature";
     Real aux;
     Real auxp;
@@ -129,14 +129,14 @@ The thermal power is calculated by <em>i*v</em>.
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
-        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
-        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        //Forward biased region after conduction
         iVdMax + (vd - VdMax) * diVdMax);
+        //Lower half of reverse biased region including breakdown.
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        //Forward biased region after conduction
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -509,8 +509,9 @@ Stefan Vorkoetter - new model proposed.</li>
     parameter SI.Voltage EG=1.11 "Energy gap for temperature effect on Is" annotation(Dialog(enable=useTemperatureDependency));
     parameter Real NF=1.0 "Forward current emission coefficient";
     parameter Real NR=1.0 "Reverse current emission coefficient";
-    parameter SI.Voltage IC=0 "Initial value" annotation(Dialog(enable=UIC));
-    parameter Boolean UIC = false "Decision if initial value should be used";
+    parameter SI.Voltage IC=0 "Initial value of collector to substrate voltage" annotation(Dialog(enable=UIC));
+    parameter Boolean UIC = false "Decision if initial value IC should be used";
+    parameter Boolean useSubstrate = false "= false, if substrate is implicitly grounded";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
 
     SI.Voltage vbc "Base-collector voltage";
@@ -598,7 +599,12 @@ Stefan Vorkoetter - new model proposed.</li>
       lineColor={0,0,255}),
     Text(extent={{-150,130},{150,90}},
       textString="%name",
-      textColor={0,0,255})}));
+      textColor={0,0,255}),
+          Line(
+            points={{0,0},{90,0}},
+            color={0,0,255},
+            pattern=LinePattern.Dash,
+            visible = useSubstrate)}));
   end NPN;
 
   model PNP "Simple PNP BJT according to Ebers-Moll with heating port"
@@ -627,6 +633,9 @@ Stefan Vorkoetter - new model proposed.</li>
     parameter SI.Voltage EG=1.11 "Energy gap for temperature effect on Is" annotation(Dialog(enable=useTemperatureDependency));
     parameter Real NF=1.0 "Forward current emission coefficient";
     parameter Real NR=1.0 "Reverse current emission coefficient";
+    parameter SI.Voltage IC=0 "Initial value of collector to substrate voltage" annotation(Dialog(enable=UIC));
+    parameter Boolean UIC = false "Decision if initial value IC should be used";
+    parameter Boolean useSubstrate = false "= false, if substrate is implicitly grounded";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
 
     SI.Voltage vcb "Collector-base voltage";
@@ -710,7 +719,11 @@ Stefan Vorkoetter - new model proposed.</li>
       lineColor={0,0,255}),
     Text(extent={{-150,130},{150,90}},
       textString="%name",
-      textColor={0,0,255})}));
+      textColor={0,0,255}),
+      Line( points={{0,0},{90,0}},
+            color={0,0,255},
+            pattern=LinePattern.Dash,
+            visible = useSubstrate)}));
   end PNP;
 
 protected
