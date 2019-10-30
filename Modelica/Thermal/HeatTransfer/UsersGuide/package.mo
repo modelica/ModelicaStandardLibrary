@@ -54,7 +54,7 @@ provided. These functions may be used in the following way:
 <pre>  <strong>import</strong> Modelica.SIunits;
   <strong>import</strong> Modelica.SIunits.Conversions.*;
      ...
-  <strong>parameter</strong> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
+  <strong>parameter</strong> SIunits.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
 </pre>
 
 <p>
