@@ -529,6 +529,8 @@ Stefan Vorkoetter - new model proposed.</li>
     SI.Voltage vt_t "Voltage equivalent of effective temperature";
     Real hexp "Auxiliary quantity temperature dependent exponent";
     Real htempexp "Auxiliary quantity exp(hexp)";
+    SI.Voltage vS "Substrate potential";
+    SI.Current iS "Substrate current";
 
     Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
       annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
@@ -536,9 +538,11 @@ Stefan Vorkoetter - new model proposed.</li>
       annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
       annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin S(final i = iS, final v = vS) if useSubstrate "Substrate"
+      annotation (Placement(transformation(extent={{110,-10},{90,10}})));
   initial equation
     if UIC then
-      C.v = IC;
+      C.v - vS = IC;
     end if;
   equation
     assert(T_heatPort > 0,"Temperature must be positive");
@@ -560,10 +564,13 @@ Stefan Vorkoetter - new model proposed.</li>
     Capcje = smooth(1, Cje*powlin(vbe/Phie, Me));
     cbc = smooth(1, Taur*is_t/(NR*vt_t)*exlin2(vbc/(NR*vt_t), EMin, EMax) + Capcjc);
     cbe = smooth(1, Tauf*is_t/(NF*vt_t)*exlin2(vbe/(NF*vt_t), EMin, EMax) + Capcje);
-    C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) + Ccs*der(C.v);
+    C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) - iS;
     B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
-    E.i = -B.i - C.i + Ccs*der(C.v);
-
+    E.i = -B.i - C.i - iS;
+    iS = -Ccs * (der(C.v) - der(vS));
+    if not useSubstrate then
+      vS = 0;
+    end if;
     LossPower = vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v);
     annotation (defaultComponentName="npn",
       Documentation(info="<html>
@@ -653,6 +660,8 @@ Stefan Vorkoetter - new model proposed.</li>
     SI.Voltage vt_t "Voltage equivalent of effective temperature";
     Real hexp "Auxiliary quantity temperature dependent exponent";
     Real htempexp "Auxiliary quantity exp(hexp)";
+    SI.Voltage vS "Substrate potential";
+    SI.Current iS "Substrate current";
 
     Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
       annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
@@ -660,6 +669,12 @@ Stefan Vorkoetter - new model proposed.</li>
       annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
       annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin S(final i = iS, final v = vS) if useSubstrate "Substrate"
+      annotation (Placement(transformation(extent={{110,-10},{90,10}})));
+  initial equation
+    if UIC then
+      C.v - vS = IC;
+    end if;
   equation
     assert(T_heatPort > 0,"Temperature must be positive");
     vcb = C.v - B.v;
@@ -680,10 +695,13 @@ Stefan Vorkoetter - new model proposed.</li>
     Capcje = smooth(1, Cje*powlin(veb/Phie, Me));
     ccb = smooth(1, Taur*is_t/(NR*vt_t)*exlin2(vcb/(NR*vt_t), EMin, EMax) + Capcjc);
     ceb = smooth(1, Tauf*is_t/(NF*vt_t)*exlin2(veb/(NF*vt_t), EMin, EMax) + Capcje);
-    C.i = icb/br_t + ccb*der(vcb) + Ccs*der(C.v) + (icb - ieb)*qbk;
+    C.i = icb/br_t + ccb*der(vcb) + (icb - ieb)*qbk - iS;
     B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
-    E.i = -B.i - C.i + Ccs*der(C.v);
-
+    E.i = -B.i - C.i - iS;
+    iS = -Ccs * (der(C.v) - der(vS));
+    if not useSubstrate then
+      vS = 0;
+    end if;
     LossPower = vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v);
     annotation (defaultComponentName="pnp",
       Documentation(info="<html>
