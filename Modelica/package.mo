@@ -2075,11 +2075,11 @@ design of sensors apply:
   </tr>
 </table>
 
-<h4>Diagram icons</h4>
+<h4>Diagram layer</h4>
 
-<p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the
-icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
-
+<p>The diagram layer is intended to contain the graphical components, and if there are no graphical components it shall be left empty. 
+In particular do not make the diagram layer a copy of the icon layer. 
+Graphical illustrations shall not be added in the diagram layer, but can be added in the HTML documentation.</p>
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
@@ -8589,6 +8589,7 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
+
 annotation (
 preferredView="info",
 version="4.0.0-dev",
