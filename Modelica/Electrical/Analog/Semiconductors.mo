@@ -129,14 +129,14 @@ The thermal power is calculated by <em>i*v</em>.
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
+        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
+        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        iVdMax + (vd - VdMax) * diVdMax);
-        //Lower half of reverse biased region including breakdown.
-        //Upper half of reverse biased region, and forward biased region before conduction.
         //Forward biased region after conduction
+        iVdMax + (vd - VdMax) * diVdMax);
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -516,6 +516,7 @@ Stefan Vorkoetter - new model proposed.</li>
 
     SI.Voltage vbc "Base-collector voltage";
     SI.Voltage vbe "Base-emitter voltage";
+    SI.Voltage vcs "Collector-substrate voltage";
     Real qbk "Relative majority carrier charge, inverse";
     SI.Current ibc "Base-collector diode current";
     SI.Current ibe "Base-emitter diode current";
@@ -542,12 +543,13 @@ Stefan Vorkoetter - new model proposed.</li>
       annotation (Placement(transformation(extent={{110,-10},{90,10}})));
   initial equation
     if UIC then
-      C.v - vS = IC;
+      vcs = IC;
     end if;
   equation
     assert(T_heatPort > 0,"Temperature must be positive");
     vbc = B.v - C.v;
     vbe = B.v - E.v;
+    vcs = C.v - vS;
     qbk = 1 - vbc*Vak;
 
     hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
@@ -647,6 +649,7 @@ Stefan Vorkoetter - new model proposed.</li>
 
     SI.Voltage vcb "Collector-base voltage";
     SI.Voltage veb "Emitter-base voltage";
+    SI.Voltage vcs "Collector-substrate voltage";
     Real qbk "Relative majority carrier charge, inverse";
     SI.Current icb "Collector-base diode current";
     SI.Current ieb "Emitter-base diode current";
@@ -673,12 +676,13 @@ Stefan Vorkoetter - new model proposed.</li>
       annotation (Placement(transformation(extent={{110,-10},{90,10}})));
   initial equation
     if UIC then
-      C.v - vS = IC;
+      vcs = IC;
     end if;
   equation
     assert(T_heatPort > 0,"Temperature must be positive");
     vcb = C.v - B.v;
     veb = E.v - B.v;
+    vcs = C.v - vS;
     qbk = 1 - vcb*Vak;
 
     hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
@@ -743,8 +747,8 @@ Stefan Vorkoetter - new model proposed.</li>
             pattern=LinePattern.Dash,
             visible = useSubstrate)}));
   end PNP;
-
 protected
+
         function pow "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily"
           extends Modelica.Icons.Function;
           input Real x;
@@ -781,8 +785,8 @@ protected
         algorithm
           z := if x < Minexp then exp(Minexp)*(1 + x - Minexp) else exlin(x, Maxexp);
         end exlin2;
-
 public
+
   model Thyristor "Simple Thyristor Model"
     parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";
@@ -1064,7 +1068,6 @@ public
 </ul>
 </html>"));
   end SimpleTriac;
-
   annotation (
     Documentation(info="<html>
 <p>This package contains semiconductor devices:</p>
