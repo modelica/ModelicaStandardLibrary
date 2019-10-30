@@ -85,6 +85,10 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       extends Modelica.Icons.Example;
       Modelica.Blocks.Tables.CombiTable1D table1(table=[0,0;0,1]);
       Modelica.Blocks.Tables.CombiTable2D table2(table=[0,0;0,1]);
+    equation
+      table1.u[1] = time;
+      table2.u1 = time;
+      table2.u2 = time;
       annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2441\">#2441</a>.
