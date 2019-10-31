@@ -2655,6 +2655,10 @@ The table interpolation has the following properties:
              = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
                   splines such that y preserves the monotonicity and der(y)
                   is continuous, also if extrapolated.
+             = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                  Hermite splines such that der(y) is continuous, also if
+                  extrapolated. Additionally, overshoots and edge cases of the
+                  original Akima interpolation method are avoided.
 </pre></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
