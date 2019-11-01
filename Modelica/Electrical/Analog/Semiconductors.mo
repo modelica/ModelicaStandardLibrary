@@ -814,13 +814,8 @@ public
     SI.Voltage vConmain;
 
   public
-    Modelica.Electrical.Analog.Interfaces.PositivePin Anode annotation (Placement(
-          transformation(extent={{-95,-12},{-75,8}}),
-                                                    iconTransformation(extent={{
-              -100,-10},{-80,10}})));
-    Modelica.Electrical.Analog.Interfaces.NegativePin Cathode annotation (Placement(
-          transformation(extent={{80,-10},{100,10}}), iconTransformation(extent={
-              {80,-10},{100,10}})));
+    Modelica.Electrical.Analog.Interfaces.PositivePin Anode annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin Cathode annotation (Placement(transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin Gate annotation (Placement(
           transformation(extent={{90,90},{110,110}}),iconTransformation(extent={{90,90},{110,110}})));
 
@@ -953,7 +948,7 @@ public
   end Thyristor;
 
   model SimpleTriac "Simple triac, based on Semiconductors.Thyristor model"
-
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";
     parameter SI.Voltage VRRM(final min=0) = 100
@@ -975,33 +970,24 @@ public
     Modelica.Electrical.Analog.Interfaces.NegativePin n "Cathode"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin p "Anode"
-      annotation (Placement(transformation(extent={{94,-10},{114,10}})));
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin g "Gate"
-      annotation (Placement(transformation(extent={{-110,-108},{-90,-88}}), iconTransformation(extent={{-110,-108},{-90,-88}})));
+      annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
     Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor(VDRM=VDRM, VRRM=VRRM, IDRM=IDRM, VTM=VTM, IH=IH, ITM=ITM, VGT=VGT, IGT=IGT, TON=TON, TOFF=TOFF, Vt=Vt, Nbv=Nbv, useHeatPort=useHeatPort, T=T)
       annotation (Placement(transformation(extent={{-20,30},{0,50}})));
     Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor1(VDRM=VDRM, VRRM=VRRM, IDRM=IDRM, VTM=VTM, IH=IH, ITM=ITM, VGT=VGT, IGT=IGT, TON=TON, TOFF=TOFF, Vt=Vt, Nbv=Nbv, useHeatPort=useHeatPort, T=T)
                          annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
-          origin={-12,-40})));
+          origin={-10,-40})));
 
     Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode(Vknee=0)
-      annotation (Placement(transformation(extent={{-40,58},{-20,78}})));
+      annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
     Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode1(Vknee=0) annotation (
         Placement(transformation(
           extent={{-10,-10},{10,10}},
-          rotation=90,
-          origin={-20,-72})));
-
-  parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
-    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter SI.Temperature T=293.15
-      "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-10,-110},{10,-90}})));
+          rotation=0,
+          origin={-40,-60})));
 
   equation
     if useHeatPort then
@@ -1009,21 +995,24 @@ public
      connect(heatPort, thyristor1.heatPort);
    end if;
     connect(thyristor.Anode, n) annotation (Line(
-        points={{-19,40},{-18,40},{-18,48},{-70,48},{-70,0},{-100,0}}, color={0,0,255}));
+        points={{-20,40},{-30,40},{-30,0},{-100,0}},                   color={0,0,255}));
     connect(thyristor1.Anode, p) annotation (Line(
-        points={{-3,-40},{-2,-40},{-2,-60},{80,-60},{80,0},{104,0}}, color={0,0,255}));
+        points={{0,-40},{10,-40},{10,0},{100,0}},                    color={0,0,255}));
     connect(thyristor1.Anode, thyristor.Cathode) annotation (Line(
-        points={{-3,-40},{-2,-40},{-2,40},{-1,40}}, color={0,0,255}));
+        points={{0,-40},{10,-40},{10,40},{0,40}},   color={0,0,255}));
     connect(thyristor1.Cathode, thyristor.Anode) annotation (Line(
-        points={{-21,-40},{-22,-40},{-22,40},{-19,40}}, color={0,0,255}));
+        points={{-20,-40},{-30,-40},{-30,40},{-20,40}}, color={0,0,255}));
     connect(thyristor.Gate, idealDiode.n) annotation (Line(
-        points={{0,50},{0,59.5},{-20,59.5},{-20,68}}, color={0,0,255}));
+        points={{0,50},{0,60},{-30,60}},              color={0,0,255}));
     connect(idealDiode.p, g) annotation (Line(
-        points={{-40,68},{-82,68},{-82,-98},{-100,-98}}, color={0,0,255}));
+        points={{-50,60},{-60,60},{-60,-100},{-100,-100}},
+                                                         color={0,0,255}));
     connect(idealDiode1.n, thyristor1.Gate) annotation (Line(
-        points={{-20,-62},{-20,-50},{-22,-50}}, color={0,0,255}));
+        points={{-30,-60},{-20,-60},{-20,-50}}, color={0,0,255}));
     connect(idealDiode1.p, g) annotation (Line(
-        points={{-20,-82},{-42,-82},{-42,-98},{-100,-98}}, color={0,0,255}));
+        points={{-50,-60},{-60,-60},{-60,-100},{-100,-100}},
+                                                           color={0,0,255}));
+    LossPower = p.i*p.v + n.i*n.v + g.i*g.v;
     annotation (defaultComponentName="triac",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -1046,7 +1035,7 @@ public
             points={{70,0},{110,0}},
             color={0,0,255}),
           Line(
-            points={{-100,-88},{-100,-80},{-30,-50}},
+            points={{-100,-90},{-100,-80},{-30,-50}},
             color={0,0,255}),
           Text(
             extent={{-150,150},{150,110}},
