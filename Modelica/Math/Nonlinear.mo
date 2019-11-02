@@ -317,12 +317,12 @@ The following nonlinear equations are solved:
       parameter Real A=1 "Amplitude of integrand of s";
       parameter Real ws=2 "Angular frequency of integrand of s";
       parameter Real wq=3 "Angular frequency of q";
-      Real q(start=1, fixed=true);
-      Real qd(start=0, fixed=true);
-      Real x;
+      Real q(start=1, fixed=true) "State variable";
+      Real qd(start=0, fixed=true) "Derivative of state variable";
+      Real x "Some variable";
       final parameter Real s = Modelica.Math.Nonlinear.quadratureLobatto(
                                   function UtilityFunctions.fun7(A=A, w=ws),
-                                  0,1);
+                                  0,1) "Integral value used as parameter";
     equation
       qd = der(q);
       der(qd) + wq*q = 0;
@@ -351,7 +351,6 @@ to a function in a model.
         input Real w "Angular velocity";
       algorithm
         y := 3*u - sin(w*u) - 1;
-
       end fun2;
 
       function fun3 "y = p[1] + log(p[2]*u) - m*u"
@@ -360,7 +359,6 @@ to a function in a model.
         input Real m;
       algorithm
         y := p[1] + log(p[2]*u) - m*u;
-
       end fun3;
 
       function fun4 "y = sin(u)"
@@ -440,7 +438,7 @@ to a function, see, .e.g.,
     input Real b "Upper limit of integration interval";
     input Real tolerance = 100*Modelica.Constants.eps
       "Relative tolerance for integral value";
-    output Real integral "integral value";
+    output Real integral "Integral value";
 
   protected
     constant Real x1=0.942882415695480;
@@ -471,7 +469,7 @@ to a function, see, .e.g.,
       input Real fa "Function value at a";
       input Real fb "Function value at b";
       input Real is "First approximation of the integral";
-      output Real I "integral value";
+      output Real I "Integral value";
     protected
       Real m;
       Real h;
