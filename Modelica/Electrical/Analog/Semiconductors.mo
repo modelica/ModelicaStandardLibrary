@@ -129,14 +129,14 @@ The thermal power is calculated by <em>i*v</em>.
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
-        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
-        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        //Forward biased region after conduction
         iVdMax + (vd - VdMax) * diVdMax);
+        //Lower half of reverse biased region including breakdown.
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        //Forward biased region after conduction
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -569,7 +569,7 @@ Stefan Vorkoetter - new model proposed.</li>
     C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) - iS;
     B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
     E.i = -B.i - C.i - iS;
-    iS = -Ccs * (der(C.v) - der(vS));
+    iS = -Ccs * der(vcs);
     if not useSubstrate then
       vS = 0;
     end if;
@@ -702,7 +702,7 @@ Stefan Vorkoetter - new model proposed.</li>
     C.i = icb/br_t + ccb*der(vcb) + (icb - ieb)*qbk - iS;
     B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
     E.i = -B.i - C.i - iS;
-    iS = -Ccs * (der(C.v) - der(vS));
+    iS = -Ccs * der(vcs);
     if not useSubstrate then
       vS = 0;
     end if;
@@ -747,8 +747,8 @@ Stefan Vorkoetter - new model proposed.</li>
             pattern=LinePattern.Dash,
             visible = useSubstrate)}));
   end PNP;
-protected
 
+protected
         function pow "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily"
           extends Modelica.Icons.Function;
           input Real x;
@@ -785,8 +785,8 @@ protected
         algorithm
           z := if x < Minexp then exp(Minexp)*(1 + x - Minexp) else exlin(x, Maxexp);
         end exlin2;
-public
 
+public
   model Thyristor "Simple Thyristor Model"
     parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";
