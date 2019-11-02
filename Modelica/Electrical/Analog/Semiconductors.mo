@@ -948,7 +948,6 @@ public
   end Thyristor;
 
   model SimpleTriac "Simple triac, based on Semiconductors.Thyristor model"
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";
     parameter SI.Voltage VRRM(final min=0) = 100
@@ -976,11 +975,10 @@ public
     Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor(VDRM=VDRM, VRRM=VRRM, IDRM=IDRM, VTM=VTM, IH=IH, ITM=ITM, VGT=VGT, IGT=IGT, TON=TON, TOFF=TOFF, Vt=Vt, Nbv=Nbv, useHeatPort=useHeatPort, T=T)
       annotation (Placement(transformation(extent={{-20,30},{0,50}})));
     Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor1(VDRM=VDRM, VRRM=VRRM, IDRM=IDRM, VTM=VTM, IH=IH, ITM=ITM, VGT=VGT, IGT=IGT, TON=TON, TOFF=TOFF, Vt=Vt, Nbv=Nbv, useHeatPort=useHeatPort, T=T)
-                         annotation (Placement(transformation(
+      annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
           origin={-10,-40})));
-
     Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode(Vknee=0)
       annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
     Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode1(Vknee=0) annotation (
@@ -988,34 +986,32 @@ public
           extent={{-10,-10},{10,10}},
           rotation=0,
           origin={-40,-60})));
-
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
   equation
     if useHeatPort then
-     connect(heatPort, thyristor.heatPort);
-     connect(heatPort, thyristor1.heatPort);
-   end if;
+      connect(heatPort, thyristor.heatPort);
+      connect(heatPort, thyristor1.heatPort);
+    end if;
     connect(thyristor.Anode, n) annotation (Line(
-        points={{-20,40},{-30,40},{-30,0},{-100,0}},                   color={0,0,255}));
+        points={{-20,40},{-30,40},{-30,0},{-100,0}}, color={0,0,255}));
     connect(thyristor1.Anode, p) annotation (Line(
-        points={{0,-40},{10,-40},{10,0},{100,0}},                    color={0,0,255}));
+        points={{0,-40},{10,-40},{10,0},{100,0}}, color={0,0,255}));
     connect(thyristor1.Anode, thyristor.Cathode) annotation (Line(
-        points={{0,-40},{10,-40},{10,40},{0,40}},   color={0,0,255}));
+        points={{0,-40},{10,-40},{10,40},{0,40}}, color={0,0,255}));
     connect(thyristor1.Cathode, thyristor.Anode) annotation (Line(
         points={{-20,-40},{-30,-40},{-30,40},{-20,40}}, color={0,0,255}));
     connect(thyristor.Gate, idealDiode.n) annotation (Line(
-        points={{0,50},{0,60},{-30,60}},              color={0,0,255}));
+        points={{0,50},{0,60},{-30,60}}, color={0,0,255}));
     connect(idealDiode.p, g) annotation (Line(
-        points={{-50,60},{-60,60},{-60,-100},{-100,-100}},
-                                                         color={0,0,255}));
+        points={{-50,60},{-60,60},{-60,-100},{-100,-100}}, color={0,0,255}));
     connect(idealDiode1.n, thyristor1.Gate) annotation (Line(
         points={{-30,-60},{-20,-60},{-20,-50}}, color={0,0,255}));
     connect(idealDiode1.p, g) annotation (Line(
-        points={{-50,-60},{-60,-60},{-60,-100},{-100,-100}},
-                                                           color={0,0,255}));
+        points={{-50,-60},{-60,-60},{-60,-100},{-100,-100}}, color={0,0,255}));
     LossPower = p.i*p.v + n.i*n.v + g.i*g.v;
     annotation (defaultComponentName="triac",
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={
           Polygon(
             points={{-30,0},{-30,-100},{70,-50},{-30,0}},
             lineColor={0,0,255}),
@@ -1051,7 +1047,6 @@ public
      revisions="<html>
 <ul>
 <li><em>November 25, 2009   </em><br>
-
        by Susann Wolf<br><br>
        </li>
 </ul>
