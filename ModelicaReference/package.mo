@@ -5356,7 +5356,7 @@ This partial model defines that T,d,u can be computed from the medium model, pro
 equation
    d = p/(R*T);
    h = cp*(T-T0);
-   u = h \" p/d;
+   u = h - p/d;
 end SimpleAir;
 </pre>
 
