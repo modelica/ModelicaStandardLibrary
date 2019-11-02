@@ -6111,13 +6111,14 @@ Import classes
 <h4>Examples</h4>
 
 <pre><strong>class</strong> Lookup
-  <strong>import</strong> SI = Modelica.SIunits; // #1
-  <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports,
-                          //     consider using #1 or #3  instead!)
+  <strong>import</strong> SI = Modelica.SIunits; // #1 (Try to avoid renaming imports!)
+  <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports!)
   <strong>import</strong> Modelica.Mechanics.Rotational; // #3
+  <strong>import</strong> Modelica.SIUnits.{Molality, Molarity}; // #4
 
   SI.Torque torque; // due to #1 (Modelica.SIunits.Torque)
   Rotational.Components.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Components.Inertia)
+  Molarity c = 1; // due to #4 (Modelica.SIUnits.Molarity)
 <strong>equation</strong>
   torque = sin(<strong>time</strong>); // due to #2 (Modelica.Math.sin)
   ...
@@ -6173,7 +6174,7 @@ The generated import names are:</p>
   <li><code>C</code> and all other classes in B for <code><strong>import</strong> A.B.*;</code></li>
 </ul>
 <h5>Note</h5>
-<p><em>Especially the last wildcard import statement should be avoided since it might lead to name-lookup conflicts.</em></p>
+<p><em>Especially the renaming and wildcard import statements should be avoided since they might lead to name-lookup conflicts.</em></p>
 </html>"));
 end 'import';
 
