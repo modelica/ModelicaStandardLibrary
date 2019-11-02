@@ -209,7 +209,6 @@ density and heat capacity as functions of temperature.</li>
       T(start = T_start,
         stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default))
       "Base properties of T dependent medium"
-    //  redeclare parameter SpecificHeatCapacity R=Modelica.Constants.R,
 
       SI.SpecificHeatCapacity cp "Specific heat capacity";
       parameter SI.Temperature T_start = 298.15 "Initial temperature";
@@ -220,7 +219,7 @@ density and heat capacity as functions of temperature.</li>
              " K) is not in the allowed range (" + String(T_min) +
              " K <= T <= " + String(T_max) + " K) required from medium model \""
              + mediumName + "\".");
-      R = Modelica.Constants.R/MM_const;
+      R_s = Modelica.Constants.R/MM_const;
       cp = Polynomials.evaluate(poly_Cp,if TinK then T else T_degC);
       h = if enthalpyOfT then h_T(T) else  h_pT(p,T,densityOfT);
       u = h - (if singleState then  reference_p/d else state.p/d);

@@ -167,22 +167,22 @@ package R134a "R134a: Medium model for R134a"
     protected
       SI.Pressure p "Pressure";
     algorithm
-      p := f.R*f.d*f.T*f.delta*f.fdelta;
+      p := f.R_s*f.d*f.T*f.delta*f.fdelta;
       sat.d := f.d;
-      sat.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-      sat.s := f.R*(f.tau*f.ftau - f.f);
-      sat.u := f.R*f.T*f.tau*f.ftau;
-      sat.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
+      sat.h := f.R_s*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+      sat.s := f.R_s*(f.tau*f.ftau - f.f);
+      sat.u := f.R_s*f.T*f.tau*f.ftau;
+      sat.cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
-      sat.cv := f.R*(-f.tau*f.tau*f.ftautau);
-      sat.pt := f.R*f.d*(f.delta*(f.fdelta - f.tau*f.fdeltatau));
-      sat.pd := f.R*f.T*(f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
-      sat.a := abs(f.R*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      sat.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
+      sat.pt := f.R_s*f.d*(f.delta*(f.fdelta - f.tau*f.fdeltatau));
+      sat.pd := f.R_s*f.T*(f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
+      sat.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
         f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
-      sat.kappa := 1/(f.d*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
-      sat.beta := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau)*sat.kappa;
-      sat.gamma := sat.a^2/f.R/f.T;
+      sat.kappa := 1/(f.d*f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
+      sat.beta := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau)*sat.kappa;
+      sat.gamma := sat.a^2/f.R_s/f.T;
 
     end helmholtzToBoundaryProps;
   end Common;
@@ -270,7 +270,7 @@ package R134a "R134a: Medium model for R134a"
       quality = vapourQuality(state);
 
       u = h - p/d;
-      R = R134aData.data.R;
+      R_s = R134aData.data.R_s;
       h = state.h;
       p = state.p;
       T = state.T;
@@ -321,16 +321,16 @@ Example:
       "Set state for density and temperature (X not used since single substance)"
     protected
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
-      Modelica.SIunits.SpecificHeatCapacity R "Specific gas constant";
+      Modelica.SIunits.SpecificHeatCapacity R_s "Specific gas constant";
       SaturationProperties sat "Saturation temperature and pressure";
       Modelica.SIunits.Density dl "Liquid density";
       Modelica.SIunits.Density dv "Vapor density";
 
     algorithm
-      R := R134aData.data.R;
+      R_s := R134aData.data.R_s;
       f := f_R134a(d=d, T=T);
-      state.p := d*R*T*f.delta*f.fdelta;
-      state.h := R*T*(f.tau*f.ftau + f.delta*f.fdelta);
+      state.p := d*R_s*T*f.delta*f.fdelta;
+      state.h := R_s*T*(f.tau*f.ftau + f.delta*f.fdelta);
       sat.psat := state.p;
       state.T := T;
       state.d := d;
@@ -385,7 +385,7 @@ Example:
               delp=delp,
               dels=dels);
         f := f_R134a(d=state.d, T=state.T);
-        state.h := R134aData.R*state.T*(f.tau*f.ftau + f.delta*f.fdelta);
+        state.h := R134aData.R_s*state.T*(f.tau*f.ftau + f.delta*f.fdelta);
       else
         state.h := hofpsTwoPhase(p, s);
       end if;
@@ -653,7 +653,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
         s := liq.s + x*(vap.s - liq.s);
       else
         f := f_R134a(state.d, state.T);
-        s := R134aData.R*(f.tau*f.ftau - f.f);
+        s := R134aData.R_s*(f.tau*f.ftau - f.f);
       end if;
 
       annotation (Documentation(info="<html>
@@ -1351,7 +1351,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 
     algorithm
       f := f_R134a(state.d, state.T);
-      cp := if getPhase_ph(state.p, state.h) == 2 then 0 else R134aData.R*(-f.tau
+      cp := if getPhase_ph(state.p, state.h) == 2 then 0 else R134aData.R_s*(-f.tau
         *f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)^2/(2*
         f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
 
@@ -1391,7 +1391,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
               p=state.p);
       else
         f := f_R134a(state.d, state.T);
-        cv := R134aData.R*(-f.tau*f.tau*f.ftautau);
+        cv := R134aData.R_s*(-f.tau*f.tau*f.ftautau);
       end if;
 
       annotation (Documentation(info="<html>
@@ -1513,16 +1513,16 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
       lambda_reduced := lambda_reduced*coeff.lambda_reducing;
 
       // critical lambda
-      dddp := 1/(f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
+      dddp := 1/(f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
       chi_star := state.d*coeff.p_crit*1e3/((coeff.rho_crit*R134aData.data.MM*
         1000)^2)*dddp;
-      dddp_ref := 1/(f_ref.R*f_ref.T*f_ref.delta*(2.0*f_ref.fdelta + f_ref.delta
+      dddp_ref := 1/(f_ref.R_s*f_ref.T*f_ref.delta*(2.0*f_ref.fdelta + f_ref.delta
         *f_ref.fdeltadelta));
       chi_star_ref := state.d*coeff.p_crit*1e3/((coeff.rho_crit*R134aData.data.MM
         *1000)^2)*dddp_ref;
       delta_chi := max(1e-10, (chi_star - chi_star_ref));
       xi := coeff.xi_0*(1/coeff.GAMMA*(delta_chi))^(coeff.nu/coeff.gamma);
-      cp := R134aData.data.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta
+      cp := R134aData.data.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta
         *f.tau*f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
       eta := dynamicViscosity(state=state);
       cv := specificHeatCapacityCv(state=state);
@@ -1597,7 +1597,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
         // assert(getPhase_ph(state.p, state.h)==1, "Function for velocity of sound is only valid for one-phase regime!");
       else
         f := f_R134a(state.d, state.T);
-        a := abs(R134aData.data.R*state.T*(2*f.delta*f.fdelta + f.delta*f.delta
+        a := abs(R134aData.data.R_s*state.T*(2*f.delta*f.fdelta + f.delta*f.delta
           *f.fdeltadelta - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta
           *f.fdelta - f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       end if;
@@ -1620,7 +1620,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
         // assert(getPhase_ph(state.p, state.h)==1, "Function for isothermal compressibility is only valid for one-phase regime!");
       else
         f := f_R134a(state.d, state.T);
-        kappa := 1/(state.d*R134aData.data.R*state.T*f.delta*(2.0*f.fdelta + f.delta
+        kappa := 1/(state.d*R134aData.data.R_s*state.T*f.delta*(2.0*f.fdelta + f.delta
           *f.fdeltadelta));
       end if;
       annotation (Documentation(info="<html>
@@ -1641,7 +1641,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
         // assert(getPhase_ph(state.p, state.h)==1, "Function for isobaric expansion coefficient is only valid for one-phase regime!");
       else
         f := f_R134a(state.d, state.T);
-        beta := R134aData.data.R*state.d*f.delta*(f.fdelta - f.tau*f.fdeltatau)
+        beta := R134aData.data.R_s*state.d*f.delta*(f.fdelta - f.tau*f.fdeltatau)
           *isothermalCompressibility(state);
       end if;
       annotation (Documentation(info="<html>
@@ -1823,9 +1823,9 @@ The isentropic efficiency function should not be applied in liquid region.
         f := f_R134a(d=derivs.rho, T=derivs.T);
         f.d := derivs.rho;
         f.T := derivs.T;
-        f.R := R134aData.R;
+        f.R_s := R134aData.R_s;
         newder := Modelica.Media.Common.Helmholtz_ph(f=f);
-        derivs.cv := -f.R*(f.tau*f.tau*f.ftautau);
+        derivs.cv := -f.R_s*(f.tau*f.tau*f.ftautau);
         derivs.pd := newder.pd;
         derivs.pt := newder.pt;
         //derivs.dpT := 0;
@@ -2124,7 +2124,7 @@ The function shall only be used for one-phase inputs since the fundamental equat
       f.ftautau := f.ftautau + fid.ftautau;
       f.d := d;
       f.T := T;
-      f.R := R134aData.R;
+      f.R_s := R134aData.R_s;
 
       annotation (Documentation(info="<html>
 This function adds the ideal gas contribution of the fundamental equation to the residual contribution and computes the helmholtz derivatives w.r.t. temperature and density.
@@ -2156,7 +2156,7 @@ This function adds the ideal gas contribution of the fundamental equation to the
       fid.fdeltatau := 0.0;
       fid.d := fid.delta*R134aData.data.DCRIT;
       fid.T := R134aData.data.TCRIT/fid.tau;
-      fid.R := R134aData.R;
+      fid.R_s := R134aData.R_s;
 
       annotation (Documentation(info="<html>
 This function computes the ideal gas helmholtz derivatives of the fundamental equation of Tillner-Roth and Baehr for R134a (1994) w.r.t. to reduced temperature (tau=T_crit/T) and reduced density (delta=rho/rho_crit).
@@ -2211,7 +2211,7 @@ This function computes the ideal gas helmholtz derivatives of the fundamental eq
       f.fdeltatau := f.fdeltatau/(delta*tau);
       f.d := f.delta*R134aData.data.DCRIT;
       f.T := R134aData.data.TCRIT/f.tau;
-      f.R := R134aData.R;
+      f.R_s := R134aData.R_s;
 
       annotation (Documentation(info="<html>
 This function computes the residual helmholtz derivatives of the fundamental equation of Tillner-Roth and Baehr for R134a (1994) w.r.t. to reduced temperature (tau=T_crit/T) and reduced density (delta=rho/rho_crit). The function can be used for special properties depending just on the residual derivative parts.
@@ -2561,7 +2561,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert(p, T);
       d := dofpT(p, T, delp);
       f := f_R134a(d, T);
-      h := R134aData.data.R*T*(f.tau*f.ftau + f.delta*f.fdelta);
+      h := R134aData.data.R_s*T*(f.tau*f.ftau + f.delta*f.fdelta);
 
       annotation (Documentation(info="<html>
 <p> This function calculates the specific enthalpy of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The safety margin to the phase boundary is 1[K] and 1000[Pa].
@@ -2635,7 +2635,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     import Modelica.SIunits;
 
     extends Modelica.Icons.Package;
-    constant SIunits.SpecificHeatCapacity R=data.R;
+    constant SIunits.SpecificHeatCapacity R_s=data.R_s;
     constant Integer Npoints=478;
     constant Integer Ninterval=Npoints - 1;
     constant Real[Npoints] pbreaks={9.597762848258994e-005,
@@ -9283,7 +9283,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end crit;
 
     record data
-      constant SIunits.SpecificHeatCapacity R=81.4888564372;
+      constant SIunits.SpecificHeatCapacity R_s=81.4888564372;
       // 8.314471/0.102032
       constant SIunits.MolarMass MM=0.102032;
       extends crit;

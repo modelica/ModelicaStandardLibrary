@@ -158,7 +158,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
           d = density_pT(p, T);
         end if;
         u = h - p/d;
-        R = Air_Utilities.Basic.Constants.R;
+        R_s = Air_Utilities.Basic.Constants.R_s;
         h = state.h;
         p = state.p;
         T = state.T;
@@ -585,7 +585,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         constant Modelica.Media.Common.FundamentalConstants Constants(
           final R_bar=8.31451,
-          final R=287.117,
+          final R_s=287.117,
           final MM=28.9586E-003,
           final rhored=10447.7,
           final Tred=132.6312,
@@ -619,7 +619,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         algorithm
           f.d := d;
           f.T := T;
-          f.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
+          f.R_s := ReferenceAir.Air_Utilities.Basic.Constants.R_s;
           //Reduced density
           f.delta := d/(ReferenceAir.Air_Utilities.Basic.Constants.MM*
             ReferenceAir.Air_Utilities.Basic.Constants.rhored);
@@ -753,7 +753,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Boolean found=false "Flag for iteration success";
 
         algorithm
-          d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R*T);
+          d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R_s*T);
 
           while ((i < 100) and not found) loop
             f := Basic.Helmholtz(d, T);
@@ -795,7 +795,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         algorithm
           // Stefan Wischhusen: better guess for high temperatures:
           T := h/1000 + 273.15;
-          d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R*T);
+          d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R_s*T);
           i := 0;
 
           while ((i < 100) and not found) loop
@@ -842,7 +842,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         algorithm
           T := 273.15;
-          d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R*T);
+          d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R_s*T);
           i := 0;
 
           while ((i < 100) and not found) loop
@@ -962,7 +962,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
               gammacon[i]*f.delta^lcon[i]);
           end for;
           //Derivative of p w.r.t. d at constant temperature
-          pddT := ReferenceAir.Air_Utilities.Basic.Constants.R*T*(1 + 2*f.delta
+          pddT := ReferenceAir.Air_Utilities.Basic.Constants.R_s*T*(1 + 2*f.delta
             *(f.fdelta - 1/f.delta) + f.delta^2*(f.fdeltadelta + 1/f.delta^2));
           //chi_tilde at the given state
           xi := ReferenceAir.Air_Utilities.Basic.Constants.pred*(d/ReferenceAir.Air_Utilities.Basic.Constants.MM)
@@ -975,10 +975,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           else
             xi := 0.11*(xi/0.055)^(0.63/1.2415);
             //Derivative of p w.r.t. T at constant p
-            pdTp := ReferenceAir.Air_Utilities.Basic.Constants.R*d*(1 + f.delta
+            pdTp := ReferenceAir.Air_Utilities.Basic.Constants.R_s*d*(1 + f.delta
               *(f.fdelta - 1/f.delta) - f.delta*f.tau*f.fdeltatau);
             //Specific isochoric heat capacity
-            cv := ReferenceAir.Air_Utilities.Basic.Constants.R*(-f.tau*f.tau*f.ftautau);
+            cv := ReferenceAir.Air_Utilities.Basic.Constants.R_s*(-f.tau*f.tau*f.ftautau);
             //Specific isobaric heat capacity
             cp := cv + T*pdTp*pdTp/(d*d*pddT);
             Omega_tilde := 2/Modelica.Constants.pi*((cp - cv)/cp*atan(xi/0.31)
@@ -1004,17 +1004,17 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       algorithm
         aux.p := p;
         aux.s := s;
-        aux.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
+        aux.R_s := ReferenceAir.Air_Utilities.Basic.Constants.R_s;
         (aux.rho,aux.T) := Inverses.dTofps(
                 p=p,
                 s=s,
                 delp=iter.delp,
                 dels=iter.dels);
         f := Basic.Helmholtz(aux.rho, aux.T);
-        aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta) - ReferenceAir.Air_Utilities.Basic.Constants.h_off;
-        aux.pd := aux.R*aux.T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
-        aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-        aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
+        aux.h := aux.R_s*aux.T*(f.tau*f.ftau + f.delta*f.fdelta) - ReferenceAir.Air_Utilities.Basic.Constants.h_off;
+        aux.pd := aux.R_s*aux.T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
+        aux.pt := aux.R_s*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+        aux.cv := aux.R_s*(-f.tau*f.tau*f.ftautau);
         aux.cp := aux.cv + aux.T*aux.pt*aux.pt/(aux.rho*aux.rho*aux.pd);
         aux.vp := -1/(aux.rho*aux.rho)*1/aux.pd;
         aux.vt := aux.pt/(aux.rho*aux.rho*aux.pd);
@@ -1104,17 +1104,17 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       algorithm
         aux.p := p;
         aux.h := h;
-        aux.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
+        aux.R_s := ReferenceAir.Air_Utilities.Basic.Constants.R_s;
         (aux.rho,aux.T) := Inverses.dTofph(
                 p,
                 h,
                 delp=iter.delp,
                 delh=iter.delh);
         f := Basic.Helmholtz(aux.rho, aux.T);
-        aux.s := aux.R*(f.tau*f.ftau - f.f) - ReferenceAir.Air_Utilities.Basic.Constants.s_off;
-        aux.pd := aux.R*aux.T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
-        aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-        aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
+        aux.s := aux.R_s*(f.tau*f.ftau - f.f) - ReferenceAir.Air_Utilities.Basic.Constants.s_off;
+        aux.pd := aux.R_s*aux.T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
+        aux.pt := aux.R_s*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+        aux.cv := aux.R_s*(-f.tau*f.tau*f.ftautau);
         aux.cp := aux.cv + aux.T*aux.pt*aux.pt/(aux.rho*aux.rho*aux.pd);
         aux.vp := -1/(aux.rho*aux.rho)*1/aux.pd;
         aux.vt := aux.pt/(aux.rho*aux.rho*aux.pd);
@@ -1466,17 +1466,17 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       algorithm
         aux.p := p;
         aux.T := T;
-        aux.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
+        aux.R_s := ReferenceAir.Air_Utilities.Basic.Constants.R_s;
         (aux.rho) := Inverses.dofpT(
                 p=p,
                 T=T,
                 delp=iter.delp);
         f := Basic.Helmholtz(aux.rho, T);
-        aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - ReferenceAir.Air_Utilities.Basic.Constants.h_off;
-        aux.s := aux.R*(f.tau*f.ftau - f.f) - ReferenceAir.Air_Utilities.Basic.Constants.s_off;
-        aux.pd := aux.R*T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
-        aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-        aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
+        aux.h := aux.R_s*T*(f.tau*f.ftau + f.delta*f.fdelta) - ReferenceAir.Air_Utilities.Basic.Constants.h_off;
+        aux.s := aux.R_s*(f.tau*f.ftau - f.f) - ReferenceAir.Air_Utilities.Basic.Constants.s_off;
+        aux.pd := aux.R_s*T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
+        aux.pt := aux.R_s*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+        aux.cv := aux.R_s*(-f.tau*f.tau*f.ftautau);
         aux.cp := aux.cv + aux.T*aux.pt*aux.pt/(aux.rho*aux.rho*aux.pd);
         aux.vp := -1/(aux.rho*aux.rho)*1/aux.pd;
         aux.vt := aux.pt/(aux.rho*aux.rho*aux.pd);
@@ -1759,14 +1759,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       algorithm
         aux.rho := d;
         aux.T := T;
-        aux.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
+        aux.R_s := ReferenceAir.Air_Utilities.Basic.Constants.R_s;
         f := Basic.Helmholtz(d, T);
-        aux.p := aux.R*d*T*f.delta*f.fdelta;
-        aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - ReferenceAir.Air_Utilities.Basic.Constants.h_off;
-        aux.s := aux.R*(f.tau*f.ftau - f.f) - ReferenceAir.Air_Utilities.Basic.Constants.s_off;
-        aux.pd := aux.R*T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
-        aux.pt := aux.R*d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-        aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
+        aux.p := aux.R_s*d*T*f.delta*f.fdelta;
+        aux.h := aux.R_s*T*(f.tau*f.ftau + f.delta*f.fdelta) - ReferenceAir.Air_Utilities.Basic.Constants.h_off;
+        aux.s := aux.R_s*(f.tau*f.ftau - f.f) - ReferenceAir.Air_Utilities.Basic.Constants.s_off;
+        aux.pd := aux.R_s*T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
+        aux.pt := aux.R_s*d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+        aux.cv := aux.R_s*(-f.tau*f.tau*f.ftautau);
         aux.cp := aux.cv + aux.T*aux.pt*aux.pt/(d*d*aux.pd);
         aux.vp := -1/(aux.rho*aux.rho)*1/aux.pd;
         aux.vt := aux.pt/(aux.rho*aux.rho*aux.pd);

@@ -5350,11 +5350,11 @@ This partial model defines that T,d,u can be computed from the medium model, pro
                                    else StateSelect.default),
         T(stateSelect = if preferredMediumStates then StateSelect.prefer
                                    else StateSelect.default));
-   constant SI.SpecificHeatCapacity R  = 287;
+   constant SI.SpecificHeatCapacity R_s  = 287;
    constant SI.SpecificHeatCapacity cp = 1005.45;
    constant SI.Temperature          T0 = 298.15
 equation
-   d = p/(R*T);
+   d = p/(R_s*T);
    h = cp*(T-T0);
    u = h - p/d;
 end SimpleAir;
