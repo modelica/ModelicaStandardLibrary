@@ -1390,7 +1390,7 @@ has a unique solution.
     output Real LU[size(A, 1), size(A, 2)]=A
       "L,U factors (used with LU_solve(..))";
     output Integer pivots[min(size(A, 1), size(A, 2))]
-      "pivot indices (used with LU_solve(..))";
+      "Pivot indices (used with LU_solve(..))";
     output Integer info "Information";
   protected
     Integer m=size(A, 1);
@@ -11057,8 +11057,8 @@ end isEqual;
 
 function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
-  input Modelica.SIunits.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=sin(u)";
 
 external "builtin" y = sin(u);
   annotation (
@@ -11125,8 +11125,8 @@ end sin;
 
 function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
-  input SI.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=cos(u)";
 
 external "builtin" y = cos(u);
   annotation (
@@ -11191,8 +11191,8 @@ end cos;
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
-  input SI.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=tan(u)";
 
 external "builtin" y = tan(u);
   annotation (
@@ -11258,8 +11258,8 @@ end tan;
 
 function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=asin(u)";
 
 external "builtin" y = asin(u);
   annotation (
@@ -11325,8 +11325,8 @@ end asin;
 
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=acos(u)";
 
 external "builtin" y = acos(u);
   annotation (
@@ -11389,8 +11389,8 @@ end acos;
 
 function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=atan(u)";
 
 external "builtin" y = atan(u);
   annotation (
@@ -11450,9 +11450,9 @@ end atan;
 
 function atan2 "Four quadrant inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u1;
-  input Real u2;
-  output SI.Angle y;
+  input Real u1 "First independent variable";
+  input Real u2 "Second independent variable";
+  output SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
 
 external "builtin" y = atan2(u1, u2);
   annotation (
@@ -11535,13 +11535,12 @@ end atan2;
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
-  import Modelica.Math;
   import Modelica.Constants.pi;
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u1;
-  input Real u2;
+  input Real u1 "First independent variable";
+  input Real u2 "Second independent variable";
   input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 <= pi";
-  output Modelica.SIunits.Angle y;
+  output SI.Angle y "Dependent variable y=atan3(u1, u2, y0)=atan(u1/u2)";
 
 protected
   constant Real pi2=2*pi;
@@ -11640,8 +11639,8 @@ end atan3;
 
 function sinh "Hyperbolic sine"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=sinh(u)";
 
 external "builtin" y = sinh(u);
   annotation (
@@ -11709,8 +11708,8 @@ end sinh;
 
 function cosh "Hyperbolic cosine"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=cosh(u)";
 
 external "builtin" y = cosh(u);
   annotation (
@@ -11778,8 +11777,8 @@ end cosh;
 
 function tanh "Hyperbolic tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=tanh(u)";
 
 external "builtin" y = tanh(u);
   annotation (
@@ -11839,8 +11838,8 @@ end tanh;
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=asinh(u)";
 
 algorithm
   y := Modelica.Math.log(u + sqrt(u*u + 1));
@@ -11910,8 +11909,8 @@ end asinh;
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=acosh(u)";
 
 algorithm
   assert(u >= 1.0, "Input argument u (= " + String(u) +
@@ -11992,8 +11991,8 @@ end acosh;
 
 function exp "Exponential, base e"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=exp(u)";
 
 external "builtin" y = exp(u);
   annotation (
@@ -12059,8 +12058,8 @@ end exp;
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=ln(u)";
 
 external "builtin" y = log(u);
   annotation (
@@ -12127,8 +12126,8 @@ end log;
 
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=lg(u)";
 
 external "builtin" y = log10(u);
   annotation (
