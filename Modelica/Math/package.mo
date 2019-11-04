@@ -8000,9 +8000,9 @@ For details of the arguments, see documentation of dgbsv.
 
       input Real A[:, size(A, 1)];
       input Integer ilo=1
-        "Lowest index where the original matrix have not been in Hessenberg form";
+        "Lowest index where the original matrix have not been in upper triangular form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix have not been in Hessenberg form";
+        "Highest index where the original matrix have not been in upper triangular form";
       output Real Aout[size(A, 1), size(A, 2)]=A
         "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
       output Real tau[max(size(A, 1), 1) - 1]
@@ -10405,9 +10405,9 @@ The algorithm is taken from [1] and [2].
 
       input Real A[:, size(A, 1)] "Square matrix A";
       input Integer ilo=1
-        "Lowest index where the original matrix have not been in Hessenberg form";
+        "Lowest index where the original matrix have not been in upper triangular form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix have not been in Hessenberg form";
+        "Highest index where the original matrix have not been in upper triangular form";
       output Real H[size(A, 1), size(A, 2)] "Upper Hessenberg form";
       output Real V[size(A, 1), size(A, 2)]
         "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
