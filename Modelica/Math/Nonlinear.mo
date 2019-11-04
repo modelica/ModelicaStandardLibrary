@@ -315,18 +315,13 @@ The following nonlinear equations are solved:
     model quadratureLobatto3 "Integrate function in a model"
       extends Modelica.Icons.Example;
       parameter Real A=1 "Amplitude of integrand of s";
-      parameter Real ws=2 "Angular frequency of integrand of s";
-      parameter Real wq=3 "Angular frequency of q";
-      Real q(start=1, fixed=true) "State variable";
-      Real qd(start=0, fixed=true) "Derivative of state variable";
-      Real x "Some variable";
+      parameter Real w=2 "Angular frequency of integrand of s";
+      Real x "Integral value";
       final parameter Real s = Modelica.Math.Nonlinear.quadratureLobatto(
-                                  function UtilityFunctions.fun7(A=A, w=ws),
+                                  function UtilityFunctions.fun7(A=A, w=w),
                                   0,1) "Integral value used as parameter";
     equation
-      qd = der(q);
-      der(qd) + wq*q = 0;
-      x = s*q;
+      x = s;
       annotation (Documentation(info="<html>
 <p>
 This example demonstrates how to utilize a function as input argument
