@@ -467,3 +467,20 @@ convertClass("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
              "Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch");
 convertClass("Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch",
              "Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch");
+
+// Automatically extended to handle derived classes
+convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Air_30degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Air_70degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water_10degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water_90degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Gylcol20_20degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Gylcol50_20degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.MineralOil", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited", "quasiStationary", "quasiStatic");
