@@ -383,7 +383,7 @@ convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
 convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
                   {"hideConnector"}, {"use_numberPort=not %hideConnector%"});
 
-convertModifiers({"Modelica.StateGraph.PartialStep",
+convertModifiers({"Modelica.StateGraph.Interfaces.PartialStep",
                   "Modelica.StateGraph.InitialStep",
                   "Modelica.StateGraph.InitialStepWithSignal",
                   "Modelica.StateGraph.Step",
