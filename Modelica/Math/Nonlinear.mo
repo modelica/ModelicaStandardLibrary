@@ -381,7 +381,7 @@ to a function in a model.
         y := sqrt(1/(1 - k^2*sin(u)^2));
       end fun6;
 
-      function fun7 "y = A*sin(w*u)*q(t)"
+      function fun7 "y = A*sin(w*u)"
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real A "Amplitude";
         input Real w "Angular frequency";
