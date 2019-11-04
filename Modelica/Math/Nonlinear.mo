@@ -312,7 +312,7 @@ The following nonlinear equations are solved:
 </html>"));
     end solveNonlinearEquations2;
 
-    model quadratureLobatto3 "Integrate function in a model"
+    model QuadratureLobatto3 "Integrate function in a model"
       extends Modelica.Icons.Example;
       parameter Real A=1 "Amplitude of integrand of s";
       parameter Real w=2 "Angular frequency of integrand of s";
@@ -329,7 +329,7 @@ to a function in a model.
 </p>
 </html>"),
         experiment(StopTime=5));
-    end quadratureLobatto3;
+    end QuadratureLobatto3;
 
     package UtilityFunctions
       "Utility functions that are used as function arguments to the examples"
