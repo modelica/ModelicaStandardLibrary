@@ -8000,9 +8000,9 @@ For details of the arguments, see documentation of dgbsv.
 
       input Real A[:, size(A, 1)];
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix have not been in Hessenberg form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix have not been in Hessenberg form";
       output Real Aout[size(A, 1), size(A, 2)]=A
         "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
       output Real tau[max(size(A, 1), 1) - 1]
@@ -10405,9 +10405,9 @@ The algorithm is taken from [1] and [2].
 
       input Real A[:, size(A, 1)] "Square matrix A";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix have not been in Hessenberg form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix have not been in Hessenberg form";
       output Real H[size(A, 1), size(A, 2)] "Upper Hessenberg form";
       output Real V[size(A, 1), size(A, 2)]
         "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
@@ -10452,7 +10452,9 @@ The algorithm is taken from [1] and [2].
 <h4>Description</h4>
 <p>
 Function <strong>toUpperHessenberg</strong> computes a upper Hessenberg form <strong>H</strong> of a matrix <strong>A</strong> by orthogonal similarity transformation:  <strong>Q</strong>' * <strong>A</strong> * <strong>Q</strong> = <strong>H</strong>.
-With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD.
+The optional inputs <strong>ilo</strong> and <strong>ihi</strong> improve efficiency if the matrix is already partially converted to Hessenberg form; it is assumed
+that matrix <strong>A</strong> is already upper Hessenberg for rows and columns <strong>1:(ilo-1)</strong> and <strong>(ihi+1):size(A, 1)</strong>.
+The function calls LAPACK function DGEHRD.
 See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
 </p>
 
