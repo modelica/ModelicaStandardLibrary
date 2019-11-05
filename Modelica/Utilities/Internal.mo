@@ -82,6 +82,35 @@ This model is documented at
 </html>"));
    end PartialVector;
 
+    model PartialVector "Interface for 3D animation of a vector quantity (force, torque etc)"
+      import Modelica.Mechanics.MultiBody.Types;
+      import Modelica.Mechanics.MultiBody.Frames;
+
+      input Frames.Orientation R=Frames.nullRotation()
+        "Orientation object to rotate the world frame into the vector frame" annotation(Dialog);
+      input Modelica.SIunits.Position r[3]={0,0,0}
+        "Position vector from origin of world frame to origin of vector, resolved in world frame" annotation(Dialog);
+      input Real r_value[3]={0,0,0}
+        "Value of the vector" annotation(Dialog);
+      input Types.Color color=Types.Defaults.ArrowColor
+        "Color of vector" annotation(Dialog(colorSelector=true));
+      input Types.SpecularCoefficient specularCoefficient = 0.7
+        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
+                                                                                                            annotation(Dialog);
+      input Boolean pushing=true "= true, if the vector is pointing towards the origin" annotation(Dialog);
+      input Types.VectorQuantity quantity = Types.VectorQuantity.Force "The quantity of the value" annotation(Dialog);
+
+    annotation (
+      Documentation(info="<html>
+
+<p>
+This model is documented at
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.
+</p>
+
+</html>"));
+    end PartialVector;
+
     model PartialSurface "Interface for 3D animation of surfaces"
 
         import Modelica.Mechanics.MultiBody.Frames;
@@ -191,7 +220,7 @@ package FileSystem
     extends Modelica.Icons.Function;
     input String name "Name of file, directory, pipe etc.";
     output Types.FileType fileType "Type of file";
-  external "C" fileType=  ModelicaInternal_stat(name) annotation(Library="ModelicaExternalC");
+  external "C" fileType = ModelicaInternal_stat(name) annotation(Library="ModelicaExternalC");
   annotation(__ModelicaAssociation_Impure=true);
   end stat;
 
