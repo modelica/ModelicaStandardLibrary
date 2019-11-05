@@ -1657,6 +1657,21 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue194;
 
+      model Issue194_Derived "Conversion test for #194 for derived classes"
+        extends Modelica.Icons.Example;
+        parameter Modelica.Thermal.FluidHeatFlow.Media.Air_30degC r1 = Modelica.Thermal.FluidHeatFlow.Media.Air_30degC(nue=2);
+        record R
+          extends Modelica.Thermal.FluidHeatFlow.Media.Air_30degC(nue=3);
+        end R;
+        parameter R r2(nue=4); // This tests that user-defined inheritance works
+        Real y[:] = {r1.nue, r2.nue};
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/194\">#194</a>.
+</p>
+</html>"));
+      end Issue194_Derived;
+
       model Issue813 "Conversion test for #813"
         extends Modelica.Icons.Example;
         model Ambient "Ambient with constant properties"
