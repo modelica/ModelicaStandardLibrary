@@ -9323,9 +9323,9 @@ For details of the arguments, see documentation of dgbsv.
       input String side="L";
       input String trans="N";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=if side == "L" then size(C, 1) else size(C, 2)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real Cout[size(C, 1), size(C, 2)]=C
         "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
 
@@ -9955,9 +9955,9 @@ For details of the arguments, see documentation of dgbsv.
       input Real A[:, size(A, 1)]
         "Square matrix with the elementary reflectors";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form - ilo must have the same value as in the previous call of DGEHRD";
+        "Lowest index where the original matrix is not in upper triangular form - ilo must have the same value as in the previous call of DGEHRD";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form - ihi must have the same value as in the previous call of DGEHRD";
+        "Highest index where the original matrix is not in upper triangular form - ihi must have the same value as in the previous call of DGEHRD";
       input Real tau[max(0, size(A, 1) - 1)]
         "Scalar factors of the elementary reflectors";
       output Real Aout[size(A, 1), size(A, 2)]=A
