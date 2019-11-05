@@ -2584,15 +2584,15 @@ It must be noted that the relationship of both axis variables is not right-angle
       ddph_b2 = density_derp_h(bubble2);
       dTp = saturationTemperature_derp(p);
       dTp2 = (1/dew.d - 1/bubble.d)/max(s_d - s_b, 1e-6);
-      annotation (Documentation(info=""));
+      annotation (Documentation(info="<html></html>"));
     end ExtendedProperties;
 
-    model TestTwoPhaseStates "Test the above model"
+    model TestTwoPhaseStates "Test the TwoPhaseWater model"
       extends Modelica.Icons.Example;
       ExtendedProperties medium(p(start=2000.0, fixed=true), h(start=8.0e5,
             fixed=true));
-      parameter Real dh=80000.0 "80 kJ/second";
-      parameter Real dp=1.0e6 "10 bars per second";
+      parameter Real dh(unit="J/(kg.s)", displayUnit="kJ/(kg.s)")=80000.0 "Derivative of specific enthalpy of medium";
+      parameter Real dp(unit="Pa/s", displayUnit="bar/s")=1.0e6 "Derivative of pressure of medium";
     equation
       der(medium.p) = dp;
       der(medium.h) = dh;
@@ -2916,10 +2916,10 @@ points, e.g., when an isentropic reference state is computed.
       parameter Real y_zero=0.5 "Desired value of A*sin(w*x)";
       parameter Real x_min=-1.7 "Minimum value of x_zero";
       parameter Real x_max=1.7 "Maximum value of x_zero";
-      parameter Real A=1;
-      parameter Real w=1;
+      parameter Real A=1 "Amplitude of sine";
+      parameter Real w=1 "Angular frequency of sine";
       parameter Inverse_sine_definition.f_nonlinear_Data data=
-          Inverse_sine_definition.f_nonlinear_Data(A=A, w=w);
+          Inverse_sine_definition.f_nonlinear_Data(A=A, w=w) "Data record";
       Real x_zero "y_zero = A*sin(w*x_zero)";
 
       encapsulated package Inverse_sine_definition
@@ -2928,8 +2928,8 @@ points, e.g., when an isentropic reference state is computed.
         extends Modelica.Media.Common.OneNonLinearEquation;
 
         redeclare record extends f_nonlinear_Data "Data for nonlinear equation"
-          Real A;
-          Real w;
+          Real A "Amplitude";
+          Real w "Angular frequency";
           annotation (Documentation(info="<html>
 
 </html>"));
