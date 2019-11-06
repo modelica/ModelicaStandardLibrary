@@ -146,7 +146,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         "Base properties of air"
 
       equation
-        MM = ReferenceAir.Air_Utilities.Basic.Constants.MM;
+        MM = Air_Utilities.Basic.Constants.MM;
         if dT_explicit then
           p = pressure_dT(d, T);
           h = specificEnthalpy_dT(d, T);
@@ -158,7 +158,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
           d = density_pT(p, T);
         end if;
         u = h - p/d;
-        R = Constants.R;
+        R = Air_Utilities.Basic.Constants.R;
         h = state.h;
         p = state.p;
         T = state.T;
