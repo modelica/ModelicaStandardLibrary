@@ -4064,7 +4064,7 @@ variables that every medium model is supposed to support.
 A specific medium inherits from model <strong>BaseProperties</strong> and provides
 the equations for the basic properties.</p>
 <p>
-The BaseProperties model contains the following <strong>7+nXi variables</strong>
+The BaseProperties model contains the following <strong>7 + nXi variables</strong>
 (nXi is the number of independent mass fractions defined in package
 PartialMedium):
 </p>
@@ -4074,28 +4074,28 @@ PartialMedium):
       <td><strong>Description</strong></td></tr>
   <tr><td>T</td>
       <td>K</td>
-      <td>temperature</td></tr>
+      <td>Temperature</td></tr>
   <tr><td>p</td>
       <td>Pa</td>
-      <td>absolute pressure</td></tr>
+      <td>Absolute pressure</td></tr>
   <tr><td>d</td>
       <td>kg/m3</td>
-      <td>density</td></tr>
+      <td>Density</td></tr>
   <tr><td>h</td>
       <td>J/kg</td>
-      <td>specific enthalpy</td></tr>
+      <td>Specific enthalpy</td></tr>
   <tr><td>u</td>
       <td>J/kg</td>
-      <td>specific internal energy</td></tr>
+      <td>Specific internal energy</td></tr>
   <tr><td>Xi[nXi]</td>
       <td>kg/kg</td>
-      <td>independent mass fractions m_i/m</td></tr>
+      <td>Structurally independent mass fractions</td></tr>
   <tr><td>R</td>
-      <td>J/kg.K</td>
-      <td>gas constant</td></tr>
-  <tr><td>M</td>
+      <td>J/(kg.K)</td>
+      <td>Specific gas constant (of mixture if applicable)</td></tr>
+  <tr><td>MM</td>
       <td>kg/mol</td>
-      <td>molar mass</td></tr>
+      <td>Molar mass</td></tr>
 </table>
 <p>
 In order to implement an actual medium model, one can extend from this
@@ -4114,8 +4114,8 @@ permitting advanced equation balance checking by Modelica tools.
 Please note that this doesn't mean that the additional equations
 should be connection equations, nor that exactly those variables
 should be supplied, in order to complete the model.
-For further information, see the Modelica.Media User's guide, and
-Section 4.7 (Balanced Models) of the Modelica 3.0 specification.</p>
+For further information, see the <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media User's guide</a>, and
+<a href=\"https://specification.modelica.org/v3.4/Ch4.html#balanced-models\">Section 4.7 (Balanced Models) of the Modelica 3.4 specification</a>.</p>
 </html>"));
     end BaseProperties;
 
