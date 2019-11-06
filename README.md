@@ -13,11 +13,11 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ## Current release
 
-[Modelica Standard Library v3.2.3+build.3 (2019-09-21)](../../releases/tag/v3.2.3+build.3)
+[Modelica Standard Library v3.2.3+build.3 (2019-09-21)](https://github.com/modelica/ModelicaStandardLibrary/releases/tag/v3.2.3+build.3)
 
 ## Older Releases
 
-Browse the [Releases](../../releases) page in order to get access to older releases of the Modelica Standard Library.
+Browse the [Releases](https://github.com/modelica/ModelicaStandardLibrary/releases) page in order to get access to older releases of the Modelica Standard Library.
 
 ## License
 
@@ -28,4 +28,4 @@ it can be redistributed and/or modified under the terms of the [3-Clause BSD Lic
 The development is organised by the [Modelica Association Project - Libraries (MAP-LIB)](https://www.modelica.org/projects).
 See also the [contribution guide](CONTRIBUTING.md) and the [MAP-LIB Project Rules](https://github.com/modelica/MAP-LIB_ProjectRules) for more information.
 
-You may report any issues by using the [Issue Tracker](../../issues).
+You may report any issues by using the [Issue Tracker](https://github.com/modelica/ModelicaStandardLibrary/issues).
