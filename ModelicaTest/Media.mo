@@ -925,6 +925,7 @@ is given to compare the approximation.
       Medium.ThermodynamicState state = Medium.setState_pTX(p,T,X);
       Modelica.SIunits.SpecificEntropy s = Medium.specificEntropy(state);
       Modelica.SIunits.SpecificInternalEnergy u = Medium.specificInternalEnergy(state);
+      Modelica.SIunits.Temperature Tsat = Medium.saturationTemperature(p);
       annotation (experiment(StopTime=1));
     end MoistAir;
     annotation (Documentation(info="<html>
