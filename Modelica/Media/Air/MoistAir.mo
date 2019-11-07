@@ -943,7 +943,6 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\"
   redeclare function extends specificInternalEnergy
     "Return specific internal energy of moist air as a function of the thermodynamic state record"
     extends Modelica.Icons.Function;
-    output SI.SpecificInternalEnergy u "Specific internal energy";
   algorithm
     u := specificInternalEnergy_pTX(
           state.p,
