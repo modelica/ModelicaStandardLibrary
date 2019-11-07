@@ -227,8 +227,6 @@ convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTw
               "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortExtended");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortElementary",
               "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPort");
-convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.BaseInductionMachine",
-              "Modelica.Magnetic.FundamentalWave.Interfaces.BaseClasses.Machine");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine",
               "Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPortsElementary",
@@ -385,7 +383,7 @@ convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
 convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
                   {"hideConnector"}, {"use_numberPort=not %hideConnector%"});
 
-convertModifiers({"Modelica.StateGraph.PartialStep",
+convertModifiers({"Modelica.StateGraph.Interfaces.PartialStep",
                   "Modelica.StateGraph.InitialStep",
                   "Modelica.StateGraph.InitialStepWithSignal",
                   "Modelica.StateGraph.Step",
