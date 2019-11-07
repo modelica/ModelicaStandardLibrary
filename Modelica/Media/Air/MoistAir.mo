@@ -490,31 +490,18 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
     output SI.Temperature T "Saturation temperature";
 
   protected
-    package Internal
-      extends Modelica.Media.Common.OneNonLinearEquation;
+    function f_nonlinear "Solve p(T) for T with given p"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input SI.Pressure p "Pressure";
+    algorithm
+      y := saturationPressure(Tsat=u) - p;
+    end f_nonlinear;
 
-      redeclare record extends f_nonlinear_Data
-        // Define data to be passed to user function
-      end f_nonlinear_Data;
-
-      redeclare function extends f_nonlinear
-      algorithm
-        y := saturationPressure(x);
-        // Compute the non-linear equation: y = f(x, Data)
-      end f_nonlinear;
-
-      // Dummy definition
-      redeclare function extends solve
-      end solve;
-    end Internal;
   algorithm
-    T := Internal.solve(
-          p,
-          T_min,
-          T_max,
-          f_nonlinear_data=Internal.f_nonlinear_Data());
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(p=p), T_min, T_max);
     annotation (Documentation(info="<html>
- Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href=\"modelica://Modelica.Media.Air.MoistAir.saturationPressure\">saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
+Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href=\"modelica://Modelica.Media.Air.MoistAir.saturationPressure\">saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
 </html>"));
   end saturationTemperature;
 
@@ -663,9 +650,9 @@ Specific enthalpy of dry air is computed from temperature.
     annotation (derivative=enthalpyOfWater_der, Documentation(info="<html>
 Specific enthalpy of water (liquid and solid) is computed from temperature using constant properties as follows:<br>
 <ul>
-<li>  heat capacity of liquid water:4200 J/kg</li>
-<li>  heat capacity of solid water: 2050 J/kg</li>
-<li>  enthalpy of fusion (liquid=>solid): 333000 J/kg</li>
+<li>heat capacity of liquid water:4200 J/kg</li>
+<li>heat capacity of solid water: 2050 J/kg</li>
+<li>enthalpy of fusion (liquid=>solid): 333000 J/kg</li>
 </ul>
 Pressure is assumed to be around 1 bar. This function is usually used to determine the specific enthalpy of the liquid or solid fraction of moist air.
 </html>"));
@@ -727,35 +714,18 @@ Temperature is returned from the thermodynamic state record input as a simple as
     output Temperature T "Temperature";
 
   protected
-    package Internal
-      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)"
-      extends Modelica.Media.Common.OneNonLinearEquation;
-      redeclare record extends f_nonlinear_Data
-        "Data to be passed to non-linear function"
-        extends Modelica.Media.IdealGases.Common.DataRecord;
-      end f_nonlinear_Data;
-
-      redeclare function extends f_nonlinear
-      algorithm
-        y := h_pTX(
-                  p,
-                  x,
-                  X);
-      end f_nonlinear;
-
-      // Dummy definition has to be added for current Dymola
-      redeclare function extends solve
-      end solve;
-    end Internal;
+    function f_nonlinear "Solve h_pTX(p,T,X) for T with given h"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction[:] X "Mass fractions of composition";
+    algorithm
+      y := h_pTX(p=p, T=u, X=X) - h;
+    end f_nonlinear;
 
   algorithm
-    T := Internal.solve(
-          h,
-          190,
-          647,
-          p,
-          X[1:nXi],
-          steam);
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(p=p, h=h, X=X[1:nXi]), 190, 647);
     annotation (Documentation(info="<html>
 Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\">h_pTX</a>.
 </html>"));
@@ -1290,36 +1260,20 @@ end thermalConductivity;
     output Temperature T "Temperature";
 
   protected
-    package Internal "Solve s(data,T) for T with given s"
-      extends Modelica.Media.Common.OneNonLinearEquation;
-      redeclare record extends f_nonlinear_Data
-        "Data to be passed to non-linear function"
-        extends Modelica.Media.IdealGases.Common.DataRecord;
-      end f_nonlinear_Data;
-
-      redeclare function extends f_nonlinear
-      algorithm
-        y := s_pTX(
-                  p,
-                  x,
-                  X);
-      end f_nonlinear;
-
-      // Dummy definition has to be added for current Dymola
-      redeclare function extends solve
-      end solve;
-    end Internal;
+    function f_nonlinear "Solve s_pTX(p,T,X) for T with given s"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input MassFraction[:] X "Mass fractions of composition";
+    algorithm
+      y := s_pTX(p=p, T=u, X=X) - s;
+    end f_nonlinear;
 
   algorithm
-    T := Internal.solve(
-          s,
-          190,
-          647,
-          p,
-          X[1:nX],
-          steam);
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(p=p, s=s, X=X[1:nXi]), 190, 647);
     annotation (Documentation(info="<html>
-Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.specificEntropy\">specificEntropy</a>.
+Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.s_pTX\">s_pTX</a>.
 </html>",
         revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>

@@ -802,13 +802,14 @@ functions.
 For details about how to define and to use functions as input arguments
 to functions, see
 <a href=\"modelica://ModelicaReference.Classes.'function'\">ModelicaReference.Classes.'function'</a>
-or the Modelica Language  Specification, Chapter 12.4.2.
+or <a href=\"https://specification.modelica.org/v3.4/Ch12.html#functional-input-arguments-to-functions\">Section 12.4.2
+(Functional Input Arguments to Functions) of the Modelica 3.4 specification</a>.
 </p>
 
 </html>", revisions="<html>
 <ul>
 <li><em>July 2010 </em> by Martin Otter (DLR-RM):<br>
-    Included in MSL3.2, adapted, and documentation improved</li>
+    Included in MSL 3.2, adapted, and documentation improved</li>
 
 <li><em>March 2010 </em> by Andreas Pfeiffer (DLR-RM):<br>
     Adapted the quadrature function from Gerhard Schillhuber and
