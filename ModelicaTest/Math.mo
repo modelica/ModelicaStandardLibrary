@@ -664,7 +664,7 @@ extends Modelica.Icons.ExamplesPackage;
   function colorMapToSvg "Store all predefined color maps in svg"
     extends Modelica.Icons.Function;
     import Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg;
-    import Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.*;
+    import Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.{jet, hot, gray, spring, summer, autumn, winter};
     output Boolean ok;
   algorithm
     colorMapToSvg(jet(),    x= 10, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, caption="jet",   headerType=colorMapToSvg.HeaderType.svgBegin);
