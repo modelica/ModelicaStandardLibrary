@@ -297,6 +297,9 @@ extends Modelica.Icons.ExamplesPackage;
     Real sigma8[0];
     Real U8[0,0];
     Real VT8[0,0];
+    Real TA1[5,5]=[4,1,2,3,5;0,1,2,3,5;0,4,5,6,8;0,7,8,9,1;0,0,0,0,2]; // In block Hessenberg form
+    Real TH1[5,5];
+    Real TH2[5,5];
   algorithm
   //  ##########   continuous Lyapunov   ##########
     X1 := Matrices.continuousLyapunov(A1,C1);// benchmark example from SLICOT
@@ -461,6 +464,12 @@ extends Modelica.Icons.ExamplesPackage;
 
     Xn := Modelica.Math.Matrices.hessenberg(N);
     Xn := Modelica.Math.Matrices.realSchur(N);
+
+    TH1 := Modelica.Math.Matrices.Utilities.toUpperHessenberg(TA1);
+    TH2 := Modelica.Math.Matrices.Utilities.toUpperHessenberg(TA1,2,4);
+    r := Matrices.norm(TH1-TH2);
+    Modelica.Utilities.Streams.print("Optimized toUpperHessenberg: r = "+String(r));
+    assert(r<eps, "\"toUpperHessenberg with ilo and ihi\"");
 
   //  ##########   Singular values   ##########
     (sigma7, U7, VT7) := Matrices.singularValues(A7);

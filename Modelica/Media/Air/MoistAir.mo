@@ -80,10 +80,10 @@ required from medium model \""
           p,
           T,
           Xi);
-    R = dryair.R*(X_air/(1 - X_liquid)) + steam.R*X_steam/(1 - X_liquid);
+    R_s = dryair.R_s*(X_air/(1 - X_liquid)) + steam.R_s*X_steam/(1 - X_liquid);
     //
-    u = h - R*T;
-    d = p/(R*T);
+    u = h - R_s*T;
+    d = p/(R_s*T);
     /* Note, u and d are computed under the assumption that the volume of the liquid
          water is negligible with respect to the volume of air and of steam
       */
@@ -161,10 +161,10 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
     output ThermodynamicState state "Thermodynamic state";
   algorithm
     state := if size(X, 1) == nX then ThermodynamicState(
-          p=d*({steam.R,dryair.R}*X)*T,
+          p=d*({steam.R_s,dryair.R_s}*X)*T,
           T=T,
           X=X) else ThermodynamicState(
-          p=d*({steam.R,dryair.R}*cat(
+          p=d*({steam.R_s,dryair.R_s}*cat(
             1,
             X,
             {1 - sum(X)}))*T,
@@ -307,7 +307,7 @@ Relative humidity is computed from the thermodynamic state record with 1.0 as th
     "Return ideal gas constant as a function from thermodynamic state, only valid for phi<1"
 
   algorithm
-    R := dryair.R*(1 - state.X[Water]) + steam.R*state.X[Water];
+    R_s := dryair.R_s*(1 - state.X[Water]) + steam.R_s*state.X[Water];
     annotation (smoothOrder=2, Documentation(info="<html>
 The ideal gas constant for moist air is computed from <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermodynamic state</a> assuming that all water is in the gas phase.
 </html>"));
@@ -317,9 +317,9 @@ The ideal gas constant for moist air is computed from <a href=\"modelica://Model
     "Return ideal gas constant as a function from composition X"
     extends Modelica.Icons.Function;
     input SI.MassFraction X[:] "Gas phase composition";
-    output SI.SpecificHeatCapacity R "Ideal gas constant";
+    output SI.SpecificHeatCapacity R_s "Ideal gas constant";
   algorithm
-    R := dryair.R*(1 - X[Water]) + steam.R*X[Water];
+    R_s := dryair.R_s*(1 - X[Water]) + steam.R_s*X[Water];
     annotation (smoothOrder=2, Documentation(info="<html>
 The ideal gas constant for moist air is computed from the gas phase composition. The first entry in composition vector X is the steam mass fraction of the gas phase.
 </html>"));
@@ -943,7 +943,6 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\"
   redeclare function extends specificInternalEnergy
     "Return specific internal energy of moist air as a function of the thermodynamic state record"
     extends Modelica.Icons.Function;
-    output SI.SpecificInternalEnergy u "Specific internal energy";
   algorithm
     u := specificInternalEnergy_pTX(
           state.p,
@@ -968,7 +967,7 @@ Specific internal energy is determined from the thermodynamic state record, assu
     SI.MassFraction X_steam "Mass fraction of steam water";
     SI.MassFraction X_air "Mass fraction of air";
     SI.MassFraction X_sat "Absolute humidity per unit mass of moist air";
-    Real R_gas "Ideal gas constant";
+    SI.SpecificHeatCapacity R_gas "Ideal gas constant";
   algorithm
     p_steam_sat := saturationPressure(T);
     X_sat := min(p_steam_sat*k_mair/max(100*Constants.eps, p - p_steam_sat)*(
@@ -976,7 +975,7 @@ Specific internal energy is determined from the thermodynamic state record, assu
     X_liquid := max(X[Water] - X_sat, 0.0);
     X_steam := X[Water] - X_liquid;
     X_air := 1 - X[Water];
-    R_gas := dryair.R*X_air/(1 - X_liquid) + steam.R*X_steam/(1 - X_liquid);
+    R_gas := dryair.R_s*X_air/(1 - X_liquid) + steam.R_s*X_steam/(1 - X_liquid);
     u := X_steam*Modelica.Media.IdealGases.Common.Functions.h_Tlow(
           data=steam,
           T=T,
@@ -1034,7 +1033,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
           1e-6);
     X_steam := X[Water] - X_liquid;
     X_air := 1 - X[Water];
-    R_gas := steam.R*X_steam/(1 - X_liquid) + dryair.R*X_air/(1 - X_liquid);
+    R_gas := steam.R_s*X_steam/(1 - X_liquid) + dryair.R_s*X_air/(1 - X_liquid);
 
     dX_air := -dX[Water];
     dps := saturationPressure_der(Tsat=T, dTsat=dT);
@@ -1050,7 +1049,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
           (1 + x_sat)*dX[Water] - (1 - X[Water])*dx_sat,
           0.0);
     dX_steam := dX[Water] - dX_liq;
-    dR_gas := (steam.R*(dX_steam*(1 - X_liquid) + dX_liq*X_steam) + dryair.R*
+    dR_gas := (steam.R_s*(dX_steam*(1 - X_liquid) + dX_liq*X_steam) + dryair.R_s*
       (dX_air*(1 - X_liquid) + dX_liq*X_air))/(1 - X_liquid)/(1 - X_liquid);
 
     u_der := X_steam*Modelica.Media.IdealGases.Common.Functions.h_Tlow_der(
@@ -1263,9 +1262,9 @@ end thermalConductivity;
   redeclare function extends density_derX
 
   algorithm
-    dddX[Water] := - pressure(state)*(steam.R - dryair.R)/(((steam.R - dryair.R)
-      *state.X[Water] + dryair.R)^2*temperature(state));
-    dddX[Air] := - pressure(state)*(dryair.R - steam.R)/((steam.R + (dryair.R - steam.R)*
+    dddX[Water] := - pressure(state)*(steam.R_s - dryair.R_s)/(((steam.R_s - dryair.R_s)
+      *state.X[Water] + dryair.R_s)^2*temperature(state));
+    dddX[Air] := - pressure(state)*(dryair.R_s - steam.R_s)/((steam.R_s + (dryair.R_s - steam.R_s)*
       state.X[Air])^2*temperature(state));
 
     annotation (Documentation(revisions="<html>

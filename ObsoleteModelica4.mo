@@ -5,24 +5,26 @@ package ObsoleteModelica4 "Library that contains components from Modelica Standa
     extends Modelica.Icons.Package;
     package Interfaces "Library of connectors and partial models for input/output blocks"
       extends Modelica.Icons.Package;
-      block SendReal "Obsolete block to send Real signal to bus"
-        extends Modelica.Icons.ObsoleteModel;
-        Modelica.Blocks.Interfaces.RealOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-        Modelica.Blocks.Interfaces.RealInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      equation
-        toBus = u;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={0,0,127},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255}),   Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={0,0,127},
-                  textString="send")}), Documentation(info="<html>
+      package Adaptors "Package with adaptors"
+        extends Modelica.Icons.Package;
+        block SendReal "Obsolete block to send Real signal to bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.RealOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Interfaces.RealInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          toBus = u;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={0,0,127},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),   Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={0,0,127},
+                    textString="send")}), Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Real signal
 to a signal in a connector. This block is only provided for
@@ -34,27 +36,27 @@ for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
-        obsolete = "Obsolete block - use expandable connectors instead");
-      end SendReal;
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end SendReal;
 
-      block SendBoolean "Obsolete block to send Boolean signal to bus"
-        extends Modelica.Icons.ObsoleteModel;
-        Modelica.Blocks.Interfaces.BooleanOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-        Modelica.Blocks.Interfaces.BooleanInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      equation
-        toBus = u;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255}),   Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={255,0,255},
-                  textString="send")}), Documentation(info="<html>
+        block SendBoolean "Obsolete block to send Boolean signal to bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.BooleanOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Interfaces.BooleanInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          toBus = u;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,0,255},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),   Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,0,255},
+                    textString="send")}), Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Boolean signal
 to a signal in a connector. This block is only provided for
@@ -66,27 +68,27 @@ for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
-        obsolete = "Obsolete block - use expandable connectors instead");
-      end SendBoolean;
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end SendBoolean;
 
-      block SendInteger "Obsolete block to send Integer signal to bus"
-        extends Modelica.Icons.ObsoleteModel;
-        Modelica.Blocks.Interfaces.IntegerOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-        Modelica.Blocks.Interfaces.IntegerInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      equation
-        toBus = u;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,127,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255}),   Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={255,127,0},
-                  textString="send")}), Documentation(info="<html>
+        block SendInteger "Obsolete block to send Integer signal to bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.IntegerOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Interfaces.IntegerInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          toBus = u;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,127,0},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),   Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,127,0},
+                    textString="send")}), Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect an Integer signal
 to a signal in a connector. This block is only provided for
@@ -98,27 +100,27 @@ for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
-        obsolete = "Obsolete block - use expandable connectors instead");
-      end SendInteger;
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end SendInteger;
 
-      block ReceiveReal "Obsolete block to receive Real signal from bus"
-        extends Modelica.Icons.ObsoleteModel;
-        Modelica.Blocks.Interfaces.RealInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
-        Modelica.Blocks.Interfaces.RealOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-      equation
-        y = fromBus;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={0,0,127},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={0,0,127},
-                  textString="receive"),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255})}),    Documentation(info="<html>
+        block ReceiveReal "Obsolete block to receive Real signal from bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.RealInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+          Modelica.Blocks.Interfaces.RealOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+        equation
+          y = fromBus;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={0,0,127},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={0,0,127},
+                    textString="receive"),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255})}),    Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Real signal
 in a connector to an input of a block. This block is only provided for
@@ -130,27 +132,27 @@ for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
-        obsolete = "Obsolete block - use expandable connectors instead");
-      end ReceiveReal;
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end ReceiveReal;
 
-      block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
-        extends Modelica.Icons.ObsoleteModel;
-        Modelica.Blocks.Interfaces.BooleanInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
-        Modelica.Blocks.Interfaces.BooleanOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-      equation
-        y = fromBus;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={255,0,255},
-                  textString="receive"),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255})}),    Documentation(info="<html>
+        block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.BooleanInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+          Modelica.Blocks.Interfaces.BooleanOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+        equation
+          y = fromBus;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,0,255},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,0,255},
+                    textString="receive"),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255})}),    Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Boolean signal
 in a connector to an input of a block. This block is only provided for
@@ -162,27 +164,27 @@ for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
-        obsolete = "Obsolete block - use expandable connectors instead");
-      end ReceiveBoolean;
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end ReceiveBoolean;
 
-      block ReceiveInteger "Obsolete block to receive Integer signal from bus"
-        extends Modelica.Icons.ObsoleteModel;
-        Modelica.Blocks.Interfaces.IntegerInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
-        Modelica.Blocks.Interfaces.IntegerOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-      equation
-        y = fromBus;
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,127,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,30},{100,-30}},
-                  lineColor={255,127,0},
-                  textString="receive"),Text(
-                  extent={{-150,90},{150,50}},
-              textString="%name",
-              lineColor={0,0,255})}),    Documentation(info="<html>
+        block ReceiveInteger "Obsolete block to receive Integer signal from bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.IntegerInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+          Modelica.Blocks.Interfaces.IntegerOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+        equation
+          y = fromBus;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,127,0},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,127,0},
+                    textString="receive"),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255})}),    Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect an Integer signal
 in a connector to an input of a block. This block is only provided for
@@ -194,8 +196,9 @@ for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"),
-        obsolete = "Obsolete block - use expandable connectors instead");
-      end ReceiveInteger;
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end ReceiveInteger;
+      end Adaptors;
     end Interfaces;
   end Blocks;
 

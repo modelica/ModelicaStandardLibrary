@@ -18,9 +18,9 @@ package Functions
     input SI.Temperature T "Temperature";
     output SI.SpecificHeatCapacity cp "Specific heat capacity at temperature T";
   algorithm
-    cp := smooth(0,if T < data.Tlimit then data.R*(1/(T*T)*(data.alow[1] + T*(
+    cp := smooth(0,if T < data.Tlimit then data.R_s*(1/(T*T)*(data.alow[1] + T*(
       data.alow[2] + T*(1.*data.alow[3] + T*(data.alow[4] + T*(data.alow[5] + T
-      *(data.alow[6] + data.alow[7]*T))))))) else data.R*(1/(T*T)*(data.ahigh[1]
+      *(data.alow[6] + data.alow[7]*T))))))) else data.R_s*(1/(T*T)*(data.ahigh[1]
        + T*(data.ahigh[2] + T*(1.*data.ahigh[3] + T*(data.ahigh[4] + T*(data.
       ahigh[5] + T*(data.ahigh[6] + data.ahigh[7]*T))))))));
     annotation (Inline=true,smoothOrder=2);
@@ -33,7 +33,7 @@ package Functions
     input SI.Temperature T "Temperature";
     output SI.SpecificHeatCapacity cp "Specific heat capacity at temperature T";
   algorithm
-    cp := data.R*(1/(T*T)*(data.alow[1] + T*(
+    cp := data.R_s*(1/(T*T)*(data.alow[1] + T*(
       data.alow[2] + T*(1.*data.alow[3] + T*(data.alow[4] + T*(data.alow[5] + T
       *(data.alow[6] + data.alow[7]*T)))))));
     annotation (Inline=false, derivative(zeroDerivative=data) = cp_Tlow_der);
@@ -47,7 +47,7 @@ package Functions
     input Real dT(unit="K/s") "Temperature derivative";
     output Real cp_der(unit="J/(kg.K.s)") "Derivative of specific heat capacity";
   algorithm
-    cp_der := dT*data.R/(T*T*T)*(-2*data.alow[1] + T*(
+    cp_der := dT*data.R_s/(T*T*T)*(-2*data.alow[1] + T*(
       -data.alow[2] + T*T*(data.alow[4] + T*(2.*data.alow[5] + T
       *(3.*data.alow[6] + 4.*data.alow[7]*T)))));
     annotation(smoothOrder=2);
@@ -69,10 +69,10 @@ package Functions
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
 
   algorithm
-    h := smooth(0,(if T < data.Tlimit then data.R*((-data.alow[1] + T*(data.
+    h := smooth(0,(if T < data.Tlimit then data.R_s*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
       alow[4] + T*(1/3*data.alow[5] + T*(0.25*data.alow[6] + 0.2*data.alow[7]*T))))))
-      /T) else data.R*((-data.ahigh[1] + T*(data.bhigh[1] + data.ahigh[2]*
+      /T) else data.R_s*((-data.ahigh[1] + T*(data.bhigh[1] + data.ahigh[2]*
       Math.log(T) + T*(1.*data.ahigh[3] + T*(0.5*data.ahigh[4] + T*(1/3*data.
       ahigh[5] + T*(0.25*data.ahigh[6] + 0.2*data.ahigh[7]*T))))))/T)) + (if
       exclEnthForm then -data.Hf else 0.0) + (if (refChoice
@@ -118,7 +118,7 @@ package Functions
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
 
   algorithm
-    h := data.R*((-data.alow[1] + T*(data.
+    h := data.R_s*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
       alow[4] + T*(1/3*data.alow[5] + T*(0.25*data.alow[6] + 0.2*data.alow[7]*T))))))
       /T) + (if
@@ -157,10 +157,10 @@ package Functions
     input SI.Temperature T "Temperature";
     output SI.SpecificEntropy s "Specific entropy at temperature T";
   algorithm
-    s := if T < data.Tlimit then data.R*(data.blow[2] - 0.5*data.alow[
+    s := if T < data.Tlimit then data.R_s*(data.blow[2] - 0.5*data.alow[
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
-      7]*T)))) else data.R*(data.bhigh[2] - 0.5*data.ahigh[1]/(T*T) - data.
+      7]*T)))) else data.R_s*(data.bhigh[2] - 0.5*data.ahigh[1]/(T*T) - data.
       ahigh[2]/T + data.ahigh[3]*Math.log(T) + T*(data.ahigh[4]
        + T*(0.5*data.ahigh[5] + T*(1/3*data.ahigh[6] + 0.25*data.ahigh[7]*T))));
     annotation (Inline=true, smoothOrder=2);
@@ -172,7 +172,7 @@ package Functions
     input SI.Temperature T "Temperature";
     output SI.SpecificEntropy s "Specific entropy at temperature T";
   algorithm
-    s := data.R*(data.blow[2] - 0.5*data.alow[
+    s := data.R_s*(data.blow[2] - 0.5*data.alow[
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
       7]*T))));
@@ -186,7 +186,7 @@ package Functions
     input Real T_der(unit="K/s") "Temperature derivative";
     output Real s_der(unit="J/(kg.K.s)") "Derivative of specific entropy at temperature T";
   algorithm
-    s_der := data.R*T_der*(data.alow[1]/(T*T*T) + data.alow[2]/(T*T) + data.alow[3]/T + data.alow[4] + T*(data.alow[5] + T*(data.alow[6] + T*data.alow[7])));
+    s_der := data.R_s*T_der*(data.alow[1]/(T*T*T) + data.alow[2]/(T*T) + data.alow[3]/T + data.alow[4] + T*(data.alow[5] + T*(data.alow[6] + T*data.alow[7])));
     annotation (Inline=true);
   end s0_Tlow_der;
 
@@ -260,8 +260,8 @@ transform the formula to SI units:
     output Modelica.Media.Interfaces.Types.ThermalConductivity lambda
       "Thermal conductivity [W/(m.k)]";
   algorithm
-    lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R)
-                             else eta*(Cp - data.R)*(1.32 + 1.77/((Cp/data.R) - 1.0));
+    lambda := if method == 1 then eta*(Cp - data.R_s + (9/4)*data.R_s)
+                             else eta*(Cp - data.R_s)*(1.32 + 1.77/((Cp/data.R_s) - 1.0));
     annotation (smoothOrder=2,
                 Documentation(info="<html>
 <p>

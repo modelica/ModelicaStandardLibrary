@@ -241,7 +241,7 @@ partial package WaterIF97_base
       sat.Tsat = saturationTemperature(p);
     end if;
     u = h - p/d;
-    R = Modelica.Constants.R/fluidConstants[1].molarMass;
+    R_s = Modelica.Constants.R/fluidConstants[1].molarMass;
     h = state.h;
     p = state.p;
     T = state.T;
