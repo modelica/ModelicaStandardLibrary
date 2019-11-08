@@ -1767,3 +1767,37 @@ convertElement({"Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Bas
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor"},
                 "stator.strayReluctance", "stator.stray");
+// Automatically extended to handle derived classes
+convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Media.Interfaces.TemplateMedium.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialPureSubstance.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Air.MoistAir.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Air.MoistAir.gasConstant", "R", "R_s");
+convertElement("Modelica.Media.Air.ReferenceMoistAir.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Air.ReferenceMoistAir.gasConstant", "R", "R_s");
+convertElement("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.IceConstants", "R", "R_s");
+convertElement("Modelica.Media.IdealGases.Common.MixtureGasNasa.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.IdealGases.Common.MixtureGasNasa.gasConstant", "R", "R_s");
+convertElement("Modelica.Media.Incompressible.TableBased.BaseProperties", "R", "R_s");
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Air_30degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Air_70degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water_10degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water_90degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Gylcol20_20degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Gylcol50_20degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.MineralOil", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Media.Air.ReferenceAir.Air_Base.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.IdealGases.Common.SingleGasNasa.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialLinearFluid.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialSimpleMedium.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.R134a.R134a_ph.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Water.WaterIF97_base.BaseProperties", "R", "R_s");
