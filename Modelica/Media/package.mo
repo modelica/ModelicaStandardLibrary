@@ -1196,7 +1196,7 @@ following structure:</p>
     SpecificInternalEnergy u;
     MassFraction[nX] X;
     MassFraction[nXi] Xi;
-    SpecificHeatCapacity R;
+    SpecificHeatCapacity R_s;
     MolarMass MM;
   <strong>end</strong> BasePropertiesRecord;
 
@@ -1417,7 +1417,7 @@ partially defined in the base class Interfaces.PartialMedium. In the case of
 single-substance media, two independent state variables must be selected among
 p, T, d, u, h, and three equations must be written to provide the values of
 the remaining variables. Two equations must then be added to compute the molar
-mass MM and the gas constant R.</p>
+mass MM and the gas constant R_s.</p>
 <p>
 The third step is to consider the optional functions that are going to be
 implemented, among the partial functions defined by the base class PartialMedium.
@@ -1818,8 +1818,8 @@ An ideal gas with one substance is written in the form
      p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)
   <strong>equation</strong>
      h = h(T);
-     u = h - R*T;
-     p = d*R*T;
+     u = h - R_s*T;
+     p = d*R_s*T;
       ...
   <strong>end</strong> BaseProperties;
 </pre>
@@ -1830,11 +1830,11 @@ function of p and T. If p,T would be states, it would be
 necessary to solve for the density:
 </p>
 <pre>
-   d = p/(R*T)
+   d = p/(R_s*T)
 </pre>
 <p>
-If T or R are zero, this results in a division by zero.
-A tool does not know that R or T cannot become zero.
+If T or R_s are zero, this results in a division by zero.
+A tool does not know that R_s or T cannot become zero.
 Therefore, a tool must assume that p, T <strong>cannot</strong> always be
 selected as states and has to either use another static
 state selection or use dynamic state selection. The only
@@ -1857,9 +1857,9 @@ state selection and linear systems of equations:
 </p>
 <ol>
 <li> Use p,T as preferred states and write the equation
-     for d in the form: d = p/(T*R)</li>
+     for d in the form: d = p/(T*R_s)</li>
 <li> Use d,T as preferred states and write the equation
-     for p in the form: p = d*T*R</li>
+     for p in the form: p = d*T*R_s</li>
 </ol>
 <p>
 All other settings (other/no preferred states etc.) lead
@@ -3822,7 +3822,7 @@ package Interfaces "Interfaces for media models"
      than one substance. Provide 3 equations to obtain the remaining
      variables as functions of the independent variables.
      It is also necessary to provide two additional equations to set
-     the gas constant R and the molar mass MM of the medium.
+     the gas constant R_s and the molar mass MM of the medium.
      Finally, the thermodynamic state vector, defined in the base class
      Interfaces.PartialMedium.BaseProperties, should be set, according to
      its definition (see ThermodynamicState below).
@@ -3841,7 +3841,7 @@ package Interfaces "Interfaces for media models"
       h = cp_const*T;
       u = h - p/d;
       MM = 0.024;
-      R = 8.3144/MM;
+      R_s = 8.3144/MM;
       state.p = p;
       state.T = T;
     end BaseProperties;
@@ -3993,7 +3993,7 @@ Modelica source.
     end ThermodynamicState;
 
     replaceable partial model BaseProperties
-      "Base properties (p, d, T, h, u, R, MM and, if applicable, X and Xi) of a medium"
+      "Base properties (p, d, T, h, u, R_s, MM and, if applicable, X and Xi) of a medium"
       InputAbsolutePressure p "Absolute pressure of medium";
       InputMassFraction[nXi] Xi(start=reference_X[1:nXi])
         "Structurally independent mass fractions";
@@ -4003,7 +4003,7 @@ Modelica source.
       MassFraction[nX] X(start=reference_X)
         "Mass fractions (= (component mass)/total mass  m_i/m)";
       SpecificInternalEnergy u "Specific internal energy of medium";
-      SpecificHeatCapacity R "Gas constant (of mixture if applicable)";
+      SpecificHeatCapacity R_s "Gas constant (of mixture if applicable)";
       MolarMass MM "Molar mass (of mixture or single fluid)";
       ThermodynamicState state
         "Thermodynamic state record for optional functions";
@@ -4064,7 +4064,7 @@ variables that every medium model is supposed to support.
 A specific medium inherits from model <strong>BaseProperties</strong> and provides
 the equations for the basic properties.</p>
 <p>
-The BaseProperties model contains the following <strong>7 + nXi variables</strong>
+The BaseProperties model contains the following <strong>7+nXi variables</strong>
 (nXi is the number of independent mass fractions defined in package
 PartialMedium):
 </p>
@@ -4090,7 +4090,7 @@ PartialMedium):
   <tr><td>Xi[nXi]</td>
       <td>kg/kg</td>
       <td>Structurally independent mass fractions</td></tr>
-  <tr><td>R</td>
+  <tr><td>R_s</td>
       <td>J/(kg.K)</td>
       <td>Specific gas constant (of mixture if applicable)</td></tr>
   <tr><td>MM</td>
@@ -4785,7 +4785,7 @@ are described in
       p = state.p;
       T = state.T;
       MM = MM_const;
-      R = 8.3144/MM;
+      R_s = 8.3144/MM;
     end BaseProperties;
 
     redeclare function extends setState_pTX
@@ -5119,7 +5119,7 @@ to the above list of assumptions</li>
       "Return the gas constant of the mixture (also for liquids)"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state";
-      output SI.SpecificHeatCapacity R "Mixture gas constant";
+      output SI.SpecificHeatCapacity R_s "Mixture gas constant";
     end gasConstant;
 
     function moleToMassFractions "Return mass fractions X from mole fractions"
@@ -5318,7 +5318,7 @@ to the above list of assumptions</li>
     end ThermodynamicState;
 
     redeclare replaceable partial model extends BaseProperties
-      "Base properties (p, d, T, h, u, R, MM, sat) of two phase medium"
+      "Base properties (p, d, T, h, u, R_s, MM, sat) of two phase medium"
       SaturationProperties sat "Saturation properties at the medium pressure";
     end BaseProperties;
 
@@ -5907,7 +5907,7 @@ required from medium model \"" + mediumName + "\".
               X);
       u = cv_const*(T - T0);
       d = d_const;
-      R = 0;
+      R_s = 0;
       MM = MM_const;
       state.T = T;
       state.p = p;
@@ -6202,9 +6202,9 @@ required from medium model \"" + mediumName + "\".
               p,
               T,
               X);
-      u = h - R*T;
-      R = R_gas;
-      d = p/(R*T);
+      u = h - R_s*T;
+      R_s = R_gas;
+      d = p/(R_s*T);
       MM = MM_const;
       state.T = T;
       state.p = p;
@@ -6422,9 +6422,9 @@ quantities are assumed to be constant.
       "Returns overall the isobaric expansion coefficient beta"
     algorithm
       /* beta = 1/v * der(v,T), with v = 1/d, at constant pressure p:
-       v = R*T/p
-       der(v,T) = R/p
-       beta = p/(R*T)*R/p
+       v = R_s*T/p
+       der(v,T) = R_s/p
+       beta = p/(R_s*T)*R_s/p
             = 1/T
     */
 
@@ -6435,9 +6435,9 @@ quantities are assumed to be constant.
       "Returns overall the isothermal compressibility factor"
     algorithm
       /* kappa = - 1/v * der(v,p), with v = 1/d at constant temperature T.
-       v = R*T/p
-       der(v,T) = -R*T/p^2
-       kappa = p/(R*T)*R*T/p^2
+       v = R_s*T/p
+       der(v,T) = -R_s*T/p^2
+       kappa = p/(R_s*T)*R_s*T/p^2
              = 1/p
     */
       kappa := 1/state.p;
@@ -6446,8 +6446,8 @@ quantities are assumed to be constant.
     redeclare function extends density_derp_T
       "Returns the partial derivative of density with respect to pressure at constant temperature"
     algorithm
-      /*  d = p/(R*T)
-        ddpT = 1/(R*T)
+      /*  d = p/(R_s*T)
+        ddpT = 1/(R_s*T)
     */
       ddpT := 1/(R_gas*state.T);
     end density_derp_T;
@@ -6455,8 +6455,8 @@ quantities are assumed to be constant.
     redeclare function extends density_derT_p
       "Returns the partial derivative of density with respect to temperature at constant pressure"
     algorithm
-      /*  d = p/(R*T)
-        ddpT = -p/(R*T^2)
+      /*  d = p/(R_s*T)
+        ddpT = -p/(R_s*T^2)
     */
       ddTp := -state.p/(R_gas*state.T*state.T);
     end density_derT_p;
@@ -6946,7 +6946,7 @@ package Common "Data structures and fundamental functions for fluid properties"
       parameter Integer nspecies(min=1) "Number of components";
       SI.MolarMass[nspecies] MM "Molar mass of components";
       Real[nspecies] invMM "Inverse of molar mass of components";
-      SI.SpecificHeatCapacity[nspecies] R "Gas constant";
+      SI.SpecificHeatCapacity[nspecies] R_s "Gas constant";
       SI.SpecificEnthalpy[nspecies] Hf "Enthalpy of formation at 298.15K";
       SI.SpecificEnthalpy[nspecies] H0 "H0(298.15K) - H0(0K)";
     end FixedIGProperties;
@@ -7088,7 +7088,7 @@ package Common "Data structures and fundamental functions for fluid properties"
         min=CPMIN,
         max=CPMAX,
         nominal=CPNOM) "Heat capacity at constant volume";
-      SI.SpecificHeatCapacity R(
+      SI.SpecificHeatCapacity R_s(
         min=CPMIN,
         max=CPMAX,
         nominal=CPNOM) "Gas constant";
@@ -7178,7 +7178,7 @@ package Common "Data structures and fundamental functions for fluid properties"
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Heat capacity at constant volume";
-      SI.SpecificHeatCapacity R(
+      SI.SpecificHeatCapacity R_s(
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Gas constant";
@@ -7234,7 +7234,7 @@ two phase and liquid regions.
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Heat capacity at constant volume";
-      SI.SpecificHeatCapacity R(
+      SI.SpecificHeatCapacity R_s(
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Gas constant";
@@ -7289,7 +7289,7 @@ liquid regions, but never in the two-phase region.
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Heat capacity at constant volume";
-      SI.SpecificHeatCapacity R(
+      SI.SpecificHeatCapacity R_s(
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Gas constant";
@@ -7360,17 +7360,17 @@ critical pressure.
         "Derivative of specific volume w.r.t. pressure";
     algorithm
       pro.T := g.T;
-      pro.R := g.R;
-      pro.d := g.p/(pro.R*pro.T*g.pi*g.gpi);
-      pro.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-      pro.s := pro.R*(g.tau*g.gtau - g.g);
-      pro.cp := -pro.R*g.tau*g.tau*g.gtautau;
-      pro.cv := pro.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
+      pro.R_s := g.R_s;
+      pro.d := g.p/(pro.R_s*pro.T*g.pi*g.gpi);
+      pro.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+      pro.s := pro.R_s*(g.tau*g.gtau - g.g);
+      pro.cp := -pro.R_s*g.tau*g.tau*g.gtautau;
+      pro.cv := pro.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/(g.gpipi));
-      pro.a := abs(g.R*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
         *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
-      vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+      vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/(pro.d*g.p)*pro.cp/(vp*pro.cp + vt*vt*g.T);
       pro.ddhp := -pro.d*pro.d*vt/(pro.cp);
       pro.ddph := -pro.d*pro.d*(vp*pro.cp - vt/pro.d + g.T*vt*vt)/pro.cp;
@@ -7390,18 +7390,18 @@ critical pressure.
       Real vp(unit="m4.kg-2.s2")
         "Derivative of specific volume w.r.t. pressure";
     algorithm
-      sat.d := g.p/(g.R*g.T*g.pi*g.gpi);
-      sat.h := g.R*g.T*g.tau*g.gtau;
-      sat.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-      sat.s := g.R*(g.tau*g.gtau - g.g);
-      sat.cp := -g.R*g.tau*g.tau*g.gtautau;
-      sat.cv := g.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
+      sat.d := g.p/(g.R_s*g.T*g.pi*g.gpi);
+      sat.h := g.R_s*g.T*g.tau*g.gtau;
+      sat.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+      sat.s := g.R_s*(g.tau*g.gtau - g.g);
+      sat.cp := -g.R_s*g.tau*g.tau*g.gtautau;
+      sat.cv := g.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/(g.gpipi));
-      vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+      vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       // sat.kappa := -1/(sat.d*g.p)*sat.cp/(vp*sat.cp + vt*vt*g.T);
       sat.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      sat.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
+      sat.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
     end gibbsToBoundaryProps;
 
     function gibbsToProps_dT
@@ -7418,22 +7418,22 @@ critical pressure.
         "Derivative of specific volume w.r.t. pressure";
       Modelica.SIunits.Density d;
     algorithm
-      pro.R := g.R;
+      pro.R_s := g.R_s;
       pro.p := g.p;
-      pro.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-      pro.h := g.R*g.T*g.tau*g.gtau;
-      pro.s := pro.R*(g.tau*g.gtau - g.g);
-      pro.cp := -pro.R*g.tau*g.tau*g.gtautau;
-      pro.cv := pro.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
+      pro.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+      pro.h := g.R_s*g.T*g.tau*g.gtau;
+      pro.s := pro.R_s*(g.tau*g.gtau - g.g);
+      pro.cp := -pro.R_s*g.tau*g.tau*g.gtautau;
+      pro.cv := pro.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi);
-      vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
-      pro.kappa := -1/((g.p/(pro.R*g.T*g.pi*g.gpi))*g.p)*pro.cp/(vp*pro.cp + vt
+      vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+      pro.kappa := -1/((g.p/(pro.R_s*g.T*g.pi*g.gpi))*g.p)*pro.cp/(vp*pro.cp + vt
         *vt*g.T);
-      pro.a := abs(g.R*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
         *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
 
-      d := g.p/(pro.R*g.T*g.pi*g.gpi);
+      d := g.p/(pro.R_s*g.T*g.pi*g.gpi);
       pro.dudT := (pro.p - g.T*vt/vp)/(d*d);
     end gibbsToProps_dT;
 
@@ -7450,18 +7450,18 @@ critical pressure.
       Real vp(unit="m4.kg-2.s2")
         "Derivative of specific volume w.r.t. pressure";
     algorithm
-      pro.R := g.R;
-      pro.d := g.p/(pro.R*g.T*g.pi*g.gpi);
-      pro.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-      pro.h := g.R*g.T*g.tau*g.gtau;
-      pro.s := pro.R*(g.tau*g.gtau - g.g);
-      pro.cp := -pro.R*g.tau*g.tau*g.gtautau;
-      pro.cv := pro.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
+      pro.R_s := g.R_s;
+      pro.d := g.p/(pro.R_s*g.T*g.pi*g.gpi);
+      pro.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+      pro.h := g.R_s*g.T*g.tau*g.gtau;
+      pro.s := pro.R_s*(g.tau*g.gtau - g.g);
+      pro.cp := -pro.R_s*g.tau*g.tau*g.gtautau;
+      pro.cv := pro.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi);
-      vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+      vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/(pro.d*g.p)*pro.cp/(vp*pro.cp + vt*vt*g.T);
-      pro.a := abs(g.R*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
         *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
       pro.ddpT := -(pro.d*pro.d)*vp;
       pro.ddTp := -(pro.d*pro.d)*vt;
@@ -7485,21 +7485,21 @@ critical pressure.
     algorithm
       pro.d := f.d;
       pro.T := f.T;
-      pro.R := f.R;
-      pro.s := f.R*(f.tau*f.ftau - f.f);
-      pro.u := f.R*f.T*f.tau*f.ftau;
-      p := pro.d*pro.R*pro.T*f.delta*f.fdelta;
-      pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      pro.R_s := f.R_s;
+      pro.s := f.R_s*(f.tau*f.ftau - f.f);
+      pro.u := f.R_s*f.T*f.tau*f.ftau;
+      p := pro.d*pro.R_s*pro.T*f.delta*f.fdelta;
+      pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       pv := -pd*f.d*f.d;
 
       // calculating cp near the critical point may be troublesome (cp -> inf).
-      pro.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
+      pro.cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
-      pro.cv := f.R*(-f.tau*f.tau*f.ftautau);
-      pro.kappa := 1/(f.d*f.R*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
+      pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
+      pro.kappa := 1/(f.d*f.R_s*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
         /(pro.cv));
-      pro.a := abs(f.R*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
         f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       pro.ddph := (f.d*(pro.cv*f.d + pt))/(f.d*f.d*pd*pro.cv + f.T*pt*pt);
@@ -7528,23 +7528,23 @@ critical pressure.
       SI.Pressure p "Pressure";
     algorithm
       pro.d := f.d;
-      pro.R := f.R;
-      pro.s := f.R*(f.tau*f.ftau - f.f);
-      pro.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-      pro.u := f.R*f.T*f.tau*f.ftau;
-      pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      pro.R_s := f.R_s;
+      pro.s := f.R_s*(f.tau*f.ftau - f.f);
+      pro.h := f.R_s*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+      pro.u := f.R_s*f.T*f.tau*f.ftau;
+      pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       pv := -(f.d*f.d)*pd;
       alpha := -f.d*pt/pv;
       gamma := -f.d/pv;
-      p := f.R*f.d*f.T*f.delta*f.fdelta;
+      p := f.R_s*f.d*f.T*f.delta*f.fdelta;
       // calculating cp near the critical point may be troublesome (cp -> inf).
-      pro.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
+      pro.cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
-      pro.cv := f.R*(-f.tau*f.tau*f.ftautau);
-      pro.kappa := 1/(f.d*f.R*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
+      pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
+      pro.kappa := 1/(f.d*f.R_s*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
         /(pro.cv));
-      pro.a := abs(f.R*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
         f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       pro.ddTp := -pt/pd;
@@ -7565,20 +7565,20 @@ critical pressure.
       DerPressureByTemperature pt "Derivative of pressure w.r.t. temperature";
       DerPressureBySpecificVolume pv "Derivative of pressure w.r.t. pressure";
     algorithm
-      pro.p := f.R*f.d*f.T*f.delta*f.fdelta;
-      pro.R := f.R;
-      pro.s := f.R*(f.tau*f.ftau - f.f);
-      pro.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-      pro.u := f.R*f.T*f.tau*f.ftau;
-      pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      pro.p := f.R_s*f.d*f.T*f.delta*f.fdelta;
+      pro.R_s := f.R_s;
+      pro.s := f.R_s*(f.tau*f.ftau - f.f);
+      pro.h := f.R_s*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+      pro.u := f.R_s*f.T*f.tau*f.ftau;
+      pv := -(f.d*f.d)*f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
 
       // calculating cp near the critical point may be troublesome (cp -> inf).
-      pro.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
+      pro.cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
-      pro.cv := f.R*(-f.tau*f.tau*f.ftautau);
+      pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       pro.kappa := 1/(f.d*pro.p)*((-pv*pro.cv + pt*pt*f.T)/(pro.cv));
-      pro.a := abs(f.R*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
         f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       pro.dudT := (pro.p - f.T*pt)/(f.d*f.d);
@@ -7603,7 +7603,7 @@ critical pressure.
       pro.u := sat.u;
       pro.s := sat.s;
       pro.cv := sat.cv;
-      pro.R := sat.R;
+      pro.R_s := sat.R_s;
       pro.cp := Modelica.Constants.inf;
       pro.kappa := -1/(sat.d*sat.p)*sat.dpT*sat.dpT*sat.T/sat.cv;
       pro.a := Modelica.Constants.inf;
@@ -7628,7 +7628,7 @@ critical pressure.
       pro.s := sat.s;
       pro.cv := sat.cv;
       pro.cp := Modelica.Constants.inf;
-      pro.R := sat.R;
+      pro.R_s := sat.R_s;
       pro.kappa := -1/(sat.d*sat.p)*sat.dpT*sat.dpT*sat.T/sat.cv;
       pro.a := Modelica.Constants.inf;
       pro.dudT := (sat.p - sat.T*sat.dpT)/(sat.d*sat.d);
@@ -7647,7 +7647,7 @@ public
     SI.SpecificEntropy s "Specific entropy";
     SI.SpecificHeatCapacity cp "Heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "Heat capacity at constant volume";
-    SI.SpecificHeatCapacity R "Gas constant";
+    SI.SpecificHeatCapacity R_s "Gas constant";
     SI.RatioOfSpecificHeatCapacities kappa "Isentropic expansion coefficient";
     PhaseBoundaryProperties liq
       "Thermodynamic base properties on the boiling curve";
@@ -7683,7 +7683,7 @@ public
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
     SI.SpecificEnthalpy h "Specific enthalpy";
-    SI.SpecificHeatCapacity R "Gas constant";
+    SI.SpecificHeatCapacity R_s "Gas constant";
     SI.SpecificHeatCapacity cp "Specific heat capacity";
     SI.SpecificHeatCapacity cv "Specific heat capacity";
     SI.Density rho "Density";
@@ -7701,7 +7701,7 @@ public
 
     extends Modelica.Icons.Record;
     Boolean region3boundary "True if boundary between 2-phase and region 3";
-    SI.SpecificHeatCapacity R "Specific heat capacity";
+    SI.SpecificHeatCapacity R_s "Specific heat capacity";
     SI.Temperature T "Temperature";
     SI.Density d "Density";
     SI.SpecificEnthalpy h "Specific enthalpy";
@@ -7722,7 +7722,7 @@ public
     extends Modelica.Icons.Record;
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
-    SI.SpecificHeatCapacity R "Specific heat capacity";
+    SI.SpecificHeatCapacity R_s "Specific heat capacity";
     Real pi(unit="1") "Dimensionless pressure";
     Real tau(unit="1") "Dimensionless temperature";
     Real g(unit="1") "Dimensionless Gibbs-function";
@@ -7738,7 +7738,7 @@ public
     extends Modelica.Icons.Record;
     SI.Density d "Density";
     SI.Temperature T "Temperature";
-    SI.SpecificHeatCapacity R "Specific heat capacity";
+    SI.SpecificHeatCapacity R_s "Specific heat capacity";
     Real delta(unit="1") "Dimensionless density";
     Real tau(unit="1") "Dimensionless temperature";
     Real f(unit="1") "Dimensionless Helmholtz-function";
@@ -7980,7 +7980,7 @@ end BridgmansTablesForWater;
   record FundamentalConstants "Constants of the medium"
     extends Modelica.Icons.Record;
     Modelica.SIunits.MolarHeatCapacity R_bar;
-    Modelica.SIunits.SpecificHeatCapacity R;
+    Modelica.SIunits.SpecificHeatCapacity R_s;
     Modelica.SIunits.MolarMass MM;
     Modelica.SIunits.MolarDensity rhored;
     Modelica.SIunits.Temperature Tred;
@@ -7994,7 +7994,7 @@ end BridgmansTablesForWater;
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
     SI.SpecificEnthalpy h "Specific enthalpy";
-    SI.SpecificHeatCapacity R "Gas constant";
+    SI.SpecificHeatCapacity R_s "Gas constant";
     SI.SpecificHeatCapacity cp "Specific heat capacity";
     SI.SpecificHeatCapacity cv "Specific heat capacity";
     SI.Density rho "Density";
@@ -8011,7 +8011,7 @@ end BridgmansTablesForWater;
     extends Modelica.Icons.Record;
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
-    SI.SpecificHeatCapacity R "Specific heat capacity";
+    SI.SpecificHeatCapacity R_s "Specific heat capacity";
     Real pi(unit="1") "Dimensionless pressure";
     Real theta(unit="1") "Dimensionless temperature";
     Real g(unit="J/kg") "Gibbs function";
@@ -8049,11 +8049,11 @@ end BridgmansTablesForWater;
       "Derivative of specific volume w.r.t. temperature";
     Real vp(unit="m4.kg-2.s2") "Derivative of specific volume w.r.t. pressure";
   algorithm
-    vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-    vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
-    v := (g.R*g.T*g.pi*g.gpi)/g.p;
-    s := g.R*(g.tau*g.gtau - g.g);
-    cp := -g.R*g.tau*g.tau*g.gtautau;
+    vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+    vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+    v := (g.R_s*g.T*g.pi*g.gpi)/g.p;
+    s := g.R_s*(g.tau*g.gtau - g.g);
+    cp := -g.R_s*g.tau*g.tau*g.gtautau;
     alpha := vt/v;
     gamma := -vp/v;
   end gibbsToBridgmansTables;
@@ -8078,13 +8078,13 @@ end BridgmansTablesForWater;
       "Derivative of pressure w.r.t. specific volume";
     SI.SpecificHeatCapacity cv "Isochoric specific heat capacity";
   algorithm
-    p := f.R*f.d*f.T*f.delta*f.fdelta;
-    pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-    s := f.R*(f.tau*f.ftau - f.f);
+    p := f.R_s*f.d*f.T*f.delta*f.fdelta;
+    pv := -(f.d*f.d)*f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    s := f.R_s*(f.tau*f.ftau - f.f);
     alpha := -f.d*pt/pv;
     gamma := -f.d/pv;
-    cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)
+    cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)
       ^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
   end helmholtzToBridgmansTables;
 
@@ -8098,18 +8098,18 @@ end BridgmansTablesForWater;
     Real vt "Derivative of specific volume w.r.t. temperature";
     Real vp "Derivative of specific volume w.r.t. pressure";
   algorithm
-    sat.d := g.p/(g.R*g.T*g.pi*g.gpi);
-    sat.h := g.R*g.T*g.tau*g.gtau;
-    sat.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-    sat.s := g.R*(g.tau*g.gtau - g.g);
-    sat.cp := -g.R*g.tau*g.tau*g.gtautau;
-    sat.cv := g.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+    sat.d := g.p/(g.R_s*g.T*g.pi*g.gpi);
+    sat.h := g.R_s*g.T*g.tau*g.gtau;
+    sat.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+    sat.s := g.R_s*(g.tau*g.gtau - g.g);
+    sat.cp := -g.R_s*g.tau*g.tau*g.gtautau;
+    sat.cv := g.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
       *g.gtaupi)/(g.gpipi));
-    vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-    vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+    vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+    vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
     // sat.kappa := -1/(sat.d*g.p)*sat.cp/(vp*sat.cp + vt*vt*g.T);
     sat.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-    sat.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
+    sat.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
   end gibbsToBoundaryProps;
 
   function helmholtzToBoundaryProps
@@ -8121,16 +8121,16 @@ end BridgmansTablesForWater;
   protected
     SI.Pressure p "Pressure";
   algorithm
-    p := f.R*f.d*f.T*f.delta*f.fdelta;
+    p := f.R_s*f.d*f.T*f.delta*f.fdelta;
     sat.d := f.d;
-    sat.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-    sat.s := f.R*(f.tau*f.ftau - f.f);
-    sat.u := f.R*f.T*f.tau*f.ftau;
-    sat.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)
+    sat.h := f.R_s*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+    sat.s := f.R_s*(f.tau*f.ftau - f.f);
+    sat.u := f.R_s*f.T*f.tau*f.ftau;
+    sat.cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)
       ^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
-    sat.cv := f.R*(-f.tau*f.tau*f.ftautau);
-    sat.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-    sat.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    sat.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
+    sat.pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    sat.pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
   end helmholtzToBoundaryProps;
 
   function cv2Phase
@@ -8207,12 +8207,12 @@ end BridgmansTablesForWater;
     SI.SpecificHeatCapacity cv "Isochoric heat capacity";
     SI.SpecificHeatCapacity cp "Isobaric heat capacity";
   algorithm
-    d := g.p/(g.R*g.T*g.pi*g.gpi);
+    d := g.p/(g.R_s*g.T*g.pi*g.gpi);
     v := 1/d;
-    vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-    vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
-    cp := -g.R*g.tau*g.tau*g.gtautau;
-    cv := g.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+    vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+    vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+    cp := -g.R_s*g.tau*g.tau*g.gtautau;
+    cv := g.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
       *g.gtaupi)/g.gpipi);
     dpro.kappa := -1/(d*g.p)*cp/(vp*cp + vt*vt*g.T);
     dpro.theta := cp/(d*g.p*(-vp*cp + vt*v - g.T*vt*vt));
@@ -8237,10 +8237,10 @@ end BridgmansTablesForWater;
     SI.SpecificHeatCapacity cv "Isochoric specific heat capacity";
   algorithm
     v := 1/f.d;
-    p := f.R*f.d*f.T*f.delta*f.fdelta;
-    pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-    cv := f.R*(-f.tau*f.tau*f.ftautau);
+    p := f.R_s*f.d*f.T*f.delta*f.fdelta;
+    pv := -(f.d*f.d)*f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    cv := f.R_s*(-f.tau*f.tau*f.ftautau);
     dpro.kappa := 1/(f.d*p)*((-pv*cv + pt*pt*f.T)/(cv));
     dpro.theta := -1/(f.d*p)*((-pv*cv + f.T*pt*pt)/(cv + pt*v));
     dpro.alpha := -f.d*pt/pv;
@@ -8258,11 +8258,11 @@ end BridgmansTablesForWater;
   protected
     SI.SpecificHeatCapacity cv "Isochoric heat capacity";
   algorithm
-    cv := -f.R*(f.tau*f.tau*f.ftautau);
-    nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
-    nderivs.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-    nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    cv := -f.R_s*(f.tau*f.tau*f.ftautau);
+    nderivs.p := f.d*f.R_s*f.T*f.delta*f.fdelta;
+    nderivs.h := f.R_s*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+    nderivs.pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    nderivs.pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
     nderivs.ht := cv + nderivs.pt/f.d;
     nderivs.hd := (nderivs.pd - f.T*nderivs.pt/f.d)/f.d;
   end Helmholtz_ph;
@@ -8275,8 +8275,8 @@ end BridgmansTablesForWater;
     output NewtonDerivatives_pT nderivs
       "Derivatives for Newton iteration to compute d and t from p and t";
   algorithm
-    nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
-    nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    nderivs.p := f.d*f.R_s*f.T*f.delta*f.fdelta;
+    nderivs.pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
   end Helmholtz_pT;
 
   function Helmholtz_ps
@@ -8289,11 +8289,11 @@ end BridgmansTablesForWater;
   protected
     SI.SpecificHeatCapacity cv "Isochoric heat capacity";
   algorithm
-    cv := -f.R*(f.tau*f.tau*f.ftautau);
-    nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
-    nderivs.s := f.R*(f.tau*f.ftau - f.f);
-    nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    cv := -f.R_s*(f.tau*f.tau*f.ftautau);
+    nderivs.p := f.d*f.R_s*f.T*f.delta*f.fdelta;
+    nderivs.s := f.R_s*(f.tau*f.ftau - f.f);
+    nderivs.pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    nderivs.pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
     nderivs.st := cv/f.T;
     nderivs.sd := -nderivs.pt/(f.d*f.d);
   end Helmholtz_ps;

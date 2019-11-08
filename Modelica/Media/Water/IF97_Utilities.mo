@@ -902,29 +902,29 @@ package IF97_Utilities
         SI.Pressure plim=min(p, data.PCRIT - 1e-7)
           "Pressure limited to critical pressure - epsilon";
       algorithm
-        bpro.R := data.RH2O;
+        bpro.R_s := data.RH2O;
         bpro.T := Basic.tsat(plim);
         bpro.dpT := Basic.dptofT(bpro.T);
         bpro.region3boundary := bpro.T > data.TLIMIT1;
         if not bpro.region3boundary then
           g := Basic.g1(p, bpro.T);
-          bpro.d := p/(bpro.R*bpro.T*g.pi*g.gpi);
-          bpro.h := if p > plim then data.HCRIT else bpro.R*bpro.T*g.tau*g.gtau;
-          bpro.s := g.R*(g.tau*g.gtau - g.g);
-          bpro.cp := -bpro.R*g.tau*g.tau*g.gtautau;
-          bpro.vt := bpro.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-          bpro.vp := bpro.R*bpro.T/(p*p)*g.pi*g.pi*g.gpipi;
+          bpro.d := p/(bpro.R_s*bpro.T*g.pi*g.gpi);
+          bpro.h := if p > plim then data.HCRIT else bpro.R_s*bpro.T*g.tau*g.gtau;
+          bpro.s := g.R_s*(g.tau*g.gtau - g.g);
+          bpro.cp := -bpro.R_s*g.tau*g.tau*g.gtautau;
+          bpro.vt := bpro.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+          bpro.vp := bpro.R_s*bpro.T/(p*p)*g.pi*g.pi*g.gpipi;
           bpro.pt := -p/bpro.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-          bpro.pd := -bpro.R*bpro.T*g.gpi*g.gpi/(g.gpipi);
+          bpro.pd := -bpro.R_s*bpro.T*g.gpi*g.gpi/(g.gpipi);
         else
           bpro.d := rhol_p_R4b(plim);
           f := Basic.f3(bpro.d, bpro.T);
           bpro.h := hl_p_R4b(plim);
-          // bpro.R*bpro.T*(f.tau*f.ftau + f.delta*f.fdelta);
-          bpro.s := f.R*(f.tau*f.ftau - f.f);
-          bpro.cv := bpro.R*(-f.tau*f.tau*f.ftautau);
-          bpro.pt := bpro.R*bpro.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-          bpro.pd := bpro.R*bpro.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+          // bpro.R_s*bpro.T*(f.tau*f.ftau + f.delta*f.fdelta);
+          bpro.s := f.R_s*(f.tau*f.ftau - f.f);
+          bpro.cv := bpro.R_s*(-f.tau*f.tau*f.ftautau);
+          bpro.pt := bpro.R_s*bpro.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+          bpro.pd := bpro.R_s*bpro.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
         end if;
       end boilingcurve_p;
 
@@ -939,29 +939,29 @@ package IF97_Utilities
         SI.Pressure plim=min(p, data.PCRIT - 1e-7)
           "Pressure limited to critical pressure - epsilon";
       algorithm
-        bpro.R := data.RH2O;
+        bpro.R_s := data.RH2O;
         bpro.T := Basic.tsat(plim);
         bpro.dpT := Basic.dptofT(bpro.T);
         bpro.region3boundary := bpro.T > data.TLIMIT1;
         if not bpro.region3boundary then
           g := Basic.g2(p, bpro.T);
-          bpro.d := p/(bpro.R*bpro.T*g.pi*g.gpi);
-          bpro.h := if p > plim then data.HCRIT else bpro.R*bpro.T*g.tau*g.gtau;
-          bpro.s := g.R*(g.tau*g.gtau - g.g);
-          bpro.cp := -bpro.R*g.tau*g.tau*g.gtautau;
-          bpro.vt := bpro.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-          bpro.vp := bpro.R*bpro.T/(p*p)*g.pi*g.pi*g.gpipi;
+          bpro.d := p/(bpro.R_s*bpro.T*g.pi*g.gpi);
+          bpro.h := if p > plim then data.HCRIT else bpro.R_s*bpro.T*g.tau*g.gtau;
+          bpro.s := g.R_s*(g.tau*g.gtau - g.g);
+          bpro.cp := -bpro.R_s*g.tau*g.tau*g.gtautau;
+          bpro.vt := bpro.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+          bpro.vp := bpro.R_s*bpro.T/(p*p)*g.pi*g.pi*g.gpipi;
           bpro.pt := -p/bpro.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-          bpro.pd := -bpro.R*bpro.T*g.gpi*g.gpi/(g.gpipi);
+          bpro.pd := -bpro.R_s*bpro.T*g.gpi*g.gpi/(g.gpipi);
         else
           bpro.d := rhov_p_R4b(plim);
           f := Basic.f3(bpro.d, bpro.T);
           bpro.h := hv_p_R4b(plim);
-          // bpro.R*bpro.T*(f.tau*f.ftau + f.delta*f.fdelta);
-          bpro.s := f.R*(f.tau*f.ftau - f.f);
-          bpro.cv := bpro.R*(-f.tau*f.tau*f.ftautau);
-          bpro.pt := bpro.R*bpro.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-          bpro.pd := bpro.R*bpro.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+          // bpro.R_s*bpro.T*(f.tau*f.ftau + f.delta*f.fdelta);
+          bpro.s := f.R_s*(f.tau*f.ftau - f.f);
+          bpro.cv := bpro.R_s*(-f.tau*f.tau*f.ftautau);
+          bpro.pt := bpro.R_s*bpro.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+          bpro.pd := bpro.R_s*bpro.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
         end if;
       end dewcurve_p;
 
@@ -1645,7 +1645,7 @@ package IF97_Utilities
           String(T) + " K) is lower than 273.15 K!");
         g.p := p;
         g.T := T;
-        g.R := data.RH2O;
+        g.R_s := data.RH2O;
         g.pi := p/data.PSTAR1;
         g.tau := data.TSTAR1/T;
         pi1 := 7.1000000000000 - g.pi;
@@ -1793,7 +1793,7 @@ package IF97_Utilities
       algorithm
         g.p := p;
         g.T := T;
-        g.R := data.RH2O;
+        g.R_s := data.RH2O;
         assert(p > 0.0,
           "IF97 medium function g2 called with too low pressure\n" + "p = " +
           String(p) + " Pa <=  0.0 Pa");
@@ -2011,7 +2011,7 @@ package IF97_Utilities
           String(T) + " K) is higher than the limit of 1073.15 K");
         g.p := p;
         g.T := T;
-        g.R := data.RH2O;
+        g.R_s := data.RH2O;
         g.pi := p/data.PSTAR2;
         g.tau := data.TSTAR2/T;
         tau2 := -0.5 + g.tau;
@@ -2099,7 +2099,7 @@ package IF97_Utilities
       algorithm
         f.T := T;
         f.d := d;
-        f.R := data.RH2O;
+        f.R_s := data.RH2O;
         f.tau := data.TCRIT/T;
         f.delta := if (d == data.DCRIT and T == data.TCRIT) then 1 - Modelica.Constants.eps
            else abs(d/data.DCRIT);
@@ -2243,7 +2243,7 @@ package IF97_Utilities
            + String(T) + " K) is higher than limit of 2273.15K in region 5");
         g.p := p;
         g.T := T;
-        g.R := data.RH2O;
+        g.R_s := data.RH2O;
         g.pi := p/data.PSTAR5;
         g.tau := data.TSTAR5/T;
         o[1] := g.tau*g.tau;
@@ -4128,8 +4128,8 @@ Ordinary Water Substance<br>
             Chi := delta*ddelpi;
             //         elseif (region == 3) then
             //           f := Basic.f3(T, d);
-            //            dpitau := tstar/pstar*(f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau));
-            //           ddelpi := pstar*d*d/(rhostar*p*p)/(f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
+            //            dpitau := tstar/pstar*(f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau));
+            //           ddelpi := pstar*d*d/(rhostar*p*p)/(f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta));
             //    Chi := delta*ddelpi;
           else
             assert(false,
@@ -5666,7 +5666,7 @@ Ordinary Water Substance<br>
                 pro.T,
                 p);
         pro.kappa := 1/(pro.d*p)*pro.dpT*pro.dpT*pro.T/pro.cv;
-        pro.R := data.RH2O;
+        pro.R_s := data.RH2O;
       end waterSat_ph;
 
       function waterR4_ph
@@ -5723,7 +5723,7 @@ Ordinary Water Substance<br>
                 p);
         pro.kappa := 1/(pro.d*p)*dpT*dpT*pro.T/pro.cv;
         pro.a := Modelica.Constants.inf;
-        pro.R := data.RH2O;
+        pro.R_s := data.RH2O;
         pro.ddph := pro.d*(pro.d*pro.cv/dpT + 1.0)/(dpT*pro.T);
         pro.ddhp := -pro.d*pro.d/(dpT*pro.T);
       end waterR4_ph;
@@ -5781,7 +5781,7 @@ Ordinary Water Substance<br>
                 pro.p);
         pro.kappa := 1/(d*pro.p)*dpT*dpT*T/pro.cv;
         pro.a := Modelica.Constants.inf;
-        pro.R := data.RH2O;
+        pro.R_s := data.RH2O;
         pro.dudT := (pro.p - T*dpT)/(d*d);
       end waterR4_dT;
       annotation (Documentation(info="<html><h4>Package description</h4>
@@ -6325,34 +6325,34 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     aux.phase := if phase <> 0 then phase else if aux.region == 4 then 2 else 1;
     aux.p := max(p, 611.657);
     aux.h := max(h, 1e3);
-    aux.R := BaseIF97.data.RH2O;
+    aux.R_s := BaseIF97.data.RH2O;
     aux.vt := 0.0 "initialized in case it is not needed";
     aux.vp := 0.0 "initialized in case it is not needed";
     if (aux.region == 1) then
       aux.T := BaseIF97.Basic.tph1(aux.p, aux.h);
       g := BaseIF97.Basic.g1(p, aux.T);
-      aux.s := aux.R*(g.tau*g.gtau - g.g);
-      aux.rho := p/(aux.R*aux.T*g.pi*g.gpi);
-      aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.s := aux.R_s*(g.tau*g.gtau - g.g);
+      aux.rho := p/(aux.R_s*aux.T*g.pi*g.gpi);
+      aux.vt := aux.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.vp := aux.R_s*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
       aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 2) then
       aux.T := BaseIF97.Basic.tph2(aux.p, aux.h);
       g := BaseIF97.Basic.g2(p, aux.T);
-      aux.s := aux.R*(g.tau*g.gtau - g.g);
-      aux.rho := p/(aux.R*aux.T*g.pi*g.gpi);
-      aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
+      aux.s := aux.R_s*(g.tau*g.gtau - g.g);
+      aux.rho := p/(aux.R_s*aux.T*g.pi*g.gpi);
+      aux.vt := aux.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
       aux.dpT := -aux.vt/aux.vp;
@@ -6363,11 +6363,11 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           delp=1.0e-7,
           delh=1.0e-6);
       f := BaseIF97.Basic.f3(aux.rho, aux.T);
-      aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta);
-      aux.s := aux.R*(f.tau*f.ftau - f.f);
-      aux.pd := aux.R*aux.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      aux.cv := abs(aux.R*(-f.tau*f.tau*f.ftautau))
+      aux.h := aux.R_s*aux.T*(f.tau*f.ftau + f.delta*f.fdelta);
+      aux.s := aux.R_s*(f.tau*f.ftau - f.f);
+      aux.pd := aux.R_s*aux.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      aux.pt := aux.R_s*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      aux.cv := abs(aux.R_s*(-f.tau*f.tau*f.ftautau))
         "Can be close to neg. infinity near critical point";
       aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*
         aux.rho*aux.pd);
@@ -6417,14 +6417,14 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           reldh=1.0e-7);
       assert(error == 0, "Error in inverse iteration of steam tables");
       g := BaseIF97.Basic.g5(aux.p, aux.T);
-      aux.s := aux.R*(g.tau*g.gtau - g.g);
-      aux.rho := p/(aux.R*aux.T*g.pi*g.gpi);
-      aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
+      aux.s := aux.R_s*(g.tau*g.gtau - g.g);
+      aux.rho := p/(aux.R_s*aux.T*g.pi*g.gpi);
+      aux.vt := aux.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.dpT := -aux.vt/aux.vp;
     else
@@ -6475,34 +6475,34 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     aux.phase := if phase <> 0 then phase else if aux.region == 4 then 2 else 1;
     aux.p := p;
     aux.s := s;
-    aux.R := BaseIF97.data.RH2O;
+    aux.R_s := BaseIF97.data.RH2O;
     aux.vt := 0.0 "initialized in case it is not needed";
     aux.vp := 0.0 "initialized in case it is not needed";
     if (aux.region == 1) then
       aux.T := BaseIF97.Basic.tps1(p, s);
       g := BaseIF97.Basic.g1(p, aux.T);
-      aux.h := aux.R*aux.T*g.tau*g.gtau;
-      aux.rho := p/(aux.R*aux.T*g.pi*g.gpi);
-      aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
+      aux.h := aux.R_s*aux.T*g.tau*g.gtau;
+      aux.rho := p/(aux.R_s*aux.T*g.pi*g.gpi);
+      aux.vt := aux.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
       aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 2) then
       aux.T := BaseIF97.Basic.tps2(p, s);
       g := BaseIF97.Basic.g2(p, aux.T);
-      aux.h := aux.R*aux.T*g.tau*g.gtau;
-      aux.rho := p/(aux.R*aux.T*g.pi*g.gpi);
-      aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
+      aux.h := aux.R_s*aux.T*g.tau*g.gtau;
+      aux.rho := p/(aux.R_s*aux.T*g.pi*g.gpi);
+      aux.vt := aux.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
       aux.dpT := -aux.vt/aux.vp;
@@ -6513,11 +6513,11 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           delp=1.0e-7,
           dels=1.0e-6);
       f := BaseIF97.Basic.f3(aux.rho, aux.T);
-      aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta);
-      aux.s := aux.R*(f.tau*f.ftau - f.f);
-      aux.pd := aux.R*aux.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
+      aux.h := aux.R_s*aux.T*(f.tau*f.ftau + f.delta*f.fdelta);
+      aux.s := aux.R_s*(f.tau*f.ftau - f.f);
+      aux.pd := aux.R_s*aux.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      aux.pt := aux.R_s*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      aux.cv := aux.R_s*(-f.tau*f.tau*f.ftautau);
       aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*
         aux.rho*aux.pd);
       aux.x := 0.0;
@@ -6564,14 +6564,14 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           relds=1.0e-7);
       assert(error == 0, "Error in inverse iteration of steam tables");
       g := BaseIF97.Basic.g5(p, aux.T);
-      aux.h := aux.R*aux.T*g.tau*g.gtau;
-      aux.rho := p/(aux.R*aux.T*g.pi*g.gpi);
-      aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
+      aux.h := aux.R_s*aux.T*g.tau*g.gtau;
+      aux.rho := p/(aux.R_s*aux.T*g.pi*g.gpi);
+      aux.vt := aux.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.dpT := -aux.vt/aux.vp;
       aux.x := 1.0;
@@ -7176,36 +7176,36 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     aux.phase := 1;
     aux.region := if region == 0 then BaseIF97.Regions.region_pT(p=p, T=T)
        else region;
-    aux.R := BaseIF97.data.RH2O;
+    aux.R_s := BaseIF97.data.RH2O;
     aux.p := p;
     aux.T := T;
     aux.vt := 0.0 "initialized in case it is not needed";
     aux.vp := 0.0 "initialized in case it is not needed";
     if (aux.region == 1) then
       g := BaseIF97.Basic.g1(p, T);
-      aux.h := aux.R*aux.T*g.tau*g.gtau;
-      aux.s := aux.R*(g.tau*g.gtau - g.g);
-      aux.rho := p/(aux.R*T*g.pi*g.gpi);
-      aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*T/(p*p)*g.pi*g.pi*g.gpipi;
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.h := aux.R_s*aux.T*g.tau*g.gtau;
+      aux.s := aux.R_s*(g.tau*g.gtau - g.g);
+      aux.rho := p/(aux.R_s*T*g.pi*g.gpi);
+      aux.vt := aux.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*T/(p*p)*g.pi*g.pi*g.gpipi;
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
       aux.dpT := -aux.vt/aux.vp;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
     elseif (aux.region == 2) then
       g := BaseIF97.Basic.g2(p, T);
-      aux.h := aux.R*aux.T*g.tau*g.gtau;
-      aux.s := aux.R*(g.tau*g.gtau - g.g);
-      aux.rho := p/(aux.R*T*g.pi*g.gpi);
-      aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*T/(p*p)*g.pi*g.pi*g.gpipi;
+      aux.h := aux.R_s*aux.T*g.tau*g.gtau;
+      aux.s := aux.R_s*(g.tau*g.gtau - g.g);
+      aux.rho := p/(aux.R_s*T*g.pi*g.gpi);
+      aux.vt := aux.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
       aux.dpT := -aux.vt/aux.vp;
@@ -7215,25 +7215,25 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           T=T,
           delp=1.0e-7);
       f := BaseIF97.Basic.f3(aux.rho, T);
-      aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta);
-      aux.s := aux.R*(f.tau*f.ftau - f.f);
-      aux.pd := aux.R*T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
+      aux.h := aux.R_s*T*(f.tau*f.ftau + f.delta*f.fdelta);
+      aux.s := aux.R_s*(f.tau*f.ftau - f.f);
+      aux.pd := aux.R_s*T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      aux.pt := aux.R_s*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      aux.cv := aux.R_s*(-f.tau*f.tau*f.ftautau);
       aux.x := 0.0;
       aux.dpT := aux.pt;
       /*safety against div-by-0 in initialization*/
     elseif (aux.region == 5) then
       g := BaseIF97.Basic.g5(p, T);
-      aux.h := aux.R*aux.T*g.tau*g.gtau;
-      aux.s := aux.R*(g.tau*g.gtau - g.g);
-      aux.rho := p/(aux.R*T*g.pi*g.gpi);
-      aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*T/(p*p)*g.pi*g.pi*g.gpipi;
+      aux.h := aux.R_s*aux.T*g.tau*g.gtau;
+      aux.s := aux.R_s*(g.tau*g.gtau - g.g);
+      aux.rho := p/(aux.R_s*T*g.pi*g.gpi);
+      aux.vt := aux.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
       aux.dpT := -aux.vt/aux.vp;
@@ -7610,7 +7610,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         T=T,
         phase=phase)) else region;
     aux.phase := if aux.region == 4 then 2 else 1;
-    aux.R := BaseIF97.data.RH2O;
+    aux.R_s := BaseIF97.data.RH2O;
     aux.rho := rho;
     aux.T := T;
     aux.vt := 0.0 "initialized in case it is not needed";
@@ -7622,15 +7622,15 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           reldd=1.0e-8,
           region=1);
       g := BaseIF97.Basic.g1(aux.p, T);
-      aux.h := aux.R*aux.T*g.tau*g.gtau;
-      aux.s := aux.R*(g.tau*g.gtau - g.g);
-      aux.rho := aux.p/(aux.R*T*g.pi*g.gpi);
-      aux.vt := aux.R/aux.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*T/(aux.p*aux.p)*g.pi*g.pi*g.gpipi;
+      aux.h := aux.R_s*aux.T*g.tau*g.gtau;
+      aux.s := aux.R_s*(g.tau*g.gtau - g.g);
+      aux.rho := aux.p/(aux.R_s*T*g.pi*g.gpi);
+      aux.vt := aux.R_s/aux.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*T/(aux.p*aux.p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
     elseif (aux.region == 2) then
@@ -7640,25 +7640,25 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           reldd=1.0e-8,
           region=2);
       g := BaseIF97.Basic.g2(aux.p, T);
-      aux.h := aux.R*aux.T*g.tau*g.gtau;
-      aux.s := aux.R*(g.tau*g.gtau - g.g);
-      aux.rho := aux.p/(aux.R*T*g.pi*g.gpi);
-      aux.vt := aux.R/aux.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*T/(aux.p*aux.p)*g.pi*g.pi*g.gpipi;
+      aux.h := aux.R_s*aux.T*g.tau*g.gtau;
+      aux.s := aux.R_s*(g.tau*g.gtau - g.g);
+      aux.rho := aux.p/(aux.R_s*T*g.pi*g.gpi);
+      aux.vt := aux.R_s/aux.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*T/(aux.p*aux.p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
     elseif (aux.region == 3) then
       f := BaseIF97.Basic.f3(rho, T);
-      aux.p := aux.R*rho*T*f.delta*f.fdelta;
-      aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta);
-      aux.s := aux.R*(f.tau*f.ftau - f.f);
-      aux.pd := aux.R*T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      aux.pt := aux.R*rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
+      aux.p := aux.R_s*rho*T*f.delta*f.fdelta;
+      aux.h := aux.R_s*T*(f.tau*f.ftau + f.delta*f.fdelta);
+      aux.s := aux.R_s*(f.tau*f.ftau - f.f);
+      aux.pd := aux.R_s*T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      aux.pt := aux.R_s*rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      aux.cv := aux.R_s*(-f.tau*f.tau*f.ftautau);
       aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*
         aux.rho*aux.pd);
       aux.x := 0.0;
@@ -7701,15 +7701,15 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
           reldd=1.0e-8,
           region=5);
       g := BaseIF97.Basic.g2(aux.p, T);
-      aux.h := aux.R*aux.T*g.tau*g.gtau;
-      aux.s := aux.R*(g.tau*g.gtau - g.g);
-      aux.rho := aux.p/(aux.R*T*g.pi*g.gpi);
-      aux.vt := aux.R/aux.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      aux.vp := aux.R*T/(aux.p*aux.p)*g.pi*g.pi*g.gpipi;
+      aux.h := aux.R_s*aux.T*g.tau*g.gtau;
+      aux.s := aux.R_s*(g.tau*g.gtau - g.g);
+      aux.rho := aux.p/(aux.R_s*T*g.pi*g.gpi);
+      aux.vt := aux.R_s/aux.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      aux.vp := aux.R_s*T/(aux.p*aux.p)*g.pi*g.pi*g.gpipi;
       aux.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      aux.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
-      aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+      aux.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
+      aux.cp := -aux.R_s*g.tau*g.tau*g.gtautau;
+      aux.cv := aux.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi));
     else
       assert(false, "Error in region computation of IF97 steam tables" +
