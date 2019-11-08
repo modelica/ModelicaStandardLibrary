@@ -4598,7 +4598,7 @@ on the model behaviour.
                             modelcard "MOSFET modelcard"
                 annotation(Evaluate=true);
 
-   final parameter Spice3.Internal.Mos2.Mos2ModelLineParams p=
+    final parameter Spice3.Internal.Mos2.Mos2ModelLineParams p=
           Spice3.Internal.Mos2.mos2RenameParametersRevised(
           modelcard) "Model line parameters"
                       annotation(Evaluate=true);
@@ -4666,14 +4666,6 @@ on the model behaviour.
     parameter SI.Voltage IC( start = -1e40)
         "Initial condition values, not implemented yet";
 
-    Real icqmGB;
-    Real icqmGS;
-    Real icqmGD;
-    SI.Voltage vDS "Drain - source voltage";
-
-    Spice3.Internal.Mos.DEVqmeyer qm;
-    Spice3.Internal.Mos.CurrrentsCapacitances cc_obsolete;
-
   //-------------------------------------------------------------------------------------------------------------------------------------
 
     final parameter Spice3.Internal.Mos2.Mos2Calc
@@ -4692,11 +4684,8 @@ on the model behaviour.
           modelcard) "Model line parameters"
                       annotation(Evaluate=true);
 
-     constant Spice3.Internal.SpiceConstants C
+    constant Spice3.Internal.SpiceConstants C
         "General constants of SPICE simulator";
-     Real MOScapgd = qm.qm_capgd;
-    Real MOScapgs = qm.qm_capgs;
-    Real MOScapgb = qm.qm_capgb;
   equation
     assert( NRD > 0, "NRD, length of drain in squares, must be greater than zero");
     assert( NRS > 0, "NRS, length of source in squares, must be greater than zero");
@@ -4719,7 +4708,7 @@ on the model behaviour.
     // drain- and sourceresistances
     // ----------------------------
     ird * c11.m_drainResistance  = (D.v - Dinternal);
-    irs * c11.m_sourceResistance =  (S.v - Sinternal);
+    irs * c11.m_sourceResistance = (S.v - Sinternal);
 
     // capacitances
     // ------------
