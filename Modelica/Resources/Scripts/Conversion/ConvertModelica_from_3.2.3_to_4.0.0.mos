@@ -277,6 +277,8 @@ convertClass("Modelica.Electrical.Machines.Utilities.CurrentController",
               "Modelica.Electrical.Machines.Utilities.DQToThreePhase");
 convertClass("Modelica.Electrical.Machines.Utilities.VoltageController",
               "Modelica.Electrical.Machines.Utilities.DQCurrentController");
+convertClass("Modelica.Media.Common.OneNonLinearEquation",
+              "ObsoleteModelica4.Media.Common.OneNonLinearEquation");
 
 // Change renamed elements of classes
 // mue -> mu
