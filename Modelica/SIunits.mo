@@ -858,13 +858,13 @@ versa. It is recommended to use these functions in the following
 way (note, that all functions have one Real input and one Real output
 argument):</p>
 <pre>
-  <strong>import</strong> SI = Modelica.SIunits;
-  <strong>import</strong> Modelica.SIunits.Conversions.*;
+  <strong>import</strong> Modelica.SIunits;
+  <strong>import</strong> Modelica.SIunits.Conversions.{from_degC, from_deg, from_rpm};
      ...
-  <strong>parameter</strong> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
-  <strong>parameter</strong> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
-  <strong>parameter</strong> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
-                                                      // to radian per seconds
+  <strong>parameter</strong> SIunits.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
+  <strong>parameter</strong> SIunits.Angle           phi = from_deg(180);   // convert 180 degree to radian
+  <strong>parameter</strong> SIunits.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
+                                                           // to radian per seconds
 </pre>
 
 </html>"));
