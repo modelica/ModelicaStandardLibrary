@@ -82,6 +82,6 @@ equation
 <p>Note that this formula does not work if there are additional current paths between the left and right parts of our circuits, e.g. if both have grounds (and current flows through it).</p>
 <p>-------------</p>
 <p>For more info on why power flowing in a circuit between two subcircuits is the sum of products of voltages times currents, the voltages being measured to an arbitrary reference potential, see </p>
-<p>M. Ceraolo and D. Poli; <i>Fundamentals of Electric Power Engineering</i>, par. 3.8.1, IEEE/Wiley, ISBN 978-1-118-67969-2. <a href=\"https://www.wiley.com/en-us/Fundamentals+of+Electric+Power+Engineering:+From+Electromagnetics+to+Power+Systems-p-9781118679692\">https://www.wiley.com/en-us/Fundamentals+of+Electric+Power+Engineering:+From+Electromagnetics+to+Power+Systems-p-9781118679692</a></p>
+<p>M. Ceraolo and D. Poli; <i>Fundamentals of Electric Power Engineering</i>, par. 3.8.1, IEEE/Wiley 2014, ISBN 978-1-118-67969-2. <a href=\"https://www.wiley.com/en-us/Fundamentals+of+Electric+Power+Engineering:+From+Electromagnetics+to+Power+Systems-p-9781118679692\">https://www.wiley.com/en-us/Fundamentals+of+Electric+Power+Engineering:+From+Electromagnetics+to+Power+Systems-p-9781118679692</a></p>
 </html>"));
 end AronSensor;
