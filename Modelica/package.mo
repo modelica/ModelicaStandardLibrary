@@ -1452,9 +1452,8 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Gao2008]&lt;/td&gt;
     &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &amp;quot;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral
-        estimation scheme&amp;quot;,
+        &amp;quot;&lt;a href=&quot;https://ieeexplore.ieee.org/document/4401132&quot;&gt;A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme&lt;/a&gt;&amp;quot;,
         &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     &lt;/td&gt;
@@ -1491,7 +1490,8 @@ This class summarizes general information about the implementation which is not 
       &amp;quot;Oak ridge national laboratory annual progress report for the
       power electronics and electric machinery program&amp;quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
+      &lt;a href=&quot;https://doi.org/10.2172/974618&quot;&gt;DOI 10.2172/974618&lt;/a&gt;.
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -1503,9 +1503,8 @@ This class summarizes general information about the implementation which is not 
   <tr>
     <td>[Gao2008]</td>
     <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral
-        estimation scheme&quot;,
+        &quot;<a href=\"https://ieeexplore.ieee.org/document/4401132\">A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme</a>&quot;,
         <em>IEEE Transactions on Industrial Electronics</em>,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     </td>
@@ -1542,7 +1541,8 @@ This class summarizes general information about the implementation which is not 
       &quot;Oak ridge national laboratory annual progress report for the
       power electronics and electric machinery program&quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
+      <a href=\"https://doi.org/10.2172/974618\">DOI 10.2172/974618</a>.
     </td>
   </tr>
 </table>
