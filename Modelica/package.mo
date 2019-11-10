@@ -1437,7 +1437,7 @@ This class summarizes general information about the implementation which is not 
 
 <ul>
 <li> Journal (or conference) [Gao2008]</li>
-<li> Book [Andronov1973]</li>
+<li> Book [Kral2018]</li>
 <li> Master&apos;s thesis [Woehrnschimmel1998]</li>
 <li> PhD thesis [Farnleitner1999]</li>
 <li> Technical report [Marlino2005]</li>
@@ -1460,10 +1460,11 @@ This class summarizes general information about the implementation which is not 
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td&gt;[Andronov1973]&lt;/td&gt;
-    &lt;td&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;/em&gt;,
-        1st ed. New York: J. Wiley &amp;amp; Sons, 1973.
+    &lt;td&gt;[Kral2018]&lt;/td&gt;
+    &lt;td&gt;C. Kral,
+        &lt;em&gt;Modelica - object oriented modeling of polyphase electric machines&lt;/em&gt; (in German),
+        M&amp;uuml;nchen: Hanser Verlag, 2018, &lt;a href=&quot;https://doi.org/10.3139/9783446457331&quot;&gt;DOI 10.3139/9783446457331&lt;/a&gt;,
+        ISBN 978-3-446-45551-1.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
@@ -1510,10 +1511,11 @@ This class summarizes general information about the implementation which is not 
     </td>
   </tr>
   <tr>
-    <td>[Andronov1973]</td>
-    <td>A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        <em>Theory of  Bifurcations of Dynamic Systems on a plane</em>,
-        1st ed. New York: J. Wiley &amp; Sons, 1973.
+    <td>[Kral2018]</td>
+    <td>C. Kral,
+        <em>Modelica - object oriented modeling of polyphase electric machines</em> (in German),
+        M&uuml;nchen: Hanser Verlag, 2018, <a href=\"https://doi.org/10.3139/9783446457331\">DOI 10.3139/9783446457331</a>,
+        ISBN 978-3-446-45551-1.
     </td>
   </tr>
   <tr>
@@ -1544,6 +1546,9 @@ This class summarizes general information about the implementation which is not 
     </td>
   </tr>
 </table>
+
+<p>If available the DOI links, followed by the ISBN numbers may be added to a book reference</p>
+
 </html>"));
       end References;
 
