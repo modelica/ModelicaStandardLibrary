@@ -1547,8 +1547,6 @@ This class summarizes general information about the implementation which is not 
   </tr>
 </table>
 
-<p>If available the DOI links, followed by the ISBN numbers may be added to a book reference</p>
-
 </html>"));
       end References;
 
