@@ -30,5 +30,48 @@ For hollow cylindric flux tubes with a radial magnetic flux, the flux density is
 <p>
 For those flux tube sections of a magnetic device that have a nonlinear material characteristic mu_r(B) and a large aspect ratio of outer to inner radius r_o/r_i, the section can be split up in a series connection of several hollow cylindric flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element.
 </p>
-</html>"));
+</html>"),
+    Icon(graphics={
+        Ellipse(
+          extent={{-10,60},{10,-60}},
+          lineColor={255,128,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          origin={0,-30},
+          rotation=90),
+        Text(
+          extent={{-150,50},{150,90}},
+          textString="%name",
+          textColor={0,0,255}),
+        Rectangle(
+          extent={{-60,30},{60,-30}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{-10,60},{10,-60}},
+          lineColor={255,128,0},
+          fillColor={215,215,215},
+          fillPattern=FillPattern.Solid,
+          origin={0,30},
+          rotation=90),
+        Ellipse(
+          extent={{-6,30},{6,-30}},
+          lineColor={255,128,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          origin={0,30},
+          rotation=90),
+        Line(
+          points={{-2,-1.22465e-16},{60,0}},
+          color={255,128,0},
+          origin={60,-30},
+          rotation=90),
+        Line(
+          points={{-60,0},{-3.20085e-22,-1.95996e-38}},
+          color={255,128,0},
+          origin={-60,30},
+          rotation=90),
+        Line(points={{-60,0},{-100,0}}, color={255,128,0}),
+        Line(points={{100,0},{60,0}},   color={255,128,0})}));
 end HollowCylinderRadialFlux;
