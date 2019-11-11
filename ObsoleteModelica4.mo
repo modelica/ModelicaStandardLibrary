@@ -1107,7 +1107,7 @@ connector is not connected).
         end f_nonlinear_Data;
 
         replaceable partial function f_nonlinear
-          "Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)"
+          "Non-linear algebraic equation in one unknown: y = f_nonlinear(x,p,X)"
           extends Modelica.Icons.Function;
           extends Modelica.Icons.ObsoleteModel;
           input Real x "Independent variable of function";
@@ -1271,7 +1271,8 @@ connector is not connected).
           Documentation(info="<html>
 <p>
 This package was used in Modelica.Media of MSL &le; 3.2.3 and was replaced by
-by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a>.
+by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">
+Modelica.Math.Nonlinear.solveOneNonlinearEquation</a>.
 </p>
 
 <p>
@@ -1297,9 +1298,9 @@ function. The solver function is a direct mapping of the Algol 60 procedure
 </dl>
 
 <p>
-Due to current limitations of the
-Modelica language (not possible to pass a function reference to a function),
-the construction to use this solver on a user-defined function is a bit
+Due to limitations of the
+Modelica language &le; 3.1 (not possible to pass a function reference to a function),
+the construction to use this solver on a user-defined function was a bit
 complicated (this method is from Hans Olsson, Dassault Syst&egrave;mes AB). A user has to
 provide a package in the following way:
 </p>
@@ -1318,7 +1319,7 @@ provide a package in the following way:
        // Compute the non-linear equation: y = f(x, Data)
     <strong>end</strong> f_nonlinear;
 
-    // Dummy definition that has to be present for current Dymola
+    // Dummy definition that had to be present for older version of Dymola
     <strong>redeclare function extends</strong> solve
     <strong>end</strong> solve;
   <strong>end</strong> MyNonLinearSolver;
