@@ -231,7 +231,7 @@ density and heat capacity as functions of temperature.</li>
 <p>
 Note that the inner energy neglects the pressure dependence, which is only
 true for an incompressible medium with d = constant. The neglected term is
-p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
+(p-reference_p)/rho*(T/rho)*(&part;rho /&part;T). This is very small for
 liquids due to proportionality to 1/d^2, but can be problematic for gases that are
 modeled incompressible.
 </p>
