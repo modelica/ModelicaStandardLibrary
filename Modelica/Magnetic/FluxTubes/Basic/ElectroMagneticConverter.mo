@@ -124,13 +124,6 @@ equation
           textColor={0,0,255},
           textString="%name"),
         Line(points={{18,10},{18,-12}}, color={255,127,0}),
-        Line(points={{-110,30},{-110,-30}},
-                                          color={0,0,255}),
-        Polygon(
-          points={{-110,-30},{-104,-10},{-116,-10},{-110,-30}},
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid),
         Line(points={{110,32},{110,-28}}, color={255,128,0}),
         Polygon(
           points={{110,-28},{116,-8},{104,-8},{110,-28}},
@@ -162,7 +155,12 @@ equation
           origin={-23,-45},
           rotation=270),
         Line(points={{-30,60},{-30,100}}, color={28,108,200}),
-        Line(points={{-30,-100},{-30,-60}}, color={28,108,200})}),
+        Line(points={{-30,-100},{-30,-60}}, color={28,108,200}),
+        Polygon(
+          points={{-30,60},{-24,80},{-36,80},{-30,60}},
+          lineColor={0,0,255},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
 The electromagnetic energy conversion is given by <em>Ampere</em>'s law and <em>Faraday</em>'s law respectively:
@@ -174,7 +172,20 @@ N * d&Phi;/dt = -v
 </pre></blockquote>
 
 <p>
-V_m is the magnetomotive force that is supplied to the connected magnetic circuit, &Phi; is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
+V_m is the magnetomotive force that is supplied to the connected magnetic circuit, &Phi; is the magnetic flux through the associated branch of this magnetic circuit. 
+The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
+</p>
+
+<p>
+Note that the direction of current (around the magnetic path) is correlated to the direction of the magnetomotive force following a right-hand screw. 
+This means, a positive current causes a positive mmf. 
+The direction of flux flow is defined by the connected magnetic circuit. 
+The direction of flux (through the coil) is correlated again to the reference arrow of voltage (induced by the derivative of flux linkage with respect to time) following a right-hand screw, 
+therefore Farady's law contains a minus sign to fulfill Lenz's law.
+</p>
+
+<p>
+If a left-handed coil has to be modeled instead of a right-handed coil, the parameter N (Number of turns) can be set to a negative value.
 </p>
 
 <p>

@@ -151,13 +151,6 @@ equation
           textColor={0,0,255},
           textString="%name"),
         Line(points={{18,10},{18,-12}}, color={255,127,0}),
-        Line(points={{-110,30},{-110,-30}},
-                                          color={0,0,255}),
-        Polygon(
-          points={{-110,-30},{-104,-10},{-116,-10},{-110,-30}},
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid),
         Line(points={{110,32},{110,-28}}, color={255,128,0}),
         Polygon(
           points={{110,-28},{116,-8},{104,-8},{110,-28}},
@@ -200,7 +193,12 @@ equation
           origin={-23,-45},
           rotation=270),
         Line(points={{-30,60},{-30,100}}, color={28,108,200}),
-        Line(points={{-30,-100},{-30,-60}}, color={28,108,200})}),
+        Line(points={{-30,-100},{-30,-60}}, color={28,108,200}),
+        Polygon(
+          points={{-30,60},{-24,80},{-36,80},{-30,60}},
+          lineColor={0,0,255},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
 Same as <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electromagnetic converter.
