@@ -354,27 +354,17 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     output Temperature T "Temperature";
 
   protected
-  package Internal
-      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)"
-    extends Modelica.Media.Common.OneNonLinearEquation;
-    redeclare record extends f_nonlinear_Data
-        "Data to be passed to non-linear function"
-      extends Modelica.Media.IdealGases.Common.DataRecord;
-    end f_nonlinear_Data;
-
-    redeclare function extends f_nonlinear
+    function f_nonlinear "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input DataRecord data "Ideal gas data";
+      input SpecificEnthalpy h "Specific enthalpy";
     algorithm
-        y := Modelica.Media.IdealGases.Common.Functions.h_T(
-                 f_nonlinear_data,x);
+      y := Functions.h_T(data=data, T=u) - h;
     end f_nonlinear;
 
-    // Dummy definition has to be added for current Dymola
-    redeclare function extends solve
-    end solve;
-  end Internal;
-
   algorithm
-    T := Internal.solve(h, 200, 6000, 1.0e5, {1}, data);
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(data=data, h=h), 200, 6000);
   end T_h;
 
   function T_ps "Compute temperature from pressure and specific entropy"
@@ -384,27 +374,18 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     output Temperature T "Temperature";
 
   protected
-  package Internal
-      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)"
-    extends Modelica.Media.Common.OneNonLinearEquation;
-    redeclare record extends f_nonlinear_Data
-        "Data to be passed to non-linear function"
-      extends Modelica.Media.IdealGases.Common.DataRecord;
-    end f_nonlinear_Data;
-
-    redeclare function extends f_nonlinear
+    function f_nonlinear "Solve s(data,T) for T with given s (use only indirectly via temperature_psX)"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input DataRecord data "Ideal gas data";
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
     algorithm
-        y := Modelica.Media.IdealGases.Common.Functions.s0_T(
-                  f_nonlinear_data,x)- data.R_s*Modelica.Math.log(p/reference_p);
+      y := Functions.s0_T(data=data, T=u) - data.R_s*Modelica.Math.log(p/reference_p) - s;
     end f_nonlinear;
 
-    // Dummy definition has to be added for current Dymola
-    redeclare function extends solve
-    end solve;
-  end Internal;
-
   algorithm
-    T := Internal.solve(s, 200, 6000, p, {1}, data);
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(data=data, p=p, s=s), 200, 6000);
   end T_ps;
 
 // the functions below are not strictly necessary, there are just here for compatibility reasons
@@ -440,7 +421,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
                 Documentation(info="<html>
 <p>
 The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
-The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the following conversion constants were used to
+The formula 9-4.10 is the one being used. The formula is given in non-SI units, the following conversion constants were used to
 transform the formula to SI units:
 </p>
 
@@ -1309,36 +1290,28 @@ end lowPressureThermalConductivity;
     extends Modelica.Icons.Function;
     input SpecificEnthalpy h "Specific enthalpy";
     input MassFraction[nX] X "Mass fractions of composition";
-     input Boolean exclEnthForm=excludeEnthalpyOfFormation
+    input Boolean exclEnthForm=excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-     input Modelica.Media.Interfaces.Choices.ReferenceEnthalpy
+    input Modelica.Media.Interfaces.Choices.ReferenceEnthalpy
                                      refChoice=referenceChoice
       "Choice of reference enthalpy";
-     input SI.SpecificEnthalpy h_off=h_offset
+    input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output Temperature T "Temperature";
   protected
     MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
-  package Internal
-      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)"
-    extends Modelica.Media.Common.OneNonLinearEquation;
-    redeclare record extends f_nonlinear_Data
-        "Data to be passed to non-linear function"
-      extends Modelica.Media.IdealGases.Common.DataRecord;
-    end f_nonlinear_Data;
 
-    redeclare function extends f_nonlinear
+    function f_nonlinear "Solve h_TX(T,X) for T with given h"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction[:] Xfull "Mass fractions of composition";
     algorithm
-        y := h_TX(x,X);
+      y := h_TX(T=u, X=Xfull) - h;
     end f_nonlinear;
 
-    // Dummy definition has to be added for current Dymola
-    redeclare function extends solve
-    end solve;
-  end Internal;
-
   algorithm
-    T := Internal.solve(h, 200, 6000, 1.0e5, Xfull, data[1]);
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(h=h, Xfull=Xfull), 200, 6000);
     annotation(inverse(h = h_TX(T,X,exclEnthForm,refChoice,h_off)));
   end T_hX;
 
@@ -1351,57 +1324,24 @@ end lowPressureThermalConductivity;
     output Temperature T "Temperature";
   protected
     MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
-  package Internal
-      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)"
-    extends Modelica.Media.Common.OneNonLinearEquation;
-    redeclare record extends f_nonlinear_Data
-        "Data to be passed to non-linear function"
-      extends Modelica.Media.IdealGases.Common.DataRecord;
-    end f_nonlinear_Data;
 
-    redeclare function extends f_nonlinear
-        "Note that this function always sees the complete mass fraction vector"
-      protected
-    MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
-    Real[nX] Y(each unit="mol/mol")=massToMoleFractions(if size(X,1) == nX then X else cat(1,X,{1-sum(X)}), data.MM)
-          "Molar fractions";
+    function f_nonlinear "Solve s_TX(p,T,X) for T with given s"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input MassFraction[:] Xfull "Mass fractions of composition";
+    protected
+      Real[nX] Y(each unit="mol/mol")=massToMoleFractions(Xfull, data.MM) "Molar fractions";
     algorithm
-      y := s_TX(x,Xfull) - sum(Xfull[i]*Modelica.Constants.R/MMX[i]*
-      (if Xfull[i]<Modelica.Constants.eps then Y[i] else
-      Modelica.Math.log(Y[i]*p/reference_p)) for i in 1:nX);
-        // s_TX(x,X)- data[:].R_s*X*(Modelica.Math.log(p/reference_p)
-        //       + MixEntropy(massToMoleFractions(X,data[:].MM)));
+      y := s_TX(T=u, X=Xfull) - sum(Xfull[i]*Modelica.Constants.R/MMX[i]*
+        (if Xfull[i] < Modelica.Constants.eps then Y[i] else
+        Modelica.Math.log(Y[i]*p/reference_p)) for i in 1:nX) - s;
     end f_nonlinear;
 
-    // Dummy definition has to be added for current Dymola
-    redeclare function extends solve
-    end solve;
-  end Internal;
-
   algorithm
-    T := Internal.solve(s, 200, 6000, p, Xfull, data[1]);
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(p=p, s=s, Xfull=Xfull), 200, 6000);
   end T_psX;
-
-//   redeclare function extends specificEnthalpy_psX
-//   protected
-//     Temperature T "Temperature";
-//   algorithm
-//     T := temperature_psX(p,s,X);
-//     h := specificEnthalpy_pTX(p,T,X);
-//   end extends;
-
-//   redeclare function extends density_phX
-//     "Compute density from pressure, specific enthalpy and mass fraction"
-//     protected
-//     Temperature T "Temperature";
-//     SpecificHeatCapacity R_s "Gas constant";
-//   algorithm
-//     T := temperature_phX(p,h,X);
-//     R_s := if (not reducedX) then
-//       sum(data[i].R_s*X[i] for i in 1:size(substanceNames, 1)) else
-//       sum(data[i].R_s*X[i] for i in 1:size(substanceNames, 1)-1) + data[end].R_s*(1-sum(X[i]));
-//     d := p/(R_s*T);
-//   end density_phX;
 
   annotation (Documentation(info="<html>
 <p>
@@ -1429,7 +1369,5 @@ It has been developed by Hubertus Tummescheit.
 </p>
 </html>"));
 end MixtureGasNasa;
-annotation (Documentation(info="<html>
-
-</html>"));
+annotation (Documentation(info="<html></html>"));
 end Common;

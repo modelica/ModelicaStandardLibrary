@@ -1891,6 +1891,46 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue3037;
+
+    model Issue3205 "Conversion test for #3205"
+      extends Modelica.Icons.Example;
+
+      parameter Real y_zero=0.5 "Desired value of A*sin(w*x)";
+      parameter Real x_min=-1.7 "Minimum value of x_zero";
+      parameter Real x_max=1.7 "Maximum value of x_zero";
+      parameter Real A=1 "Amplitude of sine";
+      parameter Real w=1 "Angular frequency of sine";
+      parameter Inverse_sine_definition.f_nonlinear_Data data=
+        Inverse_sine_definition.f_nonlinear_Data(A=A, w=w) "Data record";
+      Real x_zero "y_zero = A*sin(w*x_zero)";
+
+      package Inverse_sine_definition "Define sine as non-linear equation to be solved"
+        extends Modelica.Media.Common.OneNonLinearEquation;
+
+        redeclare record extends f_nonlinear_Data "Data for non-linear equation"
+          Real A "Amplitude";
+          Real w "Angular frequency";
+        end f_nonlinear_Data;
+
+        redeclare function extends f_nonlinear "Non-linear equation to be solved"
+        algorithm
+          y := f_nonlinear_data.A*Modelica.Math.sin(f_nonlinear_data.w*x);
+        end f_nonlinear;
+
+        // Dummy definition had to be added for older Dymola
+        redeclare function extends solve "Solution algorithm of non-linear equation"
+        end solve;
+      end Inverse_sine_definition;
+
+    equation
+      x_zero = Inverse_sine_definition.solve(y_zero, x_min, x_max, f_nonlinear_data=data);
+
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3205\">#3205</a>.
+</p>
+</html>"));
+    end Issue3205;
   end Media;
 
   package Thermal
