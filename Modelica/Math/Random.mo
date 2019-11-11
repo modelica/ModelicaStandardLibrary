@@ -968,6 +968,10 @@ This function should be only called once during initialization.
                                    Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;
 </pre>
 
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.Random.Utilities.automaticLocalSeed\">automaticLocalSeed</a>.
+</p>
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",     revisions="<html>
