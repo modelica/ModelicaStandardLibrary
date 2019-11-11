@@ -589,14 +589,9 @@ the desired situation. For this purpose the following parameters can be defined:
          produce exactly the same random number values (so the same noise, if the other settings
          of the instances are the same).<br>
          If <strong>useAutomaticLocalSeed = true</strong>, the
-         local seed is determined automatically from an impure random number generator that
-         produces Integer random values (<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandomInteger\">impureRandomInteger</a>). This is the default.
-         Note, this means that the noise might change if function randomInteger() is called
-         more or less often in the overall model (e.g. because an additional noise block is
-         introduced or removed). It is planned to change the automatic local seed function
-         in a future version of package Modelica, once Modelica Language 3.3 language elements
-         can be used (by using a hash value of the instance name of the model that is
-         inquired with the Modelica Language 3.3 function getInstanceName()).<br>
+         local seed is determined automatically using a hash value of the instance name of the model that is
+         inquired with the Modelica built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName()</a>.
+         Note, this means that the noise changes if the component is renamed.<br>
          If <strong>useAutomaticLocalSeed = false</strong>, the local seed is defined
          explicitly by parameter fixedLocalSeed. It is then guaranteed that the generated noise
          remains always the same (provided the other parameter values are the same).</td></tr>
