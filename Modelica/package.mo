@@ -860,12 +860,17 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <pre>
 &lt;p&gt;
-More details about sensorless rotor temperature estimation
-can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;[Gao2008]&lt;/a.&gt;
+More details about electric machine modeling
+can be found in [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
+and
+[&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
-  More details about sensorless rotor temperature estimation can be found in <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">[Gao2008]</a>.
+More details about electric machine modeling
+can be found in [<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Gao2008</a>]
+and
+[<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Kral2018</a>, p. 149].
 </p>
 </html>"));
         end References;
