@@ -137,7 +137,7 @@ Using the values shown in section Parameters, the results can be validated easil
 <tr><td>total     </td><td>             </td><td>             </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
 </table>
 <p>
-Note that since no leakage is present, the magnetic flux is the same in every elements - they are connected in series. 
+Note that since no leakage is present, the magnetic flux is the same in every element - they are connected in series. 
 For calculation of the length of flux lines, a medium flux line (dashed line) is used.
 </p>
 <p>
