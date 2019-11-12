@@ -2443,7 +2443,7 @@ package ReferenceMoistAir
         end IceConstants;
 
         constant IceConstants Constants(
-          R_bar=8.314472,
+          R_bar=Modelica.Constants.R,
           R_s=461.52364,
           MM=18.015268E-003,
           rhored=1.0,
@@ -2901,7 +2901,7 @@ package ReferenceMoistAir
         Real caaw=0;
         Real caww=0;
         Real cwww=0;
-        final constant Real R_bar=8.314472;
+        final constant Real R_bar=Modelica.Constants.R;
 
       algorithm
         //p_ws is the saturation pressure of water

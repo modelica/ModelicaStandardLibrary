@@ -9284,7 +9284,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
     record data
       constant SIunits.SpecificHeatCapacity R_s=81.4888564372;
-      // 8.314471/0.102032
+      // Modelica.Constants.R/MM
       constant SIunits.MolarMass MM=0.102032;
       extends crit;
       constant SIunits.SpecificEnthalpy HCRIT=389653;
