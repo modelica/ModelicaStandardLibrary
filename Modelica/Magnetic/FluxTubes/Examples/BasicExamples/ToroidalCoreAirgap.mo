@@ -2,8 +2,8 @@ within Modelica.Magnetic.FluxTubes.Examples.BasicExamples;
 model ToroidalCoreAirgap "Educational example: iron core with airgap"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Length r=0.05 "Outer radius of iron core";
-  parameter Modelica.SIunits.Length d=0.01 "cylindrical cross section";
+  parameter Modelica.SIunits.Length r=0.05 "Middle radius of iron core";
+  parameter Modelica.SIunits.Length d=0.01 "Diameter of cylindrical cross section";
   parameter Real my_r=1000 "Relative permeability of core";
   parameter Modelica.SIunits.Length delta=0.001 "Length of airgap";
   parameter Modelica.SIunits.Angle alfa=(1 - delta/(2*pi*r))*2*pi "Section angle of toroidal core";
