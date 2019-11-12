@@ -1,6 +1,5 @@
-within Modelica.Magnetic.FluxTubes.Examples;
-model SimpleMagneticCircuit
-  "Educational example: iron core with airgap"
+within Modelica.Magnetic.FluxTubes.Examples.BasicExamples;
+model QuadraticCoreAirgap "Educational example: iron core with airgap"
   extends Icons.Example;
   parameter Modelica.SIunits.Length l=0.1 "Outer length of iron core";
   parameter Modelica.SIunits.Length a=0.01 "Quadratic cross section";
@@ -151,4 +150,4 @@ Note that usage of nonlinear magnetic material would change that result due the 
 Note the proper usage of electric and magnetic grounds to define zero potential.
 </p>
 </html>"), experiment(StopTime=0.05, Interval=0.0001));
-end SimpleMagneticCircuit;
+end QuadraticCoreAirgap;
