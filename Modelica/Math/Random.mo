@@ -1001,22 +1001,9 @@ This function should be only called once during initialization.
       input String path
         "Full path name of the instance (inquire with getInstanceName())";
       output Integer seed "Automatically generated seed";
-    protected
-      Integer pos;
-      Integer len;
-      String str;
     algorithm
-      // Remove first name from the path, because all instances have the same root name
-      pos := Modelica.Utilities.Strings.find(path, ".");
-      len := Modelica.Utilities.Strings.length(path);
-      if pos > 0 and pos < len then
-        str := Modelica.Utilities.Strings.substring(path, pos+1, len);
-      else
-        str := path;
-      end if;
-
-      // Generate a hash value from the generated string
-      seed := Modelica.Utilities.Strings.hashString(str);
+      // Generate a hash value from the instance name
+      seed := Modelica.Utilities.Strings.hashString(path);
 
      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
