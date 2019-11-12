@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FluxTubes.Shapes.FixedShape;
 model Toroid
-  "Toroid; fixed shape; linear or non-linear material characteristics"
+  "Toroid with circular cross section; fixed shape; linear or non-linear material characteristics"
 
   extends BaseClasses.FixedShape;
   extends Modelica.Magnetic.FluxTubes.Icons.Toroid;
@@ -23,7 +23,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 </p>
 
 <p>
-For toroidal flux tubes with a radial magnetic flux, the flux density is a function of the radius. 
+For toroidal flux tubes with a circumferental magnetic flux, the flux density is a function of the radius. 
 For that reason, the characteristic mu_r(B) is evaluated for the flux density at the flux tube's mean radius.
 </p>
 
