@@ -121,18 +121,7 @@
 */
 
 #include "ModelicaInternal.h"
-#include <string.h>
 #include "ModelicaUtilities.h"
-
-/* The standard way to detect POSIX is to check _POSIX_VERSION,
- * which is defined in <unistd.h>
- */
-#if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
-  #include <unistd.h>
-#endif
-#if !defined(_POSIX_) && defined(_POSIX_VERSION)
-  #define _POSIX_ 1
-#endif
 
 MODELICA_NORETURN static void ModelicaNotExistError(const char* name) MODELICA_NORETURNATTR;
 static void ModelicaNotExistError(const char* name) {
@@ -196,10 +185,21 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
     ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
+/* The standard way to detect POSIX is to check _POSIX_VERSION,
+ * which is defined in <unistd.h>
+ */
+#if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
+  #include <unistd.h>
+#endif
+#if !defined(_POSIX_) && defined(_POSIX_VERSION)
+  #define _POSIX_ 1
+#endif
+
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
 #include "gconstructor.h"
 
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
