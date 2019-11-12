@@ -1833,18 +1833,18 @@ singular vectors of matrix A. Basically the singular
 value decomposition of A is computed, i.e.,
 </p>
 <blockquote><pre>
-<strong>A</strong> = <strong>U</strong> <strong><font face=\"Symbol\">S</font></strong> <strong>V</strong><sup>T</sup>
+<strong>A</strong> = <strong>U</strong> <strong>&Sigma;</strong> <strong>V</strong><sup>T</sup>
   = U*Sigma*VT
 </pre></blockquote>
 <p>
 where <strong>U</strong> and <strong>V</strong> are orthogonal matrices (<strong>UU</strong><sup>T</sup>=<strong>I,
-</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>). <strong><font face=\"Symbol\">S
-</font></strong> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
-m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt;
-m=size(A,2)). <strong><font face=\"Symbol\">S</font></strong> has the same size as matrix A with
+</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>).
+<strong>&Sigma;</strong> = [diagonal(&sigma;<sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
+m=size(A,2)) or [diagonal(&sigma;<sub>i</sub>); zeros(n-m,m)], if n &gt;
+m=size(A,2)). <strong>&Sigma;</strong> has the same size as matrix A with
 nonnegative diagonal elements in decreasing order and with all other elements zero
-(<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
-returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
+(&sigma;<sub>1</sub> is the largest element). The function
+returns the singular values &sigma;<sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
 matrices <code>U</code> and <code>VT</code>.
 </p>
