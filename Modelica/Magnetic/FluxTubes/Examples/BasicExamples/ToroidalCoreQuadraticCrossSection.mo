@@ -1,33 +1,38 @@
 within Modelica.Magnetic.FluxTubes.Examples.BasicExamples;
-model ToroidalCoreAirgap "Educational example: iron core with airgap"
+model ToroidalCoreQuadraticCrossSection
+  "Educational example: iron core with airgap"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Length r=0.05 "Middle radius of iron core";
-  parameter Modelica.SIunits.Length d=0.01 "Diameter of cylindrical cross section";
+  parameter Modelica.SIunits.Length r_o=0.055 "Outer radius of iron core";
+  parameter Modelica.SIunits.Length r_i=0.045 "Inner radius of iron core";
+  parameter Modelica.SIunits.Length l=0.01 "Length of rectangular cross section";
   parameter Real my_r=1000 "Relative permeability of core";
   parameter Modelica.SIunits.Length delta=0.001 "Length of airgap";
-  parameter Modelica.SIunits.Angle alfa=(1 - delta/(2*pi*r))*2*pi "Section angle of toroidal core";
+  parameter Modelica.SIunits.Angle alfa=(1 - delta/(2*pi*(r_o + r_i)/2))*2*pi "Section angle of toroidal core";
   parameter Integer N=500 "Number of exciting coil turns";
   parameter Modelica.SIunits.Current I=1.5 "Maximum exciting current";
   Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter excitingCoil(N=N)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-  Shapes.FixedShape.Toroid core(
+  Shapes.FixedShape.HollowCylinderCircumferentialFlux
+                           core(
     nonLinearPermeability=false,
     mu_rConst=1000,
-    r=r,
-    d=d,
+    l=l,
+    r_i=r_i,
+    r_o=r_o,
     alfa=alfa) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=0,
         origin={0,30})));
-  Shapes.FixedShape.Toroid                             airGap(
+  Shapes.FixedShape.HollowCylinderCircumferentialFlux  airGap(
     nonLinearPermeability=false,
     mu_rConst=1,
-    r=r,
-    d=d,
+    l=l,
+    r_i=r_i,
+    r_o=r_o,
     alfa=2*pi - alfa)
          annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={0,-50})));
   Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter measuringCoil(N=1)
@@ -83,7 +88,7 @@ equation
     annotation (Line(points={{-20,10},{-20,30},{-10,30}}, color={255,127,0}));
   annotation (Documentation(info="<html>
 <p>
-Educational example of a magnetic circuit containing a toroidal iron core with circular cross section and an airgap:
+Educational example of a magnetic circuit containing a toroidal iron core with rectangular cross section and an airgap:
 </p>
 <p>
 A current ramp is applied in positive electric direction through the exciting coil, causing a rising magnetomotive force (mmf) in positive magnetic direction of the electromagnetic converter.  
@@ -96,10 +101,10 @@ The sum of all magnetic potential differences is covered by the mmf of the excit
 Using the values shown in section Parameters, the results can be validated easily by analytic calculations:
 </p>
 <table>
-<tr><th>element   </th><th>cross section     </th><th>length             </th><th>material          </th><th>B                   </th><th>H                                    </th><th>mmf              </th></tr>
-<tr><td>core      </td><td>d<sup>2</sup>*pi/4</td><td>r*alfa             </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
-<tr><td>airgap    </td><td>d<sup>2</sup>*pi/4</td><td>delta=r*(2*pi-alfa)</td><td>&mu;<sub>r</sub>=1</td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
-<tr><td>total     </td><td>                  </td><td>                   </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
+<tr><th>element   </th><th>cross section</th><th>length                         </th><th>material          </th><th>B                   </th><th>H                                    </th><th>mmf              </th></tr>
+<tr><td>core      </td><td>(r_o - r_i)*l</td><td>(r_o + r_i)/2*alfa             </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
+<tr><td>airgap    </td><td>(r_o - r_i)*l</td><td>delta=(r_o + r_i)/2*(2*pi-alfa)</td><td>&mu;<sub>r</sub>=1</td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
+<tr><td>total     </td><td>             </td><td>                               </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
 </table>
 <p>
 Note that since no leakage is present, the magnetic flux is the same in every element - they are connected in series. 
@@ -115,4 +120,4 @@ Note that usage of nonlinear magnetic material would change that result due the 
 Note the proper usage of electric and magnetic grounds to define zero potential.
 </p>
 </html>"), experiment(StopTime=0.05, Interval=0.0001));
-end ToroidalCoreAirgap;
+end ToroidalCoreQuadraticCrossSection;
