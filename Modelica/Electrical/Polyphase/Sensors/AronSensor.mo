@@ -70,7 +70,7 @@ equation
           textColor={64,64,64},
           textString="W")}),      Documentation(info="<html>
 <p>Contains two <a href=\"modelica://Modelica.Electrical.Analog.Sensors.PowerSensor\">power meters</a> to measure total active power in a three-phase system. </p>
-<p>This device works only for in three-phase systems without neutral. </p>
+<p>This device works only in three-phase systems without neutral. </p>
 <p><br>The rationale behind this sensor is that power exchanged between two parts of a circuit is the sum of the products of currents in the <i>m</i> wires connecting the two parts times wires&apos; potentials evaluated with reference to an arbitrary potential <i>v</i><sub>ref</sub>: </p>
 <p><i>P</i>=(<i>v</i><sub>1</sub>-<i>v</i><sub>ref</sub>)*<i>i</i><sub>1</sub>+(<i>v</i><sub>2</sub>-<i>v</i><sub>ref</sub>)*<i>i</i><sub>2</sub>+... (<i>v</i><sub>m</sub>-<i>v</i><sub>ref</sub>)*<i>i</i><sub>m</sub></p>
 <p>In case of a three-phase system without neutral we may want to measure power flowing in a line, connecting say the left part of the circuit to its right part. The wires connecting the two parts are only three (i.e. <i>m</i>=3)
