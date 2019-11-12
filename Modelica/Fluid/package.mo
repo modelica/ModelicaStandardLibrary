@@ -640,9 +640,9 @@ For pipes with circular cross section the pressure drop is computed as:
 </p>
 
 <pre>
-   dp = &lambda;(Re,<font face=\"Symbol\">D</font>)*(L/D)*&rho;*v*|v|/2
-      = &lambda;(Re,<font face=\"Symbol\">D</font>)*8*L/(&pi;^2*D^5*&rho;)*m_flow*|m_flow|
-      = &lambda;2(Re,<font face=\"Symbol\">D</font>)*k2*sign(m_flow);
+   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
+      = &lambda;(Re,&Delta;)*8*L/(&pi;^2*D^5*&rho;)*m_flow*|m_flow|
+      = &lambda;2(Re,&Delta;)*k2*sign(m_flow);
 
 with
    Re     = |v|*D*&rho;/&mu;
@@ -661,14 +661,14 @@ where
 <li> D is the diameter of the pipe. If the pipe has not a
      circular cross section, D = 4*A/P, where A is the cross section
      area and P is the wetted perimeter.</li>
-<li> &lambda; = &lambda;(Re,<font face=\"Symbol\">D</font>) is the \"usual\" wall friction coefficient.</li>
+<li> &lambda; = &lambda;(Re,&Delta;) is the \"usual\" wall friction coefficient.</li>
 <li> &lambda;2 = &lambda;*Re^2 is the used friction coefficient to get a numerically
      well-posed formulation.</li>
 <li> Re = |v|*D*&rho;/&mu; is the Reynolds number.</li>
-<li> <font face=\"Symbol\">D</font> = <font face=\"Symbol\">d</font>/D is the relative roughness where
-     \"<font face=\"Symbol\">d</font>\" is
+<li> &Delta; = &delta;/D is the relative roughness where
+     \"&delta;\" is
      the absolute \"roughness\", i.e., the averaged height of asperities in the pipe
-     (<font face=\"Symbol\">d</font> may change over time due to growth of surface asperities during
+     (&delta; may change over time due to growth of surface asperities during
       service, see <em>[Idelchik 1994, p. 85, Tables 2-1, 2-2])</em>.</li>
 <li> &rho; is the upstream density.</li>
 <li> &mu; is the upstream dynamic viscosity.</li>
@@ -719,10 +719,10 @@ The pressure loss characteristic is divided into three regions:
      is assumed to be known, &lambda;2 = |dp|/k2. The
      Colebrook-White equation
      <em>[Colebrook 1939; Idelchik 1994, p. 83, eq. (2-9)]</em>:
-     <pre>1/sqrt(&lambda;) = -2*lg( 2.51/(Re*sqrt(&lambda;)) + 0.27*<font face=\"Symbol\">D</font>) </pre>
+     <pre>1/sqrt(&lambda;) = -2*lg( 2.51/(Re*sqrt(&lambda;)) + 0.27*&Delta;) </pre>
      gives an implicit relationship between Re and &lambda;.
      Inserting &lambda;2 = &lambda;*Re^2 allows to solve this equation analytically
-     for Re: <pre>Re = -2*sqrt(&lambda;2)*lg(2.51/sqrt(&lambda;2) + 0.27*<font face=\"Symbol\">D</font>)</pre>
+     for Re: <pre>Re = -2*sqrt(&lambda;2)*lg(2.51/sqrt(&lambda;2) + 0.27*&Delta;)</pre>
      Finally, the mass flow rate m_flow is computed from Re via
      m_flow = Re*&pi;*D*&mu;/4*sign(dp).
      These are the <strong>red</strong> curves in the diagrams above.<br>
@@ -731,7 +731,7 @@ The pressure loss characteristic is divided into three regions:
      approximation of the inverse of the Colebrook-White equation
      <em>[Swamee and Jain 1976;
      Miller 1990, p. 191, eq.(8.4)]</em> adapted to &lambda;2:
-     <pre> &lambda;2 = 0.25*(Re/lg(<font face=\"Symbol\">D</font>/3.7 + 5.74/Re^0.9))^2 </pre>
+     <pre> &lambda;2 = 0.25*(Re/lg(&Delta;/3.7 + 5.74/Re^0.9))^2 </pre>
      The pressure drop is then computed as dp = k2*&lambda;2*sign(m_flow).
      These are the <strong>blue</strong> curves in the diagrams above.<br>&nbsp;</li>
 
@@ -744,9 +744,9 @@ The pressure loss characteristic is divided into three regions:
      relative roughness. A laminar flow at Re=2000 is only reached for smooth pipes.
      The deviation Reynolds number Re1 is computed according to
      <em>[Samoilenko 1968; Idelchik 1994, p. 81, sect. 2.1.21]</em> as:
-     <pre>Re1 = 745*e^(if <font face=\"Symbol\">D</font> &le; 0.0065 then 1 else 0.0065/<font face=\"Symbol\">D</font>)</pre>
+     <pre>Re1 = 745*e^(if &Delta; &le; 0.0065 then 1 else 0.0065/&Delta;)</pre>
      These are the <strong>blue</strong> curves in the diagrams above.<br>
-     Between Re1=Re1(<font face=\"Symbol\">d</font>/D) and Re2=4000,
+     Between Re1=Re1(&delta;/D) and Re2=4000,
      &lambda;2 is approximated by a cubic
      polynomial in the \"lg(&lambda;2) - lg(Re)\" chart (see figures above) such that the
      first derivative is continuous at these two points. In order to avoid
@@ -759,7 +759,7 @@ The pressure loss characteristic is divided into three regions:
      not in this region.</li>
 </ul>
 <p>
-The absolute roughness <font face=\"Symbol\">d</font> has usually to
+The absolute roughness &delta; has usually to
 be estimated. In <em>[Idelchik 1994, pp. 105-109,
 Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
 As a short summary:
@@ -767,27 +767,27 @@ As a short summary:
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><strong>Smooth pipes</strong></td>
       <td>Drawn brass, copper, aluminium, glass, etc.</td>
-      <td><font face=\"Symbol\">d</font> = 0.0025 mm</td>
+      <td>&delta; = 0.0025 mm</td>
   </tr>
   <tr><td rowspan=\"3\"><strong>Steel pipes</strong></td>
       <td>New smooth pipes</td>
-      <td><font face=\"Symbol\">d</font> = 0.025 mm</td>
+      <td>&delta; = 0.025 mm</td>
   </tr>
   <tr><td>Mortar lined, average finish</td>
-      <td><font face=\"Symbol\">d</font> = 0.1 mm</td>
+      <td>&delta; = 0.1 mm</td>
   </tr>
   <tr><td>Heavy rust</td>
-      <td><font face=\"Symbol\">d</font> = 1 mm</td>
+      <td>&delta; = 1 mm</td>
   </tr>
   <tr><td rowspan=\"3\"><strong>Concrete pipes</strong></td>
       <td>Steel forms, first class workmanship</td>
-      <td><font face=\"Symbol\">d</font> = 0.025 mm</td>
+      <td>&delta; = 0.025 mm</td>
   </tr>
   <tr><td>Steel forms, average workmanship</td>
-      <td><font face=\"Symbol\">d</font> = 0.1 mm</td>
+      <td>&delta; = 0.1 mm</td>
   </tr>
   <tr><td>Block linings</td>
-      <td><font face=\"Symbol\">d</font> = 1 mm</td>
+      <td>&delta; = 1 mm</td>
   </tr>
 </table>
 <p>
@@ -834,8 +834,8 @@ in cases where the inverse pressure loss function is needed.
 
 <p>
 A detailed pressure drop model for pipe wall friction is
-provided in the form m_flow = f1(dp, <font face=\"Symbol\">D</font>) or
-dp = f2(m_flow, <font face=\"Symbol\">D</font>).
+provided in the form m_flow = f1(dp, &Delta;) or
+dp = f2(m_flow, &Delta;).
 These functions are continuous and differentiable,
 are provided in an explicit form without solving non-linear equations,
 and do behave well also at small mass flow rates. This pressure drop
