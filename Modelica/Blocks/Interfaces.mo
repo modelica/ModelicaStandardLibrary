@@ -1347,7 +1347,7 @@ converts from one unit into another one.
 
   partial block PartialNoise "Partial noise generator"
     import generator = Modelica.Math.Random.Generators.Xorshift128plus;
-    import Modelica.Math.Random.Utilities.impureRandomInteger;
+    import Modelica.Math.Random.Utilities.automaticLocalSeed;
     extends Modelica.Blocks.Interfaces.SO;
 
     // Main dialog menu
@@ -1382,7 +1382,7 @@ converts from one unit into another one.
     parameter Integer actualGlobalSeed = if useGlobalSeed then globalSeed.seed else 0
       "The global seed, which is actually used";
     parameter Boolean generateNoise = enableNoise and globalSeed.enableNoise
-      "= true if noise shall be generated, otherwise no noise";
+      "= true, if noise shall be generated, otherwise no noise";
 
     // Declare state and random number variables
     Integer state[generator.nState] "Internal state of random number generator";
@@ -1390,7 +1390,7 @@ converts from one unit into another one.
     discrete Real r_raw "Uniform random number in the range (0,1]";
 
   initial equation
-     localSeed = if useAutomaticLocalSeed then impureRandomInteger(globalSeed.id_impure) else fixedLocalSeed;
+     localSeed = if useAutomaticLocalSeed then automaticLocalSeed(getInstanceName()) else fixedLocalSeed;
      pre(state) = generator.initialState(localSeed, actualGlobalSeed);
      r_raw = generator.random(pre(state));
 
