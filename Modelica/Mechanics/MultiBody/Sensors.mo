@@ -421,7 +421,7 @@ angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
 <pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+    -&pi; &lt;= angles[i] &lt;= &pi;
 </pre>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -897,7 +897,7 @@ angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
 <pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+    -&pi; &lt;= angles[i] &lt;= &pi;
 </pre>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -1215,7 +1215,7 @@ angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
 <pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+    -&pi; &lt;= angles[i] &lt;= &pi;
 </pre>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -1662,7 +1662,7 @@ angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
 <pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+    -&pi; &lt;= angles[i] &lt;= &pi;
 </pre>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.

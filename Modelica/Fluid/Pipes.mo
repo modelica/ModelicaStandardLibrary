@@ -1278,7 +1278,7 @@ Basically, different variants of the equation
 </p>
 
 <pre>
-   dp = &lambda;(Re,<font face=\"Symbol\">D</font>)*(L/D)*&rho;*v*|v|/2.
+   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2.
 </pre>
 
 <p>
@@ -3474,7 +3474,7 @@ Basically, different variants of the equation
 </p>
 
 <pre>
-   dp = &lambda;(Re,<font face=\"Symbol\">D</font>)*(L/D)*&rho;*v*|v|/2
+   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
 </pre>
 
 <p>
@@ -3536,7 +3536,7 @@ Basically, different variants of the equation
 </p>
 
 <pre>
-   dp = &lambda;(Re,<font face=\"Symbol\">D</font>)*(L/D)*&rho;*v*|v|/2
+   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
 </pre>
 
 <p>

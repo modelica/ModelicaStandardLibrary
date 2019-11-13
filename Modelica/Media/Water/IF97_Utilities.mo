@@ -6136,9 +6136,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td>10<br>
       </td>
-      <td>Isentropic exponent, kappa<span class=\"nobr\">=<font face=\"Symbol\">-</font>(v/p)
-(dp/dv)<sub>s</sub></span></td>
-     <td>kappa (<font face=\"Symbol\">k</font>)<br>
+      <td>Isentropic exponent, kappa = -(v/p) (dp/dv)<sub>s</sub></td>
+     <td>kappa (&kappa;)<br>
      </td>
      <td>1<br>
      </td>
@@ -6166,7 +6165,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td>13<br>
       </td>
-      <td>Specific Helmholtz free energy,     f = u - Ts</td>
+      <td>Specific Helmholtz free energy, f = u - Ts</td>
      <td>f<br>
      </td>
      <td>J/kg<br>
@@ -6175,7 +6174,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td>14<br>
       </td>
-      <td>Specific Gibbs free energy,     g = h - Ts</td>
+      <td>Specific Gibbs free energy, g = h - Ts</td>
      <td>g<br>
      </td>
      <td>J/kg<br>
@@ -6184,8 +6183,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td>15<br>
       </td>
-      <td>Isenthalpic exponent, <span class=\"nobr\"> theta = -(v/p)(dp/dv)<sub>h</sub></span></td>
-     <td>theta (<font face=\"Symbol\">q</font>)<br>
+      <td>Isenthalpic exponent, theta = -(v/p) (dp/dv)<sub>h</sub></td>
+     <td>theta (&theta;)<br>
      </td>
      <td>1<br>
      </td>
@@ -6193,8 +6192,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td>16<br>
       </td>
-      <td>Isobaric volume expansion coefficient, alpha = v<sup>-1</sup>       (dv/dT)<sub>p</sub></td>
-     <td>alpha  (<font face=\"Symbol\">a</font>)<br>
+      <td>Isobaric volume expansion coefficient, alpha = v<sup>-1</sup> (dv/dT)<sub>p</sub></td>
+     <td>alpha (&alpha;)<br>
      </td>
        <td>1/K<br>
      </td>
@@ -6202,8 +6201,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td>17<br>
       </td>
-      <td>Isochoric pressure coefficient,     <span class=\"nobr\">beta = p<sup><font face=\"Symbol\">-</font>1</sup>(dp/dT)<sub>v</sub></span></td>
-     <td>beta (<font face=\"Symbol\">b</font>)<br>
+      <td>Isochoric pressure coefficient, beta = p<sup>-1</sup>(dp/dT)<sub>v</sub></td>
+     <td>beta (&beta;)<br>
      </td>
      <td>1/K<br>
      </td>
@@ -6211,9 +6210,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td>18<br>
      </td>
-     <td>Isothermal compressibility, <span class=\"nobr\">gamma = <font
- face=\"Symbol\">-</font>v<sup><font face=\"Symbol\">-</font>1</sup>(dv/dp)<sub>T</sub></span></td>
-     <td>gamma (<font face=\"Symbol\">g</font>)<br>
+     <td>Isothermal compressibility, gamma = -v<sup>-1</sup>(dv/dp)<sub>T</sub></td>
+     <td>gamma (&gamma;)<br>
      </td>
      <td>1/Pa<br>
      </td>
@@ -6222,7 +6220,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <td>19<br>
       </td>
       <td>Dynamic viscosity</td>
-     <td>eta (<font face=\"Symbol\">h</font>)<br>
+     <td>eta (&eta;)<br>
      </td>
      <td>Pa s<br>
      </td>
@@ -6231,7 +6229,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <td>20<br>
       </td>
       <td>Kinematic viscosity</td>
-     <td>nu (<font face=\"Symbol\">n</font>)<br>
+     <td>nu (&nu;)<br>
      </td>
      <td>m<sup>2</sup>/s<br>
      </td>
@@ -6240,7 +6238,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <td>21<br>
       </td>
       <td>Thermal conductivity</td>
-     <td>lambda (<font face=\"Symbol\">l</font>)<br>
+     <td>lambda (&lambda;)<br>
      </td>
      <td>W/(m K)<br>
      </td>
@@ -6249,7 +6247,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <td>22<br>
       </td>
       <td>Surface tension</td>
-     <td>sigma (<font face=\"Symbol\">s</font>)<br>
+     <td>sigma (&sigma;)<br>
      </td>
      <td>N/m<br>
      </td>
