@@ -2286,7 +2286,7 @@ The Resistance <em>R</em> is allowed to be positive, zero, or negative.
     model C_Capacitor "Ideal linear electrical capacitor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter Types.Capacitance C(start=0) "Capacitance";
-      parameter SI.Voltage IC=0 "Initial value of voltage";
+      parameter SI.Voltage IC=0 "Initial value of voltage" annotation(Dialog(enable=UIC));
       parameter Boolean UIC=false
         "Use initial conditions: true, if initial condition is used";
     protected
@@ -2326,13 +2326,12 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
     model L_Inductor "Ideal linear electrical inductor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Inductance L(start=0) "Inductance";
-      parameter SI.Current IC=0 "Initial value; used, if UIC is true";
+      parameter SI.Current IC=0 "Initial value; used, if UIC is true" annotation(Dialog(enable=UIC));
       parameter Boolean UIC=false "Use initial conditions";
       SI.Current iinternal;
 
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinOut
-                                                               ICP
-        "Pin to couple inductances via K"
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinOut ICP
+        "Pin to couple inductances"
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=-90,
             origin={0,80}),
@@ -5339,7 +5338,7 @@ on the model behaviour.
         "Width of the capacitor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA = false
         "Parameter for sensitivity analyses, not implemented yet";
-      parameter SI.Voltage IC = 0 "Initial value";
+      parameter SI.Voltage IC = 0 "Initial value" annotation(Dialog(enable=UIC));
       parameter Boolean UIC = false
         "Use initial conditions: true, if initial condition is used";
       parameter Modelica.Electrical.Spice3.Internal.ModelcardC modelcard
