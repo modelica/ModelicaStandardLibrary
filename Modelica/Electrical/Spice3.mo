@@ -3729,9 +3729,9 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       input Real a[:] "Coefficients";
       output Real v "Value of polynomial";
     protected
-      Integer n "number of polynomial variables, like POLY(n)";
-      Integer na "number of polynomial coefficients, like POLY(n)";
-      Integer ia "state of the usage of a";
+      Integer n "Number of polynomial variables, like POLY(n)";
+      Integer na "Number of polynomial coefficients, like POLY(n)";
+      Integer ia "State of the usage of a";
     algorithm
       n := size(s,1);
       na := size(a,1);
@@ -3739,8 +3739,8 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       assert(na > 0,"poly: number of coefficients zero");
       ia := 0;
 
-    // case one coefficient
-      if (na == 1) then
+    // case one coefficient and one variable
+      if n == 1 and na == 1 then
         v := a[1] * s[1];
         return;
       end if;
@@ -3753,8 +3753,8 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       for i1 in 1:n loop
         ia := ia + 1;
         if ia > na then
-                        return;
-                                end if;
+          return;
+        end if;
         v := v + a[ia] * s[i1];
       end for;
 
@@ -3775,7 +3775,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
           for i3 in i2:n loop
             ia := ia + 1;
             if ia > na then
-               return;
+              return;
             end if;
             v := v + a[ia] * s[i1] * s[i2] * s[i3];
           end for;
