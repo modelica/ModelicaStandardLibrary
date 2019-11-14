@@ -4334,7 +4334,7 @@ on the model behaviour.
 
   package Types "Additional Spice3 type definitions"
     extends Modelica.Icons.TypesPackage;
-    type Capacitance = Real (final quantity="Capacitance", final unit="F", min=-Modelica.Constants.inf) "Unbounded capacitance";
+    type Capacitance = SI.Capacitance(min=-Modelica.Constants.inf) "Unbounded capacitance";
     type VoltageSquare = Real (final quantity="ElectricalPotential2", final unit="V2");
     type GapEnergyPerTemperature = Real (final quantity="Energy per Temperature", final unit="eV/K");
     type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/J");
