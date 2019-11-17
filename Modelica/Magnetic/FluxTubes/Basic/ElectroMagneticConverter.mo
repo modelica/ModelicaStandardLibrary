@@ -177,12 +177,43 @@ The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
 </p>
 
 <p>
-Note that the direction of current (around the magnetic path) is correlated to the direction of the magnetomotive force following a right-hand screw. 
-This means, a positive current causes a positive mmf. 
-The direction of flux flow is defined by the connected magnetic circuit. 
-The direction of flux (through the coil) is correlated again to the reference arrow of voltage (induced by the derivative of flux linkage with respect to time) following a right-hand screw, 
-therefore Farady's law contains a minus sign to fulfill Lenz's law.
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Basic/AmperesLaw.png\" alt=\"Ampere's Law\">
 </p>
+
+<p>
+Ampere's law relates the terms <em>magnetomotive force</em> and <em>magnetic voltage</em>. 
+This is a similar situation as with the relation of the electromotive force and the electric voltage in Kirchhoff's law. 
+With these terms the two laws are:
+</p>
+
+<ul>
+<li>Ampere's law: F = sum(V_m): 
+The sum of all magnetomotive forces counted with the correct sign in a reference direction is equal to the sum of all magnetic voltages counted in the same reference direction</li>
+<li>Kirchhoff's law: E = sum(v): 
+The sum of all electromotive forces counted with the correct sign in a reference direction is equal to the sum of all electric voltages counted in the same reference direction</li>
+</ul>
+
+<p>
+Modelica can neither treat magnetomotive nor electromotive forces directly in interconnected equivalent circuits. Instead the two laws are applied in a different way:
+</p>
+
+<ul>
+<li>Ampere's law: sum(V_m) = 0: 
+The sum of all magnetic voltages counted with the correct sign in a reference direction is equal to zero</li>
+<li>Kirchhoff's law: sum(v) = 0: 
+The sum of all electric voltages counted with the correct sign in a reference direction is equal to zero</li>
+</ul>
+
+<p>
+Therefore each magnetomotive and electromotive is converted into an equivalent magnetic and electric voltage, respectively. 
+In a magnetic circuit the electromotive force N * I is modeled as a magnetic voltage source V_mF oriented from plus to minus in the figure above.
+Therefore, there exists a
+</p>
+
+<ul>
+<li>right-hand assignment between the magnetomotive force F (thumb) and the current I (fingers) -- which is true but not implemented in Modelica --, but a</li>
+<li>left-hand assignment between the magnetic voltage of the source, V_mF (thumb) and the current I (fingers) -- which is implemented in Modelica.</li>
+</ul>
 
 <p>
 If a left-handed coil has to be modeled instead of a right-handed coil, the parameter N (Number of turns) can be set to a negative value.
