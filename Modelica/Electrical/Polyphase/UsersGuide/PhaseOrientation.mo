@@ -69,6 +69,26 @@ and the last component [m<sub>Base</sub>] is the zero sequence component.
 <p>
 This set of symmetrical components is repeated for each of the n<sub>Base</sub> base systems.
 </p>
+<h4>Polygon connection</h4>
+<p>
+For polyphase systems, star connection of the m phases is unambiguous, i.e. each pin of the plug is connected to the starpoint pin, 
+whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist. 
+</p>
+<p>
+E.g. looking at a m=5 phase system, 2 alternatives have to be taken into account:
+</p>
+<ol>
+<li>n.1-p.2, n.2-p.3, n.3-p.4, n.4-p.5, n.5-p.1</li>
+<li>n.1-p.3, n.2-p.4, n.3-p.5, n.4-p.1, n.5-p.2</li>
+</ol>
+<p>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Polyphase/PolygonConnection.png\"
+           alt=\"PolygonConnection.png\">
+</p>
+<p>
+Therefore, using the <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a> component, 
+the alternative has to be specified by the parameter kPolygon.
+</p>
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">User's guide</a> on polyphase winding.

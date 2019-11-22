@@ -8,9 +8,8 @@ model Star "Star-connection"
 
 equation
   for j in 1:m loop
-    plug_p.pin[j].v = pin_n.v;
+    connect(plug_p.pin[j], pin_n);
   end for;
-  sum(plug_p.pin.i) + pin_n.i = 0;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
         Text(

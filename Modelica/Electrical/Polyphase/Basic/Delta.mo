@@ -8,12 +8,10 @@ model Delta "Delta (polygon) connection"
 
 equation
   for j in 1:m loop
-    if j < m then
-      plug_n.pin[j].v = plug_p.pin[j + 1].v;
-      plug_n.pin[j].i + plug_p.pin[j + 1].i = 0;
+    if j + 1 <= m then
+      connect(plug_n.pin[j], plug_p.pin[j + 1]);
     else
-      plug_n.pin[j].v = plug_p.pin[1].v;
-      plug_n.pin[j].i + plug_p.pin[1].i = 0;
+      connect(plug_n.pin[j], plug_p.pin[j + 1 - m]);
     end if;
   end for;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,

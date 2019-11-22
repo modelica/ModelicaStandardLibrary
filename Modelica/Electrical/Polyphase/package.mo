@@ -1,6 +1,7 @@
 within Modelica.Electrical;
 package Polyphase "Library for electrical components of one or more phases"
   extends Modelica.Icons.Package;
+
   annotation (Documentation(info="<html>
 <p>
 Copyright &copy; 1998-2019, Modelica Association and contributors
