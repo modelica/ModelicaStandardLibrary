@@ -953,7 +953,7 @@ the last point of the parametrization coincide in this case.
     parameter SI.Radius rTire=0.25 "Radius of the tire";
     parameter SI.Radius rRim= 0.14 "Radius of the rim";
     parameter SI.Radius width=0.25 "Width of the tire";
-    parameter SI.Radius rCurvature=0.30 "Radius of the curvature of the tire";
+    parameter SI.Radius rCurvature=0.30 "Radius of the tire's cross section";
 
     parameter Modelica.Mechanics.MultiBody.Types.RealColor color={64,64,64}
       "Color of tire" annotation(Dialog(enable=animation, colorSelector=true, group="Material properties"));
@@ -965,8 +965,9 @@ the last point of the parametrization coincide in this case.
   protected
     parameter SI.Radius rw = (width/2);
     parameter SI.Radius rCurvature2 = if rCurvature > rw then rCurvature else rw;
-    parameter SI.Radius h =     sqrt(1-(rw/rCurvature2)*(rw/rCurvature2))*rCurvature2;
-    parameter SI.Position ri =    rTire-rCurvature2;
+    parameter Real kw = rw/rCurvature2 "Regularized width ratio (0...1)";
+    parameter SI.Radius h =     sqrt(1 - kw*kw) * rCurvature2;
+    parameter SI.Position ri =  rTire-rCurvature2;
     parameter SI.Radius rRim2 = if rRim < 0 then 0 else if rRim > ri+h then ri+h else rRim;
 
       Visualizers.Advanced.Shape pipe(
@@ -989,16 +990,16 @@ the last point of the parametrization coincide in this case.
           Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
             ri=ri,
             ro=rCurvature2,
-            opening=Modelica.Constants.pi - Modelica.Math.asin(rw/rCurvature2)),
-            nu=n_rTire,
-            nv=n_rCurvature,
-            multiColoredSurface=false,
-            wireframe=false,
-            color=color,
-            specularCoefficient=specularCoefficient,
-            transparency=0,
-            R=frame_a.R,
-            r_0=frame_a.r_0) if world.enableAnimation and animation
+            opening=Modelica.Constants.pi - Modelica.Math.asin(kw)),
+        nu=n_rTire,
+        nv=n_rCurvature,
+        multiColoredSurface=false,
+        wireframe=false,
+        color=color,
+        specularCoefficient=specularCoefficient,
+        transparency=0,
+        R=frame_a.R,
+        r_0=frame_a.r_0) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
 
   equation
