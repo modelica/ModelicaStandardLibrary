@@ -7,13 +7,10 @@ model Delta "Delta (polygon) connection"
         transformation(extent={{90,-10},{110,10}})));
 
 equation
-  for j in 1:m loop
-    if j + 1 <= m then
-      connect(plug_n.pin[j], plug_p.pin[j + 1]);
-    else
-      connect(plug_n.pin[j], plug_p.pin[j + 1 - m]);
-    end if;
+  for j in 1:m-1 loop
+    connect(plug_n.pin[j], plug_p.pin[j + 1]);
   end for;
+  connect(plug_n.pin[m], plug_p.pin[1]);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
         Line(

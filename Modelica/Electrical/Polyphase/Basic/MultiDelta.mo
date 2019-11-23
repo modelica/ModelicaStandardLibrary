@@ -20,12 +20,11 @@ equation
     end if;
   end when;
   for k in 1:mSystems loop
-    for j in 1:mBasic loop
-      if (j + kP)<=mBasic then
-        connect(plug_n.pin[(k - 1)*mBasic + j], plug_p.pin[(k - 1)*mBasic + j + kP]);
-      else
-        connect(plug_n.pin[(k - 1)*mBasic + j], plug_p.pin[(k - 2)*mBasic + j + kP]);
-      end if;
+    for j in 1:(mBasic -kP) loop
+      connect(plug_n.pin[(k - 1)*mBasic + j], plug_p.pin[(k - 1)*mBasic + j + kP]);
+    end for;
+    for j in (mBasic - kP + 1):mBasic loop
+      connect(plug_n.pin[(k - 1)*mBasic + j], plug_p.pin[(k - 2)*mBasic + j + kP]);
     end for;
   end for;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,

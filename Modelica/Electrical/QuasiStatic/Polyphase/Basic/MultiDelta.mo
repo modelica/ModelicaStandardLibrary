@@ -24,12 +24,11 @@ equation
     end if;
   end when;
   for k in 1:mSystems loop
-    for j in 1:mBasic loop
-      if (j + kP)<=mBasic then
-        connect(plugToPins_n.pin_n[(k - 1)*mBasic + j], plugToPins_p.pin_p[(k - 1)*mBasic + j + kP]);
-      else
-        connect(plugToPins_n.pin_n[(k - 1)*mBasic + j], plugToPins_p.pin_p[(k - 2)*mBasic + j + kP]);
-      end if;
+    for j in 1:(mBasic - kP) loop
+      connect(plugToPins_n.pin_n[(k - 1)*mBasic + j], plugToPins_p.pin_p[(k - 1)*mBasic + j + kP]);
+    end for;
+    for j in (mBasic - kP + 1):mBasic loop
+      connect(plugToPins_n.pin_n[(k - 1)*mBasic + j], plugToPins_p.pin_p[(k - 2)*mBasic + j + kP]);
     end for;
   end for;
   connect(plug_p, plugToPins_p.plug_p) annotation (Line(points={{-100,0},{-93,
