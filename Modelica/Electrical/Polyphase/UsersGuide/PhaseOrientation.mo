@@ -72,18 +72,59 @@ This set of symmetrical components is repeated for each of the n<sub>Base</sub> 
 <h4>Polygon connection</h4>
 <p>
 For polyphase systems, star connection of the m phases is unambiguous, i.e. each pin of the plug is connected to the starpoint pin, 
-whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist. 
+whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist (refer to Fig. 3). 
 </p>
-<p>
-E.g. looking at a m=5 phase system, 2 alternatives have to be taken into account:
-</p>
-<ol>
-<li>n.1-p.2, n.2-p.3, n.3-p.4, n.4-p.5, n.5-p.1</li>
-<li>n.1-p.3, n.2-p.4, n.3-p.5, n.4-p.1, n.5-p.2</li>
-</ol>
-<p>
-      <img src=\"modelica://Modelica/Resources/Images/Electrical/Polyphase/PolygonConnection.png\"
-           alt=\"PolygonConnection.png\">
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 3: </strong>Line-to-neutral voltages and line-to-line voltages for different systems</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Polyphase/Polygon2phase.png\" alt=\"Polygon2phase.png\">
+    </td>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Polyphase/Polygon4phase.png\" alt=\"Polygon4phase.png\">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2 phase system
+    </td>
+    <td>
+      2 = 2 x 2 phase system
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Polyphase/Polygon3phase.png\" alt=\"Polygon3phase.png\">
+    </td>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Polyphase/Polygon6phase.png\" alt=\"Polygon6phase.png\">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3 phase system
+    </td>
+    <td>
+      6 = 2 x 3 phase system
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Polyphase/Polygon5phase.png\" alt=\"Polygon5phase.png\">
+    </td>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Polyphase/Polygon7phase.png\" alt=\"Polygon7phase.png\">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5 phase system: 2 alternative polygon connections
+    </td>
+    <td>
+      7 phase system: 3 alternative polygon connections
+    </td>
+  </tr>
+</table>
 </p>
 <p>
 Therefore, using the <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a> component, 
