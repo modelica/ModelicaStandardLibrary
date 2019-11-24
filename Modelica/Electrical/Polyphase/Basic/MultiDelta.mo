@@ -4,7 +4,7 @@ model MultiDelta
   import Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems;
   import Modelica.Utilities.Streams.print;
   parameter Integer m(final min=2) = 3 "Number of phases";
-  parameter Integer kPolygon=1 "Alternative of polygon";
+  parameter Integer kPolygon(final min=1)=1 "Alternative of polygon";
   final parameter Integer mSystems=numberOfSymmetricBaseSystems(m) "Number of base systems";
   final parameter Integer mBasic=integer(m/mSystems) "Phase number of base systems";
   Polyphase.Interfaces.PositivePlug plug_p(final m=m)
@@ -14,11 +14,6 @@ model MultiDelta
 protected
   parameter Integer kP=if (mBasic<=2 or kPolygon<1 or kPolygon>integer(mBasic - 1)/2) then 1 else kPolygon;
 equation
-  when initial() then
-    if (mBasic<=2 or kPolygon<1 or kPolygon>integer(mBasic - 1)/2) then
-      print("MultiDelta: replaced erroneous kPolygon = "+String(kPolygon)+" by kPolygon = 1");
-    end if;
-  end when;
   for k in 1:mSystems loop
     for j in 1:(mBasic -kP) loop
       connect(plug_n.pin[(k - 1)*mBasic + j], plug_p.pin[(k - 1)*mBasic + j + kP]);
@@ -50,6 +45,11 @@ equation
 <p>
 Delta (polygon) connection of a polyphase circuit consisting of multiple base systems (see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>).
+</p>
+<h4>Note:</h4>
+<p>
+If kPolygon&lt;1 or kPolygon&gt;(mBasic - 1)/2, kPolygon is replaced by the value 1 without further warning.<br>
+In case of m=2, kPolygon=1 is the only valid choice.
 </p>
 <h4>See also</h4>
 <p>
