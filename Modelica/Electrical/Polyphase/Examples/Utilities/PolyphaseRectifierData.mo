@@ -18,7 +18,7 @@ record PolyphaseRectifierData "Data record for polyphase rectifier"
   parameter Modelica.SIunits.Frequency f=50 "Source frequency";
   parameter Modelica.SIunits.Resistance RLoad=2*(if connection==Connection.Series then mSystems else 1/mSystems) "Load resistance";
   parameter Modelica.SIunits.Resistance RDC=1e-3 "DC resistance";
-  parameter Modelica.SIunits.Inductance LDC=1e-5 "DC inductance";
+  parameter Modelica.SIunits.Inductance LDC=3e-3 "DC inductance";
   parameter Modelica.SIunits.Resistance RGnd=1e5 "Resistance to ground";
   annotation(defaultComponentPrefixes="parameter");
 end PolyphaseRectifierData;
