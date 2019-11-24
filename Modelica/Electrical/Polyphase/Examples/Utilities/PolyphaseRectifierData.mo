@@ -16,7 +16,7 @@ record PolyphaseRectifierData "Data record for polyphase rectifier"
     "Specify connection of subsystems in case of mSystems>1";
   parameter Modelica.SIunits.Voltage VrmsY=100 "RMS voltage line to starpoint";
   parameter Modelica.SIunits.Frequency f=50 "Source frequency";
-  parameter Modelica.SIunits.Resistance RLoad=2 "Load resistance";
+  parameter Modelica.SIunits.Resistance RLoad=2*(if connection==Connection.Series then mSystems else 1/mSystems) "Load resistance";
   parameter Modelica.SIunits.Resistance RDC=1e-3 "DC resistance";
   parameter Modelica.SIunits.Inductance LDC=1e-5 "DC inductance";
   parameter Modelica.SIunits.Resistance RGnd=1e5 "Resistance to ground";

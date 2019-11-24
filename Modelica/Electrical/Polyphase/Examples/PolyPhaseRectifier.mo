@@ -191,7 +191,11 @@ as well as DC values per subsystem (rectifier) and total (load):
           origin={50,0},
           rotation=90,
           textString="connected in series or in parallel"),
-        Line(points={{60,60},{40,60}}, color={175,175,175}),
-        Line(points={{70,-60},{40,-60}}, color={175,175,175})}),
+        Line(
+          points={{60,60},{40,60}},
+          color={0,0,0},
+          pattern=LinePattern.Dot),
+        Line(points={{70,-60},{40,-60}}, color={0,0,0},
+          pattern=LinePattern.Dot)}),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
 end PolyphaseRectifier;
