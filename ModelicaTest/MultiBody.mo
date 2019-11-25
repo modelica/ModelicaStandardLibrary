@@ -967,7 +967,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     extends Modelica.Icons.ExamplesPackage;
     model AngularVelocity "Test angular velocity functions"
       import SI = Modelica.SIunits;
-      import MultiBody.Frames.{angularVelocity1, angularVelocity2, resolve1};
+      import Modelica.Mechanics.MultiBody.Frames.{angularVelocity1, angularVelocity2, resolve1};
       extends Modelica.Icons.Example;
       MultiBody.Frames.Orientation R=body.frame_a.R;
       SI.AngularVelocity wa[3]=angularVelocity2(R);
@@ -1102,7 +1102,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model Force
       extends Modelica.Icons.Example;
-      inner World world annotation (Placement(transformation(extent={{-100,80},
+      inner MultiBody.World world annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
@@ -2746,7 +2746,7 @@ a linear damper is connected here.
             rotation=90)));
       MultiBody.Parts.BodyCylinder body1(r={1,0,0}) annotation (Placement(transformation(
               extent={{0,40},{20,60}})));
-      MultiBody.Modelica.Blocks.Sources.Constant Constant1[3](k={-100,100,0}) annotation (
+      Modelica.Blocks.Sources.Constant Constant1[3](k={-100,100,0}) annotation (
          Placement(transformation(
             origin={50,90},
             extent={{-10,10},{10,-10}},
@@ -3011,7 +3011,7 @@ a linear damper is connected here.
     model Torque3
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner World world annotation (Placement(transformation(extent={{10,-32},{
+      inner MultiBody.World world annotation (Placement(transformation(extent={{10,-32},{
                 30,-12}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
@@ -3066,7 +3066,7 @@ a linear damper is connected here.
             origin={80,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Parts.BodyCylinder body3(r={1,0,0}) annotation (Placement(transformation(
+      MultiBody.Parts.BodyCylinder body3(r={1,0,0}) annotation (Placement(transformation(
               extent={{100,40},{120,60}})));
       Modelica.Blocks.Sources.Constant Constant3[6](k={0,0,0,-100,100,0})
         annotation (Placement(transformation(
@@ -6778,7 +6778,7 @@ and plot gasForce.press over gasForce.s_rel.
     extends Modelica.Icons.ExamplesPackage;
     model FixedTranslation
       import SI = Modelica.SIunits;
-      import MultiBody.Visualizers;
+      import Modelica.Mechanics.MultiBody.Visualizers;
       extends Modelica.Icons.Example;
       parameter SI.Length length=0.5 "Length of axes of frames";
       parameter SI.Diameter diameter=length/30 "Diameter of frame axes";
@@ -7559,7 +7559,7 @@ often possible to use the FreeMotion joint such that the singularity
 
     model FixedRotation
       import SI = Modelica.SIunits;
-      import MultiBody.Visualizers;
+      import Modelica.Mechanics.MultiBody.Visualizers;
       extends Modelica.Icons.Example;
       parameter SI.Length length=0.5 "Length of axes of frames";
       parameter SI.Diameter diameter=length/30 "Diameter of frame axes";
