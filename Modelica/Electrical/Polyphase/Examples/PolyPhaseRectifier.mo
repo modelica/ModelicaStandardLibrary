@@ -41,7 +41,7 @@ model PolyphaseRectifier "Demonstrate a polyphase diode rectifier"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-50,20})));
-  Ideal.IdealDiode diode[data.mSystems](
+  Ideal.IdealDiode diode2[data.mSystems](
     each m=data.mBasic,
     each Ron=fill(1e-6, data.mBasic),
     each Goff=fill(1e-6, data.mBasic),
@@ -110,7 +110,7 @@ equation
                                                    color={0,0,255}));
   connect(star1.plug_p, diode1.plug_n)
     annotation (Line(points={{-50,40},{-50,30}},          color={0,0,255}));
-  connect(diode.plug_p, star2.plug_p)
+  connect(diode2.plug_p, star2.plug_p)
     annotation (Line(points={{-50,-30},{-50,-40}}, color={0,0,255}));
   connect(loadResistor1.n, groundDC.p)
     annotation (Line(points={{90,20},{90,0}}, color={0,0,255}));
@@ -120,7 +120,7 @@ equation
     annotation (Line(points={{-50,-90},{-40,-90}}, color={0,0,255}));
   connect(resistor2ground.n, groundAC.p)
     annotation (Line(points={{-20,-90},{-10,-90}}, color={0,0,255}));
-  connect(diode1.plug_p, diode.plug_n)
+  connect(diode1.plug_p, diode2.plug_n)
     annotation (Line(points={{-50,10},{-50,-10}}, color={0,0,255}));
   connect(analysatorAC.plug_p, sineVoltage.plug_p)
     annotation (Line(points={{-90,-40},{-90,-50}}, color={0,0,255}));
