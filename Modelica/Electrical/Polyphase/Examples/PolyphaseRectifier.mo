@@ -1,5 +1,5 @@
 within Modelica.Electrical.Polyphase.Examples;
-model MultiphaseRectifier "Demonstrate a polyphase diode rectifier"
+model PolyphaseRectifier "Demonstrate a polyphase diode rectifier"
   extends Icons.Example;
   import Modelica.Electrical.Polyphase.Examples.Utilities.Connection;
   parameter Utilities.PolyphaseRectifierData data
@@ -198,4 +198,4 @@ as well as DC values per subsystem (rectifier) and total (load):
         Line(points={{70,-60},{40,-60}}, color={0,0,0},
           pattern=LinePattern.Dot)}),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
-end MultiphaseRectifier;
+end PolyphaseRectifier;
