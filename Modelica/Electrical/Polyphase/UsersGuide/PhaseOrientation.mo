@@ -71,7 +71,7 @@ This set of symmetrical components is repeated for each of the n<sub>Base</sub> 
 </p>
 <h4>Polygon connection</h4>
 <p>
-For polyphase systems, star connection of the m phases is unambiguous, i.e. each pin of the plug is connected to the starpoint pin, 
+For polyphase systems, star connection of the m phases is unambiguous, i.e., each pin of the plug is connected to the starpoint pin, 
 whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist (refer to Fig. 3). 
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
