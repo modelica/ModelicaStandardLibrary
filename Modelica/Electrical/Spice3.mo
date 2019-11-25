@@ -2304,13 +2304,16 @@ The Resistance <em>R</em> is allowed to be positive, zero, or negative.
     model C_Capacitor "Ideal linear electrical capacitor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Capacitance C(start=0) "Capacitance";
-      parameter SI.Voltage IC=0 "Initial value";
+      parameter SI.Voltage IC=0 "Initial value of voltage";
       parameter Boolean UIC=false
         "Use initial conditions: true, if initial condition is used";
     protected
-      SI.Voltage vinternal;//(start=IC, fixed=UIC);
+      SI.Voltage vinternal "Capacitor voltage";
     initial equation
-      vinternal=IC;
+      if UIC then
+        vinternal = IC;
+      end if;
+
     equation
         vinternal = p.v - n.v;
         i = C*der(vinternal);
