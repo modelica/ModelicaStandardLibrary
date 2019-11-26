@@ -2,7 +2,6 @@ within Modelica.Electrical.Polyphase.Basic;
 model MultiDelta
   "Delta (polygon) connection of polyphase systems consisting of multiple base systems"
   import Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems;
-  import Modelica.Utilities.Streams.print;
   parameter Integer m(final min=2) = 3 "Number of phases";
   parameter Integer kPolygon(final min=1)=1 "Alternative of polygon";
   final parameter Integer mSystems=numberOfSymmetricBaseSystems(m) "Number of base systems";
