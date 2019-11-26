@@ -1,7 +1,6 @@
 within Modelica.Electrical.Polyphase.Examples;
 model PolyphaseRectifier "Demonstrate a polyphase diode rectifier"
   extends Icons.Example;
-  import Modelica.Electrical.Polyphase.Examples.Utilities.Connection;
   parameter Utilities.PolyphaseRectifierData data
     annotation (Placement(transformation(extent={{-90,70},{-70,90}})));
   Sources.SineVoltage sineVoltage(
@@ -93,18 +92,13 @@ model PolyphaseRectifier "Demonstrate a polyphase diode rectifier"
         rotation=270,
         origin={80,0})));
 equation
-  if data.connection == Connection.Series then
-    connect(inductorDC1[1].n, analysatorDCload.p);
-    connect(inductorDC2[data.mSystems].p, loadResistor2.n);
-    for k in 1:data.mSystems - 1 loop
-      connect(inductorDC2[k].p, inductorDC1[k + 1].n);
+  for p in 1:data.Par loop
+    for s in 1:data.Ser - 1 loop
+      connect(inductorDC2[(p - 1)*data.Ser + s].p, inductorDC1[(p - 1)*data.Ser + s + 1].n);
     end for;
-  else
-    for k in 1:data.mSystems loop
-      connect(inductorDC1[k].n, analysatorDCload.p);
-      connect(inductorDC2[k].p, loadResistor2.n);
-    end for;
-  end if;
+    connect(inductorDC1[(p - 1)*data.Ser + 1].n, analysatorDCload.p);
+    connect(loadResistor2.n, inductorDC2[p*data.Ser].p);
+  end for;
   connect(sineVoltage.plug_n, multiStar.plug)
     annotation (Line(points={{-90,-70},{-90,-90},{-70,-90}},
                                                    color={0,0,255}));
@@ -154,7 +148,7 @@ This example demonstrates a polyphase system with a rectifier per subsystem.
 Note that the interaction between the subsystems is damped by the DC resistors and inductors.
 </p>
 <p>
-You may try different number of phases 2&le;m, as well as connect the rectifiers in series or in parallel, and investigate AC values:
+You may try different number of phases 2&le;m, as well as connect the rectifiers with different number of parallel branches, and investigate AC values:
 </p>
 <ul>
 <li>AC power analysatorAC.pTotal (sum of all phases)</li>
@@ -166,9 +160,9 @@ You may try different number of phases 2&le;m, as well as connect the rectifiers
 as well as DC values per subsystem (rectifier) and total (load):
 </p>
 <ul>
-<li>DC power   total analysatorAC.pDC (mean)<li>
-<li>DC current total analysatorAC.iDC (mean)<li>
-<li>DC voltage total analysatorAC.vDC (mean)<li>
+<li>DC power   total analysatorAC.pDC (mean)</li>
+<li>DC current total analysatorAC.iDC (mean)</li>
+<li>DC voltage total analysatorAC.vDC (mean)</li>
 </ul>
 </html>"),
     Diagram(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
@@ -190,7 +184,7 @@ as well as DC values per subsystem (rectifier) and total (load):
           fillPattern=FillPattern.Solid,
           origin={50,0},
           rotation=90,
-          textString="connected in series or in parallel"),
+          textString="connected in series / in parallel"),
         Line(
           points={{60,60},{40,60}},
           color={0,0,0},
