@@ -310,6 +310,10 @@ convertElement("Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity",
                 "tansformAbsoluteVector", "transformAbsoluteVector");
 convertElement("Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity",
                 "tansformRelativeVector", "transformRelativeVector");
+convertElement("Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus",
+                {"ri", "ro"}, {"R", "r"});
+convertElement("Modelica.Mechanics.MultiBody.Visualizers.Torus",
+                {"ri", "ro", "n_ri", "n_ro"}, {"R", "r", "n_R", "n_r"});
 convertElement("Modelica.Thermal.FluidHeatFlow.Media.Medium",
                 {"lamda", "nue"}, {"lambda", "nu"});
 convertElement("Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction",
