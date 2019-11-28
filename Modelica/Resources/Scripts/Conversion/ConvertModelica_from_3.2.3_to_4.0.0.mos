@@ -1916,3 +1916,8 @@ convertElement("Modelica.Media.Interfaces.PartialSimpleMedium.BaseProperties", "
 convertElement("Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties", "R", "R_s")
 convertElement("Modelica.Media.R134a.R134a_ph.BaseProperties", "R", "R_s")
 convertElement("Modelica.Media.Water.WaterIF97_base.BaseProperties", "R", "R_s")
+/* SIunits --> Units #712 */
+convertClass("Modelica.SIunits", "Modelica.Units.SI")
+convertClass("Modelica.SIunits.Icons", "Modelica.Units.Icons")
+convertClass("Modelica.SIunits.Conversions", "Modelica.Units.Conversions")
+convertClass("Modelica.SIunits.Conversions.NonSIunits", "Modelica.Units.Other")
