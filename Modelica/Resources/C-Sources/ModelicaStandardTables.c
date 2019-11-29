@@ -6503,9 +6503,10 @@ static CubicHermite1D* makimaSpline1DInit(_In_ const double* table, size_t nRow,
                                          size_t nCol, _In_ const int* cols,
                                          size_t nCols) {
   /* Reference:
+     Method description taken from section "Modified Akima formula" of:
 
      Cosmin Ionita. Makima piecewise cubic interpolation, April 2019.
-     (https://blogs.mathworks.com/cleve/2019/04/29/makima-piecewise-cubic-interpolation/)
+     (https://blogs.mathworks.com/cleve/?p=4707)
   */
 
     CubicHermite1D* spline = NULL;
