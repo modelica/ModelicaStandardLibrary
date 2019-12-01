@@ -1154,7 +1154,7 @@ This model demonstrates a differential amplifier to attenuate the input voltage 
 Two sinusoidal source voltages with a phase shift of 120&deg; (e.g. two phases of a three-phase system) feed a load resistor. 
 The voltage at the load resistor has to be measured but is too high for direct measurement.
 </p>
-<h4>Note:</h4>
+<h4>Notes</h4>
 <p>
 The output of the amplifier is inverted with respect to the differential input, as well as attenuated by the factor 1/data.k.
 </p>
