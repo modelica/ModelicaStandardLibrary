@@ -5,10 +5,14 @@ model CCCVcharging
   parameter ParameterRecords.ExampleData cellData(
     Qnom=18000,
     useLinearSOCDependency=false,
-    Isc=1200,
+    Ri=cellData.OCVmax/1200,
     Idis=0.001,
-    rcData={Batteries.ParameterRecords.RCData(R=0.2*cellData.Ri, T=60),
-        Batteries.ParameterRecords.RCData(R=0.1*cellData.Ri, T=10)})
+    rcData={Modelica.Electrical.Batteries.ParameterRecords.RCData(
+        R=0.2*cellData.Ri,
+        C=60/(0.2*cellData.Ri)),
+        Modelica.Electrical.Batteries.ParameterRecords.RCData(
+        R=0.1*cellData.Ri,
+        C=10/(0.1*cellData.Ri))})
     annotation (Placement(transformation(extent={{20,-20},{40,0}})));
   BatteryStacks.CellRCStack battery(
     Ns=10,

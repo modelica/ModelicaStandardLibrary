@@ -22,8 +22,7 @@ record CellData "Parameters of a battery cell"
   parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
     "Smoothness of table interpolation"
     annotation(Dialog(group="OCV versus SOC", enable=not useLinearSOCDependency));
-  parameter Modelica.SIunits.Current Isc "Short-circuit current at SOC = SOCmax; if Ri is specified, Isc is not applied";
-  parameter Modelica.SIunits.Resistance Ri=OCVmax/Isc "Total inner resistance";
+  parameter Modelica.SIunits.Resistance Ri "Total inner resistance (= OCVmax/Isc)";
   parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance at T_ref";
   parameter Modelica.SIunits.Current Idis=0 "Self-discharge current at SOC = SOCmax"
@@ -41,8 +40,7 @@ record CellData "Parameters of a battery cell"
 <ul>
 <li>Nominal charge</li>
 <li>OCV versus SOC characteristic</li>
-<li>Short-circuit current; used to calculate inner resistance, can be neglected if inner resistance is specified explicitly</li>
-<li>Inner resistance; either calculated from short circuit current, or specified explicitly</li>
+<li>Inner resistance; can be calculated from OCVmax / short-circuit current (at OCVmax)</li>
 <li>Array of records <code>rcData</code> for battery models comprising RC-elements</li>
 </ul>
 <h4>Note:</h4>
