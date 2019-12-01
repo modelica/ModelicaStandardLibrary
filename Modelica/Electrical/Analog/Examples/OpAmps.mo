@@ -1155,20 +1155,14 @@ Two sinusoidal source voltages with a phase shift of 120&deg; (e.g. two phases o
 The voltage at the load resistor has to be measured but is too high for direct measurement.
 </p>
 <h4>Notes</h4>
-<p>
-The output of the amplifier is inverted with respect to the differential input, as well as attenuated by the factor 1/data.k.
-</p>
-<p>
-The influence of the measurement instrument's input resistance on the measurement result is small.
-</p>
-<p>
-The current consumption of the amplifier inputs at the source circuit is small (resistor1.i and resistor2.i).
-</p>
-<p>
-The common of the source and the common of the amplifier are connected by a ground resistor.<br>
-In case this resistance is low, a small current is flowing between the amplifier's common and the source's common (resistorGround.i).<br>
-In case this resistance is high, the amplifier's common is floating with respect to the source's common with a high voltage (resistorGround.v).
-</p>
+<ul>
+<li>The output of the amplifier is inverted with respect to the differential input, as well as attenuated by the factor 1/data.k.</li>
+<li>The influence of the measurement instrument's input resistance on the measurement result is small.</li>
+<li>The current consumption of the amplifier inputs at the source circuit is small (resistor1.i and resistor2.i).</li>
+<li>The common of the source and the common of the amplifier are connected by a ground resistor. 
+In case this resistance is low, a small current is flowing between the amplifier's common and the source's common (resistorGround.i). 
+In case this resistance is high, the amplifier's common is floating with respect to the source's common with a high voltage (resistorGround.v).</li>
+</ul>
 </html>"));
   end DifferentialAmplifier;
 
