@@ -103,7 +103,7 @@ Using the values shown in section Parameters, the results can be validated easil
 </table>
 <p>
 Note that since no leakage is present, the magnetic flux is the same in every element - they are connected in series. 
-For calculation of the length of flux lines, a medium flux line is used.
+For calculation of the length of flux lines, a flux line in the middle of the toroid is used.
 </p>
 <p>
 Additionally, a measuring coil is placed in the airgap. 
