@@ -4,7 +4,7 @@ partial model BaseCellStack
   import Modelica.Constants.eps;
   parameter Integer Ns=1 "Number of serial connected cells";
   parameter Integer Np=1 "Number of parallel connected cells";
-  parameter ParameterRecords.CellData cellData "Cell parameters"
+  replaceable parameter ParameterRecords.CellData cellData "Cell parameters"
     annotation (Placement(transformation(extent={{-10,60},{10,80}})));
   Modelica.SIunits.Current i = p.i "Current into the battery";
   Modelica.SIunits.Power power = v*i "Power to the battery";

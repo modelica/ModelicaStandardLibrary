@@ -12,8 +12,5 @@ Parameter records for batteries
 The user can easily build up a collection of different battery types by creating individual parameter records extending from the base record <code>CellData</code>.
 Do not forget to add the <code>annotation(defaultComponentPrefixes=\"parameter\");</code> in each individual parameter record.
 </p>
-<p>
-Record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">RCData</a> is used in record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">CellData</a>.
-</p>
 </html>"));
 end ParameterRecords;

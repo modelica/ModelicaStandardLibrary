@@ -1,7 +1,8 @@
 within Modelica.Electrical.Batteries.BatteryStacks;
 model CellRCStack
   "Battery with open-circuit voltage dependent on state of charge, self-discharge, inner resistance and a series of RC-elements"
-  extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.R0/Np));
+  extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.R0/Np), redeclare
+      ParameterRecords.TransientData.CellData cellData);
   Modelica.Electrical.Analog.Basic.Resistor resistor[cellData.nRC](
     final R=Ns*cellData.rcData.R/Np,
     each final T_ref=cellData.T_ref,

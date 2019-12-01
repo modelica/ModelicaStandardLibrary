@@ -13,11 +13,8 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
     Qnom=18000,
     OCVmax=4.2,
     OCVmin=2.5,
-    Ri=cellData1.OCVmax/1200,
-    rcData={Modelica.Electrical.Batteries.ParameterRecords.RCData(
-            R=0,
-            C=0)})
-              annotation (Placement(transformation(extent={{60,20},{80,40}})));
+    Ri=cellData1.OCVmax/1200)
+    annotation (Placement(transformation(extent={{60,20},{80,40}})));
   BatteryStacks.CellStack battery1(
     Ns=10,
     Np=2,
@@ -38,17 +35,15 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
     annotation (Placement(transformation(extent={{10,70},{30,90}})));
   Modelica.Blocks.Continuous.Integrator energy1(u(unit="W"), y(unit="J"))
     annotation (Placement(transformation(extent={{60,50},{80,70}})));
-  parameter ParameterRecords.ExampleData cellData2(
+  parameter ParameterRecords.TransientData.ExampleData cellData2(
     Qnom=18000,
     useLinearSOCDependency=false,
     Ri=cellData2.OCVmax/1200,
     Idis=0.1,
-    rcData={Modelica.Electrical.Batteries.ParameterRecords.RCData(
-        R=0.2*cellData2.Ri,
-        C=60/(0.2*cellData2.Ri)),
-        Modelica.Electrical.Batteries.ParameterRecords.RCData(
-        R=0.1*cellData2.Ri,
-        C=10/(0.1*cellData2.Ri))})
+    rcData={Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(
+        R=0.2*cellData2.Ri, C=60/(0.2*cellData2.Ri)),
+        Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(R=
+        0.1*cellData2.Ri, C=10/(0.1*cellData2.Ri))})
     annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
   BatteryStacks.CellRCStack battery2(
     Ns=10,
