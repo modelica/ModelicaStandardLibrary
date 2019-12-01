@@ -316,7 +316,7 @@ void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
 
 static ModelicaFileType Internal_stat(_In_z_ const char* name) {
     /* Inquire type of file */
-    ModelicaFileType type = FileType_NoFile;
+    ModelicaFileType type;
 #if defined(_WIN32)
     struct _stat fileInfo;
     int statReturn = _stat(name, &fileInfo);
@@ -377,6 +377,8 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
     else {
         type = FileType_SpecialFile;
     }
+#else
+    type = FileType_NoFile;
 #endif
     return type;
 }
