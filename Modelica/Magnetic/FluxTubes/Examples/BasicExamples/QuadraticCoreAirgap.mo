@@ -141,7 +141,7 @@ Note that since no leakage is present, the magnetic flux is the same in every el
 For calculation of the length of flux lines, a medium flux line (dashed line) is used.
 </p>
 <p>
-Additonally, a measuring coil is placed in the airgap. 
+Additionally, a measuring coil is placed in the airgap. 
 Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction). 
 Since current and therefore flux are a linear time dependent ramp, induced voltages are constant during that ramp and zero otherwise. 
 Note that usage of nonlinear magnetic material would change that result due the nonlinear relationship beetween magnetic field strength and flux density.
