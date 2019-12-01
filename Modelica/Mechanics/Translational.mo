@@ -1716,7 +1716,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       extends Modelica.Icons.Example;
       import Modelica.Constants.g_n;
       parameter Modelica.SIunits.Mass m=100 "Mass of vehicle";
-      parameter Modelica.SIunits.Length D=0.5 "Diameter of wheel";
+      parameter Modelica.SIunits.Length R=0.25 "Radius of wheel";
       parameter Modelica.SIunits.Area A=1 "Cross section of vehicle";
       parameter Real cw=0.5 "Drag resistance coefficient";
       parameter Modelica.SIunits.Density rho=1.18 "Density of air";
@@ -1738,12 +1738,12 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
                25,2.8,0.05; 25, 1,0; 50,1,0; 50,-5,0; 55,-5,0; 55,0,0; 60,0,0],
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-      Modelica.Blocks.Math.Gain gain(k=(FDrag + FRoll + FGrav)*D/2)
+      Modelica.Blocks.Math.Gain gain(k=(FDrag + FRoll + FGrav)*R)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Components.Vehicle vehicle(
         m=m,
         J=0,
-        D=D,
+        R=R,
         A=A,
         cw=cw,
         vWindConstant=vWind,
@@ -1757,7 +1757,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       Components.Vehicle vehicle1(
         m=m,
         J=0,
-        D=D,
+        R=R,
         A=A,
         cw=cw,
         vWindConstant=vWind,
@@ -1771,7 +1771,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       Components.Vehicle vehicle2(
         m=m,
         J=0,
-        D=D,
+        R=R,
         A=A,
         cw=cw,
         vWindConstant=vWind,
@@ -3403,7 +3403,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       parameter SI.Mass m "Total mass of vehicle";
       parameter SI.Acceleration g=Modelica.Constants.g_n "Constant gravity acceleration";
       parameter SI.Inertia J "Total rotational inertia of drive train";
-      parameter SI.Length D "Wheel diameter";
+      parameter SI.Length R "Wheel radius";
       parameter SI.Area A(start=1) "Cross section of vehicle"
         annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
       parameter Real cw(start=0.5) "Drag resistance coefficient"
@@ -3431,14 +3431,9 @@ following references, especially (Armstrong and Canudas de Wit 1996):
         annotation (Placement(transformation(extent={{90,10},{110,-10}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flangeR "Rotational flange"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Rotational.Sensors.MultiSensor rotationalMultiSensor annotation (Placement(
-            transformation(
-            extent={{-10,10},{10,-10}},
-            rotation=0,
-            origin={-70,60})));
       Rotational.Components.Inertia inertia(final J=J)
         annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
-      IdealRollingWheel idealRollingWheel(final radius=D/2)
+      IdealRollingWheel idealRollingWheel(final radius=R)
         annotation (Placement(transformation(extent={{-10,50},{10,70}})));
       Mass mass(final m=m) annotation (Placement(transformation(extent={{30,50},
                 {50,70}})));
@@ -3505,8 +3500,6 @@ following references, especially (Armstrong and Canudas de Wit 1996):
             rotation=90,
             origin={0,-60})));
 
-      Blocks.Continuous.Integrator energy(final k=1)
-        annotation (Placement(transformation(extent={{-60,80},{-40,100}})));
     protected
       constant SI.Velocity vRef=1 "Reference velocity for air drag";
       Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not useWindInput
@@ -3572,12 +3565,8 @@ following references, especially (Armstrong and Canudas de Wit 1996):
                                      color={0,127,0}));
       connect(inertia.flange_b, idealRollingWheel.flangeR)
         annotation (Line(points={{-30,60},{-10,60}}, color={0,0,0}));
-      connect(flangeR, rotationalMultiSensor.flange_a)
-        annotation (Line(points={{-100,0},{-80,0},{-80,60}}, color={0,0,0}));
-      connect(rotationalMultiSensor.flange_b, inertia.flange_a)
-        annotation (Line(points={{-60,60},{-50,60}}, color={0,0,0}));
-      connect(rotationalMultiSensor.power, energy.u) annotation (Line(points={{
-              -76,71},{-76,90},{-62,90}}, color={0,0,127}));
+      connect(flangeR, inertia.flange_a) annotation (Line(points={{-100,0},{-80,0},{
+              -80,60},{-50,60}}, color={0,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Line(points={{-80,-70},{80,-70}}, color={0,0,0}),
         Line(points={{-80,0},{85.607,-1.19754}},
