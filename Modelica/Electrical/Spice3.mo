@@ -2376,14 +2376,12 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
             Text(extent={{-136,36},{138,56}}, textString="%name")}));
     end L_Inductor;
 
-    model K_CoupledInductors "Inductive coupling via coupling factor K"
-      parameter Real k( start=0) "Coupling Factor";
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn
-                                                               inductiveCouplePin1
+    model K_CoupledInductors "Inductive coupling via coupling factor"
+      parameter Real k(start=0, min=0, max=1) "Coupling factor";
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn inductiveCouplePin1
         "Couple pin for inductances"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn
-                                                               inductiveCouplePin2
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn inductiveCouplePin2
         "Couple pin for inductances"
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=180,
@@ -2391,10 +2389,10 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={100,0})));
-    SI.Inductance M "mutual inductance";
+    SI.Inductance M "Mutual inductance";
     equation
       assert(k>=0,"Coupling factor must be not negative");
-      assert(k<1,"coupling factor must be less than one");
+      assert(k<=1,"Coupling factor must be less than or equal to one");
       M = k*sqrt(inductiveCouplePin1.L*inductiveCouplePin2.L);
       inductiveCouplePin1.v = - M*inductiveCouplePin2.di;
       inductiveCouplePin2.v = - M*inductiveCouplePin1.di;
@@ -2421,7 +2419,7 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
         Documentation(info="<html>
 <p>
 <code>K_CoupledInductors</code> is a component that allows the coupling of two inductors.
-<code>K</code> is the coefficient of coupling which must be greater than or equal to zero and less than one.
+<code>k</code> is the coefficient of coupling which must be in range [0,1].
 </p>
 <p>
 The usage is demonstrated in the example <a href=\"modelica://Modelica.Electrical.Spice3.Examples.CoupledInductors\">CoupledInductors</a>.
