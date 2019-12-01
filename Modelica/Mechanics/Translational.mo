@@ -3399,6 +3399,113 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 </html>"));
     end IdealRollingWheel;
 
+    model RollingResistance "Resistance of a rolling wheel"
+      extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
+      import Modelica.Constants.pi;
+      parameter SI.Force fNormal(start=0) "Force downward due to gravity";
+      parameter Boolean usecrInput=false "Enable signal input for cr";
+      parameter Real crConstant(start=0.01) "Constant rolling resistance coefficient"
+        annotation(Dialog(enable=not usecrInput));
+      parameter Boolean useInclinationInput=false "Enable signal input for inclination";
+      parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
+        annotation(Dialog(enable=not useInclinationInput));
+      parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
+        "Type of regularization" annotation(Evaluate=true);
+      parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
+        "Regularization below v0";
+      Modelica.SIunits.Velocity v
+        "Velocity of flange with respect to support (= der(s))";
+      Modelica.SIunits.Force f_nominal "Nominal rolling rsistance without regularization";
+      Blocks.Interfaces.RealInput inclination = inclination_internal if useInclinationInput
+        "Inclination=tan(angle)"
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=0,
+            origin={-120,60})));
+      Blocks.Interfaces.RealInput cr = cr_internal if usecrInput
+        "Rolling resistance coefficient"
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=0,
+            origin={-120,-60})));
+    protected
+      Real cr_internal "Rolling resistance coefficient";
+      Real inclination_internal "Inclination";
+    equation
+      if not usecrInput then
+        cr_internal = crConstant;
+      end if;
+      if not useInclinationInput then
+        inclination_internal = inclinationConstant;
+      end if;
+      v = der(s);
+      f_nominal = -fNormal*cr_internal*cos(atan(inclination_internal));
+      if reg==Modelica.Blocks.Types.Regularization.Exp then
+        f = -f_nominal*(2/(1 + Modelica.Math.exp(-v/(0.01*v0)))-1);
+      elseif reg==Modelica.Blocks.Types.Regularization.Sine then
+        f = -f_nominal*smooth(1, (if abs(v)>=v0 then sign(v) else Modelica.Math.sin(pi/2*v/v0)));
+      elseif reg==Modelica.Blocks.Types.Regularization.Linear then
+        f = -f_nominal*(if abs(v)>=v0 then sign(v) else (v/v0));
+      else//if reg==Modelica.Blocks.Types.Regularization.CoSine
+        f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - Modelica.Math.cos(pi/2*v/v0)));
+      end if;
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Ellipse(extent={{-60,60},{60,-60}},
+                lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Sphere),
+              Ellipse(extent={{-40,40},{40,-40}},
+                lineColor={0,127,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-100,70},{-60,50}},
+          textColor={64,64,64},
+          textString="inc."),
+        Text(
+          extent={{-110,-50},{-70,-70}},
+          textColor={64,64,64},
+          textString="cr"),
+            Rectangle(
+              extent={{-2,40},{2,-40}},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-2,40},{2,-40}},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Solid,
+              origin={0,0},
+              rotation=90),
+            Rectangle(
+              extent={{-2,40},{2,-40}},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Solid,
+              origin={0,0},
+              rotation=135),
+            Rectangle(
+              extent={{-2,40},{2,-40}},
+              lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Solid,
+              origin={0,0},
+              rotation=45),
+              Ellipse(extent={{-10,10},{10,-10}},
+                lineColor={0,127,0},
+              fillColor={160,215,160},
+              fillPattern=FillPattern.Solid)}),
+                                          Documentation(info="<html>
+<p>Simlified model of the resistance of a rolling wheel, dependent on force downward (due to gravity), inclination and rolling resistance coefficient.</p>
+<h4>Note</h4>
+<p>
+Rolling resistance is independent of speed, but changes direction with the direction of speed. 
+To avoid problems, the rolling resistance is regularized around speed zero. 
+Therefore static friction is not taken into account.
+</p>
+</html>"));
+    end RollingResistance;
+
     model Vehicle "Simple one-dimensional vehicle model"
       parameter SI.Mass m "Total mass of vehicle";
       parameter SI.Acceleration g=Modelica.Constants.g_n "Constant gravity acceleration";
@@ -3457,7 +3564,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
         final f_nominal=-cw*A*rho*vRef^2/2,
         final ForceDirection=false,
         final v_nominal=vRef)
-        annotation (Placement(transformation(extent={{50,-30},{70,-10}})));
+        annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
       Sources.Speed windSpeed(s(fixed=true))  annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
@@ -3465,40 +3572,30 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       Sources.Force gravForce
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=0,
-            origin={-40,30})));
-      Sources.SignForce rollForce(
-        final useForceInput=true,
-        final f_nominal=0,
+            origin={60,30})));
+      RollingResistance rollForce(
+        final fNormal=m*g,
+        final usecrInput=true,
+        final crConstant=crConstant,
+        final useInclinationInput=true,
+        final inclinationConstant=inclinationConstant,
         final reg=Modelica.Blocks.Types.Regularization.Linear,
         final v0=vReg) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
-            origin={20,10})));
+            origin={60,0})));
       Blocks.Math.Atan atan annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={-60,-60})));
+            rotation=0,
+            origin={-40,30})));
       Blocks.Math.Sin sin annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={-60,-20})));
-      Blocks.Math.Cos cos annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
             rotation=0,
-            origin={-40,-40})));
+            origin={-10,30})));
       Blocks.Math.Gain gravForceGain(final k=-m*g) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={-60,10})));
-      Blocks.Math.Product product annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={0,-10})));
-      Blocks.Math.Gain rollForceGain(final k=-m*g) annotation (Placement(
-            transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={0,-60})));
+            rotation=0,
+            origin={20,30})));
 
     protected
       constant SI.Velocity vRef=1 "Reference velocity for air drag";
@@ -3534,39 +3631,39 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       connect(vWind, windSpeed.v_ref)
         annotation (Line(points={{60,-120},{60,-72}}, color={0,0,127}));
       connect(dragForce.support, windSpeed.flange)
-        annotation (Line(points={{60,-30},{60,-50}}, color={0,127,0}));
+        annotation (Line(points={{60,-40},{60,-50}}, color={0,127,0}));
       connect(mass.flange_b, flangeT) annotation (Line(points={{50,60},{90,60},
               {90,0},{100,0}},
                         color={0,127,0}));
       connect(atan.u, internalInclination)
-        annotation (Line(points={{-60,-72},{-60,-90}}, color={0,0,127}));
+        annotation (Line(points={{-52,30},{-60,30},{-60,-90}},
+                                                       color={0,0,127}));
       connect(sin.u, atan.y)
-        annotation (Line(points={{-60,-32},{-60,-49}}, color={0,0,127}));
-      connect(atan.y, cos.u)
-        annotation (Line(points={{-60,-49},{-60,-40},{-52,-40}}, color={0,0,127}));
-      connect(gravForceGain.u, sin.y) annotation (Line(points={{-60,-2},{-60,-9}}, color={0,0,127}));
-      connect(cos.y, product.u1)
-        annotation (Line(points={{-29,-40},{-6,-40},{-6,-22}}, color={0,0,127}));
-      connect(rollForceGain.u, internalCr) annotation (Line(points={{-6.66134e-16,-72},
-              {-6.66134e-16,-82},{0,-82},{0,-90}}, color={0,0,127}));
-      connect(rollForceGain.y, product.u2) annotation (Line(points={{8.88178e-16,-49},
-              {8.88178e-16,-40},{6,-40},{6,-22}}, color={0,0,127}));
-      connect(gravForceGain.y, gravForce.f) annotation (Line(points={{-60,21},{-60,30},{-52,30}}, color={0,0,127}));
-      connect(product.y, rollForce.force)
-        annotation (Line(points={{0,1},{0,10},{8,10}}, color={0,0,127}));
+        annotation (Line(points={{-22,30},{-29,30}},   color={0,0,127}));
+      connect(gravForceGain.u, sin.y) annotation (Line(points={{8,30},{1,30}},     color={0,0,127}));
+      connect(gravForceGain.y, gravForce.f) annotation (Line(points={{31,30},{
+              48,30}},                                                                            color={0,0,127}));
       connect(mass.flange_b, dragForce.flange) annotation (Line(points={{50,60},
-              {90,60},{90,-20},{70,-20}},
+              {90,60},{90,-30},{70,-30}},
                                       color={0,127,0}));
       connect(mass.flange_b, rollForce.flange) annotation (Line(points={{50,60},
-              {90,60},{90,10},{30,10}},
+              {90,60},{90,0},{70,0}},
                                     color={0,127,0}));
       connect(mass.flange_b, gravForce.flange) annotation (Line(points={{50,60},
-              {90,60},{90,30},{-30,30}},
+              {90,60},{90,30},{70,30}},
                                      color={0,127,0}));
       connect(inertia.flange_b, idealRollingWheel.flangeR)
         annotation (Line(points={{-30,60},{-10,60}}, color={0,0,0}));
       connect(flangeR, inertia.flange_a) annotation (Line(points={{-100,0},{-80,0},{
               -80,60},{-50,60}}, color={0,0,0}));
+      connect(internalCr, rollForce.cr)
+        annotation (Line(points={{0,-90},{0,-6},{48,-6}},
+                                                       color={0,0,127}));
+      connect(internalInclination, internalInclination)
+        annotation (Line(points={{-60,-90},{-60,-90}}, color={0,0,127}));
+      connect(internalInclination, rollForce.inclination) annotation (Line(
+            points={{-60,-90},{-60,6},{48,6}},                      color={0,0,
+              127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Line(points={{-80,-70},{80,-70}}, color={0,0,0}),
         Line(points={{-80,0},{85.607,-1.19754}},
@@ -5250,47 +5347,25 @@ Negative force brakes in positive direction of movement, but accelerates in reve
     model SignForce "Constant force changing sign with speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       import Modelica.Constants.pi;
-      parameter Boolean useForceInput=false "Enable signal input for force";
       parameter Modelica.SIunits.Force f_nominal
-        "Nominal force (if negative, force is acting as load)"
-        annotation(Dialog(enable=not useForceInput));
+        "Nominal force (if negative, force is acting as load)";
       parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
         "Type of regularization" annotation(Evaluate=true);
       parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
         "Regularization below v0";
       Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
-      Blocks.Interfaces.RealInput force(unit="N") if useForceInput
-        "external force"
-        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-            rotation=0,
-            origin={-120,0})));
-    protected
-      Blocks.Sources.Constant constForce(k=f_nominal) if  not useForceInput
-        annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-80,30})));
-      Blocks.Interfaces.RealInput internalForce "Internal force" annotation (
-          Placement(transformation(
-            extent={{-4,-4},{4,4}},
-            rotation=0,
-            origin={-80,0})));
     equation
       v = der(s);
       if reg==Modelica.Blocks.Types.Regularization.Exp then
-        f = -internalForce*(2/(1 + Modelica.Math.exp(-v/(0.01*v0)))-1);
+        f = -f_nominal*(2/(1 + Modelica.Math.exp(-v/(0.01*v0)))-1);
       elseif reg==Modelica.Blocks.Types.Regularization.Sine then
-        f = -internalForce*smooth(1, (if abs(v)>=v0 then sign(v) else Modelica.Math.sin(pi/2*v/v0)));
+        f = -f_nominal*smooth(1, (if abs(v)>=v0 then sign(v) else Modelica.Math.sin(pi/2*v/v0)));
       elseif reg==Modelica.Blocks.Types.Regularization.Linear then
-        f = -internalForce*(if abs(v)>=v0 then sign(v) else (v/v0));
+        f = -f_nominal*(if abs(v)>=v0 then sign(v) else (v/v0));
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
-        f = -internalForce*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - Modelica.Math.cos(pi/2*v/v0)));
+        f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - Modelica.Math.cos(pi/2*v/v0)));
       end if;
-      connect(force, internalForce)
-        annotation (Line(points={{-120,0},{-80,0}}, color={0,0,127}));
-      connect(constForce.y, internalForce)
-        annotation (Line(points={{-80,19},{-80,0}}, color={0,0,127}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
