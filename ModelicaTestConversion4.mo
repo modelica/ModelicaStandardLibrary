@@ -3069,6 +3069,27 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end FluidHeatFlow;
   end Thermal;
 
+  package Utilities
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue3247 "Conversion test for #3247"
+      extends Modelica.Icons.Example;
+      Integer ms;
+      Integer sec;
+      Integer min;
+      Integer hour;
+      Integer day;
+      Integer mon;
+      Integer year;
+    equation
+      (ms, sec, min, hour, day, mon, year) = Modelica.Utilities.System.getTime();
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3247\">#3247</a>.
+</p>
+</html>"));
+    end Issue3247;
+  end Utilities;
+
   package Icons
     extends Modelica.Icons.ExamplesPackage;
     model Issue340 "Conversion test for #340"
