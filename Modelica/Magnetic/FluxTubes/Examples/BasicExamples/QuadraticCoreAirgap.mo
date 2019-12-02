@@ -29,7 +29,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
         origin={0,50})));
   Shapes.FixedShape.Cuboid rightLeg(
     nonLinearPermeability=false,
-    mu_rConst=1000,
+    mu_rConst=mu_r,
     l=l - a - delta,
     a=a,
     b=a)                           annotation (Placement(transformation(
