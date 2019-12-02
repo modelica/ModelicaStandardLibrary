@@ -3,7 +3,7 @@ model QuadraticCoreAirgap "Educational example: iron core with airgap"
   extends Icons.Example;
   parameter Modelica.SIunits.Length l=0.1 "Outer length of iron core";
   parameter Modelica.SIunits.Length a=0.01 "Side length of square cross section";
-  parameter Real my_r=1000 "Relative permeability of core";
+  parameter Real mu_r=1000 "Relative permeability of core";
   parameter Modelica.SIunits.Length delta=0.001 "Length of airgap";
 parameter Integer N=500 "Number of turns of exciting coil";
   parameter Modelica.SIunits.Current I=1.5 "Maximum exciting current";
