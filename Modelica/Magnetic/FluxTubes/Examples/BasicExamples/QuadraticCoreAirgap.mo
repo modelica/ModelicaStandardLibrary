@@ -20,7 +20,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
         origin={-20,30})));
   Shapes.FixedShape.Cuboid upperYoke(
     nonLinearPermeability=false,
-    mu_rConst=1000,
+    mu_rConst=mu_r,
     l=l - a,
     a=a,
     b=a) annotation (Placement(transformation(
