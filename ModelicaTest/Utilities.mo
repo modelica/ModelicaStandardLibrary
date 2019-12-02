@@ -384,7 +384,7 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("... Test of Modelica.Utilities.System");
     Streams.print("... Test of Modelica.Utilities.System", logFile);
 
-    pid :=Modelica.Utilities.System.getPid();
+    pid := Modelica.Utilities.System.getPid();
     Streams.print("    pid  = " + String(pid));
 
     ok := true;
@@ -410,6 +410,20 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("    day  = " + String(now.day));
     Streams.print("    mon  = " + String(now.mon));
     Streams.print("    year = " + String(now.year));
+
+    assert(not Modelica.Utilities.Time.isLeapYear(1900), "Time.isLeapYear failed");
+    assert(Modelica.Utilities.Time.isLeapYear(2000), "Time.isLeapYear failed");
+    assert(not Modelica.Utilities.Time.isLeapYear(2019), "Time.isLeapYear failed");
+    assert(Modelica.Utilities.Time.isLeapYear(2020), "Time.isLeapYear failed");
+
+    assert(0 == Modelica.Utilities.Time.leapDays(2000, 2000), "Time.leapDays failed");
+    assert(5 == Modelica.Utilities.Time.leapDays(2000, 2020), "Time.leapDays failed");
+    assert(-5 == Modelica.Utilities.Time.leapDays(2020, 2000), "Time.leapDays failed");
+    assert(5 == Modelica.Utilities.Time.leapDays(-2020, -2000), "Time.leapDays failed");
+    assert(98 == Modelica.Utilities.Time.leapDays(1600, 2001), "Time.leapDays failed");
+    assert(97 == Modelica.Utilities.Time.leapDays(1601, 2001), "Time.leapDays failed");
+    assert(97 == Modelica.Utilities.Time.leapDays(1600, 2000), "Time.leapDays failed");
+    assert(96 == Modelica.Utilities.Time.leapDays(1601, 2000), "Time.leapDays failed");
 
     ok := true;
   end Time;
@@ -517,6 +531,8 @@ extends Modelica.Icons.ExamplesPackage;
     result := ModelicaTest.Utilities.Streams(logFile);
     result := ModelicaTest.Utilities.Files(logFile);
     result := ModelicaTest.Utilities.Internal(logFile);
+    result := ModelicaTest.Utilities.System(logFile);
+    result := ModelicaTest.Utilities.Time(logFile);
     ok := true;
   end testAll;
 
