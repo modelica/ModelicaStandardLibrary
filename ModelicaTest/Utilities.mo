@@ -379,32 +379,40 @@ extends Modelica.Icons.ExamplesPackage;
       "Filename where the log is stored";
     output Boolean ok;
   protected
-    Integer ms;
-    Integer sec;
-    Integer min;
-    Integer hour;
-    Integer day;
-    Integer mon;
-    Integer year;
     Integer pid;
   algorithm
     Streams.print("... Test of Modelica.Utilities.System");
     Streams.print("... Test of Modelica.Utilities.System", logFile);
-
-    (ms,sec,min,hour,day,mon,year) :=Modelica.Utilities.System.getTime();
-    Streams.print("    ms   = " + String(ms));
-    Streams.print("    sec  = " + String(sec));
-    Streams.print("    min  = " + String(min));
-    Streams.print("    hour = " + String(hour));
-    Streams.print("    day  = " + String(day));
-    Streams.print("    mon  = " + String(mon));
-    Streams.print("    year = " + String(year));
 
     pid :=Modelica.Utilities.System.getPid();
     Streams.print("    pid  = " + String(pid));
 
     ok := true;
   end System;
+
+  function Time "Test functions of Modelica.Utilities.Time"
+    import Modelica.Utilities.Streams;
+    extends Modelica.Icons.Function;
+    input String logFile="ModelicaTestLog.txt"
+      "Filename where the log is stored";
+    output Boolean ok;
+  protected
+    Modelica.Utilities.Types.TimeType now;
+  algorithm
+    Streams.print("... Test of Modelica.Utilities.Time");
+    Streams.print("... Test of Modelica.Utilities.Time", logFile);
+
+    now := Modelica.Utilities.Time.getTime();
+    Streams.print("    ms   = " + String(now.ms));
+    Streams.print("    sec  = " + String(now.sec));
+    Streams.print("    min  = " + String(now.min));
+    Streams.print("    hour = " + String(now.hour));
+    Streams.print("    day  = " + String(now.day));
+    Streams.print("    mon  = " + String(now.mon));
+    Streams.print("    year = " + String(now.year));
+
+    ok := true;
+  end Time;
 
   function Internal "Test functions of Modelica.Utilities.Internal"
     extends Modelica.Icons.Function;
