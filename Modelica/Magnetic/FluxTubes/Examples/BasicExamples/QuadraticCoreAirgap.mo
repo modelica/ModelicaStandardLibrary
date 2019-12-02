@@ -49,7 +49,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
     annotation (Placement(transformation(extent={{40,-10},{20,10}})));
   Shapes.FixedShape.Cuboid lowerYoke(
     nonLinearPermeability=false,
-    mu_rConst=1000,
+    mu_rConst=mu_r,
     l=l - a,
     a=a,
     b=a) annotation (Placement(transformation(
