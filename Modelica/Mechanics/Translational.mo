@@ -3411,7 +3411,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
         annotation(Dialog(enable=not useInclinationInput));
       parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
         "Type of regularization" annotation(Evaluate=true);
-      parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
+      parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps)=1e-3
         "Regularization below v0";
       Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
@@ -3575,9 +3575,9 @@ Therefore static friction is not taken into account.
             origin={60,30})));
       RollingResistance rollForce(
         final fNormal=m*g,
-        final usecrInput=true,
+        final usecrInput=usecrInput,
         final crConstant=crConstant,
-        final useInclinationInput=true,
+        final useInclinationInput=useInclinationInput,
         final inclinationConstant=inclinationConstant,
         final reg=Modelica.Blocks.Types.Regularization.Linear,
         final v0=vReg) annotation (Placement(transformation(
@@ -3601,31 +3601,12 @@ Therefore static friction is not taken into account.
       constant SI.Velocity vRef=1 "Reference velocity for air drag";
       Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not useWindInput
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={40,-90})));
-      Modelica.Blocks.Interfaces.RealInput internalInclination "Internal inclination"
-        annotation (Placement(transformation(extent={{-4,-4},{4,4}},
-            rotation=90,
-            origin={-60,-90})));
       Modelica.Blocks.Sources.Constant constInclination(k=inclinationConstant) if not useInclinationInput
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={-80,-90})));
-      Modelica.Blocks.Interfaces.RealInput internalCr
-        "Internal rolling resistance coefficient"
-        annotation (Placement(transformation(extent={{-4,-4},{4,4}},
-            rotation=90,
-            origin={0,-90})));
-      Modelica.Blocks.Sources.Constant constCr(k=crConstant) if not usecrInput
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={-22,-90})));
     equation
       connect(idealRollingWheel.flangeT, mass.flange_a)
         annotation (Line(points={{10,60},{30,60}},
                                                  color={0,127,0}));
-      connect(internalCr, cr)
-        annotation (Line(points={{0,-90},{0,-120}}, color={0,0,127}));
-      connect(internalCr, constCr.y)
-        annotation (Line(points={{0,-90},{-11,-90}}, color={0,0,127}));
-      connect(constInclination.y, internalInclination)
-        annotation (Line(points={{-69,-90},{-60,-90}}, color={0,0,127}));
-      connect(inclination, internalInclination)
-        annotation (Line(points={{-60,-120},{-60,-90}}, color={0,0,127}));
       connect(constWindSpeed.y, windSpeed.v_ref)
         annotation (Line(points={{51,-90},{60,-90},{60,-72}}, color={0,0,127}));
       connect(vWind, windSpeed.v_ref)
@@ -3635,9 +3616,6 @@ Therefore static friction is not taken into account.
       connect(mass.flange_b, flangeT) annotation (Line(points={{50,60},{90,60},
               {90,0},{100,0}},
                         color={0,127,0}));
-      connect(atan.u, internalInclination)
-        annotation (Line(points={{-52,30},{-60,30},{-60,-90}},
-                                                       color={0,0,127}));
       connect(sin.u, atan.y)
         annotation (Line(points={{-22,30},{-29,30}},   color={0,0,127}));
       connect(gravForceGain.u, sin.y) annotation (Line(points={{8,30},{1,30}},     color={0,0,127}));
@@ -3656,14 +3634,14 @@ Therefore static friction is not taken into account.
         annotation (Line(points={{-30,60},{-10,60}}, color={0,0,0}));
       connect(flangeR, inertia.flange_a) annotation (Line(points={{-100,0},{-80,0},{
               -80,60},{-50,60}}, color={0,0,0}));
-      connect(internalCr, rollForce.cr)
-        annotation (Line(points={{0,-90},{0,-6},{48,-6}},
-                                                       color={0,0,127}));
-      connect(internalInclination, internalInclination)
-        annotation (Line(points={{-60,-90},{-60,-90}}, color={0,0,127}));
-      connect(internalInclination, rollForce.inclination) annotation (Line(
-            points={{-60,-90},{-60,6},{48,6}},                      color={0,0,
-              127}));
+      connect(cr, rollForce.cr)
+        annotation (Line(points={{0,-120},{0,-6},{48,-6}}, color={0,0,127}));
+      connect(inclination, rollForce.inclination)
+        annotation (Line(points={{-60,-120},{-60,6},{48,6}}, color={0,0,127}));
+      connect(inclination, atan.u) annotation (Line(points={{-60,-120},{-60,30},
+              {-52,30}}, color={0,0,127}));
+      connect(atan.u, constInclination.y) annotation (Line(points={{-52,30},{
+              -60,30},{-60,-90},{-69,-90}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Line(points={{-80,-70},{80,-70}}, color={0,0,0}),
         Line(points={{-80,0},{85.607,-1.19754}},
