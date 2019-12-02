@@ -1797,6 +1797,11 @@ In the Modelica Standard Library the following color schemes apply:</p>
     <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
   </tr>
   <tr>
+    <td>Modelica.Clocked</td>
+    <td>{95,95,95}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleClocked.png\"></td>
+  </tr>
+  <tr>
     <td>Modelica.StateGraph</td>
     <td>{0,0,0}</td>
     <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleStateGraph.png\"></td>
