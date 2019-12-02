@@ -1,0 +1,250 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Shapes.html">Shapes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.html">HysteresisAndMagnets</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet.html">GenericHystTellinenPermanentMagnet</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>GenericHystTellinenPermanentMagnet</h1>
+    <p>Permanent magnet based on the Tellinen hysteresis model</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard.html">GenericHystTellinenHard</a> but has an initial magnetization preset of -100% and an adapted icon for better readability of the diagram.
+</p>
+
+<p>
+An overview over all available hysteresis and permanent magnet elements of the package <a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.html">HysteresisAndMagnets</a> can be found in <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.html">UsersGuide.Hysteresis</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>l</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length in direction of flux</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> 1e-4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Area of cross section</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V</th>
+      <td>
+        <p><span>Value:</span> A * l</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> Volume of FluxTube</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if HeatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>includeEddyCurrents</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if eddy current losses are enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Value:</span> 10e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Conductivity.html">Conductivity</a> (S/m)</p>
+        <p><span>Description:</span> Conductivity of core material</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Value:</span> 0.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Thickness of lamination</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Br</th>
+      <td>
+        <p><span>Value:</span> 1.2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFluxDensity.html">MagneticFluxDensity</a> (T)</p>
+        <p><span>Description:</span> Remanence</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Hc</th>
+      <td>
+        <p><span>Value:</span> 5e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Coercitivity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>
+        <p><span>Value:</span> unitH * 10 / Hc</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Slope of tanh()-function</p>
+      </td>
+    </tr>
+    <tr>
+      <th>K</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> mu_0 multiplier</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>H</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Magnetic field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Hstat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Static (ferromagnetic) portion of the magnetic field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Heddy</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Dynamic (eddy currents) portion of the magnetic field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFluxDensity.html">MagneticFluxDensity</a> (T)</p>
+        <p><span>Description:</span> Magnetic flux density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MagRel</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative magnetization at initialization (-1..1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LossPowerStat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Ferromagnetic (static) hysteresis losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LossPowerEddy</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Eddy current losses (dynamic hysteresis losses)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>asc</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True when der(Hstat)>0</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

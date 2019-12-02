@@ -1,0 +1,97 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Valves.html">Valves</a></li>
+  <li><a href="Modelica.Fluid.Valves.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.html">ValveCharacteristics</a></li>
+  <li><a href="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage.html">equalPercentage</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>equalPercentage</h1>
+    <p>Equal percentage characteristic</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+This characteristic is such that the relative change of the flow coefficient is proportional to the change in the opening position:
+<p> d(rc)/d(pos) = k d(pos).</p>
+<p> The constant k is expressed in terms of the rangeability, i.e., the ratio between the maximum and the minimum useful flow coefficient:</p>
+<p> rangeability = exp(k) = rc(1.0)/rc(0.0).</p>
+<p> The theoretical characteristic has a non-zero opening when pos = 0; the implemented characteristic is modified so that the valve closes linearly when pos &lt; delta.</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">rc = equalPercentage(pos, rangeability, delta)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>pos</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Opening position (0: closed, 1: fully open)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rangeability</th>
+      <td>
+        <p><span>Default Value:</span> 20</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Rangeability</p>
+      </td>
+    </tr>
+    <tr>
+      <th>delta</th>
+      <td>
+        <p><span>Default Value:</span> 0.01</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>rc</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative flow coefficient (per unit)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

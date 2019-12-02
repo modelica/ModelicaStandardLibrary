@@ -1,0 +1,85 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.SpacePhasors.html">SpacePhasors</a></li>
+  <li><a href="Modelica.Electrical.Machines.SpacePhasors.Functions.html">Functions</a></li>
+  <li><a href="Modelica.Electrical.Machines.SpacePhasors.Functions.ToSpacePhasor.html">ToSpacePhasor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ToSpacePhasor</h1>
+    <p>Conversion from multi phase input to space phasor and zero sequence component</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Functions.ToSpacePhasor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(y, y0) = ToSpacePhasor(x)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Multi phase (voltage or current) input</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real[2]</p>
+        <p><span>Description:</span> Space phasor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y0</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Zero sequence component (of voltage or current)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

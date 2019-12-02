@@ -1,0 +1,53 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Fluid.UsersGuide.BuildingSystemModels.html">BuildingSystemModels</a></li>
+  <li><a href="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition.html">MediumDefinition</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MediumDefinition</h1>
+    <p>Definition of the medium models</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+All the models in Modelica.Fluid compute fluid properties by using medium
+models defined by Modelica.Media packages. Custom fluid models can also be
+used, provided they extend the interfaces defined in
+Modelica.Media.Interfaces.
+</p>
+<p>
+All the components in Modelica.Fluid use a <em>replaceable</em> medium package, called <code>Medium</code>: the model is written for a generic fluid, and a specific fluid model can then be specified when building a system model by redeclaring the package. This can be done in different ways:</p>
+<ul>
+<li>
+If several components use the same medium, it is possible to select
+all of them within a GUI, and set them simultaneously (as they are
+all named Medium).
+</li>
+<li>It is also possible to declare one or more (possibly replaceable) medium packages in the model, and then use them to set up the individual components.</li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

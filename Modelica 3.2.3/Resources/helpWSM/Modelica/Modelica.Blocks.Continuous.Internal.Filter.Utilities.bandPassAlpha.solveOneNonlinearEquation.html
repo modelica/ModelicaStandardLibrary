@@ -1,0 +1,134 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.Utilities.bandPassAlpha.html">bandPassAlpha</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.Utilities.bandPassAlpha.solveOneNonlinearEquation.html">solveOneNonlinearEquation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>solveOneNonlinearEquation</h1>
+    <p>Solve f(u) = 0; f(u_min) and f(u_max) must have different signs</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.Internal.Filter.Utilities.bandPassAlpha.solveOneNonlinearEquation_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This function determines the solution of <strong>one non-linear algebraic equation</strong> "y=f(u)"
+in <strong>one unknown</strong> "u" in a reliable way. It is one of the best numerical
+algorithms for this purpose. As input, the nonlinear function f(u)
+has to be given, as well as an interval u_min, u_max that
+contains the solution, i.e., "f(u_min)" and "f(u_max)" must
+have a different sign. If possible, a smaller interval is computed by
+inverse quadratic interpolation (interpolating with a quadratic polynomial
+through the last 3 points and computing the zero). If this fails,
+bisection is used, which always reduces the interval by a factor of 2.
+The inverse quadratic interpolation method has superlinear convergence.
+This is roughly the same convergence rate as a globally convergent Newton
+method, but without the need to compute derivatives of the non-linear
+function. The solver function is a direct mapping of the Algol 60 procedure
+"zero" to Modelica, from:
+</p>
+
+<dl>
+<dt> Brent R.P.:</dt>
+<dd> <strong>Algorithms for Minimization without derivatives</strong>.
+     Prentice Hall, 1973, pp. 58-59.</dd>
+</dl>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">u = solveOneNonlinearEquation(aa, bb, ww, u_min, u_max, tolerance)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>aa</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>bb</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ww</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_min</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower bound of search interval</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_max</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper bound of search interval</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tolerance</th>
+      <td>
+        <p><span>Default Value:</span> 100 * Modelica.Constants.eps</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative tolerance of solution u</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Value of independent variable so that f(u) = 0</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

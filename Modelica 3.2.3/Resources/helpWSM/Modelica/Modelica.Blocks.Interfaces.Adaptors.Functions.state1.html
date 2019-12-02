@@ -1,0 +1,77 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.Adaptors.html">Adaptors</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.Adaptors.Functions.html">Functions</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.Adaptors.Functions.state1.html">state1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>state1</h1>
+    <p>Return state (with one derivative)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.Functions.state1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">s = state1(u, dummy)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real[2]</p>
+        <p><span>Description:</span> Required values for state and der(s)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dummy</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>s</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

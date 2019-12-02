@@ -1,0 +1,101 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.det.html">det</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>det</h1>
+    <p>Return determinant of a matrix (computed by LU decomposition; try to avoid det(..))</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.det_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+result = Matrices.<strong>det</strong>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the determinant "result" of matrix A
+computed by a LU decomposition with row pivoting. For details about determinants, see
+<a href="http://en.wikipedia.org/wiki/Determinant">http://en.wikipedia.org/wiki/Determinant</a>.
+Usually, this function should never be used, because
+there are nearly always better numerical algorithms
+as by computing the determinant. Examples:
+</p>
+
+<ul>
+<li> Use <a href="Modelica.Math.Matrices.rank.html">Matrices.rank</a>
+     to compute whether det(A) = 0 (i.e., Matrices.rank(A) &lt; size(A,1)).</li>
+
+<li> Use <a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>
+     to solve the linear equation A*x = b, instead of using determinants to
+     compute the solution.</li>
+</ul>
+
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.rank.html">Matrices.rank</a>,
+<a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = det(A)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Determinant of matrix A</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

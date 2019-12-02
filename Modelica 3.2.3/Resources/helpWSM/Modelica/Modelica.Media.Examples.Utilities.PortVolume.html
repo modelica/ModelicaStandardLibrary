@@ -1,0 +1,184 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Media.Examples.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Media.Examples.Utilities.PortVolume.html">PortVolume</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PortVolume</h1>
+    <p>Fixed volume associated with a port by the finite volume method</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Examples.Utilities.PortVolume_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This component models the <strong>volume</strong> of <strong>fixed size</strong> that is
+associated with the <strong>fluid port</strong> to which it is connected.
+This means that all medium properties inside the volume, are identical
+to the port medium properties. In particular, the specific enthalpy
+inside the volume (= medium.h) is always identical to the specific enthalpy
+in the port (port.h = medium.h). Usually, this model is used when
+discretizing a component according to the finite volume method into
+volumes in internal ports that only store energy and mass and into
+transport elements that just transport energy, mass and momentum
+between the internal ports without storing these quantities during the
+transport.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>V</th>
+      <td>
+        <p><span>Value:</span> 1e-6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> Fixed size of junction volume</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_p_start</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Select p_start or d_start</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_start</th>
+      <td>
+        <p><span>Value:</span> 101325</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Utilities.PortVolume.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Initial pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d_start</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Utilities.PortVolume.Medium.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Initial density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_T_start</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Select T_start or h_start</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_start</th>
+      <td>
+        <p><span>Value:</span> Modelica.SIunits.Conversions.from_degC(20)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Utilities.PortVolume.Medium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Initial temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_start</th>
+      <td>
+        <p><span>Value:</span> 1.e4</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Utilities.PortVolume.Medium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Initial specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X_start</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Utilities.PortVolume.Medium.MassFraction.html">MassFraction[Medium.nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Initial mass fractions m_i/m</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Media.Examples.Utilities.FluidPort_a_16x16.png"></td>
+      <th>port</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Utilities.FluidPort_a.html">FluidPort_a</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.Utilities.PortVolume.Medium.BaseProperties_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Utilities.PortVolume.Medium.BaseProperties.html">BaseProperties</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.Utilities.PartialTestModel.html">PartialTestModel</a></p>
+        <p><span>Modelica.Media.Examples.Utilities</span</p>
+        <p>Basic test model to test a medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.Utilities.PartialTestModel2.html">PartialTestModel2</a></p>
+        <p><span>Modelica.Media.Examples.Utilities</span</p>
+        <p>Slightly larger test model to test a medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

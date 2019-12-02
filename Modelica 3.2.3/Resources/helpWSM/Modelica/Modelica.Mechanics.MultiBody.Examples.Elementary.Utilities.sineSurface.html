@@ -1,0 +1,168 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.html">Elementary</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.sineSurface.html">sineSurface</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>sineSurface</h1>
+    <p>Function defining the characteristic of a moving sine in three dimensions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.sineSurface_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Function defining the characteristics of a moving sine in three dimensions.
+This function is used in example
+<a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces.html">Elementary.Surfaces</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(X, Y, Z, C) = sineSurface(nu, nv, multiColoredSurface, x_min, x_max, y_min, y_max, z_min, z_max, wz)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nu</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in u-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nv</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in v-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>multiColoredSurface</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: Color is defined for each surface point</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_min</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimum value of x</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_max</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum value of x</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_min</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimum value of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_max</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum value of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_min</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimum value of z</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_max</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum value of z</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wz</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Factor for angular frequency</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in x-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in y-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Z</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in z-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> Real[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3]</p>
+        <p><span>Description:</span> [nu,nv,3] Color array, defining the color for each surface point</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

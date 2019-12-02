@@ -1,0 +1,129 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.html">Elementary</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant.html">InitSpringConstant</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>InitSpringConstant</h1>
+    <p>Determine spring constant such that system is in steady state at given position</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates a non-standard type of initialization
+by calculating a spring constant such
+that a simple pendulum is at a defined position in steady state.
+</p>
+<p>
+The goal is that the pendulum should be in steady state
+when the rotation angle of the pendulum is zero. The spring
+constant of the spring shall be calculated during initialization
+such that this goal is reached.
+</p>
+<p>
+The pendulum has one degree of freedom, i.e., two states.
+Therefore, two additional equations have to be provided
+for initialization. However, parameter "c" of the spring
+component is defined with attribute "fixed = <strong>false</strong>", i.e.,
+the value of this parameter is computed during initialization.
+Therefore, there is one additional equation required during
+initialization. The 3 initial equations are the rotational
+angle of the revolute joint and its first and second
+derivative. The latter ones are zero, in order to initialize
+in steady state. By setting the start values of phi, w, a to zero and
+their fixed attributes to true, the required
+3 initial equations are defined.
+</p>
+<p>
+After translation, this model is initialized in steady-state.
+The spring constant is computed as c = 49.05 N/m.
+An animation of this simulation is shown in the figure below.
+</p>
+
+<img src="resources/Modelica.Mechanics.MultiBody.Examples.Elementary.InitSpringConstant_info_001.png"
+alt="model Examples.Elementary.InitSpringConstant">
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <th>rev</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Damper_32x32.png"></td>
+      <th>damper</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Damper.html">Damper</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyShape_32x32.png"></td>
+      <th>body</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyShape.html">BodyShape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Fixed_32x32.png"></td>
+      <th>fixed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Spring_32x32.png"></td>
+      <th>spring</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Forces.Spring.html">Spring</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

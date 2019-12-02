@@ -1,0 +1,145 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Nonlinear.html">Nonlinear</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.solveNonlinearEquations2.html">solveNonlinearEquations2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>solveNonlinearEquations2</h1>
+    <p>Solve nonlinear equations with user dependent inputs</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Nonlinear.Examples.solveNonlinearEquations2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example solves the following nonlinear equations with function
+<a href="Modelica.Math.Nonlinear.solveOneNonlinearEquation.html">solveOneNonlinearEquation</a>.
+The user can set the parameters, like "w" or "m", and can experiment with
+different start intervals.
+The following nonlinear equations are solved:
+</p>
+
+<ul>
+<li> 0 = u^2 - 1</li>
+<li> 0 = 3*u - sin(w*u) - 1</li>
+<li> 0 = p[1] + log(p[2]*u) - m*u</li>
+</ul>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">solveNonlinearEquations2(tolerance, u_min1, u_max1, u_min2, u_max2, w, u_min3, u_max3, p, m)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tolerance</th>
+      <td>
+        <p><span>Default Value:</span> 100 * Modelica.Constants.eps</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative tolerance of solution u</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_min1</th>
+      <td>
+        <p><span>Default Value:</span> -0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_max1</th>
+      <td>
+        <p><span>Default Value:</span> 10</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_min2</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_max2</th>
+      <td>
+        <p><span>Default Value:</span> 5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w</th>
+      <td>
+        <p><span>Default Value:</span> 3</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_min3</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_max3</th>
+      <td>
+        <p><span>Default Value:</span> 8</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Default Value:</span> {5, 1}</p>
+        <p><span>Type:</span> Real[2]</p>
+        <p><span>Description:</span> Parameter vector</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Parameter</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

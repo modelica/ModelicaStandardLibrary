@@ -1,0 +1,98 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Vectors.html">Vectors</a></li>
+  <li><a href="Modelica.Math.Vectors.length.html">length</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>length</h1>
+    <p>Return length of a vector (better as norm(), if further symbolic processing is performed)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Vectors.length_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<strong>length</strong>(v);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.<strong>length</strong>(v)</code>" returns the
+<strong>Euclidean length</strong> "<code>sqrt(v*v)</code>" of vector v.
+The function call is equivalent to Vectors.norm(v). The advantage of
+length(v) over norm(v)"is that function length(..) is implemented
+in one statement and therefore the function is usually automatically
+inlined. Further symbolic processing is therefore possible, which is
+not the case with function norm(..).
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  v = {2, -4, -2, -1};
+  <strong>length</strong>(v);  // = 5
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Vectors.norm.html">Vectors.norm</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = length(v)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Real vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Length of vector v</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

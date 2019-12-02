@@ -1,0 +1,102 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Files.html">Files</a></li>
+  <li><a href="Modelica.Utilities.Files.loadResource.html">loadResource</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>loadResource</h1>
+    <p>Return the absolute path name of a URI or local file name</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Files.loadResource_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+fileReference = Files.<strong>loadResource</strong>(uri);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Files.<strong>loadResource</strong>(uri)</code>" returns the
+<strong>absolute path name</strong> of the file that is either defined by an URI or by a local
+path name. With the returned file name it is possible to
+access the file with function calls of the C standard library.
+If the data or file is stored in a data-base,
+this might require copying the resource to a temporary folder and referencing that.
+</p>
+
+<p>
+The implementation of this function is tool specific. However, at least Modelica URIs
+(see "chapter 13.2.3 External Resources" of the Modelica Specification),
+as well as absolute local file path names are supported.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  file1 = loadResource("modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt")
+          // file1 is the absolute path name of the file
+  file2 = loadResource("C:\data\readParameters.txt")
+          file2 = "C:/data/readParameters.txt"
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">fileReference = loadResource(uri)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>uri</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> URI or local file name</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fileReference</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Absolute path name of file</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

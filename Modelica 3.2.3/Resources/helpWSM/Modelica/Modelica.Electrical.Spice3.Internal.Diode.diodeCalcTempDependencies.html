@@ -1,0 +1,99 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Diode.html">Diode</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Diode.diodeCalcTempDependencies.html">diodeCalcTempDependencies</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>diodeCalcTempDependencies</h1>
+    <p>Temperature dependency calculation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.diodeCalcTempDependencies_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>In this function for the diode model temperature dependencies are calculated using temperature treating functions from the equation package.</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">out_c = diodeCalcTempDependencies(in_p, in_dp, in_m, in_v)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>in_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams.html">DiodeModelLineParams</a></p>
+        <p><span>Description:</span> Input record diode model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_dp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeParams.html">DiodeParams</a></p>
+        <p><span>Description:</span> Input record diode parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Model.Model.html">Model</a></p>
+        <p><span>Description:</span> Input record Model</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables.html">DiodeVariables</a></p>
+        <p><span>Description:</span> Input record diode variables</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>out_c</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc.html">DiodeCalc</a></p>
+        <p><span>Description:</span> Output record with calculated values</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.html">Elementary</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip.html">DoublePendulumInitTip</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DoublePendulumInitTip</h1>
+    <p>Demonstrate how to initialize a double pendulum so that its tip starts at a predefined position</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates at hand of a double pendulum,
+how non-standard initialization can be defined:
+The absolute position of the pendulum tip, and its absolute speed
+shall be initially defined. This can be performed with the
+<a href="Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit.html">Joints.FreeMotionScalarInit</a>
+joint that allows to initialize individual elements of its relative vectors.
+In this case, the x-, and y-coordinates of the relative position vector
+(visualized by the yellow arrow in the figure below) and of its
+derivative shall have a defined value at initial time.
+The configuration of the double pendulum at the initial time is
+shown below, where the tip position is required to have the coordinates
+x=0.7, y=0.3.
+</p>
+<p>
+Setting only the tip&#39;s start position results in an ambiguous initialization since
+two valid solutions for <code>revolute1.phi</code> and <code>revolute2.phi</code> exist.
+Moreover, the calculated angles <code>revolute1.phi</code> and <code>revolute2.phi</code>
+can be a multiple of expected solution <code>phi1</code> and <code>phi2</code>,
+</p>
+<ul>
+<li>revolute1.phi(k1) = phi1 + 2 &pi; k1,</li>
+<li>revolute2.phi(k2) = phi2 + 2 &pi; k2.</li>
+</ul>
+<p>
+To clearly indicate the preferred solution, guess initial angles can be additionally given.
+In this example, it is simply done by <code>revolute2.phi.start&nbsp;=&nbsp;Modelica.Constants.pi/2</code>.
+</p>
+<blockquote>
+<img src="modelica:///Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip/resources/Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip_info_001.png">
+</blockquote>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <th>revolute1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Damper_32x32.png"></td>
+      <th>damper</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Damper.html">Damper</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyBox_32x32.png"></td>
+      <th>boxBody1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <th>revolute2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyBox_32x32.png"></td>
+      <th>boxBody2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit_32x32.png"></td>
+      <th>freeMotionScalarInit</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit.html">FreeMotionScalarInit</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

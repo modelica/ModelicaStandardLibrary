@@ -1,0 +1,87 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.BasicMachines.html">BasicMachines</a></li>
+  <li><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.html">SynchronousInductionMachines</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SynchronousInductionMachines</h1>
+    <p>Models of synchronous induction machines</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+        <p>Permanent magnet synchronous induction machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p>Electrical excited synchronous induction machine with damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor.html">SM_ReluctanceRotor</a></p>
+        <p>Synchronous induction machine with reluctance rotor and damper cage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+This package contains models of synchronous induction machines, based on space phasor theory:
+<ul>
+<li>SM_PermanentMagnet: synchronous induction machine with permanent magnet excitation, with damper cage</li>
+<li>SM_ElectricalExcited: synchronous induction machine with electrical excitation
+    and damper cage</li>
+<li>SM_ReluctanceRotor: induction machine with reluctance rotor and damper cage<br>
+i.e., a squirrel cage rotor with magnetic poles due to different airgap width</li>
+</ul>
+These models use package SpacePhasors.
+<br><strong>Please keep in mind:</strong><br>
+<ul>
+<li>We keep the same reference system as for motors, i.e.:<br>
+    Positive RotorDisplacementAngle means acting as motor,<br>
+    with positive electric power consumption and positive mechanical power output.</li>
+<li>ElectricalAngle = p * MechanicalAngle</li>
+<li>real axis = d-axis<br>
+    imaginary= q-axis</li>
+<li>Voltage induced by the magnet wheel (d-axis) is located in the q-axis.</li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

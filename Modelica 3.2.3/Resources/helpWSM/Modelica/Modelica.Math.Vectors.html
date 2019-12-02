@@ -1,0 +1,170 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Vectors.html">Vectors</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Vectors</h1>
+    <p>Library of functions operating on vectors</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Vectors_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.toString_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.toString.html">toString</a></p>
+        <p>Convert a real vector in to a string representation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.isEqual_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.isEqual.html">isEqual</a></p>
+        <p>Determine if two Real vectors are numerically identical</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.norm_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.norm.html">norm</a></p>
+        <p>Return the p-norm of a vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.length_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.length.html">length</a></p>
+        <p>Return length of a vector (better as norm(), if further symbolic processing is performed)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.normalize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.normalize.html">normalize</a></p>
+        <p>Return normalized vector such that length = 1 and prevent zero-division for zero vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.normalizeWithAssert_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.normalizeWithAssert.html">normalizeWithAssert</a></p>
+        <p>Return normalized vector such that length = 1 (trigger an assert for zero vector)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.reverse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.reverse.html">reverse</a></p>
+        <p>Reverse vector elements (e.g., v[1] becomes last element)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.sort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.sort.html">sort</a></p>
+        <p>Sort elements of vector in ascending or descending order</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.find_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.find.html">find</a></p>
+        <p>Find element in a vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.interpolate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.interpolate.html">interpolate</a></p>
+        <p>Interpolate linearly in a vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.relNodePositions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.relNodePositions.html">relNodePositions</a></p>
+        <p>Return vector of relative node positions (0..1)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors.Utilities_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.Utilities.html">Utilities</a></p>
+        <p>Utility functions that should not be directly utilized by the user</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Library content</h4>
+<p>
+This library provides functions operating on vectors:
+</p>
+
+<ul>
+<li> <a href="Modelica.Math.Vectors.toString.html">toString</a>(v)
+     - returns the string representation of vector v.</li>
+
+<li> <a href="Modelica.Math.Vectors.isEqual.html">isEqual</a>(v1, v2)
+     - returns true if vectors v1 and v2 have the same size and the same elements.</li>
+
+<li> <a href="Modelica.Math.Vectors.norm.html">norm</a>(v,p)
+     - returns the p-norm of vector v.</li>
+
+<li> <a href="Modelica.Math.Vectors.length.html">length</a>(v)
+     - returns the length of vector v (= norm(v,2), but inlined and therefore usable in
+       symbolic manipulations)</li>
+
+<li> <a href="Modelica.Math.Vectors.normalize.html">normalize</a>(v)
+     - returns vector in direction of v with length = 1 and prevents
+       zero-division for zero vector.</li>
+
+<li> <a href="Modelica.Math.Vectors.reverse.html">reverse</a>(v)
+     - reverses the vector elements of v.</li>
+
+<li> <a href="Modelica.Math.Vectors.sort.html">sort</a>(v)
+     - sorts the elements of vector v in ascending or descending order.</li>
+
+<li> <a href="Modelica.Math.Vectors.find.html">find</a>(e, v)
+     - returns the index of the first occurrence of scalar e in vector v.</li>
+
+<li> <a href="Modelica.Math.Vectors.interpolate.html">interpolate</a>(x, y, xi)
+     - returns the interpolated value in (x,y) that corresponds to xi.</li>
+
+<li> <a href="Modelica.Math.Vectors.relNodePositions.html">relNodePositions</a>(nNodes)
+     - returns a vector of relative node positions (0..1).</li>
+</ul>
+
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.html">Matrices</a>
+</div>
+</section>
+</div>
+</body>
+</html>

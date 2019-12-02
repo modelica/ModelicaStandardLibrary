@@ -1,0 +1,186 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.StateGraph.html">StateGraph</a></li>
+  <li><a href="Modelica.StateGraph.StateGraphRoot.html">StateGraphRoot</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>StateGraphRoot</h1>
+    <p>Root of a StateGraph (has to be present on the highest level of a StateGraph)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.StateGraph.StateGraphRoot_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+On the highest level of a StateGraph, an instance of StateGraphRoot
+has to be present.
+</p>
+<p>
+The StateGraphRoot object is needed, since all Step objects have
+an "outer" reference to communicate with the "nearest" CompositeStep
+(which inherits from PartialCompositeStep), especially to abort
+a CompositeStep via the "suspend" port. Even if no "CompositeStep" is present,
+on highest level a corresponding "inner" definition is needed
+and is provided by the StateGraphRoot object.
+</p>
+</div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>suspend</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resume</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+      </td>
+    </tr>
+    <tr>
+      <th>activeSteps</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of active steps within the stategraph</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>subgraphStatePort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.CompositeStepStatePort_out.html">CompositeStepStatePort_out</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.FirstExample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.FirstExample.html">FirstExample</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>A first simple StateGraph example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.FirstExample_Variant2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.FirstExample_Variant2.html">FirstExample_Variant2</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>A variant of the first simple StateGraph example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.FirstExample_Variant3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.FirstExample_Variant3.html">FirstExample_Variant3</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>A variant of the first simple StateGraph example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ExecutionPaths_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ExecutionPaths.html">ExecutionPaths</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>Example to demonstrate parallel and alternative execution paths</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ShowCompositeStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ShowCompositeStep.html">ShowCompositeStep</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>Example to demonstrate parallel activities described by a StateGraph</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ShowExceptions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ShowExceptions.html">ShowExceptions</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ControlledTanks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ControlledTanks.html">ControlledTanks</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>Demonstrating the controller of a tank filling/emptying system</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController.html">TankController</a></p>
+        <p><span>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</span</p>
+        <p>Controller for tank system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller.html">Controller</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses</span</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

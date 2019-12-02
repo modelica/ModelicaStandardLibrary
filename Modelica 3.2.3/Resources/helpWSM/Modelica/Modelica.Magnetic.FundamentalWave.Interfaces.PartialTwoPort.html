@@ -1,0 +1,159 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort.html">PartialTwoPort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialTwoPort</h1>
+    <p>Two magnetic ports for graphical modeling</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This magnetic two port element consists of a
+<a href="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort.html">positive</a> and a
+<a href="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort.html">negative magnetic port</a> and
+considers the flux balance of the two ports. Additionally the magnetic potential difference (of the positive and the negative port) and the magnetic flux (into the positive magnetic port) are defined. This model is mainly to used to extend from in order build more complex - graphical - models.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a>,
+<a href="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a>,
+<a href="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended.html">PartialTwoPortExtended</a>
+<a href="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary.html">PartialTwoPortElementary</a>
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive magnetic port of fundamental wave machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative magnetic port of fundamental wave machines</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary.html">PartialTwoPortElementary</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Interfaces</span</p>
+        <p>Two magnetic ports for textual modeling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended.html">PartialTwoPortExtended</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Interfaces</span</p>
+        <p>Two magnetic ports for graphical modeling with additional variables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sensors.MagneticPotentialDifferenceSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sensors.MagneticPotentialDifferenceSensor.html">MagneticPotentialDifferenceSensor</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sensors</span</p>
+        <p>Sensor to measure magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sensors.MagneticFluxSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sensors.MagneticFluxSensor.html">MagneticFluxSensor</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sensors</span</p>
+        <p>Sensor to measure magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sources.SignalFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sources.SignalFlux.html">SignalFlux</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sources</span</p>
+        <p>Source of time varying magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux.html">ConstantFlux</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sources</span</p>
+        <p>Source of constant magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference.html">SignalMagneticPotentialDifference</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sources</span</p>
+        <p>Source of magnetic potential difference with signal input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference.html">ConstantMagneticPotentialDifference</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sources</span</p>
+        <p>Source with constant magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Components.Short_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Components.Short.html">Short</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Components</span</p>
+        <p>Short cut branch</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

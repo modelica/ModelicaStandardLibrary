@@ -1,0 +1,66 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'sum()'.html">'sum()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'sum()'</h1>
+    <p>sum()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'sum()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Returns the scalar sum
+</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>sum</strong>(A)
+<strong>sum</strong>(e(i, ..., j) <strong>for</strong> i <strong>in</strong> u, ..., j <strong>in</strong> v)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The first form returns the scalar sum of all the elements of
+array expression A:<br>
+A[1,...,1]+A[2,...,1]+....+A[end,...,1]+A[end,...,end]
+</p>
+<p>
+The second form is a reduction expression and
+returns the sum of the expression e(i, ..., j) evaluated for all combinations of i in u, ..., j in v:
+</p>
+<blockquote><pre>
+e(u[1],...,v[1]) + e(u[2],...,v[1]) + ... +
+e(u[end],...,v[1]) + ... + e(u[end],...,v[end])
+</pre></blockquote>
+<p>
+The type of <strong>sum</strong>(e(i, ..., j) <strong>for</strong> i <strong>in</strong>
+u, ..., j <strong>in</strong> v) is the same as the type of e(i,...j).
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>sum</strong>(i <strong>for</strong> i <strong>in</strong> 1:10)  // Gives  1+2+...+10=55
+   // Read it as: compute the sum of i for i in the range 1 to 10.
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

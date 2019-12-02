@@ -1,0 +1,341 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.LossyGear.html">LossyGear</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>LossyGear</h1>
+    <p>Gear with mesh efficiency and bearing friction (stuck/rolling possible)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Components.LossyGear_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This component models the gear ratio and the <strong>losses</strong> of
+a standard gear box in a <strong>reliable</strong> way including the stuck phases
+that may occur at zero speed. The gear boxes that can
+be handled are fixed in the ground or on a moving support, have one input and one
+output shaft, and are essentially described by the equations:
+</p>
+<blockquote><pre>
+             flange_a.phi  = i*flange_b.phi;
+-(flange_b.tau - tau_bf_b) = i*eta_mf*(flange_a.tau - tau_bf_a);
+
+// or        -flange_b.tau = i*eta_mf*(flange_a.tau - tau_bf_a - tau_bf_b/(i*eta_mf));
+</pre></blockquote>
+<p>
+where
+</p>
+
+<ul>
+<li> <strong>i</strong> is the constant <strong>gear ratio</strong>,</li>
+
+<li> <strong>eta_mf</strong> = eta_mf(w_a) is the <strong>mesh efficiency</strong> due to the
+     friction between the teeth of the gear wheels,</li>
+
+<li> <strong>tau_bf_a</strong> = tau_bf_a(w_a) is the <strong>bearing friction torque</strong>
+     on the flange_a side,</li>
+
+<li> <strong>tau_bf_b</strong> = tau_bf_b(w_a) is the <strong>bearing friction torque</strong>
+     on the flange_b side, and</li>
+
+<li><strong>w_a</strong> = der(flange_a.phi) is the speed of flange_a</li>
+</ul>
+
+<p>
+The loss terms "eta_mf", "tau_bf_a" and "tau_bf_b" are functions of the
+<em>absolute value</em> of the input shaft speed w_a and of the energy
+flow direction. They are defined by parameter <strong>lossTable[:,5]
+</strong> where the columns of this table have the following
+meaning:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tbody>
+    <tr>
+      <td>|w_a|</td>
+      <td>eta_mf1</td>
+      <td>eta_mf2</td>
+      <td>|tau_bf1|</td>
+      <td>|tau_bf2|</td>
+    </tr>
+    <tr>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+    </tr>
+    <tr>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>with</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tbody>
+    <tr>
+      <td>|w_a|</td>
+      <td>Absolute value of angular velocity of input shaft flange_a</td>
+    </tr>
+    <tr>
+      <td>eta_mf1</td>
+      <td>Mesh efficiency in case that flange_a is driving</td>
+    </tr>
+    <tr>
+      <td>eta_mf2</td>
+      <td>Mesh efficiency in case that flange_b is driving</td>
+    </tr>
+    <tr>
+      <td>|tau_bf1|</td>
+      <td> Absolute resultant bearing friction torque with respect to flange_a
+                        in case that flange_a is driving<br>
+                        (= |tau_bf_a*eta_mf1 + tau_bf_b/i|)
+                        </td>
+    </tr>
+    <tr>
+      <td>|tau_bf2|</td>
+      <td> Absolute resultant bearing friction torque with respect to flange_a
+                        in case that flange_b is driving<br>
+                        (= |tau_bf_a/eta_mf2 + tau_bf_b/i|)
+                        </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+With these variables, the mesh efficiency and the bearing friction
+are formally defined as:
+</p>
+
+<blockquote><pre>
+<strong>if</strong> (flange_a.tau - tau_bf_a)*w_a &gt; 0 <strong>or</strong>
+   (flange_a.tau - tau_bf_a) == 0 <strong>and</strong> w_a &gt; 0 <strong>then</strong>
+   eta_mf := eta_mf1
+   tau_bf := tau_bf1
+<strong>elseif</strong> (flange_a.tau - tau_bf_a)*w_a &lt; 0 <strong>or</strong>
+       (flange_a.tau - tau_bf_a) == 0 <strong>and</strong> w_a &lt; 0 <strong>then</strong>
+   eta_mf := 1/eta_mf2
+   tau_bf := tau_bf2
+<strong>else</strong> // w_a == 0
+   eta_mf and tau_bf are computed such that <strong>der</strong>(w_a) = 0
+<strong>end if</strong>;
+-flange_b.tau = i*(eta_mf*flange_a.tau - tau_bf);
+</pre></blockquote>
+
+<p>
+Note, that the losses are modeled in a physically meaningful way taking
+into account that at zero speed the movement may be locked due
+to the friction in the gear teeth and/or in the bearings.
+Due to this important property, this component can be used in
+situations where the combination of the components
+Modelica.Mechanics.Rotational.IdealGear and
+Modelica.Mechanics.Rotational.GearEfficiency will fail because,
+e.g., chattering occurs when using the
+Modelica.Mechanics.Rotational.GearEfficiency model.
+</p>
+
+<h4>Acknowledgement:</h4>
+<ul>
+<li> The essential idea to model efficiency
+     in this way is from Christoph Pelchen, ZF Friedrichshafen.</li>
+<li> The article (Pelchen et.al. 2002), see Literature below,
+     and the first implementation of LossyGear (up to version 3.1 of package Modelica)
+     contained a bug leading to a non-converging solution in cases where the
+     driving side is not obvious.
+     This was pointed out by Christian Bertsch and Max Westenkirchner, Bosch,
+     and Christian Bertsch proposed a concrete solution how to fix this
+     bug, see Literature below.</li>
+</ul>
+
+<h4>Literature</h4>
+
+<ul>
+<li>Pelchen C.,
+Schweiger C.,
+and <a href="http://www.robotic.dlr.de/Martin.Otter/">Otter M.</a>:
+&quot;<a href="https://www.modelica.org/events/Conference2002/papers/p33_Pelchen.pdf">Modeling
+and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</a>,&quot; in
+<em>Proceedings of the 2nd International Modelica Conference, Oberpfaffenhofen, Germany,</em>
+pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</li>
+
+<li>Bertsch C. (2009):
+&quot;<a href="resources/Modelica.Mechanics.Rotational.Components.LossyGear_info_001.pdf">Problem
+with model LossyGear and a proposed solution</a>&quot;,
+Ticket <a href="https://trac.modelica.org/Modelica/ticket/108">#108</a>,
+Sept. 11, 2009.</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupport</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ratio</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Transmission ratio (flange_a.phi/flange_b.phi)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lossTable</th>
+      <td>
+        <p><span>Value:</span> [0, 1, 1, 0, 0]</p>
+        <p><span>Type:</span> Real[:,5]</p>
+        <p><span>Description:</span> Array for mesh efficiencies and bearing friction depending on speed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Flange of left shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of right shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Support_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Support/housing of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1.html">LossyGearDemo1</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Example to show that gear efficiency may lead to stuck motion</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2.html">LossyGearDemo2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Example to show combination of LossyGear and BearingFriction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo3.html">LossyGearDemo3</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Example that failed in the previous version of the LossyGear version</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Gearbox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Gearbox.html">Gearbox</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Realistic model of a gearbox (based on LossyGear)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

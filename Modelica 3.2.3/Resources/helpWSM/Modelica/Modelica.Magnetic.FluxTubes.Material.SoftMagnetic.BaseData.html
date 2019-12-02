@@ -1,0 +1,271 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.html">Material</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.html">SoftMagnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData.html">BaseData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BaseData</h1>
+    <p>Coefficients for approximation of soft magnetic materials</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The parameters needed for <a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox.html">approximation of the magnetisation characteristics</a> of included soft magnetic materials are declared in this record.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>mu_i</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.RelativePermeability.html">RelativePermeability</a></p>
+        <p><span>Description:</span> Initial relative permeability at B=0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B_myMax</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFluxDensity.html">MagneticFluxDensity</a> (T)</p>
+        <p><span>Description:</span> Flux density at maximum relative permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_a</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Coefficient of approximation function</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_b</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Coefficient of approximation function</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Exponent of approximation function</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">SimpleSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span</p>
+        <p>Simple network model of a lifting magnet with planar armature end face</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid.html">AdvancedSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span</p>
+        <p>Advanced network model of a lifting magnet with planar armature end face, split magnetomotive force</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape.html">PartialFixedShape</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Interfaces</span</p>
+        <p>Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(17)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron.Permenorm3601K3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron.Permenorm3601K3.html">Permenorm3601K3</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron</span</p>
+        <p>PERMENORM 3601 K3 (36% NiFe)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron.MuMetall_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron.MuMetall.html">MuMetall</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron</span</p>
+        <p>MUMETALL (77% NiFe)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.CobaltIron.Vacoflux50_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.CobaltIron.Vacoflux50.html">Vacoflux50</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.CobaltIron</span</p>
+        <p>Vacoflux 50 (50% CoFe)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.VacoferS2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.VacoferS2.html">VacoferS2</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron</span</p>
+        <p>VACOFER S2 (99.95% Fe)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.RFe80_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.RFe80.html">RFe80</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron</span</p>
+        <p>Hyperm 0 (RFe80)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M940_100A_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M940_100A.html">M940_100A</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet</span</p>
+        <p>M940-100A @ 50Hz</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M700_100A_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M700_100A.html">M700_100A</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet</span</p>
+        <p>M700-100A (1.0826) @ 50Hz</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M530_50A_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M530_50A.html">M530_50A</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet</span</p>
+        <p>M530-50A (1.0813) @ 50Hz</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M350_50A_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M350_50A.html">M350_50A</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet</span</p>
+        <p>M350-50A (1.0810) @ 50Hz</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M330_50A_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M330_50A.html">M330_50A</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet</span</p>
+        <p>M330-50A (1.0809) @ 50Hz</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.AISI_12L14_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.AISI_12L14.html">AISI_12L14</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel</span</p>
+        <p>AISI 12L14 (1.0718)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.AISI_1008_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.AISI_1008.html">AISI_1008</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel</span</p>
+        <p>AISI 1008 (1.0204)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.X6Cr17_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.X6Cr17.html">X6Cr17</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel</span</p>
+        <p>X6Cr17 (1.4016)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.DC03_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.DC03.html">DC03</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel</span</p>
+        <p>DC03 (1.0347, previously St3)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.DC01_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.DC01.html">DC01</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel</span</p>
+        <p>DC01 (1.0330, previously St2)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMn28K_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMn28K.html">Steel_9SMn28K</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel</span</p>
+        <p>9SMn28k (1.0715)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28.html">Steel_9SMnPb28</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel</span</p>
+        <p>9SMnPb28 (1.0718)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,232 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ElectroMagneticConverter</h1>
+    <p>Electro-magnetic energy conversion</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The electro magnetic energy conversion is given by <strong>Ampere</strong>'s law and <strong>Faraday</strong>'s law respectively:
+</p>
+
+<dl>
+<dd>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_001.png">
+</dd>
+</dl>
+
+<p>
+In this equation
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_002.png">
+is the magnetomotive force that is supplied to the connected magnetic circuit,
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_003.png">
+is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_004.png"> is due to <strong>Lenz</strong>'s law.
+</p>
+
+<p>
+The static inductance is calculated from the flux linkage
+</p>
+<dl>
+<dd>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_005.png">
+</dd>
+</dl>
+<p>and the current
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_006.png">:
+</p>
+<dl>
+<dd>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_007.png">
+</dd>
+</dl>
+<p>
+This quantity is calculated for information only.</p>
+
+<h5>Note</h5>
+
+<p><img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_008.png">
+is set to</p>
+<dl>
+<dd>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_009.png">
+</dd>
+</dl>
+<p>
+if
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_info_010.png">.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of turns</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin_16x16.png"></td>
+      <th>pin_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electric pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin_16x16.png"></td>
+      <th>pin_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electric pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>j</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexVoltage_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexVoltage.html">ComplexVoltage</a></p>
+        <p><span>Description:</span> Voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexCurrent_32x32.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Description:</span> Current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Magnetic flux coupled into magnetic circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexMagneticFlux_32x32.png"></td>
+      <th>Psi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Flux linkage for information only</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.LinearInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.LinearInductor.html">LinearInductor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples</span</p>
+        <p>Linear inductor with ferromagnetic core</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor.html">NonLinearInductor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples</span</p>
+        <p>Non linear inductor with ferromagnetic core</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

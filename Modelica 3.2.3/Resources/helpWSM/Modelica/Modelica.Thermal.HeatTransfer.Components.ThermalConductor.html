@@ -1,0 +1,257 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Components.html">Components</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Components.ThermalConductor.html">ThermalConductor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ThermalConductor</h1>
+    <p>Lumped thermal element transporting heat without storing it</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalConductor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a model for transport of heat without storing it; see also:
+<a href="Modelica.Thermal.HeatTransfer.Components.ThermalResistor.html">ThermalResistor</a>.
+It may be used for complicated geometries where
+the thermal conductance G (= inverse of thermal resistance)
+is determined by measurements and is assumed to be constant
+over the range of operations. If the component consists mainly of
+one type of material and a regular geometry, it may be calculated,
+e.g., with one of the following equations:
+</p>
+<ul>
+<li><p>
+    Conductance for a <strong>box</strong> geometry under the assumption
+    that heat flows along the box length:</p>
+    <pre>
+    G = k*A/L
+    k: Thermal conductivity (material constant)
+    A: Area of box
+    L: Length of box
+    </pre>
+    </li>
+<li><p>
+    Conductance for a <strong>cylindrical</strong> geometry under the assumption
+    that heat flows from the inside to the outside radius
+    of the cylinder:</p>
+    <pre>
+    G = 2*pi*k*L/log(r_out/r_in)
+    pi   : Modelica.Constants.pi
+    k    : Thermal conductivity (material constant)
+    L    : Length of cylinder
+    log  : Modelica.Math.log;
+    r_out: Outer radius of cylinder
+    r_in : Inner radius of cylinder
+    </pre>
+    </li>
+</ul>
+<pre>
+    Typical values for k at 20 degC in W/(m.K):
+      aluminium   220
+      concrete      1
+      copper      384
+      iron         74
+      silver      407
+      steel        45 .. 15 (V2A)
+      wood         0.1 ... 0.2
+</pre>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>G</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ThermalConductance.html">ThermalConductance</a> (W/K)</p>
+        <p><span>Description:</span> Constant thermal conductance of material</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>port_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b_16x16.png"></td>
+      <th>port_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b.html">HeatPort_b</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingMOSInverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingMOSInverter.html">HeatingMOSInverter</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Heating MOS Inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingNPN_OrGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingNPN_OrGate.html">HeatingNPN_OrGate</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Heating NPN Or Gate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingPNP_NORGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingPNP_NORGate.html">HeatingPNP_NORGate</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Heating PNP NOR Gate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingResistor.html">HeatingResistor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Heating resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingRectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingRectifier.html">HeatingRectifier</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Heating rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling.html">DCPM_Cooling</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span</p>
+        <p>Test example: Cooling of a DCPM motor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatingSystem_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatingSystem.html">HeatingSystem</a></p>
+        <p><span>Modelica.Fluid.Examples</span</p>
+        <p>Simple model of a heating system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling.html">IndirectCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Indirect cooling circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.OneMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.OneMass.html">OneMass</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Cooling of one hot mass</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TwoMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass.html">TwoMass</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Cooling of two hot masses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.TwoMasses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.TwoMasses.html">TwoMasses</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples</span</p>
+        <p>Simple conduction demo</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature.html">ControlledTemperature</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples</span</p>
+        <p>Control temperature of a resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Motor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Motor.html">Motor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples</span</p>
+        <p>Second order thermal model of a motor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Utilities.Conduction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Utilities.Conduction.html">Conduction</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples.Utilities</span</p>
+        <p>Input/output block of a conduction model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

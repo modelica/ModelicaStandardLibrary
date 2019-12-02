@@ -1,0 +1,371 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses.html">LineForceWithTwoMasses</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>LineForceWithTwoMasses</h1>
+    <p>General line force component with two optional point masses on the connection line</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This component is used to exert a <strong>line force</strong>
+between the origin of frame_a and the origin of frame_b
+by attaching components of the <strong>1-dimensional translational</strong>
+mechanical library of Modelica (Modelica.Mechanics.Translational)
+between the two flange connectors <strong>flange_a</strong> and
+<strong>flange_b</strong>. Optionally, there are <strong>two point masses</strong> on the line
+connecting the origin of frame_a and the origin of frame_b.
+These point masses approximate the <strong>masses</strong> of the <strong>force element</strong>.
+The locations of the two point masses are defined by their
+(fixed) distances of L_a relative to frame_a and of L_b relative
+to frame_b, respectively.
+</p>
+<p>
+In example
+<a href="Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses.html">
+MultiBody.Examples.Elementary.LineForceWithTwoMasses</a> the usage of this
+line force element is shown and is compared with an alternative
+implementation using a
+<a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS.html">
+MultiBody.Joints.Assemblies.JointUPS</a> component.
+The composition diagram of this example
+is displayed in the figure below.
+</p>
+
+<p>
+<img src="modelica:///Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses/resources/Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses_info_001.png">
+</p>
+
+<p>
+The animation view at time = 0 is shown in the next figure.
+The system on the left side in the front is the animation with
+the LineForceWithTwoMasses component whereas the system on the right
+side in the back is the animation with the JointUPS component.
+Both implementations yield the same result. However, the implementation
+with the LineForceWithTwoMasses component is simpler.
+</p>
+
+<p>
+<img src="modelica:///Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses/resources/Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses_info_002.png">
+</p>
+
+<p>
+In the translational library there is the implicit assumption that
+forces of components that have only one flange connector act with
+opposite sign on the bearings of the component. This assumption
+is also used in the LineForceWithTwoMasses component: If a connection
+is present to only one of the flange connectors, then the force
+in this flange connector acts implicitly with opposite sign also
+in the other flange connector.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>s_small</th>
+      <td>
+        <p><span>Value:</span> 1e-10</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Prevent zero-division if distance between frame_a and frame_b is zero</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fixedRotationAtFrame_a</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if rotation frame_a.R is fixed (to directly connect line forces)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fixedRotationAtFrame_b</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if rotation frame_b.R is fixed (to directly connect line forces)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>animate</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>animateMasses</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if point masses shall be visualized provided animate=true and m_a, m_b > 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_a</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of point mass a on the connection line between the origin of frame_a and the origin of frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_b</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of point mass b on the connection line between the origin of frame_a and the origin of frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L_a</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Distance between point mass a and frame_a (positive, if in direction of frame_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L_b</th>
+      <td>
+        <p><span>Value:</span> L_a</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Distance between point mass b and frame_b (positive, if in direction of frame_a)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderLength_a</th>
+      <td>
+        <p><span>Value:</span> 2 * L_a</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of cylinder at frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderLength_b</th>
+      <td>
+        <p><span>Value:</span> 2 * L_b</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of cylinder at frame_b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderDiameter_a</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultForceWidth</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Diameter of cylinder at frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color_a</th>
+      <td>
+        <p><span>Default Value:</span> {155, 155, 155}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of cylinder at frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>diameterFraction</th>
+      <td>
+        <p><span>Default Value:</span> 0.8</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Diameter of cylinder at frame_b with respect to diameter of cylinder at frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color_b</th>
+      <td>
+        <p><span>Default Value:</span> {100, 100, 100}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of cylinder at frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>massDiameterFaction</th>
+      <td>
+        <p><span>Default Value:</span> 1.7</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Diameter of point mass spheres with respect to cylinderDiameter_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>massColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of point masses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderDiameter_b</th>
+      <td>
+        <p><span>Default Value:</span> cylinderDiameter_a * diameterFraction</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>massDiameter</th>
+      <td>
+        <p><span>Default Value:</span> cylinderDiameter_a * massDiameterFaction</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system a fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system b fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> 1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> 1-dim. translational flange (connect force of Translational library between flange_a and flange_b)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>cylinder_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>cylinder_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>sphere_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>sphere_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses.html">LineForceWithTwoMasses</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span</p>
+        <p>Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

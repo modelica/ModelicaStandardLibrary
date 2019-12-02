@@ -1,0 +1,118 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.IdealGases.html">IdealGases</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.T_psX.html">T_psX</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.T_psX.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.T_psX.Internal.solve.html">solve</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>solve</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.IdealGases.Common.MixtureGasNasa.T_psX.Internal.solve_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">x_zero = solve(y_zero, x_min, x_max, pressure, X, f_nonlinear_data, x_tol)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y_zero</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Determine x_zero, such that f_nonlinear(x_zero) = y_zero</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_min</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimum value of x</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_max</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum value of x</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pressure</th>
+      <td>
+        <p><span>Default Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Disregarded variables (here always used for pressure)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Default Value:</span> fill(0, 0)</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Disregarded variables (here always used for composition)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_nonlinear_data</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data.html">f_nonlinear_Data</a></p>
+        <p><span>Description:</span> Additional data for function f_nonlinear</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_tol</th>
+      <td>
+        <p><span>Default Value:</span> 100 * Modelica.Constants.eps</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative tolerance of the result</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x_zero</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> f_nonlinear(x_zero) = y_zero</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

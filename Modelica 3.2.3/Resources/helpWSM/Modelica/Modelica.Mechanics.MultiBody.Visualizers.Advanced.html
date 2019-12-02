@@ -1,0 +1,131 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Advanced</h1>
+    <p>Visualizers that require basic knowledge about Modelica in order to use them</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow.html">Arrow</a></p>
+        <p>Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow.html">DoubleArrow</a></p>
+        <p>Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+        <p>Visualizing an elementary object with variable size; all data have to be set as modifiers (see info layer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface.html">Surface</a></p>
+        <p>Visualizing a moveable, parameterized surface; the surface characteristic is provided by a function</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField.html">PipeWithScalarField</a></p>
+        <p>Visualizing a pipe with a scalar field</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.html">SurfaceCharacteristics</a></p>
+        <p>Functions returning surface descriptions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Package <strong>Visualizers.Advanced</strong> contains components to visualize
+3-dimensional shapes with dynamical sizes. None of the components
+has a frame connector. The position and orientation is set via
+modifiers. Basic knowledge of Modelica
+is needed in order to utilize the components of this package.
+These components have also to be used for models,
+where the forces and torques in the frame connector are set via
+equations (in this case, the models of the Visualizers package cannot be used,
+since they all have frame connectors).
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow.html">Arrow</a></td>
+      <td>Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
+      <img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced_info_001.png" alt="model Visualizers.Advanced.Arrow">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow.html">DoubleArrow</a></td>
+      <td>Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
+      <img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced_info_002.png" alt="model Visualizers.Advanced.DoubleArrow">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></td>
+      <td>Visualizing an elementary object with variable size.
+      The following shape types are supported:<br>&nbsp;<br>
+      <img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced_info_003.png" alt="model Visualizers.Advanced.Shape">
+      </td>
+  </tr>
+
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface.html">Surface</a></td>
+      <td>Visualizing a moveable parameterized surface:<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Visualizers.Advanced/resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced_info_004.png">
+      </td>
+  </tr>
+
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField.html">PipeWithScalarField</a></td>
+      <td>Visualizing a pipe with a scalar field represented by a color coding:<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Visualizers.Advanced/resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced_info_005.png">
+      </td>
+  </tr>
+</table>
+</div>
+</section>
+</div>
+</body>
+</html>

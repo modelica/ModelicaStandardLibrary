@@ -1,0 +1,194 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines.html">FixedLines</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FixedLines</h1>
+    <p>Visualizing a set of lines as cylinders (e.g., used to display characters)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+With model <strong>FixedLines</strong> a set of lines is defined
+that are located relatively to frame_a. Every line
+is represented by a cylinder. This allows to define simple shaped
+3-dimensional characters. An example is shown in the
+following figure:<br>&nbsp;
+</p>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines_info_001.png" alt="model Visualizers.FixedLines">
+<p>&nbsp;<br>
+The two letters "x" and "y" are constructed with 4 lines
+by providing the following data for parameter <strong>lines</strong>
+</p>
+<pre>
+   lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre>
+<p>
+Via parameter vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
+coordinate system is defined. The points defined with parameter
+<strong>lines</strong> are with respect to this coordinate system. For example
+"[0, 0; 1, 1]" defines a line that starts at {0,0} and ends at {1,1}.
+The diameter and color of all line cylinders are identical.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>scale</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> The 'lines' are visualized 'scale' times bigger</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lines</th>
+      <td>
+        <p><span>Default Value:</span> {[0, 0; 1, 1], [0, 1; 1, 0]}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[:,2,2]</a> (m)</p>
+        <p><span>Description:</span> List of start and end points of cylinders resolved along n_x and n_y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>diameter</th>
+      <td>
+        <p><span>Default Value:</span> 0.05</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Diameter of the cylinders defined by lines</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_lines</th>
+      <td>
+        <p><span>Default Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from origin of frame_a to the origin of the 'lines' frame, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_x</th>
+      <td>
+        <p><span>Default Value:</span> {1, 0, 0}</p>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Vector in direction of x-axis of 'lines' frame, resolved in frame_a.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_y</th>
+      <td>
+        <p><span>Default Value:</span> {0, 1, 0}</p>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Vector in direction of y-axis of 'lines' frame, resolved in frame_a.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Default Value:</span> {0, 128, 255}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of cylinders</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system in which visualization data is resolved</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines_32x32.png"></td>
+      <th>x_label</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines.html">Lines</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

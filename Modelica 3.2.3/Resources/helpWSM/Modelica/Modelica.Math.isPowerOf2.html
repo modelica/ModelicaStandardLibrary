@@ -1,0 +1,95 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.isPowerOf2.html">isPowerOf2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>isPowerOf2</h1>
+    <p>Determine if the integer input is a power of 2</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.isPowerOf2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Math.<strong>isPowerOf2</strong>(i);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Math.isPowerOf2(i)</code>" returns <strong>true</strong>,
+if the Integer input i is a power of 2. Otherwise the function
+returns <strong>false</strong>. The Integer input has to be &gt;=1.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Integer i1 = 1;
+  Integer i2 = 4;
+  Integer i3 = 9;
+  Boolean result;
+<strong>algorithm</strong>
+  result := Math.isPowerOf2(i1);     // = <strong>true</strong> 2^0
+  result := Math.isPowerOf2(i2);     // = <strong>true</strong> 2^2
+  result := Math.isPowerOf2(i3);     // = <strong>false</strong>
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = isPowerOf2(i)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Integer scalar</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if integer scalar is a power of 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

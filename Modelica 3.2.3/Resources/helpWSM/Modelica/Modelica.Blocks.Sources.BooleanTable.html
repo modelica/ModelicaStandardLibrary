@@ -1,0 +1,266 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Blocks.Sources.BooleanTable.html">BooleanTable</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BooleanTable</h1>
+    <p>Generate a Boolean output signal based on a vector of time instants</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Sources.BooleanTable_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Sources.BooleanTable_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Sources.BooleanTable_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The Boolean output y is a signal defined by parameter vector <strong>table</strong>.
+In the vector time points are stored.
+The table interpolation has the following properties:
+</p>
+
+<ul>
+<li>At every time point, the output y
+    changes its value to the negated value of the previous one.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the <strong>startValue</strong> or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (This setting is not suitable and triggers an assert.)
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>Via parameter <strong>shiftTime</strong> the curve defined by the table can be shifted
+    in time.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and <strong>false</strong>
+    is used as ordinate value for the output.</li>
+</ul>
+
+<p>
+<img src="resources/Modelica.Blocks.Sources.BooleanTable_info_001.png"
+     alt="BooleanTable.png">
+</p>
+
+<p>
+The precise semantics is:
+</p>
+
+<pre>
+  <strong>if</strong> size(table,1) == 0 <strong>then</strong>
+     y = startValue;
+  <strong>else</strong>
+     //            time &lt; table[1]: y = startValue
+     // table[1] &le; time &lt; table[2]: y = not startValue
+     // table[2] &le; time &lt; table[3]: y = startValue
+     // table[3] &le; time &lt; table[4]: y = not startValue
+     // ...
+  <strong>end if</strong>;
+</pre>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>table</th>
+      <td>
+        <p><span>Value:</span> {0, 1}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time[:]</a> (s)</p>
+        <p><span>Description:</span> Vector of time points. At every time point, the output y gets its opposite value (e.g., table={0,1})</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startValue</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Start value of y. At time = table[1], y changes to 'not startValue'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>extrapolation</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Extrapolation.HoldLastPoint</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Extrapolation.html">Extrapolation</a></p>
+        <p><span>Description:</span> Extrapolation of data outside the definition range</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> -Modelica.Constants.inf</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Output = false for time < startTime</p>
+      </td>
+    </tr>
+    <tr>
+      <th>shiftTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Shift time of table</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+        <p><span>Description:</span> Connector of Boolean output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.CombiTimeTable_32x32.png"></td>
+      <th>combiTimeTable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.CombiTimeTable.html">CombiTimeTable</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.RealToBoolean_32x32.png"></td>
+      <th>realToBoolean</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.RealToBoolean.html">RealToBoolean</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.ShowLogicalSources_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.ShowLogicalSources.html">ShowLogicalSources</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates the usage of logical sources together with their diagram animation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.LogicalNetwork1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.LogicalNetwork1.html">LogicalNetwork1</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates the usage of logical blocks</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.BooleanNetwork1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.BooleanNetwork1.html">BooleanNetwork1</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Interaction1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Interaction1.html">Interaction1</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.CharacteristicThyristors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.CharacteristicThyristors.html">CharacteristicThyristors</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Characteristic of ideal thyristors</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.RadioButtonSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.RadioButtonSource.html">RadioButtonSource</a></p>
+        <p><span>Modelica.Blocks.Sources</span</p>
+        <p>Boolean signal source that mimics a radio button</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Temporary.RadioButton_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Temporary.RadioButton.html">RadioButton</a></p>
+        <p><span>Modelica.StateGraph.Temporary</span</p>
+        <p>Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton.html">RadioButton</a></p>
+        <p><span>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</span</p>
+        <p>Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

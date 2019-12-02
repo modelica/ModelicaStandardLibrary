@@ -1,0 +1,129 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FluidHeatFlow</h1>
+    <p>Simple components for 1-dimensional incompressible thermo-fluid flow models</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.FluidHeatFlow_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.UsersGuide_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.UsersGuide.html">UsersGuide</a></p>
+        <p>User's Guide</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.html">Examples</a></p>
+        <p>Examples that demonstrate the usage of the FluidHeatFlow components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Components.html">Components</a></p>
+        <p>Basic components (pipes, valves)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Media.html">Media</a></p>
+        <p>Medium properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.html">Sensors</a></p>
+        <p>Ideal sensors to measure port properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sources.html">Sources</a></p>
+        <p>Ideal fluid sources, e.g., ambient, volume flow</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.html">Interfaces</a></p>
+        <p>Connectors and partial models</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g., of electric machines:</p>
+<ul>
+<li>Components: components like different types of pipe models</li>
+<li>Examples: some test examples</li>
+<li>Interfaces: definition of connectors and partial models
+(containing the core thermodynamic equations)</li>
+<li>Media: definition of media properties</li>
+<li>Sensors: various sensors for pressure, temperature, volume and enthalpy flow</li>
+<li>Sources: various flow sources</li>
+</ul>
+<strong>Variables used in connectors:</strong>
+<ul>
+<li>Pressure p</li>
+<li>flow MassFlowRate m_flow</li>
+<li>SpecificEnthalpy h</li>
+<li>flow EnthalpyFlowRate H_flow</li>
+</ul>
+<p>EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carried by the medium's flow.</p>
+<strong>Limitations and assumptions:</strong>
+<ul>
+<li>Splitting and mixing of coolant flows (media with the same cp) is possible.</li>
+<li>Reversing the direction of flow is possible.</li>
+<li>The medium is considered to be incompressible.</li>
+<li>No mixtures of media is taken into consideration.</li>
+<li>The medium may not change its phase.</li>
+<li>Medium properties are kept constant.</li>
+<li>Pressure changes are only due to pressure drop and geodetic height difference rho*g*h (if h > 0).</li>
+<li>A user-defined part (0..1) of the friction losses (V_flow*dp) are fed to the medium.</li>
+<li><strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!<br>
+Since mixing may occur, the outlet temperature may be different from the connector's temperature.<br>
+Outlet temperature is defined by variable T of the corresponding component.</li>
+</ul>
+<p>
+Copyright &copy; 1998-2019, Modelica Association and contributors
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

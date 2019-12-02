@@ -1,0 +1,143 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.dgecon.html">dgecon</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dgecon</h1>
+    <p>Estimates the reciprocal of the condition number of a general real matrix A</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgecon_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<pre>Lapack documentation
+    Purpose
+    =======
+
+    DGECON estimates the reciprocal of the condition number of a general
+    real matrix A, in either the 1-norm or the infinity-norm, using
+    the LU factorization computed by DGETRF.
+
+    An estimate is obtained for norm(inv(A)), and the reciprocal of the
+    condition number is computed as
+       RCOND = 1 / ( norm(A) * norm(inv(A)) ).
+
+    Arguments
+    =========
+
+    NORM    (input) CHARACTER*1
+            Specifies whether the 1-norm condition number or the
+            infinity-norm condition number is required:
+            = '1' or 'O':  1-norm;
+            = 'I':         Infinity-norm.
+
+    N       (input) INTEGER
+            The order of the matrix A.  N >= 0.
+
+    A       (input) DOUBLE PRECISION array, dimension (LDA,N)
+            The factors L and U from the factorization A = P*L*U
+            as computed by DGETRF.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA >= max(1,N).
+
+    ANORM   (input) DOUBLE PRECISION
+            If NORM = '1' or 'O', the 1-norm of the original matrix A.
+            If NORM = 'I', the infinity-norm of the original matrix A.
+
+    RCOND   (output) DOUBLE PRECISION
+            The reciprocal of the condition number of the matrix A,
+            computed as RCOND = 1/(norm(A) * norm(inv(A))).
+
+    WORK    (workspace) DOUBLE PRECISION array, dimension (4*N)
+
+    IWORK   (workspace) INTEGER array, dimension (N)
+
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            < 0:  if INFO = -i, the i-th argument had an illegal value</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(rcond, info) = dgecon(LU_of_A, inf, anorm)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>LU_of_A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> LU factorization of a real matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>inf</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Is true if infinity norm is used and false for 1-norm</p>
+      </td>
+    </tr>
+    <tr>
+      <th>anorm</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> norm of A</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>rcond</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Reciprocal condition number of A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

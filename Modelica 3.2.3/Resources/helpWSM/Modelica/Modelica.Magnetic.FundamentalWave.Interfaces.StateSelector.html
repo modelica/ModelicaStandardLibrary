@@ -1,0 +1,126 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector.html">StateSelector</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>StateSelector</h1>
+    <p>Transform instantaneous values to space phasors and select states</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Transforms instantaneous values into space phasors and zero system currents,
+rotates space phasors and sets stateSelect modifiers in order to choose states w.r.t. rotating frame,
+i.e., with small derivatives.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x0StateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.prefer</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use zero systems as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xrStateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.prefer</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use space phasors w.r.t. rotating frame as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>np</th>
+      <td>
+        <p><span>Value:</span> integer((m - 1) / 2)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of space phasors</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>xi</th>
+      <td>
+        <p><span>Type:</span> Real[m]</p>
+        <p><span>Description:</span> Instantaneous values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>gamma</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Angle of rotation</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>xf</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex[np]</a></p>
+        <p><span>Description:</span> Space phasors w.r.t. fixed frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>xr</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex[np]</a></p>
+        <p><span>Description:</span> Space phasors w.r.t. rotating frame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Mechanics</h1>
+    <p>Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></p>
+        <p>Library to model 3-dimensional mechanical systems</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.html">Rotational</a></p>
+        <p>Library to model 1-dimensional, rotational mechanical systems</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.html">Translational</a></p>
+        <p>Library to model 1-dimensional, translational mechanical systems</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains components to model the movement
+of 1-dim. rotational, 1-dim. translational, and
+3-dim. <strong>mechanical systems</strong>.
+</p>
+
+<p>
+Note, all <strong>dissipative</strong> components of the Modelica.Mechanics library have
+an optional <strong>heatPort</strong> connector to which the
+dissipated energy is transported in form of heat. This connector is enabled
+via parameter "useHeatPort". If the heatPort connector is enabled,
+it must be connected, and if it is not enabled, it must not be connected.
+Independently, whether the heatPort is enabled or not,
+the dissipated power is available from variable "<strong>lossPower</strong>" (which is
+positive if heat is flowing out of the heatPort).
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

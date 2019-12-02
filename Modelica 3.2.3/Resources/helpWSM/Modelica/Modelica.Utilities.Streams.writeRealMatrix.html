@@ -1,0 +1,151 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Streams.html">Streams</a></li>
+  <li><a href="Modelica.Utilities.Streams.writeRealMatrix.html">writeRealMatrix</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>writeRealMatrix</h1>
+    <p>Write Real matrix to a MATLAB MAT file</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Streams.writeRealMatrix_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+success = Streams.<strong>writeRealMatrix</strong>(fileName, matrixName, matrix, append, format)
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>writeRealMatrix</strong>(..) writes the given matrix to a new or an existing MATLAB MAT file
+(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3).
+If <code>append = false</code> (= default), the file is newly created
+(or an existing file is deleted and re-created).
+If <code>append = true</code>, the matrix is included in an existing file or if the
+file does not yet exists this flag is ignored. If the file exists and
+<code>append = true</code>, argument format is ignored.
+</p>
+
+<p>
+Parameter <strong>format</strong> defines the format in which the values are stored on file.
+The following formats are supported:<br>&nbsp;
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td>format = </td><td>Type of format</td></tr>
+<tr><td>"4"  </td><td>MATLAB MAT version v4</td></tr>
+<tr><td>"6"  </td><td>MATLAB MAT version v6</td></tr>
+<tr><td>"7"  </td><td>MATLAB MAT version v7</td></tr>
+<tr><td>"7.3"</td><td>MATLAB MAT version v7.3<br>
+                      (requires HDF support in the Modelica tool)</td></tr>
+</table>
+
+<p>
+The function returns <code>success = true</code> if the matrix was successfully written
+to file. Otherwise, an error message is printed and the function returns with
+<code>success = false</code>.
+</p>
+
+<h4>Example</h4>
+<p>
+See <a href="Modelica.Utilities.Examples.WriteRealMatrixToFile.html">Examples.WriteRealMatrixToFile</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Utilities.Streams.readMatrixSize.html">readMatrixSize</a>,
+<a href="Modelica.Utilities.Streams.readRealMatrix.html">readRealMatrix</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">success = writeRealMatrix(fileName, matrixName, matrix, append, format)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where external data is to be stored</p>
+      </td>
+    </tr>
+    <tr>
+      <th>matrixName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name / identifier of the 2D Real array on the file</p>
+      </td>
+    </tr>
+    <tr>
+      <th>matrix</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> 2D Real array</p>
+      </td>
+    </tr>
+    <tr>
+      <th>append</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Append values to file</p>
+      </td>
+    </tr>
+    <tr>
+      <th>format</th>
+      <td>
+        <p><span>Default Value:</span> "4"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> MATLAB MAT file version: "4" -> v4, "6" -> v6, "7" -> v7</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>success</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> true if successful</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

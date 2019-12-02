@@ -1,0 +1,99 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Vectors.html">Vectors</a></li>
+  <li><a href="Modelica.Math.Vectors.normalizeWithAssert.html">normalizeWithAssert</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>normalizeWithAssert</h1>
+    <p>Return normalized vector such that length = 1 (trigger an assert for zero vector)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Vectors.normalizeWithAssert_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<strong>normalizeWithAssert</strong>(v);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.<strong>normalizeWithAssert</strong>(v)</code>" returns the
+<strong>unit vector</strong> "<code>v/sqrt(v*v)</code>" of vector v.
+If vector v is a zero vector, an assert is triggered.
+</p>
+<p>
+Since the function has the "Inline" annotation, it
+is usually inlined and symbolic processing is applied.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>normalizeWithAssert</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+  <strong>normalizeWithAssert</strong>({0,0,0});  // error (an assert is triggered)
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Vectors.length.html">Vectors.length</a>,
+<a href="Modelica.Math.Vectors.normalize.html">Vectors.normalize</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = normalizeWithAssert(v)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Real vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Real[size(v, 1)]</p>
+        <p><span>Description:</span> Input vector v normalized to length=1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Blocks.Sources.TimeTable.html">TimeTable</a></li>
+  <li><a href="Modelica.Blocks.Sources.TimeTable.getInterpolationCoefficients.html">getInterpolationCoefficients</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>getInterpolationCoefficients</h1>
+    <p>Determine interpolation coefficients and next time event</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Sources.TimeTable.getInterpolationCoefficients_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(a, b, nextEventScaled, next) = getInterpolationCoefficients(table, offset, startTimeScaled, timeScaled, last, TimeEps, shiftTimeScaled)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>table</th>
+      <td>
+        <p><span>Type:</span> Real[:,2]</p>
+        <p><span>Description:</span> Table for interpolation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>offset</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> y-offset</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTimeScaled</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Scaled time-offset</p>
+      </td>
+    </tr>
+    <tr>
+      <th>timeScaled</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Actual scaled time instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>last</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Last used lower grid index</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TimeEps</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative epsilon to check for identical time instants</p>
+      </td>
+    </tr>
+    <tr>
+      <th>shiftTimeScaled</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Time shift</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Interpolation coefficient a (y=a*x + b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Interpolation coefficient b (y=a*x + b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nextEventScaled</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Next scaled event instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>next</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> New lower grid index</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

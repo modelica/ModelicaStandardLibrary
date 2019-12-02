@@ -1,0 +1,167 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Distributions.html">Distributions</a></li>
+  <li><a href="Modelica.Math.Distributions.TruncatedNormal.html">TruncatedNormal</a></li>
+  <li><a href="Modelica.Math.Distributions.TruncatedNormal.quantile.html">quantile</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>quantile</h1>
+    <p>Quantile of truncated normal distribution</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Distributions.TruncatedNormal.quantile_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Normal.<strong>quantile</strong>(u, y_min=0, y_max=1, mu=0, sigma=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the inverse cumulative distribution function (= quantile) according to a
+<strong>truncated normal</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+mean value of original distribution <strong>mu</strong> and
+standard deviation of original distribution <strong>sigma</strong> (variance = sigma<sup>2</sup>).
+Input argument u must be in the range:
+</p>
+
+<blockquote>
+<p>
+0 &lt; u &lt; 1
+</p>
+</blockquote>
+
+<p>
+Output argument y is in the range:
+</p>
+
+
+<blockquote>
+<p>
+y_min &le; y &le; y_max
+</p>
+</blockquote>
+
+<p>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.Distributions.TruncatedNormal.quantile/resources/Modelica.Math.Distributions.TruncatedNormal.quantile_info_001.png">
+</blockquote>
+
+<p>
+For more details<br>
+of the normal distribution, see
+<a href="http://en.wikipedia.org/wiki/Normal_distribution">Wikipedia</a>,<br>
+of truncated distributions, see
+<a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  quantile(0.001)           // = 0.001087357613043849;
+  quantile(0.5,0,1,0.5,0.9) // = 0.5
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Distributions.TruncatedNormal.density.html">TruncatedNormal.density</a>,
+<a href="Modelica.Math.Distributions.TruncatedNormal.cumulative.html">TruncatedNormal.cumulative</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = quantile(u, y_min, y_max, mu, sigma)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number in the range 0 <= u <= 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_min</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_max</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu</th>
+      <td>
+        <p><span>Default Value:</span> (y_max + y_min) / 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Expectation (mean) value of the normal distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Default Value:</span> (y_max - y_min) / 6</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Standard deviation of the normal distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number u transformed according to the given distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

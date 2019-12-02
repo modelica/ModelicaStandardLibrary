@@ -1,0 +1,251 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Lines.html">Lines</a></li>
+  <li><a href="Modelica.Electrical.Analog.Lines.M_OLine.html">M_OLine</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>M_OLine</h1>
+    <p>Multiple OLine</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Transformer model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
+
+<blockquote>
+<img src="resources/Modelica.Electrical.Analog.Lines.M_OLine_info_001.png"
+     alt="segment.png">
+</blockquote>
+
+<p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
+<p align="center"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code></p>
+<p>In the picture of the segment can be seen, that a single segment is asymmetric. Connecting such asymmetric segments in a series forces also an asymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:</p>
+
+<blockquote>
+<img src="resources/Modelica.Electrical.Analog.Lines.M_OLine_info_002.png"
+     alt="segment_last.png">
+</blockquote>
+
+<p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <strong>at least two segments</strong>. Inside the model M_OLine the model <em>segment</em> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
+<p>Filling the matrices of the inductances, capacitances and conductances is a bit more complicated, because those components occur also between two lines and not only (like the resistor) in one line. The entries of the matrices are given by the user in form of a vector. The vector length dim_vector_lgc is calculated by <strong>dim_vector_lgc = lines*(lines+1)/2</strong>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and a symmetric conductance matrix are built out of the entries of the vectors given by the user. The way of building is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:</p>
+<p>The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from the positions that are below the main diagonal. To get the following matrix</p>
+
+<blockquote>
+<img src="resources/Modelica.Electrical.Analog.Lines.M_OLine_info_003.png" alt="Matrix"/>
+</blockquote>
+
+<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<strong>1</strong>, 0.1, 0.2, 0.4, <strong>2</strong>, 0.3 0.5, <strong>3</strong>, 0.6, <strong>4</strong>]</p>
+
+<p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible inductance-matrix would be </p>
+
+<blockquote>
+<img src="resources/Modelica.Electrical.Analog.Lines.M_OLine_info_004.png" alt="L"/>
+</blockquote>
+
+<p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be:</p>
+
+<blockquote>
+<img src="resources/Modelica.Electrical.Analog.Lines.M_OLine_info_005.png" alt="C"/>
+</blockquote>
+
+<p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible conductance-matrix would be:</p>
+
+<blockquote>
+<img src="resources/Modelica.Electrical.Analog.Lines.M_OLine_info_006.png" alt="G"/>
+</blockquote>
+
+<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R_actual = R*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G/(1 + alpha*(T_heatPort - T_ref)).</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>length</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of line</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of lumped segments</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lines</th>
+      <td>
+        <p><span>Value:</span> 4</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of lines</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Value:</span> {4.76e5, 1.72e5, 1.72e5, 1.72e5}</p>
+        <p><span>Type:</span> Real[lines] (Ω/m)</p>
+        <p><span>Description:</span> Resistance per meter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>
+        <p><span>Value:</span> {5.98e-7, 4.44e-7, 4.39e-7, 3.99e-7, 5.81e-7, 4.09e-7, 4.23e-7, 5.96e-7, 4.71e-7, 6.06e-7}</p>
+        <p><span>Type:</span> Real[dim_vector_lgc] (H/m)</p>
+        <p><span>Description:</span> Inductance per meter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>
+        <p><span>Value:</span> {8.05e-6, 3.42e-5, 2.91e-5, 1.76e-6, 9.16e-6, 7.12e-6, 2.43e-5, 5.93e-6, 4.19e-5, 6.64e-6}</p>
+        <p><span>Type:</span> Real[dim_vector_lgc] (S/m)</p>
+        <p><span>Description:</span> Conductance per meter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Value:</span> {2.38e-11, 1.01e-10, 8.56e-11, 5.09e-12, 2.71e-11, 2.09e-11, 7.16e-11, 1.83e-11, 1.23e-10, 2.07e-11}</p>
+        <p><span>Type:</span> Real[dim_vector_lgc] (F/m)</p>
+        <p><span>Description:</span> Capacitance per meter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha_R</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha_G</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if HeatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_ref</th>
+      <td>
+        <p><span>Value:</span> 300.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin[lines]</a></p>
+        <p><span>Description:</span> Positive pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin[lines]</a></p>
+        <p><span>Description:</span> Negative pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine.segment_32x32.png"></td>
+      <th>s</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Lines.M_OLine.segment.html">segment[N - 1]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine.segment_32x32.png"></td>
+      <th>s_first</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Lines.M_OLine.segment.html">segment</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine.segment_last_32x32.png"></td>
+      <th>s_last</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Lines.M_OLine.segment_last.html">segment_last</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

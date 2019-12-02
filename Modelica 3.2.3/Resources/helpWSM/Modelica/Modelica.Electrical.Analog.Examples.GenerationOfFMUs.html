@@ -1,0 +1,262 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>GenerationOfFMUs</h1>
+    <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Examples.GenerationOfFMUs_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Analog.Examples.GenerationOfFMUs_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Analog.Examples.GenerationOfFMUs_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates how to generate an input/output block (e.g. in form of an
+FMU - <a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>) from various Electrical components.
+The goal is to export such an input/output block from Modelica and import
+it in another modeling environment. The essential issue is that before
+exporting it must be known in which way the component is utilized in the
+target environment. Depending on the target usage, different connector variables
+need to be in the interface with either input or output causality.
+Note, this example model can be used to test the FMU export/import of a Modelica tool.
+Just export the components marked in the icons as "toFMU" as FMUs and import
+them back. The models should then still work and give the same results as a
+pure Modelica model.
+</p>
+
+<p>
+<strong>Connecting two capacitors</strong><br>
+The first part (DirectCapacitor, InverseCapacitor)
+demonstrates how to export two capacitors and connect them
+together in a target system. This requires that one of the capacitors
+(here: DirectCapacitor)
+is defined to have states and the voltage and
+derivative of voltage are provided in the interface.
+The other capacitor (here: InverseCapacitor) requires current according
+to the provided input voltage and derivative of voltage.
+</p>
+
+<p>
+<strong>Connecting a resistance element between two capacitors</strong><br>
+The second part (Resistor2) demonstrates how to export a resistance element
+that needs only voltages for its resistance law and connect this
+resistance law in a target system between two capacitors.
+</p>
+
+<p>
+<strong>Connecting two inductors</strong><br>
+The third part (DirectInductor, InverseInductor)
+demonstrates how to export two inductors and connect them
+together in a target system. This requires that one of the inductors
+(here: DirectInductor)
+is defined to have states and the current and
+derivative of current are provided in the interface.
+The other inductor (here: InverseInductor) requires voltage according
+to the provided input current and derivative of current.
+</p>
+
+<p>
+<strong>Connecting a conductance element between two inductors</strong><br>
+The fourth part (Conductor4) demonstrates how to export a conductance element
+that needs only currents for its conductance law and connect this
+conductance law in a target system between two inductors.
+</p>
+<p>
+Bear in mind that separating physical components and connecting them via adaptor signals requires to place appropriate
+<a href="Modelica.Electrical.Analog.Basic.Ground.html">ground components</a> to define electric potential within the subcircuits.
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(22)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine12</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.DirectCapacitor_32x32.png"></td>
+      <th>directCapacitor1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.Utilities.DirectCapacitor.html">DirectCapacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.InverseCapacitor_32x32.png"></td>
+      <th>inverseCapacitor1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.Utilities.InverseCapacitor.html">InverseCapacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.Resistor_32x32.png"></td>
+      <th>resistor2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.Utilities.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Capacitor_32x32.png"></td>
+      <th>capacitor2a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Capacitor.html">Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalCurrent_32x32.png"></td>
+      <th>current2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SignalCurrent.html">SignalCurrent</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor_32x32.png"></td>
+      <th>currentToVoltage2a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor.html">GeneralCurrentToVoltageAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Capacitor_32x32.png"></td>
+      <th>capacitor2b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Capacitor.html">Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor_32x32.png"></td>
+      <th>currentToVoltage2b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor.html">GeneralCurrentToVoltageAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground2a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground3b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine34</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.DirectInductor_32x32.png"></td>
+      <th>directInductor3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.Utilities.DirectInductor.html">DirectInductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.InverseInductor_32x32.png"></td>
+      <th>inverseInductor3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.Utilities.InverseInductor.html">InverseInductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalVoltage_32x32.png"></td>
+      <th>voltage4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SignalVoltage.html">SignalVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground4a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Inductor_32x32.png"></td>
+      <th>inductor4a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Inductor.html">Inductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor_32x32.png"></td>
+      <th>voltageToCurrent4a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor.html">GeneralVoltageToCurrentAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.Conductor_32x32.png"></td>
+      <th>conductor4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.Utilities.Conductor.html">Conductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor_32x32.png"></td>
+      <th>voltageToCurrent4b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor.html">GeneralVoltageToCurrentAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Inductor_32x32.png"></td>
+      <th>inductor4b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Inductor.html">Inductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground4b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

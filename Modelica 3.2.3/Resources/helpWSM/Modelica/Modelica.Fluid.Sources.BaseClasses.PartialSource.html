@@ -1,0 +1,135 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Fluid.Sources.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Sources.BaseClasses.PartialSource.html">PartialSource</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialSource</h1>
+    <p>Partial component source with one fluid connector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Sources.BaseClasses.PartialSource_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Partial component to model the <strong>volume interface</strong> of a <strong>source</strong>
+component, such as a mass flow source. The essential
+features are:
+</p>
+<ul>
+<li> The pressure in the connection port (= ports.p) is identical to the
+     pressure in the volume.</li>
+<li> The outflow enthalpy rate (= port.h_outflow) and the composition of the
+     substances (= port.Xi_outflow) are identical to the respective values in the volume.</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nPorts</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of ports</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPorts_b_16x16.png"></td>
+      <th>ports</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPorts_b.html">FluidPorts_b[nPorts]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.BaseClasses.PartialSource.Medium.BaseProperties_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.BaseClasses.PartialSource.Medium.BaseProperties.html">BaseProperties</a></p>
+        <p><span>Description:</span> Medium in the source</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.Boundary_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sources.Boundary_ph.html">Boundary_ph</a></p>
+        <p><span>Modelica.Fluid.Sources</span</p>
+        <p>Boundary with prescribed pressure, specific enthalpy, composition and trace substances</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.Boundary_pT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sources.Boundary_pT.html">Boundary_pT</a></p>
+        <p><span>Modelica.Fluid.Sources</span</p>
+        <p>Boundary with prescribed pressure, temperature, composition and trace substances</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.FixedBoundary_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sources.FixedBoundary.html">FixedBoundary</a></p>
+        <p><span>Modelica.Fluid.Sources</span</p>
+        <p>Boundary source component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

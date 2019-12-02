@@ -1,0 +1,99 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Air.html">Air</a></li>
+  <li><a href="Modelica.Media.Air.ReferenceAir.html">ReferenceAir</a></li>
+  <li><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.html">Air_Utilities</a></li>
+  <li><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph_der.html">T_ph_der</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>T_ph_der</h1>
+    <p>Derivative function of T_ph</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph_der_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">T_der = T_ph_der(p, h, aux, p_der, h_der)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>aux</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Common.AuxiliaryProperties.html">AuxiliaryProperties</a></p>
+        <p><span>Description:</span> Auxiliary record</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Derivative of pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Derivative of specific enthalpy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Derivative of temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

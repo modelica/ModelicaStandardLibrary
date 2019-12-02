@@ -1,0 +1,143 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Fittings.html">Fittings</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_and_Re.html">massFlowRate_dp_and_Re</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>massFlowRate_dp_and_Re</h1>
+    <p>Return mass flow rate from constant loss factor data, pressure drop and Re (m_flow = f(dp))</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_and_Re_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Compute mass flow rate from constant loss factor and pressure drop (m_flow = f(dp)).
+If the Reynolds-number Re &ge; data.Re_turbulent, the flow
+is treated as a turbulent flow with constant loss factor zeta.
+If the Reynolds-number Re &lt; data.Re_turbulent, the flow
+is laminar and/or in a transition region between laminar and
+turbulent. This region is approximated by two
+polynomials of third order, one polynomial for m_flow &ge; 0
+and one for m_flow &lt; 0.
+The common derivative
+of the two polynomials at Re = 0 is
+computed from the equation "data.c0/Re".
+</p>
+<p>
+If no data for c0 is available, the derivative at Re = 0 is computed in such
+a way, that the second derivatives of the two polynomials
+are identical at Re = 0. The polynomials are constructed, such that
+they smoothly touch the characteristic curves in the turbulent
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
+In some cases, the constructed polynomials would "vibrate". This is
+avoided by reducing the derivative at Re=0 in such a way that
+the polynomials are guaranteed to be monotonically increasing.
+The used sufficient criteria for monotonicity follows from:
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">m_flow = massFlowRate_dp_and_Re(dp, rho_a, rho_b, mu_a, mu_b, data)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>dp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure drop (dp = port_a.p - port_b.p)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density at port_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density at port_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Dynamic viscosity at port_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Dynamic viscosity at port_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></p>
+        <p><span>Description:</span> Constant loss factors for both flow directions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m_flow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Mass flow rate from port_a to port_b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

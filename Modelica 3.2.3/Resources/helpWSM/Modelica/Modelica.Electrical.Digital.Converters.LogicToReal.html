@@ -1,0 +1,204 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Converters.html">Converters</a></li>
+  <li><a href="Modelica.Electrical.Digital.Converters.LogicToReal.html">LogicToReal</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>LogicToReal</h1>
+    <p>Logic to Real converter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Converters.LogicToReal_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Conversion of a digital input into a Real output without any delay according to:
+</p>
+<pre>
+  input                 output
+  'U'  (coded by 1)     val_U
+  'X'  (coded by 2)     val_X
+  '0'  (coded by 3)     val_0
+  '1'  (coded by 4)     val_1
+  'Z'  (coded by 5)     val_Z
+  'W'  (coded by 6)     val_W
+  'L'  (coded by 7)     val_L
+  'H'  (coded by 8)     val_H
+  '-'  (coded by 9)     val_m
+</pre>
+<p>
+The values val... are given by parameters.</p>
+<p>If the signal width is greater than 1 this conversion is done for each signal.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> signal width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>value_U</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> value for digital U (uninitialized)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>value_X</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> value for digital X (Forcing Unknown)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>value_0</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> value for digital 0 (Forcing 0)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>value_1</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> value for digital 1 (Forcing 1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>value_Z</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> value for digital Z (High Impedance)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>value_W</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> value for digital W (Weak    Unknown)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>value_L</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> value for digital L (Weak 0)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>value_H</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> value for digital H (Weak 1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>value_m</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> value for digital m (Do not care)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput[n]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[n]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.HalfAdder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.HalfAdder.html">HalfAdder</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span</p>
+        <p>Adding circuit for binary numbers without input carry bit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.FullAdder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.FullAdder.html">FullAdder</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span</p>
+        <p>Full 1 Bit Adder Example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Counter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.Counter.html">Counter</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span</p>
+        <p>Generic N Bit Counter Example</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

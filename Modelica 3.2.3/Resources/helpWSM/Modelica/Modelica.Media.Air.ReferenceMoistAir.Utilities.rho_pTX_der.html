@@ -1,0 +1,107 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Air.html">Air</a></li>
+  <li><a href="Modelica.Media.Air.ReferenceMoistAir.html">ReferenceMoistAir</a></li>
+  <li><a href="Modelica.Media.Air.ReferenceMoistAir.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Media.Air.ReferenceMoistAir.Utilities.rho_pTX_der.html">rho_pTX_der</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>rho_pTX_der</h1>
+    <p>Derivative of density as a function of pressure p, temperature T and composition X</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.ReferenceMoistAir.Utilities.rho_pTX_der_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">d_der = rho_pTX_der(p, T, X, p_der, T_der, X_der)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Media.Air.ReferenceMoistAir.reference_X</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFraction.html">MassFraction[:]</a></p>
+        <p><span>Description:</span> Mass fractions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Derivative of pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Derivative of temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X_der</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Derivative of mass fractions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>d_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Derivative of density</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

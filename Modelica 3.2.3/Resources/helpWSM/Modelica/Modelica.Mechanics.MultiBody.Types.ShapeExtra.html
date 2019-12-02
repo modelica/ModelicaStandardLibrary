@@ -1,0 +1,179 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Types.html">Types</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Types.ShapeExtra.html">ShapeExtra</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ShapeExtra</h1>
+    <p>Type of the additional data that can be defined for an elementary ShapeType</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Types.ShapeExtra_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This type is used in shapes of visual objects to define
+extra data depending on the shape type. Usually, input
+variable <strong>extra</strong> is used as instance name:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
+<tr>
+  <td>"cylinder"</td>
+  <td>if extra&nbsp;&gt;&nbsp;0, a black line is included in the
+      cylinder to show the rotation of it.</td>
+</tr>
+<tr>
+  <td>"cone"</td>
+  <td>extra = diameter-left-side / diameter-right-side, i.e.,<br>
+      extra = 1: cylinder<br>
+      extra = 0: "real" cone.</td>
+</tr>
+<tr>
+  <td>"pipe"</td>
+  <td>extra = outer-diameter / inner-diameter, i.e,<br>
+      extra = 1: cylinder that is completely hollow<br>
+      extra = 0: cylinder without a hole.</td>
+</tr>
+<tr>
+  <td>"gearwheel"</td>
+  <td>extra is the number of teeth of the (external) gear.
+If extra&nbsp;&lt;&nbsp;0, an internal gear is visualized with |extra| teeth.
+The axis of the gearwheel is along "lengthDirection", and usually:
+width = height = 2*radiusOfGearWheel.</td>
+</tr>
+<tr>
+  <td>"spring"</td>
+  <td>extra is the number of windings of the spring.
+      Additionally, "height" is <strong>not</strong> the "height" but
+      2*coil-width.</td>
+</tr>
+<tr>
+  <td>external shape</td>
+  <td>extra = 0: Visualization from file is not scaled.<br>
+                     extra = 1: Visualization from file is scaled with "length", "width" and "height"
+                                of the shape</td>
+</tr>
+</table>
+</div>
+</section>
+<section id="type" >
+  <h1>Type Information </h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Real</th>
+      <td>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.LineForceWithMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass.html">LineForceWithMass</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>General line force component with an optional point mass on the connection line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.UniversalSpherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.UniversalSpherical.html">UniversalSpherical</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Universal - spherical joint aggregation (1 constraint, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Fixed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Fixed.html">Fixed</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Frame fixed in the world frame at a given position</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Fixed translation of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedRotation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.FixedRotation.html">FixedRotation</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Fixed translation followed by a fixed rotation of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyShape.html">BodyShape</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedShape.html">FixedShape</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing an elementary shape with dynamically varying shape attributes (has one frame connector)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedShape2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2.html">FixedShape2</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing an elementary shape with dynamically varying shape attributes (has two frame connectors)</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape.html">PartialShape</a></p>
+        <p><span>Modelica.Utilities.Internal.PartialModelicaServices.Animation</span</p>
+        <p>Interface for 3D animation of elementary shapes</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

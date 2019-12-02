@@ -1,0 +1,239 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Joints</h1>
+    <p>Components that constrain the motion between two frames</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Joints_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Prismatic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Prismatic.html">Prismatic</a></p>
+        <p>Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+        <p>Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint.html">RevolutePlanarLoopConstraint</a></p>
+        <p>Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Cylindrical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Cylindrical.html">Cylindrical</a></p>
+        <p>Cylindrical joint (2 degrees-of-freedom, 4 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Universal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Universal.html">Universal</a></p>
+        <p>Universal joint (2 degrees-of-freedom, 4 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Planar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Planar.html">Planar</a></p>
+        <p>Planar joint (3 degrees-of-freedom, 6 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Spherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Spherical.html">Spherical</a></p>
+        <p>Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.FreeMotion_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.FreeMotion.html">FreeMotion</a></p>
+        <p>Free motion joint (6 degrees-of-freedom, 12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit.html">FreeMotionScalarInit</a></p>
+        <p>Free motion joint with scalar initialization and state selection (6 degrees-of-freedom, 12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.SphericalSpherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.SphericalSpherical.html">SphericalSpherical</a></p>
+        <p>Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.UniversalSpherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.UniversalSpherical.html">UniversalSpherical</a></p>
+        <p>Universal - spherical joint aggregation (1 constraint, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.GearConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.GearConstraint.html">GearConstraint</a></p>
+        <p>Ideal 3-dim. gearbox (arbitrary shaft directions)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.RollingWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.RollingWheel.html">RollingWheel</a></p>
+        <p>Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.RollingWheelSet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.RollingWheelSet.html">RollingWheelSet</a></p>
+        <p>Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.html">Assemblies</a></p>
+        <p>Components that aggregate several joints for analytic loop handling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Constraints_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Constraints.html">Constraints</a></p>
+        <p>Components that define joints by constraints</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.html">Internal</a></p>
+        <p>Components used for analytic solution of kinematic loops (use only if you know what you are doing)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains <strong>joint components</strong>,
+that is, idealized, massless elements that constrain
+the motion between frames. In subpackage <strong>Assemblies</strong>
+aggregation joint components are provided to handle
+kinematic loops analytically (this means that non-linear systems
+of equations occurring in these joint aggregations are analytically
+solved, i.e., robustly and efficiently).
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.Prismatic.html">Prismatic</a></td>
+      <td>Prismatic joint and actuated prismatic joint
+          (1 translational degree-of-freedom, 2 potential states)<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Joints/resources/Modelica.Mechanics.MultiBody.Joints_info_001.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a>
+ </td>
+      <td>Revolute and actuated revolute joint
+          (1 rotational degree-of-freedom, 2 potential states)<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Joints/resources/Modelica.Mechanics.MultiBody.Joints_info_002.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.Cylindrical.html">Cylindrical</a></td>
+      <td>Cylindrical joint (2 degrees-of-freedom, 4 potential states)<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Joints/resources/Modelica.Mechanics.MultiBody.Joints_info_003.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.Universal.html">Universal</a></td>
+      <td>Universal joint (2 degrees-of-freedom, 4 potential states)<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Joints/resources/Modelica.Mechanics.MultiBody.Joints_info_004.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.Planar.html">Planar</a></td>
+      <td>Planar joint (3 degrees-of-freedom, 6 potential states)<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Joints/resources/Modelica.Mechanics.MultiBody.Joints_info_005.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.Spherical.html">Spherical</a></td>
+      <td>Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Joints/resources/Modelica.Mechanics.MultiBody.Joints_info_006.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.FreeMotion.html">FreeMotion</a></td>
+      <td>Free motion joint (6 degrees-of-freedom, 12 potential states)<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Joints/resources/Modelica.Mechanics.MultiBody.Joints_info_007.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.SphericalSpherical.html">SphericalSpherical</a></td>
+      <td>Spherical - spherical joint aggregation (1 constraint,
+          no potential states) with an optional point mass in the middle<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Joints/resources/Modelica.Mechanics.MultiBody.Joints_info_008.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.UniversalSpherical.html">UniversalSpherical</a></td>
+      <td>Universal - spherical joint aggregation (1 constraint, no potential states)<br>
+      <img src="modelica:///Modelica.Mechanics.MultiBody.Joints/resources/Modelica.Mechanics.MultiBody.Joints_info_009.png">
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.GearConstraint.html">GearConstraint</a></td>
+      <td>Ideal 3-dim. gearbox (arbitrary shaft directions)
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.html">MultiBody.Joints.Assemblies</a></td>
+      <td><strong>Package</strong> of joint aggregations for analytic loop handling.
+      </td>
+  </tr>
+  <tr><td><a href="Modelica.Mechanics.MultiBody.Joints.Constraints.html">MultiBody.Joints.Constraints</a></td>
+      <td><strong>Package</strong> of components that define joints by constraints
+      </td>
+  </tr>
+</table>
+</div>
+</section>
+</div>
+</body>
+</html>

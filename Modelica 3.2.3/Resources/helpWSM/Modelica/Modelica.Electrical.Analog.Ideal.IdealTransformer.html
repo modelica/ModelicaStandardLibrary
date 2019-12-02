@@ -1,0 +1,186 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Ideal.html">Ideal</a></li>
+  <li><a href="Modelica.Electrical.Analog.Ideal.IdealTransformer.html">IdealTransformer</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>IdealTransformer</h1>
+    <p>Ideal transformer core with or without magnetization</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealTransformer_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The ideal transformer is a two-port circuit element;
+in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:
+</p>
+<pre> i2 = -i1*n;
+ v2 =  v1/n;
+</pre>
+<p>
+where <code>n</code> is a real number called the turns ratio.
+Due to this equations, also DC voltages and currents are transformed - which is not the case for technical transformers.
+</p>
+<p>
+In case of Boolean parameter <code>considerMagnetization = true</code> it is characterized by the following equations:
+</p>
+<pre>
+ im1  = i1 + i2/n "Magnetizing current w.r.t. primary side";
+ psim1= Lm1*im1   "Magnetic flux w.r.t. primary side";
+ v1 = der(psim1)  "Primary voltage";
+ v2 = v1/n        "Secondary voltage";
+</pre>
+<p>
+where <code>Lm</code> denotes the magnetizing inductance.
+Due to this equations, the DC offset of secondary voltages and currents decrement according to the time constant defined by the connected circuit.
+</p>
+<p>
+Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
+compared with the <a href="Modelica.Electrical.Analog.Basic.Transformer.html">basic transformer</a>
+the following parameter conversion can be applied (which leads to identical results):
+</p>
+<pre>
+ L1 = L1sigma + M*n "Primary inductance at secondary no-load";
+ L2 = L2sigma + M/n "Secondary inductance at primary no-load";
+  M  = Lm1/n         "Mutual inductance";
+</pre>
+<p>
+For the backward conversion, one has to decide about the partitioning of the leakage to primary and secondary side.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Turns ratio primary:secondary voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>considerMagnetization</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Choice of considering magnetization</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lm1</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Magnetization inductance w.r.t. primary side</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin of port 1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin of port 1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin of port 2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin of port 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.CompareTransformers_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.CompareTransformers.html">CompareTransformers</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Transformer circuit to show the magnetization facilities</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Ideal.IdealTransformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.MultiPhase.Ideal.IdealTransformer.html">IdealTransformer</a></p>
+        <p><span>Modelica.Electrical.MultiPhase.Ideal</span</p>
+        <p>Multiphase ideal transformer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

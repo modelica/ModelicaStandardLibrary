@@ -1,0 +1,445 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.html">Assemblies</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP.html">JointRRP</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>JointRRP</h1>
+    <p>Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This component consists of <strong>2 revolute</strong> joints with parallel
+axes of rotation that and a <strong>prismatic</strong> joint with a translational
+axis that is orthogonal to the revolute joint axes, see the default
+animation in the following figure (the axes vectors are not part of the
+default animation):
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP_info_001.png" alt="model Joints.Assemblies.JointRRP">
+</p>
+
+<p>
+This joint aggregation introduces neither constraints nor state variables and
+should therefore be used in kinematic loops whenever possible to
+avoid non-linear systems of equations. It is only meaningful to
+use this component in <strong>planar loops</strong>. Basically, the position
+and orientation of the 3 joints as well as of frame_ia, frame_ib, and
+frame_im are calculated by solving analytically a non-linear equation,
+given the position and orientation at frame_a and at frame_b.
+</p>
+<p>
+Connector <strong>frame_a</strong> is the "left" side of the first revolute joint
+whereas <strong>frame_ia</strong> is the "right side of this revolute joint, fixed in rod 1.
+Connector <strong>frame_b</strong> is the "right" side of the prismatic joint
+whereas <strong>frame_ib</strong> is the "left" side of this prismatic joint, fixed in rod 2.
+Finally, connector <strong>frame_im</strong> is the connector at the "right" side
+of the revolute joint in the middle, fixed in rod 2. The frames
+frame_b, frame_ib, frame_im are always parallel to each other.
+</p>
+<p>
+The easiest way to define the parameters of this joint is by moving the
+MultiBody system in a <strong>reference configuration</strong> where <strong>all frames</strong>
+of all components are <strong>parallel</strong> to each other (alternatively,
+at least frame_a, frame_ia, frame_im, frame_ib, frame_b of the JointRRP joint
+should be parallel to each other when defining an instance of this
+component).
+</p>
+<p>
+Basically, the JointRRP model consists internally of a universal -
+spherical - prismatic joint aggregation (= JointUSP). In a planar
+loop this will behave as if 2 revolute joints with parallel axes
+and 1 prismatic joint are connected by rigid rods.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(18)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_a</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 1}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Axes of the two revolute joints resolved in frame_a (both axes are parallel to each other)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_b</th>
+      <td>
+        <p><span>Value:</span> {-1, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Axis of prismatic joint fixed and resolved in frame_b (must be orthogonal to revolute joint axes)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rRod1_ia</th>
+      <td>
+        <p><span>Value:</span> {1, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rRod2_ib</th>
+      <td>
+        <p><span>Value:</span> {-1, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib (frame_ib is parallel to frame_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s_offset</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s_guess</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Select the configuration such that at initial time |s(t0)-s_guess| is minimal</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderLength</th>
+      <td>
+        <p><span>Value:</span> world.defaultJointLength</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Length of cylinders representing the revolute joints</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderDiameter</th>
+      <td>
+        <p><span>Value:</span> world.defaultJointWidth</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Diameter of cylinders representing the revolute joints</p>
+      </td>
+    </tr>
+    <tr>
+      <th>boxWidthDirection</th>
+      <td>
+        <p><span>Value:</span> {0, 1, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Vector in width direction of prismatic joint, resolved in frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>boxWidth</th>
+      <td>
+        <p><span>Value:</span> world.defaultJointWidth</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Width of prismatic joint box</p>
+      </td>
+    </tr>
+    <tr>
+      <th>boxHeight</th>
+      <td>
+        <p><span>Value:</span> boxWidth</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Height of prismatic joint box</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rodDiameter</th>
+      <td>
+        <p><span>Value:</span> 1.1 * cylinderDiameter</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Diameter of the two rods connecting the joints</p>
+      </td>
+    </tr>
+    <tr>
+      <th>checkTotalPower</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if total power flowing into this component shall be determined (must be zero)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>e_a</th>
+      <td>
+        <p><span>Value:</span> Modelica.Math.Vectors.normalizeWithAssert(n_a)</p>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Unit vector along axes of rotations, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>e_ia</th>
+      <td>
+        <p><span>Value:</span> jointUSP.e2_ia</p>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Unit vector along axes of rotations, resolved in frame_ia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>e_im</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Unit vector along axes of rotations, resolved in frame_im</p>
+      </td>
+    </tr>
+    <tr>
+      <th>e_b</th>
+      <td>
+        <p><span>Value:</span> jointUSP.prismatic.e</p>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Unit vector along axes of translation of the prismatic joint, resolved in frame_b and frame_ib</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>cylinderColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.JointColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of cylinders representing the revolute joints</p>
+      </td>
+    </tr>
+    <tr>
+      <th>boxColor</th>
+      <td>
+        <p><span>Default Value:</span> cylinderColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of prismatic joint box</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rodColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.RodColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of the two rods connecting the joints</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_ia</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system at origin of frame_a fixed at connecting rod of revolute joints</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_ib</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system at origin of frame_b fixed at connecting rod of revolute and prismatic joint</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_im</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system at origin of revolute joint in the middle fixed at connecting rod of revolute and prismatic joint</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_a_16x16.png"></td>
+      <th>axis</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> 1-dim. translational flange that drives the prismatic joint</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>bearing</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> 1-dim. translational flange of the drive bearing of the prismatic joint</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP_32x32.png"></td>
+      <th>jointUSP</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP.html">JointUSP</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>shape_rev1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>shape_rev2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>shape_prism</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>shape_rod1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>shape_rod2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic.html">Engine1b_analytic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span</p>
+        <p>Model of one cylinder engine with gas force and analytic loop handling</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase.html">CylinderBase</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span</p>
+        <p>One cylinder with analytic handling of kinematic loop</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

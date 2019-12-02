@@ -1,0 +1,113 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.Internal.prime235Factorization.html">prime235Factorization</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>prime235Factorization</h1>
+    <p>Factorization of an integer in prime numbers 2,3,5</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.FastFourierTransform.Internal.prime235Factorization_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+
+<blockquote><p>
+(success, e2, e3, e5) = <strong>prime235Factorization</strong>(n);
+</p></blockquote>
+
+<h4>Description</h4>
+<p>
+Compute the factorization of input Integer n in prime numbers 2, 3, and 5. If this is possible, success = true and
+e2 is the number of prime numbers2, e3 the number of prime numbers 3 and e5 the number of prime numbers 5.
+If this is not possible, success = false, and e2, e3, e5 are dummy values.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>(success, e2, e3, e5) = prime235Factorization(60)   // success=true, e2=2, e3=1, e5=1 (= 2^2*3^1*5^1)
+(success, e2, e3, e5) = prime235Factorization(7)    // success=false
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(success, e2, e3, e5) = prime235Factorization(n)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>success</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if factorization in 2,3,5 is possible</p>
+      </td>
+    </tr>
+    <tr>
+      <th>e2</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> n = 2^e2*3^e3*5^e5</p>
+      </td>
+    </tr>
+    <tr>
+      <th>e3</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> n = 2^e2*3^e3*5^e5</p>
+      </td>
+    </tr>
+    <tr>
+      <th>e5</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> n = 2^e2*3^e3*5^e5</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

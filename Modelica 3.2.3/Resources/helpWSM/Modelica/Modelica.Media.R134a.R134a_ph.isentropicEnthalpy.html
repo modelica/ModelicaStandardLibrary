@@ -1,0 +1,117 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.R134a.html">R134a</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.html">R134a_ph</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.isentropicEnthalpy.html">isentropicEnthalpy</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>isentropicEnthalpy</h1>
+    <p>Isentropic enthalpy of downstream pressure and upstream thermodynamic state (specific entropy)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.R134a.R134a_ph.isentropicEnthalpy_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This function calculates the specific enthalpy of R134a for an isentropic pressure change
+from refState.p to p_downstream (e.g., use setState_phX function for input of refState).
+</p>
+
+<p>
+The function can be used for instance to calculate an isentropic efficiency
+of a compressor or calculate the power consumption (obtained from the isentropic enthalpy)
+for a given efficiency.
+</p>
+
+<p>
+Example:
+</p>
+<pre>
+     Medium.AbsolutePressure p_downstream=10e5;
+     Medium.SpecificEnthalpy h_downstream=4.1e5;
+     Medium.AbsolutePressure p_upstream=3e5;
+     Medium.SpecificEnthalpy h_upstream=4.0e5;
+
+     // Isentropic efficiency of a compressor:
+     Real eta_is;
+
+    equation
+
+     h_is = isentropicEnthalpy(p_downstream, Medium.setState_phX(p_upstream, h_upstream));
+
+     eta_is = (h_is-h_upstream)/(h_downstream - h_upstream);
+</pre>
+
+<h4>Restrictions</h4>
+<p>
+The isentropic efficiency function should not be applied in liquid region.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">h_is = isentropicEnthalpy(p_downstream, refState)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p_downstream</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Downstream pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refState</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Reference state for entropy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>h_is</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Isentropic enthalpy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

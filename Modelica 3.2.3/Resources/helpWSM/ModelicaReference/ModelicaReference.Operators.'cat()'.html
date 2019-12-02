@@ -1,0 +1,66 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'cat()'.html">'cat()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'cat()'</h1>
+    <p>cat()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'cat()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</code> along dimension <code>k</code>.
+</p>
+
+<h4>Examples</h4>
+
+<pre>
+Real[2,3] r1 = cat(1, {{1.0, 2.0, 3}}, {{4, 5, 6}});
+Real[2,6] r2 = cat(2, r1, 2*r1);
+</pre>
+
+<h4>Description</h4>
+
+The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</code> along dimension <code>k</code> according to the following rules:
+<ul>
+<li>Arrays <code>A, B, C, ...</code> must have the same number of dimensions, i.e., <code>ndims(A) = ndims(B) = ...</code></li>
+<li>Arrays <code>A, B, C, ...</code> must be type compatible expressions giving the type of the elements of the result. The maximally expanded types should be equivalent. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
+<li><code>k</code> has to characterize an existing dimension, i.e., <code>1 &lt;= k &lt;= ndims(A) = ndims(B) = ndims(C)</code>; <code>k</code> shall be an integer number.</li>
+<li>Size matching: Arrays <code>A, B, C, ...</code> must have identical array sizes with the exception of the size of dimension <code>k</code>, i.e., <code>size(A,j) = size(B,j), for 1 &lt;= j &lt;= ndims(A) and j &lt;&gt; k</code>.</li>
+</ul>
+
+<p>Concatenation is formally defined according to:</p>
+<pre>
+Let R = cat(k,A,B,C,...), and let n = ndims(A) = ndims(B) = ndims(C) = ...., then
+size(R,k) = size(A,k) + size(B,k) + size(C,k) + ...
+size(R,j) = size(A,j) = size(B,j) = size(C,j) = ...., for 1 &lt;= j &lt;= n and j &lt;&gt; k.
+R[i_1, ..., i_k, ..., i_n] = A[i_1, ..., i_k, ..., i_n], for i_k &lt;= size(A,k),
+R[i_1, ..., i_k, ..., i_n] = B[i_1, ..., i_k - size(A,i), ..., i_n], for i_k &lt;= size(A,k) + size(B,k),
+....
+where 1 &lt;= i_j &lt;= size(R,j) for 1 &lt;= j &lt;= n.
+</pre>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,305 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Semiconductors.html">Semiconductors</a></li>
+  <li><a href="Modelica.Electrical.Analog.Semiconductors.NPN.html">NPN</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>NPN</h1>
+    <p>Simple BJT according to Ebers-Moll</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.NPN_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model is a simple model of a bipolar NPN junction transistor according
+to Ebers-Moll.
+<br><br>
+<strong>Please note:</strong>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
+</p>
+<p>
+A typical parameter set is:
+</p>
+<pre>
+  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
+  -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
+</pre>
+<dl>
+<dt><strong>References:</strong></dt>
+<dd>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+Van Nostrand Reinhold, New York 1983
+on page 317 ff.</dd>
+</dl>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(22)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Bf</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Forward beta</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Br</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Reverse beta</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Is</th>
+      <td>
+        <p><span>Value:</span> 1e-16</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Transport saturation current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vak</th>
+      <td>
+        <p><span>Value:</span> 0.02</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.InversePotential.html">InversePotential</a> (¹/V)</p>
+        <p><span>Description:</span> Early voltage (inverse), 1/Volt</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tauf</th>
+      <td>
+        <p><span>Value:</span> 0.12e-9</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Ideal forward transit time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Taur</th>
+      <td>
+        <p><span>Value:</span> 5e-9</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Ideal reverse transit time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ccs</th>
+      <td>
+        <p><span>Value:</span> 1e-12</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Collector-substrate(ground) cap.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Cje</th>
+      <td>
+        <p><span>Value:</span> 0.4e-12</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Base-emitter zero bias depletion cap.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Cjc</th>
+      <td>
+        <p><span>Value:</span> 0.5e-12</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Base-coll. zero bias depletion cap.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Phie</th>
+      <td>
+        <p><span>Value:</span> 0.8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Base-emitter diffusion voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Me</th>
+      <td>
+        <p><span>Value:</span> 0.4</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Base-emitter gradation exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Phic</th>
+      <td>
+        <p><span>Value:</span> 0.8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Base-collector diffusion voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Mc</th>
+      <td>
+        <p><span>Value:</span> 0.333</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Base-collector gradation exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Gbc</th>
+      <td>
+        <p><span>Value:</span> 1e-15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Conductance.html">Conductance</a> (S)</p>
+        <p><span>Description:</span> Base-collector conductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Gbe</th>
+      <td>
+        <p><span>Value:</span> 1e-15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Conductance.html">Conductance</a> (S)</p>
+        <p><span>Description:</span> Base-emitter conductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vt</th>
+      <td>
+        <p><span>Value:</span> 0.02585</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Voltage equivalent of temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>EMin</th>
+      <td>
+        <p><span>Value:</span> -100</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> if x < EMin, the exp(x) function is linearized</p>
+      </td>
+    </tr>
+    <tr>
+      <th>EMax</th>
+      <td>
+        <p><span>Value:</span> 40</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> if x > EMax, the exp(x) function is linearized</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>UIC</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Decision if initial value should be used</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Conditional heat port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+        <p><span>Description:</span> Collector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+        <p><span>Description:</span> Base</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>E</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+        <p><span>Description:</span> Emitter</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.Transistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.Transistor.html">Transistor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span</p>
+        <p>Transistor with resistance an capacitance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

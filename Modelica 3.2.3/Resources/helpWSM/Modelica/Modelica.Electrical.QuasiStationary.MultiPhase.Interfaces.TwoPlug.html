@@ -1,0 +1,300 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.html">MultiPhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug.html">TwoPlug</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TwoPlug</h1>
+    <p>Two plugs with pin-adapter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This partial model uses a <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug.html">positive</a>
+and <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug.html">negative plug</a> and defines the complex voltage differences as well as the complex currents (into the positive plug). A <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p.html">positive</a> and
+a <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n.html">negative adapter</a> are used to give easy access to the single pins of both plugs. Additionally, the angular velocity of the quasi stationary system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug.html">PositivePlug</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug.html">NegativePlug</a>,
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> Positive quasi-static polyphase plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>plug_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> Negative quasi-static polyphase plug</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexVoltage_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexVoltage.html">ComplexVoltage[m]</a></p>
+        <p><span>Description:</span> Complex voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexCurrent_32x32.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexCurrent.html">ComplexCurrent[m]</a></p>
+        <p><span>Description:</span> Complex current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p_32x32.png"></td>
+      <th>plugToPins_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p.html">PlugToPins_p</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n_32x32.png"></td>
+      <th>plugToPins_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n.html">PlugToPins_n</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(21)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</span</p>
+        <p>Partial voltage / current sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource.html">FrequencySweepCurrentSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</span</p>
+        <p>Current source with integrated frequency sweep</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepVoltageSource.html">FrequencySweepVoltageSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</span</p>
+        <p>Voltage source with integrated frequency sweep</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Sensors</span</p>
+        <p>Continuous quasi current RMS sensor for multi phase system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor.html">VoltageQuasiRMSSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Sensors</span</p>
+        <p>Continuous quasi voltage RMS sensor for multi phase system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealClosingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealClosingSwitch.html">IdealClosingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Ideal</span</p>
+        <p>Multiphase ideal closer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealOpeningSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealOpeningSwitch.html">IdealOpeningSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Ideal</span</p>
+        <p>Multiphase ideal opener</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.Short_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.Short.html">Short</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Ideal</span</p>
+        <p>Short cut branch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.Idle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.Idle.html">Idle</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Ideal</span</p>
+        <p>Idle branch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance.html">VariableAdmittance</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase variable admittance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance.html">VariableImpedance</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase variable impedance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor.html">VariableInductor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase variable inductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor.html">VariableCapacitor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase variable capacitor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor.html">VariableConductor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase variable conductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor.html">VariableResistor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase variable resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance.html">Admittance</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase linear admittance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance.html">Impedance</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase linear impedance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor.html">Inductor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase linear inductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor.html">Capacitor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase linear capacitor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor.html">Conductor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase linear conductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor.html">Resistor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Multiphase linear resistor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

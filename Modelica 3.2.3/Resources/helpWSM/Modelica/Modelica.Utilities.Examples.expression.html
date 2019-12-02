@@ -1,0 +1,178 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Utilities.Examples.expression.html">expression</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>expression</h1>
+    <p>Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Examples.expression_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+             result = <strong>expression</strong>(string);
+(result, nextIndex) = <strong>expression</strong>(string, startIndex=1, message="");
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function is nearly the same as Examples.<strong>calculator</strong>.
+The essential difference is that function "expression" might be
+used in other parsing operations: After the expression is
+parsed and evaluated, the function returns with the value
+of the expression as well as the position of the character
+directly after the expression.
+</p>
+<p>
+This function demonstrates how a simple expression calculator
+can be implemented in form of a recursive decent parser
+using basically the Strings.scanToken(..) and scanDelimiters(..)
+function. There are 2 local functions (term, primary) that
+implement the corresponding part of the grammar.
+</p>
+<p>
+The following operations are supported (pi=3.14.. is a predefined constant):
+</p>
+<pre>
+   +, -
+   *, /
+   (expression)
+   sin(expression)
+   cos(expression)
+   tan(expression)
+   sqrt(expression)
+   asin(expression)
+   acos(expression)
+   atan(expression)
+   exp(expression)
+   log(expression)
+   pi
+</pre>
+<p>
+The optional argument "startIndex" defines at which position
+scanning of the expression starts.
+</p>
+<p>
+In case of error,
+the optional argument "message" is appended to the error
+message, in order to give additional information where
+the error occurred.
+</p>
+<p>
+This function parses the following grammar
+</p>
+<pre>
+  expression: [ add_op ] term { add_op term }
+  add_op    : "+" | "-"
+  term      : primary { mul_op primary }
+  mul_op    : "*" | "/"
+  primary   : UNSIGNED_NUMBER
+              | pi
+              | ( expression )
+              | functionName( expression )
+  function  :   sin
+              | cos
+              | tan
+              | sqrt
+              | asin
+              | acos
+              | atan
+              | exp
+              | log
+</pre>
+<p>
+Note, in Examples.readRealParameter it is shown, how the expression
+function can be used as part of another scan operation.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  expression("2+3*(4-1)");  // returns 11
+  expression("sin(pi/6)");  // returns 0.5
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(result, nextIndex) = expression(string, startIndex, message)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Expression that is evaluated</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startIndex</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Start scanning of expression at character startIndex</p>
+      </td>
+    </tr>
+    <tr>
+      <th>message</th>
+      <td>
+        <p><span>Default Value:</span> ""</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Message used in error message if scan is not successful</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Value of expression</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nextIndex</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Index after the scanned expression</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

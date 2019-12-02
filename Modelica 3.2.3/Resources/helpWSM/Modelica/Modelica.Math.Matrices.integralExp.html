@@ -1,0 +1,176 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.integralExp.html">integralExp</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>integralExp</h1>
+    <p>Return the exponential and the integral of the exponential of a matrix</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.integralExp_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(phi,gamma) = Matrices.<strong>integralExp</strong>(A,B);
+(phi,gamma) = Matrices.<strong>integralExp</strong>(A,B,T=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the exponential phi = e^(<strong>A</strong>T) of matrix <strong>A</strong>
+and the integral gamma = integral(phi*dt)*B.
+</p>
+
+<p>
+The function uses a Taylor series expansion with Balancing and
+scaling/squaring to approximate the integral <strong>&Psi;</strong> of the matrix
+exponential <strong>&Phi;</strong>=e^(AT):
+</p>
+<pre>                                 AT^2   A^2 * T^3          A^k * T^(k+1)
+        <strong>&Psi;</strong> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
+                                  2!        3!                (k+1)!
+</pre>
+<p>
+<strong>&Phi;</strong> is calculated through <strong>&Phi;</strong> = I + A*<strong>&Psi;</strong>, so A may be singular. <strong>&Gamma;</strong> is
+simply <strong>&Psi;</strong>*B.
+</p>
+<p>The algorithm runs in the following steps:</p>
+<ol>
+  <li>Balancing</li>
+  <li>Scaling</li>
+  <li>Taylor series expansion</li>
+  <li>Re-scaling</li>
+  <li>Re-Balancing</li>
+</ol>
+<p>Balancing put the bad condition of a square matrix <em>A</em> into a diagonal
+transformation matrix <em>D</em>. This reduce the effort of following calculations.
+Afterwards the result have to be re-balanced by transformation D*A<small>transf</small>
+*inv(D).<br>
+Scaling halfen T&nbsp; k-times, until the norm of A*T is less than 0.5. This
+guarantees minimum rounding errors in the following series
+expansion. The re-scaling based on the equation&nbsp; exp(A*2T) = exp(AT)^2.
+The needed re-scaling formula for psi thus becomes:
+</p>
+<pre>         <strong>&Phi;</strong> = <strong>&Phi;</strong>'*<strong>&Phi;</strong>'
+   I + A*<strong>&Psi;</strong> = I + 2A*<strong>&Psi;</strong>' + A^2*<strong>&Psi;</strong>'^2
+         <strong>&Psi;</strong> = A*<strong>&Psi;</strong>'^2 + 2*<strong>&Psi;</strong>'
+</pre>
+<p>
+where psi' is the scaled result from the series expansion while psi is the
+re-scaled matrix.
+</p>
+<p>
+The function is normally used to discretize a state-space system as the
+zero-order-hold equivalent:
+</p>
+<pre>      x(k+1) = <strong>&Phi;</strong>*x(k) + <strong>&Gamma;</strong>*u(k)
+        y(k) = C*x(k) + D*u(k)
+</pre>
+<p>
+The zero-order-hold sampling, also known as step-invariant method, gives
+exact values of the state variables, under the assumption that the control
+signal u is constant between the sampling instants. Zero-order-hold sampling
+is described in
+</p>
+<dl>
+<dt>K. J. &Aring;str&ouml;m, B. Wittenmark:</dt>
+<dd><strong>Computer Controlled Systems - Theory and Design</strong><br>
+    Third Edition, p. 32</dd>
+</dl>
+<pre><strong>Syntax:</strong>
+      (phi,gamma) = Matrices.expIntegral(A,B,T)
+                       A,phi: [n,n] square matrices
+                     B,gamma: [n,m] input matrix
+                           T: scalar, e.g., sampling time
+</pre>
+<p>
+The Algorithm to calculate psi is taken from
+</p>
+<dl>
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis Programs</strong><br>
+    DLR - Control Systems Group 1991</dd>
+</dl>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(phi, gamma) = integralExp(A, B, T)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),:]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>phi</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 1)]</p>
+        <p><span>Description:</span> = exp(A*T)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>gamma</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(B, 2)]</p>
+        <p><span>Description:</span> = integral(phi)*B</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

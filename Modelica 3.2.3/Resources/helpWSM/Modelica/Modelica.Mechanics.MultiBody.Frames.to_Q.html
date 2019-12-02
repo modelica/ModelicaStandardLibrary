@@ -1,0 +1,101 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.to_Q.html">to_Q</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>to_Q</h1>
+    <p>Return quaternion orientation object Q from orientation object R</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.to_Q_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Q = Frames.<strong>to_Q</strong>(R, Q_guess);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a <a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">quaternion object</a>&nbsp;Q
+computed from an <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">orientation object</a>&nbsp;R
+and depending on the initial guess Q_guess.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.from_Q.html">from_Q</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_Q.html">TransformationMatrices.to_Q</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">Q = to_Q(R, Q_guess)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q_guess</th>
+      <td>
+        <p><span>Default Value:</span> Quaternions.nullRotation()</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Q</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Quaternions orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

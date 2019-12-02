@@ -1,0 +1,128 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor.html">PartialRelativeSensor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialRelativeSensor</h1>
+    <p>Device to measure a single relative variable between two flanges</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a superclass for 1D translational components with two rigidly connected
+flanges and one output signal in order to measure relative kinematic quantities
+between the two flanges or the cut-force in the flange and
+to provide the measured signal as output signal for further processing
+with the Modelica.Blocks blocks.
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> (left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> (right) driven flange (flange axis directed out of cut plane)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span</p>
+        <p>Ideal sensor to measure the absolute velocity, force and power between two flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span</p>
+        <p>Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.ForceSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.ForceSensor.html">ForceSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span</p>
+        <p>Ideal sensor to measure the force between two flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.RelAccSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.RelAccSensor.html">RelAccSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span</p>
+        <p>Ideal sensor to measure the relative acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.RelSpeedSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.RelSpeedSensor.html">RelSpeedSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span</p>
+        <p>Ideal sensor to measure the relative speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.RelPositionSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.RelPositionSensor.html">RelPositionSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span</p>
+        <p>Ideal sensor to measure the relative position</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Nonlinear.html">Nonlinear</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.solveNonlinearEquations1.html">solveNonlinearEquations1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>solveNonlinearEquations1</h1>
+    <p>Solve nonlinear equations with fixed inputs</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Nonlinear.Examples.solveNonlinearEquations1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example solves the following nonlinear equations with function
+<a href="Modelica.Math.Nonlinear.solveOneNonlinearEquation.html">solveOneNonlinearEquation</a>
+and compares the result with the available analytical solution.
+The examples also demonstrate how additional input arguments to the nonlinear equation
+function can be passes as additional arguments.
+The following nonlinear equations are solved:
+</p>
+
+<ul>
+<li> 0 = u^2 - 1</li>
+<li> 0 = 3*u - sin(3*u) - 1</li>
+<li> 0 = 5 + log(u) - u</li>
+</ul>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">solveNonlinearEquations1(tolerance)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tolerance</th>
+      <td>
+        <p><span>Default Value:</span> 100 * Modelica.Constants.eps</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative tolerance of solution u</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Incompressible.html">Incompressible</a></li>
+  <li><a href="Modelica.Media.Incompressible.TableBased.html">TableBased</a></li>
+  <li><a href="Modelica.Media.Incompressible.TableBased.Polynomials_Temp.html">Polynomials_Temp</a></li>
+  <li><a href="Modelica.Media.Incompressible.TableBased.Polynomials_Temp.derivativeValue_der.html">derivativeValue_der</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>derivativeValue_der</h1>
+    <p>Time derivative of derivative of polynomial</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Incompressible.TableBased.Polynomials_Temp.derivativeValue_der_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">dy = derivativeValue_der(p, u, du)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Polynomial coefficients (p[1] is coefficient of highest power)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Abscissa value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>du</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Delta of abscissa value</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>dy</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Time-derivative of derivative of polynomial w.r.t. input variable at u</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

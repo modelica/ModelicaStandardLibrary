@@ -1,0 +1,137 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Nonlinear.html">Nonlinear</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.quadratureLobatto2.html">quadratureLobatto2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>quadratureLobatto2</h1>
+    <p>Integrate integral with user dependent inputs</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Nonlinear.Examples.quadratureLobatto2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example solves the following integrands with function
+<a href="Modelica.Math.Nonlinear.quadratureLobatto.html">quadratureLobatto</a>.
+The user can set the parameters, like "w" or "k", and can experiment with
+different integration intervals.
+The following integrals are computed:
+</p>
+
+<ul>
+<li> integral(sin(x)*dx)</li>
+<li> integral(sin(w*x)*dx)</li>
+<li> elliptic integral</li>
+</ul>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">quadratureLobatto2(Tolerance, a1, b1, a2, b2, w, a3, b3, k)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Tolerance</th>
+      <td>
+        <p><span>Default Value:</span> 1e-5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Error tolerance of integral value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a1</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b1</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a2</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b2</th>
+      <td>
+        <p><span>Default Value:</span> 13</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w</th>
+      <td>
+        <p><span>Default Value:</span> 5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a3</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b3</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Constants.pi / 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Default Value:</span> 1 / sqrt(2)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Modul</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

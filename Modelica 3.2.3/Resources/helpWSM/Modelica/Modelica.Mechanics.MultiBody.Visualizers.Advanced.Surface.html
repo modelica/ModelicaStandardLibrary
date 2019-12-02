@@ -1,0 +1,250 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface.html">Surface</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Surface</h1>
+    <p>Visualizing a moveable, parameterized surface; the surface characteristic is provided by a function</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model <strong>Surface</strong> defines a moveable, parametrized surface in 3-dim. space
+that is used for animation. This object is specified by:
+</p>
+
+<ul>
+<li> The surface frame (orientation object "R" and origin "r_0")
+     in which the data is specified.</li>
+<li> A set of two parameters, one in u- and one in v-direction,
+     that defines the control points.</li>
+<li> A time-varying position of each control point with respect to
+     the surface frame.</li>
+</ul>
+
+<p>
+The parameter values (u,v) are given by the ordinal numbers of the
+corresponding control point in u- or in v-direction, respectively.
+The surface is then defined by the replaceable function "surfaceCharacteristic" with the
+interface <a href="Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic.html">partialSurfaceCharacteristic</a>
+that returns the x-, y-, z- coordinate of every control point in form of 3 arrays X, Y, Z, and an optional color array C, if every control point shall have a different color:
+</p>
+
+<pre>
+  Real X[nu,nv], Y[nu,nv], Z[nu,nv], C[nu,nv,3];
+</pre>
+
+<p>
+An example of a parameterized surface with color coding is shown in the next figure:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface/resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface_info_001.png">
+</blockquote>
+
+<p>
+Models <a href="Modelica.Mechanics.MultiBody.Visualizers.Torus.html">Torus</a>,
+<a href="Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel.html">VoluminousWheel</a>,
+<a href="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField.html">PipeWithScalarField</a>,
+demonstrate how new visualizer objects can be constructed with the Surface model.<br>
+The direct usage of the Surface model, as well as of the Torus and the VoluminousWheel models, are demonstrated with example
+<a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces.html">Examples.Elementary.Surfaces</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nu</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in u-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nv</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in v-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wireframe</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: 3D model will be displayed without faces</p>
+      </td>
+    </tr>
+    <tr>
+      <th>multiColoredSurface</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: Color is defined for each surface point</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Default Value:</span> Frames.nullRotation()</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate the world frame into the surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_0</th>
+      <td>
+        <p><span>Default Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from origin of world frame to origin of surface frame, resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Default Value:</span> {255, 0, 0}</p>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Color of surface</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> 0.7</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>transparency</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate the world frame into the surface frame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces.html">Surfaces</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span</p>
+        <p>Demonstrate the visualization of a sine surface, as well as a torus and a wheel constructed from a surface</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Torus_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Torus.html">Torus</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing a torus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel.html">VoluminousWheel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing a voluminous wheel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Rectangle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Rectangle.html">Rectangle</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing a planar rectangular surface</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField.html">PipeWithScalarField</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Advanced</span</p>
+        <p>Visualizing a pipe with a scalar field</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

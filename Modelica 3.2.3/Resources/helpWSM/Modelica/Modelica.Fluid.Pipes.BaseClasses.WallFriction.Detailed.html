@@ -1,0 +1,196 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Pipes.html">Pipes</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.html">WallFriction</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.html">Detailed</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Detailed</h1>
+    <p>Pipe wall friction for laminar and turbulent flow (detailed characteristic)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.massFlowRate_dp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.massFlowRate_dp.html">massFlowRate_dp</a></p>
+        <p>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.pressureLoss_m_flow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.pressureLoss_m_flow.html">pressureLoss_m_flow</a></p>
+        <p>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.massFlowRate_dp_staticHead_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.massFlowRate_dp_staticHead.html">massFlowRate_dp_staticHead</a></p>
+        <p>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.pressureLoss_m_flow_staticHead_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.pressureLoss_m_flow_staticHead.html">pressureLoss_m_flow_staticHead</a></p>
+        <p>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.Internal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.Internal.html">Internal</a></p>
+        <p>Functions to calculate mass flow rate from friction pressure drop and vice versa</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="constants" >
+  <h1>Package Constants <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>use_mu</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if mu_a/mu_b are used in function, otherwise value is not used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_roughness</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if roughness is used in function, otherwise value is not used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_dp_small</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if dp_small is used in function, otherwise value is not used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_m_flow_small</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if m_flow_small is used in function, otherwise value is not used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dp_is_zero</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if no wall friction is present, i.e., dp = 0 (function massFlowRate_dp() cannot be used)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_Re_turbulent</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if Re_turbulent input is used in function, otherwise value is not used</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This component defines the complete regime of wall friction.
+The details are described in the
+<a href="Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction.html">UsersGuide</a>.
+The functional relationship of the friction loss factor &lambda; is
+displayed in the next figure. Function massFlowRate_dp() defines the "red curve"
+("Swamee and Jain"), where as function pressureLoss_m_flow() defines the
+"blue curve" ("Colebrook-White"). The two functions are inverses from
+each other and give slightly different results in the transition region
+between Re = 1500 .. 4000, in order to get explicit equations without
+solving a non-linear equation.
+</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed_info_001.png"
+     alt="PipeFriction1.png">
+</p>
+
+<p>
+Additionally to wall friction, this component properly implements static
+head. With respect to the latter, two cases can be distinguished. In the case
+shown next, the change of elevation with the path from a to b has the opposite
+sign of the change of density.</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed_info_002.png"
+     alt="PipeFrictionStaticHead_case-a.png">
+</p>
+
+<p>
+In the case illustrated second, the change of elevation with the path from a to
+b has the same sign of the change of density.</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed_info_003.png"
+     alt="PipeFrictionStaticHead_case-b.png">
+</p>
+</div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow.WallFriction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow.WallFriction.html">WallFriction</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow</span</p>
+        <p>Wall friction model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

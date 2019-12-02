@@ -1,0 +1,69 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.html">PowerConverters</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept.html">ACDCConcept</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ACDCConcept</h1>
+    <p>AC/DC converter concept</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>AC/DC converters are also called rectifiers</p>
+
+<h4>Component classification</h4>
+
+<p>Conventional AC/DC converters contain diodes and thyristors. If thyristors are used, the output voltage of the rectifier can be controlled. If only diodes are used, the output voltages is solely dependent on the input voltage and the characteristic of applied diodes.</p>
+<ul>
+  <li>Diode rectifiers</li>
+  <li>Thyristor rectifiers</li>
+  <li>Half controlled rectifiers; half of the semiconductors are diodes and thyristors, respectively</li>
+</ul>
+
+<h4>Topology classification</h4>
+
+<p>The PowerConverters library provides bridge and center tap rectifiers for single and multi phase supply, see
+<a href="Modelica.Electrical.PowerConverters.ACDC.html">AC/DC converters</a>.</p>
+
+<h4>Control</h4>
+
+<p>For each of the provided rectifiers a
+<a href="Modelica.Electrical.PowerConverters.ACDC.Control.html">control model</a> is available.
+These control models have electrical connectors to be connected with the AC supply.
+The firing angle of thyristor rectifiers can either be set by a parameter or a signal input.
+</p>
+
+<h4>Examples</h4>
+
+<p>A variety of examples is provided at
+<a href="Modelica.Electrical.PowerConverters.Examples.ACDC.html">Examples.ACDC</a>.
+These examples include different kinds of DC loads. Even the control characteristics
+of the rectifiers can be obtained experimentally; the names of these models
+contain <code>_Characteristic</code>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.html">HelicalPipe</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall.html">kc_overall</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>kc_overall</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculation of the mean convective heat transfer coefficient <strong> kc </strong> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime.
+</p>
+<h4>Functions <strong>kc_overall</strong> and <strong>kc_overall_KC</strong></h4>
+<p>
+There are basically three differences:
+</p>
+<ul>
+<li>
+The function <strong>kc_overall</strong> is using <strong>kc_overall_KC</strong> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <strong>1</strong> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <strong>kc_overall_KC</strong> is numerically best used for the calculation of the mean convective heat transfer coefficient <strong> kc </strong> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <strong>kc_overall_KC</strong>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <strong> kc </strong>
+</li>
+</ul>
+
+<h4>Geometry and Calculation </h4>
+
+<p>This heat transfer function enables a calculation of heat transfer coefficient for laminar and turbulent flow regime. The geometry, constant and fluid parameters of the function are the same as for
+<a href="Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar.html">kc_laminar</a>  and <a href="Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent.html">kc_turbulent</a>.
+</p>
+<p>
+The calculation conditions for laminar and turbulent flow is equal to the calculation in <strong>kc_laminar</strong>
+and <strong>kc_turbulent</strong>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 30000 (see figure below).</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <strong> Nu </strong> representing the mean convective heat transfer coefficient <strong> kc </strong> is shown below for different numbers of turns <strong> n_nt </strong> at constant total length of the helical pipe.
+</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall_info_001.png" alt="fig_helicalPipe_kc_overall"/>
+</p>
+
+<p>
+The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe.
+</p>
+
+<p>
+Note that the ratio of hydraulic diameter to total length of helical pipe <strong> d_hyd/L </strong> has no remarkable influence on the coefficient of heat transfer <strong> kc </strong>.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>GNIELINSKI, V.:</dt>
+    <dd><strong>Heat transfer and pressure drop in helically coiled tubes.</strong>.
+    In 8th International Heat Transfer Conference, volume 6, pages 2847?2854, Washington,1986. Hemisphere.</dd>
+</dl>
+</div>
+</section>
+</div>
+</body>
+</html>

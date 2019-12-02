@@ -1,0 +1,259 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.html">RobotR3</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6.html">PathPlanning6</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PathPlanning6</h1>
+    <p>Generate reference angles for fastest kinematic movement</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Given
+</p>
+<ul>
+<li> start and end angles of every axis</li>
+<li> maximum speed of every axis</li>
+<li> maximum acceleration of every axis</li>
+</ul>
+
+<p>
+this component computes the fastest movement under the
+given constraints. This means, that:
+</p>
+
+<ol>
+<li> Every axis accelerates with the maximum acceleration
+     until the maximum speed is reached.</li>
+<li> Drives with the maximum speed as long as possible.</li>
+<li> Decelerates with the negative of the maximum acceleration
+     until rest.</li>
+</ol>
+
+<p>
+The acceleration, constant velocity and deceleration
+phase are determined in such a way that the movement
+starts form the start angles and ends at the end angles.
+The output of this block are the computed angles, angular velocities
+and angular acceleration and this information is stored as reference
+motion on the controlBus of the r3 robot.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>naxis</th>
+      <td>
+        <p><span>Value:</span> 6</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of driven axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angleBegDeg</th>
+      <td>
+        <p><span>Value:</span> zeros(naxis)</p>
+        <p><span>Type:</span> Real[naxis] (°)</p>
+        <p><span>Description:</span> Start angles</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angleEndDeg</th>
+      <td>
+        <p><span>Value:</span> ones(naxis)</p>
+        <p><span>Type:</span> Real[naxis] (°)</p>
+        <p><span>Description:</span> End angles</p>
+      </td>
+    </tr>
+    <tr>
+      <th>speedMax</th>
+      <td>
+        <p><span>Value:</span> fill(3, naxis)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity[naxis]</a> (rad/s)</p>
+        <p><span>Description:</span> Maximum axis speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>accMax</th>
+      <td>
+        <p><span>Value:</span> fill(2.5, naxis)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularAcceleration.html">AngularAcceleration[naxis]</a> (rad/s²)</p>
+        <p><span>Description:</span> Maximum axis acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Start time of movement</p>
+      </td>
+    </tr>
+    <tr>
+      <th>swingTime</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Additional time after reference motion is in rest before simulation is stopped</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angleBeg</th>
+      <td>
+        <p><span>Value:</span> Cv.from_deg(angleBegDeg)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle[:]</a> (rad)</p>
+        <p><span>Description:</span> Start angles</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angleEnd</th>
+      <td>
+        <p><span>Value:</span> Cv.from_deg(angleEndDeg)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle[:]</a> (rad)</p>
+        <p><span>Description:</span> End angles</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.ControlBus_16x16.png"></td>
+      <th>controlBus</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.ControlBus.html">ControlBus</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.KinematicPTP2_32x32.png"></td>
+      <th>path</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.KinematicPTP2.html">KinematicPTP2</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus_32x32.png"></td>
+      <th>pathToAxis1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus.html">PathToAxisControlBus</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus_32x32.png"></td>
+      <th>pathToAxis2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus.html">PathToAxisControlBus</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus_32x32.png"></td>
+      <th>pathToAxis3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus.html">PathToAxisControlBus</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus_32x32.png"></td>
+      <th>pathToAxis4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus.html">PathToAxisControlBus</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus_32x32.png"></td>
+      <th>pathToAxis5</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus.html">PathToAxisControlBus</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus_32x32.png"></td>
+      <th>pathToAxis6</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus.html">PathToAxisControlBus</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.TerminateSimulation_32x32.png"></td>
+      <th>terminateSimulation</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Logical.TerminateSimulation.html">TerminateSimulation</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot.html">fullRobot</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3</span</p>
+        <p>Six degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

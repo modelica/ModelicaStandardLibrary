@@ -1,0 +1,200 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Sources.I_pulse.html">I_pulse</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>I_pulse</h1>
+    <p>Pulse current source</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Sources.I_pulse_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Periodic pulse source with not limited number of periods.</p>
+<p>A single pulse is described by the following table:</p>
+<table cellspacing="2" cellpadding="0" border="0"><tr>
+<td><h4>time</h4></td>
+<td><h4>value</h4></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>I1</p></td>
+</tr>
+<tr>
+<td><p>TD</p></td>
+<td><p>I1</p></td>
+</tr>
+<tr>
+<td><p>TD+TR</p></td>
+<td><p>I2</p></td>
+</tr>
+<tr>
+<td><p>TD+TR+PW</p></td>
+<td><p>I2</p></td>
+</tr>
+<tr>
+<td><p>TD+TR+PW+TF</p></td>
+<td><p>I1</p></td>
+</tr>
+<tr>
+<td><p>TSTOP</p></td>
+<td><p>I1</p></td>
+</tr>
+</table>
+<p>Intermediate points are determined by linear interpolation.</p>
+<p>A pulse it looks like a saw tooth, use this parameters e.g.:</p>
+<table cellspacing="2" cellpadding="2" border="1"><tr>
+<td><h4>Parameter</h4></td>
+<td><h4>Value</h4></td>
+</tr>
+<tr>
+<td><p>I1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>I2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>TD</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>TR</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>TF</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>PW</p></td>
+<td><p>2</p></td>
+</tr>
+<tr>
+<td><p>PER</p></td>
+<td><p>1</p></td>
+</tr>
+</table>
+<h4>Note:</h4>
+<ul>
+<li>All parameters of sources should be set explicitly.</li>
+<li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>I1</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Initial value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I2</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Pulsed value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TD</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Delay time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TR</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Rise time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TF</th>
+      <td>
+        <p><span>Value:</span> TR</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Fall time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PW</th>
+      <td>
+        <p><span>Value:</span> Modelica.Constants.inf</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Pulse width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PER</th>
+      <td>
+        <p><span>Value:</span> Modelica.Constants.inf</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Period</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

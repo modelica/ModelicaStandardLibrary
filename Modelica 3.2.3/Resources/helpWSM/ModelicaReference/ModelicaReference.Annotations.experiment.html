@@ -1,0 +1,60 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.experiment.html">experiment</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>experiment</h1>
+    <p>experiment</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.experiment_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define default experiment parameters
+</p>
+
+<h4>Examples</h4>
+
+<pre><strong>annotation</strong>(experiment(StartTime=0, StopTime=5, Tolerance=1e-6))
+</pre>
+
+<h4>Syntax</h4>
+
+<pre>experiment_annotation:
+   <strong>annotation</strong>"(" "experiment" "(" [experimentOption] {, experimentOption}] ")"
+
+experimentOption:
+   StartTime  "=" ["+" | "-"] UNSIGNED_NUMBER |
+   StopTime   "=" ["+" | "-"] UNSIGNED_NUMBER |
+   Interval   "=" UNSIGNED_NUMBER
+   Tolerance  "=" UNSIGNED_NUMBER
+</pre>
+
+<h4>Description</h4>
+<p>
+The experiment annotation defines the default start time (<code>StartTime</code>) in [s], the default stop time (<code>StopTime</code>) in [s], the suitable time resolution for the result grid (<code>Interval</code>) in [s], and the default relative integration tolerance (<code>Tolerance</code>) for simulation experiments to be carried out with the model or block at hand.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

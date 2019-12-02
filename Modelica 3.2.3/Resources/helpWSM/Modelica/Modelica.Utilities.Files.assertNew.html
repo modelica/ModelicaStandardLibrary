@@ -1,0 +1,80 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Files.html">Files</a></li>
+  <li><a href="Modelica.Utilities.Files.assertNew.html">assertNew</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>assertNew</h1>
+    <p>Trigger an assert, if a file or directory exists</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Files.assertNew_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>assertNew</strong>(name);
+Files.<strong>assertNew</strong>(name, message="This is not allowed");
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Triggers an assert, if "name" is an existing file or
+directory. The error message has the following structure:
+</p>
+<pre>
+  File "&lt;name&gt;" already exists.
+  &lt;message&gt;
+</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">assertNew(name, message)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>name</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name of file or directory</p>
+      </td>
+    </tr>
+    <tr>
+      <th>message</th>
+      <td>
+        <p><span>Default Value:</span> "This is not allowed."</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Message that should be printed after the default message in a new line</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

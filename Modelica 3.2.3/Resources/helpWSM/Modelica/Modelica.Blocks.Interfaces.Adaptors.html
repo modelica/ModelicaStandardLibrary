@@ -1,0 +1,118 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.Adaptors.html">Adaptors</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Adaptors</h1>
+    <p>Package with adaptors (especially useful for FMUs)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor.html">FlowToPotentialAdaptor</a></p>
+        <p>Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
+  potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor.html">PotentialToFlowAdaptor</a></p>
+        <p>Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and
+  flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.Functions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.Functions.html">Functions</a></p>
+        <p>Functions for adaptors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.SendReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.SendReal.html">SendReal</a></p>
+        <p>Obsolete block to send Real signal to bus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.SendBoolean_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.SendBoolean.html">SendBoolean</a></p>
+        <p>Obsolete block to send Boolean signal to bus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.SendInteger_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.SendInteger.html">SendInteger</a></p>
+        <p>Obsolete block to send Integer signal to bus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.ReceiveReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.ReceiveReal.html">ReceiveReal</a></p>
+        <p>Obsolete block to receive Real signal from bus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.ReceiveBoolean_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.ReceiveBoolean.html">ReceiveBoolean</a></p>
+        <p>Obsolete block to receive Boolean signal from bus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.ReceiveInteger_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.ReceiveInteger.html">ReceiveInteger</a></p>
+        <p>Obsolete block to receive Integer signal from bus</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains partial adaptors to implement adaptors in various domains
+between a physical connector and a signal representation of the connector signals.
+This component is used to provide a pure signal interface around a physical model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

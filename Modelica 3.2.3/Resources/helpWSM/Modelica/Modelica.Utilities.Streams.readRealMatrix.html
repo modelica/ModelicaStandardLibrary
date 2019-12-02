@@ -1,0 +1,129 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Streams.html">Streams</a></li>
+  <li><a href="Modelica.Utilities.Streams.readRealMatrix.html">readRealMatrix</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>readRealMatrix</h1>
+    <p>Read Real matrix from MATLAB MAT file</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Streams.readRealMatrix_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+matrix = Streams.<strong>readRealMatrix</strong>(fileName, matrixName, nrow, ncol, verboseRead)
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>readRealMatrix</strong>(..) opens the given MATLAB MAT file
+(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
+and reads the given matrix from this file. The dimensions of this matrix must first
+be inquired with function
+<a href="Modelica.Utilities.Streams.readMatrixSize.html">readMatrixSize</a>
+and passed via arguments nrow and ncol to this function.
+</p>
+
+<h4>Example</h4>
+<p>
+See <a href="Modelica.Utilities.Examples.ReadRealMatrixFromFile.html">Examples.ReadRealMatrixFromFile</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Utilities.Streams.readMatrixSize.html">readMatrixSize</a>,
+<a href="Modelica.Utilities.Streams.writeRealMatrix.html">writeRealMatrix</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">matrix = readRealMatrix(fileName, matrixName, nrow, ncol, verboseRead)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where external data is stored</p>
+      </td>
+    </tr>
+    <tr>
+      <th>matrixName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name / identifier of the 2D Real array on the file</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nrow</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of rows of the 2D Real array</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ncol</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of columns of the 2D Real array</p>
+      </td>
+    </tr>
+    <tr>
+      <th>verboseRead</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: Print info message; = false: No info message</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>matrix</th>
+      <td>
+        <p><span>Type:</span> Real[nrow,ncol]</p>
+        <p><span>Description:</span> 2D Real array</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

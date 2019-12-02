@@ -1,0 +1,396 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.ModelcardBJT.html">ModelcardBJT</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ModelcardBJT</h1>
+    <p>Record with technology parameters (.model), obsolete model, please use ModelcardBJT2</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardBJT_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This record is obsolete, please use ModelcardBJT2</p>
+<p>Modelcard parameters for BJT model, both PNP and NPN</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(41)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>TNOM</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temp_C.html">Temp_C</a> (°C)</p>
+        <p><span>Description:</span> Parameter measurement temperature, default 27</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IS</th>
+      <td>
+        <p><span>Value:</span> 1e-16</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Transport saturation current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>BF</th>
+      <td>
+        <p><span>Value:</span> 100.00</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ideal maximum forward beta F</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NF</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Forward current emission coefficientF</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NE</th>
+      <td>
+        <p><span>Value:</span> 1.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> B-E leakage emission coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ISE</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> B-E leakage saturation current, default = 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ISC</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> B-C leakage saturation current, default = 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>BR</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ideal maximum reverse beta</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NR</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Reverse current emission coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NC</th>
+      <td>
+        <p><span>Value:</span> 2.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> B-C leakage emission coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VAF</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Forward Early voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IKF</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Forward beta roll-off corner current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VAR</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Reverse Early voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IKR</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Reverse beta roll-off corner current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RE</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Emitter resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RC</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Collector resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IRB</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Current for base resistance = (rb+rbm)/2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RB</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Zero bias base resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RBM</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Minimum base resistance, default = 0.0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CJE</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Zero bias B-E depletion capacitance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VJE</th>
+      <td>
+        <p><span>Value:</span> 0.75</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> B-E built in potential</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MJE</th>
+      <td>
+        <p><span>Value:</span> 0.33</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> B-E junction exponential factor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TF</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Ideal forward transit time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>XTF</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Coefficient for bias dependence of TF</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ITF</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> High current dependence of TF,</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VTF</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Voltage giving VBC dependence of TF</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PTF</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temp_C.html">Temp_C</a> (°C)</p>
+        <p><span>Description:</span> Excess phase at freq=1/(TF*2*Pi) Hz</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CJC</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Zero bias B-C depletion capacitance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VJC</th>
+      <td>
+        <p><span>Value:</span> 0.75</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> B-C built in potential</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MJC</th>
+      <td>
+        <p><span>Value:</span> 0.33</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> B-C junction grading coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>XCJC</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Fraction of B-C cap to internal base</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TR</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Ideal reverse transit time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CJS</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Zero bias C-S capacitance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VJS</th>
+      <td>
+        <p><span>Value:</span> 0.75</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Substrate junction built-in potential</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MJS</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Substrate junction grading coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>XTB</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Forward and reverse beta temperature exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>EG</th>
+      <td>
+        <p><span>Value:</span> 1.11</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.GapEnergy.html">GapEnergy</a> (eV)</p>
+        <p><span>Description:</span> Energy gap for IS temperature effect on IS</p>
+      </td>
+    </tr>
+    <tr>
+      <th>XTI</th>
+      <td>
+        <p><span>Value:</span> 3.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Temperature exponent for IS</p>
+      </td>
+    </tr>
+    <tr>
+      <th>KF</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Flicker Noise Coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AF</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Flicker Noise Exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>FC</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Forward bias junction fit parameter</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.BJT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.BJT.html">BJT</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span</p>
+        <p>Bipolar junction transistor, obsolete, use model BJT2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

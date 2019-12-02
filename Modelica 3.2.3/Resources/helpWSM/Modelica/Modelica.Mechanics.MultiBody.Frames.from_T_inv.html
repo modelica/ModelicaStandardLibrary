@@ -1,0 +1,105 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.from_T_inv.html">from_T_inv</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>from_T_inv</h1>
+    <p>Return orientation object R from inverse transformation matrix T_inv</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.from_T_inv_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<strong>from_T_inv</strong>(T_inv, w);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an
+<a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">orientation object</a>&nbsp;R
+assembled from an inverse transformation matrix T_inv and a correspondent angular velocity vector&nbsp;w.
+Generally, the transformation matrix T_inv can be gained using a function from the
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.html">TransformationMatrices</a>
+package, e.g. using T_inv = <a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.inverseRotation.html">inverseRotation</a>(T).
+Note that the velocity vector&nbsp;w has to be calculated accordingly.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.from_T.html">from_T</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T_inv.html">TransformationMatrices.from_T_inv</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv.html">Quaternions.from_T_inv</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">R = from_T_inv(T_inv, w)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T_inv</th>
+      <td>
+        <p><span>Type:</span> Real[3,3]</p>
+        <p><span>Description:</span> Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity[3]</a> (rad/s)</p>
+        <p><span>Description:</span> Angular velocity from frame 1 with respect to frame 2, resolved in frame 1 (skew(w)=T_inv*der(transpose(T_inv)))</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

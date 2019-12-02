@@ -1,0 +1,81 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.ComplexMath.html">ComplexMath</a></li>
+  <li><a href="Modelica.ComplexMath.Vectors.html">Vectors</a></li>
+  <li><a href="Modelica.ComplexMath.Vectors.reverse.html">reverse</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>reverse</h1>
+    <p>Reverse vector elements (e.g., v[1] becomes last element)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.ComplexMath.Vectors.reverse_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>Vectors.<strong>reverse</strong>(v);</pre></blockquote>
+<h4>Description</h4>
+The function call &quot;<code>Vectors.<strong>reverse</strong>(v)</code>&quot; returns the complex vector elements in reverse order.
+<h4>Example</h4>
+<blockquote><pre>  <strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = reverse(v)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex[:]</a></p>
+        <p><span>Description:</span> Vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex[size(v, 1)]</a></p>
+        <p><span>Description:</span> Elements of vector v in reversed order</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

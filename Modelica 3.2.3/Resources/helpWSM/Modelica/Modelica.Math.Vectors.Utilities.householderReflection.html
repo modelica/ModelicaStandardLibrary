@@ -1,0 +1,121 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Vectors.html">Vectors</a></li>
+  <li><a href="Modelica.Math.Vectors.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Vectors.Utilities.householderReflection.html">householderReflection</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>householderReflection</h1>
+    <p>Reflect a vector a on a plane with orthogonal vector u</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Vectors.Utilities.householderReflection_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.Utilities.<strong>householderReflection</strong>(a,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function "<code>householderReflection(a, u)</code>" performs the reflection of vector
+<strong>a</strong> about a plane orthogonal to vector <strong>u</strong> (Householder vector).
+Algebraically the operation is defined by
+</p>
+<blockquote>
+<p>
+<strong>b</strong>=<strong>Q</strong>*<strong>a</strong>
+</p>
+</blockquote>
+with
+<blockquote>
+<p>
+   <strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
+</p>
+</blockquote>
+where <strong>Q</strong> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
+</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  a = {2, -4, -2, -1};
+  u = {0.837, -0.478, -0.239, -0.119};
+
+  <strong>householderReflection</strong>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Vectors.Utilities.householderVector.html">Utilities.householderVector</a><br>
+<a href="Modelica.Math.Matrices.Utilities.householderReflection.html">Matrices.Utilities.householderReflection</a><br>
+<a href="Modelica.Math.Matrices.Utilities.householderSimilarityTransformation.html">Matrices.Utilities.householderSimilarityTransformation</a>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">ra = householderReflection(a, u)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Real vector a to be reflected</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real[size(a, 1)]</p>
+        <p><span>Description:</span> householder vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ra</th>
+      <td>
+        <p><span>Type:</span> Real[size(u, 1)]</p>
+        <p><span>Description:</span> reflexion of a</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

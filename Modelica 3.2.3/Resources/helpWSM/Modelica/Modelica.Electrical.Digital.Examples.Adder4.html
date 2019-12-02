@@ -1,0 +1,178 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Digital.Examples.Adder4.html">Adder4</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Adder4</h1>
+    <p>4 Bit Adder Example</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Examples.Adder4_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Digital.Examples.Adder4_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Digital.Examples.Adder4_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Four FullAdders are combined to built a four bit adder unit.
+</p>
+<br>
+<br>
+In dependence on time five additions are carried out:
+<br>
+<pre>
+at t = 0                            at t = 1
+ a       0 0 0 0                       a      1 1 1 0
+ b    +  0 0 0 0                       b   +  1 0 1 1
+ <strong>s     0 0 0 0 0</strong>                      <strong>s     1 0 0 1 0</strong>
+at t = 2                             at t = 3
+ a       0 1 1 0                       a      1 1 1 0
+ b    +  0 0 1 1                       b   +  1 0 1 0
+ <strong>s     1 0 1 0 0</strong>                      <strong>s     0 0 0 1 1</strong>
+
+at t = 4
+ a      1 1 0 0
+ b   +  1 1 1 0
+ <strong>s    0 0 1 0 1</strong>
+ </pre>
+<p>
+To show the influence of delay a large delay time of 0.1s is chosen.
+Furthermore, all signals are initialized with U, the uninitialized value.
+Please remember, that the nine logic values are coded by the numbers 1,...,9.
+The summands a and b can be found at the output signals of the taba and tabb sources.
+The result can be seen in the output signals of the FullAdders according to:</p>
+<pre>
+      a                       <strong>a4</strong>.y      <strong>a3</strong>.y      <strong>a2</strong>.y      <strong>a1</strong>.y
+      b                       <strong>b4</strong>.y      <strong>b3</strong>.y      <strong>b2</strong>.y      <strong>b1</strong>.y
+      sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s</strong>  <strong>Adder2.s</strong>  <strong>Adder1.s</strong>
+</pre>
+<p>The simulation stop time has to be 5s.</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Table_32x32.png"></td>
+      <th>b4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Table.html">Table</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Table_32x32.png"></td>
+      <th>b1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Table.html">Table</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Table_32x32.png"></td>
+      <th>b2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Table.html">Table</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Table_32x32.png"></td>
+      <th>b3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Table.html">Table</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Table_32x32.png"></td>
+      <th>a1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Table.html">Table</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Table_32x32.png"></td>
+      <th>a2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Table.html">Table</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Table_32x32.png"></td>
+      <th>a3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Table.html">Table</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Table_32x32.png"></td>
+      <th>a4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Table.html">Table</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Set_32x32.png"></td>
+      <th>Set</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Set.html">Set</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Utilities.FullAdder_32x32.png"></td>
+      <th>Adder1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Examples.Utilities.FullAdder.html">FullAdder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Utilities.FullAdder_32x32.png"></td>
+      <th>Adder2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Examples.Utilities.FullAdder.html">FullAdder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Utilities.FullAdder_32x32.png"></td>
+      <th>Adder3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Examples.Utilities.FullAdder.html">FullAdder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Utilities.FullAdder_32x32.png"></td>
+      <th>Adder4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Examples.Utilities.FullAdder.html">FullAdder</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

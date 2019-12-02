@@ -1,0 +1,198 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.TransferFunction.html">TransferFunction</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TransferFunction</h1>
+    <p>Linear transfer function</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.TransferFunction_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block defines the transfer function between the input
+u and the output y
+as (nb = dimension of b, na = dimension of a):
+</p>
+<pre>
+           b[1]*s^[nb-1] + b[2]*s^[nb-2] + ... + b[nb]
+   y(s) = --------------------------------------------- * u(s)
+           a[1]*s^[na-1] + a[2]*s^[na-2] + ... + a[na]
+</pre>
+<p>
+State variables <strong>x</strong> are defined according to <strong>controller canonical</strong>
+form. Internally, vector <strong>x</strong> is scaled to improve the numerics (the states in versions before version 3.0 of the Modelica Standard Library have been not scaled). This scaling is
+not visible from the outside of this block because the non-scaled vector <strong>x</strong>
+is provided as output signal and the start value is with respect to the non-scaled
+vector <strong>x</strong>.
+Initial values of the states <strong>x</strong> can be set via parameter <strong>x_start</strong>.
+</p>
+
+<p>
+Example:
+</p>
+<pre>
+     TransferFunction g(b = {2,4}, a = {1,3});
+</pre>
+<p>
+results in the following transfer function:
+</p>
+<pre>
+        2*s + 4
+   y = --------- * u
+         s + 3
+</pre>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Value:</span> {1}</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Value:</span> {1}</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Denominator coefficients of transfer function (e.g., 5*s+6 is specified as {5,6})</p>
+      </td>
+    </tr>
+    <tr>
+      <th>initType</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Init.NoInit</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Init.html">Init</a></p>
+        <p><span>Description:</span> Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_start</th>
+      <td>
+        <p><span>Value:</span> zeros(nx)</p>
+        <p><span>Type:</span> Real[size(a, 1) - 1]</p>
+        <p><span>Description:</span> Initial or guess values of states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial value of output (derivatives of y are zero up to nx-1-th derivative)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[size(a, 1) - 1]</p>
+        <p><span>Description:</span> State of transfer function from controller canonical form</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence.html">DrydenContinuousTurbulence</a></p>
+        <p><span>Modelica.Blocks.Examples.NoiseExamples</span</p>
+        <p>Demonstrates how to model wind turbulence for aircraft with the BandLimitedWhiteNoise block (a simple model of vertical Dryden gust speed at low altitudes < 1000 ft)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.Filter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.Filter.html">Filter</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span</p>
+        <p>PT1 + all-pass filter</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

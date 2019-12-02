@@ -1,0 +1,84 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor.html">AngleToTorqueAdaptor</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor.Move_w.html">Move_w</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor.Move_w.position_der.html">position_der</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>position_der</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor.Move_w.position_der_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">qd = position_der(q_qd, dummy, dummy_der)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>q_qd</th>
+      <td>
+        <p><span>Type:</span> Real[2]</p>
+        <p><span>Description:</span> Required values for position and speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dummy</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dummy_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>qd</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

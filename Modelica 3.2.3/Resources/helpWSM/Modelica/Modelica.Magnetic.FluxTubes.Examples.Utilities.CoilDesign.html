@@ -1,0 +1,244 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign.html">CoilDesign</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CoilDesign</h1>
+    <p>Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model example shows dimensioning of a winding (wire diameter, number of turns) based on desired operating conditions (voltage, temperature, current density, conductor filling factor) for a given cross-section area of the winding. It can be modified according to the parameters given and sought after for a particular design project.
+</p>
+
+<p>
+The calculated winding resistance and number of turns can be used as input parameters to the electrical subsystem
+of a device to be modelled. Operating voltage V_op can be minimum, nominal and maximum voltage respectively as specified for a particular design project. In conjunction with the setting of the operating temperature T_op, this enables for analysis of the device under worst-case conditions (e.g., minimum required magnetomotive force, maximum allowed ohmic losses, minimum and maximum force respectively).
+</p>
+
+<p>
+For manufacturing of a winding, the obtained wire diameter d_wireCalculated must be rounded to that of an available wire. In order to analyse the influence of this rounding, one can enter the chosen wire diameter d_wireChosen and number of turns N_chosen as optional input. Calculation of the resulting winding parameters enables for comparison with the ones obtained otherwise.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(23)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>rho_20</th>
+      <td>
+        <p><span>Value:</span> 0.0178e-6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistivity.html">Resistivity</a> (Ω·m)</p>
+        <p><span>Description:</span> Resistivity of conductor material at 20 degC (default: Copper)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha_20</th>
+      <td>
+        <p><span>Value:</span> 0.0039</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of conductor material's resistivity at 20 degC (default: Copper)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_op</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Operating temperature of winding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho</th>
+      <td>
+        <p><span>Value:</span> rho_20 * (1 + alpha_20 * (T_op - (20 - Modelica.Constants.T_zero)))</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistivity.html">Resistivity</a> (Ω·m)</p>
+        <p><span>Description:</span> Resistivity at operating temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_w</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Height of winding cross-section</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b_w</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Width of winding cross-section</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A_w</th>
+      <td>
+        <p><span>Value:</span> h_w * b_w</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Cross-section area of winding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l_avg</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Average length of one turn</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V_op</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Operating voltage (nominal/ minimum/ maximum voltage depending on design objective)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>J_desired</th>
+      <td>
+        <p><span>Value:</span> 4e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.CurrentDensity.html">CurrentDensity</a> (A/m²)</p>
+        <p><span>Description:</span> DESIRED current density at operating temperature and voltage resp.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_condFillChosen</th>
+      <td>
+        <p><span>Value:</span> 0.6</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> CHOSEN conductor filling factor = total conductor area without insulation/ total winding area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N_calculated</th>
+      <td>
+        <p><span>Value:</span> V_op / (rho * l_avg * J_desired)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> CALCULATED number of turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d_wireCalculated</th>
+      <td>
+        <p><span>Value:</span> sqrt(4 * A_w * c_condFillChosen / (pi * N_calculated))</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> CALCULATED wire diameter (without insulation)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A_wireCalculated</th>
+      <td>
+        <p><span>Value:</span> pi * d_wireCalculated ^ 2 / 4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Calculated wire cross-section area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R_calculated</th>
+      <td>
+        <p><span>Value:</span> rho * N_calculated * l_avg / A_wireCalculated</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Winding resistance at operating temperature and voltage resp. with CALCULATED number of turns and wire diameter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>P_calculated</th>
+      <td>
+        <p><span>Value:</span> V_op ^ 2 / R_calculated</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Winding's ohmic losses at operating temperature and voltage resp. with CALCULATED number of turns and wire diameter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d_wireChosen</th>
+      <td>
+        <p><span>Value:</span> d_wireCalculated</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> CHOSEN available wire diameter (without insulation)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N_chosen</th>
+      <td>
+        <p><span>Value:</span> N_calculated</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> CHOSEN number of turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A_wireChosen</th>
+      <td>
+        <p><span>Value:</span> pi * d_wireChosen ^ 2 / 4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Wire cross-section area resulting from CHOSEN wire diameter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R_actual</th>
+      <td>
+        <p><span>Value:</span> rho * N_chosen * l_avg / A_wireChosen</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Winding resistance at operating temperature and voltage resp. resulting from CHOSEN number of turns and wire diameter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>P_actual</th>
+      <td>
+        <p><span>Value:</span> V_op ^ 2 / R_actual</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Winding's ohmic losses at operating temperature and voltage resp. resulting from CHOSEN number of turns and wire diameter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>J_actual</th>
+      <td>
+        <p><span>Value:</span> V_op * 4 / (R_actual * pi * d_wireChosen ^ 2)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.CurrentDensity.html">CurrentDensity</a> (A/m²)</p>
+        <p><span>Description:</span> Current density at operating temperature and voltage resp. resulting from CHOSEN number of turns and wire diameter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_condFillActual</th>
+      <td>
+        <p><span>Value:</span> N_chosen * pi * d_wireChosen ^ 2 / (4 * A_w)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Conductor filling factor resulting from CHOSEN number of turns and wire diameter</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

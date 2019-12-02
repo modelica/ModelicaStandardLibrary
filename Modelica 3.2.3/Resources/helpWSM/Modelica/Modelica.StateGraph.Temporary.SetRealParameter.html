@@ -1,0 +1,114 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.StateGraph.html">StateGraph</a></li>
+  <li><a href="Modelica.StateGraph.Temporary.html">Temporary</a></li>
+  <li><a href="Modelica.StateGraph.Temporary.SetRealParameter.html">SetRealParameter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SetRealParameter</h1>
+    <p>Define Real parameter (GUI not yet satisfactory)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.StateGraph.Temporary.SetRealParameter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is an <strong>experimental component</strong> to define a
+<strong>Real parameter</strong>
+in the <strong>diagram layer</strong>. The idea is to drag the icon from the
+package browser into the diagram layer. Then a window pops
+up in which the properties of this parameter can be defined
+(such as the default value). The name and default value of the
+parameter are displayed in the icon of this component. Whenever
+clicking on it, the dialog to change parameter settings pops-up.
+</p>
+<p>
+In Dymola, the described property is not fully available.
+Currently, when dragging this component in the diagram layer,
+a dialog pops up in which the properties of the parameter
+can be defined. However, afterwards, the parameter is not
+visible in the diagram layer. Making it visible requires to
+go into the text layer and add an annotation with the
+component size, resulting for example in:
+</p>
+<pre>
+  <strong>parameter</strong> StateGraph.Temporary.SetRealParameter name = 2
+                       <strong>annotation</strong>(Placement(transformation(extent={{-10,-10},{10,10}})));
+</pre>
+<p>
+This change makes the parameter icon visible in the
+diagram layer. However, clicking on this icon has no
+effect. Changing parameter properties, such as the default
+value, still requires to go in to the text layer.
+</p>
+</div>
+</section>
+<section id="type" >
+  <h1>Type Information </h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Real</th>
+      <td>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.TankController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.TankController.html">TankController</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span</p>
+        <p>Controller for tank system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.MakeProduct_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.MakeProduct.html">MakeProduct</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span</p>
+        <p>State machine defining the time instants when to fill or empty a tank</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.CompositeStep2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.CompositeStep2.html">CompositeStep2</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span</p>
+        <p>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

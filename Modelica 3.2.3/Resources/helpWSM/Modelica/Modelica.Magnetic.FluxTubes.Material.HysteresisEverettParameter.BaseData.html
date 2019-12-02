@@ -1,0 +1,235 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.html">Material</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.html">HysteresisEverettParameter</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.BaseData.html">BaseData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BaseData</h1>
+    <p>Base Data Record</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.BaseData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<table cellspacing="0" cellpadding="2" border="0">
+  <tr>
+    <td>
+      <img src="modelica:///Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.BaseData/resources/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.BaseData_info_001.png">
+   </td>
+  </tr>
+</table>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Hsat</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Hysteresis region between -Hsat .. Hsat</p>
+      </td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>
+        <p><span>Value:</span> 0.95</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Related to saturation value of magnetization</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Value:</span> 0.55</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Proportion of the straight region in the vicinity of Hc</p>
+      </td>
+    </tr>
+    <tr>
+      <th>q</th>
+      <td>
+        <p><span>Value:</span> 2.4e-1</p>
+        <p><span>Type:</span> Real (m/A)</p>
+        <p><span>Description:</span> Slope of the straight region in the vicinity of Hc</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p1</th>
+      <td>
+        <p><span>Value:</span> 1.2e-1</p>
+        <p><span>Type:</span> Real (m/A)</p>
+        <p><span>Description:</span> Sharpness of major loop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p2</th>
+      <td>
+        <p><span>Value:</span> 8e-1</p>
+        <p><span>Type:</span> Real (m/A)</p>
+        <p><span>Description:</span> Sharpness of major loop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Hc</th>
+      <td>
+        <p><span>Value:</span> 7.4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Major loop coercivity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>K</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Slope in saturation region mue_0*K</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Conductivity.html">Conductivity</a> (S/m)</p>
+        <p><span>Description:</span> Electrical conductivity of material</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis.html">Transformer1PhaseWithHysteresis</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components</span</p>
+        <p>Single Phase transformer with ferromagnetic core and hysteresis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis.html">Transformer3PhaseYyWithHysteresis</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components</span</p>
+        <p>Three phase transformer in Yy configuration</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett.html">GenericHystTellinenEverett</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets</span</p>
+        <p>Generic flux tube with ferromagnetic hysteresis based on the Tellinen model and the Everett function [Ya89])</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett.html">GenericHystPreisachEverett</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets</span</p>
+        <p>Generic flux tube with ferromagnetic hysteresis based on the Preisach model and the Everett function [Ya89])</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M800_65A_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M800_65A.html">M800_65A</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter</span</p>
+        <p>M800-65A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M400_50AP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M400_50AP.html">M400_50AP</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter</span</p>
+        <p>M400-50AP</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M400_50A_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M400_50A.html">M400_50A</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter</span</p>
+        <p>M400-50A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M330_50A_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M330_50A.html">M330_50A</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter</span</p>
+        <p>M330-50A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M270_50A_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.M270_50A.html">M270_50A</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter</span</p>
+        <p>M270-50A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.Vacodur50_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.Vacodur50.html">Vacodur50</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter</span</p>
+        <p>Vacodur50</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.Vacoflux17_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.Vacoflux17.html">Vacoflux17</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter</span</p>
+        <p>Vacoflux17</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

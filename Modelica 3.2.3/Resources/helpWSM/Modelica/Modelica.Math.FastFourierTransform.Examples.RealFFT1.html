@@ -1,0 +1,166 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.Examples.RealFFT1.html">RealFFT1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RealFFT1</h1>
+    <p>Example demonstrating the use of an FFT calculation during simulation (and storing both amplitudes and phases on file)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.FastFourierTransform.Examples.RealFFT1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+In this example the signal y
+</p>
+
+<pre>
+   y = 5 + 3*sin(2*pi*f1) + 1.5*cos(2*pi*f2)
+</pre>
+
+<p>
+is sampled and an FFT is computed from the sampled signal (default: f1 = 2 Hz, f2 = 3 Hz).
+In the public part the FFT is stored up to f_max (internally in the protected part the FFT is stored up to 5*f_max).
+With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the following results are achieved:
+</p>
+
+<pre>   fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
+   fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of sine
+   fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of cosine
+</pre>
+
+<p>
+A plot of the resulting FFT is shown in the next image:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.FastFourierTransform.Examples.RealFFT1/resources/Modelica.Math.FastFourierTransform.Examples.RealFFT1_info_001.png">
+</blockquote>
+
+<p>
+Note, phases of small amplitudes (= smaller as 0.0001*maximalAmplitude) are explicitly set to zero, since the corresponding
+"phase" is numerical noise (and would just be confusing).
+Furthermore, note that the FFT phases are with respect to a cos(..) signal.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f_max</th>
+      <td>
+        <p><span>Value:</span> 4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Maximum frequency of interest</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_resolution</th>
+      <td>
+        <p><span>Value:</span> 0.2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Frequency resolution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f1</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Frequency of sine</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f2</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Frequency of cosine</p>
+      </td>
+    </tr>
+    <tr>
+      <th>FFT_resultFileName</th>
+      <td>
+        <p><span>Value:</span> "RealFFT1_resultFFT.mat"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where FFT will be stored as [f,A,Phi], with f in {Hz] and A the amplitudes and Phi the phases in [rad]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nfi</th>
+      <td>
+        <p><span>Value:</span> max(1, min(integer(ceil(f_max / f_resolution)) + 1, nf))</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of frequency points of the interested frequency range (only up to f_max)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fi</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency[nfi]</a> (Hz)</p>
+        <p><span>Description:</span> FFT frequencies of interested frequency points</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Ai</th>
+      <td>
+        <p><span>Type:</span> Real[nfi]</p>
+        <p><span>Description:</span> FFT amplitudes of interested frequency points</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Phii</th>
+      <td>
+        <p><span>Type:</span> Real[nfi]</p>
+        <p><span>Description:</span> FFT phases of interested frequency points</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Information flag from FFT computation; = 0: FFT successfully computed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

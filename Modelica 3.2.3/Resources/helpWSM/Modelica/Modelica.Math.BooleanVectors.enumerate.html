@@ -1,0 +1,99 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.html">BooleanVectors</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.enumerate.html">enumerate</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>enumerate</h1>
+    <p>Enumerates the true entries in a Boolean vector (0 for false entries)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.BooleanVectors.enumerate_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>enumerate</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an integer vector that consecutively numbers
+the <strong>true</strong> entries in a Boolean vector b.  The <strong>false</strong> entries are
+indicated by 0.
+</p>
+
+<h4>Example</h4>
+<p><code>enumerate({false, true, false, true})</code> returns <code>{0,1,0,2}</code>.</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.BooleanVectors.allTrue.html">allTrue</a>,
+<a href="Modelica.Math.BooleanVectors.anyTrue.html">anyTrue</a>,
+<a href="Modelica.Math.BooleanVectors.countTrue.html">countTrue</a>,
+<a href="Modelica.Math.BooleanVectors.firstTrueIndex.html">firstTrueIndex</a>,
+<a href="Modelica.Math.BooleanVectors.index.html">index</a>, and
+<a href="Modelica.Math.BooleanVectors.oneTrue.html">oneTrue</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">enumerated = enumerate(b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Boolean[:]</p>
+        <p><span>Description:</span> Boolean vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>enumerated</th>
+      <td>
+        <p><span>Type:</span> Integer[size(b, 1)]</p>
+        <p><span>Description:</span> Indices of the true entries (increasing order; 0 for false entries)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

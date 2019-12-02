@@ -1,0 +1,180 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkDifferentialPair.html">Spice3BenchmarkDifferentialPair</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Spice3BenchmarkDifferentialPair</h1>
+    <p>Simple differential pair</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Examples.Spice3BenchmarkDifferentialPair_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&#39;s Manual (see information of package Spice3).</p>
+<p>The differential pair circuit is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
+is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe "VIN.p.v" which is the input voltage and "Outputvoltage" which is the
+amplified output voltage.</p>
+<p>Original SPICE3 netlist of the Differential pair:</p>
+<pre>
+SIMPLE DIFFERENTIAL PAIR<br/>
+VCC 7 0 12<br/>
+VEE 8 0 -12<br/>
+VIN 1 0 AC 1<br/>
+RS1 1 2 1K<br/>
+RS2 6 0 1K<br/>
+Q1 3 2 4 MOD1<br/>
+Q2 5 6 4 MOD1<br/>
+RC1 7 3 10K<br/>
+RC2 7 5 10K<br/>
+RE 4 8 10K<br/>
+.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br/>
+.TF V(5) VIN<br/>
+.AC DEC 10 1 100MEG<br/>
+.END
+</pre>
+<p>In the Modelica representation the tiny capacity CJC was set to 1e-9F to get a higher numerical
+robustness. In future the numerical behavior will be analysed to be able to apply the original value
+CJC=.5PF.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>MOD1</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.ModelcardBJT.html">ModelcardBJT</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_pulse_32x32.png"></td>
+      <th>VCC</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Sources.V_pulse.html">V_pulse</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_pulse_32x32.png"></td>
+      <th>VEE</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Sources.V_pulse.html">V_pulse</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_sin_32x32.png"></td>
+      <th>VIN</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Sources.V_sin.html">V_sin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>RS1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>RS2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT_32x32.png"></td>
+      <th>Q1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT.html">Q_NPNBJT</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT_32x32.png"></td>
+      <th>Q2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT.html">Q_NPNBJT</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>RC1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>RC2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>RE</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_constant_32x32.png"></td>
+      <th>VIE</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Sources.V_constant.html">V_constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.ModelcardBJT_32x32.png"></td>
+      <th>MOD1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.ModelcardBJT.html">ModelcardBJT</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.Ground_32x32.png"></td>
+      <th>g</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

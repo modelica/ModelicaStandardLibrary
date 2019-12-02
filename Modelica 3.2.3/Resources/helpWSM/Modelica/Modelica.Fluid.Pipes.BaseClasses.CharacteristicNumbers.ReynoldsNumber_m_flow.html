@@ -1,0 +1,108 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Pipes.html">Pipes</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.html">CharacteristicNumbers</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow.html">ReynoldsNumber_m_flow</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ReynoldsNumber_m_flow</h1>
+    <p>Return Reynolds number from m_flow, mu, D, A</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+Simplified calculation of Reynolds Number for flow through pipes or orifices;
+              using the mass flow rate <code>m_flow</code> instead of the velocity <code>v</code> to express inertial forces.
+<pre>
+  Re = |m_flow|*diameter/A/&mu;
+with
+  m_flow = v*&rho;*A
+</pre>
+See also <a href="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber.html">
+          Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">Re = ReynoldsNumber_m_flow(m_flow, mu, D, A)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m_flow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Dynamic viscosity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Characteristic dimension (hydraulic diameter of pipes or orifices)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Constants.pi / 4 * D * D</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Cross sectional area of fluid flow</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Re</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ReynoldsNumber.html">ReynoldsNumber</a></p>
+        <p><span>Description:</span> Reynolds number</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

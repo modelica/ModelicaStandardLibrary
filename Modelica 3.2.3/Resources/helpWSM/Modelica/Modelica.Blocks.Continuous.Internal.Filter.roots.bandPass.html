@@ -1,0 +1,179 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.roots.html">roots</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.roots.bandPass.html">bandPass</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>bandPass</h1>
+    <p>Return band pass filter roots as needed for block for given cut-off frequency</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.Internal.Filter.roots.bandPass_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<pre>
+  // complex conjugate poles:
+  der(x1) = a*x1 - b*x2 + ku*u;
+  der(x2) = b*x1 + a*x2;
+       y  = k1*x1 + k2*x2;
+
+            ku = (a^2 + b^2)/b
+            k1 = cn/ku
+            k2 = cn*a/(b*ku)
+</pre>
+<p>
+This representation has the following transfer function:
+</p>
+<pre>
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = k1*x1 + k2*x2
+       = (k1*ku*(s-a) + k2*b*ku) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (k1*ku*s + k2*b*ku - k1*ku*a) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = (cn*s + cn*a - cn*a) / (s^2 - 2*a*s + a^2 + b^2)*u
+       = cn*s / (s^2 - 2*a*s + a^2 + b^2)*u
+
+  comparing coefficients with
+    y = cn*s / (s^2 + c1*s + c0)*u  ->  a = -c1/2
+                                        b = sqrt(c0 - a^2)
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(a, b, ku, k1, k2) = bandPass(cr_in, c0_in, c1_in, f_min, f_max)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>cr_in</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Coefficients of real poles of base filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c0_in</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Coefficients of s^0 term of base filter if conjugate complex pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c1_in</th>
+      <td>
+        <p><span>Type:</span> Real[size(c0_in, 1)]</p>
+        <p><span>Description:</span> Coefficients of s^1 term of base filter if conjugate complex pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_min</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Band of band pass filter is f_min (A=-3db) .. f_max (A=-3db)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_max</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Upper band frequency</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Type:</span> Real[size(cr_in, 1) + 2 * size(c0_in, 1)]</p>
+        <p><span>Description:</span> Real parts of complex conjugate eigenvalues</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Real[size(cr_in, 1) + 2 * size(c0_in, 1)]</p>
+        <p><span>Description:</span> Imaginary parts of complex conjugate eigenvalues</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ku</th>
+      <td>
+        <p><span>Type:</span> Real[size(cr_in, 1) + 2 * size(c0_in, 1)]</p>
+        <p><span>Description:</span> Gains of input terms</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k1</th>
+      <td>
+        <p><span>Type:</span> Real[size(cr_in, 1) + 2 * size(c0_in, 1)]</p>
+        <p><span>Description:</span> Gains of y = k1*x1 + k2*x</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k2</th>
+      <td>
+        <p><span>Type:</span> Real[size(cr_in, 1) + 2 * size(c0_in, 1)]</p>
+        <p><span>Description:</span> Gains of y = k1*x1 + k2*x</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

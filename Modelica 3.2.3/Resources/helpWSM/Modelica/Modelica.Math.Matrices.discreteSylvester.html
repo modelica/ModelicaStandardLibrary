@@ -1,0 +1,197 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.discreteSylvester.html">discreteSylvester</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>discreteSylvester</h1>
+    <p>Return solution of the discrete-time Sylvester equation A*X*B + sgn*X = C</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.discreteSylvester_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<strong>discreteSylvester</strong>(A, B, C);
+         X = Matrices.<strong>discreteSylvester</strong>(A, B, C, AisHess, BTisSchur, sgn, eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>discreteSylvester</strong> computes the solution <strong>X</strong> of the discrete-time Sylvester equation
+</p>
+
+<blockquote><pre>
+ <strong>A</strong>*<strong>X</strong>*<strong>B</strong> + sgn*<strong>X</strong> = <strong>C</strong>.
+
+</pre></blockquote>
+
+<p>
+where sgn = 1 or sgn = -1. The algorithm applies the Hessenberg-Schur method proposed by Golub et al [1].
+For sgn = -1, the discrete Sylvester equation is also known as Stein equation:
+</p>
+
+<blockquote><pre>
+ <strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
+</pre></blockquote>
+
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+</p>
+<blockquote><pre>
+ <strong>H</strong>*<strong>Y</strong>*<strong>S</strong>' + sgn*<strong>Y</strong> = <strong>F</strong>.
+</pre></blockquote>
+
+<p>
+with <strong>H</strong>=<strong>U</strong>'*<strong>A</strong>*<strong>U</strong> is the Hessenberg form of <strong>A</strong> and <strong>S</strong>=<strong>V</strong>'*<strong>B</strong>'*<strong>V</strong> is the real Schur form of <strong>B</strong>',
+<strong>F</strong>=<strong>U</strong>'*<strong>C</strong>*<strong>V</strong> and <strong>Y</strong>=<strong>U</strong>*<strong>X</strong>*<strong>V</strong>'
+are appropriate transformations of <strong>C</strong> and <strong>X</strong>. This problem is solved sequentially by exploiting the specific forms of <strong>S</strong> and <strong>H</strong>.
+Finally the solution of the original problem is recovered as <strong>X</strong>=<strong>U</strong>'*<strong>Y</strong>*<strong>V</strong>.<br>
+The Boolean inputs "AisHess" and "BTisSchur" indicate to omit one or both of the transformation to Hessenberg form or Schur form respectively in the case that <strong>A</strong> and/or <strong>B</strong> have already Hessenberg form or Schur respectively.
+</p>
+
+<h4>References</h4>
+<pre>
+  [1] Golub, G.H., Nash, S. and Van Loan, C.F.
+      A Hessenberg-Schur method for the problem AX + XB = C.
+      IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
+
+</pre>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1.0,   2.0,   3.0;
+       6.0,   7.0,   8.0;
+       9.0,   2.0,   3.0];
+
+  B = [7.0,   2.0,   3.0;
+       2.0,   1.0,   2.0;
+       3.0,   4.0,   1.0];
+
+  C = [271.0,   135.0,   147.0;
+       923.0,   494.0,   482.0;
+       578.0,   383.0,   287.0];
+
+  X = discreteSylvester(A, B, C);
+
+  results in:
+  X = [2.0,   3.0,   6.0;
+       4.0,   7.0,   1.0;
+       5.0,   3.0,   2.0];
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Matrices.continuousSylvester.html">Matrices.continuousSylvester</a>,
+<a href="Modelica.Math.Matrices.discreteLyapunov.html">Matrices.discreteLyapunov</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">X = discreteSylvester(A, B, C, AisHess, BTisSchur, sgn, eps)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Square matrix A in A*X*B + sgn*X = C</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(B, 1)]</p>
+        <p><span>Description:</span> Square matrix B in A*X*B + sgn*X = C</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 2),size(B, 1)]</p>
+        <p><span>Description:</span> Rectangular matrix C in A*X*B + sgn*X = C</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AisHess</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True if A has already Hessenberg form</p>
+      </td>
+    </tr>
+    <tr>
+      <th>BTisSchur</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True if B' has already real Schur form</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sgn</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Specifies the sign in A*X*B + sgn*X = C</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Default Value:</span> Matrices.norm(A, 1) * 10 * Modelica.Constants.eps</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Tolerance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 2),size(B, 1)]</p>
+        <p><span>Description:</span> solution of the discrete Sylvester equation A*X*B + sgn*X = C</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

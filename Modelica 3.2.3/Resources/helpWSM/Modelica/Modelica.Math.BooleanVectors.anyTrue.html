@@ -1,0 +1,104 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.html">BooleanVectors</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.anyTrue.html">anyTrue</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>anyTrue</h1>
+    <p>Returns true, if at least on element of the Boolean input vector is true ('or')</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.BooleanVectors.anyTrue_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>anyTrue</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <strong>true</strong> if at least one elements of the input Boolean vector b is <strong>true</strong>.
+Otherwise the function returns <strong>false</strong>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <strong>false</strong>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean r1, r2;
+<strong>algorithm</strong>
+  r1 = anyTrue(b1);  // r1 = false
+  r2 = anyTrue(b2);  // r2 = true
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.BooleanVectors.allTrue.html">allTrue</a>,
+<a href="Modelica.Math.BooleanVectors.countTrue.html">countTrue</a>,
+<a href="Modelica.Math.BooleanVectors.enumerate.html">enumerate</a>,
+<a href="Modelica.Math.BooleanVectors.firstTrueIndex.html">firstTrueIndex</a>,
+<a href="Modelica.Math.BooleanVectors.index.html">index</a>, and
+<a href="Modelica.Math.BooleanVectors.oneTrue.html">oneTrue</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = anyTrue(b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Boolean[:]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

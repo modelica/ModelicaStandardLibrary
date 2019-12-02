@@ -1,0 +1,125 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.equalityLeastSquares.html">equalityLeastSquares</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>equalityLeastSquares</h1>
+    <p>Solve a linear equality constrained least squares problem</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.equalityLeastSquares_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+x = Matrices.<strong>equalityLeastSquares</strong>(A,a,B,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the
+solution <strong>x</strong> of the linear equality-constrained least squares problem:
+</p>
+<blockquote>
+<p>
+min|<strong>A</strong>*<strong>x</strong> - <strong>a</strong>|^2 over <strong>x</strong>, subject to <strong>B</strong>*<strong>x</strong> = <strong>b</strong>
+</p>
+</blockquote>
+
+<p>
+It is required that the dimensions of A and B fulfill the following
+relationship:
+</p>
+
+<blockquote>
+size(B,1) &le; size(A,2) &le; size(A,1) + size(B,1)
+</blockquote>
+
+<p>
+Note, the solution is computed with the LAPACK function "dgglse"
+using the generalized RQ factorization under the assumptions that
+B has full row rank (= size(B,1)) and the matrix [A;B] has
+full column rank (= size(A,2)). In this case, the problem
+has a unique solution.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">x = equalityLeastSquares(A, a, B, b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Minimize |A*x - a|^2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1)]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 2)]</p>
+        <p><span>Description:</span> subject to B*x=b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Real[size(B, 1)]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 2)]</p>
+        <p><span>Description:</span> solution vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

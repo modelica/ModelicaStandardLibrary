@@ -1,0 +1,149 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.Advanced.html">Advanced</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Advanced</h1>
+    <p>Advanced scanning functions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.Advanced_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.Advanced.scanReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.Advanced.scanReal.html">scanReal</a></p>
+        <p>Scan a signed real number</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.Advanced.scanInteger_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.Advanced.scanInteger.html">scanInteger</a></p>
+        <p>Scan signed integer number</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.Advanced.scanString_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.Advanced.scanString.html">scanString</a></p>
+        <p>Scan string</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.Advanced.scanIdentifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.Advanced.scanIdentifier.html">scanIdentifier</a></p>
+        <p>Scan simple identifiers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.Advanced.skipWhiteSpace_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.Advanced.skipWhiteSpace.html">skipWhiteSpace</a></p>
+        <p>Scan white space</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.Advanced.skipLineComments_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.Advanced.skipLineComments.html">skipLineComments</a></p>
+        <p>Scan comments and white space</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Library content</h4>
+<p>
+Package <strong>Strings.Advanced</strong> contains basic scanning
+functions. These functions should be <strong>not called</strong> directly, because
+it is much simpler to utilize the higher level functions "Strings.scanXXX".
+The functions of the "Strings.Advanced" library provide
+the basic interface in order to implement the higher level
+functions in package "Strings".
+</p>
+<p>
+Library "Advanced" provides the following functions:
+</p>
+<pre>
+  (nextIndex, realNumber)    = <a href="Modelica.Utilities.Strings.Advanced.scanReal.html">scanReal</a>        (string, startIndex, unsigned=false);
+  (nextIndex, integerNumber) = <a href="Modelica.Utilities.Strings.Advanced.scanInteger.html">scanInteger</a>     (string, startIndex, unsigned=false);
+  (nextIndex, string2)       = <a href="Modelica.Utilities.Strings.Advanced.scanString.html">scanString</a>      (string, startIndex);
+  (nextIndex, identifier)    = <a href="Modelica.Utilities.Strings.Advanced.scanIdentifier.html">scanIdentifier</a>  (string, startIndex);
+   nextIndex                 = <a href="Modelica.Utilities.Strings.Advanced.skipWhiteSpace.html">skipWhiteSpace</a>  (string, startIndex);
+   nextIndex                 = <a href="Modelica.Utilities.Strings.Advanced.skipLineComments.html">skipLineComments</a>(string, startIndex);
+</pre>
+<p>
+All functions perform the following actions:
+</p>
+<ol>
+<li> Scanning starts at character position "startIndex" of
+     "string" (startIndex has a default of 1).</li>
+<li> First, white space is skipped, such as blanks (" "), tabs ("\t"), or newline ("\n")</li>
+<li> Afterwards, the required token is scanned.</li>
+<li> If successful, on return nextIndex = index of character
+     directly after the found token and the token value is returned
+     as second output argument.<br>
+     If not successful, on return nextIndex = startIndex.
+     </li>
+</ol>
+<p>
+The following additional rules apply for the scanning:
+</p>
+<ul>
+<li> Function <a href="Modelica.Utilities.Strings.Advanced.scanReal.html">scanReal</a>:<br>
+     Scans a full number including one optional leading "+" or "-" (if unsigned=false)
+     according to the Modelica grammar. For example, "+1.23e-5", "0.123" are
+     Real numbers, but ".1" is not.
+     Note, an Integer number, such as "123" is also treated as a Real number.<br>&nbsp;</li>
+<li> Function <a href="Modelica.Utilities.Strings.Advanced.scanInteger.html">scanInteger</a>:<br>
+     Scans an Integer number including one optional leading "+"
+     or "-" (if unsigned=false) according to the Modelica (and C/C++) grammar.
+     For example, "+123", "20" are Integer numbers.
+     Note, a Real number, such as "123.4" is not an Integer and
+     scanInteger returns nextIndex = startIndex.<br>&nbsp;</li>
+<li> Function <a href="Modelica.Utilities.Strings.Advanced.scanString.html">scanString</a>:<br>
+     Scans a String according to the Modelica (and C/C++) grammar, e.g.,
+     "This is a "string"" is a valid string token.<br>&nbsp;</li>
+<li> Function <a href="Modelica.Utilities.Strings.Advanced.scanIdentifier.html">scanIdentifier</a>:<br>
+     Scans a Modelica identifier, i.e., the identifier starts either
+     with a letter, followed by letters, digits or "_".
+     For example, "w_rel", "T12".<br>&nbsp;</li>
+<li> Function <a href="Modelica.Utilities.Strings.Advanced.skipLineComments.html">skipLineComments</a><br>
+     Skips white space and Modelica (C/C++) line comments iteratively.
+     A line comment starts with "//" and ends either with an
+     end-of-line ("\n") or the end of the "string".</li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

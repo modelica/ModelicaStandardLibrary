@@ -1,0 +1,105 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters.html">Parameters</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Parameters</h1>
+    <p>Parameters of equivalent machines models</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Stator main inductance</h4>
+
+<p>
+The stator main inductance
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_001.png">
+of an
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_002.png">
+phase induction machine is related with the self inductance of on stator phase,
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_003.png">,
+by:</p>
+<p>
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_004.png">
+</p>
+
+<h4>Parameters of equivalent multi phase induction machines models</h4>
+
+<p>Assume a set parameters,
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_005.png">,
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_006.png">,
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_007.png">,
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_008.png">,
+of a three phase induction machine and a set of parameters,
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_009.png">,
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_010.png">,
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_011.png">,
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_012.png">,
+of an
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_013.png">
+phase induction machine. It is also assumed that</p>
+<ul>
+<li>the nominal phase voltages</li>
+<li>the nominal stator frequencies</li>
+</ul>
+<p>of the three and
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_014.png">
+phase induction machine are equal. In this case the two parameter sets are related by:</p>
+<p>
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_015.png"><br>
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_016.png"><br>
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_017.png"><br>
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_018.png"></p>
+<p>
+This way the same torque is generated and the machine currents are related by:
+</p>
+<p>
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_019.png">
+</p>
+
+<p>
+The same applies for the rotor parameters of a
+<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing.html">
+slip ring induction machine</a>, where the phase number
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_020.png">
+is simply replaced by
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_021.png">
+for transforming equivalent three phase to
+<img src="modelica:///Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters/resources/Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters_info_022.png">
+phase winding parameters -- at the same nominal rotor voltage and frequency.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_DOL_MultiPhase.html">AIMC_DOL_MultiPhase</a>,
+<a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMS_Start_MultiPhase.html">AIMS_Start_MultiPhase</a>,
+<a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMPM_Inverter_MultiPhase.html">SMPM_Inverter_MultiPhase</a>,
+<a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMEE_Generator_MultiPhase.html">SMEE_Generator_MultiPhase</a>,
+<a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMR_Inverter_MultiPhase.html">SMR_Inverter_MultiPhase</a>
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

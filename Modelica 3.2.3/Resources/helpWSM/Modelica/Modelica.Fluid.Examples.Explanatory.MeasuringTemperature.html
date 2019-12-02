@@ -1,0 +1,201 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Fluid.Examples.Explanatory.html">Explanatory</a></li>
+  <li><a href="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature.html">MeasuringTemperature</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MeasuringTemperature</h1>
+    <p>Differences between using one port with and without explicit junction model and two port sensors for fluid temperature measuring</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Examples.Explanatory.MeasuringTemperature_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Fluid.Examples.Explanatory.MeasuringTemperature_diagram_large.png"><img src="resources/diagrams/Modelica.Fluid.Examples.Explanatory.MeasuringTemperature_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model demonstrates the differences that occur when using
+one- and two-port temperature sensors with and without explicit junction models.
+As shown in the next figure, the same system is shown in 3 different variations.
+In all cases exactly the same fluid system is defined. The only difference is
+how the temperature is measured:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Fluid.Examples.Explanatory.MeasuringTemperature_info_001.png"
+     alt="MeasuringTemperature1.png">
+</blockquote>
+
+<p>
+A pre-defined mass flow rate is present so that fluid flows from the reservoir to the
+tanks and after 0.5 s the mass flows from the tanks to the reservoir.
+The reservoir has a temperature of 50<sup>0</sup>C whereas the tanks have an
+initial temperature of 20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
+tanks is made in such a form that fluid always flows out of the cold tank.
+When the fluid flows from the reservoir to the tanks, then it mixes with the
+cold tank and enters the hot tank.
+When the fluid flow from the tanks to the reservoir, then the cold and hot water
+from the two tanks first mixes and the flows to the reservoir.
+</p>
+
+<p>
+A one-port sensor measures the <em>mixing</em> temperature at a connection point.
+Therefore T_onePort.T (the blue curve in the figure below) is the
+temperature of the mixing point.
+A two-port sensor measures the temperature at the <em>upstream</em> side.
+Therefore T_twoPort.T (the red curve in the figure below which is identical
+to the green curve) shows first the temperature of the reservoir and then
+the mixing temperature when fluid flows from the tanks to the reservoir.
+The same is measured with T_junction.T (the green curve below), because
+the one-port sensor is connected between the mass flow source and the junction
+and since the mixing takes place in the junction, the same situation is
+present as for T_twoPort.T.
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Fluid.Examples.Explanatory.MeasuringTemperature_info_002.png"
+     alt="MeasuringTemperature2.png">
+</blockquote>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.Temperature_32x32.png"></td>
+      <th>T_onePort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sensors.Temperature.html">Temperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.TemperatureTwoPort_32x32.png"></td>
+      <th>T_twoPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sensors.TemperatureTwoPort.html">TemperatureTwoPort</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.OpenTank_32x32.png"></td>
+      <th>openTankCold2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.OpenTank.html">OpenTank</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.OpenTank_32x32.png"></td>
+      <th>openTankCold1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.OpenTank.html">OpenTank</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.OpenTank_32x32.png"></td>
+      <th>openTankHot1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.OpenTank.html">OpenTank</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.OpenTank_32x32.png"></td>
+      <th>openTankHot2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.OpenTank.html">OpenTank</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.MassFlowSource_T_32x32.png"></td>
+      <th>mFlow1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.MassFlowSource_T.html">MassFlowSource_T</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.MassFlowSource_T_32x32.png"></td>
+      <th>mFlow2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.MassFlowSource_T.html">MassFlowSource_T</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.Temperature_32x32.png"></td>
+      <th>T_junction</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sensors.Temperature.html">Temperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.OpenTank_32x32.png"></td>
+      <th>openTankCold3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.OpenTank.html">OpenTank</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.OpenTank_32x32.png"></td>
+      <th>openTankHot3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.OpenTank.html">OpenTank</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.MassFlowSource_T_32x32.png"></td>
+      <th>mFlow3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.MassFlowSource_T.html">MassFlowSource_T</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.TeeJunctionIdeal_32x32.png"></td>
+      <th>junctionIdeal</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.TeeJunctionIdeal.html">TeeJunctionIdeal</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

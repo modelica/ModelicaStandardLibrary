@@ -1,0 +1,557 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.html">Hysteresis</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.html">Components</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis.html">Transformer1PhaseWithHysteresis</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Transformer1PhaseWithHysteresis</h1>
+    <p>Single Phase transformer with ferromagnetic core and hysteresis</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Simple model of a single phase transformer with a primary and a secondary winding and a magnetic core. The core is modeled with <a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett.html">GenericHystTellinenEverett</a> flux tube elements. Thus, this element considers static and dynamic hysteresis.
+</p>
+
+<table cellspacing="0" cellpadding="2" border="0">
+  <caption align="bottom"><strong>Fig. 1:</strong> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
+  <tr>
+    <td>
+      <img src="modelica:///Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis/resources/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis_info_001.png">
+   </td>
+  </tr>
+</table>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(32)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if HeatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N1</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Primary turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L1</th>
+      <td>
+        <p><span>Value:</span> 1.2 * 2 * (a + b)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Mean primary turn length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d1</th>
+      <td>
+        <p><span>Value:</span> 0.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Wire diameter of primary turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho1</th>
+      <td>
+        <p><span>Value:</span> 1.678e-8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistivity.html">Resistivity</a> (Ω·m)</p>
+        <p><span>Description:</span> Resistivity of primary winding (at 20degC)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha1</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of primary turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N2</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Secondary turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L2</th>
+      <td>
+        <p><span>Value:</span> L1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Mean secondary turn length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d2</th>
+      <td>
+        <p><span>Value:</span> d1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Wire diameter of secondary turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho2</th>
+      <td>
+        <p><span>Value:</span> rho1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistivity.html">Resistivity</a> (Ω·m)</p>
+        <p><span>Description:</span> Resistivity of secondary winding (at 20degC)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha2</th>
+      <td>
+        <p><span>Value:</span> alpha1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of secondary turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l1</th>
+      <td>
+        <p><span>Value:</span> 40e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Mean Length l1 of core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l2</th>
+      <td>
+        <p><span>Value:</span> 60e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Mean Length l2 of core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Value:</span> 15e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Height of core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Value:</span> 10e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Width of core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mat</th>
+      <td>
+        <p><span>Value:</span> FluxTubes.Material.HysteresisEverettParameter.BaseData()</p>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.BaseData.html">BaseData</a></p>
+        <p><span>Description:</span> Parameter set of ferromagnetic Hysteresis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MagRelStart</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial magnetization of Core (-1..1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MagRelFixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Fixed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>HStart</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Initial magnetic field strength of Core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>HFixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Fixed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I1Start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ElectricCurrent.html">ElectricCurrent</a> (A)</p>
+        <p><span>Description:</span> Initial primary current through winding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I1Fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Fixed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>EddyCurrents</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable eddy currents</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Value:</span> mat.sigma</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Conductivity.html">Conductivity</a> (S/m)</p>
+        <p><span>Description:</span> Conductivity of core material</p>
+      </td>
+    </tr>
+    <tr>
+      <th>t</th>
+      <td>
+        <p><span>Value:</span> 0.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Thickness of lamination</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L_l1</th>
+      <td>
+        <p><span>Value:</span> 10e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of leakage of primary Winding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A_l1</th>
+      <td>
+        <p><span>Value:</span> 10e-6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Cross section of leakage of primary Winding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu_rel1</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Constant relative permeability of primary leakage (>0 required)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L_l2</th>
+      <td>
+        <p><span>Value:</span> 10e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of leakage of secondary Winding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A_l2</th>
+      <td>
+        <p><span>Value:</span> 10e-6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Cross section of leakage of secondary Winding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu_rel2</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Constant relative permeability of secondary leakage (>0 required)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Primary voltage drop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>v2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> secondary voltage drop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Primary resistance of Winding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Secondary resistance of Winding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>i1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Primary current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>i2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Secondary current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFluxDensity.html">MagneticFluxDensity</a> (T)</p>
+        <p><span>Description:</span> Magnetic Flux Density of Core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Hstat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Ferromagnetic portion of magnetic field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Heddy</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Eddy current portion of magnetic field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>H</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Total magnetic field strength of core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LossPowerWinding</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Winding losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LossPowerStat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Ferromagnetic hysteresis losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LossPowerEddy</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Eddy current losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative pin of primary winding</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive pin of primary winding</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative pin of secondary winding</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive pin of secondary winding</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature_32x32.png"></td>
+      <th>tempSource</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature.html">PrescribedTemperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.BaseData_32x32.png"></td>
+      <th>mat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter.BaseData.html">BaseData</a></p>
+        <p><span>Description:</span> Parameter set of ferromagnetic Hysteresis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance_32x32.png"></td>
+      <th>winding1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance.html">ElectroMagneticConverterWithLeakageInductance</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance_32x32.png"></td>
+      <th>winding2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance.html">ElectroMagneticConverterWithLeakageInductance</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>resistor1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>resistor2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett_32x32.png"></td>
+      <th>core</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett.html">GenericHystTellinenEverett</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis2.html">SinglePhaseTransformerWithHysteresis2</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis</span</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

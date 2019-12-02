@@ -1,0 +1,1060 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Common.html">Common</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Common</h1>
+    <p>Data structures and fundamental functions for fluid properties</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Common_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.Rate.html">Rate</a> (s-1)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.MolarFlowRate.html">MolarFlowRate</a> (mol/s)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.MolarReactionRate.html">MolarReactionRate</a> (mol/(m3.s))</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.MolarEnthalpy.html">MolarEnthalpy</a> (J/mol)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerDensityByEntropy.html">DerDensityByEntropy</a> (kg2.K/(m3.J))</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerEnergyByPressure.html">DerEnergyByPressure</a> (J/Pa)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerEnergyByMoles.html">DerEnergyByMoles</a> (J/mol)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerEntropyByTemperature.html">DerEntropyByTemperature</a> (J/K2)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerEntropyByPressure.html">DerEntropyByPressure</a> (J/(K.Pa))</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerEntropyByMoles.html">DerEntropyByMoles</a> (J/(mol.K))</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerPressureByDensity.html">DerPressureByDensity</a> (Pa.m3/kg)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerPressureBySpecificVolume.html">DerPressureBySpecificVolume</a> (Pa.kg/m3)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerPressureByTemperature.html">DerPressureByTemperature</a> (Pa/K)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerVolumeByTemperature.html">DerVolumeByTemperature</a> (m3/K)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerVolumeByPressure.html">DerVolumeByPressure</a> (m3/Pa)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.DerVolumeByMoles.html">DerVolumeByMoles</a> (m3/mol)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.IsenthalpicExponent.html">IsenthalpicExponent</a></p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.IsentropicExponent.html">IsentropicExponent</a></p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.IsobaricVolumeExpansionCoefficient.html">IsobaricVolumeExpansionCoefficient</a> (1/K)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.IsochoricPressureCoefficient.html">IsochoricPressureCoefficient</a> (1/K)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.IsothermalCompressibility.html">IsothermalCompressibility</a> (1/Pa)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Media.Common.JouleThomsonCoefficient.html">JouleThomsonCoefficient</a> (K/Pa)</p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.ThermoFluidSpecial_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.ThermoFluidSpecial.html">ThermoFluidSpecial</a></p>
+        <p>Property records used by the ThermoFluid library</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.SaturationProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.SaturationProperties.html">SaturationProperties</a></p>
+        <p>Properties in the two phase region</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.SaturationBoundaryProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.SaturationBoundaryProperties.html">SaturationBoundaryProperties</a></p>
+        <p>Properties on both phase boundaries, including some derivatives</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.IF97BaseTwoPhase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.IF97BaseTwoPhase.html">IF97BaseTwoPhase</a></p>
+        <p>Intermediate property data record for IF 97</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.IF97PhaseBoundaryProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.IF97PhaseBoundaryProperties.html">IF97PhaseBoundaryProperties</a></p>
+        <p>Thermodynamic base properties on the phase boundary for IF97 steam tables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.GibbsDerivs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.GibbsDerivs.html">GibbsDerivs</a></p>
+        <p>Derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.HelmholtzDerivs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.HelmholtzDerivs.html">HelmholtzDerivs</a></p>
+        <p>Derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressure, density and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.TwoPhaseTransportProps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.TwoPhaseTransportProps.html">TwoPhaseTransportProps</a></p>
+        <p>Defines properties on both phase boundaries, needed in the two phase region</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.PhaseBoundaryProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.PhaseBoundaryProperties.html">PhaseBoundaryProperties</a></p>
+        <p>Thermodynamic base properties on the phase boundary</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.NewtonDerivatives_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.NewtonDerivatives_ph.html">NewtonDerivatives_ph</a></p>
+        <p>Derivatives for fast inverse calculations of Helmholtz functions: p & h</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.NewtonDerivatives_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.NewtonDerivatives_ps.html">NewtonDerivatives_ps</a></p>
+        <p>Derivatives for fast inverse calculation of Helmholtz functions: p & s</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.NewtonDerivatives_pT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.NewtonDerivatives_pT.html">NewtonDerivatives_pT</a></p>
+        <p>Derivatives for fast inverse calculations of Helmholtz functions:p & T</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.ExtraDerivatives_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.ExtraDerivatives.html">ExtraDerivatives</a></p>
+        <p>Additional thermodynamic derivatives</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.BridgmansTables_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.BridgmansTables.html">BridgmansTables</a></p>
+        <p>Calculates all entries in Bridgmans tables if first seven variables given</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.FundamentalConstants_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.FundamentalConstants.html">FundamentalConstants</a></p>
+        <p>Constants of the medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.AuxiliaryProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.AuxiliaryProperties.html">AuxiliaryProperties</a></p>
+        <p>Intermediate property data record</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.GibbsDerivs2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.GibbsDerivs2.html">GibbsDerivs2</a></p>
+        <p>Derivatives of Gibbs function w.r.t. pressure and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.NewtonDerivatives_dT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.NewtonDerivatives_dT.html">NewtonDerivatives_dT</a></p>
+        <p>Derivatives for fast inverse calculations of Gibbs function</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.gibbsToBridgmansTables_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.gibbsToBridgmansTables.html">gibbsToBridgmansTables</a></p>
+        <p>Calculates base coefficients for Bridgman's tables from gibbs enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.helmholtzToBridgmansTables_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.helmholtzToBridgmansTables.html">helmholtzToBridgmansTables</a></p>
+        <p>Calculates base coefficients for Bridgmans tables from Helmholtz energy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.gibbsToBoundaryProps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.gibbsToBoundaryProps.html">gibbsToBoundaryProps</a></p>
+        <p>Calculate phase boundary property record from dimensionless Gibbs function</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.helmholtzToBoundaryProps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.helmholtzToBoundaryProps.html">helmholtzToBoundaryProps</a></p>
+        <p>Calculate phase boundary property record from dimensionless Helmholtz function</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.cv2Phase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.cv2Phase.html">cv2Phase</a></p>
+        <p>Compute isochoric specific heat capacity inside the two-phase region</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.cvdpT2Phase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.cvdpT2Phase.html">cvdpT2Phase</a></p>
+        <p>Compute isochoric specific heat capacity inside the two-phase region and derivative of pressure w.r.t. temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.gibbsToExtraDerivs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.gibbsToExtraDerivs.html">gibbsToExtraDerivs</a></p>
+        <p>Compute additional thermodynamic derivatives from dimensionless Gibbs function</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.helmholtzToExtraDerivs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.helmholtzToExtraDerivs.html">helmholtzToExtraDerivs</a></p>
+        <p>Compute additional thermodynamic derivatives from dimensionless Helmholtz function</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.Helmholtz_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.Helmholtz_ph.html">Helmholtz_ph</a></p>
+        <p>Function to calculate analytic derivatives for computing d and t given p and h</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.Helmholtz_pT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.Helmholtz_pT.html">Helmholtz_pT</a></p>
+        <p>Function to calculate analytic derivatives for computing d and t given p and t</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.Helmholtz_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.Helmholtz_ps.html">Helmholtz_ps</a></p>
+        <p>Function to calculate analytic derivatives for computing d and t given p and s</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.smoothStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.smoothStep.html">smoothStep</a></p>
+        <p>Approximation of a general step, such that the characteristic is continuous and differentiable</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.Gibbs2_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.Gibbs2_ph.html">Gibbs2_ph</a></p>
+        <p>Function to calculate analytic derivatives for computing T given p and h</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.Gibbs2_dT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.Gibbs2_dT.html">Gibbs2_dT</a></p>
+        <p>Function to calculate analytic derivatives for computing p given d and T</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.Gibbs2_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.Gibbs2_ps.html">Gibbs2_ps</a></p>
+        <p>Function to calculate analytic derivatives for computing d and t given p and s</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Common.OneNonLinearEquation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Common.OneNonLinearEquation.html">OneNonLinearEquation</a></p>
+        <p>Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="constants" >
+  <h1>Package Constants <span class="count">(76)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>MINPOS</th>
+      <td>
+        <p><span>Value:</span> 1.0e-9</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimal value for physical variables which are always > 0.0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AMIN</th>
+      <td>
+        <p><span>Value:</span> MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Minimal init area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Maximal init area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ANOM</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Nominal init area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MOLMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0 * MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AmountOfSubstance.html">AmountOfSubstance</a> (mol)</p>
+        <p><span>Description:</span> Minimal Mole Number</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MOLMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AmountOfSubstance.html">AmountOfSubstance</a> (mol)</p>
+        <p><span>Description:</span> Maximal Mole Number</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MOLNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AmountOfSubstance.html">AmountOfSubstance</a> (mol)</p>
+        <p><span>Description:</span> Nominal Mole Number</p>
+      </td>
+    </tr>
+    <tr>
+      <th>DMIN</th>
+      <td>
+        <p><span>Value:</span> 1e-6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Minimal init density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>DMAX</th>
+      <td>
+        <p><span>Value:</span> 30.0e3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Maximal init density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>DNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Nominal init density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LAMMIN</th>
+      <td>
+        <p><span>Value:</span> MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Minimal thermal conductivity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LAMNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Nominal thermal conductivity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LAMMAX</th>
+      <td>
+        <p><span>Value:</span> 1000.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Maximal thermal conductivity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ETAMIN</th>
+      <td>
+        <p><span>Value:</span> MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Minimal init dynamic viscosity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ETAMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Maximal init dynamic viscosity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ETANOM</th>
+      <td>
+        <p><span>Value:</span> 100.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Nominal init dynamic viscosity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>EMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0e10</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Energy.html">Energy</a> (J)</p>
+        <p><span>Description:</span> Minimal init energy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>EMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e10</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Energy.html">Energy</a> (J)</p>
+        <p><span>Description:</span> Maximal init energy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ENOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Energy.html">Energy</a> (J)</p>
+        <p><span>Description:</span> Nominal init energy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Entropy.html">Entropy</a> (J/K)</p>
+        <p><span>Description:</span> Minimal init entropy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Entropy.html">Entropy</a> (J/K)</p>
+        <p><span>Description:</span> Maximal init entropy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Entropy.html">Entropy</a> (J/K)</p>
+        <p><span>Description:</span> Nominal init entropy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MDOTMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Minimal init mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MDOTMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Maximal init mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MDOTNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Nominal init mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MASSXMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0 * MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFraction.html">MassFraction</a></p>
+        <p><span>Description:</span> Minimal init mass fraction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MASSXMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFraction.html">MassFraction</a></p>
+        <p><span>Description:</span> Maximal init mass fraction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MASSXNOM</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFraction.html">MassFraction</a></p>
+        <p><span>Description:</span> Nominal init mass fraction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0 * MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Minimal init mass</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Maximal init mass</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Nominal init mass</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MMMIN</th>
+      <td>
+        <p><span>Value:</span> 0.001</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MolarMass.html">MolarMass</a> (kg/mol)</p>
+        <p><span>Description:</span> Minimal initial molar mass</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MMMAX</th>
+      <td>
+        <p><span>Value:</span> 250.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MolarMass.html">MolarMass</a> (kg/mol)</p>
+        <p><span>Description:</span> Maximal initial molar mass</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MMNOM</th>
+      <td>
+        <p><span>Value:</span> 0.2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MolarMass.html">MolarMass</a> (kg/mol)</p>
+        <p><span>Description:</span> Nominal initial molar mass</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MOLEYMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0 * MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MoleFraction.html">MoleFraction</a></p>
+        <p><span>Description:</span> Minimal init mole fraction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MOLEYMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MoleFraction.html">MoleFraction</a></p>
+        <p><span>Description:</span> Maximal init mole fraction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MOLEYNOM</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MoleFraction.html">MoleFraction</a></p>
+        <p><span>Description:</span> Nominal init mole fraction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>GMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MomentumFlux.html">MomentumFlux</a> (N)</p>
+        <p><span>Description:</span> Minimal init momentum flux</p>
+      </td>
+    </tr>
+    <tr>
+      <th>GMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MomentumFlux.html">MomentumFlux</a> (N)</p>
+        <p><span>Description:</span> Maximal init momentum flux</p>
+      </td>
+    </tr>
+    <tr>
+      <th>GNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MomentumFlux.html">MomentumFlux</a> (N)</p>
+        <p><span>Description:</span> Nominal init momentum flux</p>
+      </td>
+    </tr>
+    <tr>
+      <th>POWMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Minimal init power or heat</p>
+      </td>
+    </tr>
+    <tr>
+      <th>POWMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Maximal init power or heat</p>
+      </td>
+    </tr>
+    <tr>
+      <th>POWNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Nominal init power or heat</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PMIN</th>
+      <td>
+        <p><span>Value:</span> 1.0e4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Minimal init pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Maximal init pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Nominal init pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>COMPPMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0 * MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Minimal init pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>COMPPMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Maximal init pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>COMPPNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Nominal init pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>KAPPAMIN</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.RatioOfSpecificHeatCapacities.html">RatioOfSpecificHeatCapacities</a></p>
+        <p><span>Description:</span> Minimal init isentropic exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>KAPPAMAX</th>
+      <td>
+        <p><span>Value:</span> 1.7</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.RatioOfSpecificHeatCapacities.html">RatioOfSpecificHeatCapacities</a></p>
+        <p><span>Description:</span> Maximal init isentropic exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>KAPPANOM</th>
+      <td>
+        <p><span>Value:</span> 1.2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.RatioOfSpecificHeatCapacities.html">RatioOfSpecificHeatCapacities</a></p>
+        <p><span>Description:</span> Nominal init isentropic exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SEMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnergy.html">SpecificEnergy</a> (J/kg)</p>
+        <p><span>Description:</span> Minimal init specific energy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SEMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnergy.html">SpecificEnergy</a> (J/kg)</p>
+        <p><span>Description:</span> Maximal init specific energy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SENOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnergy.html">SpecificEnergy</a> (J/kg)</p>
+        <p><span>Description:</span> Nominal init specific energy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SHMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Minimal init specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SHMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e8</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Maximal init specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SHNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Nominal init specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SSMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEntropy.html">SpecificEntropy</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Minimal init specific entropy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SSMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEntropy.html">SpecificEntropy</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Maximal init specific entropy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SSNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEntropy.html">SpecificEntropy</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Nominal init specific entropy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CPMIN</th>
+      <td>
+        <p><span>Value:</span> MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificHeatCapacity.html">SpecificHeatCapacity</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Minimal init specific heat capacity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CPMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificHeatCapacity.html">SpecificHeatCapacity</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Maximal init specific heat capacity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CPNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificHeatCapacity.html">SpecificHeatCapacity</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Nominal init specific heat capacity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TMIN</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Minimal init temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TMAX</th>
+      <td>
+        <p><span>Value:</span> 6000.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Maximal init temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TNOM</th>
+      <td>
+        <p><span>Value:</span> 320.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Nominal init temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LMIN</th>
+      <td>
+        <p><span>Value:</span> MINPOS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Minimal init thermal conductivity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LMAX</th>
+      <td>
+        <p><span>Value:</span> 500.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Maximal init thermal conductivity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Nominal init thermal conductivity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VELMIN</th>
+      <td>
+        <p><span>Value:</span> -1.0e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Minimal init speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VELMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Maximal init speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VELNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Nominal init speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VMIN</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> Minimal init volume</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VMAX</th>
+      <td>
+        <p><span>Value:</span> 1.0e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> Maximal init volume</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VNOM</th>
+      <td>
+        <p><span>Value:</span> 1.0e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> Nominal init volume</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Package description</h4>
+      <p>Package Modelica.Media.Common provides records and functions shared by many of the property sub-packages.
+      High accuracy fluid property models share a lot of common structure, even if the actual models are different.
+      Common data structures and computations shared by these property models are collected in this library.
+   </p>
+</div>
+</section>
+</div>
+</body>
+</html>

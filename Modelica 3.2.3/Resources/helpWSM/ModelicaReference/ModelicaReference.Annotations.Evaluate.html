@@ -1,0 +1,62 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.Evaluate.html">Evaluate</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Evaluate</h1>
+    <p>Evaluate</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.Evaluate_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Annotation for code generation (evaluate parameter value)
+</p>
+
+<h4>Syntax</h4>
+
+<pre>   <strong>annotation</strong>"(" Evaluate "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre>
+
+<h4>Description</h4>
+<p>
+The annotation Evaluate can occur in the component declaration, its type declaration, or a base-class of the type-declaration.
+In the case of multiple conflicting annotations it is handled similarly to modifiers (e.g., an Evaluate-annotation on the component declaration takes precedence).
+The annotation Evaluate only has effect for a component declared with the prefix <code>parameter</code>.
+</p>
+
+<p>
+If Evaluate = true, the model developer proposes to utilize the value for the symbolic processing. In that case, it is not possible to change the parameter value after symbolic pre-processing.
+</p>
+
+<p>
+If Evaluate = false, the model developer proposes to not utilize the value of the corresponding parameter for the symbolic processing.
+</p>
+
+<p>
+Evaluate is for example used for axis of rotation parameters in the Modelica.Mechanics.MultiBody library in order to improve the efficiency of the generated code
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

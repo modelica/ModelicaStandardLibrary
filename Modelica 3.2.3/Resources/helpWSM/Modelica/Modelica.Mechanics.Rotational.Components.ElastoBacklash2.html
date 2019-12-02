@@ -1,0 +1,250 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.ElastoBacklash2.html">ElastoBacklash2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ElastoBacklash2</h1>
+    <p>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity; at start of contact the flange torque can jump, contrary to the ElastoBacklash model)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Components.ElastoBacklash2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This element consists of a <strong>backlash</strong> element <strong>connected in series</strong>
+to a <strong>spring</strong> and <strong>damper</strong> element which are <strong>connected in parallel</strong>.
+The spring constant shall be non-zero, otherwise the component cannot be used.
+</p>
+
+<p>
+In combination with components IdealGear, the ElastoBacklash2 model
+can be used to model a gear box with backlash, elasticity and damping.
+</p>
+
+<p>
+During initialization, the backlash characteristic is replaced by a continuous
+approximation in the backlash region, in order to reduce problems during
+initialization, especially for inverse models.
+</p>
+
+<p>
+If the backlash b is smaller as 1e-10 rad (especially, if b=0),
+then the backlash is ignored and the component reduces to a spring/damper
+element in parallel.
+</p>
+
+<p>
+In the backlash region (-b/2 &le; flange_b.phi - flange_a.phi - phi_rel0 &le; b/2) no torque
+is exerted (flange_b.tau = 0). Outside of this region, contact is present and
+the contact torque is basically computed with a linear
+spring/damper characteristic:
+</p>
+
+<pre>
+   desiredContactTorque = c*phi_contact + d*<strong>der</strong>(phi_contact)
+
+            phi_contact = phi_rel - phi_rel0 - b/2 <strong>if</strong> phi_rel - phi_rel0 &gt;  b/2
+                        = phi_rel - phi_rel0 + b/2 <strong>if</strong> phi_rel - phi_rel0 &lt; -b/2
+
+            phi_rel     = flange_b.phi - flange_a.phi;
+</pre>
+
+<p>
+This torque characteristic leads to the following difficulty:
+</p>
+
+<ul>
+<li> If the damper torque becomes larger as the spring torque and with opposite sign,
+     the contact torque would be "pulling/sticking" which is unphysical, since during
+     contact only pushing torques can occur.</li>
+</ul>
+
+<p>
+In the literature this issue seems to be not discussed. For this reason, the most simple
+approach is used in the ElastoBacklash2 model, by slightly changing
+the linear spring/damper characteristic to:
+</p>
+
+<pre>
+    // Torque characteristic when phi_rel > phi_rel0
+    <strong>if</strong> phi_rel - phi_rel0 &lt; b/2 <strong>then</strong>
+       tau_c = 0;          // spring torque
+       tau_d = 0;          // damper torque
+       flange_b.tau = 0;
+    <strong>else</strong>
+       tau_c = c*(phi_rel - phi_rel0);    // spring torque
+       tau_d = d*<strong>der</strong>(phi_rel);            // damper torque
+       flange_b.tau = <strong>if</strong> tau_c + tau_d &le; 0 <strong>then</strong> 0 <strong>else</strong> tau_c + tau_d;
+    <strong>end if</strong>;
+</pre>
+
+<p>
+Note, when sticking would occur (tau_c + tau_d &le; 0), then the contact torque
+is explicitly set to zero.
+</p>
+
+
+<p>
+This model of backlash is slightly different to the
+<a href="Modelica.Mechanics.Rotational.Components.ElastoBacklash.html">ElastoBacklash</a>
+component:
+</p>
+
+<ul>
+<li> An event occurs when contact occurs or when contact is released (contrary to the ElastoBacklash component).</li>
+<li> When contact occurs, the torque changes discontinuously, due to the damping.
+     The damping is larger as for the ElastoBacklash component (for the same damping coefficient),
+    because the ElastoBacklash component has a heuristic to avoid the discontinuity of the torque when contact occurs.</li>
+<li> For some models, the ElastoBacklash2 component leads to faster simulations
+      (as compared when using the ElastBacklash component).</li>
+</ul>
+
+
+<p>
+See also the discussion
+<a href="Modelica.Mechanics.Rotational.UsersGuide.StateSelection.html">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>phi_nominal</th>
+      <td>
+        <p><span>Value:</span> 1e-4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Nominal value of phi_rel (used for scaling)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>stateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.prefer</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use phi_rel and w_rel as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.RotationalSpringConstant.html">RotationalSpringConstant</a> (N·m/rad)</p>
+        <p><span>Description:</span> Spring constant (c > 0 required)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.RotationalDampingConstant.html">RotationalDampingConstant</a> (N·m·s/rad)</p>
+        <p><span>Description:</span> Damping constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Total backlash</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phi_rel0</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Unstretched spring angle</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Left flange of compliant 1-dim. rotational component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Right flange of compliant 1-dim. rotational component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Backlash_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Backlash.html">Backlash</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Example to demonstrate backlash</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

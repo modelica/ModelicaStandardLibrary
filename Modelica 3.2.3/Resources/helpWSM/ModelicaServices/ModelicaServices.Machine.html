@@ -1,0 +1,82 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaServices.html">ModelicaServices</a></li>
+  <li><a href="ModelicaServices.Machine.html">Machine</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Machine</h1>
+    <p>Machine dependent constants</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaServices.Machine_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="constants" >
+  <h1>Package Constants <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Value:</span> 0.5 * .WSMServices.Machine.Real_EPS</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Biggest number such that 1.0 + eps = 1.0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>small</th>
+      <td>
+        <p><span>Value:</span> .WSMServices.Machine.Real_MIN</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Smallest number such that small and -small are representable on the machine</p>
+      </td>
+    </tr>
+    <tr>
+      <th>inf</th>
+      <td>
+        <p><span>Value:</span> .WSMServices.Machine.Real_MAX</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Biggest Real number such that inf and -inf are representable on the machine</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Integer_inf</th>
+      <td>
+        <p><span>Value:</span> .WSMServices.Machine.Integer_MAX</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Package in which processor specific constants are defined that are needed
+by numerical algorithms. Typically these constants are not directly used,
+but indirectly via the alias definition in
+<a href="../Modelica/Modelica.Constants.html">Modelica.Constants</a>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

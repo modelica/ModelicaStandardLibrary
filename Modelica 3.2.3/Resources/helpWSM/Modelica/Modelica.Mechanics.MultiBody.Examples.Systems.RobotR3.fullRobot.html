@@ -1,0 +1,435 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.html">RobotR3</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot.html">fullRobot</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>fullRobot</h1>
+    <p>Six degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example animates a motion of a detailed model of the robot
+with predefined axes' angles over time.
+For animation, CAD data is used.
+Translate and simulate with the default settings
+(default simulation stop time = 2&nbsp;s).
+</p>
+<p>
+The path planning block incorporates a simulation termination condition.
+Thus, the simulation can be terminated before reaching the stop time.
+The condition depends on the start and end positions of the joints, and on their
+reference speeds and reference accelerations.
+For current settings, the termination condition should indeed be fulfilled right before the simulation stops.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot_info_001.png" alt="model Examples.Loops.Systems.RobotR3.fullRobot">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(37)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>mLoad</th>
+      <td>
+        <p><span>Value:</span> 15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of load</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rLoad</th>
+      <td>
+        <p><span>Value:</span> {0.1, 0.25, 0.1}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Distance from last flange to load mass</p>
+      </td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>
+        <p><span>Value:</span> 9.81</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Acceleration.html">Acceleration</a> (m/s²)</p>
+        <p><span>Description:</span> Gravity acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refStartTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Start time of reference motion</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refSwingTime</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Additional time after reference motion is in rest before simulation is stopped</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startAngle1</th>
+      <td>
+        <p><span>Value:</span> -60</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> Start angle of axis 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startAngle2</th>
+      <td>
+        <p><span>Value:</span> 20</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> Start angle of axis 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startAngle3</th>
+      <td>
+        <p><span>Value:</span> 90</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> Start angle of axis 3</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startAngle4</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> Start angle of axis 4</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startAngle5</th>
+      <td>
+        <p><span>Value:</span> -110</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> Start angle of axis 5</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startAngle6</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> Start angle of axis 6</p>
+      </td>
+    </tr>
+    <tr>
+      <th>endAngle1</th>
+      <td>
+        <p><span>Value:</span> 60</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> End angle of axis 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>endAngle2</th>
+      <td>
+        <p><span>Value:</span> -70</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> End angle of axis 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>endAngle3</th>
+      <td>
+        <p><span>Value:</span> -35</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> End angle of axis 3</p>
+      </td>
+    </tr>
+    <tr>
+      <th>endAngle4</th>
+      <td>
+        <p><span>Value:</span> 45</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> End angle of axis 4</p>
+      </td>
+    </tr>
+    <tr>
+      <th>endAngle5</th>
+      <td>
+        <p><span>Value:</span> 110</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> End angle of axis 5</p>
+      </td>
+    </tr>
+    <tr>
+      <th>endAngle6</th>
+      <td>
+        <p><span>Value:</span> 45</p>
+        <p><span>Type:</span> Real (°)</p>
+        <p><span>Description:</span> End angle of axis 6</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refSpeedMax</th>
+      <td>
+        <p><span>Value:</span> {3, 1.5, 5, 3.1, 3.1, 4.1}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity[6]</a> (rad/s)</p>
+        <p><span>Description:</span> Maximum reference speeds of all joints</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refAccMax</th>
+      <td>
+        <p><span>Value:</span> {15, 15, 15, 60, 60, 60}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularAcceleration.html">AngularAcceleration[6]</a> (rad/s²)</p>
+        <p><span>Description:</span> Maximum reference accelerations of all joints</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kp1</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of position controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ks1</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ts1</th>
+      <td>
+        <p><span>Value:</span> 0.05</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time constant of integrator of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kp2</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of position controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ks2</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ts2</th>
+      <td>
+        <p><span>Value:</span> 0.05</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time constant of integrator of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kp3</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of position controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ks3</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ts3</th>
+      <td>
+        <p><span>Value:</span> 0.05</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time constant of integrator of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kp4</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of position controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ks4</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ts4</th>
+      <td>
+        <p><span>Value:</span> 0.05</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time constant of integrator of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kp5</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of position controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ks5</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ts5</th>
+      <td>
+        <p><span>Value:</span> 0.05</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time constant of integrator of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kp6</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of position controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ks6</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of speed controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ts6</th>
+      <td>
+        <p><span>Value:</span> 0.05</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time constant of integrator of speed controller</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.MechanicalStructure_32x32.png"></td>
+      <th>mechanics</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.MechanicalStructure.html">MechanicalStructure</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6_32x32.png"></td>
+      <th>pathPlanning</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6.html">PathPlanning6</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType1_32x32.png"></td>
+      <th>axis1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType1.html">AxisType1</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType1_32x32.png"></td>
+      <th>axis2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType1.html">AxisType1</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType1_32x32.png"></td>
+      <th>axis3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType1.html">AxisType1</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType2_32x32.png"></td>
+      <th>axis4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType2.html">AxisType2</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType2_32x32.png"></td>
+      <th>axis5</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType2.html">AxisType2</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType2_32x32.png"></td>
+      <th>axis6</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType2.html">AxisType2</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

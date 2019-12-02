@@ -1,0 +1,112 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.scanString.html">scanString</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>scanString</h1>
+    <p>Scan for the next Modelica string and trigger an assert if not present</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.scanString_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+             string2 = Strings.<strong>scanString</strong>(string);
+(string2, nextIndex) = Strings.<strong>scanString</strong>(string, startIndex=1, message="");
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>scanString</strong> scans the string starting at index
+"startIndex", checks whether the next token is a String literal
+and returns its value as a String, as well as the
+index directly after the String. An assert is triggered,
+if the scanned string does not contain a String literal with optional
+leading white space.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(result, nextIndex) = scanString(string, startIndex, message)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String to be scanned</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startIndex</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Start scanning of string at character startIndex</p>
+      </td>
+    </tr>
+    <tr>
+      <th>message</th>
+      <td>
+        <p><span>Default Value:</span> ""</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Message used in error message if scan is not successful</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Value of string</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nextIndex</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Index of character after the found string</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Distributions.html">Distributions</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Distributions</h1>
+    <p>Library of distribution functions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Distributions_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.Uniform_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.Uniform.html">Uniform</a></p>
+        <p>Library of uniform distribution functions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.Normal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.Normal.html">Normal</a></p>
+        <p>Library of normal distribution functions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.TruncatedNormal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.TruncatedNormal.html">TruncatedNormal</a></p>
+        <p>Library of truncated normal distribution functions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.Weibull_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.Weibull.html">Weibull</a></p>
+        <p>Library of Weibull distribution functions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.TruncatedWeibull_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.TruncatedWeibull.html">TruncatedWeibull</a></p>
+        <p>Library of truncated Weibull distribution functions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.Interfaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.Interfaces.html">Interfaces</a></p>
+        <p>Library of interfaces for distribution functions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package provides
+</p>
+<ul>
+<li> <a href="http://en.wikipedia.org/wiki/Probability_density_function">probability density functions</a>
+     (= derivative of cumulative distribution function),</li>
+<li> <a href="http://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative distribution functions</a>,
+     and</li>
+<li> <a href="http://en.wikipedia.org/wiki/Quantile_function">quantiles</a>
+     (= inverse cumulative distribution functions).</li>
+</ul>
+<p>
+of different distributions.
+</p>
+
+<p>
+In particular also <strong>truncated distributions</strong> are provided (see below).
+The main reason to introduce
+truncated distributions is to make the modeling of measurement noise easier, in order to
+limit the band in which the noise can occur. For example, if a sensor is used and the
+sensor signal has a noise of &plusmn; 0.1 Volt (e.g. this can be determined by using a reference
+value of 0 V and inspecting the measured signal), then the sensor signal will be often the input
+to an Analog-Digital converter and this converter limits the signal, say to &plusmn; 5 Volt.
+Typically, the user would like to model noise within the noise band (say &plusmn; 0.1 Volt),
+and often uses a normal distribution. But a normal distribution is not limited and
+for a small sample time and a long simulation there might be some sample time instants
+where the noise values of the normal signal is outside the &plusmn; 0.1 Volt range.
+For some sensor types this is completely unrealistic (e.g. an angle sensor might
+measure &plusmn; 0.1 rad, but the sensor will never add, say one revolution (6.28 rad) to it.
+However, the noise model with a pure normal distribution could give such a value.
+If a modeler would like to guarantee (and not to hope), that the modeled noise is
+always between &plusmn; 0.1 Volt, then there are two main possibilities: (a) The noise is computed
+and the result is then limited to &plusmn; 0.1 Volt, or (b) the normal distribution is slightly modified,
+so that it is within the band of &plusmn; 0.1 Volt. Approach (a) is a brute force method that
+changes the statistical properties of the signal in an unknown way. Approach (b)
+is a "clean" mathematical description. The blocks in package
+<a href="Modelica.Blocks.Noise.html">Blocks.Noise</a>
+give the user the freedom to choose: Either compute a normal (unlimited) noise, or
+a truncated normal noise (truncated distribution).
+</p>
+
+<h4>
+Details of truncated distributions
+</h4>
+
+<p>
+Truncated distributions are distributions that are transformed in such a way that
+either the input is within a band u_min .. u_max, or the output is within
+a band y_min .. y_max.
+A truncated distribution is derived from a base
+distribution (e.g. from the normal distribution), by truncating its
+probability density function to the desired band and adding a constant
+value over this band, in order that the integral over the truncated distribution
+remains one. All other properties (such as cumulative distribution function) can then be determined
+in a straightforward way, provided the properties of the underlying base distribution
+are available.
+More details can be found, for example, in
+<a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>
+(the equations from the "Truncated Distribution" box in the right part
+of this Wikipedia article are used for this package).
+</p>
+
+<p>
+When using random numbers according to a given truncated distribution,
+the output of the inverse cumulative distribution function (= quantile) is restricted
+to the defined band.
+</p>
+
+<p>
+The truncated distribution functions are derived from the underlying distribution
+functions in the following way:
+</p>
+
+<blockquote>
+<pre>
+// Original distributions
+    pdf = Distributions.XXX.density(u,..);
+    cdf = Distributions.XXX.cumulative(u,...);
+cdf_min = Distributions.XXX.cumulative(u_min,...);
+cdf_max = Distributions.XXX.cumulative(u_max,...);
+
+// Truncated distributions
+</pre>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Function</em></strong></th><th><strong><em>Transformation</em></strong></th></tr>
+  <tr><td>density(u,u_min,u_max,...)</td>
+      <td>= <strong>if</strong> u &ge; u_min <strong>and</strong> u&le;u_max <strong>then</strong> pdf / (cdf_max - cdf_min) <strong>else</strong> 0</td>
+  </tr>
+  <tr><td>cumulative(u,u_min,u_max,...)</td>
+      <td>= <strong>if</strong> u &le; u_min <strong>then</strong> 0
+            <strong>else if</strong> u &lt; u_max <strong>then</strong>
+              (cdf - cdf_min))/(cdf_max - cdf_min)
+            <strong>else</strong> 1</td>
+  </tr>
+  <tr><td>quantile(u,u_min,u_max,...)</td>
+      <td>= Distributions.XXX.quantile( cdf_min + u*(cdf_max - cdf_min), ... )</td>
+  </tr>
+</table>
+</blockquote>
+
+<p>
+For an example of a truncated distribution, see the following
+plot of the probability density function of a normal distribution
+compared with its truncated distribution:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.Distributions/resources/Modelica.Math.Distributions_info_001.png">
+</blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

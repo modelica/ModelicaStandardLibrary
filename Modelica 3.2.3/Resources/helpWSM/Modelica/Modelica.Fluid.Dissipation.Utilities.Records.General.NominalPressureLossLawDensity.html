@@ -1,0 +1,91 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Records.html">Records</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Records.General.html">General</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Records.General.NominalPressureLossLawDensity.html">NominalPressureLossLawDensity</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>NominalPressureLossLawDensity</h1>
+    <p>Base record for generic pressure loss function</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.General.NominalPressureLossLawDensity_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A_cross</th>
+      <td>
+        <p><span>Value:</span> A_cross_nom</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Cross sectional area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A_cross_nom</th>
+      <td>
+        <p><span>Value:</span> Modelica.Constants.pi * 0.1 ^ 2 / 4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Nominal cross sectional area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dp_nom</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Nominal pressure loss (at nominal values of mass flow rate and density)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_nom</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Nominal mass flow rate (at nominal values of pressure loss and density)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>exp</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Exponent of pressure loss law</p>
+      </td>
+    </tr>
+    <tr>
+      <th>zeta_TOT_nom</th>
+      <td>
+        <p><span>Value:</span> 0.02 * 1 / 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Dissipation.Utilities.Types.PressureLossCoefficient.html">PressureLossCoefficient</a></p>
+        <p><span>Description:</span> Nominal pressure loss coefficient (for nominal values)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

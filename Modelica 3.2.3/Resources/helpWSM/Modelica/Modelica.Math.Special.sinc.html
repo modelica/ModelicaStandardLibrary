@@ -1,0 +1,100 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Special.html">Special</a></li>
+  <li><a href="Modelica.Math.Special.sinc.html">sinc</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>sinc</h1>
+    <p>Unnormalized sinc function: sinc(u) = sin(u)/u</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Special.sinc_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Special.<strong>sinc</strong>(u);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the unnormalized sinc function sinc(u) = sin(u)/u. The implementation utilizes
+a Taylor series approximation for small values of u. Plot
+of the function:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.Special.sinc/resources/Modelica.Math.Special.sinc_info_001.png">
+</blockquote>
+
+<p>
+For more details, see <a href="http://en.wikipedia.org/wiki/Sinc_function">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  sinc(0)   // = 1
+  sinc(3)   // = 0.0470400026866224
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = sinc(u)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Input argument</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> = sinc(u) = sin(u)/u</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.html">Conventions</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.html">Documentation</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.html">Format</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.Tables.html">Tables</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Tables</h1>
+    <p>Tables</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.UsersGuide.Conventions.Documentation.Format.Tables_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<ol>
+<li> Tables should always be typeset with <code>&lt;table&gt;</code> and <code>&lt;/table&gt;</code>,
+     not with <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
+<li> Tables have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.</li>
+<li> Each table must have a table caption.</li>
+<li> Table headers and entries start with capital letters.</li>
+</ol>
+
+<h5>Example 1</h5>
+
+<p>This is a simple example of a table.</p>
+
+<pre>
+&lt;table border="1" cellspacing="0" cellpadding="2"&gt;
+  &lt;caption align="bottom"&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Head 1&lt;/th&gt;
+    &lt;th&gt;Head 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 1&lt;/td&gt;
+    &lt;td&gt;Entry 2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 3&lt;/td&gt;
+    &lt;td&gt;Entry 4&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>appears as</p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Caption starts with a capital letter</caption>
+  <tr>
+    <th><strong>Head 1</strong></th>
+    <th><strong>Head 2</strong></th>
+  </tr>
+  <tr>
+    <td>Entry 1</td>
+    <td>Entry 2</td>
+  </tr>
+  <tr>
+    <td>Entry 3</td>
+    <td>Entry 4</td>
+  </tr>
+</table>
+
+<h5>Example 2</h5>
+
+<p>In this case of table captions, the table name (Tab.) including the table enumeration (1,2,...)
+has to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>. The table name
+and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to be enumerated manually.</p>
+
+<pre>
+&lt;table border="1" cellspacing="0" cellpadding="2"&gt;
+  &lt;caption align="bottom"&gt;&lt;strong&gt;Tab 2: &lt;/strong&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Head 1&lt;/th&gt;
+    &lt;th&gt;Head 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 1&lt;/td&gt;
+    &lt;td&gt;Entry 2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 3&lt;/td&gt;
+    &lt;td&gt;Entry 4&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>appears as</p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Tab. 2: </strong>Caption starts with a capital letter</caption>
+  <tr>
+    <th>Head 1</th>
+    <th>Head 2</th>
+  </tr>
+  <tr>
+    <td>Entry 1</td>
+    <td>Entry 2</td>
+  </tr>
+  <tr>
+    <td>Entry 3</td>
+    <td>Entry 4</td>
+  </tr>
+</table>
+</div>
+</section>
+</div>
+</body>
+</html>

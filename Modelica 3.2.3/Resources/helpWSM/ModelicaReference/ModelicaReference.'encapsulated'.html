@@ -1,0 +1,69 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.'encapsulated'.html">'encapsulated'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'encapsulated'</h1>
+    <p>encapsulated</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.'encapsulated'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Break lookup in hierarchy
+</p>
+<h4>Examples</h4>
+
+<pre><strong>encapsulated model</strong> Test
+  <strong>import</strong> Modelica.Mechanics.Rotational;
+
+  Rotational.Components.Inertia inertia; // lookup successful
+  Modelica.Mechanics.Translational.SlidingMass slidingMass; // lookup fails
+<strong>equation</strong>
+  ...
+<strong>end</strong> Test;</pre>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier</pre>
+
+<h4>Description</h4>
+
+<p>When an element, equation or algorithm is instantiated, any name is
+looked up sequentially in each member of the ordered set of parents
+until a match is found or a parent is encapsulated. In the latter case
+the lookup stops except for the predefined types, functions and
+operators defined in this specification. For these cases the lookup
+continues in the global scope, where they are defined. <em>[E.g., abs is
+searched upwards in the hierarchy as usual. If an encapsulated boundary
+is reached, abs is searched in the global scope instead. The operator
+abs cannot be redefined in the global scope, because an existing class
+cannot be redefined at the same level.]</em></p>
+</div>
+</section>
+</div>
+</body>
+</html>

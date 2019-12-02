@@ -1,0 +1,115 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.html">Material</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.html">HardMagnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticHardFerrite.html">PlasticHardFerrite</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PlasticHardFerrite</h1>
+    <p>Plastic-bonded hard ferrite, exemplary values</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticHardFerrite_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Please refer to the description of  the enclosing package <a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.html">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>H_cBRef</th>
+      <td>
+        <p><span>Value:</span> 130000</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Coercivity at reference temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B_rRef</th>
+      <td>
+        <p><span>Value:</span> 0.21</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFluxDensity.html">MagneticFluxDensity</a> (T)</p>
+        <p><span>Description:</span> Remanence at reference temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_ref</th>
+      <td>
+        <p><span>Value:</span> 20 + 273.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha_Br</th>
+      <td>
+        <p><span>Value:</span> -0.002</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of remanence at reference temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_op</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Operating temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B_r</th>
+      <td>
+        <p><span>Value:</span> B_rRef * (1 + alpha_Br * (T_op - T_ref))</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFluxDensity.html">MagneticFluxDensity</a> (T)</p>
+        <p><span>Description:</span> Remanence at operating temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>H_cB</th>
+      <td>
+        <p><span>Value:</span> H_cBRef * (1 + alpha_Br * (T_op - T_ref))</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Coercivity at operating temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu_r</th>
+      <td>
+        <p><span>Value:</span> B_r / (mu_0 * H_cB)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.RelativePermeability.html">RelativePermeability</a></p>
+        <p><span>Description:</span> Relative permeability</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

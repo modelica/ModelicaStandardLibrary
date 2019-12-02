@@ -1,0 +1,171 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.MathInteger.html">MathInteger</a></li>
+  <li><a href="Modelica.Blocks.MathInteger.TriggeredAdd.html">TriggeredAdd</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TriggeredAdd</h1>
+    <p>Add input to previous value of output, if rising edge of trigger port</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.MathInteger.TriggeredAdd_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Add input to previous value of output, if rising edge of trigger port
+</p>
+
+<p>
+This block has one Integer input "u", one Boolean input "trigger",
+an optional Boolean input "reset", an optional Integer input "set", and
+an Integer output "y".
+The optional inputs can be activated with the "use_reset" and
+"use_set" flags, respectively.
+</p>
+
+<p>
+The input "u" is added to the previous value of the
+output "y" if the "trigger" port has a rising edge. At the start of the
+simulation "y = y_start".
+</p>
+
+<p>
+If the "reset" port is enabled, then the output "y" is reset to "set"
+or to "y_start" (if the "set" port is not enabled), whenever the "reset"
+port has a rising edge.
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<a href="Modelica.Blocks.Examples.IntegerNetwork1.html">Modelica.Blocks.Examples.IntegerNetwork1</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>use_reset</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if reset port enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_set</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if set port enabled and used as default value when reset</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Initial and reset value of y if set port is not used</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.IntegerInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.IntegerInput.html">IntegerInput</a></p>
+        <p><span>Description:</span> Integer input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.IntegerOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.IntegerOutput.html">IntegerOutput</a></p>
+        <p><span>Description:</span> Integer output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>trigger</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>reset</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.IntegerInput_16x16.png"></td>
+      <th>set</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.IntegerInput.html">IntegerInput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.IntegerNetwork1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.IntegerNetwork1.html">IntegerNetwork1</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.MathInteger</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.BooleanNetwork1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.BooleanNetwork1.html">BooleanNetwork1</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

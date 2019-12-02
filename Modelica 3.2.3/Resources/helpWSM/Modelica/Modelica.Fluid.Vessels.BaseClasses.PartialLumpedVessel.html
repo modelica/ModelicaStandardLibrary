@@ -1,0 +1,369 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Vessels.html">Vessels</a></li>
+  <li><a href="Modelica.Fluid.Vessels.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.html">PartialLumpedVessel</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialLumpedVessel</h1>
+    <p>Lumped volume with a vector of fluid ports and replaceable heat transfer model</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel_diagram_large.png"><img src="resources/diagrams/Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This base class extends PartialLumpedVolume with a vector of fluid ports and a replaceable wall HeatTransfer model.
+</p>
+<p>
+The following modeling assumption are made:</p>
+<ul>
+<li>homogeneous medium, i.e., phase separation is not taken into account,</li>
+<li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>
+<li>pressure loss definitions at vessel ports assume incompressible fluid,</li>
+<li>outflow of ambient media is prevented at each port assuming check valve behavior.
+    If <code>fluidlevel &lt; portsData_height[i]</code> and <code>ports[i].p &lt; vessel_ps_static[i]</code> mass flow at the port is set to 0.</li>
+</ul>
+<p>
+Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the <strong><code>portsData</code></strong> record.
+Alternatively the impact of port geometries can be neglected with <code>use_portsData=false</code>. This might be useful for early
+design studies. Note that this means to assume an infinite port diameter at the bottom of the vessel.
+Pressure drops and heights of the ports as well as kinetic and potential energy fluid entering or leaving the vessel are neglected then.
+</p>
+<p>
+The following variables need to be defined by an extending model:
+</p>
+<ul>
+<li><code>input fluidVolume</code>, the volume of the fluid in the vessel,</li>
+<li><code>vessel_ps_static[nPorts]</code>, the static pressures inside the vessel at the height of the corresponding ports, at zero flow velocity, and</li>
+<li><code>Wb_flow</code>, work term of the energy balance, e.g., p*der(V) if the volume is not constant or stirrer power.</li>
+</ul>
+<p>
+An extending model should define:
+</p>
+<ul>
+<li><code>parameter vesselArea</code> (default: Modelica.Constants.inf m2), the area of the vessel, to be related to cross flow areas of the ports for the consideration of dynamic pressure effects.</li>
+</ul>
+<p>
+Optionally the fluid level may vary in the vessel, which effects the flow through the ports at configurable <code>portsData_height[nPorts]</code>.
+This is why an extending model with varying fluid level needs to define:
+</p>
+<ul>
+<li><code>input fluidLevel (default: 0m)</code>, the level the fluid in the vessel, and</li>
+<li><code>parameter fluidLevel_max (default: 1m)</code>, the maximum level that must not be exceeded. Ports at or above fluidLevel_max can only receive inflow.</li>
+</ul>
+<p>
+An extending model should not access the <code>portsData</code> record defined in the configuration dialog,
+as an access to <code>portsData</code> may fail for <code>use_portsData=false</code> or <code>nPorts=0</code>.
+</p>
+<p>
+Instead the predefined variables
+</p>
+<ul>
+<li><code>portsData_diameter[nPorts]</code>,</li>
+<li><code>portsData_height[nPorts]</code>,</li>
+<li><code>portsData_zeta_in[nPorts]</code>, and</li>
+<li><code>portsData_zeta_out[nPorts]</code></li>
+</ul>
+<p>
+should be used if these values are needed.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(17)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>energyDynamics</th>
+      <td>
+        <p><span>Value:</span> system.energyDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of energy balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>massDynamics</th>
+      <td>
+        <p><span>Value:</span> system.massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of mass balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>substanceDynamics</th>
+      <td>
+        <p><span>Value:</span> massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of substance balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>traceDynamics</th>
+      <td>
+        <p><span>Value:</span> massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of trace substance balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_start</th>
+      <td>
+        <p><span>Value:</span> system.p_start</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Start value of pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_T_start</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, use T_start, otherwise h_start</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_start</th>
+      <td>
+        <p><span>Value:</span> if use_T_start then system.T_start else Medium.temperature_phX(p_start, h_start, X_start)</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Start value of temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_start</th>
+      <td>
+        <p><span>Value:</span> if use_T_start then Medium.specificEnthalpy_pTX(p_start, T_start, X_start) else Medium.h_default</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Start value of specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X_start</th>
+      <td>
+        <p><span>Value:</span> Medium.X_default</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.MassFraction.html">MassFraction[Medium.nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Start value of mass fractions m_i/m</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C_start</th>
+      <td>
+        <p><span>Value:</span> Medium.C_default</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.ExtraProperty.html">ExtraProperty[Medium.nC]</a></p>
+        <p><span>Description:</span> Start value of trace substances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nPorts</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of ports</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_portsData</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false to neglect pressure loss and kinetic energy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>portsData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.BaseClasses.VesselPortsData.html">VesselPortsData[if use_portsData then nPorts else 0]</a></p>
+        <p><span>Description:</span> Data of inlet/outlet ports</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_nominal</th>
+      <td>
+        <p><span>Value:</span> if system.use_eps_Re then system.m_flow_nominal else 1e2 * system.m_flow_small</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.Medium.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Nominal value for mass flow rates in ports</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_small</th>
+      <td>
+        <p><span>Value:</span> if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Regularization range at zero mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_Re</th>
+      <td>
+        <p><span>Value:</span> system.use_eps_Re</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if turbulent region is defined by Re, otherwise by m_flow_small</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_HeatTransfer</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true to use the HeatTransfer model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fluidVolume</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> Volume</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fluidLevel</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Height.html">Height</a> (m)</p>
+        <p><span>Description:</span> level of fluid in the vessel for treating heights of ports</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b_16x16.png"></td>
+      <th>ports</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b.html">VesselFluidPorts_b[nPorts]</a></p>
+        <p><span>Description:</span> Fluid inlets and outlets</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Description:</span> System properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.BaseProperties_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.BaseProperties.html">BaseProperties</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.BaseClasses.VesselPortsData_32x32.png"></td>
+      <th>portsData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.BaseClasses.VesselPortsData.html">VesselPortsData[if use_portsData then nPorts else 0]</a></p>
+        <p><span>Description:</span> Data of inlet/outlet ports</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransfer_32x32.png"></td>
+      <th>heatTransfer</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransfer.html">HeatTransfer</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Machines.SweptVolume_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Machines.SweptVolume.html">SweptVolume</a></p>
+        <p><span>Modelica.Fluid.Machines</span</p>
+        <p>varying cylindric volume depending on the position of the piston</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.OpenTank_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Vessels.OpenTank.html">OpenTank</a></p>
+        <p><span>Modelica.Fluid.Vessels</span</p>
+        <p>Simple tank with inlet/outlet ports</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.ClosedVolume_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Vessels.ClosedVolume.html">ClosedVolume</a></p>
+        <p><span>Modelica.Fluid.Vessels</span</p>
+        <p>Volume of fixed size, closed to the ambient, with inlet/outlet ports</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

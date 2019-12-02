@@ -1,0 +1,145 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.realSchur.html">realSchur</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>realSchur</h1>
+    <p>Return the real Schur form (rsf) S of a square matrix A, A=QZ*S*QZ'</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.realSchur_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+
+<blockquote><pre>
+                            S = Matrices.<strong>realSchur</strong>(A);
+(S, QZ, alphaReal, alphaImag) = Matrices.<strong>realSchur</strong>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Function <strong>realSchur</strong> calculates the real Schur form of a real square matrix <strong>A</strong>, i.e.
+</p>
+
+<blockquote><pre>
+ <strong>A</strong> = <strong>QZ</strong>*<strong>S</strong>*transpose(<strong>QZ</strong>)
+</pre></blockquote>
+
+<p>
+with the real nxn matrices <strong>S</strong> and <strong>QZ</strong>. <strong>S</strong> is a block upper triangular matrix with 1x1 and 2x2 blocks in the diagonal. <strong>QZ</strong> is an orthogonal matrix.
+The 1x1 blocks contains the real eigenvalues of <strong>A</strong>. The 2x2 blocks [s11, s12; s21, s11] represents the conjugated complex pairs of eigenvalues, whereas the real parts of the eigenvalues
+are the elements of the diagonal (s11). The imaginary parts are the positive and negative square roots of the product of the two elements s12 and s21 (imag = +-sqrt(s12*s21)).
+</p>
+
+<p>
+The calculation in lapack.dgees is performed stepwise, i.e., using the internal methods of balancing and scaling of dgees.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+   Real A[3,3] = [1, 2, 3; 4, 5, 6; 7, 8, 9];
+   Real T[3,3];
+   Real Z[3,3];
+   Real alphaReal[3];
+   Real alphaImag[3];
+
+<strong>algorithm</strong>
+  (T, Z, alphaReal, alphaImag):=Modelica.Math.Matrices.realSchur(A);
+//   T = [16.12, 4.9,   1.59E-015;
+//        0,    -1.12, -1.12E-015;
+//        0,     0,    -1.30E-015]
+//   Z = [-0.23,  -0.88,   0.41;
+//        -0.52,  -0.24,  -0.82;
+//        -0.82,   0.4,    0.41]
+//alphaReal = {16.12, -1.12, -1.32E-015}
+//alphaImag = {0, 0, 0}
+</pre></blockquote>
+
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.Utilities.reorderRSF.html">Math.Matrices.Utilities.reorderRSF</a>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(S, QZ, alphaReal, alphaImag) = realSchur(A)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Square matrix</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>S</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Real Schur form of A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>QZ</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Schur vector Matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alphaReal</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1)]</p>
+        <p><span>Description:</span> Real part of eigenvalue=alphaReal+i*alphaImag</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alphaImag</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1)]</p>
+        <p><span>Description:</span> Imaginary part of eigenvalue=alphaReal+i*alphaImag</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

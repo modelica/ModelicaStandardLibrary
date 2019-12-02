@@ -1,0 +1,146 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Electrical.Digital.Sources.Clock.html">Clock</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Clock</h1>
+    <p>Digital Clock Source</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Sources.Clock_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The clock source forms pulses between the  <em>'0'</em> value (forcing 0) and the <em>'1'</em> value (forcing 1).
+The pulse length <em>width</em> is specified in percent of the period length <em>period</em>.
+The number of periods is unlimited. The first pulse starts at startTime.
+</p>
+<p> The clock source is a special but often used variant of the pulse source.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Output = offset for time < startTime</p>
+      </td>
+    </tr>
+    <tr>
+      <th>period</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time for one period</p>
+      </td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Width of pulses in % of period</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalOutput.html">DigitalOutput</a></p>
+        <p><span>Description:</span> Connector of Digital output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Multiplexer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.Multiplexer.html">Multiplexer</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span</p>
+        <p>4 to 1 Bit Multiplexer Example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.FlipFlop_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.FlipFlop.html">FlipFlop</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span</p>
+        <p>Pulse Triggered Master Slave Flip-Flop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.FullAdder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.FullAdder.html">FullAdder</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span</p>
+        <p>Full 1 Bit Adder Example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Counter3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.Counter3.html">Counter3</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span</p>
+        <p>3 Bit Counter Example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Counter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.Counter.html">Counter</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span</p>
+        <p>Generic N Bit Counter Example</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

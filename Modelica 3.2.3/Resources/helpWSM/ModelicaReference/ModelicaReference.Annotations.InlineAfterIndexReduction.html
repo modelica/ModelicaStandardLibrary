@@ -1,0 +1,59 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.InlineAfterIndexReduction.html">InlineAfterIndexReduction</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>InlineAfterIndexReduction</h1>
+    <p>InlineAfterIndexReduction</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.InlineAfterIndexReduction_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Annotation for code generation
+</p>
+
+<h4>Syntax</h4>
+
+<pre>
+   <strong>annotation</strong>"(" InlineAfterIndexReduction "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre>
+
+<h4>Description</h4>
+
+<p>
+Has only an effect within a function declaration.
+If true, the model developer proposes to inline the function after the function is differentiated for index reduction, and before any other symbolic transformations are performed.
+</p>
+<p>
+<em>This annotation cannot be combined with annotations <a href="ModelicaReference.Annotations.Inline.html">Inline</a> and <a href="ModelicaReference.Annotations.LateInline.html">LateInline</a>!</em>
+</p>
+
+<h4>Example usage</h4>
+<p>
+<code>InlineAfterIndexReduction = true</code> is for example used in <a href="../Modelica/Modelica.Mechanics.Rotational.Sources.Move.html">Modelica.Mechanics.Rotational.Sources.Move</a> to define that an input signal is the derivative of another input signal.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

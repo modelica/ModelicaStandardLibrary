@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.html">BooleanVectors</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.firstTrueIndex.html">firstTrueIndex</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>firstTrueIndex</h1>
+    <p>Returns the index of the first true element of a Boolean vector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.BooleanVectors.firstTrueIndex_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>firstTrueIndex</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns the index of the first <strong>true</strong> element of the Boolean vector b.
+If no element is <strong>true</strong> or b is an empty vector (i.e., size(b,1)=0) the
+function returns 0.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean b3[4] = {false, true, false, true};
+  Integer r1, r2, r3;
+<strong>algorithm</strong>
+  r1 = firstTrueIndex(b1);  // r1 = 0
+  r2 = firstTrueIndex(b2);  // r2 = 2
+  r3 = firstTrueIndex(b3);  // r3 = 2
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.BooleanVectors.allTrue.html">allTrue</a>,
+<a href="Modelica.Math.BooleanVectors.anyTrue.html">anyTrue</a>,
+<a href="Modelica.Math.BooleanVectors.countTrue.html">countTrue</a>,
+<a href="Modelica.Math.BooleanVectors.enumerate.html">enumerate</a>,
+<a href="Modelica.Math.BooleanVectors.index.html">index</a>, and
+<a href="Modelica.Math.BooleanVectors.oneTrue.html">oneTrue</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">index = firstTrueIndex(b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Boolean[:]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>index</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

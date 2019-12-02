@@ -1,0 +1,167 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort.html">PartialElementaryConditionalHeatPort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialElementaryConditionalHeatPort</h1>
+    <p>Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This partial model provides a conditional heat port for dissipating losses.
+</p>
+<ul>
+<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.
+In this case, the parameter <strong>T</strong> specifies the fixed device temperature (the default for T = 20&deg;C)</li>
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available.</li>
+</ul>
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from PartialElementaryConditionalHeatPort model
+(<strong>lossPower = ...</strong>). The device temperature <strong>TheatPort</strong> can be used to describe the influence of the device temperature on the model behaviour.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.EddyCurrentForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sources.EddyCurrentForce.html">EddyCurrentForce</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sources</span</p>
+        <p>Simple model of a translational eddy current brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque.html">EddyCurrentTorque</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sources</span</p>
+        <p>Simple model of a rotational eddy current brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries.html">SpringDamperSeries</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Linear spring and linear damper in series connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel.html">SpringDamperParallel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Linear spring and linear damper in parallel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Damper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Damper.html">Damper</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Linear (velocity dependent) damper</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.EddyCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.EddyCurrent.html">EddyCurrent</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Components</span</p>
+        <p>Constant loss model under sinusoidal magnetic conditions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.EddyCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.EddyCurrent.html">EddyCurrent</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span</p>
+        <p>For modelling of eddy current in a conductive magnetic flux tube</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Components.EddyCurrent.html">EddyCurrent</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Components</span</p>
+        <p>Constant loss model under sinusoidal magnetic conditions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

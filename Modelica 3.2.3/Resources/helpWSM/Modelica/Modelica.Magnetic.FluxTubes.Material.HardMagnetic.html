@@ -1,0 +1,116 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.html">Material</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.html">HardMagnetic</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>HardMagnetic</h1>
+    <p>Characteristics of common permanent magnetic materials (temperature dependence considered)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData.html">BaseData</a></p>
+        <p>Record for permanent magnetic material data</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.NdFeB_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.NdFeB.html">NdFeB</a></p>
+        <p>NdFeB sintered; exemplary values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.Sm2Co17_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.Sm2Co17.html">Sm2Co17</a></p>
+        <p>Sm2Co17 sintered, exemplary values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.SmCo5_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.SmCo5.html">SmCo5</a></p>
+        <p>SmCo5 sintered, exemplary values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB.html">PlasticNdFeB</a></p>
+        <p>Plastic-bonded NdFeB, exemplary values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticSmCo_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticSmCo.html">PlasticSmCo</a></p>
+        <p>Plastic-bonded Sm-Co, exemplary values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.HardFerrite_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.HardFerrite.html">HardFerrite</a></p>
+        <p>Hard ferrite sintered, exemplary values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticHardFerrite_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticHardFerrite.html">PlasticHardFerrite</a></p>
+        <p>Plastic-bonded hard ferrite, exemplary values</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Typical values for remanence, coercivity and the temperature coefficient of remanence are provided for the common permanent magnetic materials illustrated below.</p>
+<dl>
+<dd>
+<img src="resources/Modelica.Magnetic.FluxTubes.Material.HardMagnetic_info_001.png" alt="Demagnetization characteristics of included permanent magnetic materials">
+</dd>
+</dl>
+<p>
+Linear demagnetization curves are modelled. The characteristic, temperature-dependent "knee" of many permanent magnetic materials is not considered, since proper design of permanent magnetic circuits should avoid operation of permanent magnets "below" that point due to partial demagnetization. As a result, the temperature coefficient of coercivity is not considered. Only the temperature coefficient of remanence alpha_Br is accounted for, since it describes the dependence of the demagnetization curve on the temperature sufficiently for the region "above the knee-point".
+</p>
+<p>
+Additional user-specific materials can be defined as needed.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

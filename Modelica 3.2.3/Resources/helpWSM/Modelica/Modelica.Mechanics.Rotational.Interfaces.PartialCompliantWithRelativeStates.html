@@ -1,0 +1,181 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates.html">PartialCompliantWithRelativeStates</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialCompliantWithRelativeStates</h1>
+    <p>Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a 1-dim. rotational component with a compliant connection of two
+rotational 1-dim. flanges where inertial effects between the two
+flanges are neglected. The basic assumption is that the cut-torques
+of the two flanges sum-up to zero, i.e., they have the same absolute value
+but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
+is used to built up force elements such as springs, dampers, friction.
+</p>
+
+<p>
+The relative angle and the relative speed are defined as preferred states.
+The reason is that for some drive trains, such as drive
+trains in vehicles, the absolute angle is quickly increasing during operation.
+Numerically, it is better to use relative angles between drive train components
+because they remain in a limited size. For this reason, StateSelect.prefer
+is set for the relative angle of this component.
+</p>
+
+<p>
+In order to improve the numerics, a nominal value for the relative angle
+can be provided via parameter <strong>phi_nominal</strong> in the Advanced menu.
+The default is 1e-4 rad since relative angles are usually
+in this order and the step size control of an integrator would be
+practically switched off, if a default of 1 rad would be used.
+This nominal value might also be computed from other values, such
+as "phi_nominal = tau_nominal / c" for a rotational spring, if tau_nominal
+and c are more meaningful for the user.
+</p>
+
+<p>
+See also the discussion
+<a href="Modelica.Mechanics.Rotational.UsersGuide.StateSelection.html">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>phi_nominal</th>
+      <td>
+        <p><span>Value:</span> 1e-4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Nominal value of phi_rel (used for scaling)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>stateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.prefer</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use phi_rel and w_rel as states</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Left flange of compliant 1-dim. rotational component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Right flange of compliant 1-dim. rotational component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.OneWayClutch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.OneWayClutch.html">OneWayClutch</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Parallel connection of freewheel and clutch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Clutch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Clutch.html">Clutch</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Clutch based on Coulomb friction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.ElastoBacklash2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.ElastoBacklash2.html">ElastoBacklash2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity; at start of contact the flange torque can jump, contrary to the ElastoBacklash model)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.ElastoBacklash_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.ElastoBacklash.html">ElastoBacklash</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Linear 1D rotational spring and damper in parallel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Damper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Damper.html">Damper</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Linear 1D rotational damper</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

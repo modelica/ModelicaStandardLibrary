@@ -1,0 +1,96 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.syntaxError.html">syntaxError</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>syntaxError</h1>
+    <p>Print an error message, a string and the index at which scanning detected an error</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.syntaxError_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Strings.<strong>syntaxError</strong>(string, index, message);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>syntaxError</strong> prints an error message in the
+following form:
+</p>
+<pre>
+   Syntax error at column &lt;index&gt; of
+   &lt;string&gt;
+       ^       // shows character that is wrong
+   &lt;message&gt;
+</pre>
+<p>
+where the strings within &lt;..&gt; are the actual values of the
+input arguments of the function.
+</p>
+<p>
+If the given string is too long, only a relevant
+part of the string is printed.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">syntaxError(string, index, message)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String that has an error at position index</p>
+      </td>
+    </tr>
+    <tr>
+      <th>index</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Index of string at which scanning detected an error</p>
+      </td>
+    </tr>
+    <tr>
+      <th>message</th>
+      <td>
+        <p><span>Default Value:</span> ""</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String printed at end of error message</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

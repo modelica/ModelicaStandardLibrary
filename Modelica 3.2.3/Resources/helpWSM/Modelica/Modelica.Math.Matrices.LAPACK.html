@@ -1,0 +1,373 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>LAPACK</h1>
+    <p>Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.LAPACK_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgeev_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgeev.html">dgeev</a></p>
+        <p>Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgeev_eigenValues_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues.html">dgeev_eigenValues</a></p>
+        <p>Compute eigenvalues for real nonsymmetric matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgegv_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgegv.html">dgegv</a></p>
+        <p>Compute generalized eigenvalues for a (A,B) system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgelsx_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgelsx.html">dgelsx</a></p>
+        <p>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgelsx_vec_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgelsx_vec.html">dgelsx_vec</a></p>
+        <p>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgelsy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgelsy.html">dgelsy</a></p>
+        <p>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgelsy_vec_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgelsy_vec.html">dgelsy_vec</a></p>
+        <p>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgels_vec_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgels_vec.html">dgels_vec</a></p>
+        <p>Solves overdetermined or underdetermined real linear equations A*x=b with a b vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgesv_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgesv.html">dgesv</a></p>
+        <p>Solve real system of linear equations A*X=B with a B matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgesv_vec_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgesv_vec.html">dgesv_vec</a></p>
+        <p>Solve real system of linear equations A*x=b with a b vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgglse_vec_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgglse_vec.html">dgglse_vec</a></p>
+        <p>Solve a linear equality constrained least squares problem</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgtsv_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgtsv.html">dgtsv</a></p>
+        <p>Solve real system of linear equations A*X=B with B matrix and tridiagonal A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgtsv_vec_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgtsv_vec.html">dgtsv_vec</a></p>
+        <p>Solve real system of linear equations A*x=b with b vector and tridiagonal A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgbsv_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgbsv.html">dgbsv</a></p>
+        <p>Solve real system of linear equations A*X=B with a B matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgbsv_vec_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgbsv_vec.html">dgbsv_vec</a></p>
+        <p>Solve real system of linear equations A*x=b with a b vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgesvd_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgesvd.html">dgesvd</a></p>
+        <p>Determine singular value decomposition</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgesvd_sigma_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgesvd_sigma.html">dgesvd_sigma</a></p>
+        <p>Determine singular values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgetrf_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgetrf.html">dgetrf</a></p>
+        <p>Compute LU factorization of square or rectangular matrix A (A = P*L*U)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgetrs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgetrs.html">dgetrs</a></p>
+        <p>Solves a system of linear equations with the LU decomposition from dgetrf(..)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgetrs_vec_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgetrs_vec.html">dgetrs_vec</a></p>
+        <p>Solves a system of linear equations with the LU decomposition from dgetrf(..)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgetri_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgetri.html">dgetri</a></p>
+        <p>Computes the inverse of a matrix using the LU factorization from dgetrf(..)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgeqpf_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgeqpf.html">dgeqpf</a></p>
+        <p>Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dorgqr_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dorgqr.html">dorgqr</a></p>
+        <p>Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgees_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgees.html">dgees</a></p>
+        <p>Computes real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dtrsen_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dtrsen.html">dtrsen</a></p>
+        <p>Reorder the real Schur factorization of a real matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgesvx_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgesvx.html">dgesvx</a></p>
+        <p>Solve real system of linear equations op(A)*X=B, op(A) is A or A' according to the Boolean input transposed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dtrsyl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dtrsyl.html">dtrsyl</a></p>
+        <p>Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dhseqr_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dhseqr.html">dhseqr</a></p>
+        <p>Compute eigenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dlange_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dlange.html">dlange</a></p>
+        <p>Norm of a matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgecon_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgecon.html">dgecon</a></p>
+        <p>Estimates the reciprocal of the condition number of a general real matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgehrd_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgehrd.html">dgehrd</a></p>
+        <p>reduces a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgeqrf_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgeqrf.html">dgeqrf</a></p>
+        <p>computes a QR factorization without pivoting</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgeevx_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgeevx.html">dgeevx</a></p>
+        <p>Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgesdd_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dgesdd.html">dgesdd</a></p>
+        <p>Determine singular value decomposition</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dggev_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dggev.html">dggev</a></p>
+        <p>Compute generalized eigenvalues, as well as the left and right eigenvectors for a (A,B) system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dggevx_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dggevx.html">dggevx</a></p>
+        <p>Compute generalized eigenvalues for a (A,B) system, using lapack routine dggevx</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dhgeqz_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dhgeqz.html">dhgeqz</a></p>
+        <p>Compute generalized eigenvalues for a (A,B) system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dormhr_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dormhr.html">dormhr</a></p>
+        <p>overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returned by dgehrd</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dormqr_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dormqr.html">dormqr</a></p>
+        <p>overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dtrevc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dtrevc.html">dtrevc</a></p>
+        <p>Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dpotrf_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dpotrf.html">dpotrf</a></p>
+        <p>Computes the Cholesky factorization of a real symmetric positive definite matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dtrsm_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dtrsm.html">dtrsm</a></p>
+        <p>Solve one of the matrix equations op( A )*X = alpha*B, or X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices.LAPACK.dorghr_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.LAPACK.dorghr.html">dorghr</a></p>
+        <p>Generates a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains external Modelica functions as interface to the
+LAPACK library
+(<a href="http://www.netlib.org/lapack">http://www.netlib.org/lapack</a>)
+that provides FORTRAN subroutines to solve linear algebra
+tasks. Usually, these functions are not directly called, but only via
+the much more convenient interface of
+<a href="Modelica.Math.Matrices.html">Modelica.Math.Matrices</a>.
+The documentation of the LAPACK functions is a copy of the original
+FORTRAN code. The details of LAPACK are described in:
+</p>
+
+<dl>
+<dt>Anderson E., Bai Z., Bischof C., Blackford S., Demmel J., Dongarra J.,
+    Du Croz J., Greenbaum A., Hammarling S., McKenney A., and Sorensen D.:</dt>
+<dd> <a href="http://www.netlib.org/lapack/lug/lapack_lug.html">Lapack Users' Guide</a>.
+     Third Edition, SIAM, 1999.</dd>
+</dl>
+
+<p>
+See also <a href="http://en.wikipedia.org/wiki/Lapack">http://en.wikipedia.org/wiki/Lapack</a>.
+</p>
+
+<p>
+This package contains a direct interface to the LAPACK subroutines
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

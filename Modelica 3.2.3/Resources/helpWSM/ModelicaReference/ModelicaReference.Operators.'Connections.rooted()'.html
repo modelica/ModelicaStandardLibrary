@@ -1,0 +1,53 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'Connections.rooted()'.html">'Connections.rooted()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'Connections.rooted()'</h1>
+    <p>Connections.rooted()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'Connections.rooted()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Returns which node of a connection branch is closer to root.
+</p>
+<h4>Syntax</h4>
+<pre>
+b = Connections.rooted(A.R);
+b = rooted(A.R);  // deprecated
+</pre>
+
+<h4>Description</h4>
+<p>
+If the operator <code>Connections.rooted(A.R)</code> is used, or the equivalent <em>but deprecated</em> operator <code>rooted(A.R)</code>, then there must be exactly one statement <code>Connections.branch(A.R,B.R)</code> involving <code>A.R</code> (the argument of <code>Connections.rooted</code> must be the first argument of <code>Connections.branch</code>).
+In that case <code>Connections.rooted(A.R)</code> returns <em>true</em>, if <code>A.R</code> is closer to the root of the spanning tree than <code>B.R</code>; otherwise <em>false</em> is returned.
+
+<h4>Examples</h4>
+<p>
+This operator can be used to avoid equation systems by providing analytic inverses, see <a href="../Modelica/Modelica.Mechanics.MultiBody.Parts.FixedRotation.html">Modelica.Mechanics.MultiBody.Parts.FixedRotation</a>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

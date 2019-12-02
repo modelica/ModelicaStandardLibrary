@@ -1,0 +1,117 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Random.html">Random</a></li>
+  <li><a href="Modelica.Math.Random.Generators.html">Generators</a></li>
+  <li><a href="Modelica.Math.Random.Generators.Xorshift1024star.html">Xorshift1024star</a></li>
+  <li><a href="Modelica.Math.Random.Generators.Xorshift1024star.initialState.html">initialState</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>initialState</h1>
+    <p>Returns an initial state for the xorshift1024* algorithm</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Random.Generators.Xorshift1024star.initialState_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+state = Xorshift1024star.<strong>initialState</strong>(localSeed, globalSeed);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Generates an initial state vector for the Xorshift1024star random number generator
+(= xorshift1024* algorithm), from
+two Integer numbers given as input (arguments localSeed, globalSeed). Any Integer numbers
+can be given (including zero or negative number). The function returns
+a reasonable initial state vector with the following strategy:
+</p>
+
+<p>
+The <a href="Modelica.Math.Random.Generators.Xorshift64star.html">Xorshift64star</a>
+random number generator is used to fill the internal state vector with 64 bit random numbers.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>parameter</strong> Integer localSeed;
+  <strong>parameter</strong> Integer globalSeed;
+  Integer state[Xorshift1024star.nState];
+<strong>initial equation</strong>
+  state = initialState(localSeed, globalSeed);
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Random.Generators.Xorshift1024star.random.html">Random.Generators.Xorshift1024star.random</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">state = initialState(localSeed, globalSeed)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>localSeed</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> The local seed to be used for generating initial states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>globalSeed</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> The global seed to be combined with the local seed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>state</th>
+      <td>
+        <p><span>Type:</span> Integer[nState]</p>
+        <p><span>Description:</span> The generated initial states</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

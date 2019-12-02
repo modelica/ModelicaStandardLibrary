@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.MultiPhase.html">MultiPhase</a></li>
+  <li><a href="Modelica.Electrical.MultiPhase.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.MultiPhase.Interfaces.OnePort.html">OnePort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>OnePort</h1>
+    <p>Component with two electrical plugs and currents from plug_p to plug_n</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.MultiPhase.Interfaces.OnePort_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Superclass of elements which have <strong>two</strong> electrical plugs:
+the positive plug connector <em>plug_p</em>, and the negative plug connector <em>plug_n</em>.
+The currents flowing into plug_p are provided explicitly as currents i[m].
+It is assumed that the currents flowing into plug_p are identical to the currents flowing out of plug_n.
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.MultiPhase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> Positive polyphase electrical plug with m pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.MultiPhase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>plug_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> Negative polyphase electrical plug with m pins</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Basic.ZeroInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.MultiPhase.Basic.ZeroInductor.html">ZeroInductor</a></p>
+        <p><span>Modelica.Electrical.MultiPhase.Basic</span</p>
+        <p>Linear zero sequence inductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Basic.MutualInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.MultiPhase.Basic.MutualInductor.html">MutualInductor</a></p>
+        <p><span>Modelica.Electrical.MultiPhase.Basic</span</p>
+        <p>Linear mutual inductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad.html">StrayLoad</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.InductionMachines</span</p>
+        <p>Model of stray load losses dependent on current and speed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

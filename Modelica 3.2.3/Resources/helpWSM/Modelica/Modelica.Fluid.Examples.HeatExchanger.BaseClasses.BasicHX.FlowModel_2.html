@@ -1,0 +1,280 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Fluid.Examples.HeatExchanger.html">HeatExchanger</a></li>
+  <li><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.html">BasicHX</a></li>
+  <li><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.FlowModel_2.html">FlowModel_2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FlowModel_2</h1>
+    <p>Characteristic of wall friction</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.FlowModel_2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(17)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> n - 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of flow segments</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of discrete flow volumes</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nParallel</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> number of identical parallel flow devices</p>
+      </td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>
+        <p><span>Value:</span> system.g</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Acceleration.html">Acceleration</a> (m/s²)</p>
+        <p><span>Description:</span> Constant gravity acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>allowFlowReversal</th>
+      <td>
+        <p><span>Value:</span> system.allowFlowReversal</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true to allow flow reversal, false restricts to design direction (states[1] -> states[n+1])</p>
+      </td>
+    </tr>
+    <tr>
+      <th>momentumDynamics</th>
+      <td>
+        <p><span>Value:</span> system.momentumDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of momentum balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_start</th>
+      <td>
+        <p><span>Value:</span> system.m_flow_start</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel.Medium.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Start value of mass flow rates</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_a_start</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Start value for p[1] at design inflow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_b_start</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Start value for p[n+1] at design outflow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useUpstreamScheme</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false to average upstream and downstream properties across flow segments</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_Ib_flows</th>
+      <td>
+        <p><span>Value:</span> momentumDynamics <> Types.Dynamics.SteadyState</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true to consider differences in flow of momentum through boundaries</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Re_turbulent</th>
+      <td>
+        <p><span>Value:</span> 4000</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ReynoldsNumber.html">ReynoldsNumber</a></p>
+        <p><span>Description:</span> Start of turbulent regime, depending on type of flow device</p>
+      </td>
+    </tr>
+    <tr>
+      <th>show_Res</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if Reynolds numbers are included for plotting</p>
+      </td>
+    </tr>
+    <tr>
+      <th>from_dp</th>
+      <td>
+        <p><span>Value:</span> momentumDynamics >= Types.Dynamics.SteadyStateInitial</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, use m_flow = f(dp), otherwise dp = f(m_flow)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dp_nominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Nominal pressure loss (only for nominal models)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_nominal</th>
+      <td>
+        <p><span>Value:</span> if system.use_eps_Re then system.m_flow_nominal else 1e2 * m_flow_small</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Nominal mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_small</th>
+      <td>
+        <p><span>Value:</span> if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Within regularization if |m_flows| < m_flow_small (may be wider for large discontinuities in static head)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>pathLengths</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length[m]</a> (m)</p>
+        <p><span>Description:</span> Lengths along flow path</p>
+      </td>
+    </tr>
+    <tr>
+      <th>states</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel.Medium.ThermodynamicState.html">ThermodynamicState[n]</a></p>
+        <p><span>Description:</span> Thermodynamic states along design flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vs</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Velocity.html">Velocity[n]</a> (m/s)</p>
+        <p><span>Description:</span> Mean velocities of fluid flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>crossAreas</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area[n]</a> (m²)</p>
+        <p><span>Description:</span> Cross flow areas at segment boundaries</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dimensions</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length[n]</a> (m)</p>
+        <p><span>Description:</span> Characteristic dimensions for fluid flow (diameters for pipe flow)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>roughnesses</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Roughness.html">Roughness[n]</a> (m)</p>
+        <p><span>Description:</span> Average height of surface asperities</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dheights</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length[n - 1]</a> (m)</p>
+        <p><span>Description:</span> Height(states[2:n]) - Height(states[1:n-1])</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pathLengths_internal</th>
+      <td>
+        <p><span>Default Value:</span> pathLengths</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length[n - 1]</a> (m)</p>
+        <p><span>Description:</span> pathLengths used internally; to be defined by extending class</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Res_turbulent_internal</th>
+      <td>
+        <p><span>Default Value:</span> Re_turbulent * ones(n - 1)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ReynoldsNumber.html">ReynoldsNumber[n - 1]</a></p>
+        <p><span>Description:</span> Re_turbulent used internally; to be defined by extending class</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Description:</span> System properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel.Medium.ThermodynamicState_32x32.png"></td>
+      <th>states</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel.Medium.ThermodynamicState.html">ThermodynamicState[n]</a></p>
+        <p><span>Description:</span> Thermodynamic states along design flow</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

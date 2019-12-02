@@ -1,0 +1,84 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Files.html">Files</a></li>
+  <li><a href="Modelica.Utilities.Files.list.html">list</a></li>
+  <li><a href="Modelica.Utilities.Files.list.sortDirectory.html">sortDirectory</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>sortDirectory</h1>
+    <p>Sort directory in directories and files with alphabetic order</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Files.list.sortDirectory_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(orderedNames, nDirectories) = sortDirectory(directory, names)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>directory</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Directory that was read (including a trailing '/')</p>
+      </td>
+    </tr>
+    <tr>
+      <th>names</th>
+      <td>
+        <p><span>Type:</span> String[:]</p>
+        <p><span>Description:</span> File and directory names of a directory in any order</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>orderedNames</th>
+      <td>
+        <p><span>Type:</span> String[size(names, 1)]</p>
+        <p><span>Description:</span> Names of directories followed by names of files</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nDirectories</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> The first nDirectories entries in orderedNames are directories</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

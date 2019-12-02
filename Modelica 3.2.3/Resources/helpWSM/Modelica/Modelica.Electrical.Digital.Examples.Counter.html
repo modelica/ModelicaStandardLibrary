@@ -1,0 +1,105 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Digital.Examples.Counter.html">Counter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Counter</h1>
+    <p>Generic N Bit Counter Example</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Examples.Counter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Digital.Examples.Counter_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Digital.Examples.Counter_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The counter example is built up by components of the Utilities package which uses components of the Gates library. It demonstrates the generic counter model. The parameter n is the number of counting bits. In this example it is set to 4.</p>
+<p>The counter counts the high-low slopes of the clock signal, if the enable signal is set to be true. Otherwise if it is set to zero the counter is not counting.</p>
+<p>Plot Counter.count (clock signal), and Counter.enable, and the output bit signals Counter.q[0], Counter.q[1], Counter.q[2], and Counter.q[3]</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Step_32x32.png"></td>
+      <th>Enable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Sources.Clock_32x32.png"></td>
+      <th>Clock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Sources.Clock.html">Clock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Utilities.Counter_32x32.png"></td>
+      <th>Counter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Examples.Utilities.Counter.html">Counter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Converters.LogicToReal_32x32.png"></td>
+      <th>Q0</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Converters.LogicToReal.html">LogicToReal</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Converters.LogicToReal_32x32.png"></td>
+      <th>Q1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Converters.LogicToReal.html">LogicToReal</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Converters.LogicToReal_32x32.png"></td>
+      <th>Q2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Converters.LogicToReal.html">LogicToReal</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Converters.LogicToReal_32x32.png"></td>
+      <th>Q3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Converters.LogicToReal.html">LogicToReal</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

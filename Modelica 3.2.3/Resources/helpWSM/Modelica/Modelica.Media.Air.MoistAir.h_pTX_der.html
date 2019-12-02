@@ -1,0 +1,112 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Air.html">Air</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.html">MoistAir</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.h_pTX_der.html">h_pTX_der</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>h_pTX_der</h1>
+    <p>Derivative function of h_pTX</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.MoistAir.h_pTX_der_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+Derivative function for <a href="Modelica.Media.Air.MoistAir.h_pTX.html">h_pTX</a>.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">h_der = h_pTX_der(p, T, X, dp, dT, dX)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFraction.html">MassFraction[:]</a></p>
+        <p><span>Description:</span> Mass fractions of moist air</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dp</th>
+      <td>
+        <p><span>Type:</span> Real (Pa/s)</p>
+        <p><span>Description:</span> Pressure derivative</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dT</th>
+      <td>
+        <p><span>Type:</span> Real (K/s)</p>
+        <p><span>Description:</span> Temperature derivative</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dX</th>
+      <td>
+        <p><span>Type:</span> Real[:] (¹/s)</p>
+        <p><span>Description:</span> Composition derivative</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>h_der</th>
+      <td>
+        <p><span>Type:</span> Real (J/(kg·s))</p>
+        <p><span>Description:</span> Time derivative of specific enthalpy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>
