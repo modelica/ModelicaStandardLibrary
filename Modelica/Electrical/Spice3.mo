@@ -3741,6 +3741,10 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 
     // case one coefficient and one variable
       if n == 1 and na == 1 then
+        /* Note: If the polynomial is one-dimensional and exactly one coefficient
+           is specified, then SPICE assumes it to be p1 (and p0 = 0.0), in order
+           to facilitate the input of linear controlled sources.
+         */
         v := a[1] * s[1];
         return;
       end if;
