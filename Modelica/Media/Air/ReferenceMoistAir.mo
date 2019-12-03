@@ -80,7 +80,7 @@ package ReferenceMoistAir
         p,
         T,
         Xi);
-    R = dryair.R*(X_air/(1 - X_liquid)) + steam.R*X_steam/(1 - X_liquid);
+    R_s = dryair.R_s*(X_air/(1 - X_liquid)) + steam.R_s*X_steam/(1 - X_liquid);
     u = Modelica.Media.Air.ReferenceMoistAir.Utilities.u_pTX(
         p,
         T,
@@ -337,7 +337,7 @@ package ReferenceMoistAir
     "Return ideal gas constant as a function from thermodynamic state, only valid for phi<1"
 
   algorithm
-    R := dryair.R*(1 - state.X[Water]) + steam.R*state.X[Water];
+    R_s := dryair.R_s*(1 - state.X[Water]) + steam.R_s*state.X[Water];
   end gasConstant;
 
   function saturationPressureLiquid
@@ -854,7 +854,7 @@ package ReferenceMoistAir
         da := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T);
         if ((xw <= xws) or (xws == -1)) then
           if (T < 273.16) then
-            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
             ya := da/(da + dd);
             yd := 1 - ya;
             Tred := T/coef.epsilon;
@@ -878,7 +878,7 @@ package ReferenceMoistAir
           end if;
         else
           if (T < 273.16) then
-            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
             ya := da/(da + dd);
             yd := 1 - ya;
             Tred := T/coef.epsilon;
@@ -948,7 +948,7 @@ package ReferenceMoistAir
         da := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T);
         if ((xw <= xws) or (xws == -1)) then
           if (T < 273.16) then
-            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
             ya := da/(da + dd);
             yd := 1 - ya;
             Tred := T/coef.epsilon;
@@ -976,7 +976,7 @@ package ReferenceMoistAir
           end if;
         else
           if (T < 273.16) then
-            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
             df :=
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
               p, T);
@@ -1740,7 +1740,7 @@ package ReferenceMoistAir
       algorithm
         g.p := p;
         g.T := T;
-        g.R := Modelica.Media.Water.IF97_Utilities.BaseIF97.data.RH2O;
+        g.R_s := Modelica.Media.Water.IF97_Utilities.BaseIF97.data.RH2O;
         g.pi := p/Modelica.Media.Water.IF97_Utilities.BaseIF97.data.PSTAR2;
         g.tau := Modelica.Media.Water.IF97_Utilities.BaseIF97.data.TSTAR2/T;
         tau2 := -0.5 + g.tau;
@@ -1934,7 +1934,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        h := g.R*T*g.tau*g.gtau;
+        h := g.R_s*T*g.tau*g.gtau;
         annotation (
           derivative(noDerivative=region) = h_pT_der,
           Inline=false,
@@ -1954,7 +1954,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        s := g.R*(g.tau*g.gtau - g.g);
+        s := g.R_s*(g.tau*g.gtau - g.g);
       end s_pT;
 
       function cp_pT
@@ -1973,7 +1973,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        cp := -g.R*g.tau*g.tau*g.gtautau;
+        cp := -g.R_s*g.tau*g.tau*g.gtautau;
       end cp_pT;
 
       function cv_pT
@@ -1991,7 +1991,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        cv := g.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi -
+        cv := g.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi -
           g.tau*g.gtaupi)/g.gpipi));
       end cv_pT;
 
@@ -2006,7 +2006,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        rho := p/(g.R*T*g.pi*g.gpi);
+        rho := p/(g.R_s*T*g.pi*g.gpi);
         annotation (
           derivative=rho_pT_der,
           Inline=false,
@@ -2027,9 +2027,9 @@ package ReferenceMoistAir
         Real vt;
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        vt := g.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-        vp := g.R*T/(p*p)*g.pi*g.pi*g.gpipi;
-        d := p/(g.R*T*g.pi*g.gpi);
+        vt := g.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+        vp := g.R_s*T/(p*p)*g.pi*g.pi*g.gpipi;
+        d := p/(g.R_s*T*g.pi*g.gpi);
         rho_der := (-d^2*vp)*p_der + (-d^2*vt)*T_der;
       end rho_pT_der;
 
@@ -2248,9 +2248,9 @@ package ReferenceMoistAir
       algorithm
         //region 2
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        vt := g.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-        rho := max(p/(g.R*T*g.pi*g.gpi), 1e-9);
-        h_der := (1/rho - T*vt)*p_der - g.R*g.tau*g.tau*g.gtautau*T_der;
+        vt := g.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+        rho := max(p/(g.R_s*T*g.pi*g.gpi), 1e-9);
+        h_der := (1/rho - T*vt)*p_der - g.R_s*g.tau*g.tau*g.gtautau*T_der;
 
       end h_pT_der;
     end IF97_new;
@@ -2261,7 +2261,7 @@ package ReferenceMoistAir
 
       constant Common.FundamentalConstants Constants(
         R_bar=8.314371,
-        R=461.51805,
+        R_s=461.51805,
         MM=18.015268E-003,
         rhored=322,
         Tred=647.096,
@@ -2444,7 +2444,7 @@ package ReferenceMoistAir
 
         constant IceConstants Constants(
           R_bar=8.314472,
-          R=461.52364,
+          R_s=461.52364,
           MM=18.015268E-003,
           rhored=1.0,
           Tred=273.16,
@@ -2488,7 +2488,7 @@ package ReferenceMoistAir
         algorithm
           g.p := p;
           g.T := T;
-          g.R := Constants.R;
+          g.R_s := Constants.R_s;
 
           //Reduced pressure
           g.pi := g.p/Constants.pred;
@@ -2690,7 +2690,7 @@ package ReferenceMoistAir
       algorithm
         aux.p := p;
         aux.T := T;
-        aux.R := Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.R;
+        aux.R_s := Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.R_s;
         g := Basic.Gibbs(aux.p, T);
         aux.rho := 1/g.gp;
         aux.h := g.g - g.T*g.gT - Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.h_off;
@@ -2923,36 +2923,20 @@ package ReferenceMoistAir
 
         //v_ws is the molar volume of saturated water
         v_ws := if (T >= 273.16) then Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.molarMass
-          /Modelica.Media.Water.IF97_Utilities.rho_pT(p, T) else Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.
-           MM/
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
-          p, T);
+          /Modelica.Media.Water.IF97_Utilities.rho_pT(p, T) else Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.MM
+		  /Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(p, T);
 
         //beta_H is Henry's law constant
         beta_H := Modelica.Media.Air.ReferenceMoistAir.Utilities.beta_H(p, T);
 
         //calculating the virial coefficients baa, baw, bww, caaa, caaw, caww, cwww
-        baa :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Baa_dT(
-          0, T);
-        baw :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Baw_dT(
-          0, T);
-        bww :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Bww_dT(
-          0, T);
-        caaa :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caaa_dT(
-          0, T);
-        caaw :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caaw_dT(
-          0, T);
-        caww :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caww_dT(
-          0, T);
-        cwww :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Cwww_dT(
-          0, T);
+        baa := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Baa_dT(0, T);
+        baw := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Baw_dT(0, T);
+        bww := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Bww_dT(0, T);
+        caaa := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caaa_dT(0, T);
+        caaw := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caaw_dT(0, T);
+        caww := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caww_dT(0, T);
+        cwww := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Cwww_dT(0, T);
 
         y := ((1 + kappa_T*p_ws)*(p - p_ws) - kappa_T*(p^2 - p_ws^2)/2)/(R_bar*
           T)*v_ws + log(1 - beta_H*(1 - x*p_ws/p)*p) + (1 - x*p_ws/p)^2*p/(
@@ -3015,7 +2999,7 @@ package ReferenceMoistAir
         if ((xw <= xws) or (xws == -1)) then
           if (T < 273.16) then
             d := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) +
-              pd/(.Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+              pd/(.Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
           else
             d := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) +
               IF97_new.rho_pT(pd, T);
@@ -3024,7 +3008,7 @@ package ReferenceMoistAir
           if (T < 273.16) then
             d := (1 + xw)/((1 + xws)/(
               Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) + pd/
-              (.Modelica.Media.Air.ReferenceMoistAir.steam.R*T)) + (xw - xws)/
+              (.Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T)) + (xw - xws)/
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
               p, T));
           else
@@ -3825,8 +3809,8 @@ package ReferenceMoistAir
                   Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
                 pl, T),
                   pl_der,
-                  T_der) + Modelica.Media.Air.ReferenceMoistAir.steam.R*(pd_der
-              *T - pd*T_der)/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T)^2;
+                  T_der) + Modelica.Media.Air.ReferenceMoistAir.steam.R_s*(pd_der
+              *T - pd*T_der)/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T)^2;
 
           else
             d_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der(
@@ -3850,7 +3834,7 @@ package ReferenceMoistAir
               p, T);
             o[3] := ((1 + xws)/(
               Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) + pd/
-              (.Modelica.Media.Air.ReferenceMoistAir.steam.R*T)) + (xw - xws)/
+              (.Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T)) + (xw - xws)/
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
               p, T));
             o[4] := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der(
@@ -3862,7 +3846,7 @@ package ReferenceMoistAir
                   T_der);
 
             o[5] := (xws_der*o[1] - (1 + xws)*o[4])/o[1]^2 + (pd_der*T - pd*
-              T_der)/Modelica.Media.Air.ReferenceMoistAir.steam.R/T^2 + (xw_der
+              T_der)/Modelica.Media.Air.ReferenceMoistAir.steam.R_s/T^2 + (xw_der
               *o[2] - xw*
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der(
                   p,

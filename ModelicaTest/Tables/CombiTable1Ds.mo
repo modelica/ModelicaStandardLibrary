@@ -309,9 +309,17 @@ double mydummyfunc(double* dummy_in) {
   model Test33 "Text file with UTF-8 BOM and comments (Ticket #2404)"
     extends Modelica.Icons.Example;
     extends TestDer(t_new(
-        tableOnFile=true,
-        tableName="a",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+      tableOnFile=true,
+      tableName="a",
+      fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test33;
+
+  model Test34 "Modified Akima, test data set (Ticket #1039)"
+    extends Modelica.Icons.Example;
+    extends TestDer2(t_new(
+      table=[0,5;1,3;2,1;3,1;4,1;5,3],
+      smoothness=Modelica.Blocks.Types.Smoothness.ModifiedContinuousDerivative));
+    annotation (experiment(StartTime=0, StopTime=4));
+  end Test34;
 end CombiTable1Ds;

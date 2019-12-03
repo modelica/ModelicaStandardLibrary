@@ -1196,7 +1196,7 @@ following structure:</p>
     SpecificInternalEnergy u;
     MassFraction[nX] X;
     MassFraction[nXi] Xi;
-    SpecificHeatCapacity R;
+    SpecificHeatCapacity R_s;
     MolarMass MM;
   <strong>end</strong> BasePropertiesRecord;
 
@@ -1417,7 +1417,7 @@ partially defined in the base class Interfaces.PartialMedium. In the case of
 single-substance media, two independent state variables must be selected among
 p, T, d, u, h, and three equations must be written to provide the values of
 the remaining variables. Two equations must then be added to compute the molar
-mass MM and the gas constant R.</p>
+mass MM and the gas constant R_s.</p>
 <p>
 The third step is to consider the optional functions that are going to be
 implemented, among the partial functions defined by the base class PartialMedium.
@@ -1818,8 +1818,8 @@ An ideal gas with one substance is written in the form
      p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)
   <strong>equation</strong>
      h = h(T);
-     u = h - R*T;
-     p = d*R*T;
+     u = h - R_s*T;
+     p = d*R_s*T;
       ...
   <strong>end</strong> BaseProperties;
 </pre>
@@ -1830,11 +1830,11 @@ function of p and T. If p,T would be states, it would be
 necessary to solve for the density:
 </p>
 <pre>
-   d = p/(R*T)
+   d = p/(R_s*T)
 </pre>
 <p>
-If T or R are zero, this results in a division by zero.
-A tool does not know that R or T cannot become zero.
+If T or R_s are zero, this results in a division by zero.
+A tool does not know that R_s or T cannot become zero.
 Therefore, a tool must assume that p, T <strong>cannot</strong> always be
 selected as states and has to either use another static
 state selection or use dynamic state selection. The only
@@ -1857,9 +1857,9 @@ state selection and linear systems of equations:
 </p>
 <ol>
 <li> Use p,T as preferred states and write the equation
-     for d in the form: d = p/(T*R)</li>
+     for d in the form: d = p/(T*R_s)</li>
 <li> Use d,T as preferred states and write the equation
-     for p in the form: p = d*T*R</li>
+     for p in the form: p = d*T*R_s</li>
 </ol>
 <p>
 All other settings (other/no preferred states etc.) lead
@@ -2584,15 +2584,15 @@ It must be noted that the relationship of both axis variables is not right-angle
       ddph_b2 = density_derp_h(bubble2);
       dTp = saturationTemperature_derp(p);
       dTp2 = (1/dew.d - 1/bubble.d)/max(s_d - s_b, 1e-6);
-      annotation (Documentation(info=""));
+      annotation (Documentation(info="<html></html>"));
     end ExtendedProperties;
 
-    model TestTwoPhaseStates "Test the above model"
+    model TestTwoPhaseStates "Test the TwoPhaseWater model"
       extends Modelica.Icons.Example;
       ExtendedProperties medium(p(start=2000.0, fixed=true), h(start=8.0e5,
             fixed=true));
-      parameter Real dh=80000.0 "80 kJ/second";
-      parameter Real dp=1.0e6 "10 bars per second";
+      parameter Real dh(unit="J/(kg.s)", displayUnit="kJ/(kg.s)")=80000.0 "Derivative of specific enthalpy of medium";
+      parameter Real dp(unit="Pa/s", displayUnit="bar/s")=1.0e6 "Derivative of pressure of medium";
     equation
       der(medium.p) = dp;
       der(medium.h) = dh;
@@ -2916,49 +2916,25 @@ points, e.g., when an isentropic reference state is computed.
       parameter Real y_zero=0.5 "Desired value of A*sin(w*x)";
       parameter Real x_min=-1.7 "Minimum value of x_zero";
       parameter Real x_max=1.7 "Maximum value of x_zero";
-      parameter Real A=1;
-      parameter Real w=1;
-      parameter Inverse_sine_definition.f_nonlinear_Data data=
-          Inverse_sine_definition.f_nonlinear_Data(A=A, w=w);
+      parameter Real A=1 "Amplitude of sine";
+      parameter Real w=1 "Angular frequency of sine";
       Real x_zero "y_zero = A*sin(w*x_zero)";
 
-      encapsulated package Inverse_sine_definition
-        "Define sine as non-linear equation to be solved"
-        import Modelica;
-        extends Modelica.Media.Common.OneNonLinearEquation;
-
-        redeclare record extends f_nonlinear_Data "Data for nonlinear equation"
-          Real A;
-          Real w;
-          annotation (Documentation(info="<html>
-
-</html>"));
-        end f_nonlinear_Data;
-
-        redeclare function extends f_nonlinear
-          "Non-linear equation to be solved"
-        algorithm
-          y := f_nonlinear_data.A*Modelica.Math.sin(f_nonlinear_data.w*x);
-        end f_nonlinear;
-
-        // Dummy definition has to be added for current Dymola (advice from Hans)
-        redeclare function extends solve
-          "Solution algorithm of non-linear equation"
-        end solve;
-        annotation (Documentation(info="<html>
-
-</html>"));
-      end Inverse_sine_definition;
+      function f_nonlinear "Define sine as non-linear equation to be solved"
+        extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+        input Real A=1 "Amplitude of sine";
+        input Real w=1 "Angular frequency of sine";
+        input Real s=0 "Shift of sine";
+      algorithm
+        y := A*Modelica.Math.sin(w*u) + s;
+      end f_nonlinear;
 
     equation
-      x_zero = Inverse_sine_definition.solve(
-              y_zero,
-              x_min,
-              x_max,
-              f_nonlinear_data=data);
+      x_zero = Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+        function f_nonlinear(A=A, w=w, s=-y_zero), x_min, x_max);
 
       print("x_zero = " + String(x_zero) + ", y_zero = " + String(y_zero) +
-        ", A*sin(w*x_zero) = " + String(data.A*Modelica.Math.sin(data.w*x_zero)));
+        ", A*sin(w*x_zero) = " + String(A*Modelica.Math.sin(w*x_zero)));
       annotation (experiment(StopTime=0), Documentation(info="<html>
 <p>
 This models solves the following non-linear equation
@@ -3001,10 +2977,10 @@ output window.
       SI.SpecificEnthalpy h1(start=h_min, fixed=true)
         "Pre-defined specific enthalpy";
       SI.SpecificEnthalpy h2
-        "Specific enthalpy computed from T (= h1 required)";
+        "Specific enthalpy computed from Th (= h1 required)";
       SI.SpecificEntropy s1(start=s_min, fixed=true)
         "Pre-defined specific entropy";
-      SI.SpecificEntropy s2 "Specific entropy computed from T (= h1 required)";
+      SI.SpecificEntropy s2 "Specific entropy computed from Ts (= s1 required)";
       SI.Temperature Th "Temperature computed from h1";
       SI.Temperature Ts "Temperature computed from s1";
 
@@ -3016,24 +2992,29 @@ output window.
       der(h1) = if time < 1.0 then 1/timeUnit*(h_max - h_min) else 0.0;
       der(s1) = if time < 1.0 then 1/timeUnit*(s_max - s_min) else 0.0;
 
-      // Solve for temperature
-      Th = Medium.temperature_phX(
-              p,
-              h1,
-              fill(0.0, 0));
-      Ts = Medium.temperature_psX(
-              p,
-              s1,
-              fill(0.0, 0));
+      // Solve for temperatures
+      Th = Medium.temperature_phX(p, h1, fill(0.0, 0));
+      Ts = Medium.temperature_psX(p, s1, fill(0.0, 0));
 
-      // Check (h2 must be identical to h1)
-      h2 = Medium.specificEnthalpy_pTX(
-              p,
-              Th,
-              fill(0.0, 0));
+      // Check (h2 must be identical to h1, s2 must be identical to s1)
+      h2 = Medium.specificEnthalpy_pTX(p, Th, fill(0.0, 0));
       s2 = Medium.specificEntropy(Medium.setState_pT(p, Ts));
       annotation (experiment(StopTime=1), Documentation(info="<html>
-                               </html>"));
+<p>
+This models computes the temperature <code>Th</code> for predefined specific enthalpy <code>h1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.IdealGases.Common.Functions.h_T\">Modelica.Media.IdealGases.Common.Functions.h_T</a>.
+The specific enthalpy <code>h2</code> is computed as check variable from temperature <code>Th</code> and must be identical to <code>h1</code>.
+</p>
+
+<p>
+In an analogous manner, the temperature <code>Ts</code> is computed for predefined specific entropy <code>s1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.IdealGases.Common.Functions.s0_T\">Modelica.Media.IdealGases.Common.Functions.s0_T</a>.
+The specific entropy <code>s2</code> is computed as check variable from temperature <code>Ts</code> and must be identical to <code>s1</code>.
+</p>
+
+<p>
+The numerical computation of the inverse function is performed by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a> in both cases.
+</p>
+
+</html>"));
     end Inverse_sh_T;
 
     model InverseIncompressible_sh_T
@@ -3061,10 +3042,10 @@ output window.
       SI.SpecificEnthalpy h1(start=h_min, fixed=true)
         "Pre-defined specific enthalpy";
       SI.SpecificEnthalpy h2
-        "Specific enthalpy computed from T (= h1 required)";
+        "Specific enthalpy computed from Th (= h1 required)";
       SI.SpecificEntropy s1(start=s_min, fixed=true)
         "Pre-defined specific entropy";
-      SI.SpecificEntropy s2 "Specific entropy computed from T (= h1 required)";
+      SI.SpecificEntropy s2 "Specific entropy computed from Ts (= s1 required)";
       SI.Temperature Th "Temperature computed from h1";
       SI.Temperature Ts "Temperature computed from s1";
 
@@ -3072,29 +3053,33 @@ output window.
       constant SI.Time timeUnit=1.0;
 
     equation
-      // Define specific enthalpy
+      // Define specific enthalpy and specific entropy
       der(h1) = if time < 1.0 then 1/timeUnit*(h_max - h_min) else 0.0;
       der(s1) = if time < 1.0 then 1/timeUnit*(s_max - s_min) else 0.0;
 
-      // Solve for temperature
-      Th = Medium.temperature_phX(
-              p,
-              h1,
-              fill(0.0, 0));
-      Ts = Medium.temperature_psX(
-              p,
-              s1,
-              fill(0.0, 0));
+      // Solve for temperatures
+      Th = Medium.temperature_phX(p, h1, fill(0.0, 0));
+      Ts = Medium.temperature_psX(p, s1, fill(0.0, 0));
 
-      // Check (h2 must be identical to h1)
-      h2 = Medium.specificEnthalpy_pTX(
-              p,
-              Th,
-              fill(0.0, 0));
+      // Check (h2 must be identical to h1, s2 must be identical to s1)
+      h2 = Medium.specificEnthalpy_pTX(p, Th, fill(0.0, 0));
       s2 = Medium.specificEntropy(Medium.setState_pT(p, Ts));
       annotation (experiment(StopTime=1), Documentation(info="<html>
+<p>
+This models computes the temperature <code>Th</code> for predefined specific enthalpy <code>h1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.Incompressible.TableBased.h_T\">Modelica.Media.Incompressible.TableBased.h_T</a>.
+The specific enthalpy <code>h2</code> is computed as check variable from temperature <code>Th</code> and must be identical to <code>h1</code>.
+</p>
 
-                               </html>"));
+<p>
+In an analogous manner, the temperature <code>Ts</code> is computed for predefined specific entropy <code>s1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.Incompressible.TableBased.s_T\">Modelica.Media.Incompressible.TableBased.s_T</a>.
+The specific entropy <code>s2</code> is computed as check variable from temperature <code>Ts</code> and must be identical to <code>s1</code>.
+</p>
+
+<p>
+The numerical computation of the inverse function is performed by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a> in both cases.
+</p>
+
+</html>"));
     end InverseIncompressible_sh_T;
 
     model Inverse_sh_TX
@@ -3116,22 +3101,16 @@ output window.
       final parameter SI.SpecificEnthalpy h_max=Medium.h_TX(T_max, X)
         "Specific enthalpy at T_max";
       final parameter SI.SpecificEntropy s_min=Medium.specificEntropy(
-          Medium.setState_pTX(
-                p,
-                T_min,
-                Medium.reference_X)) "Specific entropy at T_min";
+        Medium.setState_pTX(p, T_min, Medium.reference_X)) "Specific entropy at T_min";
       final parameter SI.SpecificEntropy s_max=Medium.specificEntropy(
-          Medium.setState_pTX(
-                p,
-                T_max,
-                Medium.reference_X)) "Specific entropy at T_max";
+        Medium.setState_pTX(p, T_max, Medium.reference_X)) "Specific entropy at T_max";
       SI.SpecificEnthalpy h1(start=h_min, fixed=true)
         "Pre-defined specific enthalpy";
       SI.SpecificEnthalpy h2
-        "Specific enthalpy computed from T (= h1 required)";
+        "Specific enthalpy computed from Th (= h1 required)";
       SI.SpecificEntropy s1(start=s_min, fixed=true)
         "Pre-defined specific entropy";
-      SI.SpecificEntropy s2 "Specific entropy computed from T (= h1 required)";
+      SI.SpecificEntropy s2 "Specific entropy computed from Ts (= s1 required)";
       SI.Temperature Th "Temperature computed from h1";
       SI.Temperature Ts "Temperature computed from s1";
       parameter SI.MassFraction[4] X=Medium.reference_X "Mass fraction vector";
@@ -3140,30 +3119,31 @@ output window.
       constant SI.Time timeUnit=1.0;
 
     equation
-      // Define specific enthalpy
+      // Define specific enthalpy and specific entropy
       der(h1) = if time < 1.0 then 1/timeUnit*(h_max - h_min) else 0.0;
       der(s1) = if time < 1.0 then 1/timeUnit*(s_max - s_min) else 0.0;
 
-      // Solve for temperature
-      Th = Medium.temperature_phX(
-              p,
-              h1,
-              X);
-      Ts = Medium.temperature_psX(
-              p,
-              s1,
-              X);
+      // Solve for temperatures
+      Th = Medium.temperature_phX(p, h1, X);
+      Ts = Medium.temperature_psX(p, s1, X);
 
-      // Check (h2 must be identical to h1)
-      h2 = Medium.specificEnthalpy_pTX(
-              p,
-              Th,
-              X);
-      s2 = Medium.specificEntropy(Medium.setState_pTX(
-              p,
-              Ts,
-              X));
+      // Check (h2 must be identical to h1, s2 must be identical to s1)
+      h2 = Medium.specificEnthalpy_pTX(p, Th, X);
+      s2 = Medium.specificEntropy(Medium.setState_pTX(p, Ts, X));
       annotation (experiment(StopTime=1), Documentation(info="<html>
+<p>
+This models computes the temperature <code>Th</code> for predefined specific enthalpy <code>h1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.IdealGases.Common.Functions.h_T\">Modelica.Media.IdealGases.Common.Functions.h_T</a>.
+The specific enthalpy <code>h2</code> is computed as check variable from temperature <code>Th</code> and must be identical to <code>h1</code>.
+</p>
+
+<p>
+In an analogous manner, the temperature <code>Ts</code> is computed for predefined specific entropy <code>s1</code> via numerical inversion of function <a href=\"modelica://Modelica.Media.IdealGases.Common.Functions.s0_T\">Modelica.Media.IdealGases.Common.Functions.s0_T</a>.
+The specific entropy <code>s2</code> is computed as check variable from temperature <code>Ts</code> and must be identical to <code>s1</code>.
+</p>
+
+<p>
+The numerical computation of the inverse function is performed by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">Modelica.Math.Nonlinear.solveOneNonlinearEquation</a> in both cases.
+</p>
 
 </html>"));
     end Inverse_sh_TX;
@@ -3171,8 +3151,7 @@ output window.
     annotation (Documentation(info="<html>
 <p>
 This package demonstrates how to solve one non-linear algebraic
-equation in one unknown with function
-Modelica.Media.Common.OneNonLinearEquation.
+equation in one unknown with function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>.
 </p>
 
 </html>"));
@@ -3822,7 +3801,7 @@ package Interfaces "Interfaces for media models"
      than one substance. Provide 3 equations to obtain the remaining
      variables as functions of the independent variables.
      It is also necessary to provide two additional equations to set
-     the gas constant R and the molar mass MM of the medium.
+     the gas constant R_s and the molar mass MM of the medium.
      Finally, the thermodynamic state vector, defined in the base class
      Interfaces.PartialMedium.BaseProperties, should be set, according to
      its definition (see ThermodynamicState below).
@@ -3841,7 +3820,7 @@ package Interfaces "Interfaces for media models"
       h = cp_const*T;
       u = h - p/d;
       MM = 0.024;
-      R = 8.3144/MM;
+      R_s = 8.3144/MM;
       state.p = p;
       state.T = T;
     end BaseProperties;
@@ -3993,7 +3972,7 @@ Modelica source.
     end ThermodynamicState;
 
     replaceable partial model BaseProperties
-      "Base properties (p, d, T, h, u, R, MM and, if applicable, X and Xi) of a medium"
+      "Base properties (p, d, T, h, u, R_s, MM and, if applicable, X and Xi) of a medium"
       InputAbsolutePressure p "Absolute pressure of medium";
       InputMassFraction[nXi] Xi(start=reference_X[1:nXi])
         "Structurally independent mass fractions";
@@ -4003,7 +3982,7 @@ Modelica source.
       MassFraction[nX] X(start=reference_X)
         "Mass fractions (= (component mass)/total mass  m_i/m)";
       SpecificInternalEnergy u "Specific internal energy of medium";
-      SpecificHeatCapacity R "Gas constant (of mixture if applicable)";
+      SpecificHeatCapacity R_s "Gas constant (of mixture if applicable)";
       MolarMass MM "Molar mass (of mixture or single fluid)";
       ThermodynamicState state
         "Thermodynamic state record for optional functions";
@@ -4074,28 +4053,28 @@ PartialMedium):
       <td><strong>Description</strong></td></tr>
   <tr><td>T</td>
       <td>K</td>
-      <td>temperature</td></tr>
+      <td>Temperature</td></tr>
   <tr><td>p</td>
       <td>Pa</td>
-      <td>absolute pressure</td></tr>
+      <td>Absolute pressure</td></tr>
   <tr><td>d</td>
       <td>kg/m3</td>
-      <td>density</td></tr>
+      <td>Density</td></tr>
   <tr><td>h</td>
       <td>J/kg</td>
-      <td>specific enthalpy</td></tr>
+      <td>Specific enthalpy</td></tr>
   <tr><td>u</td>
       <td>J/kg</td>
-      <td>specific internal energy</td></tr>
+      <td>Specific internal energy</td></tr>
   <tr><td>Xi[nXi]</td>
       <td>kg/kg</td>
-      <td>independent mass fractions m_i/m</td></tr>
-  <tr><td>R</td>
-      <td>J/kg.K</td>
-      <td>gas constant</td></tr>
-  <tr><td>M</td>
+      <td>Structurally independent mass fractions</td></tr>
+  <tr><td>R_s</td>
+      <td>J/(kg.K)</td>
+      <td>Specific gas constant (of mixture if applicable)</td></tr>
+  <tr><td>MM</td>
       <td>kg/mol</td>
-      <td>molar mass</td></tr>
+      <td>Molar mass</td></tr>
 </table>
 <p>
 In order to implement an actual medium model, one can extend from this
@@ -4114,8 +4093,8 @@ permitting advanced equation balance checking by Modelica tools.
 Please note that this doesn't mean that the additional equations
 should be connection equations, nor that exactly those variables
 should be supplied, in order to complete the model.
-For further information, see the Modelica.Media User's guide, and
-Section 4.7 (Balanced Models) of the Modelica 3.0 specification.</p>
+For further information, see the <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media User's guide</a>, and
+<a href=\"https://specification.modelica.org/v3.4/Ch4.html#balanced-models\">Section 4.7 (Balanced Models) of the Modelica 3.4 specification</a>.</p>
 </html>"));
     end BaseProperties;
 
@@ -4785,7 +4764,7 @@ are described in
       p = state.p;
       T = state.T;
       MM = MM_const;
-      R = 8.3144/MM;
+      R_s = 8.3144/MM;
     end BaseProperties;
 
     redeclare function extends setState_pTX
@@ -5119,7 +5098,7 @@ to the above list of assumptions</li>
       "Return the gas constant of the mixture (also for liquids)"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state";
-      output SI.SpecificHeatCapacity R "Mixture gas constant";
+      output SI.SpecificHeatCapacity R_s "Mixture gas constant";
     end gasConstant;
 
     function moleToMassFractions "Return mass fractions X from mole fractions"
@@ -5318,7 +5297,7 @@ to the above list of assumptions</li>
     end ThermodynamicState;
 
     redeclare replaceable partial model extends BaseProperties
-      "Base properties (p, d, T, h, u, R, MM, sat) of two phase medium"
+      "Base properties (p, d, T, h, u, R_s, MM, sat) of two phase medium"
       SaturationProperties sat "Saturation properties at the medium pressure";
     end BaseProperties;
 
@@ -5907,7 +5886,7 @@ required from medium model \"" + mediumName + "\".
               X);
       u = cv_const*(T - T0);
       d = d_const;
-      R = 0;
+      R_s = 0;
       MM = MM_const;
       state.T = T;
       state.p = p;
@@ -6202,9 +6181,9 @@ required from medium model \"" + mediumName + "\".
               p,
               T,
               X);
-      u = h - R*T;
-      R = R_gas;
-      d = p/(R*T);
+      u = h - R_s*T;
+      R_s = R_gas;
+      d = p/(R_s*T);
       MM = MM_const;
       state.T = T;
       state.p = p;
@@ -6422,9 +6401,9 @@ quantities are assumed to be constant.
       "Returns overall the isobaric expansion coefficient beta"
     algorithm
       /* beta = 1/v * der(v,T), with v = 1/d, at constant pressure p:
-       v = R*T/p
-       der(v,T) = R/p
-       beta = p/(R*T)*R/p
+       v = R_s*T/p
+       der(v,T) = R_s/p
+       beta = p/(R_s*T)*R_s/p
             = 1/T
     */
 
@@ -6435,9 +6414,9 @@ quantities are assumed to be constant.
       "Returns overall the isothermal compressibility factor"
     algorithm
       /* kappa = - 1/v * der(v,p), with v = 1/d at constant temperature T.
-       v = R*T/p
-       der(v,T) = -R*T/p^2
-       kappa = p/(R*T)*R*T/p^2
+       v = R_s*T/p
+       der(v,T) = -R_s*T/p^2
+       kappa = p/(R_s*T)*R_s*T/p^2
              = 1/p
     */
       kappa := 1/state.p;
@@ -6446,8 +6425,8 @@ quantities are assumed to be constant.
     redeclare function extends density_derp_T
       "Returns the partial derivative of density with respect to pressure at constant temperature"
     algorithm
-      /*  d = p/(R*T)
-        ddpT = 1/(R*T)
+      /*  d = p/(R_s*T)
+        ddpT = 1/(R_s*T)
     */
       ddpT := 1/(R_gas*state.T);
     end density_derp_T;
@@ -6455,8 +6434,8 @@ quantities are assumed to be constant.
     redeclare function extends density_derT_p
       "Returns the partial derivative of density with respect to temperature at constant pressure"
     algorithm
-      /*  d = p/(R*T)
-        ddpT = -p/(R*T^2)
+      /*  d = p/(R_s*T)
+        ddpT = -p/(R_s*T^2)
     */
       ddTp := -state.p/(R_gas*state.T*state.T);
     end density_derT_p;
@@ -6946,7 +6925,7 @@ package Common "Data structures and fundamental functions for fluid properties"
       parameter Integer nspecies(min=1) "Number of components";
       SI.MolarMass[nspecies] MM "Molar mass of components";
       Real[nspecies] invMM "Inverse of molar mass of components";
-      SI.SpecificHeatCapacity[nspecies] R "Gas constant";
+      SI.SpecificHeatCapacity[nspecies] R_s "Gas constant";
       SI.SpecificEnthalpy[nspecies] Hf "Enthalpy of formation at 298.15K";
       SI.SpecificEnthalpy[nspecies] H0 "H0(298.15K) - H0(0K)";
     end FixedIGProperties;
@@ -7088,7 +7067,7 @@ package Common "Data structures and fundamental functions for fluid properties"
         min=CPMIN,
         max=CPMAX,
         nominal=CPNOM) "Heat capacity at constant volume";
-      SI.SpecificHeatCapacity R(
+      SI.SpecificHeatCapacity R_s(
         min=CPMIN,
         max=CPMAX,
         nominal=CPNOM) "Gas constant";
@@ -7178,7 +7157,7 @@ package Common "Data structures and fundamental functions for fluid properties"
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Heat capacity at constant volume";
-      SI.SpecificHeatCapacity R(
+      SI.SpecificHeatCapacity R_s(
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Gas constant";
@@ -7234,7 +7213,7 @@ two phase and liquid regions.
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Heat capacity at constant volume";
-      SI.SpecificHeatCapacity R(
+      SI.SpecificHeatCapacity R_s(
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Gas constant";
@@ -7289,7 +7268,7 @@ liquid regions, but never in the two-phase region.
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Heat capacity at constant volume";
-      SI.SpecificHeatCapacity R(
+      SI.SpecificHeatCapacity R_s(
         min=1.0,
         max=1.0e6,
         nominal=1000.0) "Gas constant";
@@ -7360,17 +7339,17 @@ critical pressure.
         "Derivative of specific volume w.r.t. pressure";
     algorithm
       pro.T := g.T;
-      pro.R := g.R;
-      pro.d := g.p/(pro.R*pro.T*g.pi*g.gpi);
-      pro.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-      pro.s := pro.R*(g.tau*g.gtau - g.g);
-      pro.cp := -pro.R*g.tau*g.tau*g.gtautau;
-      pro.cv := pro.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
+      pro.R_s := g.R_s;
+      pro.d := g.p/(pro.R_s*pro.T*g.pi*g.gpi);
+      pro.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+      pro.s := pro.R_s*(g.tau*g.gtau - g.g);
+      pro.cp := -pro.R_s*g.tau*g.tau*g.gtautau;
+      pro.cv := pro.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/(g.gpipi));
-      pro.a := abs(g.R*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
         *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
-      vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+      vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/(pro.d*g.p)*pro.cp/(vp*pro.cp + vt*vt*g.T);
       pro.ddhp := -pro.d*pro.d*vt/(pro.cp);
       pro.ddph := -pro.d*pro.d*(vp*pro.cp - vt/pro.d + g.T*vt*vt)/pro.cp;
@@ -7390,18 +7369,18 @@ critical pressure.
       Real vp(unit="m4.kg-2.s2")
         "Derivative of specific volume w.r.t. pressure";
     algorithm
-      sat.d := g.p/(g.R*g.T*g.pi*g.gpi);
-      sat.h := g.R*g.T*g.tau*g.gtau;
-      sat.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-      sat.s := g.R*(g.tau*g.gtau - g.g);
-      sat.cp := -g.R*g.tau*g.tau*g.gtautau;
-      sat.cv := g.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
+      sat.d := g.p/(g.R_s*g.T*g.pi*g.gpi);
+      sat.h := g.R_s*g.T*g.tau*g.gtau;
+      sat.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+      sat.s := g.R_s*(g.tau*g.gtau - g.g);
+      sat.cp := -g.R_s*g.tau*g.tau*g.gtautau;
+      sat.cv := g.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/(g.gpipi));
-      vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+      vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       // sat.kappa := -1/(sat.d*g.p)*sat.cp/(vp*sat.cp + vt*vt*g.T);
       sat.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-      sat.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
+      sat.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
     end gibbsToBoundaryProps;
 
     function gibbsToProps_dT
@@ -7418,22 +7397,22 @@ critical pressure.
         "Derivative of specific volume w.r.t. pressure";
       Modelica.SIunits.Density d;
     algorithm
-      pro.R := g.R;
+      pro.R_s := g.R_s;
       pro.p := g.p;
-      pro.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-      pro.h := g.R*g.T*g.tau*g.gtau;
-      pro.s := pro.R*(g.tau*g.gtau - g.g);
-      pro.cp := -pro.R*g.tau*g.tau*g.gtautau;
-      pro.cv := pro.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
+      pro.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+      pro.h := g.R_s*g.T*g.tau*g.gtau;
+      pro.s := pro.R_s*(g.tau*g.gtau - g.g);
+      pro.cp := -pro.R_s*g.tau*g.tau*g.gtautau;
+      pro.cv := pro.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi);
-      vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
-      pro.kappa := -1/((g.p/(pro.R*g.T*g.pi*g.gpi))*g.p)*pro.cp/(vp*pro.cp + vt
+      vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+      pro.kappa := -1/((g.p/(pro.R_s*g.T*g.pi*g.gpi))*g.p)*pro.cp/(vp*pro.cp + vt
         *vt*g.T);
-      pro.a := abs(g.R*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
         *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
 
-      d := g.p/(pro.R*g.T*g.pi*g.gpi);
+      d := g.p/(pro.R_s*g.T*g.pi*g.gpi);
       pro.dudT := (pro.p - g.T*vt/vp)/(d*d);
     end gibbsToProps_dT;
 
@@ -7450,18 +7429,18 @@ critical pressure.
       Real vp(unit="m4.kg-2.s2")
         "Derivative of specific volume w.r.t. pressure";
     algorithm
-      pro.R := g.R;
-      pro.d := g.p/(pro.R*g.T*g.pi*g.gpi);
-      pro.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-      pro.h := g.R*g.T*g.tau*g.gtau;
-      pro.s := pro.R*(g.tau*g.gtau - g.g);
-      pro.cp := -pro.R*g.tau*g.tau*g.gtautau;
-      pro.cv := pro.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
+      pro.R_s := g.R_s;
+      pro.d := g.p/(pro.R_s*g.T*g.pi*g.gpi);
+      pro.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+      pro.h := g.R_s*g.T*g.tau*g.gtau;
+      pro.s := pro.R_s*(g.tau*g.gtau - g.g);
+      pro.cp := -pro.R_s*g.tau*g.tau*g.gtautau;
+      pro.cv := pro.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi
          - g.tau*g.gtaupi)/g.gpipi);
-      vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-      vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+      vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+      vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
       pro.kappa := -1/(pro.d*g.p)*pro.cp/(vp*pro.cp + vt*vt*g.T);
-      pro.a := abs(g.R*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+      pro.a := abs(g.R_s*g.T*(g.gpi*g.gpi/((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
         *g.gtaupi)/(g.tau*g.tau*g.gtautau) - g.gpipi)))^0.5;
       pro.ddpT := -(pro.d*pro.d)*vp;
       pro.ddTp := -(pro.d*pro.d)*vt;
@@ -7485,21 +7464,21 @@ critical pressure.
     algorithm
       pro.d := f.d;
       pro.T := f.T;
-      pro.R := f.R;
-      pro.s := f.R*(f.tau*f.ftau - f.f);
-      pro.u := f.R*f.T*f.tau*f.ftau;
-      p := pro.d*pro.R*pro.T*f.delta*f.fdelta;
-      pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      pro.R_s := f.R_s;
+      pro.s := f.R_s*(f.tau*f.ftau - f.f);
+      pro.u := f.R_s*f.T*f.tau*f.ftau;
+      p := pro.d*pro.R_s*pro.T*f.delta*f.fdelta;
+      pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       pv := -pd*f.d*f.d;
 
       // calculating cp near the critical point may be troublesome (cp -> inf).
-      pro.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
+      pro.cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
-      pro.cv := f.R*(-f.tau*f.tau*f.ftautau);
-      pro.kappa := 1/(f.d*f.R*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
+      pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
+      pro.kappa := 1/(f.d*f.R_s*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
         /(pro.cv));
-      pro.a := abs(f.R*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
         f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       pro.ddph := (f.d*(pro.cv*f.d + pt))/(f.d*f.d*pd*pro.cv + f.T*pt*pt);
@@ -7528,23 +7507,23 @@ critical pressure.
       SI.Pressure p "Pressure";
     algorithm
       pro.d := f.d;
-      pro.R := f.R;
-      pro.s := f.R*(f.tau*f.ftau - f.f);
-      pro.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-      pro.u := f.R*f.T*f.tau*f.ftau;
-      pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      pro.R_s := f.R_s;
+      pro.s := f.R_s*(f.tau*f.ftau - f.f);
+      pro.h := f.R_s*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+      pro.u := f.R_s*f.T*f.tau*f.ftau;
+      pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       pv := -(f.d*f.d)*pd;
       alpha := -f.d*pt/pv;
       gamma := -f.d/pv;
-      p := f.R*f.d*f.T*f.delta*f.fdelta;
+      p := f.R_s*f.d*f.T*f.delta*f.fdelta;
       // calculating cp near the critical point may be troublesome (cp -> inf).
-      pro.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
+      pro.cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
-      pro.cv := f.R*(-f.tau*f.tau*f.ftautau);
-      pro.kappa := 1/(f.d*f.R*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
+      pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
+      pro.kappa := 1/(f.d*f.R_s*f.d*f.T*f.delta*f.fdelta)*((-pv*pro.cv + pt*pt*f.T)
         /(pro.cv));
-      pro.a := abs(f.R*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
         f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       pro.ddTp := -pt/pd;
@@ -7565,20 +7544,20 @@ critical pressure.
       DerPressureByTemperature pt "Derivative of pressure w.r.t. temperature";
       DerPressureBySpecificVolume pv "Derivative of pressure w.r.t. pressure";
     algorithm
-      pro.p := f.R*f.d*f.T*f.delta*f.fdelta;
-      pro.R := f.R;
-      pro.s := f.R*(f.tau*f.ftau - f.f);
-      pro.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-      pro.u := f.R*f.T*f.tau*f.ftau;
-      pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      pro.p := f.R_s*f.d*f.T*f.delta*f.fdelta;
+      pro.R_s := f.R_s;
+      pro.s := f.R_s*(f.tau*f.ftau - f.f);
+      pro.h := f.R_s*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+      pro.u := f.R_s*f.T*f.tau*f.ftau;
+      pv := -(f.d*f.d)*f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+      pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
 
       // calculating cp near the critical point may be troublesome (cp -> inf).
-      pro.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
+      pro.cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau
         *f.fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
-      pro.cv := f.R*(-f.tau*f.tau*f.ftautau);
+      pro.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
       pro.kappa := 1/(f.d*pro.p)*((-pv*pro.cv + pt*pt*f.T)/(pro.cv));
-      pro.a := abs(f.R*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
+      pro.a := abs(f.R_s*f.T*(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta
          - ((f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)*(f.delta*f.fdelta -
         f.delta*f.tau*f.fdeltatau))/(f.tau*f.tau*f.ftautau)))^0.5;
       pro.dudT := (pro.p - f.T*pt)/(f.d*f.d);
@@ -7603,7 +7582,7 @@ critical pressure.
       pro.u := sat.u;
       pro.s := sat.s;
       pro.cv := sat.cv;
-      pro.R := sat.R;
+      pro.R_s := sat.R_s;
       pro.cp := Modelica.Constants.inf;
       pro.kappa := -1/(sat.d*sat.p)*sat.dpT*sat.dpT*sat.T/sat.cv;
       pro.a := Modelica.Constants.inf;
@@ -7628,7 +7607,7 @@ critical pressure.
       pro.s := sat.s;
       pro.cv := sat.cv;
       pro.cp := Modelica.Constants.inf;
-      pro.R := sat.R;
+      pro.R_s := sat.R_s;
       pro.kappa := -1/(sat.d*sat.p)*sat.dpT*sat.dpT*sat.T/sat.cv;
       pro.a := Modelica.Constants.inf;
       pro.dudT := (sat.p - sat.T*sat.dpT)/(sat.d*sat.d);
@@ -7647,7 +7626,7 @@ public
     SI.SpecificEntropy s "Specific entropy";
     SI.SpecificHeatCapacity cp "Heat capacity at constant pressure";
     SI.SpecificHeatCapacity cv "Heat capacity at constant volume";
-    SI.SpecificHeatCapacity R "Gas constant";
+    SI.SpecificHeatCapacity R_s "Gas constant";
     SI.RatioOfSpecificHeatCapacities kappa "Isentropic expansion coefficient";
     PhaseBoundaryProperties liq
       "Thermodynamic base properties on the boiling curve";
@@ -7683,7 +7662,7 @@ public
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
     SI.SpecificEnthalpy h "Specific enthalpy";
-    SI.SpecificHeatCapacity R "Gas constant";
+    SI.SpecificHeatCapacity R_s "Gas constant";
     SI.SpecificHeatCapacity cp "Specific heat capacity";
     SI.SpecificHeatCapacity cv "Specific heat capacity";
     SI.Density rho "Density";
@@ -7701,7 +7680,7 @@ public
 
     extends Modelica.Icons.Record;
     Boolean region3boundary "True if boundary between 2-phase and region 3";
-    SI.SpecificHeatCapacity R "Specific heat capacity";
+    SI.SpecificHeatCapacity R_s "Specific heat capacity";
     SI.Temperature T "Temperature";
     SI.Density d "Density";
     SI.SpecificEnthalpy h "Specific enthalpy";
@@ -7722,7 +7701,7 @@ public
     extends Modelica.Icons.Record;
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
-    SI.SpecificHeatCapacity R "Specific heat capacity";
+    SI.SpecificHeatCapacity R_s "Specific heat capacity";
     Real pi(unit="1") "Dimensionless pressure";
     Real tau(unit="1") "Dimensionless temperature";
     Real g(unit="1") "Dimensionless Gibbs-function";
@@ -7738,7 +7717,7 @@ public
     extends Modelica.Icons.Record;
     SI.Density d "Density";
     SI.Temperature T "Temperature";
-    SI.SpecificHeatCapacity R "Specific heat capacity";
+    SI.SpecificHeatCapacity R_s "Specific heat capacity";
     Real delta(unit="1") "Dimensionless density";
     Real tau(unit="1") "Dimensionless temperature";
     Real f(unit="1") "Dimensionless Helmholtz-function";
@@ -7980,7 +7959,7 @@ end BridgmansTablesForWater;
   record FundamentalConstants "Constants of the medium"
     extends Modelica.Icons.Record;
     Modelica.SIunits.MolarHeatCapacity R_bar;
-    Modelica.SIunits.SpecificHeatCapacity R;
+    Modelica.SIunits.SpecificHeatCapacity R_s;
     Modelica.SIunits.MolarMass MM;
     Modelica.SIunits.MolarDensity rhored;
     Modelica.SIunits.Temperature Tred;
@@ -7994,7 +7973,7 @@ end BridgmansTablesForWater;
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
     SI.SpecificEnthalpy h "Specific enthalpy";
-    SI.SpecificHeatCapacity R "Gas constant";
+    SI.SpecificHeatCapacity R_s "Gas constant";
     SI.SpecificHeatCapacity cp "Specific heat capacity";
     SI.SpecificHeatCapacity cv "Specific heat capacity";
     SI.Density rho "Density";
@@ -8011,7 +7990,7 @@ end BridgmansTablesForWater;
     extends Modelica.Icons.Record;
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
-    SI.SpecificHeatCapacity R "Specific heat capacity";
+    SI.SpecificHeatCapacity R_s "Specific heat capacity";
     Real pi(unit="1") "Dimensionless pressure";
     Real theta(unit="1") "Dimensionless temperature";
     Real g(unit="J/kg") "Gibbs function";
@@ -8049,11 +8028,11 @@ end BridgmansTablesForWater;
       "Derivative of specific volume w.r.t. temperature";
     Real vp(unit="m4.kg-2.s2") "Derivative of specific volume w.r.t. pressure";
   algorithm
-    vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-    vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
-    v := (g.R*g.T*g.pi*g.gpi)/g.p;
-    s := g.R*(g.tau*g.gtau - g.g);
-    cp := -g.R*g.tau*g.tau*g.gtautau;
+    vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+    vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+    v := (g.R_s*g.T*g.pi*g.gpi)/g.p;
+    s := g.R_s*(g.tau*g.gtau - g.g);
+    cp := -g.R_s*g.tau*g.tau*g.gtautau;
     alpha := vt/v;
     gamma := -vp/v;
   end gibbsToBridgmansTables;
@@ -8078,13 +8057,13 @@ end BridgmansTablesForWater;
       "Derivative of pressure w.r.t. specific volume";
     SI.SpecificHeatCapacity cv "Isochoric specific heat capacity";
   algorithm
-    p := f.R*f.d*f.T*f.delta*f.fdelta;
-    pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-    s := f.R*(f.tau*f.ftau - f.f);
+    p := f.R_s*f.d*f.T*f.delta*f.fdelta;
+    pv := -(f.d*f.d)*f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    s := f.R_s*(f.tau*f.ftau - f.f);
     alpha := -f.d*pt/pv;
     gamma := -f.d/pv;
-    cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)
+    cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)
       ^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
   end helmholtzToBridgmansTables;
 
@@ -8098,18 +8077,18 @@ end BridgmansTablesForWater;
     Real vt "Derivative of specific volume w.r.t. temperature";
     Real vp "Derivative of specific volume w.r.t. pressure";
   algorithm
-    sat.d := g.p/(g.R*g.T*g.pi*g.gpi);
-    sat.h := g.R*g.T*g.tau*g.gtau;
-    sat.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
-    sat.s := g.R*(g.tau*g.gtau - g.g);
-    sat.cp := -g.R*g.tau*g.tau*g.gtautau;
-    sat.cv := g.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+    sat.d := g.p/(g.R_s*g.T*g.pi*g.gpi);
+    sat.h := g.R_s*g.T*g.tau*g.gtau;
+    sat.u := g.T*g.R_s*(g.tau*g.gtau - g.pi*g.gpi);
+    sat.s := g.R_s*(g.tau*g.gtau - g.g);
+    sat.cp := -g.R_s*g.tau*g.tau*g.gtautau;
+    sat.cv := g.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
       *g.gtaupi)/(g.gpipi));
-    vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-    vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+    vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+    vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
     // sat.kappa := -1/(sat.d*g.p)*sat.cp/(vp*sat.cp + vt*vt*g.T);
     sat.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
-    sat.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
+    sat.pd := -g.R_s*g.T*g.gpi*g.gpi/(g.gpipi);
   end gibbsToBoundaryProps;
 
   function helmholtzToBoundaryProps
@@ -8121,16 +8100,16 @@ end BridgmansTablesForWater;
   protected
     SI.Pressure p "Pressure";
   algorithm
-    p := f.R*f.d*f.T*f.delta*f.fdelta;
+    p := f.R_s*f.d*f.T*f.delta*f.fdelta;
     sat.d := f.d;
-    sat.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-    sat.s := f.R*(f.tau*f.ftau - f.f);
-    sat.u := f.R*f.T*f.tau*f.ftau;
-    sat.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)
+    sat.h := f.R_s*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+    sat.s := f.R_s*(f.tau*f.ftau - f.f);
+    sat.u := f.R_s*f.T*f.tau*f.ftau;
+    sat.cp := f.R_s*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.fdeltatau)
       ^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
-    sat.cv := f.R*(-f.tau*f.tau*f.ftautau);
-    sat.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-    sat.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    sat.cv := f.R_s*(-f.tau*f.tau*f.ftautau);
+    sat.pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    sat.pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
   end helmholtzToBoundaryProps;
 
   function cv2Phase
@@ -8207,12 +8186,12 @@ end BridgmansTablesForWater;
     SI.SpecificHeatCapacity cv "Isochoric heat capacity";
     SI.SpecificHeatCapacity cp "Isobaric heat capacity";
   algorithm
-    d := g.p/(g.R*g.T*g.pi*g.gpi);
+    d := g.p/(g.R_s*g.T*g.pi*g.gpi);
     v := 1/d;
-    vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-    vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
-    cp := -g.R*g.tau*g.tau*g.gtautau;
-    cv := g.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+    vt := g.R_s/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+    vp := g.R_s*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+    cp := -g.R_s*g.tau*g.tau*g.gtautau;
+    cv := g.R_s*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
       *g.gtaupi)/g.gpipi);
     dpro.kappa := -1/(d*g.p)*cp/(vp*cp + vt*vt*g.T);
     dpro.theta := cp/(d*g.p*(-vp*cp + vt*v - g.T*vt*vt));
@@ -8237,10 +8216,10 @@ end BridgmansTablesForWater;
     SI.SpecificHeatCapacity cv "Isochoric specific heat capacity";
   algorithm
     v := 1/f.d;
-    p := f.R*f.d*f.T*f.delta*f.fdelta;
-    pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-    cv := f.R*(-f.tau*f.tau*f.ftautau);
+    p := f.R_s*f.d*f.T*f.delta*f.fdelta;
+    pv := -(f.d*f.d)*f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    cv := f.R_s*(-f.tau*f.tau*f.ftautau);
     dpro.kappa := 1/(f.d*p)*((-pv*cv + pt*pt*f.T)/(cv));
     dpro.theta := -1/(f.d*p)*((-pv*cv + f.T*pt*pt)/(cv + pt*v));
     dpro.alpha := -f.d*pt/pv;
@@ -8258,11 +8237,11 @@ end BridgmansTablesForWater;
   protected
     SI.SpecificHeatCapacity cv "Isochoric heat capacity";
   algorithm
-    cv := -f.R*(f.tau*f.tau*f.ftautau);
-    nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
-    nderivs.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-    nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    cv := -f.R_s*(f.tau*f.tau*f.ftautau);
+    nderivs.p := f.d*f.R_s*f.T*f.delta*f.fdelta;
+    nderivs.h := f.R_s*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+    nderivs.pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    nderivs.pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
     nderivs.ht := cv + nderivs.pt/f.d;
     nderivs.hd := (nderivs.pd - f.T*nderivs.pt/f.d)/f.d;
   end Helmholtz_ph;
@@ -8275,8 +8254,8 @@ end BridgmansTablesForWater;
     output NewtonDerivatives_pT nderivs
       "Derivatives for Newton iteration to compute d and t from p and t";
   algorithm
-    nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
-    nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    nderivs.p := f.d*f.R_s*f.T*f.delta*f.fdelta;
+    nderivs.pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
   end Helmholtz_pT;
 
   function Helmholtz_ps
@@ -8289,11 +8268,11 @@ end BridgmansTablesForWater;
   protected
     SI.SpecificHeatCapacity cv "Isochoric heat capacity";
   algorithm
-    cv := -f.R*(f.tau*f.tau*f.ftautau);
-    nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
-    nderivs.s := f.R*(f.tau*f.ftau - f.f);
-    nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-    nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+    cv := -f.R_s*(f.tau*f.tau*f.ftautau);
+    nderivs.p := f.d*f.R_s*f.T*f.delta*f.fdelta;
+    nderivs.s := f.R_s*(f.tau*f.ftau - f.f);
+    nderivs.pd := f.R_s*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+    nderivs.pt := f.R_s*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
     nderivs.st := cv/f.T;
     nderivs.sd := -nderivs.pt/(f.d*f.d);
   end Helmholtz_ps;
@@ -8439,233 +8418,6 @@ Summing all mass fractions together results in
     nderivs.sd := 0.0;
   end Gibbs2_ps;
 
-  package OneNonLinearEquation
-    "Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way"
-    extends Modelica.Icons.Package;
-
-    replaceable record f_nonlinear_Data
-      "Data specific for function f_nonlinear"
-      extends Modelica.Icons.Record;
-    end f_nonlinear_Data;
-
-    replaceable partial function f_nonlinear
-      "Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)"
-      extends Modelica.Icons.Function;
-      input Real x "Independent variable of function";
-      input Real p=0.0 "Disregarded variables (here always used for pressure)";
-      input Real[:] X=fill(0, 0)
-        "Disregarded variables (her always used for composition)";
-      input f_nonlinear_Data f_nonlinear_data
-        "Additional data for the function";
-      output Real y "= f_nonlinear(x)";
-      // annotation(derivative(zeroDerivative=y)); // this must hold for all replaced functions
-    end f_nonlinear;
-
-    replaceable function solve
-      "Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign"
-      import Modelica.Utilities.Streams.error;
-      extends Modelica.Icons.Function;
-      input Real y_zero
-        "Determine x_zero, such that f_nonlinear(x_zero) = y_zero";
-      input Real x_min "Minimum value of x";
-      input Real x_max "Maximum value of x";
-      input Real pressure=0.0
-        "Disregarded variables (here always used for pressure)";
-      input Real[:] X=fill(0, 0)
-        "Disregarded variables (here always used for composition)";
-      input f_nonlinear_Data f_nonlinear_data
-        "Additional data for function f_nonlinear";
-      input Real x_tol=100*Modelica.Constants.eps
-        "Relative tolerance of the result";
-      output Real x_zero "f_nonlinear(x_zero) = y_zero";
-    protected
-      constant Real eps=Modelica.Constants.eps "Machine epsilon";
-      constant Real x_eps=1e-10
-        "Slight modification of x_min, x_max, since x_min, x_max are usually exactly at the borders T_min/h_min and then small numeric noise may make the interval invalid";
-      Real x_min2=x_min - x_eps;
-      Real x_max2=x_max + x_eps;
-      Real a=x_min2 "Current best minimum interval value";
-      Real b=x_max2 "Current best maximum interval value";
-      Real c "Intermediate point a <= c <= b";
-      Real d;
-      Real e "b - a";
-      Real m;
-      Real s;
-      Real p;
-      Real q;
-      Real r;
-      Real tol;
-      Real fa "= f_nonlinear(a) - y_zero";
-      Real fb "= f_nonlinear(b) - y_zero";
-      Real fc;
-      Boolean found=false;
-    algorithm
-      // Check that f(x_min) and f(x_max) have different sign
-      fa := f_nonlinear(
-              x_min2,
-              pressure,
-              X,
-              f_nonlinear_data) - y_zero;
-      fb := f_nonlinear(
-              x_max2,
-              pressure,
-              X,
-              f_nonlinear_data) - y_zero;
-      fc := fb;
-      if fa > 0.0 and fb > 0.0 or fa < 0.0 and fb < 0.0 then
-        error(
-          "The arguments x_min and x_max to OneNonLinearEquation.solve(..)\n"
-           + "do not bracket the root of the single non-linear equation:\n" +
-          "  x_min  = " + String(x_min2) + "\n" + "  x_max  = " + String(x_max2)
-           + "\n" + "  y_zero = " + String(y_zero) + "\n" +
-          "  fa = f(x_min) - y_zero = " + String(fa) + "\n" +
-          "  fb = f(x_max) - y_zero = " + String(fb) + "\n" +
-          "fa and fb must have opposite sign which is not the case");
-      end if;
-
-      // Initialize variables
-      c := a;
-      fc := fa;
-      e := b - a;
-      d := e;
-
-      // Search loop
-      while not found loop
-        if abs(fc) < abs(fb) then
-          a := b;
-          b := c;
-          c := a;
-          fa := fb;
-          fb := fc;
-          fc := fa;
-        end if;
-
-        tol := 2*eps*abs(b) + x_tol;
-        m := (c - b)/2;
-
-        if abs(m) <= tol or fb == 0.0 then
-          // root found (interval is small enough)
-          found := true;
-          x_zero := b;
-        else
-          // Determine if a bisection is needed
-          if abs(e) < tol or abs(fa) <= abs(fb) then
-            e := m;
-            d := e;
-          else
-            s := fb/fa;
-            if a == c then
-              // linear interpolation
-              p := 2*m*s;
-              q := 1 - s;
-            else
-              // inverse quadratic interpolation
-              q := fa/fc;
-              r := fb/fc;
-              p := s*(2*m*q*(q - r) - (b - a)*(r - 1));
-              q := (q - 1)*(r - 1)*(s - 1);
-            end if;
-
-            if p > 0 then
-              q := -q;
-            else
-              p := -p;
-            end if;
-
-            s := e;
-            e := d;
-            if 2*p < 3*m*q - abs(tol*q) and p < abs(0.5*s*q) then
-              // interpolation successful
-              d := p/q;
-            else
-              // use bi-section
-              e := m;
-              d := e;
-            end if;
-          end if;
-
-          // Best guess value is defined as "a"
-          a := b;
-          fa := fb;
-          b := b + (if abs(d) > tol then d else if m > 0 then tol else -tol);
-          fb := f_nonlinear(
-                  b,
-                  pressure,
-                  X,
-                  f_nonlinear_data) - y_zero;
-
-          if fb > 0 and fc > 0 or fb < 0 and fc < 0 then
-            // initialize variables
-            c := a;
-            fc := fa;
-            e := b - a;
-            d := e;
-          end if;
-        end if;
-      end while;
-    end solve;
-
-    annotation (Documentation(info="<html>
-<p>
-This function should currently only be used in Modelica.Media,
-since it might be replaced in the future by another strategy,
-where the tool is responsible for the solution of the non-linear
-equation.
-</p>
-
-<p>
-This library determines the solution of one non-linear algebraic equation \"y=f(x)\"
-in one unknown \"x\" in a reliable way. As input, the desired value y of the
-non-linear function has to be given, as well as an interval x_min, x_max that
-contains the solution, i.e., \"f(x_min) - y\" and \"f(x_max) - y\" must
-have a different sign. If possible, a smaller interval is computed by
-inverse quadratic interpolation (interpolating with a quadratic polynomial
-through the last 3 points and computing the zero). If this fails,
-bisection is used, which always reduces the interval by a factor of 2.
-The inverse quadratic interpolation method has superlinear convergence.
-This is roughly the same convergence rate as a globally convergent Newton
-method, but without the need to compute derivatives of the non-linear
-function. The solver function is a direct mapping of the Algol 60 procedure
-\"zero\" to Modelica, from:
-</p>
-
-<dl>
-<dt> Brent R.P.:</dt>
-<dd> <strong>Algorithms for Minimization without derivatives</strong>.
-     Prentice Hall, 1973, pp. 58-59.</dd>
-</dl>
-
-<p>
-Due to current limitations of the
-Modelica language (not possible to pass a function reference to a function),
-the construction to use this solver on a user-defined function is a bit
-complicated (this method is from Hans Olsson, Dassault Syst&egrave;mes AB). A user has to
-provide a package in the following way:
-</p>
-
-<pre>
-  <strong>package</strong> MyNonLinearSolver
-    <strong>extends</strong> OneNonLinearEquation;
-
-    <strong>redeclare record extends</strong> Data
-      // Define data to be passed to user function
-      ...
-    <strong>end</strong> Data;
-
-    <strong>redeclare function extends</strong> f_nonlinear
-    <strong>algorithm</strong>
-       // Compute the non-linear equation: y = f(x, Data)
-    <strong>end</strong> f_nonlinear;
-
-    // Dummy definition that has to be present for current Dymola
-    <strong>redeclare function extends</strong> solve
-    <strong>end</strong> solve;
-  <strong>end</strong> MyNonLinearSolver;
-
-  x_zero = MyNonLinearSolver.solve(y_zero, x_min, x_max, data=data);
-</pre>
-</html>"));
-  end OneNonLinearEquation;
   annotation (Documentation(info="<html><h4>Package description</h4>
       <p>Package Modelica.Media.Common provides records and functions shared by many of the property sub-packages.
       High accuracy fluid property models share a lot of common structure, even if the actual models are different.

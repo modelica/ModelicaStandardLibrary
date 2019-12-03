@@ -1,6 +1,207 @@
 within ;
 package ObsoleteModelica4 "Library that contains components from Modelica Standard Library 3.2.3 that have been removed from version 4.0.0"
   extends Modelica.Icons.Package;
+  package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
+    extends Modelica.Icons.Package;
+    package Interfaces "Library of connectors and partial models for input/output blocks"
+      extends Modelica.Icons.Package;
+      package Adaptors "Package with adaptors"
+        extends Modelica.Icons.Package;
+        block SendReal "Obsolete block to send Real signal to bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.RealOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Interfaces.RealInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          toBus = u;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={0,0,127},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),   Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={0,0,127},
+                    textString="send")}), Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Real signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end SendReal;
+
+        block SendBoolean "Obsolete block to send Boolean signal to bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.BooleanOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Interfaces.BooleanInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          toBus = u;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,0,255},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),   Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,0,255},
+                    textString="send")}), Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Boolean signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end SendBoolean;
+
+        block SendInteger "Obsolete block to send Integer signal to bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.IntegerOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Interfaces.IntegerInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          toBus = u;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,127,0},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),   Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,127,0},
+                    textString="send")}), Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect an Integer signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end SendInteger;
+
+        block ReceiveReal "Obsolete block to receive Real signal from bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.RealInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+          Modelica.Blocks.Interfaces.RealOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+        equation
+          y = fromBus;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={0,0,127},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={0,0,127},
+                    textString="receive"),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255})}),    Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Real signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end ReceiveReal;
+
+        block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.BooleanInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+          Modelica.Blocks.Interfaces.BooleanOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+        equation
+          y = fromBus;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,0,255},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,0,255},
+                    textString="receive"),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255})}),    Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Boolean signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end ReceiveBoolean;
+
+        block ReceiveInteger "Obsolete block to receive Integer signal from bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.IntegerInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+          Modelica.Blocks.Interfaces.IntegerOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+        equation
+          y = fromBus;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,127,0},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,127,0},
+                    textString="receive"),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255})}),    Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect an Integer signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end ReceiveInteger;
+      end Adaptors;
+    end Interfaces;
+  end Blocks;
+
   package Electrical "Library of electrical models (analog, digital, machines, polyphase)"
     extends Modelica.Icons.Package;
     package PowerConverters "Rectifiers, Inverters and DC/DC converters"
@@ -890,6 +1091,245 @@ connector is not connected).
       end Interfaces;
     end Translational;
   end Mechanics;
+
+  package Media "Library of media property models"
+    extends Modelica.Icons.Package;
+    package Common "Data structures and fundamental functions for fluid properties"
+      extends Modelica.Icons.Package;
+      package OneNonLinearEquation "Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way"
+        extends Modelica.Icons.Package;
+        extends Modelica.Icons.ObsoleteModel;
+
+        replaceable record f_nonlinear_Data
+          "Data specific for function f_nonlinear"
+          extends Modelica.Icons.Record;
+          extends Modelica.Icons.ObsoleteModel;
+        end f_nonlinear_Data;
+
+        replaceable partial function f_nonlinear
+          "Non-linear algebraic equation in one unknown: y = f_nonlinear(x,p,X)"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          input Real x "Independent variable of function";
+          input Real p=0.0 "Disregarded variables (here always used for pressure)";
+          input Real[:] X=fill(0, 0)
+            "Disregarded variables (her always used for composition)";
+          input f_nonlinear_Data f_nonlinear_data
+            "Additional data for the function";
+          output Real y "= f_nonlinear(x)";
+          // annotation(derivative(zeroDerivative=y)); // this must hold for all replaced functions
+        end f_nonlinear;
+
+        replaceable function solve
+          "Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign"
+          import Modelica.Utilities.Streams.error;
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          input Real y_zero
+            "Determine x_zero, such that f_nonlinear(x_zero) = y_zero";
+          input Real x_min "Minimum value of x";
+          input Real x_max "Maximum value of x";
+          input Real pressure=0.0
+            "Disregarded variables (here always used for pressure)";
+          input Real[:] X=fill(0, 0)
+            "Disregarded variables (here always used for composition)";
+          input f_nonlinear_Data f_nonlinear_data
+            "Additional data for function f_nonlinear";
+          input Real x_tol=100*Modelica.Constants.eps
+            "Relative tolerance of the result";
+          output Real x_zero "f_nonlinear(x_zero) = y_zero";
+        protected
+          constant Real eps=Modelica.Constants.eps "Machine epsilon";
+          constant Real x_eps=1e-10
+            "Slight modification of x_min, x_max, since x_min, x_max are usually exactly at the borders T_min/h_min and then small numeric noise may make the interval invalid";
+          Real x_min2=x_min - x_eps;
+          Real x_max2=x_max + x_eps;
+          Real a=x_min2 "Current best minimum interval value";
+          Real b=x_max2 "Current best maximum interval value";
+          Real c "Intermediate point a <= c <= b";
+          Real d;
+          Real e "b - a";
+          Real m;
+          Real s;
+          Real p;
+          Real q;
+          Real r;
+          Real tol;
+          Real fa "= f_nonlinear(a) - y_zero";
+          Real fb "= f_nonlinear(b) - y_zero";
+          Real fc;
+          Boolean found=false;
+        algorithm
+          // Check that f(x_min) and f(x_max) have different sign
+          fa := f_nonlinear(
+                  x_min2,
+                  pressure,
+                  X,
+                  f_nonlinear_data) - y_zero;
+          fb := f_nonlinear(
+                  x_max2,
+                  pressure,
+                  X,
+                  f_nonlinear_data) - y_zero;
+          fc := fb;
+          if fa > 0.0 and fb > 0.0 or fa < 0.0 and fb < 0.0 then
+            error(
+              "The arguments x_min and x_max to OneNonLinearEquation.solve(..)\n"
+               + "do not bracket the root of the single non-linear equation:\n" +
+              "  x_min  = " + String(x_min2) + "\n" + "  x_max  = " + String(x_max2)
+               + "\n" + "  y_zero = " + String(y_zero) + "\n" +
+              "  fa = f(x_min) - y_zero = " + String(fa) + "\n" +
+              "  fb = f(x_max) - y_zero = " + String(fb) + "\n" +
+              "fa and fb must have opposite sign which is not the case");
+          end if;
+
+          // Initialize variables
+          c := a;
+          fc := fa;
+          e := b - a;
+          d := e;
+
+          // Search loop
+          while not found loop
+            if abs(fc) < abs(fb) then
+              a := b;
+              b := c;
+              c := a;
+              fa := fb;
+              fb := fc;
+              fc := fa;
+            end if;
+
+            tol := 2*eps*abs(b) + x_tol;
+            m := (c - b)/2;
+
+            if abs(m) <= tol or fb == 0.0 then
+              // root found (interval is small enough)
+              found := true;
+              x_zero := b;
+            else
+              // Determine if a bisection is needed
+              if abs(e) < tol or abs(fa) <= abs(fb) then
+                e := m;
+                d := e;
+              else
+                s := fb/fa;
+                if a == c then
+                  // linear interpolation
+                  p := 2*m*s;
+                  q := 1 - s;
+                else
+                  // inverse quadratic interpolation
+                  q := fa/fc;
+                  r := fb/fc;
+                  p := s*(2*m*q*(q - r) - (b - a)*(r - 1));
+                  q := (q - 1)*(r - 1)*(s - 1);
+                end if;
+
+                if p > 0 then
+                  q := -q;
+                else
+                  p := -p;
+                end if;
+
+                s := e;
+                e := d;
+                if 2*p < 3*m*q - abs(tol*q) and p < abs(0.5*s*q) then
+                  // interpolation successful
+                  d := p/q;
+                else
+                  // use bi-section
+                  e := m;
+                  d := e;
+                end if;
+              end if;
+
+              // Best guess value is defined as "a"
+              a := b;
+              fa := fb;
+              b := b + (if abs(d) > tol then d else if m > 0 then tol else -tol);
+              fb := f_nonlinear(
+                      b,
+                      pressure,
+                      X,
+                      f_nonlinear_data) - y_zero;
+
+              if fb > 0 and fc > 0 or fb < 0 and fc < 0 then
+                // initialize variables
+                c := a;
+                fc := fa;
+                e := b - a;
+                d := e;
+              end if;
+            end if;
+          end while;
+          annotation (obsolete = "Obsolete function - use Modelica.Math.Nonlinear.solveOneNonlinearEquation instead");
+        end solve;
+
+        annotation (
+          obsolete = "Obsolete package - use Modelica.Math.Nonlinear.solveOneNonlinearEquation instead",
+          Documentation(info="<html>
+<p>
+This package was used in Modelica.Media of MSL &le; 3.2.3 and was replaced by
+by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">
+Modelica.Math.Nonlinear.solveOneNonlinearEquation</a>.
+</p>
+
+<p>
+This library determines the solution of one non-linear algebraic equation \"y=f(x)\"
+in one unknown \"x\" in a reliable way. As input, the desired value y of the
+non-linear function has to be given, as well as an interval x_min, x_max that
+contains the solution, i.e., \"f(x_min) - y\" and \"f(x_max) - y\" must
+have a different sign. If possible, a smaller interval is computed by
+inverse quadratic interpolation (interpolating with a quadratic polynomial
+through the last 3 points and computing the zero). If this fails,
+bisection is used, which always reduces the interval by a factor of 2.
+The inverse quadratic interpolation method has superlinear convergence.
+This is roughly the same convergence rate as a globally convergent Newton
+method, but without the need to compute derivatives of the non-linear
+function. The solver function is a direct mapping of the Algol 60 procedure
+\"zero\" to Modelica, from:
+</p>
+
+<dl>
+<dt> Brent R.P.:</dt>
+<dd> <strong>Algorithms for Minimization without derivatives</strong>.
+     Prentice Hall, 1973, pp. 58-59.</dd>
+</dl>
+
+<p>
+Due to limitations of the
+Modelica language &le; 3.1 (not possible to pass a function reference to a function),
+the construction to use this solver on a user-defined function was a bit
+complicated (this method is from Hans Olsson, Dassault Syst&egrave;mes AB). A user has to
+provide a package in the following way:
+</p>
+
+<pre>
+  <strong>package</strong> MyNonLinearSolver
+    <strong>extends</strong> OneNonLinearEquation;
+
+    <strong>redeclare record extends</strong> Data
+      // Define data to be passed to user function
+      ...
+    <strong>end</strong> Data;
+
+    <strong>redeclare function extends</strong> f_nonlinear
+    <strong>algorithm</strong>
+       // Compute the non-linear equation: y = f(x, Data)
+    <strong>end</strong> f_nonlinear;
+
+    // Dummy definition that had to be present for older version of Dymola
+    <strong>redeclare function extends</strong> solve
+    <strong>end</strong> solve;
+  <strong>end</strong> MyNonLinearSolver;
+
+  x_zero = MyNonLinearSolver.solve(y_zero, x_min, x_max, data=data);
+</pre>
+</html>"));
+      end OneNonLinearEquation;
+    end Common;
+  end Media;
 
   package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
     extends Modelica.Icons.Package;

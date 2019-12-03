@@ -1390,7 +1390,7 @@ has a unique solution.
     output Real LU[size(A, 1), size(A, 2)]=A
       "L,U factors (used with LU_solve(..))";
     output Integer pivots[min(size(A, 1), size(A, 2))]
-      "pivot indices (used with LU_solve(..))";
+      "Pivot indices (used with LU_solve(..))";
     output Integer info "Information";
   protected
     Integer m=size(A, 1);
@@ -1833,18 +1833,18 @@ singular vectors of matrix A. Basically the singular
 value decomposition of A is computed, i.e.,
 </p>
 <blockquote><pre>
-<strong>A</strong> = <strong>U</strong> <strong><font face=\"Symbol\">S</font></strong> <strong>V</strong><sup>T</sup>
+<strong>A</strong> = <strong>U</strong> <strong>&Sigma;</strong> <strong>V</strong><sup>T</sup>
   = U*Sigma*VT
 </pre></blockquote>
 <p>
 where <strong>U</strong> and <strong>V</strong> are orthogonal matrices (<strong>UU</strong><sup>T</sup>=<strong>I,
-</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>). <strong><font face=\"Symbol\">S
-</font></strong> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
-m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt;
-m=size(A,2)). <strong><font face=\"Symbol\">S</font></strong> has the same size as matrix A with
+</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>).
+<strong>&Sigma;</strong> = [diagonal(&sigma;<sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
+m=size(A,2)) or [diagonal(&sigma;<sub>i</sub>); zeros(n-m,m)], if n &gt;
+m=size(A,2)). <strong>&Sigma;</strong> has the same size as matrix A with
 nonnegative diagonal elements in decreasing order and with all other elements zero
-(<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
-returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
+(&sigma;<sub>1</sub> is the largest element). The function
+returns the singular values &sigma;<sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
 matrices <code>U</code> and <code>VT</code>.
 </p>
@@ -8000,9 +8000,9 @@ For details of the arguments, see documentation of dgbsv.
 
       input Real A[:, size(A, 1)];
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real Aout[size(A, 1), size(A, 2)]=A
         "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
       output Real tau[max(size(A, 1), 1) - 1]
@@ -9323,9 +9323,9 @@ For details of the arguments, see documentation of dgbsv.
       input String side="L";
       input String trans="N";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=if side == "L" then size(C, 1) else size(C, 2)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real Cout[size(C, 1), size(C, 2)]=C
         "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
 
@@ -9955,9 +9955,9 @@ For details of the arguments, see documentation of dgbsv.
       input Real A[:, size(A, 1)]
         "Square matrix with the elementary reflectors";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form - ilo must have the same value as in the previous call of DGEHRD";
+        "Lowest index where the original matrix is not in upper triangular form - ilo must have the same value as in the previous call of DGEHRD";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form - ihi must have the same value as in the previous call of DGEHRD";
+        "Highest index where the original matrix is not in upper triangular form - ihi must have the same value as in the previous call of DGEHRD";
       input Real tau[max(0, size(A, 1) - 1)]
         "Scalar factors of the elementary reflectors";
       output Real Aout[size(A, 1), size(A, 2)]=A
@@ -10405,9 +10405,9 @@ The algorithm is taken from [1] and [2].
 
       input Real A[:, size(A, 1)] "Square matrix A";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real H[size(A, 1), size(A, 2)] "Upper Hessenberg form";
       output Real V[size(A, 1), size(A, 2)]
         "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
@@ -10452,7 +10452,9 @@ The algorithm is taken from [1] and [2].
 <h4>Description</h4>
 <p>
 Function <strong>toUpperHessenberg</strong> computes a upper Hessenberg form <strong>H</strong> of a matrix <strong>A</strong> by orthogonal similarity transformation:  <strong>Q</strong>' * <strong>A</strong> * <strong>Q</strong> = <strong>H</strong>.
-With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD.
+The optional inputs <strong>ilo</strong> and <strong>ihi</strong> improve efficiency if the matrix is already partially converted to Hessenberg form; it is assumed
+that matrix <strong>A</strong> is already upper Hessenberg for rows and columns <strong>1:(ilo-1)</strong> and <strong>(ihi+1):size(A, 1)</strong>.
+The function calls <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">LAPACK.dgehrd</a>.
 See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
 </p>
 
@@ -11057,8 +11059,8 @@ end isEqual;
 
 function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
-  input Modelica.SIunits.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=sin(u)";
 
 external "builtin" y = sin(u);
   annotation (
@@ -11125,8 +11127,8 @@ end sin;
 
 function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
-  input SI.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=cos(u)";
 
 external "builtin" y = cos(u);
   annotation (
@@ -11191,8 +11193,8 @@ end cos;
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
-  input SI.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=tan(u)";
 
 external "builtin" y = tan(u);
   annotation (
@@ -11258,8 +11260,8 @@ end tan;
 
 function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=asin(u)";
 
 external "builtin" y = asin(u);
   annotation (
@@ -11325,8 +11327,8 @@ end asin;
 
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=acos(u)";
 
 external "builtin" y = acos(u);
   annotation (
@@ -11389,8 +11391,8 @@ end acos;
 
 function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=atan(u)";
 
 external "builtin" y = atan(u);
   annotation (
@@ -11450,9 +11452,9 @@ end atan;
 
 function atan2 "Four quadrant inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u1;
-  input Real u2;
-  output SI.Angle y;
+  input Real u1 "First independent variable";
+  input Real u2 "Second independent variable";
+  output SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
 
 external "builtin" y = atan2(u1, u2);
   annotation (
@@ -11535,13 +11537,12 @@ end atan2;
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
-  import Modelica.Math;
   import Modelica.Constants.pi;
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u1;
-  input Real u2;
+  input Real u1 "First independent variable";
+  input Real u2 "Second independent variable";
   input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 <= pi";
-  output Modelica.SIunits.Angle y;
+  output SI.Angle y "Dependent variable y=atan3(u1, u2, y0)=atan(u1/u2)";
 
 protected
   constant Real pi2=2*pi;
@@ -11640,8 +11641,8 @@ end atan3;
 
 function sinh "Hyperbolic sine"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=sinh(u)";
 
 external "builtin" y = sinh(u);
   annotation (
@@ -11709,8 +11710,8 @@ end sinh;
 
 function cosh "Hyperbolic cosine"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=cosh(u)";
 
 external "builtin" y = cosh(u);
   annotation (
@@ -11778,8 +11779,8 @@ end cosh;
 
 function tanh "Hyperbolic tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=tanh(u)";
 
 external "builtin" y = tanh(u);
   annotation (
@@ -11839,8 +11840,8 @@ end tanh;
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=asinh(u)";
 
 algorithm
   y := Modelica.Math.log(u + sqrt(u*u + 1));
@@ -11910,8 +11911,8 @@ end asinh;
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=acosh(u)";
 
 algorithm
   assert(u >= 1.0, "Input argument u (= " + String(u) +
@@ -11992,8 +11993,8 @@ end acosh;
 
 function exp "Exponential, base e"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=exp(u)";
 
 external "builtin" y = exp(u);
   annotation (
@@ -12059,8 +12060,8 @@ end exp;
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=ln(u)";
 
 external "builtin" y = log(u);
   annotation (
@@ -12127,8 +12128,8 @@ end log;
 
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=lg(u)";
 
 external "builtin" y = log10(u);
   annotation (

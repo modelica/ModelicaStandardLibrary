@@ -1278,7 +1278,7 @@ Basically, different variants of the equation
 </p>
 
 <pre>
-   dp = &lambda;(Re,<font face=\"Symbol\">D</font>)*(L/D)*&rho;*v*|v|/2.
+   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2.
 </pre>
 
 <p>
@@ -2893,7 +2893,8 @@ identical to laminar wall friction.
           SI.Density rho "Upstream density";
           SI.ReynoldsNumber Re "Reynolds number";
           Real lambda2 "Modified friction coefficient (= lambda*Re^2)";
-          function interpolateInRegion2 = Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re;
+          function interpolateInRegion2 = Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re
+            "Cubic Hermite spline interpolation in transition region";
         algorithm
           // Determine upstream density, upstream viscosity, and lambda2
           rho     := if dp >= 0 then rho_a else rho_b;
@@ -2931,7 +2932,8 @@ identical to laminar wall friction.
           SI.Density rho "Upstream density";
           SI.ReynoldsNumber Re "Reynolds number";
           Real lambda2 "Modified friction coefficient (= lambda*Re^2)";
-          function interpolateInRegion2 = Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda;
+          function interpolateInRegion2 = Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda
+            "Cubic Hermite spline interpolation in transition region";
         algorithm
           // Determine upstream density and upstream viscosity
           rho     :=if m_flow >= 0 then rho_a else rho_b;
@@ -3474,7 +3476,7 @@ Basically, different variants of the equation
 </p>
 
 <pre>
-   dp = &lambda;(Re,<font face=\"Symbol\">D</font>)*(L/D)*&rho;*v*|v|/2
+   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
 </pre>
 
 <p>
@@ -3536,7 +3538,7 @@ Basically, different variants of the equation
 </p>
 
 <pre>
-   dp = &lambda;(Re,<font face=\"Symbol\">D</font>)*(L/D)*&rho;*v*|v|/2
+   dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
 </pre>
 
 <p>

@@ -421,7 +421,7 @@ angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
 <pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+    -&pi; &lt;= angles[i] &lt;= &pi;
 </pre>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -897,7 +897,7 @@ angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
 <pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+    -&pi; &lt;= angles[i] &lt;= &pi;
 </pre>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -1104,7 +1104,6 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
           Line(
             points={{70,0},{100,0}},
             color={0,0,127}),
-
           Line(
             points={{0,-70},{0,-95}},
             color={95,95,95},
@@ -1215,7 +1214,7 @@ angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
 <pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+    -&pi; &lt;= angles[i] &lt;= &pi;
 </pre>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -1293,7 +1292,6 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           Line(
             points={{70,0},{100,0}},
             color={0,0,127}),
-
           Line(
             points={{0,-70},{0,-96}},
             color={95,95,95},
@@ -1662,7 +1660,7 @@ angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
 <pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+    -&pi; &lt;= angles[i] &lt;= &pi;
 </pre>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.

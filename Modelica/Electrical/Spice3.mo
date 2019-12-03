@@ -2285,14 +2285,17 @@ The Resistance <em>R</em> is allowed to be positive, zero, or negative.
 
     model C_Capacitor "Ideal linear electrical capacitor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Capacitance C(start=0) "Capacitance";
-      parameter SI.Voltage IC=0 "Initial value";
+      parameter Types.Capacitance C(start=0) "Capacitance";
+      parameter SI.Voltage IC=0 "Initial value of voltage" annotation(Dialog(enable=UIC));
       parameter Boolean UIC=false
         "Use initial conditions: true, if initial condition is used";
     protected
-      SI.Voltage vinternal;//(start=IC, fixed=UIC);
+      SI.Voltage vinternal "Capacitor voltage";
     initial equation
-      vinternal=IC;
+      if UIC then
+        vinternal = IC;
+      end if;
+
     equation
         vinternal = p.v - n.v;
         i = C*der(vinternal);
@@ -2323,13 +2326,12 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
     model L_Inductor "Ideal linear electrical inductor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Inductance L(start=0) "Inductance";
-      parameter SI.Current IC=0 "Initial value; used, if UIC is true";
+      parameter SI.Current IC=0 "Initial value; used, if UIC is true" annotation(Dialog(enable=UIC));
       parameter Boolean UIC=false "Use initial conditions";
       SI.Current iinternal;
 
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinOut
-                                                               ICP
-        "Pin to couple inductances via K"
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinOut ICP
+        "Pin to couple inductances"
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=-90,
             origin={0,80}),
@@ -2373,14 +2375,12 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
             Text(extent={{-136,36},{138,56}}, textString="%name")}));
     end L_Inductor;
 
-    model K_CoupledInductors "Inductive coupling via coupling factor K"
-      parameter Real k( start=0) "Coupling Factor";
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn
-                                                               inductiveCouplePin1
+    model K_CoupledInductors "Inductive coupling via coupling factor"
+      parameter Real k(start=0, min=0, max=1) "Coupling factor";
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn inductiveCouplePin1
         "Couple pin for inductances"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn
-                                                               inductiveCouplePin2
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn inductiveCouplePin2
         "Couple pin for inductances"
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=180,
@@ -2388,10 +2388,10 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={100,0})));
-    SI.Inductance M "mutual inductance";
+    SI.Inductance M "Mutual inductance";
     equation
       assert(k>=0,"Coupling factor must be not negative");
-      assert(k<1,"coupling factor must be less than one");
+      assert(k<=1,"Coupling factor must be less than or equal to one");
       M = k*sqrt(inductiveCouplePin1.L*inductiveCouplePin2.L);
       inductiveCouplePin1.v = - M*inductiveCouplePin2.di;
       inductiveCouplePin2.v = - M*inductiveCouplePin1.di;
@@ -2418,7 +2418,7 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
         Documentation(info="<html>
 <p>
 <code>K_CoupledInductors</code> is a component that allows the coupling of two inductors.
-<code>K</code> is the coefficient of coupling which must be greater than or equal to zero and less than one.
+<code>k</code> is the coefficient of coupling which must be in range [0,1].
 </p>
 <p>
 The usage is demonstrated in the example <a href=\"modelica://Modelica.Electrical.Spice3.Examples.CoupledInductors\">CoupledInductors</a>.
@@ -3729,9 +3729,9 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       input Real a[:] "Coefficients";
       output Real v "Value of polynomial";
     protected
-      Integer n "number of polynomial variables, like POLY(n)";
-      Integer na "number of polynomial coefficients, like POLY(n)";
-      Integer ia "state of the usage of a";
+      Integer n "Number of polynomial variables, like POLY(n)";
+      Integer na "Number of polynomial coefficients, like POLY(n)";
+      Integer ia "State of the usage of a";
     algorithm
       n := size(s,1);
       na := size(a,1);
@@ -3739,8 +3739,12 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       assert(na > 0,"poly: number of coefficients zero");
       ia := 0;
 
-    // case one coefficient
-      if (na == 1) then
+    // case one coefficient and one variable
+      if n == 1 and na == 1 then
+        /* Note: If the polynomial is one-dimensional and exactly one coefficient
+           is specified, then SPICE assumes it to be p1 (and p0 = 0.0), in order
+           to facilitate the input of linear controlled sources.
+         */
         v := a[1] * s[1];
         return;
       end if;
@@ -3753,8 +3757,8 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       for i1 in 1:n loop
         ia := ia + 1;
         if ia > na then
-                        return;
-                                end if;
+          return;
+        end if;
         v := v + a[ia] * s[i1];
       end for;
 
@@ -3775,7 +3779,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
           for i3 in i2:n loop
             ia := ia + 1;
             if ia > na then
-               return;
+              return;
             end if;
             v := v + a[ia] * s[i1] * s[i2] * s[i3];
           end for;
@@ -4334,6 +4338,7 @@ on the model behaviour.
 
   package Types "Additional Spice3 type definitions"
     extends Modelica.Icons.TypesPackage;
+    type Capacitance = SI.Capacitance(min=-Modelica.Constants.inf) "Unbounded capacitance";
     type VoltageSquare = Real (final quantity="ElectricalPotential2", final unit="V2");
     type GapEnergyPerTemperature = Real (final quantity="Energy per Temperature", final unit="eV/K");
     type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/J");
@@ -4511,9 +4516,9 @@ on the model behaviour.
         "Channel-length modulation, default 0";
        parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
        parameter SI.Resistance RS=-1e40 "Source ohmic resistance, default 0";
-       parameter SI.Capacitance CBD=-1e40
+       parameter Types.Capacitance CBD=-1e40
         "Zero-bias B-D junction capacitance, default 0";
-       parameter SI.Capacitance CBS=-1e40
+       parameter Types.Capacitance CBS=-1e40
         "Zero-bias B-S junction capacitance, default 0";
        parameter SI.Current IS=1e-14 "Bulk junction saturation current";
        parameter SI.Voltage PB=0.8 "Bulk junction potential";
@@ -4598,7 +4603,7 @@ on the model behaviour.
                             modelcard "MOSFET modelcard"
                 annotation(Evaluate=true);
 
-   final parameter Spice3.Internal.Mos2.Mos2ModelLineParams p=
+    final parameter Spice3.Internal.Mos2.Mos2ModelLineParams p=
           Spice3.Internal.Mos2.mos2RenameParametersRevised(
           modelcard) "Model line parameters"
                       annotation(Evaluate=true);
@@ -4666,14 +4671,6 @@ on the model behaviour.
     parameter SI.Voltage IC( start = -1e40)
         "Initial condition values, not implemented yet";
 
-    Real icqmGB;
-    Real icqmGS;
-    Real icqmGD;
-    SI.Voltage vDS "Drain - source voltage";
-
-    Spice3.Internal.Mos.DEVqmeyer qm;
-    Spice3.Internal.Mos.CurrrentsCapacitances cc_obsolete;
-
   //-------------------------------------------------------------------------------------------------------------------------------------
 
     final parameter Spice3.Internal.Mos2.Mos2Calc
@@ -4692,11 +4689,8 @@ on the model behaviour.
           modelcard) "Model line parameters"
                       annotation(Evaluate=true);
 
-     constant Spice3.Internal.SpiceConstants C
+    constant Spice3.Internal.SpiceConstants C
         "General constants of SPICE simulator";
-     Real MOScapgd = qm.qm_capgd;
-    Real MOScapgs = qm.qm_capgs;
-    Real MOScapgb = qm.qm_capgb;
   equation
     assert( NRD > 0, "NRD, length of drain in squares, must be greater than zero");
     assert( NRS > 0, "NRS, length of source in squares, must be greater than zero");
@@ -4719,7 +4713,7 @@ on the model behaviour.
     // drain- and sourceresistances
     // ----------------------------
     ird * c11.m_drainResistance  = (D.v - Dinternal);
-    irs * c11.m_sourceResistance =  (S.v - Sinternal);
+    irs * c11.m_sourceResistance = (S.v - Sinternal);
 
     // capacitances
     // ------------
@@ -4953,7 +4947,7 @@ on the model behaviour.
       parameter SI.Current IRB=0.0 "Current for base resistance = (rb+rbm)/2";
       parameter SI.Resistance RB=0.0 "Zero bias base resistance";
       parameter SI.Resistance RBM=0.0 "Minimum base resistance, default = 0.0";
-      parameter SI.Capacitance CJE=0.0 "Zero bias B-E depletion capacitance";
+      parameter Types.Capacitance CJE=0.0 "Zero bias B-E depletion capacitance";
       parameter SI.Voltage VJE=0.75 "B-E built in potential";
       parameter Real MJE = 0.33 "B-E junction exponential factor";
       parameter SI.Time TF=0.0 "Ideal forward transit time";
@@ -4961,12 +4955,12 @@ on the model behaviour.
       parameter SI.Current ITF=0.0 "High current dependence of TF,";
       parameter SI.Voltage VTF=0.0 "Voltage giving VBC dependence of TF";
       parameter SI.Frequency PTF=0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
-      parameter SI.Capacitance CJC=0.0 "Zero bias B-C depletion capacitance";
+      parameter Types.Capacitance CJC=0.0 "Zero bias B-C depletion capacitance";
       parameter SI.Voltage VJC=0.75 "B-C built in potential";
       parameter Real MJC = 0.33 "B-C junction grading coefficient";
       parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
       parameter SI.Time TR=0.0 "Ideal reverse transit time";
-      parameter SI.Capacitance CJS=0.0 "Zero bias C-S capacitance";
+      parameter Types.Capacitance CJS=0.0 "Zero bias C-S capacitance";
       parameter SI.Voltage VJS=0.75 "Substrate junction built-in potential";
       parameter Real MJS = 0.0 "Substrate junction grading coefficient";
       parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent";
@@ -5109,9 +5103,9 @@ on the model behaviour.
 
     record ModelcardJFET "Record with technology parameters (.model)"
     extends Modelica.Icons.Record;
-      parameter SI.Capacitance CGS=-1e40
+      parameter Types.Capacitance CGS=-1e40
         "Zero-bias G-S junction capacitance, default 0";
-      parameter SI.Capacitance CGD=-1e40
+      parameter Types.Capacitance CGD=-1e40
         "Zero-bias G-D junction capacitance, default 0";
       parameter SI.Current IS=1e-14 "Saturation current of pn junctions";
       parameter Real FC=0.5
@@ -5233,7 +5227,7 @@ on the model behaviour.
     parameter SI.Resistance RS=0.0 "Ohmic resistance";
     parameter Real N=1.0 "Emission coefficient";
     parameter SI.Time TT=0.0 "Transit time";
-    parameter SI.Capacitance CJO=0.0 "Junction capacitance";
+    parameter Types.Capacitance CJO=0.0 "Junction capacitance";
     parameter SI.Voltage VJ=1.0 "Junction Potential";
     parameter Real M=0.5 "Grading coefficient";
     parameter SI.ActivationEnergy EG=1.11 "Activation Energy";
@@ -5338,7 +5332,7 @@ on the model behaviour.
     model C_SEMI "Semiconductor capacitor"
 
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Capacitance C = -1e40
+      parameter Types.Capacitance C = -1e40
         "Capacitance, if specified, geometrical information is overwritten";
       parameter SI.Temp_C TEMP = 27 "Temperature of capacitor";
       parameter SI.Length  L(start = 0) "Length of the capacitor";
@@ -5346,7 +5340,7 @@ on the model behaviour.
         "Width of the capacitor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA = false
         "Parameter for sensitivity analyses, not implemented yet";
-      parameter SI.Voltage IC = 0 "Initial value";
+      parameter SI.Voltage IC = 0 "Initial value" annotation(Dialog(enable=UIC));
       parameter Boolean UIC = false
         "Use initial conditions: true, if initial condition is used";
       parameter Modelica.Electrical.Spice3.Internal.ModelcardC modelcard
@@ -5700,7 +5694,7 @@ on the model behaviour.
 
     function junctionCapRevised "Junction capacity"
       extends Modelica.Icons.Function;
-      input SI.Capacitance capin "Input capacitance";
+      input Types.Capacitance capin "Input capacitance";
       input SI.Voltage voltage "Input voltage";
       input SI.Voltage depcap;
       input Real mj;
@@ -5709,7 +5703,7 @@ on the model behaviour.
       input Real f2;
       input Real f3;
 
-      output SI.Capacitance capout "Output capacitance";
+      output Types.Capacitance capout "Output capacitance";
       output SI.Charge charge "Output charge";
 
       protected
@@ -5876,7 +5870,7 @@ on the model behaviour.
     function junctionCapTransTime
       "Junction capacitance transittime calculation"
       extends Modelica.Icons.Function;
-      input SI.Capacitance capin "Input capacitance";
+      input Types.Capacitance capin "Input capacitance";
       input SI.Voltage voltage "Input voltage";
       input SI.Voltage depcap;
       input Real mj;
@@ -5888,7 +5882,7 @@ on the model behaviour.
       input SI.Conductance conduct "Input conductance";
       input SI.Current current "Input current";
 
-      output SI.Capacitance capout "Output capacitance";
+      output Types.Capacitance capout "Output capacitance";
       output SI.Charge charge "Output charge";
 
     algorithm
@@ -6029,7 +6023,7 @@ on the model behaviour.
       input SI.Length  length "Input capacitor length";
       input SI.Length  narrow "Input narrow";
 
-      output SI.Capacitance out "Output value";
+      output Types.Capacitance out "Output value";
 
     algorithm
       out := cap0 * (width - narrow) * (length - narrow)
@@ -6295,19 +6289,19 @@ on the model behaviour.
         SI.Conductance m_gds "Gds, Drain-Source conductance";
         SI.Transconductance m_gm "Gm, Transconductance";
         SI.Transconductance m_gmbs "Gmbs, Bulk-Source transconductance";
-        SI.Capacitance m_capbsb "Cbsb";
+        Types.Capacitance m_capbsb "Cbsb";
         SI.Charge m_chargebsb "Qbsb";
-        SI.Capacitance m_capbss "Cbss";
+        Types.Capacitance m_capbss "Cbss";
         SI.Charge m_chargebss "Qbss";
-        SI.Capacitance m_capbdb "Cbdb";
+        Types.Capacitance m_capbdb "Cbdb";
         SI.Charge m_chargebdb "Qbdb";
-        SI.Capacitance m_capbds "Cbds";
+        Types.Capacitance m_capbds "Cbds";
         SI.Charge m_chargebds "Qbds";
         Real m_Beta "Beta";
-        SI.Capacitance m_capGSovl "Cgso, Gate-source overlap cap.";
-        SI.Capacitance m_capGDovl "Cgdo, Gate-drain overlap cap.";
-        SI.Capacitance m_capGBovl "Cgbo, Gate-bulk overlap cap.";
-        SI.Capacitance m_capOx "Cox";
+        Types.Capacitance m_capGSovl "Cgso, Gate-source overlap cap.";
+        Types.Capacitance m_capGDovl "Cgdo, Gate-drain overlap cap.";
+        Types.Capacitance m_capGBovl "Cgbo, Gate-bulk overlap cap.";
+        Types.Capacitance m_capOx "Cox";
         SI.Voltage m_von "Von, Turn-on voltage";
         SI.Voltage m_vdsat "Vdsat";
         Integer m_mode(start = 1) "Mode";
@@ -6444,10 +6438,10 @@ on the model behaviour.
          SI.Voltage m_vt0(                 start = 0.0)
           "VTO, Threshold voltage";
          Real m_vtOIsGiven "VTO IsGivenValue";
-         SI.Capacitance m_capBD(               start = 0.0)
+         Types.Capacitance m_capBD(               start = 0.0)
           "CBD, B-D junction capacitance";
          Real m_capBDIsGiven "CapBD IsGivenValue";
-         SI.Capacitance m_capBS(               start = 0.0)
+         Types.Capacitance m_capBS(               start = 0.0)
           "CBS, B-S junction capacitance";
          Real m_capBSIsGiven "CapBS IsGivenValue";
          SI.CapacitancePerArea m_bulkCapFactor(       start = 0.0)
@@ -6518,10 +6512,10 @@ on the model behaviour.
         SI.CurrentDensity m_tSatCurDens( start = 0.);
         SI.Current m_tDrainSatCur(start=0.);
         SI.Current m_tSourceSatCur(start=0.);
-        SI.Capacitance m_tCBDb(start=0.);
-        SI.Capacitance m_tCBDs(start=0.);
-        SI.Capacitance m_tCBSb(start=0.);
-        SI.Capacitance m_tCBSs(start=0.);
+        Types.Capacitance m_tCBDb(start=0.);
+        Types.Capacitance m_tCBDs(start=0.);
+        Types.Capacitance m_tCBSb(start=0.);
+        Types.Capacitance m_tCBSs(start=0.);
         SI.CapacitancePerArea m_tCj( start = 0.);
         SI.Permittivity m_tCjsw( start = 0.);
         SI.Voltage m_tBulkPot(start=0.7);
@@ -6537,9 +6531,9 @@ on the model behaviour.
         Real m_f3s( start = 0.);
         SI.Voltage m_dVt( start = 0.);
 
-        SI.Capacitance m_capgd(start=0.);
-        SI.Capacitance m_capgs(start=0.);
-        SI.Capacitance m_capgb(start=0.);
+        Types.Capacitance m_capgd(start=0.);
+        Types.Capacitance m_capgs(start=0.);
+        Types.Capacitance m_capgb(start=0.);
         SI.Charge m_qgs(start=0.);
         SI.Charge m_qgd(start=0.);
         SI.Charge m_qgb(start=0.);
@@ -6551,9 +6545,9 @@ on the model behaviour.
 
       record DEVqmeyer "Meyer capacities and charge"
         extends Modelica.Icons.Record;
-        SI.Capacitance qm_capgb(  start = 0);
-        SI.Capacitance qm_capgs(  start = 0);
-        SI.Capacitance qm_capgd(  start = 0);
+        Types.Capacitance qm_capgb(  start = 0);
+        Types.Capacitance qm_capgs(  start = 0);
+        Types.Capacitance qm_capgd(  start = 0);
         SI.Charge qm_qgs(  start = 0);
         SI.Charge qm_qgb(  start = 0);
         SI.Charge qm_qgd(  start = 0);
@@ -6571,12 +6565,12 @@ on the model behaviour.
         SI.Current idrain( start = 0);
         SI.Current iBD( start = 0);
         SI.Current iBS( start = 0);
-        SI.Capacitance cGS( start = 0);
-        SI.Capacitance cGB( start = 0);
-        SI.Capacitance cGD( start = 0);
-        SI.Capacitance cBS( start = 0);
-        SI.Capacitance cBD( start = 0);
-        SI.Capacitance m_capgd;
+        Types.Capacitance cGS( start = 0);
+        Types.Capacitance cGB( start = 0);
+        Types.Capacitance cGD( start = 0);
+        Types.Capacitance cBS( start = 0);
+        Types.Capacitance cBD( start = 0);
+        Types.Capacitance m_capgd;
 
         annotation (Documentation(info="<html>
 <p>This record CurrentsCapacities contains values for the currents and the capacities inside the MOSFET models level 1, 2, 3 and 6.</p>
@@ -8564,7 +8558,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         SI.Resistance m_resist( start = 0.0) "RS, Ohmic resistance";
         Real m_emissionCoeff( start = 1.0) "N, Emission Coefficient";
         SI.Time m_transitTime( start = 0.0) "TT, Transit Time";
-        SI.Capacitance m_junctionCap( start = 0.0) "CJO, Junction capacitance";
+        Types.Capacitance m_junctionCap( start = 0.0) "CJO, Junction capacitance";
         SI.Voltage m_junctionPot( start = 1.0) "VJ, Junction potential";
         SI.LinearTemperatureCoefficient m_gradingCoeff( start = 0.5)
           "M, Grading coefficient";                                                                           //unit check by maj
@@ -8627,7 +8621,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       record DiodeCalc "Diode variables"
         extends Modelica.Icons.Record;
         SI.Voltage m_tJctPot;
-        SI.Capacitance m_tJctCap;
+        Types.Capacitance m_tJctCap;
         Real m_tF1;
         Real m_f2;
         Real m_f3;
@@ -8768,7 +8762,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         output CurrentsCapacitances out_cc
           "Output record with calculated currents and capacitances";
 
-        output SI.Capacitance m_dCap "Output capacitance";
+        output Types.Capacitance m_dCap "Output capacitance";
 
       protected
         SI.Voltage m_dPNVoltage "Voltage";
@@ -9106,7 +9100,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Types.InverseElectricCurrent m_invRollOffF(start=0);
         Types.InverseElectricCurrent m_invRollOffR(start=0);
 
-        SI.Capacitance m_CScap(start=0);
+        Types.Capacitance m_CScap(start=0);
         annotation (Documentation(info="<html>
 <p>This record contains the device parameters that are used for the bipolar transistor bjt model in SPICE3.</p>
 </html>"));
@@ -9150,7 +9144,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Resistance m_baseResist(start=0.0) "RB, Zero bias base resistance";
         SI.Resistance m_minBaseResist(start=0.0) "RBM, Minimum base resistance";
         Real m_minBaseResistIsGiven;
-        SI.Capacitance m_depletionCapBE(start=0.0)
+        Types.Capacitance m_depletionCapBE(start=0.0)
           "CJE, Zero bias B-E depletion capacitance";
         SI.Voltage m_potentialBE(start=0.75) "VJE, B-E built in potential";
         Real m_junctionExpBE( start = 0.33) "MJE, B-E built in potential";
@@ -9162,7 +9156,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Voltage m_transitTimeFVBC(start=0.0)
           "VTF, Voltage giving VBC dependence of TF";
         SI.Frequency m_excessPhase(start=0.0) "PTF, Excess phase";
-        SI.Capacitance m_depletionCapBC(start=0.0)
+        Types.Capacitance m_depletionCapBC(start=0.0)
           "CJC, Zero bias B-C depletion capacitance";
         SI.Voltage m_potentialBC(start=0.75) "VJC, B-C built in potential";
         Real m_junctionExpBC( start = 0.33)
@@ -9170,7 +9164,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_baseFractionBCcap( start = 1.0)
           "XCJC, Fraction of B-C cap to internal base";
         SI.Time m_transitTimeR(start=0.0) "TR, Ideal reverse transit time";
-        SI.Capacitance m_capCS(start=0.0) "CJS, Zero bias C-S capacitance";
+        Types.Capacitance m_capCS(start=0.0) "CJS, Zero bias C-S capacitance";
         SI.Voltage m_potentialSubstrate(start=0.75)
           "VJS, Zero bias C-S capacitance";
         Real m_exponentialSubstrate( start = 0.0)
@@ -9218,9 +9212,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_tBetaR( start = 1);
         SI.Current m_tBEleakCur(start=1e-14);
         SI.Current m_tBCleakCur(start=1e-14);
-        SI.Capacitance m_tBEcap(start=0);
+        Types.Capacitance m_tBEcap(start=0);
         SI.Voltage m_tBEpot(start=0.7);
-        SI.Capacitance m_tBCcap(start=0);
+        Types.Capacitance m_tBCcap(start=0);
         SI.Voltage m_tBCpot(start=0.7);
         SI.Voltage m_tDepCapBE(start=0.7);
         SI.Voltage m_tDepCapBC(start=0.7);
@@ -9250,11 +9244,11 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
                                    //current through diode dC2 (non ideal part)
         SI.Current iCC(start=0.0);
                                    //channel current
-        SI.Capacitance capbc(start=0.0);
-        SI.Capacitance capbe(start=0.0);
-        SI.Capacitance capbx(start=0.0);
-        SI.Capacitance captt(start=0.0);
-        SI.Capacitance capcs(start=0.0);
+        Types.Capacitance capbc(start=0.0);
+        Types.Capacitance capbe(start=0.0);
+        Types.Capacitance capbx(start=0.0);
+        Types.Capacitance captt(start=0.0);
+        Types.Capacitance capcs(start=0.0);
         SI.Resistance rx(start=0.0);
 
         //obsolete
@@ -9488,7 +9482,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real xjrb;
         Real go;
         Real gm;
-        SI.Capacitance captt;
+        Types.Capacitance captt;
         SI.Charge chargebe;
         SI.Charge chargebc;
         SI.Charge chargebx;
@@ -9866,8 +9860,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         SI.Current m_tSatCur(start = 0);
         SI.Voltage m_tGatePot(start = 0);
-        SI.Capacitance m_tCGS(start = 0);
-        SI.Capacitance m_tCGD(start = 0);
+        Types.Capacitance m_tCGS(start = 0);
+        Types.Capacitance m_tCGD(start = 0);
         SI.Voltage m_corDepCap(start = 0);
         SI.Voltage m_vcrit(start = 0);
         SI.Voltage m_f1(start = 0);
@@ -9883,9 +9877,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Current m_cgs "Igs";
         SI.Conductance m_ggs "Ggs";
         SI.Charge m_chargegd "Qgd";
-        SI.Capacitance m_capgd "Cgd, G-D junction cap";
+        Types.Capacitance m_capgd "Cgd, G-D junction cap";
         SI.Charge m_chargegs "Qgs";
-        SI.Capacitance m_capgs "Cgs, G-S junction capacitance";
+        Types.Capacitance m_capgs "Cgs, G-S junction capacitance";
         SI.Current m_cdrain "Idrain";
         SI.Conductance m_gm "Gm";
         SI.Conductance m_gds "Gds";
@@ -9899,8 +9893,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.InversePotential m_lModulation(start = 0.0) "LAMBDA";
         SI.Resistance m_drainResist(start = 0.0) "RD";
         SI.Resistance m_sourceResist(start = 0) "RS";
-        SI.Capacitance m_capGS(start = 0) "CGS";
-        SI.Capacitance m_capGD(start = 0) "CGD";
+        Types.Capacitance m_capGS(start = 0) "CGS";
+        Types.Capacitance m_capGD(start = 0) "CGD";
         SI.Voltage m_gatePotential(start = 1.0) "PB";
         SI.Current m_gateSatCurrent(start = 1e-14) "IS";
         Real m_depletionCapCoeff(start = 0.5) "FC";
@@ -9919,8 +9913,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Current idrain(start=0);
         SI.Current iGD(start=0);
         SI.Current iGS(start=0);
-        SI.Capacitance cGS(start=0);
-        SI.Capacitance cGD(start=0);
+        Types.Capacitance cGS(start=0);
+        Types.Capacitance cGD(start=0);
 
         annotation (Documentation(info="<html>
 <p>This record CurrentsCapacities contains values for the currents and the capacities inside the model Jfet.</p>
@@ -10127,9 +10121,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           input SI.Voltage vgs "Input voltage gate source";
           input SI.Voltage vgd "Input voltage gate drain";
 
-          output SI.Capacitance capgs "Output capacitance gate source";
+          output Types.Capacitance capgs "Output capacitance gate source";
           output SI.Charge chargegs "Output charge gate source";
-          output SI.Capacitance capgd "Output capacitance gate drain";
+          output Types.Capacitance capgd "Output capacitance gate drain";
           output SI.Charge chargegd "Output charge gate drain";
 
         algorithm
@@ -10343,7 +10337,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         record Capacitor
           extends Modelica.Electrical.Spice3.Internal.Model.Model;
 
-            SI.Capacitance m_dCapac(start=1e-9) "Device is a Capacitor model";
+            Types.Capacitance m_dCapac(start=1e-9) "Device is a Capacitor model";
             Real m_dCapIsGiven "Capacitor is given value";
             SI.Length  m_dWidth(start=0) "Width";
             SI.Length  m_dLength(start=0) "Length";
@@ -10405,7 +10399,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
         function capacitorRenameParametersDev
         extends Modelica.Icons.Function;
-          input SI.Capacitance C "Capacitance";
+          input Types.Capacitance C "Capacitance";
           input SI.Length  W "Width";
           input SI.Length  L "Length";
           input SI.Temp_C TEMP "Temperature";

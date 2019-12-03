@@ -922,7 +922,10 @@ is given to compare the approximation.
       Modelica.SIunits.Temperature T = 273.15+100;
       Modelica.SIunits.AbsolutePressure p = 2E5-1.5e5*time;
       Medium.MassFraction X[Medium.nX] = {0.05,0.95};
-      Modelica.SIunits.SpecificEntropy s = Medium.specificEntropy(Medium.setState_pTX(p,T,X));
+      Medium.ThermodynamicState state = Medium.setState_pTX(p,T,X);
+      Modelica.SIunits.SpecificEntropy s = Medium.specificEntropy(state);
+      Modelica.SIunits.SpecificInternalEnergy u = Medium.specificInternalEnergy(state);
+      Modelica.SIunits.Temperature Tsat = Medium.saturationTemperature(p);
       annotation (experiment(StopTime=1));
     end MoistAir;
     annotation (Documentation(info="<html>

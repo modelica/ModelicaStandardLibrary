@@ -860,12 +860,17 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <pre>
 &lt;p&gt;
-More details about sensorless rotor temperature estimation
-can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;[Gao2008]&lt;/a.&gt;
+More details about electric machine modeling
+can be found in [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
+and
+[&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
-  More details about sensorless rotor temperature estimation can be found in <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">[Gao2008]</a>.
+More details about electric machine modeling
+can be found in [<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Gao2008</a>]
+and
+[<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Kral2018</a>, p. 149].
 </p>
 </html>"));
         end References;
@@ -1437,7 +1442,7 @@ This class summarizes general information about the implementation which is not 
 
 <ul>
 <li> Journal (or conference) [Gao2008]</li>
-<li> Book [Andronov1973]</li>
+<li> Book [Kral2018]</li>
 <li> Master&apos;s thesis [Woehrnschimmel1998]</li>
 <li> PhD thesis [Farnleitner1999]</li>
 <li> Technical report [Marlino2005]</li>
@@ -1452,18 +1457,18 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Gao2008]&lt;/td&gt;
     &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &amp;quot;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral
-        estimation scheme&amp;quot;,
+        &amp;quot;&lt;a href=&quot;https://ieeexplore.ieee.org/document/4401132&quot;&gt;A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme&lt;/a&gt;&amp;quot;,
         &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td&gt;[Andronov1973]&lt;/td&gt;
-    &lt;td&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;/em&gt;,
-        1st ed. New York: J. Wiley &amp;amp; Sons, 1973.
+    &lt;td&gt;[Kral2018]&lt;/td&gt;
+    &lt;td&gt;C. Kral,
+        &lt;em&gt;Modelica - object oriented modeling of polyphase electric machines&lt;/em&gt; (in German),
+        M&amp;uuml;nchen: Hanser Verlag, 2018, &lt;a href=&quot;https://doi.org/10.3139/9783446457331&quot;&gt;DOI 10.3139/9783446457331&lt;/a&gt;,
+        ISBN 978-3-446-45551-1.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
@@ -1490,7 +1495,8 @@ This class summarizes general information about the implementation which is not 
       &amp;quot;Oak ridge national laboratory annual progress report for the
       power electronics and electric machinery program&amp;quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
+      &lt;a href=&quot;https://doi.org/10.2172/974618&quot;&gt;DOI 10.2172/974618&lt;/a&gt;.
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -1502,18 +1508,18 @@ This class summarizes general information about the implementation which is not 
   <tr>
     <td>[Gao2008]</td>
     <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral
-        estimation scheme&quot;,
+        &quot;<a href=\"https://ieeexplore.ieee.org/document/4401132\">A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme</a>&quot;,
         <em>IEEE Transactions on Industrial Electronics</em>,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     </td>
   </tr>
   <tr>
-    <td>[Andronov1973]</td>
-    <td>A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        <em>Theory of  Bifurcations of Dynamic Systems on a plane</em>,
-        1st ed. New York: J. Wiley &amp; Sons, 1973.
+    <td>[Kral2018]</td>
+    <td>C. Kral,
+        <em>Modelica - object oriented modeling of polyphase electric machines</em> (in German),
+        M&uuml;nchen: Hanser Verlag, 2018, <a href=\"https://doi.org/10.3139/9783446457331\">DOI 10.3139/9783446457331</a>,
+        ISBN 978-3-446-45551-1.
     </td>
   </tr>
   <tr>
@@ -1540,10 +1546,12 @@ This class summarizes general information about the implementation which is not 
       &quot;Oak ridge national laboratory annual progress report for the
       power electronics and electric machinery program&quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
+      <a href=\"https://doi.org/10.2172/974618\">DOI 10.2172/974618</a>.
     </td>
   </tr>
 </table>
+
 </html>"));
       end References;
 
@@ -1787,6 +1795,11 @@ In the Modelica Standard Library the following color schemes apply:</p>
     <td>Modelica.ComplexBlocks</td>
     <td>{85,170,255}</td>
     <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Clocked</td>
+    <td>{95,95,95}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleClocked.png\"></td>
   </tr>
   <tr>
     <td>Modelica.StateGraph</td>
@@ -2075,11 +2088,11 @@ design of sensors apply:
   </tr>
 </table>
 
-<h4>Diagram icons</h4>
+<h4>Diagram layer</h4>
 
-<p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the
-icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
-
+<p>The diagram layer is intended to contain the graphical components, and if there are no graphical components it shall be left empty. 
+In particular do not make the diagram layer a copy of the icon layer. 
+Graphical illustrations shall not be added in the diagram layer, but can be added in the HTML documentation.</p>
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
@@ -2378,6 +2391,9 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>The superfluous parameter <code>limitsAtInit</code> has been removed.</td></tr>
 <tr><td>Nonlinear.DeadZone</td>
     <td>The superfluous parameter <code>deadZoneAtInit</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3</strong></td></tr>
+<tr><td>Internal.MOS2<br>Semiconductors.M_NMOS2<br>Semiconductors.M_PMOS2</td>
+    <td>The final parameter <code>vp</code> has been removed.<br>The obsolete variables <code>cc_obsolete</code>, <code>icqmGB</code>, <code>icqmGS</code>, <code>icqmGD</code>, <code>MOScapgd</code>, <code>MOScapgs</code>, <code>MOScapgb</code>, <code>qm</code> and <code>vDS</code> have been removed.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>Joints.Prismatic</td>
     <td>The superfluous constant <code>s_offset</code> has been removed.</td></tr>
@@ -8589,6 +8605,7 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
+
 annotation (
 preferredView="info",
 version="4.0.0-dev",
