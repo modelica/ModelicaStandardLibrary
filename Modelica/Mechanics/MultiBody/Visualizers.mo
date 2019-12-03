@@ -966,7 +966,7 @@ the last point of the parametrization coincide in this case.
   protected
     parameter SI.Radius rw = (width/2);
     parameter SI.Radius rCurvature2 = if rCurvature > rw then rCurvature else rw;
-    parameter Real kw = rw/rCurvature2 "Regularized width ratio (0...1)";
+    final parameter Real kw = rw/rCurvature2 "Regularized width ratio (0...1)";
     parameter SI.Radius h =     sqrt(1 - kw*kw) * rCurvature2;
     parameter SI.Length ri =  rTire-rCurvature2;
     parameter SI.Radius rRim2 = if rRim < 0 then 0 else if rRim > ri+h then ri+h else rRim;
