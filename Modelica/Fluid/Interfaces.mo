@@ -550,7 +550,8 @@ the boundary temperatures <code>heatPorts[n].T</code>, and the heat flow rates <
         annotation (Dialog(tab="Initialization", enable=Medium.nC > 0));
 
       Medium.BaseProperties medium(
-        preferredMediumStates=true,
+        preferredMediumStates = (if energyDynamics == Dynamics.SteadyState and
+                                    massDynamics   == Dynamics.SteadyState then false else true),
         p(start=p_start),
         h(start=h_start),
         T(start=T_start),
