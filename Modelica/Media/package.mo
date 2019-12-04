@@ -3820,7 +3820,7 @@ package Interfaces "Interfaces for media models"
       h = cp_const*T;
       u = h - p/d;
       MM = 0.024;
-      R_s = 8.3144/MM;
+      R_s = Modelica.Constants.R/MM;
       state.p = p;
       state.T = T;
     end BaseProperties;
@@ -4764,7 +4764,7 @@ are described in
       p = state.p;
       T = state.T;
       MM = MM_const;
-      R_s = 8.3144/MM;
+      R_s = Modelica.Constants.R/MM;
     end BaseProperties;
 
     redeclare function extends setState_pTX
