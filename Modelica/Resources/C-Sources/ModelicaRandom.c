@@ -210,7 +210,7 @@ void ModelicaRandom_xorshift64star(_In_ int* state_in,
     x ^= x >> 12; /* a */
     x ^= x << 25; /* b */
     x ^= x >> 27; /* c */
-#if defined(__BORLANDC__) || defined(_MSC_VER)
+#if defined(__BORLANDC__) || (defined(_MSC_VER) && _MSC_VER < 1300)
     x  = x * 2685821657736338717i64;
 #else
     x  = x * 2685821657736338717LL;
@@ -318,7 +318,7 @@ static void ModelicaRandom_xorshift1024star_internal(uint64_t s[], int* p, doubl
     s[*p] = s0 ^ s1;
 
     /* Convert outputs */
-#if defined(__BORLANDC__) || defined(_MSC_VER)
+#if defined(__BORLANDC__) || (defined(_MSC_VER) && _MSC_VER < 1300)
     *y = ModelicaRandom_RAND(s[*p]*1181783497276652981i64);
 #else
     *y = ModelicaRandom_RAND(s[*p]*1181783497276652981LL);
