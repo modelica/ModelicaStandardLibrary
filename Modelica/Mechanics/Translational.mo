@@ -3495,14 +3495,12 @@ following references, especially (Armstrong and Canudas de Wit 1996):
                 lineColor={0,127,0},
               fillColor={160,215,160},
               fillPattern=FillPattern.Solid)}),
-                                          Documentation(info="<html>
-<p>Simlified model of the resistance of a rolling wheel, dependent on force downward (due to gravity), inclination and rolling resistance coefficient.</p>
+        Documentation(info="<html>
+<p>Simplified model of the resistance of a rolling wheel, dependent on vertical wheel load (due to gravity, i.e. static only), inclination and rolling resistance coefficient. Whereby wheel load is considered to be constant here, both the inclination and the rolling resistance coefficient can either be constant or time dependent input.</p>
 <h4>Note</h4>
-<p>
-Rolling resistance is independent of speed, but changes direction with the direction of speed. 
-To avoid problems, the rolling resistance is regularized around speed zero. 
-Therefore static friction is not taken into account.
-</p>
+<p>The rolling resistance is independent of velocity here, but changes its direction with the direction of velocity.
+To avoid numerical problems around zero velocity, the rolling resistance is regularized accordingly.
+Therefore static friction at vehicle&apos;s standstill is not taken into account. </p>
 </html>"));
     end RollingResistance;
 
