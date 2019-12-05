@@ -403,12 +403,12 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("... Test of Modelica.Utilities.Time", logFile);
 
     now := Modelica.Utilities.Time.getTime();
-    Streams.print("    ms   = " + String(now.ms));
-    Streams.print("    sec  = " + String(now.sec));
-    Streams.print("    min  = " + String(now.min));
+    Streams.print("    ms   = " + String(now.millisecond));
+    Streams.print("    sec  = " + String(now.second));
+    Streams.print("    min  = " + String(now.minute));
     Streams.print("    hour = " + String(now.hour));
     Streams.print("    day  = " + String(now.day));
-    Streams.print("    mon  = " + String(now.mon));
+    Streams.print("    mon  = " + String(now.month));
     Streams.print("    year = " + String(now.year));
 
     assert(not Modelica.Utilities.Time.isLeapYear(1900), "Time.isLeapYear failed");

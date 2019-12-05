@@ -6,7 +6,7 @@ package Time "Functions to work with date and time"
     extends Modelica.Icons.Function;
     output Types.TimeType now "Current time";
   algorithm
-    (now.ms, now.sec, now.min, now.hour, now.day, now.mon, now.year) := Internal.Time.getTime();
+    (now.millisecond, now.second, now.minute, now.hour, now.day, now.month, now.year) := Internal.Time.getTime();
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
