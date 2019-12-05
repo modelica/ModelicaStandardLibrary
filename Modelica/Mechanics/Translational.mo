@@ -3448,23 +3448,24 @@ following references, especially (Armstrong and Canudas de Wit 1996):
         f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - Modelica.Math.cos(pi/2*v/v0)));
       end if;
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Ellipse(extent={{-60,60},{60,-60}},
-                lineColor={0,127,0},
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Ellipse(extent={{-60,60},{60,-60}},
+              lineColor={0,127,0},
               fillColor={160,215,160},
               fillPattern=FillPattern.Sphere),
-              Ellipse(extent={{-40,40},{40,-40}},
-                lineColor={0,127,0},
+            Ellipse(extent={{-40,40},{40,-40}},
+              lineColor={0,127,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-100,70},{-60,50}},
-          textColor={64,64,64},
-          textString="inc."),
-        Text(
-          extent={{-110,-50},{-70,-70}},
-          textColor={64,64,64},
-          textString="cr"),
+            Text(
+              extent={{-100,70},{-60,50}},
+              textColor={64,64,64},
+              textString="inc."),
+            Text(
+              extent={{-110,-50},{-70,-70}},
+              textColor={64,64,64},
+              textString="cr"),
             Rectangle(
               extent={{-2,40},{2,-40}},
               lineColor={0,127,0},
@@ -3491,16 +3492,29 @@ following references, especially (Armstrong and Canudas de Wit 1996):
               fillPattern=FillPattern.Solid,
               origin={0,0},
               rotation=45),
-              Ellipse(extent={{-10,10},{10,-10}},
-                lineColor={0,127,0},
+            Ellipse(extent={{-10,10},{10,-10}},
+              lineColor={0,127,0},
               fillColor={160,215,160},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-<p>Simplified model of the resistance of a rolling wheel, dependent on vertical wheel load (due to gravity, i.e. static only), inclination and rolling resistance coefficient. Whereby wheel load is considered to be constant here, both the inclination and the rolling resistance coefficient can either be constant or time dependent input.</p>
+<p>
+Simplified model of the resistance of a&nbsp;rolling wheel,
+dependent on vertical wheel load (due to gravity, i.e. static only),
+inclination and rolling resistance coefficient.
+Whereby wheel load is considered to be constant here,
+both the inclination and the rolling resistance coefficient
+can either be constant or time dependent input.
+</p>
+
 <h4>Note</h4>
-<p>The rolling resistance is independent of velocity here, but changes its direction with the direction of velocity.
-To avoid numerical problems around zero velocity, the rolling resistance is regularized accordingly.
-Therefore static friction at vehicle&apos;s standstill is not taken into account. </p>
+<p>
+The rolling resistance is independent of velocity here,
+but changes its direction with the direction of velocity.
+To avoid numerical problems around zero velocity, the rolling
+resistance is regularized accordingly.
+Therefore static friction at vehicle&apos;s standstill
+is not taken into account.
+</p>
 </html>"));
     end RollingResistance;
 
