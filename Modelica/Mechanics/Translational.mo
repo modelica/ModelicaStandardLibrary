@@ -3684,51 +3684,44 @@ is not taken into account.
         Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
-This is a simple model of a ground vehicle, comprising the mass, the aerodynamic drag, the rolling resistance and
+This is a simple model of a&nbsp;ground vehicle, comprising the mass, the aerodynamic drag, the rolling resistance and
 the inclination resistance (caused by the road grade).
-For all particular resistances, significant variables can be either given by a parameter or input by a time-variable signal.
+For all particular resistances, significant variables can be either given by a&nbsp;parameter or input by a&nbsp;time-variable signal.
 </p>
 <p>
-The vehicle can be driven at the rotational flange <code>flangeR</code>, e.g. by an electric motor and a gearbox. 
-It is possible to use the vehicle as a passive trailer, leaving the rotational flange <code>flangeR</code> unconnected.
+The vehicle can be driven at the rotational flange <code>flangeR</code>, e.g. by an electric motor and a&nbsp;gearbox. 
+It is possible to use the vehicle as a&nbsp;passive trailer, leaving the rotational flange <code>flangeR</code> unconnected.
 </p>
 <p>
 At the translational flange <code>flangeT</code> the vehicle can be coupled with another vehicle, 
-e.g. as a trailer or to pull a trailer. 
+e.g. as a&nbsp;trailer or to pull a&nbsp;trailer. 
 It is possible to leave the translational flange <code>flangeT</code> unconnected.
 </p>
 <p>
-For convenience, the <code>rotationalMultiSensor</code> provides torque, angular velocity and power delivered to the vehicle at the rotational flange <code>flangeR</code>. 
-Furthermore, the consumption of mechanical energy is integrated from power (<code>energy.y</code>).
-</p>
-<p>
-The velocity <code>v</code> and the driving distance <code>s</code> of the vehicle are provided as variables; 
+The velocity&nbsp;<code>v</code> and the driven distance&nbsp;<code>s</code> of the vehicle are provided as variables; 
 the vehicle can be initialized using these variables.
 </p>
+
+<h4>Mass and inertia</h4>
 <p>
-<strong>Mass and inertia</strong>
+Both the translational vehicle mass and the rotational inertias (e.g. the wheels) are accelerated when the vehicle is accelerated. 
+The rotational inertia&nbsp;<code>J</code> can be expressed as an equivalent additional mass <code>mEq&nbsp;=&nbsp;J/R<sup>2</sup></code>, 
+where&nbsp;<code>R</code> is the wheel radius, but only the vehicle mass influences rolling resistance and inclination resistance. 
+The vehicle mass includes e.g. transported load, passengers and/or driver. 
 </p>
-<p>
-The translational vehicle mass and the rotational inertias (e.g. the wheels) are accelerated when the vehicle is accelerated. 
-The rotational inertias <code>J</code> can be expressed as an equivalent additional mass <code>mEq = J/r<sup>2</sup></code>, 
-where <code>r</code> is the wheel radius, but only the vehicle mass influences rolling resistance and inclination resistance. 
-The vehicle mass includes transported load, passengers and driver. 
-</p>
-<p>
-<strong>Drag resistance</strong>
-</p>
+
+<h4>Drag resistance</h4>
 <blockquote>
 <pre>
 fDrag = cw*rho*A*(v - vWind)^2/2
 </pre>
 </blockquote>
 <p>
-Wind velocity is measured in the same direction as velocity of <code>flange</code>.
+Wind velocity is measured in the same direction as velocity of <code>flangeT</code>.
 Wind velocity is either constant or prescribed by the input <code>vWind</code>.
 </p>
-<p>
-<strong>Rolling resistance</strong>
-</p>
+
+<h4>Rolling resistance</h4>
 <blockquote>
 <pre>
 fRoll = cr*m*g*cos(alpha)
@@ -3737,22 +3730,21 @@ fRoll = cr*m*g*cos(alpha)
 <p>
 Rolling resistance coeffcient&nbsp;<var>cr</var> is either constant
 or prescribed by the input <code>cr</code>.
-Rolling resistance has a crossover from positive to negative velocity within <code>[-vReg, vReg]</code>.
+Rolling resistance has a&nbsp;crossover from positive to negative velocity within <code>[-vReg,&nbsp;vReg]</code>.
 </p>
 <p>
 The inclination angle&nbsp;<var>&alpha;</var> is either constant or prescribed by
-the input <code>inclination</code> = tan(inclination angle).
+the input <code>inclination</code> = tan(inclination&nbsp;angle).
 This corresponds to the road rise over running distance of 100&nbsp;m which,
 in general, is written as a&nbsp;percentage.
-For example for a road rising by 10&nbsp;m over 100&nbsp;m the
+For example for a&nbsp;road rising by 10&nbsp;m over 100&nbsp;m the
 grade&nbsp;=&nbsp;10&nbsp;% and, thus, the parameter
 <code>inclinationConstant&nbsp;=&nbsp;0.1</code>.
 Positive inclination means driving uphill, negative inclination means
 driving downhill, in case of positive vehicle velocity.
 </p>
-<p>
-<strong>Inclination resistance</strong>
-</p>
+
+<h4>Inclination resistance</h4>
 <blockquote>
 <pre>
 fGrav = m*g*sin(alpha)
