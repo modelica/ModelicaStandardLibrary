@@ -38,12 +38,12 @@ package Types "Type definitions used in package Modelica.Utilities"
 
   record TimeType "Record containing date and time components"
     extends Modelica.Icons.Record;
-    Integer ms(min=0, max=999) "Millisecond" annotation(absoluteValue=true);
-    Integer sec(min=0, max=61) "Second" annotation(absoluteValue=true);
-    Integer min(min=0, max=59) "Minute" annotation(absoluteValue=true);
+    Integer millisecond(min=0, max=999) "Millisecond" annotation(absoluteValue=true);
+    Integer second(min=0, max=61) "Second" annotation(absoluteValue=true);
+    Integer minute(min=0, max=59) "Minute" annotation(absoluteValue=true);
     Integer hour(min=0, max=23) "Hour" annotation(absoluteValue=true);
     Integer day(min=1, max=31) "Day" annotation(absoluteValue=true);
-    Integer mon(min=1, max=12) "Month" annotation(absoluteValue=true);
+    Integer month(min=1, max=12) "Month" annotation(absoluteValue=true);
     Integer year "Year" annotation(absoluteValue=true);
     annotation (Documentation(info="<html>
 <blockquote>
