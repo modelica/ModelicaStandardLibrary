@@ -3402,20 +3402,20 @@ following references, especially (Armstrong and Canudas de Wit 1996):
     model RollingResistance "Resistance of a rolling wheel"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       import Modelica.Constants.pi;
-      parameter SI.Force fNormal(start=0) "Force downward due to gravity";
+      parameter SI.Force fNormal(start=0) "Wheel load due to gravity";
       parameter Boolean usecrInput=false "Enable signal input for cr";
-      parameter Real crConstant(start=0.01) "Constant rolling resistance coefficient"
+      parameter Real crConstant=0.01 "Constant rolling resistance coefficient"
         annotation(Dialog(enable=not usecrInput));
       parameter Boolean useInclinationInput=false "Enable signal input for inclination";
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
         annotation(Dialog(enable=not useInclinationInput));
       parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
         "Type of regularization" annotation(Evaluate=true);
-      parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps)=1e-3
+      parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps)=0.1
         "Regularization below v0";
       Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
-      Modelica.SIunits.Force f_nominal "Nominal rolling rsistance without regularization";
+      Modelica.SIunits.Force f_nominal "Nominal rolling resistance without regularization";
       Blocks.Interfaces.RealInput inclination = inclination_internal if useInclinationInput
         "Inclination=tan(angle)"
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
