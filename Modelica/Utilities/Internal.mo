@@ -321,6 +321,65 @@ All returned values are of type Integer and have the following meaning:
 </table>
 </html>"));
     end getTime;
+
+  function dayOfWeek "Return day of week for given date"
+    extends Modelica.Icons.Function;
+    input Integer year "Year";
+    input Integer mon=1 "Month";
+    input Integer day=1 "Day of month";
+    output Integer dow "Day of week: 0 = Sunday, ..., 6 = Saturday";
+  protected
+    constant Integer t[:] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+    Integer y = year;
+  algorithm
+    assert(mon >= 1 and mon <= 12, "Month is out of range.");
+    if mon < 3 then
+      y := y - 1;
+    end if;
+    dow := mod(y + div(y, 4) - div(y, 100) + div(y, 400) + t[mon] + day, 7);
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+dow = Internal.Time.<strong>dayOfWeek</strong>(year, mon, day);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+<p>
+Returns the day of the week for a given date using Tomohiko Sakamoto's algorithm.
+The returned Integer number of <code>dow</dow> has the following meaning:
+</p>
+
+<blockquote>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Day of week</th>
+    <th>Number</th></tr>
+
+<tr><td>Sunday</td> <td>0</td></tr>
+
+<tr><td>Monday</td> <td>1</td></tr>
+
+<tr><td>Tuesday</td> <td>2</td></tr>
+
+<tr><td>Wednesday</td> <td>3</td></tr>
+
+<tr><td>Thursday</td> <td>4</td></tr>
+
+<tr><td>Friday</td> <td>5</td></tr>
+
+<tr><td>Saturday</td> <td>6</td></tr>
+</table>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+dow = dayOfWeek(2019, 12, 6) // = 5
+                             // Dec. 06, 2019 (Saint Nicholas Day) is a Friday
+dow = dayOfWeek(2020)        // = 3
+                             // Jan. 01, 2020 (New Year's Day) is a Wednesday
+</pre></blockquote>
+</html>"));
+  end dayOfWeek;
+
   annotation (
 Documentation(info="<html>
 <p>

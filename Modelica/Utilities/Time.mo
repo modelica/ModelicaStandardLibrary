@@ -57,6 +57,54 @@ All returned values are of type Integer and have the following meaning:
 </html>"));
   end getTime;
 
+  function dayOfWeek "Return day of week for given date"
+    extends Modelica.Icons.Function;
+    input Types.TimeType timeIn "Date";
+    output Integer dow "Day of week: 0 = Sunday, ..., 6 = Saturday";
+  algorithm
+    dow := Internal.Time.dayOfWeek(timeIn.year, timeIn.month, timeIn.day);
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+dow = Time.<strong>dayOfWeek</strong>(timeIn);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the day of the week for a given date using Tomohiko Sakamoto's algorithm.
+The returned Integer number of <code>dow</dow> has the following meaning:
+</p>
+
+<blockquote>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Day of week</th>
+    <th>Number</th></tr>
+
+<tr><td>Sunday</td> <td>0</td></tr>
+
+<tr><td>Monday</td> <td>1</td></tr>
+
+<tr><td>Tuesday</td> <td>2</td></tr>
+
+<tr><td>Wednesday</td> <td>3</td></tr>
+
+<tr><td>Thursday</td> <td>4</td></tr>
+
+<tr><td>Friday</td> <td>5</td></tr>
+
+<tr><td>Saturday</td> <td>6</td></tr>
+</table>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+now = getTime()      // = Modelica.Utilities.Types.TimeType(281, 30, 13, 10, 6, 12, 2019)
+                     // Dec. 06, 2019 at 10:13 after 30.281 s
+dow = dayOfWeek(now) // = 5
+                     // Dec. 06, 2019 (Saint Nicholas Day) is a Friday
+</pre></blockquote>
+</html>"));
+  end dayOfWeek;
+
   function isLeapYear "Check if a year is a leap year"
     extends Modelica.Icons.Function;
     input Integer year "Year";
