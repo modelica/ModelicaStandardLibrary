@@ -398,6 +398,8 @@ extends Modelica.Icons.ExamplesPackage;
     output Boolean ok;
   protected
     Modelica.Utilities.Types.TimeType now;
+    Integer dow "Day of week";
+    constant String weekDays[:] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
   algorithm
     Streams.print("... Test of Modelica.Utilities.Time");
     Streams.print("... Test of Modelica.Utilities.Time", logFile);
@@ -410,6 +412,12 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("    day  = " + String(now.day));
     Streams.print("    mon  = " + String(now.month));
     Streams.print("    year = " + String(now.year));
+    dow := Modelica.Utilities.Time.dayOfWeek(now);
+    Streams.print("    dow  = " + weekDays[dow + 1]);
+
+    dow := Modelica.Utilities.Time.dayOfWeek(
+      Modelica.Utilities.Types.TimeType(year=2019, month=12, day=6, hour=12, minute=0, second=0, millisecond=0));
+    assert(5 == dow, "Time.dayOfWeek failed");
 
     assert(not Modelica.Utilities.Time.isLeapYear(1900), "Time.isLeapYear failed");
     assert(Modelica.Utilities.Time.isLeapYear(2000), "Time.isLeapYear failed");
