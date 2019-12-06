@@ -3536,7 +3536,7 @@ is not taken into account.
 </html>"));
     end RollingResistance;
 
-    model Vehicle "Simple one-dimensional vehicle model"
+    model Vehicle "Simple vehicle model"
       parameter SI.Mass m "Total mass of vehicle";
       parameter SI.Acceleration g=Modelica.Constants.g_n "Constant gravity acceleration";
       parameter SI.Inertia J "Total rotational inertia of drive train";
