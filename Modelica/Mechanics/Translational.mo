@@ -3501,9 +3501,27 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 Simplified model of the resistance of a&nbsp;rolling wheel,
 dependent on vertical wheel load (due to gravity, i.e. static only),
 inclination and rolling resistance coefficient.
-Whereby wheel load is considered to be constant here,
-both the inclination and the rolling resistance coefficient
-can either be constant or time dependent input.
+</p>
+<blockquote>
+<pre>
+flange.f = cr * fNormal * cos(alpha)
+</pre>
+</blockquote>
+
+<p>
+The rolling resistance coeffcient&nbsp;<var>c<sub>r</sub></var> is either constant
+(given by the parameter <code>crConstant</code>)
+or prescribed by the input <code>cr</code>.
+</p>
+<p>
+The inclination is either constant (parameter <code>inclinationConstant</code>)
+or prescribed by the input <code>inclination</code>.
+This corresponds to the road rise over running distance of 100&nbsp;m which,
+in general, is written as a&nbsp;percentage and is equal to tan(<var>&alpha;</var>).
+For example for a&nbsp;road rising by 10&nbsp;m over 100&nbsp;m the
+grade&nbsp;=&nbsp;10&nbsp;% and, thus, the inclination is 0.1.
+Positive inclination means driving uphill, negative inclination means
+driving downhill, in case of positive vehicle velocity.
 </p>
 
 <h4>Note</h4>
@@ -3511,7 +3529,7 @@ can either be constant or time dependent input.
 The rolling resistance is independent of velocity here,
 but changes its direction with the direction of velocity.
 To avoid numerical problems around zero velocity, the rolling
-resistance is regularized accordingly.
+resistance is regularized accordingly within <code>[-v0,&nbsp;v0]</code>.
 Therefore static friction at vehicle&apos;s standstill
 is not taken into account.
 </p>
