@@ -3564,45 +3564,15 @@ is not taken into account.
       SI.Position s(displayUnit="km", start=0)=mass.s "Position of vehicle";
       SI.Velocity v(displayUnit="km/h", start=0)=mass.v "Velocity of vehicle";
       SI.Acceleration a=mass.a "Acceleration of vehicle";
-      Modelica.Mechanics.Translational.Interfaces.Flange_b flangeT "Translational flange"
-        annotation (Placement(transformation(extent={{90,10},{110,-10}})));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flangeR "Rotational flange"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Rotational.Components.Inertia inertia(final J=J)
-        annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
-      IdealRollingWheel idealRollingWheel(final radius=R)
-        annotation (Placement(transformation(extent={{-10,50},{10,70}})));
-      Mass mass(final m=m) annotation (Placement(transformation(extent={{30,50},
-                {50,70}})));
-      Modelica.Blocks.Interfaces.RealInput vWind(unit="m/s") if useWindInput
-        "Wind velocity"
-        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-      Modelica.Blocks.Interfaces.RealInput inclination if useInclinationInput
-        "Inclination=tan(angle)"
-        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      Modelica.Blocks.Interfaces.RealInput cr if usecrInput
-        "Rolling resistance coefficient"
-        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={0,-120})));
+    protected
+      constant SI.Velocity vRef=1 "Reference velocity for air drag";
+    public
       Sources.QuadraticSpeedDependentForce dragForce(
         final useSupport=true,
         final f_nominal=-cw*A*rho*vRef^2/2,
         final ForceDirection=false,
         final v_nominal=vRef)
         annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
-      Sources.Speed windSpeed(s(fixed=true))  annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={60,-60})));
-      Sources.Force gravForce
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-            rotation=0,
-            origin={60,30})));
       RollingResistance rollForce(
         final fNormal=m*g,
         final usecrInput=usecrInput,
@@ -3614,6 +3584,49 @@ is not taken into account.
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={60,0})));
+      Sources.Force gravForce
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={60,30})));
+      Modelica.Mechanics.Translational.Interfaces.Flange_b flangeT "Translational flange"
+        annotation (Placement(transformation(extent={{90,10},{110,-10}})));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flangeR "Rotational flange"
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Rotational.Components.Inertia inertia(final J=J)
+        annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
+      IdealRollingWheel idealRollingWheel(final radius=R)
+        annotation (Placement(transformation(extent={{-10,50},{10,70}})));
+      Mass mass(final m=m) annotation (Placement(transformation(extent={{30,50},
+                {50,70}})));
+      Modelica.Blocks.Interfaces.RealInput inclination if useInclinationInput
+        "Inclination=tan(angle)"
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={-60,-120})));
+      Modelica.Blocks.Interfaces.RealInput cr if usecrInput
+        "Rolling resistance coefficient"
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={0,-120})));
+      Modelica.Blocks.Interfaces.RealInput vWind(unit="m/s") if useWindInput
+        "Wind velocity"
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={60,-120})));
+      Sources.Speed windSpeed(s(fixed=true))  annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={60,-60})));
+      Blocks.Math.Gain gravForceGain(final k=-m*g) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={20,30})));
+    protected
+      Modelica.Blocks.Sources.Constant constInclination(k=inclinationConstant) if not useInclinationInput
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={-80,-90})));
+      Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not useWindInput
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={40,-90})));
+    public
       Blocks.Math.Atan atan annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
@@ -3622,17 +3635,7 @@ is not taken into account.
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-10,30})));
-      Blocks.Math.Gain gravForceGain(final k=-m*g) annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=0,
-            origin={20,30})));
 
-    protected
-      constant SI.Velocity vRef=1 "Reference velocity for air drag";
-      Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not useWindInput
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={40,-90})));
-      Modelica.Blocks.Sources.Constant constInclination(k=inclinationConstant) if not useInclinationInput
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={-80,-90})));
     equation
       connect(idealRollingWheel.flangeT, mass.flange_a)
         annotation (Line(points={{10,60},{30,60}},
