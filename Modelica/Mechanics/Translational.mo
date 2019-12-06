@@ -3752,7 +3752,7 @@ Rolling resistance has a&nbsp;crossover from positive to negative velocity withi
 </p>
 <p>
 The inclination angle&nbsp;<var>&alpha;</var> is either constant or prescribed by
-the input <code>inclination</code> = tan(inclination&nbsp;angle).
+the input <code>inclination</code> = tan(<var>&alpha;</var>).
 This corresponds to the road rise over running distance of 100&nbsp;m which,
 in general, is written as a&nbsp;percentage.
 For example for a&nbsp;road rising by 10&nbsp;m over 100&nbsp;m the
@@ -3768,6 +3768,9 @@ driving downhill, in case of positive vehicle velocity.
 fGrav = m*g*sin(alpha)
 </pre>
 </blockquote>
+<p>
+With the inclination angle&nbsp;<var>&alpha;</var> described above.
+</p>
 </html>"));
     end Vehicle;
 
