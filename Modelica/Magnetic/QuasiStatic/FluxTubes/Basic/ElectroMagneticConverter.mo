@@ -70,35 +70,9 @@ equation
                                        color={85,170,255}),
       Line(points={{-30,-100},{-88,-100}},
                                          color={85,170,255}),
-      Line(
-        points={{0,80},{-100,80}},
-        color={85,170,255},
-        pattern=LinePattern.Dash),
-      Line(
-        points={{-100,80},{-100,-80}},
-        color={85,170,255},
-        pattern=LinePattern.Dash),
-      Line(
-        points={{0,-80},{-100,-80}},
-        color={85,170,255},
-        pattern=LinePattern.Dash),
-      Line(
-        points={{100,80},{0,80}},
-        color={255,170,85},
-        pattern=LinePattern.Dash),
-      Line(
-        points={{100,-80},{0,-80}},
-        color={255,170,85},
-        pattern=LinePattern.Dash),
-      Line(
-        points={{100,80},{100,-80}},
-        color={255,170,85},
-        pattern=LinePattern.Dash),
       Ellipse(extent={{-4,-34},{64,34}}, lineColor={255,170,85}),
-      Line(points={{30,-100},{30,-34}},color={255,170,85}),
-      Line(points={{18,0},{42,0}}, color={255,170,85}),
-      Line(points={{42,10},{42,-12}}, color={255,170,85}),
-      Line(points={{30,34},{30,100}},color={255,170,85}),
+      Line(points={{30,-100},{30,0}},  color={255,170,85}),
+      Line(points={{30,0},{30,100}}, color={255,170,85}),
       Line(points={{30,100},{90,100}},color={255,170,85}),
       Line(points={{30,-100},{90,-100}},
                                        color={255,170,85}),
@@ -107,21 +81,6 @@ equation
         textString="%name",
           pattern=LinePattern.None,
           textColor={0,0,255}),
-      Line(points={{18,10},{18,-12}}, color={255,170,85}),
-      Line(points={{-110,30},{-110,-30}},
-                                        color={85,170,255}),
-      Polygon(
-        points={{-110,-30},{-104,-10},{-116,-10},{-110,-30}},
-        lineColor={85,170,255},
-        fillColor={85,170,255},
-        fillPattern=FillPattern.Solid),
-      Line(points={{110,30},{110,-30}},
-                                      color={255,170,85}),
-      Polygon(
-          points={{110,-30},{116,-10},{104,-10},{110,-30}},
-          lineColor={255,170,85},
-          fillColor={255,170,85},
-          fillPattern=FillPattern.Solid),
         Line(
           points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
           color={85,170,255},
@@ -148,54 +107,45 @@ equation
           rotation=270)}),
     Documentation(info="<html>
 <p>
-The electromagnetic energy conversion is given by <strong>Ampere</strong>'s law and <strong>Faraday</strong>'s law respectively:
+The electromagnetic energy conversion is given by <em>Ampere</em>'s law and <em>Faraday</em>'s law respectively:
 </p>
 
-<dl>
-<dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/converter.png\">
-</dd>
-</dl>
+<pre>
+    V<sub>m</sub> = N * i
+    N * d&Phi;/dt = -v
+</pre>
 
 <p>
-In this equation
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/V_m.png\">
-is the magnetomotive force that is supplied to the connected magnetic circuit,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/Phi.png\">
-is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/v.png\"> is due to <strong>Lenz</strong>'s law.
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Basic/converter_signs.png\" alt=\"converter signs\">
 </p>
 
 <p>
-The static inductance is calculated from the flux linkage
+V<sub>m</sub> is the magnetic potential difference applied to the magnetic circuit due to the current i through the coil (Ampere's law). 
+There exists a left-hand assignment between the current i (fingers) and the magnetic potential difference V<sub>m</sub> (thumb).<br> 
+<strong>Note:</strong> There exists a right-hand assignment between the current through the coil i (fingers) and the magnetomotive force mmf. 
+The mmf has the opposite direction compared with V<sub>m</sub>. It is not used in Modelica. 
 </p>
-<dl>
-<dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/Psi-N-Phi.png\">
-</dd>
-</dl>
-<p>and the current
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/i.png\">:
+
+<p>
+For the complete magnetic circuit the sum of all magnetic potential differences counted with the correct sign in a reference direction is equal to zero: sum(V<sub>m</sub>) = 0.<br>
+The magnetic flux &Phi; in each passive component is related to the magnetic potential difference V<sub>m</sub> by the equivalent of Ohms' law: V<sub>m</sub> = R<sub>m</sub> * &Phi;<br>
+<strong>Note:</strong> The magnetic resistance R<sub>m</sub> depends on geometry and material properties. For ferromagnetic materials R<sub>m</sub> is not constant due to saturation.
 </p>
-<dl>
-<dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-i.png\">
-</dd>
-</dl>
-<p>
-This quantity is calculated for information only.</p>
 
-<h5>Note</h5>
-
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat.png\">
-is set to</p>
-<dl>
-<dd>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/L_stat-Psi-eps.png\">
-</dd>
-</dl>
 <p>
-if
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/i-lt-eps.png\">.
-</p></html>"));
+Therefore the sign (actual direction) of &Phi; (magnetic flux through the converter) depends on the associated branch of the magnetic circuit.<br>
+v is the induced voltage in the coil due to the derivative of magnetic flux &Phi; (Faraday's law).<br>
+<strong>Note:</strong> The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
+</p>
+
+<p>
+<strong>Note:</strong> The image shows a right-handed coil. 
+If a left-handed coil has to be modeled instead of a right-handed coil, the parameter N (Number of turns) can be set to a negative value.
+</p>
+
+<p>
+The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only. Note that L_stat is set to |&Psi;/eps| if |i| &lt; eps
+(= 100*Modelica.Constants.eps).
+</p>
+</html>"));
 end ElectroMagneticConverter;

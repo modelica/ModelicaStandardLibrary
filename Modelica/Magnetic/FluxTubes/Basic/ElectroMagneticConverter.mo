@@ -129,55 +129,35 @@ The electromagnetic energy conversion is given by <em>Ampere</em>'s law and <em>
 </p>
 
 <blockquote><pre>
-V_m = i * N
+V<sub>m</sub> = N * i
 N * d&Phi;/dt = -v
 </pre></blockquote>
 
 <p>
-V_m is the magnetomotive force that is supplied to the connected magnetic circuit, &Phi; is the magnetic flux through the associated branch of this magnetic circuit. 
-The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Basic/converter_signs.png\" alt=\"converter signs\">
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Basic/AmperesLaw.png\" alt=\"Ampere's Law\">
+V<sub>m</sub> is the magnetic potential difference applied to the magnetic circuit due to the current i through the coil (Ampere's law). 
+There exists a left-hand assignment between the current i (fingers) and the magnetic potential difference V<sub>m</sub> (thumb).<br> 
+<strong>Note:</strong> There exists a right-hand assignment between the current through the coil i (fingers) and the magnetomotive force mmf. 
+The mmf has the opposite direction compared with V<sub>m</sub>. It is not used in Modelica. 
 </p>
 
 <p>
-Ampere's law relates the terms <em>magnetomotive force</em> and <em>magnetic voltage</em>. 
-This is a similar situation as with the relation of the electromotive force and the electric voltage in Kirchhoff's law. 
-With these terms the two laws are:
+For the complete magnetic circuit the sum of all magnetic potential differences counted with the correct sign in a reference direction is equal to zero: sum(V<sub>m</sub>) = 0.<br>
+The magnetic flux &Phi; in each passive component is related to the magnetic potential difference V<sub>m</sub> by the equivalent of Ohms' law: V<sub>m</sub> = R<sub>m</sub> * &Phi;<br>
+<strong>Note:</strong> The magnetic resistance R<sub>m</sub> depends on geometry and material properties. For ferromagnetic materials R<sub>m</sub> is not constant due to saturation.
 </p>
 
-<ul>
-<li>Ampere's law: F = sum(V_m): 
-The sum of all magnetomotive forces counted with the correct sign in a reference direction is equal to the sum of all magnetic voltages counted in the same reference direction</li>
-<li>Kirchhoff's law: E = sum(v): 
-The sum of all electromotive forces counted with the correct sign in a reference direction is equal to the sum of all electric voltages counted in the same reference direction</li>
-</ul>
-
 <p>
-Modelica can neither treat magnetomotive nor electromotive forces directly in interconnected equivalent circuits. Instead the two laws are applied in a different way:
+Therefore the sign (actual direction) of &Phi; (magnetic flux through the converter) depends on the associated branch of the magnetic circuit.<br>
+v is the induced voltage in the coil due to the derivative of magnetic flux &Phi; (Faraday's law).<br>
+<strong>Note:</strong> The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
 </p>
 
-<ul>
-<li>Ampere's law: sum(V_m) = 0: 
-The sum of all magnetic voltages counted with the correct sign in a reference direction is equal to zero</li>
-<li>Kirchhoff's law: sum(v) = 0: 
-The sum of all electric voltages counted with the correct sign in a reference direction is equal to zero</li>
-</ul>
-
 <p>
-Therefore each magnetomotive and electromotive is converted into an equivalent magnetic and electric voltage, respectively. 
-In a magnetic circuit the electromotive force N * I is modeled as a magnetic voltage source V_mF oriented from plus to minus in the figure above.
-Therefore, there exists a
-</p>
-
-<ul>
-<li>right-hand assignment between the magnetomotive force F (thumb) and the current I (fingers) -- which is true but not implemented in Modelica --, but a</li>
-<li>left-hand assignment between the magnetic voltage of the source, V_mF (thumb) and the current I (fingers) -- which is implemented in Modelica.</li>
-</ul>
-
-<p>
+<strong>Note:</strong> The image shows a right-handed coil. 
 If a left-handed coil has to be modeled instead of a right-handed coil, the parameter N (Number of turns) can be set to a negative value.
 </p>
 
