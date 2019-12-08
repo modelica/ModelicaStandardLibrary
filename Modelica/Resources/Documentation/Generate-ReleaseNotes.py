@@ -57,6 +57,7 @@ def main(dir, milestone, version):
             t = issue['title']
             t = t.replace('<', '&lt;')
             t = t.replace('>', '&gt;')
+            t = t.replace('≥', '>=')
             n = issue['number']
             url = issue['html_url']
             # Mark pull requests
