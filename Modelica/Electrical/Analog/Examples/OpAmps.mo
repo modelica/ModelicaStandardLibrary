@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
 package OpAmps "Examples with operational amplifiers"
   extends Modelica.Icons.ExamplesPackage;
-  model NonInvertingAmp "Non-inverting amplifier"
+  model NonInvertingAmplifier "Non-inverting amplifier"
     extends Modelica.Icons.Example;
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
@@ -46,9 +46,9 @@ package OpAmps "Examples with operational amplifiers"
         StopTime=1,
         Tolerance=1e-006,
         Interval=0.001));
-  end NonInvertingAmp;
+  end NonInvertingAmplifier;
 
-  model InvertingAmp "Inverting amplifier"
+  model InvertingAmplifier "Inverting amplifier"
     extends Modelica.Icons.Example;
     parameter SI.Voltage Vin=5 "Amplitude of input voltage";
     parameter SI.Frequency f=10 "Frequency of input voltage";
@@ -95,7 +95,7 @@ package OpAmps "Examples with operational amplifiers"
         StopTime=1,
         Tolerance=1e-006,
         Interval=0.001));
-  end InvertingAmp;
+  end InvertingAmplifier;
 
   model Adder "Inverting adder"
     extends Modelica.Icons.Example;
@@ -1003,7 +1003,8 @@ The output of the integrator part opamp (opAmp2) is a triangular signal of also 
     extends Modelica.Icons.Example;
     parameter
       Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.DifferentialAmplifierData
-      data annotation (Placement(transformation(extent={{50,10},{70,30}})));
+      data "Parameters for source, OpAmp and measurement"
+       annotation (Placement(transformation(extent={{50,10},{70,30}})));
     Modelica.Electrical.Analog.Sources.SineVoltage sourceVoltage1(
       V=sqrt(2/3)*data.VSource,
       phase=1.0471975511966,
@@ -1151,17 +1152,17 @@ The output of the integrator part opamp (opAmp2) is a triangular signal of also 
 This model demonstrates a differential amplifier to attenuate the input voltage to a level that can be handled by the measurement instrument.
 </p>
 <p>
-Two sinusoidal source voltages with a phase shift of 120&deg; (e.g. two phases of a three-phase system) feed a load resistor. 
+Two sinusoidal source voltages with a phase shift of 120&deg; (e.g., two phases of a three-phase system) feed a load resistor. 
 The voltage at the load resistor has to be measured but is too high for direct measurement.
 </p>
 <h4>Notes</h4>
 <ul>
 <li>The output of the amplifier is inverted with respect to the differential input, as well as attenuated by the factor 1/data.k.</li>
 <li>The influence of the measurement instrument's input resistance on the measurement result is small.</li>
-<li>The current consumption of the amplifier inputs at the source circuit is small (resistor1.i and resistor2.i).</li>
+<li>The current consumption of the amplifier inputs at the source circuit is small (<code>resistor1.i</code> and <code>resistor2.i</code>).</li>
 <li>The common of the source and the common of the amplifier are connected by a ground resistor. 
-In case this resistance is low, a small current is flowing between the amplifier's common and the source's common (resistorGround.i). 
-In case this resistance is high, the amplifier's common is floating with respect to the source's common with a high voltage (resistorGround.v).</li>
+In case this resistance is low, a small current is flowing between the amplifier's common and the source's common (<code>resistorGround.i</code>). 
+In case this resistance is high, the amplifier's common is floating with respect to the source's common with a high voltage (<code>resistorGround.v</code>).</li>
 </ul>
 </html>"));
   end DifferentialAmplifier;
