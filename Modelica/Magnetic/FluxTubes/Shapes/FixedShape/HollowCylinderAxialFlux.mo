@@ -3,6 +3,7 @@ model HollowCylinderAxialFlux
   "(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics"
 
   extends BaseClasses.FixedShape;
+  extends Modelica.Magnetic.FluxTubes.Icons.HollowCylinderAxialFlux;
 
   parameter SI.Length l=0.01 "Axial length (in direction of flux)"
     annotation (Dialog(group="Fixed geometry", groupImage=
@@ -27,32 +28,8 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
 </p>
 </html>"),
     Icon(graphics={
-        Ellipse(
-          extent={{-70,30},{-50,-30}},
-          lineColor={255,128,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-60,30},{60,-30}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
         Text(
           extent={{-150,50},{150,90}},
           textString="%name",
-          textColor={0,0,255}),
-        Ellipse(
-          extent={{50,30},{70,-30}},
-          lineColor={255,128,0},
-          fillColor={215,215,215},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{56,10},{64,-10}},
-          lineColor={255,128,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-60,30},{60,30}}, color={255,128,0}),
-        Line(points={{-60,-30},{60,-30}}, color={255,128,0}),
-        Line(points={{-70,0},{-100,0}}, color={255,128,0}),
-        Line(points={{100,0},{60,0}},   color={255,128,0})}));
+          textColor={0,0,255})}));
 end HollowCylinderAxialFlux;

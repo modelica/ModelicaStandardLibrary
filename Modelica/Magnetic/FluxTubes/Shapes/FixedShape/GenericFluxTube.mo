@@ -4,6 +4,7 @@ model GenericFluxTube
 
   extends BaseClasses.FixedShape;
   extends Modelica.Magnetic.FluxTubes.Icons.Reluctance;
+
   parameter SI.Length l=0.01 "Length in direction of flux"
     annotation(Dialog(group="Fixed geometry", groupImage=
       "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/GenericFluxTube.png"));

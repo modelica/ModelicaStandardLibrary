@@ -1,4 +1,4 @@
-within Modelica.Magnetic.FluxTubes.Icons;
+within Modelica.Magnetic.QuasiStatic.FluxTubes.Icons;
 partial model Cuboid "Icon for cuboid"
   annotation (Icon(graphics={
         Text(
@@ -7,19 +7,19 @@ partial model Cuboid "Icon for cuboid"
           textColor={0,0,255}),
         Rectangle(
           extent={{-70,20},{50,-40}},
-          lineColor={255,128,0},
+          lineColor={255,170,85},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Polygon(
           points={{-70,20},{-50,40},{70,40},{50,20},{-70,20}},
-          lineColor={255,128,0},
+          lineColor={255,170,85},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Polygon(
           points={{50,20},{70,40},{70,-20},{50,-40},{50,20}},
-          lineColor={255,128,0},
+          lineColor={255,170,85},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
-        Line(points={{-70,0},{-100,0}}, color={255,128,0}),
-        Line(points={{100,0},{60,0}},   color={255,128,0})}));
+        Line(points={{-70,0},{-100,0}}, color={255,170,85}),
+        Line(points={{100,0},{60,0}},   color={255,170,85})}));
 end Cuboid;

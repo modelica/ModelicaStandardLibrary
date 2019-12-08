@@ -3,6 +3,7 @@ model HollowCylinderRadialFlux
 "Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics"
 
   extends BaseClasses.FixedShape;
+  extends Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.HollowCylinderRadialFlux;
 
   parameter SI.Length l=0.01 "Width (orthogonal to flux direction)"
                                            annotation (Dialog(group=

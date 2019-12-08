@@ -3,6 +3,7 @@ model Cuboid
   "Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics"
 
   extends BaseClasses.FixedShape;
+  extends Modelica.Magnetic.FluxTubes.Icons.Cuboid;
 
   parameter SI.Length l=0.01 "Length in direction of flux" annotation (
       Dialog(group="Fixed geometry", groupImage=
@@ -24,22 +25,5 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
         Text(
           extent={{-150,50},{150,90}},
           textString="%name",
-          textColor={0,0,255}),
-        Rectangle(
-          extent={{-60,20},{40,-40}},
-          lineColor={255,128,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-60,20},{-40,40},{60,40},{40,20},{-60,20}},
-          lineColor={255,128,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{40,20},{60,40},{60,-20},{40,-40},{40,20}},
-          lineColor={255,128,0},
-          fillColor={215,215,215},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-60,0},{-100,0}}, color={255,128,0}),
-        Line(points={{90,0},{50,0}},    color={255,128,0})}));
+          textColor={0,0,255})}));
 end Cuboid;
