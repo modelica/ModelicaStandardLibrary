@@ -98,7 +98,7 @@ Using the values shown in section Parameters, the results can be validated easil
 <table>
 <tr><th>element   </th><th>cross section     </th><th>length             </th><th>rel. permeability </th><th>B                   </th><th>H                                    </th><th>mmf              </th></tr>
 <tr><td>core      </td><td>d<sup>2</sup>*pi/4</td><td>r*alfa             </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
-<tr><td>airgap    </td><td>d<sup>2</sup>*pi/4</td><td>delta=r*(2*pi-alfa)</td><td>&mu;<sub>r</sub>=1</td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
+<tr><td>airgap    </td><td>d<sup>2</sup>*pi/4</td><td>delta=r*(2*pi-alfa)</td><td>1</td><td>flux / cross section</td><td>B/(&mu;<sub>0</sub>)</td><td>H*delta         </td></tr>
 <tr><td>total     </td><td>                  </td><td>                   </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
 </table>
 <p>
