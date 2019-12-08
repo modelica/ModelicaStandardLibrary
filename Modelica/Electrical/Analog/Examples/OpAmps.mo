@@ -1160,7 +1160,7 @@ The voltage at the load resistor has to be measured but is too high for direct m
 <li>The influence of the measurement instrument's input resistance on the measurement result is small.</li>
 <li>The current consumption of the amplifier inputs at the source circuit is small (<code>resistor1.i</code> and <code>resistor2.i</code>).</li>
 <li>The common of the source and the common of the amplifier are connected by a ground resistor. 
-In case this resistance is low, a small current is flowing between the amplifier's common and the source's common (resistorGround.i). 
+In case this resistance is low, a small current is flowing between the amplifier's common and the source's common (<code>resistorGround.i</code>). 
 In case this resistance is high, the amplifier's common is floating with respect to the source's common with a high voltage (resistorGround.v).</li>
 </ul>
 </html>"));
