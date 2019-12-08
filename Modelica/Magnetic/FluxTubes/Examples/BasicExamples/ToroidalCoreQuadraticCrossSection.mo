@@ -6,7 +6,7 @@ model ToroidalCoreQuadraticCrossSection
   parameter Modelica.SIunits.Length r_o=0.055 "Outer radius of iron core";
   parameter Modelica.SIunits.Length r_i=0.045 "Inner radius of iron core";
   parameter Modelica.SIunits.Length l=0.01 "Length of rectangular cross section";
-  parameter Real my_r=1000 "Relative permeability of core";
+  parameter Modelica.SIunits.RelativePermeability mu_r=1000 "Relative permeability of core";
   parameter Modelica.SIunits.Length delta=0.001 "Length of airgap";
   parameter Modelica.SIunits.Angle alfa=(1 - delta/(2*pi*(r_o + r_i)/2))*2*pi "Section angle of toroidal core";
   parameter Integer N=500 "Number of exciting coil turns";
