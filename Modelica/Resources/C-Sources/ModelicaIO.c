@@ -349,7 +349,7 @@ double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
                                  _In_z_ const char* tableName,
                                  _Out_ size_t* m, _Out_ size_t* n,
                                  int verbose) {
-    double* table;
+    double* table = NULL;
     const char* ext;
     int isMatExt = 0;
 
