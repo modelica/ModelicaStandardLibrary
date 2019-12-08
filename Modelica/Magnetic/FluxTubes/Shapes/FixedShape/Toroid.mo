@@ -14,7 +14,6 @@ model Toroid
     annotation (Dialog(group="Fixed geometry"));
 equation
   A = d^2*pi/4 "Area at arithmetic mean radius for calculation of average flux density";
-  // Area at arithmetic mean radius for calculation of average flux density
   G_m = mu_0*mu_r*A/(r*alfa);
 
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
