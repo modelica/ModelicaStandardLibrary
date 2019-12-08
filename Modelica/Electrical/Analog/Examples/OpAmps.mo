@@ -1151,7 +1151,7 @@ The output of the integrator part opamp (opAmp2) is a triangular signal of also 
 This model demonstrates a differential amplifier to attenuate the input voltage to a level that can be handled by the measurement instrument.
 </p>
 <p>
-Two sinusoidal source voltages with a phase shift of 120&deg; (e.g. two phases of a three-phase system) feed a load resistor. 
+Two sinusoidal source voltages with a phase shift of 120&deg; (e.g., two phases of a three-phase system) feed a load resistor. 
 The voltage at the load resistor has to be measured but is too high for direct measurement.
 </p>
 <h4>Notes</h4>
