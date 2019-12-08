@@ -6,6 +6,7 @@ package FluxTubes "Library for modelling of quasi-static electromagnetic devices
   import Modelica.Constants.mu_0;
 
   extends Modelica.Icons.Package;
+
   annotation (Documentation(info="<html>
 <p>
 This library is intended to provide models for the investigation of

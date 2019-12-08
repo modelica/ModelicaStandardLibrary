@@ -1,6 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Shapes;
 package Force "Flux tubes with reluctance force generation; constant permeability"
   extends Modelica.Icons.VariantsPackage;
+
   annotation (Documentation(info="<html>
 <p>
 Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation\">UsersGuide.ReluctanceForceCalculation</a> for an explanation of the different flux tube categories and resulting sub-packages.

@@ -1,6 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Material;
 package SoftMagnetic "Characteristics mu_r(B) of common soft magnetic materials; hysteresis neglected"
   extends Modelica.Icons.MaterialPropertiesPackage;
+
   annotation (Documentation(info="<html>
 <p>
 The magnetisation characteristics mu_r(B) of all soft magnetic materials currently included in this library are approximated with a <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox\">function</a>. Each material is characterised by the five parameters of this function. The approximated characteristics mu_r(B) for most of the ferromagnetic materials currently included are shown in the plots below (solid lines) together with the original data points compiled from measurements and literature.
@@ -24,5 +25,4 @@ Note that the magnetisation characteristics largely depend on possible previous 
 Additional user-specific materials can be defined as needed. This requires determination of the approximation parameters from the original data points, preferably with a nonlinear curve fit.
 </p>
 </html>"));
-
 end SoftMagnetic;

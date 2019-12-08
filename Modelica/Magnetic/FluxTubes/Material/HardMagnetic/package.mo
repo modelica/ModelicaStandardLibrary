@@ -1,6 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Material;
 package HardMagnetic "Characteristics of common permanent magnetic materials (temperature dependence considered)"
   extends Modelica.Icons.MaterialPropertiesPackage;
+
   annotation (Documentation(info="<html>
 <p>
 Typical values for remanence, coercivity and the temperature coefficient of remanence are provided for the common permanent magnetic materials illustrated below.</p>
