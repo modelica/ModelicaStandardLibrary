@@ -13,7 +13,7 @@ model ToroidalCoreAirgap "Educational example: iron core with airgap"
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Shapes.FixedShape.Toroid core(
     nonLinearPermeability=false,
-    mu_rConst=1000,
+    mu_rConst=mu_r,
     r=r,
     d=d,
     alfa=alfa) annotation (Placement(transformation(
