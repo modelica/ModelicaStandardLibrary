@@ -13,7 +13,7 @@ model Toroid
   parameter SI.Angle alfa=pi/2 "Angle of toroid section"
     annotation (Dialog(group="Fixed geometry"));
 equation
-  A = d^2*pi/4;
+  A = d^2*pi/4 "Area at arithmetic mean radius for calculation of average flux density";
   // Area at arithmetic mean radius for calculation of average flux density
   G_m = mu_0*mu_r*A/(r*alfa);
 
