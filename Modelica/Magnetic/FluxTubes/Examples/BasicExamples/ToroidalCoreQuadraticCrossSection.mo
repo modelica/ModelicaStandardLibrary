@@ -16,7 +16,7 @@ model ToroidalCoreQuadraticCrossSection
   Shapes.FixedShape.HollowCylinderCircumferentialFlux
                            core(
     nonLinearPermeability=false,
-    mu_rConst=1000,
+    mu_rConst=mu_r,
     l=l,
     r_i=r_i,
     r_o=r_o,
