@@ -1718,18 +1718,18 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       parameter Modelica.SIunits.Mass m=100 "Mass of vehicle";
       parameter Modelica.SIunits.Length R=0.25 "Radius of wheel";
       parameter Modelica.SIunits.Area A=1 "Cross section of vehicle";
-      parameter Real cw=0.5 "Drag resistance coefficient";
+      parameter Real Cd=0.5 "Drag resistance coefficient";
       parameter Modelica.SIunits.Density rho=1.18 "Density of air";
       parameter Modelica.SIunits.Velocity vWind=0 "Constant wind velocity";
-      parameter Real cr=0.01 "Rolling resistance coefficient";
+      parameter Real Cr=0.01 "Rolling resistance coefficient";
       //Check nominal force
       parameter Real inclination=0 "Constant inclination = tan(angle)";
       parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nominal velocity";
-      final parameter Modelica.SIunits.Force FDrag=cw*A*rho*(vNom - vWind)^2/2 "Drag resistance"
+      final parameter Modelica.SIunits.Force FDrag=Cd*A*rho*(vNom - vWind)^2/2 "Drag resistance"
         annotation(Dialog(enable=false));
       final parameter Modelica.SIunits.Angle alpha=atan(inclination) "Inclination angle"
         annotation(Dialog(enable=false));
-      final parameter Modelica.SIunits.Force FRoll=cr*m*g_n*cos(alpha) "Roll resistance"
+      final parameter Modelica.SIunits.Force FRoll=Cr*m*g_n*cos(alpha) "Roll resistance"
         annotation(Dialog(enable=false));
       final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alpha) "Grav resistance"
       annotation(Dialog(enable=false));
@@ -1745,9 +1745,9 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         J=0,
         R=R,
         A=A,
-        cw=cw,
+        Cd=Cd,
+        CrConstant=Cr,
         vWindConstant=vWind,
-        crConstant=cr,
         useInclinationInput=true,
         s(fixed=true),
         v(fixed=true))
@@ -1759,9 +1759,9 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         J=0,
         R=R,
         A=A,
-        cw=cw,
+        Cd=Cd,
+        CrConstant=Cr,
         vWindConstant=vWind,
-        crConstant=cr,
         useInclinationInput=true,
         s(fixed=true),
         v(fixed=true))
@@ -1773,9 +1773,9 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         J=0,
         R=R,
         A=A,
-        cw=cw,
+        Cd=Cd,
+        CrConstant=Cr,
         vWindConstant=vWind,
-        crConstant=cr,
         useInclinationInput=true,
         s(fixed=false),
         v(fixed=false))
@@ -3402,10 +3402,10 @@ following references, especially (Armstrong and Canudas de Wit 1996):
     model RollingResistance "Resistance of a rolling wheel"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       import Modelica.Constants.pi;
-      parameter SI.Force fNormal(start=0) "Wheel load due to gravity";
-      parameter Boolean usecrInput=false "Enable signal input for cr";
-      parameter Real crConstant=0.01 "Constant rolling resistance coefficient"
-        annotation(Dialog(enable=not usecrInput));
+      parameter SI.Force fWeight(start=0) "Wheel load due to gravity";
+      parameter Boolean useCrInput=false "Enable signal input for cr";
+      parameter Real CrConstant=0.01 "Constant rolling resistance coefficient"
+        annotation(Dialog(enable=not useCrInput));
       parameter Boolean useInclinationInput=false "Enable signal input for inclination";
       parameter Real inclinationConstant=0 "Constant inclination = tan(angle)"
         annotation(Dialog(enable=not useInclinationInput));
@@ -3421,23 +3421,23 @@ following references, especially (Armstrong and Canudas de Wit 1996):
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=0,
             origin={-120,60})));
-      Blocks.Interfaces.RealInput cr = cr_internal if usecrInput
+      Blocks.Interfaces.RealInput Cr = Cr_internal if useCrInput
         "Rolling resistance coefficient"
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=0,
             origin={-120,-60})));
     protected
-      Real cr_internal "Rolling resistance coefficient";
+      Real Cr_internal "Rolling resistance coefficient";
       Real inclination_internal "Inclination";
     equation
-      if not usecrInput then
-        cr_internal = crConstant;
+      if not useCrInput then
+        Cr_internal = CrConstant;
       end if;
       if not useInclinationInput then
         inclination_internal = inclinationConstant;
       end if;
       v = der(s);
-      f_nominal = -fNormal*cr_internal*cos(atan(inclination_internal));
+      f_nominal = -Cr_internal*fWeight*cos(atan(inclination_internal));
       if reg==Modelica.Blocks.Types.Regularization.Exp then
         f = -f_nominal*(2/(1 + Modelica.Math.exp(-v/(0.01*v0)))-1);
       elseif reg==Modelica.Blocks.Types.Regularization.Sine then
@@ -3504,14 +3504,14 @@ inclination and rolling resistance coefficient.
 </p>
 <blockquote>
 <pre>
-flange.f = cr * fNormal * cos(alpha)
+flange.f = Cr * fWeight * cos(alpha)
 </pre>
 </blockquote>
 
 <p>
-The rolling resistance coeffcient&nbsp;<var>c<sub>r</sub></var> is either constant
-(given by the parameter <code>crConstant</code>)
-or prescribed by the input <code>cr</code>.
+The rolling resistance coeffcient&nbsp;<var>C<sub>r</sub></var> is either constant
+(given by the parameter <code>CrConstant</code>)
+or prescribed by the input <code>Cr</code>.
 </p>
 <p>
 The inclination is either constant (parameter <code>inclinationConstant</code>)
@@ -3543,7 +3543,7 @@ is not taken into account.
       parameter SI.Length R "Wheel radius";
       parameter SI.Area A(start=1) "Cross section of vehicle"
         annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
-      parameter Real cw(start=0.5) "Drag resistance coefficient"
+      parameter Real Cd(start=0.5) "Drag resistance coefficient"
         annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
       parameter SI.Density rho=1.2 "Density of air"
         annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
@@ -3551,10 +3551,10 @@ is not taken into account.
         annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
       parameter SI.Velocity vWindConstant=0 "Constant wind velocity"
         annotation(Dialog(tab="Driving resistances", group="Drag resistance", enable=not useWindInput));
-      parameter Boolean usecrInput=false "Enable signal input for cr"
+      parameter Boolean useCrInput=false "Enable signal input for cr"
         annotation(Dialog(tab="Driving resistances", group="Rolling resistance"));
-      parameter Real crConstant(start=0.01) "Constant rolling resistance coefficient"
-        annotation(Dialog(tab="Driving resistances", group="Rolling resistance", enable=not usecrInput));
+      parameter Real CrConstant=0.015 "Constant rolling resistance coefficient"
+        annotation(Dialog(tab="Driving resistances", group="Rolling resistance", enable=not useCrInput));
       parameter SI.Velocity vReg=1e-3 "Velocity for regularization around 0"
         annotation(Dialog(tab="Driving resistances", group="Rolling resistance"));
       parameter Boolean useInclinationInput=false "Enable signal input for inclination"
@@ -3567,16 +3567,16 @@ is not taken into account.
     protected
       constant SI.Velocity vRef=1 "Reference velocity for air drag";
     public
-      Sources.QuadraticSpeedDependentForce dragForce(
+      Sources.QuadraticSpeedDependentForce fDrag(
         final useSupport=true,
-        final f_nominal=-cw*A*rho*vRef^2/2,
+        final f_nominal=-Cd*A*rho*vRef^2/2,
         final ForceDirection=false,
         final v_nominal=vRef)
         annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
-      RollingResistance rollForce(
-        final fNormal=m*g,
-        final usecrInput=usecrInput,
-        final crConstant=crConstant,
+      RollingResistance fRoll(
+        final fWeight=m*g,
+        final useCrInput=useCrInput,
+        final CrConstant=CrConstant,
         final useInclinationInput=useInclinationInput,
         final inclinationConstant=inclinationConstant,
         final reg=Modelica.Blocks.Types.Regularization.Linear,
@@ -3584,8 +3584,8 @@ is not taken into account.
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={60,0})));
-      Sources.Force gravForce
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+      Sources.Force fGrav annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
             rotation=0,
             origin={60,30})));
       Modelica.Mechanics.Translational.Interfaces.Flange_b flangeT "Translational flange"
@@ -3603,7 +3603,7 @@ is not taken into account.
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=90,
             origin={-60,-120})));
-      Modelica.Blocks.Interfaces.RealInput cr if usecrInput
+      Modelica.Blocks.Interfaces.RealInput Cr if useCrInput
         "Rolling resistance coefficient"
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=90,
@@ -3644,7 +3644,7 @@ is not taken into account.
         annotation (Line(points={{51,-90},{60,-90},{60,-72}}, color={0,0,127}));
       connect(vWind, windSpeed.v_ref)
         annotation (Line(points={{60,-120},{60,-72}}, color={0,0,127}));
-      connect(dragForce.support, windSpeed.flange)
+      connect(fDrag.support, windSpeed.flange)
         annotation (Line(points={{60,-40},{60,-50}}, color={0,127,0}));
       connect(mass.flange_b, flangeT) annotation (Line(points={{50,60},{90,60},
               {90,0},{100,0}},
@@ -3652,24 +3652,21 @@ is not taken into account.
       connect(sin.u, atan.y)
         annotation (Line(points={{-22,30},{-29,30}},   color={0,0,127}));
       connect(gravForceGain.u, sin.y) annotation (Line(points={{8,30},{1,30}},     color={0,0,127}));
-      connect(gravForceGain.y, gravForce.f) annotation (Line(points={{31,30},{
-              48,30}},                                                                            color={0,0,127}));
-      connect(mass.flange_b, dragForce.flange) annotation (Line(points={{50,60},
-              {90,60},{90,-30},{70,-30}},
-                                      color={0,127,0}));
-      connect(mass.flange_b, rollForce.flange) annotation (Line(points={{50,60},
-              {90,60},{90,0},{70,0}},
-                                    color={0,127,0}));
-      connect(mass.flange_b, gravForce.flange) annotation (Line(points={{50,60},
-              {90,60},{90,30},{70,30}},
-                                     color={0,127,0}));
+      connect(gravForceGain.y, fGrav.f)
+        annotation (Line(points={{31,30},{48,30}}, color={0,0,127}));
+      connect(mass.flange_b, fDrag.flange) annotation (Line(points={{50,60},{90,
+              60},{90,-30},{70,-30}}, color={0,127,0}));
+      connect(mass.flange_b, fRoll.flange) annotation (Line(points={{50,60},{90,
+              60},{90,0},{70,0}}, color={0,127,0}));
+      connect(mass.flange_b, fGrav.flange) annotation (Line(points={{50,60},{90,
+              60},{90,30},{70,30}}, color={0,127,0}));
       connect(inertia.flange_b, idealRollingWheel.flangeR)
         annotation (Line(points={{-30,60},{-10,60}}, color={0,0,0}));
       connect(flangeR, inertia.flange_a) annotation (Line(points={{-100,0},{-80,0},{
               -80,60},{-50,60}}, color={0,0,0}));
-      connect(cr, rollForce.cr)
+      connect(Cr, fRoll.Cr)
         annotation (Line(points={{0,-120},{0,-6},{48,-6}}, color={0,0,127}));
-      connect(inclination, rollForce.inclination)
+      connect(inclination, fRoll.inclination)
         annotation (Line(points={{-60,-120},{-60,6},{48,6}}, color={0,0,127}));
       connect(inclination, atan.u) annotation (Line(points={{-60,-120},{-60,30},
               {-52,30}}, color={0,0,127}));
