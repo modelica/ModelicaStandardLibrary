@@ -139,9 +139,10 @@ N * d&Phi;/dt = -v
 
 <p>
 V<sub>m</sub> is the magnetic potential difference applied to the magnetic circuit due to the current i through the coil (Ampere's law). 
-There exists a left-hand assignment between the current i (fingers) and the magnetic potential difference V<sub>m</sub> (thumb).<br> 
+There exists a left-hand assignment between the current i (Put your hand around the coil, fingers pointing in the direction of current flow.) 
+and the magnetic potential difference V<sub>m</sub> (thumb).<br> 
 <strong>Note:</strong> There exists a right-hand assignment between the current through the coil i (fingers) and the magnetomotive force mmf. 
-The mmf has the opposite direction compared with V<sub>m</sub>. It is not used in Modelica. 
+The mmf has the opposite direction compared with V<sub>m</sub>, it is not used in Modelica. 
 </p>
 
 <p>
@@ -157,8 +158,8 @@ v is the induced voltage in the coil due to the derivative of magnetic flux &Phi
 </p>
 
 <p>
-<strong>Note:</strong> The image shows a right-handed coil. 
-If a left-handed coil has to be modeled instead of a right-handed coil, the parameter N (Number of turns) can be set to a negative value.
+<strong>Note:</strong> The image shows a coil wound counter-clockwise (positive mathematical direction). 
+If a coil wound clockwise has to be modeled instead, the parameter N (Number of turns) can be set to a negative value.
 </p>
 
 <p>
