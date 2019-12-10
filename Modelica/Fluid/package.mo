@@ -22,9 +22,7 @@ Instead, the goal is that the Modelica.Fluid library provides
 a <strong>reasonable set of components</strong> and that it <strong>demonstrates</strong>
 how to implement components of a fluid flow library in Modelica,
 in particular to cope with difficult issues such as connector
-design, reversing flow and initialization. It is planned to
-include more components in the future. User proposals are
-welcome.
+design, reversing flow and initialization.
 </p>
 <p>
 This library has the following main features:
@@ -166,13 +164,12 @@ nominal attributes. Furthermore, Medium.MassFlowRate is defined as:
       Modelica.SIunits.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
 </pre>
 <p>
+Automatic propagation of fluid models through the ports is not possible with the Modelica 3.4 specification.
 With the current library design, it is necessary to explicitly select the medium
 model for each component in a circuit. This model is then propagated to the ports,
 and a Modelica translator will check that the quantity and unit attributes
 of connected interfaces are identical. Therefore, an error occurs,
 if connected FluidPorts do not have a medium with the same medium name.
-In the future, automatic propagation of fluid models through the ports will be
-introduced, but this still not possible with Modelica 3.0.
 </p>
 <p>
 The thermodynamic pressure is an <em>effort</em> variable, which means that the connection

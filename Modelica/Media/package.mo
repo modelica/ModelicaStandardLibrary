@@ -1797,8 +1797,7 @@ Index reduction leads to the equations:
 </pre>
 <p>
 Note, that <strong>der</strong>(y,x) is the partial derivative of y with respect to x
-and that this operator will be introduced in a future version
-of the Modelica language.
+and that this operator is not available in the Modelica 3.4 specification.
 The above equations imply, that if p,T are provided from the
 integrator as states, all functions, such as fd(p,T)
 or <strong>der</strong>(fd,p) can be evaluated as function of the states.
