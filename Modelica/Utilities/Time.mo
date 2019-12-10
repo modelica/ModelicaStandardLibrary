@@ -60,7 +60,7 @@ All returned values are of type Integer and have the following meaning:
   function dayOfWeek "Return day of week for given date"
     extends Modelica.Icons.Function;
     input Types.TimeType timeIn "Date";
-    output Integer dow "Day of week: 0 = Sunday, ..., 6 = Saturday";
+    output Integer dow(min=1, max=7) "Day of week: 1 = Monday, ..., 6 = Saturday, 7 = Sunday";
   algorithm
     dow := Internal.Time.dayOfWeek(timeIn.year, timeIn.month, timeIn.day);
       annotation (Documentation(info="<html>
@@ -71,15 +71,13 @@ dow = Time.<strong>dayOfWeek</strong>(timeIn);
 <h4>Description</h4>
 <p>
 Returns the day of the week for a given date using Tomohiko Sakamoto's algorithm.
-The returned Integer number of <code>dow</dow> has the following meaning:
+The returned Integer number of <code>dow</code> has the following meaning:
 </p>
 
 <blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Day of week</th>
     <th>Number</th></tr>
-
-<tr><td>Sunday</td> <td>0</td></tr>
 
 <tr><td>Monday</td> <td>1</td></tr>
 
@@ -92,6 +90,9 @@ The returned Integer number of <code>dow</dow> has the following meaning:
 <tr><td>Friday</td> <td>5</td></tr>
 
 <tr><td>Saturday</td> <td>6</td></tr>
+
+<tr><td>Sunday</td> <td>7</td></tr>
+
 </table>
 </blockquote>
 
@@ -170,6 +171,8 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 </pre></blockquote>
 </html>"));
   end leapDays;
+
+  final constant String weekDays[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"} "Array of week days";
 
     annotation (
 Documentation(info="<html>
