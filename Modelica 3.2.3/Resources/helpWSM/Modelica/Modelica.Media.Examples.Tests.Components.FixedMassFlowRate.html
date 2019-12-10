@@ -1,0 +1,143 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Media.Examples.Tests.html">Tests</a></li>
+  <li><a href="Modelica.Media.Examples.Tests.Components.html">Components</a></li>
+  <li><a href="Modelica.Media.Examples.Tests.Components.FixedMassFlowRate.html">FixedMassFlowRate</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FixedMassFlowRate</h1>
+    <p>Ideal pump that produces a constant mass flow rate from a large reservoir at fixed temperature and mass fraction</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Examples.Tests.Components.FixedMassFlowRate_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m_flow</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Tests.Components.FixedMassFlowRate.Medium.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Fixed mass flow rate from an infinite reservoir to the fluid port</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_T_ambient</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Select T_ambient or h_ambient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_ambient</th>
+      <td>
+        <p><span>Value:</span> Modelica.SIunits.Conversions.from_degC(20)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Tests.Components.FixedMassFlowRate.Medium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Ambient temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_ambient</th>
+      <td>
+        <p><span>Value:</span> 1.e4</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Tests.Components.FixedMassFlowRate.Medium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Ambient specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X_ambient</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Tests.Components.FixedMassFlowRate.Medium.MassFraction.html">MassFraction[Medium.nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Ambient mass fractions m_i/m of reservoir</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Media.Examples.Tests.Components.FluidPort_b_16x16.png"></td>
+      <th>port</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Tests.Components.FluidPort_b.html">FluidPort_b</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.Tests.Components.FixedMassFlowRate.Medium.BaseProperties_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.Tests.Components.FixedMassFlowRate.Medium.BaseProperties.html">BaseProperties</a></p>
+        <p><span>Description:</span> Medium in the source</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.Tests.Components.PartialTestModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.Tests.Components.PartialTestModel.html">PartialTestModel</a></p>
+        <p><span>Modelica.Media.Examples.Tests.Components</span</p>
+        <p>Basic test model to test a medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.Tests.Components.PartialTestModel2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.Tests.Components.PartialTestModel2.html">PartialTestModel2</a></p>
+        <p><span>Modelica.Media.Examples.Tests.Components</span</p>
+        <p>Slightly larger test model to test a medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

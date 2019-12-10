@@ -1,0 +1,141 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Fittings.html">Fittings</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.Bends.html">Bends</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.html">CurvedBend</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.pressureLoss.html">pressureLoss</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>pressureLoss</h1>
+    <p>Return pressure loss dp as function of mass flow rate m_flow for a curved bend</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.pressureLoss_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This function returns the pressure loss dp as function of mass flow rate m_flow for a curved bend.
+The details of the function are described
+<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall.html">here</a>.
+</p>
+
+<p>
+The bend characteristic is valid for constant density and constant dynamic viscosity.
+It can be approximately also used for compressible media. This is performed by providing
+the upstream density and upstream dynamic viscosity. In order to be able to regularize density
+and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
+fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
+(d_b, eta_b).
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">dp = pressureLoss(m_flow, geometry, d_a, d_b, eta_a, eta_b, dp_small, m_flow_small)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m_flow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Mass flow rate (= port_a.m_flow)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>geometry</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.Geometry.html">Geometry</a></p>
+        <p><span>Description:</span> Geometry of bend</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density at port_a when fluid is flowing from port_a to port_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density at port_b when fluid is flowing from port_b to port_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eta_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Dynamic viscosity at port_a when fluid is flowing from port_a to port_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eta_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Dynamic viscosity at port_b when fluid is flowing from port_b to port_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dp_small</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_small</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>dp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure loss</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

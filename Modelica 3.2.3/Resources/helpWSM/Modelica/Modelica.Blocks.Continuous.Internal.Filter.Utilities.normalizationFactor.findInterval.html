@@ -1,0 +1,85 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.Utilities.normalizationFactor.html">normalizationFactor</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.Utilities.normalizationFactor.findInterval.html">findInterval</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>findInterval</h1>
+    <p>Find interval for the root</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.Internal.Filter.Utilities.normalizationFactor.findInterval_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(alpha_min, alpha_max) = findInterval(c1, c2)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>c1</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> [p] coefficients of denominator polynomials (a*p + 1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c2</th>
+      <td>
+        <p><span>Type:</span> Real[:,2]</p>
+        <p><span>Description:</span> [p^2, p] coefficients of denominator polynomials (b*p^2 + a*p + 1)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>alpha_min</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha_max</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

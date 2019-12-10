@@ -1,0 +1,136 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.dpotrf.html">dpotrf</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dpotrf</h1>
+    <p>Computes the Cholesky factorization of a real symmetric positive definite matrix A</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.LAPACK.dpotrf_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<pre>Lapack documentation
+    Purpose
+    =======
+
+    DPOTRF computes the Cholesky factorization of a real symmetric
+    positive definite matrix A.
+
+    The factorization has the form
+       A = U**T * U,  if UPLO = 'U', or
+       A = L  * L**T,  if UPLO = 'L',
+    where U is an upper triangular matrix and L is lower triangular.
+
+    This is the block version of the algorithm, calling Level 3 BLAS.
+
+    Arguments
+    =========
+
+    UPLO    (input) CHARACTER*1
+            = 'U':  Upper triangle of A is stored;
+            = 'L':  Lower triangle of A is stored.
+
+    N       (input) INTEGER
+            The order of the matrix A.  N >= 0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+            N-by-N upper triangular part of A contains the upper
+            triangular part of the matrix A, and the strictly lower
+            triangular part of A is not referenced.  If UPLO = 'L', the
+            leading N-by-N lower triangular part of A contains the lower
+            triangular part of the matrix A, and the strictly upper
+            triangular part of A is not referenced.
+
+            On exit, if INFO = 0, the factor U or L from the Cholesky
+            factorization A = U**T*U or A = L*L**T.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA >= max(1,N).
+
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            < 0:  if INFO = -i, the i-th argument had an illegal value
+            > 0:  if INFO = i, the leading minor of order i is not
+                  positive definite, and the factorization could not be
+                  completed.</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(Acholesky, info) = dpotrf(A, upper)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Real symmetric positive definite matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>upper</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True if the upper triangle of A is provided</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Acholesky</th>
+      <td>
+        <p><span>Default Value:</span> A</p>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 1)]</p>
+        <p><span>Description:</span> Cholesky factor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

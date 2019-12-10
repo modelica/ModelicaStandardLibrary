@@ -1,0 +1,178 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.html">ControlledDCDrives</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM.html">SpeedControlledDCPM</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SpeedControlledDCPM</h1>
+    <p>Speed controlled DC PM drive with H-bridge from battery</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This model demonstrates how a speed controller for a current controlled DC PM drive works.</p>
+<p>
+The inner current controller is parameterized according to the absolute optimum.
+The outer control loop is formed by the speed controller which is parameterized according to the symmetrical optimum.
+</p>
+<p>
+At time=0.2 s a reference speed step is applied, causing the drive to accelerate to the desired speed.
+At time=0.8 s a load torque step is applied, causing to drive to decelerate until the speed controller brings the drive back to the desired speed.
+</p>
+<p>
+You may try a slewRateLimiter instead of the prefilter to limit the speed rise i.e. the torque.
+</p>
+<p>
+Further reading:
+<a href="resources/Modelica.Electrical.Machines.Examples.ControlledDCDrives.SpeedControlledDCPM_info_001.pdf">Tutorial at the Modelica Conference 2017</a>
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>driveData</th>
+      <td>
+        <p><span>Value:</span> Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DriveDataDCPM</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DriveDataDCPM.html">DriveDataDCPM</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DriveDataDCPM_32x32.png"></td>
+      <th>driveData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DriveDataDCPM.html">DriveDataDCPM</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>loadInertia</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.SpeedSensor_32x32.png"></td>
+      <th>speedSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sensors.SpeedSensor.html">SpeedSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet_32x32.png"></td>
+      <th>dcpm</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet.html">DC_PermanentMagnet</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DcdcInverter_32x32.png"></td>
+      <th>armatureInverter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DcdcInverter.html">DcdcInverter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.Battery_32x32.png"></td>
+      <th>source</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.Battery.html">Battery</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI_32x32.png"></td>
+      <th>currentController</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI.html">LimitedPI</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>tau2i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.TorqueStep_32x32.png"></td>
+      <th>loadTorque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.TorqueStep.html">TorqueStep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI_32x32.png"></td>
+      <th>speedController</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI.html">LimitedPI</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.FirstOrder_32x32.png"></td>
+      <th>preFilter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.FirstOrder.html">FirstOrder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Nonlinear.SlewRateLimiter_32x32.png"></td>
+      <th>slewRateLimiter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Nonlinear.SlewRateLimiter.html">SlewRateLimiter</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Special.html">Special</a></li>
+  <li><a href="Modelica.Math.Special.erfInv.html">erfInv</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>erfInv</h1>
+    <p>Inverse error function: u = erf(erfInv(u))</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Special.erfInv_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Special.<strong>erfInv</strong>(u);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the inverse of the error function erf(u) = 2/sqrt(pi)*Integral_0_u exp(-t^2)*dt numerically with a relative precision of about 1e-15. Therefore, u = erf(erfInv(u)). Input argument u must be in the range
+(otherwise an assertion is raised):
+</p>
+
+<blockquote>
+-1 &le; u &le; 1
+</blockquote>
+
+<p>
+If u = 1, the function returns Modelica.Constants.inf.<br>
+If u = -1, the function returns -Modelica.Constants.inf<br>
+The implementation utilizes the formulation of the Boost library (<a href="http://www.boost.org/doc/libs/1_57_0/boost/math/special_functions/detail/erf_inv.hpp">erf_inv.hpp</a>,
+developed by John Maddock).<br>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.Special.erfInv/resources/Modelica.Math.Special.erfInv_info_001.png">
+</blockquote>
+
+<p>
+For more details, see <a href="http://en.wikipedia.org/wiki/Error_function">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  erfInv(0)            // = 0
+  erfInv(0.5)          // = 0.4769362762044699
+  erfInv(0.999999)     // = 3.458910737275499
+  erfInv(0.9999999999) // = 4.572824958544925
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Special.erf.html">erf</a>,
+<a href="Modelica.Math.Special.erfc.html">erfc</a>,
+<a href="Modelica.Math.Special.erfcInv.html">erfcInv</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = erfInv(u)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Input argument in the range -1 <= u <= 1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> = inverse of error function</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

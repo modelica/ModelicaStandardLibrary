@@ -1,0 +1,158 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.html">SynchronousInductionMachines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMPM_NoLoad.html">SMPM_NoLoad</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SMPM_NoLoad</h1>
+    <p>SMPM at no-load</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMPM_NoLoad_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMPM_NoLoad_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMPM_NoLoad_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Synchronous machine with permanent magnets at no-load, driven with constant nominal speed.
+</p>
+<p>
+You may check the terminal voltage = VsOpenCircuit (shown by the length of the space phasor) and the frequency = fsNominal.
+</p>
+<p>
+Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle:
+</p>
+<ul>
+<li>If the shaft angle starts at (pi + 0*pi/3)/p, the flux linkage through phase 1 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 2*pi/3)/p, the flux linkage through phase 2 is at the maximum and therefore this phase voltage starts at 0.</li>
+<li>If the shaft angle starts at (pi + 4*pi/3)/p, the flux linkage through phase 3 is at the maximum and therefore this phase voltage starts at 0.</li>
+</ul>
+<p>Note that the angle of the voltage space phasor is pi/2 behind the angle of the hall sensor,
+i.e. after a rotation of the shaft by pi/2/p the flux linkage of phase 1 is zero and the induced voltage a maximum.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>smpmData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData.html">SM_PermanentMagnetData</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData_32x32.png"></td>
+      <th>smpmData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData.html">SM_PermanentMagnetData</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet_32x32.png"></td>
+      <th>smpm</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.TerminalBox_32x32.png"></td>
+      <th>terminalBox</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.TerminalBox.html">TerminalBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Sensors.PotentialSensor_32x32.png"></td>
+      <th>potentialSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Sensors.PotentialSensor.html">PotentialSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor_32x32.png"></td>
+      <th>toSpacePhasor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar_32x32.png"></td>
+      <th>toPolar</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar.html">ToPolar</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>toDeg</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.HallSensor_32x32.png"></td>
+      <th>hallSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Sensors.HallSensor.html">HallSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.ConstantSpeed_32x32.png"></td>
+      <th>constantSpeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.ConstantSpeed.html">ConstantSpeed</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

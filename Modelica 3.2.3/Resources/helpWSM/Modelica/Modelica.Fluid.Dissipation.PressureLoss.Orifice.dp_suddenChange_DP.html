@@ -1,0 +1,98 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.PressureLoss.html">PressureLoss</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.PressureLoss.Orifice.html">Orifice</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP.html">dp_suddenChange_DP</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dp_suddenChange_DP</h1>
+    <p>Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without baffles | sharp edge</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface. The flow direction determines the type of the transition. In case of the design flow a sudden expansion will be considered. At flow reversal a sudden contraction will be considered.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <strong> incompressible case </strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW.html">dp_suddenChange_MFLOW</a> is numerically best used for the <strong> compressible case </strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange.html">See more information</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">DP = dp_suddenChange_DP(IN_con, IN_var, m_flow)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>IN_con</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con.html">dp_suddenChange_IN_con</a></p>
+        <p><span>Description:</span> Input record for function dp_suddenChange_DP</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IN_var</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var.html">dp_suddenChange_IN_var</a></p>
+        <p><span>Description:</span> Input record for function dp_suddenChange_DP</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Mass flow rate</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>DP</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Output for function dp_suddenChange_DP</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

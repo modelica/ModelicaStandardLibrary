@@ -1,0 +1,77 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Sources.Move.html">Move</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Sources.Move.position.html">position</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>position</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Move.position_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">q = position(q_qd_qdd, dummy)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>q_qd_qdd</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Required values for position, speed, acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dummy</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>q</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

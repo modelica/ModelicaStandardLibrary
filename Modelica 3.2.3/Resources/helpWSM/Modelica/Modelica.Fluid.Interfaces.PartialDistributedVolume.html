@@ -1,0 +1,231 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.html">PartialDistributedVolume</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialDistributedVolume</h1>
+    <p>Base class for distributed volume models</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Interface and base class for <code><strong>n</strong></code> ideally mixed fluid volumes with the ability to store mass and energy.
+It is intended to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
+The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
+</p>
+<ul>
+<li><code><strong>Qb_flows[n]</strong></code>, heat flow term, e.g., conductive heat flows across segment boundaries, and</li>
+<li><code><strong>Wb_flows[n]</strong></code>, work term.</li>
+</ul>
+<p>
+The component volumes <code><strong>fluidVolumes[n]</strong></code> are an input that needs to be set in an extending class to complete the model.
+</p>
+<p>
+Further source terms must be defined by an extending class for fluid flow across the segment boundary:
+</p>
+<ul>
+<li><code><strong>Hb_flows[n]</strong></code>, enthalpy flow,</li>
+<li><code><strong>mb_flows[n]</strong></code>, mass flow,</li>
+<li><code><strong>mbXi_flows[n]</strong></code>, substance mass flow, and</li>
+<li><code><strong>mbC_flows[n]</strong></code>, trace substance mass flow.</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of discrete volumes</p>
+      </td>
+    </tr>
+    <tr>
+      <th>energyDynamics</th>
+      <td>
+        <p><span>Value:</span> system.energyDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of energy balances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>massDynamics</th>
+      <td>
+        <p><span>Value:</span> system.massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of mass balances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>substanceDynamics</th>
+      <td>
+        <p><span>Value:</span> massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of substance balances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>traceDynamics</th>
+      <td>
+        <p><span>Value:</span> massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of trace substance balances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_a_start</th>
+      <td>
+        <p><span>Value:</span> system.p_start</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Start value of pressure at port a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_b_start</th>
+      <td>
+        <p><span>Value:</span> p_a_start</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Start value of pressure at port b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ps_start</th>
+      <td>
+        <p><span>Value:</span> if n > 1 then linspace(p_a_start, p_b_start, n) else {(p_a_start + p_b_start) / 2}</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.Medium.AbsolutePressure.html">AbsolutePressure[n]</a> (Pa)</p>
+        <p><span>Description:</span> Start value of pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_T_start</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use T_start if true, otherwise h_start</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_start</th>
+      <td>
+        <p><span>Value:</span> if use_T_start then system.T_start else Medium.temperature_phX((p_a_start + p_b_start) / 2, h_start, X_start)</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.Medium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Start value of temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_start</th>
+      <td>
+        <p><span>Value:</span> if use_T_start then Medium.specificEnthalpy_pTX((p_a_start + p_b_start) / 2, T_start, X_start) else Medium.h_default</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.Medium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Start value of specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X_start</th>
+      <td>
+        <p><span>Value:</span> Medium.X_default</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.Medium.MassFraction.html">MassFraction[Medium.nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Start value of mass fractions m_i/m</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C_start</th>
+      <td>
+        <p><span>Value:</span> Medium.C_default</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.Medium.ExtraProperty.html">ExtraProperty[Medium.nC]</a></p>
+        <p><span>Description:</span> Start value of trace substances</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fluidVolumes</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume[n]</a> (m³)</p>
+        <p><span>Description:</span> Discretized volume, determine in inheriting class</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Description:</span> System properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialDistributedVolume.Medium.BaseProperties_32x32.png"></td>
+      <th>mediums</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.Medium.BaseProperties.html">BaseProperties[n]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow.html">PartialTwoPortFlow</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses</span</p>
+        <p>Base class for distributed flow models</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

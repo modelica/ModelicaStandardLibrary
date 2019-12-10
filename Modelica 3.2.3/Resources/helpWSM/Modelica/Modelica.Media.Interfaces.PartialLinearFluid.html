@@ -1,0 +1,583 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Media.Interfaces.PartialLinearFluid.html">PartialLinearFluid</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialLinearFluid</h1>
+    <p>Generic pure liquid model with constant cp, compressibility and thermal expansion coefficients</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.ThermodynamicState_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p>A selection of variables that uniquely defines the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.BaseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.BaseProperties.html">BaseProperties</a></p>
+        <p>Base properties of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.setState_pTX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.setState_pTX.html">setState_pTX</a></p>
+        <p>Set the thermodynamic state record from p and T (X not needed)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.setState_phX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.setState_phX.html">setState_phX</a></p>
+        <p>Set the thermodynamic state record from p and h (X not needed)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.setState_psX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.setState_psX.html">setState_psX</a></p>
+        <p>Set the thermodynamic state record from p and s (X not needed)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.setState_dTX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.setState_dTX.html">setState_dTX</a></p>
+        <p>Set the thermodynamic state record from d and T (X not needed)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.setSmoothState_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.setSmoothState.html">setSmoothState</a></p>
+        <p>Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.pressure_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.pressure.html">pressure</a></p>
+        <p>Return the pressure from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.temperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.temperature.html">temperature</a></p>
+        <p>Return the temperature from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.density_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.density.html">density</a></p>
+        <p>Return the density from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.specificEnthalpy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.specificEnthalpy.html">specificEnthalpy</a></p>
+        <p>Return the specific enthalpy from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.specificEntropy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.specificEntropy.html">specificEntropy</a></p>
+        <p>Return the specific entropy from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.specificInternalEnergy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.specificInternalEnergy.html">specificInternalEnergy</a></p>
+        <p>Return the specific internal energy from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.specificGibbsEnergy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.specificGibbsEnergy.html">specificGibbsEnergy</a></p>
+        <p>Return specific Gibbs energy from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.specificHelmholtzEnergy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.specificHelmholtzEnergy.html">specificHelmholtzEnergy</a></p>
+        <p>Return specific Helmholtz energy from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.velocityOfSound_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.velocityOfSound.html">velocityOfSound</a></p>
+        <p>Return velocity of sound from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.isentropicExponent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.isentropicExponent.html">isentropicExponent</a></p>
+        <p>Return isentropic exponent from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.isentropicEnthalpy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.isentropicEnthalpy.html">isentropicEnthalpy</a></p>
+        <p>Return isentropic enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.specificHeatCapacityCp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.specificHeatCapacityCp.html">specificHeatCapacityCp</a></p>
+        <p>Return specific heat capacity at constant volume</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.specificHeatCapacityCv_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.specificHeatCapacityCv.html">specificHeatCapacityCv</a></p>
+        <p>Return specific heat capacity at constant volume from the thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.isothermalCompressibility_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.isothermalCompressibility.html">isothermalCompressibility</a></p>
+        <p>Return the isothermal compressibility kappa</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.isobaricExpansionCoefficient_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.isobaricExpansionCoefficient.html">isobaricExpansionCoefficient</a></p>
+        <p>Return the isobaric expansion coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.density_derp_h_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.density_derp_h.html">density_derp_h</a></p>
+        <p>Return density derivative w.r.t. pressure at const specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.density_derh_p_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.density_derh_p.html">density_derh_p</a></p>
+        <p>Return density derivative w.r.t. specific enthalpy at constant pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.density_derp_T_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.density_derp_T.html">density_derp_T</a></p>
+        <p>Return density derivative w.r.t. pressure at const temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.density_derT_p_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.density_derT_p.html">density_derT_p</a></p>
+        <p>Return density derivative w.r.t. temperature at constant pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.density_derX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.density_derX.html">density_derX</a></p>
+        <p>Returns the partial derivative of density with respect to mass fractions at constant pressure and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.molarMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.molarMass.html">molarMass</a></p>
+        <p>Return molar mass</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.T_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.T_ph.html">T_ph</a></p>
+        <p>Return temperature from pressure and specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialLinearFluid.T_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialLinearFluid.T_ps.html">T_ps</a></p>
+        <p>Return temperature from pressure and specific entropy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="constants" >
+  <h1>Package Constants <span class="count">(28)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ThermoStates</th>
+      <td>
+        <p><span>Value:</span> Modelica.Media.Interfaces.Choices.IndependentVariables.pTX</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.Choices.IndependentVariables.html">IndependentVariables</a></p>
+        <p><span>Description:</span> Enumeration type for independent variables</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mediumName</th>
+      <td>
+        <p><span>Value:</span> "unusablePartialMedium"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name of the medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>substanceNames</th>
+      <td>
+        <p><span>Value:</span> {mediumName}</p>
+        <p><span>Type:</span> String[:]</p>
+        <p><span>Description:</span> Names of the mixture substances. Set substanceNames={mediumName} if only one substance.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>extraPropertiesNames</th>
+      <td>
+        <p><span>Value:</span> fill("", 0)</p>
+        <p><span>Type:</span> String[:]</p>
+        <p><span>Description:</span> Names of the additional (extra) transported properties. Set extraPropertiesNames=fill("",0) if unused</p>
+      </td>
+    </tr>
+    <tr>
+      <th>singleState</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if u and d are not a function of pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reducedX</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if medium contains the equation sum(X) = 1.0; set reducedX=true if only one substance (see docu for details)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fixedX</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if medium contains the equation X = reference_X</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reference_p</th>
+      <td>
+        <p><span>Value:</span> 101325</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Reference pressure of Medium: default 1 atmosphere</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reference_T</th>
+      <td>
+        <p><span>Value:</span> 298.15</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of Medium: default 25 deg Celsius</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reference_X</th>
+      <td>
+        <p><span>Value:</span> fill(1 / nX, nX)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.MassFraction.html">MassFraction[nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Default mass fractions of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_default</th>
+      <td>
+        <p><span>Value:</span> 101325</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Default value for pressure of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_default</th>
+      <td>
+        <p><span>Value:</span> Modelica.SIunits.Conversions.from_degC(20)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Default value for temperature of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_default</th>
+      <td>
+        <p><span>Value:</span> specificEnthalpy_pTX(p_default, T_default, X_default)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Default value for specific enthalpy of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X_default</th>
+      <td>
+        <p><span>Value:</span> reference_X</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.MassFraction.html">MassFraction[nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Default value for mass fractions of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C_default</th>
+      <td>
+        <p><span>Value:</span> fill(0, nC)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.ExtraProperty.html">ExtraProperty[nC]</a></p>
+        <p><span>Description:</span> Default value for trace substances of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nS</th>
+      <td>
+        <p><span>Value:</span> size(substanceNames, 1)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of substances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nX</th>
+      <td>
+        <p><span>Value:</span> nS</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of mass fractions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nXi</th>
+      <td>
+        <p><span>Value:</span> if fixedX then 0 else if reducedX then nS - 1 else nS</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of structurally independent mass fractions (see docu for details)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nC</th>
+      <td>
+        <p><span>Value:</span> size(extraPropertiesNames, 1)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of extra (outside of standard mass-balance) transported properties</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C_nominal</th>
+      <td>
+        <p><span>Value:</span> 1.0e-6 * ones(nC)</p>
+        <p><span>Type:</span> Real[nC]</p>
+        <p><span>Description:</span> Default for the nominal values for the extra properties</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cp_const</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialLinearFluid.SpecificHeatCapacity.html">SpecificHeatCapacity</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Specific heat capacity at constant pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>beta_const</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialLinearFluid.IsobaricExpansionCoefficient.html">IsobaricExpansionCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Thermal expansion coefficient at constant pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kappa_const</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.IsothermalCompressibility.html">IsothermalCompressibility</a> (¹/Pa)</p>
+        <p><span>Description:</span> Isothermal compressibility</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MM_const</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialLinearFluid.MolarMass.html">MolarMass</a> (kg/mol)</p>
+        <p><span>Description:</span> Molar mass</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reference_d</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialLinearFluid.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density in reference conditions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reference_h</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialLinearFluid.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Specific enthalpy in reference conditions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reference_s</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialLinearFluid.SpecificEntropy.html">SpecificEntropy</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Specific entropy in reference conditions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>constantJacobian</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, entries in thermodynamic Jacobian are constant, taken at reference conditions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Linear Compressibility Fluid Model</h4>
+<p>This linear compressibility fluid model is based on the assumptions that:
+</p>
+<ul>
+<li>The specific heat capacity at constant pressure (cp) is constant</li>
+<li>The isobaric expansion coefficient (beta) is constant</li>
+<li>The isothermal compressibility (kappa) is constant</li>
+<li>Pressure and temperature are used as states</li>
+<li>The influence of density on specific enthalpy (h), entropy (s), inner energy (u) and heat capacity (cv) at constant volume is neglected.</li>
+</ul>
+<p>
+That means that the density is a linear function in temperature and in pressure.
+In order to define the complete model, a number of constant reference values are needed which
+are computed at the reference values of the states pressure p and temperature T. The model can
+be interpreted as a linearization of a full non-linear fluid model (but it is not linear in all
+thermodynamic coordinates). Reference values are needed for
+</p>
+<ol>
+<li>the density (reference_d),</li>
+<li>the specific enthalpy (reference_h),</li>
+<li>the specific entropy (reference_s).</li>
+</ol>
+<p>
+Apart from that, a user needs to define the molar mass, MM_const.
+Note that it is possible to define a fluid by computing the reference
+values from a full non-linear fluid model by computing the package constants
+using the standard functions defined in a fluid package (see example in liquids package).
+</p>
+<p>
+In order to avoid numerical inversion of the temperature in the T_ph and T_ps functions, the density
+is always taken to be the reference density in the computation of h, s, u and cv. For liquids (and this
+model is intended only for liquids) the relative error of doing so is 1e-3 to 1e-4 at most. The model would
+be more "correct" based on the other assumptions, if occurrences of reference_d in the computations of h,s,u
+and cv would be replaced by a call to density(state). That would require a numerical solution for T_ps, while T_ph can be solved symbolically from a quadratic function. Errors from this approximation are small because liquid density varies little.</p>
+<h4>Efficiency considerations</h4>
+<p>One of the main reasons to use a simple, linear fluid model is to achieve high performance
+in simulations. There are a number of possible compromises and possibilities to improve performance.
+Some of them can be influenced by a flag. The following rules where used in this model:</p>
+<ul>
+<li>All forward evaluations (using the ThermodynamicState record as input) are exactly following
+the assumptions above.</li>
+<li>If the flag <strong>constantJacobian</strong> is set to true in the package, all functions that
+typically appear in thermodynamic Jacobians (specificHeatCapacityCv, density_derp_h, density_derh_p,
+density_derp_T, density_derT_p) are evaluated at reference conditions (that means using the reference
+density) instead of the density of the current pressure and temperature. This makes it possible to evaluate
+the thermodynamic Jacobian at compile time.</li>
+<li>For inverse functions using other inputs than the states (e.g pressure p and specific enthalpy h),
+the inversion is using the reference state whenever that is necessary to achieve a symbolic inversion.</li>
+<li>If <strong>constantJacobian</strong> is set to false, the above list of functions is computed exactly according
+to the above list of assumptions</li>
+</ul>
+<dl>
+<dt><strong>Authors:</strong></dt>
+<dd>Francesco Casella<br>
+    Dipartimento di Elettronica e Informazione<br>
+    Politecnico di Milano<br>
+    Via Ponzio 34/5<br>
+    I-20133 Milano, Italy<br>
+    email: <a href="mailto:casella@elet.polimi.it">casella@elet.polimi.it</a><br>
+    and<br>
+    Hubertus Tummescheit<br>
+    Modelon AB<br>
+    Ideon Science Park<br>
+    SE-22730 Lund, Sweden<br>
+    email: <a href="mailto:Hubertus.Tummescheit@Modelon.se">Hubertus.Tummescheit@Modelon.se</a>
+</dd>
+</dl>
+</div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.CompressibleLiquids.LinearColdWater_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.CompressibleLiquids.LinearColdWater.html">LinearColdWater</a></p>
+        <p><span>Modelica.Media.CompressibleLiquids</span</p>
+        <p>Cold water model with linear compressibility</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.CompressibleLiquids.Common.LinearWater_pT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.CompressibleLiquids.Common.LinearWater_pT.html">LinearWater_pT</a></p>
+        <p><span>Modelica.Media.CompressibleLiquids.Common</span</p>
+        <p>Base class for liquid, linear compressibility water models</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

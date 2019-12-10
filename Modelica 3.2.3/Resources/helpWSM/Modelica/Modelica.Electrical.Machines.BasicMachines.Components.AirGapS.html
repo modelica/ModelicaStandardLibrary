@@ -1,0 +1,146 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.BasicMachines.html">BasicMachines</a></li>
+  <li><a href="Modelica.Electrical.Machines.BasicMachines.Components.html">Components</a></li>
+  <li><a href="Modelica.Electrical.Machines.BasicMachines.Components.AirGapS.html">AirGapS</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>AirGapS</h1>
+    <p>Airgap in stator-fixed coordinate system</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.Components.AirGapS_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+Model of the airgap in stator-fixed coordinate system, using only equations.
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pole pairs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lm</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Main field inductance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tauElectrical</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Torque.html">Torque</a> (N·m)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Support at which the reaction torque is acting</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Machines.Interfaces.SpacePhasor_16x16.png"></td>
+      <th>spacePhasor_s</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Interfaces.SpacePhasor.html">SpacePhasor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Machines.Interfaces.SpacePhasor_16x16.png"></td>
+      <th>spacePhasor_r</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Interfaces.SpacePhasor.html">SpacePhasor</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage.html">AIM_SquirrelCage</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines</span</p>
+        <p>Asynchronous induction machine with squirrel cage rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing.html">AIM_SlipRing</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines</span</p>
+        <p>Asynchronous induction machine with slipring rotor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

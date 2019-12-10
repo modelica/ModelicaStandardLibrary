@@ -1,0 +1,101 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.html">TransformationMatrices</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.smallRotation.html">smallRotation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>smallRotation</h1>
+    <p>Return rotation angles valid for a small rotation and optionally residues that should be zero</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.smallRotation_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+phi = TransformationMatrices.<strong>smallRotation</strong>(T, withResidues);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns rotation angles valid for a small rotation of x-y-z sequence (i.e. {1,2,3}).
+Optionally, residues are returned as well if <code>withResidues=true</code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.smallRotation.html">Frames.smallRotation</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.smallRotation.html">Quaternions.smallRotation</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">phi = smallRotation(T, withResidues)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>withResidues</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false/true, if 'angles'/'angles and residues' are returned in phi</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle[if withResidues then 6 else 3]</a> (rad)</p>
+        <p><span>Description:</span> The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation + optionally 3 residues that should be zero</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

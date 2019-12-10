@@ -1,0 +1,141 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Fluid.Examples.BranchingDynamicPipes.html">BranchingDynamicPipes</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BranchingDynamicPipes</h1>
+    <p>Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Examples.BranchingDynamicPipes_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Fluid.Examples.BranchingDynamicPipes_diagram_large.png"><img src="resources/diagrams/Modelica.Fluid.Examples.BranchingDynamicPipes_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.
+At time=2s the pressure of boundary4 jumps, which causes a pressure wave and flow reversal.
+</p>
+<p>
+Change system.momentumDynamics on the Assumptions tab of the system object from SteadyStateInitial to SteadyState,
+in order to assume a steady-state momentum balance. This is the default for all models of the library.
+</p>
+<p>
+Change the Medium from MoistAir to StandardWater, in order to investigate a medium with significantly different density.
+Note the static head caused by the elevation of the pipes.
+</p>
+<p>
+Note the appropriate use of the modelStructure of the DynamicPipe models (Advanced tab).
+The default modelStructure is av_vb, i.e. volumes with a pressure state are exposed at both ports.
+In many cases this gives good numerical performance, avoiding algebraic loops in connections,
+e.g. if a pipe is connected to a valve or to a vessel with portsData configured.
+The price to pay is a high-index DAE if two pipes are connected or if a pipe is connected to a boundary with prescribed pressure.
+In such cases one might consider changing the modelStructure.
+</p>
+<p>
+In the BranchingDynamicPipes example, {pipe1,pipe3,pipe4}.modelStructure are configured to a_v_b, while pipe2.modelStructure remains av_vb.
+This avoids a high-index DAE and overdetermined initial conditions.
+</p>
+<img src="resources/Modelica.Fluid.Examples.BranchingDynamicPipes_info_001.png" border="1"
+     alt="BranchingDynamicPipes.png">
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.Boundary_pT_32x32.png"></td>
+      <th>boundary1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.Boundary_pT.html">Boundary_pT</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.DynamicPipe_32x32.png"></td>
+      <th>pipe1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.DynamicPipe.html">DynamicPipe</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.DynamicPipe_32x32.png"></td>
+      <th>pipe2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.DynamicPipe.html">DynamicPipe</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.DynamicPipe_32x32.png"></td>
+      <th>pipe3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.DynamicPipe.html">DynamicPipe</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.DynamicPipe_32x32.png"></td>
+      <th>pipe4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.DynamicPipe.html">DynamicPipe</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.Boundary_pT_32x32.png"></td>
+      <th>boundary4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.Boundary_pT.html">Boundary_pT</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Ramp_32x32.png"></td>
+      <th>ramp1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow_32x32.png"></td>
+      <th>heat2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow.html">FixedHeatFlow[pipe2.nNodes]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

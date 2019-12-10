@@ -1,0 +1,295 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.html">ControlledDCDrives</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DriveDataDCPM.html">DriveDataDCPM</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DriveDataDCPM</h1>
+    <p>Parameters of a controlled DC permanent magnet drive</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DriveDataDCPM_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DriveDataDCPM_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DriveDataDCPM_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculates controller parameters of a DC permanent magnet drive:
+Current controller according to absolute optimum, speed controller according to symmetric optimum.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(25)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>motorData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData.html">DcPermanentMagnetData</a></p>
+        <p><span>Description:</span> Motor data</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ra</th>
+      <td>
+        <p><span>Value:</span> convertResistance(motorData.Ra, motorData.TaRef, motorData.alpha20a, motorData.TaNominal)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Armature resistance at nominal temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ta</th>
+      <td>
+        <p><span>Value:</span> motorData.La / Ra</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Armature time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PNominal</th>
+      <td>
+        <p><span>Value:</span> motorData.ViNominal * motorData.IaNominal - motorData.frictionParameters.PRef - motorData.coreParameters.PRef - motorData.strayLoadParameters.PRef</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Nominal mechanical output</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tauNominal</th>
+      <td>
+        <p><span>Value:</span> PNominal / motorData.wNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Nominal torque</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kPhi</th>
+      <td>
+        <p><span>Value:</span> tauNominal / motorData.IaNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ElectricalTorqueConstant.html">ElectricalTorqueConstant</a> (N·m/A)</p>
+        <p><span>Description:</span> Torque constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w0</th>
+      <td>
+        <p><span>Value:</span> motorData.wNominal * motorData.VaNominal / motorData.ViNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> No-load speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fS</th>
+      <td>
+        <p><span>Value:</span> 2e3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Switching frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VBat</th>
+      <td>
+        <p><span>Value:</span> VaMax</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> DC no-load voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Td</th>
+      <td>
+        <p><span>Value:</span> 0.5 / fS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Dead time of inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tmf</th>
+      <td>
+        <p><span>Value:</span> 4 * Td</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Measurement filter time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tsigma</th>
+      <td>
+        <p><span>Value:</span> Td + Tmf</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Sum of small time constants</p>
+      </td>
+    </tr>
+    <tr>
+      <th>JL</th>
+      <td>
+        <p><span>Value:</span> motorData.Jr</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Load inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VaMax</th>
+      <td>
+        <p><span>Value:</span> 1.2 * motorData.VaNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Maximum Voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IaMax</th>
+      <td>
+        <p><span>Value:</span> 1.5 * motorData.IaNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Maximum current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tauMax</th>
+      <td>
+        <p><span>Value:</span> kPhi * IaMax</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Maximum torque</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wMax</th>
+      <td>
+        <p><span>Value:</span> motorData.wNominal * motorData.VaNominal / motorData.ViNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Maximum speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>aMax</th>
+      <td>
+        <p><span>Value:</span> tauMax / (JL + motorData.Jr)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularAcceleration.html">AngularAcceleration</a> (rad/s²)</p>
+        <p><span>Description:</span> Maximum acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kpI</th>
+      <td>
+        <p><span>Value:</span> motorData.La / (2 * Tsigma)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Proportional gain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TiI</th>
+      <td>
+        <p><span>Value:</span> Ta</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Integral time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tsub</th>
+      <td>
+        <p><span>Value:</span> 2 * Tsigma</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Substitute time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kpw</th>
+      <td>
+        <p><span>Value:</span> (JL + motorData.Jr) / (2 * Tsub)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Proportional gain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tiw</th>
+      <td>
+        <p><span>Value:</span> 4 * Tsub</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Integral time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tfw</th>
+      <td>
+        <p><span>Value:</span> Tiw</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Filter time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kpP</th>
+      <td>
+        <p><span>Value:</span> 1 / (16 * Tsub)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Proportional gain</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData_32x32.png"></td>
+      <th>motorData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData.html">DcPermanentMagnetData</a></p>
+        <p><span>Description:</span> Motor data</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.PartialControlledDCPM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.PartialControlledDCPM.html">PartialControlledDCPM</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span</p>
+        <p>Partial controlled DC PM drive with H-bridge from battery</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

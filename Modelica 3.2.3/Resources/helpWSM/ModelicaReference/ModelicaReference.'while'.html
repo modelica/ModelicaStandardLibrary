@@ -1,0 +1,66 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.'while'.html">'while'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'while'</h1>
+    <p>while</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.'while'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Repeat statements as long as a condition is fulfilled
+</p>
+<h4>Examples</h4>
+<pre>    Integer i;
+  <strong>algorithm</strong>
+    i := 1;
+    <strong>while</strong> i &lt; 10 <strong>loop</strong>
+      i := i + 1;
+      <strong>...
+    end while</strong>;</pre>
+
+<h4>Syntax</h4>
+
+<pre>  <strong>while</strong> expression <strong>loop</strong>
+    { algorithm ";" }
+  <strong>end while</strong></pre>
+
+<h4>Description</h4>
+
+<p>The expression of a while clause shall be a scalar Boolean expression.
+The while-clause corresponds to while-statements in programming languages,
+and is formally defined as follows</p>
+
+<OL>
+  <LI>The expression of the while clause is evaluated.</LI>
+  <LI>If the expression of the while-clause is false, the execution
+      continues after the while-clause.</LI>
+  <LI>If the expression of the while-clause is true, the entire body of
+      the while clause is executed (except if a break statement or return
+      statement is executed), and then execution proceeds at step 1.</LI>
+</OL>
+</div>
+</section>
+</div>
+</body>
+</html>

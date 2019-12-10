@@ -1,0 +1,107 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.html">Conventions</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.html">Documentation</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.html">Format</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.Cases.html">Cases</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Cases</h1>
+    <p>Cases</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.UsersGuide.Conventions.Documentation.Format.Cases_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>In the Modelica documentation sometimes different cases have to be distinguished. If the case distinction refers to Modelica parameters or variables (Boolean expressions) the comparisons should be written in the style of Modelica code within <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
+</p>
+
+<h5>Example 1</h5>
+
+<code>&lt;p&gt;If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model...&lt;/p&gt;</code>
+
+<p>appears as</p>
+
+<p>If <code>useCage == true</code>, a damper cage is considered in the model...</p>
+
+<p>
+For more complex case scenarios a unordered list should be used. In this case only Modelica specific code segments and Boolean expressions.
+</p>
+
+<h5>Example 2</h5>
+
+<pre>
+&lt;ul&gt;
+  &lt;li&gt; If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model.
+       Cage parameters must be specified in this case.&lt;/li&gt;
+  &lt;li&gt; If &lt;code&gt;useCage == false&lt;/code&gt;, the damper cage is omitted.&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<p>appears as</p>
+
+<ul>
+  <li> If <code>useCage == true</code>, a damper cage is considered in the model.
+       Cage parameters must be specified in this case.</li>
+  <li> If <code>useCage == false</code>, the damper cage is omitted.</li>
+</ul>
+
+<p>
+In a more equation oriented case additional equations or code segments can be added.
+</p>
+
+<h5>Example 3</h5>
+
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;if &lt;code&gt;usePolar == true&lt;/code&gt;, assign magnitude and angle to output &lt;br&gt;
+  &lt;!-- insert graphical representation of equations --&gt;
+  y[i,1] = sqrt( a[i]^2 + b[i]^2 ) &lt;br&gt;
+  y[i,2] = atan2( b[i], a[i] )
+  &lt;/li&gt;
+  &lt;li&gt;if &lt;code&gt;usePolar == false&lt;/code&gt;, assign cosine and sine to output &lt;br&gt;
+  &lt;!-- insert graphical representation of equations --&gt;
+  y[i,1] = a[i] &lt;br&gt;
+  y[i,2] = b[i]
+  &lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<p>appears as</p>
+
+<ul>
+  <li>if <code>usePolar == true</code>, assign magnitude and angle to output<br>
+
+  <img src="resources/Modelica.UsersGuide.Conventions.Documentation.Format.Cases_info_001.png"
+       alt="y[i,1] = sqrt( a[i]^2 + b[i]^2 )"><br>
+  <img src="resources/Modelica.UsersGuide.Conventions.Documentation.Format.Cases_info_002.png"
+       alt="y[i,2] = atan2( b[i], a[i] )">
+  </li>
+  <li>if <code>usePolar == false</code>, assign cosine and sine to output<br>
+  <img src="resources/Modelica.UsersGuide.Conventions.Documentation.Format.Cases_info_003.png"
+       alt="y[i,1] = a[i]"><br>
+  <img src="resources/Modelica.UsersGuide.Conventions.Documentation.Format.Cases_info_004.png"
+       alt=" y[i,2] = b[i]">
+  </li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

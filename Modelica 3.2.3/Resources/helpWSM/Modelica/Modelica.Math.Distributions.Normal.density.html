@@ -1,0 +1,124 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Distributions.html">Distributions</a></li>
+  <li><a href="Modelica.Math.Distributions.Normal.html">Normal</a></li>
+  <li><a href="Modelica.Math.Distributions.Normal.density.html">density</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>density</h1>
+    <p>Density of normal distribution</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Distributions.Normal.density_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Normal.<strong>density</strong>(u, mu=0, sigma=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the probability density function according to a <strong>normal</strong> distribution
+with mean value <strong>mu</strong> and standard deviation <strong>sigma</strong> (variance = sigma<sup>2</sup>).
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.Distributions.Normal.density/resources/Modelica.Math.Distributions.Normal.density_info_001.png">
+</blockquote>
+
+<p>
+For more details, see
+<a href="http://en.wikipedia.org/wiki/Normal_distribution">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  density(0.5)     // = 0.3520653267642995
+  density(3,1,0.5) // = 0.00026766045152977074
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Distributions.Normal.cumulative.html">Normal.cumulative</a>,
+<a href="Modelica.Math.Distributions.Normal.quantile.html">Normal.quantile</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = density(u, mu, sigma)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number over the real axis (-inf < u < inf)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Expectation (mean) value of the normal distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Standard deviation of the normal distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Density of u</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.toUpperHessenberg.html">toUpperHessenberg</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>toUpperHessenberg</h1>
+    <p>Transform a real square matrix A to upper Hessenberg form H by orthogonal similarity transformation:  Q' * A * Q = H</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.Utilities.toUpperHessenberg_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+         H = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A);
+         (H, V, tau, info) = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A,ilo, ihi);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>toUpperHessenberg</strong> computes a upper Hessenberg form <strong>H</strong> of a matrix <strong>A</strong> by orthogonal similarity transformation:  <strong>Q</strong>' * <strong>A</strong> * <strong>Q</strong> = <strong>H</strong>.
+With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD.
+See <a href="Modelica.Math.Matrices.LAPACK.dgehrd.html">Matrices.LAPACK.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+ A  = [1, 2, 3;
+       6, 5, 4;
+       1, 0, 0];
+
+ H = toUpperHessenberg(A);
+
+  results in:
+
+ H = [1.0,  -2.466,  2.630;
+     -6.083, 5.514, -3.081;
+      0.0,   0.919, -0.514]
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.hessenberg.html">Matrices.hessenberg</a>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(H, V, tau, info) = toUpperHessenberg(A, ilo, ihi)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Square matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ilo</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Lowest index where the original matrix had been Hessenbergform</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ihi</th>
+      <td>
+        <p><span>Default Value:</span> size(A, 1)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Highest index where the original matrix had been Hessenbergform</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>H</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Upper Hessenberg form</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tau</th>
+      <td>
+        <p><span>Type:</span> Real[max(0, size(A, 1) - 1)]</p>
+        <p><span>Description:</span> Scalar factors of the elementary reflectors</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Information of successful function call</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

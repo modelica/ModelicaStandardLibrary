@@ -1,0 +1,113 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.Common.helmholtzToBridgmansTables.html">helmholtzToBridgmansTables</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>helmholtzToBridgmansTables</h1>
+    <p>Calculates base coefficients for Bridgmans tables from Helmholtz energy</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Common.helmholtzToBridgmansTables_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(v, p, T, s, cp, alpha, gamma) = helmholtzToBridgmansTables(f)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Common.HelmholtzDerivs.html">HelmholtzDerivs</a></p>
+        <p><span>Description:</span> Dimensionless derivatives of Helmholtz function</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v</th>
+      <td>
+        <p><span>Default Value:</span> 1 / f.d</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificVolume.html">SpecificVolume</a> (m³/kg)</p>
+        <p><span>Description:</span> Specific volume</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Default Value:</span> f.T</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEntropy.html">SpecificEntropy</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Specific entropy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificHeatCapacity.html">SpecificHeatCapacity</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Heat capacity at constant pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Common.IsobaricVolumeExpansionCoefficient.html">IsobaricVolumeExpansionCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Isobaric volume expansion coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>gamma</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Common.IsothermalCompressibility.html">IsothermalCompressibility</a> (¹/Pa)</p>
+        <p><span>Description:</span> Isothermal compressibility</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

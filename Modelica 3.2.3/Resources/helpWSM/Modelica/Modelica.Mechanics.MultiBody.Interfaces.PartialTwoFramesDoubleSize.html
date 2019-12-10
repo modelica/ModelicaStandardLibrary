@@ -1,0 +1,157 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize.html">PartialTwoFramesDoubleSize</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialTwoFramesDoubleSize</h1>
+    <p>Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This partial model provides two frame connectors, access to the world
+object and an assert to check that both frame connectors are connected.
+Therefore, inherit from this partial model if the two frame connectors are
+needed and if the two frame connectors should be connected for a correct model.
+</p>
+<p>
+When dragging "PartialTwoFrames", the default size is a factor of two
+larger as usual. This partial model is used by the Joint.Assemblies
+joint aggregation models.
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP.html">JointRRP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR.html">JointRRR</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP.html">JointSSP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR.html">JointSSR</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP.html">JointUSP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Universal - spherical - prismatic joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR.html">JointUSR</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Universal - spherical - revolute joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS.html">JointUPS</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Universal - prismatic - spherical joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

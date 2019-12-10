@@ -1,0 +1,274 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.TransformerData.html">TransformerData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TransformerData</h1>
+    <p>Calculates Impedances from nominal values</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Utilities.TransformerData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The parameters of the transformer models are calculated from parameters normally given in a technical description.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(19)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Nominal frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V1</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Primary nominal line-to-line voltage (RMS)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C1</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Choose primary connection</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V2</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C2</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Choose secondary connection</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ApparentPower.html">ApparentPower</a> (V·A)</p>
+        <p><span>Description:</span> Nominal apparent power</p>
+      </td>
+    </tr>
+    <tr>
+      <th>v_sc</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Impedance voltage drop pu</p>
+      </td>
+    </tr>
+    <tr>
+      <th>P_sc</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Short-circuit (copper) losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> V1 / V2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V1ph</th>
+      <td>
+        <p><span>Value:</span> V1 / (if C1 == "D" then 1 else sqrt(3))</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Primary phase voltage (RMS)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I1ph</th>
+      <td>
+        <p><span>Value:</span> SNominal / (3 * V1ph)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Primary phase current (RMS)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V2ph</th>
+      <td>
+        <p><span>Value:</span> V2 / (if C2 == "d" then 1 else sqrt(3))</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Secondary phase voltage (RMS)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I2ph</th>
+      <td>
+        <p><span>Value:</span> SNominal / (3 * V2ph)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Secondary phase current (RMS)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Z1ph</th>
+      <td>
+        <p><span>Value:</span> 0.5 * v_sc * V1ph / I1ph</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Impedance.html">Impedance</a> (Ω)</p>
+        <p><span>Description:</span> Primary impedance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R1</th>
+      <td>
+        <p><span>Value:</span> 0.5 * P_sc / (3 * I1ph ^ 2)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Warm primary resistance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L1sigma</th>
+      <td>
+        <p><span>Value:</span> sqrt(Z1ph ^ 2 - R1 ^ 2) / (2 * Modelica.Constants.pi * f)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Primary stray inductance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Z2ph</th>
+      <td>
+        <p><span>Value:</span> 0.5 * v_sc * V2ph / I2ph</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Impedance.html">Impedance</a> (Ω)</p>
+        <p><span>Description:</span> Secondary impedance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R2</th>
+      <td>
+        <p><span>Value:</span> 0.5 * P_sc / (3 * I2ph ^ 2)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Warm secondary resistance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L2sigma</th>
+      <td>
+        <p><span>Value:</span> sqrt(Z2ph ^ 2 - R2 ^ 2) / (2 * Modelica.Constants.pi * f)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Secondary stray inductance per phase</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer.html">AIMC_Transformer</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: AsynchronousInductionMachineSquirrelCage transformer starting</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench.html">TransformerTestbench</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.Transformers</span</p>
+        <p>Transformer test bench</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad.html">AsymmetricalLoad</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.Transformers</span</p>
+        <p>Asymmetrical load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse.html">Rectifier6pulse</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.Transformers</span</p>
+        <p>6-pulse rectifier with 1 transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse.html">Rectifier12pulse</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.Transformers</span</p>
+        <p>12-pulse rectifier with 2 transformers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.Machines.Examples.TransformerTestbench_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.Machines.Examples.TransformerTestbench.html">TransformerTestbench</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.Machines.Examples</span</p>
+        <p>Transformer test bench</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Transformer.html">AIMC_Transformer</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Asynchronous induction machine with squirrel cage starting with transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer.html">IMC_Transformer</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Induction machine with squirrel cage starting with transformer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.html">PowerConverters</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.UsersGuide.html">UsersGuide</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>UsersGuide</h1>
+    <p>User's Guide</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.PowerConverters.UsersGuide_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept.html">ACDCConcept</a></p>
+        <p>AC/DC converter concept</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept.html">DCACConcept</a></p>
+        <p>DC/AC converter concept</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.UsersGuide.DCDCConcept_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.UsersGuide.DCDCConcept.html">DCDCConcept</a></p>
+        <p>DC/DC converter concept</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.UsersGuide.Contact_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.UsersGuide.Contact.html">Contact</a></p>
+        <p>Contact</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.UsersGuide.ReleaseNotes_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.UsersGuide.ReleaseNotes.html">ReleaseNotes</a></p>
+        <p>Release Notes</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.UsersGuide.References_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.UsersGuide.References.html">References</a></p>
+        <p>References</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This library provides power converters for DC and AC single and multi phase electrical systems. The PowerConverters library contains three types of converters.
+</p>
+
+<ul>
+  <li>AC/DC converters (rectifiers)</li>
+  <li>DC/AC converters (inverters)</li>
+  <li>DC/DC converters</li>
+</ul>
+
+<p>
+General types of AC/AC converters are currently not provided in this library.
+</p>
+
+<h4>Converter characteristics</h4>
+
+<ul>
+  <li>All converter models rely on existing diode, thyristor and switch models provided in the
+      <a href="Modelica.Electrical.Analog.Ideal.html">Analog.Ideal</a> and the
+      <a href="Modelica.Electrical.MultiPhase.Ideal.html">MultiPhase.Ideal</a>
+      package of the Modelica Standard Library.</li>
+  <li>Switching losses and recovery effects are not considered</li>
+  <li>Only conduction losses are taken into account</li>
+  <li>The parameters of the semiconductors include
+  <ul>
+    <li>The on state resistance <code>Ron</code></li>
+    <li>The off state conductance <code>Goff</code></li>
+    <li>The knee voltage <code>Vknee</code></li>
+  </ul></li>
+  <li>Each converter is equipped with an optional heat port which can be enabled by the parameter
+      <code>useHeatPort</code>; the heat ports of all semiconductors are connected,
+      so all temperatures of all semiconductors are equal and the heat flow of the converter heat port
+      is determined by the sum of all semiconductor heat flows</li>
+  <li>Each converter contains boolean firing inputs provides variables <code>offStart...</code>
+      to specify the initial conditions of the off state of each semiconductor</li>
+  <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code></li>
+  <li>The number of phases of multi phase converters is not restricted to three</li>
+</ul>
+
+<h4>Literature</h4>
+
+<p>
+General background knowledge on power converters and power electronics can be found in
+<a href="Modelica.Electrical.PowerConverters.UsersGuide.References.html">[Skvarenina01]</a> and
+<a href="Modelica.Electrical.PowerConverters.UsersGuide.References.html">[Luo05]</a>.
+A freely available book is available in
+<a href="Modelica.Electrical.PowerConverters.UsersGuide.References.html">[Williams2006]</a>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.html">HelicalPipe</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent.html">kc_turbulent</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>kc_turbulent</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculation of the mean convective heat transfer coefficient <strong> kc </strong> of a helical pipe for turbulent flow regime.
+</p>
+<h4>Functions <strong>kc_turbulent</strong> and <strong>kc_turbulent_KC</strong></h4>
+
+<p>
+There are basically three differences:
+</p>
+<ul>
+<li>
+The function <strong>kc_turbulent</strong> is using <strong>kc_turbulent_KC</strong> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <strong>1</strong> means that the function is not valid for the inputs).
+</li>
+<li>
+Generally the  function <strong>kc_turbulent_KC</strong> is numerically best used for the calculation of the mean convective heat transfer coefficient <strong> kc </strong> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <strong>kc_turbulent_KC</strong>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <strong> kc </strong>
+</li>
+</ul>
+
+<p>
+The critical Reynolds number <strong> Re_crit </strong> in a helical pipe depends on its mean curvature diameter. The smaller the mean curvature diameter of the helical pipe <strong> d_mean </strong>, the earlier the turbulent regime will start due to vortexes out of higher centrifugal forces.
+</p>
+<h4>Geometry </h4>
+
+<p>
+<img src="resources/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent_info_001.png" alt="pic_helicalPipe"/>
+</p>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <strong> kc </strong> for helical pipes is calculated through the corresponding Nusselt number <strong> Nu </strong> according to <em>[VDI 2002, p. Ga 2, eq. 6]</em>:
+</p>
+<pre>
+    Nu = (zeta_TOT/8)*Re*Pr/{1 + 12.7*(zeta_TOT/8)^0.5*[Pr^(2/3)-1]},
+</pre>
+
+<p>
+where the influence of the pressure loss on the heat transfer calculation is considered through
+</p>
+<pre>
+    zeta_TOT = 0.3164*Re^(-0.25) + 0.03*(d_hyd/d_coil)^(0.5) and
+</pre>
+
+<p>
+and the resulting mean convective heat transfer coefficient <strong> kc </strong>
+</p>
+
+<pre>
+    kc =  Nu * lambda / d_hyd
+</pre>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> d_mean                     </strong></td><td> as mean diameter of helical pipe [m],</td></tr>
+<tr><td><strong> d_coil = f(geometry)       </strong></td><td> as mean curvature diameter of helical pipe [m],</td></tr>
+<tr><td><strong> d_hyd                      </strong></td><td> as hydraulic diameter of the helical pipe [m],</td></tr>
+<tr><td><strong> h                          </strong></td><td> as slope of helical pipe [m],</td></tr>
+<tr><td><strong> kc                         </strong></td><td> as mean convective heat transfer coefficient [W/(m2K)],</td></tr>
+<tr><td><strong> lambda                     </strong></td><td> as heat conductivity of fluid [W/(mK)],</td></tr>
+<tr><td><strong> L                          </strong></td><td> as total length of helical pipe [m],</td></tr>
+<tr><td><strong> Nu = kc*d_hyd/lambda       </strong></td><td> as mean Nusselt number [-], </td></tr>
+<tr><td><strong> Pr = eta*cp/lambda         </strong></td><td> as Prandtl number [-],</td></tr>
+<tr><td><strong> Re = rho*v*d_hyd/eta       </strong></td><td> as Reynolds number [-],</td></tr>
+<tr><td><strong> Re_crit = f(geometry)      </strong></td><td> as critical Reynolds number [-].</td></tr>
+</table>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <strong> Nu </strong> representing the mean convective heat transfer coefficient <strong> kc </strong> is shown below for different numbers of turns <strong> n_nt </strong> at constant total length of the helical pipe.
+</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent_info_002.png" alt="fig_helicalPipe_kc_turbulent"/>
+</p>
+
+<p>
+The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe.
+</p>
+
+<p>
+Note that the ratio of hydraulic diameter to total length of helical pipe <strong> d_hyd/L </strong> has no remarkable influence on the coefficient of heat transfer <strong> kc </strong>.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>GNIELINSKI, V.:</dt>
+    <dd><strong>Heat transfer and pressure drop in helically coiled tubes.</strong>.
+    In 8th International Heat Transfer Conference, volume 6, pages 2847?2854, Washington,1986. Hemisphere.</dd>
+</dl>
+</div>
+</section>
+</div>
+</body>
+</html>

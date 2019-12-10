@@ -1,0 +1,65 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'product()'.html">'product()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'product()'</h1>
+    <p>product()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'product()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Returns the scalar product
+</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>product</strong>(A)
+<strong>product</strong>(e(i, ..., j) <strong>for</strong> i <strong>in</strong> u, ..., j <strong>in</strong> v)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The first form returns the scalar product of all the elements of
+array expression A:<br>
+A[1,...,1]*A[2,...,1]*....*A[end,...,1]*A[end,...,end]
+</p>
+<p>
+The second form is a reduction expression and
+returns the product of the expression e(i, ..., j) evaluated for all combinations of i in u, ..., j in v:
+</p>
+<blockquote><pre>
+e(u[1],...,v[1]) * e(u[2],...,v[1]) * ... *
+e(u[end],...,v[1]) * ... * e(u[end],...,v[end])
+</pre></blockquote>
+<p>
+The type of <strong>product</strong>(e(i, ..., j) <strong>for</strong> i <strong>in</strong>
+u, ..., j <strong>in</strong> v) is the same as the type of e(i,...j).
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+{<strong>product</strong>(j <strong>for</strong> j <strong>in</strong> 1:i) <strong>for</strong> i <strong>in</strong> 0:4} // = {1,1,2,6,24}
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

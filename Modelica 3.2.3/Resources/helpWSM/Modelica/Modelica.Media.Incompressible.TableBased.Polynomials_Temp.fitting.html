@@ -1,0 +1,100 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Incompressible.html">Incompressible</a></li>
+  <li><a href="Modelica.Media.Incompressible.TableBased.html">TableBased</a></li>
+  <li><a href="Modelica.Media.Incompressible.TableBased.Polynomials_Temp.html">Polynomials_Temp</a></li>
+  <li><a href="Modelica.Media.Incompressible.TableBased.Polynomials_Temp.fitting.html">fitting</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>fitting</h1>
+    <p>Computes the coefficients of a polynomial that fits a set of data points in a least-squares sense</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Incompressible.TableBased.Polynomials_Temp.fitting_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Polynomials.fitting(u,y,n) computes the coefficients of a polynomial
+p(u) of degree "n" that fits the data "p(u[i]) - y[i]"
+in a least squares sense. The polynomial is
+returned as a vector p[n+1] that has the following definition:
+</p>
+<pre>
+  p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
+</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">p = fitting(u, y, n)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Abscissa data values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real[size(u, 1)]</p>
+        <p><span>Description:</span> Ordinate data values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Order of desired polynomial that fits the data points (u,y)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> Real[n + 1]</p>
+        <p><span>Description:</span> Polynomial coefficients of polynomial that fits the date points</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

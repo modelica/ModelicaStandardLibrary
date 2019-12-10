@@ -1,0 +1,124 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Mos1.html">Mos1</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Mos1.drainCur.html">drainCur</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>drainCur</h1>
+    <p>Drain current calculation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos1.drainCur_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This function drainCur calculates the main currents that flows from drain node to source node (level 1).</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">out_c = drainCur(vb, vg, vds, in_c, in_p, in_C, in_vp, in_m_type)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>vb</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vg</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vds</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_c</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc.html">Mos1Calc</a></p>
+        <p><span>Description:</span> Input record Mos1Calc</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams.html">Mos1ModelLineParams</a></p>
+        <p><span>Description:</span> Input record model line parameters for MOS1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_C</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.SpiceConstants.html">SpiceConstants</a></p>
+        <p><span>Description:</span> Spice constants</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_vp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables.html">MosModelLineVariables</a></p>
+        <p><span>Description:</span> Input record model line variables</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_m_type</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Type of Mos transistor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>out_c</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc.html">Mos1Calc</a></p>
+        <p><span>Description:</span> Output record Mos1Calc</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

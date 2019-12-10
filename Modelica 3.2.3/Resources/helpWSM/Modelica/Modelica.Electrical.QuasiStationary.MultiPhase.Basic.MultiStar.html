@@ -1,0 +1,136 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.html">MultiPhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar.html">MultiStar</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MultiStar</h1>
+    <p>Star connection of multi phase systems consisting of multiple base systems</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Star (wye) connection of a multi phase circuit consisting of multiple base systems (see
+<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase.html">multi phase guidelines</a>). The potentials at the star points are all equal.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star.html">Star</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta.html">Delta</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiDelta.html">MultiDelta</a>
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>starpoints</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p_32x32.png"></td>
+      <th>plugToPins_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p.html">PlugToPins_p</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n_32x32.png"></td>
+      <th>plugToPins_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n.html">PlugToPins_n</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStarResistance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStarResistance.html">MultiStarResistance</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</span</p>
+        <p>Resistance connection of star points</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding.html">SymmetricMultiPhaseCageWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span</p>
+        <p>Symmetrical rotor cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox.html">MultiTerminalBox</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span</p>
+        <p>Terminal box Y/D-connection</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

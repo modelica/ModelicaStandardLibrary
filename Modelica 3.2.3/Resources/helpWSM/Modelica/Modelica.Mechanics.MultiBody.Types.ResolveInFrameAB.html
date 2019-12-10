@@ -1,0 +1,195 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Types.html">Types</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.html">ResolveInFrameAB</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ResolveInFrameAB</h1>
+    <p>Enumeration to define the frame in which a relative vector is resolved (world, frame_a, frame_b, frame_resolve)</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vector in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vector in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vector in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+</div>
+</section>
+<section id="enumerators" >
+  <h1>Enumeration Literals <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>world</th>
+      <td>
+        <p>Resolve in world frame</p></td>
+    </tr>
+    <tr>
+      <th>frame_a</th>
+      <td>
+        <p>Resolve in frame_a</p></td>
+    </tr>
+    <tr>
+      <th>frame_b</th>
+      <td>
+        <p>Resolve in frame_b</p></td>
+    </tr>
+    <tr>
+      <th>frame_resolve</th>
+      <td>
+        <p>Resolve in frame_resolve (frame_resolve must be connected)</p></td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Force_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Force.html">Force</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Torque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Torque.html">Torque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.ForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque.html">ForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.BasicForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Internal.BasicForce.html">BasicForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces.Internal</span</p>
+        <p>Force acting between two frames, defined by 3 input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.BasicTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Internal.BasicTorque.html">BasicTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces.Internal</span</p>
+        <p>Torque acting between two frames, defined by 3 input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span</p>
+        <p>Measure relative kinematic quantities between two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativePosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativePosition.html">RelativePosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span</p>
+        <p>Measure relative position vector between the origins of two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity.html">RelativeVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span</p>
+        <p>Measure relative velocity vector between the origins of two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity.html">RelativeAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span</p>
+        <p>Measure relative angular velocity between two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector.html">TransformRelativeVector</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span</p>
+        <p>Transform relative vector in to another frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativePosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativePosition.html">BasicRelativePosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span</p>
+        <p>Basic sensor to measure relative position vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativeAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativeAngularVelocity.html">BasicRelativeAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span</p>
+        <p>Basic sensor to measure relative angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector.html">BasicTransformRelativeVector</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span</p>
+        <p>Transform relative vector into another frame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

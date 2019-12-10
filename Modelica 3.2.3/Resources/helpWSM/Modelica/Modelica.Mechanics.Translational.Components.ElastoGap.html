@@ -1,0 +1,289 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Components.ElastoGap.html">ElastoGap</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ElastoGap</h1>
+    <p>1D translational spring damper combination with gap</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Components.ElastoGap_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This component models a spring damper combination that can lift off.
+It can be connected between a sliding mass and the housing (model
+<a href="Modelica.Mechanics.Translational.Components.Fixed.html">Fixed</a>),
+to describe the contact of a sliding mass with the housing.
+</p>
+
+<p>
+As long as s_rel &gt; s_rel0, no force is exerted (s_rel = flange_b.s - flange_a.s).
+If s_rel &le; s_rel0, the contact force is basically computed with a linear
+spring/damper characteristic. With parameter n&ge;1 (exponent of spring force),
+a nonlinear spring force can be modeled:
+</p>
+
+<pre>
+   desiredContactForce = c*|s_rel - s_rel0|^n + d*<strong>der</strong>(s_rel)
+</pre>
+
+<p>
+Note, Hertzian contact is described by:
+</p>
+<ul>
+<li> Contact between two metallic spheres: n=1.5</li>
+<li> Contact between two metallic plates: n=1</li>
+</ul>
+
+<p>
+The above force law leads to the following difficulties:
+</p>
+
+<ol>
+<li> If the damper force becomes larger as the spring force and with opposite sign,
+     the contact force would be "pulling/sticking" which is unphysical, since during
+     contact only pushing forces can occur.</li>
+
+<li> When contact occurs with a non-zero relative speed (which is the usual
+     situation), the damping force has a non-zero value and therefore the contact
+     force changes discontinuously at s_rel = s_rel0. Again, this is not physical
+     because the force can only change continuously. (Note, this component is not an
+     idealized model where a steep characteristic is approximated by a discontinuity,
+     but it shall model the steep characteristic.)</li>
+</ol>
+
+<p>
+In the literature there are several proposals to fix problem (2). Especially, often
+the following model is used (see, e.g.,
+Lankarani, Nikravesh: Continuous Contact Force Models for Impact
+Analysis in Multibody Systems, Nonlinear Dynamics 5, pp. 193-207, 1994,
+<a href="http://www.springerlink.com/content/h50x61270q06p65n/fulltext.pdf">pdf-download</a>):
+</p>
+
+<pre>
+   f = c*s_rel^n + (d*s_rel^n)*<strong>der</strong>(s_rel)
+</pre>
+
+<p>
+However, this and other models proposed in literature violate
+issue (1), i.e., unphysical pulling forces can occur (if d*<strong>der</strong>(s_rel)
+becomes large enough). Note, if the force law is of the form "f = f_c + f_d", then a
+necessary condition is that |f_d| &le; |f_c|, otherwise (1) and (2) are violated.
+For this reason, the most simplest approach is used in the ElastoGap model
+to fix both problems by using this necessary condition in the force law directly.
+If s_rel0 = 0, the equations are:
+</p>
+
+<pre>
+    <strong>if</strong> s_rel &ge; 0 <strong>then</strong>
+       f = 0;    // contact force
+    <strong>else</strong>
+       f_c  = -c*|s_rel|^n;          // contact spring force (Hertzian contact force)
+       f_d2 = d*<strong>der</strong>(s_rel);         // linear contact damper force
+       f_d  = <strong>if</strong> f_d2 &lt;  f_c <strong>then</strong>  f_c <strong>else</strong>
+              <strong>if</strong> f_d2 &gt; -f_c <strong>then</strong> -f_c <strong>else</strong> f_d2;  // bounded damper force
+       f    = f_c + f_d;            // contact force
+    <strong>end if</strong>;
+</pre>
+
+<p>
+Note, since |f_d| &le; |f_c|, pulling forces cannot occur and the contact force
+is always continuous, especially around the start of the penetration at s_rel = s_rel0.
+</p>
+
+<p>
+In the next figure, a typical simulation with the ElastoGap model is shown
+(<a href="Modelica.Mechanics.Translational.Examples.ElastoGap.html">Examples.ElastoGap</a>)
+where the different effects are visualized:
+</p>
+
+<ol>
+<li> Curve 1 (elastoGap1.f) is the unmodified contact force, i.e., the linear spring/damper
+     characteristic. A pulling/sticking force is present at the end of the contact.</li>
+<li> Curve 2 (elastoGap2.f) is the contact force, where the force is explicitly set to
+     zero when pulling/sticking occurs. The contact force is discontinuous when contact starts.</li>
+<li> Curve 3 (elastoGap3.f) is the ElastoGap model of this library. No discontinuity and no
+     pulling/sticking occurs.</li>
+</ol>
+
+<p>
+<img src="modelica:///Modelica.Mechanics.Translational.Components.ElastoGap/resources/Modelica.Mechanics.Translational.Components.ElastoGap_info_001.png">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>stateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.prefer</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use s_rel and v_rel as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s_nominal</th>
+      <td>
+        <p><span>Value:</span> 1e-4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Nominal value of s_rel (used for scaling)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.TranslationalSpringConstant.html">TranslationalSpringConstant</a> (N/m)</p>
+        <p><span>Description:</span> Spring constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.TranslationalDampingConstant.html">TranslationalDampingConstant</a> (N·s/m)</p>
+        <p><span>Description:</span> Damping constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s_rel0</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Unstretched spring length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Exponent of spring force ( f_c = -c*|s_rel-s_rel0|^n )</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Left flange of compliant 1-dim. translational component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Right flange of compliant 1-dim. translational component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.PreLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.PreLoad.html">PreLoad</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Preload of a spool using ElastoGap models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.ElastoGap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.ElastoGap.html">ElastoGap</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Demonstrate usage of ElastoGap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper.html">TranslatoryArmatureAndStopper</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Utilities</span</p>
+        <p>Mass with free travel between two stoppers</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

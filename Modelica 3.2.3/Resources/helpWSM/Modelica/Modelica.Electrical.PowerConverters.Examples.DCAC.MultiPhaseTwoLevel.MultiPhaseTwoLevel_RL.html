@@ -1,0 +1,189 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.html">PowerConverters</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.html">DCAC</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.html">MultiPhaseTwoLevel</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL.html">MultiPhaseTwoLevel_RL</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MultiPhaseTwoLevel_RL</h1>
+    <p>Multi phase DC to AC converter with R-L load</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> directly show the switching pattern of the inverter.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> 1000</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Switching frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f1</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Fundamental wave AC frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Inductance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ConstantVoltage_32x32.png"></td>
+      <th>constantVoltage_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.ConstantVoltage.html">ConstantVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level_32x32.png"></td>
+      <th>inverter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level.html">MultiPhase2Level</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Sensors.CurrentSensor_32x32.png"></td>
+      <th>currentSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Sensors.VoltageSensor_32x32.png"></td>
+      <th>voltageSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM_32x32.png"></td>
+      <th>signalPWM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM.html">SignalPWM[m]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ConstantVoltage_32x32.png"></td>
+      <th>constantVoltage_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.ConstantVoltage.html">ConstantVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine[m]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Harmonic_32x32.png"></td>
+      <th>fundamentalWaveCurrent</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Harmonic.html">Harmonic[m]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Harmonic_32x32.png"></td>
+      <th>fundamentalWaveVoltage</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Harmonic.html">Harmonic[m]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Basic.Resistor_32x32.png"></td>
+      <th>resistor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Basic.Inductor_32x32.png"></td>
+      <th>inductor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Basic.Inductor.html">Inductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Basic.Star_32x32.png"></td>
+      <th>star</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

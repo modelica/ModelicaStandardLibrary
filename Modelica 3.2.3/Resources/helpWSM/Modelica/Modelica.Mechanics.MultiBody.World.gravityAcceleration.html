@@ -1,0 +1,108 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.World.html">World</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.World.gravityAcceleration.html">gravityAcceleration</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>gravityAcceleration</h1>
+    <p>Function to compute the gravity acceleration, resolved in world frame</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.World.gravityAcceleration_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Replaceable function to define the gravity field.
+   Default is function
+   <a href="Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration.html">standardGravityAcceleration</a>
+   that provides some simple gravity fields (no gravity, constant parallel gravity field,
+   point gravity field).
+   By redeclaring this function, any type of gravity field can be defined, see example
+     <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField.html">Examples.Elementary.UserDefinedGravityField</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">gravity = gravityAcceleration(r, gravityType, g, mue)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from world frame to actual point, resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>gravityType</th>
+      <td>
+        <p><span>Default Value:</span> gravityType</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.GravityTypes.html">GravityTypes</a></p>
+        <p><span>Description:</span> Type of gravity field</p>
+      </td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>
+        <p><span>Default Value:</span> g * Modelica.Math.Vectors.normalizeWithAssert(n)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Acceleration.html">Acceleration[3]</a> (m/s²)</p>
+        <p><span>Description:</span> Constant gravity acceleration, resolved in world frame, if gravityType=UniformGravity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mue</th>
+      <td>
+        <p><span>Default Value:</span> mue</p>
+        <p><span>Type:</span> Real (m³/s²)</p>
+        <p><span>Description:</span> Field constant of point gravity field, if gravityType=PointGravity</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>gravity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Acceleration.html">Acceleration[3]</a> (m/s²)</p>
+        <p><span>Description:</span> Gravity acceleration at position r, resolved in world frame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

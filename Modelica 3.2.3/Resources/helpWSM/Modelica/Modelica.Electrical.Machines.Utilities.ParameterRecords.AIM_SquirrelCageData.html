@@ -1,0 +1,437 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.html">ParameterRecords</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData.html">AIM_SquirrelCageData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>AIM_SquirrelCageData</h1>
+    <p>Common parameters for asynchronous induction machines with squirrel cage</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Basic parameters of asynchronous induction machines with squirrel cage are predefined with default values.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(18)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Jr</th>
+      <td>
+        <p><span>Value:</span> 0.29</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Rotor's moment of inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Js</th>
+      <td>
+        <p><span>Value:</span> Jr</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Stator's moment of inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pole pairs (Integer)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fsNominal</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Nominal frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rs</th>
+      <td>
+        <p><span>Value:</span> 0.03</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Stator resistance per phase at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TsRef</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of stator resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20s</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of stator resistance at 20 degC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>effectiveStatorTurns</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Effective number of stator turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lszero</th>
+      <td>
+        <p><span>Value:</span> Lssigma</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Stator zero sequence inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lssigma</th>
+      <td>
+        <p><span>Value:</span> 3 * (1 - sqrt(1 - 0.0667)) / (2 * pi * fsNominal)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Stator stray inductance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <th>statorCoreParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Stator core loss parameter record; all parameters refer to stator side</p>
+      </td>
+    </tr>
+    <tr>
+      <th>strayLoadParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">StrayLoadParameters</a></p>
+        <p><span>Description:</span> Stray load losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lm</th>
+      <td>
+        <p><span>Value:</span> 3 * sqrt(1 - 0.0667) / (2 * pi * fsNominal)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Stator main field inductance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lrsigma</th>
+      <td>
+        <p><span>Value:</span> 3 * (1 - sqrt(1 - 0.0667)) / (2 * pi * fsNominal)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Rotor stray inductance per phase (equivalent three phase winding)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rr</th>
+      <td>
+        <p><span>Value:</span> 0.04</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Rotor resistance per phase (equivalent three phase winding) at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TrRef</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of rotor resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20r</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of rotor resistance at 20 degC</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.FrictionParameters_32x32.png"></td>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.CoreParameters_32x32.png"></td>
+      <th>statorCoreParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Stator core loss parameter record; all parameters refer to stator side</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.StrayLoadParameters_32x32.png"></td>
+      <th>strayLoadParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">StrayLoadParameters</a></p>
+        <p><span>Description:</span> Stray load losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(25)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_DOL.html">AIMC_DOL</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: AsynchronousInductionMachineSquirrelCage direct-on-line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_YD_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_YD.html">AIMC_YD</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: AsynchronousInductionMachineSquirrelCage Y-D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer.html">AIMC_Transformer</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: AsynchronousInductionMachineSquirrelCage transformer starting</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Inverter.html">AIMC_Inverter</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: AsynchronousInductionMachineSquirrelCage with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Conveyor.html">AIMC_Conveyor</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: AsynchronousInductionMachineSquirrelCage with inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_InverterDrive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_InverterDrive.html">AIMC_InverterDrive</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: AsynchronousInductionMachineSquirrelCage inverter drive</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Steinmetz_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Steinmetz.html">AIMC_Steinmetz</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>AsynchronousInductionMachineSquirrelCage Steinmetz-connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_withLosses.html">AIMC_withLosses</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: AsynchronousInductionMachineSquirrelCage with losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Initialize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Initialize.html">AIMC_Initialize</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: Steady-State Initialization of AsynchronousInductionMachineSquirrelCage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_DOL.html">AIMC_DOL</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Direct on line (DOL) start of asynchronous induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_DOL_MultiPhase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_DOL_MultiPhase.html">AIMC_DOL_MultiPhase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Direct on line start of multi phase asynchronous induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_YD_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_YD.html">AIMC_YD</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Asynchronous induction machine with squirrel cage starting Y-D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Transformer.html">AIMC_Transformer</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Asynchronous induction machine with squirrel cage starting with transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Inverter.html">AIMC_Inverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Asynchronous induction machine with squirrel cage and inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Conveyor.html">AIMC_Conveyor</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Asynchronous induction machine with squirrel cage and inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Steinmetz_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Steinmetz.html">AIMC_Steinmetz</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Asynchronous induction machine with squirrel cage and Steinmetz-connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_withLosses.html">AIMC_withLosses</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Asynchronous induction machine with squirrel cage and losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Initialize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Initialize.html">AIMC_Initialize</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Steady-state initialization of asynchronous induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Characteristics_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Characteristics.html">IMC_Characteristics</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Characteristic curves of Induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL.html">IMC_DOL</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Induction machine with squirrel cage started directly on line (DOL)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_YD_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_YD.html">IMC_YD</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Induction machine with squirrel cage starting Y-D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer.html">IMC_Transformer</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Induction machine with squirrel cage starting with transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor.html">IMC_Conveyor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Induction machine with squirrel cage and inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Induction machine with squirrel cage and losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Initialize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Initialize.html">IMC_Initialize</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Steady-state initialization of induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

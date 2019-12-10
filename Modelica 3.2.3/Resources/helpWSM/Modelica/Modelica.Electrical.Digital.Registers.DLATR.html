@@ -1,0 +1,176 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Registers.html">Registers</a></li>
+  <li><a href="Modelica.Electrical.Digital.Registers.DLATR.html">DLATR</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DLATR</h1>
+    <p>Level sensitive register bank with reset</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Registers.DLATR_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p> Description in VHDL is given by <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
+<p><strong>Truth Table for high active reset:</strong></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>Reset</strong></td>
+      <td><strong>DataOut</strong></td>
+      <td>Map</td>
+  </tr>
+
+  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>2</td> </tr>
+  <tr><td>*</td> <td>0</td> <td>0</td>  <td>NC</td> <td>3</td> </tr>
+  <tr><td>*</td> <td>1</td> <td>0</td>  <td>DataIn</td> <td>3</td> </tr>
+  <tr><td>*</td> <td>X</td> <td>0</td>  <td>X or U or NC</td> <td>3</td> </tr>
+  <tr><td>*</td> <td>U</td> <td>~1</td> <td>U</td> <td>4</td> </tr>
+  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
+</table>
+
+<p><strong>Truth Table for low active reset:</strong></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Enable</strong></td>
+      <td><strong>Reset</strong></td>
+      <td><strong>DataOut</strong></td>
+      <td>Map</td>
+  </tr>
+
+  <tr><td>*</td> <td>*</td> <td>U</td> <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>0</td> <td>0</td> <td>2</td> </tr>
+  <tr><td>*</td> <td>0</td> <td>1</td> <td>NC</td> <td>3</td> </tr>
+  <tr><td>*</td> <td>1</td> <td>1</td> <td>DataIn</td> <td>3</td> </tr>
+  <tr><td>*</td> <td>X</td> <td>1</td> <td>X or U or NC</td> <td>3</td> </tr>
+  <tr><td>*</td> <td>U</td> <td>~0</td> <td>U</td> <td>4</td> </tr>
+  <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
+</table>
+
+<pre>
+
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+</pre>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ResetMap</th>
+      <td>
+        <p><span>Value:</span> {1, 4, 3, 2, 4, 4, 3, 2, 4}</p>
+        <p><span>Type:</span> Integer[L]</p>
+        <p><span>Description:</span> function selection, defaults for high active reset</p>
+      </td>
+    </tr>
+    <tr>
+      <th>strength</th>
+      <td>
+        <p><span>Value:</span> S.'S_X01'</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Strength.html">Strength</a></p>
+        <p><span>Description:</span> output strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> data width</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>reset</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>enable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>dataIn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput[n]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalOutput_16x16.png"></td>
+      <th>dataOut</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalOutput.html">DigitalOutput[n]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Registers.DLATREG_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Registers.DLATREG.html">DLATREG</a></p>
+        <p><span>Modelica.Electrical.Digital.Registers</span</p>
+        <p>Level sensitive register bank with reset active high</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

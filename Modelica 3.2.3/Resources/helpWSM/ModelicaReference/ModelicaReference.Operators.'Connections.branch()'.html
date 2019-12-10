@@ -1,0 +1,58 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'Connections.branch()'.html">'Connections.branch()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'Connections.branch()'</h1>
+    <p>Connections.branch()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'Connections.branch()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Defines <em>required</em> branch of spanning-tree
+</p>
+
+<h4>Syntax</h4>
+<pre>
+Connections.branch(A.R,B.R);
+</pre>
+
+<h4>Description</h4>
+<p>
+Defines a branch from the overdetermined type or record instance <code>R</code> in connector instance <code>A</code> to the corresponding overdetermined type or record instance <code>R</code> in connector instance <code>B</code> for a virtual connection graph.
+These branches are required to be part of the spanning-tree for the virtual connection graph (they do not directly generate equations, but should be combined with equations coupling <code>A.R</code> to <code>B.R</code>),
+whereas connect-statements are optional for the spanning-tree (and generate different equations depending on whether they are part of the spanning-tree or not).
+</p>
+<h4>Examples</h4>
+<p>
+This function can be used at all places where a <a href="ModelicaReference.Operators.'connect()'.html">connect(...)</a> statement is allowed.
+</p>
+<p>
+E.g., it is not allowed to use this function in a when-clause.
+This definition shall be used if in a model with connectors <code>A</code> and <code>B</code> the overdetermined records <code>A.R</code> and <code>B.R</code> are algebraically coupled in the model, e.g., due to <code>B.R = f(A.R, &lt;other unknowns&gt;)</code>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

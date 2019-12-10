@@ -1,0 +1,78 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Air.html">Air</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.html">MoistAir</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.saturationPressure.html">saturationPressure</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>saturationPressure</h1>
+    <p>Return saturation pressure of water as a function of temperature T between 190 and 647.096 K</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.MoistAir.saturationPressure_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+Saturation pressure of water in the liquid and the solid region is computed using correlations. Functions for the
+<a href="Modelica.Media.Air.MoistAir.sublimationPressureIce.html">solid</a> and the <a href="Modelica.Media.Air.MoistAir.saturationPressureLiquid.html"> liquid</a> region, respectively, are combined using the first derivative continuous <a href="Modelica.Media.Air.MoistAir.Utilities.spliceFunction.html">spliceFunction</a>. This functions range of validity is from 190 to 647.096 K. For more information on the type of correlation used, see the documentation of the linked functions.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">psat = saturationPressure(Tsat)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Tsat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialCondensingGases.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Saturation temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>psat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialCondensingGases.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Saturation pressure</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

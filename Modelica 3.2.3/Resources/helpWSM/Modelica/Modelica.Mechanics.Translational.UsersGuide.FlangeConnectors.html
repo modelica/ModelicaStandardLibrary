@@ -1,0 +1,57 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors.html">FlangeConnectors</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FlangeConnectors</h1>
+    <p>Flange Connectors</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+A flange is described by the connector class
+Interfaces.<strong>Flange_a</strong>
+or Interfaces.<strong>Flange_b</strong>. As already noted, the two connector
+classes are completely identical. There is only a difference in the icons,
+in order to easier identify a flange variable in a diagram.
+Both connector classes contain the following variables:
+</p>
+<pre>
+   Modelica.SIunits.Position   s "Absolute position of flange";
+   <strong>flow</strong> Modelica.SIunits.Force f "Cut-force in the flange";
+</pre>
+<p>
+If needed, the velocity <code>v</code> and the
+acceleration <code>a</code> of a flange connector can be
+determined by differentiation of the flange position <code>s</code>:
+</p>
+<pre>
+     v = <strong>der</strong>(s);    a = <strong>der</strong>(v);
+</pre>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.html">Partials</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor.html">RelativeSensor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RelativeSensor</h1>
+    <p>Partial model of relative sensor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Partial model for a relative sensor (pressure drop/temperature difference).</p>
+<p>Pressure, mass flow, temperature and enthalpy flow of medium are not affected.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>medium</th>
+      <td>
+        <p><span>Value:</span> FluidHeatFlow.Media.Medium()</p>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Sensor's medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a_16x16.png"></td>
+      <th>flowPort_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a.html">FlowPort_a</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b_16x16.png"></td>
+      <th>flowPort_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b.html">FlowPort_b</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Medium_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Sensor's medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.RelTemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.RelTemperatureSensor.html">RelTemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Sensors</span</p>
+        <p>Temperature difference sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.RelPressureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.RelPressureSensor.html">RelPressureSensor</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Sensors</span</p>
+        <p>Pressure difference sensor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,368 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Electrical.Analog.Basic.OpAmpDetailed.html">OpAmpDetailed</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>OpAmpDetailed</h1>
+    <p>Detailed model of an operational amplifier</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Basic.OpAmpDetailed_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <strong>input</strong>, <strong>frequency response</strong>, <strong>gain</strong>, <strong>slew rate</strong> and an <strong>output</strong> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <strong>[CP92]</strong>.</p>
+<p>Using <strong>[CP92]</strong> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
+<dl><dt><strong>Reference:</strong> </dt>
+<dd><strong>[CP92]</strong> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992 </dd>
+</dl>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(31)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Rdm</th>
+      <td>
+        <p><span>Value:</span> 2.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Input resistance (differential input mode)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rcm</th>
+      <td>
+        <p><span>Value:</span> 2.0e9</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Input resistance (common mode)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Cin</th>
+      <td>
+        <p><span>Value:</span> 1.4e-12</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Input capacitance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vos</th>
+      <td>
+        <p><span>Value:</span> 1.0e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Input offset voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ib</th>
+      <td>
+        <p><span>Value:</span> 80.0e-9</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Input bias current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ios</th>
+      <td>
+        <p><span>Value:</span> 20.0e-9</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Input offset current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vcp</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Correction value for limiting by p_supply</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vcm</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Correction value for limiting by msupply</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Avd0</th>
+      <td>
+        <p><span>Value:</span> 106.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Differential amplifier [dB]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CMRR</th>
+      <td>
+        <p><span>Value:</span> 90.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Common-mode rejection [dB]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fp1</th>
+      <td>
+        <p><span>Value:</span> 5.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Dominant pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fp2</th>
+      <td>
+        <p><span>Value:</span> 2.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Pole frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fp3</th>
+      <td>
+        <p><span>Value:</span> 20.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Pole frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fp4</th>
+      <td>
+        <p><span>Value:</span> 100.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Pole frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fz</th>
+      <td>
+        <p><span>Value:</span> 5.0e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Zero frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sr_p</th>
+      <td>
+        <p><span>Value:</span> 0.5e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.VoltageSlope.html">VoltageSlope</a> (V/s)</p>
+        <p><span>Description:</span> Slew rate for increase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sr_m</th>
+      <td>
+        <p><span>Value:</span> 0.5e6</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.VoltageSlope.html">VoltageSlope</a> (V/s)</p>
+        <p><span>Description:</span> Slew rate for decrease</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rout</th>
+      <td>
+        <p><span>Value:</span> 75.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Output resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Imaxso</th>
+      <td>
+        <p><span>Value:</span> 25.0e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Maximal output current (source current)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Imaxsi</th>
+      <td>
+        <p><span>Value:</span> 25.0e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Maximal output current (sink current)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ts</th>
+      <td>
+        <p><span>Value:</span> 0.0000012</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Sampling time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vcp_abs</th>
+      <td>
+        <p><span>Value:</span> abs(vcp)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Positive correction value for limiting by p_supply</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vcm_abs</th>
+      <td>
+        <p><span>Value:</span> abs(vcm)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Positive correction value for limiting by msupply</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I1</th>
+      <td>
+        <p><span>Value:</span> Ib + Ios / 2.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Current of internal source I1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I2</th>
+      <td>
+        <p><span>Value:</span> Ib - Ios / 2.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Current of internal source I2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Avd0_val</th>
+      <td>
+        <p><span>Value:</span> 10.0 ^ (Avd0 / 20.0)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Differential mode gain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Avcm_val</th>
+      <td>
+        <p><span>Value:</span> Avd0_val / 10.0 ^ (CMRR / 20.0) / 2.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Common mode gain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sr_p_val</th>
+      <td>
+        <p><span>Value:</span> abs(sr_p)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.VoltageSlope.html">VoltageSlope</a> (V/s)</p>
+        <p><span>Description:</span> Value of slew rate for increase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sr_m_val</th>
+      <td>
+        <p><span>Value:</span> -abs(sr_m)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.VoltageSlope.html">VoltageSlope</a> (V/s)</p>
+        <p><span>Description:</span> Negative alue of slew rate for increase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Imaxso_val</th>
+      <td>
+        <p><span>Value:</span> abs(Imaxso)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Orientation out outp</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Imaxsi_val</th>
+      <td>
+        <p><span>Value:</span> abs(Imaxsi)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Orientation into outp</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive pin of the input port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative pin of the input port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>outp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Output pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p_supply</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive output voltage limitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>m_supply</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative output voltage limitation</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.AmplifierWithOpAmpDetailed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.AmplifierWithOpAmpDetailed.html">AmplifierWithOpAmpDetailed</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Simple Amplifier circuit which uses OpAmpDetailed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

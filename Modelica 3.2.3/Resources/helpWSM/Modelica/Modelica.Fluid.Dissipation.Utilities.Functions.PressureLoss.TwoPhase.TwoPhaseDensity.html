@@ -1,0 +1,142 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.html">PressureLoss</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.html">TwoPhase</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseDensity.html">TwoPhaseDensity</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TwoPhaseDensity</h1>
+    <p>Calculation of mean density for two phase flow</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseDensity_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The gaseous and the liquid part of a fluid in a two phase flow are often discontinuously distributed. This complex behaviour is simplified for engineering calculations. The two phase flow of different fluid flow situations (e.g., bubble or stratified flow) is modelled as if the gaseous and the liquid phase are continuously distributed.
+</p>
+
+<p>
+A <strong> mean density </strong> assuming a continuous distribution out of a discontinuous two phase fluid flow situation can be calculated with a <strong> homogeneous or a heterogeneous approach </strong> (see <a href="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP.html">dp_twoPhaseOverall_DP</a>).</p>
+<p>
+The following <strong> modelling approaches </strong> can be used to calculate the mean density of two phase flow:
+</p>
+<ul>
+<li>        <strong> homogeneous density </strong> (homogeneous approach)</li>
+<li>         <strong> momentum flux density </strong> (heterogeneous approach)</li>
+<li>         <strong> kinetic energy flow density </strong> (heterogeneous approach)</li>
+</ul>
+
+
+<p>
+The heterogeneous approaches are analytically derived by minimising the momentum flux or the kinetic energy flow assuming implicitly that the two-phase flow will tend towards the minimum of this quantity.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>VDI:</dt>
+    <dd><strong>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</strong>.
+    Springer Verlag, 10th edition, 2006.</dd>
+</dl>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">rho_2ph = TwoPhaseDensity(voidFractionApproach, massFlowRateCorrection, rho_g, rho_l, epsilon_A, x_flow)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>voidFractionApproach</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.html">VoidFractionApproach</a></p>
+        <p><span>Description:</span> Choice of void fraction approach</p>
+      </td>
+    </tr>
+    <tr>
+      <th>massFlowRateCorrection</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Consider heterogeneous mass flow rate correction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho_g</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density of gaseous phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho_l</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density of liquid phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>epsilon_A</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Void fraction (cross sectional averaged)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_flow</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Mass flow rate quality</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>rho_2ph</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Mean density of two phase flow</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

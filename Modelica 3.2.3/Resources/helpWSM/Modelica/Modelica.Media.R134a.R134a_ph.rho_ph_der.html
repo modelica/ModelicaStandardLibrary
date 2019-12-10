@@ -1,0 +1,105 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.R134a.html">R134a</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.html">R134a_ph</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.rho_ph_der.html">rho_ph_der</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>rho_ph_der</h1>
+    <p>Time derivative function of density_ph</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.R134a.R134a_ph.rho_ph_der_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+This function calculates the derivative of density w.r.t. time. It is used as derivative function for <a href="Modelica.Media.R134a.R134a_ph.rho_props_ph.html"> rho_props_ph</a>.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">d_der = rho_ph_der(p, h, derivs, p_der, h_der)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.R134a.R134a_ph.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.R134a.R134a_ph.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>derivs</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.R134a.Common.InverseDerivatives_rhoT.html">InverseDerivatives_rhoT</a></p>
+        <p><span>Description:</span> Record for derivatives</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Derivative of pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Derivative of specific enthalpy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>d_der</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Derivative of density</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

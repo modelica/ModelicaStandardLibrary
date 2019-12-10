@@ -1,0 +1,152 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.MathBoolean.html">MathBoolean</a></li>
+  <li><a href="Modelica.Blocks.MathBoolean.MultiSwitch.html">MultiSwitch</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MultiSwitch</h1>
+    <p>Set Boolean expression that is associated with the first active input signal</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.MathBoolean.MultiSwitch_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The block has a vector of Boolean input signals u[nu] and a vector of
+(time varying) Boolean expressions expr[:]. The output signal y is
+set to expr[i], if i is the first element in the input vector u that is true.
+If all input signals are false, y is set to parameter "y_default" or the
+previous value of y is kept if parameter use_pre_as_default = <strong>true</strong>:
+</p>
+
+<blockquote><pre>
+  // Conceptual equation (not valid Modelica)
+  i = 'first element of u[:] that is true';
+  y = <strong>if</strong> i==0 <strong>then</strong> (<strong>if</strong> use_pre_as_default <strong>then</strong> pre(y)
+                                          <strong>else</strong> y_default)
+      <strong>else</strong> expr[i];
+</pre></blockquote>
+
+<p>
+The usage is demonstrated, e.g., in example
+<a href="Modelica.Blocks.Examples.BooleanNetwork1.html">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>use_pre_as_default</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> set true to hold last value as default (y_default = pre(y))</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_default</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Default value of output y if all u[i] = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nu</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of input connections</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>expr</th>
+      <td>
+        <p><span>Default Value:</span> fill(false, nu)</p>
+        <p><span>Type:</span> Boolean[nu]</p>
+        <p><span>Description:</span> y = if u[i] then expr[i] else y_default (time varying)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanVectorInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanVectorInput.html">BooleanVectorInput[nu]</a></p>
+        <p><span>Description:</span> Set y = expr[i], if u[i] = true</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+        <p><span>Description:</span> Output depending on expression</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.BooleanNetwork1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.BooleanNetwork1.html">BooleanNetwork1</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

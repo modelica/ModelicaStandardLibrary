@@ -1,0 +1,82 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Nonlinear.html">Nonlinear</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.quadratureLobatto3.html">quadratureLobatto3</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>quadratureLobatto3</h1>
+    <p>Integrate function in a model</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Nonlinear.Examples.quadratureLobatto3_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates how to utilize a function as input argument
+to a function in a model.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Amplitude of integrand of s</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ws</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Angular frequency of integrand of s</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wq</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Angular frequency of q</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td>
+        <p><span>Value:</span> Modelica.Math.Nonlinear.quadratureLobatto(function UtilityFunctions.fun7(A = A, w = ws), 0, 1)</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

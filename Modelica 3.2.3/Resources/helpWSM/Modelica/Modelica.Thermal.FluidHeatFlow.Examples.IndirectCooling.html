@@ -1,0 +1,323 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling.html">IndirectCooling</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>IndirectCooling</h1>
+    <p>Indirect cooling circuit</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling_diagram_large.png"><img src="resources/diagrams/Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+3rd test example: IndirectCooling
+</p>
+A prescribed heat sources dissipates its heat through a thermal conductor to the inner coolant cycle. It is necessary to define the pressure level of the inner coolant cycle. The inner coolant cycle is coupled to the outer coolant flow through a thermal conductor.<br>
+Inner coolant's temperature rise near the source is the same as temperature drop near the cooler.<br>
+<strong>Results</strong>:<br>
+<table>
+<tr>
+<td><strong>output</strong></td>
+<td><strong>explanation</strong></td>
+<td><strong>formula</strong></td>
+<td><strong>actual steady-state value</strong></td>
+</tr>
+<tr>
+<td>dTSource</td>
+<td>Source over Ambient</td>
+<td>dtouterCoolant + dtCooler + dTinnerCoolant + dtToPipe</td>
+<td>40 K</td>
+</tr>
+<tr>
+<td>dTtoPipe</td>
+<td>Source over inner Coolant</td>
+<td>Losses / ThermalConductor.G</td>
+<td>10 K</td>
+</tr>
+<tr>
+<td>dTinnerColant</td>
+<td>inner Coolant's temperature increase</td>
+<td>Losses * cp * innerMassFlow</td>
+<td>10 K</td>
+</tr>
+<tr>
+<td>dTCooler</td>
+<td>Cooler's temperature rise between inner and outer pipes</td>
+<td>Losses * (innerGc + outerGc)</td>
+<td>10 K</td>
+</tr>
+<tr>
+<td>dTouterColant</td>
+<td>outer Coolant's temperature increase</td>
+<td>Losses * cp * outerMassFlow</td>
+<td>10 K</td>
+</tr>
+</table>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>outerMedium</th>
+      <td>
+        <p><span>Value:</span> Modelica.Thermal.FluidHeatFlow.Media.Medium()</p>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Outer medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>innerMedium</th>
+      <td>
+        <p><span>Value:</span> Modelica.Thermal.FluidHeatFlow.Media.Medium()</p>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Inner medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TAmb</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Ambient temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>dTSource</th>
+      <td>
+        <p><span>Default Value:</span> prescribedHeatFlow.port.T - TAmb</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.TemperatureDifference.html">TemperatureDifference</a> (K)</p>
+        <p><span>Description:</span> Source over Ambient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dTtoPipe</th>
+      <td>
+        <p><span>Default Value:</span> prescribedHeatFlow.port.T - pipe1.T_q</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.TemperatureDifference.html">TemperatureDifference</a> (K)</p>
+        <p><span>Description:</span> Source over inner Coolant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dTinnerCoolant</th>
+      <td>
+        <p><span>Default Value:</span> pipe1.dT</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.TemperatureDifference.html">TemperatureDifference</a> (K)</p>
+        <p><span>Description:</span> inner Coolant's temperature increase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dTCooler</th>
+      <td>
+        <p><span>Default Value:</span> innerPipe.T_q - outerPipe.T_q</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.TemperatureDifference.html">TemperatureDifference</a> (K)</p>
+        <p><span>Description:</span> Cooler's temperature increase between inner and outer pipes</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dTouterCoolant</th>
+      <td>
+        <p><span>Default Value:</span> outerPipe.dT</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.TemperatureDifference.html">TemperatureDifference</a> (K)</p>
+        <p><span>Description:</span> outer Coolant's temperature increase</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(20)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Medium_32x32.png"></td>
+      <th>outerMedium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Outer medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Medium_32x32.png"></td>
+      <th>innerMedium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Inner medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources.Ambient_32x32.png"></td>
+      <th>ambient1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Sources.Ambient.html">Ambient</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow_32x32.png"></td>
+      <th>outerPump</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow.html">VolumeFlow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources.Ambient_32x32.png"></td>
+      <th>ambient2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Sources.Ambient.html">Ambient</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalConductor_32x32.png"></td>
+      <th>thermalConductor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.ThermalConductor.html">ThermalConductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.HeatCapacitor_32x32.png"></td>
+      <th>heatCapacitor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.HeatCapacitor.html">HeatCapacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow_32x32.png"></td>
+      <th>prescribedHeatFlow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow.html">PrescribedHeatFlow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Pipe_32x32.png"></td>
+      <th>pipe1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Components.Pipe.html">Pipe</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure_32x32.png"></td>
+      <th>absolutePressure</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure.html">AbsolutePressure</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow_32x32.png"></td>
+      <th>innerPump</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow.html">VolumeFlow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>heatFlow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>outerVolumeFlow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>innerVolumeFlow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>outerGc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>innerGc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Pipe_32x32.png"></td>
+      <th>outerPipe</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Components.Pipe.html">Pipe</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Pipe_32x32.png"></td>
+      <th>innerPipe</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Components.Pipe.html">Pipe</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.Convection_32x32.png"></td>
+      <th>innerConvection</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.Convection.html">Convection</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.Convection_32x32.png"></td>
+      <th>outerConvection</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.Convection.html">Convection</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

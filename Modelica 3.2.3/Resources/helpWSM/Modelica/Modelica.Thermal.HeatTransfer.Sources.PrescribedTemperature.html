@@ -1,0 +1,190 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature.html">PrescribedTemperature</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PrescribedTemperature</h1>
+    <p>Variable temperature boundary condition in Kelvin</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model represents a variable temperature boundary condition.
+The temperature in [K] is given as input signal <strong>T</strong>
+to the model. The effect is that an instance of this model acts as
+an infinite reservoir able to absorb or generate as much energy
+as required to keep the temperature at the specified value.
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b_16x16.png"></td>
+      <th>port</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b.html">HeatPort_b</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(14)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMC.html">ThermalAmbientAIMC</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines</span</p>
+        <p>Thermal ambient for asynchronous induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS.html">ThermalAmbientAIMS</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines</span</p>
+        <p>Thermal ambient for asynchronous induction machine with slipring</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM.html">ThermalAmbientSMPM</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines</span</p>
+        <p>Thermal ambient for synchronous induction machine with permanent magnets</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE.html">ThermalAmbientSMEE</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines</span</p>
+        <p>Thermal ambient for synchronous induction machine with electrical excitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR.html">ThermalAmbientSMR</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines</span</p>
+        <p>Thermal ambient for synchronous induction machine with reluctance rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM.html">ThermalAmbientDCPM</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.DCMachines</span</p>
+        <p>Thermal ambient for DC machine with permanent magnets</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE.html">ThermalAmbientDCEE</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.DCMachines</span</p>
+        <p>Thermal ambient for DC machine with electrical excitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE.html">ThermalAmbientDCSE</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.DCMachines</span</p>
+        <p>Thermal ambient for DC machine with series excitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE.html">ThermalAmbientDCCE</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.DCMachines</span</p>
+        <p>Thermal ambient for DC machine with compound excitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.ThermalAmbientTransformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.ThermalAmbientTransformer.html">ThermalAmbientTransformer</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal</span</p>
+        <p>Thermal ambient for transformers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines.html">PartialThermalAmbientInductionMachines</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces.InductionMachines</span</p>
+        <p>Partial thermal ambient for induction machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines.html">PartialThermalAmbientDCMachines</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces.DCMachines</span</p>
+        <p>Partial thermal ambient for DC machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis.html">Transformer1PhaseWithHysteresis</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components</span</p>
+        <p>Single Phase transformer with ferromagnetic core and hysteresis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis.html">Transformer3PhaseYyWithHysteresis</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components</span</p>
+        <p>Three phase transformer in Yy configuration</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

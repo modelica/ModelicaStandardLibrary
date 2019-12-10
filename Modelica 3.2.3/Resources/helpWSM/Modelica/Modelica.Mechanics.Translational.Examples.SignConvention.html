@@ -1,0 +1,150 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.SignConvention.html">SignConvention</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SignConvention</h1>
+    <p>Examples for the used sign conventions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Examples.SignConvention_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Translational.Examples.SignConvention_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Translational.Examples.SignConvention_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+If all arrows point in the same direction, a positive force
+results in a positive acceleration&nbsp;<var>a</var>, velocity&nbsp;<var>v</var> and position&nbsp;<var>s</var>.
+</p>
+<p>
+For a force of 1&nbsp;N and a mass of 1&nbsp;kg this leads to
+</p>
+<blockquote><pre>
+a = 1 m/s2
+v = 1 m/s after 1 s (SlidingMass1.v)
+s = 0.5 m after 1 s (SlidingMass1.s)
+</pre></blockquote>
+<p>
+The acceleration is not available for plotting.
+</p>
+<p>
+System 1) and 2) are equivalent. It doesn't matter whether the
+force pushes at flange_a in system&nbsp;1 or pulls at flange_b in system&nbsp;2.
+</p><p>
+It is of course possible to ignore the arrows and connect the models
+in an arbitrary way. But then it is hard see in what direction the
+force acts.
+</p><p>
+In the third system the two arrows are opposed which means that the
+force acts in the opposite direction (in the same direction as in
+the two other examples).
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Force_32x32.png"></td>
+      <th>force1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Force.html">Force</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>constant1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Force_32x32.png"></td>
+      <th>force2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Force.html">Force</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>constant2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Force_32x32.png"></td>
+      <th>force3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Force.html">Force</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>constant3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Fixed_32x32.png"></td>
+      <th>fixed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

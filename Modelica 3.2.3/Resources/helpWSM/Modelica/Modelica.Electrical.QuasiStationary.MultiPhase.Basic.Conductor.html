@@ -1,0 +1,228 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.html">MultiPhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor.html">Conductor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Conductor</h1>
+    <p>Multiphase linear conductor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The linear resistor connects the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
+using <code>m</code> <a href="Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor.html">single phase Conductors</a>.
+</p>
+
+<p>
+The conductor model also has <code>m</code> optional
+<a href="Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort.html">conditional heat ports</a>.
+A linear temperature dependency of the conductances for enabled heat ports is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor.html">Conductor</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor.html">Resistor</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor.html">Capacitor</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor.html">Inductor</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance.html">Impedance</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance.html">Admittance</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor.html">Variable resistor</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor.html">Variable conductor</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor.html">Variable capacitor</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor.html">Variable inductor</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance.html">Variable impedance</a>,
+<a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance.html">Variable admittance</a>
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>mh</th>
+      <td>
+        <p><span>Value:</span> m</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of heatPorts=number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if all heat ports are enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> T_ref</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature[mh]</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperatures if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>G_ref</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Conductance.html">Conductance[m]</a> (S)</p>
+        <p><span>Description:</span> Reference conductances at T_ref</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_ref</th>
+      <td>
+        <p><span>Value:</span> fill(293.15, m)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature[m]</a> (K)</p>
+        <p><span>Description:</span> Reference temperatures</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha_ref</th>
+      <td>
+        <p><span>Value:</span> zeros(m)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient[m]</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> Positive quasi-static polyphase plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>plug_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> Negative quasi-static polyphase plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a[mh]</a></p>
+        <p><span>Description:</span> Conditional heat ports</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexVoltage_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexVoltage.html">ComplexVoltage[m]</a></p>
+        <p><span>Description:</span> Complex voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexCurrent_32x32.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexCurrent.html">ComplexCurrent[m]</a></p>
+        <p><span>Description:</span> Complex current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p_32x32.png"></td>
+      <th>plugToPins_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p.html">PlugToPins_p</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n_32x32.png"></td>
+      <th>plugToPins_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n.html">PlugToPins_n</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor_32x32.png"></td>
+      <th>conductor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor.html">Conductor[m]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.EddyCurrentLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.EddyCurrentLosses.html">EddyCurrentLosses</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components</span</p>
+        <p>Comparison of equivalent circuits of eddy current loss models</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

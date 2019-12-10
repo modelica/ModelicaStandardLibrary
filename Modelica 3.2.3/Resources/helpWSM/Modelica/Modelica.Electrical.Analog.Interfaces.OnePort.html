@@ -1,0 +1,434 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.OnePort.html">OnePort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>OnePort</h1>
+    <p>Component with two electrical pins p and n and current i from p to n</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Interfaces.OnePort_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Superclass of elements which have <strong>two</strong> electrical pins: the positive pin connector <em>p</em>, and the negative pin connector <em>n</em>. It is assumed that the current flowing into pin p is identical to the current flowing out of pin n. This current is provided explicitly as current i.</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(45)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.C_SEMI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.C_SEMI.html">C_SEMI</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span</p>
+        <p>Semiconductor capacitor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.R_SEMI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.R_SEMI.html">R_SEMI</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span</p>
+        <p>Semiconductor resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.I_sffm_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.I_sffm.html">I_sffm</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Single-frequency FM current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.I_pwl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.I_pwl.html">I_pwl</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Piece-wise linear current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.I_pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.I_pulse.html">I_pulse</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Pulse current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.I_exp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.I_exp.html">I_exp</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Exponential current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.I_sin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.I_sin.html">I_sin</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Sinusoidal current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.I_constant_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.I_constant.html">I_constant</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Constant independent current sources</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_sffm_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.V_sffm.html">V_sffm</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Single-frequency FM voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_pwl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.V_pwl.html">V_pwl</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Piece-wise linear voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.V_pulse.html">V_pulse</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Pulse voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_exp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.V_exp.html">V_exp</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Exponential voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_sin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.V_sin.html">V_sin</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Sinusoidal voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_constant_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.V_constant.html">V_constant</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span</p>
+        <p>Constant independent voltage sources</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.L_Inductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Basic.L_Inductor.html">L_Inductor</a></p>
+        <p><span>Modelica.Electrical.Spice3.Basic</span</p>
+        <p>Ideal linear electrical inductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.C_Capacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Basic.C_Capacitor.html">C_Capacitor</a></p>
+        <p><span>Modelica.Electrical.Spice3.Basic</span</p>
+        <p>Ideal linear electrical capacitor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+        <p><span>Modelica.Electrical.Spice3.Basic</span</p>
+        <p>Ideal linear electrical resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.DCMachines.Core_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.DCMachines.Core.html">Core</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.DCMachines</span</p>
+        <p>Model of core losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.DCMachines.StrayLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.DCMachines.StrayLoad.html">StrayLoad</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.DCMachines</span</p>
+        <p>Model of stray load losses dependent on current and speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.DCMachines.Brush_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.DCMachines.Brush.html">Brush</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.DCMachines</span</p>
+        <p>Model considering voltage drop of carbon brushes</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.Components.InductorDC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.Components.InductorDC.html">InductorDC</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.Components</span</p>
+        <p>Ideal linear electrical inductor for electrical DC machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ConstantCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.ConstantCurrent.html">ConstantCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span</p>
+        <p>Source for constant current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ConstantVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.ConstantVoltage.html">ConstantVoltage</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span</p>
+        <p>Source for constant voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.HeatingDiode_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Semiconductors.HeatingDiode.html">HeatingDiode</a></p>
+        <p><span>Modelica.Electrical.Analog.Semiconductors</span</p>
+        <p>Simple diode with heating port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.ZDiode_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Semiconductors.ZDiode.html">ZDiode</a></p>
+        <p><span>Modelica.Electrical.Analog.Semiconductors</span</p>
+        <p>Zener diode with 3 working areas</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.Diode2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Semiconductors.Diode2.html">Diode2</a></p>
+        <p><span>Modelica.Electrical.Analog.Semiconductors</span</p>
+        <p>Improved diode model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.Diode_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Semiconductors.Diode.html">Diode</a></p>
+        <p><span>Modelica.Electrical.Analog.Semiconductors</span</p>
+        <p>Simple diode</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc.html">IdealSwitchWithArc</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span</p>
+        <p>Ideal switch with simple arc model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.IdealSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.IdealSwitch.html">IdealSwitch</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span</p>
+        <p>Ideal electrical switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.IdealSemiconductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.IdealSemiconductor.html">IdealSemiconductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span</p>
+        <p>Ideal semiconductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.CurrentSource.html">CurrentSource</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span</p>
+        <p>Interface for current sources</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.VoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.VoltageSource.html">VoltageSource</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span</p>
+        <p>Interface for voltage sources</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.Short_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.Short.html">Short</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span</p>
+        <p>Short cut branch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.Idle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.Idle.html">Idle</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span</p>
+        <p>Idle branch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.VariableInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.VariableInductor.html">VariableInductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Ideal linear electrical inductor with variable inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.VariableCapacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.VariableCapacitor.html">VariableCapacitor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Ideal linear electrical capacitor with variable capacitance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.VariableConductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.VariableConductor.html">VariableConductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Ideal linear electrical conductor with variable conductance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.VariableResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.VariableResistor.html">VariableResistor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Ideal linear electrical resistor with variable resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.SaturatingInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.SaturatingInductor.html">SaturatingInductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Simple model of an inductor with saturation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Inductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.Inductor.html">Inductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Ideal linear electrical inductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Capacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.Capacitor.html">Capacitor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Ideal linear electrical capacitor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Conductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.Conductor.html">Conductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Ideal linear electrical conductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.HeatingResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.HeatingResistor.html">HeatingResistor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Temperature dependent electrical resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Ideal linear electrical resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.NonlinearResistor.html">NonlinearResistor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span</p>
+        <p>Chua's resistor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

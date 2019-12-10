@@ -1,0 +1,476 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.System.html">System</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>System</h1>
+    <p>System properties and default values (ambient, flow direction, initialization)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.System_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+ A system component is needed in each fluid model to provide system-wide settings, such as ambient conditions and overall modeling assumptions.
+ The system settings are propagated to the fluid models using the inner/outer mechanism.
+</p>
+<p>
+ A model should never directly use system parameters.
+ Instead a local parameter should be declared, which uses the global setting as default.
+ The only exceptions are:</p>
+ <ul>
+  <li>the gravity system.g,</li>
+  <li>the global system.eps_m_flow, which is used to define a local m_flow_small for the local m_flow_nominal:
+      <pre>m_flow_small = system.eps_m_flow*m_flow_nominal</pre>
+  </li>
+ </ul>
+<p>
+ The global system.m_flow_small and system.dp_small are classic parameters.
+ They do not distinguish between laminar flow and regularization of zero flow.
+ Absolute small values are error prone for models with local nominal values.
+ Moreover dp_small can generally be obtained automatically.
+ Consider using the new system.use_eps_Re = true (see Advanced tab).
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(17)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p_ambient</th>
+      <td>
+        <p><span>Value:</span> 101325</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Default ambient pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_ambient</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Default ambient temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>
+        <p><span>Value:</span> Modelica.Constants.g_n</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Acceleration.html">Acceleration</a> (m/s²)</p>
+        <p><span>Description:</span> Constant gravity acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>allowFlowReversal</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false to restrict to design flow direction (port_a -> port_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>energyDynamics</th>
+      <td>
+        <p><span>Value:</span> Modelica.Fluid.Types.Dynamics.DynamicFreeInitial</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Default formulation of energy balances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>massDynamics</th>
+      <td>
+        <p><span>Value:</span> energyDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Default formulation of mass balances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>substanceDynamics</th>
+      <td>
+        <p><span>Value:</span> massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Default formulation of substance balances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>traceDynamics</th>
+      <td>
+        <p><span>Value:</span> massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Default formulation of trace substance balances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>momentumDynamics</th>
+      <td>
+        <p><span>Value:</span> Modelica.Fluid.Types.Dynamics.SteadyState</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Default formulation of momentum balances, if options available</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Default start value for mass flow rates</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_start</th>
+      <td>
+        <p><span>Value:</span> p_ambient</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Default start value for pressures</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_start</th>
+      <td>
+        <p><span>Value:</span> T_ambient</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Default start value for temperatures</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_eps_Re</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true to determine turbulent region automatically using Reynolds number</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_nominal</th>
+      <td>
+        <p><span>Value:</span> if use_eps_Re then 1 else 1e2 * m_flow_small</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Default nominal mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps_m_flow</th>
+      <td>
+        <p><span>Value:</span> 1e-4</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Regularization of zero flow for |m_flow| < eps_m_flow*m_flow_nominal</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dp_small</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Default small pressure drop for regularization of laminar and zero flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_small</th>
+      <td>
+        <p><span>Value:</span> 1e-2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Default small mass flow rate for regularization of laminar and zero flow</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(23)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.PumpingSystem_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.PumpingSystem.html">PumpingSystem</a></p>
+        <p><span>Modelica.Fluid.Examples</span</p>
+        <p>Model of a pumping system for drinking water</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatingSystem_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatingSystem.html">HeatingSystem</a></p>
+        <p><span>Modelica.Fluid.Examples</span</p>
+        <p>Simple model of a heating system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.DrumBoiler.DrumBoiler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.DrumBoiler.DrumBoiler.html">DrumBoiler</a></p>
+        <p><span>Modelica.Fluid.Examples.DrumBoiler</span</p>
+        <p>Complete drum boiler model, including evaporator and supplementary components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.Tanks.ThreeTanks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.Tanks.ThreeTanks.html">ThreeTanks</a></p>
+        <p><span>Modelica.Fluid.Examples.Tanks</span</p>
+        <p>Demonstrating the usage of SimpleTank</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.Tanks.TanksWithOverflow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.Tanks.TanksWithOverflow.html">TanksWithOverflow</a></p>
+        <p><span>Modelica.Fluid.Examples.Tanks</span</p>
+        <p>Two tanks connected with pipes at different heights</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.Tanks.EmptyTanks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.Tanks.EmptyTanks.html">EmptyTanks</a></p>
+        <p><span>Modelica.Fluid.Examples.Tanks</span</p>
+        <p>Show the treatment of empty tanks</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks.html">ControlledTanks</a></p>
+        <p><span>Modelica.Fluid.Examples.ControlledTankSystem</span</p>
+        <p>Demonstrating the controller of a tank filling/emptying system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater.html">BatchPlant_StandardWater</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant</span</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank.html">OneTank</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.Test</span</p>
+        <p>Tank with one time-varying top inlet mass flow rate and a bottom outlet into the ambient</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks.html">TwoTanks</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.Test</span</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1.html">TankWithEmptyingPipe1</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.Test</span</p>
+        <p>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2.html">TankWithEmptyingPipe2</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.Test</span</p>
+        <p>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1.html">TanksWithEmptyingPipe1</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.Test</span</p>
+        <p>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2.html">TanksWithEmptyingPipe2</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.Test</span</p>
+        <p>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.IncompressibleFluidNetwork_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.IncompressibleFluidNetwork.html">IncompressibleFluidNetwork</a></p>
+        <p><span>Modelica.Fluid.Examples</span</p>
+        <p>Multi-way connections of pipes and incompressible medium model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.BranchingDynamicPipes_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.BranchingDynamicPipes.html">BranchingDynamicPipes</a></p>
+        <p><span>Modelica.Fluid.Examples</span</p>
+        <p>Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.NonCircularPipes_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.NonCircularPipes.html">NonCircularPipes</a></p>
+        <p><span>Modelica.Fluid.Examples</span</p>
+        <p>Comparing a circular with a non-circular pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation.html">HeatExchangerSimulation</a></p>
+        <p><span>Modelica.Fluid.Examples.HeatExchanger</span</p>
+        <p>simulation for the heat exchanger model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.TraceSubstances.RoomCO2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.TraceSubstances.RoomCO2.html">RoomCO2</a></p>
+        <p><span>Modelica.Fluid.Examples.TraceSubstances</span</p>
+        <p>Demonstrates a room volume with CO2 accumulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls.html">RoomCO2WithControls</a></p>
+        <p><span>Modelica.Fluid.Examples.TraceSubstances</span</p>
+        <p>Demonstrates a room volume with CO2 controls</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.InverseParameterization_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.InverseParameterization.html">InverseParameterization</a></p>
+        <p><span>Modelica.Fluid.Examples</span</p>
+        <p>Demonstrates the parameterization of a pump and a pipe for given nominal values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.Explanatory.MeasuringTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature.html">MeasuringTemperature</a></p>
+        <p><span>Modelica.Fluid.Examples.Explanatory</span</p>
+        <p>Differences between using one port with and without explicit junction model and two port sensors for fluid temperature measuring</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings.html">MomentumBalanceFittings</a></p>
+        <p><span>Modelica.Fluid.Examples.Explanatory</span</p>
+        <p>Illustrating a case in which kinetic terms play a major role in the momentum balance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.html">BasicHX</a></p>
+        <p><span>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</span</p>
+        <p>Simple heat exchanger model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps.html">WallConstProps</a></p>
+        <p><span>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</span</p>
+        <p>Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase.html">PumpMonitoringBase</a></p>
+        <p><span>Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</span</p>
+        <p>Interface for pump monitoring</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialTwoPort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialTwoPort.html">PartialTwoPort</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span</p>
+        <p>Partial component with two ports</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialHeatTransfer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialHeatTransfer.html">PartialHeatTransfer</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span</p>
+        <p>Common interface for heat transfer models</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.html">PartialLumpedVolume</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span</p>
+        <p>Lumped volume with mass and energy balance</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialLumpedFlow.html">PartialLumpedFlow</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span</p>
+        <p>Base class for a lumped momentum balance</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.html">PartialDistributedVolume</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span</p>
+        <p>Base class for distributed volume models</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialDistributedFlow.html">PartialDistributedFlow</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span</p>
+        <p>Base class for a distributed momentum balance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

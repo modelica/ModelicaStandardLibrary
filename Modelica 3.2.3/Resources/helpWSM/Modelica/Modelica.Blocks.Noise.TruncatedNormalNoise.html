@@ -1,0 +1,217 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Noise.html">Noise</a></li>
+  <li><a href="Modelica.Blocks.Noise.TruncatedNormalNoise.html">TruncatedNormalNoise</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TruncatedNormalNoise</h1>
+    <p>Noise generator with truncated normal distribution</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Noise.TruncatedNormalNoise_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+A summary of the common properties of the noise blocks is provided in the documentation of package
+<a href="Modelica.Blocks.Noise.html">Blocks.Noise</a>.
+This TruncatedNormalNoise block generates reproducible, random noise at its output according to a truncated normal distribution.
+This means that normally distributed random values are truncated to the band y_min ... y_max.
+Measurement noise has often this distribution form.
+By default, the standard parameters of the truncated normal distribution are derived from
+y_min ... y_max:
+</p>
+<blockquote><p>
+mean value = (y_max + y_min)/2,<br>
+standard deviation = (y_max - y_min)/6 (= 99.7 % of the non-truncated normal distribution are within y_min ... y_max).
+</p></blockquote>
+
+<p>
+For an example see <a href="Modelica.Blocks.Examples.NoiseExamples.Distributions.html">NoiseExamples.Distributions</a>.
+By default, two or more instances produce different, uncorrelated noise at the same time instant.
+The block can only be used if on the same or a higher hierarchical level,
+model <a href="Modelica.Blocks.Noise.GlobalSeed.html">Blocks.Noise.GlobalSeed</a>
+is dragged to provide global settings for all instances.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>samplePeriod</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Period.html">Period</a> (s)</p>
+        <p><span>Description:</span> Period for sampling the raw random numbers</p>
+      </td>
+    </tr>
+    <tr>
+      <th>enableNoise</th>
+      <td>
+        <p><span>Value:</span> globalSeed.enableNoise</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true: y = noise, otherwise y = y_off</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_off</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> y = y_off if enableNoise=false (or time<startTime, see below)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useGlobalSeed</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: use global seed, otherwise ignore it</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useAutomaticLocalSeed</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: use automatic local seed, otherwise use fixedLocalSeed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fixedLocalSeed</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Local seed (any Integer number)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Start time for sampling the raw random numbers</p>
+      </td>
+    </tr>
+    <tr>
+      <th>localSeed</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> The actual localSeed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_min</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_max</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu</th>
+      <td>
+        <p><span>Value:</span> (y_max + y_min) / 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Expectation (mean) value of the normal distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Value:</span> (y_max - y_min) / 6</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Standard deviation of the normal distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.GlobalSeed_32x32.png"></td>
+      <th>globalSeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.GlobalSeed.html">GlobalSeed</a></p>
+        <p><span>Description:</span> Definition of global seed via inner/outer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.NoiseExamples.Distributions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.NoiseExamples.Distributions.html">Distributions</a></p>
+        <p><span>Modelica.Blocks.Examples.NoiseExamples</span</p>
+        <p>Demonstrates noise with different types of distributions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

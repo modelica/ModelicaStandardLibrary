@@ -1,0 +1,132 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.CharacteristicIdealDiodes.html">CharacteristicIdealDiodes</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CharacteristicIdealDiodes</h1>
+    <p>Characteristic of ideal diodes</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Examples.CharacteristicIdealDiodes_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Analog.Examples.CharacteristicIdealDiodes_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Analog.Examples.CharacteristicIdealDiodes_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Three examples of ideal diodes are shown:
+<br>the <strong>totally ideal diode</strong> (Ideal) with all parameters to be zero,
+the <strong>nearly ideal diode</strong> with <em>Ron=0.1</em> and <em>Goff=0.1</em>
+ and the nearly ideal but <strong>displaced diode</strong> with <em>Vknee=5</em> and <em>Ron=0.1</em> and <em>Goff=0.1</em>.
+The resistance and conductance are chosen untypically high since the slopes should be seen in the graphics.
+</p><p>Simulate until T=1 s.
+Plot in separate windows:
+Ideal.i versus Ideal.v, With_Ron_Goff.i versus With_Ron_Goff.v, With_Ron_Goff_Vknee.i versus With_Ron_Goff_Vknee.v
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealDiode_32x32.png"></td>
+      <th>Ideal</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Ideal.IdealDiode.html">IdealDiode</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealDiode_32x32.png"></td>
+      <th>With_Ron_Goff</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Ideal.IdealDiode.html">IdealDiode</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealDiode_32x32.png"></td>
+      <th>With_Ron_Goff_Vknee</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Ideal.IdealDiode.html">IdealDiode</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltage_32x32.png"></td>
+      <th>SineVoltage1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SineVoltage.html">SineVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>Ground1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>R1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>R2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>R3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltage_32x32.png"></td>
+      <th>SineVoltage2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SineVoltage.html">SineVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltage_32x32.png"></td>
+      <th>SineVoltage3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SineVoltage.html">SineVoltage</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

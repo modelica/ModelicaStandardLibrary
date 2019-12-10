@@ -1,0 +1,228 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Components.html">Components</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Components.ThermalCollector.html">ThermalCollector</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ThermalCollector</h1>
+    <p>Collects m heat flows</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalCollector_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a model to collect the heat flows from <em>m</em> heatports to one single heatport.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of collected heat flows</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>port_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a[m]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b_16x16.png"></td>
+      <th>port_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b.html">HeatPort_b</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(17)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS.html">ThermalAmbientAIMS</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines</span</p>
+        <p>Thermal ambient for asynchronous induction machine with slipring</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.ThermalAmbientTransformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Thermal.ThermalAmbientTransformer.html">ThermalAmbientTransformer</a></p>
+        <p><span>Modelica.Electrical.Machines.Thermal</span</p>
+        <p>Thermal ambient for transformers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines.html">PartialThermalAmbientInductionMachines</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces.InductionMachines</span</p>
+        <p>Partial thermal ambient for induction machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTapmPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTapmPulse.html">DiodeCenterTapmPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>m pulse diode rectifier with center tap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTapmPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTapmPulse.html">ThyristorCenterTapmPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>m pulse thyristor rectifier with center tap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse.html">DiodeBridge2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>2*m pulse diode rectifier bridge</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2mPulse.html">ThyristorBridge2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>2*m pulse thyristor rectifier bridge</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2mPulse.html">HalfControlledBridge2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>2*m pulse half controlled rectifier bridge</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2mPulse.html">DiodeCenterTap2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>2*m pulse diode rectifier with center tap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2mPulse.html">ThyristorCenterTap2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>2*m pulse thyristor rectifier with center tap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level.html">MultiPhase2Level</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC</span</p>
+        <p>Multi phase DC to AC converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding.html">SymmetricMultiPhaseCageWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span</p>
+        <p>Symmetrical rotor cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">SaliencyCageWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span</p>
+        <p>Rotor cage with saliency in d- and q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete.html">SymmetricMultiPhaseCageWinding_obsolete</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span</p>
+        <p>Symmetrical rotor cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete.html">SaliencyCageWinding_obsolete</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span</p>
+        <p>Rotor cage with saliency in d- and q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding.html">SymmetricMultiPhaseCageWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span</p>
+        <p>Symmetrical rotor cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">SaliencyCageWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span</p>
+        <p>Rotor cage with saliency in d- and q-axis</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

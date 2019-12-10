@@ -1,0 +1,105 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Media.Examples.SolveOneNonlinearEquation.html">SolveOneNonlinearEquation</a></li>
+  <li><a href="Modelica.Media.Examples.SolveOneNonlinearEquation.Inverse_sh_TX.html">Inverse_sh_TX</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Inverse_sh_TX</h1>
+    <p>Solve h = h_TX(TX) for T, if h is given for ideal gas NASA</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Examples.SolveOneNonlinearEquation.Inverse_sh_TX_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T_min</th>
+      <td>
+        <p><span>Value:</span> 300</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Vary temperature linearly from T_min (time=0) up to T_max (time=1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_max</th>
+      <td>
+        <p><span>Value:</span> 500</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Vary temperature linearly from T_min (time=0) up to T_max (time=1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> 1.0e5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Fixed pressure in model</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_min</th>
+      <td>
+        <p><span>Value:</span> Medium.h_TX(T_min, X)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Specific enthalpy at T_min</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_max</th>
+      <td>
+        <p><span>Value:</span> Medium.h_TX(T_max, X)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Specific enthalpy at T_max</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s_min</th>
+      <td>
+        <p><span>Value:</span> Medium.specificEntropy(Medium.setState_pTX(p, T_min, Medium.reference_X))</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEntropy.html">SpecificEntropy</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Specific entropy at T_min</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s_max</th>
+      <td>
+        <p><span>Value:</span> Medium.specificEntropy(Medium.setState_pTX(p, T_max, Medium.reference_X))</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEntropy.html">SpecificEntropy</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Specific entropy at T_max</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Value:</span> Medium.reference_X</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.MassFraction.html">MassFraction[4]</a></p>
+        <p><span>Description:</span> Mass fraction vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

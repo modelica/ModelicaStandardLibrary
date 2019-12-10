@@ -1,0 +1,117 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Distributions.html">Distributions</a></li>
+  <li><a href="Modelica.Math.Distributions.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Math.Distributions.Interfaces.partialTruncatedDensity.html">partialTruncatedDensity</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>partialTruncatedDensity</h1>
+    <p>Common interface of truncated probability density functions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Distributions.Interfaces.partialTruncatedDensity_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+A partial function containing the common
+arguments of the probability density functions of truncated distributions.
+</p>
+</div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number over the real axis (-inf < u < inf)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_min</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of u</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_max</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of u</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Density of u</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.TruncatedWeibull.density_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.TruncatedWeibull.density.html">density</a></p>
+        <p><span>Modelica.Math.Distributions.TruncatedWeibull</span</p>
+        <p>Density of truncated Weibull distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.TruncatedNormal.density_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.TruncatedNormal.density.html">density</a></p>
+        <p><span>Modelica.Math.Distributions.TruncatedNormal</span</p>
+        <p>Density of truncated normal distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

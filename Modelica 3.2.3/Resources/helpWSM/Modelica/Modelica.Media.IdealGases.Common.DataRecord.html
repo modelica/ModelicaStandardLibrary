@@ -1,0 +1,60 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.IdealGases.html">IdealGases</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.DataRecord.html">DataRecord</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DataRecord</h1>
+    <p>Coefficient data record for properties of ideal gases based on NASA source</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.IdealGases.Common.DataRecord_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This data record contains the coefficients for the
+ideal gas equations according to:
+</p>
+<blockquote>
+  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <strong>NASA Glenn Coefficients
+  for Calculating Thermodynamic Properties of Individual Species</strong>. NASA
+  report TP-2002-211556</p>
+</blockquote>
+<p>
+The equations have the following structure:
+</p>
+<img src="modelica:///Modelica.Media.IdealGases.Common.DataRecord/resources/Modelica.Media.IdealGases.Common.DataRecord_info_001.png">
+<p>
+The polynomials for h(T) and s0(T) are derived via integration from the one for cp(T)  and contain the integration constants b1, b2 that define the reference specific enthalpy and entropy. For entropy differences the reference pressure p0 is arbitrary, but not for absolute entropies. It is chosen as 1 standard atmosphere (101325 Pa).
+</p>
+<p>
+For most gases, the region of validity is from 200 K to 6000 K.
+The equations are split into two regions that are separated
+by Tlimit (usually 1000 K). In both regions the gas is described
+by the data above. The two branches are continuous and in most
+gases also differentiable at Tlimit.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

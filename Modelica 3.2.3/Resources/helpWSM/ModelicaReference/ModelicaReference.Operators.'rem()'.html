@@ -1,0 +1,55 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'rem()'.html">'rem()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'rem()'</h1>
+    <p>rem()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'rem()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Integer remainder of the division of two Real numbers
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>rem</strong>(x, y)</pre></blockquote>
+<h4>Description</h4>
+<p>Returns the integer remainder of <code>x/y</code>,
+such that <code>div(x,y) * y + rem(x, y) = x</code>.
+Result and arguments shall have type Real or
+Integer. If either of the arguments is Real the
+result is Real otherwise Integer. <em>[Note, outside
+of a when clause state events are triggered when
+the return value changes discontinuously.]</em></p>
+<h4>Examples</h4>
+<pre><strong>rem</strong>(3,1.4)
+ = 0.2
+<strong>rem</strong>(-3,1.4)
+ = -0.2
+<strong>rem</strong>(3,-1.4)
+ = 0.2</pre>
+</div>
+</section>
+</div>
+</body>
+</html>

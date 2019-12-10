@@ -1,0 +1,122 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Media.Examples.SolveOneNonlinearEquation.html">SolveOneNonlinearEquation</a></li>
+  <li><a href="Modelica.Media.Examples.SolveOneNonlinearEquation.Inverse_sine.html">Inverse_sine</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Inverse_sine</h1>
+    <p>Solve y = A*sin(w*x) for x, given y</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Examples.SolveOneNonlinearEquation.Inverse_sine_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This models solves the following non-linear equation
+</p>
+
+<pre>
+   y = A*sin(w*x); -> determine x for given y
+</pre>
+
+<p>
+Translate model "Inverse_sine"
+and simulate for 0 sec. The result is printed to the
+output window.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y_zero</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Desired value of A*sin(w*x)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_min</th>
+      <td>
+        <p><span>Value:</span> -1.7</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimum value of x_zero</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_max</th>
+      <td>
+        <p><span>Value:</span> 1.7</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum value of x_zero</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td>
+        <p><span>Value:</span> Inverse_sine_definition.f_nonlinear_Data(A = A, w = w)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.SolveOneNonlinearEquation.Inverse_sine.Inverse_sine_definition.f_nonlinear_Data.html">f_nonlinear_Data</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.SolveOneNonlinearEquation.Inverse_sine.Inverse_sine_definition.f_nonlinear_Data_32x32.png"></td>
+      <th>data</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.SolveOneNonlinearEquation.Inverse_sine.Inverse_sine_definition.f_nonlinear_Data.html">f_nonlinear_Data</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

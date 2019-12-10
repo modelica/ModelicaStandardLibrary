@@ -1,0 +1,388 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.html">SolenoidActuator</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.html">Components</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">SimpleSolenoid</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SimpleSolenoid</h1>
+    <p>Simple network model of a lifting magnet with planar armature end face</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Please refer to the <strong>Parameters</strong> section for a schematic drawing of this axis-symmetric lifting magnet.
+In the half-section below, the flux tube elements of the actuator's magnetic circuit are superimposed on a field plot obtained with FEA. The magnetomotive force imposed by the coil is modelled as one lumped element. As a result, the radial leakage flux between armature and yoke that occurs especially at large working air gaps can not be considered properly. This leads to a a higher total reluctance and lower inductance respectively compared to FEA for large working air gaps (i.e., armature close to x_max). Please have a look at the comments associated with the individual model components for a short explanation of their purpose in the model.
+</p>
+
+<p>
+<img src="resources/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid_info_001.png" alt="Field lines and assigned flux tubes of the simple solenoid model">
+</p>
+
+<p>
+The coupling coefficient c_coupl in the coil is set to 1 in this example, since leakage flux is accounted for explicitly with the flux tube element G_mLeakWork. Although this leakage model is rather simple, it describes the reluctance force due to the leakage field sufficiently, especially at large air gaps. With decreasing air gap length, the influence of the leakage flux on the actuator's net reluctance force decreases due to the increasing influence of the main working air gap G_mAirWork.
+</p>
+
+<p>
+During model-based actuator design, the radii and lengths of the flux tube elements (and hence their cross-sectional areas and flux densities) should be assigned with parametric equations so that common design rules are met (e.g., allowed flux density in ferromagnetic parts, allowed current density and required cross-sectional area of winding). For simplicity, those equations are omitted in the example. Instead, the found values are assigned to the model elements directly.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(16)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Armature coil resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> 957</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_yokeOut</th>
+      <td>
+        <p><span>Value:</span> 15e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Outer yoke radius</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_yokeIn</th>
+      <td>
+        <p><span>Value:</span> 13.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Inner yoke radius</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l_yoke</th>
+      <td>
+        <p><span>Value:</span> 35e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Axial yoke length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>t_yokeBot</th>
+      <td>
+        <p><span>Value:</span> 3.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Axial thickness of yoke bottom</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l_pole</th>
+      <td>
+        <p><span>Value:</span> 6.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Axial length of pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>t_poleBot</th>
+      <td>
+        <p><span>Value:</span> 3.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Axial thickness of bottom at pole side</p>
+      </td>
+    </tr>
+    <tr>
+      <th>t_airPar</th>
+      <td>
+        <p><span>Value:</span> 0.65e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Radial thickness of parasitic air gap due to slide guiding</p>
+      </td>
+    </tr>
+    <tr>
+      <th>material</th>
+      <td>
+        <p><span>Value:</span> Material.SoftMagnetic.Steel.Steel_9SMnPb28()</p>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData.html">BaseData</a></p>
+        <p><span>Description:</span> Ferromagnetic material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_arm</th>
+      <td>
+        <p><span>Value:</span> 5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Armature radius = pole radius</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l_arm</th>
+      <td>
+        <p><span>Value:</span> 26e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Armature length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Value:</span> 1e11</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.TranslationalSpringConstant.html">TranslationalSpringConstant</a> (N/m)</p>
+        <p><span>Description:</span> Spring stiffness between impact partners</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Value:</span> 400</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.TranslationalDampingConstant.html">TranslationalDampingConstant</a> (N·s/m)</p>
+        <p><span>Description:</span> Damping coefficient between impact partners</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_min</th>
+      <td>
+        <p><span>Value:</span> 0.25e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Stopper at minimum armature position</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_max</th>
+      <td>
+        <p><span>Value:</span> 5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Stopper at maximum armature position</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Electrical connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Electrical connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData_32x32.png"></td>
+      <th>material</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData.html">BaseData</a></p>
+        <p><span>Description:</span> Ferromagnetic material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter_32x32.png"></td>
+      <th>coil</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></p>
+        <p><span>Description:</span> Electro-magnetic converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+        <p><span>Description:</span> Coil resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux_32x32.png"></td>
+      <th>g_mFeYokeSide</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux.html">HollowCylinderAxialFlux</a></p>
+        <p><span>Description:</span> Permeance of hollow cylindric section of ferromagnetic yoke</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux_32x32.png"></td>
+      <th>g_mFeArm</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux.html">HollowCylinderAxialFlux</a></p>
+        <p><span>Description:</span> Permeance of ferromagnetic armature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderAxialFlux_32x32.png"></td>
+      <th>g_mAirWork</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderAxialFlux.html">HollowCylinderAxialFlux</a></p>
+        <p><span>Description:</span> Permeance of working air gap (between armature and pole end faces)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux_32x32.png"></td>
+      <th>g_mFeYokeBot</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+        <p><span>Description:</span> Permeance of bottom side of ferromagnetic yoke</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux_32x32.png"></td>
+      <th>g_mAirPar</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+        <p><span>Description:</span> Permeance of parasitic radial air gap due to slide guiding</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux_32x32.png"></td>
+      <th>g_mFePoleBot</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+        <p><span>Description:</span> Permeance of bottom side of pole</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux_32x32.png"></td>
+      <th>g_mFePole</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux.html">HollowCylinderAxialFlux</a></p>
+        <p><span>Description:</span> Permeance of ferromagnetic pole</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper_32x32.png"></td>
+      <th>armature</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper.html">TranslatoryArmatureAndStopper</a></p>
+        <p><span>Description:</span> Inertia of armature and stoppers at end of stroke range</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder_32x32.png"></td>
+      <th>g_mLeak1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder.html">QuarterCylinder</a></p>
+        <p><span>Description:</span> Leakage permeance between inner edge of yoke bore and armature side face</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder_32x32.png"></td>
+      <th>g_mLeak2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder.html">QuarterHollowCylinder</a></p>
+        <p><span>Description:</span> Leakage permeance between inner side of yoke bottom and armature side (r_i = t_airPar)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles_32x32.png"></td>
+      <th>g_mLeakWork</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles.html">LeakageAroundPoles</a></p>
+        <p><span>Description:</span> Permeance of leakage air gap around working air gap (between armature and pole side faces)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary.html">ComparisonQuasiStationary</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</span</p>
+        <p>Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke.html">ComparisonPullInStroke</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</span</p>
+        <p>Pull-in stroke of both solenoid models after a voltage step at time t=0</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

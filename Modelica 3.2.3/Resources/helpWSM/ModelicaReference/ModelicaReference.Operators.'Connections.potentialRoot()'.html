@@ -1,0 +1,55 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'Connections.potentialRoot()'.html">'Connections.potentialRoot()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'Connections.potentialRoot()'</h1>
+    <p>Connection.potentialRoot()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'Connections.potentialRoot()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Defines a <em>potential</em> root node.
+</p>
+<h4>Syntax</h4>
+<pre>
+Connections.potentialRoot(A.R);
+Connections.potentialRoot(A.R, priority = p);
+</pre>
+
+<h4>Description</h4>
+<p>
+The overdetermined type or record instance <code>R</code> in connector instance <code>A</code> is a potential root node in a virtual connection graph with priority <code>p</code> (with <code>p &ge; 0</code>).
+If no second argument is provided, the priority is zero. <code>p</code> shall be a parameter expression of type Integer.
+In a virtual connection subgraph without a  <a href="ModelicaReference.Operators.'Connections.root()'.html">Connections.root()</a> definition, one of the potential roots with the lowest priority number is selected as root.
+</p>
+
+<h4>Examples</h4>
+<p>
+This definition may  be used if in a model with connector <code>A</code> the overdetermined record <code>A.R</code> appears differentiated, <code>der(A.R)</code>, together with the constraint equations of <code>A.R</code>, i.e., a non-redundant subset of <code>A.R</code> maybe used as states.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

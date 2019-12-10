@@ -1,0 +1,344 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Fluid.Examples.AST_BatchPlant.html">AST_BatchPlant</a></li>
+  <li><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.html">TankWith3InletOutletArraysWithEvaporatorCondensor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TankWith3InletOutletArraysWithEvaporatorCondensor</h1>
+    <p>Tank with Heating and Evaporation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor_diagram_large.png"><img src="resources/diagrams/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This tank has the same geometric variables as TankWith3InletOutletArrays plus the feature of a HeatPort and the possibility of evaporation.
+(Assumption: The gas is condensed immediately afterwards so that a liquid boiling fluid is created.)</p>
+<p>The tank can be initialized with the following options:</p>
+<ul>
+<li>GuessValues: no explicit initial conditions</li>
+<li>InitialValues: initial values of temperature (or specific enthalpy), composition and level are specified</li>
+<li>SteadyStateHydraulic: initial values of temperature (or specific enthalpy) and composition are specified; the initial level is determined so that levels and pressure are at steady state.</li>
+</ul>
+<p>
+Full steady state initialization is not supported, because the corresponding initial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero).
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(21)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>crossArea</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Tank area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>top_pipeArea</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area[n_TopPorts]</a> (m²)</p>
+        <p><span>Description:</span> Area of outlet pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <th>side_pipeArea</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area[n_SidePorts]</a> (m²)</p>
+        <p><span>Description:</span> Area of outlet pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <th>bottom_pipeArea</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area[n_BottomPorts]</a> (m²)</p>
+        <p><span>Description:</span> Area of outlet pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Height.html">Height</a> (m)</p>
+        <p><span>Description:</span> Height of Tank</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V0</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> Volume of the liquid when the level is zero</p>
+      </td>
+    </tr>
+    <tr>
+      <th>side_heights</th>
+      <td>
+        <p><span>Value:</span> zeros(n_SidePorts)</p>
+        <p><span>Type:</span> Real[n_SidePorts]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>bottom_heights</th>
+      <td>
+        <p><span>Value:</span> zeros(n_BottomPorts)</p>
+        <p><span>Type:</span> Real[n_BottomPorts]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>top_heights</th>
+      <td>
+        <p><span>Value:</span> fill(height, n_TopPorts)</p>
+        <p><span>Type:</span> Real[n_TopPorts]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>level_start</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Height.html">Height</a> (m)</p>
+        <p><span>Description:</span> Initial tank level</p>
+      </td>
+    </tr>
+    <tr>
+      <th>initType</th>
+      <td>
+        <p><span>Value:</span> Init.GuessValues</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Init.html">Init</a></p>
+        <p><span>Description:</span> Initialization option</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_T_start</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use T_start if true, otherwise h_start</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_start</th>
+      <td>
+        <p><span>Value:</span> if use_T_start then 293.15 else Medium.temperature_phX(p_ambient, h_start, X_start)</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.Medium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Start value of temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_start</th>
+      <td>
+        <p><span>Value:</span> if use_T_start then Medium.specificEnthalpy_pTX(p_ambient, T_start, X_start[1:Medium.nXi]) else 1e4</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.Medium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Start value of specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X_start</th>
+      <td>
+        <p><span>Value:</span> Medium.reference_X</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.Medium.MassFraction.html">MassFraction[Medium.nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Start value of mass fractions m_i/m</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_ambient</th>
+      <td>
+        <p><span>Value:</span> 101325</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Tank surface pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_ambient</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.Medium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Tank surface Temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_TopPorts</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> number of Top connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_SidePorts</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> number of side connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_BottomPorts</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> number of bottom connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <th>min_level_for_heating</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_b_16x16.png"></td>
+      <th>BottomFluidPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_b.html">FluidPort_b[n_BottomPorts]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_a_16x16.png"></td>
+      <th>TopFluidPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_a.html">FluidPort_a[n_TopPorts]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_b_16x16.png"></td>
+      <th>SideFluidPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_b.html">FluidPort_b[n_SidePorts]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_b_16x16.png"></td>
+      <th>Condensed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_b.html">FluidPort_b</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.Medium.BaseProperties_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.Medium.BaseProperties.html">BaseProperties</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank_32x32.png"></td>
+      <th>InnerTankTop</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank.html">InnerTank[n_TopPorts]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank_32x32.png"></td>
+      <th>InnerTankSide</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank.html">InnerTank[n_SidePorts]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank_32x32.png"></td>
+      <th>InnerTankBottom</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank.html">InnerTank[n_BottomPorts]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.HeatTransfer_32x32.png"></td>
+      <th>heatTransfer</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.HeatTransfer.html">HeatTransfer</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.Medium.SaturationProperties_32x32.png"></td>
+      <th>sat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.Medium.SaturationProperties.html">SaturationProperties</a></p>
+        <p><span>Description:</span> State vector to compute saturation properties</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater.html">BatchPlant_StandardWater</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant</span</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

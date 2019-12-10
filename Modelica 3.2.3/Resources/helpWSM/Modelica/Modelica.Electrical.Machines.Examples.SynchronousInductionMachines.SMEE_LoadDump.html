@@ -1,0 +1,293 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.html">SynchronousInductionMachines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_LoadDump.html">SMEE_LoadDump</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SMEE_LoadDump</h1>
+    <p>Test example: ElectricalExcitedSynchronousInductionMachine with voltage controller</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_LoadDump_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_LoadDump_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_LoadDump_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
+Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.</p>
+
+<p>Simulate for 10 seconds and plot:</p>
+
+<ul>
+<li>voltageQuasiRMSSensor.V</li>
+<li>smee.tauElectrical</li>
+<li>smee.ie</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+
+<p>One could try to optimize the controller parameters.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>wNominal</th>
+      <td>
+        <p><span>Value:</span> 2 * pi * smeeData.fsNominal / smee.p</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Nominal speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ZNominal</th>
+      <td>
+        <p><span>Value:</span> 3 * smeeData.VsNominal ^ 2 / smeeData.SNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Impedance.html">Impedance</a> (Ω)</p>
+        <p><span>Description:</span> Nominal load impedance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>powerFactor</th>
+      <td>
+        <p><span>Value:</span> 0.8</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Load power factor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RLoad</th>
+      <td>
+        <p><span>Value:</span> ZNominal * powerFactor</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Load resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LLoad</th>
+      <td>
+        <p><span>Value:</span> ZNominal * sqrt(1 - powerFactor ^ 2) / (2 * pi * smeeData.fsNominal)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Load inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ve0</th>
+      <td>
+        <p><span>Value:</span> smee.IeOpenCircuit * Machines.Thermal.convertResistance(smee.Re, smee.TeRef, smee.alpha20e, smee.TeOperational)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> No load excitation voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Value:</span> 2 * Ve0 / smeeData.VsNominal</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Voltage controller: gain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ti</th>
+      <td>
+        <p><span>Value:</span> smeeData.Td0Transient / 2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Voltage controller: integral time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>smeeData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.SynchronousMachineData.html">SynchronousMachineData</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>controlError</th>
+      <td>
+        <p><span>Default Value:</span> (setPointGain.y - voltageQuasiRMSSensor.V) / smeeData.VsNominal</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(18)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited_32x32.png"></td>
+      <th>smee</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.SynchronousMachineData_32x32.png"></td>
+      <th>smeeData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.SynchronousMachineData.html">SynchronousMachineData</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.TerminalBox_32x32.png"></td>
+      <th>terminalBox</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.TerminalBox.html">TerminalBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Speed_32x32.png"></td>
+      <th>speed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Speed.html">Speed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Ramp_32x32.png"></td>
+      <th>speedRamp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.SpeedSensor_32x32.png"></td>
+      <th>speedSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sensors.SpeedSensor.html">SpeedSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>setPointGain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor_32x32.png"></td>
+      <th>voltageQuasiRMSSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor.html">VoltageQuasiRMSSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.LimPID_32x32.png"></td>
+      <th>voltageController</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.LimPID.html">LimPID</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalVoltage_32x32.png"></td>
+      <th>excitationVoltage</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SignalVoltage.html">SignalVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>groundExcitation</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <th>currentQuasiRMSSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanPulse_32x32.png"></td>
+      <th>loadControl</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanPulse.html">BooleanPulse</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Ideal.CloserWithArc_32x32.png"></td>
+      <th>switch</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Ideal.CloserWithArc.html">CloserWithArc</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Basic.Resistor_32x32.png"></td>
+      <th>loadResistor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Basic.Inductor_32x32.png"></td>
+      <th>loadInductor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Basic.Inductor.html">Inductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Basic.Star_32x32.png"></td>
+      <th>star</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

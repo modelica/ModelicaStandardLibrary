@@ -1,0 +1,200 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Pipes.html">Pipes</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe.html">PartialStraightPipe</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialStraightPipe</h1>
+    <p>Base class for straight pipe models</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Base class for one dimensional flow models. It specializes a PartialTwoPort with a parameter interface and icon graphics.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>allowFlowReversal</th>
+      <td>
+        <p><span>Value:</span> system.allowFlowReversal</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true to allow flow reversal, false restricts to design direction (port_a -> port_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nParallel</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of identical parallel pipes</p>
+      </td>
+    </tr>
+    <tr>
+      <th>length</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>isCircular</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if cross sectional area is circular</p>
+      </td>
+    </tr>
+    <tr>
+      <th>diameter</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Diameter of circular pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <th>crossArea</th>
+      <td>
+        <p><span>Value:</span> Modelica.Constants.pi * diameter * diameter / 4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Inner cross section area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>perimeter</th>
+      <td>
+        <p><span>Value:</span> Modelica.Constants.pi * diameter</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Inner perimeter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>roughness</th>
+      <td>
+        <p><span>Value:</span> 2.5e-5</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Roughness.html">Roughness</a> (m)</p>
+        <p><span>Description:</span> Average height of surface asperities (default: smooth steel pipe)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V</th>
+      <td>
+        <p><span>Value:</span> crossArea * length * nParallel</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> volume size</p>
+      </td>
+    </tr>
+    <tr>
+      <th>height_ab</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Height(port_b) - Height(port_a)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_a_16x16.png"></td>
+      <th>port_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_a.html">FluidPort_a</a></p>
+        <p><span>Description:</span> Fluid connector a (positive design flow direction is from port_a to port_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_b_16x16.png"></td>
+      <th>port_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_b.html">FluidPort_b</a></p>
+        <p><span>Description:</span> Fluid connector b (positive design flow direction is from port_a to port_b)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Description:</span> System wide properties</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.DynamicPipe_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.DynamicPipe.html">DynamicPipe</a></p>
+        <p><span>Modelica.Fluid.Pipes</span</p>
+        <p>Dynamic pipe model with storage of mass and energy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.StaticPipe_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.StaticPipe.html">StaticPipe</a></p>
+        <p><span>Modelica.Fluid.Pipes</span</p>
+        <p>Basic pipe flow model without storage of mass or energy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

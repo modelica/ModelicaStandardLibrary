@@ -1,0 +1,264 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Strings</h1>
+    <p>Operations on strings</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.length_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.length.html">length</a></p>
+        <p>Return length of string</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.substring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.substring.html">substring</a></p>
+        <p>Return a substring defined by start and end index</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.repeat_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.repeat.html">repeat</a></p>
+        <p>Repeat a string n times</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.compare_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.compare.html">compare</a></p>
+        <p>Compare two strings lexicographically</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.isEqual_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.isEqual.html">isEqual</a></p>
+        <p>Determine whether two strings are identical</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.isEmpty_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.isEmpty.html">isEmpty</a></p>
+        <p>Return true if a string is empty (has only white space characters)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.count_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.count.html">count</a></p>
+        <p>Count the number of non-overlapping occurrences of a string</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.find_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.find.html">find</a></p>
+        <p>Find first occurrence of a string within another string</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.findLast_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.findLast.html">findLast</a></p>
+        <p>Find last occurrence of a string within another string</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.replace_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.replace.html">replace</a></p>
+        <p>Replace non-overlapping occurrences of a string from left to right</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.sort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.sort.html">sort</a></p>
+        <p>Sort vector of strings in alphabetic order</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.hashString_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.hashString.html">hashString</a></p>
+        <p>Create a hash value of a string</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.scanToken_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.scanToken.html">scanToken</a></p>
+        <p>Scan for the next token and return it</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.scanReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.scanReal.html">scanReal</a></p>
+        <p>Scan for the next Real number and trigger an assert if not present</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.scanInteger_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.scanInteger.html">scanInteger</a></p>
+        <p>Scan for the next Integer number and trigger an assert if not present</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.scanBoolean_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.scanBoolean.html">scanBoolean</a></p>
+        <p>Scan for the next Boolean number and trigger an assert if not present</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.scanString_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.scanString.html">scanString</a></p>
+        <p>Scan for the next Modelica string and trigger an assert if not present</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.scanIdentifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.scanIdentifier.html">scanIdentifier</a></p>
+        <p>Scan for the next Identifier and trigger an assert if not present</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.scanDelimiter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.scanDelimiter.html">scanDelimiter</a></p>
+        <p>Scan for the next delimiter and trigger an assert if not present</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.scanNoToken_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.scanNoToken.html">scanNoToken</a></p>
+        <p>Scan string and check that it contains no more token</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.syntaxError_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.syntaxError.html">syntaxError</a></p>
+        <p>Print an error message, a string and the index at which scanning detected an error</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Strings.Advanced_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Strings.Advanced.html">Advanced</a></p>
+        <p>Advanced scanning functions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Library content</h4>
+<p>
+Package <strong>Strings</strong> contains functions to manipulate strings.
+</p>
+<p>
+In the table below an example
+call to every function is given using the <strong>default</strong> options.
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Function</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td>len = <a href="Modelica.Utilities.Strings.length.html">length</a>(string)</td>
+      <td>Returns length of string</td></tr>
+  <tr><td>string2 = <a href="Modelica.Utilities.Strings.substring.html">substring</a>(string1,startIndex,endIndex)
+       </td>
+      <td>Returns a substring defined by start and end index</td></tr>
+  <tr><td>result = <a href="Modelica.Utilities.Strings.repeat.html">repeat</a>(n)<br>
+ result = <a href="Modelica.Utilities.Strings.repeat.html">repeat</a>(n,string)</td>
+      <td>Repeat a blank or a string n times.</td></tr>
+  <tr><td>result = <a href="Modelica.Utilities.Strings.compare.html">compare</a>(string1, string2)</td>
+      <td>Compares two substrings with regards to alphabetical order</td></tr>
+  <tr><td>identical =
+<a href="Modelica.Utilities.Strings.isEqual.html">isEqual</a>(string1,string2)</td>
+      <td>Determine whether two strings are identical</td></tr>
+  <tr><td>result = <a href="Modelica.Utilities.Strings.count.html">count</a>(string,searchString)</td>
+      <td>Count the number of occurrences of a string</td></tr>
+  <tr>
+<td>index = <a href="Modelica.Utilities.Strings.find.html">find</a>(string,searchString)</td>
+      <td>Find first occurrence of a string in another string</td></tr>
+<tr>
+<td>index = <a href="Modelica.Utilities.Strings.findLast.html">findLast</a>(string,searchString)</td>
+      <td>Find last occurrence of a string in another string</td></tr>
+  <tr><td>string2 = <a href="Modelica.Utilities.Strings.replace.html">replace</a>(string,searchString,replaceString)</td>
+      <td>Replace one or all occurrences of a string</td></tr>
+  <tr><td>stringVector2 = <a href="Modelica.Utilities.Strings.sort.html">sort</a>(stringVector1)</td>
+      <td>Sort vector of strings in alphabetic order</td></tr>
+  <tr><td>hash = <a href="Modelica.Utilities.Strings.hashString.html">hashString</a>(string)</td>
+      <td>Create a hash value of a string</td></tr>
+  <tr><td>(token, index) = <a href="Modelica.Utilities.Strings.scanToken.html">scanToken</a>(string,startIndex)</td>
+      <td>Scan for a token (Real/Integer/Boolean/String/Identifier/Delimiter/NoToken)</td></tr>
+  <tr><td>(number, index) = <a href="Modelica.Utilities.Strings.scanReal.html">scanReal</a>(string,startIndex)</td>
+      <td>Scan for a Real constant</td></tr>
+  <tr><td>(number, index) = <a href="Modelica.Utilities.Strings.scanInteger.html">scanInteger</a>(string,startIndex)</td>
+      <td>Scan for an Integer constant</td></tr>
+  <tr><td>(boolean, index) = <a href="Modelica.Utilities.Strings.scanBoolean.html">scanBoolean</a>(string,startIndex)</td>
+      <td>Scan for a Boolean constant</td></tr>
+  <tr><td>(string2, index) = <a href="Modelica.Utilities.Strings.scanString.html">scanString</a>(string,startIndex)</td>
+      <td>Scan for a String constant</td></tr>
+  <tr><td>(identifier, index) = <a href="Modelica.Utilities.Strings.scanIdentifier.html">scanIdentifier</a>(string,startIndex)</td>
+      <td>Scan for an identifier</td></tr>
+  <tr><td>(delimiter, index) = <a href="Modelica.Utilities.Strings.scanDelimiter.html">scanDelimiter</a>(string,startIndex)</td>
+      <td>Scan for delimiters</td></tr>
+  <tr><td><a href="Modelica.Utilities.Strings.scanNoToken.html">scanNoToken</a>(string,startIndex)</td>
+      <td>Check that remaining part of string consists solely of<br>
+          white space or line comments ("// ...\n").</td></tr>
+  <tr><td><a href="Modelica.Utilities.Strings.syntaxError.html">syntaxError</a>(string,index,message)</td>
+      <td> Print a "syntax error message" as well as a string and the<br>
+           index at which scanning detected an error</td></tr>
+</table>
+<p>
+The functions "compare", "isEqual", "count", "find", "findLast", "replace", "sort"
+have the optional
+input argument <strong>caseSensitive</strong> with default <strong>true</strong>.
+If <strong>false</strong>, the operation is carried out without taking
+into account whether a character is upper or lower case.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

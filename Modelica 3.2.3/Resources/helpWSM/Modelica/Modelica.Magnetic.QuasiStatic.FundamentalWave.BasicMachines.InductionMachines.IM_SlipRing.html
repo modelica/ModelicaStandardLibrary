@@ -1,0 +1,674 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.html">BasicMachines</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.html">InductionMachines</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing.html">IM_SlipRing</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>IM_SlipRing</h1>
+    <p>Induction machine with slip ring rotor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Resistances and stray inductances of the machine always refer to either stator or rotor. The symmetry of the stator, rotor and supply are assumed. The number of stator and rotor phases may be different. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent rotor winding resistances</li>
+<li>friction losses</li>
+<li>stator and rotor core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage.html">
+IM_SquirrelCage</a>,
+<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing.html">
+Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing</a>,
+<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage.html">
+Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage</a>,
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(27)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Jr</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Rotor inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useSupport</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable / disable (=fixed stator) support</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Js</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Stator inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useThermalPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable / disable (=fixed temperatures) thermal port</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pole pairs (Integer)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fsNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Nominal frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TsOperational</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Operational temperature of stator resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rs</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Stator resistance per phase at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TsRef</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of stator resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20s</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of stator resistance at 20 degC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>effectiveStatorTurns</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Effective number of stator turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lssigma</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Stator stray inductance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L0</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Types.SalientInductance.html">SalientInductance</a></p>
+        <p><span>Description:</span> Salient inductance of an unchorded coil</p>
+      </td>
+    </tr>
+    <tr>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <th>statorCoreParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Stator core loss parameter record; all parameters refer to stator side</p>
+      </td>
+    </tr>
+    <tr>
+      <th>strayLoadParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">StrayLoadParameters</a></p>
+        <p><span>Description:</span> Stray load loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lm</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Stator main field inductance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lrsigma</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Rotor leakage inductance per phase w.r.t. rotor side</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rr</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Rotor resistance per phase w.r.t. rotor side</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TrRef</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of rotor resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20r</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of rotor resistance at 20 degC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TrOperational</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Operational temperature of rotor resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useTurnsRatio</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use TurnsRatio or calculate from locked-rotor voltage?</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TurnsRatio</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Effective number of stator turns / effective number of rotor turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VsNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Nominal stator voltage per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VrLockedRotor</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Locked rotor voltage per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rotorCoreParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Rotor core loss parameter record, all quantities refer to rotor side</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>gammas</th>
+      <td>
+        <p><span>Default Value:</span> airGap.gammas</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Angle of stator reference frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>gammar</th>
+      <td>
+        <p><span>Default Value:</span> airGap.gammar</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Angle of stator reference frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>gamma</th>
+      <td>
+        <p><span>Default Value:</span> airGap.gamma</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Electrical angle between stator and rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phiMechanical</th>
+      <td>
+        <p><span>Default Value:</span> flange.phi - internalSupport.phi</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Mechanical angle of rotor against stator</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wMechanical</th>
+      <td>
+        <p><span>Default Value:</span> der(phiMechanical)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Mechanical angular velocity of rotor against stator</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tauElectrical</th>
+      <td>
+        <p><span>Default Value:</span> inertiaRotor.flange_a.tau</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Electromagnetic torque</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tauShaft</th>
+      <td>
+        <p><span>Default Value:</span> -flange.tau</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Shaft torque</p>
+      </td>
+    </tr>
+    <tr>
+      <th>powerBalance</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS.html">PowerBalanceAIMS</a></p>
+        <p><span>Description:</span> Power balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vs</th>
+      <td>
+        <p><span>Default Value:</span> plug_sp.pin.v - plug_sn.pin.v</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexVoltage.html">ComplexVoltage[m]</a></p>
+        <p><span>Description:</span> Complex stator voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>is</th>
+      <td>
+        <p><span>Default Value:</span> plug_sp.pin.i</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexCurrent.html">ComplexCurrent[m]</a></p>
+        <p><span>Description:</span> Complex stator current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vr</th>
+      <td>
+        <p><span>Default Value:</span> plug_rp.pin.v - plug_rn.pin.v</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexVoltage.html">ComplexVoltage[mr]</a></p>
+        <p><span>Description:</span> Complex rotor voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ir</th>
+      <td>
+        <p><span>Default Value:</span> plug_rp.pin.i</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexCurrent.html">ComplexCurrent[mr]</a></p>
+        <p><span>Description:</span> Complex rotor current</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Support at which the reaction torque is acting</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_sp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> Positive plug of stator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>plug_sn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> Negative plug of stator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS_16x16.png"></td>
+      <th>thermalPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS.html">ThermalPortAIMS</a></p>
+        <p><span>Description:</span> Thermal port of induction machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS_16x16.png"></td>
+      <th>internalThermalPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS.html">ThermalPortAIMS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Support_16x16.png"></td>
+      <th>internalSupport</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Support.html">Support</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>plug_rn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> Negative plug of rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_rp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> Positive plug of rotor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(21)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>L0</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Types.SalientInductance.html">SalientInductance</a></p>
+        <p><span>Description:</span> Salient inductance of an unchorded coil</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.FrictionParameters_32x32.png"></td>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.CoreParameters_32x32.png"></td>
+      <th>statorCoreParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Stator core loss parameter record; all parameters refer to stator side</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.StrayLoadParameters_32x32.png"></td>
+      <th>strayLoadParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">StrayLoadParameters</a></p>
+        <p><span>Description:</span> Stray load loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS_32x32.png"></td>
+      <th>powerBalance</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS.html">PowerBalanceAIMS</a></p>
+        <p><span>Description:</span> Power balance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexVoltage_32x32.png"></td>
+      <th>vs</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexVoltage.html">ComplexVoltage[m]</a></p>
+        <p><span>Description:</span> Complex stator voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexCurrent_32x32.png"></td>
+      <th>is</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexCurrent.html">ComplexCurrent[m]</a></p>
+        <p><span>Description:</span> Complex stator current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>inertiaRotor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>inertiaStator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Fixed_32x32.png"></td>
+      <th>fixed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding_32x32.png"></td>
+      <th>stator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding.html">SymmetricMultiPhaseWinding</a></p>
+        <p><span>Description:</span> Symmetric stator winding including resistances, zero and stray inductances and core losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS_32x32.png"></td>
+      <th>thermalAmbient</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS.html">ThermalAmbientAIMS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground_32x32.png"></td>
+      <th>groundS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground.html">Ground</a></p>
+        <p><span>Description:</span> Ground of stator magnetic circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap_32x32.png"></td>
+      <th>airGap</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap.html">RotorSaliencyAirGap</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground_32x32.png"></td>
+      <th>groundR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground.html">Ground</a></p>
+        <p><span>Description:</span> Ground of rotor magnetic circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.StrayLoad_32x32.png"></td>
+      <th>strayLoad</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.StrayLoad.html">StrayLoad</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.Friction_32x32.png"></td>
+      <th>friction</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.Friction.html">Friction</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.CoreParameters_32x32.png"></td>
+      <th>rotorCoreParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Rotor core loss parameter record, all quantities refer to rotor side</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexVoltage_32x32.png"></td>
+      <th>vr</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexVoltage.html">ComplexVoltage[mr]</a></p>
+        <p><span>Description:</span> Complex rotor voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexCurrent_32x32.png"></td>
+      <th>ir</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexCurrent.html">ComplexCurrent[mr]</a></p>
+        <p><span>Description:</span> Complex rotor current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding_32x32.png"></td>
+      <th>rotor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding.html">SymmetricMultiPhaseWinding</a></p>
+        <p><span>Description:</span> Symmetric rotor winding including resistances, zero and stray inductances and zero core losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Characteristics_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Characteristics.html">IMS_Characteristics</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Characteristic curves of induction machine with slip rings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start.html">IMS_Start</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Starting of induction machine with slip rings</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

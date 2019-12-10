@@ -1,0 +1,117 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Routing.html">Routing</a></li>
+  <li><a href="Modelica.Blocks.Routing.ExtractSignal.html">ExtractSignal</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ExtractSignal</h1>
+    <p>Extract signals from an input signal vector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Routing.ExtractSignal_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Extract signals from the input connector and transfer them
+to the output connector.</p>
+<p>The extracting scheme is given by the integer vector 'extract'.
+This vector specifies, which input signals are taken and in which
+order they are transferred to the output vector. Note, that the
+dimension of 'extract' has to match the number of outputs.
+Additionally, the dimensions of the input connector signals and
+the output connector signals have to be explicitly defined via the
+parameters 'nin' and 'nout'.</p>
+<p>Example:</p>
+<pre>     nin = 7 "Number of inputs";
+     nout = 4 "Number of outputs";
+     extract[nout] = {6,3,3,2} "Extracting vector";
+</pre>
+<p>extracts four output signals (nout=4) from the seven elements of the
+input vector (nin=7):</p>
+<pre>   output no. 1 is set equal to input no. 6
+   output no. 2 is set equal to input no. 3
+   output no. 3 is set equal to input no. 3
+   output no. 4 is set equal to input no. 2
+</pre>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nin</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of inputs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nout</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of outputs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>extract</th>
+      <td>
+        <p><span>Value:</span> 1:nout</p>
+        <p><span>Type:</span> Integer[nout]</p>
+        <p><span>Description:</span> Extracting vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput[nin]</a></p>
+        <p><span>Description:</span> Connector of Real input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[nout]</a></p>
+        <p><span>Description:</span> Connector of Real output signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

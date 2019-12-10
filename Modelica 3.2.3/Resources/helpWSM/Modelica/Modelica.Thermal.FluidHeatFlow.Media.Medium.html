@@ -1,0 +1,286 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Media.html">Media</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Medium</h1>
+    <p>Record containing media properties</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Medium_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+Record containing (constant) medium properties.
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>rho</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cp</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificHeatCapacity.html">SpecificHeatCapacity</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Specific heat capacity at constant pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cv</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificHeatCapacity.html">SpecificHeatCapacity</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Specific heat capacity at constant volume</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lamda</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Thermal conductivity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nue</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.KinematicViscosity.html">KinematicViscosity</a> (m²/s)</p>
+        <p><span>Description:</span> Kinematic viscosity</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling.html">SimpleCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Simple cooling circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling.html">ParallelCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Cooling circuit with parallel branches</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling.html">IndirectCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Indirect cooling circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve.html">PumpAndValve</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Cooling circuit with pump and valve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut.html">PumpDropOut</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Cooling circuit with drop out of pump</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut.html">ParallelPumpDropOut</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Cooling circuit with parallel branches and drop out of pump</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.OneMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.OneMass.html">OneMass</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Cooling of one hot mass</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TwoMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass.html">TwoMass</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Cooling of two hot masses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort.html">TwoPort</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</span</p>
+        <p>Partial model of two port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft.html">SinglePortLeft</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</span</p>
+        <p>Partial model of a single port at the left</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortBottom_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortBottom.html">SinglePortBottom</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</span</p>
+        <p>Partial model of a single port at the bottom</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor.html">AbsoluteSensor</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</span</p>
+        <p>Partial model of absolute sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Interfaces.Partials</span</p>
+        <p>Partial model of relative sensor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.MineralOil_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Media.MineralOil.html">MineralOil</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Media</span</p>
+        <p>Medium: properties of mineral oil at 60 degC and 1 bar</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Gylcol50_20degC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Media.Gylcol50_20degC.html">Gylcol50_20degC</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Media</span</p>
+        <p>Medium: properties of glycol:water 50:50 at 20 degC and 1 bar</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Gylcol20_20degC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Media.Gylcol20_20degC.html">Gylcol20_20degC</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Media</span</p>
+        <p>Medium: properties of glycol:water 20:80 at 20 degC and 1 bar</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Water_90degC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Media.Water_90degC.html">Water_90degC</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Media</span</p>
+        <p>Medium: properties of water at 90 degC and 1 bar</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Water_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Media.Water.html">Water</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Media</span</p>
+        <p>Medium: properties of water at 30 degC and 1 bar</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Water_10degC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Media.Water_10degC.html">Water_10degC</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Media</span</p>
+        <p>Medium: properties of water at 10 degC and 1 bar</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Air_70degC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Media.Air_70degC.html">Air_70degC</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Media</span</p>
+        <p>Medium: properties of air at 70 degC and 1 bar</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Air_30degC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Media.Air_30degC.html">Air_30degC</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Media</span</p>
+        <p>Medium: properties of air at 30 degC and 1 bar</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

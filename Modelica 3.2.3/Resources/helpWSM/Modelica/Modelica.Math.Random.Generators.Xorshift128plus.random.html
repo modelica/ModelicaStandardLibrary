@@ -1,0 +1,116 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Random.html">Random</a></li>
+  <li><a href="Modelica.Math.Random.Generators.html">Generators</a></li>
+  <li><a href="Modelica.Math.Random.Generators.Xorshift128plus.html">Xorshift128plus</a></li>
+  <li><a href="Modelica.Math.Random.Generators.Xorshift128plus.random.html">random</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>random</h1>
+    <p>Returns a uniform random number with the xorshift128+ algorithm</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Random.Generators.Xorshift128plus.random_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(r, stateOut) = Xorshift128plus.<strong>random</strong>(stateIn);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns a uniform random number in the range 0 &lt; random &le; 1 with the xorshift128+ algorithm.
+Input argument <strong>stateIn</strong> is the state vector of the previous call.
+Output argument <strong>stateOut</strong> is the updated state vector.
+If the function is called with identical stateIn vectors, exactly the
+same random number r is returned.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>parameter</strong> Integer localSeed;
+  <strong>parameter</strong> Integer globalSeed;
+  Real r;
+  Integer state[Xorshift128plus.nState];
+<strong>initial equation</strong>
+  state = initialState(localSeed, globalSeed);
+<strong>equation</strong>
+  <strong>when</strong> sample(0,0.1) <strong>then</strong>
+    (r, state) = random(<strong>pre</strong>(state));
+  <strong>end when</strong>;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Random.Generators.Xorshift128plus.initialState.html">Random.Generators.Xorshift128plus.initialState</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(result, stateOut) = random(stateIn)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>stateIn</th>
+      <td>
+        <p><span>Type:</span> Integer[nState]</p>
+        <p><span>Description:</span> The internal states for the random number generator</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> A random number with a uniform distribution on the interval (0,1]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>stateOut</th>
+      <td>
+        <p><span>Type:</span> Integer[nState]</p>
+        <p><span>Description:</span> The new internal states of the random number generator</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.General.html">General</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower.html">SmoothPower</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SmoothPower</h1>
+    <p>Limiting the derivative of function y = if x>=0 then x^pow else -(-x)^pow</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The function is used to limit the derivative of the following function at x=0:
+</p>
+<pre>
+   y = <strong>if</strong> x &ge; 0 <strong>then</strong> x<sup><strong>pow</strong></sup> <strong>else</strong> -(-x)<sup><strong>pow</strong></sup>;  // pow &gt; 0
+</pre>
+
+<p>
+by approximating the function in the range -<strong>deltax</strong>&lt; x &lt; <strong>deltax</strong>
+with a third order polynomial that has the same derivative at <strong>abs</strong>(x)=deltax, as the
+function above.
+</p>
+
+<h4>Example </h4>
+<p>
+In the picture below the input x is increased from -1 to 1. The range of interpolation is defined by the same range. Displayed is the output of the function SmoothPower compared to
+</p>
+<pre>
+y=x*|x|
+</pre>
+<p>
+For |x| &gt; 1 both functions return identical results.
+</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower_info_001.png" alt="SmoothPower"/>
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>ThermoFluid Library</dt>
+    <dd><strong><a href="http://sourceforge.net/projects/thermofluid/">http://sourceforge.net/projects/thermofluid/</a></strong></dd>
+</dl>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = SmoothPower(x, deltax, pow)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> input variable</p>
+      </td>
+    </tr>
+    <tr>
+      <th>deltax</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> range for interpolation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pow</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> exponent for x</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> output variable</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

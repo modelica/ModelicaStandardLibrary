@@ -1,0 +1,129 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.sort.html">sort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>sort</h1>
+    <p>Sort the rows or columns of a matrix in ascending or descending order</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.sort_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+           sorted_M = Matrices.<strong>sort</strong>(M);
+(sorted_M, indices) = Matrices.<strong>sort</strong>(M, sortRows=true, ascending=true);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>sort</strong>(..) sorts the rows of a Real matrix M
+in ascending order and returns the result in sorted_M.
+If the optional argument "sortRows" is <strong>false</strong>, the columns
+of the matrix are sorted.
+If the optional argument "ascending" is <strong>false</strong>, the rows or
+columns are sorted in descending order. In the optional second
+output argument, the indices of the sorted rows or columns with respect
+to the original matrix are given, such that
+</p>
+
+<pre>
+   sorted_M = <strong>if</strong> sortedRow <strong>then</strong> M[indices,:] <strong>else</strong> M[:,indices];
+</pre>
+
+<h4>Example</h4>
+<blockquote><pre>
+  (M2, i2) := Matrices.sort([2, 1,  0;
+                             2, 0, -1]);
+       -> M2 = [2, 0, -1;
+                2, 1, 0 ];
+          i2 = {2,1};
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(sorted_M, indices) = sort(M, sortRows, ascending)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>M</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Matrix to be sorted</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sortRows</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if rows are sorted, otherwise columns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ascending</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if ascending order, otherwise descending order</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sorted_M</th>
+      <td>
+        <p><span>Default Value:</span> M</p>
+        <p><span>Type:</span> Real[size(M, 1),size(M, 2)]</p>
+        <p><span>Description:</span> Sorted matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>indices</th>
+      <td>
+        <p><span>Type:</span> Integer[if sortRows then size(M, 1) else size(M, 2)]</p>
+        <p><span>Description:</span> sorted_M = if sortRows then M[indices,:] else M[:,indices]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

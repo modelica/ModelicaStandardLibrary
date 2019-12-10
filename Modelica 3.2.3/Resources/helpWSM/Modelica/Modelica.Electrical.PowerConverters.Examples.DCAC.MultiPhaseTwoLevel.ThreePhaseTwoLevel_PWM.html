@@ -1,0 +1,200 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.html">PowerConverters</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.html">DCAC</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.html">MultiPhaseTwoLevel</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.ThreePhaseTwoLevel_PWM.html">ThreePhaseTwoLevel_PWM</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ThreePhaseTwoLevel_PWM</h1>
+    <p>Test of pulse width modulation methods</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.ThreePhaseTwoLevel_PWM_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.ThreePhaseTwoLevel_PWM_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.ThreePhaseTwoLevel_PWM_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+A reference space vector (formed by real part = cosine and imaginary part = sine) of length &radic;2*RMS and frequency 2 Hz is applied.
+The resulting switching patterns are applied to a threephase twolevel bridge with switching frequency 100 Hz, fed by DC voltage = &radic;2*&radic;3*1
+where 1 is the theoretical maximum voltage from terminal to neutral.
+The resulting voltages with reference to midpoint of the DC voltage are measured.
+</p>
+<p>
+The RMS of the first harmonic of the first of these voltages is calculated.
+Please note that the value of the first harmonic is vaild after the first period (i.e. 0.5 s).
+</p>
+<p>
+Furthermore, these three voltages are transformed to the corresponding space phasor.
+Note that the zero component is not zero, indicating the shift of the neutral with respect to the midpoint of the DC voltage.
+</p>
+<p>
+The space phasor is rotated to the coordinate system rotating with 2*&pi;*2 Hz.
+To suppress the influence of switching, real and imaginary part of the rotated phasor are filtered.
+The polar representation of this rotated and filtered phasor are calculated.
+</p>
+<p>
+Please note that the filter has a settle time depending on the filter parameters.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>RMS</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Reference RMS Y</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Cosine_32x32.png"></td>
+      <th>cosine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Cosine.html">Cosine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.Control.PWM_32x32.png"></td>
+      <th>pwm</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.DCAC.Control.PWM.html">PWM</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level_32x32.png"></td>
+      <th>multiPhase2Level</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level.html">MultiPhase2Level</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ConstantVoltage_32x32.png"></td>
+      <th>dcPos</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.ConstantVoltage.html">ConstantVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ConstantVoltage_32x32.png"></td>
+      <th>dcNeg</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.ConstantVoltage.html">ConstantVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Sensors.PotentialSensor_32x32.png"></td>
+      <th>potentialSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.MultiPhase.Sensors.PotentialSensor.html">PotentialSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Harmonic_32x32.png"></td>
+      <th>harmonic</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Harmonic.html">Harmonic</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor_32x32.png"></td>
+      <th>toSpacePhasor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator_32x32.png"></td>
+      <th>rotator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator.html">Rotator</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>const</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <th>integrator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>filter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter[2]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar_32x32.png"></td>
+      <th>toPolar</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar.html">ToPolar</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

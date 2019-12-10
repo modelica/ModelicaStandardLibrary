@@ -1,0 +1,73 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.inverse.html">inverse</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>inverse</h1>
+    <p>inverse</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.inverse_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function.</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre><strong>function</strong> f1
+  <strong>input</strong> A1 u1;
+  ...
+  <strong>input</strong> T1 uk;
+  ...
+  <strong>input</strong> Am um = am;
+  ...
+  <strong>input</strong> An un;
+  <strong>output</strong> T2 y;
+  <strong>annotation</strong>(<strong>inverse</strong>(uk = f2(..., y, ....), ui = f3(..., y, ...), ...));
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> f1;</pre></blockquote>
+<h4>Description</h4>
+<p>The meaning is that function &quot;<code>f2</code>&quot; is one inverse to function &quot;<code>f1</code>&quot; where the previous output &quot;<code>y</code>&quot; is now an input and the previous input &quot;<code>uk</code>&quot; is now an output. More than one inverse can be defined within the same inverse annotation. Several inverses are separated by commas. <em>(The inverse requires that for all valid values of the input arguments of <code>f2(...,y, ...)</code> and <code>uk</code> being calculated as <code>uk := f2(..., y, ...)</code> implies the equality <code>y = f1(..., uk, ...,) </code>up to a certain precision.)</em></p>
+<p>Function &quot;<code>f1</code>&quot; can have any number and types of arguments with and without default value. The restriction is that the number of unknown variables in the output argument of both &quot;<code>f1</code>&quot; and &quot;<code>f2</code>&quot; must be the same and that &quot;<code>f2</code>&quot; must have exactly the same arguments as &quot;<code>f1</code>&quot; (with the same defaults, if an argument um has a default), but the order of the arguments may be permuted.</p>
+<h4>Examples</h4>
+<pre><strong>function</strong> h_pTX
+  <strong>input</strong> Real p    &quot;pressure&quot;;
+  <strong>input</strong> Real T    &quot;temperature&quot;;
+  <strong>input</strong> Real X[:] &quot;mass fractions&quot;;
+  <strong>output</strong> Real h   &quot;specific enthalpy&quot;;
+  <strong>annotation</strong>(<strong>inverse</strong>(T = T_phX(p,h,X)));
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> h_pTX;
+
+<strong>function</strong> T_phX
+  <strong>input</strong> Real  p    &quot;pressure&quot;;
+  <strong>input</strong> Real  h    &quot;specific enthalpy&quot;;
+  <strong>input</strong> Real  X[:] &quot;mass fractions&quot;;
+  <strong>output</strong> Real T    &quot;temperature&quot;;
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> T_phX;</pre>
+</div>
+</section>
+</div>
+</body>
+</html>

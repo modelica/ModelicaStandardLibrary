@@ -1,0 +1,182 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.html">Shapes</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.html">FixedShape</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Cuboid</h1>
+    <p>Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The cuboid models the reluctance with rectangular dimensions <code>a</code> and <code>b</code>, and length, <code>l</code>
+the magnetic reluctance by:</p>
+<dl><dd>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_info_001.png">
+</dd></dl>
+
+<p>The area of cross section is determined by:</p>
+<dl><dd>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_info_002.png">
+</dd></dl>
+
+<p>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid/resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_info_003.png">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>mu_rConst</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.RelativePermeability.html">RelativePermeability</a></p>
+        <p><span>Description:</span> Constant relative permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length in direction of flux</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Width of rectangular cross-section</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Height of rectangular cross-section</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive quasi-static magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative quasi-static magnetic port</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Magnetic potential difference of both ports</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Magnetic flux from port_p to port_n</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexMagneticFluxDensity_32x32.png"></td>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexMagneticFluxDensity.html">ComplexMagneticFluxDensity</a></p>
+        <p><span>Description:</span> Magnetic flux density (normal component)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexMagneticFieldStrength_32x32.png"></td>
+      <th>H</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexMagneticFieldStrength.html">ComplexMagneticFieldStrength</a></p>
+        <p><span>Description:</span> Magnetic field strength (normal component)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.FixedShapes.CuboidSections_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.FixedShapes.CuboidSections.html">CuboidSections</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.FixedShapes</span</p>
+        <p>Magnetic circuit using different cuboid sections</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

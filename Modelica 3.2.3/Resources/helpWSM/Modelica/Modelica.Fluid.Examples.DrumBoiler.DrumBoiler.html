@@ -1,0 +1,257 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Fluid.Examples.DrumBoiler.html">DrumBoiler</a></li>
+  <li><a href="Modelica.Fluid.Examples.DrumBoiler.DrumBoiler.html">DrumBoiler</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DrumBoiler</h1>
+    <p>Complete drum boiler model, including evaporator and supplementary components</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Examples.DrumBoiler.DrumBoiler_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Fluid.Examples.DrumBoiler.DrumBoiler_diagram_large.png"><img src="resources/diagrams/Modelica.Fluid.Examples.DrumBoiler.DrumBoiler_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<img src="resources/Modelica.Fluid.Examples.DrumBoiler.DrumBoiler_info_001.png" border="1"
+     alt="DrumBoiler.png">
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>use_inputs</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> use external inputs instead of test data contained internally</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>T_S</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> steam temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>p_S</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> steam pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>qm_S</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> steam flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>V_l</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> liquid volume inside drum</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>q_F</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> fuel flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>Y_Valve</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> valve opening</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(18)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler_32x32.png"></td>
+      <th>evaporator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler.html">EquilibriumDrumBoiler</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow_32x32.png"></td>
+      <th>furnace</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow.html">PrescribedHeatFlow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.FixedBoundary_32x32.png"></td>
+      <th>sink</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.FixedBoundary.html">FixedBoundary</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.MassFlowRate_32x32.png"></td>
+      <th>massFlowRate</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sensors.MassFlowRate.html">MassFlowRate</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.Temperature_32x32.png"></td>
+      <th>temperature</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sensors.Temperature.html">Temperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.Pressure_32x32.png"></td>
+      <th>pressure</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sensors.Pressure.html">Pressure</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.PI_32x32.png"></td>
+      <th>controller</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.PI.html">PI</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.MassFlowSource_h_32x32.png"></td>
+      <th>pump</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.MassFlowSource_h.html">MassFlowSource_h</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedback</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>levelSetPoint</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>MW2W</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>Pa2bar</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Celsius.FromKelvin_32x32.png"></td>
+      <th>K2degC</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Celsius.FromKelvin.html">FromKelvin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Nonlinear.Limiter_32x32.png"></td>
+      <th>limiter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Nonlinear.Limiter.html">Limiter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.ValveLinear_32x32.png"></td>
+      <th>SteamValve</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Valves.ValveLinear.html">ValveLinear</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.TimeTable_32x32.png"></td>
+      <th>q_F_Tab</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.TimeTable.html">TimeTable</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.TimeTable_32x32.png"></td>
+      <th>Y_Valve_Tab</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.TimeTable.html">TimeTable</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

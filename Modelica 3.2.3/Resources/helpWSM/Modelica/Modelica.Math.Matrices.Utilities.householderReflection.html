@@ -1,0 +1,131 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.householderReflection.html">householderReflection</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>householderReflection</h1>
+    <p>Reflect each of the vectors a_i of matrix  A=[a_1, a_2, ..., a_n] on a plane with orthogonal vector u</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.Utilities.householderReflection_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<strong>householderReflection</strong>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Householder reflection (transformation)
+</p>
+<blockquote>
+ <strong>Ar</strong> = <strong>Q</strong>*<strong>A</strong>
+</blockquote>
+with
+<blockquote>
+ <strong>Q</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>)
+</blockquote>
+<p>
+where <strong>u</strong> is Householder vector, i.e., the normal vector of the reflection plane.
+</p>
+<p>
+Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+// First step of QR decomposition
+  import   Modelica.Math.Vectors.Utilities;
+
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real Ar[3,3];
+  Real u[:];
+
+  u=Utilities.householderVector(A[:,1],{1,0,0});
+  // u= {0.763, 0.646, 0}
+
+  Ar=householderReflection(A,u);
+ // Ar = [-6.0828,   -5.2608,   -4.4388;
+ //        0.0,      -1.1508,   -2.3016;
+ //        0.0,       2.0,       0.0]
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Matrices.Utilities.householderSimilarityTransformation.html">Matrices.Utilities.housholderSimilarityTransformation</a>,<br>
+<a href="Modelica.Math.Vectors.Utilities.householderReflection.html">Vectors.Utilities.householderReflection</a>,<br>
+<a href="Modelica.Math.Vectors.Utilities.householderVector.html">Vectors.Utilities.householderVector</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">RA = householderReflection(A, u)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Rectangular matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1)]</p>
+        <p><span>Description:</span> Householder vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>RA</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Reflexion of A</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

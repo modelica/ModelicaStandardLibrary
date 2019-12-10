@@ -1,0 +1,182 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.html">RobotR3</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.GearType1.html">GearType1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>GearType1</h1>
+    <p>Motor inertia and gearbox model for r3 joints 1,2,3</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.GearType1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.GearType1_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.GearType1_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Models the gearbox used in the first three joints with all its effects,
+like elasticity and friction.
+Coulomb friction is approximated by a friction element acting
+at the "motor"-side. In reality, bearing friction should be
+also incorporated at the driven side of the gearbox. However,
+this would require considerable more effort for the measurement
+of the friction parameters.
+Default values for all parameters are given for joint 1.
+Model relativeStates is used to define the relative angle
+and relative angular velocity across the spring (=gear elasticity)
+as state variables. The reason is, that a default initial
+value of zero of these states makes always sense.
+If the absolute angle and the absolute angular velocity of model
+Jmotor would be used as states, and the load angle (= joint angle of
+robot) is NOT zero, one has always to ensure that the initial values
+of the motor angle and of the joint angle are modified correspondingly.
+Otherwise, the spring has an unrealistic deflection at initial time.
+Since relative quantities are used as state variables, this simplifies
+the definition of initial values considerably.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>i</th>
+      <td>
+        <p><span>Value:</span> -105</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gear ratio</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Value:</span> 43</p>
+        <p><span>Type:</span> Real (N·m/rad)</p>
+        <p><span>Description:</span> Spring constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Value:</span> 0.005</p>
+        <p><span>Type:</span> Real (N·m·s/rad)</p>
+        <p><span>Description:</span> Damper constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rv0</th>
+      <td>
+        <p><span>Value:</span> 0.4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Viscous friction torque at zero velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rv1</th>
+      <td>
+        <p><span>Value:</span> 0.13 / 160</p>
+        <p><span>Type:</span> Real (N·m·s/rad)</p>
+        <p><span>Description:</span> Viscous friction coefficient (R=Rv0+Rv1*abs(qd))</p>
+      </td>
+    </tr>
+    <tr>
+      <th>peak</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum static friction torque is peak*Rv0 (peak >= 1)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Flange of left shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of right shaft</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.IdealGear_32x32.png"></td>
+      <th>gear</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.IdealGear.html">IdealGear</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.SpringDamper_32x32.png"></td>
+      <th>spring</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.SpringDamper.html">SpringDamper</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.BearingFriction_32x32.png"></td>
+      <th>bearingFriction</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.BearingFriction.html">BearingFriction</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

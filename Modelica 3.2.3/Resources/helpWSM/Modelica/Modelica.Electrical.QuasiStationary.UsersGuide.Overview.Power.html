@@ -1,0 +1,184 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.html">Overview</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power.html">Power</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Power</h1>
+    <p>Real and reactive power</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>For periodic waveforms, the average value of the instantaneous power is <strong>real power</strong> <em>P</em>.
+<strong>Reactive power</strong> <em>Q</em> is a term
+associated with inductors and capacitors. For pure inductors and capacitors, real power is equal to zero.
+Yet, there is instantaneous power exchanged with connecting network.
+</p>
+
+The
+<a href="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance.html">
+          series resonance circuit</a> which was also addressed in the
+<a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit.html">
+          AC circuit</a>
+will be investigated.
+
+<h5>Power of a resistor</h5>
+
+<p>
+The instantaneous voltage and current are in phase:
+</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_001.png"
+                   alt="v_r.png"><br>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_002.png"
+                   alt="i_r.png">
+</p>
+
+<p>
+Therefore, the instantaneous power is
+</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_003.png"
+                   alt="power_r.png">
+</p>
+
+<p>A graphical representation of these equations is depicted in Fig. 1</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_004.png"
+           alt="power_resistor.png">
+    </td>
+  </tr>
+  <caption align="bottom">Fig. 1: Instantaneous voltage, current of power of a resistor</caption>
+</table>
+
+<p>Real power of the resistor is the average of instantaneous power:</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_005.png"
+                   alt="p_r.png">
+</p>
+
+<h5>Power of an inductor</h5>
+
+<p>
+The instantaneous voltage leads the current by a quarter of the period:
+</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_006.png"
+                   alt="v_l.png"><br>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_007.png"
+                   alt="i_l.png">
+</p>
+
+<p>
+Therefore, the instantaneous power is
+</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_008.png"
+                   alt="power_l.png">
+</p>
+
+<p>A graphical representation of these equations is depicted in Fig. 2</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_009.png"
+           alt="power_inductor.png">
+    </td>
+  </tr>
+  <caption align="bottom">Fig. 2: Instantaneous voltage, current of power of an inductor</caption>
+</table>
+
+<p>Reactive power of the inductor is:</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_010.png"
+                   alt="q_l.png">
+</p>
+
+<h5>Power of a capacitor</h5>
+
+<p>
+The instantaneous voltage lags the current by a quarter of the period:
+</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_011.png"
+                   alt="v_c.png"><br>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_012.png"
+                   alt="i_c.png">
+</p>
+
+<p>
+Therefore, the instantaneous power is
+</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_013.png"
+                   alt="power_c.png">
+</p>
+
+<p>A graphical representation of these equations is depicted in Fig. 3</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_014.png"
+           alt="power_capacitor.png">
+    </td>
+  </tr>
+  <caption align="bottom">Fig. 3: Instantaneous voltage, current of power of a capacitor</caption>
+</table>
+
+<p>Reactive power of the capacitor is:</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_015.png"
+                   alt="q_c.png">
+</p>
+
+<h5>Complex apparent power</h5>
+
+<p>For an arbitrary component with two pins, real and reactive power can be determined by the complex phasors:</p>
+<p>
+<img border="0"  src="resources/Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power_info_016.png"
+                   alt="s.png">
+</p>
+
+<p>
+In this equation <sup>*</sup> represents the conjugate complex operator
+</p>
+
+<h4>See also</h4>
+<a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction.html">
+          Introduction</a>,
+<a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit.html">
+          AC circuit</a>,
+<a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ReferenceSystem.html">
+          Reference system</a>
+</div>
+</section>
+</div>
+</body>
+</html>

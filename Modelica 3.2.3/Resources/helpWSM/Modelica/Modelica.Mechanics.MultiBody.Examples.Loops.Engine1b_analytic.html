@@ -1,0 +1,161 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Loops.html">Loops</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic.html">Engine1b_analytic</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Engine1b_analytic</h1>
+    <p>Model of one cylinder engine with gas force and analytic loop handling</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is the same model as
+<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b.html#diagram">Loops.Engine1b</a>.
+The only difference is that the central part of
+the planar kinematic loop has been replaced by the
+assembly joint "Modelica.Mechanics.MultiBody.Joints.Assemblies.<strong>JointRRP</strong>".
+The advantage of using JointRRP is, that the
+non-linear algebraic equation of this loop is solved analytically, and
+not numerically as in
+<a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b.html#diagram">Loops.Engine1b</a>.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+
+<img src="resources/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic_info_001.png" alt="model Examples.Loops.Engine">
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_32x32.png"></td>
+      <th>Piston</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyBox_32x32.png"></td>
+      <th>Rod2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <th>Bearing</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>Inertia</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyBox_32x32.png"></td>
+      <th>Crank4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_32x32.png"></td>
+      <th>Crank3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_32x32.png"></td>
+      <th>Crank1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyBox_32x32.png"></td>
+      <th>Crank2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>Mid</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>cylPosition</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2_32x32.png"></td>
+      <th>gasForce</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2.html">GasForce2</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP_32x32.png"></td>
+      <th>jointRRP</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP.html">JointRRP</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

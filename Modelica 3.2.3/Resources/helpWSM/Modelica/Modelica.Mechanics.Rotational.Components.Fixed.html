@@ -1,0 +1,279 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.Fixed.html">Fixed</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Fixed</h1>
+    <p>Flange fixed in housing at a given angle</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Components.Fixed_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The <strong>flange</strong> of a 1D rotational mechanical system is <strong>fixed</strong>
+at an angle phi0 in the <strong>housing</strong>. May be used:
+</p>
+<ul>
+<li> to connect a compliant element, such as a spring or a damper,
+     between an inertia or gearbox component and the housing.</li>
+<li> to fix a rigid element, such as an inertia, with a specific
+     angle to the housing.</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>phi0</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Fixed offset angle of housing</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> (right) flange fixed in housing</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.First_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.First.html">First</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>First example: simple drive train</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.FirstGrounded_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.FirstGrounded.html">FirstGrounded</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>First example: simple drive train with grounded elements</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Friction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Friction.html">Friction</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Drive train with clutch and brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.CoupledClutches_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.CoupledClutches.html">CoupledClutches</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Drive train with 3 dynamically coupled clutches</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1.html">LossyGearDemo1</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Example to show that gear efficiency may lead to stuck motion</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2.html">LossyGearDemo2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Example to show combination of LossyGear and BearingFriction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.ElasticBearing_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.ElasticBearing.html">ElasticBearing</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Example to show possible usage of support flange</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Backlash_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Backlash.html">Backlash</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Example to demonstrate backlash</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.EMF_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.EMF.html">EMF</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Electromotoric force (electric/mechanic transformer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor.html">MechanicalPowerSensor</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span</p>
+        <p>Mechanical power = torque x speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle.html">RotorDisplacementAngle</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span</p>
+        <p>Rotor lagging angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.PartialBasicMachine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.PartialBasicMachine.html">PartialBasicMachine</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces</span</p>
+        <p>Partial model for all machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine.html">PartialBasicInductionMachine</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Interfaces</span</p>
+        <p>Partial model for induction machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine.html">PartialBasicMachine</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses</span</p>
+        <p>Partial model for quasi static multi phase machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle.html">RotorDisplacementAngle</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors</span</p>
+        <p>Rotor lagging angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport.html">PartialOneFlangeAndSupport</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span</p>
+        <p>Partial model for a component with one rotational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport.html">PartialTwoFlangesAndSupport</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span</p>
+        <p>Partial model for a component with two rotational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport.html">PartialElementaryOneFlangeAndSupport</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span</p>
+        <p>Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport.html">PartialElementaryTwoFlangesAndSupport</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span</p>
+        <p>Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational.html">PartialElementaryRotationalToTranslational</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span</p>
+        <p>Partial model to transform rotational into translational motion</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

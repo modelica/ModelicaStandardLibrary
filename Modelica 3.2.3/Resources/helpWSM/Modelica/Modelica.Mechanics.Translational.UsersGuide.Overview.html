@@ -1,0 +1,96 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Mechanics.Translational.UsersGuide.Overview.html">Overview</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Overview</h1>
+    <p>Overview</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.UsersGuide.Overview_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains components to model <strong>1-dimensional translational
+mechanical</strong> systems, including different types of masses,
+external forces, spring/damper elements,
+frictional elements, elastogaps, elements to measure position, velocity,
+acceleration and the cut-force of a flange. In sublibrary
+<strong>Examples</strong> several examples are present to demonstrate the usage of
+the elements. Just open the corresponding example model and simulate
+the model according to the provided description.
+</p>
+<p>
+A unique feature of this library is the <strong>component-oriented</strong>
+modeling of <strong>Coulomb friction</strong> elements, such as support friction.
+Even (dynamically) coupled friction elements can be handled
+<strong>without</strong> introducing stiffness which leads to fast simulations.
+The underlying theory is new and is based on the solution of mixed
+continuous/discrete systems of equations, i.e., equations where the
+<strong>unknowns</strong> are of type <strong>Real</strong>, <strong>Integer</strong> or <strong>Boolean</strong>.
+Provided appropriate numerical algorithms for the solution of such types of
+systems are available in the simulation tool, the simulation of
+(dynamically) coupled friction elements of this library is
+<strong>efficient</strong> and <strong>reliable</strong>.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.Translational.UsersGuide.Overview_info_001.png" alt="drive1">
+</p>
+
+<p>
+A simple example of the usage of this library is given in the
+figure above. This drive consists of a shaft with mass m1=1 which
+is connected via a spring to a second shaft with mass m2=5.
+The left shaft is driven via an external, sinusoidal force.
+The <strong>filled</strong> and <strong>non-filled green squares</strong> at the left and
+right side of a component represent <strong>mechanical flanges</strong>.
+Drawing a line between such squares means that the corresponding
+flanges are <strong>rigidly attached</strong> to each other.
+By convention in this library, the connector characterized as a
+<strong>filled</strong> green square is called <strong>flange_a</strong> and placed at the
+left side of the component in the "design view" and the connector
+characterized as a <strong>non-filled</strong> green square is called <strong>flange_b</strong>
+and placed at the right side of the component in the "design view".
+The two connectors are completely <strong>identical</strong>, with the only
+exception that the graphical layout is a little bit different in order
+to distinguish them for easier access of the connector variables.
+For example, <code>m1.flange_a.f</code> is the cut-force in the connector
+<code>flange_a</code> of component <code>m1</code>.
+</p>
+<p>
+The components of this
+library can be <strong>connected</strong> together in an <strong>arbitrary</strong> way. E.g., it is
+possible to connect two springs or two shafts with mass directly
+together, see figure below.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.Translational.UsersGuide.Overview_info_002.png" alt="driveConnections1"><br>
+<img src="resources/Modelica.Mechanics.Translational.UsersGuide.Overview_info_003.png" alt="driveConnections2"><br>
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

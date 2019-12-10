@@ -1,0 +1,225 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.html">Hysteresis</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison.html">HysteresisModelComparison</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>HysteresisModelComparison</h1>
+    <p>Comparison of the different hysteresis models</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Use the following simulation settings:
+</p>
+<ul>
+  <li>Stop time: 14 s</li>
+  <li>Number of intervals: 5000</li>
+  <li>Tolerance: 1e-5</li>
+</ul>
+<p>
+This example compares the behavior of three different hysteresis models due to the exact same input magnetic field strength. The three different models are:
+</p>
+<ol>
+  <li>Model=GenericHystTellinenSoft, Tellinen hysteresis model, the upper and lower branch of the limiting hysteresis loop is roughly approximated with simple hyperbolic tangent functions (Fig1. c)</li>
+  <li>Model=GenericHystTellinenTable, Tellinen hysteresis model, the upper and lower branch of the limiting hysteresis loop can be defined with almost arbitrary table data (Fig1. d)</li>
+  <li>Model=GenericHystPreisachEverett,Preisach hysteresis model, the hysteresis shape is defined by the Everett function (Fig1. e)</li>
+</ol>
+<p>
+Compared to the complex Preisach hysteresis model the Tellinen model is very simple and thus computationally more effective and stable. It is sufficient for many applications. But the Tellinen model has inherently a problem with small periodic input field variations at locations where the outer hysteresis loop has large slopes. In such a case, the simulated minor loops settle to the center of the hysteresis envelope curve, whereas the minor loops of the Preisach model stay constant ('property of equal vertical chords', <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Literature.html">[Ma03]</a>). The input signal of the example (Fig. 1 a) corresponds to that case and Fig. 1 b-e shows the behavior of the different models.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Fig. 1: </strong>Simulated magnetic flux densities B of different hysteresis models (b) due to an applied mangetic field strength shown in (a). Corresponding B(H) loops of the hysteresis models GenericHystTellinenSoft (c), GenericHystTellinenTable (d) and GenericHystPreisachEverett (e).</caption>
+  <tr>
+    <td>
+      <img src="modelica:///Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison/resources/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison_info_001.png">
+    </td>
+  </tr>
+</table>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(20)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.TimeTable_32x32.png"></td>
+      <th>timeTable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.TimeTable.html">TimeTable</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance_32x32.png"></td>
+      <th>winding1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance.html">ElectroMagneticConverterWithLeakageInductance</a></p>
+        <p><span>Description:</span> Winding 1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>elGnd1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>magGnd1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>resistor1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalVoltage_32x32.png"></td>
+      <th>vSource1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SignalVoltage.html">SignalVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance_32x32.png"></td>
+      <th>winding2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance.html">ElectroMagneticConverterWithLeakageInductance</a></p>
+        <p><span>Description:</span> Winding 2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>elGnd2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable_32x32.png"></td>
+      <th>tellinenTable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable.html">GenericHystTellinenTable</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>magGnd2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>resistor2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalVoltage_32x32.png"></td>
+      <th>vSource2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SignalVoltage.html">SignalVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance_32x32.png"></td>
+      <th>winding3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance.html">ElectroMagneticConverterWithLeakageInductance</a></p>
+        <p><span>Description:</span> Winding 3</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>elGnd3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett_32x32.png"></td>
+      <th>preisachEverett</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett.html">GenericHystPreisachEverett</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>magGnd3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>resistor3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalVoltage_32x32.png"></td>
+      <th>vSource3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SignalVoltage.html">SignalVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft_32x32.png"></td>
+      <th>tellinenSoft</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft.html">GenericHystTellinenSoft</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

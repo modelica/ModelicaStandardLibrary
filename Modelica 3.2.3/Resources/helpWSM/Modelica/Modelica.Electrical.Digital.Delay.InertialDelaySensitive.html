@@ -1,0 +1,266 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Delay.html">Delay</a></li>
+  <li><a href="Modelica.Electrical.Digital.Delay.InertialDelaySensitive.html">InertialDelaySensitive</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>InertialDelaySensitive</h1>
+    <p>Provide the input as output if it holds its value for a specific amount of time</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Delay.InertialDelaySensitive_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Provides the input as output delayed by <em>Tdel</em> if the input holds its value for a longer time than <em>Tdel</em>.
+If the time is less than <em>Tdel</em> the initial value <em>y0</em> holds.<br>
+The delay <em>Tdel</em> depends on the values of the signal change. To calculate <em>Tdel</em>, the DelayTable specified in
+Digital.Tables is used. If the corresponding value is 1, then <em>tLH</em> is used, if it is -1, then <em>tHL</em>
+is used, if it is zero, the input is not delayed.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tLH</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> rise inertial delay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tHL</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> fall inertial delay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y0</th>
+      <td>
+        <p><span>Value:</span> L.'U'</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic</a></p>
+        <p><span>Description:</span> initial value of output</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+        <p><span>Description:</span> Connector of Digital input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalOutput.html">DigitalOutput</a></p>
+        <p><span>Description:</span> Connector of Digital output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(19)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Interfaces.MemoryBase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Interfaces.MemoryBase.html">MemoryBase</a></p>
+        <p><span>Modelica.Electrical.Digital.Interfaces</span</p>
+        <p>Base model for memory elements</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector.html">InertialDelaySensitiveVector</a></p>
+        <p><span>Modelica.Electrical.Digital.Delay</span</p>
+        <p>Delay of a vector of digital signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.InvGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.InvGate.html">InvGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>InvGate with 1 input value, composed by Not and sensitive inertial delay</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.AndGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.AndGate.html">AndGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>AndGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.NandGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.NandGate.html">NandGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>NandGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.OrGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.OrGate.html">OrGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>OrGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.NorGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.NorGate.html">NorGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>NorGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.XorGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.XorGate.html">XorGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>XorGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.XnorGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.XnorGate.html">XnorGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>XnorGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.BufGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.BufGate.html">BufGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>BufGate with 1 input value, composed by Not and sensitive inertial delay</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Tristates.NXFERGATE_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Tristates.NXFERGATE.html">NXFERGATE</a></p>
+        <p><span>Modelica.Electrical.Digital.Tristates</span</p>
+        <p>Transfergate with enable active high</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Tristates.NRXFERGATE_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Tristates.NRXFERGATE.html">NRXFERGATE</a></p>
+        <p><span>Modelica.Electrical.Digital.Tristates</span</p>
+        <p>Transfergate with enable active high. Output strength reduced.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Tristates.PXFERGATE_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Tristates.PXFERGATE.html">PXFERGATE</a></p>
+        <p><span>Modelica.Electrical.Digital.Tristates</span</p>
+        <p>Transfergate with enable active low</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Tristates.PRXFERGATE_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Tristates.PRXFERGATE.html">PRXFERGATE</a></p>
+        <p><span>Modelica.Electrical.Digital.Tristates</span</p>
+        <p>Transfergate with enable active low. Output strength reduced.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Tristates.BUF3S_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Tristates.BUF3S.html">BUF3S</a></p>
+        <p><span>Modelica.Electrical.Digital.Tristates</span</p>
+        <p>Tristate buffer with enable active high</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Tristates.BUF3SL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Tristates.BUF3SL.html">BUF3SL</a></p>
+        <p><span>Modelica.Electrical.Digital.Tristates</span</p>
+        <p>Tristate buffer with enable active low</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Tristates.INV3S_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Tristates.INV3S.html">INV3S</a></p>
+        <p><span>Modelica.Electrical.Digital.Tristates</span</p>
+        <p>Tristate Inverter with enable active high</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Tristates.INV3SL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Tristates.INV3SL.html">INV3SL</a></p>
+        <p><span>Modelica.Electrical.Digital.Tristates</span</p>
+        <p>Tristate inverter with enable active low</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Multiplexers.MUX2x1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Multiplexers.MUX2x1.html">MUX2x1</a></p>
+        <p><span>Modelica.Electrical.Digital.Multiplexers</span</p>
+        <p>A two inputs MULTIPLEXER for multiple value logic (2 data inputs, 1 select input, 1 output)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

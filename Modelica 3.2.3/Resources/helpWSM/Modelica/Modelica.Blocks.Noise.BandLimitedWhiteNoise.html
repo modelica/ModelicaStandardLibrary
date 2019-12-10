@@ -1,0 +1,233 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Noise.html">Noise</a></li>
+  <li><a href="Modelica.Blocks.Noise.BandLimitedWhiteNoise.html">BandLimitedWhiteNoise</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BandLimitedWhiteNoise</h1>
+    <p>Noise generator to produce band-limited white noise with normal distribution</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Noise.BandLimitedWhiteNoise_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+A summary of the common properties of the noise blocks is provided in the documentation of package
+<a href="Modelica.Blocks.Noise.html">Blocks.Noise</a>.
+This BandLimitedWhiteNoise block generates reproducible, random noise at its output according to a
+band-limited white noise distribution. This is performed by using a normal distribution with mu=0 and
+sigma = sqrt(noisePower/samplePeriod).
+</p>
+
+<p>
+In order for this block to produce meaningful results, you should set the following
+parameters:
+</p>
+
+<ul>
+<li> The <strong>samplePeriod</strong> of the block should be much faster (say by a factor of 100)
+     than the fastest dynamics of the system fed by the block&#39;s outputs.</li>
+<li> The <strong>noisePower</strong> of the signal should be set to the expected power per frequency
+     of the white noise. Since many system models assume a noise power of 1,
+     this preset may be a reasonable first choice (= default).</li>
+</ul>
+
+<h4>About sampling frequencies</h4>
+
+<p>
+Ideal white noise contains all frequencies, including infinitely high ones.
+However, these usually cannot be observed in physical systems, since all physical systems in
+one way or the other contain low-pass filters. It is thus sufficient to generate a
+limited range of frequency content in the noise signal, as long as it exceeds the frequencies of
+the subsequent dynamics by a sufficiently high factor (of e.g. 100).
+</p>
+
+<h4>About noise power</h4>
+
+<p>
+Ideal white noise has a flat, i.e. constant, power spectral density for all frequencies.
+It has thus infinitely high power, because the total power of a signal can be obtained by
+integrating the power spectral density over all frequencies. The following three ways to
+think of the power of a signal may be helpful:
+</p>
+
+<ul>
+<li> The energy of a signal is the integral of its squared absolute value over time.
+     The signal&#39;s power is this integral divided by the time span of the integral.</li>
+<li> The total power of a signal can also be obtained by integrating its (two-sided)
+     power spectral density over all frequencies.</li>
+<li> The total power of a signal is finally also equal to its variance.</li>
+</ul>
+
+<p>
+In order to set the correct level of the band-limited white noise power spectral density,
+the variance of its normal distribution can thus be influenced directly.
+Recalling that the samplePeriod of the noise signal generates frequency content in the
+range &plusmn;0.5/samplePeriod, the variance must be increased to generate sufficient
+total signal power. The total power must match the product of the noisePower and its
+frequency bandwidth 1/samplePeriod: <code>signal power = signal variance = noisePower / samplePeriod</code>.
+</p>
+
+<p>
+Example <a href="Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence.html">NoiseExamples.DrydenContinuousTurbulence</a>
+demonstrates how to utilize this block to model wind gust.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>samplePeriod</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Period.html">Period</a> (s)</p>
+        <p><span>Description:</span> Period for sampling the raw random numbers</p>
+      </td>
+    </tr>
+    <tr>
+      <th>enableNoise</th>
+      <td>
+        <p><span>Value:</span> globalSeed.enableNoise</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true: y = noise, otherwise y = y_off</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_off</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> y = y_off if enableNoise=false (or time<startTime, see below)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useGlobalSeed</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: use global seed, otherwise ignore it</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useAutomaticLocalSeed</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: use automatic local seed, otherwise use fixedLocalSeed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fixedLocalSeed</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Local seed (any Integer number)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Start time for sampling the raw random numbers</p>
+      </td>
+    </tr>
+    <tr>
+      <th>localSeed</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> The actual localSeed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>noisePower</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Power of white noise signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.GlobalSeed_32x32.png"></td>
+      <th>globalSeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.GlobalSeed.html">GlobalSeed</a></p>
+        <p><span>Description:</span> Definition of global seed via inner/outer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence.html">DrydenContinuousTurbulence</a></p>
+        <p><span>Modelica.Blocks.Examples.NoiseExamples</span</p>
+        <p>Demonstrates how to model wind turbulence for aircraft with the BandLimitedWhiteNoise block (a simple model of vertical Dryden gust speed at low altitudes < 1000 ft)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

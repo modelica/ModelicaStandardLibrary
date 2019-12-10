@@ -1,0 +1,72 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Classes.html">Classes</a></li>
+  <li><a href="ModelicaReference.Classes.'block'.html">'block'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'block'</h1>
+    <p>block</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Classes.'block'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define specialized class <em>block</em>
+</p>
+<h4>Examples</h4>
+
+<pre><strong>block</strong> Integrator
+  <strong>input</strong> Real u;
+  <strong>output</strong> Real y;
+<strong>protected</strong>
+  Real x;
+<strong>equation
+  der</strong>(x) = u;
+  y = x;
+<strong>end</strong> Integrator;</pre>
+
+<h4>Syntax</h4>
+
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>block</strong>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment</pre>
+
+<p>See Modelica Language Specification for further details.</p>
+
+<h4>Description</h4>
+<p>
+A block class is the same as a model class
+with the restriction that each connector component of a block must
+have prefixes input and/or output for all connector variables.
+The purpose is to model input/output blocks of block diagrams.
+Due to the restrictions on input and output prefixes,
+connections between blocks are only possible according
+to block diagram semantic.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

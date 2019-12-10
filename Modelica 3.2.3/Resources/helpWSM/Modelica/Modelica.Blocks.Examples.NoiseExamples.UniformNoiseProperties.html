@@ -1,0 +1,223 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.NoiseExamples.html">NoiseExamples</a></li>
+  <li><a href="Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties.html">UniformNoiseProperties</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>UniformNoiseProperties</h1>
+    <p>Demonstrates the computation of properties for uniformally distributed noise</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates statistical properties of the
+<a href="Modelica.Blocks.Noise.UniformNoise.html">Blocks.Noise.UniformNoise</a> block
+using a <strong>uniform</strong> random number distribution.
+Block &quot;noise&quot; defines a band of 0 .. 6 and from the generated noise the mean and the variance
+is computed with blocks of package <a href="Modelica.Blocks.Math.html">Blocks.Math</a>.
+Simulation results are shown in the next diagram:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties/resources/Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties_info_001.png"/>
+</blockquote>
+
+<p>
+The mean value of a uniform noise in the range 0 .. 6 is 3 and its variance is
+3 as well. The simulation results above show good agreement (after a short initial phase).
+This demonstrates that the random number generator and the mapping to a uniform
+distribution have good statistical properties.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y_min</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimum value of band</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_max</th>
+      <td>
+        <p><span>Value:</span> 6</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum value of band</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pMean</th>
+      <td>
+        <p><span>Value:</span> (y_min + y_max) / 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Theoretical mean value of uniform distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>var</th>
+      <td>
+        <p><span>Value:</span> (y_max - y_min) ^ 2 / 12</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Theoretical variance of uniform distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>
+        <p><span>Value:</span> sqrt(var)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Theoretical standard deviation of uniform distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>meanError_y</th>
+      <td>
+        <p><span>Default Value:</span> meanError.y</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigmaError_y</th>
+      <td>
+        <p><span>Default Value:</span> sigmaError.y</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.GlobalSeed_32x32.png"></td>
+      <th>globalSeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.GlobalSeed.html">GlobalSeed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.UniformNoise_32x32.png"></td>
+      <th>noise</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.ContinuousMean_32x32.png"></td>
+      <th>mean</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.ContinuousMean.html">ContinuousMean</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Variance_32x32.png"></td>
+      <th>variance</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Variance.html">Variance</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.MultiProduct_32x32.png"></td>
+      <th>theoreticalVariance</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.MultiProduct.html">MultiProduct</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>meanError</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>theoreticalMean</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>varianceError</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>theoreticalSigma</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.StandardDeviation_32x32.png"></td>
+      <th>standardDeviation</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.StandardDeviation.html">StandardDeviation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>sigmaError</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

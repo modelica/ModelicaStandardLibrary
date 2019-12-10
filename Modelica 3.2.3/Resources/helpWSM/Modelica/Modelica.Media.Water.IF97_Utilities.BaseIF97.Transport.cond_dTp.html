@@ -1,0 +1,120 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Water.html">Water</a></li>
+  <li><a href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a></li>
+  <li><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html">BaseIF97</a></li>
+  <li><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.html">Transport</a></li>
+  <li><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp.html">cond_dTp</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>cond_dTp</h1>
+    <p>Thermal conductivity lam(d,T,p) (industrial use version) only in one-phase region</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">lambda = cond_dTp(d, T, p, phase, industrialMethod)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature (K)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phase</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> 2 for two-phase, 1 for one-phase, 0 if not known</p>
+      </td>
+    </tr>
+    <tr>
+      <th>industrialMethod</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, the industrial method is used, otherwise the scientific one</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>lambda</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Thermal conductivity</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.thermalConductivity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.thermalConductivity.html">thermalConductivity</a></p>
+        <p><span>Modelica.Media.Water.IF97_Utilities</span</p>
+        <p>Compute lambda(d,T,p) in the one-phase region</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

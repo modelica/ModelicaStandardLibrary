@@ -1,0 +1,93 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Water.html">Water</a></li>
+  <li><a href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a></li>
+  <li><a href="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy.html">isentropicEnthalpy</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>isentropicEnthalpy</h1>
+    <p>Isentropic specific enthalpy from p,s (preferably use dynamicIsentropicEnthalpy in dynamic simulation!)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">h = isentropicEnthalpy(p, s, phase, region)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEntropy.html">SpecificEntropy</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Specific entropy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phase</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> 2 for two-phase, 1 for one-phase, 0 if not known</p>
+      </td>
+    </tr>
+    <tr>
+      <th>region</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> If 0, region is unknown, otherwise known and this input</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>h</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Specific enthalpy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

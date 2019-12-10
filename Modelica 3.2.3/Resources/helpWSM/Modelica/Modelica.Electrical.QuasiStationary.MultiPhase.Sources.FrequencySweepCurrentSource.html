@@ -1,0 +1,204 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.html">MultiPhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource.html">FrequencySweepCurrentSource</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FrequencySweepCurrentSource</h1>
+    <p>Current source with integrated frequency sweep</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This source provides polyphase constant RMS phase currents <code>I</code> and phase angles <code>phi</code>,
+whereas the frequency sweeps from
+<code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
+way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
+
+<p><img src="resources/Modelica.Electrical.QuasiStationary.MultiPhase.Sources.FrequencySweepCurrentSource_info_001.png"
+     alt="FrequencySweepSource.png"></p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fStart</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Start sweep frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fStop</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Stop sweep frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Start time of frequency sweep</p>
+      </td>
+    </tr>
+    <tr>
+      <th>duration</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Duration of frequency sweep</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current[m]</a> (A)</p>
+        <p><span>Description:</span> RMS current of the source</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phi</th>
+      <td>
+        <p><span>Value:</span> -Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle[m]</a> (rad)</p>
+        <p><span>Description:</span> Phase shift of the source</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> Positive quasi-static polyphase plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>plug_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> Negative quasi-static polyphase plug</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexVoltage_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexVoltage.html">ComplexVoltage[m]</a></p>
+        <p><span>Description:</span> Complex voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexCurrent_32x32.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexCurrent.html">ComplexCurrent[m]</a></p>
+        <p><span>Description:</span> Complex current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p_32x32.png"></td>
+      <th>plugToPins_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p.html">PlugToPins_p</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n_32x32.png"></td>
+      <th>plugToPins_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n.html">PlugToPins_n</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource_32x32.png"></td>
+      <th>currentSource</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource.html">VariableCurrentSource</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Sources.LogFrequencySweep_32x32.png"></td>
+      <th>logFrequencySweep</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Sources.LogFrequencySweep.html">LogFrequencySweep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Sources.ComplexConstant_32x32.png"></td>
+      <th>const</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Sources.ComplexConstant.html">ComplexConstant[m]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

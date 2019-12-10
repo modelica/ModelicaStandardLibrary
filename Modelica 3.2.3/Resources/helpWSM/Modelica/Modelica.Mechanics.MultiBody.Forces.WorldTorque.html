@@ -1,0 +1,248 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Forces.WorldTorque.html">WorldTorque</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>WorldTorque</h1>
+    <p>External torque acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.WorldTorque_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Forces.WorldTorque_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Forces.WorldTorque_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The <strong>3</strong> signals of the <strong>torque</strong> connector are interpreted
+as the x-, y- and z-coordinates of a <strong>torque</strong> acting at the frame
+connector to which frame_b of this component is attached.
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve input torque in world frame (= default)</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve input torque in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the torque coordinates
+are with respect to the frame, that is connected to <strong>frame_resolve</strong>.
+</p>
+
+<p>
+If torque={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a torque of 100 N is acting along the positive
+x-axis of frame_b.
+</p>
+
+<p>
+Note, the cut-force in frame_b (frame_b.f) is always set to zero.
+Conceptually, a force and torque acts on the world frame in such a way that
+the force and torque balance between world.frame_b and frame_b is fulfilled.
+For efficiency reasons, this reaction torque is, however, not computed.
+</p>
+
+<p>
+This torque component is by default visualized as a <strong>double arrow</strong>
+acting at the connector to which it is connected. The diameter
+and color of the arrow can be defined via
+variables <strong>diameter</strong> and <strong>color</strong>. The double arrow points
+in the direction defined by the
+torque vector. The length of the double arrow is proportional
+to the length of the torque vector using parameter
+<strong>Nm_to_m</strong> as scaling factor. For example, if Nm_to_m = 100 Nm/m,
+then a torque of 350 Nm is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the
+following figure:
+</p>
+
+<p>
+<img src="modelica:///Modelica.Mechanics.MultiBody.Forces.WorldTorque/resources/Modelica.Mechanics.MultiBody.Forces.WorldTorque_info_001.png">
+</p>
+
+<p>
+This leads to the following animation
+</p>
+
+<p>
+<img src="modelica:///Modelica.Mechanics.MultiBody.Forces.WorldTorque/resources/Modelica.Mechanics.MultiBody.Forces.WorldTorque_info_002.png">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resolveInFrame</th>
+      <td>
+        <p><span>Value:</span> Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.html">ResolveInFrameB</a></p>
+        <p><span>Description:</span> Frame in which input torque is resolved (1: world, 2: frame_b, 3: frame_resolve)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Nm_to_m</th>
+      <td>
+        <p><span>Value:</span> world.defaultNm_to_m</p>
+        <p><span>Type:</span> Real (N·m/m)</p>
+        <p><span>Description:</span> Torque arrow scaling (length = torque/Nm_to_m)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>diameter</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultArrowDiameter</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Diameter of torque arrow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of arrow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve_16x16.png"></td>
+      <th>frame_resolve</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve.html">Frame_resolve</a></p>
+        <p><span>Description:</span> The input signals are optionally resolved in this frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>torque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput[3]</a></p>
+        <p><span>Description:</span> x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow_32x32.png"></td>
+      <th>arrow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow.html">DoubleArrow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.BasicWorldTorque_32x32.png"></td>
+      <th>basicWorldTorque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Forces.Internal.BasicWorldTorque.html">BasicWorldTorque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition_32x32.png"></td>
+      <th>zeroPosition</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition.html">ZeroPosition</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

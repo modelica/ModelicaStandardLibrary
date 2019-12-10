@@ -1,0 +1,96 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Media.Examples.MoistAir.html">MoistAir</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MoistAir</h1>
+    <p>Example for moist air</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Examples.MoistAir_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
+The function that is implemented is approximate, but usually very good: the second medium record medium2
+is given to compare the approximation.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>MMx</th>
+      <td>
+        <p><span>Value:</span> {Medium.dryair.MM, Medium.steam.MM}</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.MoistAir.Medium.MolarMass.html">MolarMass[2]</a> (kg/mol)</p>
+        <p><span>Description:</span> Vector of molar masses (consisting of dry air and of steam)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.MoistAir.Medium.BaseProperties_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.MoistAir.Medium.BaseProperties.html">BaseProperties</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.MoistAir.Medium.ThermodynamicState_32x32.png"></td>
+      <th>state1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.MoistAir.Medium.ThermodynamicState.html">ThermodynamicState</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.MoistAir.Medium.ThermodynamicState_32x32.png"></td>
+      <th>state2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.MoistAir.Medium.ThermodynamicState.html">ThermodynamicState</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.MoistAir.Medium.ThermodynamicState_32x32.png"></td>
+      <th>smoothState</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Examples.MoistAir.Medium.ThermodynamicState.html">ThermodynamicState</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

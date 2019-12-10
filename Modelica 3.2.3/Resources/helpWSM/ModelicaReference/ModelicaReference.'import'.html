@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.'import'.html">'import'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'import'</h1>
+    <p>import</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.'import'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Import classes
+</p>
+<h4>Examples</h4>
+
+<pre><strong>class</strong> Lookup
+  <strong>import</strong> SI = Modelica.SIunits; // #1
+  <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports,
+                          //     consider using #1 or #3  instead!)
+  <strong>import</strong> Modelica.Mechanics.Rotational; // #3
+
+  SI.Torque torque; // due to #1 (Modelica.SIunits.Torque)
+  Rotational.Components.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Components.Inertia)
+<strong>equation</strong>
+  torque = sin(<strong>time</strong>); // due to #2 (Modelica.Math.sin)
+  ...
+<strong>end</strong> Lookup;</pre>
+
+<h4>Syntax</h4>
+
+<pre>class_definition :
+   [ <strong>encapsulated</strong> ]
+   [ <strong>partial</strong> ]
+   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
+     <strong>package</strong> | <strong>function</strong> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment
+
+composition  :
+   element_list
+   { <strong>public</strong> element_list |
+     <strong>protected</strong> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <strong>external</strong> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <strong>final</strong> ]
+   [ <strong>inner</strong> | <strong>outer</strong> ]
+   ( ( class_definition | component_clause) |
+     <strong>replaceable</strong> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+import_clause :
+   <strong>import</strong> ( IDENT "=" name | name ["." "*"] ) comment</pre>
+<h4>Description</h4>
+
+<p>Using import statements extends the static name lookup to additional import names.
+The generated import names are:</p>
+
+<ul>
+  <li><code>C</code> for <code><strong>import</strong> A.B.C;</code></li>
+  <li><code>D</code> for <code><strong>import</strong> D = A.B.C;</code></li>
+  <li><code>C</code> and all other classes in B for <code><strong>import</strong> A.B.*;</code></li>
+</ul>
+<h5>Note</h5>
+<p><em>Especially the last wildcard import statement should be avoided since it might lead to name-lookup conflicts.</em></p>
+</div>
+</section>
+</div>
+</body>
+</html>

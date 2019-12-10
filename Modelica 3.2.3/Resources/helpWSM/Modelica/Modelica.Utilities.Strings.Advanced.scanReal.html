@@ -1,0 +1,131 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.Advanced.html">Advanced</a></li>
+  <li><a href="Modelica.Utilities.Strings.Advanced.scanReal.html">scanReal</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>scanReal</h1>
+    <p>Scan a signed real number</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.Advanced.scanReal_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(nextIndex, realNumber) = <strong>scanReal</strong>(string, startIndex=1, unsigned=false);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Starts scanning of "string" at position "startIndex".
+First skips white space and scans afterwards a number
+of type Real with an optional sign according to the Modelica grammar:
+</p>
+<pre>
+    real     ::= [sign] unsigned [fraction] [exponent]
+    sign     ::= '+' | '-'
+    unsigned ::= digit [unsigned]
+    fraction ::= '.' [unsigned]
+    exponent ::= ('e' | 'E') [sign] unsigned
+    digit    ::= '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
+</pre>
+<p>
+If successful, the function returns nextIndex = index of character
+directly after the found real number, as well as the value
+in the second output argument.
+</p>
+<p>
+If not successful, on return nextIndex = startIndex and
+the second output argument is zero.
+</p>
+<p>
+If the optional argument "unsigned" is <strong>true</strong>, the number
+shall not start with '+' or '-'. The default of "unsigned" is <strong>false</strong>.
+</p>
+<h4>See also</h4>
+<a href="Modelica.Utilities.Strings.Advanced.html">Strings.Advanced</a>.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(nextIndex, number) = scanReal(string, startIndex, unsigned)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startIndex</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Index where scanning starts</p>
+      </td>
+    </tr>
+    <tr>
+      <th>unsigned</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if number shall not start with '+' or '-'</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nextIndex</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Index after the found token (success=true) or index at which scanning failed (success=false)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>number</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Value of Real number</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

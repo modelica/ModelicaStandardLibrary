@@ -1,0 +1,242 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Ideal.html">Ideal</a></li>
+  <li><a href="Modelica.Electrical.Analog.Ideal.IdealDiode.html">IdealDiode</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>IdealDiode</h1>
+    <p>Ideal diode</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealDiode_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is an ideal diode, for details see partial model <a href="Modelica.Electrical.Analog.Interfaces.IdealSemiconductor.html">IdealSemiconductor</a><br>
+The diode is conducting if voltage &gt; Vknee.<br>
+The diode is locking if current &lt; Vknee/Goff.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ron</th>
+      <td>
+        <p><span>Value:</span> 1e-5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Forward state-on differential resistance (closed resistance)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Goff</th>
+      <td>
+        <p><span>Value:</span> 1e-5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Conductance.html">Conductance</a> (S)</p>
+        <p><span>Description:</span> Backward state-off conductance (opened conductance)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vknee</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Forward threshold voltage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Conditional heat port</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.CharacteristicIdealDiodes_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.CharacteristicIdealDiodes.html">CharacteristicIdealDiodes</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Characteristic of ideal diodes</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Rectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Rectifier.html">Rectifier</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>B6 diode bridge</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.ThreePhaseTransformerWithRectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.ThreePhaseTransformerWithRectifier.html">ThreePhaseTransformerWithRectifier</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis</span</p>
+        <p>3 Phase transformer (including hysteresis effect) with rectifier</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.SimpleTriac_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Semiconductors.SimpleTriac.html">SimpleTriac</a></p>
+        <p><span>Modelica.Electrical.Analog.Semiconductors</span</p>
+        <p>Simple triac, based on Semiconductors.Thyristor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Ideal.IdealDiode_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.MultiPhase.Ideal.IdealDiode.html">IdealDiode</a></p>
+        <p><span>Modelica.Electrical.MultiPhase.Ideal</span</p>
+        <p>Multiphase ideal diode</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2Pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2Pulse.html">DiodeBridge2Pulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>Two pulse Graetz diode rectifier bridge</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2Pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2Pulse.html">HalfControlledBridge2Pulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>Two pulse Graetz half controlled rectifier bridge</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2Pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2Pulse.html">DiodeCenterTap2Pulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC</span</p>
+        <p>Two pulse diode rectifier with center tap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.SinglePhase2Level_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.SinglePhase2Level.html">SinglePhase2Level</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC</span</p>
+        <p>Single phase DC to AC converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCDC.ChopperStepDown_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCDC.ChopperStepDown.html">ChopperStepDown</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCDC</span</p>
+        <p>Step down chopper</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCDC.ChopperStepUp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCDC.ChopperStepUp.html">ChopperStepUp</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCDC</span</p>
+        <p>Step up chopper</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier.html">GraetzRectifier</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.SinglePhase.Utilities</span</p>
+        <p>Graetz rectifier bridge</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,371 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Water.html">Water</a></li>
+  <li><a href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a></li>
+  <li><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html">BaseIF97</a></li>
+  <li><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.html">Basic</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Basic</h1>
+    <p>Base functions as described in IAWPS/IF97</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1.html">g1</a></p>
+        <p>Gibbs function for region 1: g(p,T)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2.html">g2</a></p>
+        <p>Gibbs function for region 2: g(p,T)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2metastable_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2metastable.html">g2metastable</a></p>
+        <p>Gibbs function for metastable part of region 2: g(p,T)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3.html">f3</a></p>
+        <p>Helmholtz function for region 3: f(d,T)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5.html">g5</a></p>
+        <p>Base function for region 5: g(p,T)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.gibbs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.gibbs.html">gibbs</a></p>
+        <p>Gibbs function for region 1, 2 or 5: g(p,T,region)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1pitau_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1pitau.html">g1pitau</a></p>
+        <p>Derivative of g w.r.t. pi and tau</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2pitau_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2pitau.html">g2pitau</a></p>
+        <p>Derivative of g w.r.t. pi and tau</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5pitau_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5pitau.html">g5pitau</a></p>
+        <p>Derivative of g w.r.t. pi and tau</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3deltatau_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3deltatau.html">f3deltatau</a></p>
+        <p>1st derivatives of f w.r.t. delta and tau</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph1.html">tph1</a></p>
+        <p>Inverse function for region 1: T(p,h)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps1.html">tps1</a></p>
+        <p>Inverse function for region 1: T(p,s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph2.html">tph2</a></p>
+        <p>Reverse function for region 2: T(p,h)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2a_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2a.html">tps2a</a></p>
+        <p>Reverse function for region 2a: T(p,s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2b_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2b.html">tps2b</a></p>
+        <p>Reverse function for region 2b: T(p,s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2c_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2c.html">tps2c</a></p>
+        <p>Reverse function for region 2c: T(p,s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2.html">tps2</a></p>
+        <p>Reverse function for region 2: T(p,s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat.html">tsat</a></p>
+        <p>Region 4 saturation temperature as a function of pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dtsatofp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dtsatofp.html">dtsatofp</a></p>
+        <p>Derivative of saturation temperature w.r.t. pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat_der_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat_der.html">tsat_der</a></p>
+        <p>Derivative function for tsat</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat.html">psat</a></p>
+        <p>Region 4 saturation pressure as a function of temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dptofT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dptofT.html">dptofT</a></p>
+        <p>Derivative of pressure w.r.t. temperature along the saturation pressure curve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat_der_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat_der.html">psat_der</a></p>
+        <p>Derivative function for psat</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p1_hs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p1_hs.html">p1_hs</a></p>
+        <p>Pressure as a function of enthalpy and entropy in region 1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h2ab_s_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h2ab_s.html">h2ab_s</a></p>
+        <p>Boundary between regions 2a and 2b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2a_hs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2a_hs.html">p2a_hs</a></p>
+        <p>Pressure as a function of enthalpy and entropy in subregion 2a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2b_hs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2b_hs.html">p2b_hs</a></p>
+        <p>Pressure as a function of enthalpy and entropy in subregion 2a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2c_hs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2c_hs.html">p2c_hs</a></p>
+        <p>Pressure as a function of enthalpy and entropy in subregion 2c</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h3ab_p_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h3ab_p.html">h3ab_p</a></p>
+        <p>Region 3 a b boundary for pressure/enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ph.html">T3a_ph</a></p>
+        <p>Region 3 a: inverse function T(p,h)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ph.html">T3b_ph</a></p>
+        <p>Region 3 b: inverse function T(p,h)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ph.html">v3a_ph</a></p>
+        <p>Region 3 a: inverse function v(p,h)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ph.html">v3b_ph</a></p>
+        <p>Region 3 b: inverse function v(p,h)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ps.html">T3a_ps</a></p>
+        <p>Region 3 a: inverse function T(p,s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ps.html">T3b_ps</a></p>
+        <p>Region 3 b: inverse function T(p,s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ps.html">v3a_ps</a></p>
+        <p>Region 3 a: inverse function v(p,s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ps.html">v3b_ps</a></p>
+        <p>Region 3 b: inverse function v(p,s)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Package description</h4>
+          <p>Package BaseIF97/Basic computes the fundamental functions for the 5 regions of the steam tables
+          as described in the standards document <a href="resources/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic_info_001.pdf">IF97.pdf</a>. The code of these
+          functions has been generated using <strong><em>Mathematica</em></strong> and the add-on packages "Format" and "Optimize"
+          to generate highly efficient, expression-optimized C-code from a symbolic representation of the thermodynamic
+          functions. The C-code has than been transformed into Modelica code. An important feature of this optimization was to
+          simultaneously optimize the functions and the directional derivatives because they share many common subexpressions.</p>
+          <h4>Package contents</h4>
+          <ul>
+          <li>Function <strong>g1</strong> computes the dimensionless Gibbs function for region 1 and all derivatives up
+          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
+          <li>Function <strong>g2</strong> computes the dimensionless Gibbs function  for region 2 and all derivatives up
+          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
+          <li>Function <strong>g2metastable</strong> computes the dimensionless Gibbs function for metastable vapour
+          (adjacent to region 2 but 2-phase at equilibrium) and all derivatives up
+          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
+          <li>Function <strong>f3</strong> computes the dimensionless Helmholtz function  for region 3 and all derivatives up
+          to order 2 w.r.t. delta and tau. Inputs: d and T.</li>
+          <li>Function <strong>g5</strong>computes the dimensionless Gibbs function for region 5 and all derivatives up
+          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
+          <li>Function <strong>tph1</strong> computes the inverse function T(p,h) in region 1.</li>
+          <li>Function <strong>tph2</strong> computes the inverse function T(p,h) in region 2.</li>
+          <li>Function <strong>tps2a</strong> computes the inverse function T(p,s) in region 2a.</li>
+          <li>Function <strong>tps2b</strong> computes the inverse function T(p,s) in region 2b.</li>
+          <li>Function <strong>tps2c</strong> computes the inverse function T(p,s) in region 2c.</li>
+          <li>Function <strong>tps2</strong> computes the inverse function T(p,s) in region 2.</li>
+          <li>Function <strong>tsat</strong> computes the saturation temperature as a function of pressure.</li>
+          <li>Function <strong>dtsatofp</strong> computes the derivative of the saturation temperature w.r.t. pressure as
+          a function of pressure.</li>
+          <li>Function <strong>tsat_der</strong> computes the Modelica derivative function of tsat.</li>
+          <li>Function <strong>psat</strong> computes the saturation pressure as a function of temperature.</li>
+          <li>Function <strong>dptofT</strong>  computes the derivative of the saturation pressure w.r.t. temperature as
+          a function of temperature.</li>
+          <li>Function <strong>psat_der</strong> computes the Modelica derivative function of psat.</li>
+          </ul>
+          <h4>Version Info and Revision history
+          </h4>
+          <ul>
+          <li>First implemented: <em>July, 2000</em>
+          by Hubertus Tummescheit
+          </li>
+          </ul>
+          <address>Author: Hubertus Tummescheit,<br>
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
+          </address>
+          <ul>
+          <li>Initial version: July 2000</li>
+          <li>Documentation added: December 2002</li>
+          </ul>
+       <p>
+       Equation from:
+       </p>
+       <div style="text-align: center;">&nbsp;[1] The international Association
+       for the Properties of Water and Steam<br>
+       &nbsp;Vejle, Denmark<br>
+       &nbsp;August 2003<br>
+       &nbsp;Supplementary Release on Backward Equations for the Functions
+       T(p,h), v(p,h) and T(p,s),<br>
+       &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+       the Thermodynamic Properties of<br>
+       &nbsp;Water and Steam</div>
+</div>
+</section>
+</div>
+</body>
+</html>

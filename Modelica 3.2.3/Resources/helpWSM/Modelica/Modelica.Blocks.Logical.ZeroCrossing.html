@@ -1,0 +1,85 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Logical.html">Logical</a></li>
+  <li><a href="Modelica.Blocks.Logical.ZeroCrossing.html">ZeroCrossing</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ZeroCrossing</h1>
+    <p>Trigger zero crossing of input u</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Logical.ZeroCrossing_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The output "y" is <strong>true</strong> at the
+time instant when the input "u" becomes
+zero, provided the input "enable" is
+<strong>true</strong>. At all other time instants, the output "y" is <strong>false</strong>.
+If the input "u" is zero at a time instant when the "enable"
+input changes its value, then the output y is <strong>false</strong>.
+</p>
+<p>
+Note, that in the plot window of a Modelica simulator, the output of
+this block is usually identically to <strong>false</strong>, because the output
+may only be <strong>true</strong> at an event instant, but not during
+continuous integration. In order to check that this component is
+actually working as expected, one should connect its output to, e.g.,
+component <em><a href="Modelica.Blocks.Discrete.TriggeredSampler.html">Modelica.Blocks.Discrete.TriggeredSampler</a></em>.
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+        <p><span>Description:</span> Connector of Boolean output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>enable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+        <p><span>Description:</span> Zero input crossing is triggered if the enable input signal is true</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

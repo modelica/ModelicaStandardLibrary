@@ -1,0 +1,210 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational.html">PartialElementaryRotationalToTranslational</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialElementaryRotationalToTranslational</h1>
+    <p>Partial model to transform rotational into translational motion</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a 1-dim. rotational component with
+</p>
+
+<ul>
+<li> one rotational flange,</li>
+<li> one rotational support/housing,</li>
+<li> one translational flange, and</li>
+<li> one translational support/housing</li>
+</ul>
+
+<p>
+This model is used to build up elementary components of a drive train
+transforming rotational into translational motion with
+equations in the text layer.
+</p>
+
+<p>
+If <em>useSupportR=true</em>, the rotational support connector is conditionally enabled
+and needs to be connected.<br>
+If <em>useSupportR=false</em>, the rotational support connector is conditionally disabled
+and instead the rotational part is internally fixed to ground.<br>
+If <em>useSupportT=true</em>, the translational support connector is conditionally enabled
+and needs to be connected.<br>
+If <em>useSupportT=false</em>, the translational support connector is conditionally disabled
+and instead the translational part is internally fixed to ground.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupportR</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if rotational support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useSupportT</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if translational support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flangeR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Flange of rotational shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flangeT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of translational rod</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Support_16x16.png"></td>
+      <th>supportR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Rotational support/housing of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Support_16x16.png"></td>
+      <th>supportT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Translational support/housing of component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.InternalSupport_32x32.png"></td>
+      <th>internalSupportR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.InternalSupport.html">InternalSupport</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.InternalSupport_32x32.png"></td>
+      <th>internalSupportT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.InternalSupport.html">InternalSupport</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Fixed_32x32.png"></td>
+      <th>fixedR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Fixed_32x32.png"></td>
+      <th>fixedT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational.html">PartialElementaryRotationalToTranslational</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Partial model to transform rotational into translational motion</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.IdealRollingWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.IdealRollingWheel.html">IdealRollingWheel</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Simple 1-dim. model of an ideal rolling wheel without inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.IdealGearR2T_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.IdealGearR2T.html">IdealGearR2T</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Gearbox transforming rotational into translational motion</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

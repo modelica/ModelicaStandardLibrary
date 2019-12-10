@@ -1,0 +1,325 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Mass</h1>
+    <p>Sliding mass with inertia</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Sliding mass with <em>inertia, without friction</em> and two rigidly connected flanges.
+</p>
+<p>
+The sliding mass has the length L, the position coordinate s is in the middle.
+Sign convention: A positive force at flange flange_a moves the sliding mass in the positive direction.
+A negative force at flange flange_a moves the sliding mass to the negative direction.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of component, from left flange to right flange (= flange_b.s - flange_a.s)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of the sliding mass</p>
+      </td>
+    </tr>
+    <tr>
+      <th>stateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.default</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use s and v as states</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Left flange of translational component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Right flange of translational component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(22)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.NoiseExamples.ActuatorWithNoise_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.NoiseExamples.ActuatorWithNoise.html">ActuatorWithNoise</a></p>
+        <p><span>Modelica.Blocks.Examples.NoiseExamples</span</p>
+        <p>Demonstrates how to model measurement noise in an actuator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Conveyor.html">AIMC_Conveyor</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</span</p>
+        <p>Test example: AsynchronousInductionMachineSquirrelCage with inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke.html">ArmatureStroke</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</span</p>
+        <p>Armature stroke of both moving coil actuator models after a voltage step at time t=0</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke.html">ComparisonPullInStroke</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</span</p>
+        <p>Pull-in stroke of both solenoid models after a voltage step at time t=0</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_Conveyor.html">AIMC_Conveyor</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Asynchronous induction machine with squirrel cage and inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor.html">IMC_Conveyor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span</p>
+        <p>Induction machine with squirrel cage and inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.RollingWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.RollingWheel.html">RollingWheel</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span</p>
+        <p>Demonstrate coupling Rotational - Translational</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.SignConvention_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.SignConvention.html">SignConvention</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Examples for the used sign conventions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.InitialConditions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.InitialConditions.html">InitialConditions</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Setting of initial conditions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.WhyArrows_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.WhyArrows.html">WhyArrows</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Use of arrows in Mechanics.Translational</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Accelerate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Accelerate.html">Accelerate</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Use of model accelerate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Damper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Damper.html">Damper</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Use of damper models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Oscillator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Oscillator.html">Oscillator</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Oscillator demonstrates the use of initial conditions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Sensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Sensors.html">Sensors</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Sensors for translational systems</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Friction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Friction.html">Friction</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Use of model Stop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.PreLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.PreLoad.html">PreLoad</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Preload of a spool using ElastoGap models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.ElastoGap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.ElastoGap.html">ElastoGap</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Demonstrate usage of ElastoGap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Brake_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Brake.html">Brake</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Demonstrate braking of a translational moving mass</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.EddyCurrentBrake_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.EddyCurrentBrake.html">EddyCurrentBrake</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Demonstrate the usage of the translational eddy current brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.GenerationOfFMUs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span</p>
+        <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder.html">TestCylinder</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Two cylinder system</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper.html">TranslatoryArmatureAndStopper</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Utilities</span</p>
+        <p>Mass with free travel between two stoppers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.DirectMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.DirectMass.html">DirectMass</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span</p>
+        <p>Input/output block of a direct mass model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.InverseMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.InverseMass.html">InverseMass</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span</p>
+        <p>Input/output block of an inverse mass model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.html">TransformationMatrices</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz.html">from_nxz</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>from_nxz</h1>
+    <p>Return orientation object from n_x and n_z vectors</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>from_nxz</strong>(n_x, n_z);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+It is assumed that the two input vectors n_x and n_z are
+resolved in frame&nbsp;1 and are directed along the&nbsp;x and z&nbsp;axis
+of frame&nbsp;2 (i.e., n_x and n_z are orthogonal to each other).
+The function returns the orientation object&nbsp;T to rotate from
+frame&nbsp;1 to frame&nbsp;2.
+</p>
+<p>
+The function is robust in the sense that it returns always
+an orientation object&nbsp;T, even if n_z is not orthogonal to n_x.
+This is performed in the following way:
+<br>
+If n_x and n_z are not orthogonal to each other, first a unit
+vector e_z is determined that is orthogonal to n_x and is lying
+in the plane spanned by n_x and n_z. If n_x and n_z are parallel
+or nearly parallel to each other, a vector e_z is selected
+arbitrarily such that n_x and e_z are orthogonal to each other.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.from_nxz.html">Frames.from_nxz</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">T = from_nxz(n_x, n_z)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n_x</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Vector in direction of x-axis of frame 2, resolved in frame 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_z</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Vector in direction of z-axis of frame 2, resolved in frame 1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

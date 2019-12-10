@@ -1,0 +1,114 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialForce.html">PartialForce</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialForce</h1>
+    <p>Base model for force elements (provide frame_b.f and frame_b.t in subclasses)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialForce_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+All <strong>3-dimensional force</strong> and <strong>torque elements</strong>
+should be based on this superclass.
+This model defines frame_a and frame_b, computes the relative
+translation and rotation between the two frames and calculates
+the cut-force and cut-torque at frame_a by a force and torque
+balance from the cut-force and cut-torque at frame_b.
+As a result, in a subclass, only the relationship between
+the cut-force and cut-torque at frame_b has to be defined as
+a function of the following relative quantities:
+</p>
+<pre>
+  r_rel_b[3]: Position vector from origin of frame_a to origin
+              of frame_b, resolved in frame_b
+  R_rel     : Relative orientation object to rotate from frame_a to frame_b
+</pre>
+<p>
+Assume that force f = {100,0,0} should be applied on the body
+to which this force element is attached at frame_b, then
+the definition should be:
+</p>
+<pre>
+   <strong>model</strong> Constant_x_Force
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialForce;
+   <strong>equation</strong>
+      frame_b.f = {-100, 0, 0};
+      frame_b.t = zeros(3);
+   <strong>end</strong> Constant_x_Force;
+</pre>
+<p>
+Note, that frame_b.f and frame_b.t are flow variables and therefore
+the negative value of frame_b.f and frame_b.t is acting at the part
+to which this force element is connected.
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system a fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system b fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

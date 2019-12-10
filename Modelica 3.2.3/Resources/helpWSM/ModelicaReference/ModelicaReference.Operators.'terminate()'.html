@@ -1,0 +1,57 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'terminate()'.html">'terminate()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'terminate()'</h1>
+    <p>terminate()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'terminate()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Successfully terminate current analysis
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>terminate</strong>(message)</pre></blockquote>
+<h4>Description</h4>
+<p>The terminate function successfully terminates the analysis
+which was carried out. The function has a string argument
+indicating the reason for the success. <em>[The intention is to
+give more complex stopping criteria than a fixed point in time.]</em></p>
+<h4>Examples</h4>
+<pre><strong>model</strong> ThrowingBall
+  Real x(start=0);
+  Real y(start=1);
+<strong>equation</strong>
+  <strong>der</strong>(x)= ... ;
+  <strong>der</strong>(y)= ... ;
+<strong>algorithm</strong>
+  <strong>when</strong> y &lt; 0 <strong>then</strong>
+    <strong>terminate</strong>("The ball touches the ground");
+  <strong>end when;
+end</strong> ThrowingBall;</pre>
+</div>
+</section>
+</div>
+</body>
+</html>

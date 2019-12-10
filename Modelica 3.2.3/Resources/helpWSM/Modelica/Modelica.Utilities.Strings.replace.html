@@ -1,0 +1,142 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.replace.html">replace</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>replace</h1>
+    <p>Replace non-overlapping occurrences of a string from left to right</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.replace_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Strings.<strong>replace</strong>(string, searchString, replaceString);
+Strings.<strong>replace</strong>(string, searchString, replaceString,
+                startIndex=1, replaceAll=true, caseSensitive=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Search in "string" for "searchString" and replace the found
+substring by "replaceString".
+</p>
+<ul>
+<li> The search starts at the first character of "string",
+     or at character position "startIndex",
+     if this optional argument is provided.</li>
+<li> If the optional argument "replaceAll" is <strong>true</strong> (default),
+     all occurrences of "searchString" are replaced.
+     If the argument is <strong>false</strong>, only the first occurrence
+     is replaced.</li>
+<li> The search for "searchString" distinguishes upper and lower
+     case letters. If the optional argument "caseSensitive" is
+     <strong>false</strong>,
+     the search ignores whether letters are upper
+     or lower case.</li>
+</ul>
+<p>
+The function returns the "string" with the
+performed replacements.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = replace(string, searchString, replaceString, startIndex, replaceAll, caseSensitive)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String to be modified</p>
+      </td>
+    </tr>
+    <tr>
+      <th>searchString</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Replace non-overlapping occurrences of 'searchString' in 'string' with 'replaceString'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>replaceString</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String that replaces 'searchString' in 'string'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startIndex</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Start search at index startIndex</p>
+      </td>
+    </tr>
+    <tr>
+      <th>replaceAll</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> if false, replace only the first occurrence, otherwise all occurrences</p>
+      </td>
+    </tr>
+    <tr>
+      <th>caseSensitive</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false, if lower and upper case are ignored when searching for searchString</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Resultant string of replacement operation</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

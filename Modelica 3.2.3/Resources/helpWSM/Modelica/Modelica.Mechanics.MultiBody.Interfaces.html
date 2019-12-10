@@ -1,0 +1,197 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Interfaces.html">Interfaces</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Interfaces</h1>
+    <p>Connectors and partial models for 3-dim. mechanical components</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.Frame.html">Frame</a></p>
+        <p>Coordinate system fixed to the component with one cut-force and cut-torque (no icon)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p>Coordinate system fixed to the component with one cut-force and cut-torque (filled rectangular icon)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p>Coordinate system fixed to the component with one cut-force and cut-torque (non-filled rectangular icon)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve.html">Frame_resolve</a></p>
+        <p>Coordinate system fixed to the component used to express in which coordinate system a vector is resolved (non-filled rectangular icon)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing.html">FlangeWithBearing</a></p>
+        <p>Connector consisting of 1-dim. rotational flange and its bearing frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearingAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearingAdaptor.html">FlangeWithBearingAdaptor</a></p>
+        <p>Adaptor to allow direct connections to the sub-connectors of FlangeWithBearing</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames.html">PartialTwoFrames</a></p>
+        <p>Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize.html">PartialTwoFramesDoubleSize</a></p>
+        <p>Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialOneFrame_a_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialOneFrame_a.html">PartialOneFrame_a</a></p>
+        <p>Base model for components providing one frame_a connector + outer world + assert to guarantee that the component is connected</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialOneFrame_b_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialOneFrame_b.html">PartialOneFrame_b</a></p>
+        <p>Base model for components providing one frame_b connector + outer world + assert to guarantee that the component is connected</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint.html">PartialElementaryJoint</a></p>
+        <p>Base model for elementary joints (has two frames + outer world + assert to guarantee that the joint is connected)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialForce.html">PartialForce</a></p>
+        <p>Base model for force elements (provide frame_b.f and frame_b.t in subclasses)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.LineForceBase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.LineForceBase.html">LineForceBase</a></p>
+        <p>Base model for line force elements</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce.html">PartialLineForce</a></p>
+        <p>Base model for massless line force elements</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialAbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialAbsoluteSensor.html">PartialAbsoluteSensor</a></p>
+        <p>Base model to measure an absolute frame variable</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialRelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialRelativeSensor.html">PartialRelativeSensor</a></p>
+        <p>Base model to measure a relative variable between two frames</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer.html">PartialVisualizer</a></p>
+        <p>Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition.html">ZeroPosition</a></p>
+        <p>Set absolute position vector of frame_resolve to a zero vector and the orientation object to a null rotation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration.html">partialGravityAcceleration</a></p>
+        <p>Interface for the gravity function used in the World object</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic.html">partialSurfaceCharacteristic</a></p>
+        <p>Interface for a function returning surface characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.partialColorMap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.partialColorMap.html">partialColorMap</a></p>
+        <p>Interface for a function returning a color map</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains connectors and partial models (i.e., models
+that are only used to build other models) of the MultiBody library.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

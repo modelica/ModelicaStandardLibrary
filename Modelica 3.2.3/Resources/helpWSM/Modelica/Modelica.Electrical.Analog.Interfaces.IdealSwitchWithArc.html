@@ -1,0 +1,218 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc.html">IdealSwitchWithArc</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>IdealSwitchWithArc</h1>
+    <p>Ideal switch with simple arc model</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model is an extension to the <a href="Modelica.Electrical.Analog.Interfaces.IdealSwitch.html">IdealSwitch</a>.
+</p>
+<p>
+The basic model interrupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
+In order to give a better idea for the voltage across the switch, a simple arc model is added:
+</p>
+<p>
+When the Boolean variable <code>off</code> signals to open the switch, a voltage across the opened switch is impressed.
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
+(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
+</p>
+<pre>
+     | voltage
+Vmax |      +-----
+     |     /
+     |    /
+V0   |   +
+     |   |
+     +---+-------- time
+</pre>
+<p>
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
+Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
+<code>i=Goff*v</code>.
+</p>
+<p>
+When the Boolean variable <code>off</code> signals to close the switch again, the switch is closed immediately,
+i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
+</p>
+<p>
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
+In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+<br><br>
+<strong>Please note:</strong>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <strong>not</strong> modelled. The parameters are not temperature dependent.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ron</th>
+      <td>
+        <p><span>Value:</span> 1E-5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Closed switch resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Goff</th>
+      <td>
+        <p><span>Value:</span> 1E-5</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Conductance.html">Conductance</a> (S)</p>
+        <p><span>Description:</span> Opened switch conductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V0</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial arc voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dVdt</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.VoltageSlope.html">VoltageSlope</a> (V/s)</p>
+        <p><span>Description:</span> Arc voltage slope</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vmax</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Max. arc voltage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Conditional heat port</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc.html">ControlledCloserWithArc</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span</p>
+        <p>Controlled ideal electrical closer with simple arc model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc.html">ControlledOpenerWithArc</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span</p>
+        <p>Controlled ideal electrical opener with simple arc model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.CloserWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.CloserWithArc.html">CloserWithArc</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span</p>
+        <p>Ideal closing switch with simple arc model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.OpenerWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.OpenerWithArc.html">OpenerWithArc</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span</p>
+        <p>Ideal opening switch with simple arc model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

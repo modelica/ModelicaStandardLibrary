@@ -1,0 +1,308 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.Spherical.html">Spherical</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Spherical</h1>
+    <p>Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Spherical_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Joint with <strong>3 constraints</strong> that define that the origin of
+frame_a and the origin of frame_b coincide. By default this joint
+defines only the 3 constraints without any potential states.
+If parameter <strong>enforceStates</strong> is set to <strong>true</strong>
+in the "Advanced" menu, three states are introduced.
+Depending on parameter <strong>useQuaternions</strong> these are either
+quaternions and the relative angular velocity or 3 angles
+and the angle derivatives. In the latter case the orientation
+of frame_b is computed by rotating frame_a along the axes defined
+in parameter vector "sequence_angleStates" (default = {1,2,3}, i.e.,
+the Cardan angle sequence) around the angles used as states.
+For example, the default is to rotate the x-axis of frame_a
+around angles[1], the new y-axis around angles[2] and the new z-axis
+around angles[3], arriving at frame_b. If angles are used
+as states there is the slight disadvantage that
+a singular configuration is present leading to a division by zero.
+</p>
+<p>
+If this joint is used in a <strong>chain</strong> structure, a Modelica translator
+has to select orientation coordinates of a body as states, if the
+default setting is used. It is usually better to use relative coordinates
+in the spherical joint as states, and therefore in this situation
+parameter enforceStates might be set to <strong>true</strong>.
+</p>
+<p>
+If this joint is used in a <strong>loop</strong> structure, the default
+setting results in a <strong>cut-joint</strong> that
+breaks the loop in independent kinematic pieces, hold together
+by the constraints of this joint. As a result, a Modelica translator
+will first try to select 3 generalized coordinates in the joints of
+the remaining parts of the loop and their first derivative as states
+and if this is not possible, e.g., because there are only spherical
+joints in the loop, will select coordinates from a body of the loop
+as states.
+</p>
+<p>
+In the following figure the animation of a spherical
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint.
+(here: angles_start = {45, 45, 45}<sup>o</sup>).
+</p>
+
+<p>
+<img src="modelica:///Modelica.Mechanics.MultiBody.Joints.Spherical/resources/Modelica.Mechanics.MultiBody.Joints.Spherical_info_001.png">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled (show sphere)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sphereDiameter</th>
+      <td>
+        <p><span>Value:</span> world.defaultJointLength</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Diameter of sphere representing the spherical joint</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angles_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if angles_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angles_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle[3]</a> (rad)</p>
+        <p><span>Description:</span> Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence_start</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> Sequence of rotations to rotate frame_a into frame_b at initial time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_rel_a_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if w_rel_a_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_rel_a_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity[3]</a> (rad/s)</p>
+        <p><span>Description:</span> Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_rel_a_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if z_rel_a_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_rel_a_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularAcceleration.html">AngularAcceleration[3]</a> (rad/s²)</p>
+        <p><span>Description:</span> Initial values of angular acceleration z_rel_a = der(w_rel_a)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence_angleStates</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R_rel_start</th>
+      <td>
+        <p><span>Value:</span> Frames.axesRotations(sequence_start, angles_start, zeros(3))</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object from frame_a to frame_b at initial time</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sphereColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.JointColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of sphere representing the spherical joint</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system a fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system b fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_rel_start</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object from frame_a to frame_b at initial time</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>sphere</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Dummy or relative orientation object to rotate from frame_a to frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_rel_inv</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Dummy or relative orientation object to rotate from frame_b to frame_a</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects.html">GyroscopicEffects</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span</p>
+        <p>Demonstrates that a cylindrical body can be replaced by Rotor1D model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Constraints.SphericalConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Constraints.SphericalConstraint.html">SphericalConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Constraints</span</p>
+        <p>Body attached by one spring and spherical joint or constrained to environment</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

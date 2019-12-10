@@ -1,0 +1,732 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Icons.html">Icons</a></li>
+  <li><a href="Modelica.Blocks.Icons.Block.html">Block</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Block</h1>
+    <p>Basic graphical layout of input/output block</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Icons.Block_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Block that has only the basic icon for an input/output
+block (no declarations, no equations). Most blocks
+of package Modelica.Blocks inherit directly or indirectly
+from this block.
+</p>
+</div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(85)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Utilities.Conduction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Utilities.Conduction.html">Conduction</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples.Utilities</span</p>
+        <p>Input/output block of a conduction model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Utilities.InverseCapacity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Utilities.InverseCapacity.html">InverseCapacity</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples.Utilities</span</p>
+        <p>Input/output block of an inverse heatCapacity model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Utilities.DirectCapacity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Utilities.DirectCapacity.html">DirectCapacity</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples.Utilities</span</p>
+        <p>Input/output block of a direct heatCapacity model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.InitializeFlange_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.InitializeFlange.html">InitializeFlange</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.Spring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.Spring.html">Spring</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span</p>
+        <p>Input/output block of a spring model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span</p>
+        <p>Input/output block of a spring/damper model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.InverseMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.InverseMass.html">InverseMass</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span</p>
+        <p>Input/output block of an inverse mass model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.DirectMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.DirectMass.html">DirectMass</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span</p>
+        <p>Input/output block of a direct mass model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.InitializeFlange_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.InitializeFlange.html">InitializeFlange</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Initializes a flange with pre-defined angle, speed and angular acceleration (usually, this is reference data from a control bus)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.Spring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.Spring.html">Spring</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span</p>
+        <p>Input/output block of a spring model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span</p>
+        <p>Input/output block of a spring/damper model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia.html">InverseInertia</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span</p>
+        <p>Input/output block of an inverse inertia model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia.html">DirectInertia</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span</p>
+        <p>Input/output block of a direct inertia model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque.html">ZeroForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span</p>
+        <p>Set force and torque to zero</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.InitAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.InitAngularVelocity.html">InitAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span</p>
+        <p>Internal model to initialize w_rel_b for Joints.FreeMotionScalarInit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.InitAngle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.InitAngle.html">InitAngle</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span</p>
+        <p>Internal model to initialize the angels for Joints.FreeMotionScalarInit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.InitPosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.InitPosition.html">InitPosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span</p>
+        <p>Internal model to initialize r_rel_a for Joints.FreeMotionScalarInit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition.html">ZeroPosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Interfaces</span</p>
+        <p>Set absolute position vector of frame_resolve to a zero vector and the orientation object to a null rotation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.Controller.html">Controller</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components</span</p>
+        <p>P-PI cascade controller for one axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathToAxisControlBus.html">PathToAxisControlBus</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components</span</p>
+        <p>Map path planning to one axis control bus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6.html">PathPlanning6</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components</span</p>
+        <p>Generate reference angles for fastest kinematic movement</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning1.html">PathPlanning1</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components</span</p>
+        <p>Generate reference angles for fastest kinematic movement</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.FromSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.FromSpacePhasor.html">FromSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Blocks</span</p>
+        <p>Conversion: space phasor -> m phase</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.ToSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.MultiPhase.Blocks</span</p>
+        <p>Conversion: m phase -> space phasor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.Machines.SpacePhasors.Blocks.FromSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.Machines.SpacePhasors.Blocks.FromSpacePhasor.html">FromSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.Machines.SpacePhasors.Blocks</span</p>
+        <p>Conversion: space phasor -> three phase</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.Machines.SpacePhasors.Blocks.ToSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStationary.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStationary.Machines.SpacePhasors.Blocks</span</p>
+        <p>Conversion: three phase -> space phasor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level.html">MultiPhase2Level</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC</span</p>
+        <p>Multi phase DC to AC converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.SinglePhase2Level_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.SinglePhase2Level.html">SinglePhase2Level</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC</span</p>
+        <p>Single phase DC to AC converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM.html">IntersectivePWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC.Control</span</p>
+        <p>Intersective PWM</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.Control.PWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.Control.PWM.html">PWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC.Control</span</p>
+        <p>PulseWidthModulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.Conductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.Conductor.html">Conductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span</p>
+        <p>Input/output block of a conductance model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.InverseInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.InverseInductor.html">InverseInductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span</p>
+        <p>Input/output block of an inverse inductor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.DirectInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.DirectInductor.html">DirectInductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span</p>
+        <p>Input/output block of a direct inductor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.Resistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.Resistor.html">Resistor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span</p>
+        <p>Input/output block of a resistance model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.InverseCapacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.InverseCapacitor.html">InverseCapacitor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span</p>
+        <p>Input/output block of an inverse capacitor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.DirectCapacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.DirectCapacitor.html">DirectCapacitor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span</p>
+        <p>Input/output block of a direct capacitor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.ComplexToPolar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.ComplexToPolar.html">ComplexToPolar</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span</p>
+        <p>Converts complex to polar representation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.ComplexToReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.ComplexToReal.html">ComplexToReal</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span</p>
+        <p>Converts complex to Cartesian representation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Add3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Add3.html">Add3</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span</p>
+        <p>Output the sum of the three inputs</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexMI2MO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Interfaces.ComplexMI2MO.html">ComplexMI2MO</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span</p>
+        <p>2 Multiple Input / Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexMIMOs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Interfaces.ComplexMIMOs.html">ComplexMIMOs</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span</p>
+        <p>Multiple Input Multiple Output continuous control block with same number of inputs and outputs</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexMIMO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Interfaces.ComplexMIMO.html">ComplexMIMO</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span</p>
+        <p>Multiple Input Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexMISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Interfaces.ComplexMISO.html">ComplexMISO</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span</p>
+        <p>Multiple Input Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexSIMO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Interfaces.ComplexSIMO.html">ComplexSIMO</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span</p>
+        <p>Single Input Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexSI2SO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Interfaces.ComplexSI2SO.html">ComplexSI2SO</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span</p>
+        <p>2 Single Input / 1 Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexSISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Interfaces.ComplexSISO.html">ComplexSISO</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span</p>
+        <p>Single Input Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexMO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Interfaces.ComplexMO.html">ComplexMO</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span</p>
+        <p>Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexSO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Interfaces.ComplexSO.html">ComplexSO</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span</p>
+        <p>Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.KinematicPTP2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.KinematicPTP2.html">KinematicPTP2</a></p>
+        <p><span>Modelica.Blocks.Sources</span</p>
+        <p>Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex6_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex6.html">DeMultiplex6</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>DeMultiplexer block for six output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex5_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex5.html">DeMultiplex5</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>DeMultiplexer block for five output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex4_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex4.html">DeMultiplex4</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>DeMultiplexer block for four output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex3.html">DeMultiplex3</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>DeMultiplexer block for three output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex2.html">DeMultiplex2</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>DeMultiplexer block for two output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex.html">DeMultiplex</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>DeMultiplexer block for arbitrary number of output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex6_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex6.html">Multiplex6</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>Multiplexer block for six input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex5_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex5.html">Multiplex5</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>Multiplexer block for five input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex4_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex4.html">Multiplex4</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>Multiplexer block for four input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex3.html">Multiplex3</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>Multiplexer block for three input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex2.html">Multiplex2</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>Multiplexer block for two input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex.html">Multiplex</a></p>
+        <p><span>Modelica.Blocks.Routing</span</p>
+        <p>Multiplexer block for arbitrary number of input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.MinMax_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.MinMax.html">MinMax</a></p>
+        <p><span>Modelica.Blocks.Math</span</p>
+        <p>Output the minimum and the maximum element of the input vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Harmonic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Harmonic.html">Harmonic</a></p>
+        <p><span>Modelica.Blocks.Math</span</p>
+        <p>Calculate harmonic over period 1/f</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.StandardDeviation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.StandardDeviation.html">StandardDeviation</a></p>
+        <p><span>Modelica.Blocks.Math</span</p>
+        <p>Calculates the empirical standard deviation of its input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Variance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Variance.html">Variance</a></p>
+        <p><span>Modelica.Blocks.Math</span</p>
+        <p>Calculates the empirical variance of its input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.ContinuousMean_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.ContinuousMean.html">ContinuousMean</a></p>
+        <p><span>Modelica.Blocks.Math</span</p>
+        <p>Calculates the empirical expectation (mean) value of its input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.PolarToRectangular_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.PolarToRectangular.html">PolarToRectangular</a></p>
+        <p><span>Modelica.Blocks.Math</span</p>
+        <p>Convert polar coordinates to rectangular coordinates</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.RectangularToPolar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.RectangularToPolar.html">RectangularToPolar</a></p>
+        <p><span>Modelica.Blocks.Math</span</p>
+        <p>Convert rectangular coordinates to polar coordinates</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.IntegerToReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.IntegerToReal.html">IntegerToReal</a></p>
+        <p><span>Modelica.Blocks.Math</span</p>
+        <p>Convert Integer to Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Add3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Add3.html">Add3</a></p>
+        <p><span>Modelica.Blocks.Math</span</p>
+        <p>Output the sum of the three inputs</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MVcontrol_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MVcontrol.html">MVcontrol</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>Multi-Variable continuous controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SVcontrol_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SVcontrol.html">SVcontrol</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>Single-Variable continuous controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MI2MO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MI2MO.html">MI2MO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>2 Multiple Input / Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MIMOs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MIMOs.html">MIMOs</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>Multiple Input Multiple Output continuous control block with same number of inputs and outputs</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MIMO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MIMO.html">MIMO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>Multiple Input Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MISO.html">MISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>Multiple Input Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SIMO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SIMO.html">SIMO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>Single Input Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SI2SO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SI2SO.html">SI2SO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>2 Single Input / 1 Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SISO.html">SISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>Single Input Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MO.html">MO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SO.html">SO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span</p>
+        <p>Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.NoiseExamples.Utilities.Parts.Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.NoiseExamples.Utilities.Parts.Controller.html">Controller</a></p>
+        <p><span>Modelica.Blocks.Examples.NoiseExamples.Utilities.Parts</span</p>
+        <p>Simple position controller for actuator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.NoiseExamples.Utilities.WeibullDensity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.NoiseExamples.Utilities.WeibullDensity.html">WeibullDensity</a></p>
+        <p><span>Modelica.Blocks.Examples.NoiseExamples.Utilities</span</p>
+        <p>Calculates the density of a Weibull distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.NoiseExamples.Utilities.NormalDensity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.NoiseExamples.Utilities.NormalDensity.html">NormalDensity</a></p>
+        <p><span>Modelica.Blocks.Examples.NoiseExamples.Utilities</span</p>
+        <p>Calculates the density of a normal distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.NoiseExamples.Utilities.UniformDensity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.NoiseExamples.Utilities.UniformDensity.html">UniformDensity</a></p>
+        <p><span>Modelica.Blocks.Examples.NoiseExamples.Utilities</span</p>
+        <p>Calculates the density of a uniform distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Special.html">Special</a></li>
+  <li><a href="Modelica.Math.Special.erfc.html">erfc</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>erfc</h1>
+    <p>Complementary error function erfc(u) = 1 - erf(u)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Special.erfc_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Special.<strong>erfc</strong>(u);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the complementary error function erfc(u) = 1 - erf(u) with a relative precision of about 1e-15. The implementation utilizes the formulation of the Boost library
+(53-bit implementation of <a href="http://www.boost.org/doc/libs/1_57_0/boost/math/special_functions/erf.hpp">erf.hpp</a>
+developed by John Maddock). Plot
+of the function:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.Special.erfc/resources/Modelica.Math.Special.erfc_info_001.png">
+</blockquote>
+
+<p>
+If u is large and erf(u) is subtracted from 1.0, the result is not accurate.
+It is then better to use erfc(u). For more details,
+see <a href="http://en.wikipedia.org/wiki/Error_function">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  erfc(0)    // = 1
+  erfc(10)   // = 0
+  erfc(0.5)  // = 0.4795001221869534
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Special.erf.html">erf</a>,
+<a href="Modelica.Math.Special.erfInv.html">erfInv</a>,
+<a href="Modelica.Math.Special.erfcInv.html">erfcInv</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = erfc(u)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Input argument</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> = 1 - erf(u)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

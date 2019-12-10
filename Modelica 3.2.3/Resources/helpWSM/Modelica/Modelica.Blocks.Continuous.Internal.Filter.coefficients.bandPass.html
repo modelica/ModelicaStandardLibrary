@@ -1,0 +1,121 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.coefficients.html">coefficients</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.coefficients.bandPass.html">bandPass</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>bandPass</h1>
+    <p>Return band pass filter coefficients at given cut-off frequency</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.Internal.Filter.coefficients.bandPass_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(cr, c0, c1, cn) = bandPass(cr_in, c0_in, c1_in, f_min, f_max)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>cr_in</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Coefficients of real poles</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c0_in</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Coefficients of s^0 term if conjugate complex pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c1_in</th>
+      <td>
+        <p><span>Type:</span> Real[size(c0_in, 1)]</p>
+        <p><span>Description:</span> Coefficients of s^1 term if conjugate complex pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_min</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Band of band pass filter is f_min (A=-3db) .. f_max (A=-3db)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_max</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Upper band frequency</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>cr</th>
+      <td>
+        <p><span>Type:</span> Real[0]</p>
+        <p><span>Description:</span> Coefficient of real pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c0</th>
+      <td>
+        <p><span>Type:</span> Real[size(cr_in, 1) + 2 * size(c0_in, 1)]</p>
+        <p><span>Description:</span> Coefficients of s^0 term if conjugate complex pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c1</th>
+      <td>
+        <p><span>Type:</span> Real[size(cr_in, 1) + 2 * size(c0_in, 1)]</p>
+        <p><span>Description:</span> Coefficients of s^1 term if conjugate complex pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cn</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Numerator coefficient of the PT2 terms</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.FilterWithRiseTime.html">FilterWithRiseTime</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FilterWithRiseTime</h1>
+    <p>Demonstrates to use the rise time instead of the cut-off frequency to define a filter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.FilterWithRiseTime_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.FilterWithRiseTime_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.FilterWithRiseTime_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Filters are usually parameterized with the cut-off frequency.
+Sometimes, it is more meaningful to parameterize a filter with its
+rise time, i.e., the time it needs until the output reaches the end value
+of a step input. This is performed with the formula:
+</p>
+
+<blockquote><pre>
+f_cut = fac/(2*pi*riseTime);
+</pre></blockquote>
+
+<p>
+where "fac" is typically 3, 4, or 5. The following image shows
+the results of a simulation of this example model
+(riseTime = 2 s, fac=3, 4, and 5):
+</p>
+
+<img src="resources/Modelica.Blocks.Examples.FilterWithRiseTime_info_001.png"
+     alt="FilterWithRiseTime.png">
+
+<p>
+Since the step starts at 1 s, and the rise time is 2 s, the filter output y
+shall reach the value of 1 after 1+2=3 s. Depending on the factor "fac" this is
+reached with different precisions. This is summarized in the following table:
+</p>
+
+<blockquote><table border=1 cellspacing=0 cellpadding=2>
+<tr>
+   <td>Filter order</td>
+   <td>Factor fac</td>
+   <td>Percentage of step value reached after rise time</td>
+</tr>
+<tr>
+   <td align="center">1</td>
+   <td align="center">3</td>
+   <td align="center">95.1 %</td>
+</tr>
+<tr>
+   <td align="center">1</td>
+   <td align="center">4</td>
+   <td align="center">98.2 %</td>
+</tr>
+<tr>
+   <td align="center">1</td>
+   <td align="center">5</td>
+   <td align="center">99.3 %</td>
+</tr>
+
+<tr>
+   <td align="center">2</td>
+   <td align="center">3</td>
+   <td align="center">94.7 %</td>
+</tr>
+<tr>
+   <td align="center">2</td>
+   <td align="center">4</td>
+   <td align="center">98.6 %</td>
+</tr>
+<tr>
+   <td align="center">2</td>
+   <td align="center">5</td>
+   <td align="center">99.6 %</td>
+</tr>
+</table></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>order</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Filter order</p>
+      </td>
+    </tr>
+    <tr>
+      <th>riseTime</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time to reach the step input</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>filter_fac5</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>filter_fac4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>filter_fac3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

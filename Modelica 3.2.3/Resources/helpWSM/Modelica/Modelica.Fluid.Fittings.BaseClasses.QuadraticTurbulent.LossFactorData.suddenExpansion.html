@@ -1,0 +1,100 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Fittings.html">Fittings</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion.html">suddenExpansion</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>suddenExpansion</h1>
+    <p>Return pressure loss data for sudden expansion or contraction in a pipe (for both flow directions)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The loss factors are given for mass flow rates from
+port_a to port_b as:
+</p>
+<pre>
+   A_a &lt; A_b (Idelchik 1994, diagram 4-1, p. 208):
+      zeta = dp/(rho_a*v_a^2/2)
+           = (1 - A_a/A_b)^2 for Re_a &ge; 3.3e3 (turbulent flow)
+      zeta = 30/Re           for Re_a &lt; 10    (laminar flow)
+&nbsp;
+   A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
+      zeta = dp/(rho_b*v_b^2/2)
+           = 0.5*(1 - A_b/A_a)^0.75 for Re_b &ge; 1e4 (turbulent flow)
+      zeta = 30/Re                  for Re_a &lt; 10  (laminar flow)
+</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">data = suddenExpansion(diameter_a, diameter_b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>diameter_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Inner diameter of pipe at port_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>diameter_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Inner diameter of pipe at port_b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>data</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></p>
+        <p><span>Description:</span> Pressure loss factors for both flow directions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

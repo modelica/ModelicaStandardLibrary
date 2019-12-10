@@ -1,0 +1,102 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.IdealGases.html">IdealGases</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.T_hX.html">T_hX</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>T_hX</h1>
+    <p>Return temperature from specific enthalpy and mass fraction</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.IdealGases.Common.MixtureGasNasa.T_hX_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">T = T_hX(h, X, exclEnthForm, refChoice, h_off)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>h</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.MassFraction.html">MassFraction[nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Mass fractions of composition</p>
+      </td>
+    </tr>
+    <tr>
+      <th>exclEnthForm</th>
+      <td>
+        <p><span>Default Value:</span> excludeEnthalpyOfFormation</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, enthalpy of formation Hf is not included in specific enthalpy h</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refChoice</th>
+      <td>
+        <p><span>Default Value:</span> referenceChoice</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.Choices.ReferenceEnthalpy.html">ReferenceEnthalpy</a></p>
+        <p><span>Description:</span> Choice of reference enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_off</th>
+      <td>
+        <p><span>Default Value:</span> h_offset</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> User defined offset for reference enthalpy, if referenceChoice = UserDefined</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

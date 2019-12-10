@@ -1,0 +1,146 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Delay.html">Delay</a></li>
+  <li><a href="Modelica.Electrical.Digital.Delay.DelayParams.html">DelayParams</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DelayParams</h1>
+    <p>Definition of delay parameters</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>DelayParams is a partial model for providing delay times and inertial values. It is used in components of the package Gates which need the same parameters. The partial model does not have any behavior or equations.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tLH</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Rise inertial delay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tHL</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Fall inertial delay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y0</th>
+      <td>
+        <p><span>Value:</span> L.'U'</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic</a></p>
+        <p><span>Description:</span> Initial value of output</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.BufGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.BufGate.html">BufGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>BufGate with 1 input value, composed by Not and sensitive inertial delay</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.XnorGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.XnorGate.html">XnorGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>XnorGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.XorGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.XorGate.html">XorGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>XorGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.NorGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.NorGate.html">NorGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>NorGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.OrGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.OrGate.html">OrGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>OrGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.NandGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.NandGate.html">NandGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>NandGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.AndGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.AndGate.html">AndGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>AndGate with multiple input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Gates.InvGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Gates.InvGate.html">InvGate</a></p>
+        <p><span>Modelica.Electrical.Digital.Gates</span</p>
+        <p>InvGate with 1 input value, composed by Not and sensitive inertial delay</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

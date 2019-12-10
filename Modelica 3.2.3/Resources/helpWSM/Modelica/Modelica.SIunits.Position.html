@@ -1,0 +1,882 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.SIunits.html">SIunits</a></li>
+  <li><a href="Modelica.SIunits.Position.html">Position</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Position</h1>
+    <p></p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="type" >
+  <h1>Type Information </h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Real</th>
+      <td>
+        <p><span>Quantity:</span> Length</p>
+        <p><span>Unit:</span> m</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.SlewRateLimiter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.SlewRateLimiter.html">SlewRateLimiter</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrate usage of Nonlinear.SlewRateLimiter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField.html">UserDefinedGravityField</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span</p>
+        <p>Demonstrate the modeling of a user-defined gravity field</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1.html">Fourbar1</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span</p>
+        <p>One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2.html">Fourbar2</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span</p>
+        <p>One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic.html">Fourbar_analytic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span</p>
+        <p>One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot.html">fullRobot</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3</span</p>
+        <p>Six degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder.html">TestCylinder</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span</p>
+        <p>Two cylinder system</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(95)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/ModelicaServices.Animation.Shape_32x32.png"></td>
+      <td>
+        <p><a href="../ModelicaServices/ModelicaServices.Animation.Shape.html">Shape</a></p>
+        <p><span>ModelicaServices.Animation</span</p>
+        <p>Different visual shapes with variable size; all data have to be set as modifiers (see info layer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.TranslationalEMF_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.TranslationalEMF.html">TranslationalEMF</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span</p>
+        <p>Electromotoric force (electric/mechanic transformer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator.html">PermeanceActuator</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</span</p>
+        <p>Detailed actuator model for rough magnetic design of actuator and system simulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator.html">ConstantActuator</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</span</p>
+        <p>Simple behavioural actuator model for system simulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">SimpleSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span</p>
+        <p>Simple network model of a lifting magnet with planar armature end face</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid.html">AdvancedSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span</p>
+        <p>Advanced network model of a lifting magnet with planar armature end face, split magnetomotive force</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper.html">TranslatoryArmatureAndStopper</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Utilities</span</p>
+        <p>Mass with free travel between two stoppers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+        <p><span>Modelica.Mechanics.MultiBody</span</p>
+        <p>World coordinate system + gravity field + default animation definition</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.MechanicalStructure_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.MechanicalStructure.html">MechanicalStructure</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components</span</p>
+        <p>Model of the mechanical part of the r3 robot (without animation)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.WorldForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.WorldForce.html">WorldForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.WorldTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.WorldTorque.html">WorldTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>External torque acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque.html">WorldForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>External force and torque acting at frame_b, defined by 3+3 input signals and resolved in frame world, frame_b or in frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Force_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Force.html">Force</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Torque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Torque.html">Torque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.ForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque.html">ForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.LineForceWithMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass.html">LineForceWithMass</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>General line force component with an optional point mass on the connection line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses.html">LineForceWithTwoMasses</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>General line force component with two optional point masses on the connection line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Spring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Spring.html">Spring</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Linear translational spring with optional mass</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Damper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Damper.html">Damper</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Linear (velocity dependent) damper</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries.html">SpringDamperSeries</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>Linear spring and linear damper in series connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.BasicForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Internal.BasicForce.html">BasicForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces.Internal</span</p>
+        <p>Force acting between two frames, defined by 3 input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.BasicTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Internal.BasicTorque.html">BasicTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces.Internal</span</p>
+        <p>Torque acting between two frames, defined by 3 input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialForce.html">PartialForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Interfaces</span</p>
+        <p>Base model for force elements (provide frame_b.f and frame_b.t in subclasses)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.LineForceBase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.LineForceBase.html">LineForceBase</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Interfaces</span</p>
+        <p>Base model for line force elements</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce.html">PartialLineForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Interfaces</span</p>
+        <p>Base model for massless line force elements</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Prismatic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Prismatic.html">Prismatic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint.html">RevolutePlanarLoopConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Cylindrical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Cylindrical.html">Cylindrical</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Cylindrical joint (2 degrees-of-freedom, 4 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Planar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Planar.html">Planar</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Planar joint (3 degrees-of-freedom, 6 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.FreeMotion_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.FreeMotion.html">FreeMotion</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Free motion joint (6 degrees-of-freedom, 12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.SphericalSpherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.SphericalSpherical.html">SphericalSpherical</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.UniversalSpherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.UniversalSpherical.html">UniversalSpherical</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Universal - spherical joint aggregation (1 constraint, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.GearConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.GearConstraint.html">GearConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Ideal 3-dim. gearbox (arbitrary shaft directions)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.RollingWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.RollingWheel.html">RollingWheel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.RollingWheelSet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.RollingWheelSet.html">RollingWheelSet</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS.html">JointUPS</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Universal - prismatic - spherical joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR.html">JointUSR</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Universal - spherical - revolute joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP.html">JointUSP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Universal - spherical - prismatic joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR.html">JointSSR</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP.html">JointSSP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR.html">JointRRR</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP.html">JointRRP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Constraints.Prismatic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Constraints.Prismatic.html">Prismatic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Constraints</span</p>
+        <p>Prismatic cut-joint and translational directions may be constrained or released</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Constraints.Revolute_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Constraints.Revolute.html">Revolute</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Constraints</span</p>
+        <p>Revolute cut-joint and translational directions may be constrained or released</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Constraints.Spherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Constraints.Spherical.html">Spherical</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Constraints</span</p>
+        <p>Spherical cut joint and translational directions may be constrained or released</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Constraints.Universal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Constraints.Universal.html">Universal</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Constraints</span</p>
+        <p>Universal cut-joint and translational directions may be constrained or released</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint.html">RevoluteWithLengthConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span</p>
+        <p>Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint.html">PrismaticWithLengthConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span</p>
+        <p>Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel.html">RollingConstraintVerticalWheel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span</p>
+        <p>Rolling constraint for wheel that is always perpendicular to x-y plane</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.InitPosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.InitPosition.html">InitPosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span</p>
+        <p>Internal model to initialize r_rel_a for Joints.FreeMotionScalarInit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Fixed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Fixed.html">Fixed</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Frame fixed in the world frame at a given position</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Fixed translation of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedRotation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.FixedRotation.html">FixedRotation</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Fixed translation followed by a fixed rotation of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Body_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Rigid body with mass, inertia tensor and one frame connector (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyShape.html">BodyShape</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyBox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.PointMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.PointMass.html">PointMass</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Rigid body where body rotation and inertia tensor is neglected (6 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Rotor1D_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.html">Rotor1D</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Rotor1D.RotorWith3DEffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.RotorWith3DEffects.html">RotorWith3DEffects</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts.Rotor1D</span</p>
+        <p>1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.RollingWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.RollingWheel.html">RollingWheel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Ideal rolling wheel on flat surface z=0 (5 positional, 3 velocity degrees of freedom)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.RollingWheelSet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.RollingWheelSet.html">RollingWheelSet</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span</p>
+        <p>Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Distance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Distance.html">Distance</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span</p>
+        <p>Measure the distance between the origins of two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.CutForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.CutForce.html">CutForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span</p>
+        <p>Measure cut force vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.CutTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.CutTorque.html">CutTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span</p>
+        <p>Measure cut torque vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque.html">CutForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span</p>
+        <p>Measure cut force and cut torque vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedShape.html">FixedShape</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing an elementary shape with dynamically varying shape attributes (has one frame connector)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedShape2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2.html">FixedShape2</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing an elementary shape with dynamically varying shape attributes (has two frame connectors)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedArrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow.html">FixedArrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing an arrow with dynamically varying size in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.SignalArrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow.html">SignalArrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing an arrow with dynamically varying size in frame_a based on input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Ground_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Ground.html">Ground</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span</p>
+        <p>Visualizing the ground (box in z=0)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow.html">Arrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Advanced</span</p>
+        <p>Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow.html">DoubleArrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Advanced</span</p>
+        <p>Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField.html">PipeWithScalarField</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Advanced</span</p>
+        <p>Visualizing a pipe with a scalar field</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines.html">FixedLines</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Internal</span</p>
+        <p>Visualizing a set of lines as cylinders (e.g., used to display characters)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines.html">Lines</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Internal</span</p>
+        <p>Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Fixed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.Fixed.html">Fixed</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Fixed flange</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Linear 1D translational spring and damper in parallel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.ElastoGap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.ElastoGap.html">ElastoGap</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>1D translational spring damper combination with gap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.SupportFriction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.SupportFriction.html">SupportFriction</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Coulomb friction in support</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Brake_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.Brake.html">Brake</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Brake based on Coulomb friction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.InitializeFlange_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.InitializeFlange.html">InitializeFlange</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop.html">PartialFrictionWithStop</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components.MassWithStopAndFriction</span</p>
+        <p>Base model of Coulomb friction elements with stop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.RelativeStates_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.RelativeStates.html">RelativeStates</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Definition of relative state variables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.RelSpeedSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.RelSpeedSensor.html">RelSpeedSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span</p>
+        <p>Ideal sensor to measure the relative speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.RelAccSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.RelAccSensor.html">RelAccSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span</p>
+        <p>Ideal sensor to measure the relative acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.InternalSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.InternalSupport.html">InternalSupport</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Adapter model to utilize conditional support connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialRigid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialRigid.html">PartialRigid</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Rigid connection of two translational 1D flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialCompliant_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialCompliant.html">PartialCompliant</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Compliant connection of two translational 1D flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates.html">PartialCompliantWithRelativeStates</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Machines.ControlledPump_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Machines.ControlledPump.html">ControlledPump</a></p>
+        <p><span>Modelica.Fluid.Machines</span</p>
+        <p>Centrifugal pump with ideally controlled mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Machines.BaseClasses.PartialPump_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.html">PartialPump</a></p>
+        <p><span>Modelica.Fluid.Machines.BaseClasses</span</p>
+        <p>Base model for centrifugal pumps</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringNPSH.html">PumpMonitoringNPSH</a></p>
+        <p><span>Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</span</p>
+        <p>Monitor Net Positive Suction Head (NPSH)</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape.html">PartialShape</a></p>
+        <p><span>Modelica.Utilities.Internal.PartialModelicaServices.Animation</span</p>
+        <p>Interface for 3D animation of elementary shapes</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface.html">PartialSurface</a></p>
+        <p><span>Modelica.Utilities.Internal.PartialModelicaServices.Animation</span</p>
+        <p>Interface for 3D animation of surfaces</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

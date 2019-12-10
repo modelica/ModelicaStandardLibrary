@@ -1,0 +1,53 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'Integer()'.html">'Integer()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'Integer()'</h1>
+    <p>Integer()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'Integer()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Returns ordinal number of enumeration
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>Integer</strong>(&lt;expression of enumeration type&gt;)</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the ordinal number of the enumeration value E.enumvalue, to which the expression
+is evaluated, where Integer(E.e1) =1, Integer(E.en) =size(E), for an enumeration
+type E=enumeration(e1, ...,  en).
+</p>
+
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>type</strong> Size = <strong>enumeration</strong>(small, medium, large, xlarge);
+Size tshirt = Size.large;
+Integer tshirtValue = <strong>Integer</strong>(tshirt);  // = 3
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

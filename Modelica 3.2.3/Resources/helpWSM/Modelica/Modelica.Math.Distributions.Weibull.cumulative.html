@@ -1,0 +1,139 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Distributions.html">Distributions</a></li>
+  <li><a href="Modelica.Math.Distributions.Weibull.html">Weibull</a></li>
+  <li><a href="Modelica.Math.Distributions.Weibull.cumulative.html">cumulative</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>cumulative</h1>
+    <p>Cumulative distribution function of Weibull distribution</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Distributions.Weibull.cumulative_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Weibull.<strong>cumulative</strong>(u, lambda=1, k=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the cumulative distribution function
+according to a <strong>Weibull</strong> distribution
+with scale parameter <strong>lambda</strong> and shape parameter <strong>k</strong>. Equation:
+</p>
+
+<blockquote><pre>
+y := if u >= 0 then 1 - exp(-(u/lambda)^k) else 0.0;
+</pre></blockquote>
+
+<p>
+The returned value y is in the range:
+</p>
+
+<blockquote>
+0 &le; y &le; 1
+</blockquote>
+
+<p>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.Distributions.Weibull.cumulative/resources/Modelica.Math.Distributions.Weibull.cumulative_info_001.png">
+</blockquote>
+
+<p>
+For more details, see
+<a href="http://en.wikipedia.org/wiki/Weibull_distribution">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  cumulative(0.5)       // = 0.3934693402873666
+  cumulative(0.5,0.5,1) // = 0.6321205588285577
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Distributions.Weibull.density.html">Weibull.density</a>,
+<a href="Modelica.Math.Distributions.Weibull.quantile.html">Weibull.quantile</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = cumulative(u, lambda, k)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Value over the real axis (-inf < u < inf)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lambda</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Scale parameter of the Weibull distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Shape parameter of the Weibull distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Value in the range 0 <= y <= 1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

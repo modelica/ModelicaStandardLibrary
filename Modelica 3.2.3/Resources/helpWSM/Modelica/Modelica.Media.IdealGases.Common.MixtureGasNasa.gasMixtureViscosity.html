@@ -1,0 +1,111 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.IdealGases.html">IdealGases</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.gasMixtureViscosity.html">gasMixtureViscosity</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>gasMixtureViscosity</h1>
+    <p>Return viscosities of gas mixtures at low pressures (Wilke method)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.IdealGases.Common.MixtureGasNasa.gasMixtureViscosity_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Simplification of the kinetic theory (Chapman and Enskog theory)
+approach neglecting the second-order effects.<br>
+<br>
+This equation has been extensively tested (Amdur and Mason, 1958;
+Bromley and Wilke, 1951; Cheung, 1958; Dahler, 1959; Gandhi and Saxena,
+1964; Ranz and Brodowsky, 1962; Saxena and Gambhir, 1963a; Strunk, et
+al., 1964; Vanderslice, et al. 1962; Wright and Gray, 1962). In most
+cases, only nonpolar mixtures were compared, and very good results
+obtained. For some systems containing hydrogen as one component, less
+satisfactory agreement was noted. Wilke's method predicted mixture
+viscosities that were larger than experimental for the H2-N2 system,
+but for H2-NH3, it underestimated the viscosities.<br>
+Gururaja, et al. (1967) found that this method also overpredicted in
+the H2-O2 case but was quite accurate for the H2-CO2 system.<br>
+Wilke's approximation has proved reliable even for polar-polar gas
+mixtures of aliphatic alcohols (Reid and Belenyessy, 1960). The
+principal reservation appears to lie in those cases where Mi&gt;&gt;Mj
+and etai&gt;&gt;etaj.<br>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">etam = gasMixtureViscosity(yi, M, eta)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>yi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.MoleFraction.html">MoleFraction[:]</a> (mol/mol)</p>
+        <p><span>Description:</span> Mole fractions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.MolarMass.html">MolarMass[size(yi, 1)]</a> (kg/mol)</p>
+        <p><span>Description:</span> Mole masses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eta</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.DynamicViscosity.html">DynamicViscosity[size(yi, 1)]</a> (Pa·s)</p>
+        <p><span>Description:</span> Pure component viscosities</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>etam</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Viscosity of the mixture</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

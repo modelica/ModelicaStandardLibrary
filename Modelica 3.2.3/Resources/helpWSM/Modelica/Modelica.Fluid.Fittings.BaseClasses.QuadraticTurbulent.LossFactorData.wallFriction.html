@@ -1,0 +1,163 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Fittings.html">Fittings</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction.html">wallFriction</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>wallFriction</h1>
+    <p>Return pressure loss data due to friction in a straight pipe with walls of nonuniform roughness (not useful for smooth pipes, since zeta is no function of Re)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Friction in straight pipe with walls of nonuniform roughness
+(commercial pipes) in the region that does not depend on the Reynolds-number
+</p>
+<p>
+The loss factors are given for mass flow rates from
+port_a to port_b as:
+</p>
+<pre>
+  turbulent flow (Idelchik 1994, diagram 2-5, p. 117)
+     zeta = (L/D)/(2*lg(3.7 / &Delta;))^2, for Re >= 560/&Delta;
+&nbsp;
+     for Re &ge; 560/&Delta; the loss factor does not depend on the
+     Reynolds number. For Re &ge; 4000, the flow is turbulent,
+     but depends both on &Delta; and slightly on Re.
+&nbsp;
+  laminar flow (Idelchik 1994, diagram 2-1, p. 110):
+     zeta = 64*(L/D)/Re
+</pre>
+<p>
+where
+</p>
+<ul>
+<li> D is the inner pipe diameter</li>
+<li> L is the length of the pipe</li>
+<li> &Delta; = &delta;/D is the relative roughness where &delta; is
+     the absolute "roughness", i.e., the averaged height of asperities in the pipe.
+     (&delta; may change over time due to growth of surface asperities during
+      service, see [Idelchik 1994, p. 85, Tables 2-1, 2-2]).</li>
+</ul>
+
+<p>
+Since the LossFactorData record can only describe loss factors that depend
+on geometry (but, e.g., not on the Reynolds number), only the region
+with Re &ge; 560/&Delta; is described by this data. Still, the turbulent
+region with the above zeta is defined to start at Re=4000, since otherwise
+the approximation for Re &lt; 560/&Delta; is too bad.
+</p>
+
+<p>
+The absolute roughness <font face="Symbol">d</font> has usually to
+be estimated. In <em>[Idelchik 1994, pp. 105-109,
+Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
+As a short summary:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td><strong>Smooth pipes</strong></td>
+      <td>Drawn brass, copper, aluminium, glass, etc.</td>
+      <td><font face="Symbol">d</font> = 0.0025 mm</td>
+  </tr>
+  <tr><td rowspan="3"><strong>Steel pipes</strong></td>
+      <td>New smooth pipes</td>
+      <td><font face="Symbol">d</font> = 0.025 mm</td>
+  </tr>
+  <tr><td>Mortar lined, average finish</td>
+      <td><font face="Symbol">d</font> = 0.1 mm</td>
+  </tr>
+  <tr><td>Heavy rust</td>
+      <td><font face="Symbol">d</font> = 1 mm</td>
+  </tr>
+  <tr><td rowspan="3"><strong>Concrete pipes</strong></td>
+      <td>Steel forms, first class workmanship</td>
+      <td><font face="Symbol">d</font> = 0.025 mm</td>
+  </tr>
+  <tr><td>Steel forms, average workmanship</td>
+      <td><font face="Symbol">d</font> = 0.1 mm</td>
+  </tr>
+  <tr><td>Block linings</td>
+      <td><font face="Symbol">d</font> = 1 mm</td>
+  </tr>
+</table>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">data = wallFriction(length, diameter, roughness)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>length</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <th>diameter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Inner diameter of pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <th>roughness</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Roughness.html">Roughness</a> (m)</p>
+        <p><span>Description:</span> Absolute roughness of pipe (> 0 required, details see info layer)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>data</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></p>
+        <p><span>Description:</span> Pressure loss factors for both flow directions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

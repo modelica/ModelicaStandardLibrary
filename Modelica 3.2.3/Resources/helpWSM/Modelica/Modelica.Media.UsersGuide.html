@@ -1,0 +1,145 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.UsersGuide.html">UsersGuide</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>UsersGuide</h1>
+    <p>User's Guide of Media Library</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.UsersGuide_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.UsersGuide.MediumUsage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a></p>
+        <p>Medium usage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.UsersGuide.MediumDefinition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.UsersGuide.MediumDefinition.html">MediumDefinition</a></p>
+        <p>Medium definition</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.UsersGuide.ReleaseNotes_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.UsersGuide.ReleaseNotes.html">ReleaseNotes</a></p>
+        <p>Release notes</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.UsersGuide.Contact_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.UsersGuide.Contact.html">Contact</a></p>
+        <p>Contact</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Library <strong>Modelica.Media</strong> is a <strong>free</strong> Modelica package providing
+a standardized interface to fluid media models and specific
+media models based on this interface.
+A fluid medium model defines <strong>algebraic</strong> equations
+for the intensive thermodynamic variables used in the <strong>mass</strong>
+and <strong>energy</strong> balance of component models. Optionally, additional
+medium properties can be computed such as dynamic viscosity or thermal
+conductivity. Medium models are defined for <strong>single</strong> and
+<strong>multiple substance</strong> fluids with <strong>one</strong> and
+<strong>multiple phases</strong>.
+</p>
+<p>
+A large part of the library provides specific medium models
+that can be directly utilized. This library can be used in
+all types of Modelica fluid libraries that may have different connectors
+and design philosophies. It is particularly utilized
+in the Modelica_Fluid library (the Modelica_Fluid library is currently
+under development to provide 1D therm-fluid flow components for
+single and multiple substance flow with one and multiple phases).
+The Modelica.Media library has the following
+main features:
+</p>
+<ul>
+<li> Balance equations and media model equations
+     are decoupled.
+     This means that the used medium model does usually not have an
+     influence on how the balance equations are formulated.
+     For example, the same balance equations are used for media
+     that use pressure and temperature, or pressure and specific
+     enthalpy as independent variables, as well as for
+     incompressible and compressible media models.
+     A Modelica tool will have enough information to
+     generate as efficient code as a traditional
+     (coupled) definition. This feature is described in more
+     detail in section
+     <a href="Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection.html">Static State Selection</a>.</li>
+<li> Optional variables, such as dynamic viscosity, are only computed if
+     needed in the corresponding component.</li>
+<li> The independent variables of a medium model do not
+     influence the definition of a fluid connector port.
+     Especially, the media models are implemented in such a way
+     that a connector may have the minimum number of independent
+     medium variables in a connector and still get the same
+     efficiency as if all medium variables are passed by the
+     connector from one component to the next one (the latter
+     approach has the restriction that a fluid port can only
+     connect two components and not more). Note, the Modelica_Fluid
+     library uses the first approach, i.e., having a set of
+     independent medium variables in a connector.</li>
+<li> The medium models are implemented with regards to
+     efficient dynamic simulation. For example, two phase
+     medium models trigger state events at phase boundaries
+     (because the medium variables are not differentiable
+     at this point).</li>
+</ul>
+<p>
+This User's Guide has the following main parts:
+</p>
+<ul>
+<li> <a href="Modelica.Media.UsersGuide.MediumUsage.html">Medium usage</a>
+     describes how to use a medium model from
+     this library in a component model.</li>
+<li> <a href="Modelica.Media.UsersGuide.MediumDefinition.html">Medium definition</a>
+     describes how a new fluid medium
+     model has to be implemented.</li>
+<li> <a href="Modelica.Media.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>
+     summarizes the changes of the library releases.</li>
+<li><a href="Modelica.Media.UsersGuide.Contact.html">Contact</a>
+    provides information about the authors of the library as well as
+    acknowledgements.</li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Pipes.html">Pipes</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.html">CharacteristicNumbers</a></li>
+  <li><a href="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber.html">ReynoldsNumber</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ReynoldsNumber</h1>
+    <p>Return Reynolds number from v, rho, mu, D</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculation of Reynolds Number
+</p>
+<pre>
+   Re = |v|&rho;D/&mu;
+</pre>
+<p>
+a measure of the relationship between inertial forces (v&rho;) and viscous forces (D/&mu;).
+</p>
+<p>
+The following table gives examples for the characteristic dimension D and the velocity v for different fluid flow devices:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>Device Type</strong></th><th><strong>Characteristic Dimension D</strong></th><th><strong>Velocity v</strong></th></tr>
+<tr><td>Circular Pipe</td><td>diameter</td>
+    <td>m_flow/&rho;/crossArea</td></tr>
+<tr><td>Rectangular Duct</td><td>4*crossArea/perimeter</td>
+    <td>m_flow/&rho;/crossArea</td></tr>
+<tr><td>Wide Duct</td><td>distance between narrow, parallel walls</td>
+    <td>m_flow/&rho;/crossArea</td></tr>
+<tr><td>Packed Bed</td><td>diameterOfSpericalParticles/(1-fluidFractionOfTotalVolume)</td>
+    <td>m_flow/&rho;/crossArea (without particles)</td></tr>
+<tr><td>Device with rotating agitator</td><td>diameterOfRotor</td>
+    <td>RotationalSpeed*diameterOfRotor</td></tr>
+</table>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">Re = ReynoldsNumber(v, rho, mu, D)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Mean velocity of fluid flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Fluid density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Dynamic (absolute) viscosity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Characteristic dimension (hydraulic diameter of pipes)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Re</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ReynoldsNumber.html">ReynoldsNumber</a></p>
+        <p><span>Description:</span> Reynolds number</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

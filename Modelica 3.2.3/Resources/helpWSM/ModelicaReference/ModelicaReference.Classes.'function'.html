@@ -1,0 +1,331 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Classes.html">Classes</a></li>
+  <li><a href="ModelicaReference.Classes.'function'.html">'function'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'function'</h1>
+    <p>function</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Classes.'function'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define specialized class <em>function</em>
+</p>
+<h4>Examples</h4>
+
+<pre><strong>function</strong> si
+  <strong>input</strong> Real x;
+  <strong>output</strong> Real y;
+<strong>algorithm</strong>
+  y = <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
+<strong>end</strong> si;</pre>
+
+<img src="resources/ModelicaReference.Classes.'function'_info_001.png" width="400" height="280" alt="Simulation result">
+
+<h4>Syntax</h4>
+
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>function</strong>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment</pre>
+
+<p>See Modelica Language Specification for further details.</p>
+
+<h4>Description</h4>
+
+<p>The keyword function is used to define functions as known from programming
+languages. Each part of a function interface must
+either have causality equal to input or output. A function may not be used in connections.
+In functions, no equations or initial algorithm and at most
+one algorithm clause are allowed. Calling a function requires
+either an algorithm clause or an external function interface.</p>
+
+<p>
+The syntax and semantics of a function have many similarities to those of the block
+specialized class. A function has many of the properties of a general class,
+e.g., being able to inherit other functions, or to redeclare or modify
+elements of a function declaration.
+</p>
+
+<p>
+Modelica functions have the following restrictions compared to a
+general Modelica class:
+</p>
+
+<ul>
+<li> Each input formal parameter of the function must be
+     prefixed by the keyword input, and each result formal parameter
+     by the keyword output. All public variables are formal parameters.</li>
+
+<li> Input formal parameters are read-only after being bound to the
+     actual arguments or default values, i.e., they may not be assigned
+     values in the body of the function.</li>
+
+<li> A function may not be used in connections, may have no equations,
+     may have no initial algorithm, and can have at most one algorithm
+     section, which, if present, is the body of the function.</li>
+
+<li> A function may have zero or one external function interface, which,
+     if present, is the external definition of the function.</li>
+
+<li> For a function to be called in a simulation model, it must have
+     either an algorithm section or an external function interface as
+     its body, and it may not be partial.</li>
+
+<li> A function cannot contain calls to the Modelica built-in operators
+     der, initial, terminal, sample, pre, edge, change, reinit, delay,
+     cardinality, to the operators of the built-in package Connections,
+     and is not allowed to contain when-statements.</li>
+
+<li> The dimension sizes not declared with (:) of each array result or
+     array local variable [i.e., a non-input components] of a function must
+     be either given by the input formal parameters, or given by constant
+     or parameter expressions, or by expressions containing combinations
+     of those. If an output or a local array dimension is declared with (:),
+     the size of the dimension can be changed in the function. A size change
+     takes place by assigning a full array with the respective sizes to the
+     dynamically sized array on the left hand side of an equal sign.</li>
+
+<li> The local variables of a function are not automatically initialized to
+     the implicit default values of the data type [(e.g., 0.0 for Real)
+     for performance reasons. It is the responsibility of the user to
+     provide explicit defaults or to define the values of such variables
+     before they are referenced.]</li>
+
+<li> Components of a function will inside the function behave as though
+     they had discrete-time variability.</li>
+</ul>
+
+<p>
+Modelica functions have the following enhancements compared to a general Modelica class:
+</p>
+
+<ul>
+<li> A function may be called using the conventional positional calling syntax
+     for passing arguments.</li>
+
+<li> A function can be recursive.</li>
+
+<li> A formal parameter or local variable may be initialized
+     through an assignment (:=) of a default value in its declaration.
+     Initialization through an equation is not possible.</li>
+
+<li> A function is dynamically instantiated when it is called rather than
+     being statically instantiated by an instance declaration,
+     which is the case for other kinds of classes.</li>
+
+<li> A function may have an external function interface specifier as its body.</li>
+
+<li> A function may have a return statement in its algorithm section body.</li>
+
+<li> A function allows dimension sizes declared with (:) to be resized
+     for non-input array variables (so the actual dimension need not to be known when
+     the function is translated).</li>
+</ul>
+
+<p>
+A function may have a function as an input argument.
+The declared type of such an input formal parameter in a function can be
+the class-name of a partial function that has no replaceable elements.
+It cannot be the class-name of a record [i.e., <em>record constructor functions are not
+allowed in this context.</em>] Such an input formal parameter of function type
+can also have an optional functional default value. Example:
+</p>
+
+<blockquote><pre>
+<strong>function</strong> quadrature "Integrate function y=integrand(x) from x1 to x2"
+  <strong>input</strong>  Real x1;
+  <strong>input</strong>  Real x2;
+  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function, see below
+  // With default: input Integrand integrand := Modelica.Math.sin;
+  <strong>output</strong> Real integral;
+<strong>algorithm</strong>
+  integral :=(x2-x1)*(integrand(x1) + integrand(x2))/2;
+<strong>end</strong> quadrature;
+
+<strong>partial function</strong> Integrand
+  <strong>input</strong>  Real x;
+  <strong>output</strong> Real y;
+<strong>end</strong> Integrand;
+</pre></blockquote>
+
+<p>
+A functional argument can be provided in one of the following forms
+to be passed to a formal parameter of function type in a function call
+(see examples below):
+</p>
+<ol>
+<li> as a function name,</li>
+<li> as a function partial application,</li>
+<li> as a function that is a component,</li>
+<li> as a function partial application of a function that is a component.</li>
+</ol>
+
+<p>
+In all cases the provided function must be "function type compatible"
+to the corresponding formal parameter of function type. Example:
+</p>
+
+<blockquote><pre>
+// A function as a positional input argument according to case (a)
+<strong>function</strong> Parabola
+   <strong>extends</strong> Integrand;
+<strong>algorithm</strong>
+   y = x*x;
+<strong>end</strong> Parabola;
+
+area = quadrature(0, 1, Parabola);
+
+// The quadrature2 example below uses a function integrand that
+// is a component as input argument according to case (c):
+<strong>function</strong> quadrature2 "Integrate function y=integrand(x) from x1 to x2"
+  <strong>input</strong>  Real x1;
+  <strong>input</strong>  Real x2;
+  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function type
+  <strong>output</strong> Real integral;
+<strong>algorithm</strong>
+   integral := quadrature(x1,       (x1+x2)/2, integrand)+
+               quadrature((x1+x2)/2, x2,       integrand);
+<strong>end</strong> quadrature2;
+</pre></blockquote>
+
+<p>
+A function partial application is a function call with certain
+formal parameters bound to expressions. A function partial application
+returns a partially evaluated function that is also a function,
+with the remaining not bound formal parameters still present in the
+same order as in the original function declaration. A function partial
+application is specified by the function keyword followed by a function
+call to func_name giving named formal parameter associations for the
+formal parameters to be bound, e.g.:
+</p>
+
+<blockquote><pre>
+<strong>function</strong> func_name(..., formal_parameter_name = expr, ...)
+</pre></blockquote>
+
+<p>
+[<em>Note that the keyword function in a function partial application
+differentiates the syntax from a normal function call where some
+parameters have been left out, and instead supplied via default values.</em>]
+The function created by the function partial application acts as the
+original function but with the bound formal input parameters(s) removed,
+i.e., they cannot be supplied arguments at function call. The binding
+occurs when the partially evaluated function is created. A partially
+evaluated function is "function compatible" to the same function where
+all bound arguments are removed [<em>thus, for checking function type
+compatibility, bound formal parameters are ignored</em>].
+</p>
+
+<p>
+Example of function partial application as argument, positional argument passing, according to case (b) above:
+</p>
+
+<blockquote><pre>
+<strong>model</strong> Test
+   <strong>parameter</strong> Integer N;
+   Real area;
+<strong>algorithm</strong>
+   area := 0;
+   <strong>for</strong> i <strong>in</strong> 1:N <strong>loop</strong>
+     area  := area + quadrature(0, 1, <strong>function</strong> Sine(A=2, w=i*time));
+   <strong>end for</strong>;
+<strong>end</strong> Test;
+
+<strong>function</strong> Sine  "y = Sine(x,A,w)"
+  <strong>extends</strong> Integrand;
+  <strong>input</strong> Real A;
+  <strong>input</strong> Real w;
+<strong>algorithm</strong>
+  y:=A*Modelica.Math.sin(w*x);
+<strong>end</strong> Sine;
+
+//Call with function partial application as named input argument:
+area  := area + quadrature(0, 1, integrand = <strong>function</strong> Sine(A=2, w=i*time));
+</pre></blockquote>
+
+<p>
+Example showing that function types are matching after
+removing the bound arguments A and w in a function partial
+application:
+</p>
+
+<blockquote><pre>
+<strong>function</strong> Sine2  "y = Sine2(A,w,x)"
+  <strong>input</strong> Real A;
+  <strong>input</strong> Real w;
+  <strong>input</strong> Real x; // Note: x is now last in argument list.
+  <strong>output</strong> Real y;
+<strong>algorithm</strong>
+  y:=A*Modelica.Math.sin(w*x);
+<strong>end</strong> Sine2;
+
+// The partially evaluated Sine2 has only one argument:
+// x - and is thus type compatible with Integrand.
+area = quadrature(0, 1, integrand = <strong>function</strong> Sine2(A=2, w=3));
+</pre></blockquote>
+
+<p>
+Example of a function partial application of a function that is
+a component, according to case (d) above:
+</p>
+
+<blockquote><pre>
+<strong>partial function</strong> SurfaceIntegrand
+   <strong>input</strong> Real x;
+   <strong>input</strong> Real y;
+   <strong>output</strong> Real z;
+<strong>end</strong> SurfaceIntegrand;
+
+<strong>function</strong> quadratureOnce
+  <strong>input</strong> Real x;
+  <strong>input</strong> Real y1;
+  <strong>input</strong> Real y2;
+  <strong>input</strong> SurfaceIntegrand integrand;
+  <strong>output</strong> Real z;
+<strong>algorithm</strong>
+  // This is according to case (d) and needs to bind the 2nd argument
+  z := quadrature(y1, y2, <strong>function</strong> integrand(y=x));
+<strong>end</strong> quadratureOnce;
+
+<strong>function</strong> surfaceQuadrature
+  <strong>input</strong> Real x1;
+  <strong>input</strong> Real x2;
+  <strong>input</strong> Real y1;
+  <strong>input</strong> Real y2;
+  <strong>input</strong> SurfaceIntegrand integrand;
+  <strong>output</strong> Real integral;
+<strong>algorithm</strong>
+   // Case (b) and (c)
+   integral := quadrature(x1, x2,
+     <strong>function</strong> quadratureOnce(y1=y1, y2=y2, integrand=integrand);
+<strong>end</strong> surfaceQuadrature;
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

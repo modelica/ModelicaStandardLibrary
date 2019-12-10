@@ -1,0 +1,136 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Rotational</h1>
+    <p>Library to model 1-dimensional, rotational mechanical systems</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.UsersGuide_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.UsersGuide.html">UsersGuide</a></p>
+        <p>User's Guide of Rotational Library</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.html">Examples</a></p>
+        <p>Demonstration examples of the components of this package</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.html">Components</a></p>
+        <p>Components for 1D rotational mechanical drive trains</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.html">Sensors</a></p>
+        <p>Sensors to measure variables in 1D rotational mechanical components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sources.html">Sources</a></p>
+        <p>Sources to drive 1D rotational mechanical components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.html">Interfaces</a></p>
+        <p>Connectors and partial models for 1D rotational mechanical components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Icons_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Icons.html">Icons</a></p>
+        <p>Icons for Rotational package</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Library <strong>Rotational</strong> is a <strong>free</strong> Modelica package providing
+1-dimensional, rotational mechanical components to model in a convenient way
+drive trains with frictional losses. A typical, simple example is shown
+in the next figure:
+</p>
+
+<img src="modelica:///Modelica.Mechanics.Rotational/resources/Modelica.Mechanics.Rotational_info_001.png">
+
+<p>
+For an introduction, have especially a look at:
+</p>
+<ul>
+<li> <a href="Modelica.Mechanics.Rotational.UsersGuide.html">Rotational.UsersGuide</a>
+     discusses the most important aspects how to use this library.</li>
+<li> <a href="Modelica.Mechanics.Rotational.Examples.html">Rotational.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+
+<p>
+In version 3.0 of the Modelica Standard Library, the basic design of the
+library has changed: Previously, bearing connectors could or could not be connected.
+In 3.0, the bearing connector is renamed to "<strong>support</strong>" and this connector
+is enabled via parameter "useSupport". If the support connector is enabled,
+it must be connected, and if it is not enabled, it must not be connected.
+</p>
+
+<p>
+In version 3.2 of the Modelica Standard Library, all <strong>dissipative</strong> components
+of the Rotational library got an optional <strong>heatPort</strong> connector to which the
+dissipated energy is transported in form of heat. This connector is enabled
+via parameter "useHeatPort". If the heatPort connector is enabled,
+it must be connected, and if it is not enabled, it must not be connected.
+Independently, whether the heatPort is enabled or not,
+the dissipated power is available from the new variable "<strong>lossPower</strong>" (which is
+positive if heat is flowing out of the heatPort). For an example, see
+<a href="Modelica.Mechanics.Rotational.Examples.HeatLosses.html">Examples.HeatLosses</a>.
+</p>
+
+<p>
+Copyright &copy; 1998-2019, Modelica Association and contributors
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

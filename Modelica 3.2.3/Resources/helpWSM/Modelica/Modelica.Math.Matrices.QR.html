@@ -1,0 +1,160 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.QR.html">QR</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>QR</h1>
+    <p>Return the QR decomposition of a square matrix with optional column pivoting (A(:,p) = Q*R)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.QR_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(Q,R,p) = Matrices.<strong>QR</strong>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the QR decomposition of
+a rectangular matrix <strong>A</strong> (the number of columns of <strong>A</strong>
+must be less than or equal to the number of rows):
+</p>
+<blockquote>
+<p>
+<strong>Q</strong>*<strong>R</strong> = <strong>A</strong>[:,<strong>p</strong>]
+</p>
+</blockquote>
+<p>
+where <strong>Q</strong> is a rectangular matrix that has orthonormal columns and
+has the same size as A (<strong>Q</strong><sup>T</sup><strong>Q</strong>=<strong>I</strong>),
+<strong>R</strong> is a square, upper triangular matrix and <strong>p</strong> is a permutation
+vector. Matrix <strong>R</strong> has the following important properties:
+</p>
+<ul>
+<li> The absolute value of a diagonal element of <strong>R</strong> is the largest
+     value in this row, i.e.,
+     abs(R[i,i]) &ge; abs(R[i,j]).</li>
+<li> The diagonal elements of <strong>R</strong> are sorted according to size, such that
+     the largest absolute value is abs(R[1,1]) and
+     abs(R[i,i]) &ge; abs(R[j,j]) with i &lt; j.</li>
+</ul>
+<p>
+This means that if abs(R[i,i]) &le; &epsilon; then abs(R[j,k]) &le; &epsilon;
+for j &ge; i, i.e., the i-th row up to the last row of <strong>R</strong> have
+small elements and can be treated as being zero.
+This allows to, e.g., estimate the row-rank
+of <strong>R</strong> (which is the same row-rank as <strong>A</strong>). Furthermore,
+<strong>R</strong> can be partitioned in two parts
+</p>
+<blockquote>
+<pre>
+   <strong>A</strong>[:,<strong>p</strong>] = <strong>Q</strong> * [<strong>R</strong><sub>1</sub>, <strong>R</strong><sub>2</sub>;
+                 <strong>0</strong>,  <strong>0</strong>]
+</pre>
+</blockquote>
+<p>
+where <strong>R</strong><sub>1</sub> is a regular, upper triangular matrix.
+</p>
+<p>
+Note, the solution is computed with the LAPACK functions "dgeqpf"
+and "dorgqr", i.e., by Householder transformations with
+column pivoting. If <strong>Q</strong> is not needed, the function may be
+called as: <code>(,R,p) = QR(A)</code>.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real R[3,3];
+<strong>algorithm</strong>
+  (,R) := Matrices.QR(A);  // R = [-7.07.., -4.24.., -3.67..;
+                                    0     , -1.73.., -0.23..;
+                                    0     ,  0     ,  0.65..];
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(Q, R, p) = QR(A, pivoting)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Rectangular matrix with size(A,1) >= size(A,2)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pivoting</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True if column pivoting is performed. True is default</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Q</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Rectangular matrix with orthonormal columns such that Q*R=A[:,p]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 2),size(A, 2)]</p>
+        <p><span>Description:</span> Square upper triangular matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> Integer[size(A, 2)]</p>
+        <p><span>Description:</span> Column permutation vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

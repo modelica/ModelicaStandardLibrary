@@ -1,0 +1,140 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.MathBoolean.html">MathBoolean</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MathBoolean</h1>
+    <p>Library of Boolean mathematical functions as input/output blocks</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.MathBoolean_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.MultiSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.MultiSwitch.html">MultiSwitch</a></p>
+        <p>Set Boolean expression that is associated with the first active input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.And_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.And.html">And</a></p>
+        <p>Logical 'and': y = u[1] and u[2] and ... and u[nu]</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Or_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.Or.html">Or</a></p>
+        <p>Logical 'or': y = u[1] or u[2] or ... or u[nu]</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Xor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.Xor.html">Xor</a></p>
+        <p>Logical 'xor': y = oneTrue(u)  (y is true, if exactly one element of u is true, otherwise it is false)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Nand_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.Nand.html">Nand</a></p>
+        <p>Logical 'nand': y = not ( u[1] and u[2] and ... and u[nu] )</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Nor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.Nor.html">Nor</a></p>
+        <p>Logical 'nor': y = not ( u[1] or u[2] or ... or u[nu] )</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Not_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.Not.html">Not</a></p>
+        <p>Logical 'not': y = not u</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.RisingEdge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.RisingEdge.html">RisingEdge</a></p>
+        <p>Output y is true, if the input u has a rising edge, otherwise it is false (y = edge(u))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.FallingEdge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.FallingEdge.html">FallingEdge</a></p>
+        <p>Output y is true, if the input u has a falling edge, otherwise it is false (y = edge(not u))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.ChangingEdge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.ChangingEdge.html">ChangingEdge</a></p>
+        <p>Output y is true, if the input u has either a rising or a falling edge and otherwise it is false (y=change(u))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.OnDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.OnDelay.html">OnDelay</a></p>
+        <p>Delay a rising edge of the input, but do not delay a falling edge.</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains basic <strong>mathematical operations</strong>
+on <strong>Boolean</strong> signals.
+</p>
+
+<p>
+The new features are:
+</p>
+
+<ul>
+<li> If useful, blocks may have an arbitrary number of inputs (e.g., "And" block with 2,3,4,...
+     Boolean inputs). This is based on the "connectorSizing" annotation which
+     allows a tool to conveniently handle vectors of connectors.</li>
+
+<li> The blocks are smaller in size, so that the diagram area is better
+     utilized for trivial blocks such as "And" or "Or".</li>
+
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Distributions.html">Distributions</a></li>
+  <li><a href="Modelica.Math.Distributions.Normal.html">Normal</a></li>
+  <li><a href="Modelica.Math.Distributions.Normal.quantile.html">quantile</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>quantile</h1>
+    <p>Quantile of normal distribution</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Distributions.Normal.quantile_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Normal.<strong>quantile</strong>(u, y_min=0, y_max=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the inverse cumulative distribution function (= quantile) according to a <strong>normal</strong> distribution
+with mean value <strong>mu</strong> and standard deviation <strong>sigma</strong> (variance = sigma<sup>2</sup>).
+Input argument u must be in the range:
+</p>
+
+<blockquote>
+<p>
+0 &lt; u &lt; 1
+</p>
+</blockquote>
+
+<p>
+If the input argument u is a uniformly distributed random number, then
+99.7 % of the returned random numbers are in the range:
+</p>
+
+<blockquote>
+<p>
+mu-3*sigma &le; y &le; mu+3*sigma
+</p>
+</blockquote>
+
+<p>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.Distributions.Normal.quantile/resources/Modelica.Math.Distributions.Normal.quantile_info_001.png">
+</blockquote>
+
+<p>
+For more details, see
+<a href="http://en.wikipedia.org/wiki/Normal_distribution">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  quantile(0.001)     // = -3.090232306167813;
+  quantile(0.5,1,0.5) // = 1
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Distributions.Normal.density.html">Normal.density</a>,
+<a href="Modelica.Math.Distributions.Normal.cumulative.html">Normal.cumulative</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = quantile(u, mu, sigma)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number in the range 0 <= u <= 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Expectation (mean) value of the normal distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Standard deviation of the normal distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number u transformed according to the given distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

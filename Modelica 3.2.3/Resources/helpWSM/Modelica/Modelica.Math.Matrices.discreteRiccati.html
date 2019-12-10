@@ -1,0 +1,239 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.discreteRiccati.html">discreteRiccati</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>discreteRiccati</h1>
+    <p>Return solution of discrete-time algebraic Riccati equation A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0 (dare)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.discreteRiccati_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+                                 X = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q);
+         (X, alphaReal, alphaImag) = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q, true);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Function <strong>discreteRiccati</strong> computes the solution <strong>X</strong> of the discrete-time algebraic Riccati equation
+</p>
+
+<blockquote><pre>
+ <strong>A</strong>'*<strong>X</strong>*<strong>A</strong> - <strong>X</strong> - <strong>A</strong>'*<strong>X</strong>*<strong>B</strong>*inv(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>*<strong>B</strong>)*<strong>B</strong>'*<strong>X</strong>*<strong>A</strong> + <strong>Q</strong> = <strong>0</strong>
+</pre></blockquote>
+
+<p>
+using the Schur vector approach proposed by Laub [1].
+</p>
+
+<p>
+It is assumed that <strong>Q</strong> is symmetric and positive semidefinite and <strong>R</strong> is symmetric, nonsingular and positive definite,
+(<strong>A</strong>,<strong>B</strong>) is stabilizable and (<strong>A</strong>,<strong>Q</strong>) is detectable. Using this method, <strong>A</strong> has also to be invertible.
+</p>
+
+<p>
+<strong>These assumptions are not checked in this function !!!</strong>
+</p>
+
+<p>
+The assumptions guarantee that the Hamiltonian matrix.
+</p>
+<blockquote><pre>
+<strong>H</strong> = [<strong>A</strong> + <strong>G</strong>*<strong>T</strong>*<strong>Q</strong>, -<strong>G</strong>*<strong>T</strong>; -<strong>T</strong>*<strong>Q</strong>, <strong>T</strong>]
+</pre></blockquote>
+<p>
+with
+</p>
+<blockquote><pre>
+     -T
+<strong>T</strong> = <strong>A</strong>
+</pre></blockquote>
+
+<p>
+and
+</p>
+
+<blockquote><pre>
+       -1
+<strong>G</strong> = <strong>B</strong>*<strong>R</strong> *<strong>B</strong>'
+</pre></blockquote>
+
+<p>
+has no eigenvalue on the unit circle and can be put
+to an ordered real Schur form
+</p>
+
+<blockquote><pre>
+<strong>U</strong>'*<strong>H</strong>*<strong>U</strong> = <strong>S</strong> = [<strong>S11</strong>, <strong>S12</strong>; <strong>0</strong>, <strong>S22</strong>]
+</pre></blockquote>
+
+<p>
+with orthogonal similarity transformation <strong>U</strong>. <strong>S</strong> is ordered in such a way,
+that <strong>S11</strong> contains the n stable eigenvalues of the closed loop system with system matrix
+</p>
+
+<blockquote><pre>
+                  -1
+<strong>A</strong> - <strong>B</strong>*(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>*<strong>B</strong>)  *<strong>B</strong>'*<strong>X</strong>*<strong>A</strong>
+</pre></blockquote>
+
+<p>
+If <strong>U</strong> is partitioned to
+</p>
+
+<blockquote><pre>
+<strong>U</strong> = [<strong>U11</strong>, <strong>U12</strong>; <strong>U21</strong>, <strong>U22</strong>]
+</pre></blockquote>
+
+<p>
+according to <strong>S</strong>, the solution <strong>X</strong> can be calculated by
+</p>
+
+<blockquote><pre>
+<strong>X</strong>*<strong>U11</strong> = <strong>U21</strong>.
+</pre></blockquote>
+
+<h4>References</h4>
+<pre>
+  [1] Laub, A.J.
+      A Schur Method for Solving Algebraic Riccati equations.
+      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</pre>
+
+<h4>Example</h4>
+<blockquote><pre>
+ A  = [4.0    3.0]
+      -4.5,  -3.5];
+
+ B  = [ 1.0;
+       -1.0];
+
+ R = [1.0];
+
+ Q = [9.0, 6.0;
+      6.0, 4.0]
+
+X = discreteRiccati(A, B, R, Q);
+
+  results in:
+
+X = [14.5623, 9.7082;
+      9.7082, 6.4721];
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Matrices.continuousRiccati.html">Matrices.continuousRiccati</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(X, alphaReal, alphaImag) = discreteRiccati(A, B, R, Q, refine)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Square matrix A in DARE</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),:]</p>
+        <p><span>Description:</span> Matrix B in DARE</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Default Value:</span> identity(size(B, 2))</p>
+        <p><span>Type:</span> Real[size(B, 2),size(B, 2)]</p>
+        <p><span>Description:</span> Matrix R in DARE</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q</th>
+      <td>
+        <p><span>Default Value:</span> identity(size(A, 1))</p>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 1)]</p>
+        <p><span>Description:</span> Matrix Q in DARE</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refine</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True for subsequent refinement</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> orthogonal matrix of the Schur vectors associated to ordered rsf</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alphaReal</th>
+      <td>
+        <p><span>Type:</span> Real[2 * size(A, 1)]</p>
+        <p><span>Description:</span> Real part of eigenvalue=alphaReal+i*alphaImag</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alphaImag</th>
+      <td>
+        <p><span>Type:</span> Real[2 * size(A, 1)]</p>
+        <p><span>Description:</span> Imaginary part of eigenvalue=alphaReal+i*alphaImag</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

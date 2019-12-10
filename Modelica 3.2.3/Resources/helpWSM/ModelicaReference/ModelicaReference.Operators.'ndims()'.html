@@ -1,0 +1,50 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'ndims()'.html">'ndims()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'ndims()'</h1>
+    <p>ndims()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'ndims()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Return number of array dimensions
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>ndims</strong>(A)</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the number of dimensions k of array expression
+A, with k >= 0.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+Real A[8,4,5];
+Integer n = ndims(A);  // = 3
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

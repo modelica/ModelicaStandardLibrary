@@ -1,0 +1,151 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates.html">PartialCompliantWithRelativeStates</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialCompliantWithRelativeStates</h1>
+    <p>Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a 1-dim. translational component with a compliant connection of two
+translational 1-dim. flanges where inertial effects between the two
+flanges are neglected. The basic assumption is that the cut-forces
+of the two flanges sum-up to zero, i.e., they have the same absolute value
+but opposite sign: flange_a.f + flange_b.f = 0. This base class
+is used to built up force elements such as springs, dampers, friction.
+</p>
+
+<p>
+The difference to base class "PartialCompliant" is that the relative
+distance and the relative velocity are defined as preferred states.
+The reason is that for a large class of drive trains,
+the absolute position is quickly increasing during operation.
+Numerically, it is better to use relative distances between drive train components
+because they remain in a limited size. For this reason, StateSelect.prefer
+is set for the relative distance of this component.
+</p>
+
+<p>
+In order to improve the numerics, a nominal value for the relative distance
+should be set, since drive train distances are in a small order and
+then step size control of the integrator is practically switched off for
+such a variable. A default nominal value of s_nominal = 1e-4 is defined.
+This nominal value might also be computed from other values, such
+as "s_nominal = f_nominal / c" for a spring, if f_nominal
+and c have more meaningful values for the user.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>stateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.prefer</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use s_rel and v_rel as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s_nominal</th>
+      <td>
+        <p><span>Value:</span> 1e-4</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Nominal value of s_rel (used for scaling)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Left flange of compliant 1-dim. translational component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Right flange of compliant 1-dim. translational component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.ElastoGap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.ElastoGap.html">ElastoGap</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>1D translational spring damper combination with gap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Linear 1D translational spring and damper in parallel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Damper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.Damper.html">Damper</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Linear 1D translational damper</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

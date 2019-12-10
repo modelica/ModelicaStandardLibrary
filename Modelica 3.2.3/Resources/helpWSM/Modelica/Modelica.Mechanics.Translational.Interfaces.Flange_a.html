@@ -1,0 +1,227 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Interfaces.Flange_a.html">Flange_a</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Flange_a</h1>
+    <p>One-dimensional translational flange (left, flange axis directed INTO cut plane)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_a_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a connector for 1-dim. translational mechanical systems which represents
+a mechanical flange. In the cut plane of
+the flange a unit vector n, called flange axis, is defined which is directed
+INTO the cut plane, i. e. from left to right. All vectors in the cut plane are
+resolved with respect to
+this unit vector. E.g. force f characterizes a vector which is directed in
+the direction of n with value equal to f. When this flange is connected to
+other 1D translational flanges, this means that the axes vectors of the connected
+flanges are identical.
+</p>
+<p>
+The following variables are transported through this connector:
+</p>
+
+<blockquote><pre>
+s: Absolute position of the flange in [m]. A positive translation
+   means that the flange is translated along the flange axis.
+f: Cut-force in direction of the flange axis in [N].
+</pre></blockquote>
+</div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(20)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper.html">TranslatoryArmatureAndStopper</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Utilities</span</p>
+        <p>Mass with free travel between two stoppers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.LineForceWithMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass.html">LineForceWithMass</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>General line force component with an optional point mass on the connection line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses.html">LineForceWithTwoMasses</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span</p>
+        <p>General line force component with two optional point masses on the connection line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Prismatic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Prismatic.html">Prismatic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span</p>
+        <p>Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS.html">JointUPS</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Universal - prismatic - spherical joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP.html">JointUSP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Universal - spherical - prismatic joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP.html">JointSSP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP.html">JointRRP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span</p>
+        <p>Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint.html">PrismaticWithLengthConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span</p>
+        <p>Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor.html">GeneralForceToPositionAdaptor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Signal adaptor for a Translational flange with position, speed, and acceleration as outputs and force as input (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.InternalSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.InternalSupport.html">InternalSupport</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Adapter model to utilize conditional support connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges.html">PartialTwoFlanges</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Component with two translational 1D flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport.html">PartialTwoFlangesAndSupport</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Partial model for a component with two translational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialRigid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialRigid.html">PartialRigid</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Rigid connection of two translational 1D flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialCompliant_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialCompliant.html">PartialCompliant</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Compliant connection of two translational 1D flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates.html">PartialCompliantWithRelativeStates</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport.html">PartialElementaryTwoFlangesAndSupport</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2.html">PartialElementaryTwoFlangesAndSupport2</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor.html">PartialAbsoluteSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Device to measure a single absolute flange variable</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor.html">PartialRelativeSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span</p>
+        <p>Device to measure a single relative variable between two flanges</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

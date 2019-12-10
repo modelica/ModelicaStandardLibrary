@@ -1,0 +1,402 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Filter</h1>
+    <p>Continuous low pass, high pass, band pass or band stop IIR-filter of type CriticalDamping, Bessel, Butterworth or ChebyshevI</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.Filter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This blocks models various types of filters:
+</p>
+
+<blockquote>
+<strong>low pass, high pass, band pass, and band stop filters</strong>
+</blockquote>
+
+<p>
+using various filter characteristics:
+</p>
+
+<blockquote>
+<strong>CriticalDamping, Bessel, Butterworth, Chebyshev Type I filters</strong>
+</blockquote>
+
+<p>
+By default, a filter block is initialized in <strong>steady-state</strong>, in order to
+avoid unwanted oscillations at the beginning. In special cases, it might be
+useful to select one of the other initialization options under tab
+"Advanced".
+</p>
+
+<p>
+Typical frequency responses for the 4 supported low pass filter types
+are shown in the next figure:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Blocks.Continuous.Filter_info_001.png"
+     alt="LowPassOrder4Filters.png">
+</blockquote>
+
+<p>
+The step responses of the same low pass filters are shown in the next figure,
+starting from a steady state initial filter with initial input = 0.2:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Blocks.Continuous.Filter_info_002.png"
+     alt="LowPassOrder4FiltersStepResponse.png">
+</blockquote>
+
+<p>
+Obviously, the frequency responses give a somewhat wrong impression
+of the filter characteristics: Although Butterworth and Chebyshev
+filters have a significantly steeper magnitude as the
+CriticalDamping and Bessel filters, the step responses of
+the latter ones are much better. This means for example, that
+a CriticalDamping or a Bessel filter should be selected,
+if a filter is mainly used to make a non-linear inverse model
+realizable.
+</p>
+
+<p>
+Typical frequency responses for the 4 supported high pass filter types
+are shown in the next figure:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Blocks.Continuous.Filter_info_003.png"
+     alt="HighPassOrder4Filters.png">
+</blockquote>
+
+<p>
+The corresponding step responses of these high pass filters are
+shown in the next figure:
+</p>
+<blockquote>
+<img src="resources/Modelica.Blocks.Continuous.Filter_info_004.png"
+     alt="HighPassOrder4FiltersStepResponse.png">
+</blockquote>
+
+<p>
+All filters are available in <strong>normalized</strong> (default) and non-normalized form.
+In the normalized form, the amplitude of the filter transfer function
+at the cut-off frequency f_cut is -3 dB (= 10^(-3/20) = 0.70794..).
+Note, when comparing the filters of this function with other software systems,
+the setting of "normalized" has to be selected appropriately. For example, the signal processing
+toolbox of MATLAB provides the filters in non-normalized form and
+therefore a comparison makes only sense, if normalized = <strong>false</strong>
+is set. A normalized filter is usually better suited for applications,
+since filters of different orders are "comparable",
+whereas non-normalized filters usually require to adapt the
+cut-off frequency, when the order of the filter is changed.
+See a comparison of "normalized" and "non-normalized" filters at hand of
+CriticalDamping filters of order 1,2,3:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Blocks.Continuous.Filter_info_005.png"
+     alt="CriticalDampingNormalized.png">
+</blockquote>
+
+<blockquote>
+<img src="resources/Modelica.Blocks.Continuous.Filter_info_006.png"
+     alt="CriticalDampingNonNormalized.png">
+</blockquote>
+
+<h4>Implementation</h4>
+
+<p>
+The filters are implemented in the following, reliable way:
+</p>
+
+<ol>
+<li> A prototype low pass filter with a cut-off angular frequency of 1 rad/s is constructed
+     from the desired analogFilter and the desired normalization.</li>
+
+<li> This prototype low pass filter is transformed to the desired filterType and the
+     desired cut-off frequency f_cut using a transformation on the Laplace variable "s".</li>
+
+<li> The resulting first and second order transfer functions are implemented in
+     state space form, using the "eigen value" representation of a transfer function:
+     <pre>
+
+  // second order block with eigen values: a +/- jb
+  <strong>der</strong>(x1) = a*x1 - b*x2 + (a^2 + b^2)/b*u;
+  <strong>der</strong>(x2) = b*x1 + a*x2;
+       y  = x2;
+     </pre>
+     The dc-gain from the input to the output of this block is one and the selected
+     states are in the order of the input (if "u" is in the order of "one", then the
+     states are also in the order of "one"). In the "Advanced" tab, a "nominal" value for
+     the input "u" can be given. If appropriately selected, the states are in the order of "one" and
+     then step-size control is always appropriate.</li>
+</ol>
+
+<h4>References</h4>
+
+<dl>
+<dt>Tietze U., and Schenk C. (2002):</dt>
+<dd> <strong>Halbleiter-Schaltungstechnik</strong>.
+     Springer Verlag, 12. Auflage, pp. 815-852.</dd>
+</dl>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>analogFilter</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.AnalogFilter.CriticalDamping</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.AnalogFilter.html">AnalogFilter</a></p>
+        <p><span>Description:</span> Analog filter characteristics (CriticalDamping/Bessel/Butterworth/ChebyshevI)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>filterType</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.FilterType.LowPass</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.FilterType.html">FilterType</a></p>
+        <p><span>Description:</span> Type of filter (LowPass/HighPass/BandPass/BandStop)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>order</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Order of filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_cut</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Cut-off frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>gain</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain (= amplitude of frequency response at zero frequency)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A_ripple</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real (dB)</p>
+        <p><span>Description:</span> Pass band ripple for Chebyshev filter (otherwise not used); > 0 required</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_min</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Band of band pass/stop filter is f_min (A=-3db*gain) .. f_cut (A=-3db*gain)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>normalized</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if amplitude at f_cut = -3db, otherwise unmodified filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>init</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Init.SteadyState</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Init.html">Init</a></p>
+        <p><span>Description:</span> Type of initialization (no init/steady state/initial state/initial output)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nx</th>
+      <td>
+        <p><span>Value:</span> if filterType == Modelica.Blocks.Types.FilterType.LowPass or filterType == Modelica.Blocks.Types.FilterType.HighPass then order else 2 * order</p>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_start</th>
+      <td>
+        <p><span>Value:</span> zeros(nx)</p>
+        <p><span>Type:</span> Real[nx]</p>
+        <p><span>Description:</span> Initial or guess values of states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial value of output</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_nominal</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Nominal value of input (used for scaling the states)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[nx]</a></p>
+        <p><span>Description:</span> Filter states</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Filter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Filter.html">Filter</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates the Continuous.Filter block with various options</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.FilterWithDifferentiation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.FilterWithDifferentiation.html">FilterWithDifferentiation</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates the use of low pass filters to determine derivatives of filters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.FilterWithRiseTime_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.FilterWithRiseTime.html">FilterWithRiseTime</a></p>
+        <p><span>Modelica.Blocks.Examples</span</p>
+        <p>Demonstrates to use the rise time instead of the cut-off frequency to define a filter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_Rectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_Rectifier.html">SMEE_Rectifier</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines</span</p>
+        <p>Test example: ElectricalExcitedSynchronousInductionMachine with rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.ThreePhaseTwoLevel_PWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.ThreePhaseTwoLevel_PWM.html">ThreePhaseTwoLevel_PWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel</span</p>
+        <p>Test of pulse width modulation methods</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.ThreePhaseTransformerWithRectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.ThreePhaseTransformerWithRectifier.html">ThreePhaseTransformerWithRectifier</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis</span</p>
+        <p>3 Phase transformer (including hysteresis effect) with rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMEE_Rectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMEE_Rectifier.html">SMEE_Rectifier</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines</span</p>
+        <p>Test example: ElectricalExcitedSynchronousInductionMachine with rectifier</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.BaseClasses.PartialValve_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Valves.BaseClasses.PartialValve.html">PartialValve</a></p>
+        <p><span>Modelica.Fluid.Valves.BaseClasses</span</p>
+        <p>Base model for valves</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

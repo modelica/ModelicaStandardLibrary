@@ -1,0 +1,84 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Classes.html">Classes</a></li>
+  <li><a href="ModelicaReference.Classes.'record'.html">'record'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'record'</h1>
+    <p>record</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Classes.'record'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define specialized class <em>record</em>
+</p>
+<h4>Examples</h4>
+
+<pre>  <strong>record</strong> States
+    Modelica.SIunits.Position s;
+    Modelica.SIunits.Velocity v;
+  <strong>end</strong> States;
+
+  <strong>record</strong> System
+    <strong>parameter</strong> Modelica.SIunits.Mass m=1;
+    <strong>parameter</strong> Modelica.SIunits.Force f=1;
+    Modelica.SIunits.Acceleration a;
+    States states;
+  <strong>end</strong> System;
+
+  <strong>model</strong> SlidingMass
+    System sys;
+  <strong>equation</strong>
+    <strong>der</strong>(sys.states.s) = sys.states.v;
+    <strong>der</strong>(sys.states.v) = sys.a;
+    sys.m*sys.a = sys.f;
+  <strong>end</strong> SlidingMass;</pre>
+
+<h4>Syntax</h4>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>record</strong>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment</pre>
+
+<p>See Modelica Language Specification for further details.</p>
+
+<h4>Description</h4>
+
+<p>
+The keyword record is used to define records which are generally used in
+order to group variables. Only public sections are allowed in the definition
+or in any of its components (i.e., equation, algorithm, initial equation,
+initial algorithm and protected sections are not allowed). May not be used in
+connections. The elements of a record may not have prefixes input, output, inner, outer,
+or flow.  Enhanced with implicitly available record constructor function.
+Additionally, record components can be used as component references in
+expressions and in the left hand side of assignments, subject to
+normal type compatibility rules.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

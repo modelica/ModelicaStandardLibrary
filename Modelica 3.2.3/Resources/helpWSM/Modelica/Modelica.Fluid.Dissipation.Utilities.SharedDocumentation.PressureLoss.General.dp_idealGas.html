@@ -1,0 +1,171 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.html">General</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas.html">dp_idealGas</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dp_idealGas</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculation of a generic pressure loss for an <strong> ideal gas </strong> using mean density.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+    <strong> ideal gas </strong>
+ </li>
+ <li>
+    mean density of ideal gas
+ </li>
+</ul>
+
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified.
+</p>
+<p>
+The pressure loss <strong>dp</strong> for the compressible case [Mass flow rate = f(dp)] is determined by (Eq.1):
+</p>
+
+<pre>
+    m_flow = (R_s/Km)^(1/exp)*(rho_m)^(1/exp)*dp^(1/exp)
+</pre>
+
+<p>
+for the underlying base equation using ideal gas law as follows:
+</p>
+
+<pre>
+    dp^2 = p_2^2 - p_1^2 = Km*m_flow^exp*(T_2 + T_1)
+    dp   = p_2 - p_1     = Km*m_flow^exp*T_m/p_m, Eq.2 with [dp] = Pa, [m_flow] = kg/s
+</pre>
+
+<p>
+so that the coefficient <strong> Km </strong> is calculated out of Eq.2:
+</p>
+
+<pre>
+    Km = dp*R_s*rho_m / m_flow^exp , [Km] = [Pa^2/{(kg/s)^exp*K}]
+</pre>
+
+<p>
+where the mean density <strong> rho_m </strong> is calculated according to the ideal gas law out of an arithmetic mean pressure and temperature:
+</p>
+
+<pre>
+   rho_m = p_m / (R_s*T_m) , p_m = (p_1 + p_2)/2 and T_m = (T_1 + T_2)/2.
+</pre>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> exp                    </strong></td><td> as exponent of pressure loss law [-],</td></tr>
+<tr><td><strong> dp                     </strong></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><strong> Km                     </strong></td><td> as coefficient w.r.t. mass flow rate! [Km] = [Pa^2/{(kg/s)^exp*K}],</td></tr>
+<tr><td><strong> m_flow                 </strong></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><strong> p_m = (p_2 + p_1)/2    </strong></td><td> as mean pressure of ideal gas [Pa],</td></tr>
+<tr><td><strong> T_m = (T_2 + T_1)/2    </strong></td><td> as mean temperature of ideal gas [K],</td></tr>
+<tr><td><strong> rho_m = p_m/(R_s*T_m)  </strong></td><td> as mean density of ideal gas [kg/m3],</td></tr>
+<tr><td><strong> R_s                    </strong></td><td> as specific gas constant of ideal gas [J/(kgK)],</td></tr>
+<tr><td><strong> V_flow                 </strong></td><td> as volume flow rate of ideal gas [m^3/s].</td></tr>
+</table>
+
+<p>
+Furthermore the coefficient <strong> Km </strong> can be defined more detailed w.r.t. the definition of pressure loss if <strong> Km </strong> is not given as (e.g., measured) value. Generally pressure loss can be calculated due to local losses <strong> Km,LOC </strong> or frictional losses <strong> Km,FRI </strong>.
+</p>
+<p>
+Pressure loss due to local losses gives the following definition of <strong> Km </strong>:
+</p>
+
+<pre>
+    dp        = zeta_LOC * (rho_m/2)*velocity^2 is leading to
+      Km,LOC  = (8/&pi;^2)*R_s*zeta_LOC/(d_hyd)^4, considering the cross sectional area of pipes.
+</pre>
+
+<p>
+and pressure loss due to friction is leading to
+</p>
+
+<pre>
+    dp        = lambda_FRI*L/d_hyd * (rho_m/2)*velocity^2
+      Km,FRI  = (8/&pi;^2)*R_s*lambda_FRI*L/(d_hyd)^5, considering the cross sectional area of pipes.
+</pre>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> dp                    </strong></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><strong> d_hyd                 </strong></td><td> as hydraulic diameter of pipe [m],</td></tr>
+<tr><td><strong> Km,i                  </strong></td><td> as coefficients w.r.t. mass flow rate! [Km] = [Pa^2/{(kg/s)^exp*K}],</td></tr>
+<tr><td><strong> lambda_FRI            </strong></td><td> as Darcy friction factor [-],</td></tr>
+<tr><td><strong> L                     </strong></td><td> as length of pipe [m],</td></tr>
+<tr><td><strong> rho_m = p_m/(R_s*T_m) </strong></td><td> as mean density of ideal gas [kg/m3],</td></tr>
+<tr><td><strong> velocity              </strong></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><strong> zeta_LOC              </strong></td><td> as local resistance coefficient [-].</td></tr>
+</table>
+
+<p>
+Note that the variables of this function are delivered in SI units so that the coefficient Km shall be given in SI units too.
+</p>
+<h4>Verification</h4>
+<p>
+<strong> Compressible case </strong> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The mass flow rate <strong>m_flow</strong> for different coefficients <strong> Km </strong> as parameter is shown in dependence of its pressure loss <strong>dp</strong> in the figure below.
+</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas_info_001.png" alt="fig_general_dp_idealGas_MFLOWvsDP"/>
+</p>
+
+<p>
+Note that the verification for <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas.html">dp_idealGas</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+<h4>References</h4>
+<dl>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><strong>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+</dl>
+</div>
+</section>
+</div>
+</body>
+</html>

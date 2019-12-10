@@ -1,0 +1,186 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Loops.html">Loops</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2.html">Fourbar2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Fourbar2</h1>
+    <p>One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a second version of the "four-bar" mechanism, see figure:
+</p>
+
+<img src="resources/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2_info_001.png" alt="model Examples.Loops.Fourbar2">
+
+<p>
+In this case
+the three revolute joints on the left top-side and the two revolute
+joints on the right top side have been replaced by the joint <strong>UniversalSpherical</strong>
+that is a rod connecting a spherical and a universal joint. This joint is defined
+by <strong>1 constraint</strong> stating that the distance between the two spherical joints is
+constant. Using this joint in a kinematic loop reduces the sizes of
+non-linear algebraic equations. For this loop, only one non-linear
+algebraic system of equations of order 1 remains.
+</p>
+<p>
+At the UniversalSpherical joint an additional frame_ia fixed to the rod
+is present where components can be attached to the connecting rod. In this
+example just a coordinate system is attached to visualize frame_ia (coordinate
+system on the right in blue color).
+</p>
+<p>
+Another feature is that the length of the connecting rod can be
+automatically calculated during <strong>initialization</strong>. In order to do this,
+another initialization condition has to be given. In this example, the
+initial value of the distance of the prismatic joint j2 has been fixed
+(via the "Initialization" menu) and the rod length of joint
+"UniversalSpherical" is computed during initialization since parameter
+<strong>computeLength</strong> = <strong>true</strong> is set in the joint parameter
+menu. The main advantage is that during initialization no non-linear
+system of equation is solved and therefore initialization always works.
+To be precise, the following trivial non-linear equation is actually solved
+for rodLength:
+</p>
+<pre>
+   rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
+</pre>
+</div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>j1_phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> angle of revolute joint j1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>j2_s</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> distance of prismatic joint j2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>j1_w</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> axis speed of revolute joint j1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>j2_v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> axis velocity of prismatic joint j2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <th>j1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Prismatic_32x32.png"></td>
+      <th>j2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Prismatic.html">Prismatic</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_32x32.png"></td>
+      <th>b1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_32x32.png"></td>
+      <th>b2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.UniversalSpherical_32x32.png"></td>
+      <th>universalSpherical</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.UniversalSpherical.html">UniversalSpherical</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>b3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedFrame_32x32.png"></td>
+      <th>fixedFrame</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame.html">FixedFrame</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

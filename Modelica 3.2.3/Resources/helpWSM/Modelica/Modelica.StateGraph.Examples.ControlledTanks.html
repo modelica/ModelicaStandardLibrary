@@ -1,0 +1,163 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.StateGraph.html">StateGraph</a></li>
+  <li><a href="Modelica.StateGraph.Examples.html">Examples</a></li>
+  <li><a href="Modelica.StateGraph.Examples.ControlledTanks.html">ControlledTanks</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ControlledTanks</h1>
+    <p>Demonstrating the controller of a tank filling/emptying system</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.StateGraph.Examples.ControlledTanks_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.StateGraph.Examples.ControlledTanks_diagram_large.png"><img src="resources/diagrams/Modelica.StateGraph.Examples.ControlledTanks_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+With this example the controller of a tank filling/emptying system
+is demonstrated. This example is from Dressler (2004),
+see <a href="Modelica.StateGraph.UsersGuide.Literature.html">Literature</a>.
+The basic operation is to fill and empty the two tanks:
+</p>
+<ol>
+<li> Valve 1 is opened and tank 1 is filled.</li>
+<li> When tank 1 reaches its fill level limit,
+     valve 1 is closed.</li>
+<li> After a waiting time, valve 2 is
+     opened and the fluid flows from tank 1 into tank 2.</li>
+<li> When tank 1 is empty, valve 2 is closed.</li>
+<li> After a waiting time, valve 3 is opened and
+     the fluid flows out of tank 2</li>
+<li> When tank 3 is empty, valve 3 is closed</li>
+</ol>
+<p>
+The above "normal" process can be influenced by three
+buttons:
+</p>
+<ul>
+<li> Button <strong>start</strong> starts the above process.
+     When this button is pressed after a "stop" or
+     "shut" operation, the process operation continues.
+     </li>
+<li> Button <strong>stop</strong> stops the above process by
+     closing all valves. Then, the controller waits for
+     further input (either "start" or "shut" operation).</li>
+<li> Button <strong>shut</strong> is used to shutdown the process,
+     by emptying at once both tanks. When this is achieved,
+     the process goes back to its start configuration.
+     Clicking on "start", restarts the process.</li>
+</ul>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.TankController_32x32.png"></td>
+      <th>tankController</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.TankController.html">TankController</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Temporary.RadioButton_32x32.png"></td>
+      <th>start</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Temporary.RadioButton.html">RadioButton</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Temporary.RadioButton_32x32.png"></td>
+      <th>stop</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Temporary.RadioButton.html">RadioButton</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Temporary.RadioButton_32x32.png"></td>
+      <th>shut</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Temporary.RadioButton.html">RadioButton</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.Tank_32x32.png"></td>
+      <th>tank1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.Tank.html">Tank</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.Tank_32x32.png"></td>
+      <th>tank2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.Tank.html">Tank</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.valve_32x32.png"></td>
+      <th>valve1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.valve.html">valve</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.Source_32x32.png"></td>
+      <th>source</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.Source.html">Source</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.valve_32x32.png"></td>
+      <th>valve2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.valve.html">valve</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.valve_32x32.png"></td>
+      <th>valve3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.valve.html">valve</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.StateGraphRoot_32x32.png"></td>
+      <th>stateGraphRoot</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.StateGraphRoot.html">StateGraphRoot</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

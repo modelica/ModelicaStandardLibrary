@@ -1,0 +1,119 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Nonlinear.html">Nonlinear</a></li>
+  <li><a href="Modelica.Blocks.Nonlinear.PadeDelay.html">PadeDelay</a></li>
+  <li><a href="Modelica.Blocks.Nonlinear.PadeDelay.padeCoefficients2.html">padeCoefficients2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>padeCoefficients2</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Nonlinear.PadeDelay.padeCoefficients2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(a1, b11, c, d, s) = padeCoefficients2(T, n, m, balance)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> delay time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> order of denominator</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> order of numerator</p>
+      </td>
+    </tr>
+    <tr>
+      <th>balance</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>a1</th>
+      <td>
+        <p><span>Type:</span> Real[n]</p>
+        <p><span>Description:</span> First row of A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b11</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> = B[1,1]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Type:</span> Real[n]</p>
+        <p><span>Description:</span> C row matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> D matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td>
+        <p><span>Type:</span> Real[n - 1]</p>
+        <p><span>Description:</span> Scaling such that x[i] = s[i-1]*x[i-1], i > 1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

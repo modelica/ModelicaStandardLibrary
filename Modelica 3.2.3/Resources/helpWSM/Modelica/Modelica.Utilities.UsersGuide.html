@@ -1,0 +1,96 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.UsersGuide.html">UsersGuide</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>UsersGuide</h1>
+    <p>User's Guide of Utilities Library</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.UsersGuide_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.UsersGuide.ImplementationNotes_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.UsersGuide.ImplementationNotes.html">ImplementationNotes</a></p>
+        <p>Implementation Notes</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.UsersGuide.ReleaseNotes_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.UsersGuide.ReleaseNotes.html">ReleaseNotes</a></p>
+        <p>Release notes</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.UsersGuide.Contact_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.UsersGuide.Contact.html">Contact</a></p>
+        <p>Contact</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Library <strong>Modelica.Utilities</strong> contains Modelica <strong>functions</strong> that are
+especially suited for <strong>scripting</strong>. Currently, only a rudimentary
+User's Guide is present. This will be improved in the next releases.
+The User's Guide has currently the following chapters:
+</p>
+<ol>
+<li>
+<a href="Modelica.Utilities.UsersGuide.ReleaseNotes.html">Release Notes</a>
+  summarizes the differences between different versions of this
+  library.
+</li>
+<li>
+<a href="Modelica.Utilities.UsersGuide.ImplementationNotes.html">ImplementationNotes</a>
+  describes design decisions for this library especially for
+  Modelica tool vendors.
+</li>
+<li>
+<a href="Modelica.Utilities.UsersGuide.Contact.html">Contact</a> provides
+  information about the authors of the library as well as acknowledgments.
+</li>
+</ol>
+<p>
+<strong>Error handling</strong><br>
+In case of error, all functions in this library use a Modelica "assert(..)"
+to provide an error message and to cancel all actions. This means that
+functions do not return, if an error is triggered inside the function.
+In the near future, an exception handling mechanism will be introduced
+in Modelica that will allow to catch errors at a defined place.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

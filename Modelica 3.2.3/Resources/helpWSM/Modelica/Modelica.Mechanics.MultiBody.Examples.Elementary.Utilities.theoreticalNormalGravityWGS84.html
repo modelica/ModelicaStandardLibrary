@@ -1,0 +1,91 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.html">Elementary</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84.html">theoreticalNormalGravityWGS84</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>theoreticalNormalGravityWGS84</h1>
+    <p>WGS84 normal gravity over earth ellipsoid in negative y-direction</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Function that computes the theoretical gravity of the
+<a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">WGS84 ellipsoid earth model</a> at and close to the earth ellipsoid surface, for the
+given "geodeticLatitude" and the given "height=r[2]" over the
+ellipsoid surface.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">gravity = theoreticalNormalGravityWGS84(r, phi)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from world frame to actual point, resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Conversions.NonSIunits.Angle_deg.html">Angle_deg</a> (°)</p>
+        <p><span>Description:</span> Geodetic latitude</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>gravity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Acceleration.html">Acceleration[3]</a> (m/s²)</p>
+        <p><span>Description:</span> Gravity acceleration at position r, resolved in world frame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

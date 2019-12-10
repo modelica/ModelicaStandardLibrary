@@ -1,0 +1,342 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Electrical.Analog.Sources.ConstantVoltage.html">ConstantVoltage</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ConstantVoltage</h1>
+    <p>Source for constant voltage</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Sources.ConstantVoltage_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The ConstantVoltage source is a simple source for an ideal constant voltage which is provided by a parameter. There is no internal resistance modeled. If it is used instead of a battery model it is not very realistic: This battery will never be unloaded.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>V</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Value of constant voltage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(23)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.SwitchWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.SwitchWithArc.html">SwitchWithArc</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Comparison of switch models both with and without arc</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.AmplifierWithOpAmpDetailed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.AmplifierWithOpAmpDetailed.html">AmplifierWithOpAmpDetailed</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Simple Amplifier circuit which uses OpAmpDetailed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.ControlledSwitchWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.ControlledSwitchWithArc.html">ControlledSwitchWithArc</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Comparison of controlled switch models both with and without arc</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.InvertingAmp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.InvertingAmp.html">InvertingAmp</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span</p>
+        <p>Inverting amplifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCEE_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCEE_Start.html">DCEE_Start</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span</p>
+        <p>Test example: DC with electrical excitation starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start.html">DCSE_Start</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span</p>
+        <p>Test example: DC with serial excitation starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Temperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Temperature.html">DCPM_Temperature</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span</p>
+        <p>Test example: Investigate temperature dependency of a DCPM motor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling.html">DCPM_Cooling</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span</p>
+        <p>Test example: Cooling of a DCPM motor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStationary_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStationary.html">DCPM_QuasiStationary</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span</p>
+        <p>Test example: Compare DCPM motors transient - quasistationary</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_RLV.html">ThyristorBridge2Pulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse</span</p>
+        <p>Two pulse Graetz thyristor bridge rectifier with R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_RLV_Characteristic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_RLV_Characteristic.html">ThyristorBridge2Pulse_RLV_Characteristic</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse</span</p>
+        <p>Characteristic of two pulse Graetz thyristor bridge rectifier with R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV.html">ThyristorCenterTap2Pulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</span</p>
+        <p>Two pulse thyristor rectifier with center tap and R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV_Characteristic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV_Characteristic.html">ThyristorCenterTap2Pulse_RLV_Characteristic</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</span</p>
+        <p>Characteristic of two pulse thyristor rectifier with center tap and R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_RLV.html">ThyristorCenterTapmPulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse</span</p>
+        <p>2*m pulse thyristor rectifier with center tap and R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_RLV_Characteristic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_RLV_Characteristic.html">ThyristorCenterTapmPulse_RLV_Characteristic</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse</span</p>
+        <p>Characteristic of 2*m pulse thyristor rectifier with center tap and R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV.html">ThyristorBridge2mPulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</span</p>
+        <p>2*m pulse thyristor rectifier bridge with R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV_Characteristic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV_Characteristic.html">ThyristorBridge2mPulse_RLV_Characteristic</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</span</p>
+        <p>Characteristic of 2*m pulse thyristor rectifier bridge with R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV.html">ThyristorCenterTap2mPulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse</span</p>
+        <p>2*m pulse thyristor center tap rectifier with R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_Characteristic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_Characteristic.html">ThyristorCenterTap2mPulse_RLV_Characteristic</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse</span</p>
+        <p>Characteristic of 2*m pulse center tap thyristor rectifier with R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_R.html">MultiPhaseTwoLevel_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel</span</p>
+        <p>Multi phase DC to AC converter with R load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL.html">MultiPhaseTwoLevel_RL</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel</span</p>
+        <p>Multi phase DC to AC converter with R-L load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.ThreePhaseTwoLevel_PWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.ThreePhaseTwoLevel_PWM.html">ThreePhaseTwoLevel_PWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel</span</p>
+        <p>Test of pulse width modulation methods</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature.html">ControlledTemperature</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples</span</p>
+        <p>Control temperature of a resistor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SupplyVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SupplyVoltage.html">SupplyVoltage</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span</p>
+        <p>Supply voltage (positive and negative)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.Battery_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.Battery.html">Battery</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span</p>
+        <p>Simple battery model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.MultiPhase.Sources.ConstantVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.MultiPhase.Sources.ConstantVoltage.html">ConstantVoltage</a></p>
+        <p><span>Modelica.Electrical.MultiPhase.Sources</span</p>
+        <p>Multiphase constant voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.ExampleTemplates.SinglePhaseTwoLevel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.ExampleTemplates.SinglePhaseTwoLevel.html">SinglePhaseTwoLevel</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.ExampleTemplates</span</p>
+        <p>Single phase two level inverter including control</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.ChopperStepDown_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.ChopperStepDown.html">ChopperStepDown</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates</span</p>
+        <p>Step down chopper including control</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.ChopperStepUp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.ChopperStepUp.html">ChopperStepUp</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates</span</p>
+        <p>Step up chopper including control</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.HBridge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.HBridge.html">HBridge</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates</span</p>
+        <p>H bridge DC/DC converter</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

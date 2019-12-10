@@ -1,0 +1,97 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Rankine.html">Rankine</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Rankine</h1>
+    <p>Components with Rankine input and/or output</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine.ToKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Rankine.ToKelvin.html">ToKelvin</a></p>
+        <p>Conversion block from degRankine to Kelvin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine.FromKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Rankine.FromKelvin.html">FromKelvin</a></p>
+        <p>Conversion from Kelvin to degRankine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature.html">FixedTemperature</a></p>
+        <p>Fixed temperature boundary condition in degRankine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature.html">PrescribedTemperature</a></p>
+        <p>Variable temperature boundary condition in degRankine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p>Absolute temperature sensor in degRankine</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The components of this package are provided for the convenience of
+people working mostly with Rankine units, since all models
+in package HeatTransfer are based on Kelvin units.
+</p>
+<p>
+Note, that in package SIunits.Conversions, functions are provided
+to convert between the units Kelvin, degree Celsius, degree Fahrenheit
+and degree Rankine. These functions allow, e.g., a direct conversion
+of units at all places where Kelvin is required as parameter.
+Example:
+</p>
+<pre>
+    <strong>import</strong> SIunits.Conversions.*;
+    Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degRk(500));
+</pre>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Random.html">Random</a></li>
+  <li><a href="Modelica.Math.Random.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Math.Random.Examples.GenerateRandomNumbers.html">GenerateRandomNumbers</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>GenerateRandomNumbers</h1>
+    <p>Generate random numbers with the various random number generators</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Random.Examples.GenerateRandomNumbers_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates how to utilize the random number generators
+of package <a href="Modelica.Math.Random.Generators.html">Math.Random.Generators</a> in a Modelica model.
+The example calculates random numbers in the range 0 .. 1 of the available random number generators periodically
+with a sample period of 0.05 s. Simulations results are shown in the figure below:
+</p>
+
+<blockquote>
+<img src="modelica:///Modelica.Math.Random.Examples.GenerateRandomNumbers/resources/Modelica.Math.Random.Examples.GenerateRandomNumbers_info_001.png">
+</blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>samplePeriod</th>
+      <td>
+        <p><span>Value:</span> 0.05</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Period.html">Period</a> (s)</p>
+        <p><span>Description:</span> Sample period for the generation of random numbers</p>
+      </td>
+    </tr>
+    <tr>
+      <th>globalSeed</th>
+      <td>
+        <p><span>Value:</span> 30020</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Global seed to initialize random number generator</p>
+      </td>
+    </tr>
+    <tr>
+      <th>localSeed</th>
+      <td>
+        <p><span>Value:</span> 614657</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Local seed to initialize random number generator</p>
+      </td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td>
+        <p><span>Value:</span> Utilities.initializeImpureRandom(globalSeed)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> A unique number used to sort equations correctly</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>r64</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number generated with Xorshift64star</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r128</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number generated with Xorshift128plus</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r1024</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number generated with Xorshift1024star</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

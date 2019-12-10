@@ -1,0 +1,66 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.html">Conventions</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.html">Documentation</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.html">Format</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.Hyperlinks.html">Hyperlinks</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Hyperlinks</h1>
+    <p>Hyperlinks</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.UsersGuide.Conventions.Documentation.Format.Hyperlinks_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<ol>
+<li> Hyperlinks should always be made when referring to a component or package.</li>
+<li> The hyperlink text in between <code>&lt;a href="modelica:///Modelica.UsersGuide.Conventions.Documentation.Format.Hyperlinks/&quot;...&quot;&gt;</code"> and <code>&lt;/a&gt;</code> should include the full main package name.</li>
+<li> A link to an external component should include the full name of the package that it is referred to.</li>
+<li> Modelica hyperlinks have to use the scheme <code>&quot;modelica://...&quot;</code></li>
+<li> For hyperlinks referring to a Modelica component, see Example 1 and 2.</li>
+<li> No links to commercial web sites are allowed.</li>
+</ol>
+<h5>Example 1</h5>
+<pre>
+&lt;a href="modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops"&gt;
+         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
+<p>appears as</p>
+<a href="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops.html">
+         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
+<h5>Example 2</h5>
+<pre>
+&lt;p&gt;
+  The feeder cables are connected to an
+  &lt;a href="modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage"&gt;
+  induction machine&lt;/a&gt;.
+&lt;/p&gt;</pre>
+<p>appears as</p>
+<p>
+  The feeder cables are connected to an
+  <a href="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage.html">
+  induction machine</a>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

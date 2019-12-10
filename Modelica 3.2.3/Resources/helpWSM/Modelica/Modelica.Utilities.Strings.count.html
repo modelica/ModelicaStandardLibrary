@@ -1,0 +1,112 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.count.html">count</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>count</h1>
+    <p>Count the number of non-overlapping occurrences of a string</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.count_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Strings.<strong>count</strong>(string, searchString)
+Strings.<strong>count</strong>(string, searchString, startIndex=1,
+                     caseSensitive=true)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the number of non-overlapping occurrences of string "searchString"
+in "string". The search is started at index "startIndex" (default = 1).
+If the optional argument "caseSensitive" is false,
+for the counting it does not matter whether a letter is upper
+or lower case.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = count(string, searchString, startIndex, caseSensitive)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String that is analyzed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>searchString</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String that is searched for in string</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startIndex</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Start search at index startIndex</p>
+      </td>
+    </tr>
+    <tr>
+      <th>caseSensitive</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false, if lower and upper case are ignored for count</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of occurrences of 'searchString' in 'string'</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

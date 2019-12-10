@@ -1,0 +1,160 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.dgeqpf.html">dgeqpf</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dgeqpf</h1>
+    <p>Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgeqpf_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<pre>Lapack documentation
+    Purpose
+    =======
+
+    This routine is deprecated and has been replaced by routine DGEQP3.
+
+    DGEQPF computes a QR factorization with column pivoting of a
+    real M-by-N matrix A: A*P = Q*R.
+
+    Arguments
+    =========
+
+    M       (input) INTEGER
+            The number of rows of the matrix A. M >= 0.
+
+    N       (input) INTEGER
+            The number of columns of the matrix A. N >= 0
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit, the upper triangle of the array contains the
+            min(M,N)-by-N upper triangular matrix R; the elements
+            below the diagonal, together with the array TAU,
+            represent the orthogonal matrix Q as a product of
+            min(m,n) elementary reflectors.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A. LDA >= max(1,M).
+
+    JPVT    (input/output) INTEGER array, dimension (N)
+            On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
+            to the front of A*P (a leading column); if JPVT(i) = 0,
+            the i-th column of A is a free column.
+            On exit, if JPVT(i) = k, then the i-th column of A*P
+            was the k-th column of A.
+
+    TAU     (output) DOUBLE PRECISION array, dimension (min(M,N))
+            The scalar factors of the elementary reflectors.
+
+    WORK    (workspace) DOUBLE PRECISION array, dimension (3*N)
+
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            < 0:  if INFO = -i, the i-th argument had an illegal value
+
+    Further Details
+    ===============
+
+    The matrix Q is represented as a product of elementary reflectors
+
+       Q = H(1) H(2) . . . H(n)
+
+    Each H(i) has the form
+
+       H = I - tau * v * v'
+
+    where tau is a real scalar, and v is a real vector with
+    v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i).
+
+    The matrix P is represented in jpvt as follows: If
+       jpvt(j) = i
+    then the jth column of P is the ith canonical unit vector.</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(QR, tau, p, info) = dgeqpf(A)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Square or rectangular matrix</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>QR</th>
+      <td>
+        <p><span>Default Value:</span> A</p>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> QR factorization in packed format</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tau</th>
+      <td>
+        <p><span>Type:</span> Real[min(size(A, 1), size(A, 2))]</p>
+        <p><span>Description:</span> The scalar factors of the elementary reflectors of Q</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Default Value:</span> zeros(size(A, 2))</p>
+        <p><span>Type:</span> Integer[size(A, 2)]</p>
+        <p><span>Description:</span> Pivot vector</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.StateGraph.html">StateGraph</a></li>
+  <li><a href="Modelica.StateGraph.Transition.html">Transition</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Transition</h1>
+    <p>Transition where the fire condition is set by a modification of variable condition</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.StateGraph.Transition_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>enableTimer</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if timer is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>waitTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Wait time before transition fires</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>localCondition</th>
+      <td>
+        <p><span>Default Value:</span> condition</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if transition may fire</p>
+      </td>
+    </tr>
+    <tr>
+      <th>condition</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if transition may fire (time varying expression)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>t</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> = actual waiting time (transition will fire when t > waitTime)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>enableFire</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if all firing conditions are true</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fire</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if transition fires</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Interfaces.Transition_in_16x16.png"></td>
+      <th>inPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.Transition_in.html">Transition_in</a></p>
+        <p><span>Description:</span> Vector of transition input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Interfaces.Transition_out_16x16.png"></td>
+      <th>outPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.Transition_out.html">Transition_out</a></p>
+        <p><span>Description:</span> Vector of transition output connectors</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.FirstExample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.FirstExample.html">FirstExample</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>A first simple StateGraph example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.FirstExample_Variant2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.FirstExample_Variant2.html">FirstExample_Variant2</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>A variant of the first simple StateGraph example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.FirstExample_Variant3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.FirstExample_Variant3.html">FirstExample_Variant3</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>A variant of the first simple StateGraph example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ExecutionPaths_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ExecutionPaths.html">ExecutionPaths</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>Example to demonstrate parallel and alternative execution paths</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ShowCompositeStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ShowCompositeStep.html">ShowCompositeStep</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>Example to demonstrate parallel activities described by a StateGraph</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ShowExceptions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ShowExceptions.html">ShowExceptions</a></p>
+        <p><span>Modelica.StateGraph.Examples</span</p>
+        <p>Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.TankController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.TankController.html">TankController</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span</p>
+        <p>Controller for tank system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.MakeProduct_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.MakeProduct.html">MakeProduct</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span</p>
+        <p>State machine defining the time instants when to fill or empty a tank</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.CompositeStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.CompositeStep.html">CompositeStep</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span</p>
+        <p>State machine demonstrating a composite step (used in StateGraph.Examples.ShowCompositeStep)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.CompositeStep1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.CompositeStep1.html">CompositeStep1</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span</p>
+        <p>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.CompositeStep2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.CompositeStep2.html">CompositeStep2</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span</p>
+        <p>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController.html">TankController</a></p>
+        <p><span>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</span</p>
+        <p>Controller for tank system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.ControlledTankSystem.Utilities.NormalOperation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.NormalOperation.html">NormalOperation</a></p>
+        <p><span>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</span</p>
+        <p>Normal operation of tank system (button start pressed)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller.html">Controller</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses</span</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Types.html">Types</a></li>
+  <li><a href="Modelica.Fluid.Types.ModelStructure.html">ModelStructure</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ModelStructure</h1>
+    <p>Enumeration with choices for model structure in distributed pipe model</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Enumeration to define the discretization structure of
+distributed pipe models according to the staggered grid scheme:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><strong>ModelStructure.</strong></th>
+    <th><strong>Meaning</strong></th></tr>
+
+<tr><td>av_vb</td>
+    <td>port_a - volume - flow model - volume - port_b</td></tr>
+
+<tr><td>a_v_b</td>
+    <td>port_a - flow model - volume - flow model - port_b</td></tr>
+
+<tr><td>av_b</td>
+    <td>port_a - volume - flow model - port_b</td></tr>
+
+<tr><td>a_vb</td>
+    <td>port_a - flow model - volume - port_b</td></tr>
+</table>
+
+<p>
+The default is "ModelStructure.av_vb", i.e., the distributed pipe
+has "volumes" at its both ends. The advantage is that connections
+of the pipe to flow models (like fittings) lead to the desirable structure
+of alternating volume and flow models, which means that no non-linear
+algebraic equations occur.
+</p>
+
+<p>
+Direct connections of distributed pipes with
+this option means that two volumes are directly connected together. Due to the
+stream concept this means that the pressures of the two connected volumes
+are identical, but the temperatures are not set equal
+(this corresponds to volumes that are connected together with a very
+short distance and it needs some time until different volume temperatures
+are equilibrated). Since the pressures of the volumes are identical, the number
+of states is reduced and index reduction takes place (which means that medium
+equations depending on pressure are differentiated and the number of required
+initial conditions is reduced by one).
+</p>
+
+<p>
+The default option "av_vb" cannot be used, if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The modelStructure can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition
+(e.g., if the jumping pressure component is connected to port_a, use model structure
+ModelStructure.a_vb).
+</p>
+</div>
+</section>
+<section id="enumerators" >
+  <h1>Enumeration Literals <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>av_vb</th>
+      <td>
+        <p>av_vb: port_a - volume - flow model - volume - port_b</p></td>
+    </tr>
+    <tr>
+      <th>a_v_b</th>
+      <td>
+        <p>a_v_b: port_a - flow model - volume - flow model - port_b</p></td>
+    </tr>
+    <tr>
+      <th>av_b</th>
+      <td>
+        <p>av_b: port_a - volume - flow model - port_b</p></td>
+    </tr>
+    <tr>
+      <th>a_vb</th>
+      <td>
+        <p>a_vb: port_a - flow model - volume - port_b</p></td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.IncompressibleFluidNetwork_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.IncompressibleFluidNetwork.html">IncompressibleFluidNetwork</a></p>
+        <p><span>Modelica.Fluid.Examples</span</p>
+        <p>Multi-way connections of pipes and incompressible medium model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.html">BasicHX</a></p>
+        <p><span>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</span</p>
+        <p>Simple heat exchanger model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow.html">PartialTwoPortFlow</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses</span</p>
+        <p>Base class for distributed flow models</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

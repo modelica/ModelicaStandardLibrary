@@ -1,0 +1,147 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.html">ParameterRecords</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.TransformerData.html">TransformerData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TransformerData</h1>
+    <p>Common parameters for transformers</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.TransformerData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Basic parameters of transformers are predefined with default values.</p>
+<p>Note: ratio n is defined between primary / secondary line-to-line voltage;
+   therefore the user has to take into account primary and secondary connection!</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n_phase</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ratio primary voltage per phase / secondary voltage per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C1</th>
+      <td>
+        <p><span>Value:</span> "Y"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Choose primary connection</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C2</th>
+      <td>
+        <p><span>Value:</span> "y"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Choose secondary connection</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> n_phase * (if C1 == "D" and (C2 == "y" or C2 == "z") then 1 / sqrt(3) else if C1 == "Y" and C2 == "d" then sqrt(3) else 1)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R1</th>
+      <td>
+        <p><span>Value:</span> 5E-3 / 3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Primary resistance per phase at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T1Ref</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of primary resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20_1</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of primary resistance at 20 degC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L1sigma</th>
+      <td>
+        <p><span>Value:</span> 78E-6 / 3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Primary stray inductance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R2</th>
+      <td>
+        <p><span>Value:</span> 5E-3 / 3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Secondary resistance per phase at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T2Ref</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of secondary resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20_2</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of secondary resistance at 20 degC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L2sigma</th>
+      <td>
+        <p><span>Value:</span> 78E-6 / 3</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Secondary stray inductance per phase</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

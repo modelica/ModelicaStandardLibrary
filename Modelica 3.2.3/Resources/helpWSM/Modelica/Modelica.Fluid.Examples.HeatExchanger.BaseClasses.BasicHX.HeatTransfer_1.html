@@ -1,0 +1,196 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Fluid.Examples.HeatExchanger.html">HeatExchanger</a></li>
+  <li><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.html">BasicHX</a></li>
+  <li><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.HeatTransfer_1.html">HeatTransfer_1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>HeatTransfer_1</h1>
+    <p>Heat transfer model</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.HeatTransfer_1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of heat transfer segments</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_k</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true to use k value for thermal isolation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.CoefficientOfHeatTransfer.html">CoefficientOfHeatTransfer</a> (W/(m²·K))</p>
+        <p><span>Description:</span> Heat transfer coefficient to ambient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_ambient</th>
+      <td>
+        <p><span>Value:</span> system.T_ambient</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Ambient temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nParallel</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> number of identical parallel flow devices</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>states</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialHeatTransfer.Medium.ThermodynamicState.html">ThermodynamicState[n]</a></p>
+        <p><span>Description:</span> Thermodynamic states of flow segments</p>
+      </td>
+    </tr>
+    <tr>
+      <th>surfaceAreas</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Area.html">Area[n]</a> (m²)</p>
+        <p><span>Description:</span> Heat transfer areas</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vs</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Velocity.html">Velocity[n]</a> (m/s)</p>
+        <p><span>Description:</span> Mean velocities of fluid flow in segments</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lengths</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length[n]</a> (m)</p>
+        <p><span>Description:</span> Lengths along flow path</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dimensions</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length[n]</a> (m)</p>
+        <p><span>Description:</span> Characteristic dimensions for fluid flow (diameter for pipe flow)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>roughnesses</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Roughness.html">Roughness[n]</a> (m)</p>
+        <p><span>Description:</span> Average heights of surface asperities</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Q_flows</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.HeatFlowRate.html">HeatFlowRate[n]</a> (W)</p>
+        <p><span>Description:</span> Heat flow rates</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.HeatPorts_a_16x16.png"></td>
+      <th>heatPorts</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.HeatPorts_a.html">HeatPorts_a[n]</a></p>
+        <p><span>Description:</span> Heat port to component boundary</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialHeatTransfer.Medium.ThermodynamicState_32x32.png"></td>
+      <th>states</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialHeatTransfer.Medium.ThermodynamicState.html">ThermodynamicState[n]</a></p>
+        <p><span>Description:</span> Thermodynamic states of flow segments</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Description:</span> System wide properties</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

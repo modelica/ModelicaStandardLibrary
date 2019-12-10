@@ -1,0 +1,57 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.Documentation.html">Documentation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Documentation</h1>
+    <p>Documentation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.Documentation_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Annotations for documentation
+</p>
+<h4>Syntax</h4>
+<pre>
+documentation_annotation:
+   <strong>annotation</strong>"(" Documentation "(" "info" "=" STRING
+                            ["," "revisions" "=" STRING ] ")" ")"
+</pre>
+<h4>Description</h4>
+<p>
+The "Documentation" annotation can contain the "info" annotation giving a textual description, the "revisions" annotation giving a list of revisions and other annotations defined by a tool [The "revisions" documentation may be omitted in printed documentation]. How the tool interprets the information in "Documentation" is unspecified. Within a string of the "Documentation" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define the start and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme "Modelica", e.g.,
+</p>
+<pre>
+    &lt;a href="modelica://ExamplePackage.Tutorial"&gt;ExamplePackage.Tutorial&lt;/a&gt;
+</pre>
+<p>
+Together with scheme "Modelica" the (URI)  fragment specifiers #diagram, #info, #text, #icon may be used to reference different layers. Example:
+</p>
+<pre>
+   &lt;a href="modelica://ExamplePackage.SimpleModel#info"&gt;SimpleModel&lt;/a&gt;
+</pre>
+</div>
+</section>
+</div>
+</body>
+</html>

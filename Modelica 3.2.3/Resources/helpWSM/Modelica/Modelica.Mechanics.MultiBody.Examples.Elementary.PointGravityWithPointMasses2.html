@@ -1,0 +1,185 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.html">Elementary</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.html">PointGravityWithPointMasses2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PointGravityWithPointMasses2</h1>
+    <p>Rigidly connected point masses in a point gravity field</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model demonstrates the usage of model Parts.PointMass in a
+point gravity field. 6 point masses are connected rigidly together.
+Translating such a model results in an error, because point masses do
+not define an orientation object. The example demonstrates that in such
+a case (when the orientation object is not defined by an object that
+is connected to a point mass), a "MultiBody.Joints.FreeMotion" joint
+has to be used, to define the degrees of freedom of this structure.
+</p>
+
+<p>
+In order to demonstrate that this approach is correct, in model
+"referenceSystem", the same system is again provided, but this time
+modeled with a generic body (Parts.Body) where the inertia tensor is
+set to zero. In this case, no FreeMotion object is needed because every
+body provides its absolute translational and rotational position and
+velocity as potential states.
+</p>
+
+<p>
+The two systems should move exactly in the same way. The system with the PointMasses
+object visualizes the point masses in "red", whereas the "referenceSystem" shows
+its bodies in "blue".
+
+<img src="modelica:///Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2/resources/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2_info_001.png">
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass_32x32.png"></td>
+      <th>pointMass1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass.html">PointMass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass_32x32.png"></td>
+      <th>pointMass2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass.html">PointMass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass_32x32.png"></td>
+      <th>pointMass3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass.html">PointMass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass_32x32.png"></td>
+      <th>pointMass4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass.html">PointMass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass_32x32.png"></td>
+      <th>pointMass5</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass.html">PointMass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass_32x32.png"></td>
+      <th>pointMass6</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass.html">PointMass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>fixedTranslation</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>fixedTranslation1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>fixedTranslation2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>fixedTranslation3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>fixedTranslation4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>fixedTranslation5</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.FreeMotion_32x32.png"></td>
+      <th>freeMotion</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.FreeMotion.html">FreeMotion</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>referenceSystem</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.SystemWithStandardBodies.html">SystemWithStandardBodies</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.isEqual.html">isEqual</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>isEqual</h1>
+    <p>Determine whether two strings are identical</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.isEqual_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Strings.<strong>isEqual</strong>(string1, string2);
+Strings.<strong>isEqual</strong>(string1, string2, caseSensitive=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Compare whether two strings are identical,
+optionally ignoring case.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">identical = isEqual(string1, string2, caseSensitive)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string1</th>
+      <td>
+        <p><span>Type:</span> String</p>
+      </td>
+    </tr>
+    <tr>
+      <th>string2</th>
+      <td>
+        <p><span>Type:</span> String</p>
+      </td>
+    </tr>
+    <tr>
+      <th>caseSensitive</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false, if lower and upper case are ignored for the comparison</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>identical</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True, if string1 is identical to string2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

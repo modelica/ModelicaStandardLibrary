@@ -1,0 +1,222 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Components.html">Components</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter.html">SinglePhaseElectroMagneticConverter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SinglePhaseElectroMagneticConverter</h1>
+    <p>Single phase electro magnetic converter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The single phase winding has an effective number of turns, <img src="modelica:///Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter/resources/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter_info_001.png"> and a respective orientation of the winding, <img src="modelica:///Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter/resources/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter_info_002.png">. The current in winding is <img src="modelica:///Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter/resources/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter_info_003.png">.
+</p>
+
+<p>
+The total complex magnetic potential difference of the single phase winding is determined by:
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="modelica:///Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter/resources/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter_info_004.png">
+</p>
+
+<p>
+In this equation the magnetomotive force is aligned with the orientation of the winding.
+</p>
+
+<p>
+The voltage <img src="modelica:///Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter/resources/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter_info_005.png"> induced in the winding depends on the cosine between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are proportional to the respective number of turns. This relationship can be modeled by means of</p>
+
+<p>
+&nbsp;&nbsp;<img src="modelica:///Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter/resources/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter_info_006.png">
+</p>
+
+<p>The single phase electromagnetic converter is a special case of the
+<a href="Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter.html">MultiPhaseElectroMagneticConverter</a>
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter.html">MultiPhaseElectroMagneticConverter</a>
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>effectiveTurns</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Effective number of turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>orientation</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Orientation of the resulting fundamental wave V_m phasor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> effectiveTurns * Modelica.ComplexMath.exp(Complex(0, orientation))</p>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+        <p><span>Description:</span> Complex number of turns</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>pin_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>pin_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive complex magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative complex magnetic port</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Complex magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.SIunits.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Complex magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>N</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+        <p><span>Description:</span> Complex number of turns</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.Components.SinglePhaseInductance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.Components.SinglePhaseInductance.html">SinglePhaseInductance</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.Components</span</p>
+        <p>Single phase inductance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter.html">MultiPhaseElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Components</span</p>
+        <p>Multi phase electro magnetic converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding.html">SinglePhaseWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span</p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

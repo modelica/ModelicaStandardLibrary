@@ -1,0 +1,77 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Files.html">Files</a></li>
+  <li><a href="Modelica.Utilities.Files.createDirectory.html">createDirectory</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>createDirectory</h1>
+    <p>Create directory (if directory already exists, ignore call)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Files.createDirectory_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>createDirectory</strong>(directoryName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Creates directory "directoryName". If this directory already exists,
+the function call is ignored. If several directories in "directoryName"
+do not exist, all of them are created. For example, assume
+that directory "E:/test1" exists and that directory
+"E:/test1/test2/test3" shall be created. In this case
+the directories "test2" in "test1" and "test3" in "test2"
+are created.
+</p>
+<p>
+This function is silent, i.e., it does not print a message.
+In case of error (e.g., "directoryName" is an existing regular
+file), an assert is triggered.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">createDirectory(directoryName)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>directoryName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name of directory to be created (if present, ignore call)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

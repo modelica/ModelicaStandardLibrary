@@ -1,0 +1,114 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Vectors.html">Vectors</a></li>
+  <li><a href="Modelica.Math.Vectors.normalize.html">normalize</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>normalize</h1>
+    <p>Return normalized vector such that length = 1 and prevent zero-division for zero vector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Vectors.normalize_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<strong>normalize</strong>(v);
+Vectors.<strong>normalize</strong>(v,eps=100*Modelica.Constants.eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.<strong>normalize</strong>(v)</code>" returns the
+<strong>unit vector</strong> "<code>v/length(v)</code>" of vector v.
+If length(v) is close to zero (more precisely, if length(v) &lt; eps),
+v/eps is returned in order to avoid
+a division by zero. For many applications this is useful, because
+often the unit vector <strong>e</strong> = <strong>v</strong>/length(<strong>v</strong>) is used to compute
+a vector x*<strong>e</strong>, where the scalar x is in the order of length(<strong>v</strong>),
+i.e., x*<strong>e</strong> is small, when length(<strong>v</strong>) is small and then
+it is fine to replace <strong>e</strong> by <strong>v</strong> to avoid a division by zero.
+</p>
+<p>
+Since the function has the "Inline" annotation, it
+is usually inlined and symbolic processing is applied.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+  <strong>normalize</strong>({0,0,0});  // = {0,0,0}
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Vectors.length.html">Vectors.length</a>,
+<a href="Modelica.Math.Vectors.normalize.html">Vectors.normalizeWithAssert</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = normalize(v, eps)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Real vector</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Default Value:</span> 100 * Modelica.Constants.eps</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> if |v| < eps then result = v/eps</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Real[size(v, 1)]</p>
+        <p><span>Description:</span> Input vector v normalized to length=1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,431 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.html">BasicMachines</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.html">InductionMachines</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>IMC_withLosses</h1>
+    <p>Induction machine with squirrel cage and losses</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<ul>
+<li>Simulate for 10 seconds: The machine is started at nominal speed, subsequently a load ramp is applied.</li>
+<li>Compare by plotting versus PmechQS:</li>
+</ul>
+<table>
+<tr><td>Current      </td><td>I_simQS   </td><td>I_measQS  </td></tr>
+<tr><td>Speed        </td><td>w_simQS   </td><td>w_measQS  </td></tr>
+<tr><td>Power factor </td><td>pf_simQS  </td><td>pf_measQS </td></tr>
+<tr><td>Efficiency   </td><td>eff_simQS </td><td>eff_measQS</td></tr>
+</table>
+<p>Machine parameters are taken from a standard 18.5 kW 400 V 50 Hz motor, simulation results are compared with measurements.</p>
+<table>
+<tr><td>Nominal stator current            </td><td>     32.85  </td><td>A      </td></tr>
+<tr><td>Power factor                      </td><td>      0.898 </td><td>       </td></tr>
+<tr><td>Speed                             </td><td>   1462.5   </td><td>rpm    </td></tr>
+<tr><td>Electrical input                  </td><td> 20,443.95  </td><td>W      </td></tr>
+<tr><td>Stator copper losses              </td><td>    770.13  </td><td>W      </td></tr>
+<tr><td>Stator core losses                </td><td>    410.00  </td><td>W      </td></tr>
+<tr><td>Rotor  copper losses              </td><td>    481.60  </td><td>W      </td></tr>
+<tr><td>Stray load losses                 </td><td>    102.22  </td><td>W      </td></tr>
+<tr><td>Friction losses                   </td><td>    180.00  </td><td>W      </td></tr>
+<tr><td>Mechanical output                 </td><td> 18,500.00  </td><td>W      </td></tr>
+<tr><td>Efficiency                        </td><td>     90.49  </td><td>%      </td></tr>
+<tr><td>Nominal torque                    </td><td>    120.79  </td><td>Nm     </td></tr>
+</table>
+<br>
+<table>
+<tr><td>Stator resistance per phase       </td><td>  0.56     </td><td>&Omega;</td></tr>
+<tr><td>Temperature coefficient           </td><td> copper    </td><td>       </td></tr>
+<tr><td>Reference temperature             </td><td> 20        </td><td>&deg;C </td></tr>
+<tr><td>Operation temperature             </td><td> 90        </td><td>&deg;C </td></tr>
+<tr><td>Stator leakage reactance at 50 Hz </td><td>  1.52     </td><td>&Omega;</td></tr>
+<tr><td>Main  field    reactance at 50 Hz </td><td> 66.40     </td><td>&Omega;</td></tr>
+<tr><td>Rotor  leakage reactance at 50 Hz </td><td>  2.31     </td><td>&Omega;</td></tr>
+<tr><td>Rotor  resistance per phase       </td><td>  0.42     </td><td>&Omega;</td></tr>
+<tr><td>Temperature coefficient           </td><td> aluminium </td><td>       </td></tr>
+<tr><td>Reference temperature             </td><td> 20        </td><td>&deg;C </td></tr>
+<tr><td>Operation temperature             </td><td> 90        </td><td>&deg;C </td></tr>
+</table>
+<p>See:<br>
+Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johannes V. Gragger<br>
+<a href="https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf">
+The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
+Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>PNominal</th>
+      <td>
+        <p><span>Value:</span> 18500</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Nominal output</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VNominal</th>
+      <td>
+        <p><span>Value:</span> 400</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Nominal RMS voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>INominal</th>
+      <td>
+        <p><span>Value:</span> 32.85</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Nominal RMS current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pfNominal</th>
+      <td>
+        <p><span>Value:</span> 0.898</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Nominal power factor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PsNominal</th>
+      <td>
+        <p><span>Value:</span> sqrt(3) * VNominal * INominal * pfNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Nominal stator power</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lossNominal</th>
+      <td>
+        <p><span>Value:</span> PsNominal - PNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Nominal losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>etaNominal</th>
+      <td>
+        <p><span>Value:</span> 0.9049</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Nominal efficiency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fNominal</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Nominal frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wNominal</th>
+      <td>
+        <p><span>Value:</span> from_rpm(1462.5)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Nominal speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TNominal</th>
+      <td>
+        <p><span>Value:</span> PNominal / wNominal</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Nominal torque</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TempNominal</th>
+      <td>
+        <p><span>Value:</span> from_degC(90)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Nominal temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>imcData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData.html">AIM_SquirrelCageData</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>PmechQS</th>
+      <td>
+        <p><span>Default Value:</span> powerSensorQS.power</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Mechanical output</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ps_simQS</th>
+      <td>
+        <p><span>Default Value:</span> sqrt(3) * VNominal * I_simQS * pf_simQS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Simulated stator power</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ps_measQS</th>
+      <td>
+        <p><span>Default Value:</span> sqrt(3) * VNominal * I_measQS * pf_measQS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Simulated stator power</p>
+      </td>
+    </tr>
+    <tr>
+      <th>loss_simQS</th>
+      <td>
+        <p><span>Default Value:</span> Ps_simQS - PmechQS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Simulated total losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>loss_measQS</th>
+      <td>
+        <p><span>Default Value:</span> Ps_measQS - PmechQS</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Measured total losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I_simQS</th>
+      <td>
+        <p><span>Default Value:</span> currentQuasiRMSSensorQS.I</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Simulated current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I_measQS</th>
+      <td>
+        <p><span>Default Value:</span> combiTable1DsQS.y[1]</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Measured current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_simQS</th>
+      <td>
+        <p><span>Default Value:</span> imcQS.wMechanical</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Simulated speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_measQS</th>
+      <td>
+        <p><span>Default Value:</span> combiTable1DsQS.y[2]</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Measured speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pf_simQS</th>
+      <td>
+        <p><span>Default Value:</span> if noEvent(SelQS > Modelica.Constants.small) then PelQS / SelQS else 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Simulated power factor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pf_measQS</th>
+      <td>
+        <p><span>Default Value:</span> combiTable1DsQS.y[3]</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Measured power factor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eff_simQS</th>
+      <td>
+        <p><span>Default Value:</span> if noEvent(abs(PelQS) > Modelica.Constants.small) then PmechQS / PelQS else 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Simulated efficiency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eff_measQS</th>
+      <td>
+        <p><span>Default Value:</span> combiTable1DsQS.y[4]</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Measured efficiency</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(16)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage_32x32.png"></td>
+      <th>imcQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage.html">IM_SquirrelCage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox_32x32.png"></td>
+      <th>terminalBoxQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox.html">MultiTerminalBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor_32x32.png"></td>
+      <th>electricalPowerSensorQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor.html">PowerSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <th>currentQuasiRMSSensorQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource_32x32.png"></td>
+      <th>sineVoltageQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource.html">VoltageSource</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star_32x32.png"></td>
+      <th>starQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground_32x32.png"></td>
+      <th>groundQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.PowerSensor_32x32.png"></td>
+      <th>powerSensorQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sensors.PowerSensor.html">PowerSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>loadInertiaQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Torque_32x32.png"></td>
+      <th>torqueQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Torque.html">Torque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gainQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.PI_32x32.png"></td>
+      <th>PIQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.PI.html">PI</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedbackQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Ramp_32x32.png"></td>
+      <th>rampQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Tables.CombiTable1Ds_32x32.png"></td>
+      <th>combiTable1DsQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Tables.CombiTable1Ds.html">CombiTable1Ds</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData_32x32.png"></td>
+      <th>imcData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData.html">AIM_SquirrelCageData</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

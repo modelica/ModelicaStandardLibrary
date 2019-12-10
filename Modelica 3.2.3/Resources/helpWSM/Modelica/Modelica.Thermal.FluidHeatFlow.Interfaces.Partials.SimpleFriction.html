@@ -1,0 +1,118 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.html">Partials</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction.html">SimpleFriction</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SimpleFriction</h1>
+    <p>Simple friction model</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Definition of relationship between pressure drop and volume flow rate:
+</p>
+<ul>
+<li>-V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar, i.e., linear dependency of pressure drop on volume flow.</li>
+<li>-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent, i.e., quadratic dependency of pressure drop on volume flow.</li>
+</ul>
+<p>
+Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar.
+Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).
+See also sketch at diagram layer.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>V_flowLaminar</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.VolumeFlowRate.html">VolumeFlowRate</a> (m³/s)</p>
+        <p><span>Description:</span> Laminar volume flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dpLaminar</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Laminar pressure drop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V_flowNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.VolumeFlowRate.html">VolumeFlowRate</a> (m³/s)</p>
+        <p><span>Description:</span> Nominal volume flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dpNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Nominal pressure drop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>frictionLoss</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Part of friction losses fed to medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Pipe_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Components.Pipe.html">Pipe</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Components</span</p>
+        <p>Pipe with optional heat exchange</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

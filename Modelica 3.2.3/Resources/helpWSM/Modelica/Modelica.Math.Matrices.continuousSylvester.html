@@ -1,0 +1,183 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.continuousSylvester.html">continuousSylvester</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>continuousSylvester</h1>
+    <p>Return solution X of the continuous-time Sylvester equation A*X + X*B = C</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.continuousSylvester_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<strong>continuousSylvester</strong>(A, B, C);
+         X = Matrices.<strong>continuousSylvester</strong>(A, B, C, AisSchur, BisSchur);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>continuousSylvester</strong> computes the solution <strong>X</strong> of the continuous-time Sylvester equation
+</p>
+
+<blockquote><pre>
+ <strong>A</strong>*<strong>X</strong> + <strong>X</strong>*<strong>B</strong> = <strong>C</strong>.
+</pre></blockquote>
+
+<p>
+using the Schur method for Sylvester equations proposed by Bartels and Stewart [1].
+</p>
+
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+</p>
+<blockquote><pre>
+ <strong>S</strong>*<strong>Y</strong> + <strong>Y</strong>*<strong>T</strong> = <strong>D</strong>.
+</pre></blockquote>
+<p>
+with <strong>S</strong>=<strong>U</strong>'*<strong>A</strong>*<strong>U</strong> is the real Schur of <strong>A</strong>,  <strong>T</strong>=<strong>V</strong>'*<strong>T</strong>*<strong>V</strong> is the real Schur form of <strong>B</strong> and
+<strong>D</strong>=<strong>U</strong>'*<strong>C</strong>*<strong>V</strong> and <strong>Y</strong>=<strong>U</strong>*<strong>X</strong>*<strong>V</strong>'
+are the corresponding transformations of <strong>C</strong> and <strong>X</strong>. This problem is solved sequentially by exploiting the block triangular form of <strong>S</strong> and <strong>T</strong>.
+Finally the solution of the original problem is recovered as <strong>X</strong>=<strong>U</strong>'*<strong>Y</strong>*<strong>V</strong>.<br>
+The Boolean inputs "AisSchur" and "BisSchur" indicate to omit one or both of the transformation to Schur in the case that <strong>A</strong> and/or <strong>B</strong> have already Schur form.
+</p>
+
+<p>
+The function applies LAPACK-routine DTRSYL. See <a href="Modelica.Math.Matrices.LAPACK.dtrsyl.html">LAPACK.dtrsyl</a>
+for more information.
+</p>
+
+<h4>References</h4>
+<pre>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</pre>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [17.0,   24.0,   1.0,   8.0,   15.0 ;
+       23.0,    5.0,   7.0,  14.0,   16.0 ;
+        0.0,    6.0,  13.0,  20.0,   22.0;
+        0.0,    0.0,  19.0,  21.0,    3.0 ;
+        0.0,    0.0,   0.0,   2.0,    9.0];
+
+  B =  [8.0, 1.0, 6.0;
+        0.0, 5.0, 7.0;
+        0.0, 9.0, 2.0];
+
+  C = [62.0,  -12.0, 26.0;
+       59.0,  -10.0, 31.0;
+       70.0,  -6.0,   9.0;
+       35.0,  31.0,  -7.0;
+       36.0, -15.0,   7.0];
+
+  X = continuousSylvester(A, B, C);
+
+  results in:
+
+  X = [0.0,  0.0,  1.0;
+       1.0,  0.0,  0.0;
+       0.0,  1.0,  0.0;
+       1.0,  1.0, -1.0;
+       2.0, -2.0,  1.0];
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Matrices.discreteSylvester.html">Matrices.discreteSylvester</a>,
+<a href="Modelica.Math.Matrices.continuousLyapunov.html">Matrices.continuousLyapunov</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">X = continuousSylvester(A, B, C, AisSchur, BisSchur)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Square matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Square matrix B</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(B, 2)]</p>
+        <p><span>Description:</span> Matrix C</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AisSchur</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True if A has already real Schur form</p>
+      </td>
+    </tr>
+    <tr>
+      <th>BisSchur</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True if B has already real Schur form</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(B, 2)]</p>
+        <p><span>Description:</span> Solution of the continuous Sylvester equation</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

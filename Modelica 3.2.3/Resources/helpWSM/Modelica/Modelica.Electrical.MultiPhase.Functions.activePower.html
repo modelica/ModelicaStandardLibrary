@@ -1,0 +1,87 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.MultiPhase.html">MultiPhase</a></li>
+  <li><a href="Modelica.Electrical.MultiPhase.Functions.html">Functions</a></li>
+  <li><a href="Modelica.Electrical.MultiPhase.Functions.activePower.html">activePower</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>activePower</h1>
+    <p>Calculate active power of voltage and current input</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.MultiPhase.Functions.activePower_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculates instantaneous power from multiphase voltages and currents.
+In quasistationary operation, instantaneous power equals active power;
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">p = activePower(v, i)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage[:]</a> (V)</p>
+        <p><span>Description:</span> Phase voltages</p>
+      </td>
+    </tr>
+    <tr>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Current.html">Current[size(v, 1)]</a> (A)</p>
+        <p><span>Description:</span> Phase currents</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Active power</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

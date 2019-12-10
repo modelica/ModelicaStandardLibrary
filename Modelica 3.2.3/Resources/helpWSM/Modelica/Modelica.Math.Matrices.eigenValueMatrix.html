@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.eigenValueMatrix.html">eigenValueMatrix</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>eigenValueMatrix</h1>
+    <p>Return real valued block diagonal matrix J of eigenvalues of matrix A (A=V*J*Vinv)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.eigenValueMatrix_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<strong>eigenValueMatrix</strong>(eigenvalues);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call returns a block diagonal matrix <strong>J</strong>
+from the two-column matrix <code>eigenvalues</code>
+(computed by function
+<a href="Modelica.Math.Matrices.eigenValues.html">Matrices.eigenValues</a>).
+Matrix <code>eigenvalues</code> must have the real part of the
+eigenvalues in the first column and the imaginary part in the
+second column. If an eigenvalue i has a vanishing imaginary
+part, then <strong>J</strong>[i,i] = eigenvalues[i,1], i.e., the diagonal
+element of <strong>J</strong> is the real eigenvalue.
+Otherwise, eigenvalue i and conjugate complex eigenvalue i+1
+are used to construct a 2 by 2 diagonal block of <strong>J</strong>:
+</p>
+<blockquote>
+<pre>
+  J[i  , i]   := eigenvalues[i,1];
+  J[i  , i+1] := eigenvalues[i,2];
+  J[i+1, i]   := eigenvalues[i+1,2];
+  J[i+1, i+1] := eigenvalues[i+1,1];
+</pre>
+</blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.eigenValues.html">Matrices.eigenValues</a>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">J = eigenValueMatrix(eigenValues)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>eigenValues</th>
+      <td>
+        <p><span>Type:</span> Real[:,2]</p>
+        <p><span>Description:</span> Eigen values from function eigenValues(..) (Re: first column, Im: second column)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>J</th>
+      <td>
+        <p><span>Type:</span> Real[size(eigenValues, 1),size(eigenValues, 1)]</p>
+        <p><span>Description:</span> Real valued block diagonal matrix with eigen values (Re: 1x1 block, Im: 2x2 block)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

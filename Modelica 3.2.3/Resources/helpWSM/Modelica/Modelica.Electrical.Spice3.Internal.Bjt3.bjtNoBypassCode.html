@@ -1,0 +1,145 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Bjt3.html">Bjt3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Bjt3.bjtNoBypassCode.html">bjtNoBypassCode</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>bjtNoBypassCode</h1>
+    <p>Calculation of currents, obsolete</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.Bjt3.bjtNoBypassCode_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(out_cc, capbe, capbc, capbx) = bjtNoBypassCode(in_m, in_p3, in_p, in_c, in_v, in_vl, in_m_pVoltageValues, in_m_bInit)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>in_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Model.Model.html">Model</a></p>
+        <p><span>Description:</span> Input record model</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_p3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt3.Bjt3.html">Bjt3</a></p>
+        <p><span>Description:</span> Input record Bjt3</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt3.BjtModelLineParams.html">BjtModelLineParams</a></p>
+        <p><span>Description:</span> Input record with Bjt model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_c</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt3.Bjt3Calc.html">Bjt3Calc</a></p>
+        <p><span>Description:</span> Input record Bjt3Calc</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt3.BjtVariables.html">BjtVariables</a></p>
+        <p><span>Description:</span> Input record with Bjt variables</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_vl</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt3.BjtModelLineVariables.html">BjtModelLineVariables</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_m_pVoltageValues</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage[6]</a> (V)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_m_bInit</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>out_cc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt3.CurrentsCapacitances.html">CurrentsCapacitances</a></p>
+        <p><span>Description:</span> Output record with calculated currents and capacitances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>capbe</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Capacitance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>capbc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Capacitance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>capbx</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Capacitance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

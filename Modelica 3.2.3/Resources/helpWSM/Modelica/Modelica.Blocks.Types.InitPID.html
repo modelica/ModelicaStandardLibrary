@@ -1,0 +1,121 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Types.html">Types</a></li>
+  <li><a href="Modelica.Blocks.Types.InitPID.html">InitPID</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>InitPID</h1>
+    <p>Enumeration defining initialization of PID and LimPID blocks</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This initialization type is identical to <a href="Modelica.Blocks.Types.Init.html">Types.Init</a> and has just one
+additional option <strong><code>DoNotUse_InitialIntegratorState</code></strong>. This option
+is introduced in order that the default initialization for the
+<code>Continuous.PID</code> and <code>Continuous.LimPID</code> blocks are backward
+compatible. In Modelica 2.2, the integrators have been initialized
+with their given states where as the D-part has not been initialized.
+The option <strong><code>DoNotUse_InitialIntegratorState</code></strong> leads to this
+initialization definition.
+</p>
+
+ <p>The following initialization alternatives are available:</p>
+  <dl>
+    <dt><code><strong>NoInit</strong></code></dt>
+      <dd>No initialization (start values are used as guess values with <code>fixed=false</code>)</dd>
+    <dt><code><strong>SteadyState</strong></code></dt>
+      <dd>Steady state initialization (derivatives of states are zero)</dd>
+    <dt><code><strong>InitialState</strong></code></dt>
+      <dd>Initialization with initial states</dd>
+    <dt><code><strong>InitialOutput</strong></code></dt>
+      <dd>Initialization with initial outputs (and steady state of the states if possible)</dd>
+    <dt><code><strong>DoNotUse_InitialIntegratorState</strong></code></dt>
+      <dd>Do not use, only for backward compatibility (initialize only integrator state)</dd>
+  </dl>
+</div>
+</section>
+<section id="enumerators" >
+  <h1>Enumeration Literals <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>NoInit</th>
+      <td>
+        <p>No initialization (start values are used as guess values with fixed=false)</p></td>
+    </tr>
+    <tr>
+      <th>SteadyState</th>
+      <td>
+        <p>Steady state initialization (derivatives of states are zero)</p></td>
+    </tr>
+    <tr>
+      <th>InitialState</th>
+      <td>
+        <p>Initialization with initial states</p></td>
+    </tr>
+    <tr>
+      <th>InitialOutput</th>
+      <td>
+        <p>Initialization with initial outputs (and steady state of the states if possible)</p></td>
+    </tr>
+    <tr>
+      <th>DoNotUse_InitialIntegratorState</th>
+      <td>
+        <p>Do not use, only for backward compatibility (initialize only integrator state)</p></td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.PID_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.PID.html">PID</a></p>
+        <p><span>Modelica.Blocks.Continuous</span</p>
+        <p>PID-controller in additive description form</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.LimPID_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.LimPID.html">LimPID</a></p>
+        <p><span>Modelica.Blocks.Continuous</span</p>
+        <p>P, PI, PD, and PID controller with limited output, anti-windup compensation, setpoint weighting and optional feed-forward</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

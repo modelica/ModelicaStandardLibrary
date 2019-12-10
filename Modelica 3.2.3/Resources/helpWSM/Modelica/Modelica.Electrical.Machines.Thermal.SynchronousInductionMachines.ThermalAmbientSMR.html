@@ -1,0 +1,259 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.html">SynchronousInductionMachines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR.html">ThermalAmbientSMR</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ThermalAmbientSMR</h1>
+    <p>Thermal ambient for synchronous induction machine with reluctance rotor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+Thermal ambient for synchronous induction machines with reluctance rotor to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useTemperatureInputs</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, temperature inputs are used; else, temperatures are constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ts</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature of stator windings</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useDamperCage</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable / disable damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tr</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature of damper cage (optional)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Q_flowStatorWinding</th>
+      <td>
+        <p><span>Default Value:</span> temperatureStatorWinding.port.Q_flow</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.HeatFlowRate.html">HeatFlowRate</a> (W)</p>
+        <p><span>Description:</span> Heat flow rate of stator windings</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q_flowStatorCore</th>
+      <td>
+        <p><span>Default Value:</span> temperatureStatorCore.port.Q_flow</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.HeatFlowRate.html">HeatFlowRate</a> (W)</p>
+        <p><span>Description:</span> Heat flow rate of stator core losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q_flowRotorCore</th>
+      <td>
+        <p><span>Default Value:</span> temperatureRotorCore.port.Q_flow</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.HeatFlowRate.html">HeatFlowRate</a> (W)</p>
+        <p><span>Description:</span> Heat flow rate of stator core losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q_flowStrayLoad</th>
+      <td>
+        <p><span>Default Value:</span> temperatureStrayLoad.port.Q_flow</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.HeatFlowRate.html">HeatFlowRate</a> (W)</p>
+        <p><span>Description:</span> Heat flow rate of stray load losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q_flowFriction</th>
+      <td>
+        <p><span>Default Value:</span> temperatureFriction.port.Q_flow</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.HeatFlowRate.html">HeatFlowRate</a> (W)</p>
+        <p><span>Description:</span> Heat flow rate of friction losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q_flowRotorWinding</th>
+      <td>
+        <p><span>Default Value:</span> temperatureRotorWinding.port.Q_flow</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.HeatFlowRate.html">HeatFlowRate</a> (W)</p>
+        <p><span>Description:</span> Heat flow rate of damper cage (optional))</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q_flowTotal</th>
+      <td>
+        <p><span>Default Value:</span> Q_flowStatorWinding + Q_flowRotorWinding + Q_flowStatorCore + Q_flowRotorCore + Q_flowStrayLoad + Q_flowFriction</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.HeatFlowRate.html">HeatFlowRate</a> (W)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortSMR_16x16.png"></td>
+      <th>thermalPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortSMR.html">ThermalPortSMR</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>TStatorWinding</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Temperature of stator windings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>TRotorWinding</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Temperature of damper cage (optional)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature_32x32.png"></td>
+      <th>temperatureStatorWinding</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature.html">PrescribedTemperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.FixedTemperature_32x32.png"></td>
+      <th>temperatureStatorCore</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.FixedTemperature.html">FixedTemperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.FixedTemperature_32x32.png"></td>
+      <th>temperatureRotorCore</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.FixedTemperature.html">FixedTemperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.FixedTemperature_32x32.png"></td>
+      <th>temperatureStrayLoad</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.FixedTemperature.html">FixedTemperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.FixedTemperature_32x32.png"></td>
+      <th>temperatureFriction</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.FixedTemperature.html">FixedTemperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>constTs</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalCollector_32x32.png"></td>
+      <th>thermalCollectorStator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.ThermalCollector.html">ThermalCollector</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature_32x32.png"></td>
+      <th>temperatureRotorWinding</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature.html">PrescribedTemperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>constTr</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

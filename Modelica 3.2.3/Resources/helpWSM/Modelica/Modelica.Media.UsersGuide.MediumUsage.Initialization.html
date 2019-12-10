@@ -1,0 +1,113 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a></li>
+  <li><a href="Modelica.Media.UsersGuide.MediumUsage.Initialization.html">Initialization</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Initialization</h1>
+    <p>Initialization</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.UsersGuide.MediumUsage.Initialization_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+When a medium model is used in a balance volume, differential
+equations for the independent medium variables are present and
+therefore initial conditions have to be provided.
+The following possibilities exist:
+</p>
+
+<h4>Steady state initialization</h4>
+<p>
+Modelica has currently no language element to define
+steady state initialization. In the Modelica simulation
+environment Dymola, the option
+</p>
+<pre>
+   Advanced.DefaultSteadyStateInitialization = <strong>true</strong>
+</pre>
+<p>
+can be set before translation. Then, missing initial
+conditions are provided by automatically setting appropriate
+state derivatives to zero.
+</p>
+
+<h4>Explicit start values or initial equations</h4>
+<p>
+Explicit start values can be defined with the "start" and
+"fixed" attributes. The number of independent variables nx
+need to be known which can be deduced from the medium
+constants (nx = nXi + <strong>if</strong> singleState <strong>then</strong> 1 <strong>else</strong> 2).
+Then, start values or initial equations can be defined
+for nx variables (= p, T, d, u, h, Xi) from Medium.BaseProperties,
+e.g., in the form:
+</p>
+<pre>
+     <strong>replaceable</strong> package Medium = Medium.Interfaces.PartialMedium;
+     Medium.BaseProperties medium1 (p(start=1e5, fixed=<strong>not</strong> Medium.singleState),
+                                    T(start=300, fixed=<strong>true</strong>));
+     Medium.BaseProperties medium2;
+  <strong>initial equation</strong>
+     <strong>if not</strong> Medium.singleState <strong>then</strong>
+        medium2.p = 1e5;
+     <strong>end if</strong>;
+     medium2.T = 300;
+  <strong>equation</strong>
+  </pre>
+<p>
+If initial conditions are not provided for the independent
+medium variables, non-linear systems of equations may
+occur to compute the initial values of the independent
+medium variables from the provided initial conditions.
+</p>
+
+<h4>Guess values</h4>
+<p>
+If non-linear systems of equations occur during initialization,
+e.g., in case of steady state initialization, guess values
+for the iteration variables of the non-linear system of equations
+have to be provided via the "start" attribute (and fixed=false).
+Unfortunately, it is usually not known in
+advance which variables are selected as iteration variables of
+a non-linear system of equations. One of the following possibilities
+exist:
+</p>
+<ul>
+<li> Do not supply start values and hope that the medium specific
+     types have meaningful start values, such as in "Medium.AbsolutePressure"
+     </li>
+<li> Supply start values on all variables of the BaseProperties model,
+     i.e., on p, T, d, u, h, Xi.</li>
+<li> Determine the iteration variables of the non-linear systems of
+     equations and provide start values for these variables.
+     In the Modelica simulation environment Dymola, the iteration
+     variables can be determined by setting the command
+     <code>Advanced.OutputModelicaCode = <strong>true</strong></code>
+     and by inspection of the file "dsmodel.mof" that is generated
+     when this option is set (search for "nonlinear").</li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

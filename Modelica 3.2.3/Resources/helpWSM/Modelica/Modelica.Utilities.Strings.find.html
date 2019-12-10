@@ -1,0 +1,113 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.find.html">find</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>find</h1>
+    <p>Find first occurrence of a string within another string</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.find_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+index = Strings.<strong>find</strong>(string, searchString);
+index = Strings.<strong>find</strong>(string, searchString, startIndex=1,
+                     caseSensitive=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Finds first occurrence of "searchString" within "string"
+and return the corresponding index.
+Start search at index "startIndex" (default = 1).
+If the optional argument "caseSensitive" is false, lower
+and upper case are ignored for the search.
+If "searchString" is not found, a value of "0" is returned.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">index = find(string, searchString, startIndex, caseSensitive)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String that is analyzed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>searchString</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String that is searched for in string</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startIndex</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Start search at index startIndex</p>
+      </td>
+    </tr>
+    <tr>
+      <th>caseSensitive</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false, if lower and upper case are ignored for the search</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>index</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Index of the beginning of the first occurrence of 'searchString' within 'string', or zero if not present</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

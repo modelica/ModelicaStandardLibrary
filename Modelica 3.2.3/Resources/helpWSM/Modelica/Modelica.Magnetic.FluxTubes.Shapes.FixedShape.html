@@ -1,0 +1,85 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Shapes.html">Shapes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.html">FixedShape</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FixedShape</h1>
+    <p>Flux tubes with fixed shape during simulation and linear or non-linear material characteristics</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube.html">GenericFluxTube</a></p>
+        <p>Flux tube with fixed cross-section and length; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></p>
+        <p>Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux.html">HollowCylinderAxialFlux</a></p>
+        <p>(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+        <p>Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Please have a look at <a href="Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation.html">UsersGuide.ReluctanceForceCalculation</a> for an explanation of the different flux tube categories and resulting sub-packages.
+</p>
+
+<p>
+Due to the restrictions on reluctance force calculation outlined there, flux tube elements with a possibly non-linear material characteristic mu_r(B) must have a fixed shape during simulation of converter motion. Hence, the dimensions of these flux tubes are defined as parameters in the model components that extend the base class <a href="Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape.html">Interfaces.PartialFixedShape</a>.</p>
+
+<p>
+For initial design of magnetic circuits, the relative permeability of possibly non-linear flux tube elements can easily be set to a constant value mu_rConst (non-linearPermeability set to false). In some cases, this can simplify the rough geometric design of a device's magnetic circuit. Once an initial geometry is found, the magnetic subsystem can be simulated and fine-tuned with more realistic non-linear characteristics of ferromagnetic materials. Doing so requires setting of the parameter non-linearPermeability to true and selection of one of the soft magnetic materials of <a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.html">Material.SoftMagnetic</a>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

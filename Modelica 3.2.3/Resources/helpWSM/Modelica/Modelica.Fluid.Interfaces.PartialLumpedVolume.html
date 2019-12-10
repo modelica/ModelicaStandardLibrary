@@ -1,0 +1,230 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.html">PartialLumpedVolume</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialLumpedVolume</h1>
+    <p>Lumped volume with mass and energy balance</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Interface and base class for an ideally mixed fluid volume with the ability to store mass and energy.
+The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
+</p>
+<ul>
+<li><code><strong>Qb_flow</strong></code>, e.g., convective or latent heat flow rate across segment boundary, and</li>
+<li><code><strong>Wb_flow</strong></code>, work term, e.g., p*der(fluidVolume) if the volume is not constant.</li>
+</ul>
+<p>
+The component volume <code><strong>fluidVolume</strong></code> is an input that needs to be set in the extending class to complete the model.
+</p>
+<p>
+Further source terms must be defined by an extending class for fluid flow across the segment boundary:
+</p>
+<ul>
+<li><code><strong>Hb_flow</strong></code>, enthalpy flow,</li>
+<li><code><strong>mb_flow</strong></code>, mass flow,</li>
+<li><code><strong>mbXi_flow</strong></code>, substance mass flow, and</li>
+<li><code><strong>mbC_flow</strong></code>, trace substance mass flow.</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>energyDynamics</th>
+      <td>
+        <p><span>Value:</span> system.energyDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of energy balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>massDynamics</th>
+      <td>
+        <p><span>Value:</span> system.massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of mass balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>substanceDynamics</th>
+      <td>
+        <p><span>Value:</span> massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of substance balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>traceDynamics</th>
+      <td>
+        <p><span>Value:</span> massDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of trace substance balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_start</th>
+      <td>
+        <p><span>Value:</span> system.p_start</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Start value of pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_T_start</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, use T_start, otherwise h_start</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_start</th>
+      <td>
+        <p><span>Value:</span> if use_T_start then system.T_start else Medium.temperature_phX(p_start, h_start, X_start)</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Start value of temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_start</th>
+      <td>
+        <p><span>Value:</span> if use_T_start then Medium.specificEnthalpy_pTX(p_start, T_start, X_start) else Medium.h_default</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Start value of specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X_start</th>
+      <td>
+        <p><span>Value:</span> Medium.X_default</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.MassFraction.html">MassFraction[Medium.nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Start value of mass fractions m_i/m</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C_start</th>
+      <td>
+        <p><span>Value:</span> Medium.C_default</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.ExtraProperty.html">ExtraProperty[Medium.nC]</a></p>
+        <p><span>Description:</span> Start value of trace substances</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fluidVolume</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> Volume</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Description:</span> System properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.BaseProperties_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.BaseProperties.html">BaseProperties</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.TeeJunctionVolume_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.TeeJunctionVolume.html">TeeJunctionVolume</a></p>
+        <p><span>Modelica.Fluid.Fittings</span</p>
+        <p>Splitting/joining component with static balances for a dynamic control volume</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Machines.BaseClasses.PartialPump_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.html">PartialPump</a></p>
+        <p><span>Modelica.Fluid.Machines.BaseClasses</span</p>
+        <p>Base model for centrifugal pumps</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.html">PartialLumpedVessel</a></p>
+        <p><span>Modelica.Fluid.Vessels.BaseClasses</span</p>
+        <p>Lumped volume with a vector of fluid ports and replaceable heat transfer model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts.html">TankWithTopPorts</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses</span</p>
+        <p>Tank with inlet/outlet ports and with inlet ports at the top</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

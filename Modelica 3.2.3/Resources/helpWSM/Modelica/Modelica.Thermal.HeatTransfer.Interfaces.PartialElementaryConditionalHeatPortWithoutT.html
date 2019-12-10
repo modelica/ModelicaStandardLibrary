@@ -1,0 +1,307 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT.html">PartialElementaryConditionalHeatPortWithoutT</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialElementaryConditionalHeatPortWithoutT</h1>
+    <p>Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This partial model provides a conditional heat port for dissipating losses.
+</p>
+<ul>
+<li>If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal loss power is dissipated internally.</li>
+<li>If <strong>useHeatPort</strong> is set to <strong>true</strong>, the heat port is available and must be connected from the outside.</li>
+</ul>
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from the PartialElementaryConditionalHeatPortWithoutT model
+(<strong>lossPower = ...</strong>).
+</p>
+
+<p>
+Note, this partial model is used in cases, where heatPort.T (that is the device temperature) is not utilized in the model. If this is desired, inherit instead from partial model
+<a href="Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort.html">PartialElementaryConditionalHeatPort</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(26)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.MassWithStopAndFriction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.html">MassWithStopAndFriction</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Sliding mass with hard stop and Stribeck friction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Brake_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.Brake.html">Brake</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Brake based on Coulomb friction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.SupportFriction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.SupportFriction.html">SupportFriction</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Coulomb friction in support</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.ElastoGap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.ElastoGap.html">ElastoGap</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>1D translational spring damper combination with gap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Linear 1D translational spring and damper in parallel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Damper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.Damper.html">Damper</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span</p>
+        <p>Linear 1D translational damper</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.SpringDamperNoRelativeStates_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.SpringDamperNoRelativeStates.html">SpringDamperNoRelativeStates</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span</p>
+        <p>Linear 1D translational spring and damper in parallel (s and v are not used as states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.LossyGear_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.LossyGear.html">LossyGear</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Gear with mesh efficiency and bearing friction (stuck/rolling possible)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.OneWayClutch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.OneWayClutch.html">OneWayClutch</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Parallel connection of freewheel and clutch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Clutch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Clutch.html">Clutch</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Clutch based on Coulomb friction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Brake_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Brake.html">Brake</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Brake based on Coulomb friction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.BearingFriction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.BearingFriction.html">BearingFriction</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Coulomb friction in bearings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.ElastoBacklash2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.ElastoBacklash2.html">ElastoBacklash2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity; at start of contact the flange torque can jump, contrary to the ElastoBacklash model)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.ElastoBacklash_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.ElastoBacklash.html">ElastoBacklash</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Linear 1D rotational spring and damper in parallel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Damper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Damper.html">Damper</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span</p>
+        <p>Linear 1D rotational damper</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates.html">SpringDamperNoRelativeStates</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span</p>
+        <p>Linear 1D rotational spring and damper in parallel (phi and w are not used as states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses.html">PermanentMagnetLosses</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses</span</p>
+        <p>Model of permanent magnet losses dependent on current and speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.StrayLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.StrayLoad.html">StrayLoad</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses</span</p>
+        <p>Model of stray load losses dependent on current and speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.DCMachines.Core_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.DCMachines.Core.html">Core</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.DCMachines</span</p>
+        <p>Model of core losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.DCMachines.StrayLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.DCMachines.StrayLoad.html">StrayLoad</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.DCMachines</span</p>
+        <p>Model of stray load losses dependent on current and speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.DCMachines.Brush_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.DCMachines.Brush.html">Brush</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.DCMachines</span</p>
+        <p>Model considering voltage drop of carbon brushes</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.InductionMachines.Core_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.InductionMachines.Core.html">Core</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.InductionMachines</span</p>
+        <p>Model of core losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses.html">PermanentMagnetLosses</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.InductionMachines</span</p>
+        <p>Model of permanent magnet losses dependent on current and speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad.html">StrayLoad</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.InductionMachines</span</p>
+        <p>Model of stray load losses dependent on current and speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.Friction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.Friction.html">Friction</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses</span</p>
+        <p>Model of angular velocity dependent friction losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

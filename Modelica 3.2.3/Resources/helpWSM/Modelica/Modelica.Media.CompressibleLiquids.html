@@ -1,0 +1,96 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.CompressibleLiquids.html">CompressibleLiquids</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CompressibleLiquids</h1>
+    <p>Compressible liquid models</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.CompressibleLiquids_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.CompressibleLiquids.Common_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.CompressibleLiquids.Common.html">Common</a></p>
+        <p>Base classes for compressible liquids</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.CompressibleLiquids.LinearColdWater_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.CompressibleLiquids.LinearColdWater.html">LinearColdWater</a></p>
+        <p>Cold water model with linear compressibility</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient.html">LinearWater_pT_Ambient</a></p>
+        <p>Liquid, linear compressibility water model at 1.01325 bar and 25 degree Celsius</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Fluid models with linear compressibility, using PartialLinearFluid as base class.</h4>
+<p>The linear compressibility fluid models contained in this package are based on the assumptions that:
+</p>
+<ul>
+<li>The specific heat capacity at constant pressure (cp) is constant</li>
+<li>The isobaric expansion coefficient (beta) is constant</li>
+<li>The isothermal compressibility (kappa) is constant</li>
+<li>Pressure and temperature are used as states</li>
+</ul>
+<p>
+This results in models that are only valid for small temperature ranges, but sufficient to model compressibility and e.g., the "water hammer" effect. Another advantage id that only 3 values need to be measured to have an initial model. Hydraulic fluids can often be approximated by this type of model.
+</p>
+<p>
+That means that the density is a linear function in temperature and in pressure.
+In order to define the complete model, a number of constant reference values are needed which
+are computed at the reference values of the states pressure p and temperature T. The model can
+be interpreted as a linearization of a full non-linear fluid model (but it is not linear in all
+thermodynamic coordinates). Reference values are needed for
+</p>
+<ol>
+<li>the density (reference_d),</li>
+<li>the specific enthalpy (reference_h),</li>
+<li>the specific entropy (reference_s).</li>
+</ol>
+<p>
+Apart from that, a user needs to define the molar mass, MM_const.
+Note that it is possible to define a fluid by computing the reference
+values from a full non-linear fluid model by computing the package constants
+using the standard functions defined in a fluid package (see example in Common, LinearWater_pT).
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

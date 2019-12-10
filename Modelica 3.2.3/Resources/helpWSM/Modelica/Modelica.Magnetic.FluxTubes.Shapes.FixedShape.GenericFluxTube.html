@@ -1,0 +1,161 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Shapes.html">Shapes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.html">FixedShape</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube.html">GenericFluxTube</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>GenericFluxTube</h1>
+    <p>Flux tube with fixed cross-section and length; linear or non-linear material characteristics</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Please refer to the enclosing sub-package <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.html">FixedShape</a> for a description of all elements of this package and to <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Literature.html">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nonLinearPermeability</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if non-linear rel. permeability is used, otherwise constant rel. permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu_rConst</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.RelativePermeability.html">RelativePermeability</a></p>
+        <p><span>Description:</span> Constant relative permeability; used if nonLinearPermeability = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>material</th>
+      <td>
+        <p><span>Value:</span> Material.SoftMagnetic.BaseData()</p>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData.html">BaseData</a></p>
+        <p><span>Description:</span> Ferromagnetic material characteristics; used if nonLinearPermeability = true</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length in direction of flux</p>
+      </td>
+    </tr>
+    <tr>
+      <th>area</th>
+      <td>
+        <p><span>Value:</span> 0.0001</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.CrossSection.html">CrossSection</a> (m²)</p>
+        <p><span>Description:</span> Area of cross section</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative magnetic port</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData_32x32.png"></td>
+      <th>material</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData.html">BaseData</a></p>
+        <p><span>Description:</span> Ferromagnetic material characteristics; used if nonLinearPermeability = true</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.LinearInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.LinearInductor.html">LinearInductor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples</span</p>
+        <p>Linear inductor with ferromagnetic core</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor.html">NonLinearInductor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples</span</p>
+        <p>Non linear inductor with ferromagnetic core</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

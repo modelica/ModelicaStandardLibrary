@@ -1,0 +1,112 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept.html">Concept</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Concept</h1>
+    <p>Fundamental wave concept</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h5>Reference frames</h5>
+
+<p>Quasi static magnetic ports contain the complex magnetic flux (flow variable) and the complex magnetic potential difference (potential variable) and a reference angle. The relationship between the different complex phasors with respect to different references will be explained by means of the complex magnetic flux. The same transformation relationships also apply to the complex magnetic potential difference. However, the discussed relationships are important for handling connectors in the air gap model, transform equations into the rotor fixed reference frame, etc.</p>
+
+<p>
+Let us assume that the air gap model contains stator and rotor magnetic ports which relate to the different sides of the machine. The angle relationship between these ports is
+</p>
+
+<p>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_001.png"/>,
+</p>
+
+<p>where
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_002.png"/>
+is the connector reference angle of the stator ports,
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_003.png"/>
+is the connector reference angle of the rotor ports, and
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_004.png"/>
+is the difference of the mechanical angles of the flange and the support, respectively,
+multiplied by the number of pole pairs,
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_005.png"/>.
+The stator and rotor reference angles are directly related with the electrical frequencies of the
+electric circuits of the stator,
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_006.png"/>,
+and rotor,
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_007.png"/>,
+respectively, by means of:
+</p>
+
+<p>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_008.png"/>
+</p>
+
+<p>
+This is a strict consequence of the electro magnetic coupling between the quasi static electric and the quasi static magnetic domain.</p>
+
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Fig. 1:</strong> Reference frames of the quasi static fundamental wave library</caption>
+  <tr>
+    <td>
+      <img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_009.png"/>
+    </td>
+  </tr>
+</table>
+
+<p>
+The complex magnetic flux with respect a stator and rotor magnetic port are equal,
+</p>
+
+<p>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_010.png"/>,
+</p>
+
+<p>
+but the reference phase angles are different according to the relationship explained above. The stator and rotor reference angles refer to quasi static magnetic connectors. The complex magnetic flux of the (stator) port with respect to the <strong>stator fixed</strong> reference frame is then calculated by</p>
+
+<p>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_011.png"/>.
+</p>
+
+<p>
+The complex magnetic flux of the (rotor) magnetic port with respect to the <strong>rotor fixed</strong> reference frame is then calculated by</p>
+
+<p>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_012.png"/>.
+</p>
+
+<p>
+The two stator and rotor fixed complex fluxes are related by</p>
+
+<p>
+<img src="modelica:///Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept/resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept_info_013.png"/>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

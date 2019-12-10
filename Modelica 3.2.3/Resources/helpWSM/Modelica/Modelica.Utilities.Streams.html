@@ -1,0 +1,178 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Streams.html">Streams</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Streams</h1>
+    <p>Read from files and write to files</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Streams_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Streams.print_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Streams.print.html">print</a></p>
+        <p>Print string to terminal or file</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Streams.readFile_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Streams.readFile.html">readFile</a></p>
+        <p>Read content of a file and return it in a vector of strings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Streams.readLine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Streams.readLine.html">readLine</a></p>
+        <p>Read a line of text from a file and return it in a string</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Streams.countLines_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Streams.countLines.html">countLines</a></p>
+        <p>Return the number of lines in a file</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Streams.error_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Streams.error.html">error</a></p>
+        <p>Print error message and cancel all actions - in case of an unrecoverable error</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Streams.close_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Streams.close.html">close</a></p>
+        <p>Close file</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Streams.readMatrixSize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Streams.readMatrixSize.html">readMatrixSize</a></p>
+        <p>Read dimensions of a Real matrix from a MATLAB MAT file</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Streams.readRealMatrix_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Streams.readRealMatrix.html">readRealMatrix</a></p>
+        <p>Read Real matrix from MATLAB MAT file</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Streams.writeRealMatrix_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Streams.writeRealMatrix.html">writeRealMatrix</a></p>
+        <p>Write Real matrix to a MATLAB MAT file</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Library content</h4>
+<p>
+Package <strong>Streams</strong> contains functions to input and output strings
+to a message window or on files, as well as reading matrices from file
+and writing matrices to file. Note that a string is interpreted
+and displayed as html text (e.g., with print(..) or error(..))
+if it is enclosed with the Modelica html quotation, e.g.,
+</p>
+<blockquote><p>
+string = "&lt;html&gt; first line &lt;br&gt; second line &lt;/html&gt;".
+</p></blockquote>
+<p>
+It is a quality of implementation, whether (a) all tags of html are supported
+or only a subset, (b) how html tags are interpreted if the output device
+does not allow to display formatted text.
+</p>
+<p>
+In the table below an example call to every function is given:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href="Modelica.Utilities.Streams.print.html">print</a>(string)<br>
+          <a href="Modelica.Utilities.Streams.print.html">print</a>(string,fileName)</td>
+      <td> Print string "string" or vector of strings to message window or on
+           file "fileName".</td>
+  </tr>
+  <tr><td>stringVector =
+         <a href="Modelica.Utilities.Streams.readFile.html">readFile</a>(fileName)</td>
+      <td> Read complete text file and return it as a vector of strings.</td>
+  </tr>
+  <tr><td>(string, endOfFile) =
+         <a href="Modelica.Utilities.Streams.readLine.html">readLine</a>(fileName, lineNumber)</td>
+      <td>Returns from the file the content of line lineNumber.</td>
+  </tr>
+  <tr><td>lines =
+         <a href="Modelica.Utilities.Streams.countLines.html">countLines</a>(fileName)</td>
+      <td>Returns the number of lines in a file.</td>
+  </tr>
+  <tr><td><a href="Modelica.Utilities.Streams.error.html">error</a>(string)</td>
+      <td> Print error message "string" to message window
+           and cancel all actions</td>
+  </tr>
+  <tr><td><a href="Modelica.Utilities.Streams.close.html">close</a>(fileName)</td>
+      <td> Close file if it is still open. Ignore call if
+           file is already closed or does not exist. </td>
+  </tr>
+  <tr><td><a href="Modelica.Utilities.Streams.readMatrixSize.html">readMatrixSize</a>(fileName, matrixName)</td>
+      <td> Read dimensions of a Real matrix from a MATLAB MAT file. </td></tr>
+  <tr><td><a href="Modelica.Utilities.Streams.readRealMatrix.html">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
+      <td> Read a Real matrix from a MATLAB MAT file. </td></tr>
+  <tr><td><a href="Modelica.Utilities.Streams.writeRealMatrix.html">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
+      <td> Write Real matrix to a MATLAB MAT file. </td></tr>
+</table>
+<p>
+Use functions <strong>scanXXX</strong> from package
+<a href="Modelica.Utilities.Strings.html">Strings</a>
+to parse a string.
+</p>
+<p>
+If Real, Integer or Boolean values shall be printed
+or used in an error message, they have to be first converted
+to strings with the builtin operator
+<a href="../ModelicaReference/ModelicaReference.Operators.'String()'.html">ModelicaReference.Operators.'String()'</a>(...).
+Example:
+</p>
+<pre>
+  <strong>if</strong> x &lt; 0 <strong>or</strong> x &gt; 1 <strong>then</strong>
+     Streams.error("x (= " + String(x) + ") has to be in the range 0 .. 1");
+  <strong>end if</strong>;
+</pre>
+</div>
+</section>
+</div>
+</body>
+</html>

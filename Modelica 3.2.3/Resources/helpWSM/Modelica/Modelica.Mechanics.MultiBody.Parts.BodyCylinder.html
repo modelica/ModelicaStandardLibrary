@@ -1,0 +1,456 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BodyCylinder</h1>
+    <p>Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+<strong>Rigid body</strong> with <strong>cylinder</strong> shape.
+The mass properties of the body (mass, center of mass,
+inertia tensor) are computed
+from the cylinder data. Optionally, the cylinder may be hollow.
+The cylinder shape is by default used in the animation.
+The two connector frames <strong>frame_a</strong> and <strong>frame_b</strong>
+are always parallel to each other. Example of component
+animation (note, that
+the animation may be switched off via parameter animation = <strong>false</strong>):
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_info_001.png" alt="Parts.BodyCylinder">
+</p>
+
+<p>
+A BodyCylinder component has potential states. For details of these
+states and of the "Advanced" menu parameters, see model
+<a href="Modelica.Mechanics.MultiBody.Parts.Body.html">MultiBody.Parts.Body</a>.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(25)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled (show cylinder between frame_a and frame_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Vector from frame_a to frame_b, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_shape</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Vector from frame_a to cylinder origin, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lengthDirection</th>
+      <td>
+        <p><span>Value:</span> to_unit1(r - r_shape)</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Vector in length direction of cylinder, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>length</th>
+      <td>
+        <p><span>Value:</span> Modelica.Math.Vectors.length(r - r_shape)</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>diameter</th>
+      <td>
+        <p><span>Value:</span> length / world.defaultWidthFraction</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Diameter of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>innerDiameter</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Inner diameter of cylinder (0 <= innerDiameter <= Diameter)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>density</th>
+      <td>
+        <p><span>Value:</span> 7700</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density of cylinder (e.g., steel: 7700 .. 7900, wood : 400 .. 800)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angles_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if angles_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angles_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Angle.html">Angle[3]</a> (rad)</p>
+        <p><span>Description:</span> Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence_start</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> Sequence of rotations to rotate frame_a into frame_b at initial time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_0_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if w_0_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_0_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularVelocity.html">AngularVelocity[3]</a> (rad/s)</p>
+        <p><span>Description:</span> Initial or guess values of angular velocity of frame_a resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_0_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if z_0_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_0_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.AngularAcceleration.html">AngularAcceleration[3]</a> (rad/s²)</p>
+        <p><span>Description:</span> Initial values of angular acceleration z_0 = der(w_0)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence_angleStates</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>radius</th>
+      <td>
+        <p><span>Value:</span> diameter / 2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Radius of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>innerRadius</th>
+      <td>
+        <p><span>Value:</span> innerDiameter / 2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Inner-Radius of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mo</th>
+      <td>
+        <p><span>Value:</span> density * pi * length * radius * radius</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of cylinder without hole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mi</th>
+      <td>
+        <p><span>Value:</span> density * pi * length * innerRadius * innerRadius</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of hole of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I22</th>
+      <td>
+        <p><span>Value:</span> (mo * (length * length + 3 * radius * radius) - mi * (length * length + 3 * innerRadius * innerRadius)) / 12</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Inertia with respect to axis through center of mass, perpendicular to cylinder axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> mo - mi</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Value:</span> Frames.from_nxy(r, {0, 1, 0})</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object from frame_a to frame spanned by cylinder axis and axis perpendicular to cylinder axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_CM</th>
+      <td>
+        <p><span>Value:</span> r_shape + normalizeWithAssert(lengthDirection) * length / 2</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from frame_a to center of mass, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I</th>
+      <td>
+        <p><span>Value:</span> Frames.resolveDyade1(R, diagonal({(mo * radius * radius - mi * innerRadius * innerRadius) / 2, I22, I22}))</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Inertia.html">Inertia[3,3]</a> (kg·m²)</p>
+        <p><span>Description:</span> Inertia tensor of cylinder with respect to center of mass, resolved in frame parallel to frame_a</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object from frame_a to frame spanned by cylinder axis and axis perpendicular to cylinder axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Body_32x32.png"></td>
+      <th>body</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>frameTranslation</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque.html">ForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span</p>
+        <p>Demonstrate usage of ForceAndTorque element</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a.html">Engine1a</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span</p>
+        <p>Model of one cylinder engine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1.html">Fourbar1</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span</p>
+        <p>One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2.html">Fourbar2</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span</p>
+        <p>One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic.html">Fourbar_analytic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span</p>
+        <p>One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects.html">GyroscopicEffects</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span</p>
+        <p>Demonstrates that a cylindrical body can be replaced by Rotor1D model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint.html">GearConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span</p>
+        <p>Demonstrate usage of GearConstraint model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder.html">Cylinder</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span</p>
+        <p>Cylinder with rod and crank of a combustion engine</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase.html">Engine1bBase</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span</p>
+        <p>Model of one cylinder engine with gas force</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

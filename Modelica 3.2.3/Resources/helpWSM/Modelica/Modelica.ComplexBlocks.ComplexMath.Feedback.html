@@ -1,0 +1,115 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.ComplexBlocks.html">ComplexBlocks</a></li>
+  <li><a href="Modelica.ComplexBlocks.ComplexMath.html">ComplexMath</a></li>
+  <li><a href="Modelica.ComplexBlocks.ComplexMath.Feedback.html">Feedback</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Feedback</h1>
+    <p>Output difference between commanded input 1 and feedback input 2</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Feedback_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This blocks computes output <code>y</code> as <em>difference</em> of the
+commanded input <code>u1</code> and the feedback
+input <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
+</p>
+<pre>
+  y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
+</pre>
+<p>
+<strong>Example</strong> parameters:
+</p>
+<ul>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+</ul>
+<p>
+result in the following equation:
+</p>
+<pre>
+     y = Modelica.ComplexMath.conj(u1) - u2
+</pre>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useConjugateInput1</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, input 1 is processed conjugate complex</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useConjugateInput2</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, input 2 is processed conjugate complex</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexInput_16x16.png"></td>
+      <th>u1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexInput.html">ComplexInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexInput_16x16.png"></td>
+      <th>u2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexInput.html">ComplexInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexOutput.html">ComplexOutput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

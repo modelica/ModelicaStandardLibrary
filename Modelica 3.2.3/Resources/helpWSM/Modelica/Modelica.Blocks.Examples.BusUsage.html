@@ -1,0 +1,191 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.BusUsage.html">BusUsage</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BusUsage</h1>
+    <p>Demonstrates the usage of a signal bus</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.BusUsage_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.BusUsage_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.BusUsage_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p><strong>Signal bus concept</strong></p>
+<p>
+In technical systems, such as vehicles, robots or satellites, many signals
+are exchanged between components. In a simulation system, these signals
+are usually modelled by signal connections of input/output blocks.
+Unfortunately, the signal connection structure may become very complicated,
+especially for hierarchical models.
+</p>
+
+<p>
+The same is also true for real technical systems. To reduce complexity
+and get higher flexibility, many technical systems use data buses to
+exchange data between components. For the same reasons, it is often better
+to use a "signal bus" concept also in a Modelica model. This is demonstrated
+at hand of this model (Modelica.Blocks.Examples.BusUsage):
+</p>
+
+<img src="resources/Modelica.Blocks.Examples.BusUsage_info_001.png"
+     alt="BusUsage.png">
+
+<ul>
+<li> Connector instance "controlBus" is a hierarchical connector that is
+     used to exchange signals between different components. It is
+     defined as "expandable connector" in order that <strong>no</strong> central definition
+     of the connector is needed but is automatically constructed by the
+     signals connected to it (see also Modelica specification 2.2.1).</li>
+<li> Input/output signals can be directly connected to the "controlBus".</li>
+<li> A component, such as "part", can be directly connected to the "controlBus",
+     provided it has also a bus connector, or the "part" connector is a
+     sub-connector contained in the "controlBus".</li>
+</ul>
+
+<p>
+The control and sub-control bus icons are provided within Modelica.Icons.
+In <a href="Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.html">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
+the buses for this example are defined. Both the "ControlBus" and the "SubControlBus" are
+<strong>expandable</strong> connectors that do not define any variable. For example,
+<a href="Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus.html#text">Interfaces.ControlBus</a>
+is defined as:
+</p>
+<pre>  <strong>expandable connector</strong> ControlBus
+      <strong>extends</strong> Modelica.Icons.ControlBus;
+      <strong>annotation</strong> ();
+  <strong>end</strong> ControlBus;
+</pre>
+<p>
+Note, the "annotation" in the connector is important since the color
+and thickness of a connector line are taken from the first
+line element in the icon annotation of a connector class. Above, a small rectangle in the
+color of the bus is defined (and therefore this rectangle is not
+visible). As a result, when connecting from an instance of this
+connector to another connector instance, the connecting line has
+the color of the "ControlBus" with double width (due to "thickness=0.5").
+</p>
+
+<p>
+An <strong>expandable</strong> connector is a connector where the content of the connector
+is constructed by the variables connected to instances of this connector.
+For example, if "sine.y" is connected to the "controlBus", a pop-up menu may appear:
+</p>
+
+<img src="resources/Modelica.Blocks.Examples.BusUsage_info_002.png"
+     alt="BusUsage2.png">
+
+<p>
+The "Add variable/New name" field allows the user to define the name of the signal on
+the "controlBus". When typing "realSignal1" as "New name", a connection of the form:
+</p>
+
+<pre>     <strong>connect</strong>(sine.y, controlBus.realSignal1)
+</pre>
+
+<p>
+is generated and the "controlBus" contains the new signal "realSignal1". Modelica tools
+may give more support in order to list potential signals for a connection. Therefore, in
+<a href="Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.html">BusUsage_Utilities.Interfaces</a>
+the expected implementation of the "ControlBus" and of the "SubControlBus" are given.
+For example "Internal.ControlBus" is defined as:
+</p>
+
+<pre>  <strong>expandable connector</strong> StandardControlBus
+    <strong>extends</strong> BusUsage_Utilities.Interfaces.ControlBus;
+
+    <strong>import</strong> SI = Modelica.SIunits;
+    SI.AngularVelocity    realSignal1   "First Real signal";
+    SI.Velocity           realSignal2   "Second Real signal";
+    Integer               integerSignal "Integer signal";
+    Boolean               booleanSignal "Boolean signal";
+    StandardSubControlBus subControlBus "Combined signal";
+  <strong>end</strong> StandardControlBus;
+</pre>
+
+<p>
+Consequently, when connecting now from "sine.y" to "controlBus", the menu
+looks differently:
+</p>
+
+<img src="resources/Modelica.Blocks.Examples.BusUsage_info_003.png"
+     alt="BusUsage3.png">
+
+<p>
+Note, even if the signals from "Internal.StandardControlBus" are listed, these are
+just potential signals. The user might still add different signal names.
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.IntegerStep_32x32.png"></td>
+      <th>integerStep</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.IntegerStep.html">IntegerStep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanStep_32x32.png"></td>
+      <th>booleanStep</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanStep.html">BooleanStep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.BusUsage_Utilities.Part_32x32.png"></td>
+      <th>part</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Examples.BusUsage_Utilities.Part.html">Part</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

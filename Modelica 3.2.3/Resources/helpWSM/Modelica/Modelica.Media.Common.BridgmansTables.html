@@ -1,0 +1,90 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.Common.BridgmansTables.html">BridgmansTables</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BridgmansTables</h1>
+    <p>Calculates all entries in Bridgmans tables if first seven variables given</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Common.BridgmansTables_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Important: the phase equilibrium conditions are not yet considered.
+this means that Bridgman's tables do not yet work in the two phase region.
+Some derivatives are 0 or infinity anyways.
+Idea: Do not use the values in Bridgmans table directly, all
+derivatives are calculated as the quotient of two entries in the
+table. The last letter indicates which variable is held constant in
+taking the derivative. The second letters are the two variables
+involved in the derivative and the first letter is always a d to remind
+of differentiation.
+</p>
+
+<pre>
+Example 1: Get the derivative of specific entropy s w.r.t. Temperature at
+constant specific volume (between identical to constant density)
+constant volume  --> last letter v
+Temperature      --> second letter T
+Specific entropy --> second letter s
+--> the needed value is dsv/dTv
+Known variables:
+Temperature T
+pressure p
+specific volume v
+specific inner energy u
+specific enthalpy h
+specific entropy s
+specific Helmholtz energy f
+specific gibbs enthalpy g
+Not included but useful:
+density d
+In order to convert derivatives involving density use the following
+rules:
+at constant density == at constant specific volume
+ddx/dyx = -d*d*dvx/dyx with y,x any of T,p,u,h,s,f,g
+dyx/ddx = -1/(d*d)dyx/dvx with y,x any of T,p,u,h,s,f,g
+Usage example assuming water as the medium:
+model BridgmansTablesForWater
+extends ThermoFluid.BaseClasses.MediumModels.Water.WaterSteamMedium_ph;
+Real derOfsByTAtConstantv "derivative of sp. entropy by temperature at constant sp. volume"
+ThermoFluid.BaseClasses.MediumModels.Common.ExtraDerivatives dpro;
+ThermoFluid.BaseClasses.MediumModels.Common.BridgmansTables bt;
+equation
+dpro = ThermoFluid.BaseClasses.MediumModels.SteamIF97.extraDerivs_pT(p[1],T[1]);
+bt.p = p[1];
+bt.T = T[1];
+bt.v = 1/pro[1].d;
+bt.s = pro[1].s;
+bt.cp = pro[1].cp;
+bt.alpha = dpro.alpha;
+bt.gamma = dpro.gamma;
+derOfsByTAtConstantv =  bt.dsv/bt.dTv;
+                ...
+end BridgmansTablesForWater;
+                </pre>
+</div>
+</section>
+</div>
+</body>
+</html>

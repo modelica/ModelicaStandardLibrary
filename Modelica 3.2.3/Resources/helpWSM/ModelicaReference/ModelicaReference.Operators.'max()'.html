@@ -1,0 +1,61 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'max()'.html">'max()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'max()'</h1>
+    <p>max()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'max()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Returns the largest element
+</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>max</strong>(A)
+<strong>max</strong>(x,y)
+<strong>max</strong>(e(i, ..., j) <strong>for</strong> i <strong>in</strong> u, ..., j <strong>in</strong> v)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The first form returns the largest element of array expression A.
+</p>
+<p>
+The second form returns the largest element of the scalars x and y.
+</p>
+<p>
+The third form is a reduction expression and
+returns the largest value of the
+scalar expression e(i, ..., j) evaluated for all
+combinations of i in u, ..., j in v
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>max</strong>(i^2 <strong>for</strong> i <strong>in</strong> {3,7,6})  // = 49
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

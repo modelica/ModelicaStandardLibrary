@@ -1,0 +1,105 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Files.html">Files</a></li>
+  <li><a href="Modelica.Utilities.Files.move.html">move</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>move</h1>
+    <p>Move a file or a directory to another place</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Files.move_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>move</strong>(oldName, newName);
+Files.<strong>move</strong>(oldName, newName, replace = true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>move</strong>(..) moves a file or a directory
+to a new location. Via the optional argument <strong>replace</strong>
+it can be defined whether an already existing file may
+be replaced.
+</p>
+<p>
+If oldName/newName are directories, then the newName
+directory may exist. In such a case the content of oldName
+is moved into directory newName. If replace = <strong>false</strong>
+it is required that the existing files
+in newName are different from the existing files in
+oldName.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  move("C:/test1/directory1", "C:/test2/directory2");
+     -> the content of directory1 is moved into directory2.
+        Afterwards directory1 is deleted.
+        if "C:/test2/directory2" does not exist, it is newly
+        created. If "replace=true", files in directory2
+        may be overwritten
+   move("test1.txt", "test2.txt")
+     -> rename file "test1.txt" into "test2.txt"
+        within the current directory
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">move(oldName, newName, replace)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>oldName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name of file or directory to be moved</p>
+      </td>
+    </tr>
+    <tr>
+      <th>newName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> New name of the moved file or directory</p>
+      </td>
+    </tr>
+    <tr>
+      <th>replace</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if an existing file or directory may be replaced</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>
