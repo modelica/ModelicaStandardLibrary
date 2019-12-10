@@ -409,8 +409,8 @@ to fill and to empty the two tanks is processed:
      opened and the fluid flows from tank 1 into tank 2.</li>
 <li> When tank 1 is empty, valve 2 is closed.</li>
 <li> After a waiting time, valve 3 is opened and
-     the fluid flows out of tank 2</li>
-<li> When tank 2 is empty, valve 3 is closed</li>
+     the fluid flows out of tank 2.</li>
+<li> When tank 2 is empty, valve 3 is closed.</li>
 </ol>
 <p>
 The above \"normal\" process can be influenced by the following
