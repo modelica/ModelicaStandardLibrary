@@ -11,31 +11,24 @@ record RCData "Parameters of RC-elements"
 </html>"),
     Icon(graphics={
         Line(
-          points={{-40,-26},{-32,-26}},
-          color={238,46,47},
-          thickness=0.5),
-        Line(
           points={{-6,-16},{-32,-16},{-32,-40},{-20,-40}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
+        Line(
+          points={{-40,-26},{-32,-26}},
+          color={238,46,47}),
         Line(
           points={{-6,-26},{-6,-6}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
         Line(
           points={{6,-26},{6,-6}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
         Line(
           points={{6,-16},{32,-16},{32,-40},{20,-40}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
         Line(
           points={{32,-26},{40,-26}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
         Rectangle(
           extent={{-20,-46},{20,-32}},
-          lineColor={238,46,47},
-          lineThickness=0.5)}));
+          lineColor={238,46,47})}));
 end RCData;

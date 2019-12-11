@@ -36,32 +36,25 @@ equation
             100}}), graphics={
         Rectangle(
           extent={{-20,-20},{20,-6}},
-          lineColor={238,46,47},
-          lineThickness=0.5),
+          lineColor={238,46,47}),
         Line(
           points={{-6,0},{-6,20}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
         Line(
           points={{6,0},{6,20}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
         Line(
           points={{-6,10},{-32,10},{-32,-14},{-20,-14}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
         Line(
           points={{6,10},{32,10},{32,-14},{20,-14}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
         Line(
           points={{-40,0},{-32,0}},
-          color={238,46,47},
-          thickness=0.5),
+          color={238,46,47}),
         Line(
           points={{32,0},{40,0}},
-          color={238,46,47},
-          thickness=0.5)}),
+          color={238,46,47})}),
     Documentation(info="<html>
 <p>
 Extends the model <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">CellStack</a> by a series of RC-elements, describing the transient behaviour of the battery.
