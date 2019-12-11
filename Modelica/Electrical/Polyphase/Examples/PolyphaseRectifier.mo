@@ -148,21 +148,21 @@ This example demonstrates a polyphase system with a rectifier per subsystem.
 Note that the interaction between the subsystems is damped by the DC resistors and inductors.
 </p>
 <p>
-You may try different number of phases 2&le;m, as well as connect the rectifiers with different number of parallel branches, and investigate AC values:
+You may try different number of phases 2 &le; <code>m</code>, as well as connect the rectifiers with different number of parallel branches, and investigate AC values:
 </p>
 <ul>
-<li>AC power analysatorAC.pTotal (sum of all phases)</li>
-<li>AC current analysatorAC.iFeed[m] (1st harmonice rms)</li>
-<li>AC voltage analysatorAC.vLN[m] (1st harmonice rms, line to neutral)</li>
-<li>AC voltage analysatorAC.vLL[m] (1st harmonice rms, line to line)</li>
+<li>AC power <code>analysatorAC.pTotal</code> (sum of all phases)</li>
+<li>AC current <code>analysatorAC.iFeed[m]</code> (1st harmonice rms)</li>
+<li>AC voltage <code>analysatorAC.vLN[m]</code> (1st harmonice rms, line to neutral)</li>
+<li>AC voltage <code>analysatorAC.vLL[m]</code> (1st harmonice rms, line to line)</li>
 </ul>
 <p>
 as well as DC values per subsystem (rectifier) and total (load):
 </p>
 <ul>
-<li>DC power   total analysatorAC.pDC (mean)</li>
-<li>DC current total analysatorAC.iDC (mean)</li>
-<li>DC voltage total analysatorAC.vDC (mean)</li>
+<li>DC power   total <code>analysatorAC.pDC</code> (mean)</li>
+<li>DC current total <code>analysatorAC.iDC</code> (mean)</li>
+<li>DC voltage total <code>analysatorAC.vDC</code> (mean)</li>
 </ul>
 </html>"),
     Diagram(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
