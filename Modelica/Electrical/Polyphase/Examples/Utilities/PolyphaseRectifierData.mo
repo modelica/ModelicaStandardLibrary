@@ -13,10 +13,8 @@ record PolyphaseRectifierData "Data record for polyphase rectifier"
   final parameter Integer kPolygon=max(1, integer((mBasic - 1)/2))
     "Alternative of largest polygon voltage";
   parameter Integer ParDesired(final min=1, final max=mSystems)=mSystems "Desired parallel subsystems";
-  parameter Integer Par=if isPowerOf2(ParDesired) then ParDesired else mSystems "Parallel connected subsystems"
-    annotation(Dialog(enable=false));
-  parameter Integer Ser=integer(mSystems/Par) "Series connected subsystems"
-    annotation(Dialog(enable=false));
+  final parameter Integer Par=if isPowerOf2(ParDesired) then ParDesired else mSystems "Parallel connected subsystems";
+  final parameter Integer Ser=integer(mSystems/Par) "Series connected subsystems";
   parameter Modelica.SIunits.Voltage VrmsY=100 "RMS voltage line to starpoint";
   parameter Modelica.SIunits.Frequency f=50 "Source frequency";
   parameter Modelica.SIunits.Resistance RLoad=2*Ser/Par "Load resistance";
