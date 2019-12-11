@@ -2210,8 +2210,8 @@ block Transition
             textString="%name",
             textColor={0,0,255}),
           Text(
+            visible=enableTimer,
             extent={{20,20},{200,45}},
-            textColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
             textString="%waitTime"),
           Text(
             extent={{-200,-120},{200,-145}},
@@ -2242,8 +2242,8 @@ block TransitionWithSignal
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Text(
+            visible=enableTimer,
             extent={{20,20},{200,45}},
-            textColor=DynamicSelect({0,0,0}, if enableTimer then {255,255,255} else {0,0,0}),
             textString="%waitTime"),
           Rectangle(
             extent={{-10,100},{10,-100}},
