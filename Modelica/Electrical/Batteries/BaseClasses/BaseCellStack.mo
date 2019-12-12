@@ -87,11 +87,11 @@ equation
           textColor={0,0,255},
           textString="%name"),
         Rectangle(
-          extent={{-90,50},{90,-50}},
+          extent={{-90,60},{90,-60}},
           lineColor={0,0,255},
           radius=10),
         Rectangle(
-          extent=DynamicSelect({{70,-30},{-70,30}},{{70,-30},{70-140*SOC,30}}),
+          extent={{70,-40},{-70,40}},
           lineColor={0,0,255},
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid),

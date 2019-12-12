@@ -27,24 +27,24 @@ The sum of the resistances <code>rcData.R</code> must not exceed the total inner
 </html>"),
     Icon(graphics={
         Line(
-          points={{-6,-16},{-32,-16},{-32,-40},{-20,-40}},
+          points={{-60,-16},{-50,-16}},
           color={238,46,47}),
         Line(
-          points={{-40,-26},{-32,-26}},
+          points={{-6,14},{-50,14},{-50,-36},{-24,-36}},
           color={238,46,47}),
         Line(
-          points={{-6,-26},{-6,-6}},
+          points={{-6,4},{-6,24}},
           color={238,46,47}),
         Line(
-          points={{6,-26},{6,-6}},
+          points={{6,4},{6,24}},
           color={238,46,47}),
         Line(
-          points={{6,-16},{32,-16},{32,-40},{20,-40}},
+          points={{6,14},{50,14},{50,-36},{24,-36}},
           color={238,46,47}),
         Line(
-          points={{32,-26},{40,-26}},
+          points={{50,-16},{60,-16}},
           color={238,46,47}),
         Rectangle(
-          extent={{-20,-46},{20,-32}},
+          extent={{-24,-46},{24,-26}},
           lineColor={238,46,47})}));
 end CellData;

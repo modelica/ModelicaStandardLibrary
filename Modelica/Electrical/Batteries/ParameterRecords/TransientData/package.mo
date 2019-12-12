@@ -17,24 +17,24 @@ Record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.Trans
 </p>
 </html>"), Icon(graphics={
         Line(
-          points={{-6,-10},{-32,-10},{-32,-34},{-20,-34}},
+          points={{-60,-6},{-50,-6}},
           color={238,46,47}),
         Line(
-          points={{-40,-20},{-32,-20}},
+          points={{-6,24},{-50,24},{-50,-26},{-24,-26}},
           color={238,46,47}),
         Line(
-          points={{-6,-20},{-6,0}},
+          points={{-6,14},{-6,34}},
           color={238,46,47}),
         Line(
-          points={{6,-20},{6,0}},
+          points={{6,14},{6,34}},
           color={238,46,47}),
         Line(
-          points={{6,-10},{32,-10},{32,-34},{20,-34}},
+          points={{6,24},{50,24},{50,-26},{24,-26}},
           color={238,46,47}),
         Line(
-          points={{32,-20},{40,-20}},
+          points={{50,-6},{60,-6}},
           color={238,46,47}),
         Rectangle(
-          extent={{-20,-40},{20,-26}},
+          extent={{-24,-36},{24,-16}},
           lineColor={238,46,47})}));
 end TransientData;
