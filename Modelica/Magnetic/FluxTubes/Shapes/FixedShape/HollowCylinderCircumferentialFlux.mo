@@ -30,7 +30,7 @@ For that reason, the characteristic mu_r(B) is evaluated for the flux density at
 </p>
 
 <p>
-For those flux tube sections of a magnetic device that have a nonlinear material characteristic mu_r(B) and a large aspect ratio of outer to inner radius r_o/r_i, the section can be split up in a series connection of several hollow cylindric flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element.
+For those flux tube sections of a magnetic device that have a nonlinear material characteristic <code>mu_r(B)</code> and a large aspect ratio of outer to inner radius <code>r_o/r_i</code>, the section can be split up in a series connection of several hollow cylindrical flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element.
 </p>
 </html>"));
 end HollowCylinderCircumferentialFlux;
