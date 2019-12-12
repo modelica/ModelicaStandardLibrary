@@ -968,6 +968,10 @@ This function should be only called once during initialization.
                                    Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;
 </pre>
 
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.Random.Utilities.automaticLocalSeed\">automaticLocalSeed</a>.
+</p>
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",     revisions="<html>
@@ -990,6 +994,67 @@ This function should be only called once during initialization.
 </table>
 </html>"));
     end automaticGlobalSeed;
+
+    function automaticLocalSeed
+      "Creates an automatic local seed from the instance name"
+      extends Modelica.Icons.Function;
+      input String path
+        "Full path name of the instance (inquire with getInstanceName())";
+      output Integer seed "Automatically generated seed";
+    algorithm
+      // Generate a hash value from the instance name
+      seed := Modelica.Utilities.Strings.hashString(path);
+
+     annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+seed = Utilities.<strong>automaticLocalSeed</strong>(path);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns an automatically computed seed (Integer) from the hash value of
+the full path name of an instance (has to be inquired in the model or block
+where this function is called by the Modelica built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName()</a>).
+Contrary to <a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed()</a>,
+this is a pure function, that is, the same seed is returned, if an identical
+path is provided.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+<strong>parameter</strong> Boolean useAutomaticLocalSeed = true;
+<strong>parameter</strong> Integer fixedLocalSeed        = 10;
+<strong>final parameter</strong> Integer localSeed = <strong>if</strong> useAutomaticLocalSeed <strong>then</strong>
+                                   automaticLocalSeed(getInstanceName())
+                                 <strong>else</strong>
+                                   fixedLocalSeed;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed</a>, <a href=\"modelica://Modelica.Utilities.Strings.hashString\">hashString</a> and <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName</a>.
+</p>
+</html>",     revisions="<html>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td> June 22, 2015 </td>
+    <td>
+
+<table border=0>
+<tr><td>
+         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</html>"));
+    end automaticLocalSeed;
 
     function initializeImpureRandom
       "Initializes the internal state of the impure random number generator"

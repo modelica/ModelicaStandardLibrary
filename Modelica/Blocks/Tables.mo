@@ -128,6 +128,10 @@ other columns contain the data to be interpolated. Example:
              = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
                   splines such that y preserves the monotonicity and der(y)
                   is continuous, also if extrapolated.
+             = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                  Hermite splines such that der(y) is continuous, also if
+                  extrapolated. Additionally, overshoots and edge cases of the
+                  original Akima interpolation method are avoided.
 </pre></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
@@ -423,6 +427,10 @@ other columns contain the data to be interpolated. Example:
              = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
                   splines such that y preserves the monotonicity and der(y)
                   is continuous, also if extrapolated.
+             = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                  Hermite splines such that der(y) is continuous, also if
+                  extrapolated. Additionally, overshoots and edge cases of the
+                  original Akima interpolation method are avoided.
 </pre></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
@@ -667,6 +675,7 @@ Example:
              = 3: Constant segments
              = 4: Fritsch-Butland interpolation: Not supported
              = 5: Steffen interpolation: Not supported
+             = 6: Modified Akima interpolation: Not supported
 </pre></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
@@ -851,6 +860,7 @@ Example:
              = 3: Constant segments
              = 4: Fritsch-Butland interpolation: Not supported
              = 5: Steffen interpolation: Not supported
+             = 6: Modified Akima interpolation: Not supported
 </pre></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:

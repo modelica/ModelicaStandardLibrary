@@ -563,7 +563,7 @@ fulfills the following equation:
 The rotation angle is returned in the range
 </p>
 <pre>
-    -<font face=\"Symbol\">p</font> &lt;= angle &lt;= <font face=\"Symbol\">p</font>
+    -&pi; &lt;= angle &lt;= &pi;
 </pre>
 <p>
 This function makes the following assumptions on the input arguments
@@ -805,7 +805,7 @@ R = <strong>axesRotation</strong>(sequence, angles)
 The rotation angles are returned in the range
 </p>
 <blockquote><pre>
--<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+-&pi; &lt;= angles[i] &lt;= &pi;
 </pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
@@ -2761,7 +2761,7 @@ v2 = <strong>resolve2</strong>(<strong>planarRotation</strong>(e,angle), v1)
 The rotation angle is returned in the range
 </p>
 <blockquote><pre>
--<font face=\"Symbol\">p</font> &lt;= angle &lt;= <font face=\"Symbol\">p</font>
+-&pi; &lt;= angle &lt;= &pi;
 </pre></blockquote>
 <p>
 This function makes the following assumptions on the input arguments
@@ -2991,7 +2991,7 @@ T = <strong>axesRotation</strong>(sequence, angles)
 The rotation angles are returned in the range
 </p>
 <blockquote><pre>
--<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
+-&pi; &lt;= angles[i] &lt;= &pi;
 </pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.

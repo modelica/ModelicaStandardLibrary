@@ -17,8 +17,7 @@ The reference angle <code>gamma</code>:
   <li>is defined by the sources.</li>
 </ul>
 <p>
-Designing new components, the guidelines of the Modelica Specification dealing with
-Overconstrained Equation Operators for Connection Graphs have to be taken into account.
+Designing new components, the guidelines of <a href=\"https://specification.modelica.org/v3.4/Ch9.html#overconstrained-equation-operators-for-connection-graphs\">Section 9.4.1 (Overconstrained Equation Operators for Connection Graphs) of the Modelica 3.4 specification</a> have to be taken into account.
 </p>
 
 <h4>See also</h4>

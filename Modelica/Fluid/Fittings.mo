@@ -902,7 +902,7 @@ the approximation for Re &lt; 560/&Delta; is too bad.
 </p>
 
 <p>
-The absolute roughness <font face=\"Symbol\">d</font> has usually to
+The absolute roughness &delta; has usually to
 be estimated. In <em>[Idelchik 1994, pp. 105-109,
 Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
 As a short summary:
@@ -910,27 +910,27 @@ As a short summary:
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><strong>Smooth pipes</strong></td>
       <td>Drawn brass, copper, aluminium, glass, etc.</td>
-      <td><font face=\"Symbol\">d</font> = 0.0025 mm</td>
+      <td>&delta; = 0.0025 mm</td>
   </tr>
   <tr><td rowspan=\"3\"><strong>Steel pipes</strong></td>
       <td>New smooth pipes</td>
-      <td><font face=\"Symbol\">d</font> = 0.025 mm</td>
+      <td>&delta; = 0.025 mm</td>
   </tr>
   <tr><td>Mortar lined, average finish</td>
-      <td><font face=\"Symbol\">d</font> = 0.1 mm</td>
+      <td>&delta; = 0.1 mm</td>
   </tr>
   <tr><td>Heavy rust</td>
-      <td><font face=\"Symbol\">d</font> = 1 mm</td>
+      <td>&delta; = 1 mm</td>
   </tr>
   <tr><td rowspan=\"3\"><strong>Concrete pipes</strong></td>
       <td>Steel forms, first class workmanship</td>
-      <td><font face=\"Symbol\">d</font> = 0.025 mm</td>
+      <td>&delta; = 0.025 mm</td>
   </tr>
   <tr><td>Steel forms, average workmanship</td>
-      <td><font face=\"Symbol\">d</font> = 0.1 mm</td>
+      <td>&delta; = 0.1 mm</td>
   </tr>
   <tr><td>Block linings</td>
-      <td><font face=\"Symbol\">d</font> = 1 mm</td>
+      <td>&delta; = 1 mm</td>
   </tr>
 </table>
 </html>"));

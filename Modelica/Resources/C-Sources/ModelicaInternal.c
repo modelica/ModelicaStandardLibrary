@@ -30,6 +30,10 @@
 */
 
 /* Release Notes:
+      Nov. 13, 2019: by Thomas Beutlich
+                     Utilized blockwise I/O in ModelicaInternal_copyFile
+                     (ticket #3229)
+
       Oct. 10, 2019: by Thomas Beutlich
                      Fixed month and year correction in ModelicaInternal_getTime
                      (ticket #3143)
@@ -121,18 +125,7 @@
 */
 
 #include "ModelicaInternal.h"
-#include <string.h>
 #include "ModelicaUtilities.h"
-
-/* The standard way to detect POSIX is to check _POSIX_VERSION,
- * which is defined in <unistd.h>
- */
-#if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
-  #include <unistd.h>
-#endif
-#if !defined(_POSIX_) && defined(_POSIX_VERSION)
-  #define _POSIX_ 1
-#endif
 
 MODELICA_NORETURN static void ModelicaNotExistError(const char* name) MODELICA_NORETURNATTR;
 static void ModelicaNotExistError(const char* name) {
@@ -196,10 +189,21 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
     ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
+/* The standard way to detect POSIX is to check _POSIX_VERSION,
+ * which is defined in <unistd.h>
+ */
+#if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
+  #include <unistd.h>
+#endif
+#if !defined(_POSIX_) && defined(_POSIX_VERSION)
+  #define _POSIX_ 1
+#endif
+
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
 #include "gconstructor.h"
 
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -407,17 +411,11 @@ void ModelicaInternal_removeFile(_In_z_ const char* file) {
 void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
                                _In_z_ const char* newFile) {
     /* Copy file */
-#ifdef _WIN32
     const char* modeOld = "rb";
     const char* modeNew = "wb";
-#else
-    const char* modeOld = "r";
-    const char* modeNew = "w";
-#endif
     FILE* fpOld;
     FILE* fpNew;
     ModelicaFileType type;
-    int c;
 
     /* Check file existence */
     type = Internal_stat(oldFile);
@@ -454,8 +452,18 @@ void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
             oldFile, newFile, strerror(errno));
         return;
     }
-    while ( (c = getc(fpOld)) != EOF ) {
-        putc(c, fpNew);
+    {
+        size_t len;
+        char buf[BUFSIZ] = {'\0'};
+
+        while ( (len = fread(buf, sizeof(char), BUFSIZ, fpOld)) > 0 ) {
+            if ( len != fwrite(buf, sizeof(char), len, fpNew) ) {
+                fclose(fpOld);
+                fclose(fpNew);
+                ModelicaFormatError("Error writing to file \"%s\".", newFile);
+                return;
+            }
+        }
     }
     fclose(fpOld);
     fclose(fpNew);

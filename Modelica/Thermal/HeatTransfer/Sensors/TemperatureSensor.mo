@@ -3,7 +3,7 @@ model TemperatureSensor "Absolute temperature sensor in Kelvin"
 
   Modelica.Blocks.Interfaces.RealOutput T(unit="K")
     "Absolute temperature as output signal"
-    annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+    annotation (Placement(transformation(extent={{100,-10},{120,10}}), iconTransformation(extent={{100,-10},{120,10}})));
   Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
             -110,-10},{-90,10}})));
 equation
@@ -24,7 +24,7 @@ equation
           lineColor={191,0,0},
           fillColor={191,0,0},
           fillPattern=FillPattern.Solid),
-        Line(points={{12,0},{90,0}}, color={0,0,127}),
+        Line(points={{12,0},{100,0}},color={0,0,127}),
         Line(points={{-90,0},{-12,0}}, color={191,0,0}),
         Polygon(
           points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},

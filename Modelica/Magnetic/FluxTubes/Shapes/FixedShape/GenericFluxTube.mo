@@ -3,6 +3,7 @@ model GenericFluxTube
   "Flux tube with fixed cross-section and length; linear or non-linear material characteristics"
 
   extends BaseClasses.FixedShape;
+  extends Modelica.Magnetic.FluxTubes.Icons.Reluctance;
 
   parameter SI.Length l=0.01 "Length in direction of flux"
     annotation(Dialog(group="Fixed geometry", groupImage=

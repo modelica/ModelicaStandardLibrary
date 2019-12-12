@@ -13,8 +13,7 @@ model Toroid
   parameter SI.Angle alfa=pi/2 "Angle of toroid section"
     annotation (Dialog(group="Fixed geometry"));
 equation
-  A = d^2*pi/4;
-  // Area at arithmetic mean radius for calculation of average flux density
+  A = d^2*pi/4 "Area at arithmetic mean radius for calculation of average flux density";
   G_m = mu_0*mu_r*A/(r*alfa);
 
   annotation (defaultComponentName="cylinder", Documentation(info="<html>
@@ -24,11 +23,11 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
 <p>
 For toroidal flux tubes with a circumferental magnetic flux, the flux density is a function of the radius. 
-For that reason, the characteristic mu_r(B) is evaluated for the flux density at the flux tube's mean radius.
+For that reason, the characteristic <code>mu_r(B)</code> is evaluated for the flux density at the flux tube's mean radius.
 </p>
 
 <p>
-For those flux tube sections of a magnetic device that have a nonlinear material characteristic mu_r(B) and a large aspect ratio of outer to inner radius r_o/r_i, the section can be split up in a series connection of several hollow cylindric flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element.
+For those flux tube sections of a magnetic device that have a nonlinear material characteristic <code>mu_r(B)<(code> and a large aspect ratio of outer to inner radius <code>r_o/r_i</code>, the section can be split up in a series connection of several hollow cylindrical flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element.
 </p>
 </html>"));
 end Toroid;

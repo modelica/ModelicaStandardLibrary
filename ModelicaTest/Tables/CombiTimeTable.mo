@@ -1096,4 +1096,66 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
     annotation (experiment(StartTime=0, StopTime=3));
   end Test86;
+
+  model Test87 "Modified Akima, comparison, first test data set (Ticket #1039)"
+    extends Modelica.Icons.Example;
+    final constant Real table[:,2] = [1,0;2,0;3,0;4,0.5;5,0.5;5.5,1.2;7,1.2;8,0.1;9,0;9.5,0.3;10,0.6] "Table data";
+    extends TestDer2(t_new(
+      table=table,
+      smoothness=Modelica.Blocks.Types.Smoothness.ModifiedContinuousDerivative));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_2(
+      table=table,
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_3(
+      table=table,
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1) annotation(Placement(transformation(extent={{-40,-60},{-20,-40}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_4(
+      table=table,
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2) annotation(Placement(transformation(extent={{-40,-90},{-20,-70}})));
+    Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
+    Modelica.Blocks.Continuous.Der d_t_new_3 annotation(Placement(transformation(extent={{0,-60},{20,-40}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_3 annotation(Placement(transformation(extent={{40,-60},{60,-40}})));
+    Modelica.Blocks.Continuous.Der d_t_new_4 annotation(Placement(transformation(extent={{0,-90},{20,-70}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_4 annotation(Placement(transformation(extent={{40,-90},{60,-70}})));
+    equation
+      connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
+      connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
+      connect(d_t_new_3.y,d2_t_new_3.u) annotation(Line(points={{21,-50},{26,-50},{33,-50},{38,-50}},   color={0,0,127}));
+      connect(t_new_3.y[1],d_t_new_3.u) annotation(Line(points={{-19,-50},{-2,-50}}, color={0,0,127}));
+      connect(d_t_new_4.y,d2_t_new_4.u) annotation(Line(points={{21,-80},{26,-80},{33,-80},{38,-80}},   color={0,0,127}));
+      connect(t_new_4.y[1],d_t_new_4.u) annotation(Line(points={{-19,-80},{-2,-80}}, color={0,0,127}));
+    annotation (experiment(StartTime=0, StopTime=11));
+  end Test87;
+
+  model Test88 "Modified Akima, comparison, second test data set (Ticket #1039)"
+    extends Modelica.Icons.Example;
+    final constant Real table[:,2] = [1,-1;2,-1;3,-1;4,0;5,1;6,1+1e-15;7,1;8,1] "Table data";
+    extends TestDer2(t_new(
+      table=table,
+      smoothness=Modelica.Blocks.Types.Smoothness.ModifiedContinuousDerivative));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_2(
+      table=table,
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_3(
+      table=table,
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1) annotation(Placement(transformation(extent={{-40,-60},{-20,-40}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_4(
+      table=table,
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2) annotation(Placement(transformation(extent={{-40,-90},{-20,-70}})));
+    Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
+    Modelica.Blocks.Continuous.Der d_t_new_3 annotation(Placement(transformation(extent={{0,-60},{20,-40}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_3 annotation(Placement(transformation(extent={{40,-60},{60,-40}})));
+    Modelica.Blocks.Continuous.Der d_t_new_4 annotation(Placement(transformation(extent={{0,-90},{20,-70}})));
+    Modelica.Blocks.Continuous.Der d2_t_new_4 annotation(Placement(transformation(extent={{40,-90},{60,-70}})));
+    equation
+      connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
+      connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
+      connect(d_t_new_3.y,d2_t_new_3.u) annotation(Line(points={{21,-50},{26,-50},{33,-50},{38,-50}},   color={0,0,127}));
+      connect(t_new_3.y[1],d_t_new_3.u) annotation(Line(points={{-19,-50},{-2,-50}}, color={0,0,127}));
+      connect(d_t_new_4.y,d2_t_new_4.u) annotation(Line(points={{21,-80},{26,-80},{33,-80},{38,-80}},   color={0,0,127}));
+      connect(t_new_4.y[1],d_t_new_4.u) annotation(Line(points={{-19,-80},{-2,-80}}, color={0,0,127}));
+    annotation (experiment(StartTime=0, StopTime=9));
+  end Test88;
 end CombiTimeTable;
