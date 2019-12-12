@@ -3646,20 +3646,19 @@ is not taken into account.
         annotation (Line(points={{60,-120},{60,-72}}, color={0,0,127}));
       connect(fDrag.support, windSpeed.flange)
         annotation (Line(points={{60,-40},{60,-50}}, color={0,127,0}));
-      connect(mass.flange_b, flangeT) annotation (Line(points={{50,60},{90,60},
-              {90,0},{100,0}},
+      connect(mass.flange_b, flangeT) annotation (Line(points={{50,60},{80,60},{80,0},{100,0}},
                         color={0,127,0}));
       connect(sin.u, atan.y)
         annotation (Line(points={{-22,30},{-29,30}},   color={0,0,127}));
       connect(gravForceGain.u, sin.y) annotation (Line(points={{8,30},{1,30}},     color={0,0,127}));
       connect(gravForceGain.y, fGrav.f)
         annotation (Line(points={{31,30},{48,30}}, color={0,0,127}));
-      connect(mass.flange_b, fDrag.flange) annotation (Line(points={{50,60},{90,
-              60},{90,-30},{70,-30}}, color={0,127,0}));
-      connect(mass.flange_b, fRoll.flange) annotation (Line(points={{50,60},{90,
-              60},{90,0},{70,0}}, color={0,127,0}));
-      connect(mass.flange_b, fGrav.flange) annotation (Line(points={{50,60},{90,
-              60},{90,30},{70,30}}, color={0,127,0}));
+      connect(mass.flange_b, fDrag.flange) annotation (Line(points={{50,60},{80,60},{80,-30},{70,-30}},
+                                      color={0,127,0}));
+      connect(mass.flange_b, fRoll.flange) annotation (Line(points={{50,60},{80,60},{80,0},{70,0}},
+                                  color={0,127,0}));
+      connect(mass.flange_b, fGrav.flange) annotation (Line(points={{50,60},{80,60},{80,30},{70,30}},
+                                    color={0,127,0}));
       connect(inertia.flange_b, idealRollingWheel.flangeR)
         annotation (Line(points={{-30,60},{-10,60}}, color={0,0,0}));
       connect(flangeR, inertia.flange_a) annotation (Line(points={{-100,0},{-80,0},{
