@@ -3421,7 +3421,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=0,
             origin={-120,60})));
-      Blocks.Interfaces.RealInput Cr = Cr_internal if useCrInput
+      Blocks.Interfaces.RealInput cr = Cr_internal if useCrInput
         "Rolling resistance coefficient"
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=0,
@@ -3511,7 +3511,7 @@ flange.f = Cr * fWeight * cos(alpha)
 <p>
 The rolling resistance coeffcient&nbsp;<var>C<sub>r</sub></var> is either constant
 (given by the parameter <code>CrConstant</code>)
-or prescribed by the input <code>Cr</code>.
+or prescribed by the input <code>cr</code>.
 </p>
 <p>
 The inclination is either constant (parameter <code>inclinationConstant</code>)
@@ -3663,7 +3663,7 @@ is not taken into account.
         annotation (Line(points={{-30,60},{-10,60}}, color={0,0,0}));
       connect(flangeR, inertia.flange_a) annotation (Line(points={{-100,0},{-80,0},{
               -80,60},{-50,60}}, color={0,0,0}));
-      connect(Cr, fRoll.Cr)
+      connect(Cr,fRoll.cr)
         annotation (Line(points={{0,-120},{0,-6},{48,-6}}, color={0,0,127}));
       connect(inclination, fRoll.inclination)
         annotation (Line(points={{-60,-120},{-60,6},{48,6}}, color={0,0,127}));
@@ -3741,11 +3741,11 @@ Wind velocity is either constant or prescribed by the input <code>vWind</code>.
 <h4>Rolling resistance</h4>
 <blockquote>
 <pre>
-fRoll = cr*m*g*cos(alpha)
+fRoll = Cr*m*g*cos(alpha)
 </pre>
 </blockquote>
 <p>
-Rolling resistance coeffcient&nbsp;<var>cr</var> is either constant
+Rolling resistance coeffcient&nbsp;<var>Cr</var> is either constant
 or prescribed by the input <code>cr</code>.
 Rolling resistance has a&nbsp;crossover from positive to negative velocity within <code>[-vReg,&nbsp;vReg]</code>.
 </p>
