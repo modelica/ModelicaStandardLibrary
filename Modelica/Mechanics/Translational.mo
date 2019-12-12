@@ -3730,7 +3730,7 @@ The vehicle mass includes e.g. transported load, passengers and/or driver.
 <h4>Drag resistance</h4>
 <blockquote>
 <pre>
-fDrag = cw*rho*A*(v - vWind)^2/2
+fDrag = Cd*rho*A*(v - vWind)^2/2
 </pre>
 </blockquote>
 <p>
