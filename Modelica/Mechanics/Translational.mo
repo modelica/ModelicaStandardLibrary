@@ -1725,13 +1725,13 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       //Check nominal force
       parameter Real inclination=0 "Constant inclination = tan(angle)";
       parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nominal velocity";
-      final parameter Modelica.SIunits.Force FDrag=Cd*A*rho*(vNom - vWind)^2/2 "Drag resistance"
+      final parameter Modelica.SIunits.Force fDrag=Cd*A*rho*(vNom - vWind)^2/2 "Drag resistance"
         annotation(Dialog(enable=false));
       final parameter Modelica.SIunits.Angle alpha=atan(inclination) "Inclination angle"
         annotation(Dialog(enable=false));
-      final parameter Modelica.SIunits.Force FRoll=Cr*m*g_n*cos(alpha) "Roll resistance"
+      final parameter Modelica.SIunits.Force fRoll=Cr*m*g_n*cos(alpha) "Roll resistance"
         annotation(Dialog(enable=false));
-      final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alpha) "Grav resistance"
+      final parameter Modelica.SIunits.Force fGrav=m*g_n*sin(alpha) "Grav resistance"
       annotation(Dialog(enable=false));
       Components.Vehicle vehicle(
         m=m,
@@ -1779,7 +1779,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       Rotational.Sources.Torque torque1
         annotation (Placement(transformation(extent={{0,40},{20,60}})));
-      Modelica.Blocks.Math.Gain gain(k=(FDrag + FRoll + FGrav)*R)
+      Modelica.Blocks.Math.Gain gain(k=(fDrag + fRoll + fGrav)*R)
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Blocks.Math.Gain gain1(k=2)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
