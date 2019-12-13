@@ -1733,13 +1733,6 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         annotation(Dialog(enable=false));
       final parameter Modelica.SIunits.Force FGrav=m*g_n*sin(alpha) "Grav resistance"
       annotation(Dialog(enable=false));
-      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
-        table=[0,0,0; 5,0,0; 5,5.6,0; 10.8,5.6,0; 10.8,1,0; 20,1,0; 20,2.8,0.05;
-               25,2.8,0.05; 25, 1,0; 50,1,0; 50,-5,0; 55,-5,0; 55,0,0; 60,0,0],
-        extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
-        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-      Modelica.Blocks.Math.Gain gain(k=(FDrag + FRoll + FGrav)*R)
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Components.Vehicle vehicle(
         m=m,
         J=0,
@@ -1752,8 +1745,6 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         s(fixed=true),
         v(fixed=true))
         annotation (Placement(transformation(extent={{30,-10},{50,10}})));
-      Rotational.Sources.Torque torque
-        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       Components.Vehicle vehicle1(
         m=m,
         J=0,
@@ -1766,8 +1757,6 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         s(fixed=true),
         v(fixed=true))
         annotation (Placement(transformation(extent={{30,40},{50,60}})));
-      Rotational.Sources.Torque torque1
-        annotation (Placement(transformation(extent={{0,40},{20,60}})));
       Components.Vehicle trailer(
         m=m,
         J=0,
@@ -1779,12 +1768,23 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         useInclinationInput=true,
         s(fixed=false),
         v(fixed=false)) annotation (Placement(transformation(extent={{70,40},{90,60}})));
+      Modelica.Mechanics.Translational.Sensors.MultiSensor multiSensor
+        annotation (Placement(transformation(extent={{60,84},{80,64}})));
+      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
+        table=[0,0,0; 5,0,0; 5,5.6,0; 10.8,5.6,0; 10.8,1,0; 20,1,0; 20,2.8,0.05;
+               25,2.8,0.05; 25, 1,0; 50,1,0; 50,-5,0; 55,-5,0; 55,0,0; 60,0,0],
+        extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Rotational.Sources.Torque torque
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      Rotational.Sources.Torque torque1
+        annotation (Placement(transformation(extent={{0,40},{20,60}})));
+      Modelica.Blocks.Math.Gain gain(k=(FDrag + FRoll + FGrav)*R)
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Blocks.Math.Gain gain1(k=2)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-10,30})));
-      Modelica.Mechanics.Translational.Sensors.MultiSensor multiSensor
-        annotation (Placement(transformation(extent={{60,84},{80,64}})));
     equation
       connect(combiTimeTable.y[1], gain.u)
         annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
