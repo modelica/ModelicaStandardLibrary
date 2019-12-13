@@ -3677,8 +3677,9 @@ is not taken into account.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Line(points={{-80,-70},{80,-70}}, color={0,0,0}),
         Line(points={{-80,0},{85.607,-1.19754}},
-                                          color={0,0,0}, origin={-3,-49}, rotation=15),
-        Ellipse(extent={{-130,-120},{-30,-20}}, lineColor={0,0,0}, startAngle=0, endAngle=15),
+          color={0,0,0}, origin={-3,-49}, rotation=15),
+        Ellipse(extent={{-130,-120},{-30,-20}}, lineColor={0,0,0}, startAngle=0, endAngle=15,
+          closure=EllipseClosure.None),
         Polygon(points={{-70,15},{-70,-25},{50,-25},{50,15},{38,25},{-60,25},{-70,15}},
               lineColor={0,127,0}, fillColor={160,215,160}, fillPattern=FillPattern.Solid, origin={0,-9}, rotation=15),
         Line(points={{-40,0},{40,0}}, color={95,127,95}, origin={-40,32}, rotation=15),
