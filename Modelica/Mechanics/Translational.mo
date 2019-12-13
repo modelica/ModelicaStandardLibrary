@@ -1768,7 +1768,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         annotation (Placement(transformation(extent={{30,40},{50,60}})));
       Rotational.Sources.Torque torque1
         annotation (Placement(transformation(extent={{0,40},{20,60}})));
-      Components.Vehicle vehicle2(
+      Components.Vehicle trailer(
         m=m,
         J=0,
         R=R,
@@ -1778,8 +1778,7 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         vWindConstant=vWind,
         useInclinationInput=true,
         s(fixed=false),
-        v(fixed=false))
-        annotation (Placement(transformation(extent={{70,40},{90,60}})));
+        v(fixed=false)) annotation (Placement(transformation(extent={{70,40},{90,60}})));
       Blocks.Math.Gain gain1(k=2)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=90,
@@ -1800,33 +1799,37 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
       connect(vehicle.inclination, vehicle1.inclination) annotation (Line(
             points={{34,-12},{34,-20},{60,-20},{60,30},{34,30},{34,38}}, color=
               {0,0,127}));
-      connect(vehicle1.inclination, vehicle2.inclination) annotation (Line(
-            points={{34,38},{34,30},{74,30},{74,38}}, color={0,0,127}));
+      connect(vehicle1.inclination, trailer.inclination) annotation (Line(points={{34,38},{34,30},{74,30},{74,38}}, color={0,0,127}));
       connect(gain.y, gain1.u)
         annotation (Line(points={{-19,0},{-10,0},{-10,18}}, color={0,0,127}));
       connect(gain1.y, torque1.tau)
         annotation (Line(points={{-10,41},{-10,50},{-2,50}}, color={0,0,127}));
       connect(vehicle1.flangeT, multiSensor.flange_a)
         annotation (Line(points={{50,50},{50,74},{60,74}}, color={0,127,0}));
-      connect(multiSensor.flange_b, vehicle2.flangeT)
-        annotation (Line(points={{80,74},{90,74},{90,50}}, color={0,127,0}));
+      connect(multiSensor.flange_b, trailer.flangeT) annotation (Line(points={{80,74},{90,74},{90,50}}, color={0,127,0}));
       annotation (experiment(StopTime=60, Interval=0.01), Documentation(info="<html>
 <p>
-A vehicle is accelerated and decelerated by a driving torque. 
-Nominal torque is defined as the sum of driving resistances at nominal velocity times wheel radius. 
+Vehicles <code>vehicle</code> and <code>vehicle1</code> are accelerated
+and decelerated by a&nbsp;driving torque. 
+Nominal torque is defined as the sum of driving resistances at nominal
+velocity <code>vNom</code> times wheel radius&nbsp;<code>R</code>.
 </p>
 <p>
-Starting at 5 s, a vehicle is accelerated by a multiple of nominal torque until it nearly reaches nominal velocity, then driven by nominal torque. 
-Between 20 s and 25 s, an inclination of 5% occurs and driving torque is increased to a multiple of nominal torque temporarily. 
-Between 50 s and 55 s, the driving torque is set below zero, causing the vehicle to decelerate. 
-After 55 s, the vehicle decelerates due to the driving resistances.
+Starting at 5&nbsp;s, the <code>vehicle</code> is accelerated by a&nbsp;multiple of nominal torque until it nearly reaches nominal velocity, then driven by nominal torque.
+Between 20&nbsp;s and 25&nbsp;s, an inclination of 5&nbsp;% occurs and driving torque is increased to a&nbsp;multiple of nominal torque temporarily.
+Between 50&nbsp;s and 55&nbsp;s, the driving torque is set below zero, causing the vehicle to decelerate.
+After 55&nbsp;s, the vehicle decelerates due to the driving resistances.
 </p>
 <p>
-Coupling a trailer with the same data but without drive, the driving torque has to be doubled to achieve the same acceleration and velocity. 
-Force and power between the two vehicles is measured. 
+Coupling the <code>trailer</code> with the same data but without drive,
+the driving torque of <code>vehicle1</code> has to be doubled to achieve the same acceleration and velocity.
+Force and power between the two vehicles is measured.
 </p>
+
+<h4>Note</h4>
 <p>
-Note: Since the trailer <code>vehicle2</code> is coupled tightly with <code>vehicle1</code>, initialization of the trailer has to be removed.
+Since the <code>trailer</code> is coupled tightly with the <code>vehicle1</code>,
+initialization of the trailer has to be removed.
 </p>
 </html>"));
     end Vehicle;
@@ -3500,7 +3503,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
 <p>
 Simplified model of the resistance of a&nbsp;rolling wheel,
 dependent on vertical wheel load (due to gravity, i.e. static only),
-inclination and rolling resistance coefficient.
+inclination and rolling resistance coefficient:
 </p>
 <blockquote>
 <pre>
