@@ -1770,9 +1770,9 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
         v(fixed=false)) annotation (Placement(transformation(extent={{70,40},{90,60}})));
       Modelica.Mechanics.Translational.Sensors.MultiSensor multiSensor
         annotation (Placement(transformation(extent={{60,84},{80,64}})));
-      Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
+      Modelica.Blocks.Sources.CombiTimeTable timeTableTorqueInclination(
         table=[0,0,0; 5,0,0; 5,5.6,0; 10.8,5.6,0; 10.8,1,0; 20,1,0; 20,2.8,0.05;
-               25,2.8,0.05; 25, 1,0; 50,1,0; 50,-5,0; 55,-5,0; 55,0,0; 60,0,0],
+               25,2.8,0.05; 25,1,0; 50,1,0; 50,-5,0; 55,-5,0; 55,0,0; 60,0,0],
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
       Rotational.Sources.Torque torque
@@ -1786,10 +1786,10 @@ An eddy current brake reduces the speed of a moving mass. Kinetic energy is conv
             rotation=90,
             origin={-10,30})));
     equation
-      connect(combiTimeTable.y[1], gain.u)
+      connect(timeTableTorqueInclination.y[1], gain.u)
         annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
-      connect(combiTimeTable.y[2], vehicle.inclination) annotation (Line(points=
-             {{-59,0},{-50,0},{-50,-20},{34,-20},{34,-12}}, color={0,0,127}));
+      connect(timeTableTorqueInclination.y[2], vehicle.inclination)
+        annotation (Line(points={{-59,0},{-50,0},{-50,-20},{34,-20},{34,-12}}, color={0,0,127}));
       connect(gain.y, torque.tau)
         annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
       connect(torque.flange, vehicle.flangeR)
