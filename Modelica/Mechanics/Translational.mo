@@ -3551,7 +3551,7 @@ is not taken into account.
         annotation(Dialog(tab="Driving resistances", group="Drag resistance"));
       parameter SI.Velocity vWindConstant=0 "Constant wind velocity"
         annotation(Dialog(tab="Driving resistances", group="Drag resistance", enable=not useWindInput));
-      parameter Boolean useCrInput=false "Enable signal input for cr"
+      parameter Boolean useCrInput=false "Enable signal input for Cr"
         annotation(Dialog(tab="Driving resistances", group="Rolling resistance"));
       parameter Real CrConstant=0.015 "Constant rolling resistance coefficient"
         annotation(Dialog(tab="Driving resistances", group="Rolling resistance", enable=not useCrInput));
@@ -3603,7 +3603,7 @@ is not taken into account.
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=90,
             origin={-60,-120})));
-      Modelica.Blocks.Interfaces.RealInput Cr if useCrInput
+      Modelica.Blocks.Interfaces.RealInput cr if useCrInput
         "Rolling resistance coefficient"
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=90,
@@ -3663,7 +3663,7 @@ is not taken into account.
         annotation (Line(points={{-30,60},{-10,60}}, color={0,0,0}));
       connect(flangeR, inertia.flange_a) annotation (Line(points={{-100,0},{-80,0},{
               -80,60},{-50,60}}, color={0,0,0}));
-      connect(Cr,fRoll.cr)
+      connect(cr,fRoll.cr)
         annotation (Line(points={{0,-120},{0,-6},{48,-6}}, color={0,0,127}));
       connect(inclination, fRoll.inclination)
         annotation (Line(points={{-60,-120},{-60,6},{48,6}}, color={0,0,127}));
