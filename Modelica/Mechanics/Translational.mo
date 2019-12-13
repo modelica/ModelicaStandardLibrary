@@ -3403,7 +3403,7 @@ following references, especially (Armstrong and Canudas de Wit 1996):
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       import Modelica.Constants.pi;
       parameter SI.Force fWeight(start=0) "Wheel load due to gravity";
-      parameter Boolean useCrInput=false "Enable signal input for cr";
+      parameter Boolean useCrInput=false "Enable signal input for Cr";
       parameter Real CrConstant=0.01 "Constant rolling resistance coefficient"
         annotation(Dialog(enable=not useCrInput));
       parameter Boolean useInclinationInput=false "Enable signal input for inclination";
