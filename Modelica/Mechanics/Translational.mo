@@ -3675,19 +3675,20 @@ is not taken into account.
       connect(atan.u, constInclination.y) annotation (Line(points={{-52,30},{
               -60,30},{-60,-90},{-69,-90}}, color={0,0,127}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-        Line(points={{-80,-70},{80,-70}}, color={0,0,0}),
+        Line(points={{-80,-70},{80,-70}}, color={0,127,0}),
         Line(points={{-80,0},{85.607,-1.19754}},
-          color={0,0,0}, origin={-3,-49}, rotation=15),
-        Ellipse(extent={{-130,-120},{-30,-20}}, lineColor={0,0,0}, startAngle=0, endAngle=15,
+          color={0,127,0}, origin={-3,-49}, rotation=15),
+        Ellipse(extent={{-130,-120},{-30,-20}}, lineColor={0,127,0},
+          startAngle=0, endAngle=15,
           closure=EllipseClosure.None),
         Polygon(points={{-70,15},{-70,-25},{50,-25},{50,15},{38,25},{-60,25},{-70,15}},
-              lineColor={0,127,0}, fillColor={160,215,160}, fillPattern=FillPattern.Solid, origin={0,-9}, rotation=15),
+          lineColor={0,127,0}, fillColor={160,215,160}, fillPattern=FillPattern.Solid, origin={0,-9}, rotation=15),
         Line(points={{-40,0},{40,0}}, color={95,127,95}, origin={-40,32}, rotation=15),
         Polygon(points={{15,0},{-15,10},{-15,-10},{15,0}}, lineColor={95,127,95}, fillColor={95,127,95},
-                fillPattern = FillPattern.Solid, origin={11,46}, rotation=15),
+          fillPattern = FillPattern.Solid, origin={11,46}, rotation=15),
         Text(extent={{-150,100},{150,60}}, textString="%name", textColor={0,0,255}),
         Polygon(points={{-20,0},{0,10},{0,4},{20,4},{20,-4},{0,-4},{0,-10},{-20,0}}, lineColor={0,127,0}, fillColor={160,215,160},
-                fillPattern = FillPattern.Solid, origin={68,18}, rotation=15),
+          fillPattern = FillPattern.Solid, origin={68,18}, rotation=15),
         Text(
           extent={{-80,-80},{-40,-100}},
           textColor={64,64,64},
@@ -3701,7 +3702,11 @@ is not taken into account.
           textColor={64,64,64},
           textString="wind"),
         Ellipse(extent={{-50,-34},{-26,-58}},lineColor={0,127,0}, fillPattern=FillPattern.Sphere, fillColor={160,215,160}),
-        Ellipse(extent={{20,-16},{44,-40}},  lineColor={0,127,0}, fillPattern=FillPattern.Sphere, fillColor={160,215,160})}),
+        Ellipse(extent={{20,-16},{44,-40}},  lineColor={0,127,0}, fillPattern=FillPattern.Sphere, fillColor={160,215,160}),
+        Ellipse(extent={{26,-22},{38,-34}},  lineColor={0,127,0}, fillPattern=FillPattern.Solid,
+          fillColor={255,255,255}),
+        Ellipse(extent={{-44,-40},{-32,-52}},lineColor={0,127,0}, fillPattern=FillPattern.Solid,
+          fillColor={255,255,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
