@@ -10,7 +10,7 @@ model AnalysatorDC "Analyze DC voltage, current and power"
       Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=0,
-        origin={-110,-58})));
+        origin={-110,-60})));
   Modelica.Blocks.Interfaces.RealOutput iMean "Mean current" annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -44,8 +44,8 @@ equation
     annotation (Line(points={{-10,0},{-10,10},{0,10}}, color={0,0,255}));
   connect(multiSensorDC.nv, nv)
     annotation (Line(points={{0,-10},{0,-100}}, color={0,0,255}));
-  connect(powerTotal.y, pDC) annotation (Line(points={{-50,-41},{-50,-58},{-110,
-          -58}}, color={0,0,127}));
+  connect(powerTotal.y, pDC) annotation (Line(points={{-50,-41},{-50,-60},{-110,-60}},
+                 color={0,0,127}));
   connect(multiSensorDC.power, powerTotal.u)
     annotation (Line(points={{-11,-6},{-50,-6},{-50,-18}}, color={0,0,127}));
   connect(meanCurrent.y, iMean) annotation (Line(points={{-20,-61},{-20,-80},{-60,
