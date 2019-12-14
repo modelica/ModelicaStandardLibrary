@@ -42,20 +42,20 @@ equation
           {0,-60},{-40,-60},{-40,-10}}, color={191,0,0}));
   annotation (Icon(graphics={
         Text(
-          extent={{-150,70},{150,110}},
+          extent={{-150,60},{150,100}},
           textColor={0,0,255},
           textString="%name"),
         Text(
-          extent={{-150,-110},{150,-70}},
+          extent={{-150,-90},{150,-50}},
           textColor={0,0,0},
           textString="%C"),
         Rectangle(
-          extent={{-20,60},{-10,-60}},
+          extent={{-20,40},{-10,-40}},
           lineColor={0,0,255},
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid),
         Rectangle(
-          extent={{10,60},{20,-60}},
+          extent={{10,40},{20,-40}},
           lineColor={0,0,255},
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid),
