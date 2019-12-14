@@ -48,7 +48,7 @@ equation
         Text(
           extent={{-150,-90},{150,-50}},
           textColor={0,0,0},
-          textString="%C"),
+          textString="C=%C"),
         Rectangle(
           extent={{-20,40},{-10,-40}},
           lineColor={0,0,255},
