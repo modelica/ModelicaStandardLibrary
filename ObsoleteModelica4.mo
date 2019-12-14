@@ -2396,7 +2396,7 @@ This transformation is widely used for transforming non-symmetric matrices to a 
     extends Modelica.Icons.Package;
     package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
       extends Modelica.Icons.Package;
-      package BasicMachines "Machine components and modelsElectric machine models based on FundamentalWave package"
+      package BasicMachines "Basic machine components and models"
         extends Modelica.Icons.Package;
         package Components "Components specially for electric machines"
           extends Modelica.Icons.Package;
