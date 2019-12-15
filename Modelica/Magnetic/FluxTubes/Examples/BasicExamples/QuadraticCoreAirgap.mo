@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FluxTubes.Examples.BasicExamples;
 model QuadraticCoreAirgap "Educational example: iron core with airgap"
-  extends Icons.Example;
+  extends Modelica.Icons.Example;
   parameter Modelica.SIunits.Length l=0.1 "Outer length of iron core";
   parameter Modelica.SIunits.Length a=0.01 "Side length of square cross section";
   parameter Real mu_r=1000 "Relative permeability of core";
