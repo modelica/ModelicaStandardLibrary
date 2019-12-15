@@ -1,12 +1,10 @@
 within Modelica.Electrical.Polyphase.Basic;
 model MultiStar
   "Star connection of polyphase systems consisting of multiple base systems"
+  import Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems;
   parameter Integer m(final min=1) = 3 "Number of phases";
-  final parameter Integer mSystems=
-      Polyphase.Functions.numberOfSymmetricBaseSystems(
-      m) "Number of base systems";
-  final parameter Integer mBasic=integer(m/mSystems)
-    "Phase number of base systems";
+  final parameter Integer mSystems=numberOfSymmetricBaseSystems(m) "Number of base systems";
+  final parameter Integer mBasic=integer(m/mSystems) "Phase number of base systems";
   Polyphase.Interfaces.PositivePlug plug_p(final m=m)
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   Polyphase.Interfaces.NegativePlug starpoints(final m=mSystems)
