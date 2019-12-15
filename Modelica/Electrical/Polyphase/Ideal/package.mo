@@ -2,17 +2,6 @@ within Modelica.Electrical.Polyphase;
 package Ideal "Polyphase components with idealized behaviour"
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains analog electrical polyphase components with idealized behaviour,

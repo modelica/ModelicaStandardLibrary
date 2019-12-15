@@ -2,26 +2,6 @@ within Modelica.Electrical.Polyphase;
 package Basic "Basic components for electrical polyphase models"
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains basic analog electrical polyphase components.

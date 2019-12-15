@@ -5,10 +5,10 @@ partial model GenericHysteresis "Partial hysteresis model"
 
   parameter Boolean includeEddyCurrents = false
     "= true, if eddy current losses are enabled"
-  annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), Evaluate=true, HideResult=true, choices(checkBox=true));
+  annotation(Dialog(tab="Losses and heat", group="Eddy currents"), Evaluate=true, HideResult=true, choices(checkBox=true));
 
-  parameter SI.Conductivity sigma=10e6 "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=includeEddyCurrents));
-  parameter SI.Length d = 0.5e-3 "Thickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=includeEddyCurrents));
+  parameter SI.Conductivity sigma=10e6 "Conductivity of core material" annotation (Dialog(tab="Losses and heat", group="Eddy currents", enable=includeEddyCurrents));
+  parameter SI.Length d = 0.5e-3 "Thickness of lamination" annotation (Dialog(tab="Losses and heat", group="Eddy currents", enable=includeEddyCurrents));
 
   output SI.MagneticFieldStrength H(start=0) "Magnetic field strength";
   output SI.MagneticFieldStrength Hstat

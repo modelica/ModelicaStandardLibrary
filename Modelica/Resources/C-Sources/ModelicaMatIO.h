@@ -103,6 +103,12 @@
 /* Include integer type header */
 #if defined(HAVE_MATIO_STDINT_H)
 #include <stdint.h>
+#elif defined(_MSC_VER)
+#define HAVE_MATIO_STDINT_H 1
+#include "stdint_msvc.h"
+#endif
+
+#if defined(HAVE_MATIO_STDINT_H)
 typedef int16_t mat_int16_t;
 typedef int32_t mat_int32_t;
 typedef int64_t mat_int64_t;

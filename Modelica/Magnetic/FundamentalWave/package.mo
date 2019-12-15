@@ -1,14 +1,6 @@
 within Modelica.Magnetic;
 package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
   extends Modelica.Icons.Package;
-
-
-
-
-
-
-
-
   annotation (preferredView="info", Documentation(revisions="<html>
 
 <p>A detailed list of changes is summarized in the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes\">release notes</a>.</p>

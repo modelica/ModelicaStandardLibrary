@@ -2,13 +2,6 @@ within Modelica.Electrical.Polyphase;
 package Sources "Polyphase voltage and current sources"
   extends Modelica.Icons.SourcesPackage;
 
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains time-dependent and controlled polyphase voltage and current sources:

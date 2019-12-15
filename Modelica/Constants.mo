@@ -29,12 +29,11 @@ package Constants
   // (name, value, description from https://www.bipm.org/en/CGPM/db/26/1/, effective from May 20, 2019)
   // The values for c, q, h, k, N_A are exact and part of the basis of the SI-system
   // Note that the elementary charge uses the common alternate name q since e was taken.
-  // The values for F, R, sigma, mue_0, epsilson_0 are also exact.
-  // Note that T_zero is not exact, instead the triple point of water is 273.16 K.
+  // The values for F, R, sigma, mue_0, epsilson_0, T_zero are also exact.
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
-  final constant Real G(final unit="m3/(kg.s2)") = 6.67408e-11
+  final constant Real G(final unit="m3/(kg.s2)") = 6.67430e-11
     "Newtonian constant of gravitation";
   final constant SI.ElectricCharge q = 1.602176634e-19 "Elementary charge";
   final constant SI.FaradayConstant F = q*N_A
@@ -91,6 +90,9 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
+<li><em>Dec 4, 2019</em>
+       by Thomas Beutlich:<br>
+       Constant G updated according to 2018 CODATA value.</li>
 <li><em>Mar 25, 2019</em>
        by Hans Olsson:<br>
        Constants updated according to 2017 CODATA values and new SI-standard.</li>

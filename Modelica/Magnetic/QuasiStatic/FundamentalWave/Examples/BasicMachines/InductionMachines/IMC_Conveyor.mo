@@ -42,8 +42,9 @@ model IMC_Conveyor "Induction machine with squirrel cage and inverter driving a 
     annotation (Placement(transformation(extent={{60,10},{40,30}})));
   Modelica.Electrical.QuasiStatic.Polyphase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m)
     annotation (Placement(transformation(extent={{20,100},{40,80}})));
-  Modelica.Blocks.Sources.CombiTimeTable dutyCycle(table=[0,0; 1,1; 4,1; 5,0;
-        10,0; 11,-1; 14,-1; 15,0; 20,0], extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
+  Modelica.Blocks.Sources.CombiTimeTable dutyCycle(
+    table=[0,0; 1,1; 4,1; 5,0; 10,0; 11,-1; 14,-1; 15,0; 20,0],
+    extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
     annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
   Utilities.VfController vfControllerQS(
     final m=m,

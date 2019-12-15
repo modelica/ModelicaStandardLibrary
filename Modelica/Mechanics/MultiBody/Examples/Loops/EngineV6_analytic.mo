@@ -75,7 +75,6 @@ Evaluate=false and dimension=1 with Evaluate=true) and a linear system of equati
 of about 40. This shows the power of the analytic loop handling.
 </p>
 
-
 <p>
 Simulate for 3 s with about 50000 output intervals, and plot the variables <strong>engineSpeed_rpm</strong>,
 <strong>engineTorque</strong>, and <strong>filteredEngineTorque</strong>. Note, the result file has

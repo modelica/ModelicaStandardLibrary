@@ -1,12 +1,7 @@
 within Modelica.Thermal.FluidHeatFlow;
 package Sources "Ideal fluid sources, e.g., ambient, volume flow"
   extends Modelica.Icons.SourcesPackage;
-
-
-
-
-
-annotation (Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This package contains different types of sources:
 </p>

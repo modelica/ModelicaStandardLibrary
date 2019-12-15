@@ -1,10 +1,7 @@
 within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
-
-import SI = Modelica.SIunits;
-
-
-extends Modelica.Icons.Package;
+  import SI = Modelica.SIunits;
+  extends Modelica.Icons.Package;
 
 package Examples
   "Library of examples to demonstrate the usage of package Blocks"
@@ -1031,7 +1028,7 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
      used to exchange signals between different components. It is
      defined as \"expandable connector\" in order that <strong>no</strong> central definition
      of the connector is needed but is automatically constructed by the
-     signals connected to it (see also Modelica specification 2.2.1).</li>
+     signals connected to it (see also <a href=\"https://specification.modelica.org/v3.4/Ch9.html#expandable-connectors\">Section 9.1.3 (Expandable Connectors) of the Modelica 3.4 specification</a>).</li>
 <li> Input/output signals can be directly connected to the \"controlBus\".</li>
 <li> A component, such as \"part\", can be directly connected to the \"controlBus\",
      provided it has also a bus connector, or the \"part\" connector is a
@@ -1237,7 +1234,7 @@ theoretical calculations:</p>
       annotation (Placement(transformation(extent={{-10,60},{10,80}})));
     Modelica.Blocks.Sources.Sine amplitude(
       amplitude=0.5,
-      freqHz=2,
+      f=2,
       offset=1)
       annotation (Placement(transformation(extent={{-52,20},{-32,40}})));
     Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sinAM(
@@ -1254,7 +1251,7 @@ theoretical calculations:</p>
       annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
     Modelica.Blocks.Sources.Sine frequency(
       amplitude=50,
-      freqHz=2,
+      f=2,
       offset=100)
       annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
     Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sinFM(
@@ -1394,14 +1391,14 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
 </html>"));
   end SinCosEncoder;
 
-  model CompareSincExpSine "Compare sinc and exponental sine signal"
+  model CompareSincExpSine "Compare sinc and exponential sine signal"
     extends Modelica.Icons.Example;
     Sources.Sinc sinc(f=5)
       annotation (Placement(transformation(extent={{-10,20},{10,40}})));
-    Sources.ExpSine expSine1(freqHz=5, damping=5)
+    Sources.ExpSine expSine1(f=5, damping=5)
       annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
     Sources.ExpSine expSine2(
-      freqHz=5,
+      f=5,
       phase=Modelica.Constants.pi/2,
       damping=5)
       annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
@@ -1654,7 +1651,7 @@ truncated normal distribution has more values centered around the mean value 1.
     end Distributions;
 
     model UniformNoiseProperties
-      "Demonstrates the computation of properties for uniformally distributed noise"
+      "Demonstrates the computation of properties for uniformly distributed noise"
       extends Modelica.Icons.Example;
       parameter Real y_min = 0 "Minimum value of band";
       parameter Real y_max = 6 "Maximum value of band";
@@ -2967,8 +2964,6 @@ usage of package blocks.
 </p>
 </html>"));
 end Examples;
-
-
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(
         origin={0.0,35.1488},

@@ -1,6 +1,207 @@
 within ;
 package ObsoleteModelica4 "Library that contains components from Modelica Standard Library 3.2.3 that have been removed from version 4.0.0"
   extends Modelica.Icons.Package;
+  package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
+    extends Modelica.Icons.Package;
+    package Interfaces "Library of connectors and partial models for input/output blocks"
+      extends Modelica.Icons.Package;
+      package Adaptors "Package with adaptors"
+        extends Modelica.Icons.Package;
+        block SendReal "Obsolete block to send Real signal to bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.RealOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Interfaces.RealInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          toBus = u;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={0,0,127},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),   Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={0,0,127},
+                    textString="send")}), Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Real signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end SendReal;
+
+        block SendBoolean "Obsolete block to send Boolean signal to bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.BooleanOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Interfaces.BooleanInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          toBus = u;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,0,255},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),   Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,0,255},
+                    textString="send")}), Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Boolean signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end SendBoolean;
+
+        block SendInteger "Obsolete block to send Integer signal to bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.IntegerOutput toBus "Output signal to be connected to bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Interfaces.IntegerInput u "Input signal to be send to bus" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        equation
+          toBus = u;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,127,0},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255}),   Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,127,0},
+                    textString="send")}), Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect an Integer signal
+to a signal in a connector. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end SendInteger;
+
+        block ReceiveReal "Obsolete block to receive Real signal from bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.RealInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+          Modelica.Blocks.Interfaces.RealOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+        equation
+          y = fromBus;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={0,0,127},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={0,0,127},
+                    textString="receive"),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255})}),    Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Real signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end ReceiveReal;
+
+        block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.BooleanInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+          Modelica.Blocks.Interfaces.BooleanOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+        equation
+          y = fromBus;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,0,255},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,0,255},
+                    textString="receive"),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255})}),    Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect a Boolean signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end ReceiveBoolean;
+
+        block ReceiveInteger "Obsolete block to receive Integer signal from bus"
+          extends Modelica.Icons.ObsoleteModel;
+          Modelica.Blocks.Interfaces.IntegerInput fromBus "To be connected with signal on bus" annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+          Modelica.Blocks.Interfaces.IntegerOutput y "Output signal to be received from bus" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+        equation
+          y = fromBus;
+          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                    extent={{-100,40},{100,-40}},
+                    lineColor={255,127,0},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid),Text(
+                    extent={{-100,30},{100,-30}},
+                    lineColor={255,127,0},
+                    textString="receive"),Text(
+                    extent={{-150,90},{150,50}},
+                textString="%name",
+                lineColor={0,0,255})}),    Documentation(info="<html>
+<p>
+Obsolete block that was previously used to connect an Integer signal
+in a connector to an input of a block. This block is only provided for
+backward compatibility.
+</p>
+<p>
+It is much more convenient and more powerful to use \"expandable connectors\"
+for signal buses, see example
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
+</p>
+</html>"),
+          obsolete = "Obsolete block - use expandable connectors instead");
+        end ReceiveInteger;
+      end Adaptors;
+    end Interfaces;
+  end Blocks;
+
   package Electrical "Library of electrical models (analog, digital, machines, polyphase)"
     extends Modelica.Icons.Package;
     package PowerConverters "Rectifiers, Inverters and DC/DC converters"
@@ -139,6 +340,481 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
 
   package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)"
     extends Modelica.Icons.Package;
+    package MultiBody "Library to model 3-dimensional mechanical systems"
+      extends Modelica.Icons.Package;
+      package Joints "Components that constrain the motion between two frames"
+        extends Modelica.Icons.Package;
+        model Prismatic "Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange, optional distance offset)"
+          extends Modelica.Icons.ObsoleteModel;
+          extends Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint;
+
+          Modelica.Mechanics.Translational.Interfaces.Flange_a axis if useAxisFlange
+            "1-dim. translational flange that drives the joint"
+            annotation (Placement(transformation(extent={{90,50},{70,70}})));
+          Modelica.Mechanics.Translational.Interfaces.Flange_b support if useAxisFlange
+            "1-dim. translational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
+            annotation (Placement(transformation(extent={{-30,50},{-50,70}})));
+
+          parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"
+            annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+          parameter Boolean animation=true "= true, if animation shall be enabled";
+          parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
+            "Axis of translation resolved in frame_a (= same as in frame_b)"
+            annotation (Evaluate=true);
+          parameter Modelica.SIunits.Position s_offset=0
+            "Relative distance offset (distance between frame_a and frame_b = s_offset + s)";
+          parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0}
+            "Vector in width direction of box, resolved in frame_a"
+            annotation (Evaluate=true, Dialog(tab="Animation", group=
+                  "if animation = true", enable=animation));
+          parameter Modelica.SIunits.Distance boxWidth=world.defaultJointWidth
+            "Width of prismatic joint box"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter Modelica.SIunits.Distance boxHeight=boxWidth "Height of prismatic joint box"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+            "Color of prismatic joint box"
+            annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter StateSelect stateSelect=StateSelect.prefer
+            "Priority to use distance s and v=der(s) as states" annotation(Dialog(tab="Advanced"));
+          final parameter Real e[3](each final unit="1")=
+             Modelica.Math.Vectors.normalizeWithAssert(n)
+            "Unit vector in direction of prismatic axis n";
+
+          Modelica.SIunits.Position s(start=0, final stateSelect=stateSelect)
+            "Relative distance between frame_a and frame_b"
+            annotation (unassignedMessage="
+The relative distance s of a prismatic joint cannot be determined.
+Possible reasons:
+- A non-zero mass might be missing on either side of the parts
+  connected to the prismatic joint.
+- Too many StateSelect.always are defined and the model
+  has less degrees of freedom as specified with this setting
+  (remove all StateSelect.always settings).
+");
+
+          Modelica.SIunits.Velocity v(start=0,final stateSelect=stateSelect)
+            "First derivative of s (relative velocity)";
+          Modelica.SIunits.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
+          Modelica.SIunits.Force f "Actuation force in direction of joint axis";
+
+        protected
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape box(
+            shapeType="box",
+            color=boxColor,
+            specularCoefficient=specularCoefficient,
+            length=if noEvent(abs(s + s_offset) > 1.e-6) then s + s_offset else 1.e-6,
+            width=boxWidth,
+            height=boxHeight,
+            lengthDirection=e,
+            widthDirection=boxWidthDirection,
+            r=frame_a.r_0,
+            R=frame_a.R) if world.enableAnimation and animation;
+          Modelica.Mechanics.Translational.Components.Fixed fixed
+            annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+          Modelica.Mechanics.Translational.Interfaces.InternalSupport internalAxis(f = f)
+            annotation (Placement(transformation(extent={{70,50},{90,30}})));
+          Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(f_constant=0) if not useAxisFlange
+            annotation (Placement(transformation(extent={{40,30},{60,50}})));
+        equation
+          v = der(s);
+          a = der(v);
+
+          // relationships between kinematic quantities of frame_a and of frame_b
+          frame_b.r_0 = frame_a.r_0 + Modelica.Mechanics.MultiBody.Frames.resolve1(frame_a.R, e*(s_offset + s));
+          frame_b.R = frame_a.R;
+
+          // Force and torque balance
+          zeros(3) = frame_a.f + frame_b.f;
+          zeros(3) = frame_a.t + frame_b.t + cross(e*(s_offset + s), frame_b.f);
+
+          // d'Alemberts principle
+          f = -e*frame_b.f;
+
+          // Connection to internal connectors
+          s = internalAxis.s;
+
+          connect(fixed.flange, support) annotation (Line(
+              points={{-40,40},{-40,60}}, color={0,127,0}));
+          connect(internalAxis.flange, axis) annotation (Line(
+              points={{80,40},{80,60}}, color={0,127,0}));
+          connect(constantForce.flange, internalAxis.flange) annotation (Line(
+              points={{60,40},{80,40}}, color={0,127,0}));
+          annotation (
+            Icon(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={
+                Rectangle(
+                  extent={{-100,-50},{-30,41}},
+                  pattern=LinePattern.None,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Rectangle(
+                  extent={{-100,40},{-30,50}},
+                  pattern=LinePattern.None,
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Rectangle(
+                  extent={{-30,-30},{100,20}},
+                  pattern=LinePattern.None,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Rectangle(
+                  extent={{-30,20},{100,30}},
+                  pattern=LinePattern.None,
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Line(points={{-30,-50},{-30,50}}),
+                Line(points={{100,-30},{100,21}}),
+                Text(
+                  extent={{60,12},{96,-13}},
+                  lineColor={128,128,128},
+                  textString="b"),
+                Text(
+                  extent={{-95,13},{-60,-9}},
+                  lineColor={128,128,128},
+                  textString="a"),
+                Text(
+                  visible=useAxisFlange,
+                  extent={{-150,-135},{150,-95}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+                Text(
+                  extent={{-150,-90},{150,-60}},
+                  textString="n=%n"),
+                Rectangle(
+                  visible=useAxisFlange,
+                  extent={{90,30},{100,70}},
+                  pattern=LinePattern.None,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid,
+                  lineColor={0,0,255}),
+                Text(
+                  visible=not useAxisFlange,
+                  extent={{-150,60},{150,100}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+            Documentation(
+              obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Prismatic instead",
+              info="<html>
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when the relative distance \"s = 0\".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange \"axis\" represents the driving flange and
+flange \"support\" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
+library.
+
+</p>
+
+<p>
+In the \"Advanced\" menu it can be defined via parameter <strong>stateSelect</strong>
+that the relative distance \"s\" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the relative distance and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+In the following figure the animation of a prismatic
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector \"n\" defining the translation axis
+(here: n = {1,1,0}).
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
+</p>
+
+</html>"));
+        end Prismatic;
+
+        model Revolute "Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange, optional angle offset)"
+          extends Modelica.Icons.ObsoleteModel;
+
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a axis if useAxisFlange
+            "1-dim. rotational flange that drives the joint"
+            annotation (Placement(transformation(extent={{10,90},{-10,110}})));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b support if useAxisFlange
+            "1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
+            annotation (Placement(transformation(extent={{-70,90},{-50,110}})));
+
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
+            "Coordinate system fixed to the joint with one cut-force and cut-torque"
+            annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
+            "Coordinate system fixed to the joint with one cut-force and cut-torque"
+            annotation (Placement(transformation(extent={{84,-16},{116,16}})));
+
+          parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"
+            annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+          parameter Boolean animation=true
+            "= true, if animation shall be enabled (show axis as cylinder)";
+          parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
+            "Axis of rotation resolved in frame_a (= same as in frame_b)"
+            annotation (Evaluate=true);
+          parameter Modelica.SIunits.Angle phi_offset=0
+            "Relative angle offset (angle = phi_offset + phi)";
+          parameter Modelica.SIunits.Distance cylinderLength=world.defaultJointLength
+            "Length of cylinder representing the joint axis"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter Modelica.SIunits.Distance cylinderDiameter=world.defaultJointWidth
+            "Diameter of cylinder representing the joint axis"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+            "Color of cylinder representing the joint axis"
+            annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+          input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+            specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)"
+            annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+          parameter StateSelect stateSelect=StateSelect.prefer
+            "Priority to use joint angle phi and w=der(phi) as states" annotation(Dialog(tab="Advanced"));
+
+          Modelica.SIunits.Angle phi(start=0, final stateSelect=stateSelect)
+            "Relative rotation angle from frame_a to frame_b"
+             annotation (unassignedMessage="
+The rotation angle phi of a revolute joint cannot be determined.
+Possible reasons:
+- A non-zero mass might be missing on either side of the parts
+  connected to the revolute joint.
+- Too many StateSelect.always are defined and the model
+  has less degrees of freedom as specified with this setting
+  (remove all StateSelect.always settings).
+");
+          Modelica.SIunits.AngularVelocity w(start=0, stateSelect=stateSelect)
+            "First derivative of angle phi (relative angular velocity)";
+          Modelica.SIunits.AngularAcceleration a(start=0)
+            "Second derivative of angle phi (relative angular acceleration)";
+          Modelica.SIunits.Torque tau "Driving torque in direction of axis of rotation";
+          Modelica.SIunits.Angle angle "= phi_offset + phi";
+
+        protected
+          outer Modelica.Mechanics.MultiBody.World world;
+          parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(n)
+            "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
+          Modelica.Mechanics.MultiBody.Frames.Orientation R_rel
+            "Relative orientation object from frame_a to frame_b or from frame_b to frame_a";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
+            shapeType="cylinder",
+            color=cylinderColor,
+            specularCoefficient=specularCoefficient,
+            length=cylinderLength,
+            width=cylinderDiameter,
+            height=cylinderDiameter,
+            lengthDirection=e,
+            widthDirection={0,1,0},
+            r_shape=-e*(cylinderLength/2),
+            r=frame_a.r_0,
+            R=frame_a.R) if world.enableAnimation and animation;
+
+        protected
+          Modelica.Mechanics.Rotational.Components.Fixed fixed
+            "support flange is fixed to ground"
+            annotation (Placement(transformation(extent={{-70,70},{-50,90}})));
+          Modelica.Mechanics.Rotational.Interfaces.InternalSupport internalAxis(tau=tau)
+            annotation (Placement(transformation(extent={{-10,90},{10,70}})));
+          Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(tau_constant=0) if not useAxisFlange
+            annotation (Placement(transformation(extent={{40,70},{20,90}})));
+        equation
+          Connections.branch(frame_a.R, frame_b.R);
+
+          assert(cardinality(frame_a) > 0,
+            "Connector frame_a of revolute joint is not connected");
+          assert(cardinality(frame_b) > 0,
+            "Connector frame_b of revolute joint is not connected");
+
+          angle = phi_offset + phi;
+          w = der(phi);
+          a = der(w);
+
+          // relationships between quantities of frame_a and of frame_b
+          frame_b.r_0 = frame_a.r_0;
+
+          if Connections.rooted(frame_a.R) then
+            R_rel = Modelica.Mechanics.MultiBody.Frames.planarRotation(e, phi_offset + phi, w);
+            frame_b.R = Modelica.Mechanics.MultiBody.Frames.absoluteRotation(frame_a.R, R_rel);
+            frame_a.f = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_b.f);
+            frame_a.t = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_b.t);
+          else
+            R_rel = Modelica.Mechanics.MultiBody.Frames.planarRotation(-e, phi_offset + phi, w);
+            frame_a.R = Modelica.Mechanics.MultiBody.Frames.absoluteRotation(frame_b.R, R_rel);
+            frame_b.f = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_a.f);
+            frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel, frame_a.t);
+          end if;
+
+          // d'Alemberts principle
+          tau = -frame_b.t*e;
+
+          // Connection to internal connectors
+          phi = internalAxis.phi;
+
+          connect(fixed.flange, support) annotation (Line(
+              points={{-60,80},{-60,100}}));
+          connect(internalAxis.flange, axis) annotation (Line(
+              points={{0,80},{0,100}}));
+          connect(constantTorque.flange, internalAxis.flange) annotation (Line(
+              points={{20,80},{0,80}}));
+          annotation (
+            Icon(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}}), graphics={
+                Rectangle(
+                  extent={{-100,-60},{-30,60}},
+                  lineColor={64,64,64},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={255,255,255},
+                  radius=10),
+                Rectangle(
+                  extent={{30,-60},{100,60}},
+                  lineColor={64,64,64},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={255,255,255},
+                  radius=10),
+                Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
+                Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
+                Text(
+                  extent={{-90,14},{-54,-11}},
+                  lineColor={128,128,128},
+                  textString="a"),
+                Text(
+                  extent={{51,11},{87,-14}},
+                  lineColor={128,128,128},
+                  textString="b"),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-20,80},{-20,60}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{20,80},{20,60}}),
+                Rectangle(
+                  visible=useAxisFlange,
+                  extent={{-10,100},{10,50}},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={192,192,192}),
+                Polygon(
+                  visible=useAxisFlange,
+                  points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}},
+                  lineColor={64,64,64},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Rectangle(
+                  extent={{-30,11},{30,-10}},
+                  lineColor={64,64,64},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Polygon(
+                  visible=useAxisFlange,
+                  points={{10,30},{30,50},{30,-50},{10,-30},{10,30}},
+                  lineColor={64,64,64},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Text(
+                  extent={{-150,-110},{150,-80}},
+                  textString="n=%n"),
+                Text(
+                  visible=useAxisFlange,
+                  extent={{-150,-155},{150,-115}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-20,70},{-60,70},{-60,60}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{20,70},{50,70},{50,60}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-90,100},{-30,100}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-30,100},{-50,80}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-49,100},{-70,80}}),
+                Line(
+                  visible=useAxisFlange,
+                  points={{-70,100},{-90,80}}),
+                Text(
+                  visible=not useAxisFlange,
+                  extent={{-150,70},{150,110}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+            Documentation(
+              obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Revolute instead",
+              info="<html>
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when the rotation angle \"phi = 0\".
+</p>
+
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange \"axis\" represents the driving flange and
+flange \"support\" represents the bearing) can be enabled via
+parameter <strong>useAxisFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href=\"modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
+library.
+</p>
+
+<p>
+In the \"Advanced\" menu it can be defined via parameter <strong>stateSelect</strong>
+that the rotation angle \"phi\" and its derivative shall be definitely
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the joint angle and its
+derivative as preferred states. The states are usually selected automatically.
+In certain situations, especially when closed kinematic loops are present,
+it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+If a <strong>planar loop</strong> is present, e.g., consisting of 4 revolute joints
+where the joint axes are all parallel to each other, then there is no
+longer a unique mathematical solution and the symbolic algorithms will
+fail. Usually, an error message will be printed pointing out this
+situation. In this case, one revolute joint of the loop has to be replaced
+by a Joints.RevolutePlanarLoopConstraint joint. The
+effect is that from the 5 constraints of a usual revolute joint,
+3 constraints are removed and replaced by appropriate known
+variables (e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute joints,
+this force is an unknown quantity).
+</p>
+
+<p>
+In the following figure the animation of a revolute
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint. The black arrow is parameter
+vector \"n\" defining the translation axis
+(here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Revolute.png\">
+</p>
+
+</html>"));
+        end Revolute;
+      end Joints;
+    end MultiBody;
+
     package Rotational "Library to model 1-dimensional, rotational mechanical systems"
       extends Modelica.Icons.Package;
       package Interfaces "Connectors and partial models for 1D rotational mechanical components"
@@ -188,10 +864,10 @@ and instead the component is internally fixed to ground.
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}), graphics={Text(
                       extent={{25,-97},{65,-98}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if not useSupport)"),Text(
                       extent={{-38,-98},{-6,-96}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if useSupport)")}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Line(
@@ -255,10 +931,10 @@ and instead the component is internally fixed to ground.
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}), graphics={Text(
                       extent={{24,-97},{64,-98}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if not useSupport)"),Text(
                       extent={{-38,-98},{-6,-96}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if useSupport)")}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Line(
@@ -328,10 +1004,10 @@ and instead the component is internally fixed to ground.
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                     {100,100}}), graphics={Text(
                       extent={{-38,-98},{-6,-96}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if useSupport)"),Text(
                       extent={{24,-97},{64,-98}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if not useSupport)")}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Line(
@@ -394,10 +1070,10 @@ connector is not connected).
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                     {100,100}}), graphics={Text(
                       extent={{-38,-98},{-6,-96}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if useSupport)"),Text(
                       extent={{24,-97},{64,-98}},
-                      textColor={95,95,95},
+                      lineColor={95,95,95},
                       textString="(if not useSupport)")}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Line(
@@ -416,8 +1092,399 @@ connector is not connected).
     end Translational;
   end Mechanics;
 
+  package Media "Library of media property models"
+    extends Modelica.Icons.Package;
+    package Common "Data structures and fundamental functions for fluid properties"
+      extends Modelica.Icons.Package;
+      package OneNonLinearEquation "Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way"
+        extends Modelica.Icons.Package;
+        extends Modelica.Icons.ObsoleteModel;
+
+        replaceable record f_nonlinear_Data
+          "Data specific for function f_nonlinear"
+          extends Modelica.Icons.Record;
+          extends Modelica.Icons.ObsoleteModel;
+        end f_nonlinear_Data;
+
+        replaceable partial function f_nonlinear
+          "Non-linear algebraic equation in one unknown: y = f_nonlinear(x,p,X)"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          input Real x "Independent variable of function";
+          input Real p=0.0 "Disregarded variables (here always used for pressure)";
+          input Real[:] X=fill(0, 0)
+            "Disregarded variables (her always used for composition)";
+          input f_nonlinear_Data f_nonlinear_data
+            "Additional data for the function";
+          output Real y "= f_nonlinear(x)";
+          // annotation(derivative(zeroDerivative=y)); // this must hold for all replaced functions
+        end f_nonlinear;
+
+        replaceable function solve
+          "Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign"
+          import Modelica.Utilities.Streams.error;
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          input Real y_zero
+            "Determine x_zero, such that f_nonlinear(x_zero) = y_zero";
+          input Real x_min "Minimum value of x";
+          input Real x_max "Maximum value of x";
+          input Real pressure=0.0
+            "Disregarded variables (here always used for pressure)";
+          input Real[:] X=fill(0, 0)
+            "Disregarded variables (here always used for composition)";
+          input f_nonlinear_Data f_nonlinear_data
+            "Additional data for function f_nonlinear";
+          input Real x_tol=100*Modelica.Constants.eps
+            "Relative tolerance of the result";
+          output Real x_zero "f_nonlinear(x_zero) = y_zero";
+        protected
+          constant Real eps=Modelica.Constants.eps "Machine epsilon";
+          constant Real x_eps=1e-10
+            "Slight modification of x_min, x_max, since x_min, x_max are usually exactly at the borders T_min/h_min and then small numeric noise may make the interval invalid";
+          Real x_min2=x_min - x_eps;
+          Real x_max2=x_max + x_eps;
+          Real a=x_min2 "Current best minimum interval value";
+          Real b=x_max2 "Current best maximum interval value";
+          Real c "Intermediate point a <= c <= b";
+          Real d;
+          Real e "b - a";
+          Real m;
+          Real s;
+          Real p;
+          Real q;
+          Real r;
+          Real tol;
+          Real fa "= f_nonlinear(a) - y_zero";
+          Real fb "= f_nonlinear(b) - y_zero";
+          Real fc;
+          Boolean found=false;
+        algorithm
+          // Check that f(x_min) and f(x_max) have different sign
+          fa := f_nonlinear(
+                  x_min2,
+                  pressure,
+                  X,
+                  f_nonlinear_data) - y_zero;
+          fb := f_nonlinear(
+                  x_max2,
+                  pressure,
+                  X,
+                  f_nonlinear_data) - y_zero;
+          fc := fb;
+          if fa > 0.0 and fb > 0.0 or fa < 0.0 and fb < 0.0 then
+            error(
+              "The arguments x_min and x_max to OneNonLinearEquation.solve(..)\n"
+               + "do not bracket the root of the single non-linear equation:\n" +
+              "  x_min  = " + String(x_min2) + "\n" + "  x_max  = " + String(x_max2)
+               + "\n" + "  y_zero = " + String(y_zero) + "\n" +
+              "  fa = f(x_min) - y_zero = " + String(fa) + "\n" +
+              "  fb = f(x_max) - y_zero = " + String(fb) + "\n" +
+              "fa and fb must have opposite sign which is not the case");
+          end if;
+
+          // Initialize variables
+          c := a;
+          fc := fa;
+          e := b - a;
+          d := e;
+
+          // Search loop
+          while not found loop
+            if abs(fc) < abs(fb) then
+              a := b;
+              b := c;
+              c := a;
+              fa := fb;
+              fb := fc;
+              fc := fa;
+            end if;
+
+            tol := 2*eps*abs(b) + x_tol;
+            m := (c - b)/2;
+
+            if abs(m) <= tol or fb == 0.0 then
+              // root found (interval is small enough)
+              found := true;
+              x_zero := b;
+            else
+              // Determine if a bisection is needed
+              if abs(e) < tol or abs(fa) <= abs(fb) then
+                e := m;
+                d := e;
+              else
+                s := fb/fa;
+                if a == c then
+                  // linear interpolation
+                  p := 2*m*s;
+                  q := 1 - s;
+                else
+                  // inverse quadratic interpolation
+                  q := fa/fc;
+                  r := fb/fc;
+                  p := s*(2*m*q*(q - r) - (b - a)*(r - 1));
+                  q := (q - 1)*(r - 1)*(s - 1);
+                end if;
+
+                if p > 0 then
+                  q := -q;
+                else
+                  p := -p;
+                end if;
+
+                s := e;
+                e := d;
+                if 2*p < 3*m*q - abs(tol*q) and p < abs(0.5*s*q) then
+                  // interpolation successful
+                  d := p/q;
+                else
+                  // use bi-section
+                  e := m;
+                  d := e;
+                end if;
+              end if;
+
+              // Best guess value is defined as "a"
+              a := b;
+              fa := fb;
+              b := b + (if abs(d) > tol then d else if m > 0 then tol else -tol);
+              fb := f_nonlinear(
+                      b,
+                      pressure,
+                      X,
+                      f_nonlinear_data) - y_zero;
+
+              if fb > 0 and fc > 0 or fb < 0 and fc < 0 then
+                // initialize variables
+                c := a;
+                fc := fa;
+                e := b - a;
+                d := e;
+              end if;
+            end if;
+          end while;
+          annotation (obsolete = "Obsolete function - use Modelica.Math.Nonlinear.solveOneNonlinearEquation instead");
+        end solve;
+
+        annotation (
+          obsolete = "Obsolete package - use Modelica.Math.Nonlinear.solveOneNonlinearEquation instead",
+          Documentation(info="<html>
+<p>
+This package was used in Modelica.Media of MSL &le; 3.2.3 and was replaced by
+by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">
+Modelica.Math.Nonlinear.solveOneNonlinearEquation</a>.
+</p>
+
+<p>
+This library determines the solution of one non-linear algebraic equation \"y=f(x)\"
+in one unknown \"x\" in a reliable way. As input, the desired value y of the
+non-linear function has to be given, as well as an interval x_min, x_max that
+contains the solution, i.e., \"f(x_min) - y\" and \"f(x_max) - y\" must
+have a different sign. If possible, a smaller interval is computed by
+inverse quadratic interpolation (interpolating with a quadratic polynomial
+through the last 3 points and computing the zero). If this fails,
+bisection is used, which always reduces the interval by a factor of 2.
+The inverse quadratic interpolation method has superlinear convergence.
+This is roughly the same convergence rate as a globally convergent Newton
+method, but without the need to compute derivatives of the non-linear
+function. The solver function is a direct mapping of the Algol 60 procedure
+\"zero\" to Modelica, from:
+</p>
+
+<dl>
+<dt> Brent R.P.:</dt>
+<dd> <strong>Algorithms for Minimization without derivatives</strong>.
+     Prentice Hall, 1973, pp. 58-59.</dd>
+</dl>
+
+<p>
+Due to limitations of the
+Modelica language &le; 3.1 (not possible to pass a function reference to a function),
+the construction to use this solver on a user-defined function was a bit
+complicated (this method is from Hans Olsson, Dassault Syst&egrave;mes AB). A user has to
+provide a package in the following way:
+</p>
+
+<pre>
+  <strong>package</strong> MyNonLinearSolver
+    <strong>extends</strong> OneNonLinearEquation;
+
+    <strong>redeclare record extends</strong> Data
+      // Define data to be passed to user function
+      ...
+    <strong>end</strong> Data;
+
+    <strong>redeclare function extends</strong> f_nonlinear
+    <strong>algorithm</strong>
+       // Compute the non-linear equation: y = f(x, Data)
+    <strong>end</strong> f_nonlinear;
+
+    // Dummy definition that had to be present for older version of Dymola
+    <strong>redeclare function extends</strong> solve
+    <strong>end</strong> solve;
+  <strong>end</strong> MyNonLinearSolver;
+
+  x_zero = MyNonLinearSolver.solve(y_zero, x_min, x_max, data=data);
+</pre>
+</html>"));
+      end OneNonLinearEquation;
+    end Common;
+  end Media;
+
   package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
     extends Modelica.Icons.Package;
+    package Vectors "Library of functions operating on vectors"
+      extends Modelica.Icons.Package;
+      package Utilities "Utility functions that should not be directly utilized by the user"
+        extends Modelica.Icons.UtilitiesPackage;
+        function householderVector "Calculate a normalized householder vector to reflect vector a onto vector b"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          import Modelica.Math.Vectors.norm;
+
+          input Real a[:] "Real vector to be reflected";
+          input Real b[size(a, 1)] "Real vector b vector a is mapped onto";
+          output Real u[size(a, 1)] "Householder vector to map a onto b";
+        protected
+          Real norm_a=norm(a, 2);
+          Real norm_b=norm(b, 2);
+          Real alpha;
+
+        algorithm
+          assert(norm_b > 0,
+            "Vector b in function householderVector is zero vector, but at least one element should be different from zero");
+          assert(norm_a > 0,
+            "Vector a in function householderVector is zero vector, but at least one element should be different from zero");
+          alpha := if norm(a + norm_a/norm_b*b, 2) > norm(a - norm_a/norm_b*b, 2)
+             then norm_a/norm_b else -norm_a/norm_b;
+          u := (a + alpha*b)/length(a + alpha*b);
+
+          annotation (
+            obsolete = "Obsolete function - use Modelica_LinearSystems2.Math.Vectors.householderVector instead",
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.Utilities.<strong>householderVector</strong>(a,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>householderVector(a, b)</code>\" returns the normalized Householder vector
+<strong>u</strong> for Householder reflection of input vector <strong>a</strong> onto vector <strong>b</strong>, i.e., Householder vector <strong>u</strong> is the normal
+vector of the reflection plane. Algebraically, the reflection is performed by transformation matrix <strong>Q</strong>
+</p>
+<blockquote>
+<p>
+<strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
+</p>
+</blockquote>
+i.e., vector <strong>a</strong> is mapped to
+<blockquote>
+<p>
+<strong>a</strong> -> <strong>Q</strong>*<strong>a</strong>=c*<strong>b</strong>
+</p>
+</blockquote>
+with scalar c, |c| = ||<strong>a</strong>|| / ||<strong>b</strong>||. <strong>Q</strong>*<strong>a</strong> is the reflection of <strong>a</strong> about the hyperplane orthogonal to <strong>u</strong>.
+<strong>Q</strong> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
+</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  a = {2, -4, -2, -1};
+  b = {1, 0, 0, 0};
+
+  u = <strong>householderVector</strong>(a,b);    // {0.837, -0.478, -0.239, -0.119}
+                               // Computation (identity(4) - 2*matrix(u)*transpose(matrix(u)))*a results in
+                               // {-5, 0, 0, 0} = -5*b
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a><br>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
+</html>", revisions="<html>
+<ul>
+<li><em>2010/04/30 </em>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+
+</html>"));
+        end householderVector;
+
+        function householderReflection "Reflect a vector a on a plane with orthogonal vector u"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          import Modelica.Math.Vectors;
+
+          input Real a[:] "Real vector a to be reflected";
+          input Real u[size(a, 1)] "Householder vector";
+          output Real ra[size(u, 1)] "Reflection of a";
+
+        protected
+          Real norm_a=Vectors.length(a);
+          Real h=2*u*a;
+
+        algorithm
+          ra := a - h*u;
+
+          // Values close to zero are set to zero.
+          for i in 1:size(ra, 1) loop
+            ra[i] := if abs(ra[i]) >= norm_a*1e-12 then ra[i] else 0;
+          end for;
+
+          annotation (
+            obsolete = "Obsolete function - use Modelica_LinearSystems2.Math.Vectors.householderReflexion instead",
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.Utilities.<strong>householderReflection</strong>(a,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function \"<code>householderReflection(a, u)</code>\" performs the reflection of vector
+<strong>a</strong> about a plane orthogonal to vector <strong>u</strong> (Householder vector).
+Algebraically the operation is defined by
+</p>
+<blockquote>
+<p>
+<strong>b</strong>=<strong>Q</strong>*<strong>a</strong>
+</p>
+</blockquote>
+with
+<blockquote>
+<p>
+   <strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
+</p>
+</blockquote>
+where <strong>Q</strong> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
+</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  a = {2, -4, -2, -1};
+  u = {0.837, -0.478, -0.239, -0.119};
+
+  <strong>householderReflection</strong>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
+</pre></blockquote>
+<h4>See also</h4>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Utilities.householderVector</a><br>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
+
+</html>", revisions="<html>
+<ul>
+<li><em>2010/04/30 </em>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+        end householderReflection;
+      end Utilities;
+    end Vectors;
+
     package Matrices "Library of functions operating on matrices"
       extends Modelica.Icons.Package;
       package LAPACK "Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)"
@@ -1029,6 +2096,176 @@ connector is not connected).
 "));
         end dgeqpf;
       end LAPACK;
+
+      package Utilities "Utility functions that should not be directly utilized by the user"
+        extends Modelica.Icons.UtilitiesPackage;
+        function householderReflection
+          "Reflect each of the vectors a_i of matrix  A=[a_1, a_2, ..., a_n] on a plane with orthogonal vector u"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          import Modelica.Math.Vectors;
+
+          input Real A[:, :] "Rectangular matrix";
+          input Real u[size(A, 1)] "Householder vector";
+
+          output Real RA[size(A, 1), size(A, 2)] "Reflection of A";
+
+        protected
+          Integer n=size(A, 2);
+          Real h;
+          Real lu=(Vectors.length(u))^2;
+
+        algorithm
+          for i in 1:n loop
+            h := scalar(2*transpose(matrix(u))*A[:, i]/lu);
+            RA[:, i] := A[:, i] - h*u;
+          end for;
+
+          annotation (
+            obsolete = "Obsolete function - use Modelica_LinearSystems2.Math.Matrices.householderReflexion instead",
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<strong>householderReflection</strong>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Householder reflection (transformation)
+</p>
+<blockquote>
+ <strong>Ar</strong> = <strong>Q</strong>*<strong>A</strong>
+</blockquote>
+with
+<blockquote>
+ <strong>Q</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>)
+</blockquote>
+<p>
+where <strong>u</strong> is Householder vector, i.e., the normal vector of the reflection plane.
+</p>
+<p>
+Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+// First step of QR decomposition
+  import   ObsoleteModelica4.Math.Vectors.Utilities;
+
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real Ar[3,3];
+  Real u[:];
+
+  u=Utilities.householderVector(A[:,1],{1,0,0});
+  // u= {0.763, 0.646, 0}
+
+  Ar=householderReflection(A,u);
+ // Ar = [-6.0828,   -5.2608,   -4.4388;
+ //        0.0,      -1.1508,   -2.3016;
+ //        0.0,       2.0,       0.0]
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.housholderSimilarityTransformation</a>,<br>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
+</p>
+</html>", revisions="<html>
+<ul>
+<li><em>2010/04/30 </em>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+        end householderReflection;
+
+        function householderSimilarityTransformation
+          "Perform the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u'"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          import Modelica.Math.Vectors;
+
+          input Real A[:, size(A, 1)] "Square matrix A";
+          input Real u[size(A, 1)] "Householder vector";
+          output Real SAS[size(A, 1), size(A, 1)] "Transformation of matrix A";
+
+        protected
+          Integer na=size(A, 1);
+          Real S[size(A, 1), size(A, 1)] "Symmetric matrix";
+          Integer i;
+        algorithm
+          if na > 0 then
+            S := -2*matrix(u)*transpose(matrix(u))/(Vectors.length(u)*
+              Vectors.length(u));
+            for i in 1:na loop
+              S[i, i] := 1.0 + S[i, i];
+            end for;
+            SAS := S*A*S;
+          else
+            SAS := fill(
+                    0.0,
+                    0,
+                    0);
+          end if;
+
+          annotation (
+            obsolete = "Obsolete function - use Modelica_LinearSystems2.Math.Matrices.householderSimilarityTransformation instead",
+            Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+  As = Matrices.<strong>householderSimilarityTransformation</strong>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the Householder similarity transformation
+</p>
+<blockquote>
+ <strong>As</strong> = <strong>S</strong>*<strong>A</strong>*<strong>S</strong>
+</blockquote>
+with
+<blockquote>
+ <strong>S</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>).
+</blockquote>
+<p>
+This transformation is widely used for transforming non-symmetric matrices to a Hessenberg form.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+// First step of Hessenberg decomposition
+  import   ObsoleteModelica4.Math.Vectors.Utilities;
+
+  Real A[4,4] = [1,2,3,4;
+                 3,4,5,6;
+                 9,8,7,6;
+                 1,2,0,0];
+  Real Ar[4,4];
+  Real u[4]={0,0,0,0};
+
+  u[2:4]=Utilities.householderVector(A[2:4,1],{1,0,0});
+  // u= = {0, 0.8107, 0.5819, 0.0647}
+
+  Ar=householderSimilarityTransformation(A,u);
+ //  Ar = [1.0,     -3.8787,    -1.2193,    3.531;
+          -9.5394, 11.3407,      6.4336,   -5.9243;
+           0.0,     3.1307,      0.7525,   -3.3670;
+           0.0,     0.8021,     -1.1656,   -1.0932]
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://ObsoleteModelica4.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a>,<br>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
+<a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
+</p>
+</html>", revisions="<html>
+<ul>
+<li><em>2010/04/30 </em>
+       by Marcus Baur, DLR-RM</li>
+</ul>
+</html>"));
+        end householderSimilarityTransformation;
+      end Utilities;
     end Matrices;
 
     function tempInterpol1
@@ -1158,7 +2395,7 @@ connector is not connected).
   package Magnetic "Library of magnetic models"
     extends Modelica.Icons.Package;
     package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
-
+      extends Modelica.Icons.Package;
       package BasicMachines "Machine components and modelsElectric machine models based on FundamentalWave package"
         extends Modelica.Icons.Package;
         package Components "Components specially for electric machines"
@@ -1271,7 +2508,7 @@ connector is not connected).
                     0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
                     255,128,0}),Text(
                           extent={{0,100},{0,140}},
-                          textColor={0,0,255},
+                          lineColor={0,0,255},
                           textString="%name")}),
               Documentation(info="<html>
 <p>
@@ -1392,7 +2629,7 @@ Obsolete symmetric cage model, see
                     0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
                     255,128,0}),Text(
                           extent={{0,100},{0,140}},
-                          textColor={0,0,255},
+                          lineColor={0,0,255},
                           textString="%name")}), Documentation(info="<html>
 <p>
 Obsolete saliency cage model, see

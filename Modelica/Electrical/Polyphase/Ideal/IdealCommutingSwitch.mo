@@ -19,7 +19,7 @@ model IdealCommutingSwitch "Polyphase ideal commuting switch"
         transformation(extent={{90,-10},{110,10}})));
   Interfaces.NegativePlug plug_n1(final m=m) annotation (Placement(
         transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
-  Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch idealCommutingSwitch[m](
+  Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch idealCommutingSwitch[m](
     final Ron=Ron,
     final Goff=Goff,
     each final useHeatPort=useHeatPort) annotation (Placement(
@@ -52,7 +52,7 @@ equation
           textString="m=%m")}), Documentation(info=
          "<html>
 <p>
-Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch).
+Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch).
 </p>
 </html>"));
 end IdealCommutingSwitch;

@@ -1,4 +1,4 @@
 within Modelica.Magnetic.FluxTubes.Examples;
 package BasicExamples "Educational examples"
-extends Icons.ExamplesPackage;
+extends Modelica.Icons.ExamplesPackage;
 end BasicExamples;

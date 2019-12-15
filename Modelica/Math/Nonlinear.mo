@@ -312,29 +312,34 @@ The following nonlinear equations are solved:
 </html>"));
     end solveNonlinearEquations2;
 
-    model quadratureLobatto3 "Integrate function in a model"
+    model QuadratureLobatto3 "Integrate function in a model"
       extends Modelica.Icons.Example;
       parameter Real A=1 "Amplitude of integrand of s";
       parameter Real ws=2 "Angular frequency of integrand of s";
-      parameter Real wq=3 "Angular frequency of q";
-      Real q(start=1, fixed=true);
-      Real qd(start=0, fixed=true);
-      Real x;
+      parameter Real wq=3 "Squared angular frequency of q";
+      Real q(start=1, fixed=true) "First-order state variable";
+      Real qd(start=0, fixed=true) "Second-order state variable";
+      Real x "Overall value as product of s and q";
       final parameter Real s = Modelica.Math.Nonlinear.quadratureLobatto(
                                   function UtilityFunctions.fun7(A=A, w=ws),
-                                  0,1);
+                                  0,1) "Time-invariant integral value";
     equation
       qd = der(q);
-      der(qd) + wq*q = 0;
+      der(qd) + wq*q = 0 "Equation of motion for the free, undamped harmonic oscillator";
       x = s*q;
       annotation (Documentation(info="<html>
 <p>
-This example demonstrates how to utilize a function as input argument
+Technically, this example demonstrates how to utilize a function as input argument
 to a function in a model.
+</p>
+
+<p>
+From a modeling point of view, the example demonstrates in very simplified way the basic approach to model distributed systems with the Ritz method.
+The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> is the undeformed position and <code>t</code> is time) is hereby approximated by space-dependent mode shapes <code>&Phi;(c)</code> and time-dependent modal amplitudes <code>q(t)</code>, that is <code>u</code> = <code>&Phi;(c)*q(t)</code>. When inserting this decomposition in the equations of motion and then integrating over all particles, terms such as <code>&int;(&Phi;(c) dc)*q(t)</code> appear, where the time-invariant integral term can be computed beforehand once with the <a href=\"modelica://Modelica.Math.Nonlinear.quadratureLobatto\">Lobatto method</a>. By this approach the partial differential equations are transformed to a system of ordinary differential equations.
 </p>
 </html>"),
         experiment(StopTime=5));
-    end quadratureLobatto3;
+    end QuadratureLobatto3;
 
     package UtilityFunctions
       "Utility functions that are used as function arguments to the examples"
@@ -351,7 +356,6 @@ to a function in a model.
         input Real w "Angular velocity";
       algorithm
         y := 3*u - sin(w*u) - 1;
-
       end fun2;
 
       function fun3 "y = p[1] + log(p[2]*u) - m*u"
@@ -360,7 +364,6 @@ to a function in a model.
         input Real m;
       algorithm
         y := p[1] + log(p[2]*u) - m*u;
-
       end fun3;
 
       function fun4 "y = sin(u)"
@@ -383,7 +386,7 @@ to a function in a model.
         y := sqrt(1/(1 - k^2*sin(u)^2));
       end fun6;
 
-      function fun7 "y = A*sin(w*u)*q(t)"
+      function fun7 "y = A*sin(w*u)"
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real A "Amplitude";
         input Real w "Angular frequency";
@@ -440,7 +443,7 @@ to a function, see, .e.g.,
     input Real b "Upper limit of integration interval";
     input Real tolerance = 100*Modelica.Constants.eps
       "Relative tolerance for integral value";
-    output Real integral "integral value";
+    output Real integral "Integral value";
 
   protected
     constant Real x1=0.942882415695480;
@@ -471,7 +474,7 @@ to a function, see, .e.g.,
       input Real fa "Function value at a";
       input Real fb "Function value at b";
       input Real is "First approximation of the integral";
-      output Real I "integral value";
+      output Real I "Integral value";
     protected
       Real m;
       Real h;
@@ -809,13 +812,14 @@ functions.
 For details about how to define and to use functions as input arguments
 to functions, see
 <a href=\"modelica://ModelicaReference.Classes.'function'\">ModelicaReference.Classes.'function'</a>
-or the Modelica Language  Specification, Chapter 12.4.2.
+or <a href=\"https://specification.modelica.org/v3.4/Ch12.html#functional-input-arguments-to-functions\">Section 12.4.2
+(Functional Input Arguments to Functions) of the Modelica 3.4 specification</a>.
 </p>
 
 </html>", revisions="<html>
 <ul>
 <li><em>July 2010 </em> by Martin Otter (DLR-RM):<br>
-    Included in MSL3.2, adapted, and documentation improved</li>
+    Included in MSL 3.2, adapted, and documentation improved</li>
 
 <li><em>March 2010 </em> by Andreas Pfeiffer (DLR-RM):<br>
     Adapted the quadrature function from Gerhard Schillhuber and

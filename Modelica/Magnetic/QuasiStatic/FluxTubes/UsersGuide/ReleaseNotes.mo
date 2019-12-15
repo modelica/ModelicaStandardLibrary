@@ -10,7 +10,6 @@ class ReleaseNotes "Release Notes"
 <li>Added magnitudes and angles of complex quantities for better result interpretation</li>
 </ul>
 
-
 <h5>Version 1.0.0, 2013-12-18</h5>
 <ul>
 <li>Initial version before inclusion in MSL</li>

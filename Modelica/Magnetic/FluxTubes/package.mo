@@ -3,18 +3,9 @@ package FluxTubes "Library for modelling of electromagnetic devices with lumped 
 
   import SI = Modelica.SIunits;
   import Modelica.Constants.pi;
-  import        Modelica.Constants.mu_0;
+  import Modelica.Constants.mu_0;
 
   extends Modelica.Icons.Package;
-
-
-
-
-
-
-
-
-
 
   annotation (Documentation(info="<html>
 <p>

@@ -1,14 +1,6 @@
 within Modelica.Electrical.Polyphase;
-package Sensors "Polyphase potential, voltage and current Sensors"
+package Sensors "Polyphase potential, voltage and current sensors"
   extends Modelica.Icons.SensorsPackage;
-
-
-
-
-
-
-
-
 
   annotation (Documentation(info="<html>
 <p>

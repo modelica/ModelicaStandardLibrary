@@ -2,13 +2,6 @@ within Modelica.Electrical.Polyphase;
 package Interfaces "Interfaces for electrical polyphase models"
   extends Modelica.Icons.InterfacesPackage;
 
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains connectors and interfaces (partial models) for

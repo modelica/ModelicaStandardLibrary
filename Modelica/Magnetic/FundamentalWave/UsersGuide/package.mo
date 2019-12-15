@@ -1,11 +1,6 @@
 within Modelica.Magnetic.FundamentalWave;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
-
-
-
-
-
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This library contains components for modelling of electromagnetic fundamental wave
@@ -31,7 +26,6 @@ For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.
 The magnetic potential difference of the connector therefore also refers to an equivalent two pole machine</li>
 <li>In machines with <strong>more than three-phases</strong> only effects of currents and voltages on the magnetic <strong>fundamental waves</strong> are considered. Other magnetic effects due to higher harmonic are not taken into account.</li>
 </ul>
-
 
 </html>"));
 end UsersGuide;

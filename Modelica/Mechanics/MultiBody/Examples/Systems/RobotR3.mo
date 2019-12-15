@@ -1,8 +1,9 @@
 within Modelica.Mechanics.MultiBody.Examples.Systems;
 package RobotR3
   "Library to demonstrate robot system models based on the Manutec r3 robot"
+  extends Modelica.Icons.ExamplesPackage;
 
-  model oneAxis
+  model OneAxis
     "Model of one axis of robot (controller, motor, gearbox) with simple load"
 
     extends Modelica.Icons.Example;
@@ -20,7 +21,7 @@ package RobotR3
     parameter SI.AngularAcceleration refAccMax=10
       "Maximum reference acceleration";
 
-    Components.AxisType1 axis(
+    Utilities.AxisType1 axis(
       w=5500,
       ratio=210,
       c=8,
@@ -32,7 +33,7 @@ package RobotR3
       Ts=Ts) annotation (Placement(transformation(extent={{20,0},{40,20}})));
     Modelica.Mechanics.Rotational.Components.Inertia load(J=1.3*mLoad)
       annotation (Placement(transformation(extent={{60,0},{80,20}})));
-    Components.PathPlanning1 pathPlanning(
+    Utilities.PathPlanning1 pathPlanning(
       swingTime=swingTime,
       angleBegDeg=startAngle,
       angleEndDeg=endAngle,
@@ -40,7 +41,7 @@ package RobotR3
       accMax=refAccMax) annotation (Placement(transformation(extent={{-60,0},
               {-40,20}})));
   protected
-    Components.ControlBus controlBus annotation (Placement(transformation(
+    Utilities.ControlBus controlBus annotation (Placement(transformation(
             extent={{-32,10},{8,50}})));
   equation
     connect(axis.flange, load.flange_a)
@@ -69,9 +70,9 @@ load inertia.
 </html>"),      experiment(StopTime=1.6),
       __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
           "Plot result"));
-  end oneAxis;
+  end OneAxis;
 
-  model fullRobot
+  model FullRobot
     "Six degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics"
     extends Modelica.Icons.Example;
 
@@ -158,11 +159,11 @@ load inertia.
     parameter SI.Time Ts6=0.05
       "Time constant of integrator of speed controller"
       annotation (Dialog(tab="Controller", group="Axis 6"));
-    Components.MechanicalStructure mechanics(
+    Utilities.MechanicalStructure mechanics(
       mLoad=mLoad,
       rLoad=rLoad,
       g=g) annotation (Placement(transformation(extent={{40,-30},{100,30}})));
-    Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.PathPlanning6
+    Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning6
       pathPlanning(
       naxis=6,
       angleBegDeg={startAngle1,startAngle2,startAngle3,startAngle4,startAngle5,
@@ -173,7 +174,7 @@ load inertia.
       startTime=refStartTime,
       swingTime=refSwingTime) annotation (Placement(transformation(extent={{0,70},{-20,90}})));
 
-    RobotR3.Components.AxisType1 axis1(
+    RobotR3.Utilities.AxisType1 axis1(
       w=4590,
       ratio=-105,
       c=43,
@@ -183,7 +184,7 @@ load inertia.
       kp=kp1,
       ks=ks1,
       Ts=Ts1) annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
-    RobotR3.Components.AxisType1 axis2(
+    RobotR3.Utilities.AxisType1 axis2(
       w=5500,
       ratio=210,
       c=8,
@@ -194,7 +195,7 @@ load inertia.
       ks=ks2,
       Ts=Ts2) annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 
-    RobotR3.Components.AxisType1 axis3(
+    RobotR3.Utilities.AxisType1 axis3(
       w=5500,
       ratio=60,
       c=58,
@@ -204,7 +205,7 @@ load inertia.
       kp=kp3,
       ks=ks3,
       Ts=Ts3) annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
-    RobotR3.Components.AxisType2 axis4(
+    RobotR3.Utilities.AxisType2 axis4(
       k=0.2365,
       w=6250,
       D=0.55,
@@ -216,7 +217,7 @@ load inertia.
       kp=kp4,
       ks=ks4,
       Ts=Ts4) annotation (Placement(transformation(extent={{-20,0},{0,20}})));
-    RobotR3.Components.AxisType2 axis5(
+    RobotR3.Utilities.AxisType2 axis5(
       k=0.2608,
       w=6250,
       D=0.55,
@@ -228,7 +229,7 @@ load inertia.
       kp=kp5,
       ks=ks5,
       Ts=Ts5) annotation (Placement(transformation(extent={{-20,20},{0,40}})));
-    RobotR3.Components.AxisType2 axis6(
+    RobotR3.Utilities.AxisType2 axis6(
       k=0.0842,
       w=7400,
       D=0.27,
@@ -241,7 +242,7 @@ load inertia.
       ks=ks6,
       Ts=Ts6) annotation (Placement(transformation(extent={{-20,40},{0,60}})));
   protected
-    Components.ControlBus controlBus
+    Utilities.ControlBus controlBus
       annotation (Placement(transformation(
           origin={-80,0},
           extent={{-20,-20},{20,20}},
@@ -332,14 +333,13 @@ For current settings, the termination condition should indeed be fulfilled right
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png\" alt=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png\" alt=\"model Examples.Systems.RobotR3.FullRobot\">
 </p>
 </html>"));
-  end fullRobot;
-  extends Modelica.Icons.ExamplesPackage;
+  end FullRobot;
 
-  package Components "Library of components of the robot"
-    extends Modelica.Icons.Package;
+  package Utilities "Utility classes for robot examples"
+    extends Modelica.Icons.UtilitiesPackage;
 
     expandable connector AxisControlBus "Data bus for one robot axis"
       extends Modelica.Icons.SignalSubBus;
@@ -373,17 +373,17 @@ determined from the connections to this bus.
 
     expandable connector ControlBus "Data bus for all axes of robot"
       extends Modelica.Icons.SignalBus;
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus
         axisControlBus1 "Bus of axis 1";
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus
         axisControlBus2 "Bus of axis 2";
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus
         axisControlBus3 "Bus of axis 3";
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus
         axisControlBus4 "Bus of axis 4";
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus
         axisControlBus5 "Bus of axis 5";
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus
         axisControlBus6 "Bus of axis 6";
 
       annotation (
@@ -1024,7 +1024,7 @@ Default values for all parameters are given for joint 4.
       Modelica.Mechanics.Rotational.Components.Inertia Jmotor(
                                                    J=J)
         annotation (Placement(transformation(extent={{70,-10},{90,10}})));
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus
         axisControlBus
         annotation (Placement(transformation(extent={{-20,-120},{20,-80}})));
       Blocks.Math.Gain convert1(k(unit="V/A")=1)
@@ -1146,7 +1146,7 @@ produced by the motor).
             transformation(extent={{20,0},{40,20}})));
       Modelica.Blocks.Math.Gain gain2(k=ratio)
         annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus
         axisControlBus
         annotation (Placement(transformation(extent={{-20,-120},{20,-80}})));
     equation
@@ -1311,12 +1311,12 @@ a model of the electrical motor and a continuous-time cascade controller.
         k=k,
         w=w,
         D=D) annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-      RobotR3.Components.Controller controller(
+      RobotR3.Utilities.Controller controller(
         kp=kp,
         ks=ks,
         Ts=Ts,
         ratio=ratio) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus
         axisControlBus
         annotation (Placement(transformation(
             origin={-100,0},
@@ -1769,12 +1769,12 @@ This model contains the mechanical components of the r3 robot
 
     annotation (Documentation(info="<html>
 <p>
-This library contains the different components
+This library contains the different utility components
 of the r3 robot. Usually, there is no need to
 use this library directly.
 </p>
 </html>"));
-  end Components;
+  end Utilities;
 
   annotation (
     Documentation(info="<html>
@@ -1794,8 +1794,8 @@ alt=\"model Examples.Systems.RobotR3\">
 The following models are available:
 </p>
 <pre>
-   <strong>oneAxis</strong>   Test one axis (controller, motor, gearbox).
-   <strong>fullRobot</strong> Test complete robot model.
+   <strong>OneAxis</strong>   Test one axis (controller, motor, gearbox).
+   <strong>FullRobot</strong> Test complete robot model.
 </pre>
 <p>
 The r3 robot is no longer manufactured. In fact the company

@@ -1,7 +1,7 @@
 within ModelicaTest.Fluid.TestUtilities;
 model TestRegFunctions
   extends Modelica.Icons.Example;
-  import Modelica.Fluid.Utilities.*;
+  import Modelica.Fluid.Utilities.{regRoot, regSquare, regPow};
   parameter Real delta=0.01;
   Real x=time+1e-9;
   Real sqrtx=sqrt(x);

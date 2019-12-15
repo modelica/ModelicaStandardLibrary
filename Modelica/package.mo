@@ -860,12 +860,17 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <pre>
 &lt;p&gt;
-More details about sensorless rotor temperature estimation
-can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;[Gao2008]&lt;/a.&gt;
+More details about electric machine modeling
+can be found in [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
+and
+[&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
-  More details about sensorless rotor temperature estimation can be found in <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">[Gao2008]</a>.
+More details about electric machine modeling
+can be found in [<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Gao2008</a>]
+and
+[<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Kral2018</a>, p. 149].
 </p>
 </html>"));
         end References;
@@ -1437,7 +1442,7 @@ This class summarizes general information about the implementation which is not 
 
 <ul>
 <li> Journal (or conference) [Gao2008]</li>
-<li> Book [Andronov1973]</li>
+<li> Book [Kral2018]</li>
 <li> Master&apos;s thesis [Woehrnschimmel1998]</li>
 <li> PhD thesis [Farnleitner1999]</li>
 <li> Technical report [Marlino2005]</li>
@@ -1452,18 +1457,18 @@ This class summarizes general information about the implementation which is not 
   &lt;tr&gt;
     &lt;td&gt;[Gao2008]&lt;/td&gt;
     &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &amp;quot;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral
-        estimation scheme&amp;quot;,
+        &amp;quot;&lt;a href=&quot;https://ieeexplore.ieee.org/document/4401132&quot;&gt;A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme&lt;/a&gt;&amp;quot;,
         &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td&gt;[Andronov1973]&lt;/td&gt;
-    &lt;td&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;/em&gt;,
-        1st ed. New York: J. Wiley &amp;amp; Sons, 1973.
+    &lt;td&gt;[Kral2018]&lt;/td&gt;
+    &lt;td&gt;C. Kral,
+        &lt;em&gt;Modelica - object oriented modeling of polyphase electric machines&lt;/em&gt; (in German),
+        M&amp;uuml;nchen: Hanser Verlag, 2018, &lt;a href=&quot;https://doi.org/10.3139/9783446457331&quot;&gt;DOI 10.3139/9783446457331&lt;/a&gt;,
+        ISBN 978-3-446-45551-1.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
@@ -1490,7 +1495,8 @@ This class summarizes general information about the implementation which is not 
       &amp;quot;Oak ridge national laboratory annual progress report for the
       power electronics and electric machinery program&amp;quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
+      &lt;a href=&quot;https://doi.org/10.2172/974618&quot;&gt;DOI 10.2172/974618&lt;/a&gt;.
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -1502,18 +1508,18 @@ This class summarizes general information about the implementation which is not 
   <tr>
     <td>[Gao2008]</td>
     <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral
-        estimation scheme&quot;,
+        &quot;<a href=\"https://ieeexplore.ieee.org/document/4401132\">A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme</a>&quot;,
         <em>IEEE Transactions on Industrial Electronics</em>,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     </td>
   </tr>
   <tr>
-    <td>[Andronov1973]</td>
-    <td>A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        <em>Theory of  Bifurcations of Dynamic Systems on a plane</em>,
-        1st ed. New York: J. Wiley &amp; Sons, 1973.
+    <td>[Kral2018]</td>
+    <td>C. Kral,
+        <em>Modelica - object oriented modeling of polyphase electric machines</em> (in German),
+        M&uuml;nchen: Hanser Verlag, 2018, <a href=\"https://doi.org/10.3139/9783446457331\">DOI 10.3139/9783446457331</a>,
+        ISBN 978-3-446-45551-1.
     </td>
   </tr>
   <tr>
@@ -1540,10 +1546,12 @@ This class summarizes general information about the implementation which is not 
       &quot;Oak ridge national laboratory annual progress report for the
       power electronics and electric machinery program&quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
+      <a href=\"https://doi.org/10.2172/974618\">DOI 10.2172/974618</a>.
     </td>
   </tr>
 </table>
+
 </html>"));
       end References;
 
@@ -1789,6 +1797,11 @@ In the Modelica Standard Library the following color schemes apply:</p>
     <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
   </tr>
   <tr>
+    <td>Modelica.Clocked</td>
+    <td>{95,95,95}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleClocked.png\"></td>
+  </tr>
+  <tr>
     <td>Modelica.StateGraph</td>
     <td>{0,0,0}</td>
     <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleStateGraph.png\"></td>
@@ -2018,10 +2031,10 @@ design of sensors apply:
 
 <ul>
 <li>The sensor outputs shall be indicated by its SI unit, not its quantity; the proper SI unit shall be compliant with the unit definitions of
-    <a href=\"modelica://Modelica.SIunits\">SIunits</a>, 
+    <a href=\"modelica://Modelica.SIunits\">SIunits</a>,
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
-<li>For a sensor with a single output signal the SI unit shall be placed withing the sensor, 
+<li>For a sensor with a single output signal the SI unit shall be placed withing the sensor,
     see <strong>Fig.&nbsp;6</strong> and <strong>7</strong></li>
     <ul>
     <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be</li>
@@ -2029,11 +2042,11 @@ design of sensors apply:
         <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
         </ul>
-        
+
     <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be 
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
     </ul>
-<li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal; 
+<li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
     a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong></li>
     <ul>
     <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
@@ -2075,11 +2088,11 @@ design of sensors apply:
   </tr>
 </table>
 
-<h4>Diagram icons</h4>
+<h4>Diagram layer</h4>
 
-<p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the
-icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
-
+<p>The diagram layer is intended to contain the graphical components, and if there are no graphical components it shall be left empty. 
+In particular do not make the diagram layer a copy of the icon layer. 
+Graphical illustrations shall not be added in the diagram layer, but can be added in the HTML documentation.</p>
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
@@ -2319,6 +2332,95 @@ more of the following changes.
 </ul>
 </html>"));
 end VersionManagement;
+
+class Version_4_0_0 "Version 4.0.0 (mmm dd, yyyy)"
+  extends Modelica.Icons.ReleaseNotes;
+
+  annotation (Documentation(info="<html>
+<p>
+Version 4.0.0 is ...
+Short Overview:
+</p>
+<ul>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">xxx issues (including pull requests)</a>
+    have been addressed for this release.</li>
+<li><strong>xx</strong> component models and blocks, <strong>xx</strong> example models and <strong>xx</strong> functions are newly included.</li>
+</ul>
+<p>
+The exact difference between package Modelica version 4.0.0 and version 3.2.3 is
+summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/DifferencesTo323.html\">comparison table</a>.
+</p>
+
+<p><br>
+The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2>
+<tr><td> </td>
+    <td>
+    </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>new components</strong></font> have been added to <font color=\"blue\"><strong>existing</strong></font> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>improved</strong></font> in a <font color=\"blue\"><strong>backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+
+<p><br>
+The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
+<tr><td>Nonlinear.Limiter<br>Nonlinear.VariableLimiter<br>Continuous.LimPID</td>
+    <td>The superfluous parameter <code>limitsAtInit</code> has been removed.</td></tr>
+<tr><td>Nonlinear.DeadZone</td>
+    <td>The superfluous parameter <code>deadZoneAtInit</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3</strong></td></tr>
+<tr><td>Internal.MOS2<br>Semiconductors.M_NMOS2<br>Semiconductors.M_PMOS2</td>
+    <td>The final parameter <code>vp</code> has been removed.<br>The obsolete variables <code>cc_obsolete</code>, <code>icqmGB</code>, <code>icqmGS</code>, <code>icqmGD</code>, <code>MOScapgd</code>, <code>MOScapgs</code>, <code>MOScapgb</code>, <code>qm</code> and <code>vDS</code> have been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
+<tr><td>Joints.Prismatic</td>
+    <td>The superfluous constant <code>s_offset</code> has been removed.</td></tr>
+<tr><td>Joints.Revolute</td>
+    <td>The superfluous constant <code>phi_offset</code> has been removed.</td></tr>
+<tr><td>Parts.Body</td>
+    <td>The superfluous parameter <code>z_a_start</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Machines</strong></td></tr>
+<tr><td>PartialPump</td>
+    <td>The superfluous parameter <code>show_NPSHa</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Thermal.HeatTransfer</strong></td></tr>
+<tr><td>Fahrenheit.FromKelvin<br>Rankine.FromKelvin<br>Rankine.ToKelvin</td>
+    <td>The superfluous parameter <code>n</code> has been removed.</td></tr>
+</table>
+
+<p><br>
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td> </td>
+    <td> </td></tr>
+</table>
+</html>"));
+end Version_4_0_0;
 
 class Version_3_2_3 "Version 3.2.3 (January 23, 2019)"
   extends Modelica.Icons.ReleaseNotes;
@@ -8142,7 +8244,7 @@ of the Modelica package (many more people have contributed to the design):
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>Marcus Baur</strong></td>
-   <td>Institute of System Dynamics and Control<br>
+   <td>previously at:<br>Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
    <td>Complex<br>
@@ -8232,7 +8334,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Hans-Dieter Joos</strong></td>
-   <td>Institute of System Dynamics and Control<br>
+   <td>previously at:<br>Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
    <td>Modelica.Math.Matrices</td>
@@ -8292,7 +8394,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Katrin Pr&ouml;l&szlig;</strong></td>
-   <td>Modelon Deutschland GmbH, Hamburg, Germany<br>
+   <td>previously at:<br>Modelon Deutschland GmbH, Hamburg, Germany<br>
      until 2008:<br>
      Department of Technical Thermodynamics,<br>
      Technical University Hamburg-Harburg,<br>Germany</td>
@@ -8504,7 +8606,6 @@ User's Guides that can be accessed by the following links:
 </html>"));
 end UsersGuide;
 
-
 annotation (
 preferredView="info",
 version="4.0.0-dev",
@@ -8569,7 +8670,7 @@ This version of the Modelica Standard Library consists of
 </ul>
 <p>
 that are directly usable (= number of public, non-partial, non-internal and non-obsolete classes). It is fully compliant
-to <a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Specification Version 3.2 Revision 2</a>
+to <a href=\"https://modelica.org/documents/ModelicaSpec34.pdf\">Modelica Specification version 3.4</a>
 and it has been tested with Modelica tools from different vendors.
 </p>
 

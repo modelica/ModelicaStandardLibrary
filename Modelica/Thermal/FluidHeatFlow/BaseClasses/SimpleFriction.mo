@@ -2,19 +2,19 @@ within Modelica.Thermal.FluidHeatFlow.BaseClasses;
 partial model SimpleFriction "Simple friction model"
   parameter Modelica.SIunits.VolumeFlowRate V_flowLaminar(min=Modelica.Constants.small, start=0.1)
     "Laminar volume flow"
-    annotation(Dialog(group="Simple Friction"));
+    annotation(Dialog(group="Simple friction"));
   parameter Modelica.SIunits.Pressure dpLaminar(start=0.1)
     "Laminar pressure drop"
-    annotation(Dialog(group="Simple Friction"));
+    annotation(Dialog(group="Simple friction"));
   parameter Modelica.SIunits.VolumeFlowRate V_flowNominal(start=1)
     "Nominal volume flow"
-    annotation(Dialog(group="Simple Friction"));
+    annotation(Dialog(group="Simple friction"));
   parameter Modelica.SIunits.Pressure dpNominal(start=1)
     "Nominal pressure drop"
-    annotation(Dialog(group="Simple Friction"));
+    annotation(Dialog(group="Simple friction"));
   parameter Real frictionLoss(min=0, max=1) = 0
     "Part of friction losses fed to medium"
-    annotation(Dialog(group="Simple Friction"));
+    annotation(Dialog(group="Simple friction"));
   Modelica.SIunits.Pressure pressureDrop;
   Modelica.SIunits.VolumeFlowRate volumeFlow;
   Modelica.SIunits.Power Q_friction;

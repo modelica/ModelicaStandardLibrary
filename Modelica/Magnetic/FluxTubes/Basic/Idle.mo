@@ -17,7 +17,6 @@ equation
 This is a simple idle running branch.
 </p>
 
-
 </html>",
       revisions="<html>
 <h5>Version 3.2.2, 2014-01-15 (Christian Kral)</h5>

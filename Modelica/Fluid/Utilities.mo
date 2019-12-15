@@ -163,27 +163,28 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
     "Anti-symmetric approximation of square root with discontinuous factor so that the first derivative is finite and continuous"
 
     extends Modelica.Icons.Function;
-    input Real x "abscissa value";
-    input Real x_small(min=0)=0.01
-      "approximation of function for |x| <= x_small";
+    input Real x "Abscissa value";
+    input Real x_small(min=0)=0.01 "Approximation of function for |x| <= x_small";
     input Real k1(min=0)=1 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|)";
     input Real k2(min=0)=1 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|)";
     input Boolean use_yd0 = false "= true, if yd0 shall be used";
     input Real yd0(min=0)=1 "Desired derivative at x=0: dy/dx = yd0";
-    output Real y "ordinate value";
+    output Real y "Ordinate value";
   protected
+    Real sqrt_k1 = if k1 > 0 then sqrt(k1) else 0;
+    Real sqrt_k2 = if k2 > 0 then sqrt(k2) else 0;
     encapsulated function regRoot2_utility
       "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
       import Modelica;
       extends Modelica.Icons.Function;
       import Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero;
-       input Real x;
-       input Real x1 "approximation of function abs(x) < x1";
-       input Real k1 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|); k1 >= k2";
-       input Real k2 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|))";
-       input Boolean use_yd0 "= true, if yd0 shall be used";
-       input Real yd0(min=0) "Desired derivative at x=0: dy/dx = yd0";
-       output Real y;
+      input Real x;
+      input Real x1 "Approximation of function abs(x) < x1";
+      input Real k1 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|); k1 >= k2";
+      input Real k2 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|))";
+      input Boolean use_yd0 "= true, if yd0 shall be used";
+      input Real yd0(min=0) "Desired derivative at x=0: dy/dx = yd0";
+      output Real y;
     protected
        Real x2;
        Real xsqrt1;
@@ -279,8 +280,8 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
        annotation(smoothOrder=2);
     end regRoot2_utility;
   algorithm
-    y := smooth(2, if x >= x_small then sqrt(k1*x) else
-                   if x <= -x_small then -sqrt(k2*abs(x)) else
+    y := smooth(2, if x >= x_small then sqrt_k1*sqrt(x) else
+                   if x <= -x_small then -sqrt_k2*sqrt(abs(x)) else
                    if k1 >= k2 then regRoot2_utility(x,x_small,k1,k2,use_yd0,yd0) else
                                    -regRoot2_utility(-x,x_small,k2,k1,use_yd0,yd0));
     annotation(smoothOrder=2, Documentation(info="<html>
@@ -343,7 +344,7 @@ k1=1, k2=3 is shown in the next figure:</p>
 </dl>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept., 2019</em>
+<li><em>Sept., 2010</em>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     Improved so that k1=0 and/or k2=0 is also possible.</li>
 <li><em>Nov., 2005</em>

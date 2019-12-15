@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Basic;
 model ConstantPermeance "Constant permeance"
 
   extends Interfaces.TwoPorts;
-
+  extends Modelica.Magnetic.FluxTubes.Icons.Reluctance;
   parameter SI.Permeance G_m=1 "Magnetic permeance";
 
 equation
@@ -11,17 +11,11 @@ equation
   annotation (defaultComponentName="permeance", Icon(coordinateSystem(
       preserveAspectRatio=false,
       extent={{-100,-100},{100,100}}), graphics={
-      Rectangle(
-        extent={{-70,30},{70,-30}},
-        lineColor={255,128,0},
-        fillColor={255,255,255},
-        fillPattern=FillPattern.Solid),
-      Line(points={{-70,0},{-90,0}}, color={255,128,0}),
-      Line(points={{70,0},{90,0}}, color={255,128,0}),
         Text(
-          extent={{-150,50},{150,90}},
-          textColor={0,0,255},
-          textString="%name")}),Documentation(info="<html>
+          extent={{-150,-40},{150,-80}},
+          lineColor={0,0,0},
+          textString="G_m=%G_m")}),
+                                Documentation(info="<html>
 <p>
 This constant permeance is provided for test purposes and simple magnetic network models. The permeance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
 </p>

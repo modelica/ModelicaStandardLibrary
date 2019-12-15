@@ -1,14 +1,7 @@
 within Modelica.Thermal.FluidHeatFlow;
 package Sensors "Ideal sensors to measure port properties"
   extends Modelica.Icons.SensorsPackage;
-
-
-
-
-
-
-
-annotation (Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>This package contains sensors:</p>
 <ul>
 <li>PressureSensor: absolute pressure</li>

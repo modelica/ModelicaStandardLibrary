@@ -82,7 +82,7 @@ model HeatingPNP_NORGate "Heating PNP NOR Gate"
   annotation (Placement(transformation(extent={{50,6},{70,26}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd7
   annotation (Placement(transformation(extent={{-80,2},{-60,22}})));
-  Modelica.Electrical.Analog.Semiconductors.HeatingPNP T1(
+  Modelica.Electrical.Analog.Semiconductors.PNP T1(
     Bf=100,
     Br=1,
     Is=1e-14,
@@ -100,9 +100,9 @@ model HeatingPNP_NORGate "Heating PNP NOR Gate"
     Gbe=1e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
-    useHeatPort=true)
+    useTemperatureDependency=true)
     annotation (Placement(transformation(extent={{-20,48},{0,68}})));
-  Modelica.Electrical.Analog.Semiconductors.HeatingPNP T2(
+  Modelica.Electrical.Analog.Semiconductors.PNP T2(
     Bf=100,
     Br=1,
     Is=1e-14,
@@ -120,7 +120,7 @@ model HeatingPNP_NORGate "Heating PNP NOR Gate"
     Gbe=1e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
-    useHeatPort=true)
+    useTemperatureDependency=true)
     annotation (Placement(transformation(extent={{20,-22},{40,-2}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd1
   annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));

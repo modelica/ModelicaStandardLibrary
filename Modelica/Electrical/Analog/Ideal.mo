@@ -13,7 +13,7 @@ package Ideal
 <p>
 This is an ideal diode, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
 The diode is conducting if voltage &gt; Vknee.<br>
-The diode is locking if current &lt; Vknee/Goff.
+The diode is locking if current &lt; Vknee*Goff.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -69,14 +69,16 @@ If fire gets false, the current has to fall below Vknee*Goff, then the thyristor
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{40,50},{60,30}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
             pattern=LinePattern.Dot),
-          Line(points={{30,20},{58,48}}, color={0,0,255}),
-          Line(points={{100,90},{100,100}}, color={0,0,255})}),
+          Line(points={{30,20},{60,50}}, color={0,0,255}),
+          Line(
+            points={{100,100},{100,90},{60,50}},
+            color={255,0,255},
+            pattern=LinePattern.Dash)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
@@ -121,14 +123,14 @@ Otherwise, the GTO thyristor is locking.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{48,52},{68,32}}, color={0,0,255}),
+          Line(points={{48,52},{64,36}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
             pattern=LinePattern.Dot),
           Polygon(
-            points={{44,43},{44,36},{51,36},{44,43}},
+            points={{42,45},{42,38},{49,38},{42,45}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={0,0,255}),
@@ -137,9 +139,17 @@ Otherwise, the GTO thyristor is locking.
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={0,0,255}),
-          Line(points={{30,10},{68,48}}, color={0,0,255}),
-          Line(points={{100,90},{100,100}}, color={0,0,255}),
-          Line(points={{30,22},{56,48}}, color={0,0,255})}),
+          Line(points={{30,10},{60,40}}, color={0,0,255}),
+          Line(points={{30,26},{52,48}}, color={0,0,255}),
+          Line(
+            points={{100,100},{100,88},{62,50}},
+            color={255,0,255},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{58,44}},
+            color={255,0,255},
+            pattern=LinePattern.Dash),
+          Line(points={{62,50},{56,44}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
@@ -147,7 +157,7 @@ Otherwise, the GTO thyristor is locking.
               thickness=0.5)}));
   end IdealGTOThyristor;
 
-  model IdealCommutingSwitch "Ideal commuting switch"
+  model IdealTwoWaySwitch "Ideal two-way switch"
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
@@ -183,7 +193,7 @@ Otherwise, the GTO thyristor is locking.
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
-The commuting switch has a positive pin p and two negative pins n1 and n2.
+The two-way switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
@@ -227,7 +237,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
             extent={{-150,90},{150,50}},
             textString="%name",
             textColor={0,0,255})}));
-  end IdealCommutingSwitch;
+  end IdealTwoWaySwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
@@ -315,7 +325,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
               100,100}})));
   end IdealIntermediateSwitch;
 
-  model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
+  model ControlledIdealTwoWaySwitch "Controlled ideal two-way switch"
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
@@ -350,7 +360,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
-The commuting switch has a positive pin p and two negative pins n1 and n2.
+The two-way switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the control pin. If its voltage exceeds the value of the parameter level,
 the pin p is connected with the negative pin n2. Otherwise, the pin p is
@@ -395,7 +405,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
             extent={{-150,90},{150,50}},
             textString="%name",
             textColor={0,0,255})}));
-  end ControlledIdealCommutingSwitch;
+  end ControlledIdealTwoWaySwitch;
 
   model ControlledIdealIntermediateSwitch
     "Controlled ideal intermediate switch"
@@ -1411,7 +1421,10 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
             extent={{-150,150},{150,110}},
             textString="%name",
             textColor={0,0,255}),
-          Line(points={{-100,-100},{-100,-80}}, color={0,0,255})}),
+          Line(
+            points={{-100,-100},{-100,-80}},
+            color={255,0,255},
+            pattern=LinePattern.Dash)}),
                                     Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
 

@@ -114,7 +114,6 @@ A function for calculating the <a href=\"modelica://Modelica.Electrical.Polyphas
   </tr>
 </table>
 
-
 <h4>Note</h4>
 
 <p>

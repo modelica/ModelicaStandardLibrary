@@ -22,7 +22,7 @@ equation
           lineColor={85,170,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
-        Text(extent={{150,-40},{-148,-80}}, textString="G=%G_ref"),
+        Text(extent={{150,-40},{-150,-80}}, textString="G=%G_ref"),
         Text(
           extent={{-150,90},{150,50}},
           textString="%name",

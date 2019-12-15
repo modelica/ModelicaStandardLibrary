@@ -80,7 +80,7 @@ package ReferenceMoistAir
         p,
         T,
         Xi);
-    R = dryair.R*(X_air/(1 - X_liquid)) + steam.R*X_steam/(1 - X_liquid);
+    R_s = dryair.R_s*(X_air/(1 - X_liquid)) + steam.R_s*X_steam/(1 - X_liquid);
     u = Modelica.Media.Air.ReferenceMoistAir.Utilities.u_pTX(
         p,
         T,
@@ -337,7 +337,7 @@ package ReferenceMoistAir
     "Return ideal gas constant as a function from thermodynamic state, only valid for phi<1"
 
   algorithm
-    R := dryair.R*(1 - state.X[Water]) + steam.R*state.X[Water];
+    R_s := dryair.R_s*(1 - state.X[Water]) + steam.R_s*state.X[Water];
   end gasConstant;
 
   function saturationPressureLiquid
@@ -854,7 +854,7 @@ package ReferenceMoistAir
         da := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T);
         if ((xw <= xws) or (xws == -1)) then
           if (T < 273.16) then
-            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
             ya := da/(da + dd);
             yd := 1 - ya;
             Tred := T/coef.epsilon;
@@ -878,7 +878,7 @@ package ReferenceMoistAir
           end if;
         else
           if (T < 273.16) then
-            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
             ya := da/(da + dd);
             yd := 1 - ya;
             Tred := T/coef.epsilon;
@@ -948,7 +948,7 @@ package ReferenceMoistAir
         da := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T);
         if ((xw <= xws) or (xws == -1)) then
           if (T < 273.16) then
-            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
             ya := da/(da + dd);
             yd := 1 - ya;
             Tred := T/coef.epsilon;
@@ -976,7 +976,7 @@ package ReferenceMoistAir
           end if;
         else
           if (T < 273.16) then
-            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+            dd := pd/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
             df :=
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
               p, T);
@@ -1740,7 +1740,7 @@ package ReferenceMoistAir
       algorithm
         g.p := p;
         g.T := T;
-        g.R := Modelica.Media.Water.IF97_Utilities.BaseIF97.data.RH2O;
+        g.R_s := Modelica.Media.Water.IF97_Utilities.BaseIF97.data.RH2O;
         g.pi := p/Modelica.Media.Water.IF97_Utilities.BaseIF97.data.PSTAR2;
         g.tau := Modelica.Media.Water.IF97_Utilities.BaseIF97.data.TSTAR2/T;
         tau2 := -0.5 + g.tau;
@@ -1934,7 +1934,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        h := g.R*T*g.tau*g.gtau;
+        h := g.R_s*T*g.tau*g.gtau;
         annotation (
           derivative(noDerivative=region) = h_pT_der,
           Inline=false,
@@ -1954,7 +1954,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        s := g.R*(g.tau*g.gtau - g.g);
+        s := g.R_s*(g.tau*g.gtau - g.g);
       end s_pT;
 
       function cp_pT
@@ -1973,7 +1973,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        cp := -g.R*g.tau*g.tau*g.gtautau;
+        cp := -g.R_s*g.tau*g.tau*g.gtautau;
       end cp_pT;
 
       function cv_pT
@@ -1991,7 +1991,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        cv := g.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi -
+        cv := g.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi -
           g.tau*g.gtaupi)/g.gpipi));
       end cv_pT;
 
@@ -2006,7 +2006,7 @@ package ReferenceMoistAir
 
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        rho := p/(g.R*T*g.pi*g.gpi);
+        rho := p/(g.R_s*T*g.pi*g.gpi);
         annotation (
           derivative=rho_pT_der,
           Inline=false,
@@ -2027,9 +2027,9 @@ package ReferenceMoistAir
         Real vt;
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        vt := g.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-        vp := g.R*T/(p*p)*g.pi*g.pi*g.gpipi;
-        d := p/(g.R*T*g.pi*g.gpi);
+        vt := g.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+        vp := g.R_s*T/(p*p)*g.pi*g.pi*g.gpipi;
+        d := p/(g.R_s*T*g.pi*g.gpi);
         rho_der := (-d^2*vp)*p_der + (-d^2*vt)*T_der;
       end rho_pT_der;
 
@@ -2248,9 +2248,9 @@ package ReferenceMoistAir
       algorithm
         //region 2
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
-        vt := g.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
-        rho := max(p/(g.R*T*g.pi*g.gpi), 1e-9);
-        h_der := (1/rho - T*vt)*p_der - g.R*g.tau*g.tau*g.gtautau*T_der;
+        vt := g.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+        rho := max(p/(g.R_s*T*g.pi*g.gpi), 1e-9);
+        h_der := (1/rho - T*vt)*p_der - g.R_s*g.tau*g.tau*g.gtautau*T_der;
 
       end h_pT_der;
     end IF97_new;
@@ -2261,7 +2261,7 @@ package ReferenceMoistAir
 
       constant Common.FundamentalConstants Constants(
         R_bar=8.314371,
-        R=461.51805,
+        R_s=461.51805,
         MM=18.015268E-003,
         rhored=322,
         Tred=647.096,
@@ -2442,114 +2442,9 @@ package ReferenceMoistAir
           Modelica.SIunits.AbsolutePressure p0;
         end IceConstants;
 
-      protected
-        record MyComplex "Complex number with function"
-          extends Modelica.Icons.Record;
-          Real re "Real part of complex number" annotation (Dialog);
-          Real im "Imaginary part of complex number" annotation (Dialog);
-        end MyComplex;
-
-        package MyComplexF
-          extends Modelica.Icons.FunctionsPackage;
-          function toReal "Extract Real part from Complex number"
-            extends Modelica.Icons.Function;
-            input MyComplex c "Complex number";
-            output Real result=c.re "Real number";
-          algorithm
-
-            annotation (Inline=true, Documentation(info="<html>
-<p>This function returns the real part of a complex number.</p>
-</html>"));
-          end toReal;
-
-          function '-' "Subtract two complex numbers"
-            extends Modelica.Icons.Function;
-            input MyComplex c1 "Complex number 1";
-            input MyComplex c2 "Complex number 2";
-            output MyComplex c3 "= c1 - c2";
-          algorithm
-            c3 := MyComplex(c1.re - c2.re, c1.im - c2.im);
-            annotation (Inline=true,Documentation(info="<html>
-<p>This function returns the difference of two given Complex numbers.</p>
-</html>"));
-          end '-';
-
-          function '*' "Multiplication"
-            extends Modelica.Icons.Function;
-            input MyComplex c1 "Complex number 1";
-            input MyComplex c2 "Complex number 2";
-            output MyComplex c3 "= c1*c2";
-          algorithm
-            c3 := MyComplex(c1.re*c2.re - c1.im*c2.im, c1.re*c2.im + c1.im*c2.re);
-
-            annotation (Inline=true, Documentation(info="<html>
-<p>This function returns the product of two given Complex numbers.</p>
-</html>"));
-          end '*';
-
-          function '+' "Add two complex numbers"
-            extends Modelica.Icons.Function;
-            input MyComplex c1 "Complex number 1";
-            input MyComplex c2 "Complex number 2";
-            output MyComplex c3 "= c1 + c2";
-          algorithm
-            c3 := MyComplex(c1.re + c2.re, c1.im + c2.im);
-            annotation (Inline=true,Documentation(info="<html>
-<p>This function returns the sum of two given Complex numbers.</p>
-</html>"));
-          end '+';
-
-          function '/' "Divide two complex numbers"
-            extends Modelica.Icons.Function;
-            input MyComplex c1 "Complex number 1";
-            input MyComplex c2 "Complex number 2";
-            output MyComplex c3 "= c1/c2";
-          algorithm
-            c3 := MyComplex((+c1.re*c2.re + c1.im*c2.im)/(c2.re*c2.re + c2.im*
-              c2.im), (-c1.re*c2.im + c1.im*c2.re)/(c2.re*c2.re + c2.im*c2.im));
-            annotation (Inline=true,Documentation(info="<html>
-<p>This function returns the quotient of two given Complex numbers.</p>
-</html>"));
-          end '/';
-
-          function '^' "Complex power of complex number"
-            extends Modelica.Icons.Function;
-            input MyComplex c1 "Complex number";
-            input MyComplex c2 "Complex exponent";
-            output MyComplex c3 "= c1^c2";
-          protected
-            Real lnz=0.5*log(c1.re*c1.re + c1.im*c1.im);
-            Real phi=atan2(c1.im, c1.re);
-            Real re=lnz*c2.re - phi*c2.im;
-            Real im=lnz*c2.im + phi*c2.re;
-          algorithm
-            c3 := MyComplex(exp(re)*cos(im), exp(re)*sin(im));
-            annotation (Inline=true,Documentation(info="<html>
-<p>This function returns the given Complex numbers c1 to the power of the Complex number c2.</p>
-</html>"));
-          end '^';
-
-          function 'log' "Logarithm of complex number"
-            extends Modelica.Icons.Function;
-            import Modelica.Math.atan3;
-            input MyComplex c1 "Complex number";
-            output MyComplex c2 "= log(c1)";
-          protected
-            Real phi=atan3(
-                          c1.im,
-                          c1.re,
-                          0);
-          algorithm
-            c2 := MyComplex(log((c1.re^2 + c1.im^2)^0.5), phi);
-            annotation (Inline=true,Documentation(info="<html>
-<p>This function returns the Complex natural logarithm of the Complex input.</p>
-</html>"));
-          end 'log';
-        end MyComplexF;
-      public
         constant IceConstants Constants(
           R_bar=8.314472,
-          R=461.52364,
+          R_s=461.52364,
           MM=18.015268E-003,
           rhored=1.0,
           Tred=273.16,
@@ -2570,14 +2465,14 @@ package ReferenceMoistAir
               -0.189369929326131E-007,0.339746123271053E-014,-0.556464869058991E-021}
             "Coefficients of EOS";
           final constant Real s_0=-0.332733756492168E+004 "Coefficient of EOS";
-          final MyComplex[2] t={MyComplex(0.368017112855051E-001,
-              0.510878114959572E-001),MyComplex(0.337315741065416,
+          final Complex[2] t={Complex(0.368017112855051E-001,
+              0.510878114959572E-001),Complex(0.337315741065416,
               0.335449415919309)} "Coefficients of EOS";
-          final constant MyComplex r_1=MyComplex(0.447050716285388E+002,
+          final constant Complex r_1=Complex(0.447050716285388E+002,
               0.656876847463481E+002) "Coefficients of EOS";
-          final MyComplex[3] r_2={MyComplex(-0.725974574329220E+002, -0.781008427112870E+002),
-              MyComplex(-0.557107698030123E-004, 0.464578634580806E-004),
-              MyComplex(0.234801409215913E-010, -0.285651142904972E-010)}
+          final Complex[3] r_2={Complex(-0.725974574329220E+002, -0.781008427112870E+002),
+              Complex(-0.557107698030123E-004, 0.464578634580806E-004),
+              Complex(0.234801409215913E-010, -0.285651142904972E-010)}
             "Coefficients of EOS";
           final Real pi0=Constants.p0/Constants.pred "Reduced pressure";
 
@@ -2585,20 +2480,20 @@ package ReferenceMoistAir
           Real g0=0.0 "Help variable";
           Real g0p=0.0 "Help variable";
           Real g0pp=0.0 "Help variable";
-          MyComplex r2 "Help variable";
-          MyComplex r2p "Help variable";
-          MyComplex r2pp "Help variable";
-          MyComplex o[12] "Help variable";
+          Complex r2 "Help variable";
+          Complex r2p "Help variable";
+          Complex r2pp "Help variable";
+          Complex o[12] "Help variable";
 
         algorithm
           g.p := p;
           g.T := T;
-          g.R := Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.R;
+          g.R_s := Constants.R_s;
 
           //Reduced pressure
-          g.pi := g.p/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred;
+          g.pi := g.p/Constants.pred;
           //Reduced temperature
-          g.theta := g.T/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred;
+          g.theta := g.T/Constants.Tred;
 
           //calculate temporary values
           //0^0 may result in an error, so we have to use a workaround
@@ -2608,53 +2503,38 @@ package ReferenceMoistAir
           end for;
           r2 := r_2[1];
           for k in 2:3 loop
-            r2 := MyComplexF.'+'(r2, MyComplexF.'*'(r_2[k], MyComplex((g.pi - pi0)
-              ^(k - 1), 0)));
+            r2 := r2 + (r_2[k] * Complex((g.pi - pi0)^(k - 1)));
           end for;
 
           //First derivative of g0 w.r.t. pi
-          g0p := g_0[2]/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred;
+          g0p := g_0[2]/Constants.pred;
           for k in 3:5 loop
-            g0p := g0p + g_0[k]*(k - 1)/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
-              *(g.pi - pi0)^(k - 2);
+            g0p := g0p + g_0[k]*(k - 1)/Constants.pred*(g.pi - pi0)^(k - 2);
           end for;
           //First derivative of r2 w.r.t. pi
-          r2p := MyComplexF.'+'(MyComplexF.'/'(r_2[2], MyComplex(Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.
-             pred, 0)), MyComplexF.'*'(MyComplexF.'/'(r_2[3], MyComplex(Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.
-             pred/2, 0)), MyComplex(g.pi - pi0, 0)));
+          r2p := (r_2[2] / Complex(Constants.pred)) + ((r_2[3] / Complex(Constants.pred/2)) * Complex(g.pi - pi0));
           //Second derivative of g0 w.r.t. pi
-          g0pp := g_0[3]*2/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
-            ^2;
+          g0pp := g_0[3]*2/Constants.pred^2;
           for k in 4:5 loop
-            g0pp := g0pp + g_0[k]*(k - 1)*(k - 2)/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
-              ^2*(g.pi - pi0)^(k - 3);
+            g0pp := g0pp + g_0[k]*(k - 1)*(k - 2)/Constants.pred^2*(g.pi - pi0)^(k - 3);
           end for;
           //Second derivative of g0 w.r.t. pi
-          r2pp := MyComplexF.'*'(r_2[3], MyComplex(2/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
-            ^2, 0));
+          r2pp := r_2[3] * Complex(2/Constants.pred^2);
 
-          o[1] := MyComplexF.'*'(MyComplexF.'-'(t[1], MyComplex(g.theta, 0)),
-            MyComplexF.'log'(MyComplexF.'-'(t[1], MyComplex(g.theta, 0))));
-          o[2] := MyComplexF.'*'(MyComplexF.'+'(t[1], MyComplex(g.theta, 0)),
-            MyComplexF.'log'(MyComplexF.'+'(t[1], MyComplex(g.theta, 0))));
-          o[3] := MyComplexF.'*'(MyComplexF.'-'(t[2], MyComplex(g.theta, 0)),
-            MyComplexF.'log'(MyComplexF.'-'(t[2], MyComplex(g.theta, 0))));
-          o[4] := MyComplexF.'*'(MyComplexF.'+'(t[2], MyComplex(g.theta, 0)),
-            MyComplexF.'log'(MyComplexF.'+'(t[2], MyComplex(g.theta, 0))));
-          o[5] := MyComplexF.'*'(MyComplexF.'*'(MyComplex(2, 0), t[1]),
-            MyComplexF.'log'(t[1]));
-          o[6] := MyComplexF.'*'(MyComplexF.'*'(MyComplex(2, 0), t[2]),
-            MyComplexF.'log'(t[2]));
-          o[7] := MyComplexF.'/'(MyComplex(g.theta^2, 0), t[1]);
-          o[8] := MyComplexF.'/'(MyComplex(g.theta^2, 0), t[2]);
-          o[9] := MyComplexF.'-'(MyComplexF.'-'(MyComplexF.'+'(o[1], o[2]), o[5]),
-            o[7]);
-          o[10] := MyComplexF.'-'(MyComplexF.'-'(MyComplexF.'+'(o[3], o[4]), o[6]),
-            o[8]);
+          o[1] := (t[1] - Complex(g.theta)) * Modelica.ComplexMath.log(t[1] - Complex(g.theta));
+          o[2] := (t[1] + Complex(g.theta)) * Modelica.ComplexMath.log(t[1] + Complex(g.theta));
+          o[3] := (t[2] - Complex(g.theta)) * Modelica.ComplexMath.log(t[2] - Complex(g.theta));
+          o[4] := (t[2] + Complex(g.theta)) * Modelica.ComplexMath.log(t[2] + Complex(g.theta));
+          o[5] := (Complex(2) * t[1]) * Modelica.ComplexMath.log(t[1]);
+          o[6] := (Complex(2) * t[2]) * Modelica.ComplexMath.log(t[2]);
+          o[7] := Complex(g.theta^2) / t[1];
+          o[8] := Complex(g.theta^2) / t[2];
+          o[9] := o[1] + o[2] - o[5] - o[7];
+          o[10] := o[3] + o[4] - o[6] - o[8];
 
           //   //Gibbs equation
-          //   g.g := g0 - s_0*Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-          //     *g.theta + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
+          //   g.g := g0 - s_0*Constants.Tred
+          //     *g.theta + Constants.Tred
           //     *GibbsComplex.fromReal(r_1*((t[1] - g.theta)*GibbsComplexMath.log(t[1] - g.theta)
           //      + (t[1] + g.theta)*GibbsComplexMath.log(t[1] + g.theta) - 2*t[1]*
           //     GibbsComplexMath.log(t[1]) - g.theta^2/t[1]) + r2*((t[2] - g.theta)*
@@ -2663,10 +2543,7 @@ package ReferenceMoistAir
           //     g.theta^2/t[2]));
 
           //   //Gibbs equation
-          g.g := g0 - s_0*Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-            *g.theta + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-            *MyComplexF.toReal(MyComplexF.'+'(MyComplexF.'*'(r_1, o[9]),
-            MyComplexF.'*'(r2, o[10])));
+          g.g := g0 - s_0*Constants.Tred*g.theta + Constants.Tred*Modelica.ComplexMath.real((r_1 * o[9]) + (r2 * o[10]));
 
           // //First derivative of g w.r.t. p
           // g.gp := g0p + MoMoLib.Water.IAPWS09.Ice09_Utilities.Basic.Constants.Tred*
@@ -2675,64 +2552,46 @@ package ReferenceMoistAir
           //    - g.theta^2/t[2]));
 
           // //First derivative of g w.r.t. p
-          g.gp := g0p + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-            *MyComplexF.toReal(MyComplexF.'*'(r2p, o[10]));
+          g.gp := g0p + Constants.Tred*Modelica.ComplexMath.real(r2p * o[10]);
 
           //   //Second derivative of g w.r.t. p
-          //   g.gpp := g0pp + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
+          //   g.gpp := g0pp + Constants.Tred
           //     *GibbsComplex.fromReal(r2pp*((t[2] - g.theta)*GibbsComplexMath.log(t[2] - g.theta)
           //      + (t[2] + g.theta)*GibbsComplexMath.log(t[2] + g.theta) - 2*t[2]*
           //     GibbsComplexMath.log(t[2]) - g.theta^2/t[2]));
 
           // //Second derivative of g w.r.t. p
-          g.gpp := g0pp + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-            *MyComplexF.toReal(MyComplexF.'*'(r2pp, o[10]));
+          g.gpp := g0pp + Constants.Tred*Modelica.ComplexMath.real(r2pp * o[10]);
 
           //   //First derivative of g w.r.t. T
-          //   g.gT := -s_0 + GibbsComplex.fromReal(r_1*(
-          //      + GibbsComplexMath.log(t[1] + g.theta) - 2*g.theta/t[1] -GibbsComplexMath.log(t[1] - g.theta)) + r2*(-
-          //     GibbsComplexMath.log(t[2] - g.theta) + GibbsComplexMath.log(t[2] + g.theta) -
-          //     2*g.theta/t[2]));
+          //   g.gT := -s_0 + GibbsComplex.fromReal(
+          //       r_1*(+ GibbsComplexMath.log(t[1] + g.theta) - 2*g.theta/t[1] - GibbsComplexMath.log(t[1] - g.theta))
+          //     + r2 *(- GibbsComplexMath.log(t[2] - g.theta) + GibbsComplexMath.log(t[2] + g.theta) - 2*g.theta/t[2]));
 
-          o[11] := MyComplexF.'-'(MyComplexF.'-'(MyComplexF.'log'(MyComplexF.'+'(t[
-            1], MyComplex(g.theta, 0))), MyComplexF.'/'(MyComplex(2*g.theta, 0),
-            t[1])), MyComplexF.'log'(MyComplexF.'-'(t[1], MyComplex(g.theta, 0))));
+          o[11] := Modelica.ComplexMath.log(t[1] + Complex(g.theta)) - (Complex(2*g.theta) / t[1]) - Modelica.ComplexMath.log(t[1] - Complex(g.theta));
 
-          o[12] := MyComplexF.'-'(MyComplexF.'-'(MyComplexF.'log'(MyComplexF.'+'(t[
-            2], MyComplex(g.theta, 0))), MyComplexF.'log'(MyComplexF.'-'(t[2],
-            MyComplex(g.theta, 0)))), MyComplexF.'/'(MyComplex(2*g.theta, 0), t[
-            2]));
+          o[12] := Modelica.ComplexMath.log(t[2] + Complex(g.theta)) - Modelica.ComplexMath.log(t[2] - Complex(g.theta)) - (Complex(2*g.theta) / t[2]);
 
           //   //First derivative of g w.r.t. T
-          g.gT := -s_0 + MyComplexF.toReal(MyComplexF.'+'(MyComplexF.'*'(r_1, o[11]),
-            MyComplexF.'*'(r2, o[12])));
+          g.gT := -s_0 + Modelica.ComplexMath.real((r_1 * o[11]) + (r2 * o[12]));
 
           //   //Second derivative of g w.r.t. T
-          //   g.gTT := 1/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-          //     *GibbsComplex.fromReal(r_1*(1/(t[1] - g.theta) + 1/(t[1] + g.theta) - 2/t[1])
-          //      + r2*(1/(t[2] - g.theta) + 1/(t[2] + g.theta) - 2/t[2]));
+          //   g.gTT := 1/Constants.Tred*GibbsComplex.fromReal(
+          //       r_1*(1/(t[1] - g.theta) + 1/(t[1] + g.theta) - 2/t[1])
+          //     + r2 *(1/(t[2] - g.theta) + 1/(t[2] + g.theta) - 2/t[2]));
 
           //   //Second derivative of g w.r.t. T
-          g.gTT := 1/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-            *MyComplexF.toReal(MyComplexF.'+'(MyComplexF.'*'(r_1, MyComplexF.'-'(
-            MyComplexF.'+'(MyComplexF.'/'(MyComplex(1, 0), MyComplexF.'-'(t[1],
-            MyComplex(g.theta, 0))), MyComplexF.'/'(MyComplex(1, 0),
-            MyComplexF.'+'(t[1], MyComplex(g.theta, 0)))), MyComplexF.'/'(
-            MyComplex(2, 0), t[1]))), MyComplexF.'*'(r2, MyComplexF.'-'(
-            MyComplexF.'+'(MyComplexF.'/'(MyComplex(1, 0), MyComplexF.'-'(t[2],
-            MyComplex(g.theta, 0))), MyComplexF.'/'(MyComplex(1, 0),
-            MyComplexF.'+'(t[2], MyComplex(g.theta, 0)))), MyComplexF.'/'(
-            MyComplex(2, 0), t[2])))));
+          g.gTT := 1/Constants.Tred*Modelica.ComplexMath.real(
+              (r_1 * (((Complex(1) / (t[1] - Complex(g.theta))) + (Complex(1) / (t[1] + Complex(g.theta)))) - (Complex(2) / t[1])))
+            + (r2  * (((Complex(1) / (t[2] - Complex(g.theta))) + (Complex(1) / (t[2] + Complex(g.theta)))) - (Complex(2) / t[2]))));
 
           //  //Mixed derivative of g w.r.t. T and p
           // g.gTp := ComplexMath.real(r2p*(-ComplexMath.log(t[2] - g.theta) +
           //   ComplexMath.log(t[2] + g.theta) - 2*g.theta/t[2]));
 
           //  //Mixed derivative of g w.r.t. T and p
-          g.gTp := MyComplexF.toReal(MyComplexF.'*'(r2p, MyComplexF.'-'(
-            MyComplexF.'log'(MyComplexF.'+'(t[2], MyComplex(g.theta, 0))),
-            MyComplexF.'+'(MyComplexF.'/'(MyComplex(2*g.theta, 0), t[2]),
-            MyComplexF.'log'(MyComplexF.'-'(t[2], MyComplex(g.theta, 0)))))));
+          g.gTp := Modelica.ComplexMath.real(r2p * (Modelica.ComplexMath.log(t[2] + Complex(g.theta)) -
+            ((Complex(2*g.theta) / t[2]) + Modelica.ComplexMath.log(t[2] - Complex(g.theta)))));
 
         end Gibbs;
 
@@ -2744,21 +2603,20 @@ package ReferenceMoistAir
 
         protected
           final constant Real[3] a={-0.212144006E+002,0.273203819E+002,-0.610598130E+001};
-          final constant Real[3] b={0.333333333E-002,0.120666667E+001,
-              0.170333333E+001};
+          final constant Real[3] b={0.333333333E-002,0.120666667E+001,0.170333333E+001};
           Real theta=0;
           Real sum=0;
 
         algorithm
           /*assert(T >= 50 and T < 273.16, "IAPWS-95 medium function psub: input temperature T = "
      + String(T) + " K\n" + "must be in the range 50 <= T < 273.16 K.");*/
-          theta := T/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred;
+          theta := T/Constants.Tred;
 
           for k in 1:3 loop
             sum := sum + a[k]*theta^b[k];
           end for;
 
-          p_sub := exp(sum/theta)*Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred;
+          p_sub := exp(sum/theta)*Constants.pred;
           annotation (
             derivative=psub_der,
             Inline=false,
@@ -2776,9 +2634,7 @@ package ReferenceMoistAir
             input Modelica.SIunits.AbsolutePressure p "Pressure";
 
           algorithm
-            y :=
-              Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.psub(
-              u) - p;
+            y := Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.psub(u) - p;
 
           end Tsub_res;
 
@@ -2809,17 +2665,15 @@ package ReferenceMoistAir
         algorithm
           /*assert(T >= 50 and T < 273.16, "IAPWS-95 medium function psub: input temperature T = "
      + String(T) + " K\n" + "must be in the range 50 <= T < 273.16 K.");*/
-          theta := T/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred;
-          theta_der := 1/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred;
+          theta := T/Constants.Tred;
+          theta_der := 1/Constants.Tred;
 
           for k in 1:3 loop
             sum := sum + a[k]*theta^b[k];
             sum_der := sum_der + a[k]*b[k]*theta^(b[k] - 1)*theta_der;
           end for;
 
-          p_sub_der := (sum_der*theta - sum*theta_der)/theta^2*exp(sum/theta)*
-            Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
-            *T_der;
+          p_sub_der := (sum_der*theta - sum*theta_der)/theta^2*exp(sum/theta)*Constants.pred*T_der;
 
         end psub_der;
 
@@ -2836,7 +2690,7 @@ package ReferenceMoistAir
       algorithm
         aux.p := p;
         aux.T := T;
-        aux.R := Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.R;
+        aux.R_s := Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.R_s;
         g := Basic.Gibbs(aux.p, T);
         aux.rho := 1/g.gp;
         aux.h := g.g - g.T*g.gT - Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.h_off;
@@ -3069,36 +2923,20 @@ package ReferenceMoistAir
 
         //v_ws is the molar volume of saturated water
         v_ws := if (T >= 273.16) then Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.molarMass
-          /Modelica.Media.Water.IF97_Utilities.rho_pT(p, T) else Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.
-           MM/
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
-          p, T);
+          /Modelica.Media.Water.IF97_Utilities.rho_pT(p, T) else Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.MM
+		  /Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(p, T);
 
         //beta_H is Henry's law constant
         beta_H := Modelica.Media.Air.ReferenceMoistAir.Utilities.beta_H(p, T);
 
         //calculating the virial coefficients baa, baw, bww, caaa, caaw, caww, cwww
-        baa :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Baa_dT(
-          0, T);
-        baw :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Baw_dT(
-          0, T);
-        bww :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Bww_dT(
-          0, T);
-        caaa :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caaa_dT(
-          0, T);
-        caaw :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caaw_dT(
-          0, T);
-        caww :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caww_dT(
-          0, T);
-        cwww :=
-          Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Cwww_dT(
-          0, T);
+        baa := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Baa_dT(0, T);
+        baw := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Baw_dT(0, T);
+        bww := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Bww_dT(0, T);
+        caaa := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caaa_dT(0, T);
+        caaw := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caaw_dT(0, T);
+        caww := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Caww_dT(0, T);
+        cwww := Modelica.Media.Air.ReferenceMoistAir.Utilities.VirialCoefficients.Cwww_dT(0, T);
 
         y := ((1 + kappa_T*p_ws)*(p - p_ws) - kappa_T*(p^2 - p_ws^2)/2)/(R_bar*
           T)*v_ws + log(1 - beta_H*(1 - x*p_ws/p)*p) + (1 - x*p_ws/p)^2*p/(
@@ -3161,7 +2999,7 @@ package ReferenceMoistAir
         if ((xw <= xws) or (xws == -1)) then
           if (T < 273.16) then
             d := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) +
-              pd/(.Modelica.Media.Air.ReferenceMoistAir.steam.R*T);
+              pd/(.Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T);
           else
             d := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) +
               IF97_new.rho_pT(pd, T);
@@ -3170,7 +3008,7 @@ package ReferenceMoistAir
           if (T < 273.16) then
             d := (1 + xw)/((1 + xws)/(
               Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) + pd/
-              (.Modelica.Media.Air.ReferenceMoistAir.steam.R*T)) + (xw - xws)/
+              (.Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T)) + (xw - xws)/
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
               p, T));
           else
@@ -3971,8 +3809,8 @@ package ReferenceMoistAir
                   Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
                 pl, T),
                   pl_der,
-                  T_der) + Modelica.Media.Air.ReferenceMoistAir.steam.R*(pd_der
-              *T - pd*T_der)/(Modelica.Media.Air.ReferenceMoistAir.steam.R*T)^2;
+                  T_der) + Modelica.Media.Air.ReferenceMoistAir.steam.R_s*(pd_der
+              *T - pd*T_der)/(Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T)^2;
 
           else
             d_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der(
@@ -3996,7 +3834,7 @@ package ReferenceMoistAir
               p, T);
             o[3] := ((1 + xws)/(
               Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) + pd/
-              (.Modelica.Media.Air.ReferenceMoistAir.steam.R*T)) + (xw - xws)/
+              (.Modelica.Media.Air.ReferenceMoistAir.steam.R_s*T)) + (xw - xws)/
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
               p, T));
             o[4] := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der(
@@ -4008,7 +3846,7 @@ package ReferenceMoistAir
                   T_der);
 
             o[5] := (xws_der*o[1] - (1 + xws)*o[4])/o[1]^2 + (pd_der*T - pd*
-              T_der)/Modelica.Media.Air.ReferenceMoistAir.steam.R/T^2 + (xw_der
+              T_der)/Modelica.Media.Air.ReferenceMoistAir.steam.R_s/T^2 + (xw_der
               *o[2] - xw*
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der(
                   p,
@@ -4615,7 +4453,6 @@ Ideal mixture of saturated humid air and ice
 <li>&eta; of ice is neglected</li>
 </ul>
 
-
 <h5>Saturation pressure of water in moist air</h5>
 <p>
 The saturation pressure p<sub>ds</sub> of water in moist air is calculated by p<sub>ds</sub> = f*p<sub>sat</sub>, where
@@ -4626,7 +4463,6 @@ The saturation pressure p<sub>ds</sub> of water in moist air is calculated by p<
 <li>p<sub>sat</sub> for T &ge; 273.16 K is the saturation pressure from [4]</li>
 <li>p<sub>sat</sub> for T &lt; 273.16 K is the saturation pressure from [8]</li>
 </ul>
-
 
 <h5>Dissociation</h5>
 <p>
@@ -4682,7 +4518,6 @@ and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</strong>. J. Phys. Chem. R
 Nitrogen, Oxygen, Argon, and Air</strong>. International Journal of Thermophysics, Vol. 25, No. 1, January 2004
 </dd>
 </dl>
-
 
 <h4>Verification</h4>
 <p>

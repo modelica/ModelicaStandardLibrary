@@ -35,10 +35,10 @@ package Lines
         start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
     parameter SI.LinearTemperatureCoefficient alpha_R=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
-      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+    parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -108,12 +108,11 @@ package Lines
 <br> The resistances are calculated with : R=r*length/(N+1).
 <br> The inductances are calculated with : L=l*length/(N+1).
 <br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.</p>
-<p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R_actual = R*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G/(1 + alpha*(T_heatPort - T_ref)).</code></p>
+<p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the OLine becomes temperature sensitive due to their resistors which resistances are calculated by <code>R_actual = R*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G/(1 + alpha*(heatPort.T - T_ref)).</code></p>
 <p>Note, this is different to the lumped line model of SPICE.</p>
 
-<dl><dt><strong>References:</strong> </dt>
-<dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
-</dl></html>", revisions="<html>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
+</html>",      revisions="<html>
 <ul>
 <li><em> 2016   </em>
        by Christoph Clauss<br> resistance and inductance calculation revised<br>
@@ -171,10 +170,10 @@ package Lines
       each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
       7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
     parameter SI.LinearTemperatureCoefficient alpha_R=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G=0
-      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+    parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -204,10 +203,10 @@ package Lines
       parameter Real Gl[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Conductance matrix";
       parameter SI.LinearTemperatureCoefficient alpha_R
-        "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+        "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
       parameter SI.LinearTemperatureCoefficient alpha_G
-        "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
-      parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
+        "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+      parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
         annotation (
         Evaluate=true,
         HideResult=true,
@@ -308,7 +307,7 @@ package Lines
       parameter Real Ll[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Inductance matrix";
       parameter SI.LinearTemperatureCoefficient alpha_R
-        "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+        "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
       parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
         annotation (
         Evaluate=true,
@@ -479,7 +478,7 @@ package Lines
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
 </blockquote>
 
-<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R_actual = R*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G/(1 + alpha*(T_heatPort - T_ref)).</p>
+<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R_actual = R*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G/(1 + alpha*(heatPort.T - T_ref)).</p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
@@ -539,8 +538,8 @@ package Lines
         start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
     parameter SI.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort=false "= true, if HeatPort is enabled"
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
+    parameter Boolean useHeatPort=false "= true, if heatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
@@ -595,13 +594,11 @@ package Lines
 <p>
 The capacitances are calculated with: C=c*length/N.
 <br>The resistances are calculated with: R=r*length/(N+1).
-<br>For all capacitors and resistors the values of each segment are the same except for the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the ULine becomes temperature sensitive</p>
+<br>For all capacitors and resistors the values of each segment are the same except for the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the ULine becomes temperature sensitive</p>
 <p>due to their resistors which resistances are calculated by <code>R_actual= R*(1 + alpha*(heatPort.T - T_ref)).</code></p>
 <p>Note, this is different compared with the lumped line model of SPICE.</p>
-<p><strong>References</strong></p>
-<dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
-<dd>SPICE3 Version 3e User&#39;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
-</dl></html>", revisions="<html>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
+</html>",      revisions="<html>
 <dl>
 <dt><em>2016</em></dt>
 <dd>by Christoph Clauss resistance calculation revised</dd>
@@ -651,13 +648,12 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (defaultComponentName="line",
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
-<p><strong>References:</strong></p>
-<dl><dt>Branin Jr., F. H.</dt>
-<dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
-<dt>Hoefer, E. E. E.; Nielinger, H.</dt>
-<dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
-</dl></html>", revisions="<html>
+<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
+
+<p><strong>References:</strong> 
+   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
+   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+</html>",      revisions="<html>
 <ul>
 <li><em> 1998   </em>
        by Joachim Haase<br> initially implemented<br>
@@ -721,13 +717,11 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (defaultComponentName="line",
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
-<p><strong>References:</strong></p>
-<dl><dt>Branin Jr., F. H.</dt>
-<dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
-<dt>Hoefer, E. E. E.; Nielinger, H.</dt>
-<dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
-</dl></html>", revisions="<html>
+<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
+<p><strong>References:</strong> 
+   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
+   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+</html>",      revisions="<html>
 <dl>
 <dt><em>1998</em></dt>
 <dd>by Joachim Haase initially implemented</dd>
@@ -786,13 +780,11 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (defaultComponentName="line",
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;s article below. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
-<p><strong>References:</strong></p>
-<dl><dt>Branin Jr., F. H.</dt>
-<dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
-<dt>Hoefer, E. E. E.; Nielinger, H.</dt>
-<dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
-</dl></html>", revisions="<html>
+<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
+<p><strong>References:</strong> 
+   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
+   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+</html>",      revisions="<html>
 <ul>
 <li><em> 1998   </em>
        by Joachim Haase<br> initially implemented<br>
@@ -833,7 +825,6 @@ The capacitances are calculated with: C=c*length/N.
               textString="TLine3",
               textColor={0,0,255})}));
   end TLine3;
-
   annotation (Documentation(info="<html>
 <p>This package contains lossy and lossless segmented transmission lines, and LC distributed line models. The line models do not yet possess a conditional heating port.</p>
 </html>", revisions="<html>

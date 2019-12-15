@@ -1,15 +1,6 @@
 within Modelica.Thermal.HeatTransfer;
 package Components "Lumped thermal components"
-extends Modelica.Icons.Package;
-
-
-
-
-
-
-
-
-
+  extends Modelica.Icons.Package;
   annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
     Rectangle(
       origin = {12,40},

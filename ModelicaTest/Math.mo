@@ -283,7 +283,6 @@ extends Modelica.Icons.ExamplesPackage;
 
     Real H1[5,5];
     Real U1[5,5];
-    Real u[5];
 
     Real N[:,:]= fill(0,0,0);
     Real Xn[0,0];
@@ -298,6 +297,9 @@ extends Modelica.Icons.ExamplesPackage;
     Real sigma8[0];
     Real U8[0,0];
     Real VT8[0,0];
+    Real TA1[5,5]=[4,1,2,3,5;0,1,2,3,5;0,4,5,6,8;0,7,8,9,1;0,0,0,0,2]; // In block Hessenberg form
+    Real TH1[5,5];
+    Real TH2[5,5];
   algorithm
   //  ##########   continuous Lyapunov   ##########
     X1 := Matrices.continuousLyapunov(A1,C1);// benchmark example from SLICOT
@@ -463,6 +465,12 @@ extends Modelica.Icons.ExamplesPackage;
     Xn := Modelica.Math.Matrices.hessenberg(N);
     Xn := Modelica.Math.Matrices.realSchur(N);
 
+    TH1 := Modelica.Math.Matrices.Utilities.toUpperHessenberg(TA1);
+    TH2 := Modelica.Math.Matrices.Utilities.toUpperHessenberg(TA1,2,4);
+    r := Matrices.norm(TH1-TH2);
+    Modelica.Utilities.Streams.print("Optimized toUpperHessenberg: r = "+String(r));
+    assert(r<eps, "\"toUpperHessenberg with ilo and ihi\"");
+
   //  ##########   Singular values   ##########
     (sigma7, U7, VT7) := Matrices.singularValues(A7);
     r := Matrices.norm(A7 - U7*[diagonal(sigma7), zeros(3,1)]*VT7);
@@ -470,19 +478,6 @@ extends Modelica.Icons.ExamplesPackage;
     assert(abs(r)<eps, "\"singular values\"");
     (sigma8, U8, VT8) := Matrices.singularValues(A8);
     Modelica.Utilities.Streams.print("SingularValues with zero dimensions");
-
-  //  ##########   Utilities tests without result verification   ##########
-    u[2:5] := Modelica.Math.Vectors.Utilities.householderVector(A1[2:5,1],{1,0,0,0});
-    H1 := Matrices.Utilities.householderReflection(A1,u);
-    H1 := Matrices.Utilities.householderSimilarityTransformation(A1,u);
-    u := H1[:,1];
-    H1 := Matrices.Utilities.toUpperHessenberg(A1);
-    r := Modelica.Math.Vectors.norm(u-H1[:,1]);
-    Modelica.Utilities.Streams.print("Vectors.norm rf = "+String(r));
-    assert(abs(r)<eps, "\"Utilities\"");
-
-    Xn := Matrices.Utilities.householderReflection(N,fill(0,0));
-    Xn := Matrices.Utilities.householderSimilarityTransformation(N,fill(0,0));
 
     ok := true;
   end Matrices2;
@@ -618,21 +613,16 @@ extends Modelica.Icons.ExamplesPackage;
     import Modelica.ComplexMath.j;
     extends Modelica.Icons.Function;
     import Modelica.Math.Vectors;
+    import Modelica.Math.Polynomials;
     import Modelica.Math.Vectors.Utilities;
     import Modelica.Utilities.Streams;
 
   //  input String logFile = "ModelicaTestLog.txt" "Filename where the log is stored";
     output Boolean ok;
   protected
-    Real c;
     Real r;
     Real eps=1e-13;
     Real a[4] = {2, -4, -2, -1};
-    Real b[4] = {1, 0, 0, 0};
-    Real a2[size(a,1)];
-    Real a3[size(a,1)];
-    Real u[4];
-    Real P[4,4];
     Real rr[size(a,1)-1,2];
     Complex rc[3];
     Complex h;
@@ -642,22 +632,8 @@ extends Modelica.Icons.ExamplesPackage;
     Real iNew;
     Complex ca[2] = {Complex(1,0), j};
   algorithm
-  //  ##########   Householder vector   ##########
-    u := Vectors.Utilities.householderVector(a,b);
-    P := identity(size(u,1)) - 2*matrix(u)*transpose(matrix(u))/(u*u);
-    a2 := P*a;
-    c := a2[1]/b[1];
-    r := Vectors.norm(a2-c*b);
-    Streams.print("r = "+String(r));
-    assert(abs(r) <eps, "\"Vectors.Utilities.householderVector()\" failed");
-
-    a3 := Vectors.Utilities.householderReflection(a,u);
-    r := Vectors.norm(a2-a3);
-    Streams.print("r = "+String(r));
-    assert(abs(r) <eps, "\"Vectors.Utilities.householderReflection()\" failed");
-
   //  ##########   roots   ##########
-    rr := Vectors.Utilities.roots(a);
+    rr := Polynomials.roots(a);
     for i in 1:size(rc,1) loop
        rc[i] := rr[i,1]*ca[1] + rr[i,2]*ca[2];
     end for;
@@ -672,7 +648,7 @@ extends Modelica.Icons.ExamplesPackage;
     end for;
 
     Streams.print("r = "+String(r));
-    assert(abs(r) <eps, "\"Vectors.Utilities.roots()\" failed");
+    assert(abs(r) <eps, "\"Polynomials.roots()\" failed");
 
   //  ##########   interpolate   ##########
     (yi, iNew) :=Vectors.interpolate(x,y,6.5,4);
@@ -688,7 +664,7 @@ extends Modelica.Icons.ExamplesPackage;
   function colorMapToSvg "Store all predefined color maps in svg"
     extends Modelica.Icons.Function;
     import Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg;
-    import Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.*;
+    import Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.{jet, hot, gray, spring, summer, autumn, winter};
     output Boolean ok;
   algorithm
     colorMapToSvg(jet(),    x= 10, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, caption="jet",   headerType=colorMapToSvg.HeaderType.svgBegin);
@@ -868,6 +844,7 @@ extends Modelica.Icons.ExamplesPackage;
       "Demonstrate the generation of uniform random numbers in the range 0..1"
       import Modelica.Math.Random.Generators;
       import Modelica.Utilities.Streams.print;
+      import Modelica.Math.Random.Utilities.automaticLocalSeed;
       extends Modelica.Icons.Function;
       input Integer localSeed = 614657;
       input Integer globalSeed = 30020;
@@ -886,8 +863,8 @@ extends Modelica.Icons.ExamplesPackage;
       constant Integer nRandom = 5;
       constant String name1="Modelica.Blocks.Examples.NoiseExamples.AutomaticSeed.automaticSeed1";
       constant String name2="Modelica.Blocks.Examples.NoiseExamples.AutomaticSeed.automaticSeed2";
-      constant Integer localSeed1 = Modelica.Utilities.Strings.hashString(name1);
-      constant Integer localSeed2 = Modelica.Utilities.Strings.hashString(name2);
+      constant Integer localSeed1 = automaticLocalSeed(name1);
+      constant Integer localSeed2 = automaticLocalSeed(name2);
     algorithm
       print("\n... Demonstrate how to generate uniform random numbers with xorshift64*:");
 

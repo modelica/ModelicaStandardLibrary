@@ -1,10 +1,7 @@
 within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
-import SI = Modelica.SIunits;
-
-
-extends Modelica.Icons.Package;
-
+  import SI = Modelica.SIunits;
+  extends Modelica.Icons.Package;
 
 package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Package;
@@ -639,233 +636,6 @@ at the left and at the right side of the pipe), see next figure:
 </p>
 </html>"));
   end relNodePositions;
-
-  package Utilities
-    "Utility functions that should not be directly utilized by the user"
-    extends Modelica.Icons.UtilitiesPackage;
-    function householderVector
-      "Calculate a normalized householder vector to reflect vector a onto vector b"
-      extends Modelica.Icons.Function;
-      import Modelica.Math.Vectors.norm;
-
-      input Real a[:] "Real vector to be reflected";
-      input Real b[size(a, 1)] "Real vector b vector a is mapped onto";
-      output Real u[size(a, 1)] "Householder vector to map a onto b";
-    protected
-      Real norm_a=norm(a, 2);
-      Real norm_b=norm(b, 2);
-      Real alpha;
-
-    algorithm
-      assert(norm_b > 0,
-        "Vector b in function householderVector is zero vector, but at least one element should be different from zero");
-      assert(norm_a > 0,
-        "Vector a in function householderVector is zero vector, but at least one element should be different from zero");
-      alpha := if norm(a + norm_a/norm_b*b, 2) > norm(a - norm_a/norm_b*b, 2)
-         then norm_a/norm_b else -norm_a/norm_b;
-      u := (a + alpha*b)/length(a + alpha*b);
-
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-Vectors.Utilities.<strong>householderVector</strong>(a,b);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-The function call \"<code>householderVector(a, b)</code>\" returns the normalized Householder vector
-<strong>u</strong> for Householder reflection of input vector <strong>a</strong> onto vector <strong>b</strong>, i.e., Householder vector <strong>u</strong> is the normal
-vector of the reflection plane. Algebraically, the reflection is performed by transformation matrix <strong>Q</strong>
-</p>
-<blockquote>
-<p>
-<strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
-</p>
-</blockquote>
-i.e., vector <strong>a</strong> is mapped to
-<blockquote>
-<p>
-<strong>a</strong> -> <strong>Q</strong>*<strong>a</strong>=c*<strong>b</strong>
-</p>
-</blockquote>
-with scalar c, |c| = ||<strong>a</strong>|| / ||<strong>b</strong>||. <strong>Q</strong>*<strong>a</strong> is the reflection of <strong>a</strong> about the hyperplane orthogonal to <strong>u</strong>.
-<strong>Q</strong> is an orthogonal matrix, i.e.
-<blockquote>
-<p>
-    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
-</p>
-</blockquote>
-<h4>Example</h4>
-<blockquote><pre>
-  a = {2, -4, -2, -1};
-  b = {1, 0, 0, 0};
-
-  u = <strong>householderVector</strong>(a,b);    // {0.837, -0.478, -0.239, -0.119}
-                               // Computation (identity(4) - 2*matrix(u)*transpose(matrix(u)))*a results in
-                               // {-5, 0, 0, 0} = -5*b
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
-</html>", revisions="<html>
-<ul>
-<li><em>2010/04/30 </em>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-
-</html>"));
-    end householderVector;
-
-    function householderReflection
-      "Reflect a vector a on a plane with orthogonal vector u"
-      extends Modelica.Icons.Function;
-      import Modelica.Math.Vectors;
-
-      input Real a[:] "Real vector a to be reflected";
-      input Real u[size(a, 1)] "Householder vector";
-      output Real ra[size(u, 1)] "Reflection of a";
-
-    protected
-      Real norm_a=Vectors.length(a);
-      Real h=2*u*a;
-
-    algorithm
-      ra := a - h*u;
-
-      // Values close to zero are set to zero.
-      for i in 1:size(ra, 1) loop
-        ra[i] := if abs(ra[i]) >= norm_a*1e-12 then ra[i] else 0;
-      end for;
-
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-Vectors.Utilities.<strong>householderReflection</strong>(a,u);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-Function \"<code>householderReflection(a, u)</code>\" performs the reflection of vector
-<strong>a</strong> about a plane orthogonal to vector <strong>u</strong> (Householder vector).
-Algebraically the operation is defined by
-</p>
-<blockquote>
-<p>
-<strong>b</strong>=<strong>Q</strong>*<strong>a</strong>
-</p>
-</blockquote>
-with
-<blockquote>
-<p>
-   <strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
-</p>
-</blockquote>
-where <strong>Q</strong> is an orthogonal matrix, i.e.
-<blockquote>
-<p>
-    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
-</p>
-</blockquote>
-<h4>Example</h4>
-<blockquote><pre>
-  a = {2, -4, -2, -1};
-  u = {0.837, -0.478, -0.239, -0.119};
-
-  <strong>householderReflection</strong>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderVector\">Utilities.householderVector</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
-
-</html>", revisions="<html>
-<ul>
-<li><em>2010/04/30 </em>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-    end householderReflection;
-
-    encapsulated function roots
-      "Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero"
-      import Modelica.Math.Matrices;
-      import Modelica;
-      extends Modelica.Icons.Function;
-      input Real p[:]
-        "Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]";
-      output Real roots[max(0, size(p, 1) - 1), 2]=fill(
-                0,
-                max(0, size(p, 1) - 1),
-                2)
-        "roots[:,1] and roots[:,2] are the real and imaginary parts of the roots of polynomial p";
-    protected
-      Integer np=size(p, 1);
-      Integer n=size(p, 1) - 1;
-      Real A[max(size(p, 1) - 1, 0), max(size(p, 1) - 1, 0)] "Companion matrix";
-      Real ev[max(size(p, 1) - 1, 0), 2] "Eigenvalues";
-    algorithm
-      if n > 0 then
-        assert(abs(p[1]) > 0,
-          "Computing the roots of a polynomial with function \"Modelica.Math.Vectors.Utilities.roots\"\n"
-           +
-          "failed because the first element of the coefficient vector is zero, but should not be.");
-
-        // companion matrix
-        A[1, :] := -p[2:np]/p[1];
-        A[2:n, :] := [identity(n - 1), zeros(n - 1)];
-
-        // roots are the eigenvalues of the companion matrix
-        roots := Matrices.Utilities.eigenvaluesHessenberg(A);
-      end if;
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-  r = Vectors.Utilities.<strong>roots</strong>(p);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the roots of a polynomial P of x
-</p>
-<blockquote><pre>
-  P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
-</pre></blockquote>
-<p>
-with the coefficient vector <strong>p</strong>. It is assumed that the first element of <strong>p</strong> is not zero, i.e., that the polynomial is of order size(p,1)-1.
-</p>
-<p>
-To compute the roots, the eigenvalues of the corresponding companion matrix <strong>C</strong>
-</p>
-<blockquote><pre>
-         |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
-         |    1            0                0               0           0     |
-         |    0            1      ...       0               0           0     |
-  <strong>C</strong> =    |    .            .      ...       .               .           .     |
-         |    .            .      ...       .               .           .     |
-         |    0            0      ...       0               1           0     |
-</pre></blockquote>
-<p>
-are calculated. These are the roots of the polynomial.<br>
-Since the companion matrix has already Hessenberg form, the transformation to Hessenberg form has not to be performed.
-Function <a href=\"modelica://Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg\">eigenvaluesHessenberg</a><br>
-provides efficient eigenvalue computation for those matrices.
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-  r = <strong>roots</strong>({1,2,3});
-  // r = [-1.0,  1.41421356237309;
-  //      -1.0, -1.41421356237309]
-  // which corresponds to the roots: -1.0 +/- j*1.41421356237309
-</pre></blockquote>
-</html>"));
-    end roots;
-    annotation (Documentation(info="<html>
-<p>
-This package contains utility functions that are utilized by higher level vector
-and matrix functions. These functions are usually not useful for an end-user.
-</p>
-
-</html>"));
-  end Utilities;
-
   annotation (preferredView="info", Documentation(info="<html>
 <h4>Library content</h4>
 <p>
@@ -1620,7 +1390,7 @@ has a unique solution.
     output Real LU[size(A, 1), size(A, 2)]=A
       "L,U factors (used with LU_solve(..))";
     output Integer pivots[min(size(A, 1), size(A, 2))]
-      "pivot indices (used with LU_solve(..))";
+      "Pivot indices (used with LU_solve(..))";
     output Integer info "Information";
   protected
     Integer m=size(A, 1);
@@ -2063,18 +1833,18 @@ singular vectors of matrix A. Basically the singular
 value decomposition of A is computed, i.e.,
 </p>
 <blockquote><pre>
-<strong>A</strong> = <strong>U</strong> <strong><font face=\"Symbol\">S</font></strong> <strong>V</strong><sup>T</sup>
+<strong>A</strong> = <strong>U</strong> <strong>&Sigma;</strong> <strong>V</strong><sup>T</sup>
   = U*Sigma*VT
 </pre></blockquote>
 <p>
 where <strong>U</strong> and <strong>V</strong> are orthogonal matrices (<strong>UU</strong><sup>T</sup>=<strong>I,
-</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>). <strong><font face=\"Symbol\">S
-</font></strong> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
-m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt;
-m=size(A,2)). <strong><font face=\"Symbol\">S</font></strong> has the same size as matrix A with
+</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>).
+<strong>&Sigma;</strong> = [diagonal(&sigma;<sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
+m=size(A,2)) or [diagonal(&sigma;<sub>i</sub>); zeros(n-m,m)], if n &gt;
+m=size(A,2)). <strong>&Sigma;</strong> has the same size as matrix A with
 nonnegative diagonal elements in decreasing order and with all other elements zero
-(<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
-returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
+(&sigma;<sub>1</sub> is the largest element). The function
+returns the singular values &sigma;<sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
 matrices <code>U</code> and <code>VT</code>.
 </p>
@@ -3635,8 +3405,8 @@ The Algorithm to calculate psi is taken from
 
     annotation (Documentation(info="<html>
 <blockquote><pre>
-(phi,gamma,gamma1) = Matrices.<strong>integralExp</strong>(A,B);
-(phi,gamma,gamma1) = Matrices.<strong>integralExp</strong>(A,B,T=1);
+(phi,gamma,gamma1) = Matrices.<strong>integralExpT</strong>(A,B);
+(phi,gamma,gamma1) = Matrices.<strong>integralExpT</strong>(A,B,T=1);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -8230,9 +8000,9 @@ For details of the arguments, see documentation of dgbsv.
 
       input Real A[:, size(A, 1)];
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real Aout[size(A, 1), size(A, 2)]=A
         "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
       output Real tau[max(size(A, 1), 1) - 1]
@@ -9553,9 +9323,9 @@ For details of the arguments, see documentation of dgbsv.
       input String side="L";
       input String trans="N";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=if side == "L" then size(C, 1) else size(C, 2)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real Cout[size(C, 1), size(C, 2)]=C
         "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
 
@@ -10185,9 +9955,9 @@ For details of the arguments, see documentation of dgbsv.
       input Real A[:, size(A, 1)]
         "Square matrix with the elementary reflectors";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form - ilo must have the same value as in the previous call of DGEHRD";
+        "Lowest index where the original matrix is not in upper triangular form - ilo must have the same value as in the previous call of DGEHRD";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form - ihi must have the same value as in the previous call of DGEHRD";
+        "Highest index where the original matrix is not in upper triangular form - ihi must have the same value as in the previous call of DGEHRD";
       input Real tau[max(0, size(A, 1) - 1)]
         "Scalar factors of the elementary reflectors";
       output Real Aout[size(A, 1), size(A, 2)]=A
@@ -10626,168 +10396,6 @@ The algorithm is taken from [1] and [2].
 </html>"));
     end discreteRiccatiIterative;
 
-    function householderReflection
-      "Reflect each of the vectors a_i of matrix  A=[a_1, a_2, ..., a_n] on a plane with orthogonal vector u"
-      extends Modelica.Icons.Function;
-      import Modelica.Math.Vectors;
-
-      input Real A[:, :] "Rectangular matrix";
-      input Real u[size(A, 1)] "Householder vector";
-
-      output Real RA[size(A, 1), size(A, 2)] "Reflexion of A";
-
-    protected
-      Integer n=size(A, 2);
-      Real h;
-      Real lu=(Vectors.length(u))^2;
-
-    algorithm
-      for i in 1:n loop
-        h := scalar(2*transpose(matrix(u))*A[:, i]/lu);
-        RA[:, i] := A[:, i] - h*u;
-      end for;
-
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-Matrices.<strong>householderReflection</strong>(A,u);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the Householder reflection (transformation)
-</p>
-<blockquote>
- <strong>Ar</strong> = <strong>Q</strong>*<strong>A</strong>
-</blockquote>
-with
-<blockquote>
- <strong>Q</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>)
-</blockquote>
-<p>
-where <strong>u</strong> is Householder vector, i.e., the normal vector of the reflection plane.
-</p>
-<p>
-Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-// First step of QR decomposition
-  import   Modelica.Math.Vectors.Utilities;
-
-  Real A[3,3] = [1,2,3;
-                 3,4,5;
-                 2,1,4];
-  Real Ar[3,3];
-  Real u[:];
-
-  u=Utilities.householderVector(A[:,1],{1,0,0});
-  // u= {0.763, 0.646, 0}
-
-  Ar=householderReflection(A,u);
- // Ar = [-6.0828,   -5.2608,   -4.4388;
- //        0.0,      -1.1508,   -2.3016;
- //        0.0,       2.0,       0.0]
-
-</pre></blockquote>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.housholderSimilarityTransformation</a>,<br>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
-</p>
-</html>", revisions="<html>
-<ul>
-<li><em>2010/04/30 </em>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-    end householderReflection;
-
-    function householderSimilarityTransformation
-      "Perform the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u'"
-      extends Modelica.Icons.Function;
-
-      import Modelica.Math.Vectors;
-
-      input Real A[:, size(A, 1)] "Square matrix A";
-      input Real u[size(A, 1)] "Householder vector";
-      output Real SAS[size(A, 1), size(A, 1)] "Transformation of matrix A";
-
-    protected
-      Integer na=size(A, 1);
-      Real S[size(A, 1), size(A, 1)] "Symmetric matrix";
-      Integer i;
-    algorithm
-      if na > 0 then
-        S := -2*matrix(u)*transpose(matrix(u))/(Vectors.length(u)*
-          Vectors.length(u));
-        for i in 1:na loop
-          S[i, i] := 1.0 + S[i, i];
-        end for;
-        SAS := S*A*S;
-      else
-        SAS := fill(
-                0.0,
-                0,
-                0);
-      end if;
-
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-  As = Matrices.<strong>householderSimilarityTransformation</strong>(A,u);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the Householder similarity transformation
-</p>
-<blockquote>
- <strong>As</strong> = <strong>S</strong>*<strong>A</strong>*<strong>S</strong>
-</blockquote>
-with
-<blockquote>
- <strong>S</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>).
-</blockquote>
-<p>
-This transformation is widely used for transforming non-symmetric matrices to a Hessenberg form.
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-// First step of Hessenberg decomposition
-  import   Modelica.Math.Vectors.Utilities;
-
-  Real A[4,4] = [1,2,3,4;
-                 3,4,5,6;
-                 9,8,7,6;
-                 1,2,0,0];
-  Real Ar[4,4];
-  Real u[4]={0,0,0,0};
-
-  u[2:4]=Utilities.householderVector(A[2:4,1],{1,0,0});
-  // u= = {0, 0.8107, 0.5819, 0.0647}
-
-  Ar=householderSimilarityTransformation(A,u);
- //  Ar = [1.0,     -3.8787,    -1.2193,    3.531;
-          -9.5394, 11.3407,      6.4336,   -5.9243;
-           0.0,     3.1307,      0.7525,   -3.3670;
-           0.0,     0.8021,     -1.1656,   -1.0932]
-</pre></blockquote>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a>,<br>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
-</p>
-</html>", revisions="<html>
-<ul>
-<li><em>2010/04/30 </em>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-    end householderSimilarityTransformation;
-
     function toUpperHessenberg
       "Transform a real square matrix A to upper Hessenberg form H by orthogonal similarity transformation:  Q' * A * Q = H"
       extends Modelica.Icons.Function;
@@ -10797,9 +10405,9 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 
       input Real A[:, size(A, 1)] "Square matrix A";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real H[size(A, 1), size(A, 2)] "Upper Hessenberg form";
       output Real V[size(A, 1), size(A, 2)]
         "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
@@ -10844,7 +10452,9 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 <h4>Description</h4>
 <p>
 Function <strong>toUpperHessenberg</strong> computes a upper Hessenberg form <strong>H</strong> of a matrix <strong>A</strong> by orthogonal similarity transformation:  <strong>Q</strong>' * <strong>A</strong> * <strong>Q</strong> = <strong>H</strong>.
-With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD.
+The optional inputs <strong>ilo</strong> and <strong>ihi</strong> improve efficiency if the matrix is already partially converted to Hessenberg form; it is assumed
+that matrix <strong>A</strong> is already upper Hessenberg for rows and columns <strong>1:(ilo-1)</strong> and <strong>(ihi+1):size(A, 1)</strong>.
+The function calls <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">LAPACK.dgehrd</a>.
 See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
 </p>
 
@@ -11040,7 +10650,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
       extends Modelica.Icons.Function;
 
       import Modelica.Math.Matrices;
-      import Modelica.Math.Vectors;
+      import Modelica.Math.Polynomials;
 
       input Real Rk[:, size(Rk, 1)];
       input Real Vk[size(Rk, 1), size(Rk, 2)];
@@ -11060,7 +10670,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
       gamma_k := Matrices.trace(Vk*Vk);
 
       if gamma_k > Modelica.Constants.eps then
-        p := Vectors.Utilities.roots({4*gamma_k,6*beta_k,2*(alpha_k - 2*beta_k),
+        p := Polynomials.roots({4*gamma_k,6*beta_k,2*(alpha_k - 2*beta_k),
           -2*alpha_k});
         h := false;
         for i1 in 1:3 loop
@@ -11449,8 +11059,8 @@ end isEqual;
 
 function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
-  input Modelica.SIunits.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=sin(u)";
 
 external "builtin" y = sin(u);
   annotation (
@@ -11517,8 +11127,8 @@ end sin;
 
 function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
-  input SI.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=cos(u)";
 
 external "builtin" y = cos(u);
   annotation (
@@ -11583,8 +11193,8 @@ end cos;
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
-  input SI.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=tan(u)";
 
 external "builtin" y = tan(u);
   annotation (
@@ -11650,8 +11260,8 @@ end tan;
 
 function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=asin(u)";
 
 external "builtin" y = asin(u);
   annotation (
@@ -11717,8 +11327,8 @@ end asin;
 
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=acos(u)";
 
 external "builtin" y = acos(u);
   annotation (
@@ -11781,8 +11391,8 @@ end acos;
 
 function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=atan(u)";
 
 external "builtin" y = atan(u);
   annotation (
@@ -11842,9 +11452,9 @@ end atan;
 
 function atan2 "Four quadrant inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u1;
-  input Real u2;
-  output SI.Angle y;
+  input Real u1 "First independent variable";
+  input Real u2 "Second independent variable";
+  output SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
 
 external "builtin" y = atan2(u1, u2);
   annotation (
@@ -11927,13 +11537,12 @@ end atan2;
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
-  import Modelica.Math;
   import Modelica.Constants.pi;
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u1;
-  input Real u2;
+  input Real u1 "First independent variable";
+  input Real u2 "Second independent variable";
   input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 <= pi";
-  output Modelica.SIunits.Angle y;
+  output SI.Angle y "Dependent variable y=atan3(u1, u2, y0)=atan(u1/u2)";
 
 protected
   constant Real pi2=2*pi;
@@ -12032,8 +11641,8 @@ end atan3;
 
 function sinh "Hyperbolic sine"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=sinh(u)";
 
 external "builtin" y = sinh(u);
   annotation (
@@ -12101,8 +11710,8 @@ end sinh;
 
 function cosh "Hyperbolic cosine"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=cosh(u)";
 
 external "builtin" y = cosh(u);
   annotation (
@@ -12170,8 +11779,8 @@ end cosh;
 
 function tanh "Hyperbolic tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=tanh(u)";
 
 external "builtin" y = tanh(u);
   annotation (
@@ -12231,8 +11840,8 @@ end tanh;
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=asinh(u)";
 
 algorithm
   y := Modelica.Math.log(u + sqrt(u*u + 1));
@@ -12302,8 +11911,8 @@ end asinh;
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=acosh(u)";
 
 algorithm
   assert(u >= 1.0, "Input argument u (= " + String(u) +
@@ -12384,8 +11993,8 @@ end acosh;
 
 function exp "Exponential, base e"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=exp(u)";
 
 external "builtin" y = exp(u);
   annotation (
@@ -12451,8 +12060,8 @@ end exp;
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=ln(u)";
 
 external "builtin" y = log(u);
   annotation (
@@ -12519,8 +12128,8 @@ end log;
 
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=lg(u)";
 
 external "builtin" y = log10(u);
   annotation (

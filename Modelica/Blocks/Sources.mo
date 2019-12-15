@@ -959,7 +959,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
           Text(
             extent={{-147,-152},{153,-112}},
             textString="f=%f",
-            lineColor={0,0,0}),
+            textColor={0,0,0}),
       Line(points={
         {-80, 80.0},{-76, 78.7},{-72, 74.8},{-68, 68.7},{-64, 60.5},
         {-60, 50.9},{-56, 40.4},{-52, 29.4},{-48, 18.7},{-44,  8.7},
@@ -2243,8 +2243,8 @@ a flange according to a given acceleration.
     parameter Modelica.SIunits.Time shiftTime=startTime
       "Shift time of first table column";
   protected
-    Real a "Interpolation coefficient a of actual interval (y=a*x+b)";
-    Real b "Interpolation coefficient b of actual interval (y=a*x+b)";
+    discrete Real a "Interpolation coefficient a of actual interval (y=a*x+b)";
+    discrete Real b "Interpolation coefficient b of actual interval (y=a*x+b)";
     Integer last(start=1) "Last used lower grid index";
     discrete SIunits.Time nextEvent(start=0, fixed=true) "Next event instant";
     discrete Real nextEventScaled(start=0, fixed=true)
@@ -2604,6 +2604,10 @@ than the maximum abscissa value t_max (=" + String(t_max) + ") defined in the ta
       for i in 1:nout loop
         y[i] = p_offset[i] + Internal.getTimeTableValueNoDer(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
       end for;
+    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then
+      for i in 1:nout loop
+        y[i] = p_offset[i] + Internal.getTimeTableValueNoDer2(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
+      end for;
     else
       for i in 1:nout loop
         y[i] = p_offset[i] + Internal.getTimeTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
@@ -2651,6 +2655,10 @@ The table interpolation has the following properties:
              = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
                   splines such that y preserves the monotonicity and der(y)
                   is continuous, also if extrapolated.
+             = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                  Hermite splines such that der(y) is continuous, also if
+                  extrapolated. Additionally, overshoots and edge cases of the
+                  original Akima interpolation method are avoided.
 </pre></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:

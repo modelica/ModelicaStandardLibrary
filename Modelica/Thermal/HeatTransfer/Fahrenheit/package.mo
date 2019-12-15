@@ -1,12 +1,6 @@
 within Modelica.Thermal.HeatTransfer;
 package Fahrenheit "Components with Fahrenheit input and/or output"
-
   extends Modelica.Icons.VariantsPackage;
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 The components of this package are provided for the convenience of
@@ -21,7 +15,7 @@ of units at all places where Kelvin is required as parameter.
 Example:
 </p>
 <pre>
-    <strong>import</strong> SIunits.Conversions.*;
+    <strong>import</strong> Modelica.SIunits.Conversions.from_degF;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
 </pre>
 </html>"));

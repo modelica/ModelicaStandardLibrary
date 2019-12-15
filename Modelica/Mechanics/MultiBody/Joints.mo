@@ -19,8 +19,6 @@ package Joints "Components that constrain the motion between two frames"
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
       "Axis of translation resolved in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
-    constant SI.Position s_offset=0
-      "Relative distance offset (distance between frame_a and frame_b = s_offset + s)";
     parameter Types.Axis boxWidthDirection={0,1,0}
       "Vector in width direction of box, resolved in frame_a"
       annotation (Evaluate=true, Dialog(tab="Animation", group=
@@ -64,7 +62,7 @@ Possible reasons:
       shapeType="box",
       color=boxColor,
       specularCoefficient=specularCoefficient,
-      length=if noEvent(abs(s + s_offset) > 1.e-6) then s + s_offset else 1.e-6,
+      length=if noEvent(abs(s) > 1.e-6) then s else 1.e-6,
       width=boxWidth,
       height=boxHeight,
       lengthDirection=e,
@@ -82,12 +80,12 @@ Possible reasons:
     a = der(v);
 
     // relationships between kinematic quantities of frame_a and of frame_b
-    frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, e*(s_offset + s));
+    frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, e*s);
     frame_b.R = frame_a.R;
 
     // Force and torque balance
     zeros(3) = frame_a.f + frame_b.f;
-    zeros(3) = frame_a.t + frame_b.t + cross(e*(s_offset + s), frame_b.f);
+    zeros(3) = frame_a.t + frame_b.t + cross(e*s, frame_b.f);
 
     // d'Alemberts principle
     f = -e*frame_b.f;
@@ -224,8 +222,6 @@ vector \"n\" defining the translation axis
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
       "Axis of rotation resolved in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
-    constant SI.Angle phi_offset=0
-      "Relative angle offset (angle = phi_offset + phi)";
     parameter SI.Distance cylinderLength=world.defaultJointLength
       "Length of cylinder representing the joint axis"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -236,7 +232,7 @@ vector \"n\" defining the translation axis
       "Color of cylinder representing the joint axis"
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
-      specularCoefficient =                                                            world.defaultSpecularCoefficient
+      specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter StateSelect stateSelect=StateSelect.prefer
@@ -258,7 +254,7 @@ Possible reasons:
     SI.AngularAcceleration a(start=0)
       "Second derivative of angle phi (relative angular acceleration)";
     SI.Torque tau "Driving torque in direction of axis of rotation";
-    SI.Angle angle "= phi_offset + phi";
+    SI.Angle angle "= phi";
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -295,7 +291,7 @@ Possible reasons:
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of revolute joint is not connected");
 
-    angle = phi_offset + phi;
+    angle = phi;
     w = der(phi);
     a = der(w);
 
@@ -303,12 +299,12 @@ Possible reasons:
     frame_b.r_0 = frame_a.r_0;
 
     if Connections.rooted(frame_a.R) then
-      R_rel = Frames.planarRotation(e, phi_offset + phi, w);
+      R_rel = Frames.planarRotation(e, phi, w);
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       frame_a.f = -Frames.resolve1(R_rel, frame_b.f);
       frame_a.t = -Frames.resolve1(R_rel, frame_b.t);
     else
-      R_rel = Frames.planarRotation(-e, phi_offset + phi, w);
+      R_rel = Frames.planarRotation(-e, phi, w);
       frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel);
       frame_b.f = -Frames.resolve1(R_rel, frame_a.f);
       frame_b.t = -Frames.resolve1(R_rel, frame_a.t);
@@ -1848,157 +1844,157 @@ frame_b of the joint.
       annotation(Dialog(enable=use_r));
 
     parameter Boolean use_r = false "= true, if r_rel_a shall be used"
-        annotation(Evaluate=true, HideResult=true,Dialog(tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a"));
+        annotation(Evaluate=true, HideResult=true,Dialog(tab="Translational initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a"));
     Modelica.Blocks.Interfaces.RealOutput r_rel_a_1(final quantity="Length", final unit="m", start=0, final stateSelect=r_rel_a_1_stateSelect) if use_r
       "Relative distance r_rel_a[1]"
-      annotation(Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true));
+      annotation(Dialog(enable=use_r, tab="Translational initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput r_rel_a_2(final quantity="Length", final unit="m", start=0, final stateSelect=r_rel_a_2_stateSelect) if use_r
       "Relative distance r_rel_a[2]"
-      annotation(Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true));
+      annotation(Dialog(enable=use_r, tab="Translational initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput r_rel_a_3(final quantity="Length", final unit="m", start=0, final stateSelect=r_rel_a_3_stateSelect) if use_r
       "Relative distance r_rel_a[3]"
-      annotation(Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true));
+      annotation(Dialog(enable=use_r, tab="Translational initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true));
 
     parameter StateSelect r_rel_a_1_stateSelect=StateSelect.never
       "StateSelect of r_rel_a[1]" annotation(HideResult=true,
-       Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a"));
+       Dialog(enable=use_r, tab="Translational initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a"));
     parameter StateSelect r_rel_a_2_stateSelect=StateSelect.never
       "StateSelect of r_rel_a[2]" annotation(HideResult=true,
-       Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a"));
+       Dialog(enable=use_r, tab="Translational initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a"));
     parameter StateSelect r_rel_a_3_stateSelect=StateSelect.never
       "StateSelect of r_rel_a[3]" annotation(HideResult=true,
-       Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a"));
+       Dialog(enable=use_r, tab="Translational initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a"));
 
     parameter Boolean use_v = false "= true, if v_rel_a shall be used"
-        annotation(Evaluate=true, HideResult=true,Dialog(enable=use_r, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)"));
+        annotation(Evaluate=true, HideResult=true,Dialog(enable=use_r, tab="Translational initialization", group="Velocity vector v_rel_a = der(r_rel_a)"));
     Modelica.Blocks.Interfaces.RealOutput v_rel_a_1(final quantity="Velocity", final unit="m/s", start=0, final stateSelect=v_rel_a_1_stateSelect) if use_r and use_v
       "Relative velocity v_rel_a[1]"
-      annotation(Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true));
+      annotation(Dialog(enable=use_r and use_v, tab="Translational initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput v_rel_a_2(final quantity="Velocity", final unit="m/s", start=0, final stateSelect=v_rel_a_2_stateSelect) if use_r and use_v
       "Relative velocity v_rel_a[2]"
-      annotation(Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true));
+      annotation(Dialog(enable=use_r and use_v, tab="Translational initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput v_rel_a_3(final quantity="Velocity", final unit="m/s", start=0, final stateSelect=v_rel_a_3_stateSelect) if use_r and use_v
       "Relative velocity v_rel_a[3]"
-      annotation(Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true));
+      annotation(Dialog(enable=use_r and use_v, tab="Translational initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true));
 
     parameter StateSelect v_rel_a_1_stateSelect=StateSelect.never
       "StateSelect of v_rel_a[1]" annotation(HideResult=true,
-       Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)"));
+       Dialog(enable=use_r and use_v, tab="Translational initialization", group="Velocity vector v_rel_a = der(r_rel_a)"));
     parameter StateSelect v_rel_a_2_stateSelect=StateSelect.never
       "StateSelect of v_rel_a[2]" annotation(HideResult=true,
-       Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)"));
+       Dialog(enable=use_r and use_v, tab="Translational initialization", group="Velocity vector v_rel_a = der(r_rel_a)"));
     parameter StateSelect v_rel_a_3_stateSelect=StateSelect.never
       "StateSelect of v_rel_a[3]" annotation(HideResult=true,
-       Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)"));
+       Dialog(enable=use_r and use_v, tab="Translational initialization", group="Velocity vector v_rel_a = der(r_rel_a)"));
 
     parameter Boolean use_a = false "= true, if a_rel_a shall be used"
-        annotation(Evaluate=true, HideResult=true,Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)"));
+        annotation(Evaluate=true, HideResult=true,Dialog(enable=use_r and use_v, tab="Translational initialization", group="Acceleration vector a_rel_a = der(v_rel_a)"));
     Modelica.Blocks.Interfaces.RealOutput a_rel_a_1(final quantity="Acceleration", final unit="m/s2", start=0) if use_r and use_v and use_a
       "Relative acceleration a_rel_a[1]"
-      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true));
+      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput a_rel_a_2(final quantity="Acceleration", final unit="m/s2", start=0) if use_r and use_v and use_a
       "Relative acceleration a_rel_a[2]"
-      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true));
+      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput a_rel_a_3(final quantity="Acceleration", final unit="m/s2", start=0) if use_r and use_v and use_a
       "Relative acceleration a_rel_a[3]"
-      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true));
+      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true));
 
     parameter Boolean use_angle = false "= true, if angle shall be used"
-      annotation(Evaluate=true, HideResult=true,Dialog(tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
+      annotation(Evaluate=true, HideResult=true,Dialog(tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
 
     parameter Types.RotationSequence sequence_start={1,2,3}
       "Sequence of angle rotations"
-      annotation(Evaluate=true,Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
+      annotation(Evaluate=true,Dialog(enable=use_angle, tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
 
     Modelica.Blocks.Interfaces.RealOutput angle_1(final quantity="Angle", final unit="rad", start=0, stateSelect=angle_1_stateSelect) if use_angle
       "First rotation angle or dummy"
-      annotation(Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true));
+      annotation(Dialog(enable=use_angle, tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput angle_2(final quantity="Angle", final unit="rad", start=0, stateSelect=angle_2_stateSelect) if use_angle
       "Second rotation angle or dummy"
-      annotation(Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true));
+      annotation(Dialog(enable=use_angle, tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput angle_3(final quantity="Angle", final unit="rad", start=0, stateSelect=angle_3_stateSelect) if use_angle
       "Third rotation angle or dummy"
-      annotation(Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true));
+      annotation(Dialog(enable=use_angle, tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true));
 
     parameter StateSelect angle_1_stateSelect=StateSelect.never
       "StateSelect of angle_1"
-       annotation(HideResult=true, Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
+       annotation(HideResult=true, Dialog(enable=use_angle, tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
     parameter StateSelect angle_2_stateSelect=StateSelect.never
       "StateSelect of angle_2"
-       annotation(HideResult=true, Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
+       annotation(HideResult=true, Dialog(enable=use_angle, tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
     parameter StateSelect angle_3_stateSelect=StateSelect.never
       "StateSelect of angle_3"
-       annotation(HideResult=true, Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
+       annotation(HideResult=true, Dialog(enable=use_angle, tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
 
     parameter Boolean use_angle_d= false "= true, if angle_d shall be used"
-      annotation(Evaluate=true, HideResult=true,Dialog(enable=use_angle, tab="Angle Initialization", group="angle_d = der(angle)"));
+      annotation(Evaluate=true, HideResult=true,Dialog(enable=use_angle, tab="Angle initialization", group="angle_d = der(angle)"));
 
     Modelica.Blocks.Interfaces.RealOutput angle_d_1(final quantity="AngularVelocity", final unit="rad/s", start=0, final stateSelect=angle_d_1_stateSelect) if use_angle and use_angle_d
       "= der(angle_1)"
-      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)",showStartAttribute=true));
+      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle initialization", group="angle_d = der(angle)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput angle_d_2(final quantity="AngularVelocity", final unit="rad/s", start=0, final stateSelect=angle_d_2_stateSelect) if use_angle and use_angle_d
       "= der(angle_2)"
-      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)",showStartAttribute=true));
+      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle initialization", group="angle_d = der(angle)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput angle_d_3(final quantity="AngularVelocity", final unit="rad/s", start=0, final stateSelect=angle_d_3_stateSelect) if use_angle and use_angle_d
       "= der(angle_3)"
-      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)",showStartAttribute=true));
+      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle initialization", group="angle_d = der(angle)",showStartAttribute=true));
 
     parameter StateSelect angle_d_1_stateSelect=StateSelect.never
       "StateSelect of angle_d_1" annotation(HideResult=true,
-       Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)"));
+       Dialog(enable=use_angle and use_angle_d, tab="Angle initialization", group="angle_d = der(angle)"));
     parameter StateSelect angle_d_2_stateSelect=StateSelect.never
       "StateSelect of angle_d_2" annotation(HideResult=true,
-       Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)"));
+       Dialog(enable=use_angle and use_angle_d, tab="Angle initialization", group="angle_d = der(angle)"));
     parameter StateSelect angle_d_3_stateSelect=StateSelect.never
       "StateSelect of angle_d_3" annotation(HideResult=true,
-       Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)"));
+       Dialog(enable=use_angle and use_angle_d, tab="Angle initialization", group="angle_d = der(angle)"));
 
     parameter Boolean use_angle_dd = false "= true, if angle_dd shall be used"
-        annotation(Evaluate=true, HideResult=true,Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_dd = der(angle_d)"));
+        annotation(Evaluate=true, HideResult=true,Dialog(enable=use_angle and use_angle_d, tab="Angle initialization", group="angle_dd = der(angle_d)"));
     Modelica.Blocks.Interfaces.RealOutput angle_dd_1(final quantity="AngularAcceleration", final unit="rad/s2", start=0) if use_angle and use_angle_d and use_angle_dd
       "= der(angle_d_1)"
-      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle Initialization", group="angle_dd = der(angle_d)",showStartAttribute=true));
+      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle initialization", group="angle_dd = der(angle_d)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput angle_dd_2(final quantity="AngularAcceleration", final unit="rad/s2", start=0) if use_angle and use_angle_d and use_angle_dd
       "= der(angle_d_2)"
-      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle Initialization", group="angle_dd = der(angle_d)",showStartAttribute=true));
+      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle initialization", group="angle_dd = der(angle_d)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput angle_dd_3(final quantity="AngularAcceleration", final unit="rad/s2", start=0) if use_angle and use_angle_d and use_angle_dd
       "= der(angle_d_3)"
-      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle Initialization", group="angle_dd = der(angle_d)",showStartAttribute=true));
+      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle initialization", group="angle_dd = der(angle_d)",showStartAttribute=true));
 
     parameter Boolean use_w = false "= true, if w_rel_b shall be used"
-      annotation(Evaluate=true, HideResult=true,Dialog(tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b"));
+      annotation(Evaluate=true, HideResult=true,Dialog(tab="Angular velocity initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b"));
 
     Modelica.Blocks.Interfaces.RealOutput w_rel_b_1(final quantity="AngularVelocity", final unit="rad/s", start=0, stateSelect=w_rel_b_1_stateSelect) if use_w
       "Relative angular velocity w_rel_b[1]"
-      annotation(Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true));
+      annotation(Dialog(enable=use_w, tab="Angular velocity initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput w_rel_b_2(final quantity="AngularVelocity", final unit="rad/s", start=0, stateSelect=w_rel_b_2_stateSelect) if use_w
       "Relative angular velocity w_rel_b[2]"
-      annotation(Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true));
+      annotation(Dialog(enable=use_w, tab="Angular velocity initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput w_rel_b_3(final quantity="AngularVelocity", final unit="rad/s", start=0, stateSelect=w_rel_b_3_stateSelect) if use_w
       "Relative angular velocity w_rel_b[3]"
-      annotation(Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true));
+      annotation(Dialog(enable=use_w, tab="Angular velocity initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true));
 
     parameter StateSelect w_rel_b_1_stateSelect=StateSelect.never
       "StateSelect of w_rel_b[1]" annotation(HideResult=true,
-       Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b"));
+       Dialog(enable=use_w, tab="Angular velocity initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b"));
     parameter StateSelect w_rel_b_2_stateSelect=StateSelect.never
       "StateSelect of w_rel_b[2]" annotation(HideResult=true,
-       Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b"));
+       Dialog(enable=use_w, tab="Angular velocity initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b"));
     parameter StateSelect w_rel_b_3_stateSelect=StateSelect.never
       "StateSelect of w_rel_b[3]" annotation(HideResult=true,
-       Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b"));
+       Dialog(enable=use_w, tab="Angular velocity initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b"));
 
     parameter Boolean use_z = false "= true, if z_rel_b shall be used"
-      annotation(Evaluate=true, HideResult=true,Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)"));
+      annotation(Evaluate=true, HideResult=true,Dialog(enable=use_w, tab="Angular velocity initialization", group="Angular acceleration z_rel_b = der(w_rel_b)"));
     Modelica.Blocks.Interfaces.RealOutput z_rel_b_1(final quantity="AngularAcceleration", final unit="rad/s2", start=0) if use_w and use_z
       "Relative angular acceleration z_rel_b[1]"
-      annotation(Dialog(enable=use_w and use_z, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
+      annotation(Dialog(enable=use_w and use_z, tab="Angular velocity initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput z_rel_b_2(final quantity="AngularAcceleration", final unit="rad/s2", start=0) if use_w and use_z
       "Relative angular acceleration z_rel_b[2]"
-      annotation(Dialog(enable=use_w and use_z, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
+      annotation(Dialog(enable=use_w and use_z, tab="Angular velocity initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
     Modelica.Blocks.Interfaces.RealOutput z_rel_b_3(final quantity="AngularAcceleration", final unit="rad/s2", start=0) if use_w and use_z
       "Relative angular acceleration z_rel_b[3]"
-      annotation(Dialog(enable=use_w and use_z, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
+      annotation(Dialog(enable=use_w and use_z, tab="Angular velocity initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
 
     parameter SI.Length arrowDiameter=world.defaultArrowDiameter
       "Diameter of arrow from frame_a to frame_b"
@@ -8684,21 +8680,47 @@ solved, i.e., robustly and efficiently).
       </td>
   </tr>
 </table>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}), graphics={
-        Polygon(
-          points={{6,6},{28,-2},{54,80},{32,86},{6,6}},
-          lineColor={95,95,95},
-          fillPattern=FillPattern.Sphere,
-          fillColor={255,255,255}),
-        Polygon(
-          points={{-12,-18},{0,-36},{-70,-84},{-82,-66},{-12,-18}},
-          lineColor={95,95,95},
-          fillPattern=FillPattern.Sphere,
-          fillColor={255,255,255}),
+</html>"),
+    Icon(
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+      graphics={
+        Rectangle(
+          origin={30,-22},
+          lineColor={64,64,64},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.VerticalCylinder,
+          extent={{-20,0},{20,100}},
+          rotation=110),
+        Rectangle(
+          origin={30,-22},
+          lineColor={64,64,64},
+          fillColor={215,215,215},
+          fillPattern=FillPattern.VerticalCylinder,
+          extent={{-20,0},{20,100}}),
+        Rectangle(
+          origin={30,-22},
+          lineColor={64,64,64},
+          extent={{-20,0},{20,100}}),
+        Rectangle(
+          origin={30,-22},
+          lineColor={64,64,64},
+          extent={{-20,0},{20,100}},
+          rotation=110),
         Ellipse(
-          extent={{-12,8},{34,-38}},
-          lineColor={95,95,95},
-          fillPattern=FillPattern.Sphere,
-          fillColor={95,95,95})}));
+          origin={30,-22},
+          rotation=-45,
+          lineColor={64,64,64},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.HorizontalCylinder,
+          extent={{-34,-34},{34,34}}),
+        Ellipse(
+          origin={30,-22},
+          lineColor={64,64,64},
+          fillColor={64,64,64},
+          fillPattern=FillPattern.Solid,
+          extent={{-14,14},{14,-14}}),
+        Ellipse(
+          extent={{-34,34},{34,-34}},
+          lineColor={64,64,64},
+          origin={30,-22})}));
 end Joints;

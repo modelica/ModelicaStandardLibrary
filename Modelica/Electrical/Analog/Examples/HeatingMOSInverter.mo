@@ -21,9 +21,9 @@ model HeatingMOSInverter "Heating MOS Inverter"
         rotation=270)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC1(G=0.01)
   annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
-  Semiconductors.HeatingPMOS H_PMOS(useHeatPort=true)
+  Semiconductors.PMOS H_PMOS(useTemperatureDependency=true)
   annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-  Semiconductors.HeatingNMOS H_NMOS(useHeatPort=true)
+  Semiconductors.NMOS H_NMOS(useTemperatureDependency=true)
   annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   Modelica.Electrical.Analog.Sources.RampVoltage V(V=5, duration=1e-2)
   annotation (Placement(transformation(

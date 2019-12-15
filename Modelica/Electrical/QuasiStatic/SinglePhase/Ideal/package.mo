@@ -1,13 +1,6 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase;
 package Ideal "Ideal components for AC single-phase models"
   extends Modelica.Icons.Package;
-
-
-
-
-
-
-
   annotation (Icon(coordinateSystem(extent={{-100,-100},{100,100}},
           preserveAspectRatio=true), graphics={
         Line(origin={10,34}, points={{-100,-60},{-54,-60}}),

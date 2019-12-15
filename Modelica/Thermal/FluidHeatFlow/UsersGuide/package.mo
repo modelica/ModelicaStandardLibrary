@@ -1,9 +1,6 @@
 within Modelica.Thermal.FluidHeatFlow;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
-
-
-
   annotation (DocumentationClass=true,
   Documentation(info="<html>
 <p>

@@ -858,13 +858,13 @@ versa. It is recommended to use these functions in the following
 way (note, that all functions have one Real input and one Real output
 argument):</p>
 <pre>
-  <strong>import</strong> SI = Modelica.SIunits;
-  <strong>import</strong> Modelica.SIunits.Conversions.*;
+  <strong>import</strong> Modelica.SIunits;
+  <strong>import</strong> Modelica.SIunits.Conversions.{from_degC, from_deg, from_rpm};
      ...
-  <strong>parameter</strong> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
-  <strong>parameter</strong> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
-  <strong>parameter</strong> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
-                                                      // to radian per seconds
+  <strong>parameter</strong> SIunits.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
+  <strong>parameter</strong> SIunits.Angle           phi = from_deg(180);   // convert 180 degree to radian
+  <strong>parameter</strong> SIunits.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
+                                                           // to radian per seconds
 </pre>
 
 </html>"));
@@ -893,10 +893,11 @@ argument):</p>
   type AngularVelocity = Real (
       final quantity="AngularVelocity",
       final unit="rad/s");
-  type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit=
-             "rad/s2");
+  type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit="rad/s2");
+  type AngularJerk = Real (final quantity="AngularJerk", final unit="rad/s3");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
   type Acceleration = Real (final quantity="Acceleration", final unit="m/s2");
+  type Jerk = Real (final quantity="Jerk", final unit="m/s3");
 
   // Periodic and related phenomens (chapter 2 of ISO 31-1992)
   type Period = Real (final quantity="Time", final unit="s");
@@ -1354,18 +1355,19 @@ argument):</p>
       final quantity="AmountOfSubstance",
       final unit="mol",
       min=0);
-  type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol",min=0);
+  type Molality = Real (final quantity="Molality", final unit="mol/kg");
+  type MolalConcentration = Molality;
+  type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol", min=0);
   type MolarVolume = Real (final quantity="MolarVolume", final unit="m3/mol", min=0);
   type MolarDensity = Real (final quantity="MolarDensity", unit="mol/m3");
+  type Molarity = MolarDensity;
+  type MolarConcentration = MolarDensity;
   type MolarEnergy = Real (final quantity="MolarEnergy", final unit="J/mol", nominal=2e4);
   type MolarInternalEnergy = MolarEnergy;
-  type MolarHeatCapacity = Real (final quantity="MolarHeatCapacity", final unit=
-         "J/(mol.K)");
-  type MolarEntropy = Real (final quantity="MolarEntropy", final unit=
-          "J/(mol.K)");
+  type MolarHeatCapacity = Real (final quantity="MolarHeatCapacity", final unit="J/(mol.K)");
+  type MolarEntropy = Real (final quantity="MolarEntropy", final unit="J/(mol.K)");
   type MolarEnthalpy = MolarEnergy;
-  type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit=
-          "mol/s");
+  type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit="mol/s");
   type NumberDensityOfMolecules = Real (final quantity=
           "NumberDensityOfMolecules", final unit="m-3");
   type MolecularConcentration = Real (final quantity="MolecularConcentration",
@@ -1439,8 +1441,7 @@ argument):</p>
          "1");
   type FaradayConstant = Real (final quantity="FaradayConstant", final unit=
           "C/mol");
-  type IonicStrength = Real (final quantity="IonicStrength", final unit=
-          "mol/kg");
+  type IonicStrength = Molality;
   type DegreeOfDissociation = Real (final quantity="DegreeOfDissociation",
         final unit="1");
   type ElectrolyticConductivity = Real (final quantity=

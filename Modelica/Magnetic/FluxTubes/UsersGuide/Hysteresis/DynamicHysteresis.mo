@@ -46,7 +46,6 @@ Where <code>&sigma;</code> is the electrical conductivity and <code>d</code> the
 The following two figures show a comparison between measured and simulated dynamic hysteresis at several frequencies. The measurements were performed with a 25 cm Epstein frame  according to DIN EN 60404-2. The magnetic core was made up of four layers of M330-50A steel sheet. The primary Winding of the used Epstein frame had 720 turns. The primary voltage was adjusted so that the magnetic excitation was about Hmax = 400 A/m, but 72 V in maximum. The simulation results (see Fig. 3) were generated with a simple model of this setup using the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a> hysteresis flux tube element for modeling the magnetic core.
 </p>
 
-
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <caption align=\"bottom\"><strong>Fig. 2:</strong> Dynamic hysteresis measurements with an 25 cm Epstein frame according to DIN EN 60404-2 (Material: M330-50A, 4 Sheets)</caption>
   <tr>
@@ -64,7 +63,6 @@ The following two figures show a comparison between measured and simulated dynam
     </td>
   </tr>
 </table>
-
 
 </html>"));
 end DynamicHysteresis;

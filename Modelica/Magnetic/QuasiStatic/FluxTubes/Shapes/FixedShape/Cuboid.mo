@@ -3,6 +3,7 @@ model Cuboid
 "Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics"
 
   extends BaseClasses.FixedShape;
+  extends Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Cuboid;
 
   parameter SI.Length l=0.01 "Length in direction of flux" annotation (
       Dialog(group="Fixed geometry", groupImage=

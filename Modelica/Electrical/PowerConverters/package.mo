@@ -1,15 +1,6 @@
 within Modelica.Electrical;
 package PowerConverters "Rectifiers, Inverters, DC/DC and AC/AC converters"
   extends Modelica.Icons.Package;
-
-
-
-
-
-
-
-
-
   annotation (
     preferredView="info",
     Documentation(info="<html>

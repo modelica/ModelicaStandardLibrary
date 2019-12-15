@@ -5,34 +5,76 @@ package Semiconductors
   import Modelica.Constants.k "Boltzmann's constant, [J/K]";
   import Modelica.Constants.q "Electron charge, [As]";
 
-  model Diode "Simple diode"
+  model Diode "Simple diode with heating port"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter SI.Current Ids=1e-6 "Saturation current";
-    parameter SI.Voltage Vt=0.04
-      "Voltage equivalent of temperature (kT/qn)";
-    parameter Real Maxexp(final min=Modelica.Constants.small) = 15
-      "Max. exponent for linear continuation";
+    parameter Boolean useTemperatureDependency = false "= true, if the diode current depends on temperature, otherwise utilizes the voltage equivalent of temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)" annotation(Dialog(enable=not useTemperatureDependency));
+    parameter Real Maxexp(final min=Modelica.Constants.small) = 15 "Max. exponent for linear continuation";
     parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+    parameter Real EG=1.11 "Activation energy" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real N=1 "Emission coefficient" annotation(Dialog(enable=useTemperatureDependency));
+    parameter SI.Temperature TNOM=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real XTI=3 "Temperature exponent of saturation current" annotation(Dialog(enable=useTemperatureDependency));
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
+
+    SI.Voltage vt_t "Temperature voltage";
+    SI.Current id "Diode current";
+  protected
+    SI.Temperature htemp "Auxiliary temperature";
+    Real aux;
+    Real auxp;
   equation
-    i = smooth(1, Ids*(exlin(v/Vt, Maxexp) - 1) + v/R);
-    LossPower = v*i;
+    assert(T_heatPort > 0,"Temperature must be positive");
+    htemp = T_heatPort;
+    vt_t = k*htemp/q;
+
+    if useTemperatureDependency then
+      id = Ids*(exlin(v/(N*vt_t), Maxexp) - 1);
+      i = id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
+    else
+      id = Ids*(exlin(v/Vt, Maxexp) - 1);
+      i = smooth(1, id + v/R);
+    end if;
+
+    aux = (htemp/TNOM - 1)*EG/(N*vt_t);
+    auxp = exp(aux);
+
+    LossPower = i*v;
     annotation (defaultComponentName="diode",
       Documentation(info="<html>
-<p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <em>R</em>. The diode formula is:</p>
-<pre>                v/vt
-  i  =  ids ( e      - 1).</pre>
-<p>If the exponent <em>v/vt</em> reaches the limit <em>maxex</em>, the diode characteristic is linearly continued to avoid overflow.</p><p><strong>Please note:</strong> In case of useHeatPort=true the temperature dependence of the electrical behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.</p>
-</html>",
-   revisions="<html>
+<p>
+The simple diode is an electrical one port, where a heat port is added, which is
+defined in the Modelica.Thermal library. It consists of the diode itself and a parallel ohmic
+resistance <em>R</em>. If <em>useTemperatureDependency</em> is set to <em>true</em>, the diode formula is:
+</p>
+<pre>
+               v/N/vt_t
+  i  =  Ids (e          - 1)
+
+</pre>
+where <em>vt_t</em> depends on the temperature of the heat port:
+<pre>
+  vt_t = k*temp/q
+</pre>
+<p>
+If <em>useTemperatureDependency</em> is set to <em>false</em>, the diode formula utilizes the voltage equivalent of the temperature, i.e.,
+</p>
+<pre>
+               v/Vt
+  i  =  Ids (e      - 1).
+
+</pre>
+<p>
+If the exponent <em>v/N/vt_t</em> or <em>v/Vt</em>, respectively, reaches the limit <em>Maxexp</em>, the diode characteristic is linearly continued to avoid overflow.<br>
+The thermal power is calculated by <em>i*v</em>.
+</p>
+</html>", revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-<li><em> November 15, 2005   </em>
-       by Christoph Clauss<br> smooth function added<br>
-       </li>
-<li><em> 1998   </em>
+<li><em>April 5, 2004   </em>
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
@@ -50,7 +92,8 @@ package Semiconductors
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Text(
             extent={{-150,-40},{150,-80}},
-            textString="Vt=%Vt"),
+            textString="Vt=%Vt",
+            visible=not useTemperatureDependency),
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
@@ -86,14 +129,14 @@ package Semiconductors
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
+        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
+        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        iVdMax + (vd - VdMax) * diVdMax);
-        //Lower half of reverse biased region including breakdown.
-        //Upper half of reverse biased region, and forward biased region before conduction.
         //Forward biased region after conduction
+        iVdMax + (vd - VdMax) * diVdMax);
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -209,645 +252,73 @@ Stefan Vorkoetter - new model proposed.</li>
           Line(points={{30,-40},{20,-40}}, color={28,108,200})}));
   end ZDiode;
 
-model PMOS "Simple MOS Transistor"
+  model NMOS "Simple NMOS transistor with heating port"
 
-  Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-  Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
-  Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-  Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
-            -10},{110,10}})));
-  parameter SI.Length W=20.0e-6 "Width";
-  parameter SI.Length L=6.0e-6 "Length";
-  parameter SI.Transconductance Beta=0.0105e-3
-      "Transconductance parameter";
-  parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
-  parameter Real K2=0.41 "Bulk threshold parameter";
-  parameter Real K5=0.839 "Reduction of pinch-off region";
-  parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
-  parameter SI.Length dL=-2.1e-6 "Shortening of channel";
-  parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
+    Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
+      annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
+      annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin S "Source"
+      annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+    parameter SI.Length W=20.e-6 "Width";
+    parameter SI.Length L=6.e-6 "Length";
+    parameter SI.Transconductance Beta=0.041e-3 "Transconductance parameter";
+    parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
+    parameter Real K2=1.144 "Bulk threshold parameter";
+    parameter Real K5=0.7311 "Reduction of pinch-off region";
+    parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
+    parameter SI.Length dL=-1.5e-6 "Shortening of channel";
+    parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
+    parameter Boolean useTemperatureDependency = false "= true, if parameters Beta, K2 and Vt depend on temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real kvt=-6.96e-3 "Fitting parameter for Vt" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real kk2=6e-4 "Fitting parameter for K2" annotation(Dialog(enable=useTemperatureDependency));
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
   protected
-  Real v;
-  Real uds;
-  Real ubs;
-  Real ugst;
-  Real ud;
-  Real us;
-  Real id;
-  Real gds;
+    Real v;
+    Real uds;
+    Real ubs;
+    Real ugst;
+    Real ud;
+    Real us;
+    Real id;
+    Real gds;
+    Real beta_t;
+    Real vt_t;
+    Real k2_t;
+  equation
+    assert(L + dL > 0, "NMOS: Effective length must be positive");
+    assert(W + dW > 0, "NMOS: Effective width must be positive");
+    assert(T_heatPort > 0,"NMOS: Temperature must be positive");
+    gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
+    v = beta_t*(W + dW)/(L + dL);
+    ud = smooth(0,if (D.v < S.v) then S.v else D.v);
+    us = smooth(0,if (D.v < S.v) then D.v else S.v);
+    uds = ud - us;
+    ubs = smooth(0,if (B.v > us) then 0 else B.v - us);
+    ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
+    id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
+      ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
 
-equation
-  assert(L + dL > 0, "PMOS: Effective length must be positive");
-  assert(W + dW > 0, "PMOS: Effective width  must be positive");
-  gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
-  v = Beta*(W + dW)/(L + dL);
-  ud = smooth(0,if (D.v > S.v) then S.v else D.v);
-  us = smooth(0,if (D.v > S.v) then D.v else S.v);
-  uds = ud - us;
-  ubs = smooth(0,if (B.v < us) then 0 else B.v - us);
-  ugst = (G.v - us - Vt + K2*ubs)*K5;
-  id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
-    ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
-  G.i = 0;
-  D.i = smooth(0,if (D.v > S.v) then -id else id);
-  S.i = smooth(0,if (D.v > S.v) then id else -id);
-  B.i = 0;
-  LossPower = D.i * (D.v - S.v);
-  annotation (
-    Documentation(info="<html>
-<p>
-The PMOS model is a simple model of a p-channel metal-oxide semiconductor
-FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for H. Spiro.
-</p>
-<p>
-The model does not consider capacitances. A high drain-source resistance RDS
-is included to avoid numerical difficulties.
-<br><br>
-<strong>Please note:</strong>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
-</p>
-<dl>
-<dt><strong>References:</strong></dt>
-<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-  Muenchen Wien 1990.</dd>
-</dl>
-<p>
-Some typical parameter sets are:
-</p>
-<pre>
-  W       L      Beta        Vt    K2     K5      DW       DL
-  m       m      A/V^2       V     -      -       m        m
-  50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
-  20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
-  30.e-6  5.e-6  0.0059e-3  -0.3   0.98   1.01    0       -3.9e-6
-  30.e-6  5.e-6  0.0152e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
-  30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
-  30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
-  20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
-</pre>
+    beta_t = if useTemperatureDependency then Beta*pow((T_heatPort/Tnom), -1.5) else Beta;
+    vt_t = if useTemperatureDependency then Vt*(1 + (T_heatPort - Tnom)*kvt) else Vt;
+    k2_t = if useTemperatureDependency then K2*(1 + (T_heatPort - Tnom)*kk2) else K2;
 
-</html>",
- revisions="<html>
-<ul>
-<li><em> March 11, 2009   </em>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-<li><em>December 7, 2005   </em>
-       by Christoph Clauss<br>
-       error in RDS calculation deleted</li>
-<li><em> 1998   </em>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
-          Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
-          Line(points={{10,80},{10,39}}, color={0,0,255}),
-          Line(points={{10,20},{10,-21}}, color={0,0,255}),
-          Line(points={{10,-40},{10,-81}}, color={0,0,255}),
-          Line(points={{10,60},{91,60}}, color={0,0,255}),
-          Line(points={{10,0},{90,0}}, color={0,0,255}),
-          Line(points={{10,-60},{90,-60}}, color={0,0,255}),
-          Polygon(
-            points={{60,0},{40,5},{40,-5},{60,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-150,130},{150,90}},
-            textString="%name",
-            textColor={0,0,255}),
-          Line(
-            visible=useHeatPort,
-            points={{0,-90},{0,0}},
-            color={127,0,0},
-            pattern=LinePattern.Dot)}));
-end PMOS;
-
-model NMOS "Simple MOS Transistor"
-
-  Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-  Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
-  Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-  Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
-            -10},{110,10}})));
-  parameter SI.Length W=20.e-6 "Width";
-  parameter SI.Length L=6.e-6 "Length";
-  parameter SI.Transconductance Beta=0.041e-3 "Transconductance parameter";
-  parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
-  parameter Real K2=1.144 "Bulk threshold parameter";
-  parameter Real K5=0.7311 "Reduction of pinch-off region";
-  parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
-  parameter SI.Length dL=-1.5e-6 "Shortening of channel";
-  parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
-  protected
-  Real v;
-  Real uds;
-  Real ubs;
-  Real ugst;
-  Real ud;
-  Real us;
-  Real id;
-  Real gds;
-
-equation
-  assert(L + dL > 0, "NMOS: Effective length must be positive");
-  assert(W + dW > 0, "NMOS: Effective width  must be positive");
-  gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
-  v = Beta*(W + dW)/(L + dL);
-  ud = smooth(0,if (D.v < S.v) then S.v else D.v);
-  us = if (D.v < S.v) then D.v else S.v;
-  uds = ud - us;
-  ubs = smooth(0,if (B.v > us) then 0 else B.v - us);
-  ugst = (G.v - us - Vt + K2*ubs)*K5;
-  id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(ugst
-     - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
-  G.i = 0;
-  D.i = smooth(0,if (D.v < S.v) then -id else id);
-  S.i = smooth(0,if (D.v < S.v) then id else -id);
-  B.i = 0;
-  LossPower = D.i * (D.v - S.v);
-  annotation (
-    Documentation(info="<html>
-<p>
-The NMOS model is a simple model of a n-channel metal-oxide semiconductor
-FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for H. Spiro.
-</p>
-<p>
-The model does not consider capacitances. A high drain-source resistance RDS
-is included to avoid numerical difficulties.
-<br><br>
-<strong>Please note:</strong>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
-</p>
-<pre>
-  W       L      Beta         Vt      K2     K5       DW       DL
-  m       m      A/V^2        V       -      -        m        m
-  12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
-  60.e-6  3.e-6  0.048e-3     0.1     0.08   0.68    -1.2e-6  -0.9e-6      enhancement
-  12.e-6  4.e-6  0.0625e-3   -0.8     0.21   0.78    -1.2e-6  -0.9e-6      zero
-  50.e-6  8.e-6  0.0299e-3    0.24    1.144  0.7311  -5.4e-6  -4.e-6
-  20.e-6  6.e-6  0.041e-3     0.8     1.144  0.7311  -2.5e-6  -1.5e-6
-  30.e-6  9.e-6  0.025e-3    -4.0     0.861  0.878   -3.4e-6  -1.74e-6
-  30.e-6  5.e-6  0.031e-3     0.6     1.5    0.72     0       -3.9e-6
-  50.e-6  6.e-6  0.0414e-3   -3.8     0.34   0.8     -1.6e-6  -2.e-6       depletion
-  50.e-6  5.e-6  0.03e-3      0.37    0.23   0.86    -1.6e-6  -2.e-6       enhancement
-  50.e-6  6.e-6  0.038e-3    -0.9     0.23   0.707   -1.6e-6  -2.e-6       zero
-  20.e-6  4.e-6  0.06776e-3   0.5409  0.065  0.71    -0.8e-6  -0.2e-6
-  20.e-6  4.e-6  0.06505e-3   0.6209  0.065  0.71    -0.8e-6  -0.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.6909  0.03   0.8     -0.3e-6  -0.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.4909  0.03   0.8     -0.3e-6  -0.2e-6
-  12.e-6  4.e-6  0.023e-3    -4.5     0.29   0.6      0        0           depletion
-  60.e-6  3.e-6  0.022e-3     0.1     0.11   0.65     0        0           enhancement
-  12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
-  20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
-</pre>
-
-<dl>
-<dt><strong>References:</strong></dt>
-<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-Muenchen Wien 1990.</dd>
-</dl>
-</html>",
- revisions="<html>
-<ul>
-<li><em> March 11, 2009   </em>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-<li><em>December 7, 2005   </em>
-       by Christoph Clauss<br>
-       error in RDS calculation deleted</li>
-<li><em> 1998   </em>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
-          Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
-          Line(points={{10,80},{10,39}}, color={0,0,255}),
-          Line(points={{10,20},{10,-21}}, color={0,0,255}),
-          Line(points={{10,-40},{10,-81}}, color={0,0,255}),
-          Line(points={{10,60},{91,60}}, color={0,0,255}),
-          Line(points={{10,0},{90,0}}, color={0,0,255}),
-          Line(points={{10,-60},{90,-60}}, color={0,0,255}),
-          Polygon(
-            points={{40,0},{60,5},{60,-5},{40,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(
-            visible=useHeatPort,
-            points={{0,-100},{0,0}},
-            color={127,0,0},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-150,130},{150,90}},
-            textString="%name",
-            textColor={0,0,255})}));
-end NMOS;
-
-model NPN "Simple BJT according to Ebers-Moll"
-  parameter Real Bf=50 "Forward beta";
-  parameter Real Br=0.1 "Reverse beta";
-  parameter SI.Current Is=1e-16 "Transport saturation current";
-  parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
-  parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
-  parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
-  parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-  parameter SI.Capacitance Cje=0.4e-12
-      "Base-emitter zero bias depletion cap.";
-  parameter SI.Capacitance Cjc=0.5e-12
-      "Base-coll. zero bias depletion cap.";
-  parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
-  parameter Real Me=0.4 "Base-emitter gradation exponent";
-  parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
-  parameter Real Mc=0.333 "Base-collector gradation exponent";
-  parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
-  parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-  parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
-  parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
-  parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
-  parameter SI.Voltage IC=0 "Initial value" annotation(Dialog(enable=UIC));
-  parameter Boolean UIC = false "Decision if initial value should be used";
-
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
-
-  SI.Voltage vbc "Base-collector voltage";
-  SI.Voltage vbe "Base-emitter voltage";
-  Real qbk "Relative majority carrier charge, inverse";
-  SI.Current ibc "Base-collector diode current";
-  SI.Current ibe "Base-emitter diode current";
-  SI.Capacitance cbc "Total base-collector capacitance";
-  SI.Capacitance cbe "Total base-emitter capacitance";
-  SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
-  SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
-
-
-  public
-  Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
-        transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-  Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
-        transformation(extent={{-90,-10},{-110,10}})));
-  Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
-        transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-initial equation
-  if UIC then
-    C.v = IC;
-  end if;
-
-equation
-  vbc = B.v - C.v;
-  vbe = B.v - E.v;
-  qbk = 1 - vbc*Vak;
-
-  ibc = smooth(1, Is*(exlin2(vbc/Vt, EMin, EMax) - 1) + vbc*Gbc);
-  ibe = smooth(1, Is*(exlin2(vbe/Vt, EMin, EMax) - 1) + vbe*Gbe);
-  Capcjc = smooth(1, Cjc*powlin(vbc/Phic, Mc));
-  Capcje = smooth(1, Cje*powlin(vbe/Phie, Me));
-  cbc = smooth(1, Taur*Is/Vt*exlin2(vbc/Vt, EMin, EMax) + Capcjc);
-  cbe = smooth(1, Tauf*Is/Vt*exlin2(vbe/Vt, EMin, EMax) + Capcje);
-  C.i = (ibe - ibc)*qbk - ibc/Br - cbc*der(vbc) + Ccs*der(C.v);
-  B.i = ibe/Bf + ibc/Br + cbc*der(vbc) + cbe*der(vbe);
-  E.i = -B.i - C.i + Ccs*der(C.v);
-
-  LossPower = (C.v-E.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
-  annotation (
-    Documentation(info="<html>
-<p>
-This model is a simple model of a bipolar NPN junction transistor according
-to Ebers-Moll.
-<br><br>
-<strong>Please note:</strong>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.
-</p>
-<p>
-A typical parameter set is:
-</p>
-<pre>
-  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
-  -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
-  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
-</pre>
-<dl>
-<dt><strong>References:</strong></dt>
-<dd>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983
-on page 317 ff.</dd>
-</dl>
-</html>",
- revisions="<html>
-<ul>
-<li><em> March 11, 2009   </em>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-
-<li><em> 1998   </em>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
-          Line(points={{-20,0},{-100,0}}, color={0,0,255}),
-          Line(points={{90,60},{30,60}}, color={0,0,255}),
-          Line(points={{30,60},{-20,10}}, color={0,0,255}),
-          Line(points={{-20,-10},{20,-50}}, color={0,0,255}),
-          Line(points={{30,-60},{91,-60}}, color={0,0,255}),
-          Polygon(
-            points={{30,-60},{24,-46},{16,-54},{30,-60}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(
-            visible=useHeatPort,
-            points={{0,-100},{0,-20}},
-            color={127,0,0},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-150,130},{150,90}},
-            textString="%name",
-            textColor={0,0,255})}));
-end NPN;
-
-model PNP "Simple BJT according to Ebers-Moll"
-  parameter Real Bf=50 "Forward beta";
-  parameter Real Br=0.1 "Reverse beta";
-  parameter SI.Current Is=1e-16 "Transport saturation current";
-  parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
-  parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
-  parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
-  parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-  parameter SI.Capacitance Cje=0.4e-12
-      "Base-emitter zero bias depletion cap.";
-  parameter SI.Capacitance Cjc=0.5e-12
-      "Base-coll. zero bias depletion cap.";
-  parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
-  parameter Real Me=0.4 "Base-emitter gradation exponent";
-  parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
-  parameter Real Mc=0.333 "Base-collector gradation exponent";
-  parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
-  parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-  parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
-  parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
-  parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
-
-  SI.Voltage vbc "Base-collector voltage";
-  SI.Voltage vbe "Base-emitter voltage";
-  Real qbk "Relative majority carrier charge, inverse";
-  SI.Current ibc "Base-collector diode current";
-  SI.Current ibe "Base-emitter diode current";
-  SI.Capacitance cbc "Total base-collector capacitance";
-  SI.Capacitance cbe "Total base-emitter capacitance";
-  SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
-  SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
-
-  public
-  Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
-        transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-  Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
-        transformation(extent={{-90,-10},{-110,10}})));
-  Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
-        transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-equation
-  vbc = C.v - B.v;
-  vbe = E.v - B.v;
-  qbk = 1 - vbc*Vak;
-
-  ibc = smooth(1, Is*(exlin2(vbc/Vt, EMin, EMax) - 1) + vbc*Gbc);
-  ibe = smooth(1, Is*(exlin2(vbe/Vt, EMin, EMax) - 1) + vbe*Gbe);
-  Capcjc = smooth(1, Cjc*powlin(vbc/Phic, Mc));
-  Capcje = smooth(1, Cje*powlin(vbe/Phie, Me));
-  cbc = smooth(1, Taur*Is/Vt*exlin2(vbc/Vt, EMin, EMax) + Capcjc);
-  cbe = smooth(1, Tauf*Is/Vt*exlin2(vbe/Vt, EMin, EMax) + Capcje);
-  C.i = -((ibe - ibc)*qbk - ibc/Br - cbc*der(vbc) - Ccs*der(C.v));
-  B.i = -(ibe/Bf + ibc/Br + cbe*der(vbe) + cbc*der(vbc));
-  E.i = -B.i - C.i + Ccs*der(C.v);
-
-  LossPower = (E.v-C.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
-                                                                    annotation (
-    Documentation(info="<html>
-<p>
-This model is a simple model of a bipolar PNP junction transistor according
-to Ebers-Moll.
-<br><br>
-<strong>Please note:</strong>
-In case of useHeatPort=true the temperature dependency of the electrical
-behavior is <strong>not</strong> modelled yet. The parameters are not temperature dependent.</p>
-<p>
-A typical parameter set is:
-</p>
-<pre>
-  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
-  -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
-  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
-</pre>
-<dl>
-<dt><strong>References:</strong></dt>
-<dd>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983
-on page 317 ff.</dd>
-</dl>
-</html>",
- revisions="<html>
-<ul>
-<li><em> March 11, 2009   </em>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-
-<li><em> 1998   </em>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
-          Line(points={{-20,0},{-100,0}}, color={0,0,255}),
-          Line(points={{91,60},{30,60}}, color={0,0,255}),
-          Line(points={{30,60},{-20,10}}, color={0,0,255}),
-          Line(points={{-20,-10},{30,-60}}, color={0,0,255}),
-          Line(points={{30,-60},{100,-60}}, color={0,0,255}),
-          Polygon(
-            points={{-20,-10},{-5,-17},{-13,-25},{-20,-10}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(
-            visible=useHeatPort,
-            points={{0,-100},{0,-20}},
-            color={127,0,0},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-150,130},{150,90}},
-            textString="%name",
-            textColor={0,0,255})}));
-end PNP;
-
-model HeatingDiode "Simple diode with heating port"
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  parameter SI.Current Ids=1e-6 "Saturation current";
-  /* parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
-  parameter Real Maxexp(final min=Modelica.Constants.small) = 15
-      "Max. exponent for linear continuation";
-  parameter SI.Resistance R=1e8 "Parallel ohmic resistance";
-  parameter Real EG=1.11 "Activation energy";
-  parameter Real N=1 "Emission coefficient";
-  parameter SI.Temperature TNOM=300.15
-      "Parameter measurement temperature";
-  parameter Real XTI=3 "Temperature exponent of saturation current";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
-
-  SI.Voltage vt_t "Temperature voltage";
-  SI.Current id "Diode current";
-  protected
-  SI.Temperature htemp "Auxiliary temperature";
-  Real aux;
-  Real auxp;
-equation
-  assert(T_heatPort > 0,"Temperature must be positive");
-  htemp = T_heatPort;
-  vt_t = k*htemp/q;
-
-  id = exlin((v/(N*vt_t)), Maxexp) - 1;
-
-  aux = (htemp/TNOM - 1)*EG/(N*vt_t);
-  auxp = exp(aux);
-
-  i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
-
-  LossPower = i*v;
-  annotation (defaultComponentName="diode",
-    Documentation(info="<html>
-<p>
-The simple diode is an electrical one port, where a heat port is added, which is
-defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic
-resistance <em>R</em>. The diode formula is:
-</p>
-<pre>
-                v/vt_t
-  i  =  ids ( e        - 1).
-
-</pre>
-where vt_t depends on the temperature of the heat port:
-<pre>
-  vt_t = k*temp/q
-</pre>
-<p>
-If the exponent <em>v/vt_t</em> reaches the limit <em>Maxexp</em>, the diode characteristic is linearly
-continued to avoid overflow.<br>
-The thermal power is calculated by <em>i*v</em>.
-</p>
-</html>", revisions="<html>
-<ul>
-<li><em> March 11, 2009   </em>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-<li><em>April 5, 2004   </em>
-       by Christoph Clauss<br> implemented<br>
-       </li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(
-  preserveAspectRatio=true,
-  extent={{-100,-100},{100,100}}), graphics={
-          Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{40,0}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255}),
-          Text(
-            extent={{-150,90},{150,50}},
-            textString="%name",
-            textColor={0,0,255})}));
-end HeatingDiode;
-
-        model HeatingNMOS "Simple MOS Transistor with heating port"
-
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
-            annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
-            annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
-            annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
-            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-          parameter SI.Length W=20.e-6 "Width";
-          parameter SI.Length L=6.e-6 "Length";
-          parameter SI.Transconductance Beta=0.041e-3 "Transconductance parameter";
-          parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
-          parameter Real K2=1.144 "Bulk threshold parameter";
-          parameter Real K5=0.7311 "Reduction of pinch-off region";
-          parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
-          parameter SI.Length dL=-1.5e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
-          parameter Real kvt=-6.96e-3 "Fitting parameter for Vt";
-          parameter Real kk2=6e-4 "Fitting parameter for K2";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-             useHeatPort=true);
-  protected
-          Real v;
-          Real uds;
-          Real ubs;
-          Real ugst;
-          Real ud;
-          Real us;
-          Real id;
-          Real gds;
-          Real beta_t;
-          Real vt_t;
-          Real k2_t;
-        equation
-          assert(L + dL > 0, "Heating NMOS: Effective length must be positive");
-          assert(W + dW > 0, "Heating NMOS: Effective width  must be positive");
-          assert(T_heatPort > 0,"Heating NMOS: Temperature must be positive");
-          gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
-          v = beta_t*(W + dW)/(L + dL);
-          ud = smooth(0,if (D.v < S.v) then S.v else D.v);
-          us = smooth(0,if (D.v < S.v) then D.v else S.v);
-          uds = ud - us;
-          ubs = smooth(0,if (B.v > us) then 0 else B.v - us);
-          ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
-          id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
-            ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
-
-          beta_t = Beta*pow((T_heatPort/Tnom), -1.5);
-          vt_t = Vt*(1 + (T_heatPort - Tnom)*kvt);
-          k2_t = K2*(1 + (T_heatPort - Tnom)*kk2);
-
-          G.i = 0;
-          D.i = smooth(0,if (D.v < S.v) then -id else id);
-          S.i = smooth(0,if (D.v < S.v) then id else -id);
-          B.i = 0;
-          LossPower = D.i*(D.v - S.v);
-          annotation (defaultComponentName="nMOS",
-            Documentation(info="<html>
-<p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
-<br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+    G.i = 0;
+    D.i = smooth(0,if (D.v < S.v) then -id else id);
+    S.i = smooth(0,if (D.v < S.v) then id else -id);
+    B.i = 0;
+    LossPower = D.i*(D.v - S.v);
+    annotation (defaultComponentName="nMOS",
+      Documentation(info="<html>
+<p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
 </p>
 <pre>
-  W       L      Beta         Vt      K2     K5       DW       DL
+  W       L      Beta         Vt      K2     K5       dW       dL
   m       m      A/V^2        V       -      -        m        m
   12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
   60.e-6  3.e-6  0.048e-3     0.1     0.08   0.68    -1.2e-6  -0.9e-6      enhancement
@@ -868,8 +339,7 @@ end HeatingDiode;
   12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
   20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
 </pre>
-<p><strong>References:</strong></p>
-<p>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990.</p>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
 </html>",  revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -883,95 +353,94 @@ end HeatingDiode;
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
-          Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
-          Line(points={{10,80},{10,39}}, color={0,0,255}),
-          Line(points={{10,20},{10,-21}}, color={0,0,255}),
-          Line(points={{10,-40},{10,-81}}, color={0,0,255}),
-          Line(points={{10,60},{91,60}}, color={0,0,255}),
-          Line(points={{10,0},{90,0}}, color={0,0,255}),
-          Line(points={{10,-60},{90,-60}}, color={0,0,255}),
-          Polygon(
-            points={{40,0},{60,5},{60,-5},{40,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(     extent={{-150,130},{150,90}},
-            textString="%name",
-                    textColor={0,0,255})}));
-        end HeatingNMOS;
+    preserveAspectRatio=true,
+    extent={{-100,-100},{100,100}}), graphics={
+    Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
+    Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
+    Line(points={{10,80},{10,39}}, color={0,0,255}),
+    Line(points={{10,20},{10,-21}}, color={0,0,255}),
+    Line(points={{10,-40},{10,-81}}, color={0,0,255}),
+    Line(points={{10,60},{91,60}}, color={0,0,255}),
+    Line(points={{10,0},{90,0}}, color={0,0,255}),
+    Line(points={{10,-60},{90,-60}}, color={0,0,255}),
+    Polygon(
+      points={{40,0},{60,5},{60,-5},{40,0}},
+      fillColor={0,0,255},
+      fillPattern=FillPattern.Solid,
+      lineColor={0,0,255}),
+    Text(extent={{-150,130},{150,90}},
+      textString="%name",
+              textColor={0,0,255})}));
+  end NMOS;
 
-        model HeatingPMOS "Simple PMOS Transistor with heating port"
+  model PMOS "Simple PMOS transistor with heating port"
 
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
-            annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
-            annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
-            annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
-            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-          parameter SI.Length W=20.0e-6 "Width";
-          parameter SI.Length L=6.0e-6 "Length";
-          parameter SI.Transconductance Beta=0.0105e-3 "Transconductance parameter";
-          parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
-          parameter Real K2=0.41 "Bulk threshold parameter";
-          parameter Real K5=0.839 "Reduction of pinch-off region";
-          parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
-          parameter SI.Length dL=-2.1e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
-          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
-          parameter Real kvt=-2.9e-3 "Fitting parameter for Vt";
-          parameter Real kk2=6.2e-4 "Fitting parameter for K2";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-             useHeatPort=true);
+    Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
+      annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
+      annotation (Placement(transformation(extent={{-90,-50},{-110,-70}}), iconTransformation(extent={{-90,-50},{-110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin S "Source"
+      annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+    parameter SI.Length W=20.0e-6 "Width";
+    parameter SI.Length L=6.0e-6 "Length";
+    parameter SI.Transconductance Beta=0.0105e-3 "Transconductance parameter";
+    parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
+    parameter Real K2=0.41 "Bulk threshold parameter";
+    parameter Real K5=0.839 "Reduction of pinch-off region";
+    parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
+    parameter SI.Length dL=-2.1e-6 "Shortening of channel";
+    parameter SI.Resistance RDS=1e7 "Drain-Source-Resistance";
+    parameter Boolean useTemperatureDependency = false "= true, if parameters Beta, K2 and Vt depend on temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real kvt=-2.9e-3 "Fitting parameter for Vt" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real kk2=6.2e-4 "Fitting parameter for K2" annotation(Dialog(enable=useTemperatureDependency));
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
   protected
-          Real v;
-          Real uds;
-          Real ubs;
-          Real ugst;
-          Real ud;
-          Real us;
-          Real id;
-          Real gds;
-          Real beta_t;
-          Real vt_t;
-          Real k2_t;
-        equation
-          assert(L + dL > 0, "HeatingPMOS: Effective length must be positive");
-          assert(W + dW > 0, "HeatingPMOS: Effective width  must be positive");
-          assert(T_heatPort > 0,"HeatingPMOS: Temperature must be positive");
-          gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
-          v = beta_t*(W + dW)/(L + dL);
-          ud = smooth(0,if (D.v > S.v) then S.v else D.v);
-          us = smooth(0,if (D.v > S.v) then D.v else S.v);
-          uds = ud - us;
-          ubs = smooth(0,if (B.v < us) then 0 else B.v - us);
-          ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
-          id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
-            ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
+    Real v;
+    Real uds;
+    Real ubs;
+    Real ugst;
+    Real ud;
+    Real us;
+    Real id;
+    Real gds;
+    Real beta_t;
+    Real vt_t;
+    Real k2_t;
+  equation
+    assert(L + dL > 0, "PMOS: Effective length must be positive");
+    assert(W + dW > 0, "PMOS: Effective width must be positive");
+    assert(T_heatPort > 0,"PMOS: Temperature must be positive");
+    gds = if (RDS < 1e-20 and RDS > -1e-20) then 1e20 else 1/RDS;
+    v = beta_t*(W + dW)/(L + dL);
+    ud = smooth(0,if (D.v > S.v) then S.v else D.v);
+    us = smooth(0,if (D.v > S.v) then D.v else S.v);
+    uds = ud - us;
+    ubs = smooth(0,if (B.v < us) then 0 else B.v - us);
+    ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
+    id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
+      ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
 
-          beta_t = Beta*pow((T_heatPort/Tnom), -1.5);
-          vt_t = Vt*(1 + (T_heatPort - Tnom)*kvt);
-          k2_t = K2*(1 + (T_heatPort - Tnom)*kk2);
+    beta_t = if useTemperatureDependency then Beta*pow((T_heatPort/Tnom), -1.5) else Beta;
+    vt_t = if useTemperatureDependency then Vt*(1 + (T_heatPort - Tnom)*kvt) else Vt;
+    k2_t = if useTemperatureDependency then K2*(1 + (T_heatPort - Tnom)*kk2) else K2;
 
-          G.i = 0;
-          D.i = smooth(0,if (D.v > S.v) then -id else id);
-          S.i = smooth(0,if (D.v > S.v) then id else -id);
-          B.i = 0;
-          LossPower = D.i*(D.v - S.v);
-          annotation (defaultComponentName="pMOS",
-            Documentation(info="<html>
-<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
+    G.i = 0;
+    D.i = smooth(0,if (D.v > S.v) then -id else id);
+    S.i = smooth(0,if (D.v > S.v) then id else -id);
+    B.i = 0;
+    LossPower = D.i*(D.v - S.v);
+    annotation (defaultComponentName="pMOS",
+      Documentation(info="<html>
+<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>].
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
-<dl><dt><strong>References:</strong> </dt>
-<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </dd>
-</dl><p>Some typical parameter sets are:</p>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Spiro1990</a>]</p>
+<p>Some typical parameter sets are:</p>
 <pre>
-  W       L      Beta        Vt    K2     K5      DW       DL
+  W       L      Beta        Vt    K2     K5      dW       dL
   m       m      A/V^2       V     -      -       m        m
   50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
   20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
@@ -994,110 +463,126 @@ end HeatingDiode;
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
-          Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
-          Line(points={{10,80},{10,39}}, color={0,0,255}),
-          Line(points={{10,20},{10,-21}}, color={0,0,255}),
-          Line(points={{10,-40},{10,-81}}, color={0,0,255}),
-          Line(points={{10,60},{91,60}}, color={0,0,255}),
-          Line(points={{10,0},{90,0}}, color={0,0,255}),
-          Line(points={{10,-60},{90,-60}}, color={0,0,255}),
-          Polygon(
-            points={{60,0},{40,5},{40,-5},{60,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(     extent={{-150,130},{150,90}},
-            textString="%name",
-                    textColor={0,0,255})}));
-        end HeatingPMOS;
+    preserveAspectRatio=true,
+    extent={{-100,-100},{100,100}}), graphics={
+    Line(points={{-90,-60},{-10,-60}}, color={0,0,255}),
+    Line(points={{-10,-60},{-10,60}}, color={0,0,255}),
+    Line(points={{10,80},{10,39}}, color={0,0,255}),
+    Line(points={{10,20},{10,-21}}, color={0,0,255}),
+    Line(points={{10,-40},{10,-81}}, color={0,0,255}),
+    Line(points={{10,60},{91,60}}, color={0,0,255}),
+    Line(points={{10,0},{90,0}}, color={0,0,255}),
+    Line(points={{10,-60},{90,-60}}, color={0,0,255}),
+    Polygon(
+      points={{60,0},{40,5},{40,-5},{60,0}},
+      fillColor={0,0,255},
+      fillPattern=FillPattern.Solid,
+      lineColor={0,0,255}),
+    Text(extent={{-150,130},{150,90}},
+      textString="%name",
+              textColor={0,0,255})}));
+  end PMOS;
 
-        model HeatingNPN "Simple NPN BJT according to Ebers-Moll with heating port"
-          parameter Real Bf=50 "Forward beta";
-          parameter Real Br=0.1 "Reverse beta";
-          parameter SI.Current Is=1e-16 "Transport saturation current";
-          parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
-          parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
-          parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
-          parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-          parameter SI.Capacitance Cje=0.4e-12 "Base-emitter zero bias depletion cap.";
-          parameter SI.Capacitance Cjc=0.5e-12 "Base-coll. zero bias depletion cap.";
-          parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
-          parameter Real Me=0.4 "Base-emitter gradation exponent";
-          parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
-          parameter Real Mc=0.333 "Base-collector gradation exponent";
-          parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
-          parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-          parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
-          parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
-          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
-          parameter Real XTI=3 "Temperature exponent for effect on Is";
-          parameter Real XTB=0 "Forward and reverse beta temperature exponent";
-          parameter SI.Voltage EG=1.11 "Energy gap for temperature effect on Is";
-          parameter Real NF=1.0 "Forward current emission coefficient";
-          parameter Real NR=1.0 "Reverse current emission coefficient";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-             useHeatPort=true);
+  model NPN "Simple NPN BJT according to Ebers-Moll with heating port"
+    parameter Real Bf=50 "Forward beta";
+    parameter Real Br=0.1 "Reverse beta";
+    parameter SI.Current Is=1e-16 "Transport saturation current";
+    parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
+    parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
+    parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
+    parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
+    parameter SI.Capacitance Cje=0.4e-12 "Base-emitter zero bias depletion cap.";
+    parameter SI.Capacitance Cjc=0.5e-12 "Base-coll. zero bias depletion cap.";
+    parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
+    parameter Real Me=0.4 "Base-emitter gradation exponent";
+    parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
+    parameter Real Mc=0.333 "Base-collector gradation exponent";
+    parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
+    parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
+    parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+    parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
+    parameter Boolean useTemperatureDependency = false "= true, if parameters Bf, Br, Is and Vt depend on temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature" annotation(Dialog(enable=not useTemperatureDependency));
+    parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real XTI=3 "Temperature exponent for effect on Is" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real XTB=0 "Forward and reverse beta temperature exponent" annotation(Dialog(enable=useTemperatureDependency));
+    parameter SI.Voltage EG=1.11 "Energy gap for temperature effect on Is" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real NF=1.0 "Forward current emission coefficient";
+    parameter Real NR=1.0 "Reverse current emission coefficient";
+    parameter SI.Voltage IC=0 "Initial value of collector to substrate voltage" annotation(Dialog(enable=UIC));
+    parameter Boolean UIC = false "Decision if initial value IC should be used";
+    parameter Boolean useSubstrate = false "= false, if substrate is implicitly grounded";
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
 
-          SI.Voltage vbc "Base-collector voltage";
-          SI.Voltage vbe "Base-emitter voltage";
-          Real qbk "Relative majority carrier charge, inverse";
-          SI.Current ibc "Base-collector diode current";
-          SI.Current ibe "Base-emitter diode current";
-          SI.Capacitance cbc "Total base-collector capacitance";
-          SI.Capacitance cbe "Total base-emitter capacitance";
-          SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
-          SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
-          SI.Current is_t "Temperature dependent transport saturation current";
-          Real br_t "Temperature dependent forward beta";
-          Real bf_t "Temperature dependent reverse beta";
-          SI.Voltage vt_t "Voltage equivalent of effective temperature";
-          Real hexp "Auxiliary quantity temperature dependent exponent";
-          Real htempexp "Auxiliary quantity exp(hexp)";
+    SI.Voltage vbc "Base-collector voltage";
+    SI.Voltage vbe "Base-emitter voltage";
+    SI.Voltage vcs "Collector-substrate voltage";
+    Real qbk "Relative majority carrier charge, inverse";
+    SI.Current ibc "Base-collector diode current";
+    SI.Current ibe "Base-emitter diode current";
+    SI.Capacitance cbc "Total base-collector capacitance";
+    SI.Capacitance cbe "Total base-emitter capacitance";
+    SI.Capacitance Capcje "Effective base-emitter depletion capacitance";
+    SI.Capacitance Capcjc "Effective base-collector depletion capacitance";
+    SI.Current is_t "Temperature dependent transport saturation current";
+    Real br_t "Temperature dependent forward beta";
+    Real bf_t "Temperature dependent reverse beta";
+    SI.Voltage vt_t "Voltage equivalent of effective temperature";
+    Real hexp "Auxiliary quantity temperature dependent exponent";
+    Real htempexp "Auxiliary quantity exp(hexp)";
+    SI.Voltage vS "Substrate potential";
+    SI.Current iS "Substrate current";
 
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
-            annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base"
-            annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
-            annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-        equation
-          assert(T_heatPort > 0,"Temperature must be positive");
-          vbc = B.v - C.v;
-          vbe = B.v - E.v;
-          qbk = 1 - vbc*Vak;
+    Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
+      annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Base"
+      annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
+    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
+      annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin S(final i = iS, final v = vS) if useSubstrate "Substrate"
+      annotation (Placement(transformation(extent={{110,-10},{90,10}})));
+  initial equation
+    if UIC then
+      vcs = IC;
+    end if;
+  equation
+    assert(T_heatPort > 0,"Temperature must be positive");
+    vbc = B.v - C.v;
+    vbe = B.v - E.v;
+    vcs = C.v - vS;
+    qbk = 1 - vbc*Vak;
 
-          hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
-          htempexp = smooth(1, exlin2(hexp, EMin, EMax));
+    hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
+    htempexp = smooth(1, exlin2(hexp, EMin, EMax));
 
-          is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
-          br_t = Br*pow((T_heatPort/Tnom), XTB);
-          bf_t = Bf*pow((T_heatPort/Tnom), XTB);
-          vt_t = (k/q)*T_heatPort;
+    is_t = if useTemperatureDependency then Is*pow(T_heatPort/Tnom, XTI)*htempexp else Is;
+    br_t = if useTemperatureDependency then Br*pow(T_heatPort/Tnom, XTB) else Br;
+    bf_t = if useTemperatureDependency then Bf*pow(T_heatPort/Tnom, XTB) else Bf;
+    vt_t = if useTemperatureDependency then (k/q)*T_heatPort else Vt;
 
-          ibc = smooth(1, is_t*(exlin2(vbc/(NR*vt_t), EMin, EMax) - 1) + vbc*Gbc);
-          ibe = smooth(1, is_t*(exlin2(vbe/(NF*vt_t), EMin, EMax) - 1) + vbe*Gbe);
-          Capcjc = smooth(1, Cjc*powlin(vbc/Phic, Mc));
-          Capcje = smooth(1, Cje*powlin(vbe/Phie, Me));
-          cbc = smooth(1, Taur*is_t/(NR*vt_t)*exlin2(vbc/(NR*vt_t), EMin, EMax) + Capcjc);
-          cbe = smooth(1, Tauf*is_t/(NF*vt_t)*exlin2(vbe/(NF*vt_t), EMin, EMax) + Capcje);
-          C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) + Ccs*der(C.v);
-          B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
-          E.i = -B.i - C.i + Ccs*der(C.v);
-
-          LossPower = (vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
-          annotation (defaultComponentName="npn",
-            Documentation(info="<html>
+    ibc = smooth(1, is_t*(exlin2(vbc/(NR*vt_t), EMin, EMax) - 1) + vbc*Gbc);
+    ibe = smooth(1, is_t*(exlin2(vbe/(NF*vt_t), EMin, EMax) - 1) + vbe*Gbe);
+    Capcjc = smooth(1, Cjc*powlin(vbc/Phic, Mc));
+    Capcje = smooth(1, Cje*powlin(vbe/Phie, Me));
+    cbc = smooth(1, Taur*is_t/(NR*vt_t)*exlin2(vbc/(NR*vt_t), EMin, EMax) + Capcjc);
+    cbe = smooth(1, Tauf*is_t/(NF*vt_t)*exlin2(vbe/(NF*vt_t), EMin, EMax) + Capcje);
+    C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) - iS;
+    B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
+    E.i = -B.i - C.i - iS;
+    iS = -Ccs * der(vcs);
+    if not useSubstrate then
+      vS = 0;
+    end if;
+    LossPower = vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v);
+    annotation (defaultComponentName="npn",
+      Documentation(info="<html>
 <p>This model is a simple model of a bipolar NPN junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>A typical parameter set is (the parameter Vt is no longer used):</p>
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
-<p><strong>References:</strong></p>
-<p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff.</p>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Vlach1983</a>]</p>
 </html>",  revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -1108,107 +593,129 @@ end HeatingDiode;
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
-          Line(points={{-20,0},{-100,0}}, color={0,0,255}),
-          Line(points={{91,60},{30,60}}, color={0,0,255}),
-          Line(points={{30,60},{-20,10}}, color={0,0,255}),
-          Line(points={{-20,-10},{30,-60}}, color={0,0,255}),
-          Line(points={{30,-60},{91,-60}}, color={0,0,255}),
-          Polygon(
-            points={{30,-60},{24,-46},{16,-54},{30,-60}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(     extent={{-150,130},{150,90}},
-            textString="%name",
-                    textColor={0,0,255})}));
-        end HeatingNPN;
+    preserveAspectRatio=true,
+    extent={{-100,-100},{100,100}}), graphics={
+    Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
+    Line(points={{-20,0},{-100,0}}, color={0,0,255}),
+    Line(points={{91,60},{30,60}}, color={0,0,255}),
+    Line(points={{30,60},{-20,10}}, color={0,0,255}),
+    Line(points={{-20,-10},{30,-60}}, color={0,0,255}),
+    Line(points={{30,-60},{91,-60}}, color={0,0,255}),
+    Polygon(
+      points={{30,-60},{24,-46},{16,-54},{30,-60}},
+      fillColor={0,0,255},
+      fillPattern=FillPattern.Solid,
+      lineColor={0,0,255}),
+    Text(extent={{-150,130},{150,90}},
+      textString="%name",
+      textColor={0,0,255}),
+          Line(
+            points={{0,0},{90,0}},
+            color={0,0,255},
+            pattern=LinePattern.Dash,
+            visible = useSubstrate)}));
+  end NPN;
 
-        model HeatingPNP "Simple PNP BJT according to Ebers-Moll with heating port"
-          parameter Real Bf=50 "Forward beta";
-          parameter Real Br=0.1 "Reverse beta";
-          parameter SI.Current Is=1e-16 "Transport saturation current";
-          parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
-          parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
-          parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
-          parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-          parameter SI.Capacitance Cje=0.4e-12 "Base-emitter zero bias depletion cap.";
-          parameter SI.Capacitance Cjc=0.5e-12 "Base-coll. zero bias depletion cap.";
-          parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
-          parameter Real Me=0.4 "Base-emitter gradation exponent";
-          parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
-          parameter Real Mc=0.333 "Base-collector gradation exponent";
-          parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
-          parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
-          parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
-          parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
-          parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature";
-          parameter Real XTI=3 "Temperature exponent for effect on Is";
-          parameter Real XTB=0 "Forward and reverse beta temperature exponent";
-          parameter SI.Voltage EG=1.11 "Energy gap for temperature effect on Is";
-          parameter Real NF=1.0 "Forward current emission coefficient";
-          parameter Real NR=1.0 "Reverse current emission coefficient";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-             useHeatPort=true);
-          SI.Voltage vcb "Collector-base voltage";
-          SI.Voltage veb "Emitter-base voltage";
-          Real qbk "Relative majority carrier charge, inverse";
-          SI.Current icb "Collector-base diode current";
-          SI.Current ieb "Emitter-base diode current";
-          SI.Capacitance ccb "Total collector-base capacitance";
-          SI.Capacitance ceb "Total emitter-base capacitance";
-          SI.Capacitance Capcje "Effective emitter-base depletion capacitance";
-          SI.Capacitance Capcjc "Effective collector-base depletion capacitance";
-          SI.Current is_t "Temperature dependent transport saturation current";
-          Real br_t "Temperature dependent forward beta";
-          Real bf_t "Temperature dependent reverse beta";
-          SI.Voltage vt_t "Voltage equivalent of effective temperature";
-          Real hexp "Auxiliary quantity temperature dependent exponent";
-          Real htempexp "Auxiliary quantity exp(hexp)";
+  model PNP "Simple PNP BJT according to Ebers-Moll with heating port"
+    parameter Real Bf=50 "Forward beta";
+    parameter Real Br=0.1 "Reverse beta";
+    parameter SI.Current Is=1e-16 "Transport saturation current";
+    parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
+    parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
+    parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
+    parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
+    parameter SI.Capacitance Cje=0.4e-12 "Base-emitter zero bias depletion cap.";
+    parameter SI.Capacitance Cjc=0.5e-12 "Base-coll. zero bias depletion cap.";
+    parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
+    parameter Real Me=0.4 "Base-emitter gradation exponent";
+    parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
+    parameter Real Mc=0.333 "Base-collector gradation exponent";
+    parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
+    parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
+    parameter Real EMin=-100 "If x < EMin, the exp(x) function is linearized";
+    parameter Real EMax=40 "If x > EMax, the exp(x) function is linearized";
+    parameter Boolean useTemperatureDependency = false "= true, if parameters Bf, Br, Is and Vt depend on temperature" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature" annotation(Dialog(enable=not useTemperatureDependency));
+    parameter SI.Temperature Tnom=300.15 "Parameter measurement temperature" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real XTI=3 "Temperature exponent for effect on Is" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real XTB=0 "Forward and reverse beta temperature exponent" annotation(Dialog(enable=useTemperatureDependency));
+    parameter SI.Voltage EG=1.11 "Energy gap for temperature effect on Is" annotation(Dialog(enable=useTemperatureDependency));
+    parameter Real NF=1.0 "Forward current emission coefficient";
+    parameter Real NR=1.0 "Reverse current emission coefficient";
+    parameter SI.Voltage IC=0 "Initial value of collector to substrate voltage" annotation(Dialog(enable=UIC));
+    parameter Boolean UIC = false "Decision if initial value IC should be used";
+    parameter Boolean useSubstrate = false "= false, if substrate is implicitly grounded";
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=useTemperatureDependency);
 
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
-            annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base"
-            annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
-            annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
-        equation
-          assert(T_heatPort > 0,"Temperature must be positive");
-          vcb = C.v - B.v;
-          veb = E.v - B.v;
-          qbk = 1 - vcb*Vak;
+    SI.Voltage vcb "Collector-base voltage";
+    SI.Voltage veb "Emitter-base voltage";
+    SI.Voltage vcs "Collector-substrate voltage";
+    Real qbk "Relative majority carrier charge, inverse";
+    SI.Current icb "Collector-base diode current";
+    SI.Current ieb "Emitter-base diode current";
+    SI.Capacitance ccb "Total collector-base capacitance";
+    SI.Capacitance ceb "Total emitter-base capacitance";
+    SI.Capacitance Capcje "Effective emitter-base depletion capacitance";
+    SI.Capacitance Capcjc "Effective collector-base depletion capacitance";
+    SI.Current is_t "Temperature dependent transport saturation current";
+    Real br_t "Temperature dependent forward beta";
+    Real bf_t "Temperature dependent reverse beta";
+    SI.Voltage vt_t "Voltage equivalent of effective temperature";
+    Real hexp "Auxiliary quantity temperature dependent exponent";
+    Real htempexp "Auxiliary quantity exp(hexp)";
+    SI.Voltage vS "Substrate potential";
+    SI.Current iS "Substrate current";
 
-          hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
-          htempexp = smooth(1, exlin2(hexp, EMin, EMax));
+    Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
+      annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,50},{110,70}})));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Base"
+      annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
+    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
+      annotation (Placement(transformation(extent={{90,-50},{110,-70}}), iconTransformation(extent={{90,-50},{110,-70}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin S(final i = iS, final v = vS) if useSubstrate "Substrate"
+      annotation (Placement(transformation(extent={{110,-10},{90,10}})));
+  initial equation
+    if UIC then
+      vcs = IC;
+    end if;
+  equation
+    assert(T_heatPort > 0,"Temperature must be positive");
+    vcb = C.v - B.v;
+    veb = E.v - B.v;
+    vcs = C.v - vS;
+    qbk = 1 - vcb*Vak;
 
-          is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
-          br_t = Br*pow((T_heatPort/Tnom), XTB);
-          bf_t = Bf*pow((T_heatPort/Tnom), XTB);
-          vt_t = (k/q)*T_heatPort;
+    hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
+    htempexp = smooth(1, exlin2(hexp, EMin, EMax));
 
-          icb = smooth(1, is_t*(exlin2(vcb/(NR*vt_t), EMin, EMax) - 1) + vcb*Gbc);
-          ieb = smooth(1, is_t*(exlin2(veb/(NF*vt_t), EMin, EMax) - 1) + veb*Gbe);
-          Capcjc = smooth(1, Cjc*powlin(vcb/Phic, Mc));
-          Capcje = smooth(1, Cje*powlin(veb/Phie, Me));
-          ccb = smooth(1, Taur*is_t/(NR*vt_t)*exlin2(vcb/(NR*vt_t), EMin, EMax) + Capcjc);
-          ceb = smooth(1, Tauf*is_t/(NF*vt_t)*exlin2(veb/(NF*vt_t), EMin, EMax) + Capcje);
-          C.i = icb/br_t + ccb*der(vcb) + Ccs*der(C.v) + (icb - ieb)*qbk;
-          B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
-          E.i = -B.i - C.i + Ccs*der(C.v);
+    is_t = if useTemperatureDependency then Is*pow(T_heatPort/Tnom, XTI)*htempexp else Is;
+    br_t = if useTemperatureDependency then Br*pow(T_heatPort/Tnom, XTB) else Br;
+    bf_t = if useTemperatureDependency then Bf*pow(T_heatPort/Tnom, XTB) else Bf;
+    vt_t = if useTemperatureDependency then (k/q)*T_heatPort else Vt;
 
-          LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v));
-          annotation (defaultComponentName="pnp",
-            Documentation(info="<html>
+    icb = smooth(1, is_t*(exlin2(vcb/(NR*vt_t), EMin, EMax) - 1) + vcb*Gbc);
+    ieb = smooth(1, is_t*(exlin2(veb/(NF*vt_t), EMin, EMax) - 1) + veb*Gbe);
+    Capcjc = smooth(1, Cjc*powlin(vcb/Phic, Mc));
+    Capcje = smooth(1, Cje*powlin(veb/Phie, Me));
+    ccb = smooth(1, Taur*is_t/(NR*vt_t)*exlin2(vcb/(NR*vt_t), EMin, EMax) + Capcjc);
+    ceb = smooth(1, Tauf*is_t/(NF*vt_t)*exlin2(veb/(NF*vt_t), EMin, EMax) + Capcje);
+    C.i = icb/br_t + ccb*der(vcb) + (icb - ieb)*qbk - iS;
+    B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
+    E.i = -B.i - C.i - iS;
+    iS = -Ccs * der(vcs);
+    if not useSubstrate then
+      vS = 0;
+    end if;
+    LossPower = vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v);
+    annotation (defaultComponentName="pnp",
+      Documentation(info="<html>
 <p>This model is a simple model of a bipolar PNP junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>A typical parameter set is (the parameter Vt is no longer used):</p>
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
-<p><strong>References:</strong></p>
-<p>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design. Van Nostrand Reinhold, New York 1983 on page 317 ff.</p>
+<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Vlach1983</a>]</p>
 </html>",  revisions="<html>
 <ul>
 <li><em> March 11, 2009   </em>
@@ -1219,23 +726,27 @@ end HeatingDiode;
        </li>
 </ul>
 </html>"), Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
-          Line(points={{-20,0},{-100,0}}, color={0,0,255}),
-          Line(points={{91,60},{30,60}}, color={0,0,255}),
-          Line(points={{30,60},{-20,10}}, color={0,0,255}),
-          Line(points={{-20,-10},{30,-60}}, color={0,0,255}),
-          Line(points={{30,-60},{91,-60}}, color={0,0,255}),
-          Polygon(
-            points={{-20,-10},{-5,-17},{-13,-25},{-20,-10}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(     extent={{-150,130},{150,90}},
-            textString="%name",
-                    textColor={0,0,255})}));
-        end HeatingPNP;
+    preserveAspectRatio=true,
+    extent={{-100,-100},{100,100}}), graphics={
+    Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
+    Line(points={{-20,0},{-100,0}}, color={0,0,255}),
+    Line(points={{91,60},{30,60}}, color={0,0,255}),
+    Line(points={{30,60},{-20,10}}, color={0,0,255}),
+    Line(points={{-20,-10},{30,-60}}, color={0,0,255}),
+    Line(points={{30,-60},{91,-60}}, color={0,0,255}),
+    Polygon(
+      points={{-20,-10},{-5,-17},{-13,-25},{-20,-10}},
+      fillColor={0,0,255},
+      fillPattern=FillPattern.Solid,
+      lineColor={0,0,255}),
+    Text(extent={{-150,130},{150,90}},
+      textString="%name",
+      textColor={0,0,255}),
+      Line( points={{0,0},{90,0}},
+            color={0,0,255},
+            pattern=LinePattern.Dash,
+            visible = useSubstrate)}));
+  end PNP;
 
 protected
         function pow "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily"
@@ -1303,13 +814,8 @@ public
     SI.Voltage vConmain;
 
   public
-    Modelica.Electrical.Analog.Interfaces.PositivePin Anode annotation (Placement(
-          transformation(extent={{-95,-12},{-75,8}}),
-                                                    iconTransformation(extent={{
-              -100,-10},{-80,10}})));
-    Modelica.Electrical.Analog.Interfaces.NegativePin Cathode annotation (Placement(
-          transformation(extent={{80,-10},{100,10}}), iconTransformation(extent={
-              {80,-10},{100,10}})));
+    Modelica.Electrical.Analog.Interfaces.PositivePin Anode annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin Cathode annotation (Placement(transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin Gate annotation (Placement(
           transformation(extent={{90,90},{110,110}}),iconTransformation(extent={{90,90},{110,110}})));
 
@@ -1370,7 +876,6 @@ public
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Line(points={{30,20},{100,90},{100,100}},
                                                  color={0,0,255}),
-          Line(points={{40,50},{60,30}}, color={0,0,255}),
           Text(
             extent={{-150,-40},{150,-80}},
             textString="%name",
@@ -1443,7 +948,6 @@ public
   end Thyristor;
 
   model SimpleTriac "Simple triac, based on Semiconductors.Thyristor model"
-
     parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";
     parameter SI.Voltage VRRM(final min=0) = 100
@@ -1465,58 +969,49 @@ public
     Modelica.Electrical.Analog.Interfaces.NegativePin n "Cathode"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin p "Anode"
-      annotation (Placement(transformation(extent={{94,-10},{114,10}})));
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin g "Gate"
-      annotation (Placement(transformation(extent={{-110,-108},{-90,-88}}), iconTransformation(extent={{-110,-108},{-90,-88}})));
+      annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
     Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor(VDRM=VDRM, VRRM=VRRM, IDRM=IDRM, VTM=VTM, IH=IH, ITM=ITM, VGT=VGT, IGT=IGT, TON=TON, TOFF=TOFF, Vt=Vt, Nbv=Nbv, useHeatPort=useHeatPort, T=T)
       annotation (Placement(transformation(extent={{-20,30},{0,50}})));
     Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor1(VDRM=VDRM, VRRM=VRRM, IDRM=IDRM, VTM=VTM, IH=IH, ITM=ITM, VGT=VGT, IGT=IGT, TON=TON, TOFF=TOFF, Vt=Vt, Nbv=Nbv, useHeatPort=useHeatPort, T=T)
-                         annotation (Placement(transformation(
+      annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
-          origin={-12,-40})));
-
+          origin={-10,-40})));
     Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode(Vknee=0)
-      annotation (Placement(transformation(extent={{-40,58},{-20,78}})));
+      annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
     Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode1(Vknee=0) annotation (
         Placement(transformation(
           extent={{-10,-10},{10,10}},
-          rotation=90,
-          origin={-20,-72})));
-
-  parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
-    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter SI.Temperature T=293.15
-      "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-10,-110},{10,-90}})));
-
+          rotation=0,
+          origin={-40,-60})));
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
   equation
     if useHeatPort then
-     connect(heatPort, thyristor.heatPort);
-     connect(heatPort, thyristor1.heatPort);
-   end if;
+      connect(heatPort, thyristor.heatPort);
+      connect(heatPort, thyristor1.heatPort);
+    end if;
     connect(thyristor.Anode, n) annotation (Line(
-        points={{-19,40},{-18,40},{-18,48},{-70,48},{-70,0},{-100,0}}, color={0,0,255}));
+        points={{-20,40},{-30,40},{-30,0},{-100,0}}, color={0,0,255}));
     connect(thyristor1.Anode, p) annotation (Line(
-        points={{-3,-40},{-2,-40},{-2,-60},{80,-60},{80,0},{104,0}}, color={0,0,255}));
+        points={{0,-40},{10,-40},{10,0},{100,0}}, color={0,0,255}));
     connect(thyristor1.Anode, thyristor.Cathode) annotation (Line(
-        points={{-3,-40},{-2,-40},{-2,40},{-1,40}}, color={0,0,255}));
+        points={{0,-40},{10,-40},{10,40},{0,40}}, color={0,0,255}));
     connect(thyristor1.Cathode, thyristor.Anode) annotation (Line(
-        points={{-21,-40},{-22,-40},{-22,40},{-19,40}}, color={0,0,255}));
+        points={{-20,-40},{-30,-40},{-30,40},{-20,40}}, color={0,0,255}));
     connect(thyristor.Gate, idealDiode.n) annotation (Line(
-        points={{0,50},{0,59.5},{-20,59.5},{-20,68}}, color={0,0,255}));
+        points={{0,50},{0,60},{-30,60}}, color={0,0,255}));
     connect(idealDiode.p, g) annotation (Line(
-        points={{-40,68},{-82,68},{-82,-98},{-100,-98}}, color={0,0,255}));
+        points={{-50,60},{-60,60},{-60,-100},{-100,-100}}, color={0,0,255}));
     connect(idealDiode1.n, thyristor1.Gate) annotation (Line(
-        points={{-20,-62},{-20,-50},{-22,-50}}, color={0,0,255}));
+        points={{-30,-60},{-20,-60},{-20,-50}}, color={0,0,255}));
     connect(idealDiode1.p, g) annotation (Line(
-        points={{-20,-82},{-42,-82},{-42,-98},{-100,-98}}, color={0,0,255}));
+        points={{-50,-60},{-60,-60},{-60,-100},{-100,-100}}, color={0,0,255}));
+    LossPower = p.i*p.v + n.i*n.v + g.i*g.v;
     annotation (defaultComponentName="triac",
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={
           Polygon(
             points={{-30,0},{-30,-100},{70,-50},{-30,0}},
             lineColor={0,0,255}),
@@ -1536,7 +1031,7 @@ public
             points={{70,0},{110,0}},
             color={0,0,255}),
           Line(
-            points={{-100,-88},{-100,-80},{-30,-50}},
+            points={{-100,-90},{-100,-80},{-30,-50}},
             color={0,0,255}),
           Text(
             extent={{-150,150},{150,110}},
@@ -1552,13 +1047,11 @@ public
      revisions="<html>
 <ul>
 <li><em>November 25, 2009   </em><br>
-
        by Susann Wolf<br><br>
        </li>
 </ul>
 </html>"));
   end SimpleTriac;
-
   annotation (
     Documentation(info="<html>
 <p>This package contains semiconductor devices:</p>

@@ -1168,9 +1168,9 @@ and accelerating inertias.<br>At time tStep a load step is applied.</p>
           annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Blocks.Sources.CombiTimeTable
-                                 dutyCycle(table=[0,0; 1,1; 4,1; 5,0; 10,0; 11,
-              -1; 14,-1; 15,0; 20,0], extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
+        Blocks.Sources.CombiTimeTable dutyCycle(
+          table=[0,0; 1,1; 4,1; 5,0; 10,0; 11, -1; 14,-1; 15,0; 20,0],
+          extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
           annotation (Placement(transformation(extent={{-100,50},{-80,70}})));
         Machines.Utilities.VfController vfController(
           final m=m,
@@ -2020,6 +2020,139 @@ at time tStart a load torque step is applied.</p>
 </html>"));
       end IMC_Initialize;
 
+      model IMC_DCBraking "Induction machine with DC current braking"
+        extends Modelica.Icons.Example;
+        import Modelica.Constants.pi;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.AngularVelocity w0(displayUnit="rev/min")=
+          2*pi*imcData.fsNominal/imcData.p "Initial mechanical speed";
+        parameter Modelica.SIunits.Inertia JLoad=4*imcData.Jr
+          "Load's moment of inertia";
+        Modelica.SIunits.Torque tauElectrical=imc.tauElectrical "Electrical torque";
+        Modelica.SIunits.Torque tauShaft=imc.tauShaft "Shaft torque";
+        Modelica.SIunits.AngularVelocity wMechanical(displayUnit="rev/min") = imc.wMechanical
+          "Shaft speed";
+        parameter Modelica.Electrical.Machines.Utilities.DcBrakeSettings
+          settings(INominal=100, layout="D3")
+          annotation (Placement(transformation(extent={{20,60},{40,80}})));
+        parameter
+          Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
+          imcData
+          annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+        Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage
+          imc(
+          p=imcData.p,
+          fsNominal=imcData.fsNominal,
+          Rs=imcData.Rs,
+          TsRef=imcData.TsRef,
+          alpha20s(displayUnit="1/K") = imcData.alpha20s,
+          Lssigma=imcData.Lssigma,
+          Jr=imcData.Jr,
+          Js=imcData.Js,
+          Lszero=imcData.Lszero,
+          frictionParameters=imcData.frictionParameters,
+          phiMechanical(fixed=true, start=0),
+          wMechanical(fixed=true, start=w0),
+          statorCoreParameters=imcData.statorCoreParameters,
+          strayLoadParameters=imcData.strayLoadParameters,
+          Lm=imcData.Lm,
+          Lrsigma=imcData.Lrsigma,
+          Rr=imcData.Rr,
+          TrRef=imcData.TrRef,
+          TsOperational=293.15,
+          alpha20r=imcData.alpha20r,
+          TrOperational=293.15)
+          annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
+          annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+        Modelica.Electrical.Machines.Utilities.TerminalBox
+          terminalBox(m=m, terminalConnection=settings.terminalConnection)
+          annotation (Placement(transformation(extent={{20,6},{40,26}})));
+        Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin1(m=m, k=1)
+          annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
+        Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin2(m=m, k=2)
+          annotation (Placement(transformation(extent={{-20,30},{-40,50}})));
+        Modelica.Electrical.Polyphase.Basic.PlugToPin_p plugToPin3(m=m, k=3) if  settings.connect3
+          annotation (Placement(transformation(extent={{-20,-10},{-40,10}})));
+        Modelica.Electrical.Analog.Sources.ConstantCurrent
+          constantCurrent(I=settings.Idc)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-50,62})));
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+      initial equation
+        if settings.layout=="Y3" then
+          //imc.is[2]=settings.is[2];
+          der(imc.is[2])=0;
+          der(imc.idq_rs[1])=0;
+          der(imc.idq_rs[2])=0;
+        end if;
+        if settings.layout=="Y2" then
+          der(imc.idq_rs[1])=0;
+          der(imc.idq_rs[2])=0;
+        end if;
+        if settings.layout=="D2" then
+          //imc.is[2]=settings.is[2];
+          der(imc.is[2])=0;
+          der(imc.idq_rs[1])=0;
+          der(imc.idq_rs[2])=0;
+        end if;
+        if settings.layout=="D3" then
+          //der(imc.idq_ss[1])=0;
+          //der(imc.idq_ss[2])=0;
+          der(imc.is[1])=0;
+          der(imc.is[2])=0;
+          der(imc.idq_rs[1])=0;
+          der(imc.idq_rs[2])=0;
+        end if;
+      equation
+        connect(imc.flange, loadInertia.flange_a)
+          annotation (Line(points={{40,0},{50,0}}, color={0,0,0}));
+        connect(plugToPin1.pin_p, constantCurrent.n)
+          annotation (Line(points={{-32,80},{-50,80},{-50,72}}, color={0,0,255}));
+        connect(plugToPin2.pin_p, constantCurrent.p)
+          annotation (Line(points={{-32,40},{-50,40},{-50,52}}, color={0,0,255}));
+        connect(constantCurrent.p, plugToPin3.pin_p)
+          annotation (Line(points={{-50,52},{-50,0},{-32,0}}, color={0,0,255}));
+        connect(plugToPin2.plug_p, plugToPin1.plug_p) annotation (Line(points={{-28,40},
+                {-20,40},{-20,80},{-28,80}}, color={0,0,255}));
+        connect(plugToPin2.plug_p, plugToPin3.plug_p) annotation (Line(points={{-28,40},
+                {-20,40},{-20,0},{-28,0}}, color={0,0,255}));
+        connect(terminalBox.plug_sn, imc.plug_sn)
+          annotation (Line(points={{24,10},{24,10}}, color={0,0,255}));
+        connect(terminalBox.plug_sp, imc.plug_sp)
+          annotation (Line(points={{36,10},{36,10}}, color={0,0,255}));
+        connect(plugToPin2.plug_p, terminalBox.plugSupply)
+          annotation (Line(points={{-28,40},{30,40},{30,12}}, color={0,0,255}));
+        connect(plugToPin2.pin_p, ground.p)
+          annotation (Line(points={{-32,40},{-60,40}}, color={0,0,255}));
+        annotation (experiment(
+            StopTime=25,
+            Interval=0.001,
+            Tolerance=1e-06), Documentation(info="<html>
+<p>
+The stator windings of an induction machine are fed by a DC current, causing a stationary current space phasor. 
+Since the rotor is turning, voltage is induced in the rotor cage which in turn drives rotor currents. 
+This creates a braking torque.
+</p>
+<p>
+Choose a layout and plot tauElectrical and tauShaft versus wMechanical.
+</p>
+<p>Default machine parameters are used.</p>
+<h4>References</h4>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td>[Fischer2017]</td>
+      <td>R. Fischer, 
+         Elektrische Maschinen, 17<sup>th</sup> ed., chapter 5.3.3.,
+        <em>Hanser</em>,
+        ISBN 978-3-446-45218-3, 2017.</td>
+    </tr>
+</table>
+</html>"));
+      end IMC_DCBraking;
       annotation (Documentation(info="<html>
 This package contains test examples of induction machines.
 </html>"));
@@ -3088,6 +3221,187 @@ achieve constant current and torque.</p>
 <p>Default machine parameters are used.</p>
 </html>"));
       end SMPM_Braking;
+
+      model SMPM_ResistiveBraking
+        "PermanentMagnetSynchronousMachine braking with a resistor"
+        extends Modelica.Icons.Example;
+        import Modelica.Constants.pi;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Inertia JLoad=4*smpmData.Jr "Load's moment of inertia";
+        parameter Modelica.SIunits.AngularVelocity w0(displayUnit="rev/min")=
+          2*pi*smpmData.fsNominal/smpmData.p "Initial speed";
+        parameter Real k[3]={1,3,5} "Braking resistance stages w.r.t. Rs";
+        parameter Modelica.SIunits.Current idq_sr[2](fixed=false)
+          "Initial stator current space phasor";
+        Modelica.SIunits.Torque tauElectrical=smpm.tauElectrical "Electrical torque";
+        Modelica.SIunits.Torque tauShaft=smpm.tauShaft "Shaft torque";
+        Modelica.SIunits.AngularVelocity wMechanical(displayUnit="rev/min")=
+          smpm.wMechanical "Shaft speed";
+        parameter
+          Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
+          smpmData(useDamperCage=false)
+          annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
+        Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet
+          smpm(
+          phiMechanical(start=0, fixed=true),
+          useSupport=false,
+          useThermalPort=false,
+          p=smpmData.p,
+          fsNominal=smpmData.fsNominal,
+          Rs=smpmData.Rs,
+          TsRef=smpmData.TsRef,
+          Lssigma=smpmData.Lssigma,
+          Jr=smpmData.Jr,
+          Js=smpmData.Js,
+          frictionParameters=smpmData.frictionParameters,
+          statorCoreParameters=smpmData.statorCoreParameters,
+          strayLoadParameters=smpmData.strayLoadParameters,
+          VsOpenCircuit=smpmData.VsOpenCircuit,
+          Lmd=smpmData.Lmd,
+          Lmq=smpmData.Lmq,
+          useDamperCage=smpmData.useDamperCage,
+          Lrsigmad=smpmData.Lrsigmad,
+          Lrsigmaq=smpmData.Lrsigmaq,
+          Rrd=smpmData.Rrd,
+          Rrq=smpmData.Rrq,
+          TrRef=smpmData.TrRef,
+          permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+          TsOperational=293.15,
+          alpha20s=smpmData.alpha20s,
+          wMechanical(fixed=true, start=w0),
+          TrOperational=293.15,
+          alpha20r=smpmData.alpha20r)
+          annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+
+        Modelica.Mechanics.Rotational.Components.Inertia inertiaLoad(J=JLoad)
+          annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+        Modelica.Electrical.Machines.Utilities.TerminalBox
+          terminalBox(m=m, terminalConnection="Y")
+          annotation (Placement(transformation(extent={{40,6},{60,26}})));
+        Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor
+          currentQuasiRMSSensor(m=m) annotation (Placement(transformation(
+              origin={50,30},
+              extent={{10,-10},{-10,10}},
+              rotation=90)));
+        Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
+            Placement(transformation(
+              extent={{-10,10},{10,-10}},
+              rotation=270,
+              origin={-72,30})));
+        Modelica.Electrical.Analog.Basic.Ground
+          ground annotation (Placement(
+              transformation(
+              origin={-72,0},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Modelica.Electrical.Polyphase.Sensors.VoltageQuasiRMSSensor
+          voltageRMSSensor(m=m) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=180,
+              origin={40,70})));
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor1(m=m, R=k[1]*fill(
+              smpmData.Rs, m))
+          annotation (Placement(transformation(extent={{30,60},{10,40}})));
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor2(m=m, R=k[2]*fill(
+              smpmData.Rs, m))
+          annotation (Placement(transformation(extent={{0,60},{-20,40}})));
+        Modelica.Electrical.Polyphase.Basic.Resistor resistor3(m=m, R=k[3]*fill(
+              smpmData.Rs, m))
+          annotation (Placement(transformation(extent={{-30,60},{-50,40}})));
+        Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch switch2(
+          m=m,
+          Ron=fill(1e-9, m),
+          Goff=fill(1e-9, m)) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=180,
+              origin={-10,30})));
+        Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch switch3(
+          m=m,
+          Ron=fill(1e-9, m),
+          Goff=fill(1e-9, m)) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=180,
+              origin={-40,30})));
+        Modelica.Blocks.Routing.BooleanReplicator booleanReplicator2(nout=m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-10,-2})));
+        Modelica.Blocks.Routing.BooleanReplicator booleanReplicator3(nout=m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-40,0})));
+        Modelica.Blocks.Sources.BooleanStep booleanStep2(startTime=0.65)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-10,-30})));
+        Modelica.Blocks.Sources.BooleanStep booleanStep3(startTime=0.5)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-40,-30})));
+      initial equation
+        0 = (1 + sum(k))*smpmData.Rs*idq_sr[1] - w0*smpmData.p*(smpmData.Lssigma + smpmData.Lmq)*idq_sr[2];
+        0 = (1 + sum(k))*smpmData.Rs*idq_sr[2] + w0*smpmData.p*(smpmData.Lssigma + smpmData.Lmd)*idq_sr[1] + sqrt(2)*smpmData.VsOpenCircuit;
+        smpm.idq_sr=idq_sr;
+      equation
+        connect(smpm.flange, inertiaLoad.flange_a)
+          annotation (Line(points={{60,0},{70,0}}));
+        connect(terminalBox.plug_sn, smpm.plug_sn)
+          annotation (Line(points={{44,10},{44,10}}, color={0,0,255}));
+        connect(terminalBox.plug_sp, smpm.plug_sp)
+          annotation (Line(points={{56,10},{56,10}},
+                                                   color={0,0,255}));
+        connect(star.pin_n, ground.p)
+          annotation (Line(points={{-72,20},{-72,10}}, color={0,0,255}));
+        connect(currentQuasiRMSSensor.plug_n, terminalBox.plugSupply)
+          annotation (Line(points={{50,20},{50,12}},
+                                                   color={0,0,255}));
+        connect(resistor1.plug_p, currentQuasiRMSSensor.plug_p)
+          annotation (Line(points={{30,50},{50,50},{50,40}}, color={0,0,255}));
+        connect(currentQuasiRMSSensor.plug_p, voltageRMSSensor.plug_p)
+          annotation (Line(points={{50,40},{50,70}},        color={0,0,255}));
+        connect(star.plug_p, voltageRMSSensor.plug_n)
+          annotation (Line(points={{-72,40},{-72,70},{30,70}},  color={0,0,255}));
+        connect(resistor1.plug_n, resistor2.plug_p)
+          annotation (Line(points={{10,50},{0,50}}, color={0,0,255}));
+        connect(resistor2.plug_n, resistor3.plug_p)
+          annotation (Line(points={{-20,50},{-30,50}}, color={0,0,255}));
+        connect(resistor3.plug_n, star.plug_p)
+          annotation (Line(points={{-50,50},{-72,50},{-72,40}}, color={0,0,255}));
+        connect(resistor2.plug_n, switch2.plug_n)
+          annotation (Line(points={{-20,50},{-20,30}}, color={0,0,255}));
+        connect(resistor2.plug_p, switch2.plug_p)
+          annotation (Line(points={{0,50},{0,30}}, color={0,0,255}));
+        connect(resistor3.plug_n, switch3.plug_n)
+          annotation (Line(points={{-50,50},{-50,30}}, color={0,0,255}));
+        connect(resistor3.plug_p, switch3.plug_p)
+          annotation (Line(points={{-30,50},{-30,30}}, color={0,0,255}));
+        connect(booleanReplicator2.y, switch2.control)
+          annotation (Line(points={{-10,9},{-10,18}}, color={255,0,255}));
+        connect(booleanReplicator3.y, switch3.control)
+          annotation (Line(points={{-40,11},{-40,18}}, color={255,0,255}));
+        connect(booleanStep3.y, booleanReplicator3.u) annotation (Line(points={{-40,-19},
+                {-40,-12}},                color={255,0,255}));
+        connect(booleanStep2.y, booleanReplicator2.u) annotation (Line(points={{-10,-19},
+                {-10,-14}},                color={255,0,255}));
+        annotation (experiment(Interval=0.001, Tolerance=1e-06),              Documentation(
+              info="<html>
+<p>
+The voltages induced by the permanent magnets of the synchronous machine is shortened over the inductance and resistance of the stator winding 
+and the (optional) external braking resistors. The currents driven by these voltages cause a braking torque.
+</p>
+<p>
+The external braking resistor is implemented with three stages which get shortened at different points during braking. 
+Note that the first (smallest) stage is not shortened, which ensures a minimum damping to avoid oscillations of angular velocity around zero. 
+The total braking resistance (sum of all stages) has to be adapted to the angular velocity at which braking starts.
+</p>
+<p>
+Plot tauElectrical and tauShaft versus wMechanical.
+</p>
+<p>Default machine parameters are used.</p>
+</html>"));
+      end SMPM_ResistiveBraking;
 
       model SMEE_DOL
         "Test example: ElectricalExcitedSynchronousMachine starting direct on line"
@@ -5274,7 +5588,7 @@ The outer control loop is formed by the speed controller which is parameterized 
 </p>
 <p>
 At time=0.2 s a reference speed step is applied, causing the drive to accelerate to the desired speed.
-At time=0.8 s a load torque step is applied, causing to drive to decelerate until the speed controller brings the drive back to the desired speed.
+At time=0.8 s a load torque step is applied, causing the drive to decelerate until the speed controller brings the drive back to the desired speed.
 </p>
 <p>
 You may try a slewRateLimiter instead of the prefilter to limit the speed rise i.e. the torque.
@@ -5352,7 +5666,7 @@ The outer control loop is formed by the position controller which is parameteriz
 </p>
 <p>
 At time=0.2 s the kinematicPTP starts to prescribe the reference position with limited speed and limited acceleration.
-At time=2.3 s a load torque step is applied, causing to drive to slightly leave the end position until the position controller brings the drive back to the desired position.
+At time=2.3 s a load torque step is applied, causing the drive to slightly leave the end position until the position controller brings the drive back to the desired position.
 </p>
 <p>
 Further reading:
@@ -5367,8 +5681,8 @@ Further reading:
         partial model PartialControlledDCPM
           "Partial controlled DC PM drive with H-bridge from battery"
           extends Modelica.Icons.Example;
-          replaceable parameter DriveDataDCPM driveData constrainedby
-            ControlledDCDrives.Utilities.DriveDataDCPM "DC machine data"
+          replaceable parameter DriveDataDCPM driveData constrainedby ControlledDCDrives.Utilities.DriveDataDCPM
+                                                       "DC machine data"
             annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
           Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=driveData.JL)
             annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
@@ -7402,40 +7716,40 @@ These models use package SpacePhasors.
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
-                "Nominal resistances and inductances", group="DamperCage"));
+                "Nominal resistances and inductances", group="Damper cage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
               fsNominal)) "Damper stray inductance in d-axis" annotation (
             Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
           "Damper stray inductance in q-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
           "Damper resistance in d-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Damper resistance in q-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
             start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Losses.PermanentMagnetLossParameters
           permanentMagnetLossParameters(IRef(start=100), wRef(start=2*pi*
@@ -7716,40 +8030,40 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
-                "Nominal resistances and inductances", group="DamperCage"));
+                "Nominal resistances and inductances", group="Damper cage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
               fsNominal)) "Damper stray inductance in d-axis" annotation (
             Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
           "Damper stray inductance in q-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
           "Damper resistance in d-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Damper resistance in q-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
             start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
           "Nominal stator RMS voltage per phase"
@@ -8117,40 +8431,40 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
-                "Nominal resistances and inductances", group="DamperCage"));
+                "Nominal resistances and inductances", group="Damper cage"));
         parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
               fsNominal)) "Damper stray inductance in d-axis" annotation (
             Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
           "Damper stray inductance in q-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd(start=0.04)
           "Damper resistance in d-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Damper resistance in q-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
             start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         Machines.BasicMachines.Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
@@ -8570,7 +8884,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current" annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Resistance Re(start=100)
-          "Field excitation resistance at TRef"
+          "Field excitation resistance at TeRef"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperature of excitation resistance"
@@ -8817,7 +9131,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               lossPowerSeriesExcitation=re.LossPower),
           core(final w=airGapDC.w));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
-          "Series excitation resistance at TRef"
+          "Series excitation resistance at TeRef"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
           "Reference temperature of excitation resistance"
@@ -15330,17 +15644,17 @@ Interfaces and partial models for induction machines
         "Nominal armature temperature"
         annotation (Dialog(tab="Nominal parameters"));
       parameter Modelica.SIunits.Resistance Ra(start=0.05)
-        "Armature resistance at TRef"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
+        "Armature resistance at TaRef"
+        annotation (Dialog(tab="Armature"));
       parameter Modelica.SIunits.Temperature TaRef(start=293.15)
         "Reference temperature of armature resistance"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
+        annotation (Dialog(tab="Armature"));
       parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20a(start=
             0) "Temperature coefficient of armature resistance"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
+        annotation (Dialog(tab="Armature"));
       parameter Modelica.SIunits.Inductance La(start=0.0015)
         "Armature inductance"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
+        annotation (Dialog(tab="Armature"));
       extends PartialBasicMachine(
         Jr(start=0.15),
         frictionParameters(wRef=wNominal),
@@ -16544,37 +16858,37 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage=true "Enable / disable damper cage"
           annotation (Evaluate=true,Dialog(tab=
-                "Nominal resistances and inductances", group="DamperCage"));
+                "Nominal resistances and inductances", group="Damper cage"));
         parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*pi*fsNominal)
           "Damper stray inductance in d-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
           "Damper stray inductance in q-axis" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrd=0.04
           "Damper resistance in d-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Damper resistance in q-axis at TRef" annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0 "Temperature coefficient of damper resistances in d- and q-axis"
           annotation (Dialog(
             tab="Nominal resistances and inductances",
-            group="DamperCage",
+            group="Damper cage",
             enable=useDamperCage));
         annotation (
           defaultComponentName="smrData",
@@ -16602,15 +16916,15 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           "Nominal armature temperature"
           annotation (Dialog(tab="Nominal parameters"));
         parameter Modelica.SIunits.Resistance Ra=0.05
-          "Armature resistance at TRef"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          "Armature resistance at TaRef"
+          annotation (Dialog(tab="Armature"));
         parameter Modelica.SIunits.Temperature TaRef=293.15
           "Reference temperature of armature resistance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          annotation (Dialog(tab="Armature"));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20a=0 "Temperature coefficient of armature resistance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          annotation (Dialog(tab="Armature"));
         parameter Modelica.SIunits.Inductance La=0.0015 "Armature inductance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          annotation (Dialog(tab="Armature"));
         parameter Machines.Losses.FrictionParameters frictionParameters(PRef=0,
             wRef=wNominal) "Friction loss parameter record"
           annotation (Dialog(tab="Losses"));
@@ -16648,7 +16962,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Current IeNominal=1
           "Nominal excitation current" annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Resistance Re=100
-          "Field excitation resistance at TRef"
+          "Field excitation resistance at TeRef"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
@@ -16674,7 +16988,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         extends DcPermanentMagnetData(wNominal=1410*2*pi/60);
         import Modelica.Constants.pi;
         parameter Modelica.SIunits.Resistance Re=0.01
-          "Series excitation resistance at TRef"
+          "Series excitation resistance at TeRef"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
@@ -16901,7 +17215,7 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
     end FromDQ;
 
     model DQToThreePhase "Transforms dq to three-phase"
-      constant Integer m=3 "Number of phases";
+      parameter Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
       parameter Boolean useRMS=true "If true, inputs dq are multiplied by sqrt(2)";
       extends Modelica.Blocks.Interfaces.MO(final nout=m);
@@ -17551,6 +17865,211 @@ representing the star points of each base system; see
 starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
 </html>"));
     end RampedRheostat;
+
+    record DcBrakeSettings "Setting for DC current braking"
+      parameter Modelica.SIunits.Current INominal=100 "Nominal RMS current per phase";
+      parameter String layout="Y3" "Braking connection layout"
+        annotation (choices(
+          choice="Y3" "Y 3 phases",
+          choice="Y2" "Y 2 phases",
+          choice="D2" "D 2 phases",
+          choice="D3" "D 3 phases"));
+      parameter String terminalConnection=
+        if layout=="Y3" or layout=="Y2" then "Y" else "D" "Terminal connection"
+        annotation(Dialog(group="Results", enable=false));
+      parameter Boolean connect3=
+        layout=="Y3" or layout=="D3" "Connect 3rd terminal"
+        annotation(Dialog(group="Results", enable=false));
+      parameter Modelica.SIunits.Current Idc=
+        if     layout=="Y3" then INominal*sqrt(2)
+        elseif layout=="Y2" then INominal*sqrt(3/2)
+        elseif layout=="D2" then INominal*3/sqrt(2)
+        else                     INominal*sqrt(6)
+        "DC braking current" annotation(Dialog(group="Results", enable=false));
+      parameter Modelica.SIunits.Current is[3]=
+        if     layout=="Y3" then Idc*{1,-1/2,-1/2}
+        elseif layout=="Y2" then Idc*{1,-1,0}
+        elseif layout=="D2" then Idc*{2/3,-1/3,-1/3}
+        else                     Idc*{1/2,-1/2,0}
+        "Phase currents" annotation(Dialog(group="Results", enable=false));
+       annotation (defaultComponentPrefixes="parameter",
+        Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                                    Rectangle(
+            extent={{-100,-100},{100,100}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-50,40},{0,10}},
+              textColor={0,0,0},
+              lineThickness=0.5,
+              textString="Y3"),
+            Text(
+              extent={{-50,-60},{0,-90}},
+              textColor={0,0,0},
+              lineThickness=0.5,
+              textString="Y2"),
+            Text(
+              extent={{0,40},{50,10}},
+              textColor={0,0,0},
+              lineThickness=0.5,
+              textString="D2"),
+            Text(
+              extent={{0,-60},{50,-90}},
+              textColor={0,0,0},
+              lineThickness=0.5,
+              textString="D3"),             Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            textColor={0,0,255}),
+            Text(
+              extent={{-150,-150},{150,-110}},
+              textColor={0,0,0},
+              textString="%layout"),
+            Line(
+              points={{80,80},{80,20}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{0,30},{0,-30}},
+              color={0,0,0},
+              origin={54,65},
+              rotation=120),
+            Line(
+              points={{0,30},{0,-30}},
+              color={0,0,0},
+              origin={54,35},
+              rotation=240),
+            Line(
+              points={{80,80},{98,80}},
+              color={238,46,47},
+              thickness=0.5),
+            Line(
+              points={{80,20},{98,20}},
+              color={238,46,47},
+              thickness=0.5),
+            Line(
+              points={{0,30},{0,-30}},
+              color={0,0,0},
+              origin={54,-35},
+              rotation=120,
+              pattern=LinePattern.Dash),
+            Line(
+              points={{0,30},{0,-30}},
+              color={0,0,0},
+              thickness=0.5,
+              origin={54,-65},
+              rotation=240),
+            Line(
+              points={{80,-20},{80,-80}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{80,-80},{98,-80}},
+              color={238,46,47},
+              thickness=0.5),
+            Line(
+              points={{80,-20},{98,-20}},
+              color={238,46,47},
+              thickness=0.5),
+            Line(
+              points={{28,-50},{28,-20},{80,-20}},
+              color={238,46,47},
+              thickness=0.5),
+            Line(
+              points={{-50,60},{-50,20}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{0,20},{0,-20}},
+              color={0,0,0},
+              origin={-33,70},
+              rotation=120),
+            Line(
+              points={{0,20},{0,-20}},
+              color={0,0,0},
+              origin={-67,70},
+              rotation=240),
+            Line(
+              points={{-84,80},{-16,80}},
+              color={238,46,47},
+              thickness=0.5),
+            Line(
+              points={{-98,80},{-84,80}},
+              color={238,46,47},
+              thickness=0.5),
+            Line(
+              points={{-98,20},{-50,20}},
+              color={238,46,47},
+              thickness=0.5),
+            Line(
+              points={{0,20},{0,-20}},
+              color={0,0,0},
+              thickness=0.5,
+              origin={-67,-30},
+              rotation=240),
+            Line(
+              points={{-50,-40},{-50,-80}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{0,20},{0,-20}},
+              color={0,0,0},
+              origin={-33,-30},
+              rotation=120,
+              pattern=LinePattern.Dash),
+            Line(
+              points={{-98,-20},{-84,-20}},
+              color={238,46,47},
+              thickness=0.5),
+            Line(
+              points={{-98,-80},{-50,-80}},
+              color={238,46,47},
+              thickness=0.5),
+            Ellipse(
+              extent={{-100,82},{-96,78}},
+              lineColor={238,46,47},
+              lineThickness=0.5),
+            Ellipse(
+              extent={{-100,22},{-96,18}},
+              lineColor={238,46,47},
+              lineThickness=0.5),
+            Ellipse(
+              extent={{-100,-18},{-96,-22}},
+              lineColor={238,46,47},
+              lineThickness=0.5),
+            Ellipse(
+              extent={{-100,-78},{-96,-82}},
+              lineColor={238,46,47},
+              lineThickness=0.5),
+            Ellipse(
+              extent={{96,-78},{100,-82}},
+              lineColor={238,46,47},
+              lineThickness=0.5),
+            Ellipse(
+              extent={{96,-18},{100,-22}},
+              lineColor={238,46,47},
+              lineThickness=0.5),
+            Ellipse(
+              extent={{96,22},{100,18}},
+              lineColor={238,46,47},
+              lineThickness=0.5),
+            Ellipse(
+              extent={{96,82},{100,78}},
+              lineColor={238,46,47},
+              lineThickness=0.5)}),
+          Diagram(coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p>
+Lets the user choose the layout, and determines the necessary DC current for DC current braking of an induction machine.
+</p>
+<p>
+The icon shows the four layout variants. 
+Phases with half the current are depicted with half the line thickness, 
+phases with zero current are depicted with dashed line.
+</p>
+</html>"));
+    end DcBrakeSettings;
 
     record SynchronousMachineData
       "Computes machine parameter from usual datasheet"

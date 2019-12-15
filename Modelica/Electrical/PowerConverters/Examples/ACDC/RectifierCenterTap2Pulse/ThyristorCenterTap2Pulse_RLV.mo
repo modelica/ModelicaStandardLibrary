@@ -43,7 +43,6 @@ equation
     Documentation(info="<html>
 <p>This example shows a controlled center tap two pulse rectifier with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
 
-
 <p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
 end ThyristorCenterTap2Pulse_RLV;

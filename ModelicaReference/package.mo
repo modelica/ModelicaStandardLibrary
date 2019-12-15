@@ -6,18 +6,18 @@ extends ModelicaReference.Icons.Information;
 class ModelicaGrammar "Modelica Grammar"
   extends ModelicaReference.Icons.Information;
 
-  annotation (Documentation(info="<html><head><title>Modelica 3.2 Revision 2 Grammar</title>
+  annotation (Documentation(info="<html><head><title>Modelica 3.4 Grammar</title>
 <style type=\"text/css\">
 A.HREF { text-decoration:none; color:#003399 }
 </style>
 </head>
-<body><h4>Modelica 3.2 Revision 2 Grammar</h4>
-<p>This is the grammar of Modelica 3.2 Revision 2 in EBNF form. Each
+<body><h4>Modelica 3.4 Grammar</h4>
+<p>This is the grammar of Modelica 3.4 in EBNF form. Each
 non-terminal appearing on the right hand side of a production is a link to the
 production for that non-terminal. This grammar is identical to that in the
-Modelica 3.2 Revision 2 specification except for removal of some unnecessary
+Modelica 3.4 specification except for removal of some unnecessary
 parentheses, grouping of some common terms, and reformatting for easier
-readability. The following typographic conventions are used:
+readability. The following typographic conventions are used:</p>
 <ul>
 <li>Keywords are set in <strong>boldface</strong>.</li>
 <li>Literals other than keywords are <font color=\"green\">\"</font><tt>quoted-monospaced</tt><font color=\"green\">\"</font> text.</li>
@@ -25,44 +25,58 @@ readability. The following typographic conventions are used:
 <li>EBNF meta-characters are <font color=\"green\">green</font>.</li>
 </ul>
 <h5>Stored Definition</h5>
-<p><a name=\"stored_definition\" class=NAME><em>stored_definition:</em></a>
+<p><a name=\"stored_definition\" class=NAME><em>stored_definition</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>within</strong><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>final</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#class_definition\" class=HREF><em>class_definition</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
+</p>
 <h5>Class Definition</h5>
-<p><a name=\"class_definition\" class=NAME><em>class_definition:</em></a>
+<p><a name=\"class_definition\" class=NAME><em>class_definition</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>encapsulated</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#class_prefixes\" class=HREF><em>class_prefixes</em></a><tt>&nbsp;</tt><a href=\"#class_specifier\" class=HREF><em>class_specifier</em></a>
-<p><a name=\"class_prefixes\" class=NAME><em>class_prefixes:</em></a>
+</p>
+<p><a name=\"class_prefixes\" class=NAME><em>class_prefixes</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>partial</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><strong>class</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>model</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>record</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>block</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>expandable</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><strong>connector</strong>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>type</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>package</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>function</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>operator</strong><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>function</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>record</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">)</font>
-<p><a name=\"class_specifier\" class=NAME><em>class_specifier:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><strong>class</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>model</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>operator</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><strong>record</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>block</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>expandable</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><strong>connector</strong>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>type</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>package</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>pure</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>impure</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>operator</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><strong>function</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>operator</strong><tt>&nbsp;</tt><font color=green size=\"+1\">)</font>
+</p>
+<p><a name=\"class_specifier\" class=NAME><em>class_specifier</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#long_class_specifier\" class=HREF><em>long_class_specifier</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#short_class_specifier\" class=HREF><em>short_class_specifier</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#der_class_specifier\" class=HREF><em>der_class_specifier</em></a>
-<p><a name=\"long_class_specifier\" class=NAME><em>long_class_specifier:</em></a>
+</p>
+<p><a name=\"long_class_specifier\" class=NAME><em>long_class_specifier</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><a href=\"#string_comment\" class=HREF><em>string_comment</em></a><tt>&nbsp;</tt><a href=\"#composition\" class=HREF><em>composition</em></a><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><em>IDENT</em>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>extends</strong><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#class_modification\" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#string_comment\" class=HREF><em>string_comment</em></a><tt>&nbsp;</tt><a href=\"#composition\" class=HREF><em>composition</em></a><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><em>IDENT</em>
-<p><a name=\"short_class_specifier\" class=NAME><em>short_class_specifier:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#base_prefix\" class=HREF><em>base_prefix</em></a><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#array_subscripts\" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#class_modification\" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
+</p>
+<p><a name=\"short_class_specifier\" class=NAME><em>short_class_specifier</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#base_prefix\" class=HREF><em>base_prefix</em></a><tt>&nbsp;</tt><a href=\"#type_specifier\" class=HREF><em>type_specifier</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#array_subscripts\" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#class_modification\" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><strong>enumeration</strong><tt>&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#enum_list\" class=HREF><em>enum_list</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>:</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">)</font><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
-<p><a name=\"der_class_specifier\" class=NAME><em>der_class_specifier:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><strong>der</strong><tt>&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
-<p><a name=\"base_prefix\" class=NAME><em>base_prefix:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#type_prefix\" class=HREF><em>type_prefix</em></a>
-<p><a name=\"enum_list\" class=NAME><em>enum_list:</em></a>
+</p>
+<p><a name=\"der_class_specifier\" class=NAME><em>der_class_specifier</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><strong>der</strong><tt>&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#type_specifier\" class=HREF><em>type_specifier</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
+</p>
+<p><a name=\"base_prefix\" class=NAME><em>base_prefix</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>input</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>output</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
+<p><a name=\"enum_list\" class=NAME><em>enum_list</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#enumeration_literal\" class=HREF><em>enumeration_literal</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#enumeration_literal\" class=HREF><em>enumeration_literal</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"enumeration_literal\" class=NAME><em>enumeration_literal:</em></a>
+</p>
+<p><a name=\"enumeration_literal\" class=NAME><em>enumeration_literal</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
-<p><a name=\"composition\" class=NAME><em>composition:</em></a>
+</p>
+<p><a name=\"composition\" class=NAME><em>composition</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#element_list\" class=HREF><em>element_list</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><strong>public</strong><tt>&nbsp;</tt><a href=\"#element_list\" class=HREF><em>element_list</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>protected</strong><tt>&nbsp;</tt><a href=\"#element_list\" class=HREF><em>element_list</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#equation_section\" class=HREF><em>equation_section</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#algorithm_section\" class=HREF><em>algorithm_section</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>external</strong><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#language_specification\" class=HREF><em>language_specification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#external_function_call\" class=HREF><em>external_function_call</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#annotation\" class=HREF><em>annotation</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#annotation\" class=HREF><em>annotation</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"language_specification\" class=NAME><em>language_specification:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#external_function_call\" class=HREF><em>external_function_call</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#annotation_comment\" class=HREF><em>annotation_comment</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#annotation_comment\" class=HREF><em>annotation_comment</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
+<p><a name=\"language_specification\" class=NAME><em>language_specification</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>STRING</em>
-<p><a name=\"external_function_call\" class=NAME><em>external_function_call:</em></a>
+</p>
+<p><a name=\"external_function_call\" class=NAME><em>external_function_call</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#component_reference\" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#expression_list\" class=HREF><em>expression_list</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
-<p><a name=\"element_list\" class=NAME><em>element_list:</em></a>
+</p>
+<p><a name=\"element_list\" class=NAME><em>element_list</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#element\" class=HREF><em>element</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"element\" class=NAME><em>element:</em></a>
+</p>
+<p><a name=\"element\" class=NAME><em>element</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#import_clause\" class=HREF><em>import_clause</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#extends_clause\" class=HREF><em>extends_clause</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>redeclare</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>final</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>inner</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>outer</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
@@ -70,68 +84,93 @@ readability. The following typographic conventions are used:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#component_clause\" class=HREF><em>component_clause</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>replaceable</strong><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><a href=\"#class_definition\" class=HREF><em>class_definition</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#component_clause\" class=HREF><em>component_clause</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">)</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#constraining_clause\" class=HREF><em>constraining_clause</em></a><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">)</font>
-<p><a name=\"import_clause\" class=NAME><em>import_clause:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>import</strong><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green>\"</font><tt>*</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.*</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">)</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
+</p>
+<p><a name=\"import_clause\" class=NAME><em>import_clause</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>import</strong><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green>\"</font><tt>*</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.*</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>{</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#import_list\" class=HREF><em>import_list</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>}</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">)</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
+</p>
+<p><a name=\"import_list\" class=NAME><em>import_list</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
+</p>
 <h5>Extends</h5>
-<p><a name=\"extends_clause\" class=NAME><em>extends_clause:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>extends</strong><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#class_modification\" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#annotation\" class=HREF><em>annotation</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"constraining_clause\" class=NAME><em>constraining_clause:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>constrainedby</strong><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#class_modification\" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+<p><a name=\"extends_clause\" class=NAME><em>extends_clause</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>extends</strong><tt>&nbsp;</tt><a href=\"#type_specifier\" class=HREF><em>type_specifier</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#class_modification\" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#annotation_comment\" class=HREF><em>annotation_comment</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
+<p><a name=\"constraining_clause\" class=NAME><em>constraining_clause</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>constrainedby</strong><tt>&nbsp;</tt><a href=\"#type_specifier\" class=HREF><em>type_specifier</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#class_modification\" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
 <h5>Component Clause</h5>
-<p><a name=\"component_clause\" class=NAME><em>component_clause:</em></a>
+<p><a name=\"component_clause\" class=NAME><em>component_clause</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#type_prefix\" class=HREF><em>type_prefix</em></a><tt>&nbsp;</tt><a href=\"#type_specifier\" class=HREF><em>type_specifier</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#array_subscripts\" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#component_list\" class=HREF><em>component_list</em></a>
-<p><a name=\"type_prefix\" class=NAME><em>type_prefix:</em></a>
+</p>
+<p><a name=\"type_prefix\" class=NAME><em>type_prefix</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>flow</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>stream</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>discrete</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>parameter</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>constant</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>input</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>output</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"type_specifier\" class=NAME><em>type_specifier:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a>
-<p><a name=\"component_list\" class=NAME><em>component_list:</em></a>
+</p>
+<p><a name=\"component_list\" class=NAME><em>component_list</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#component_declaration\" class=HREF><em>component_declaration</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#component_declaration\" class=HREF><em>component_declaration</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"component_declaration\" class=NAME><em>component_declaration:</em></a>
+</p>
+<p><a name=\"component_declaration\" class=NAME><em>component_declaration</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#declaration\" class=HREF><em>declaration</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#condition_attribute\" class=HREF><em>condition_attribute</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
-<p><a name=\"condition_attribute\" class=NAME><em>condition_attribute:</em></a>
+</p>
+<p><a name=\"condition_attribute\" class=NAME><em>condition_attribute</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>if</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a>
-<p><a name=\"declaration\" class=NAME><em>declaration:</em></a>
+</p>
+<p><a name=\"declaration\" class=NAME><em>declaration</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#array_subscripts\" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#modification\" class=HREF><em>modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
 <h5>Modification</h5>
-<p><a name=\"modification\" class=NAME><em>modification:</em></a>
+<p><a name=\"modification\" class=NAME><em>modification</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#class_modification\" class=HREF><em>class_modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>:=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a>
-<p><a name=\"class_modification\" class=NAME><em>class_modification:</em></a>
+</p>
+<p><a name=\"class_modification\" class=NAME><em>class_modification</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#argument_list\" class=HREF><em>argument_list</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
-<p><a name=\"argument_list\" class=NAME><em>argument_list:</em></a>
+</p>
+<p><a name=\"argument_list\" class=NAME><em>argument_list</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#argument\" class=HREF><em>argument</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#argument\" class=HREF><em>argument</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"argument\" class=NAME><em>argument:</em></a>
+</p>
+<p><a name=\"argument\" class=NAME><em>argument</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#element_modification_or_replaceable\" class=HREF><em>element_modification_or_replaceable</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#element_redeclaration\" class=HREF><em>element_redeclaration</em></a>
-<p><a name=\"element_modification_or_replaceable\" class=NAME><em>element_modification_or_replaceable:</em></a>
+</p>
+<p><a name=\"element_modification_or_replaceable\" class=NAME><em>element_modification_or_replaceable</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>each</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>final</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><a href=\"#element_modification\" class=HREF><em>element_modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#element_replaceable\" class=HREF><em>element_replaceable</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">)</font>
-<p><a name=\"element_modification\" class=NAME><em>element_modification:</em></a>
+</p>
+<p><a name=\"element_modification\" class=NAME><em>element_modification</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#modification\" class=HREF><em>modification</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#string_comment\" class=HREF><em>string_comment</em></a>
-<p><a name=\"element_redeclaration\" class=NAME><em>element_redeclaration:</em></a>
+</p>
+<p><a name=\"element_redeclaration\" class=NAME><em>element_redeclaration</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>redeclare</strong><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>each</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>final</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><a href=\"#short_class_definition\" class=HREF><em>short_class_definition</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#component_clause1\" class=HREF><em>component_clause1</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#element_replaceable\" class=HREF><em>element_replaceable</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">)</font>
-<p><a name=\"element_replaceable\" class=NAME><em>element_replaceable:</em></a>
+</p>
+<p><a name=\"element_replaceable\" class=NAME><em>element_replaceable</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>replaceable</strong><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><a href=\"#short_class_definition\" class=HREF><em>short_class_definition</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#component_clause1\" class=HREF><em>component_clause1</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">)</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#constraining_clause\" class=HREF><em>constraining_clause</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"component_clause1\" class=NAME><em>component_clause1:</em></a>
+</p>
+<p><a name=\"component_clause1\" class=NAME><em>component_clause1</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#type_prefix\" class=HREF><em>type_prefix</em></a><tt>&nbsp;</tt><a href=\"#type_specifier\" class=HREF><em>type_specifier</em></a><tt>&nbsp;</tt><a href=\"#component_declaration1\" class=HREF><em>component_declaration1</em></a>
-<p><a name=\"component_declaration1\" class=NAME><em>component_declaration1:</em></a>
+</p>
+<p><a name=\"component_declaration1\" class=NAME><em>component_declaration1</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#declaration\" class=HREF><em>declaration</em></a><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
-<p><a name=\"short_class_definition\" class=NAME><em>short_class_definition:</em></a>
+</p>
+<p><a name=\"short_class_definition\" class=NAME><em>short_class_definition</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#class_prefixes\" class=HREF><em>class_prefixes</em></a><tt>&nbsp;</tt><a href=\"#short_class_specifier\" class=HREF><em>short_class_specifier</em></a>
+</p>
 <h5>Equation</h5>
-<p><a name=\"equation_section\" class=NAME><em>equation_section:</em></a>
+<p><a name=\"equation_section\" class=NAME><em>equation_section</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>initial</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><strong>equation</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#equation\" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"algorithm_section\" class=NAME><em>algorithm_section:</em></a>
+</p>
+<p><a name=\"algorithm_section\" class=NAME><em>algorithm_section</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>initial</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><strong>algorithm</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#statement\" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"equation\" class=NAME><em>equation:</em></a>
+</p>
+<p><a name=\"equation\" class=NAME><em>equation</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><a href=\"#simple_expression\" class=HREF><em>simple_expression</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#if_equation\" class=HREF><em>if_equation</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#for_equation\" class=HREF><em>for_equation</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#connect_clause\" class=HREF><em>connect_clause</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#when_equation\" class=HREF><em>when_equation</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><a href=\"#function_call_args\" class=HREF><em>function_call_args</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">)</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
-<p><a name=\"statement\" class=NAME><em>statement:</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#component_reference\" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><a href=\"#function_call_args\" class=HREF><em>function_call_args</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">)</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
+</p>
+<p><a name=\"statement\" class=NAME><em>statement</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><a href=\"#component_reference\" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><font color=green>\"</font><tt>:=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#function_call_args\" class=HREF><em>function_call_args</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">)</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#output_expression_list\" class=HREF><em>output_expression_list</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green>\"</font><tt>:=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#component_reference\" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><a href=\"#function_call_args\" class=HREF><em>function_call_args</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>break</strong>
@@ -140,106 +179,157 @@ readability. The following typographic conventions are used:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#for_statement\" class=HREF><em>for_statement</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#while_statement\" class=HREF><em>while_statement</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#when_statement\" class=HREF><em>when_statement</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">)</font><tt>&nbsp;</tt><a href=\"#comment\" class=HREF><em>comment</em></a>
-<p><a name=\"if_equation\" class=NAME><em>if_equation:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>if</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expre"
-             + "ssion</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#equation\" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
+</p>
+<p><a name=\"if_equation\" class=NAME><em>if_equation</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>if</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#equation\" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><strong>elseif</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#equation\" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>else</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#equation\" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>if</strong>
-<p><a name=\"if_statement\" class=NAME><em>if_statement:</em></a>
+</p>
+<p><a name=\"if_statement\" class=NAME><em>if_statement</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>if</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#statement\" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><strong>elseif</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#statement\" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>else</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#statement\" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>if</strong>
-<p><a name=\"for_equation\" class=NAME><em>for_equation:</em></a>
+</p>
+<p><a name=\"for_equation\" class=NAME><em>for_equation</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>for</strong><tt>&nbsp;</tt><a href=\"#for_indices\" class=HREF><em>for_indices</em></a><tt>&nbsp;</tt><strong>loop</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#equation\" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>for</strong>
-<p><a name=\"for_statement\" class=NAME><em>for_statement:</em></a>
+</p>
+<p><a name=\"for_statement\" class=NAME><em>for_statement</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>for</strong><tt>&nbsp;</tt><a href=\"#for_indices\" class=HREF><em>for_indices</em></a><tt>&nbsp;</tt><strong>loop</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#statement\" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>for</strong>
-<p><a name=\"for_indices\" class=NAME><em>for_indices:</em></a>
+</p>
+<p><a name=\"for_indices\" class=NAME><em>for_indices</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#for_index\" class=HREF><em>for_index</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#for_index\" class=HREF><em>for_index</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"for_index\" class=NAME><em>for_index:</em></a>
+</p>
+<p><a name=\"for_index\" class=NAME><em>for_index</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>in</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"while_statement\" class=NAME><em>while_statement:</em></a>
+</p>
+<p><a name=\"while_statement\" class=NAME><em>while_statement</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>while</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>loop</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#statement\" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>while</strong>
-<p><a name=\"when_equation\" class=NAME><em>when_equation:</em></a>
+</p>
+<p><a name=\"when_equation\" class=NAME><em>when_equation</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>when</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#equation\" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><strong>elsewhen</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#equation\" class=HREF><em>equation</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>when</strong>
-<p><a name=\"when_statement\" class=NAME><em>when_statement:</em></a>
+</p>
+<p><a name=\"when_statement\" class=NAME><em>when_statement</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>when</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#statement\" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><strong>elsewhen</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#statement\" class=HREF><em>statement</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>end</strong><tt>&nbsp;</tt><strong>when</strong>
-<p><a name=\"connect_clause\" class=NAME><em>connect_clause:</em></a>
+</p>
+<p><a name=\"connect_clause\" class=NAME><em>connect_clause</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>connect</strong><tt>&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#component_reference\" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#component_reference\" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
+</p>
 <h5>Expression</h5>
-<p><a name=\"expression\" class=NAME><em>expression:</em></a>
+<p><a name=\"expression\" class=NAME><em>expression</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#simple_expression\" class=HREF><em>simple_expression</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>if</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><strong>elseif</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><strong>then</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>else</strong><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a>
-<p><a name=\"simple_expression\" class=NAME><em>simple_expression:</em></a>
+</p>
+<p><a name=\"simple_expression\" class=NAME><em>simple_expression</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#logical_expression\" class=HREF><em>logical_expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>:</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#logical_expression\" class=HREF><em>logical_expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>:</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#logical_expression\" class=HREF><em>logical_expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"logical_expression\" class=NAME><em>logical_expression:</em></a>
+</p>
+<p><a name=\"logical_expression\" class=NAME><em>logical_expression</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#logical_term\" class=HREF><em>logical_term</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><strong>or</strong><tt>&nbsp;</tt><a href=\"#logical_term\" class=HREF><em>logical_term</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"logical_term\" class=NAME><em>logical_term:</em></a>
+</p>
+<p><a name=\"logical_term\" class=NAME><em>logical_term</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#logical_factor\" class=HREF><em>logical_factor</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><strong>and</strong><tt>&nbsp;</tt><a href=\"#logical_factor\" class=HREF><em>logical_factor</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"logical_factor\" class=NAME><em>logical_factor:</em></a>
+</p>
+<p><a name=\"logical_factor\" class=NAME><em>logical_factor</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><strong>not</strong><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#relation\" class=HREF><em>relation</em></a>
-<p><a name=\"relation\" class=NAME><em>relation:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#arithmetic_expression\" class=HREF><em>arithmetic_expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#rel_op\" class=HREF><em>rel_op</em></a><tt>&nbsp;</tt><a href=\"#arithmetic_expression\" class=HREF><em>arithmetic_expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"rel_op\" class=NAME><em>rel_op:</em></a>
+</p>
+<p><a name=\"relation\" class=NAME><em>relation</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#arithmetic_expression\" class=HREF><em>arithmetic_expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#relational_operator\" class=HREF><em>relational_operator</em></a><tt>&nbsp;</tt><a href=\"#arithmetic_expression\" class=HREF><em>arithmetic_expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
+<p><a name=\"relational_operator\" class=NAME><em>relational_operator</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>&lt;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>&lt;=</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>&gt;</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>&gt;=</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>==</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>&lt;&gt;</tt><font color=green>\"</font>
-<p><a name=\"arithmetic_expression\" class=NAME><em>arithmetic_expression:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#add_op\" class=HREF><em>add_op</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#term\" class=HREF><em>term</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#add_op\" class=HREF><em>add_op</em></a><tt>&nbsp;</tt><a href=\"#term\" class=HREF><em>term</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"add_op\" class=NAME><em>add_op:</em></a>
+</p>
+<p><a name=\"arithmetic_expression\" class=NAME><em>arithmetic_expression</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#add_operator\" class=HREF><em>add_operator</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#term\" class=HREF><em>term</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#add_operator\" class=HREF><em>add_operator</em></a><tt>&nbsp;</tt><a href=\"#term\" class=HREF><em>term</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
+</p>
+<p><a name=\"add_operator\" class=NAME><em>add_operator</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>+</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>-</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.+</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.-</tt><font color=green>\"</font>
-<p><a name=\"term\" class=NAME><em>term:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#factor\" class=HREF><em>factor</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#mul_op\" class=HREF><em>mul_op</em></a><tt>&nbsp;</tt><a href=\"#factor\" class=HREF><em>factor</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"mul_op\" class=NAME><em>mul_op:</em></a>
+</p>
+<p><a name=\"term\" class=NAME><em>term</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#factor\" class=HREF><em>factor</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><a href=\"#mul_operator\" class=HREF><em>mul_operator</em></a><tt>&nbsp;</tt><a href=\"#factor\" class=HREF><em>factor</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
+</p>
+<p><a name=\"mul_operator\" class=NAME><em>mul_operator</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>*</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>/</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.*</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>./</tt><font color=green>\"</font>
-<p><a name=\"factor\" class=NAME><em>factor:</em></a>
+</p>
+<p><a name=\"factor\" class=NAME><em>factor</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#primary\" class=HREF><em>primary</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><font color=green>\"</font><tt>^</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.^</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">)</font><tt>&nbsp;</tt><a href=\"#primary\" class=HREF><em>primary</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"primary\" class=NAME><em>primary:</em></a>
+</p>
+<p><a name=\"primary\" class=NAME><em>primary</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>UNSIGNED_NUMBER</em>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><em>STRING</em>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>false</strong>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>true</strong>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#component_reference\" class=HREF><em>component_reference</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>der</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>initial</strong><tt>&nbsp;</tt><font color=green size=\"+1\">)</font><tt>&nbsp;</tt><a href=\"#function_call_args\" class=HREF><em>function_call_args</em></a>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green size=\"+1\">(</font><tt>&nbsp;</tt><a href=\"#component_reference\" class=HREF><em>component_reference</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>der</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>initial</strong><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>pure</strong><tt>&nbsp;</tt><font color=green size=\"+1\">)</font><tt>&nbsp;</tt><a href=\"#function_call_args\" class=HREF><em>function_call_args</em></a>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#output_expression_list\" class=HREF><em>output_expression_list</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>[</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#expression_list\" class=HREF><em>expression_list</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#expression_list\" class=HREF><em>expression_list</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green>\"</font><tt>]</tt><font color=green>\"</font>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>{</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#function_arguments\" class=HREF><em>function_arguments</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>}</tt><font color=green>\"</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><font color=green>\"</font><tt>{</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#array_arguments\" class=HREF><em>array_arguments</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>}</tt><font color=green>\"</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>end</strong>
-<p><a name=\"name\" class=NAME><em>name:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"component_reference\" class=NAME><em>component_reference:</em></a>
+</p>
+<p><a name=\"type_specifier\" class=NAME><em>type_specifier</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a>
+</p>
+<p><a name=\"name\" class=NAME><em>name</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
+</p>
+<p><a name=\"component_reference\" class=NAME><em>component_reference</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#array_subscripts\" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt>&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#array_subscripts\" class=HREF><em>array_subscripts</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"function_call_args\" class=NAME><em>function_call_args:</em></a>
+</p>
+<p><a name=\"function_call_args\" class=NAME><em>function_call_args</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#function_arguments\" class=HREF><em>function_arguments</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
-<p><a name=\"function_arguments\" class=NAME><em>function_arguments:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#function_argument\" class=HREF><em>function_argument</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#function_arguments\" class=HREF><em>function_arguments</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>for</strong><tt>&nbsp;</tt><a href=\"#for_indices\" class=HREF><em>for_indices</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
+<p><a name=\"function_arguments\" class=NAME><em>function_arguments</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#function_arguments_non_first\" class=HREF><em>function_arguments_non_first</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>for</strong><tt>&nbsp;</tt><a href=\"#for_indices\" class=HREF><em>for_indices</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>function</strong><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#named_arguments\" class=HREF><em>named_arguments</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#function_arguments_non_first\" class=HREF><em>function_arguments_non_first</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#named_arguments\" class=HREF><em>named_arguments</em></a>
-<p><a name=\"named_arguments\" class=NAME><em>named_arguments:</em></a>
+</p>
+<p><a name=\"function_arguments_non_first\" class=NAME><em>function_arguments_non_first</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#function_argument\" class=HREF><em>function_argument</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#function_arguments_non_first\" class=HREF><em>function_arguments_non_first</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#named_arguments\" class=HREF><em>named_arguments</em></a>
+</p>
+<p><a name=\"array_arguments\" class=NAME><em>array_arguments</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#array_arguments_non_first\" class=HREF><em>array_arguments_non_first</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><strong>for</strong><tt>&nbsp;</tt><a href=\"#for_indices\" class=HREF><em>for_indices</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
+<p><a name=\"array_arguments_non_first\" class=NAME><em>array_arguments_non_first</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#array_arguments_non_first\" class=HREF><em>array_arguments_non_first</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
+<p><a name=\"named_arguments\" class=NAME><em>named_arguments</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#named_argument\" class=HREF><em>named_argument</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#named_arguments\" class=HREF><em>named_arguments</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"named_argument\" class=NAME><em>named_argument:</em></a>
+</p>
+<p><a name=\"named_argument\" class=NAME><em>named_argument</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>IDENT</em><tt>&nbsp;</tt><font color=green>\"</font><tt>=</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#function_argument\" class=HREF><em>function_argument</em></a>
-<p><a name=\"function_argument\" class=NAME><em>function_argument:</em></a>
+</p>
+<p><a name=\"function_argument\" class=NAME><em>function_argument</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>function</strong><tt>&nbsp;</tt><a href=\"#name\" class=HREF><em>name</em></a><tt>&nbsp;</tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#named_arguments\" class=HREF><em>named_arguments</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a>
-<p><a name=\"output_expression_list\" class=NAME><em>output_expression_list:</em></a>
+</p>
+<p><a name=\"output_expression_list\" class=NAME><em>output_expression_list</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"expression_list\" class=NAME><em>expression_list:</em></a>
+</p>
+<p><a name=\"expression_list\" class=NAME><em>expression_list</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font>
-<p><a name=\"array_subscripts\" class=NAME><em>array_subscripts:</em></a>
+</p>
+<p><a name=\"array_subscripts\" class=NAME><em>array_subscripts</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>[</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#subscript\" class=HREF><em>subscript</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt>&nbsp;</tt><a href=\"#subscript\" class=HREF><em>subscript</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green>\"</font><tt>]</tt><font color=green>\"</font>
-<p><a name=\"subscript\" class=NAME><em>subscript:</em></a>
+</p>
+<p><a name=\"subscript\" class=NAME><em>subscript</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green>\"</font><tt>:</tt><font color=green>\"</font><tt>&nbsp;</tt><font color=green size=\"+1\">|</font><tt>&nbsp;</tt><a href=\"#expression\" class=HREF><em>expression</em></a>
-<p><a name=\"comment\" class=NAME><em>comment:</em></a>
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#string_comment\" class=HREF><em>string_comment</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#annotation\" class=HREF><em>annotation</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"string_comment\" class=NAME><em>string_comment:</em></a>
+</p>
+<p><a name=\"comment\" class=NAME><em>comment</em></a>:
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#string_comment\" class=HREF><em>string_comment</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><a href=\"#annotation_comment\" class=HREF><em>annotation_comment</em></a><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
+</p>
+<p><a name=\"string_comment\" class=NAME><em>string_comment</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><em>STRING</em><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>+</tt><font color=green>\"</font><tt>&nbsp;</tt><em>STRING</em><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
-<p><a name=\"annotation\" class=NAME><em>annotation:</em></a>
+</p>
+<p><a name=\"annotation_comment\" class=NAME><em>annotation_comment</em></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><strong>annotation</strong><tt>&nbsp;</tt><a href=\"#class_modification\" class=HREF><em>class_modification</em></a>
+</p>
 </body></html>"));
 end ModelicaGrammar;
 
@@ -996,7 +1086,7 @@ If true, the model developer proposes to inline the function after the function 
 
 <h4>Example usage</h4>
 <p>
-<code>InlineAfterIndexReduction = true</code> is for example used in <a href=\"modelica://Modelica.Mechanics.Rotational.Sources.Move\">Modelica.Mechanics.Rotational.Sources.Move</a> to define that an input signal is the derivative of another input signal.
+<code>InlineAfterIndexReduction = true</code> is for example used in <a href=\"modelica://Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor\">Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor</a> to define that an input signal is the derivative of another input signal.
 </p>
 </html>"));
   end InlineAfterIndexReduction;
@@ -1084,7 +1174,7 @@ This annotation is for example used in  <a href=\"modelica://Modelica.Media.Wate
 
     annotation (Documentation(info="<html>
 <p>
-Warning message, if inner declaration is missing
+Diagnostic message, if inner declaration is missing
 </p>
 
 <h4>Examples</h4>
@@ -1106,6 +1196,7 @@ Warning message, if inner declaration is missing
 
 <p>
 When an outer component of the class does not have a corresponding inner component, the string message may be used as a diagnostic message.
+However, the inner component is automatically added - if unique - regardless of this annotation.
 </p>
 
 </html>"));
@@ -1395,10 +1486,11 @@ In a top-level class, the version number and the dependency to earlier versions 
      Defines that user models using the VERSION-NUMBER can be upgraded to
      the CURRENT-VERSION-NUMBER of the current class without any changes.<br>&nbsp;</li>
 
-<li> <code>conversion ( from (version = VERSION-NUMBER, script = \"?\") ) </code><br>
-     Defines that user models using the VERSION-NUMBER can be upgraded to
-     the CURRENT-VERSION-NUMBER of the current class by applying the given
-     script. The semantics of the conversion script is not defined.<br>&nbsp;</li>
+<li> <code>conversion ( from (version = VERSION-NUMBER, [to = VERSION_NUMBER \",\"] script = \"?\" ) ) </code><br>
+     Defines that user models using the VERSION-NUMBER or any of the given VERSION-NUMBER can be upgraded to the given VERSION-NUMBER 
+     (if the to-tag is missing this is the CURRENT-VERSION-NUMBER) of the current class by applying the given conversion rules. 
+     <em>The to-tag is added for clarity and optionally allows a tool to convert in multiple steps.</em>
+     <br>&nbsp;</li>
 
 <li> <code>uses(IDENT (version = VERSION-NUMBER) )</code><br>
      Defines that classes within this top-level class uses version
@@ -1845,191 +1937,12 @@ The external C-functions may be defined in the following way:
   class 'function' "function"
     extends ModelicaReference.Icons.Information;
 
+ 
+
+class 'function partial application' "function partial application"
+    extends ModelicaReference.Icons.Information;
+
     annotation (Documentation(info="<html>
-<p>
-Define specialized class <em>function</em>
-</p>
-<h4>Examples</h4>
-
-<pre><strong>function</strong> si
-  <strong>input</strong> Real x;
-  <strong>output</strong> Real y;
-<strong>algorithm</strong>
-  y = <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
-<strong>end</strong> si;</pre>
-
-<img src=\"modelica://ModelicaReference/Resources/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
-
-<h4>Syntax</h4>
-
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>function</strong>
-   IDENT class_specifier
-
-class_specifier :
-   string_comment composition <strong>end</strong> IDENT
-   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
-
-<p>See Modelica Language Specification for further details.</p>
-
-<h4>Description</h4>
-
-<p>The keyword function is used to define functions as known from programming
-languages. Each part of a function interface must
-either have causality equal to input or output. A function may not be used in connections.
-In functions, no equations or initial algorithm and at most
-one algorithm clause are allowed. Calling a function requires
-either an algorithm clause or an external function interface.</p>
-
-<p>
-The syntax and semantics of a function have many similarities to those of the block
-specialized class. A function has many of the properties of a general class,
-e.g., being able to inherit other functions, or to redeclare or modify
-elements of a function declaration.
-</p>
-
-<p>
-Modelica functions have the following restrictions compared to a
-general Modelica class:
-</p>
-
-<ul>
-<li> Each input formal parameter of the function must be
-     prefixed by the keyword input, and each result formal parameter
-     by the keyword output. All public variables are formal parameters.</li>
-
-<li> Input formal parameters are read-only after being bound to the
-     actual arguments or default values, i.e., they may not be assigned
-     values in the body of the function.</li>
-
-<li> A function may not be used in connections, may have no equations,
-     may have no initial algorithm, and can have at most one algorithm
-     section, which, if present, is the body of the function.</li>
-
-<li> A function may have zero or one external function interface, which,
-     if present, is the external definition of the function.</li>
-
-<li> For a function to be called in a simulation model, it must have
-     either an algorithm section or an external function interface as
-     its body, and it may not be partial.</li>
-
-<li> A function cannot contain calls to the Modelica built-in operators
-     der, initial, terminal, sample, pre, edge, change, reinit, delay,
-     cardinality, to the operators of the built-in package Connections,
-     and is not allowed to contain when-statements.</li>
-
-<li> The dimension sizes not declared with (:) of each array result or
-     array local variable [i.e., a non-input components] of a function must
-     be either given by the input formal parameters, or given by constant
-     or parameter expressions, or by expressions containing combinations
-     of those. If an output or a local array dimension is declared with (:),
-     the size of the dimension can be changed in the function. A size change
-     takes place by assigning a full array with the respective sizes to the
-     dynamically sized array on the left hand side of an equal sign.</li>
-
-<li> The local variables of a function are not automatically initialized to
-     the implicit default values of the data type [(e.g., 0.0 for Real)
-     for performance reasons. It is the responsibility of the user to
-     provide explicit defaults or to define the values of such variables
-     before they are referenced.]</li>
-
-<li> Components of a function will inside the function behave as though
-     they had discrete-time variability.</li>
-</ul>
-
-<p>
-Modelica functions have the following enhancements compared to a general Modelica class:
-</p>
-
-<ul>
-<li> A function may be called using the conventional positional calling syntax
-     for passing arguments.</li>
-
-<li> A function can be recursive.</li>
-
-<li> A formal parameter or local variable may be initialized
-     through an assignment (:=) of a default value in its declaration.
-     Initialization through an equation is not possible.</li>
-
-<li> A function is dynamically instantiated when it is called rather than
-     being statically instantiated by an instance declaration,
-     which is the case for other kinds of classes.</li>
-
-<li> A function may have an external function interface specifier as its body.</li>
-
-<li> A function may have a return statement in its algorithm section body.</li>
-
-<li> A function allows dimension sizes declared with (:) to be resized
-     for non-input array variables (so the actual dimension need not to be known when
-     the function is translated).</li>
-</ul>
-
-<p>
-A function may have a function as an input argument.
-The declared type of such an input formal parameter in a function can be
-the class-name of a partial function that has no replaceable elements.
-It cannot be the class-name of a record [i.e., <em>record constructor functions are not
-allowed in this context.</em>] Such an input formal parameter of function type
-can also have an optional functional default value. Example:
-</p>
-
-<blockquote><pre>
-<strong>function</strong> quadrature \"Integrate function y=integrand(x) from x1 to x2\"
-  <strong>input</strong>  Real x1;
-  <strong>input</strong>  Real x2;
-  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function, see below
-  // With default: input Integrand integrand := Modelica.Math.sin;
-  <strong>output</strong> Real integral;
-<strong>algorithm</strong>
-  integral :=(x2-x1)*(integrand(x1) + integrand(x2))/2;
-<strong>end</strong> quadrature;
-
-<strong>partial function</strong> Integrand
-  <strong>input</strong>  Real x;
-  <strong>output</strong> Real y;
-<strong>end</strong> Integrand;
-</pre></blockquote>
-
-<p>
-A functional argument can be provided in one of the following forms
-to be passed to a formal parameter of function type in a function call
-(see examples below):
-</p>
-<ol>
-<li> as a function name,</li>
-<li> as a function partial application,</li>
-<li> as a function that is a component,</li>
-<li> as a function partial application of a function that is a component.</li>
-</ol>
-
-<p>
-In all cases the provided function must be \"function type compatible\"
-to the corresponding formal parameter of function type. Example:
-</p>
-
-<blockquote><pre>
-// A function as a positional input argument according to case (a)
-<strong>function</strong> Parabola
-   <strong>extends</strong> Integrand;
-<strong>algorithm</strong>
-   y = x*x;
-<strong>end</strong> Parabola;
-
-area = quadrature(0, 1, Parabola);
-
-// The quadrature2 example below uses a function integrand that
-// is a component as input argument according to case (c):
-<strong>function</strong> quadrature2 \"Integrate function y=integrand(x) from x1 to x2\"
-  <strong>input</strong>  Real x1;
-  <strong>input</strong>  Real x2;
-  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function type
-  <strong>output</strong> Real integral;
-<strong>algorithm</strong>
-   integral := quadrature(x1,       (x1+x2)/2, integrand)+
-               quadrature((x1+x2)/2, x2,       integrand);
-<strong>end</strong> quadrature2;
-</pre></blockquote>
-
 <p>
 A function partial application is a function call with certain
 formal parameters bound to expressions. A function partial application
@@ -2143,6 +2056,214 @@ a component, according to case (d) above:
 <strong>end</strong> surfaceQuadrature;
 </pre></blockquote>
 </html>"));
+  end 'function partial application';
+  
+  class 'pure function' "pure function"
+    extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+    <p>
+Modelica functions are normally pure which makes it easy for humans to reason about the code 
+since they behave as mathematical functions, and possible for compilers to optimize.</p>
+<ul>
+<li>
+Pure Modelica functions always give the same output values or errors for the same input values 
+and only the output values influence the simulation result, i.e. is seen as equivalent to a mathematical map from input values to output values. 
+Some input values may map to errors. Pure functions are thus allowed to fail by 
+calling assert, or ModelicaError in C-code, or dividing by zero. 
+Such errors will only be reported when and if the function is called.
+Pure Modelica functions are not assumed to be thread-safe.</li>
+<li>A Modelica function which does not have the pure function properties is impure.</li>
+</ul>
+<p>The declaration of functions follow these rules:</p>
+<ul>
+<li>Functions defined in Modelica (non-external) are normally assumed to be pure (the exception is the deprecated case below), 
+if they are impure they shall be marked with the impure keyword. They can be explicitly marked as pure.</li>
+<li>External functions must be explicitly declared with pure or impure.</li>
+<li>A deprecated semantics is that external functions (and functions defined in Modelica directly or indirectly calling them) 
+without pure or impure keyword are assumed to be impure – but without any restriction on calling them. 
+Except for the function Modelica.Utilities.Streams.print diagnostics must be given if called in a simulation model.</li>
+</ul>
+    </html>"));
+  end 'pure function';
+     annotation (Documentation(info="<html>
+<p>
+Define specialized class <em>function</em>
+</p>
+<h4>Examples</h4>
+
+<pre><strong>function</strong> si
+  <strong>input</strong> Real x;
+  <strong>output</strong> Real y;
+<strong>algorithm</strong>
+  y = <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
+<strong>end</strong> si;</pre>
+
+<img src=\"modelica://ModelicaReference/Resources/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+
+<h4>Syntax</h4>
+
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] [ <strong>pure </strong> | <strong>impure </strong>] <strong>function</strong>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+
+<p>See Modelica Language Specification for further details.</p>
+
+<h4>Description</h4>
+
+<p>The keyword function is used to define functions as known from programming
+languages.
+</p>
+
+<p>
+The syntax and semantics of a function have many similarities to those of the block
+specialized class. A function has many of the properties of a general class,
+e.g., being able to inherit other functions, or to redeclare or modify
+elements of a function declaration.
+</p>
+
+<p>
+Modelica functions have the following restrictions compared to a
+general Modelica class:
+</p>
+
+<ul>
+<li> Each input formal parameter of the function must be
+     prefixed by the keyword input, and each result formal parameter
+     by the keyword output. All public variables are formal parameters.</li>
+
+<li> Input formal parameters are read-only after being bound to the
+     actual arguments or default values, i.e., they may not be assigned
+     values in the body of the function.</li>
+
+<li> A function may not be used in connections, may not have equations, may not have initial algorithms.</li>
+
+<li> A function can have at most one algorithm section or one external function interface (not both), which, if present, is the body of the function.</li>
+
+<li> For a function to be called in a simulation model, the function may not be partial,
+     and the output variables must be assigned inside the function either in declaration assignments 
+     or in an algorithm section, or have an external function interface as its body, or be defined as a function partial derivative. 
+     The output variables of a function should be computed.</li>
+
+<li> A function cannot contain calls to the Modelica built-in operators
+     der, initial, terminal, sample, pre, edge, change, reinit, delay,
+     cardinality, inStream, actualStream, to the operators of the built-in package Connections,
+     and is not allowed to contain when-statements.</li>
+
+<li> The dimension sizes not declared with (:) of each array result or
+     array local variable [i.e., a non-input components] of a function must
+     be either given by the input formal parameters, or given by constant
+     or parameter expressions, or by expressions containing combinations
+     of those. If an output or a local array dimension is declared with (:),
+     the size of the dimension can be changed in the function. A size change
+     takes place by assigning a full array with the respective sizes to the
+     dynamically sized array on the left hand side of an equal sign.</li>
+
+<li> The local variables of a function are not automatically initialized to
+     the implicit default values of the data type [(e.g., 0.0 for Real)
+     for performance reasons. It is the responsibility of the user to
+     provide explicit defaults or to define the values of such variables
+     before they are referenced.]</li>
+
+<li> Components of a function will inside the function behave as though
+     they had discrete-time variability.</li>
+</ul>
+
+<p>
+Modelica functions have the following enhancements compared to a general Modelica class:
+</p>
+
+<ul>
+<li> A function may be called using a mix of positional (as in conventional programming languages) and named arguments.</li>
+
+<li> A function can be recursive.</li>
+
+<li> A formal parameter or local variable may be initialized
+     through a binding (=) of a default value in its declaration.
+     Initialization through an equation is not possible.</li>
+
+<li> A function is dynamically instantiated when it is called rather than
+     being statically instantiated by an instance declaration,
+     which is the case for other kinds of classes.</li>
+
+<li> A function may have an external function interface specifier as its body.</li>
+
+<li> A function may have a return statement in its algorithm section body.</li>
+
+<li> A function allows dimension sizes declared with (:) to be resized
+     for non-input array variables (so the actual dimension need not to be known when
+     the function is translated).</li>
+</ul>
+
+<p>
+A function may have a function as an input argument.
+The declared type of such an input formal parameter in a function can be
+the class-name of a partial function that has no replaceable elements.
+It cannot be the class-name of a record [i.e., <em>record constructor functions are not
+allowed in this context.</em>] Such an input formal parameter of function type
+can also have an optional functional default value. Example:
+</p>
+
+<blockquote><pre>
+<strong>function</strong> quadrature \"Integrate function y=integrand(x) from x1 to x2\"
+  <strong>input</strong>  Real x1;
+  <strong>input</strong>  Real x2;
+  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function, see below
+  // With default: input Integrand integrand := Modelica.Math.sin;
+  <strong>output</strong> Real integral;
+<strong>algorithm</strong>
+  integral :=(x2-x1)*(integrand(x1) + integrand(x2))/2;
+<strong>end</strong> quadrature;
+
+<strong>partial function</strong> Integrand
+  <strong>input</strong>  Real x;
+  <strong>output</strong> Real y;
+<strong>end</strong> Integrand;
+</pre></blockquote>
+
+<p>
+A functional argument can be provided in one of the following forms
+to be passed to a formal parameter of function type in a function call
+(see examples below):
+</p>
+<ol>
+<li> as a function name,</li>
+<li> as a function partial application,</li>
+<li> as a function that is a component,</li>
+<li> as a function partial application of a function that is a component.</li>
+</ol>
+
+<p>
+In all cases the provided function must be \"function type compatible\"
+to the corresponding formal parameter of function type. Example:
+</p>
+
+<blockquote><pre>
+// A function as a positional input argument according to case (a)
+<strong>function</strong> Parabola
+   <strong>extends</strong> Integrand;
+<strong>algorithm</strong>
+   y = x*x;
+<strong>end</strong> Parabola;
+
+area = quadrature(0, 1, Parabola);
+
+// The quadrature2 example below uses a function integrand that
+// is a component as input argument according to case (c):
+<strong>function</strong> quadrature2 \"Integrate function y=integrand(x) from x1 to x2\"
+  <strong>input</strong>  Real x1;
+  <strong>input</strong>  Real x2;
+  <strong>input</strong>  Integrand integrand;   // Integrand is a partial function type
+  <strong>output</strong> Real integral;
+<strong>algorithm</strong>
+   integral := quadrature(x1,       (x1+x2)/2, integrand)+
+               quadrature((x1+x2)/2, x2,       integrand);
+<strong>end</strong> quadrature2;
+</pre></blockquote></html>"));
   end 'function';
 
   class 'model' "model"
@@ -2319,8 +2440,6 @@ Moreover, they have additional properties called enhancements.
 </p>
 </html>"));
 end Classes;
-
-
 
 package Operators "Operators (+, der, size, ...)"
   extends ModelicaReference.Icons.Information;
@@ -5231,13 +5350,13 @@ This partial model defines that T,d,u can be computed from the medium model, pro
                                    else StateSelect.default),
         T(stateSelect = if preferredMediumStates then StateSelect.prefer
                                    else StateSelect.default));
-   constant SI.SpecificHeatCapacity R  = 287;
+   constant SI.SpecificHeatCapacity R_s  = 287;
    constant SI.SpecificHeatCapacity cp = 1005.45;
    constant SI.Temperature          T0 = 298.15
 equation
-   d = p/(R*T);
+   d = p/(R_s*T);
    h = cp*(T-T0);
-   u = h \" p/d;
+   u = h - p/d;
 end SimpleAir;
 </pre>
 
@@ -5992,13 +6111,14 @@ Import classes
 <h4>Examples</h4>
 
 <pre><strong>class</strong> Lookup
-  <strong>import</strong> SI = Modelica.SIunits; // #1
-  <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports,
-                          //     consider using #1 or #3  instead!)
+  <strong>import</strong> SI = Modelica.SIunits; // #1 (Try to avoid renaming imports!)
+  <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports!)
   <strong>import</strong> Modelica.Mechanics.Rotational; // #3
+  <strong>import</strong> Modelica.SIUnits.{Molality, Molarity}; // #4
 
   SI.Torque torque; // due to #1 (Modelica.SIunits.Torque)
   Rotational.Components.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Components.Inertia)
+  Molarity c = 1; // due to #4 (Modelica.SIUnits.Molarity)
 <strong>equation</strong>
   torque = sin(<strong>time</strong>); // due to #2 (Modelica.Math.sin)
   ...
@@ -6054,7 +6174,7 @@ The generated import names are:</p>
   <li><code>C</code> and all other classes in B for <code><strong>import</strong> A.B.*;</code></li>
 </ul>
 <h5>Note</h5>
-<p><em>Especially the last wildcard import statement should be avoided since it might lead to name-lookup conflicts.</em></p>
+<p><em>Especially the renaming and wildcard import statements should be avoided since they might lead to name-lookup conflicts.</em></p>
 </html>"));
 end 'import';
 
@@ -6375,7 +6495,7 @@ that it cannot be instantiated. For example, defining
 
 <p>
 is illegal. A partial class can only be used in an \"extends\" clause to inherit from it
-or in a \"constrained\" clause to define the constraints of a replaceable class.
+or in a \"constrainedby\" clause to define the constraints of a replaceable class.
 </p>
 
 </html>"));
@@ -7023,10 +7143,10 @@ annotation (
   Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords,
-<a href=\"modelica://ModelicaReference.Operators\">Modelica builtin operators</a>
-, and the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
+<a href=\"modelica://ModelicaReference.Operators\">Modelica builtin operators</a>,
+and the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
 It is based on the
-<a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Language Specification version 3.2 Revision 2</a> from 30th July 2013. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
+<a href=\"https://www.modelica.org/documents/ModelicaSpec34.pdf\">Modelica Language Specification version 3.4</a> from 10th April 2017. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
 </p>
 
 <p>
@@ -7046,6 +7166,22 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
     </tr>
     <tr>
       <td></td>
+      <td>2019-09-27</td>
+      <td><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
+      <td>
+      Update to Modelica Specification 3.4 (except grammar):
+      <ul>
+      <li>Change of missingInnerMessage, to indicate that it less important.</li>
+      <li>Example for InlineAfterIndexReduction.</li>
+      <li>Version conversions are specified, and to-version is possible.</li>
+      <li>The function section was rewritten, and pure functions added as a sub-class, and function partial application also moved to a sub-class.</li>
+      <li>Correct constrained to constrainedby (could also be constraining-clause).</li>
+      <li>Remaining: synchronous, state machines, specifying conversions(?), ...</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
       <td>2017-09-22</td>
       <td><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
       <td>
@@ -7056,6 +7192,7 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
       <li>Some stylistic improvements of the English text</li>
       </ul>
       </td>
+     </tr>
      <tr>
       <td></td>
       <td>2013-07-26</td>

@@ -3279,7 +3279,6 @@ Note, when sticking would occur (tau_c + tau_d &le; 0), then the contact torque
 is explicitly set to zero.
 </p>
 
-
 <p>
 This model of backlash is slightly different to the
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.ElastoBacklash\">ElastoBacklash</a>
@@ -3294,7 +3293,6 @@ component:
 <li> For some models, the ElastoBacklash2 component leads to faster simulations
       (as compared when using the ElastBacklash component).</li>
 </ul>
-
 
 <p>
 See also the discussion
@@ -6436,7 +6434,7 @@ blocks of the block library Modelica.Blocks.Sources.
         output Real q;
       algorithm
         q := q_qd_qdd[1];
-        annotation (derivative(noDerivative=q_qd_qdd) = position_der, LateInline=true);
+        annotation (derivative(noDerivative=q_qd_qdd) = position_der, InlineAfterIndexReduction=true);
       end position;
 
       function position_der
@@ -6451,7 +6449,7 @@ blocks of the block library Modelica.Blocks.Sources.
         qd := q_qd_qdd[2];
         annotation (derivative(
             noDerivative=q_qd_qdd,
-            order=2) = position_der2, LateInline=true);
+            order=2) = position_der2, InlineAfterIndexReduction=true);
       end position_der;
 
       function position_der2
