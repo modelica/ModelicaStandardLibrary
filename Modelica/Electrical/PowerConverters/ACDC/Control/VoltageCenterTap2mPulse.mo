@@ -20,7 +20,7 @@ model VoltageCenterTap2mPulse "Control of 2*m pulse center tap rectifier"
   parameter Modelica.SIunits.Voltage vStart[m]=zeros(m)
     "Start voltage of filter output"
     annotation (Dialog(tab="Filter", enable=useFilter));
-  Modelica.Blocks.Interfaces.RealInput firingAngle if not
+  Modelica.Blocks.Interfaces.RealInput firingAngle(unit="rad") if not
     useConstantFiringAngle "Firing angle (rad)" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},

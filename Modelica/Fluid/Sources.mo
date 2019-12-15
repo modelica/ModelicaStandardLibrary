@@ -154,24 +154,24 @@ with exception of boundary pressure, do not have an effect.
          quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
       annotation (Dialog(enable = (not use_C_in) and Medium.nC > 0));
-    Modelica.Blocks.Interfaces.RealInput p_in if use_p_in
+    Modelica.Blocks.Interfaces.RealInput p_in(unit="Pa") if use_p_in
       "Prescribed boundary pressure"
       annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
-    Modelica.Blocks.Interfaces.RealInput T_in if use_T_in
+    Modelica.Blocks.Interfaces.RealInput T_in(unit="K") if use_T_in
       "Prescribed boundary temperature"
       annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
-    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if use_X_in
+    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX](each unit="1") if use_X_in
       "Prescribed boundary composition"
       annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
     Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if use_C_in
       "Prescribed boundary trace substances"
       annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
   protected
-    Modelica.Blocks.Interfaces.RealInput p_in_internal
+    Modelica.Blocks.Interfaces.RealInput p_in_internal(unit="Pa")
       "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput T_in_internal
+    Modelica.Blocks.Interfaces.RealInput T_in_internal(unit="K")
       "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX]
+    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX](each unit="1")
       "Needed to connect to conditional connector";
     Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
       "Needed to connect to conditional connector";
@@ -298,24 +298,24 @@ with exception of boundary pressure, do not have an effect.
          quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
       annotation (Dialog(enable = (not use_C_in) and Medium.nC > 0));
-    Modelica.Blocks.Interfaces.RealInput p_in if use_p_in
+    Modelica.Blocks.Interfaces.RealInput p_in(unit="Pa") if use_p_in
       "Prescribed boundary pressure"
       annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
-    Modelica.Blocks.Interfaces.RealInput h_in if use_h_in
+    Modelica.Blocks.Interfaces.RealInput h_in(unit="J/kg") if use_h_in
       "Prescribed boundary specific enthalpy"
       annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
-    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if use_X_in
+    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX](each unit="1") if use_X_in
       "Prescribed boundary composition"
       annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
     Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if use_C_in
       "Prescribed boundary trace substances"
       annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
   protected
-    Modelica.Blocks.Interfaces.RealInput p_in_internal
+    Modelica.Blocks.Interfaces.RealInput p_in_internal(unit="Pa")
       "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput h_in_internal
+    Modelica.Blocks.Interfaces.RealInput h_in_internal(unit="J/kg")
       "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX]
+    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX](each unit="1")
       "Needed to connect to conditional connector";
     Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
       "Needed to connect to conditional connector";
@@ -442,26 +442,24 @@ with exception of boundary pressure, do not have an effect.
          quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
       annotation (Dialog(enable = (not use_C_in) and Medium.nC > 0));
-    Modelica.Blocks.Interfaces.RealInput m_flow_in if     use_m_flow_in
+    Modelica.Blocks.Interfaces.RealInput m_flow_in(unit="kg/s") if use_m_flow_in
       "Prescribed mass flow rate"
       annotation (Placement(transformation(extent={{-120,60},{-80,100}}), iconTransformation(extent={{-120,60},{-80,100}})));
-    Modelica.Blocks.Interfaces.RealInput T_in if         use_T_in
+    Modelica.Blocks.Interfaces.RealInput T_in(unit="K") if use_T_in
       "Prescribed fluid temperature"
       annotation (Placement(transformation(extent={{-140,20},{-100,60}}), iconTransformation(extent={{-140,20},{-100,60}})));
-    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if
-                                                          use_X_in
+    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX](each unit="1") if use_X_in
       "Prescribed fluid composition"
       annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
-    Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if
-                                                          use_C_in
+    Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if use_C_in
       "Prescribed boundary trace substances"
       annotation (Placement(transformation(extent={{-120,-100},{-80,-60}})));
   protected
-    Modelica.Blocks.Interfaces.RealInput m_flow_in_internal
+    Modelica.Blocks.Interfaces.RealInput m_flow_in_internal(unit="kg/s")
       "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput T_in_internal
+    Modelica.Blocks.Interfaces.RealInput T_in_internal(unit="K")
       "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX]
+    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX](each unit="1")
       "Needed to connect to conditional connector";
     Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
       "Needed to connect to conditional connector";
@@ -591,26 +589,24 @@ with exception of boundary flow rate, do not have an effect.
          quantity=Medium.extraPropertiesNames) = Medium.C_default
       "Fixed values of trace substances"
       annotation (Dialog(enable = (not use_C_in) and Medium.nC > 0));
-    Modelica.Blocks.Interfaces.RealInput m_flow_in if     use_m_flow_in
+    Modelica.Blocks.Interfaces.RealInput m_flow_in(unit="kg/s") if use_m_flow_in
       "Prescribed mass flow rate"
       annotation (Placement(transformation(extent={{-120,60},{-80,100}})));
-    Modelica.Blocks.Interfaces.RealInput h_in if              use_h_in
+    Modelica.Blocks.Interfaces.RealInput h_in(unit="J/kg") if use_h_in
       "Prescribed fluid specific enthalpy"
       annotation (Placement(transformation(extent={{-140,20},{-100,60}}), iconTransformation(extent={{-140,20},{-100,60}})));
-    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if
-                                                          use_X_in
+    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX](each unit="1") if use_X_in
       "Prescribed fluid composition"
       annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
-    Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if
-                                                          use_C_in
+    Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if use_C_in
       "Prescribed boundary trace substances"
       annotation (Placement(transformation(extent={{-120,-100},{-80,-60}}), iconTransformation(extent={{-120,-100},{-80,-60}})));
   protected
-    Modelica.Blocks.Interfaces.RealInput m_flow_in_internal
+    Modelica.Blocks.Interfaces.RealInput m_flow_in_internal(unit="kg/s")
       "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput h_in_internal
+    Modelica.Blocks.Interfaces.RealInput h_in_internal(unit="J/kg")
       "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX]
+    Modelica.Blocks.Interfaces.RealInput X_in_internal[Medium.nX](each unit="1")
       "Needed to connect to conditional connector";
     Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
       "Needed to connect to conditional connector";

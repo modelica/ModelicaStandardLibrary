@@ -5,7 +5,7 @@ model FrequencySensor "Frequency sensor"
         transformation(extent={{-10,-10},{10,10}})));
   Basic.PlugToPin_p plugToPin_p(final m=m, final k=1) annotation (Placement(
         transformation(extent={{-80,-10},{-60,10}})));
-  Modelica.Blocks.Interfaces.RealOutput y annotation (Placement(
+  Modelica.Blocks.Interfaces.RealOutput y(unit="Hz") annotation (Placement(
         transformation(extent={{100,-10},{120,10}})));
 equation
 

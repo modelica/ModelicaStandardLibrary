@@ -5655,9 +5655,9 @@ torque as output signal. Note, the input signals must be consistent to each othe
         "Torque to drive the flange"
         annotation (Placement(transformation(extent={{60,-110},{20,-70}}), iconTransformation(extent={{40,-90},{20,-70}})));
     protected
-      Modelica.Blocks.Interfaces.RealInput w_internal
+      Modelica.Blocks.Interfaces.RealInput w_internal(unit="rad/s")
         "Needed to connect to conditional connector w";
-      Modelica.Blocks.Interfaces.RealInput a_internal
+      Modelica.Blocks.Interfaces.RealInput a_internal(unit="rad/s2")
         "Needed to connect to conditional connector a";
     equation
       connect(w, w_internal);

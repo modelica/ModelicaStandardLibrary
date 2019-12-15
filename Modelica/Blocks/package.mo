@@ -2568,7 +2568,7 @@ random number generator. This block is used in the example
           Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
             "Right flange of shaft"
             annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-          Modelica.Blocks.Interfaces.RealOutput phi
+          Modelica.Blocks.Interfaces.RealOutput phi(unit="rad")
             "Absolute angle of flange as output signal" annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},

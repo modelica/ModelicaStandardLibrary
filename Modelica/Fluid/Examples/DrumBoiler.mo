@@ -8,7 +8,7 @@ package DrumBoiler
     extends Modelica.Icons.Example;
 
     parameter Boolean use_inputs = false
-      "use external inputs instead of test data contained internally";
+      "= true, if external inputs shall be used, otherwise use test data contained internally";
 
     Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler
       evaporator(
@@ -61,13 +61,13 @@ package DrumBoiler
       annotation (Placement(transformation(extent={{-22,20},{-42,40}})));
     Modelica.Blocks.Sources.Constant levelSetPoint(k=67)
       annotation (Placement(transformation(extent={{-38,48},{-24,62}})));
-    Modelica.Blocks.Interfaces.RealOutput T_S(final unit="degC") "steam temperature"
+    Modelica.Blocks.Interfaces.RealOutput T_S(final unit="degC") "Steam temperature"
       annotation (Placement(transformation(extent={{100,48},{112,60}})));
-    Modelica.Blocks.Interfaces.RealOutput p_S(final unit="bar") "steam pressure"
+    Modelica.Blocks.Interfaces.RealOutput p_S(final unit="bar") "Steam pressure"
       annotation (Placement(transformation(extent={{100,22},{112,34}})));
-    Modelica.Blocks.Interfaces.RealOutput qm_S(unit="kg/s") "steam flow rate"
+    Modelica.Blocks.Interfaces.RealOutput qm_S(unit="kg/s") "Steam flow rate"
       annotation (Placement(transformation(extent={{100,-2},{112,10}})));
-    Modelica.Blocks.Interfaces.RealOutput V_l(unit="m3") "liquid volume inside drum"
+    Modelica.Blocks.Interfaces.RealOutput V_l(unit="m3") "Liquid volume inside drum"
       annotation (Placement(transformation(extent={{100,74},{112,86}})));
   public
     Modelica.Blocks.Math.Gain MW2W(k=1e6)
@@ -95,9 +95,9 @@ package DrumBoiler
     Modelica.Blocks.Sources.TimeTable Y_Valve_Tab(table=[0,0; 900,1; 7210,1]) if not use_inputs
                annotation (Placement(transformation(extent={{30,-80},{50,-60}})));
     Blocks.Interfaces.RealInput q_F(unit="MW") if
-                                       use_inputs "fuel flow rate"
+                                       use_inputs "Fuel flow rate"
       annotation (Placement(transformation(extent={{-112,-56},{-100,-44}})));
-    Blocks.Interfaces.RealInput Y_Valve if use_inputs "valve opening"
+    Blocks.Interfaces.RealInput Y_Valve if use_inputs "Valve opening"
       annotation (Placement(transformation(extent={{-112,-96},{-100,-84}})));
   equation
     connect(furnace.port, evaporator.heatPort)

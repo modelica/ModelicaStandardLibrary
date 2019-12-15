@@ -1577,7 +1577,7 @@ Otherwise the output <code>y = u</code>.</p>
         "Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})";
       parameter Real a[:]={1}
         "Denominator coefficients of transfer function (e.g., 5*s+6 is specified as {5,6})";
-      Modelica.Blocks.Interfaces.RealInput w "Frequency input" annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput w(unit="Hz") "Frequency input" annotation (Placement(transformation(
             extent={{-20,-20},{20,20}},
             rotation=90,
             origin={0,-120})));

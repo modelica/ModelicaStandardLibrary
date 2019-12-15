@@ -16,7 +16,7 @@ block Signal2mPulse "Generic control of 2*m pulse rectifiers"
   parameter Modelica.SIunits.Voltage vStart[m]=zeros(m)
     "Start voltage of filter output"
     annotation (Dialog(tab="Filter", enable=useFilter));
-  Modelica.Blocks.Interfaces.RealInput firingAngle if not
+  Modelica.Blocks.Interfaces.RealInput firingAngle(unit="rad") if not
     useConstantFiringAngle "Firing angle (rad)" annotation (Placement(
         transformation(
         extent={{20,-20},{-20,20}},
@@ -91,7 +91,7 @@ block Signal2mPulse "Generic control of 2*m pulse rectifiers"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={0,-20})));
-  Modelica.Blocks.Interfaces.RealInput v[m] "Voltages" annotation (
+  Modelica.Blocks.Interfaces.RealInput v[m](each unit="V") "Voltages" annotation (
       Placement(transformation(
         extent={{-20,-20},{20,20}},
         origin={-120,0})));

@@ -844,9 +844,9 @@ Example:
 
   block Feedback "Output difference between commanded and feedback input"
 
-    Interfaces.RealInput u1 annotation (Placement(transformation(extent={{-100,
+    Interfaces.RealInput u1 "Commanded input" annotation (Placement(transformation(extent={{-100,
               -20},{-60,20}})));
-    Interfaces.RealInput u2 annotation (Placement(transformation(
+    Interfaces.RealInput u2 "Feedback input" annotation (Placement(transformation(
           origin={0,-80},
           extent={{-20,-20},{20,20}},
           rotation=90)));
@@ -3207,9 +3207,9 @@ This block is demonstrated in the examples
     extends Modelica.Blocks.Icons.Block;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     parameter Integer k(start=1) "Order of harmonic";
-        parameter Boolean useConjugateComplex=false
+    parameter Boolean useConjugateComplex=false
       "Gives conjugate complex result if true"
-          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Real x0Cos=0 "Start value of cos integrator state";
     parameter Real x0Sin=0 "Start value of sin integrator state";
     Sources.Cosine      sin1(

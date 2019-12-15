@@ -43,13 +43,13 @@ model FundamentalWavePermabilitySensor
         transformation(
         extent={{10,-10},{-10,10}},
         origin={30,-10})));
-  Modelica.Blocks.Interfaces.RealOutput mu "Absolute permeability"
+  Modelica.Blocks.Interfaces.RealOutput mu(unit="H/m") "Absolute permeability"
                    annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-40,-110})));
-  Modelica.Blocks.Interfaces.RealOutput mur "Relative permeability"
+  Modelica.Blocks.Interfaces.RealOutput mur(unit="1") "Relative permeability"
                             annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},

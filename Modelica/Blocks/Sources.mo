@@ -739,7 +739,7 @@ The Real output y is a cosine signal:
           extent={{-2,-2},{2,2}},
           rotation=0,
           origin={-80,60})));
-    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+    Blocks.Interfaces.RealInput f_internal(unit="Hz") "Frequency" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=0,
@@ -849,7 +849,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
           extent={{-2,-2},{2,2}},
           rotation=0,
           origin={-80,60})));
-    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+    Blocks.Interfaces.RealInput f_internal(unit="Hz") "Frequency" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=0,

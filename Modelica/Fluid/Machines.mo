@@ -163,13 +163,13 @@ package Machines
     final parameter SI.Position head_op = (p_b_nominal-p_a_nominal)/(rho_nominal*g)
       "operational pump head according to nominal values";
 
-    Modelica.Blocks.Interfaces.RealInput m_flow_set if use_m_flow_set
+    Modelica.Blocks.Interfaces.RealInput m_flow_set(unit="kg/s") if use_m_flow_set
       "Prescribed mass flow rate"
       annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
           rotation=-90,
           origin={-50,82})));
-    Modelica.Blocks.Interfaces.RealInput p_set if use_p_set
+    Modelica.Blocks.Interfaces.RealInput p_set(unit="Pa") if use_p_set
       "Prescribed outlet pressure"
       annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
@@ -177,9 +177,9 @@ package Machines
           origin={50,82})));
 
   protected
-    Modelica.Blocks.Interfaces.RealInput m_flow_set_internal
+    Modelica.Blocks.Interfaces.RealInput m_flow_set_internal(unit="kg/s")
       "Needed to connect to conditional connector";
-    Modelica.Blocks.Interfaces.RealInput p_set_internal
+    Modelica.Blocks.Interfaces.RealInput p_set_internal(unit="Pa")
       "Needed to connect to conditional connector";
   equation
     // Ideal control
