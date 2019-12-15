@@ -91,7 +91,7 @@ equation
           lineColor={0,0,255},
           radius=10),
         Rectangle(
-          extent={{70,-40},{-70,40}},
+          extent=DynamicSelect({{70,-40},{-70,40}},{{70,-40},{70-140*SOC,40}}),
           lineColor={0,0,255},
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid),
