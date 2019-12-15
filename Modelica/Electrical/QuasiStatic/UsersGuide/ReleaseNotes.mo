@@ -40,7 +40,7 @@ class ReleaseNotes "Release notes"
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1367\">#1367</a>)</li>
 <li>Updated documentation on temperature dependency of resistance and conductance models</li>
 <li>Rewrote source models to simplify initialization (
-    <a href=\"https://trac.modelica.org/Modelica/changeset/7031\">r7031</a>)</li>
+    <a href=\"https://github.com/modelica/ModelicaStandardLibrary/commit/861851e3b9628fa483e958a943ab015c15fcb821\">r7031</a>)</li>
 <li>Implementation of ideal transformer model</li>
 </ul>
 
