@@ -62,13 +62,13 @@ dependent constants and constants from nature. The latter constants
 </p>
 <dl>
 <dt>Michael Stock, Richard Davis, Estefan&iacute;a de Mirand&eacute;s and Martin J T Milton:</dt>
-<dd><b>The revision of the SI-the result of three decades of progress in metrology</b> in Metrologia, Volume 56, Number 2.
+<dd><strong>The revision of the SI-the result of three decades of progress in metrology</strong> in Metrologia, Volume 56, Number 2.
 <a href= \"https://iopscience.iop.org/article/10.1088/1681-7575/ab0013/pdf\">https://iopscience.iop.org/article/10.1088/1681-7575/ab0013/pdf</a>, 2019.
 </dd>
 </dl>
 <dl>
 <dt>D B Newell, F Cabiati, J Fischer, K Fujii, S G Karshenboim, H S Margolis , E de Mirand&eacute;s, P J Mohr, F Nez, K Pachucki, T J Quinn, B N Taylor, M Wang, B M Wood and Z Zhang:</dt>
-<dd><b>The CODATA 2017 values of h, e, k, and NA for the revision of the SI</b> in Metrologia, Volume 55, Number 1.
+<dd><strong>The CODATA 2017 values of h, e, k, and NA for the revision of the SI</strong> in Metrologia, Volume 55, Number 1.
 <a href= \"https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf\">https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf</a>, 2017.
 </dd>
 </dl>
