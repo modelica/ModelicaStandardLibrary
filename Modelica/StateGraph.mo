@@ -245,7 +245,7 @@ essentially the new values of the steps. If conflicts occur,
 e.g., if there are more equations as variables, of if there
 are algebraic loops between Boolean variables, an exception
 is raised. Once all equations have been processed, the
-<strong>active</strong> variable of all steps are updated to the newly
+<strong>active</strong> variables of all steps are updated to the newly
 calculated values. Afterwards, the equations are again
 evaluated. The iteration stops, once no step changes
 its state anymore, i.e., once no transition fires anymore.
@@ -253,10 +253,10 @@ Then, simulation continuous until a new event is triggered,
 (when a relation changes its value).
 </p>
 <p>
-With the Modelica \"sampled(..)\" operator, a StateGraph might also
+With the Modelica \"sample(..)\" operator, a StateGraph might also
 be executed within a discrete controller that is called
-at regular time instants. In a future version of the StateGraph
-library, this might be more directly supported.
+at regular time instants. Furthermore, clocked state machines
+are directly supported by the Modelica language itself, see <a href=\"https://specification.modelica.org/v3.4/Ch17.html\">Section 17 (State Machines) of the Modelica 3.4 specification</a>.
 </p>
 <h4>Parallel and Alternative Execution</h4>
 <p>
@@ -477,14 +477,10 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
 
     annotation (Documentation(info="<html>
 <p>
-There is a much improved library available called \"Modelica_StateGraph2\".
-If this library is not yet distributed with your Modelica tool, you can download
-it from <a href=\"https://github.com/modelica/Modelica_StateGraph2\">https://github.com/modelica/Modelica_StateGraph2</a>.
+An evolved, but non-standard conforming Modelica library, called \"Modelica_StateGraph2\", is available from <a href=\"https://github.com/HansOlsson/Modelica_StateGraph2\">https://github.com/HansOlsson/Modelica_StateGraph2</a>.
 Find below a comparison with respect to Modelica.StateGraph.
-It is not yet clear whether Modelica_StateGraph2 will be included in a
-future version of the Modelica package. Another option is to provide
-built-in support for state machines in a future Modelica language version
-which would allow an even more powerful treatment of state machines in Modelica.
+A third option, especially for modeling of discrete controllers, are the clocked state machines, which
+are available as built-in Modelica language elements, see <a href=\"https://specification.modelica.org/v3.4/Ch17.html\">Section 17 (State Machines) of the Modelica 3.4 specification</a>.
 </p>
 
 <p>

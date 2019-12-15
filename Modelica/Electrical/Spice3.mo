@@ -1375,8 +1375,8 @@ RE 4 8 10K<br/>
 .END
 </pre>
 <p>In the Modelica representation the tiny capacity CJC was set to 1e-9F to get a higher numerical
-robustness. In future the numerical behavior will be analysed to be able to apply the original value
-CJC=.5PF.</p>
+robustness. The numerical behavior needs to be analysed before the original value
+CJC=.5PF can be applied.</p>
 </html>"));
     end Spice3BenchmarkDifferentialPair;
 
