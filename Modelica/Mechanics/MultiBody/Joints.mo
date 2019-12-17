@@ -2890,26 +2890,26 @@ has the advantage that it does not have a singular configuration.
 In the public interface of the UniversalSpherical joint, the following
 (final) <strong>parameters</strong> are provided:
 </p>
-<pre>
-  <strong>parameter</strong> Real rodLength(unit=\"m\")  \"Length of rod\";
-  <strong>parameter</strong> Real eRod_ia[3] \"Unit vector along rod, resolved in frame_ia\";
-  <strong>parameter</strong> Real e2_ia  [3] \"Unit vector along axis 2, resolved in frame_ia\";
-</pre>
+<blockquote><pre>
+<strong>parameter</strong> Real rodLength(unit=\"m\")  \"Length of rod\";
+<strong>parameter</strong> Real eRod_ia[3] \"Unit vector along rod, resolved in frame_ia\";
+<strong>parameter</strong> Real e2_ia  [3] \"Unit vector along axis 2, resolved in frame_ia\";
+</pre></blockquote>
 <p>
 This allows a more convenient definition of data which is related to the rod.
 For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of the rod, this might be defined as:
 </p>
-<pre>
-    Modelica.Mechanics.MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
-    Modelica.Mechanics.MultiBody.Visualizers.FixedShape    shape(shapeType       = \"box\",
-                                              lengthDirection = jointUS.eRod_ia,
-                                              widthDirection  = jointUS.e2_ia,
-                                              length          = jointUS.rodLength/2,
-                                              width           = jointUS.rodLength/10);
-  <strong>equation</strong>
-    <strong>connect</strong>(jointUS.frame_ia, shape.frame_a);
-</pre>
+<blockquote><pre>
+  Modelica.Mechanics.MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape    shape(shapeType       = \"box\",
+                                            lengthDirection = jointUS.eRod_ia,
+                                            widthDirection  = jointUS.e2_ia,
+                                            length          = jointUS.rodLength/2,
+                                            width           = jointUS.rodLength/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUS.frame_ia, shape.frame_a);
+</pre></blockquote>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -4784,26 +4784,26 @@ component).
 In the public interface of the JointUSR joint, the following
 (final) <strong>parameters</strong> are provided:
 </p>
-<pre>
-  <strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
-  <strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
-  <strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
-</pre>
+<blockquote><pre>
+<strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
+<strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
+<strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
+</pre></blockquote>
 <p>
 This allows a more convenient definition of data which is related to rod 1.
 For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of rod 1, this might be defined as:
 </p>
-<pre>
-    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSR(rRod1_ia={1.2, 1, 0.2});
-    Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
-                                               lengthDirection = jointUSR.eRod1_ia,
-                                               widthDirection  = jointUSR.e2_ia,
-                                               length          = jointUSR.rod1Length/2,
-                                               width           = jointUSR.rod1Length/10);
-  <strong>equation</strong>
-    <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
-</pre>
+<blockquote><pre>
+  Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSR(rRod1_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
+                                             lengthDirection = jointUSR.eRod1_ia,
+                                             widthDirection  = jointUSR.e2_ia,
+                                             length          = jointUSR.rod1Length/2,
+                                             width           = jointUSR.rod1Length/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -5274,26 +5274,26 @@ component).
 In the public interface of the JointUSP joint, the following
 (final) <strong>parameters</strong> are provided:
 </p>
-<pre>
-  <strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
-  <strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
-  <strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
-</pre>
+<blockquote><pre>
+<strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
+<strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
+<strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
+</pre></blockquote>
 <p>
 This allows a more convenient definition of data which is related to rod 1.
 For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of rod 1, this might be defined as:
 </p>
-<pre>
-    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia={1.2, 1, 0.2});
-    Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
-                                               lengthDirection = jointUSP.eRod1_ia,
-                                               widthDirection  = jointUSP.e2_ia,
-                                               length          = jointUSP.rod1Length/2,
-                                               width           = jointUSP.rod1Length/10);
-  <strong>equation</strong>
-    <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
-</pre>
+<blockquote><pre>
+  Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
+                                             lengthDirection = jointUSP.eRod1_ia,
+                                             widthDirection  = jointUSP.e2_ia,
+                                             length          = jointUSP.rod1Length/2,
+                                             width           = jointUSP.rod1Length/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -7971,9 +7971,9 @@ Joints.UniversalSpherical) must be calculated such that the driving torque
 in direction of the rotation
 axis is (RC shall be the name of the instance of RevoluteWithLengthConstraint):
 </p>
-<pre>
-    0 = RC.axis.tau + RC.e*RC.frame_b.t;
-</pre>
+<blockquote><pre>
+0 = RC.axis.tau + RC.e*RC.frame_b.t;
+</pre></blockquote>
 <p>
 If this equation is used, usually the force in the length constraint
 and the second derivative of the revolute angle will be part of a linear
@@ -8332,9 +8332,9 @@ Joints.UniversalSpherical) must be calculated such that the driving force
 in direction of the translation
 axis is (RC shall be the name of the instance of PrismaticWithLengthConstraint):
 </p>
-<pre>
-    0 = RC.axis.f + RC.e*RC.frame_b.f;
-</pre>
+<blockquote><pre>
+0 = RC.axis.f + RC.e*RC.frame_b.f;
+</pre></blockquote>
 <p>
 If this equation is used, usually the force in the length constraint
 and the second derivative of the prismatic distance will be part of a linear

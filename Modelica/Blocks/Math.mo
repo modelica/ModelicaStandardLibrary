@@ -532,9 +532,9 @@ then this can be easily achieved by using a vector of InverseBlockConstraints
 instances:
 </p>
 
-<pre>
-   InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
-</pre>
+<blockquote><pre>
+InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
+</pre></blockquote>
 </html>"));
   end InverseBlockConstraints;
 
@@ -557,9 +557,9 @@ This block computes output <em>y</em> as
 <em>product</em> of gain <em>k</em> with the
 input <em>u</em>:
 </p>
-<pre>
-    y = k * u;
-</pre>
+<blockquote><pre>
+y = k * u;
+</pre></blockquote>
 
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -601,21 +601,21 @@ input <em>u</em>:
 This blocks computes output vector <strong>y</strong> as <em>product</em> of the
 gain matrix <strong>K</strong> with the input signal vector <strong>u</strong>:
 </p>
-<pre>
-    <strong>y</strong> = <strong>K</strong> * <strong>u</strong>;
-</pre>
+<blockquote><pre>
+<strong>y</strong> = <strong>K</strong> * <strong>u</strong>;
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-   parameter: <strong>K</strong> = [0.12 2; 3 1.5]
+<blockquote><pre>
+parameter: <strong>K</strong> = [0.12 2; 3 1.5]
 
-   results in the following equations:
+results in the following equations:
 
-     | y[1] |     | 0.12  2.00 |   | u[1] |
-     |      |  =  |            | * |      |
-     | y[2] |     | 3.00  1.50 |   | u[2] |
-</pre>
+  | y[1] |     | 0.12  2.00 |   | u[1] |
+  |      |  =  |            | * |      |
+  | y[2] |     | 3.00  1.50 |   | u[2] |
+</pre></blockquote>
 
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -781,9 +781,9 @@ false, y is set to parameter \"y_default\".
 </p>
 
 <blockquote><pre>
-  // Conceptual equation (not valid Modelica)
-  i = 'first element of u[:] that is true';
-  y = <strong>if</strong> i==0 <strong>then</strong> y_default <strong>else</strong> expr[i];
+// Conceptual equation (not valid Modelica)
+i = 'first element of u[:] that is true';
+y = <strong>if</strong> i==0 <strong>then</strong> y_default <strong>else</strong> expr[i];
 </pre></blockquote>
 
 <p>
@@ -815,19 +815,19 @@ This blocks computes output <strong>y</strong> as
 <em>sum</em> of the elements of the input signal vector
 <strong>u</strong>:
 </p>
-<pre>
-    <strong>y</strong> = <strong>u</strong>[1] + <strong>u</strong>[2] + ...;
-</pre>
+<blockquote><pre>
+<strong>y</strong> = <strong>u</strong>[1] + <strong>u</strong>[2] + ...;
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-     parameter:   nin = 3;
+<blockquote><pre>
+   parameter:   nin = 3;
 
-  results in the following equations:
+results in the following equations:
 
-     y = u[1] + u[2] + u[3];
-</pre>
+   y = u[1] + u[2] + u[3];
+</pre></blockquote>
 
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -862,19 +862,19 @@ This blocks computes output <strong>y</strong> as <em>difference</em> of the
 commanded input <strong>u1</strong> and the feedback
 input <strong>u2</strong>:
 </p>
-<pre>
-    <strong>y</strong> = <strong>u1</strong> - <strong>u2</strong>;
-</pre>
+<blockquote><pre>
+<strong>y</strong> = <strong>u1</strong> - <strong>u2</strong>;
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-     parameter:   n = 2
+<blockquote><pre>
+   parameter:   n = 2
 
-  results in the following equations:
+results in the following equations:
 
-     y = u1 - u2
-</pre>
+   y = u1 - u2
+</pre></blockquote>
 
 </html>"),
       Icon(coordinateSystem(
@@ -919,19 +919,19 @@ Example:
 This blocks computes output <strong>y</strong> as <em>sum</em> of the
 two input signals <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<pre>
-    <strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong>;
-</pre>
+<blockquote><pre>
+<strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong>;
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-     parameter:   k1= +2, k2= -3
+<blockquote><pre>
+   parameter:   k1= +2, k2= -3
 
-  results in the following equations:
+results in the following equations:
 
-     y = 2 * u1 - 3 * u2
-</pre>
+   y = 2 * u1 - 3 * u2
+</pre></blockquote>
 
 </html>"),
       Icon(coordinateSystem(
@@ -985,19 +985,19 @@ Example:
 This blocks computes output <strong>y</strong> as <em>sum</em> of the
 three input signals <strong>u1</strong>, <strong>u2</strong> and <strong>u3</strong>:
 </p>
-<pre>
-    <strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong> + k3*<strong>u3</strong>;
-</pre>
+<blockquote><pre>
+<strong>y</strong> = k1*<strong>u1</strong> + k2*<strong>u2</strong> + k3*<strong>u3</strong>;
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-     parameter:   k1= +2, k2= -3, k3=1;
+<blockquote><pre>
+   parameter:   k1= +2, k2= -3, k3=1;
 
-  results in the following equations:
+results in the following equations:
 
-     y = 2 * u1 - 3 * u2 + u3;
-</pre>
+   y = 2 * u1 - 3 * u2 + u3;
+</pre></blockquote>
 
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -1041,9 +1041,9 @@ Example:
 This blocks computes the output <strong>y</strong>
 as <em>product</em> of the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<pre>
-    y = u1 * u2;
-</pre>
+<blockquote><pre>
+y = u1 * u2;
+</pre></blockquote>
 
 </html>"),
       Icon(coordinateSystem(
@@ -1081,9 +1081,9 @@ as <em>product</em> of the two inputs <strong>u1</strong> and <strong>u2</strong
 This block computes the output <strong>y</strong>
 by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<pre>
-    y = u1 / u2;
-</pre>
+<blockquote><pre>
+y = u1 / u2;
+</pre></blockquote>
 
 </html>"),
       Icon(coordinateSystem(
@@ -1185,9 +1185,9 @@ by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
 This blocks computes the output <strong>y</strong>
 as <em>absolute value</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>abs</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>abs</strong>( u );
+</pre></blockquote>
 <p>
 The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
 </p>
@@ -1259,11 +1259,11 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
 This blocks computes the output <strong>y</strong>
 as <strong>sign</strong> of the input <strong>u</strong>:
 </p>
-<pre>
-         1  <strong>if</strong> u &gt; 0
-    y =  0  <strong>if</strong> u == 0
-        -1  <strong>if</strong> u &lt; 0
-</pre>
+<blockquote><pre>
+     1  <strong>if</strong> u &gt; 0
+y =  0  <strong>if</strong> u == 0
+    -1  <strong>if</strong> u &lt; 0
+</pre></blockquote>
 <p>
 The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
 </p>
@@ -1326,9 +1326,9 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
 This blocks computes the output <strong>y</strong>
 as <em>square root</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>sqrt</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>sqrt</strong>( u );
+</pre></blockquote>
 <p>
 The input shall be zero or positive.
 Otherwise an error occurs.
@@ -1404,9 +1404,9 @@ Otherwise an error occurs.
 This blocks computes the output <strong>y</strong>
 as <strong>sine</strong> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>sin</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>sin</strong>( u );
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/sin.png\"
@@ -1485,9 +1485,9 @@ as <strong>sine</strong> of the input <strong>u</strong>:
 This blocks computes the output <strong>y</strong>
 as <strong>cos</strong> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>cos</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>cos</strong>( u );
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/cos.png\"
@@ -1564,9 +1564,9 @@ as <strong>cos</strong> of the input <strong>u</strong>:
 This blocks computes the output <strong>y</strong>
 as <strong>tan</strong> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>tan</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>tan</strong>( u );
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/tan.png\"
@@ -1643,9 +1643,9 @@ as <strong>tan</strong> of the input <strong>u</strong>:
 This blocks computes the output <strong>y</strong> as the
 <em>sine-inverse</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>asin</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>asin</strong>( u );
+</pre></blockquote>
 <p>
 The absolute value of the input <strong>u</strong> need to
 be less or equal to one (<strong>abs</strong>( u ) <= 1).
@@ -1724,9 +1724,9 @@ Otherwise an error occurs.
 This blocks computes the output <strong>y</strong> as the
 <em>cosine-inverse</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>acos</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>acos</strong>( u );
+</pre></blockquote>
 <p>
 The absolute value of the input <strong>u</strong> need to
 be less or equal to one (<strong>abs</strong>( u ) <= 1).
@@ -1809,9 +1809,9 @@ Otherwise an error occurs.
 This blocks computes the output <strong>y</strong> as the
 <em>tangent-inverse</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y= <strong>atan</strong>( u );
-</pre>
+<blockquote><pre>
+y= <strong>atan</strong>( u );
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan.png\"
@@ -1900,9 +1900,9 @@ This blocks computes the output <strong>y</strong> as the
 <em>tangent-inverse</em> of the input <strong>u1</strong> divided by
 input <strong>u2</strong>:
 </p>
-<pre>
-    y = <strong>atan2</strong>( u1, u2 );
-</pre>
+<blockquote><pre>
+y = <strong>atan2</strong>( u1, u2 );
+</pre></blockquote>
 <p>
 u1 and u2 shall not be zero at the same time instant.
 <strong>Atan2</strong> uses the sign of u1 and u2 in order to construct
@@ -1988,9 +1988,9 @@ block <strong>Atan</strong> gives a solution in the range
 This blocks computes the output <strong>y</strong> as the
 <em>hyperbolic sine</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>sinh</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>sinh</strong>( u );
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\"
@@ -2069,9 +2069,9 @@ This blocks computes the output <strong>y</strong> as the
 This blocks computes the output <strong>y</strong> as the
 <em>hyperbolic cosine</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>cosh</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>cosh</strong>( u );
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\"
@@ -2150,9 +2150,9 @@ This blocks computes the output <strong>y</strong> as the
 This blocks computes the output <strong>y</strong> as the
 <em>hyperbolic tangent</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>tanh</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>tanh</strong>( u );
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\"
@@ -2230,9 +2230,9 @@ This blocks computes the output <strong>y</strong> as the
 This blocks computes the output <strong>y</strong> as the
 <em>exponential</em> (of base e) of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>exp</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>exp</strong>( u );
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/exp.png\"
@@ -2301,15 +2301,15 @@ This blocks computes the output <strong>y</strong> as the
 power to the parameter <em>base</em> of the input <strong>u</strong>.
 If the boolean parameter <strong>useExp</strong> is true, the output is determined by:
 </p>
-<pre>
-    y = <strong>exp</strong> ( u * <strong>log</strong> (base) )
-</pre>
+<blockquote><pre>
+y = <strong>exp</strong> ( u * <strong>log</strong> (base) )
+</pre></blockquote>
 <p>
 otherwise:
 </p>
-<pre>
-    y = base <strong>^</strong> u;
-</pre>
+<blockquote><pre>
+y = base <strong>^</strong> u;
+</pre></blockquote>
 
 
 </html>"));
@@ -2375,9 +2375,9 @@ otherwise:
 This blocks computes the output <strong>y</strong> as the
 <em>logarithm</em> to the parameter <em>base</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>log</strong>( u ) / <strong>log</strong>( base );
-</pre>
+<blockquote><pre>
+y = <strong>log</strong>( u ) / <strong>log</strong>( base );
+</pre></blockquote>
 <p>
 An error occurs if the input <strong>u</strong> is
 zero or negative.
@@ -2459,9 +2459,9 @@ zero or negative.
 This blocks computes the output <strong>y</strong> as the
 <em>base 10 logarithm</em> of the input <strong>u</strong>:
 </p>
-<pre>
-    y = <strong>log10</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>log10</strong>( u );
+</pre></blockquote>
 <p>
 An error occurs if the input <strong>u</strong> is
 zero or negative.
@@ -2540,9 +2540,10 @@ Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
 This block computes the output <strong>y</strong>
 as <em>nearest integer value</em> of the input <strong>u</strong>:
 </p>
-<pre>    y = <strong>integer</strong>( <strong>floor</strong>( u + 0.5 ) )  for  u &gt; 0;
-    y = <strong>integer</strong>( <strong>ceil </strong>( u - 0.5 ) )  for  u &lt; 0;
-</pre>
+<blockquote><pre>
+y = <strong>integer</strong>( <strong>floor</strong>( u + 0.5 ) )  for  u &gt; 0;
+y = <strong>integer</strong>( <strong>ceil </strong>( u - 0.5 ) )  for  u &lt; 0;
+</pre></blockquote>
 </html>"));
   end RealToInteger;
 
@@ -2575,8 +2576,9 @@ as <em>nearest integer value</em> of the input <strong>u</strong>:
 This block computes the output <strong>y</strong>
 as <em>Real equivalent</em> of the Integer input <strong>u</strong>:
 </p>
-<pre>    y = u;
-</pre>
+<blockquote><pre>
+y = u;
+</pre></blockquote>
 <p>where <strong>u</strong> is of Integer and <strong>y</strong> of Real type.</p>
 </html>"));
   end IntegerToReal;
@@ -2596,8 +2598,9 @@ as <em>Real equivalent</em> of the Integer input <strong>u</strong>:
 This block computes the output <strong>y</strong>
 as <em>Real equivalent</em> of the Boolean input <strong>u</strong>:
 </p>
-<pre>    y = <strong>if</strong> u <strong>then</strong> realTrue <strong>else</strong> realFalse;
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> u <strong>then</strong> realTrue <strong>else</strong> realFalse;
+</pre></blockquote>
 <p>where <strong>u</strong> is of Boolean and <strong>y</strong> of Real type,
 and <strong>realTrue</strong> and <strong>realFalse</strong> are parameters.
 </p>
@@ -2634,8 +2637,9 @@ and <strong>realTrue</strong> and <strong>realFalse</strong> are parameters.
 This block computes the output <strong>y</strong>
 as <em>Integer equivalent</em> of the Boolean input <strong>u</strong>:
 </p>
-<pre>    y = <strong>if</strong> u <strong>then</strong> integerTrue <strong>else</strong> integerFalse;
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> u <strong>then</strong> integerTrue <strong>else</strong> integerFalse;
+</pre></blockquote>
 <p>where <strong>u</strong> is of Boolean and <strong>y</strong> of Integer type,
 and <strong>integerTrue</strong> and <strong>integerFalse</strong> are parameters.
 </p>
@@ -2673,8 +2677,9 @@ This block computes the Boolean output <strong>y</strong>
 from the Real input <strong>u</strong> by the equation:
 </p>
 
-<pre>    y = u &ge; threshold;
-</pre>
+<blockquote><pre>
+y = u &ge; threshold;
+</pre></blockquote>
 
 <p>
 where <strong>threshold</strong> is a parameter.
@@ -2713,8 +2718,9 @@ This block computes the Boolean output <strong>y</strong>
 from the Integer input <strong>u</strong> by the equation:
 </p>
 
-<pre>    y = u &ge; threshold;
-</pre>
+<blockquote><pre>
+y = u &ge; threshold;
+</pre></blockquote>
 
 <p>
 where <strong>threshold</strong> is a parameter.
@@ -2775,10 +2781,10 @@ This block calculates the length <code>y_abs</code> and
 the angle <code>y_arg</code> of the polar representation of this phasor.
 </p>
 
-<pre>
-  y_abs = abs(u_re + j*u_im) = sqrt( u_re<sup>2</sup> + u_im<sup>2</sup> )
-  y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
-</pre>
+<blockquote><pre>
+y_abs = abs(u_re + j*u_im) = sqrt( u_re<sup>2</sup> + u_im<sup>2</sup> )
+y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
+</pre></blockquote>
 </html>"));
   end RectangularToPolar;
 
@@ -2816,10 +2822,10 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
 The input values of this block are the polar components <code>uabs</code> and <code>uarg</code> of a phasor.
 This block calculates the components <code>y_re</code> and <code>y_im</code> of the rectangular representation of this phasor.
 </p>
-<pre>
-   y_re = u_abs * cos( u_arg )
-   y_im = u_abs * sin( u_arg )
-</pre>
+<blockquote><pre>
+y_re = u_abs * cos( u_arg )
+y_im = u_abs * sin( u_arg )
+</pre></blockquote>
 </html>"));
   end PolarToRectangular;
 
@@ -2847,11 +2853,11 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
 <p>
 This block calculates the mean of the input signal u over the given period 1/f:
 </p>
-<pre>
+<blockquote><pre>
 1 T
 - &int; u(t) dt
 T 0
-</pre>
+</pre></blockquote>
 <p>
 Note: The output is updated after each period defined by 1/f.
 </p>
@@ -2942,11 +2948,11 @@ Note: The output is updated after each period defined by 1/f.
 </table>
 </html>",                                   info="<html>
 <p>This block continuously calculates the mean value of its input signal. It uses the function:</p>
-<blockquote>
-<pre>    integral( u over time)
-y = ----------------------
-      time - startTime</pre>
-</blockquote>
+<blockquote><pre>
+     integral( u over time)
+y = ------------------------
+        time - startTime
+</pre></blockquote>
 <p>This can be used to determine the empirical expectation value of a random signal, such as generated by the <a href=\"modelica://Modelica.Blocks.Noise\">Noise</a> blocks.</p>
 <p>The parameter t_eps is used to guard against division by zero (the mean value computation
 starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time instant y = u).</p>
@@ -3063,14 +3069,14 @@ Note: The output is updated after each period defined by 1/f.
 </td></tr>
 
 </table>
-</html>",                                   info="<html>
+</html>", info="<html>
 <p>
 This block calculates the empirical variance of its input signal. It is based on the formula
 (but implemented in a more reliable numerical way):
 </p>
-<blockquote>
-<pre>y = mean(  (u - mean(u))^2  )</pre>
-</blockquote>
+<blockquote><pre>
+y = mean(  (u - mean(u))^2  )
+</pre></blockquote>
 
 <p>The parameter t_eps is used to guard against division by zero (the variance computation
 starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time instant y = 0).</p>
@@ -3154,11 +3160,11 @@ This block is demonstrated in the examples
 </td></tr>
 
 </table>
-</html>",                                   info="<html>
+</html>", info="<html>
 <p>This block calculates the standard deviation of its input signal. The standard deviation is the square root of the signal&#39;s variance:</p>
-<blockquote>
-<pre>y = sqrt( variance(u) )</pre>
-</blockquote>
+<blockquote><pre>
+y = sqrt( variance(u) )
+</pre></blockquote>
 <p>
 The <a href=\"modelica://Modelica.Blocks.Math.Variance\">Variance</a> block is used to
 calculate variance(u).
@@ -3557,8 +3563,9 @@ output <code>y = 0</code> and <code>valid</code> is set to <code>false</code>.</
 This block computes the output <strong>y</strong> as <em>maximum</em>
 of the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<pre>    y = <strong>max</strong> ( u1 , u2 );
-</pre>
+<blockquote><pre>
+y = <strong>max</strong> ( u1 , u2 );
+</pre></blockquote>
 </html>"));
   end Max;
 
@@ -3575,8 +3582,9 @@ of the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 This block computes the output <strong>y</strong> as <em>minimum</em> of
 the two Real inputs <strong>u1</strong> and <strong>u2</strong>:
 </p>
-<pre>    y = <strong>min</strong> ( u1 , u2 );
-</pre>
+<blockquote><pre>
+y = <strong>min</strong> ( u1 , u2 );
+</pre></blockquote>
 </html>"));
   end Min;
 
@@ -3645,8 +3653,9 @@ provide both values as output.
 This block sets the Boolean output <strong>y</strong> to true,
 when the Boolean input <strong>u</strong> shows a <em>rising edge</em>:
 </p>
-<pre>    y = <strong>edge</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>edge</strong>( u );
+</pre></blockquote>
 </html>"));
   end Edge;
 
@@ -3664,8 +3673,9 @@ This block sets the Boolean output <strong>y</strong> to true, when the
 Boolean input <strong>u</strong> shows a <em>rising or falling edge</em>,
 i.e., when the signal changes:
 </p>
-<pre>    y = <strong>change</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>change</strong>( u );
+</pre></blockquote>
 </html>"));
   end BooleanChange;
 
@@ -3682,8 +3692,9 @@ i.e., when the signal changes:
 This block sets the Boolean output <strong>y</strong> to true, when the
 Integer input <strong>u</strong> changes:
 </p>
-<pre>    y = <strong>change</strong>( u );
-</pre>
+<blockquote><pre>
+y = <strong>change</strong>( u );
+</pre></blockquote>
 </html>"));
   end IntegerChange;
 

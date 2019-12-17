@@ -154,9 +154,9 @@ p(u) of degree \"n\" that fits the data \"p(u[i]) - y[i]\"
 in a least squares sense. The polynomial is
 returned as a vector p[n+1] that has the following definition:
 </p>
-<pre>
-  p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
-</pre>
+<blockquote><pre>
+p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
+</pre></blockquote>
 </html>"));
       end fitting;
 
@@ -270,14 +270,14 @@ returned as a vector p[n+1] that has the following definition:
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Polynomials.<strong>roots</strong>(p);
+r = Polynomials.<strong>roots</strong>(p);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 This function computes the roots of a polynomial P of x
 </p>
 <blockquote><pre>
-  P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
+P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
 </pre></blockquote>
 <p>
 with the coefficient vector <strong>p</strong>. It is assumed that the first element of <strong>p</strong> is not zero, i.e., that the polynomial is of order size(p,1)-1.
@@ -286,12 +286,12 @@ with the coefficient vector <strong>p</strong>. It is assumed that the first ele
 To compute the roots, the eigenvalues of the corresponding companion matrix <strong>C</strong>
 </p>
 <blockquote><pre>
-         |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
-         |    1            0                0               0           0     |
-         |    0            1      ...       0               0           0     |
-  <strong>C</strong> =    |    .            .      ...       .               .           .     |
-         |    .            .      ...       .               .           .     |
-         |    0            0      ...       0               1           0     |
+       |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
+       |    1            0                0               0           0     |
+       |    0            1      ...       0               0           0     |
+<strong>C</strong> =    |    .            .      ...       .               .           .     |
+       |    .            .      ...       .               .           .     |
+       |    0            0      ...       0               1           0     |
 </pre></blockquote>
 <p>
 are calculated. These are the roots of the polynomial.<br>
@@ -301,10 +301,10 @@ provides efficient eigenvalue computation for those matrices.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  r = <strong>roots</strong>({1,2,3});
-  // r = [-1.0,  1.41421356237309;
-  //      -1.0, -1.41421356237309]
-  // which corresponds to the roots: -1.0 +/- j*1.41421356237309
+r = <strong>roots</strong>({1,2,3});
+// r = [-1.0,  1.41421356237309;
+//      -1.0, -1.41421356237309]
+// which corresponds to the roots: -1.0 +/- j*1.41421356237309
 </pre></blockquote>
 </html>"));
       end roots;

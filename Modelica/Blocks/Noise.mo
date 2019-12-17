@@ -81,9 +81,9 @@ on the same or a higher hierarchical level, Noise.GlobalSeed
 must be dragged resulting in a declaration
 </p>
 
-<pre>
-   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
-</pre>
+<blockquote><pre>
+<strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+</pre></blockquote>
 
 <p>
 The GlobalSeed block provides global options for all Noise blocks of the same or a lower
@@ -483,9 +483,9 @@ block <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</
 must be dragged resulting in a declaration
 </p>
 
-<pre>
-   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
-</pre>
+<blockquote><pre>
+<strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+</pre></blockquote>
 
 <p>
 This block is used to define global options that hold for all Noise block

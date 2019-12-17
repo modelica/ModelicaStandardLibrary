@@ -241,14 +241,14 @@ oldName.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  copy(\"C:/test1/directory1\", \"C:/test2/directory2\");
-     -> the content of directory1 is copied into directory2
-        if \"C:/test2/directory2\" does not exist, it is newly
-        created. If \"replace=true\", files in directory2
-        may be overwritten by their copy
-  copy(\"test1.txt\", \"test2.txt\")
-     -> make a copy of file \"test1.txt\" with the name \"test2.txt\"
-        in the current directory
+copy(\"C:/test1/directory1\", \"C:/test2/directory2\");
+   -> the content of directory1 is copied into directory2
+      if \"C:/test2/directory2\" does not exist, it is newly
+      created. If \"replace=true\", files in directory2
+      may be overwritten by their copy
+copy(\"test1.txt\", \"test2.txt\")
+   -> make a copy of file \"test1.txt\" with the name \"test2.txt\"
+      in the current directory
 </pre></blockquote>
 </html>"));
 end copy;
@@ -296,15 +296,15 @@ oldName.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  move(\"C:/test1/directory1\", \"C:/test2/directory2\");
-     -> the content of directory1 is moved into directory2.
-        Afterwards directory1 is deleted.
-        if \"C:/test2/directory2\" does not exist, it is newly
-        created. If \"replace=true\", files in directory2
-        may be overwritten
-   move(\"test1.txt\", \"test2.txt\")
-     -> rename file \"test1.txt\" into \"test2.txt\"
-        within the current directory
+move(\"C:/test1/directory1\", \"C:/test2/directory2\");
+   -> the content of directory1 is moved into directory2.
+      Afterwards directory1 is deleted.
+      if \"C:/test2/directory2\" does not exist, it is newly
+      created. If \"replace=true\", files in directory2
+      may be overwritten
+move(\"test1.txt\", \"test2.txt\")
+  -> rename file \"test1.txt\" into \"test2.txt\"
+     within the current directory
 </pre></blockquote>
 </html>"));
 end move;
@@ -581,10 +581,10 @@ Files.<strong>assertNew</strong>(name, message=\"This is not allowed\");
 Triggers an assert, if \"name\" is an existing file or
 directory. The error message has the following structure:
 </p>
-<pre>
-  File \"&lt;name&gt;\" already exists.
-  &lt;message&gt;
-</pre>
+<blockquote><pre>
+File \"&lt;name&gt;\" already exists.
+&lt;message&gt;
+</pre></blockquote>
 </html>"));
 end assertNew;
 
@@ -670,13 +670,13 @@ Documentation(info="<html>
 Function <strong>splitPathName</strong>(..) splits a path name into its parts.
 </p>
 <h4>Example</h4>
-<pre>
-  (directory, name, extension) = Files.splitPathName(\"C:/user/test/input.txt\")
+<blockquote><pre>
+(directory, name, extension) = Files.splitPathName(\"C:/user/test/input.txt\")
 
-  -> directory = \"C:/user/test/\"
-     name      = \"input\"
-     extension = \".txt\"
-</pre>
+-> directory = \"C:/user/test/\"
+   name      = \"input\"
+   extension = \".txt\"
+</pre></blockquote>
 </html>"));
 end splitPathName;
 
@@ -707,13 +707,13 @@ The underlying C implementation of <strong>ModelicaInternal_temporaryFileName</s
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  fileName = Files.temporaryFileName();
-     -> fileName is the absolute path name of the temporary file
-  Streams.print(String(System.getPid()), fileName);
-     -> Create the temporary file
-        Warning: Possible race condition on file access
-  Files.removeFile(fileName);
-     -> Explicitly delete the temporary file (after use)
+fileName = Files.temporaryFileName();
+   -> fileName is the absolute path name of the temporary file
+Streams.print(String(System.getPid()), fileName);
+   -> Create the temporary file
+      Warning: Possible race condition on file access
+Files.removeFile(fileName);
+   -> Explicitly delete the temporary file (after use)
 </pre></blockquote>
 </html>"));
 end temporaryFileName;
@@ -748,10 +748,10 @@ as well as absolute local file path names are supported.
 
 <h4>Example</h4>
 <blockquote><pre>
-  file1 = loadResource(\"modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\")
-          // file1 is the absolute path name of the file
-  file2 = loadResource(\"C:\\\\data\\\\readParameters.txt\")
-          file2 = \"C:/data/readParameters.txt\"
+file1 = loadResource(\"modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\")
+        // file1 is the absolute path name of the file
+file2 = loadResource(\"C:\\\\data\\\\readParameters.txt\")
+        file2 = \"C:/data/readParameters.txt\"
 </pre></blockquote>
 </html>"));
   end loadResource;
@@ -763,9 +763,9 @@ As a general convention of this package, '/' is used as directory
 separator both for input and output arguments of all functions.
 For example:
 </p>
-<pre>
-   exist(\"Modelica/Mechanics/Rotational.mo\");
-</pre>
+<blockquote><pre>
+exist(\"Modelica/Mechanics/Rotational.mo\");
+</pre></blockquote>
 <p>
 The functions provide the mapping to the directory separator of the
 underlying operating system. Note, that on Windows system the usage

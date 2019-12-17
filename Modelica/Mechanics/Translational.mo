@@ -2721,9 +2721,9 @@ spring/damper characteristic. With parameter n&ge;1 (exponent of spring force),
 a nonlinear spring force can be modeled:
 </p>
 
-<pre>
-   desiredContactForce = c*|s_rel - s_rel0|^n + d*<strong>der</strong>(s_rel)
-</pre>
+<blockquote><pre>
+desiredContactForce = c*|s_rel - s_rel0|^n + d*<strong>der</strong>(s_rel)
+</pre></blockquote>
 
 <p>
 Note, Hertzian contact is described by:
@@ -2758,9 +2758,9 @@ Analysis in Multibody Systems, Nonlinear Dynamics 5, pp. 193-207, 1994,
 <a href=\"http://www.springerlink.com/content/h50x61270q06p65n/fulltext.pdf\">pdf-download</a>):
 </p>
 
-<pre>
-   f = c*s_rel^n + (d*s_rel^n)*<strong>der</strong>(s_rel)
-</pre>
+<blockquote><pre>
+f = c*s_rel^n + (d*s_rel^n)*<strong>der</strong>(s_rel)
+</pre></blockquote>
 
 <p>
 However, this and other models proposed in literature violate
@@ -2772,17 +2772,17 @@ to fix both problems by using this necessary condition in the force law directly
 If s_rel0 = 0, the equations are:
 </p>
 
-<pre>
-    <strong>if</strong> s_rel &ge; 0 <strong>then</strong>
-       f = 0;    // contact force
-    <strong>else</strong>
-       f_c  = -c*|s_rel|^n;          // contact spring force (Hertzian contact force)
-       f_d2 = d*<strong>der</strong>(s_rel);         // linear contact damper force
-       f_d  = <strong>if</strong> f_d2 &lt;  f_c <strong>then</strong>  f_c <strong>else</strong>
-              <strong>if</strong> f_d2 &gt; -f_c <strong>then</strong> -f_c <strong>else</strong> f_d2;  // bounded damper force
-       f    = f_c + f_d;            // contact force
-    <strong>end if</strong>;
-</pre>
+<blockquote><pre>
+<strong>if</strong> s_rel &ge; 0 <strong>then</strong>
+   f = 0;    // contact force
+<strong>else</strong>
+   f_c  = -c*|s_rel|^n;          // contact spring force (Hertzian contact force)
+   f_d2 = d*<strong>der</strong>(s_rel);         // linear contact damper force
+   f_d  = <strong>if</strong> f_d2 &lt;  f_c <strong>then</strong>  f_c <strong>else</strong>
+          <strong>if</strong> f_d2 &gt; -f_c <strong>then</strong> -f_c <strong>else</strong> f_d2;  // bounded damper force
+   f    = f_c + f_d;            // contact force
+<strong>end if</strong>;
+</pre></blockquote>
 
 <p>
 Note, since |f_d| &le; |f_c|, pulling forces cannot occur and the contact force
@@ -2926,20 +2926,20 @@ The positive sliding friction force \"f\" has to be defined
 by table \"f_pos\" as function of the absolute velocity \"v\".
 E.g.
 </p>
-<pre>
-       v |   f
-      ---+-----
-       0 |   0
-       1 |   2
-       2 |   5
-       3 |   8
-</pre>
+<blockquote><pre>
+ v |   f
+---+-----
+ 0 |   0
+ 1 |   2
+ 2 |   5
+ 3 |   8
+</pre></blockquote>
 <p>
 gives the following table:
 </p>
-<pre>
-   f_pos = [0, 0; 1, 2; 2, 5; 3, 8];
-</pre>
+<blockquote><pre>
+f_pos = [0, 0; 1, 2; 2, 5; 3, 8];
+</pre></blockquote>
 <p>
 Currently, only linear interpolation in the table is supported.
 Outside of the table, extrapolation through the last
@@ -2963,9 +2963,9 @@ the absolute acceleration shall be zero.  The elements begin
 to slide when the friction force exceeds a threshold value,
 called the maximum static friction force, computed via:
 </p>
-<pre>
-   maximum_static_friction = <strong>peak</strong> * sliding_friction(v=0)  (<strong>peak</strong> >= 1)
-</pre>
+<blockquote><pre>
+maximum_static_friction = <strong>peak</strong> * sliding_friction(v=0)  (<strong>peak</strong> >= 1)
+</pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
@@ -3155,9 +3155,9 @@ the normal force \"fn\", and of a geometry constant \"cgeo\" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
-<pre>
-        frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
-</pre>
+<blockquote><pre>
+frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</strong>
+</pre></blockquote>
 <p>
    Typical values of coefficients of friction <strong>mu</strong>:
 </p>
@@ -3180,9 +3180,9 @@ distributions:
    to slide when the friction force exceeds a threshold value,
    called the  maximum static friction force, computed via:
 </p>
-<pre>
-       frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
-</pre>
+<blockquote><pre>
+frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+</pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
@@ -3641,7 +3641,7 @@ friction force is calculated from a force balance due to the requirement that th
 absolute acceleration shall be zero. The elements begin to slide when the friction
 force exceeds a threshold value, called the maximum static friction force, computed via:</p>
 <blockquote><pre>
-   maximum_static_friction =  F_Coulomb + F_Stribeck
+maximum_static_friction =  F_Coulomb + F_Stribeck
 </pre></blockquote>
 <p>
 <font color=\"#ff0000\"> <strong>This requires the states Stop.s and Stop.v</strong> </font>. If these states are eliminated during the index reduction
@@ -4635,11 +4635,11 @@ blocks of the block library Modelica.Blocks.Source.
 Flange <strong>flange_b</strong> is <strong>forced</strong> to move relative to the support connector with a predefined motion
 according to the input signals:
 </p>
-<pre>
-    u[1]: position of flange
-    u[2]: velocity of flange
-    u[3]: acceleration of flange
-</pre>
+<blockquote><pre>
+u[1]: position of flange
+u[2]: velocity of flange
+u[3]: acceleration of flange
+</pre></blockquote>
 <p>
 The user has to guarantee that the input signals are consistent to each other,
 i.e., that u[2] is the derivative of u[1] and that
@@ -5854,10 +5854,10 @@ the positive cut-force of a \"right\" flange (flange_b) is directed out of the
 flange. A flange is described by a Modelica connector containing
 the following variables:
 </p>
-<pre>
-   Modelica.SIunits.Position s    \"Absolute position of flange\";
-   <strong>flow</strong> Modelica.SIunits.Force f  \"Cut-force in the flange\";
-</pre>
+<blockquote><pre>
+Modelica.SIunits.Position s    \"Absolute position of flange\";
+<strong>flow</strong> Modelica.SIunits.Force f  \"Cut-force in the flange\";
+</pre></blockquote>
 
 <p>
 This library is designed in a fully object oriented way in order that

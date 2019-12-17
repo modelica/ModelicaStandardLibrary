@@ -543,12 +543,12 @@ angle = Frames.<strong>planarRotationAngle</strong>(e, v1, v2);
 <p>
 A call to this function of the form
 </p>
-<pre>
-    Real[3]                e, v1, v2;
-    Modelica.SIunits.Angle angle;
-  <strong>equation</strong>
-    angle = <strong>planarRotationAngle</strong>(e, v1, v2);
-</pre>
+<blockquote><pre>
+  Real[3]                e, v1, v2;
+  Modelica.SIunits.Angle angle;
+<strong>equation</strong>
+  angle = <strong>planarRotationAngle</strong>(e, v1, v2);
+</pre></blockquote>
 <p>
 computes the rotation angle \"<strong>angle</strong>\" of a planar
 rotation along unit vector <strong>e</strong>, rotating frame&nbsp;1 into frame&nbsp;2, given
@@ -556,15 +556,15 @@ the coordinate representations of a vector \"v\" in frame&nbsp;1 (<strong>v1</st
 and in frame&nbsp;2 (<strong>v2</strong>). Therefore, the result of this function
 fulfills the following equation:
 </p>
-<pre>
-    v2 = <strong>resolve2</strong>(<strong>planarRotation</strong>(e,angle), v1)
-</pre>
+<blockquote><pre>
+v2 = <strong>resolve2</strong>(<strong>planarRotation</strong>(e,angle), v1)
+</pre></blockquote>
 <p>
 The rotation angle is returned in the range
 </p>
-<pre>
-    -&pi; &lt;= angle &lt;= &pi;
-</pre>
+<blockquote><pre>
+-&pi; &lt;= angle &lt;= &pi;
+</pre></blockquote>
 <p>
 This function makes the following assumptions on the input arguments
 </p>
@@ -1337,13 +1337,13 @@ This type describes the <strong>rotation</strong> to rotate a frame 1 into
 a frame 2 using quaternions (also called <strong>Euler parameters</strong>)
 according to the following definition:
 </p>
-<pre>
-   Quaternions.Orientation Q;
-   Real  n[3];
-   Real  phi(unit=\"rad\");
-   Q = [ n*sin(phi/2)
-           cos(phi/2) ]
-</pre>
+<blockquote><pre>
+Quaternions.Orientation Q;
+Real  n[3];
+Real  phi(unit=\"rad\");
+Q = [ n*sin(phi/2)
+        cos(phi/2) ]
+</pre></blockquote>
 <p>
 where \"n\" is the <strong>axis of rotation</strong> to rotate frame 1 into
 frame 2 and \"phi\" is the <strong>rotation angle</strong> for this rotation.
@@ -2021,13 +2021,13 @@ position vectors and orientation objects.
 <p>In the table below an example is given for every function definition.
 The used variables have the following declaration:
 </p>
-<pre>
-   Quaternions.Orientation Q, Q1, Q2, Q_rel, Q_inv;
-   Real[3,3]   T, T_inv;
-   Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, res_ori, phi;
-   Real[6]     res_equal;
-   Real        L, angle;
-</pre>
+<blockquote><pre>
+Quaternions.Orientation Q, Q1, Q2, Q_rel, Q_inv;
+Real[3,3]   T, T_inv;
+Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, res_ori, phi;
+Real[6]     res_equal;
+Real        L, angle;
+</pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><strong>Orientation Q;</strong></td>
@@ -2161,10 +2161,10 @@ formulate the residue in such a way that only identical orientation objects lead
 This type describes the <strong>rotation</strong> from a <strong>frame 1</strong> into a <strong>frame 2</strong>.
 An instance <strong>R</strong> of type <strong>Orientation</strong> has the following interpretation:
 </p>
-<pre>
-   <strong>T</strong> = [<strong>e</strong><sub>x</sub>, <strong>e</strong><sub>y</sub>, <strong>e</strong><sub>z</sub>];
-       e.g., <strong>T</strong> = [1,0,0; 0,1,0; 0,0,1]
-</pre>
+<blockquote><pre>
+<strong>T</strong> = [<strong>e</strong><sub>x</sub>, <strong>e</strong><sub>y</sub>, <strong>e</strong><sub>z</sub>];
+    e.g., <strong>T</strong> = [1,0,0; 0,1,0; 0,0,1]
+</pre></blockquote>
 <p>
 where <strong>e</strong><sub>x</sub>,<strong>e</strong><sub>y</sub>,<strong>e</strong><sub>z</sub>
 are unit vectors in the direction of the x-axis, y-axis, and z-axis
@@ -2172,9 +2172,9 @@ of frame 1, resolved in frame 2, respectively. Therefore, if <strong>v</strong><
 is vector <strong>v</strong> resolved in frame 1 and <strong>v</strong><sub>2</sub> is
 vector <strong>v</strong> resolved in frame 2, the following relationship holds:
 </p>
-<pre>
-    <strong>v</strong><sub>2</sub> = <strong>T</strong> * <strong>v</strong><sub>1</sub>
-</pre>
+<blockquote><pre>
+<strong>v</strong><sub>2</sub> = <strong>T</strong> * <strong>v</strong><sub>1</sub>
+</pre></blockquote>
 <p>
 The <strong>inverse</strong> orientation
 <strong>T_inv</strong> = <strong>T</strong><sup>T</sup> describes the rotation
@@ -3434,12 +3434,12 @@ transformation matrices.
 <p>In the table below an example is given for every function definition.
 The used variables have the following declaration:
 </p>
-<pre>
-   Orientation T, T1, T2, T_rel, T_inv;
-   Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
-   Real[6]     res_equal;
-   Real        L, angle;
-</pre>
+<blockquote><pre>
+Orientation T, T1, T2, T_rel, T_inv;
+Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
+Real[6]     res_equal;
+Real        L, angle;
+</pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><strong>Orientation T;</strong></td>
@@ -3743,13 +3743,13 @@ by providing essentially type <strong>Orientation</strong> together with
 <p>In the table below an example is given for every function definition.
 The used variables have the following declaration:
 </p>
-<pre>
-   Frames.Orientation R, R1, R2, R_rel, R_inv;
-   Real[3,3]   T, T_inv;
-   Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
-   Real[6]     res_equal;
-   Real        L, angle;
-</pre>
+<blockquote><pre>
+Frames.Orientation R, R1, R2, R_rel, R_inv;
+Real[3,3]   T, T_inv;
+Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
+Real[6]     res_equal;
+Real        L, angle;
+</pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><strong>Orientation R;</strong></td>

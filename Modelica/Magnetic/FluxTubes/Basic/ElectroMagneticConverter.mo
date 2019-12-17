@@ -168,10 +168,10 @@ equation
 The electromagnetic energy conversion is given by <em>Ampere</em>'s law and <em>Faraday</em>'s law respectively:
 </p>
 
-<pre>
-    V_m = i * N
-    N * d&Phi;/dt = -v
-</pre>
+<blockquote><pre>
+V_m = i * N
+N * d&Phi;/dt = -v
+</pre></blockquote>
 
 <p>
 V_m is the magnetomotive force that is supplied to the connected magnetic circuit, &Phi; is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.

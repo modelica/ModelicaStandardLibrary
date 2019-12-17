@@ -811,7 +811,7 @@ When the Boolean variable <code>off</code> signals to open the switch, a voltage
 This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
-<pre>
+<blockquote><pre>
      | voltage
 Vmax |      +-----
      |     /
@@ -819,7 +819,7 @@ Vmax |      +-----
 V0   |   +
      |   |
      +---+-------- time
-</pre>
+</pre></blockquote>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
 Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated

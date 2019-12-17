@@ -139,11 +139,11 @@ values of the last two sampled input signals.
 <p>
 This block describes a unit delay:
 </p>
-<pre>
-          1
-     y = --- * u
-          z
-</pre>
+<blockquote><pre>
+     1
+y = --- * u
+     z
+</pre></blockquote>
 <p>
 that is, the output signal y is the input signal u of the
 previous sample instant. Before the second sample instant,
@@ -225,22 +225,24 @@ the output y is identical to parameter yStart.
 transfer function between the input signal u and the output
 signal y. The numerator has the order nb-1, the denominator
 has the order na-1.</p>
-<pre>
-          b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
-   y(z) = -------------------------------------------- * u(z)
-          a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
-</pre>
+<blockquote><pre>
+       b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
+y(z) = -------------------------------------------- * u(z)
+       a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
+</pre></blockquote>
 <p>State variables <strong>x</strong> are defined according to
 <strong>controller canonical</strong> form. Initial values of the
 states can be set as start values of <strong>x</strong>.</p>
 <p>Example:</p>
-<pre>     Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
-</pre>
+<blockquote><pre>
+Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
+</pre></blockquote>
 <p>results in the following transfer function:</p>
-<pre>        2*z + 4
-   y = --------- * u
-         z + 3
-</pre>
+<blockquote><pre>
+     2*z + 4
+y = --------- * u
+      z + 3
+</pre></blockquote>
 
 </html>", revisions="<html>
 <p><strong>Release Notes:</strong></p>
@@ -306,30 +308,30 @@ states can be set as start values of <strong>x</strong>.</p>
 The <strong>discrete state space</strong> block defines the relation
 between the input u and the output y in state space form:
 </p>
-<pre>
-    x = A * pre(x) + B * u
-    y = C * pre(x) + D * u
-</pre>
+<blockquote><pre>
+x = A * pre(x) + B * u
+y = C * pre(x) + D * u
+</pre></blockquote>
 <p>
 where pre(x) is the value of the discrete state x at
 the previous sample time instant.
 The input is a vector of length nu, the output is a vector
 of length ny and nx is the number of states. Accordingly
 </p>
-<pre>
-        A has the dimension: A(nx,nx),
-        B has the dimension: B(nx,nu),
-        C has the dimension: C(ny,nx),
-        D has the dimension: D(ny,nu)
-</pre>
+<blockquote><pre>
+A has the dimension: A(nx,nx),
+B has the dimension: B(nx,nu),
+C has the dimension: C(ny,nx),
+D has the dimension: D(ny,nu)
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-     parameter: A = [0.12, 2;3, 1.5]
-     parameter: B = [2, 7;3, 1]
-     parameter: C = [0.1, 2]
-     parameter: D = zeros(ny,nu)
+<blockquote><pre>
+parameter: A = [0.12, 2;3, 1.5]
+parameter: B = [2, 7;3, 1]
+parameter: C = [0.1, 2]
+parameter: D = zeros(ny,nu)
 
 results in the following equations:
   [x[1]]   [0.12  2.00] [pre(x[1])]   [2.0  7.0] [u[1]]
@@ -338,7 +340,7 @@ results in the following equations:
                              [pre(x[1])]            [u[1]]
        y[1]   = [0.1  2.0] * [         ] + [0  0] * [    ]
                              [pre(x[2])]            [u[2]]
-</pre>
+</pre></blockquote>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={

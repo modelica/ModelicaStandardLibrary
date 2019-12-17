@@ -421,7 +421,7 @@ A voltage step is applied to both solenoid models at time t=0. The armatures of 
 Set the <strong>tolerance</strong> to <strong>1e-7</strong> and <strong>simulate for 0.05 s</strong>. Plot actuator current, force and position of the two magnetic network models and the FEA-based reference <strong>vs. time</strong> (each quantity in one common plot window):
 </p>
 
-<pre>
+<blockquote><pre>
 Plot window for current:
     simpleSolenoid.p.i          // rapid current rise indicates low inductance of simple network model
     advancedSolenoid.p.i        // current rise slower, better match with FEA reference
@@ -436,7 +436,7 @@ Plot window for position:
     simpleSolenoid.x            // armature position of simple actuator model
     advancedSolenoid.x          // armature position of advanced actuator model
     comparisonWithFEA.y[3]      // position obtained from dynamic model based on stationary FEA look-up tables
-</pre>
+</pre></blockquote>
 
 <p>
 The characteristic current drop during pull-in is due to both armature motion and increasing inductance with decreasing air gap length. Bouncing occurs when  armature and load of each model arrive at the stopper at minimum position. Although the pull-in times of the two magnetic network models are relatively close to the time obtained with the reference model, the accuracy of the advanced solenoid model is better, as one can tell from a comparison of the current rise at the beginning of the stroke.

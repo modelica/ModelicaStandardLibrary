@@ -153,13 +153,13 @@ are exactly time synchronized to each other.
 Example:
 </p>
 
-<pre>
-  import Modelica.Clocked.ClockSignals.Clocks;
-  import Modelica.Clocked.Types;
-  Clocks.PeriodicExactClock periodicClock(factor=10,
-                                          resolution=Types.Resolution.ms);
-  // Clock ticks every 1/100 seconds
-</pre>
+<blockquote><pre>
+import Modelica.Clocked.ClockSignals.Clocks;
+import Modelica.Clocked.Types;
+Clocks.PeriodicExactClock periodicClock(factor=10,
+                                        resolution=Types.Resolution.ms);
+// Clock ticks every 1/100 seconds
+</pre></blockquote>
 
 <p>
 For an introduction to clocks see
@@ -940,9 +940,9 @@ To be more precise:
 The block constructs (conceptually) a clock &ldquo;cBase&rdquo;
 </p>
 
-<pre>
-   <strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), shiftCounter)
-</pre>
+<blockquote><pre>
+<strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), shiftCounter)
+</pre></blockquote>
 
 <p>
 and clock y starts at the second clock tick of cBase.

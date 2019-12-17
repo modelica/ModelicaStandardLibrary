@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package ComplexBlocks
   "Library of basic input/output control blocks with Complex signals"
   extends Modelica.Icons.Package;
@@ -128,11 +128,11 @@ Plotting the imaginary part versus the real part, you will see an Archimedean sp
         experiment(StopTime=1, Interval=0.001), Documentation(info=
                    "<html>
 <p>This example shows the response of a PT2 defined by its transfer function</p>
-<pre>
+<blockquote><pre>
             1
 H(jw)=-------------------
       1 + 2 d jw + (jw)^2
-</pre>
+</pre></blockquote>
 <p>Frequency performs a logarithmic ramp from 0.01 to 100 s^-1.</p>
 <p>
 Plot the magnitude locus (in dB) dB versus lg_w and the phase locus versus lg_w.
@@ -438,9 +438,9 @@ generated signal.
 This block computes output <code>y</code> as
 <em>conjugate complex</em> input <code>u</code>.
 </p>
-<pre>
-    y = Modelica.ComplexMath.conj(u)
-</pre>
+<blockquote><pre>
+y = Modelica.ComplexMath.conj(u)
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
@@ -475,9 +475,9 @@ This block computes output <code>y</code> as
 <em>product</em> of gain <code>k</code> with the
 input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> either the original or the conjugate complex input signal are processed.
 </p>
-<pre>
-    y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
-</pre>
+<blockquote><pre>
+y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
+</pre></blockquote>
 <p><strong>Example:</strong> If <code>useConjugateInput = true</code> and <code>k = 2</code> the output signal <code>y = 2 * Modelica.ComplexMath.conj(u)</code>.</p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -509,19 +509,19 @@ This blocks computes output <code>y</code> as
 <em>sum</em> of the elements of the input signal vector
 <code>u</code>:
 </p>
-<pre>
-    <code>y</code> = <code>u</code>[1] + <code>u</code>[2] + ...;
-</pre>
+<blockquote><pre>
+y = u[1] + u[2] + ...;
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-     parameter:   nin = 3;
+<blockquote><pre>
+  parameter:   nin = 3;
 
-  results in the following equations:
+results in the following equations:
 
-     y = u[1] + u[2] + u[3];
-</pre>
+  y = u[1] + u[2] + u[3];
+</pre></blockquote>
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -562,10 +562,10 @@ This blocks computes output <code>y</code> as <em>difference</em> of the
 commanded input <code>u1</code> and the feedback
 input <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
 </p>
-<pre>
-  y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
-    - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
-</pre>
+<blockquote><pre>
+y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+  - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
+</pre></blockquote>
 <p>
 <strong>Example</strong> parameters:
 </p>
@@ -576,9 +576,9 @@ input <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</cod
 <p>
 result in the following equation:
 </p>
-<pre>
-     y = Modelica.ComplexMath.conj(u1) - u2
-</pre>
+<blockquote><pre>
+y = Modelica.ComplexMath.conj(u1) - u2
+</pre></blockquote>
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -613,9 +613,9 @@ result in the following equation:
 This blocks computes output <code>y</code> as <em>sum</em> of the
 two input signals <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
 </p>
-<pre>
-  y = k1*u1Internal + k2*u2Internal;
-</pre>
+<blockquote><pre>
+y = k1*u1Internal + k2*u2Internal;
+</pre></blockquote>
 <p>
 <strong>Example</strong> parameters:
 </p>
@@ -628,9 +628,9 @@ two input signals <code>u1</code> and <code>u2</code>. Optionally, either input 
 <p>
 result in the following equation:
 </p>
-<pre>
-     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2
-</pre>
+<blockquote><pre>
+y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2
+</pre></blockquote>
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -682,10 +682,11 @@ result in the following equation:
 This blocks computes output <code>y</code> as <em>sum</em> of the
 three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Optionally, inputs <code>u1</code> and <code>u2</code> and <code>u3</code> can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> and <code>useConjugateInput3</code> are <code>true</code>, respectively.
 </p>
-<pre>
-  y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
-    + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
-    + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);</pre>
+<blockquote><pre>
+y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+  + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
+  + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);
+</pre></blockquote>
 <p>
 <strong>Example</strong> parameters:
 </p>
@@ -699,11 +700,11 @@ three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Option
 </ul>
 
 <p>
-  result in the following equation:
+result in the following equation:
 </p>
-<pre>
-     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
-</pre>
+<blockquote><pre>
+y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
+</pre></blockquote>
 
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -728,9 +729,9 @@ This blocks computes the output <code>y</code> (element-wise)
 as <em>product</em> of the corresponding elements of
 the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.
 </p>
-<pre>
-  y = u1Inernal * u2Internal;
-</pre>
+<blockquote><pre>
+y = u1Inernal * u2Internal;
+</pre></blockquote>
 
 <p><strong>Example:</strong> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) * u2</code>.</p>
 
@@ -768,9 +769,9 @@ This block computes the output <code>y</code> (element-wise)
 by <em>dividing</em> the corresponding elements of
 the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = u1Internal / u2Internal;
-</pre>
+<blockquote><pre>
+y = u1Internal / u2Internal;
+</pre></blockquote>
 
 <p><strong>Example:</strong> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) / u2</code>.</p>
 
@@ -836,9 +837,9 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
 This blocks computes the output <code>y</code>
 as <em>square root</em> of the input <code>u</code> (= principal square root of the complex input). Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>sqrt</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>sqrt</strong>(uInternal);
+</pre></blockquote>
 </html>"));
     end Sqrt;
 
@@ -875,9 +876,9 @@ as <em>square root</em> of the input <code>u</code> (= principal square root of 
 This blocks computes the output <code>y</code>
 as <strong>sine</strong> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>sin</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>sin</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/sin.png\"
@@ -919,9 +920,9 @@ as <strong>sine</strong> of the input <code>u</code>. Optionally, the input <cod
 This blocks computes the output <code>y</code>
 as <strong>cos</strong> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>cos</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>cos</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/cos.png\"
@@ -963,9 +964,9 @@ as <strong>cos</strong> of the input <code>u</code>. Optionally, the input <code
 This blocks computes the output <code>y</code>
 as <strong>tan</strong> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>tan</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>tan</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/tan.png\"
@@ -1005,9 +1006,9 @@ as <strong>tan</strong> of the input <code>u</code>. Optionally, the input <code
 This blocks computes the output <code>y</code> as the
 <em>sine-inverse</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>asin</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>asin</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/asin.png\"
@@ -1048,9 +1049,9 @@ This blocks computes the output <code>y</code> as the
 This blocks computes the output <code>y</code> as the
 <em>cosine-inverse</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>acos</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>acos</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/acos.png\"
@@ -1091,9 +1092,9 @@ This blocks computes the output <code>y</code> as the
 This blocks computes the output <code>y</code> as the
 <em>tangent-inverse</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y= <strong>atan</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y= <strong>atan</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan.png\"
@@ -1134,9 +1135,9 @@ This blocks computes the output <code>y</code> as the
 This blocks computes the output <code>y</code> as the
 <em>hyperbolic sine</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>sinh</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>sinh</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\"
@@ -1179,9 +1180,9 @@ This blocks computes the output <code>y</code> as the
 This blocks computes the output <code>y</code> as the
 <em>hyperbolic cosine</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>cosh</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>cosh</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\"
@@ -1222,9 +1223,9 @@ This blocks computes the output <code>y</code> as the
 This blocks computes the output <code>y</code> as the
 <em>hyperbolic tangent</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>tanh</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>tanh</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\"
@@ -1264,9 +1265,9 @@ This blocks computes the output <code>y</code> as the
 This blocks computes the output <code>y</code> as the
 <em>exponential</em> (of base e) of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>exp</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>exp</strong>(uInternal);
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/exp.png\"
@@ -1308,9 +1309,9 @@ This blocks computes the output <code>y</code> as the
 This blocks computes the output <code>y</code> as the
 <em>natural (base e) logarithm</em> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
-<pre>
-    y = <strong>log</strong>(uInternal);
-</pre>
+<blockquote><pre>
+y = <strong>log</strong>(uInternal);
+</pre></blockquote>
 <p>
 An error occurs if the elements of the input <code>u</code> is zero.
 </p>
@@ -1606,11 +1607,11 @@ Otherwise the output <code>y = u</code>.</p>
 <p>
 The complex input u is multiplied by the complex transfer function (depending on frequency input w) to obtain the complex output y (nb = dimension of b, na = dimension of a):
 </p>
-<pre>
-           b[1]*(jw)^[nb-1] + b[2]*(jw)^[nb-2] + ... + b[nb]
-   y(jw) = ------------------------------------------------- * u(jw)
-           a[1]*(jw)^[na-1] + a[2]*(jw)^[na-2] + ... + a[na]
-</pre>
+<blockquote><pre>
+        b[1]*(jw)^[nb-1] + b[2]*(jw)^[nb-2] + ... + b[nb]
+y(jw) = ------------------------------------------------- * u(jw)
+        a[1]*(jw)^[na-1] + a[2]*(jw)^[na-2] + ... + a[na]
+</pre></blockquote>
 </html>"));
     end TransferFunction;
     annotation (Documentation(info="<html>
@@ -1770,17 +1771,19 @@ Additionally, the dimensions of the input connector signals and
 the output connector signals have to be explicitly defined via the
 parameters 'nin' and 'nout'.</p>
 <p>Example:</p>
-<pre>     nin = 7 \"Number of inputs\";
-     nout = 4 \"Number of outputs\";
-     extract[nout] = {6,3,3,2} \"Extracting vector\";
-</pre>
+<blockquote><pre>
+nin  = 7 \"Number of inputs\";
+nout = 4 \"Number of outputs\";
+extract[nout] = {6,3,3,2} \"Extracting vector\";
+</pre></blockquote>
 <p>extracts four output signals (nout=4) from the seven elements of the
 input vector (nin=7):</p>
-<pre>   output no. 1 is set equal to input no. 6
-   output no. 2 is set equal to input no. 3
-   output no. 3 is set equal to input no. 3
-   output no. 4 is set equal to input no. 2
-</pre>
+<blockquote><pre>
+output no. 1 is set equal to input no. 6
+output no. 2 is set equal to input no. 3
+output no. 3 is set equal to input no. 3
+output no. 4 is set equal to input no. 2
+</pre></blockquote>
 </html>"));
   end ExtractSignal;
 
@@ -1882,8 +1885,9 @@ input vector (nin=7):</p>
 <p>This block extracts a scalar output signal out the
 vector of input signals dependent on the Integer
 value of the additional u index:</p>
-<pre>    y = u [ index ] ;
-</pre>
+<blockquote><pre>
+y = u [ index ] ;
+</pre></blockquote>
 <p>where index is an additional Integer input signal.</p>
 </html>"));
   end Extractor;
