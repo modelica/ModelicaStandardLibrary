@@ -4319,9 +4319,7 @@ units are wrong or errors in documentation):
 </table>
 
 <p><br>
-The following
-<a href=\"http://trac.modelica.org/Modelica\">trac tickets</a>
-have been fixed:
+The following trac tickets have been fixed:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
