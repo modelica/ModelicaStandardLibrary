@@ -1093,25 +1093,25 @@ contains utility blocks that are used as building blocks for user-relevant block
             textColor = {160,160,164},
             textString = "change()")}),
         Documentation(info="<html><p>
-    This block is a synchronous version of
-    <a href=\"Modelica.Blocks.Math.BooleanChange\">Modelica.Blocks.Math.BooleanChange</a>.
-    It uses <code>previous</code> instead of the implicit <code>pre</code> of
-    <code>change</code> to set the Boolean output <code>y</code> to
-    <code>true</code> when the boolean input <code>u</code> changed. Thus, it's
-    logic is:</p>
-    <blockquote><pre>
+This block is a synchronous version of
+<a href=\"Modelica.Blocks.Math.BooleanChange\">Modelica.Blocks.Math.BooleanChange</a>.
+It uses <code>previous</code> instead of the implicit <code>pre</code> of
+<code>change</code> to set the Boolean output <code>y</code> to
+<code>true</code> when the boolean input <code>u</code> changed. Thus, it's
+logic is:</p>
+<blockquote><pre>
 if firstTick() then
   y = false;
 else
   y = not (u == previous(u));
 end if;
 </pre></blockquote>
-    <p>
-    <strong>This block might be superfluous and replaced by
-    </strong><code>Modelica.Blocks.Math.BooleanChange</code><strong> when the semantics
-    of </strong><code>change</code><strong> are relaxed and well-defined for
-    clocked discrete-time partitions.</strong></p>
-    </html>"));
+<p>
+<strong>This block might be superfluous and replaced by
+</strong><code>Modelica.Blocks.Math.BooleanChange</code><strong> when the semantics
+of </strong><code>change</code><strong> are relaxed and well-defined for
+clocked discrete-time partitions.</strong></p>
+</html>"));
     end BooleanChange;
 
     block UnitDelay "Delay the clocked input signal for one sample period"

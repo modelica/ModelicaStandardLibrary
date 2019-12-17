@@ -2589,27 +2589,27 @@ distribution. There are two types of techniques for transforming random variates
  </address>
 <p>Some of the other references are quoted below.</p>
 <blockquote><pre>
-        WICHMANN-HILL RANDOM NUMBER GENERATOR
-        Wichmann, B. A. & Hill, I. D. (1982)
-          Algorithm AS 183:
-          An efficient and portable pseudo-random number generator
-          Applied Statistics 31 (1982) 188-190
-        see also:
-          Correction to Algorithm AS 183
-          Applied Statistics 33 (1984) 123
-        McLeod, A. I. (1985)
-          A remark on Algorithm AS 183
-          Applied Statistics 34 (1985),198-200
-        In order to completely avoid external functions, all seeds are
-        set via parameters. For simulation purposes this is almost
-        always the desired behaviour.
-        Translated by Hubertus Tummescheit from Python source provided by
-        Guido van Rossum translated from C source by Adrian Baddeley.
-        http://www.python.org/doc/current/lib/module-random.html
-        R A N D O M   V A R I A B L E   G E N E R A T O R S
-        distributions on the real line:
-        ------------------------------
-            normal (Gaussian) 2 versions
+WICHMANN-HILL RANDOM NUMBER GENERATOR
+Wichmann, B. A. & Hill, I. D. (1982)
+  Algorithm AS 183:
+  An efficient and portable pseudo-random number generator
+  Applied Statistics 31 (1982) 188-190
+see also:
+  Correction to Algorithm AS 183
+  Applied Statistics 33 (1984) 123
+McLeod, A. I. (1985)
+  A remark on Algorithm AS 183
+  Applied Statistics 34 (1985),198-200
+In order to completely avoid external functions, all seeds are
+set via parameters. For simulation purposes this is almost
+always the desired behaviour.
+Translated by Hubertus Tummescheit from Python source provided by
+Guido van Rossum translated from C source by Adrian Baddeley.
+http://www.python.org/doc/current/lib/module-random.html
+R A N D O M   V A R I A B L E   G E N E R A T O R S
+distributions on the real line:
+------------------------------
+    normal (Gaussian) 2 versions
 </pre></blockquote>
 <h4>Reference Literature:</h4>
 <ul>
