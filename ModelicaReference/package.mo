@@ -350,9 +350,9 @@ If <code>false</code>, then the variable defines a relative quantity, and if <co
 
 <h4>Syntax</h4>
 
-<pre>
+<blockquote><pre>
    <strong>annotation</strong>\"(\" absoluteValue \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -385,7 +385,7 @@ For a Boolean variable, a <code>choices</code> annotation may contain the defini
 </p>
 
 <h4>Examples</h4>
-<pre>
+<blockquote><pre>
 <strong>replaceable model</strong> MyResistor=Resistor
   <strong>annotation</strong>(choices(
               choice(redeclare MyResistor=lib2.Resistor(a={2}) \"...\"),
@@ -412,13 +412,13 @@ For a Boolean variable, a <code>choices</code> annotation may contain the defini
   KindOfController x;
 <strong>end</strong> A;
 A a(x=3 \"PID\");
-</pre>
+</pre></blockquote>
 <p>
 It can also be applied to Boolean variables to define a check box:
 </p>
-<pre>
+<blockquote><pre>
   <strong>parameter</strong> Boolean useHeatPort=false <strong>annotation</strong>(choices(checkBox=true));
-</pre>
+</pre></blockquote>
 </html>"));
   end choices;
 
@@ -439,11 +439,11 @@ This can be recommended by having  <code><strong>annotation</strong> choicesAllM
 </p>
 
 <h4>Examples</h4>
-<pre>
+<blockquote><pre>
 <strong>replaceable package</strong> Medium = Modelica.Media.Water.ConstantPropertyLiquidWater
                              <strong>constrainedby</strong> Modelica.Media.Interfaces.PartialMedium
                              <strong>annotation</strong> (choicesAllMatching=true);
-</pre>
+</pre></blockquote>
 </html>"));
   end choicesAllMatching;
 
@@ -463,7 +463,7 @@ This can be recommended by having  <code><strong>annotation</strong> choicesAllM
 <em>The intention is that a Modelica tool updates this annotation whenever the package or part of it was modified and is saved on persistent storage (like file or database system).</em>
 </p>
 <h4>Examples</h4>
-<pre>
+<blockquote><pre>
 <strong>package</strong> Modelica
   <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
              versionDate  = &quot;2008-04-10&quot;,
@@ -471,7 +471,7 @@ This can be recommended by having  <code><strong>annotation</strong> choicesAllM
              revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
   ...
   <strong>end</strong> Modelica;
-</pre>
+</pre></blockquote>
 <h5>Related annotations:</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
@@ -492,8 +492,8 @@ Default name when dragging component
 
 <h4>Syntax</h4>
 
-<pre>   <strong>annotation</strong>\"(\" defaultComponentName \"=\" STRING \")\"
-</pre>
+<blockquote><pre>   <strong>annotation</strong>\"(\" defaultComponentName \"=\" STRING \")\"
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -515,14 +515,14 @@ Default prefixes when dragging component
 
 <h4>Examples</h4>
 
-<pre><strong>annotation</strong>(defaultComponentPrefixes=\"inner\",
+<blockquote><pre><strong>annotation</strong>(defaultComponentPrefixes=\"inner\",
            defaultComponentName=\"world\")
-</pre>
+</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>   <strong>annotation</strong>\"(\" defaultComponentPrefixes \"=\" STRING \")\"
-</pre>
+<blockquote><pre>   <strong>annotation</strong>\"(\" defaultComponentPrefixes \"=\" STRING \")\"
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -544,9 +544,9 @@ A model or block definition may contain the annotation <code>defaultConnectionSt
 
 <h4>Syntax</h4>
 
-<pre>
+<blockquote><pre>
    <strong>annotation</strong>\"(\" defaultConnectionStructurallyInconsistent \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -577,10 +577,10 @@ Define derivative of function
 
 <h4>Examples</h4>
 
-<pre><strong>function</strong> foo0 <strong>annotation</strong>(derivative=foo1); <strong>end</strong> foo0;
+<blockquote><pre><strong>function</strong> foo0 <strong>annotation</strong>(derivative=foo1); <strong>end</strong> foo0;
 <strong>function</strong> foo1 <strong>annotation</strong>(derivative(order=2)=foo2); <strong>end</strong> foo1;
 <strong>function</strong> foo2 <strong>end</strong> foo2;
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -615,7 +615,7 @@ The inputs to the derivative function of order 1 are constructed as follows:
 Example: Given the declarations
 </p>
 
-<pre> function foo0
+<blockquote><pre> function foo0
    ...
    input Real x;
    input Boolean linear;
@@ -648,22 +648,22 @@ Example: Given the declarations
    ...
    output Real der_2_y;
    ...
-</pre>
+</pre></blockquote>
 
 <p>
 the equation
 </p>
 
-<pre>(...,y(t),...)=foo0(...,x(t),b,...);
-</pre>
+<blockquote><pre>(...,y(t),...)=foo0(...,x(t),b,...);
+</pre></blockquote>
 
 <p>
 implies that:
 </p>
 
-<pre>(...,d y(t)/dt,...)=foo1(...,x(t),b,..., ...,d x(t)/dt,...);
+<blockquote><pre>(...,d y(t)/dt,...)=foo1(...,x(t),b,..., ...,d x(t)/dt,...);
 (...,d^2 y(t)/dt^2,...)=foo2(...,x(t),b,...,d x(t)/dt,..., ...,d^2 x(t)/dt^2,...);
-</pre>
+</pre></blockquote>
 
 <p>
 An input or output to the function may be any simple type (Real, Boolean, Integer, String and enumeration types) or a record, provided the record does not contain both reals and non-reals predefined types. The function must have at least one input containing reals. The output list of the derivative function may not be empty.
@@ -679,7 +679,7 @@ An input or output to the function may be any simple type (Real, Boolean, Intege
     usually a parameter expression it is then useful to define the function
     as follows (the additional derivative = f_general_der is optional and
     can be used when the derivative of the matrix is non-zero).
-<pre>function f \"Simple table lookup\"
+<blockquote><pre>function f \"Simple table lookup\"
   input Real x;
   input Real y[:, 2];
   output Real z;
@@ -708,7 +708,7 @@ algorithm
   ...
 end f_general_der;
 
-</pre></li>
+</pre></blockquote></li>
 
 <li> noDerivative(input_var2 = f(input_var1, ...) )<br>
     The derivative function is only valid if the input argument input_var2
@@ -717,7 +717,7 @@ end f_general_der;
     Assume that function fg is defined as a composition f(x, g(x)).
     When differentiating f it is useful to give the derivative under the
     assumption that the second argument is defined in this way:
-<pre>function fg
+<blockquote><pre>function fg
   input Real x;
   output Real z;
 algorithm
@@ -741,7 +741,7 @@ function f_der
 algorithm
   ...
 end f_der;
-</pre>
+</pre></blockquote>
 This is useful if g represents the major computational effort of fg).</li>
 </ul>
 </html>"));
@@ -756,16 +756,14 @@ Define graphical layout of the parameter menu.
 </p>
 
 <h4>Syntax</h4>
-<blockquote>
-<pre><strong>annotation</strong>(<strong>Dialog</strong>(<strong>enable</strong> = true,
+<blockquote><pre><strong>annotation</strong>(<strong>Dialog</strong>(<strong>enable</strong> = true,
                      <strong>tab</strong> = \"General\",
                    <strong>group</strong> = \"Parameters\",
       <strong>showStartAttribute</strong> = false,
            <strong>colorSelector</strong> = false,
               <strong>groupImage</strong> = \"modelica://MyPackage/Resources/Images/image.png\",
          <strong>connectorSizing</strong> = false));
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -784,8 +782,7 @@ If <code>connectorSizing = true</code>, a tool may set the parameter value in a 
 <p>
 Annotation \"Dialog\" is defined as:
 </p>
-<blockquote>
-<pre><strong>record</strong> Dialog
+<blockquote><pre><strong>record</strong> Dialog
   <strong>parameter</strong> String  tab                = \"General\";
   <strong>parameter</strong> String  group              = \"Parameters\";
   <strong>parameter</strong> String  groupImage         = \"\";
@@ -801,8 +798,7 @@ Annotation \"Dialog\" is defined as:
   <strong>parameter</strong> String filter=\"\";
   <strong>parameter</strong> String caption=\"\";
 <strong>end</strong> Selector;
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <h4>Examples</h4>
 <p>
@@ -812,7 +808,7 @@ A parameter dialog is a sequence of tabs with a sequence of groups inside them.
 A <code>Selector</code> displays a file dialog to select a file: Parameter <code>filter</code> only shows files that fulfill the given pattern defined by \"<code>text1 (*.ext1);;text2 (*.ext2);</code>\" to show only files with file extension <code>*.ext1</code> or <code>*.ext2</code> and displaying a description text \"<code>text1</code>\" and \"<code>text2</code>\", respectively. Parameter caption is the text displayed in the dialog menu. Parameter <code>loadSelector</code> is used to select an existing file for reading, whereas parameter <code>saveSelector</code> is used to define a file for writing.
 </p>
 
-<pre><strong>model</strong> DialogDemo
+<blockquote><pre><strong>model</strong> DialogDemo
   <strong>parameter</strong> Boolean b = true \"Boolean parameter\";
   <strong>parameter</strong> Modelica.SIunits.Length length \"Real parameter with unit\";
   <strong>parameter</strong> Integer nInports=0 annotation(Dialog(connectorSizing=true));
@@ -825,7 +821,7 @@ A <code>Selector</code> displays a file dialog to select a file: Parameter <code
   StepIn stepIn[nInports];
   ...
 <strong>end</strong> DialogDemo;
-</pre>
+</pre></blockquote>
 </html>"));
   end Dialog;
 
@@ -837,24 +833,24 @@ A <code>Selector</code> displays a file dialog to select a file: Parameter <code
 Annotations for documentation
 </p>
 <h4>Syntax</h4>
-<pre>
+<blockquote><pre>
 documentation_annotation:
    <strong>annotation</strong>\"(\" Documentation \"(\" \"info\" \"=\" STRING
                             [\",\" \"revisions\" \"=\" STRING ] \")\" \")\"
-</pre>
+</pre></blockquote>
 <h4>Description</h4>
 <p>
 The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define the start and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
 </p>
-<pre>
+<blockquote><pre>
     &lt;a href=\"modelica://ExamplePackage.Tutorial\"&gt;ExamplePackage.Tutorial&lt;/a&gt;
-</pre>
+</pre></blockquote>
 <p>
 Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info, #text, #icon may be used to reference different layers. Example:
 </p>
-<pre>
+<blockquote><pre>
    &lt;a href=\"modelica://ExamplePackage.SimpleModel#info\"&gt;SimpleModel&lt;/a&gt;
-</pre>
+</pre></blockquote>
 </html>"));
   end Documentation;
 
@@ -868,9 +864,9 @@ Annotation for defining documentation classes
 
 <h4>Syntax</h4>
 
-<pre>documentation class_annotation:
+<blockquote><pre>documentation class_annotation:
    <strong>annotation</strong>\"(\" DocumentationClass \"=\" <strong>true</strong> \")\"
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -905,7 +901,7 @@ Define schematic animation of diagram layer
 The level of a tank is animated by a rectangle expanding in vertical direction and its color depending on a variable overflow:
 </p>
 
-<pre><strong>annotation</strong>(
+<blockquote><pre><strong>annotation</strong>(
   Icon(graphics={Rectangle(
     extent=<strong>DynamicSelect</strong>({{0,0},{20,20}},{{0,0},{20,level}}),
     fillColor=<strong>DynamicSelect</strong>({0,0,255},
@@ -936,8 +932,8 @@ Annotation for code generation (evaluate parameter value)
 
 <h4>Syntax</h4>
 
-<pre>   <strong>annotation</strong>\"(\" Evaluate \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
-</pre>
+<blockquote><pre>   <strong>annotation</strong>\"(\" Evaluate \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -971,12 +967,12 @@ Define default experiment parameters
 
 <h4>Examples</h4>
 
-<pre><strong>annotation</strong>(experiment(StartTime=0, StopTime=5, Tolerance=1e-6))
-</pre>
+<blockquote><pre><strong>annotation</strong>(experiment(StartTime=0, StopTime=5, Tolerance=1e-6))
+</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>experiment_annotation:
+<blockquote><pre>experiment_annotation:
    <strong>annotation</strong>\"(\" \"experiment\" \"(\" [experimentOption] {, experimentOption}] \")\"
 
 experimentOption:
@@ -984,7 +980,7 @@ experimentOption:
    StopTime   \"=\" [\"+\" | \"-\"] UNSIGNED_NUMBER |
    Interval   \"=\" UNSIGNED_NUMBER
    Tolerance  \"=\" UNSIGNED_NUMBER
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -1003,8 +999,8 @@ Annotation for code generation (hide result)
 
 <h4>Syntax</h4>
 
-<pre>   <strong>annotation</strong>\"(\" HideResult \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
-</pre>
+<blockquote><pre>   <strong>annotation</strong>\"(\" HideResult \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -1033,9 +1029,9 @@ Annotation for code generation (inline function body)
 
 <h4>Syntax</h4>
 
-<pre>
+<blockquote><pre>
    <strong>annotation</strong>\"(\" Inline \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -1070,9 +1066,9 @@ Annotation for code generation
 
 <h4>Syntax</h4>
 
-<pre>
+<blockquote><pre>
    <strong>annotation</strong>\"(\" InlineAfterIndexReduction \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -1096,8 +1092,7 @@ If true, the model developer proposes to inline the function after the function 
     annotation (Documentation(info="<html>
 <p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function.</p>
 <h4>Syntax</h4>
-<blockquote>
-<pre><strong>function</strong> f1
+<blockquote><pre><strong>function</strong> f1
   <strong>input</strong> A1 u1;
   ...
   <strong>input</strong> T1 uk;
@@ -1114,7 +1109,7 @@ If true, the model developer proposes to inline the function after the function 
 <p>The meaning is that function &quot;<code>f2</code>&quot; is one inverse to function &quot;<code>f1</code>&quot; where the previous output &quot;<code>y</code>&quot; is now an input and the previous input &quot;<code>uk</code>&quot; is now an output. More than one inverse can be defined within the same inverse annotation. Several inverses are separated by commas. <em>(The inverse requires that for all valid values of the input arguments of <code>f2(...,y, ...)</code> and <code>uk</code> being calculated as <code>uk := f2(..., y, ...)</code> implies the equality <code>y = f1(..., uk, ...,) </code>up to a certain precision.)</em></p>
 <p>Function &quot;<code>f1</code>&quot; can have any number and types of arguments with and without default value. The restriction is that the number of unknown variables in the output argument of both &quot;<code>f1</code>&quot; and &quot;<code>f2</code>&quot; must be the same and that &quot;<code>f2</code>&quot; must have exactly the same arguments as &quot;<code>f1</code>&quot; (with the same defaults, if an argument um has a default), but the order of the arguments may be permuted.</p>
 <h4>Examples</h4>
-<pre><strong>function</strong> h_pTX
+<blockquote><pre><strong>function</strong> h_pTX
   <strong>input</strong> Real p    &quot;pressure&quot;;
   <strong>input</strong> Real T    &quot;temperature&quot;;
   <strong>input</strong> Real X[:] &quot;mass fractions&quot;;
@@ -1131,7 +1126,7 @@ If true, the model developer proposes to inline the function after the function 
   <strong>output</strong> Real T    &quot;temperature&quot;;
 <strong>algorithm</strong>
   ...
-<strong>end</strong> T_phX;</pre>
+<strong>end</strong> T_phX;</pre></blockquote>
 </html>"));
   end inverse;
 
@@ -1145,8 +1140,8 @@ Annotation for code generation (inline function body after symbolic processing)
 
 <h4>Syntax</h4>
 
-<pre>   <strong>annotation</strong>\"(\" LateInline \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
-</pre>
+<blockquote><pre>   <strong>annotation</strong>\"(\" LateInline \"=\" ( <strong>false</strong> | <strong>true</strong> ) \")
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -1179,18 +1174,18 @@ Diagnostic message, if inner declaration is missing
 
 <h4>Examples</h4>
 
-<pre><strong>model</strong> World
+<blockquote><pre><strong>model</strong> World
   <strong>annotation</strong>(defaultComponentName     = \"world\",
              defaultComponentPrefixes = \"inner replaceable\",
              missingInnerMessage      = \"The World object is missing\");
   ...
 <strong>end</strong> World;
-</pre>
+</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>   <strong>annotation</strong>\"(\" missingInnerMessage \"=\" STRING \")\"
-</pre>
+<blockquote><pre>   <strong>annotation</strong>\"(\" missingInnerMessage \"=\" STRING \")\"
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -1209,15 +1204,15 @@ However, the inner component is automatically added - if unique - regardless of 
 <p>
 A class may have the following annotation:
 </p>
-<pre>
+<blockquote><pre>
     annotation(obsolete = \"message\");
-</pre>
+</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>
+<blockquote><pre>
    <strong>annotation</strong>\"(\" obsolete \"=\" STRING \")\"
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -1237,9 +1232,9 @@ Define default view when selecting class
 
 <h4>Syntax</h4>
 
-<pre>preferred view_annotation:
+<blockquote><pre>preferred view_annotation:
    <strong>annotation</strong>\"(\" preferredView \"=\" (\"info\" | \"diagram\" | \"text\") \")\"
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -1264,14 +1259,14 @@ The preferredView annotation defines the default view when selecting the class. 
 &ldquo;<code>revisionId</code>&rdquo; is a tool specific revision identifier possibly generated by a source code management system (e.g., <a href=\"http://subversion.apache.org\">Subversion</a> or <a href=\"http://en.wikipedia.org/wiki/Git\">Git</a>). This information allows to exactly identify the library source code in the source code management system.
 </p>
 <h4>Examples</h4>
-<pre><strong>package</strong> Modelica
+<blockquote><pre><strong>package</strong> Modelica
   <strong>annotation</strong>(version      = &quot;3.2.3&quot;,
              versionDate  = &quot;2018-08-01&quot;,
              versionBuild = 1,
              dateModified = &quot;2018-12-12 07:40:19Z&quot;,
              <em>revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;</em>);
   ...
-  <strong>end</strong> Modelica;</pre>
+  <strong>end</strong> Modelica;</pre></blockquote>
 <h5>Related annotations:</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
@@ -1290,11 +1285,11 @@ Define differentiability of function body
 </p>
 
 <h4>Syntax</h4>
-<pre>
+<blockquote><pre>
    <strong>annotation</strong>\"(\" smoothOrder \"=\" UNSIGNED_INTEGER \")\"
    <strong>annotation</strong>\"(\" smoothOrder \"(\" normallyConstant=NAME [\",\" normallyConstant=NAME] \")\"
                              \"=\" UNSIGNED_NUMBER \")\"
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -1316,7 +1311,7 @@ The optional argument <code>normallyConstant</code> of <code>smoothOrder</code> 
 <p>
 This annotation is used by many functions of the <a href=\"modelica://Modelica.Fluid\">Modelica.Fluid</a> library, such as <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\">Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP</a>, since geometric arguments to these functions are usually constant.
 </p>
-<pre>
+<blockquote><pre>
 <strong>function</strong> SpecialPolynomial
   <strong>input</strong>  Real u;
   <strong>output</strong> Real y;
@@ -1334,7 +1329,7 @@ This annotation is used by many functions of the <a href=\"modelica://Modelica.F
    yd  = <strong>der</strong>(y);     // fine, SpecialPolynomial is analytically differentiated once
    ydd = <strong>der</strong>(yd);    // error, SpecialPolynomial cannot be differentiated twice
 <strong>end</strong> TestSpecialPolynomial;
-</pre>
+</pre></blockquote>
 </html>"));
   end smoothOrder;
 
@@ -1348,7 +1343,7 @@ Error message, if variable is not assigned
 
 <h4>Examples</h4>
 
-<pre><strong>connector</strong> Frame \"Frame of a mechanical system\"
+<blockquote><pre><strong>connector</strong> Frame \"Frame of a mechanical system\"
     ...
   <strong>flow</strong> Modelica.SIunits.Force f[3] <strong>annotation</strong>(unassignedMessage =
 \"All Forces cannot be uniquely calculated. The reason could be that the
@@ -1357,13 +1352,13 @@ For planar loops, use in one revolute joint per loop the option
 PlanarCutJoint=true in the Advanced menu.
 \");
 <strong>end</strong> Frame;
-</pre>
+</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>
+<blockquote><pre>
    <strong>annotation</strong>\"(\" unassignedMessage \"=\" STRING \")\"
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -1383,7 +1378,7 @@ Defines that classes within this top-level class uses a specific version of anot
 
 <h4>Examples</h4>
 
-<pre>
+<blockquote><pre>
 <strong>model</strong> A
   <strong>annotation</strong>(version=\"1.0\",
      uses(Modelica(version=\"1.5\")));
@@ -1394,7 +1389,7 @@ Defines that classes within this top-level class uses a specific version of anot
   <strong>annotation</strong>(uses(Modelica(version=\"2.1 Beta 1\")));
   ...
 <strong>end</strong> B;
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -1425,7 +1420,7 @@ Define version information of package
 
 <h4>Examples</h4>
 
-<pre><strong>package</strong> Modelica
+<blockquote><pre><strong>package</strong> Modelica
   <strong>annotation</strong>(version=\"2.1\",
              conversion(noneFromVersion=\"2.1 Beta 1\",
                         from(version=\"1.5\",
@@ -1443,7 +1438,7 @@ Define version information of package
   <strong>annotation</strong>(uses(Modelica(version=\"2.1 Beta 1\")));
   ...
 <strong>end</strong> B;
-</pre>
+</pre></blockquote>
 
 <p>
 In this example the model A uses an older version of the Modelica library and can be upgraded using the given script, and model B uses an older version of the Modelica library but no changes are required when upgrading.
@@ -1457,15 +1452,15 @@ Version numbers are of the forms:
 
 <ul>
 <li> Main release versions:
-     <pre>\"\"\" UNSIGNED_INTEGER { \".\" UNSIGNED_INTEGER } \"\"\"</pre>
+     <blockquote><pre>\"\"\" UNSIGNED_INTEGER { \".\" UNSIGNED_INTEGER } \"\"\"</pre></blockquote>
      Example: <code>\"2.1\"</code><br>&nbsp;</li>
 
 <li> Pre-release versions:
-     <pre>\"\"\" UNSIGNED_INTEGER { \".\" UNSIGNED_INTEGER } \" \" {S-CHAR} \"\"\"</pre>
+     <blockquote><pre>\"\"\" UNSIGNED_INTEGER { \".\" UNSIGNED_INTEGER } \" \" {S-CHAR} \"\"\"</pre></blockquote>
      Example: <code>\"2.1 Beta 1\"</code><br>&nbsp;</li>
 
 <li> Un-ordered versions:
-     <pre> \"\"\" NON-DIGIT {S-CHAR} \"\"\" </pre>
+     <blockquote><pre> \"\"\" NON-DIGIT {S-CHAR} \"\"\" </pre></blockquote>
      Example: <code>\"Test 1\"</code></li>
 </ul>
 
@@ -1549,7 +1544,7 @@ For every new maintenance change, the &ldquo;<code>versionBuild</code>&rdquo; nu
 A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<code>versionBuild</code>&rdquo; number B, is a newer release of the library. There are no conversions between the same versions with different build numbers.
 </p>
 <h4>Examples</h4>
-<pre>
+<blockquote><pre>
 <strong>package</strong> Modelica
   <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
              versionDate  = &quot;2008-04-10&quot;,
@@ -1558,7 +1553,7 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
              revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
   ...
   <strong>end</strong> Modelica;
-</pre>
+</pre></blockquote>
 <h5>Related annotations:</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
@@ -1582,14 +1577,14 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
 <h4>Description</h4>
 <p>&ldquo;<code>versionDate</code>&rdquo; is the date in UTC format (according to <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>) when the library was released.</p>
 <h4>Examples</h4>
-<pre>
+<blockquote><pre>
 <strong>package</strong> Modelica
   <strong>annotation</strong>(version      = &quot;3.0.1&quot;,
              <em>versionDate  = &quot;2008-04-10&quot;</em>,
              dateModified = &quot;2009-02-15 16:33:14Z&quot;,
              revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
   ...
-  <strong>end</strong> Modelica;</pre>
+  <strong>end</strong> Modelica;</pre></blockquote>
 <h5>Related annotations:</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
@@ -1619,7 +1614,7 @@ Define specialized class <em>block</em>
 </p>
 <h4>Examples</h4>
 
-<pre><strong>block</strong> Integrator
+<blockquote><pre><strong>block</strong> Integrator
   <strong>input</strong> Real u;
   <strong>output</strong> Real y;
 <strong>protected</strong>
@@ -1627,17 +1622,17 @@ Define specialized class <em>block</em>
 <strong>equation
   der</strong>(x) = u;
   y = x;
-<strong>end</strong> Integrator;</pre>
+<strong>end</strong> Integrator;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>block</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>block</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -1663,7 +1658,7 @@ Define class
 </p>
 <h4>Examples</h4>
 
-<pre><strong>class</strong> MyTable
+<blockquote><pre><strong>class</strong> MyTable
   <strong>extends</strong> ExternalObject;
   <strong>function</strong> constructor
      ...
@@ -1672,16 +1667,16 @@ Define class
   <strong>function</strong> destructor
      ...
   <strong>end</strong> destructor;
-<strong>end</strong> MyTable;</pre>
+<strong>end</strong> MyTable;</pre></blockquote>
 
 <h4>Syntax</h4>
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>class</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>class</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -1714,19 +1709,19 @@ Define specialized class <em>connector</em>
 </p>
 <h4>Examples</h4>
 
-<pre><strong>connector</strong> flange
+<blockquote><pre><strong>connector</strong> flange
   Modelica.SIunits.Angle phi;
   <strong>flow</strong> Modelica.SIunits.Torque tau;
-<strong>end</strong> flange;</pre>
+<strong>end</strong> flange;</pre></blockquote>
 
 <h4>Syntax</h4>
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>connector</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>connector</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -1759,28 +1754,28 @@ balance equations in the infinitesimal connection points.
 If three connectors c1, c2, c3 with the definition
 </p>
 
-<pre>
+<blockquote><pre>
 <strong>connector</strong> Demo
   Real        p;  // potential variable
   <strong>flow</strong>   Real f;  // flow variable
   <strong>stream</strong> Real s;  // stream variable
 <strong>end</strong> Demo;
-</pre>
+</pre></blockquote>
 
 <p>
 are connected together with
 </p>
 
-<pre>
+<blockquote><pre>
    <strong>connect</strong>(c1,c2);
    <strong>connect</strong>(c1,c3);
-</pre>
+</pre></blockquote>
 
 <p>
 then this leads to the following equations:
 </p>
 
-<pre>
+<blockquote><pre>
   // Potential variables are identical
   c1.p = c2.p;
   c1.p = c3.p;
@@ -1800,7 +1795,7 @@ then this leads to the following equations:
   <strong>inStream</strong>(c1.s) = <strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
   <strong>inStream</strong>(c2.s) = <strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
   <strong>inStream</strong>(c3.s) = <strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
-</pre>
+</pre></blockquote>
 </html>"));
   end 'connector';
 
@@ -1853,7 +1848,7 @@ A user-defined table may be defined in the following way as an ExternalObject
 (the table is read in a user-defined format from file and has memory for the last used table interval):
 </p>
 
-<pre>
+<blockquote><pre>
 <strong>class</strong> MyTable
   <strong>extends</strong> ExternalObject;
   <strong>function</strong> constructor
@@ -1868,13 +1863,13 @@ A user-defined table may be defined in the following way as an ExternalObject
     <strong>external</strong> \"C\" closeMyTable(table);
   <strong>end</strong> destructor;
 <strong>end</strong> MyTable;
-</pre>
+</pre></blockquote>
 
 <p>
 and used in the following way:
 </p>
 
-<pre>
+<blockquote><pre>
 <strong>model</strong> test \"Define a new table and interpolate in it\"
   MyTable table=MyTable(fileName =\"testTables.txt\",
                         tableName=\"table1\");  // call initMyTable
@@ -1882,26 +1877,26 @@ and used in the following way:
 <strong>equation</strong>
   y = interpolateMyTable(table, time);
 <strong>end</strong> test;
-</pre>
+</pre></blockquote>
 
 <p>
 This requires to provide the following Modelica function:
 </p>
 
-<pre>
+<blockquote><pre>
 <strong>function</strong> interpolateMyTable \"Interpolate in table\"
   <strong>input</strong>  MyTable table;
   <strong>input</strong>  Real  u;
   <strong>output</strong> Real  y;
   <strong>external</strong> \"C\" y = interpolateMyTable(table, u);
 <strong>end</strong> interpolateTable;
-</pre>
+</pre></blockquote>
 
 <p>
 The external C-functions may be defined in the following way:
 </p>
 
-<pre>
+<blockquote><pre>
 <strong>typedef struct</strong> {  /* User-defined data structure of the table */
   <strong>double</strong>* array;      /* nrow*ncolumn vector       */
   <strong>int</strong>     nrow;       /* number of rows            */
@@ -1930,7 +1925,7 @@ The external C-functions may be defined in the following way:
   // Interpolate using \"table\" data (compute y)
   <strong>return</strong> y;
 }
-</pre>
+</pre></blockquote>
 </html>"));
   end ExternalObject;
 
@@ -2092,24 +2087,24 @@ Define specialized class <em>function</em>
 </p>
 <h4>Examples</h4>
 
-<pre><strong>function</strong> si
+<blockquote><pre><strong>function</strong> si
   <strong>input</strong> Real x;
   <strong>output</strong> Real y;
 <strong>algorithm</strong>
   y = <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
-<strong>end</strong> si;</pre>
+<strong>end</strong> si;</pre></blockquote>
 
 <img src=\"modelica://ModelicaReference/Resources/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 
 <h4>Syntax</h4>
 
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] [ <strong>pure </strong> | <strong>impure </strong>] <strong>function</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] [ <strong>pure </strong> | <strong>impure </strong>] <strong>function</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -2275,7 +2270,7 @@ Define specialized class <em>model</em>
 </p>
 <h4>Examples</h4>
 
-<pre><strong>model</strong> SlidingMass
+<blockquote><pre><strong>model</strong> SlidingMass
   <strong>parameter</strong> Modelica.SIunits.Mass m=1;
   <strong>parameter</strong> Modelica.SIunits.Force f=1;
   Modelica.SIunits.Position s;
@@ -2285,16 +2280,16 @@ Define specialized class <em>model</em>
   <strong>der</strong>(s) = v;
   <strong>der</strong>(v) = a;
   m*a = f;
-<strong>end</strong> SlidingMass;</pre>
+<strong>end</strong> SlidingMass;</pre></blockquote>
 
 <h4>Syntax</h4>
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>model</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>model</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -2315,7 +2310,7 @@ Define specialized class <em>package</em>
 </p>
 <h4>Examples</h4>
 
-<pre><strong>package</strong> Library
+<blockquote><pre><strong>package</strong> Library
   <strong>constant</strong> Real k = 0.1;
 
   <strong>type</strong> X = Real(min=0);
@@ -2327,16 +2322,16 @@ Define specialized class <em>package</em>
   <strong>model</strong> B
     ...
   <strong>end</strong> B;
-<strong>end</strong> Library;</pre>
+<strong>end</strong> Library;</pre></blockquote>
 
 <h4>Syntax</h4>
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>package</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>package</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -2355,7 +2350,7 @@ Define specialized class <em>record</em>
 </p>
 <h4>Examples</h4>
 
-<pre>  <strong>record</strong> States
+<blockquote><pre>  <strong>record</strong> States
     Modelica.SIunits.Position s;
     Modelica.SIunits.Velocity v;
   <strong>end</strong> States;
@@ -2373,16 +2368,16 @@ Define specialized class <em>record</em>
     <strong>der</strong>(sys.states.s) = sys.states.v;
     <strong>der</strong>(sys.states.v) = sys.a;
     sys.m*sys.a = sys.f;
-  <strong>end</strong> SlidingMass;</pre>
+  <strong>end</strong> SlidingMass;</pre></blockquote>
 
 <h4>Syntax</h4>
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>record</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>record</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -2411,16 +2406,16 @@ Define specialized class <em>type</em>
 </p>
 <h4>Examples</h4>
 
-<pre><strong>type</strong> R0Plus = Real(min=0);</pre>
+<blockquote><pre><strong>type</strong> R0Plus = Real(min=0);</pre></blockquote>
 
 <h4>Syntax</h4>
-<pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>type</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>type</strong>
    IDENT class_specifier
 
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
 <p>See Modelica Language Specification for further details.</p>
 
@@ -2668,11 +2663,11 @@ since the following expressions are illegal (whereas in
 Mathematica and in MATLAB these are valid expressions):
 </p>
 
-<pre>  2*-2   // = -4 in Mathematica/MATLAB; is illegal in Modelica
+<blockquote><pre>  2*-2   // = -4 in Mathematica/MATLAB; is illegal in Modelica
   --2    // =  2 in Mathematica/MATLAB; is illegal in Modelica
   ++2    // =  2 in Mathematica/MATLAB; is illegal in Modelica
   2--2   // =  4 in Mathematica/MATLAB; is illegal in Modelica
-</pre>
+</pre></blockquote>
 
 </html>"));
   end ElementaryOperators;
@@ -2690,9 +2685,9 @@ Absolute value of Real or Integer variable.
 <strong>then</strong> v <strong>else</strong> -v)&quot;. Argument v
 needs to be an Integer or Real expression.</p>
 <h4>Examples</h4>
-<pre>
+<blockquote><pre>
   <strong>abs</strong>({-3, 0, 3})
- = {3, 0, 3}</pre>
+ = {3, 0, 3}</pre></blockquote>
 </html>"));
   end 'abs()';
 
@@ -2716,8 +2711,8 @@ The acos function can also be accessed as Modelica.Math.acos.
 <img src=\"modelica://ModelicaReference/Resources/Images/acos.png\" alt=\"acos\">
 
 <h4>Examples</h4>
-<pre><strong>acos</strong>(0)
- = 1.5707963267949</pre>
+<blockquote><pre><strong>acos</strong>(0)
+ = 1.5707963267949</pre></blockquote>
 </html>"));
   end 'acos()';
 
@@ -2727,20 +2722,20 @@ The acos function can also be accessed as Modelica.Math.acos.
 <p>
 The <code><strong>actualStream</strong>(v)</code> operator is provided for convenience, in order to return the actual value of the stream variable, depending on the actual flow direction. The only argument of this built-in operator needs to be a reference to a stream variable. The operator is vectorizable, in the case of vector arguments. For the following definition it is assumed that an (inside or outside) connector <code>c</code> contains a stream variable <code>h_outflow</code> which is associated with a flow variable <code>m_flow</code> in the same connector <code>c</code>:</p>
 
-<pre>
+<blockquote><pre>
 <strong>actualStream</strong>(port.h_outflow) = <strong>if</strong> port.m_flow &gt; 0 <strong>then inStream</strong>(port.h_outflow)
                                                   <strong>else</strong> port.h_outflow;
-</pre>
+</pre></blockquote>
 
 
 <h4>Example</h4>
 <p>
 The <code><strong>actualStream</strong>(v)</code> operator is typically used in two contexts:
 </p>
-<pre>
+<blockquote><pre>
 der(U) = c.m_flow*actualStream(c.h_outflow); // (1)energy balance equation
 h_port = actualStream(port.h);               // (2)monitoring the enthalpy at a port
-</pre>
+</pre></blockquote>
 <p>
 In the case of equation (1), although the  <code><strong>actualStream()</strong></code> operator is discontinuous, the product with the flow variable is not, because <code><strong>actualStream())</strong></code> is discontinuous when the flow is zero by construction.
 Therefore, a tool might infer that the expression is  <code><strong>smooth(0, ...)</strong></code> automatically, and decide whether or not to generate an event.
@@ -2764,7 +2759,7 @@ The constructor function <code>array(A,B,C,...)</code> constructs an array from 
 
 <h4>Examples</h4>
 
-<pre>
+<blockquote><pre>
 {1,2,3} <em>is a 3-vector of type Integer</em>
 {{11,12,13}, {21,22,23}} <em>is a 2x3 matrix of type Integer</em>
 {{{1.0, 2.0, 3.0}}} <em>is a 1x1x3 array of type Real</em>
@@ -2774,7 +2769,7 @@ Real[3] v = array(1, 2, 3.0);
 <strong>parameter</strong> Angle alpha = 2.0; // type of alpha is Real.
 // array(alpha, 2, 3.0) or {alpha, 2, 3.0} is a 3-vector of type Real.
 Angle[3] a = {1.0, alpha, 4}; // type of a is Real[3].
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -2810,8 +2805,8 @@ The asin function can also be accessed as Modelica.Math.asin.
 <img src=\"modelica://ModelicaReference/Resources/Images/asin.png\" alt=\"asin\">
 
 <h4>Examples</h4>
-<pre><strong>asin</strong>(0)
- = 0.0</pre>
+<blockquote><pre><strong>asin</strong>(0)
+ = 0.0</pre></blockquote>
 </html>"));
   end 'asin()';
 
@@ -2861,17 +2856,17 @@ evaluates to false different actions are taken depending on the level input:
 The AssertionLevel.error case can be used to avoid evaluating a model outside its limits of validity; for instance, a function to compute the saturated liquid temperature cannot be called with a pressure lower than the triple point value.
 The AssertionLevel.warning case can be used when the boundary of validity is not hard: for instance, a fluid property model based on a polynomial interpolation curve might give accurate results between temperatures of 250 K and 400 K, but still give reasonable results in the range 200 K and 500 K. When the temperature gets out of the smaller interval, but still stays in the largest one, the user should be warned, but the simulation should continue without any further action. The corresponding code would be
 </p>
-<pre>  <strong>assert</strong>(T &gt; 250 and T &lt; 400, \"Medium model outside full accuracy range\",
+<blockquote><pre>  <strong>assert</strong>(T &gt; 250 and T &lt; 400, \"Medium model outside full accuracy range\",
          AssertionLevel.warning);
   <strong>assert</strong>(T &gt; 200 and T &lt; 500, \"Medium model outside feasible region\");
-</pre>
+</pre></blockquote>
 
 <h4>Examples</h4>
-<pre>  <strong>parameter</strong> Real upperLimit=2;
+<blockquote><pre>  <strong>parameter</strong> Real upperLimit=2;
   <strong>parameter</strong> Real lowerLimit=-2;
 <strong>equation</strong>
   <strong>assert</strong>(upperLimit > lowerLimit, \"upperLimit must be greater than lowerLimit.\");
-</pre>
+</pre></blockquote>
 </html>"));
   end 'assert()';
 
@@ -2895,8 +2890,8 @@ The atan function can also be accessed as Modelica.Math.atan.
 <img src=\"modelica://ModelicaReference/Resources/Images/atan.png\" alt=\"atan\">
 
 <h4>Examples</h4>
-<pre><strong>atan</strong>(1)
- = 0.785398163397448</pre>
+<blockquote><pre><strong>atan</strong>(1)
+ = 0.785398163397448</pre></blockquote>
 </html>"));
   end 'atan()';
 
@@ -2925,8 +2920,8 @@ The atan2 function can also be accessed as Modelica.Math.atan2.
 <img src=\"modelica://ModelicaReference/Resources/Images/atan2.png\" alt=\"atan2\">
 
 <h4>Examples</h4>
-<pre><strong>atan2</strong>(1,0)
- = 1.5707963267949</pre>
+<blockquote><pre><strong>atan2</strong>(1,0)
+ = 1.5707963267949</pre></blockquote>
 </html>"));
   end 'atan2()';
 
@@ -2952,7 +2947,7 @@ parameters.
 </p>
 
 <h4>Examples</h4>
-<pre><strong>connector</strong> Pin
+<blockquote><pre><strong>connector</strong> Pin
   Real      v;
   <strong>flow</strong> Real i;
 <strong>end</strong> Pin;
@@ -2970,7 +2965,7 @@ parameters.
       <strong>end if</strong>;
    // Equations of resistor
       ...
-<strong>end</strong> Resistor;</pre>
+<strong>end</strong> Resistor;</pre></blockquote>
 </html>"));
   end 'cardinality()';
 
@@ -2983,10 +2978,10 @@ The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</c
 
 <h4>Examples</h4>
 
-<pre>
+<blockquote><pre>
 Real[2,3] r1 = cat(1, {{1.0, 2.0, 3}}, {{4, 5, 6}});
 Real[2,6] r2 = cat(2, r1, 2*r1);
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -2999,7 +2994,7 @@ The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</c
 </ul>
 
 <p>Concatenation is formally defined according to:</p>
-<pre>
+<blockquote><pre>
 Let R = cat(k,A,B,C,...), and let n = ndims(A) = ndims(B) = ndims(C) = ...., then
 size(R,k) = size(A,k) + size(B,k) + size(C,k) + ...
 size(R,j) = size(A,j) = size(B,j) = size(C,j) = ...., for 1 &lt;= j &lt;= n and j &lt;&gt; k.
@@ -3007,7 +3002,7 @@ R[i_1, ..., i_k, ..., i_n] = A[i_1, ..., i_k, ..., i_n], for i_k &lt;= size(A,k)
 R[i_1, ..., i_k, ..., i_n] = B[i_1, ..., i_k - size(A,i), ..., i_n], for i_k &lt;= size(A,k) + size(B,k),
 ....
 where 1 &lt;= i_j &lt;= size(R,j) for 1 &lt;= j &lt;= n.
-</pre>
+</pre></blockquote>
 </html>"));
   end 'cat()';
 
@@ -3025,8 +3020,8 @@ Result and argument shall have type Real.
 <em>[Note, outside of a when clause state events are
 triggered when the return value changes discontinuously.]</em></p>
 <h4>Examples</h4>
-<pre><strong>ceil</strong>({-3.14, 3.14})
- = {-3.0, 4.0}</pre>
+<blockquote><pre><strong>ceil</strong>({-3.14, 3.14})
+ = {-3.0, 4.0}</pre></blockquote>
 </html>"));
   end 'ceil()';
 
@@ -3042,7 +3037,7 @@ Indicate discrete variable changing
 <p>Is expanded into &quot;(v&lt;&gt;pre(v))&quot;.
 The same restrictions as for the pre() operator apply.</p>
 <h4>Examples</h4>
-<pre><strong>model</strong> BothEdges
+<blockquote><pre><strong>model</strong> BothEdges
   Boolean u;
   Integer i;
 <strong>equation</strong>
@@ -3050,7 +3045,7 @@ The same restrictions as for the pre() operator apply.</p>
   <strong>when</strong> <strong>change</strong>(u) <strong>then</strong>
     i = <strong>pre</strong>(i) + 1;
   <strong>end when</strong>;
-<strong>end</strong> BothEdges;</pre>
+<strong>end</strong> BothEdges;</pre></blockquote>
 
 <img src=\"modelica://ModelicaReference/Resources/Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
@@ -3064,16 +3059,16 @@ Connect objects
 </p>
 <h4>Examples</h4>
 
-<pre><strong>model</strong> Integrate
+<blockquote><pre><strong>model</strong> Integrate
   Modelica.Blocks.Sources.Step step;
   Modelica.Blocks.Continuous.Integrator integrator;
 <strong>equation</strong>
   connect(step.outPort, integrator.inPort);
-<strong>end</strong> Integrate;</pre>
+<strong>end</strong> Integrate;</pre></blockquote>
 
 <p>Example of array use:</p>
 
-<pre><strong>connector</strong> InPort = <strong>input</strong> Real;
+<blockquote><pre><strong>connector</strong> InPort = <strong>input</strong> Real;
 
 <strong>connector</strong> OutPort = <strong>output</strong> Real;
 
@@ -3092,11 +3087,11 @@ Connect objects
 <strong>equation</strong>
   <strong>connect</strong>(sinSource.y, gain.u); // Legal
   <strong>connect</strong>(gain.y, gain2.u);     // Legal
-  <strong>connect</strong>(gain2.y, x);          // Legal</pre>
+  <strong>connect</strong>(gain2.y, x);          // Legal</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>equation_clause :
+<blockquote><pre>equation_clause :
   [ <strong>initial</strong> ] <strong>equation</strong> { equation \";\" | annotation  \";\" }
 
 equation :
@@ -3109,7 +3104,7 @@ equation :
   comment
 
 connect_clause :
-  <strong>connect</strong> \"(\" component_reference \",\" component_reference \")\"</pre>
+  <strong>connect</strong> \"(\" component_reference \",\" component_reference \")\"</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -3164,9 +3159,9 @@ Defines <em>required</em> branch of spanning-tree
 </p>
 
 <h4>Syntax</h4>
-<pre>
+<blockquote><pre>
 Connections.branch(A.R,B.R);
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -3192,9 +3187,9 @@ This definition shall be used if in a model with connectors <code>A</code> and <
 Defines a <em>definite</em> root node.
 </p>
 <h4>Syntax</h4>
-<pre>
+<blockquote><pre>
 Connections.root(A.R);
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -3215,10 +3210,10 @@ This definition shall be used if in a model with connector <code>A</code> the ov
 Defines a <em>potential</em> root node.
 </p>
 <h4>Syntax</h4>
-<pre>
+<blockquote><pre>
 Connections.potentialRoot(A.R);
 Connections.potentialRoot(A.R, priority = p);
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -3241,9 +3236,9 @@ This definition may  be used if in a model with connector <code>A</code> the ove
 Returns root status.
 </p>
 <h4>Syntax</h4>
-<pre>
+<blockquote><pre>
 b = Connections.isRoot(A.R);
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -3259,10 +3254,10 @@ Returns true, if the overdetermined type or record instance <code>R</code> in co
 Returns which node of a connection branch is closer to root.
 </p>
 <h4>Syntax</h4>
-<pre>
+<blockquote><pre>
 b = Connections.rooted(A.R);
 b = rooted(A.R);  // deprecated
-</pre>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -3295,8 +3290,8 @@ The cosine function can also be accessed as Modelica.Math.cos.
 <img src=\"modelica://ModelicaReference/Resources/Images/cos.png\" alt=\"cos\">
 
 <h4>Examples</h4>
-<pre><strong>cos</strong>(3.14159265358979)
- = -1.0</pre>
+<blockquote><pre><strong>cos</strong>(3.14159265358979)
+ = -1.0</pre></blockquote>
 </html>"));
   end 'cos()';
 
@@ -3319,8 +3314,8 @@ The cosh function can also be accessed as Modelica.Math.cosh.
 <img src=\"modelica://ModelicaReference/Resources/Images/cosh.png\" alt=\"cosh\">
 
 <h4>Examples</h4>
-<pre><strong>cosh</strong>(1)
-  = 1.54308063481524</pre>
+<blockquote><pre><strong>cosh</strong>(1)
+  = 1.54308063481524</pre></blockquote>
 </html>"));
   end 'cosh()';
 
@@ -3381,13 +3376,13 @@ to be give as additional argument to be fixed at compile time. Furthermore,
 the maximum step size of the integrator is limited by this minimum delay
 time in order to avoid extrapolation in the delay buffer.]</em></p>
 <h4>Examples</h4>
-<pre><strong>model</strong> Delay
+<blockquote><pre><strong>model</strong> Delay
   Real x;
   Real y;
 <strong>equation
   der</strong>(x) = 2;
   y = <strong>delay</strong>(x, 1);
-<strong>end</strong> Delay;</pre>
+<strong>end</strong> Delay;</pre></blockquote>
 
 <img src=\"modelica://ModelicaReference/Resources/Images/delay.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
@@ -3404,8 +3399,7 @@ partial derivative of function
 <h4>Syntax</h4>
 
 <blockquote><pre><strong>der</strong>(expr) or
-IDENT \"=\" <strong>der</strong> \"(\" name \",\" IDENT { \",\" IDENT } \")\" comment</pre>
-</blockquote>
+IDENT \"=\" <strong>der</strong> \"(\" name \",\" IDENT { \",\" IDENT } \")\" comment</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -3423,20 +3417,17 @@ The comment allows a user to comment the function (in the info-layer and as one-
 
 <h4>Examples</h4>
 
-<blockquote>
-<pre>  Real x, xdot1, xdot2;
+<blockquote><pre>  Real x, xdot1, xdot2;
 <strong>equation</strong>
   xdot1 = <strong>der</strong>(x);
   xdot2 = <strong>der</strong>(x*sin(x));
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 The specific enthalpy can be computed from a Gibbs-function as follows:
 </p>
 
-<blockquote>
-<pre><strong>function</strong> Gibbs
+<blockquote><pre><strong>function</strong> Gibbs
   <strong>input</strong> Real p,T;
   <strong>output</strong> Real g;
 <strong>algorithm</strong>
@@ -3451,8 +3442,7 @@ The specific enthalpy can be computed from a Gibbs-function as follows:
 <strong>algorithm</strong>
   h:=Gibbs(p,T)-T*Gibbs_T(p,T);
 <strong>end</strong> specificEnthalpy;
-</pre>
-</blockquote>
+</pre></blockquote>
 </html>"));
   end 'der()';
 
@@ -3494,8 +3484,8 @@ arguments is Real the result is Real otherwise Integer.</p>
 when the return value changes discontinuously.]</em></p>
 
 <h4>Examples</h4>
-<pre><strong>div</strong>(13,6)
- = 2</pre>
+<blockquote><pre><strong>div</strong>(13,6)
+ = 2</pre></blockquote>
 </html>"));
   end 'div()';
 
@@ -3513,7 +3503,7 @@ for Boolean variable b. The same restrictions as for the
 <strong>pre</strong> operator apply (e.g., not to be used in function
 classes).</p>
 <h4>Examples</h4>
-<pre><strong>model</strong> RisingEdge
+<blockquote><pre><strong>model</strong> RisingEdge
   Boolean u;
   Integer i;
 <strong>equation</strong>
@@ -3521,7 +3511,7 @@ classes).</p>
   <strong>when</strong> <strong>edge</strong>(u) <strong>then</strong>
     i = <strong>pre</strong>(i) + 1;
   <strong>end when</strong>;
-<strong>end</strong> RisingEdge;</pre>
+<strong>end</strong> RisingEdge;</pre></blockquote>
 
 <img src=\"modelica://ModelicaReference/Resources/Images/edge.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
@@ -3546,8 +3536,8 @@ The exponential function can also be accessed as Modelica.Math.exp.
 <img src=\"modelica://ModelicaReference/Resources/Images/exp.png\" alt=\"exp\">
 
 <h4>Examples</h4>
-<pre><strong>exp</strong>(1)
- = 2.71828182845905</pre>
+<blockquote><pre><strong>exp</strong>(1)
+ = 2.71828182845905</pre></blockquote>
 </html>"));
   end 'exp()';
 
@@ -3591,8 +3581,8 @@ Result and argument shall have type Real. <em>[Note, outside
 of a when clause state events are triggered when the return
 value changes discontinuously.]</em></p>
 <h4>Examples</h4>
-<pre><strong>floor</strong>({-3.14, 3.14})
- = {-4.0, 3.0}</pre>
+<blockquote><pre><strong>floor</strong>({-3.14, 3.14})
+ = {-4.0, 3.0}</pre></blockquote>
 </html>"));
   end 'floor()';
 
@@ -3606,11 +3596,9 @@ The process can be made more robust by providing an alternative, simplified vers
 This transformation can be formulated using expressions of this kind:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
 lambda*actual + (1-lambda)*simplified
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 in the formulation of the system equations, and is usually called a homotopy transformation.
@@ -3620,12 +3608,10 @@ If the simplified expression is chosen carefully, the solution of the problem ch
 It is recommended to perform (conceptually) one homotopy iteration over the whole model, and not several homotopy iterations over the respective non-linear algebraic equation systems.
 The reason is that the following structure can be present:
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
 <strong>w = f<sub>1</sub>(x)</strong> // has homotopy operator
 <strong>0 = f<sub>2</sub>(der(x), x, z, w)</strong>
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 Here, a non-linear equation system <strong><code>f<sub>2</sub></code></strong> is present.
 The homotopy operator is, however used on a variable that is an 'input' to the non-linear algebraic equation system, and modifies the characteristics of the non-linear algebraic equation system.
@@ -3662,11 +3648,9 @@ A Modelica translator should map this operator into either of the two forms:
 <ol>
 <li> Returns 'actual' <em>[a trivial implementation]</em>.</li>
 <li> <p>In order to solve algebraic systems of equations, the operator might during the solution process return a combination of the two arguments, ending at actual, <em>e.g.,</em></p>
-<blockquote>
-<pre><em>
+<blockquote><pre><em>
 actual*lambda + simplified*(1-lambda),
-</em></pre>
-</blockquote>
+</em></pre></blockquote>
 <p>where <code>lambda</code> is a homotopy parameter going from 0 to 1.</p>
 <p>The solution must fulfill the equations for homotopy returning 'actual'.</p></li>
 </ol>
@@ -3791,10 +3775,10 @@ True during initialization
 <h4>Description</h4>
 <p>Returns <strong>true</strong> during the initialization phase and <strong>false</strong> otherwise.</p>
 <h4>Examples</h4>
-<pre>  Boolean off;
+<blockquote><pre>  Boolean off;
   Real x;
 <strong>equation</strong>
-  off = x &lt; -2 or <strong>initial</strong>();</pre>
+  off = x &lt; -2 or <strong>initial</strong>();</pre></blockquote>
 </html>"));
   end 'initial()';
 
@@ -3813,8 +3797,7 @@ For an introduction into stream variables and an example for the inStream(..) op
 
 <h4>Syntax</h4>
 
-<blockquote><pre><strong>inStream</strong>(IDENT) </pre>
-</blockquote>
+<blockquote><pre><strong>inStream</strong>(IDENT) </pre></blockquote>
 
 <p>
 where <code>IDENT</code> must be a variable reference in a connector component declared with the
@@ -3837,8 +3820,7 @@ are connected together and a stream variable h_outflow is associated with
 a flow variable m_flow in connector c.
 </p>
 
-<blockquote>
-<pre><strong>connector</strong> FluidPort
+<blockquote><pre><strong>connector</strong> FluidPort
    ...
    <strong>flow</strong>   Real m_flow     \"Flow of matter; m_flow &gt; 0 if flow into component\";
    <strong>stream</strong> Real h_outflow  \"Specific variable in component if m_flow &lt; 0\"
@@ -3859,17 +3841,14 @@ a flow variable m_flow in connector c.
    <strong>connect</strong>(m1.c, cM);
    ...
 <strong>end</strong> FluidSystem;
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 With these prerequisites, the semantics of the expression
 </p>
 
-<blockquote>
-<pre><strong>inStream</strong>(m<sub>i</sub>.c.h_outflow)
-</pre>
-</blockquote>
+<blockquote><pre><strong>inStream</strong>(m<sub>i</sub>.c.h_outflow)
+</pre></blockquote>
 
 <p>
 is given implicitly by defining an additional variable <strong>h_mix_in</strong><sub>i</sub>,
@@ -3879,8 +3858,7 @@ for the flow variables has already been added to the system according to the con
 semantics of flow variables:
 </p>
 
-<blockquote>
-<pre>// Standard connection equation for flow variables
+<blockquote><pre>// Standard connection equation for flow variables
 0 = <strong>sum</strong>(m<sub>j</sub>.c.m_flow <strong>for</strong> j <strong>in</strong> 1:N) + <strong>sum</strong>(-c<sub>k</sub>.m_flow <strong>for</strong> k in 1:M);
 </pre></blockquote>
 
@@ -3890,13 +3868,11 @@ inside connector, the balance equation of the transported property must
 be added  under the assumption of flow going into the connector
 </p>
 
-<blockquote>
-<pre>// Implicit definition of the inStream() operator applied to inside connector i
+<blockquote><pre>// Implicit definition of the inStream() operator applied to inside connector i
 0 = <strong>sum</strong>(m<sub>j</sub>.c.m_flow*(<strong>if</strong> m<sub>j</sub>.c.m_flow > 0 <strong>or</strong> j==i <strong>then</strong> h_mix_in<sub>i</sub> <strong>else</strong> m<sub>j</sub>.c.h_outflow) <strong>for</strong> j <strong>in</strong> 1:N) +
     <strong>sum</strong>(-c<sub>k</sub>.m_flow* (<strong>if</strong> c<sub>k</sub>.m_flow > 0 <strong>then</strong> h_mix_in<sub>i</sub> <strong>else</strong> inStream(c<sub>k</sub>.h_outflow) <strong>for</strong> k <strong>in</strong> 1:M);
 <strong>inStream</strong>(m<sub>i</sub>.c.h_outflow) = h_mix_in<sub>i</sub>;
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 Note that the result of the inStream(m<sub>i</sub>.c.h_outflow) operator is different for each port i,
@@ -3904,8 +3880,7 @@ because the assumption of flow entering the port is different for each of them.
 Additional equations need to be generated for the stream variables of outside connectors.
 </p>
 
-<blockquote>
-<pre>// Additional connection equations for outside connectors
+<blockquote><pre>// Additional connection equations for outside connectors
 <strong>for</strong> q in 1:M <strong>loop</strong>
   0 = <strong>sum</strong>(m<sub>j</sub>.c.m_flow*(<strong>if</strong> m<sub>j</sub>.c.m_flow > 0 <strong>then</strong> h_mix_out<sub>q</sub> <strong>else</strong> m<sub>j</sub>.c.h_outflow) <strong>for</strong> j <strong>in</strong> 1:N) +
       <strong>sum</strong>(-c<sub>k</sub>.m_flow* (<strong>if</strong> c<sub>k</sub>.m_flow > 0 <strong>or</strong> k==q <strong>then</strong> h_mix_out<sub>q</sub> <strong>else</strong> <strong>inStream</strong>(c<sub>k</sub>.h_outflow)
@@ -3985,8 +3960,8 @@ The argument shall have type Real. The result has type Integer.</p>
 <p><em>[Note, outside of a when clause state events are triggered
 when the return value changes discontinuously.]</em></p>
 <h4>Examples</h4>
-<pre><strong>integer</strong>({-3.14, 3.14})
- = {-4, 3}</pre>
+<blockquote><pre><strong>integer</strong>({-3.14, 3.14})
+ = {-4, 3}</pre></blockquote>
 </html>"));
   end 'integer()';
 
@@ -4036,8 +4011,8 @@ The natural logarithm can also be accessed as Modelica.Math.log.
 <img src=\"modelica://ModelicaReference/Resources/Images/log.png\" alt=\"log\">
 
 <h4>Examples</h4>
-<pre><strong>log</strong>(1)
- = 0</pre>
+<blockquote><pre><strong>log</strong>(1)
+ = 0</pre></blockquote>
 </html>"));
   end 'log()';
 
@@ -4060,8 +4035,8 @@ The base 10 logarithm can also be accessed as Modelica.Math.log10.
 <img src=\"modelica://ModelicaReference/Resources/Images/log10.png\" alt=\"log10\">
 
 <h4>Examples</h4>
-<pre><strong>log10</strong>(1)
- = 0</pre>
+<blockquote><pre><strong>log10</strong>(1)
+ = 0</pre></blockquote>
 </html>"));
   end 'log10()';
 
@@ -4176,12 +4151,12 @@ arguments is Real the result is Real otherwise Integer. <em>[Note, outside of
 a when clause state events are triggered when the return value changes
 discontinuously.]</em></p>
 <h4>Examples</h4>
-<pre><strong>mod</strong>(3,1.4)
+<blockquote><pre><strong>mod</strong>(3,1.4)
  = 0.2
 <strong>mod</strong>(-3,1.4)
  = 1.2
 <strong>mod</strong>(3,-1.4)
- = -1.2</pre>
+ = -1.2</pre></blockquote>
 </html>"));
   end 'mod()';
 
@@ -4226,15 +4201,15 @@ it can be necessary to use noEvent inside smooth. <em>[Note that smooth does
 not guarantee a smooth output if any of the occurring variables change
 discontinuously.]</em></p>
 <p><em>[Example:</em></p>
-<pre>  Real x, y, z;
+<blockquote><pre>  Real x, y, z;
 <strong>equation</strong>
   x = <strong>if</strong> time&lt;1 <strong>then</strong> 2 <strong>else</strong> time-2;
   z = smooth(0, <strong>if</strong> time&lt;0 <strong>then</strong> 0 <strong>else</strong> time);
   y = smooth(1, noEvent(<strong>if</strong> x&lt;0 <strong>then</strong> 0 <strong>else</strong> sqrt(x)*x));
-  // noEvent is necessary.</pre>
+  // noEvent is necessary.</pre></blockquote>
 <p><em>]</em></p>
 <h4>Examples</h4>
-<pre>der(h)=<strong>if noEvent</strong>(h&gt;0) <strong>then</strong> -c*sqrt(h) <strong>else</strong> 0;</pre>
+<blockquote><pre>der(h)=<strong>if noEvent</strong>(h&gt;0) <strong>then</strong> -c*sqrt(h) <strong>else</strong> 0;</pre></blockquote>
 </html>"));
   end 'noEvent()';
 
@@ -4319,13 +4294,13 @@ this formulation was chosen to allow using <strong>pre</strong>(v) both for disc
 for continuous-time variables inside when-clauses.
 </em></p>
 <h4>Examples</h4>
-<pre><strong>model</strong> Hysteresis
+<blockquote><pre><strong>model</strong> Hysteresis
   Real u;
   Boolean y;
 <strong>equation</strong>
   u = Modelica.Math.sin(<strong>time</strong>);
   y = u &gt; 0.5 or <strong>pre</strong>(y) and u &gt;= -0.5;
-<strong>end</strong> Hysteresis;</pre>
+<strong>end</strong> Hysteresis;</pre></blockquote>
 
 <img src=\"modelica://ModelicaReference/Resources/Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
@@ -4442,12 +4417,12 @@ result is Real otherwise Integer. <em>[Note, outside
 of a when clause state events are triggered when
 the return value changes discontinuously.]</em></p>
 <h4>Examples</h4>
-<pre><strong>rem</strong>(3,1.4)
+<blockquote><pre><strong>rem</strong>(3,1.4)
  = 0.2
 <strong>rem</strong>(-3,1.4)
  = -0.2
 <strong>rem</strong>(3,-1.4)
- = 0.2</pre>
+ = 0.2</pre></blockquote>
 </html>"));
   end 'rem()';
 
@@ -4477,13 +4452,13 @@ interval &quot;interval&quot; need to be parameter
 expressions and need to be a subtype of Real or Integer.
 </p>
 <h4>Examples</h4>
-<pre><strong>model</strong> Sampling
+<blockquote><pre><strong>model</strong> Sampling
   Integer i;
 <strong>equation</strong>
   <strong>when</strong> <strong>sample</strong>(1, 0.1) <strong>then</strong>
     i = <strong>pre</strong>(i) + 1;
   <strong>end when</strong>;
-<strong>end</strong> Sampling;</pre>
+<strong>end</strong> Sampling;</pre></blockquote>
 
 <img src=\"modelica://ModelicaReference/Resources/Images/sample.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
@@ -4531,57 +4506,47 @@ order to select one meaningful solution in such cases:
 <p>
 <strong>Rule 1</strong>: The equations
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
 y = <strong>semiLinear</strong>(x, sa, s1);
 y = <strong>semiLinear</strong>(x, s1, s2);
 y = <strong>semiLinear</strong>(x, s2, s3);
    ...
 y = <strong>semiLinear</strong>(x, sN, sb);
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 may be replaced by
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
 s1 = <strong>if</strong> x >= 0 <strong>then</strong> sa <strong>else</strong> sb
 s2 = s1;
 s3 = s2;
    ...
 sN = sN-1;
 y = <strong>semiLinear</strong>(x, sa, sb);
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 <strong>Rule 2</strong>: The equations
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
 x = 0;
 y = 0;
 y = <strong>semiLinear</strong>(x, sa, sb);
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 may be replaced by
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
 x = 0
 y = 0;
 sa = sb;
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 <em> [For symbolic transformations, the following property is
 useful (this follows from the definition):</em>
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
 <strong>semiLinear</strong>(m_flow, port_h, h);
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 is identical to
 </p>
@@ -4616,8 +4581,8 @@ Sign function of a Real or Integer number
 if</strong> v &lt; 0 <strong>then</strong> -1 <strong>else</strong> 0)&quot;. Argument v
 needs to be an Integer or Real expression.</p>
 <h4>Examples</h4>
-<pre><strong>sign</strong>({-3, 0, 3})
- = {-1, 0, 1}</pre>
+<blockquote><pre><strong>sign</strong>({-3, 0, 3})
+ = {-1, 0, 1}</pre></blockquote>
 </html>"));
   end 'sign()';
 
@@ -4640,8 +4605,8 @@ The sine function can also be accessed as Modelica.Math.sin.
 <img src=\"modelica://ModelicaReference/Resources/Images/sin.png\" alt=\"sin\">
 
 <h4>Examples</h4>
-<pre><strong>sin</strong>(3.14159265358979)
- = 0.0</pre>
+<blockquote><pre><strong>sin</strong>(3.14159265358979)
+ = 0.0</pre></blockquote>
 </html>"));
   end 'sin()';
 
@@ -4664,8 +4629,8 @@ The sinh function can also be accessed as Modelica.Math.sinh.
 <img src=\"modelica://ModelicaReference/Resources/Images/sinh.png\" alt=\"sinh\">
 
 <h4>Examples</h4>
-<pre><strong>sinh</strong>(1)
-  = 1.1752011936438</pre>
+<blockquote><pre><strong>sinh</strong>(1)
+  = 1.1752011936438</pre></blockquote>
 </html>"));
   end 'sinh()';
 
@@ -4747,12 +4712,12 @@ it can be necessary to use noEvent inside smooth. <em>[Note that smooth does
 not guarantee a smooth output if any of the occurring variables change
 discontinuously.]</em></p>
 <h4>Examples</h4>
-<pre>  Real x, y, z;
+<blockquote><pre>  Real x, y, z;
 <strong>equation</strong>
   x = <strong>if</strong> time&lt;1 <strong>then</strong> 2 <strong>else</strong> time-2;
   z = smooth(0, <strong>if</strong> time&lt;0 <strong>then</strong> 0 <strong>else</strong> time);
   y = smooth(1, noEvent(<strong>if</strong> x&lt;0 <strong>then</strong> 0 <strong>else</strong> sqrt(x)*x));
-  // noEvent is necessary.</pre>
+  // noEvent is necessary.</pre></blockquote>
 </html>"));
   end 'smooth()';
 
@@ -4768,8 +4733,8 @@ Square root
 <p>Returns the square root of v if v&gt;=0, otherwise an error occurs.
 Argument v needs to be an Integer or Real expression.</p>
 <h4>Examples</h4>
-<pre><strong>sqrt</strong>(9)
- = 3.0</pre>
+<blockquote><pre><strong>sqrt</strong>(9)
+ = 3.0</pre></blockquote>
 </html>"));
   end 'sqrt()';
 
@@ -4780,15 +4745,13 @@ Argument v needs to be an Integer or Real expression.</p>
 Convert a scalar Real, Integer or Boolean expression to a String representation
 </p>
 <h4>Syntax</h4>
-<blockquote>
-<pre>
+<blockquote><pre>
 <strong>String</strong>(b_expr, minimumLength=0, leftJustified=true)
 <strong>String</strong>(i_expr, minimumLength=0, leftJustified=true)
 <strong>String</strong>(r_expr, significantDigits=6, minimumLength=0, leftJustified=true)
 <strong>String</strong>(r_expr, format)
 <strong>String</strong>(e_expr, minimumLength=0, leftJustified=true)
-</pre>
-</blockquote>
+</pre></blockquote>
 <h4>Description</h4>
 <p>
 The arguments have the following meaning
@@ -4853,13 +4816,11 @@ with
        = \"G\": Same as \"g\", but with upper case E</td></tr></table>
 </table>
 <h4>Examples</h4>
-<blockquote>
-<pre>
+<blockquote><pre>
 String(2.0)   // = \"2.0\"
 String(true)  // = \"true\"
 String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
-</pre>
-</blockquote>
+</pre></blockquote>
 </html>"));
   end 'String()';
 
@@ -4944,9 +4905,9 @@ The tangent function can also be accessed as Modelica.Math.tan.
 <img src=\"modelica://ModelicaReference/Resources/Images/tan.png\" alt=\"tan\">
 
 <h4>Examples</h4>
-<pre><strong>tan</strong>(3.14159265358979)
+<blockquote><pre><strong>tan</strong>(3.14159265358979)
  = 0.0
-</pre>
+</pre></blockquote>
 </html>"));
   end 'tan()';
 
@@ -4969,8 +4930,8 @@ The tanh function can also be accessed as Modelica.Math.tanh.
 <img src=\"modelica://ModelicaReference/Resources/Images/tanh.png\" alt=\"tanh\">
 
 <h4>Examples</h4>
-<pre><strong>tanh</strong>(1)
-  = 0.761594155955765</pre>
+<blockquote><pre><strong>tanh</strong>(1)
+  = 0.761594155955765</pre></blockquote>
 </html>"));
   end 'tanh()';
 
@@ -4985,9 +4946,9 @@ True after successful analysis
 <h4>Description</h4>
 <p>Returns <strong>true</strong> at the end of a successful analysis.</p>
 <h4>Examples</h4>
-<pre>  Boolean a, b;
+<blockquote><pre>  Boolean a, b;
 <strong>equation</strong>
-  a = <strong>change</strong>(b) or <strong>terminal</strong>();</pre>
+  a = <strong>change</strong>(b) or <strong>terminal</strong>();</pre></blockquote>
 </html>"));
   end 'terminal()';
 
@@ -5005,7 +4966,7 @@ which was carried out. The function has a string argument
 indicating the reason for the success. <em>[The intention is to
 give more complex stopping criteria than a fixed point in time.]</em></p>
 <h4>Examples</h4>
-<pre><strong>model</strong> ThrowingBall
+<blockquote><pre><strong>model</strong> ThrowingBall
   Real x(start=0);
   Real y(start=1);
 <strong>equation</strong>
@@ -5015,7 +4976,7 @@ give more complex stopping criteria than a fixed point in time.]</em></p>
   <strong>when</strong> y &lt; 0 <strong>then</strong>
     <strong>terminate</strong>(\"The ball touches the ground\");
   <strong>end when;
-end</strong> ThrowingBall;</pre>
+end</strong> ThrowingBall;</pre></blockquote>
 </html>"));
   end 'terminate()';
 
@@ -5109,7 +5070,7 @@ translator before using the respective model or block class.
 
 <h4>Examples</h4>
 
-<pre>   <strong>partial model</strong> BaseCorrelation
+<blockquote><pre>   <strong>partial model</strong> BaseCorrelation
      <strong>input</strong> Real x;
      Real y;
    <strong>end</strong> BaseCorrelation;
@@ -5131,7 +5092,7 @@ translator before using the respective model or block class.
    <strong>model</strong> Broken // after redeclaration, there is 1 equation too much in Modelica 2.2
       UseCorrelation example(redeclare Correlation=SpecialCorrelation);
    <strong>end</strong> Broken;
-</pre>
+</pre></blockquote>
 
 <p>
 In this case one can argue that both UseCorrelation (adding an acausal equation) and SpecialCorrelation (adding a default to an input) are correct, but still when combined they lead to a model with too many equations - and it is not possible to determine which model is incorrect without strict rules.
@@ -5179,11 +5140,11 @@ the number of connection equations that will be provided when the class is used.
 
 <li> The number of (top level) public input variables that neither are connectors nor have binding equations [i.e., top-level inputs are treated as known variables. This represents the number of binding equations that will be provided when the class is used.].
 [To clarify top-level inputs without binding equation (for non-inherited inputs binding equation is identical to declaration equation, but binding equations also include the case where another model extends M and has a modifier on \"u\" giving the value):
-<pre>  model M
+<blockquote><pre>  model M
     input Real u;
     input Real u2=2;
   end M;
-</pre>
+</pre></blockquote>
 Here \"u\" and \"u2\" are top-level inputs and not connectors. The variable u2 has a binding equation, but u does not have a binding equation. In the equation count, it is assumed that an equation for u is supplied when using the model.]</li>
 </ul>
 
@@ -5229,7 +5190,7 @@ Based on these restrictions, the following strong guarantee can be given for sim
 [Therefore the number of unknowns equal to the number of equations of a simulation model or block, provided that every used non-partial model or block class is locally balanced.]
 </p>
 
-<pre>Example 1:
+<blockquote><pre>Example 1:
 
 connector Pin
    Real v;
@@ -5245,19 +5206,19 @@ equation
    u = p.v - n.v;
    C*der(u) = p.i;
 end Capacitor;
-</pre>
+</pre></blockquote>
 
 <p>
 Model Capacitor is a locally balanced model according to the following analysis:
 </p>
 
-<pre>Locally unknown variables: p.i, p.v, n.i, n.v, u
+<blockquote><pre>Locally unknown variables: p.i, p.v, n.i, n.v, u
 Local equations:  0 = p.i + n.i;
                   u = p.v - n.v;
                   C*der(u) = p.i;
                   and 2 equations corresponding to the
                   2 flow-variables p.i and n.i.
-</pre>
+</pre></blockquote>
 
 <p>
 These are 5 equations in 5 unknowns (locally balanced model). A more detailed analysis would reveal that this is structurally non-singular, i.e., that the hybrid DAE will not contain a singularity independent of actual values.
@@ -5265,7 +5226,7 @@ If the equation \"u = p.v - n.v\" would be missing in the Capacitor model, there
 If the equation \"u = p.v - n.v\" would be replaced by the equation \"u = 0\" and the equation C*der(u) = p.i would be replaced by the equation \"C*der(u) = 0\", there would be 5 equations in 5 unknowns (locally balanced), but the equations would be singular, regardless of how the equations corresponding to the flow-variables are constructed because the information that \"u\" is constant is given twice in a slightly different form.
 </p>
 
-<pre>Example 2:
+<blockquote><pre>Example 2:
 
 connector Pin
    Real v;
@@ -5295,14 +5256,14 @@ equation
    connect(t.n, c.p);
    connect(c.n, n);
 end Circuit;
-</pre>
+</pre></blockquote>
 
 <p>
 Since t is partial we cannot check whether this is a globally balanced model, but we can check that Circuit is locally balanced.
 Counting on  model Circuit results in the following balance sheet:
 </p>
 
-<pre>Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)
+<blockquote><pre>Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)
                                                    and 2 flow variable for c (c.p.i, c.n.i).
 Local equations:     p.v = t.p.v;
                        0 = p.i - t.p.i;
@@ -5312,14 +5273,14 @@ Local equations:     p.v = t.p.v;
                        0 = n.i - c.n.i;
                     and 2 equation corresponding to the
                     flow variables p.i, n.i
-</pre>
+</pre></blockquote>
 
 <p>
 In total we have 8 scalar unknowns and 8 scalar equations, i.e., a locally balanced model (and this feature holds for any models used for the replaceable component \"t\").
 Some more analysis reveals that this local set of equations and unknowns is structurally non-singular. However, this does not provide any guarantees for the global set of equations, and specific combinations of models that are \"locally non-singular\" may lead to a globally non-singular model.]
 </p>
 
-<pre>Example 3:
+<blockquote><pre>Example 3:
 
 import SI = Modelica.SIunits;
 partial model BaseProperties
@@ -5337,14 +5298,14 @@ partial model BaseProperties
    connector InputSpecificEnthalpy = input SI.SpecificEnthalpy;
    connector InputMassFraction = input SI.MassFraction;
 end BaseProperties;
-</pre>
+</pre></blockquote>
 
 <p>
 The use of connector here is a special design pattern. The variables p, h, Xi are marked as input to get correct equation count. Since they are connectors they should neither be given binding equations in derived classes nor when using the model. The design pattern is to give textual equations for them (as below); using connect-statements for these connectors would be possible (and would work) but is not part of the design.
 This partial model defines that T,d,u can be computed from the medium model, provided p,h,Xi are given. Every medium with one or multiple substances and one or multiple phases, including incompressible media, has the property that T,d,u can be computed from p,h,Xi. A particular medium may have different \"independent variables\" from which all other intrinsic thermodynamic variables can be recursively computed. For example, a simple air model could be defined as:
 </p>
 
-<pre>model SimpleAir \"Medium model of simple air. Independent variables: p,T\"
+<blockquote><pre>model SimpleAir \"Medium model of simple air. Independent variables: p,T\"
    extends BaseProperties(nXi = 0,
         p(stateSelect = if preferredMediumStates then StateSelect.prefer
                                    else StateSelect.default),
@@ -5358,7 +5319,7 @@ equation
    h = cp*(T-T0);
    u = h - p/d;
 end SimpleAir;
-</pre>
+</pre></blockquote>
 
 <p>
 The local number of unknowns in model SimpleAir (after flattening) is:
@@ -5384,7 +5345,7 @@ Therefore, the model is locally balanced.
 The generic medium model BaseProperties is used as a replaceable model in different components, like a dynamic volume or a fixed boundary condition:
 </p>
 
-<pre>import SI = Modelica.SIunits
+<blockquote><pre>import SI = Modelica.SIunits
 connector FluidPort
   replaceable model Medium = BaseProperties;
 
@@ -5419,7 +5380,7 @@ equation
    medium.h  = port.h;
    medium.Xi = port.Xi;
 end DynamicVolume;
-</pre>
+</pre></blockquote>
 
 <p>
 The local number of unknowns of DynamicVolume is:
@@ -5445,7 +5406,7 @@ Therefore, DynamicVolume is a locally balanced model.
 Note, when the DynamicVolume is used and the Medium model is redeclared to \"SimpleAir\", then a tool will try to select p,T as states, since these variables have StateSelect.prefer in the SimpleAir model (this means that the default states U,M are derived quantities). If this state selection is performed, all intrinsic medium variables are computed from medium.p and medium.T, although p and h are the input arguments to the medium model. This demonstrates that in Modelica input/output does not define the computational causality. Instead, it defines that equations have to be provided here for p,h,Xi, in order that the equation count is correct. The actual computational causality can be different as it is demonstrated with the SimpleAir model.
 </p>
 
-<pre>model FixedBoundary_pTX
+<blockquote><pre>model FixedBoundary_pTX
    parameter SI.AbsolutePressure p \"Predefined boundary pressure\";
    parameter SI.Temperature      T \"Predefined boundary temperature\";
    parameter SI.MassFraction     Xi[medium.nXi]
@@ -5463,7 +5424,7 @@ equation
    medium.T  = T;
    medium.Xi = Xi;
 end FixedBoundary_pTX;
-</pre>
+</pre></blockquote>
 
 <p>
 The number of local variables in FixedBoundary_pTX is:
@@ -5499,23 +5460,23 @@ Break lookup in hierarchy
 </p>
 <h4>Examples</h4>
 
-<pre><strong>encapsulated model</strong> Test
+<blockquote><pre><strong>encapsulated model</strong> Test
   <strong>import</strong> Modelica.Mechanics.Rotational;
 
   Rotational.Components.Inertia inertia; // lookup successful
   Modelica.Mechanics.Translational.SlidingMass slidingMass; // lookup fails
 <strong>equation</strong>
   ...
-<strong>end</strong> Test;</pre>
+<strong>end</strong> Test;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>class_definition :
+<blockquote><pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
      <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier</pre>
+   IDENT class_specifier</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -5541,7 +5502,7 @@ Inheritance from base class
 </p>
 <h4>Examples</h4>
 
-<pre><strong>class</strong> A
+<blockquote><pre><strong>class</strong> A
   <strong>parameter</strong> Real a, b;
 <strong>end</strong> A;
 
@@ -5551,28 +5512,28 @@ Inheritance from base class
 
 <strong>class</strong> C
   <strong>extends</strong> B(a=1);
-<strong>end</strong> C;</pre>
+<strong>end</strong> C;</pre></blockquote>
 
 <p>From the example above we get the following instantiated
 class:</p>
 
-<pre><strong>class</strong> Cinstance
+<blockquote><pre><strong>class</strong> Cinstance
   <strong>parameter</strong> Real a=1;
   <strong>parameter</strong> Real b=2;
-<strong>end</strong> Cinstance;</pre>
+<strong>end</strong> Cinstance;</pre></blockquote>
 
 <p>The ordering of the merging rules ensures that, given
 classes A and B defined above,</p>
 
-<pre><strong>class</strong> C2
+<blockquote><pre><strong>class</strong> C2
   B bcomp(b=3);
-<strong>end</strong> C2;</pre>
+<strong>end</strong> C2;</pre></blockquote>
 
 <p>yields an instance with <code>bcomp.b=3</code>, which overrides <code>b=2</code>.</p>
 
 <h4>Syntax</h4>
 
-<pre>class_definition :
+<blockquote><pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -5608,7 +5569,7 @@ element :
         [constraining_clause comment])
 
 extends_clause :
-   <strong>extends</strong> name [ class_modification ]</pre>
+   <strong>extends</strong> name [ class_modification ]</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -5836,7 +5797,7 @@ Declare flow (through) variable, which have to sum up to zero in connections
 </p>
 <h4>Examples</h4>
 
-<pre><strong>connector</strong> Pin
+<blockquote><pre><strong>connector</strong> Pin
   Modelica.SIunits.Voltage v;
   <strong>flow</strong> Modelica.SIunits.Current i;
 <strong>end</strong> Pin;
@@ -5852,17 +5813,17 @@ Declare flow (through) variable, which have to sum up to zero in connections
 <strong>equation
   connect</strong>(a.p, b.p);
   <strong>connect</strong>(a.p, c.p);
-<strong>end</strong> Composition;</pre>
+<strong>end</strong> Composition;</pre></blockquote>
 
 <p>From the connect statements in model Composition, the following connect equations are derived:</p>
 
-<pre>a.p.v = b.p.v;
+<blockquote><pre>a.p.v = b.p.v;
 a.p.v = c.p.v;
-a.p.i + b.p.i + c.p.i = 0;</pre>
+a.p.i + b.p.i + c.p.i = 0;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>class_definition :
+<blockquote><pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -5905,7 +5866,7 @@ component_clause:
 
 type_prefix :
    [ <strong>flow</strong> | <strong>stream</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -5925,7 +5886,7 @@ Repeat equations or statements a specific number of times
 <p>
 <strong>for</strong> clauses are mostly used in algorithm sections, such as
 </p>
-<pre>
+<blockquote><pre>
     <strong>parameter</strong> Integer np=10;
     Real p[np], x, y;
   <strong>algorithm</strong>
@@ -5933,53 +5894,53 @@ Repeat equations or statements a specific number of times
      <strong>for</strong> i <strong>in</strong> 2:np <strong>loop</strong>   // i shall not be declared
         y := y*x + p[i];
      <strong>end for</strong>;
-</pre>
+</pre></blockquote>
 <p>
 Other forms of the <strong>for</strong> condition:
 </p>
-<pre>
+<blockquote><pre>
     <strong>for</strong> i <strong>in</strong> 1:10 <strong>loop</strong>            // i takes the values 1,2,3,...,10
     <strong>for</strong> r <strong>in</strong> 1.0 : 1.5 : 5.5 <strong>loop</strong> // r takes the values 1.0, 2.5, 4.0, 5.5
     <strong>for</strong> i <strong>in</strong> {1,3,6,7} <strong>loop</strong>       // i takes the values 1, 3, 6, 7
-</pre>
+</pre></blockquote>
 <p>
 In equation sections, <strong>for</strong> clauses are expanded at translation time
 in order that symbolic transformations can be applied. Typically, a
 <strong>for</strong> clause in an equation section is used on component arrays,
 e.g., to connect elements of an array of components together:
 </p>
-<pre>
+<blockquote><pre>
     <strong>parameter</strong> Integer nR=10 \"Number of resistances\";
     Modelica.Electrical.Analog.Basic.Resistor R[nR];
   <strong>equation</strong>
      <strong>for</strong> i <strong>in</strong> 1:nR-1 <strong>loop</strong>
         <strong>connect</strong>(R[i].p R[i+1].n);   // 9 connect equations
      <strong>end for</strong>;
-</pre>
+</pre></blockquote>
 <h4>Syntax</h4>
 <p>
 In equation sections:
 </p>
-<pre>
+<blockquote><pre>
   <strong>for</strong> for_indices <strong>loop</strong>
      { equation \";\" }
   <strong>end for</strong>;
   for_indices : for_index {\",\" for_index}
   for_index   : IDENT [ in expression ]
-</pre>
+</pre></blockquote>
 <p>
 In algorithm sections:
 </p>
-<pre>
+<blockquote><pre>
   <strong>for</strong> for_indices <strong>loop</strong>
      { algorithm \";\" }
   <strong>end for</strong>;
   for_indices : for_index {\",\" for_index}
   for_index   : IDENT [ in expression ]
-</pre>
+</pre></blockquote>
 <h4>Description</h4>
 <p>A clause</p>
-<pre>    <strong>for</strong> IDENT <strong>in</strong> expression <strong>loop</strong></pre>
+<blockquote><pre>    <strong>for</strong> IDENT <strong>in</strong> expression <strong>loop</strong></pre></blockquote>
 <p>is one example of a for clause.</p>
 <p>The expression of a for clause shall be a vector expression. It is
 evaluated once for each for clause, and is evaluated in the scope
@@ -5992,12 +5953,12 @@ to.</p>
 <p><em>The loop-variable may hide other variables as in the following example.
 Using another name for the loop-variable
 is, however, strongly recommended.</em></p>
-<pre>    <strong>constant</strong> Integer j=4;
+<blockquote><pre>    <strong>constant</strong> Integer j=4;
     Real x[j];
   <strong>equation</strong>
     <strong>for</strong> j <strong>in</strong> 1:j <strong>loop</strong> // The loop-variable j takes the values 1,2,3,4
       x[j]=j; // Uses the loop-variable j
-    <strong>end for</strong>;</pre>
+    <strong>end for</strong>;</pre></blockquote>
 <p><em>]</em></p>
 <h4>Several iterators</h4>
 <p>The notation with several iterators is a shorthand notation for nested for-clauses (or reduction-expressions). For
@@ -6005,13 +5966,13 @@ for-clauses it can be expanded into the usual form by replacing each \",\" by <c
 for'</code>. For reduction-expressions it can be expanded into the usual form by replacing each ',' by <code>') for'</code> and
 prepending the reduction-expression with <code>'function-name('</code>.</p>
 <p><em>[Example:</em></p>
-<pre>    Real x[4,3];
+<blockquote><pre>    Real x[4,3];
   <strong>equation</strong>
     <strong>for</strong> j, i in 1:2 <strong>loop</strong>
       // The loop-variable j takes the values 1,2,3,4 (due to use)
       // The loop-variable i takes the values 1,2 (given range)
       x[j,i]=j+i;
-    <strong>end for</strong>;</pre>
+    <strong>end for</strong>;</pre></blockquote>
 <p><em>]</em></p>
 </html>"));
 end 'for';
@@ -6026,7 +5987,7 @@ Declare equations or execute statements conditionally
 <h4>Examples</h4>
 <h4>If clause</h4>
 
-<pre>    <strong>parameter</strong> Boolean linear=true;
+<blockquote><pre>    <strong>parameter</strong> Boolean linear=true;
     <strong>parameter</strong> Boolean quadratic=false;
     Real x, y;
   <strong>equation</strong>
@@ -6036,16 +5997,16 @@ Declare equations or execute statements conditionally
       y = x^2 + x + 1;
     <strong>else</strong>
       y = Modelica.Math.sin(x) + 1;
-    <strong>end if</strong>;</pre>
+    <strong>end if</strong>;</pre></blockquote>
 
 <h4>If expression</h4>
-<pre>  Integer i;
-  Integer sign_of_i=<strong>if</strong> i&lt;0 <strong>then</strong> -1 <strong>else if</strong> i==0 <strong>then</strong> 0 <strong>else</strong> 1;</pre>
+<blockquote><pre>  Integer i;
+  Integer sign_of_i=<strong>if</strong> i&lt;0 <strong>then</strong> -1 <strong>else if</strong> i==0 <strong>then</strong> 0 <strong>else</strong> 1;</pre></blockquote>
 <h4>Syntax</h4>
 <p>
 In equation sections:
 </p>
-<pre>   <strong>if</strong> expression <strong>then</strong>
+<blockquote><pre>   <strong>if</strong> expression <strong>then</strong>
      { equation \";\" }
    { <strong>elseif </strong>expression <strong>then</strong>
      { equation \";\" }
@@ -6053,11 +6014,11 @@ In equation sections:
    [ <strong>else</strong>
      { equation \";\" }
    ]
-   <strong>end if</strong></pre>
+   <strong>end if</strong></pre></blockquote>
 <p>
 In algorithm sections:
 </p>
-<pre>   <strong>if</strong> expression <strong>then</strong>
+<blockquote><pre>   <strong>if</strong> expression <strong>then</strong>
      { algorithm \";\" }
    { <strong>elseif </strong>expression <strong>then</strong>
      { algorithm \";\" }
@@ -6065,7 +6026,7 @@ In algorithm sections:
    [ <strong>else</strong>
      { algorithm \";\" }
    ]
-   <strong>end if</strong></pre>
+   <strong>end if</strong></pre></blockquote>
 <h4>Description</h4>
 <h4>If clause</h4>
 <p>
@@ -6090,7 +6051,7 @@ of unknowns remains the same].</em>
 <h4>If expression</h4>
 
 <p>An expression</p>
-<pre>   <strong>if</strong> expression1 <strong>then</strong> expression2 <strong>else</strong> expression3</pre>
+<blockquote><pre>   <strong>if</strong> expression1 <strong>then</strong> expression2 <strong>else</strong> expression3</pre></blockquote>
 <p>is one example of if-expression. First expression1, which must be Boolean expression,
 is evaluated. If expression1 is true expression2 is evaluated and is the value of the
 if-expression, else expression3 is evaluated and is the value of the if-expression.
@@ -6110,7 +6071,7 @@ Import classes
 </p>
 <h4>Examples</h4>
 
-<pre><strong>class</strong> Lookup
+<blockquote><pre><strong>class</strong> Lookup
   <strong>import</strong> SI = Modelica.SIunits; // #1 (Try to avoid renaming imports!)
   <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports!)
   <strong>import</strong> Modelica.Mechanics.Rotational; // #3
@@ -6122,11 +6083,11 @@ Import classes
 <strong>equation</strong>
   torque = sin(<strong>time</strong>); // due to #2 (Modelica.Math.sin)
   ...
-<strong>end</strong> Lookup;</pre>
+<strong>end</strong> Lookup;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>class_definition :
+<blockquote><pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -6162,7 +6123,7 @@ element :
         [constraining_clause comment])
 
 import_clause :
-   <strong>import</strong> ( IDENT \"=\" name | name [\".\" \"*\"] ) comment</pre>
+   <strong>import</strong> ( IDENT \"=\" name | name [\".\" \"*\"] ) comment</pre></blockquote>
 <h4>Description</h4>
 
 <p>Using import statements extends the static name lookup to additional import names.
@@ -6188,7 +6149,7 @@ Define causality and/or block diagram connection semantic
 </p>
 <h4>Examples</h4>
 
-<pre><strong>connector</strong> RealInput = <strong>input</strong> Real;
+<blockquote><pre><strong>connector</strong> RealInput = <strong>input</strong> Real;
 <strong>connector</strong> RealOutput = <strong>output</strong> Real;
 
 <strong>block</strong> Integrator
@@ -6199,11 +6160,11 @@ Define causality and/or block diagram connection semantic
 <strong>equation</strong>
   <strong>der</strong>(x) = u;
   y = x;
-<strong>end</strong> Integrator;</pre>
+<strong>end</strong> Integrator;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>class_definition :
+<blockquote><pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -6246,7 +6207,7 @@ component_clause:
 
 type_prefix :
    [ <strong>flow</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -6272,7 +6233,7 @@ The prefixes <strong>input</strong> and <strong>output</strong> have a slightly 
      when the component is utilized in order to guarantee a locally
      balanced model (i.e., the number of local equations is identical
      to the local number of unknowns). Example:
-<pre>  <strong>block</strong> FirstOrder
+<blockquote><pre>  <strong>block</strong> FirstOrder
      <strong>input</strong> Real u;
        ...
   <strong>end</strong> FirstOrder;
@@ -6281,7 +6242,7 @@ The prefixes <strong>input</strong> and <strong>output</strong> have a slightly 
      FirstOrder firstOrder(u=time); // binding equation for u
       ...
   <strong>end</strong> UseFirstOrder;
-</pre>
+</pre></blockquote>
      The output prefix does not have a particular effect in a model
      or block component and is ignored.<br>&nbsp;</li>
 
@@ -6316,7 +6277,7 @@ Define causality and/or block diagram connection semantic
 
 <h4>Examples</h4>
 
-<pre><strong>connector</strong> RealInput = <strong>input</strong> Real;
+<blockquote><pre><strong>connector</strong> RealInput = <strong>input</strong> Real;
 <strong>connector</strong> RealOutput = <strong>output</strong> Real;
 
 <strong>block</strong> Integrator
@@ -6327,11 +6288,11 @@ Define causality and/or block diagram connection semantic
 <strong>equation</strong>
   <strong>der</strong>(x) = u;
   y = x;
-<strong>end</strong> Integrator;</pre>
+<strong>end</strong> Integrator;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>class_definition :
+<blockquote><pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -6374,7 +6335,7 @@ component_clause:
 
 type_prefix :
    [ <strong>flow</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -6400,7 +6361,7 @@ The prefixes <strong>input</strong> and <strong>output</strong> have a slightly 
      when the component is utilized in order to guarantee a locally
      balanced model (i.e., the number of local equations is identical
      to the local number of unknowns). Example:
-<pre>  <strong>block</strong> FirstOrder
+<blockquote><pre>  <strong>block</strong> FirstOrder
      <strong>input</strong> Real u;
        ...
   <strong>end</strong> FirstOrder;
@@ -6409,7 +6370,7 @@ The prefixes <strong>input</strong> and <strong>output</strong> have a slightly 
      FirstOrder firstOrder(u=time); // binding equation for u
       ...
   <strong>end</strong> UseFirstOrder;
-</pre>
+</pre></blockquote>
      The output prefix does not have a particular effect in a model
      or block component and is ignored.<br>&nbsp;</li>
 
@@ -6442,7 +6403,7 @@ Prohibit instantiation of components of the class
 </p>
 <h4>Examples</h4>
 
-<pre><strong>partial block</strong> PartialBlock
+<blockquote><pre><strong>partial block</strong> PartialBlock
   <strong>input</strong> Real u;
   <strong>output</strong> Real y;
 <strong>protected</strong>
@@ -6468,11 +6429,11 @@ Prohibit instantiation of components of the class
   PartialBlock block1; // Illegal
   Integrator block2; // Legal
   Gain block3; // Legal
-<strong>end</strong> Composition;</pre>
+<strong>end</strong> Composition;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>class_definition :
+<blockquote><pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -6482,7 +6443,7 @@ Prohibit instantiation of components of the class
 class_specifier :
    string_comment composition <strong>end</strong> IDENT
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre>
+   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -6491,7 +6452,7 @@ The keyword <strong>partial</strong> defines that a class is <strong>incomplete<
 that it cannot be instantiated. For example, defining
 </p>
 
-<pre>   PartialBlock block1;</pre>
+<blockquote><pre>   PartialBlock block1;</pre></blockquote>
 
 <p>
 is illegal. A partial class can only be used in an \"extends\" clause to inherit from it
@@ -6510,8 +6471,7 @@ Declare stream variable in a connector to describe bi-directional flow of matter
 </p>
 <h4>Examples</h4>
 
-<blockquote>
-<pre><strong>connector</strong> FluidPort
+<blockquote><pre><strong>connector</strong> FluidPort
   <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium;
   Medium.AbsolutePressure        p          \"Pressure in connection point\";
   <strong>flow</strong>   Medium.MassFlowRate     m_flow     \"&gt; 0, if flow into component\";
@@ -6532,8 +6492,7 @@ stream variable corresponding to the actual flow direction can be
 inquired through the built-in operator <a href=\"modelica://ModelicaReference.Operators.'actualStream()'\">'actualStream()'</a>.
 </p>
 
-<blockquote>
-<pre><strong>model</strong> IsenthalpicFlow \"No energy storage/losses, e.g., pressure drop, valve, ...\"
+<blockquote><pre><strong>model</strong> IsenthalpicFlow \"No energy storage/losses, e.g., pressure drop, valve, ...\"
   <strong>replaceable package</strong> Medium=Modelica.Media.Interfaces.PartialMedium;
   FluidPort port_a, port_b:
   Medium.ThermodynamicState port_a_state_inflow \"State at port_a if inflowing\";
@@ -6594,7 +6553,7 @@ operators inside the components provide the \"ideal mixing\" equations:
 
 <h4>Syntax</h4>
 
-<pre>class_definition :
+<blockquote><pre>class_definition :
    [ <strong>encapsulated</strong> ]
    [ <strong>partial</strong> ]
    ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
@@ -6637,7 +6596,7 @@ component_clause:
 
 type_prefix :
    [ <strong>flow</strong> | <strong>stream</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre>
+   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre></blockquote>
 
 <h4>Description</h4>
 
@@ -6761,15 +6720,15 @@ Built-in variable time
 </p>
 <h4>Examples</h4>
 
-<pre><strong>encapsulated model</strong> SineSource
+<blockquote><pre><strong>encapsulated model</strong> SineSource
   <strong>import</strong> Modelica.Math.sin;
   <strong>connector</strong> OutPort=<strong>output</strong> Real;
   OutPort y=sin(time); // Uses the built-in variable time.
-<strong>end</strong> SineSource;</pre>
+<strong>end</strong> SineSource;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre><strong>time</strong></pre>
+<blockquote><pre><strong>time</strong></pre></blockquote>
 
 <h4>Description</h4>
 
@@ -6778,8 +6737,8 @@ variable <strong>time</strong>. Time is a built-in variable available
 in all classes, which is treated as an input variable. It
 is implicitly defined as:</p>
 
-<pre><strong>input</strong> Real time (<strong>final</strong> quantity = \"Time\",
-                 <strong>final</strong> unit     = \"s\");</pre>
+<blockquote><pre><strong>input</strong> Real time (<strong>final</strong> quantity = \"Time\",
+                 <strong>final</strong> unit     = \"s\");</pre></blockquote>
 
 <p>The value of the <strong>start</strong> attribute of time is set to
 the time instant at which the simulation is started.</p>
@@ -6795,12 +6754,12 @@ class 'when' "when"
 Activate equations or statements when condition becomes true
 </p>
 <h4>Examples</h4>
-<pre> <strong>equation
+<blockquote><pre> <strong>equation
    when</strong> x &gt; 2 <strong>then</strong>
      y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
      y1 = sin(x);
    <strong>end when</strong>;
-   y2 = sin(y1);</pre>
+   y2 = sin(y1);</pre></blockquote>
 
 <h4>Syntax</h4>
 
@@ -6808,20 +6767,20 @@ Activate equations or statements when condition becomes true
 In equation sections:
 </p>
 
-<pre>  <strong>when</strong> expression <strong>then</strong>
+<blockquote><pre>  <strong>when</strong> expression <strong>then</strong>
     { equation \";\" }
   { <strong>elsewhen</strong> expression <strong>then</strong>
     { equation \";\" } }
-  <strong>end when</strong></pre>
+  <strong>end when</strong></pre></blockquote>
 
 <p>
 In algorithm sections:
 </p>
-<pre>  <strong>when</strong> expression <strong>then</strong>
+<blockquote><pre>  <strong>when</strong> expression <strong>then</strong>
     { algorithm \";\" }
   { <strong>elsewhen</strong> expression <strong>then</strong>
     { algorithm \";\" } }
-  <strong>end when</strong></pre>
+  <strong>end when</strong></pre></blockquote>
 
 <h4>Description</h4>
 
@@ -6846,44 +6805,44 @@ the equations within the when-clause have one of the following forms:</p>
 
 <p><em>Algorithms are activated when x becomes &gt; 2:</em></p>
 
-<pre>   <strong>when</strong> x &gt; 2 <strong>then</strong>
+<blockquote><pre>   <strong>when</strong> x &gt; 2 <strong>then</strong>
      y1 := sin(x);
      y3 := 2*x + y1 + y2;
-   <strong>end when</strong>;</pre>
+   <strong>end when</strong>;</pre></blockquote>
 
 <p><em>Algorithms are activated when either x becomes &gt; 2 or sample(0,2) becomes true or x becomes less than 5:</em></p>
 
-<pre>   <strong>when</strong> {x &gt; 2, sample(0,2), x &lt; 5} <strong>then</strong>
+<blockquote><pre>   <strong>when</strong> {x &gt; 2, sample(0,2), x &lt; 5} <strong>then</strong>
      y1 := sin(x);
      y3 := 2*x + y1 + y2;
-   <strong>end when</strong>;</pre>
+   <strong>end when</strong>;</pre></blockquote>
 
 <p><em>For when in equation sections the order between the equations does not matter, e.g.,</em></p>
-<pre> <strong>equation
+<blockquote><pre> <strong>equation
    when</strong> x &gt; 2 <strong>then</strong>
      y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
      y1 = sin(x);
    <strong>end when</strong>;
-   y2 = sin(y1);</pre>
+   y2 = sin(y1);</pre></blockquote>
 
 <p><em>The needed restrictions on equations within a when-clause becomes apparent with the following example:</em></p>
 
-<pre>   Real x, y;
+<blockquote><pre>   Real x, y;
 <strong>equation</strong>
    x + y = 5;
    <strong>when</strong> condition <strong>then</strong>
       2*x + y = 7;         // error: not valid Modelica
-   <strong>end when</strong>;</pre>
+   <strong>end when</strong>;</pre></blockquote>
 
 <p><em>When the equations of the when-clause are not activated it is not clear which
 variable to hold constant, either x or y. A corrected version of this example is:</em></p>
 
-<pre>   Real x, y;
+<blockquote><pre>   Real x, y;
 <strong>equation</strong>
    x + y = 5;
    <strong>when</strong> condition <strong>then</strong>
       y = 7 - 2*x;        // fine
-   <strong>end when</strong>;</pre>
+   <strong>end when</strong>;</pre></blockquote>
 
 <p><em>Here, variable y is held constant when the when-clause is de-activated and x
 is computed from the first equation using the value of y from the previous event instant.</em></p>
@@ -6892,7 +6851,7 @@ is computed from the first equation using the value of y from the previous event
 one assignment within the when-clause and instead use several algorithms having when-clauses
 with identical conditions, e.g.,</em></p>
 
-<pre> <strong>algorithm</strong>
+<blockquote><pre> <strong>algorithm</strong>
    <strong>when</strong> x &gt; 2 <strong>then</strong>
      y1 := sin(x);
    <strong>end when</strong>;
@@ -6901,25 +6860,25 @@ with identical conditions, e.g.,</em></p>
  <strong>algorithm</strong>
    <strong>when</strong> x &gt; 2 <strong>then</strong>
      y3 := 2*x + y1 + y2;
-   <strong>end when</strong>;</pre>
+   <strong>end when</strong>;</pre></blockquote>
 
 <p><em>Merging the when-clauses can lead to less efficient code and different models
 with different behaviour depending on the order of the assignment to y1 and y3 in the algorithm.]</em></p>
 
 <p>A when clause</p>
 
-<pre> <strong>algorithm
+<blockquote><pre> <strong>algorithm
    when</strong> {x&gt;1, <strong>..., </strong>y&gt;p} <strong>then
      ...
    elsewhen</strong> x &gt; y.start <strong>then
      ...
-   end when</strong>;</pre>
+   end when</strong>;</pre></blockquote>
 
 <p>is equivalent to the following special if-clause, where Boolean b1[N]
 and Boolean b2 are necessary because the <strong>edge</strong>() operator can only
 be applied to variables</p>
 
-<pre>   Boolean b1[N](start={x.start&gt;1,<strong> ..., </strong>y.start&gt;p});
+<blockquote><pre>   Boolean b1[N](start={x.start&gt;1,<strong> ..., </strong>y.start&gt;p});
    Boolean b2(start=x.start&gt;y.start);
  <strong>algorithm</strong>
    b1:={x&gt;1, ..., y&gt;p};
@@ -6929,7 +6888,7 @@ be applied to variables</p>
      ...
    elseif edge</strong>(b2) <strong>then
      ...
-   end if</strong>;</pre>
+   end if</strong>;</pre></blockquote>
 
 <p>with &quot;<strong>edge</strong>(A)= A <strong>and not pre</strong>(A)&quot; and the additional
 guarantee, that the algorithms within this special if clause are only evaluated
@@ -6937,19 +6896,19 @@ at event instants.</p>
 
 <p>A when-clause</p>
 
-<pre> <strong>equation
+<blockquote><pre> <strong>equation
    when</strong> x&gt;2 <strong>then</strong>
      v1 = expr1 ;
      v2 = expr2 ;
-   <strong>end when</strong>;</pre>
+   <strong>end when</strong>;</pre></blockquote>
 
 <p>is equivalent to the following special if-expressions</p>
 
-<pre>   Boolean b(start=x.start&gt;2);
+<blockquote><pre>   Boolean b(start=x.start&gt;2);
  <strong>equation</strong>
    b  = x&gt;2;
    v1 = <strong>if edge</strong>(b) <strong>then</strong> expr1 <strong>else pre</strong>(v1);
-   v2 = <strong>if edge</strong>(b) <strong>then</strong> expr2 <strong>else pre</strong>(v2);</pre>
+   v2 = <strong>if edge</strong>(b) <strong>then</strong> expr2 <strong>else pre</strong>(v2);</pre></blockquote>
 
 <p>The start-values of the introduced Boolean variables are defined by
 the taking the start-value of the when-condition, as above where p is a
@@ -6962,11 +6921,11 @@ parameter variable. The start-values of the special functions
 
 <p><em>The following when clause is invalid:</em></p>
 
-<pre>   <strong>when</strong> x &gt; 2 <strong>then
+<blockquote><pre>   <strong>when</strong> x &gt; 2 <strong>then
      when</strong> y1 &gt; 3 <strong>then</strong>
        y2 = sin(x);
      <strong>end when</strong>;
-   <strong>end when</strong>;</pre>
+   <strong>end when</strong>;</pre></blockquote>
 
 <p><em>]</em></p>
 </html>"));
@@ -6980,19 +6939,19 @@ class 'while' "while"
 Repeat statements as long as a condition is fulfilled
 </p>
 <h4>Examples</h4>
-<pre>    Integer i;
+<blockquote><pre>    Integer i;
   <strong>algorithm</strong>
     i := 1;
     <strong>while</strong> i &lt; 10 <strong>loop</strong>
       i := i + 1;
       <strong>...
-    end while</strong>;</pre>
+    end while</strong>;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<pre>  <strong>while</strong> expression <strong>loop</strong>
+<blockquote><pre>  <strong>while</strong> expression <strong>loop</strong>
     { algorithm \";\" }
-  <strong>end while</strong></pre>
+  <strong>end while</strong></pre></blockquote>
 
 <h4>Description</h4>
 

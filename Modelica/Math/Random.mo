@@ -961,12 +961,12 @@ This function should be only called once during initialization.
 </p>
 
 <h4>Example</h4>
-<pre>
-     <strong>parameter</strong> Boolean useAutomaticSeed = false;
-     <strong>parameter</strong> Integer fixedSeed = 67867967;
-     <strong>final parameter</strong> Integer seed = <strong>if</strong> useAutomaticSeed <strong>then</strong>
-                                   Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;
-</pre>
+<blockquote><pre>
+<strong>parameter</strong> Boolean useAutomaticSeed = false;
+<strong>parameter</strong> Integer fixedSeed = 67867967;
+<strong>final parameter</strong> Integer seed = <strong>if</strong> useAutomaticSeed <strong>then</strong>
+                              Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;
+</pre></blockquote>
 
 <h4>See also</h4>
 <p>

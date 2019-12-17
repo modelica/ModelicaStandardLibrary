@@ -1264,9 +1264,9 @@ To be more precise:
 The block constructs (conceptually) a clock &ldquo;cBase&rdquo;
 </p>
 
-<pre>
-   <strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), shiftCounter)
-</pre>
+<blockquote><pre>
+<strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), shiftCounter)
+</pre></blockquote>
 
 <p>
 and the clock of y starts at the second clock tick of cBase. At every tick of the clock of y,
@@ -1404,9 +1404,9 @@ To be more precise:
 The block constructs (conceptually) a clock &ldquo;cBase&rdquo;
 </p>
 
-<pre>
-   <strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), backCounter)
-</pre>
+<blockquote><pre>
+<strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), backCounter)
+</pre></blockquote>
 
 <p>
 and the first clock tick of y is shifted before the first tick of the clock of u,
@@ -2553,11 +2553,12 @@ as output.
 pseudo-random numbers. The algorithm is a variant of the
 multiplicative congruential algorithm, known as the
 Wichmann-Hill generator:
-<pre>    x(k) = (a1*x(k-1)) mod m1
-    y(k) = (a2*y(k-1)) mod m2
-    z(k) = (a3*z(k-1)) mod m3
-    U(k) = (x(k)/m1 + y(k)/m2 + z(k)/m3) mod 1
-</pre>
+<blockquote><pre>
+x(k) = (a1*x(k-1)) mod m1
+y(k) = (a2*y(k-1)) mod m2
+z(k) = (a3*z(k-1)) mod m3
+U(k) = (x(k)/m1 + y(k)/m2 + z(k)/m3) mod 1
+</pre></blockquote>
 This generates pseudo-random numbers U(k) uniformly distributed
 in the interval (0,1). There are many forms of generators depending
 on the parameters m (prime numbers) and a. The sequence needs an
@@ -2587,29 +2588,29 @@ distribution. There are two types of techniques for transforming random variates
  Englewood Cliffs, New Jersey<br>
  </address>
 <p>Some of the other references are quoted below.</p>
-<pre>
-        WICHMANN-HILL RANDOM NUMBER GENERATOR
-        Wichmann, B. A. & Hill, I. D. (1982)
-          Algorithm AS 183:
-          An efficient and portable pseudo-random number generator
-          Applied Statistics 31 (1982) 188-190
-        see also:
-          Correction to Algorithm AS 183
-          Applied Statistics 33 (1984) 123
-        McLeod, A. I. (1985)
-          A remark on Algorithm AS 183
-          Applied Statistics 34 (1985),198-200
-        In order to completely avoid external functions, all seeds are
-        set via parameters. For simulation purposes this is almost
-        always the desired behaviour.
-        Translated by Hubertus Tummescheit from Python source provided by
-        Guido van Rossum translated from C source by Adrian Baddeley.
-        http://www.python.org/doc/current/lib/module-random.html
-        R A N D O M   V A R I A B L E   G E N E R A T O R S
-        distributions on the real line:
-        ------------------------------
-            normal (Gaussian) 2 versions
-</pre>
+<blockquote><pre>
+WICHMANN-HILL RANDOM NUMBER GENERATOR
+Wichmann, B. A. & Hill, I. D. (1982)
+  Algorithm AS 183:
+  An efficient and portable pseudo-random number generator
+  Applied Statistics 31 (1982) 188-190
+see also:
+  Correction to Algorithm AS 183
+  Applied Statistics 33 (1984) 123
+McLeod, A. I. (1985)
+  A remark on Algorithm AS 183
+  Applied Statistics 34 (1985),198-200
+In order to completely avoid external functions, all seeds are
+set via parameters. For simulation purposes this is almost
+always the desired behaviour.
+Translated by Hubertus Tummescheit from Python source provided by
+Guido van Rossum translated from C source by Adrian Baddeley.
+http://www.python.org/doc/current/lib/module-random.html
+R A N D O M   V A R I A B L E   G E N E R A T O R S
+distributions on the real line:
+------------------------------
+    normal (Gaussian) 2 versions
+</pre></blockquote>
 <h4>Reference Literature:</h4>
 <ul>
 <li>function random: Wichmann, B. A. & Hill, I. D. (1982), Algorithm AS 183:
@@ -2805,14 +2806,14 @@ block to model super-sampling with interpolation and filtering.
 Discrete-time PI controller that has been derived from the continuous-time
 PI controller
 </p>
-<pre>
-                 1
-   y = k * (1 + ---) * u
-                T*s
-           T*s + 1
-     = k * ------- * u
+<blockquote><pre>
+              1
+y = k * (1 + ---) * u
              T*s
-</pre>
+        T*s + 1
+  = k * ------- * u
+          T*s
+</pre></blockquote>
 <p>
 by using the implicit Euler discretization formula. The block is
 parametrized with the gain k and the time constant T of the continuous
@@ -2847,15 +2848,15 @@ will give still a similar performance.
 <p>
 This block describes a unit delay:
 </p>
-<pre>
-  // Time domain description
-     y(ti) = previous(u(ti))
+<blockquote><pre>
+// Time domain description
+   y(ti) = previous(u(ti))
 
-  // Discrete transfer function
-             1
-     y(z) = --- * u(z)
-             z
-</pre>
+// Discrete transfer function
+           1
+   y(z) = --- * u(z)
+           z
+</pre></blockquote>
 
 <p>
 that is, the output signal y is the input signal u at the
@@ -2997,30 +2998,30 @@ and from the duration of the last interval.
 This block defines the state space representation of a discrete-time block
 with input vector u, output vector y and state vector x:
 </p>
-<pre>
-    x = A * previous(x) + B * u
-    y = C * previous(x) + D * u
-</pre>
+<blockquote><pre>
+x = A * previous(x) + B * u
+y = C * previous(x) + D * u
+</pre></blockquote>
 <p>
 where previous(x) is the value of the clocked state x at
 the previous clock tick.
 The input is a vector of length nu, the output is a vector
 of length ny and nx is the number of states. Accordingly
 </p>
-<pre>
-        A has the dimension: A(nx,nx),
-        B has the dimension: B(nx,nu),
-        C has the dimension: C(ny,nx),
-        D has the dimension: D(ny,nu)
-</pre>
+<blockquote><pre>
+A has the dimension: A(nx,nx),
+B has the dimension: B(nx,nu),
+C has the dimension: C(ny,nx),
+D has the dimension: D(ny,nu)
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-     parameter: A = [0.12, 2;3, 1.5]
-     parameter: B = [2, 7;3, 1]
-     parameter: C = [0.1, 2]
-     parameter: D = zeros(ny,nu)
+<blockquote><pre>
+  parameter: A = [0.12, 2;3, 1.5]
+  parameter: B = [2, 7;3, 1]
+  parameter: C = [0.1, 2]
+  parameter: D = zeros(ny,nu)
 
 results in the following equations:
   [x[1]]   [0.12  2.00] [previous(x[1])]   [2.0  7.0] [u[1]]
@@ -3030,7 +3031,7 @@ results in the following equations:
                         [previous(x[1])]            [u[1]]
   y[1]   = [0.1  2.0] * [              ] + [0  0] * [    ]
                         [previous(x[2])]            [u[2]]
-</pre>
+</pre></blockquote>
 </html>",     revisions="<html>
 <p><strong>Release Notes:</strong></p>
 <ul>
@@ -3106,21 +3107,24 @@ results in the following equations:
 transfer function between the input signal u and the output
 signal y. The numerator has the order nb-1, the denominator
 has the order na-1.</p>
-<pre>          b(1)*z^(nb-1) + b(2)*z^(nb-2) + &hellip; + b(nb)
-   y(z) = -------------------------------------------- * u(z)
-          a(1)*z^(na-1) + a(2)*z^(na-2) + &hellip; + a(na)
-</pre>
+<blockquote><pre>
+       b(1)*z^(nb-1) + b(2)*z^(nb-2) + &hellip; + b(nb)
+y(z) = -------------------------------------------- * u(z)
+       a(1)*z^(na-1) + a(2)*z^(na-2) + &hellip; + a(na)
+</pre></blockquote>
 <p>State variables <strong>x</strong> are defined according to
 <strong>controller canonical</strong> form. Initial values of the
 states can be set as start values of <strong>x</strong>.</p>
 <p>Example:</p>
-<pre>     TransferFunction g(b = {2,4}, a = {1,3});
-</pre>
+<blockquote><pre>
+TransferFunction g(b = {2,4}, a = {1,3});
+</pre></blockquote>
 <p>results in the following transfer function:</p>
-<pre>        2*z + 4
-   y = --------- * u
-         z + 3
-</pre>
+<blockquote><pre>
+     2*z + 4
+y = --------- * u
+      z + 3
+</pre></blockquote>
 
 </html>",   revisions="<html>
 <p><strong>Release Notes:</strong></p>
@@ -3230,7 +3234,7 @@ states can be set as start values of <strong>x</strong>.</p>
 <p>
 This block defines a discrete-time PI controller by the formula:
 </p>
-<pre>
+<blockquote><pre>
 // State space form:
    x(ti) = previous(x(ti)) + u(ti)/Td;
    y(ti) = kd*(x(ti) + u(ti));
@@ -3238,7 +3242,7 @@ This block defines a discrete-time PI controller by the formula:
 // Transfer function form:
    y(z) = kd*(c*z-1)/(z-1)*u(z);
           c = 1 + 1/Td
-</pre>
+</pre></blockquote>
 <p>
 where kd is the gain, Td is the time constant, ti is the time instant
 of the i-th clock tick and z is the inverse shift operator.
@@ -3283,9 +3287,9 @@ form of a PI controller by using the implicit Euler discretization formula.
 This block computes the output y as the average of the input u and of
 its past values (= moving average filter):
 </p>
-<pre>
- y(i) = ( u(i) + u(i-1) + u(i-2) + &hellip; ) / n
-</pre>
+<blockquote><pre>
+y(i) = ( u(i) + u(i-1) + u(i-2) + &hellip; ) / n
+</pre></blockquote>
 <p>
 where y(i) and u(i) are the values of y and u at clock tick i, and n are the number of
 u and past u values that are taken into account.
@@ -3365,9 +3369,9 @@ contrary to a general FIR filter.
 This block computes the output y as a linear combination of the input u
 and of its past values (= FIR filter):
 </p>
-<pre>
- y(i) = a[1]*u(i) + a[2]*u(i-1) + a[3]*u(i-2) + &hellip;
-</pre>
+<blockquote><pre>
+y(i) = a[1]*u(i) + a[2]*u(i-1) + a[3]*u(i-2) + &hellip;
+</pre></blockquote>
 <p>
 where y(i) and u(i) are the values of y and u at clock tick i and
 a[:] are the filter coefficients.

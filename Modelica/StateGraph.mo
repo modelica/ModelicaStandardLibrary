@@ -152,9 +152,9 @@ shall be open, when the StateGraph is in \"step1\" or
 in \"step4\", a \"SetBoolean\" block may be connected to the
 valve model using the following condition:
 </p>
-<pre>
-    valve = step1.active <strong>or</strong> step2.active
-</pre>
+<blockquote><pre>
+valve = step1.active <strong>or</strong> step2.active
+</pre></blockquote>
 <p>
 Via the Modelica operators <strong>edge</strong>(..) and <strong>change</strong>(..),
 conditions depending on rising and falling edges of
@@ -211,9 +211,9 @@ To emphasize this important difference between these methodologies,
 consider the case that a state machine has the following
 hierarchy:
 </p>
-<pre>
-   stateMachine.superstate1.superstate2.step1
-</pre>
+<blockquote><pre>
+stateMachine.superstate1.superstate2.step1
+</pre></blockquote>
 <p>
 Within \"step1\" a StateChart would, e.g., access variable
 \"stateMachine.openValve\", say as \"entry action: openValve = true\".
@@ -226,9 +226,9 @@ component.
 In a StateGraph, there would be typically a \"SetBoolean\" component
 in the \"stateMachine\" component stating:
 </p>
-<pre>
-    openValve = superstate1.superstate2.step1.active;
-</pre>
+<blockquote><pre>
+openValve = superstate1.superstate2.step1.active;
+</pre></blockquote>
 <p>
 As a result, the \"superstate1\" component can be used in
 another context, because it does not depend on the environment
@@ -462,9 +462,9 @@ defined in the stateGraph. Instead via the \"<strong>setValveX</strong>\"
 components, the Boolean state of the valves are computed.
 For example, the output y of \"setValve2\" is computed as:
 </p>
-<pre>
-  y = makeProduct.fillTank2.active or emptyTanks.active
-</pre>
+<blockquote><pre>
+y = makeProduct.fillTank2.active or emptyTanks.active
+</pre></blockquote>
 <p>
 i.e., valve2 is open, when step \"makeProduct.fillTank2 or when
 step \"emptyTanks\" is active. Otherwise, valve2 is closed.

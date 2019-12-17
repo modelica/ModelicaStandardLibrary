@@ -249,9 +249,9 @@ non-linear systems are small and local as opposed to large and over all volumes.
 <p>
 Entropy is calculated as
 </p>
-<pre>
-  s = s0 + integral(Cp(T)/T,dt)
-</pre>
+<blockquote><pre>
+s = s0 + integral(Cp(T)/T,dt)
+</pre></blockquote>
 <p>
 which is only exactly true for a fluid with constant density d=d0.
 </p>
@@ -532,13 +532,13 @@ To implement a new medium model, create a package that <strong>extends</strong> 
 and provides one or more of the constant tables:
 </p>
 
-<pre>
+<blockquote><pre>
 tableDensity        = [T, d];
 tableHeatCapacity   = [T, Cp];
 tableConductivity   = [T, lam];
 tableViscosity      = [T, eta];
 tableVaporPressure  = [T, pVap];
-</pre>
+</pre></blockquote>
 
 <p>
 The table data is used to fit constant polynomials of order <strong>npol</strong>, the

@@ -1053,24 +1053,25 @@ contains utility blocks that are used as building blocks for user-relevant block
             textColor = {160,160,164},
             textString = "change()")}),
         Documentation(info="<html><p>
-    This block is a synchronous version of
-    <a href=\"Modelica.Blocks.Math.IntegerChange\">Modelica.Blocks.Math.IntegerChange</a>.
-    It uses <code>previous</code> instead of the implicit <code>pre</code> of
-    <code>change</code> to set the Boolean output <code>y</code> to
-    <code>true</code> when the integer input <code>u</code> changed. Thus, it's
-    logic is:</p>
-    <pre><code>
-    if firstTick() then
-      y = false;
-    else
-      y = not (u == previous(u));
-    end if;</code></pre>
-    <p>
-    <strong>This block might be superfluous and replaced by
-    </strong><code>Modelica.Blocks.Math.IntegerChange</code><strong> when the semantics
-    of </strong><code>change</code><strong> are relaxed and well-defined for
-    clocked discrete-time partitions.</strong></p>
-    </html>"));
+This block is a synchronous version of
+<a href=\"Modelica.Blocks.Math.IntegerChange\">Modelica.Blocks.Math.IntegerChange</a>.
+It uses <code>previous</code> instead of the implicit <code>pre</code> of
+<code>change</code> to set the Boolean output <code>y</code> to
+<code>true</code> when the integer input <code>u</code> changed. Thus, it's
+logic is:</p>
+<blockquote><pre>
+if firstTick() then
+  y = false;
+else
+  y = not (u == previous(u));
+end if;
+</pre></blockquote>
+<p>
+<strong>This block might be superfluous and replaced by
+</strong><code>Modelica.Blocks.Math.IntegerChange</code><strong> when the semantics
+of </strong><code>change</code><strong> are relaxed and well-defined for
+clocked discrete-time partitions.</strong></p>
+</html>"));
     end IntegerChange;
 
     block UnitDelay "Delay the clocked input signal for one sample period"
@@ -1097,15 +1098,15 @@ contains utility blocks that are used as building blocks for user-relevant block
 <p>
 This block describes a unit delay:
 </p>
-<pre>
-  // Time domain description
-     y(ti) = previous(u(ti))
+<blockquote><pre>
+// Time domain description
+   y(ti) = previous(u(ti))
 
-  // Discrete transfer function
-             1
-     y(z) = --- * u(z)
-             z
-</pre>
+// Discrete transfer function
+           1
+   y(z) = --- * u(z)
+           z
+</pre></blockquote>
 
 <p>
 that is, the output signal y is the input signal u at the

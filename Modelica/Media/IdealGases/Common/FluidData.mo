@@ -696,7 +696,7 @@ This package contains FluidConstants data records for the following 37 gases
 (see also the description in
 <a href=\"modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):
 </p>
-<pre>
+<blockquote><pre>
 Argon             Methane          Methanol       Carbon Monoxide  Carbon Dioxide
 Acetylene         Ethylene         Ethanol        Ethane           Propylene
 Propane           1-Propanol       1-Butene       N-Butane         1-Pentene
@@ -705,7 +705,7 @@ N-Heptane         Ethylbenzene     N-Octane       Chlorine         Fluorine
 Hydrogen          Steam            Helium         Ammonia          Nitric Oxide
 Nitrogen Dioxide  Nitrogen         Nitrous        Oxide            Neon Oxygen
 Sulfur Dioxide    Sulfur Trioxide
-</pre>
+</pre></blockquote>
 
 </html>"));
 end FluidData;

@@ -105,8 +105,7 @@ The details of the model are described in the
       extends Modelica.Fluid.Interfaces.PartialPressureLoss;
 
       parameter
-        Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry
-                                                                                geometry
+        Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry geometry
         "Geometry of thick edged orifice"
           annotation (Placement(transformation(extent={{-20,0},{0,20}})),
           choices(
@@ -229,10 +228,10 @@ This component models a generic resistance parameterized
 with the volume flow rate:
 </p>
 
-<pre>
-    dp     = a*V_flow^2 + b*V_flow
-    m_flow = rho*V_flow
-</pre>
+<blockquote><pre>
+dp     = a*V_flow^2 + b*V_flow
+m_flow = rho*V_flow
+</pre></blockquote>
 
 <p>
 with
@@ -389,9 +388,10 @@ simple, generic orifice, where the loss factor &zeta; is provided
 for one flow direction (e.g., from loss table of a book):
 </p>
 
-<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
-</pre>
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+</pre></blockquote>
 
 <p>
 where
@@ -791,15 +791,15 @@ of the modeller.
       SI.Diameter D_Re "Diameter used to compute Re" annotation(Dialog);
       Boolean zeta1_at_a = true
           "dp = zeta1*(if zeta1_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
-                                                                        annotation(Dialog);
+          annotation(Dialog);
       Boolean zeta2_at_a = false
           "dp = -zeta2*(if zeta2_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
-                                                                         annotation(Dialog);
+          annotation(Dialog);
       Boolean zetaLaminarKnown = false
           "= true, if zeta = c0/Re in laminar region" annotation(Dialog);
       Real c0 = 1
           "zeta = c0/Re; dp = zeta*rho_Re*v_Re^2/2, Re=v_Re*D_Re*rho_Re/mu_Re)"
-                                                                                        annotation(Dialog(enable=zetaLaminarKnown));
+          annotation(Dialog(enable=zetaLaminarKnown));
 
        encapsulated function wallFriction
           "Return pressure loss data due to friction in a straight pipe with walls of nonuniform roughness (not useful for smooth pipes, since zeta is no function of Re)"
@@ -870,17 +870,17 @@ Friction in straight pipe with walls of nonuniform roughness
 The loss factors are given for mass flow rates from
 port_a to port_b as:
 </p>
-<pre>
-  turbulent flow (Idelchik 1994, diagram 2-5, p. 117)
-     zeta = (L/D)/(2*lg(3.7 / &Delta;))^2, for Re >= 560/&Delta;
-&nbsp;
-     for Re &ge; 560/&Delta; the loss factor does not depend on the
-     Reynolds number. For Re &ge; 4000, the flow is turbulent,
-     but depends both on &Delta; and slightly on Re.
-&nbsp;
-  laminar flow (Idelchik 1994, diagram 2-1, p. 110):
-     zeta = 64*(L/D)/Re
-</pre>
+<blockquote><pre>
+turbulent flow (Idelchik 1994, diagram 2-5, p. 117)
+   zeta = (L/D)/(2*lg(3.7 / &Delta;))^2, for Re >= 560/&Delta;
+
+   for Re &ge; 560/&Delta; the loss factor does not depend on the
+   Reynolds number. For Re &ge; 4000, the flow is turbulent,
+   but depends both on &Delta; and slightly on Re.
+
+laminar flow (Idelchik 1994, diagram 2-1, p. 110):
+   zeta = 64*(L/D)/Re
+</pre></blockquote>
 <p>
 where
 </p>
@@ -1021,17 +1021,17 @@ As a short summary:
 The loss factors are given for mass flow rates from
 port_a to port_b as:
 </p>
-<pre>
-   A_a &lt; A_b (Idelchik 1994, diagram 4-1, p. 208):
-      zeta = dp/(rho_a*v_a^2/2)
-           = (1 - A_a/A_b)^2 for Re_a &ge; 3.3e3 (turbulent flow)
-      zeta = 30/Re           for Re_a &lt; 10    (laminar flow)
-&nbsp;
-   A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
-      zeta = dp/(rho_b*v_b^2/2)
-           = 0.5*(1 - A_b/A_a)^0.75 for Re_b &ge; 1e4 (turbulent flow)
-      zeta = 30/Re                  for Re_a &lt; 10  (laminar flow)
-</pre>
+<blockquote><pre>
+A_a &lt; A_b (Idelchik 1994, diagram 4-1, p. 208):
+   zeta = dp/(rho_a*v_a^2/2)
+        = (1 - A_a/A_b)^2 for Re_a &ge; 3.3e3 (turbulent flow)
+   zeta = 30/Re           for Re_a &lt; 10    (laminar flow)
+
+A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
+   zeta = dp/(rho_b*v_b^2/2)
+        = 0.5*(1 - A_b/A_a)^0.75 for Re_b &ge; 1e4 (turbulent flow)
+   zeta = 30/Re                  for Re_a &lt; 10  (laminar flow)
+</pre></blockquote>
 </html>"));
        end suddenExpansion;
 
@@ -1134,24 +1134,24 @@ port_a to port_b as:
 Loss factor for mass flow rate from port_a to port_b
 (Idelchik 1994, diagram 4-14, p. 221):
 </p>
-<pre>
-   zeta = [(1-A0/A1) + 0.707*(1-A0/A1)^0.375]^2*(A1/A0)^2
-          for Re(A0) >= 1e5,  independent of alpha
-</pre>
+<blockquote><pre>
+zeta = [(1-A0/A1) + 0.707*(1-A0/A1)^0.375]^2*(A1/A0)^2
+       for Re(A0) &ge; 1e5,  independent of alpha
+</pre></blockquote>
 <p>
 Loss factor for mass flow rate from port_b to port_a
 (Idelchik 1994, diagram 4-13, p. 220, with A2=A1):
 </p>
-<pre>
-   zeta = k*(1 - A0/A1)^0.75 + (1 - A0/A1)^2 + 2*sqrt(k*(1-A0/A1)^0.375) + (1- A0/A1)
-          k  = 0.13 + 0.34*10^(-(3.4*LD+88.4*LD^2.3))
-               (there is a typing error in the formula in diagram 4-13, the above
-                equation corresponds to table (a) in diagram 4-12)
-          LD = L/D0
-          for Re(A0) >= 1e4, 40 deg &le; alpha &le; 60 deg
-                             for other values of alpha, k is given as table
-                             in diagram 3-7 (this is not yet included in the function)
-</pre
+<blockquote><pre>
+zeta = k*(1 - A0/A1)^0.75 + (1 - A0/A1)^2 + 2*sqrt(k*(1-A0/A1)^0.375) + (1- A0/A1)
+       k  = 0.13 + 0.34*10^(-(3.4*LD+88.4*LD^2.3))
+            (there is a typing error in the formula in diagram 4-13, the above
+             equation corresponds to table (a) in diagram 4-12)
+       LD = L/D0
+       for Re(A0) &ge; 1e4, 40 deg &le; alpha &le; 60 deg
+                          for other values of alpha, k is given as table
+                          in diagram 3-7 (this is not yet included in the function)
+</pre></blockquote>
 </html>"));
        end sharpEdgedOrifice;
 
@@ -1168,11 +1168,12 @@ It is also an option to provide the loss factor <strong>only</strong> for the
 <p>
 The following equations are used:
 </p>
-<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
-      = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
-        Re = |v|*D*&rho;/&mu;
-</pre>
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+   = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+     Re = |v|*D*&rho;/&mu;
+</pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>flow type</strong></td>
     <td><strong>&zeta;</strong> = </td>
@@ -1640,10 +1641,11 @@ It is also an option to provide the loss factor <strong>only</strong> for the
 <p>
 The following equations are used:
 </p>
-<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
-        Re = |v|*D*&rho;/&mu;
-</pre>
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+     Re = |v|*D*&rho;/&mu;
+</pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>flow type</strong></td>
     <td><strong>&zeta;</strong> = </td>
@@ -1894,10 +1896,11 @@ It is also an option to provide the loss factor <strong>only</strong> for the
 <p>
 The following equations are used:
 </p>
-<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
-        Re = |v|*D*&rho;/&mu;
-</pre>
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+     Re = |v|*D*&rho;/&mu;
+</pre></blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>flow type</strong></td>
     <td><strong>&zeta;</strong> = </td>
@@ -2040,10 +2043,11 @@ It is also an option to provide the loss factor <strong>only</strong> for the
 Basically, the pressure drop is defined by the following
 equation:
 </p>
-<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
-      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
-      = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
-</pre>
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+   = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+</pre></blockquote>
 <p>
 where
 </p>

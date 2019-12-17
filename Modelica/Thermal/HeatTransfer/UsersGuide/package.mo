@@ -39,9 +39,10 @@ The variables of a HeatPort connector are the temperature <strong>T</strong> at 
 and the heat flow rate <strong>Q_flow</strong> flowing into the component (if Q_flow is positive,
 the heat flows into the element, otherwise it flows out of the element):
 </p>
-<pre>   Modelica.SIunits.Temperature  T  \"Absolute temperature at port in Kelvin\";
-   Modelica.SIunits.HeatFlowRate Q_flow  \"Flow rate at the port in Watt\";
-</pre>
+<blockquote><pre>
+Modelica.SIunits.Temperature  T  \"Absolute temperature at port in Kelvin\";
+Modelica.SIunits.HeatFlowRate Q_flow  \"Flow rate at the port in Watt\";
+</pre></blockquote>
 <p>
 Note, that all temperatures of this package, including initial conditions,
 are given in Kelvin. For convenience, in subpackages <strong>HeatTransfer.Celsius</strong>,
@@ -51,11 +52,12 @@ respectively. Additionally, in package <strong>SIunits.Conversions</strong> conv
 functions between the units Kelvin and Celsius, Fahrenheit, Rankine are
 provided. These functions may be used in the following way:
 </p>
-<pre>  <strong>import</strong> Modelica.SIunits;
-  <strong>import</strong> Modelica.SIunits.Conversions.from_degC;
-     ...
-  <strong>parameter</strong> SIunits.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
-</pre>
+<blockquote><pre>
+<strong>import</strong> Modelica.SIunits;
+<strong>import</strong> Modelica.SIunits.Conversions.from_degC;
+...
+<strong>parameter</strong> SIunits.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
+</pre></blockquote>
 
 <p>
 There are several other components available, such as AxialConduction (discretized PDE in

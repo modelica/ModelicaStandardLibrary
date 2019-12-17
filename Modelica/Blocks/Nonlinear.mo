@@ -405,10 +405,10 @@ function of the input with a slope of 1.
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-<pre>
-   y = u(time - delayTime) for time &gt; time.start + delayTime
-     = u(time.start)       for time &le; time.start + delayTime
-</pre>
+<blockquote><pre>
+y = u(time - delayTime) for time &gt; time.start + delayTime
+  = u(time.start)       for time &le; time.start + delayTime
+</pre></blockquote>
 </html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
@@ -588,19 +588,19 @@ The Input signal is delayed by a given time instant, or more precisely:
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-<pre>
-   y = u(time - delayTime) for time &gt; time.start + delayTime
-     = u(time.start)       for time &le; time.start + delayTime
-</pre>
+<blockquote><pre>
+y = u(time - delayTime) for time &gt; time.start + delayTime
+  = u(time.start)       for time &le; time.start + delayTime
+</pre></blockquote>
 <p>
 The delay is approximated by a Pade approximation, i.e., by
 a transfer function
 </p>
-<pre>
-           b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
-   y(s) = --------------------------------------------- * u(s)
-           a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
-</pre>
+<blockquote><pre>
+        b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
+y(s) = --------------------------------------------- * u(s)
+        a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
+</pre></blockquote>
 <p>
 where the coefficients b[:] and a[:] are calculated such that the
 coefficients of the Taylor expansion of the delay exp(-T*s) around s=0
@@ -751,16 +751,17 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-<pre>
-   y = u(time - delayTime) for time &gt; time.start + delayTime
-     = u(time.start)       for time &le; time.start + delayTime
-</pre>
+<blockquote><pre>
+y = u(time - delayTime) for time &gt; time.start + delayTime
+  = u(time.start)       for time &le; time.start + delayTime
+</pre></blockquote>
 <p>
 where delayTime is an additional input signal which must follow
 the following relationship:
 </p>
-<pre>  0 &le; delayTime &le; delayMax
-</pre>
+<blockquote><pre>
+0 &le; delayTime &le; delayMax
+</pre></blockquote>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Text(extent={{-100.0,-148.0},{100.0,-108.0}},

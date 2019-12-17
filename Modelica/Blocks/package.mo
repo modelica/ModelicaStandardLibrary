@@ -481,18 +481,18 @@ This example demonstrates how to construct an inverse model in Modelica
 For a linear, single input, single output system
 </p>
 
-<pre>
-   y = n(s)/d(s) * u   // plant model
-</pre>
+<blockquote><pre>
+y = n(s)/d(s) * u   // plant model
+</pre></blockquote>
 
 <p>
 the inverse model is derived by simply exchanging the numerator and
 the denominator polynomial:
 </p>
 
-<pre>
-   u = d(s)/n(s) * y   // inverse plant model
-</pre>
+<blockquote><pre>
+u = d(s)/n(s) * y   // inverse plant model
+</pre></blockquote>
 
 <p>
 If the denominator polynomial d(s) has a higher degree as the
@@ -503,9 +503,9 @@ a sufficient number of poles to the denominator of the inverse model.
 This can be interpreted as filtering the desired output signal y:
 </p>
 
-<pre>
-   u = d(s)/(n(s)*f(s)) * y  // inverse plant model with filtered y
-</pre>
+<blockquote><pre>
+u = d(s)/(n(s)*f(s)) * y  // inverse plant model with filtered y
+</pre></blockquote>
 
 <p>
 With Modelica it is in principal possible to construct inverse models not only
@@ -1043,11 +1043,12 @@ the buses for this example are defined. Both the \"ControlBus\" and the \"SubCon
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
 is defined as:
 </p>
-<pre>  <strong>expandable connector</strong> ControlBus
-      <strong>extends</strong> Modelica.Icons.ControlBus;
-      <strong>annotation</strong> ();
-  <strong>end</strong> ControlBus;
-</pre>
+<blockquote><pre>
+<strong>expandable connector</strong> ControlBus
+    <strong>extends</strong> Modelica.Icons.ControlBus;
+    <strong>annotation</strong> ();
+<strong>end</strong> ControlBus;
+</pre></blockquote>
 <p>
 Note, the \"annotation\" in the connector is important since the color
 and thickness of a connector line are taken from the first
@@ -1072,8 +1073,9 @@ The \"Add variable/New name\" field allows the user to define the name of the si
 the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of the form:
 </p>
 
-<pre>     <strong>connect</strong>(sine.y, controlBus.realSignal1)
-</pre>
+<blockquote><pre>
+<strong>connect</strong>(sine.y, controlBus.realSignal1)
+</pre></blockquote>
 
 <p>
 is generated and the \"controlBus\" contains the new signal \"realSignal1\". Modelica tools
@@ -1083,17 +1085,18 @@ the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" a
 For example \"Internal.ControlBus\" is defined as:
 </p>
 
-<pre>  <strong>expandable connector</strong> StandardControlBus
-    <strong>extends</strong> BusUsage_Utilities.Interfaces.ControlBus;
+<blockquote><pre>
+<strong>expandable connector</strong> StandardControlBus
+  <strong>extends</strong> BusUsage_Utilities.Interfaces.ControlBus;
 
-    <strong>import</strong> SI = Modelica.SIunits;
-    SI.AngularVelocity    realSignal1   \"First Real signal\";
-    SI.Velocity           realSignal2   \"Second Real signal\";
-    Integer               integerSignal \"Integer signal\";
-    Boolean               booleanSignal \"Boolean signal\";
-    StandardSubControlBus subControlBus \"Combined signal\";
-  <strong>end</strong> StandardControlBus;
-</pre>
+  <strong>import</strong> SI = Modelica.SIunits;
+  SI.AngularVelocity    realSignal1   \"First Real signal\";
+  SI.Velocity           realSignal2   \"Second Real signal\";
+  Integer               integerSignal \"Integer signal\";
+  Boolean               booleanSignal \"Boolean signal\";
+  StandardSubControlBus subControlBus \"Combined signal\";
+<strong>end</strong> StandardControlBus;
+</pre></blockquote>
 
 <p>
 Consequently, when connecting now from \"sine.y\" to \"controlBus\", the menu
@@ -3026,14 +3029,14 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
        Michael Tiller:<br>
        Introduced a replaceable signal type into
        Blocks.Interfaces.RealInput/RealOutput:
-<pre>
-   replaceable type SignalType = Real
-</pre>
+<blockquote><pre>
+replaceable type SignalType = Real
+</pre></blockquote>
        in order that the type of the signal of an input/output block
        can be changed to a physical type, for example:
-<pre>
-   Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
-</pre>
+<blockquote><pre>
+Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
+</pre></blockquote>
       </li>
 <li><em>Sept. 18, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>

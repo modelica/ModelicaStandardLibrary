@@ -74,9 +74,9 @@ way:
 
 <li> Models that are added to this library should have the annotation
      (with an appropriate StopTime):
-     <pre>
+     <blockquote><pre>
          <strong>annotation</strong>(experiment(StopTime=1.1));
-     </pre>
+     </pre></blockquote>
      This gives the tool vendors the possibility to automatically identify
      the models that shall be simulated and, e.g., that shall be used in an automatic
      regression test.</li>

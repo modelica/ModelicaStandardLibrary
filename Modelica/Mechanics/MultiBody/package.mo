@@ -380,12 +380,12 @@ use the RevolutePlanarLoopConstraint joint.
 This error message is due to an annotation in
 the Frame connector.
 </p>
-<pre>
-  <strong>connector</strong> Frame
-     ...
-     <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
-  <strong>end</strong> Frame;
-</pre>
+<blockquote><pre>
+<strong>connector</strong> Frame
+   ...
+   <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
+<strong>end</strong> Frame;
+</pre></blockquote>
 <p>
 If no assignment can be found for some
 forces in a connector, the \"unassignedMessage\" is displayed. In most cases the
