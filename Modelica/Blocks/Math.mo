@@ -2839,6 +2839,7 @@ y_im = u_abs * sin( u_arg )
   protected
     parameter Modelica.SIunits.Time t0(fixed=false) "Start time of simulation";
     Real x "Integrator state";
+    discrete Real y_last "Last sampled mean value";
   initial equation
     t0 = time;
     x = x0;
@@ -2846,9 +2847,10 @@ y_im = u_abs * sin( u_arg )
   equation
     der(x) = u;
     when sample(t0 + 1/f, 1/f) then
-      y = if not yGreaterOrEqualZero then f*pre(x) else max(0.0, f*pre(x));
+      y_last = if not yGreaterOrEqualZero then f*pre(x) else max(0.0, f*pre(x));
       reinit(x, 0);
     end when;
+    y = y_last;
     annotation (Documentation(info="<html>
 <p>
 This block calculates the mean of the input signal u over the given period 1/f:
