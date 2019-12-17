@@ -326,19 +326,26 @@ rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
 
     algorithm
       R_s := R134aData.data.R_s;
-      f := f_R134a(d=d, T=T);
-      state.p := d*R_s*T*f.delta*f.fdelta;
-      state.h := R_s*T*(f.tau*f.ftau + f.delta*f.fdelta);
-      sat.psat := state.p;
-      state.T := T;
-      state.d := d;
-      sat.Tsat := state.T;
+      sat := setSat_T(T);
       dl := bubbleDensity(sat);
       dv := dewDensity(sat);
-      state.phase := if ((state.d < dl) or (state.d > dv) or (state.p >
-        R134aData.data.FPCRIT)) then 1 else 2;
-
+      if d < dl and d > dv and T < R134aData.data.FTCRIT then
+        f := Modelica.Media.Common.HelmholtzDerivs(
+          d=d, T=T, R_s=R_s, delta=0, tau=0, f=0, fdelta=0,
+          fdeltadelta=0, ftau=0, ftautau=0, fdeltatau=0);
+        state.p := saturationPressure(T);
+        state.h := 1/(dl/dv + 1)*(dewEnthalpy(sat) - bubbleEnthalpy(sat)) + bubbleEnthalpy(sat);
+        state.phase := 2;
+      else
+        f := f_R134a(d=d, T=T);
+        state.p := d*R_s*T*f.delta*f.fdelta;
+        state.h := R_s*T*(f.tau*f.ftau + f.delta*f.fdelta);
+        state.phase := 1;
+      end if;
+      state.T := T;
+      state.d := d;
       annotation (Documentation(revisions="<html>
+<p>2019-12-17  Stefan Wischhusen: Two-phase calculation corrected.</p>
 <p>2012-08-01  Stefan Wischhusen: Corrected passing-error of inputs.</p>
 </html>", info="<html>
 <p>Although the medium package is explicit for pressure and specific enthalpy, this function may be used in order to calculate the thermodynamic state record used as input by many functions. It will calculate the missing states:</p>
