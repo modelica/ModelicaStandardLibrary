@@ -2845,8 +2845,7 @@ that the distance between the origin of frame_a and the origin of frame_b is con
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occurring case. In a future release, axis 2 might
-be explicitly definable via a parameter. However, the treatment is much more
+to the most often occurring case for the sake of simplicity. Otherwise, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
@@ -4113,8 +4112,7 @@ The universal joint is defined in the following way:
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occurring case. In a future release, axis 2 might
-be explicitly definable via a parameter. However, the treatment is much more
+to the most often occurring case for the sake of simplicity. Otherwise, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
@@ -4724,8 +4722,7 @@ The universal joint is defined in the following way:
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occurring case. In a future release, axis 2 might
-be explicitly definable via a parameter. However, the treatment is much more
+to the most often occurring case for the sake of simplicity. Otherwise, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
@@ -5207,8 +5204,7 @@ The universal joint is defined in the following way:
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occurring case. In a future release, axis 2 might
-be explicitly definable via a parameter. However, the treatment is much more
+to the most often occurring case for the sake of simplicity. Otherwise, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>

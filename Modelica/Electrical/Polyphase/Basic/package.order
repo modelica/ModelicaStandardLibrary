@@ -3,6 +3,7 @@ Delta
 MultiStar
 MultiDelta
 MultiStarResistance
+SplitToSubsystems
 PlugToPin_p
 PlugToPin_n
 PlugToPins_p

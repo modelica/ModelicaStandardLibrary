@@ -1,8 +1,7 @@
 within Modelica.Electrical.Batteries.BatteryStacks;
 model CellStack
   "Battery with open-circuit voltage dependent on state of charge, self-discharge and inner resistance"
-  extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.Ri/Np), cellData(
-        rcData={Modelica.Electrical.Batteries.ParameterRecords.RCData(R=0, T=0, C=0)}));
+  extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.Ri/Np));
 equation
   connect(r0.n, n)
     annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));

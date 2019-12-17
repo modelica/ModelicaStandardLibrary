@@ -305,32 +305,32 @@ package Sensors "Sensors to measure variables"
           Text(
             visible=get_r,
             extent={{-140,-72},{-100,-92}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="m"),
           Text(
             visible=get_v,
             extent={{-90,-72},{-40,-92}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="m/s"),
           Text(
             visible=get_a,
             extent={{-50,-36},{20,-56}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="m/s2"),
           Text(
             visible=get_angles,
             extent={{-6,-72},{54,-92}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="rad"),
           Text(
             visible=get_w,
             extent={{34,-50},{104,-70}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="rad/s"),
           Text(
             visible=get_z,
             extent={{70,-72},{160,-92}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="rad/s2"),
           Text(
             extent={{60,52},{191,27}},
@@ -768,32 +768,32 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           Text(
             visible=get_r_rel,
             extent={{-140,-72},{-100,-92}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="m"),
           Text(
             visible=get_v_rel,
             extent={{-90,-72},{-40,-92}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="m/s"),
           Text(
             visible=get_a_rel,
             extent={{-50,-36},{20,-56}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="m/s2"),
           Text(
             visible=get_angles,
             extent={{-6,-72},{54,-92}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="rad"),
           Text(
             visible=get_w_rel,
             extent={{34,-50},{104,-70}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="rad/s"),
           Text(
             visible=get_z_rel,
             extent={{70,-72},{160,-92}},
-            lineColor={64,64,64},
+            textColor={64,64,64},
             textString="rad/s2")}),
       Documentation(info="<html>
 <p>

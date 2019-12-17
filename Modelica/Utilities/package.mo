@@ -172,13 +172,9 @@ The User's Guide has currently the following chapters:
 In case of error, all functions in this library use a Modelica \"assert(..)\"
 to provide an error message and to cancel all actions. This means that
 functions do not return, if an error is triggered inside the function.
-In the near future, an exception handling mechanism will be introduced
-in Modelica that will allow to catch errors at a defined place.
 </p>
 </html>"));
 end UsersGuide;
-
-
     annotation (
 Documentation(info="<html>
 <p>

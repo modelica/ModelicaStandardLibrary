@@ -4,7 +4,7 @@ partial model BaseCellStack
   import Modelica.Constants.eps;
   parameter Integer Ns=1 "Number of serial connected cells";
   parameter Integer Np=1 "Number of parallel connected cells";
-  parameter ParameterRecords.CellData cellData "Cell parameters"
+  replaceable parameter ParameterRecords.CellData cellData "Cell parameters"
     annotation (Placement(transformation(extent={{-10,60},{10,80}})));
   Modelica.SIunits.Current i = p.i "Current into the battery";
   Modelica.SIunits.Power power = v*i "Power to the battery";
@@ -87,11 +87,11 @@ equation
           textColor={0,0,255},
           textString="%name"),
         Rectangle(
-          extent={{-90,50},{90,-50}},
+          extent={{-90,60},{90,-60}},
           lineColor={0,0,255},
           radius=10),
         Rectangle(
-          extent=DynamicSelect({{70,-30},{-70,30}},{{70,-30},{70-140*SOC,30}}),
+          extent=DynamicSelect({{70,-40},{-70,40}},{{70,-40},{70-140*SOC,40}}),
           lineColor={0,0,255},
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid),

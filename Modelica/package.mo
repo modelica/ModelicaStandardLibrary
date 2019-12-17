@@ -4319,9 +4319,7 @@ units are wrong or errors in documentation):
 </table>
 
 <p><br>
-The following
-<a href=\"http://trac.modelica.org/Modelica\">trac tickets</a>
-have been fixed:
+The following trac tickets have been fixed:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
@@ -8244,7 +8242,7 @@ of the Modelica package (many more people have contributed to the design):
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>Marcus Baur</strong></td>
-   <td>Institute of System Dynamics and Control<br>
+   <td>previously at:<br>Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
    <td>Complex<br>
@@ -8334,7 +8332,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Hans-Dieter Joos</strong></td>
-   <td>Institute of System Dynamics and Control<br>
+   <td>previously at:<br>Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
    <td>Modelica.Math.Matrices</td>
@@ -8394,7 +8392,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Katrin Pr&ouml;l&szlig;</strong></td>
-   <td>Modelon Deutschland GmbH, Hamburg, Germany<br>
+   <td>previously at:<br>Modelon Deutschland GmbH, Hamburg, Germany<br>
      until 2008:<br>
      Department of Technical Thermodynamics,<br>
      Technical University Hamburg-Harburg,<br>Germany</td>
@@ -8670,7 +8668,7 @@ This version of the Modelica Standard Library consists of
 </ul>
 <p>
 that are directly usable (= number of public, non-partial, non-internal and non-obsolete classes). It is fully compliant
-to <a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Specification Version 3.2 Revision 2</a>
+to <a href=\"https://modelica.org/documents/ModelicaSpec34.pdf\">Modelica Specification version 3.4</a>
 and it has been tested with Modelica tools from different vendors.
 </p>
 

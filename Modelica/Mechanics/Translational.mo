@@ -3651,8 +3651,7 @@ to the Stop element, other sliding masses, dampers or hydraulic chambers must be
 
 <dl>
 <dt>Beater P. (1999):</dt>
-<dd><a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-65444-5\">
-Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.</dd>
+<dd><em>Entwurf hydraulischer Maschinen</em> (in German), Springer Verlag Berlin Heidelberg New York, <a href=\"https://doi.org/10.1007/978-3-642-58395-7\">DOI 10.1007/978-3-642-58395-7</a>.</dd>
 </dl>
 
 <p>The friction model is implemented in a \"clean\" way by state events and leads to

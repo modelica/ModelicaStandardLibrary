@@ -1797,8 +1797,11 @@ Index reduction leads to the equations:
 </pre>
 <p>
 Note, that <strong>der</strong>(y,x) is the partial derivative of y with respect to x
-and that this operator will be introduced in a future version
-of the Modelica language.
+and that this operator is available in Modelica only for declaring partial derivative functions,
+see <a href=\"https://specification.modelica.org/v3.4/Ch12.html#partial-derivatives-of-functions\">Section&nbsp;12.7.2
+(Partial Derivatives of Functions) of the Modelica 3.4 specification</a>.
+</p>
+<p>
 The above equations imply, that if p,T are provided from the
 integrator as states, all functions, such as fd(p,T)
 or <strong>der</strong>(fd,p) can be evaluated as function of the states.
@@ -3820,7 +3823,7 @@ package Interfaces "Interfaces for media models"
       h = cp_const*T;
       u = h - p/d;
       MM = 0.024;
-      R_s = 8.3144/MM;
+      R_s = Modelica.Constants.R/MM;
       state.p = p;
       state.T = T;
     end BaseProperties;
@@ -4764,7 +4767,7 @@ are described in
       p = state.p;
       T = state.T;
       MM = MM_const;
-      R_s = 8.3144/MM;
+      R_s = Modelica.Constants.R/MM;
     end BaseProperties;
 
     redeclare function extends setState_pTX

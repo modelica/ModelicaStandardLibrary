@@ -798,8 +798,11 @@ solved analytically.
 </html>"));
   end EngineV6_analytic;
 
-  partial model Engine1bBase "Model of one cylinder engine with gas force"
+  partial block Engine1Base
+    "Base model for one cylinder engine"
 
+    inner Modelica.Mechanics.MultiBody.World world
+      annotation (Placement(transformation(extent= {{-100,-100},{-80,-80}})));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder piston(diameter=0.1, r={0,-0.1,0})
       annotation (Placement(transformation(
           origin={90,40},
@@ -819,15 +822,14 @@ solved analytically.
       n={1,0,0},
       cylinderLength=0.02,
       cylinderDiameter=0.05) annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
-    inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-          transformation(extent={{-100,-100},{-80,-80}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia(
       stateSelect=StateSelect.always,
       J=1,
-      w(fixed=true),
+      w(fixed=true,
+        start = 10),
       phi(
         fixed=true,
-        start=0.001,
+        start=0.0,
         displayUnit="rad")) annotation (Placement(transformation(
             extent={{-60,-60},{-40,-40}})));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder crank1(diameter=0.05, r={0.1,0,0})
@@ -855,8 +857,9 @@ solved analytically.
       annotation (Placement(transformation(extent={{-10,10},{10,-10}},
           rotation=0,
           origin={20,-40})));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(animation=false, r={0.15,
-          0.45,0})
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(
+      animation=false,
+      r = {0.15,0.45,0})
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-70,40})));
@@ -882,13 +885,17 @@ solved analytically.
         points={{60,-66},{90,-66},{90,-70}},
         color={95,95,95},
         thickness=0.5));
-    connect(inertia.flange_b, bearing.axis) annotation (Line(points={{-40,-50},{-40,-70},{-50,-70},{-50,-80}}));
-    connect(crank2.frame_b, crank3.frame_a) annotation (Line(
-        points={{6.66134e-16,-70},{6.66134e-16,-66},{40,-66}},
+    connect(inertia.flange_b, bearing.axis)
+      annotation (Line(
+        points={{-40,-50},{-30,-50},{-30,-70},{-50,-70},{-50,-80}}));
+    connect(crank2.frame_b, crank3.frame_a)
+      annotation (Line(
+        points={{0,-70},{0,-66},{40,-66}},
         color={95,95,95},
         thickness=0.5));
-    connect(crank2.frame_b, mid.frame_a) annotation (Line(
-        points={{6.66134e-16,-70},{6.66134e-16,-40},{10,-40}},
+    connect(crank2.frame_b, mid.frame_a)
+      annotation (Line(
+        points={{0,-70},{0,-40},{10,-40}},
         color={95,95,95},
         thickness=0.5));
     annotation (
@@ -914,10 +921,20 @@ well-formed.
 </p>
 <p>
 An animation of this example is shown in the figure below.
-</p>
-
+</p><p>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
-</html>"));
+</p></html>"));
+  end Engine1Base;
+
+  partial block Engine1bBase
+    "Base model for one cylinder engine with gas force"
+    extends Engine1Base;
+
+    GasForce2 gasForce(d=0.1, L=0.35)
+      annotation (Placement(transformation(
+        origin={90,80},
+        extent={{10,-10},{-10,10}},
+        rotation=90)));
   end Engine1bBase;
   annotation (Documentation(info="<html>
 <p>

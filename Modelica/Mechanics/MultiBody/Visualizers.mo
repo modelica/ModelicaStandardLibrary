@@ -854,8 +854,8 @@ This shape visualizes the x-y plane by a box.
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
 
-    parameter Modelica.SIunits.Radius ri=0.5 "Inner radius of torus" annotation(Dialog(enable=animation));
-    parameter Modelica.SIunits.Radius ro=0.1 "Outer radius of torus (=width/2)"
+    parameter Modelica.SIunits.Radius R=0.5 "Major radius (distance from center of torus to center of tube)" annotation(Dialog(enable=animation));
+    parameter Modelica.SIunits.Radius r=0.1 "Minor radius (radius of tube)"
       annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Angle startAngle=-3.1415926535898
@@ -872,20 +872,20 @@ This shape visualizes the x-y plane by a box.
     input Real transparency=0
       "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
                                  annotation(Dialog(enable=animation,group="Material properties"));
-    parameter Integer n_ri=40 "Number of points along ri" annotation(Dialog(enable=animation,tab="Discretization"));
-    parameter Integer n_ro=20 "Number of points along ro" annotation(Dialog(enable=animation,tab="Discretization"));
+    parameter Integer n_R=40 "Number of points along major radius R" annotation(Dialog(enable=animation,tab="Discretization"));
+    parameter Integer n_r=20 "Number of points along minor radius r" annotation(Dialog(enable=animation,tab="Discretization"));
 
   protected
     Advanced.Surface surface(
       redeclare function surfaceCharacteristic =
         Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
-          ri=ri,
-          ro=ro,
+          R=R,
+          r=r,
           opening=opening,
           startAngle=startAngle,
           stopAngle=stopAngle),
-          nu=n_ri,
-          nv=n_ro,
+          nu=n_R,
+          nv=n_r,
           multiColoredSurface=false,
           wireframe=wireframe,
           color=color,
@@ -898,7 +898,7 @@ This shape visualizes the x-y plane by a box.
     // No forces and torques
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
-    annotation(
+    annotation (
       Icon(
         graphics={
           Text(textColor = {0,0,255}, extent = {{-150, 100}, {150, 140}}, textString = "%name"),
@@ -910,10 +910,11 @@ This shape visualizes the x-y plane by a box.
           Polygon(fillColor = {156, 203, 255}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{-61.245, -15.029}, {-64.25, -7.37}, {-66.703, 0.324}, {-68.557, 7.994}, {-69.768, 15.582}, {-70.289, 23.03}, {-70.075, 30.28}, {-69.08, 37.274}, {-67.259, 43.954}, {-64.565, 50.261}, {-60.954, 56.138}, {-56.379, 61.526}, {-50.794, 66.368}, {-44.155, 70.605}, {-38.685, 73.337}, {-32.863, 75.726}, {-26.675, 77.722}, {-20.107, 79.277}, {-13.142, 80.344}, {-5.768, 80.876}, {2.031, 80.823}, {10.27, 80.138}, {18.963, 78.773}, {28.124, 76.68}, {17.648, 80.219}, {7.69, 82.637}, {-1.726, 84.047}, {-10.579, 84.565}, {-18.845, 84.302}, {-26.501, 83.375}, {-33.526, 81.896}, {-39.897, 79.98}, {-45.592, 77.74}, {-50.587, 75.291}, {-54.86, 72.746}, {-61.395, 67.72}, {-66.745, 62.054}, {-70.958, 55.843}, {-74.083, 49.184}, {-76.168, 42.174}, {-77.262, 34.908}, {-77.413, 27.483}, {-76.671, 19.994}, {-75.082, 12.539}, {-72.697, 5.213}, {-69.564, -1.888}, {-65.73, -8.667}, {-61.245, -15.029}}, smooth = Smooth.Bezier),
           Polygon(lineColor = {64, 64, 64}, fillColor = {255, 255, 255}, points = {{-42.048, 32.604}, {-36.102, 37.608}, {-29.329, 40.96}, {-21.973, 42.833}, {-14.275, 43.397}, {-6.477, 42.824}, {1.179, 41.286}, {8.45, 38.956}, {15.096, 36.005}, {20.873, 32.604}, {25.864, 28.942}, {31.126, 24.443}, {36.304, 19.198}, {41.044, 13.302}, {44.991, 6.847}, {47.79, -0.074}, {49.086, -7.367}, {48.525, -14.94}, {45.751, -22.698}, {40.409, -30.55}, {33.361, -37.212}, {25.834, -41.649}, {18.025, -44.139}, {10.129, -44.963}, {2.342, -44.4}, {-5.14, -42.728}, {-12.121, -40.228}, {-18.405, -37.179}, {-23.796, -33.86}, {-28.099, -30.55}, {-32.136, -26.889}, {-36.606, -22.388}, {-41.128, -17.142}, {-45.318, -11.244}, {-48.793, -4.788}, {-51.17, 2.134}, {-52.067, 9.427}, {-51.101, 16.999}, {-47.889, 24.756}, {-42.048, 32.604}})},
         coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true)),
-      Documentation(info = "<html> <p>
+      Documentation(info="<html> <p>
 Model <strong>Torus</strong> visualizes a torus. The center of the torus is located at
 connector frame_a (visualized by the red coordinate system in the figure below).
-The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
+The left image below shows a torus with <var>R</var>&nbsp;=&nbsp;0.5&nbsp;m and
+<var>r</var>&nbsp;=&nbsp;0.2&nbsp;m.
 The right images below shows the torus with the additional parameter
 settings:
 </p>
@@ -929,10 +930,10 @@ settings:
 
 <p>
 In the advanced menu the discretization of the surface visualization can be defined by
-the number of points of the inner radius of the torus (n_ri) and by
-the number of points of the outer radius of the torus (n_ro).
-In case the torus is closed (that is, opening = 0 degree),
-the actual number of points is one less (that is n_ri-1, n_ro-1), because the first and
+the number <var>n<sub>R</sub></var> of points along the major radius of the torus and by
+the number <var>n<sub>r</sub></var> of points along the minor radius of the torus.
+In case the torus is closed (that is, <code>opening</code>&nbsp;=&nbsp;0&nbsp;degree),
+the actual number of points is one less (that is <var>n<sub>R</sub></var>&nbsp;-&nbsp;1, <var>n<sub>r</sub></var>&nbsp;-&nbsp;1), because the first and
 the last point of the parametrization coincide in this case.
 </p>
 </html>", revisions="<html>
@@ -953,7 +954,7 @@ the last point of the parametrization coincide in this case.
     parameter SI.Radius rTire=0.25 "Radius of the tire";
     parameter SI.Radius rRim= 0.14 "Radius of the rim";
     parameter SI.Radius width=0.25 "Width of the tire";
-    parameter SI.Radius rCurvature=0.30 "Radius of the curvature of the tire";
+    parameter SI.Radius rCurvature=0.30 "Radius of the tire's cross section";
 
     parameter Modelica.Mechanics.MultiBody.Types.RealColor color={64,64,64}
       "Color of tire" annotation(Dialog(enable=animation, colorSelector=true, group="Material properties"));
@@ -965,8 +966,9 @@ the last point of the parametrization coincide in this case.
   protected
     parameter SI.Radius rw = (width/2);
     parameter SI.Radius rCurvature2 = if rCurvature > rw then rCurvature else rw;
-    parameter SI.Radius h =     sqrt(1-(rw/rCurvature2)*(rw/rCurvature2))*rCurvature2;
-    parameter SI.Radius ri =    rTire-rCurvature2;
+    final parameter Real kw = rw/rCurvature2 "Regularized width ratio (0...1)";
+    parameter SI.Radius h =     sqrt(1 - kw*kw) * rCurvature2;
+    parameter SI.Length ri =  rTire-rCurvature2;
     parameter SI.Radius rRim2 = if rRim < 0 then 0 else if rRim > ri+h then ri+h else rRim;
 
       Visualizers.Advanced.Shape pipe(
@@ -987,18 +989,18 @@ the last point of the parametrization coincide in this case.
       Visualizers.Advanced.Surface torus(
         redeclare function surfaceCharacteristic =
           Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
-            ri=ri,
-            ro=rCurvature2,
-            opening=Modelica.Constants.pi - Modelica.Math.asin(rw/rCurvature2)),
-            nu=n_rTire,
-            nv=n_rCurvature,
-            multiColoredSurface=false,
-            wireframe=false,
-            color=color,
-            specularCoefficient=specularCoefficient,
-            transparency=0,
-            R=frame_a.R,
-            r_0=frame_a.r_0) if world.enableAnimation and animation
+            R=ri,
+            r=rCurvature2,
+            opening=Modelica.Constants.pi - Modelica.Math.asin(kw)),
+        nu=n_rTire,
+        nv=n_rCurvature,
+        multiColoredSurface=false,
+        wireframe=false,
+        color=color,
+        specularCoefficient=specularCoefficient,
+        transparency=0,
+        R=frame_a.R,
+        r_0=frame_a.r_0) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
 
   equation
@@ -2447,8 +2449,8 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
       function torus "Function defining the surface characteristic of a torus"
         extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
-        input Modelica.SIunits.Radius ri=1 "Inner radius of torus" annotation(Dialog);
-        input Modelica.SIunits.Radius ro=0.2 "Outer radius of torus (=width/2)" annotation(Dialog);
+        input Modelica.SIunits.Length R=1 "Major radius (distance from center of torus to center of tube)" annotation(Dialog);
+        input Modelica.SIunits.Length r=0.2 "Minor radius (radius of tube)" annotation(Dialog);
         input Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog);
         input Modelica.SIunits.Angle startAngle= -Modelica.Constants.pi
           "Start angle of torus slice" annotation(Dialog);
@@ -2466,9 +2468,9 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
           alpha := startAngle + (stopAngle-startAngle)*(i-1)/(nu-1);
           for j in 1:nv loop
             beta := phi_start + (phi_stop-phi_start)*(j-1)/(nv-1);
-            X[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.sin(alpha);
-            Y[i,j] := ro*Modelica.Math.sin(beta);
-            Z[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.cos(alpha);
+            X[i,j] := (R + r*Modelica.Math.cos(beta))*Modelica.Math.sin(alpha);
+            Y[i,j] := r*Modelica.Math.sin(beta);
+            Z[i,j] := (R + r*Modelica.Math.cos(beta))*Modelica.Math.cos(alpha);
           end for;
         end for;
 
@@ -2476,7 +2478,8 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 <p>
 Function <strong>torus</strong> computes the X, Y and Z arrays to visualize a torus
 with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>.
-The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
+The left image below shows a torus with <var>R</var>&nbsp;=&nbsp;0.5&nbsp;m and
+<var>r</var>&nbsp;=&nbsp;0.2&nbsp;m.
 The right images below shows the torus with the additional parameter
 settings:
 </p>

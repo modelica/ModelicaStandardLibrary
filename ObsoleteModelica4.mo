@@ -1334,6 +1334,7 @@ provide a package in the following way:
   package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
     extends Modelica.Icons.Package;
     package Vectors "Library of functions operating on vectors"
+      extends Modelica.Icons.Package;
       package Utilities "Utility functions that should not be directly utilized by the user"
         extends Modelica.Icons.UtilitiesPackage;
         function householderVector "Calculate a normalized householder vector to reflect vector a onto vector b"
@@ -2394,8 +2395,8 @@ This transformation is widely used for transforming non-symmetric matrices to a 
   package Magnetic "Library of magnetic models"
     extends Modelica.Icons.Package;
     package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
-
-      package BasicMachines "Machine components and modelsElectric machine models based on FundamentalWave package"
+      extends Modelica.Icons.Package;
+      package BasicMachines "Basic machine components and models"
         extends Modelica.Icons.Package;
         package Components "Components specially for electric machines"
           extends Modelica.Icons.Package;

@@ -10247,10 +10247,10 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
       MultiBody.Parts.FixedTranslation fixedTranslation(
           animation=false, r={2,0,0})
         annotation (Placement(transformation(extent={{-26,50},{-6,70}})));
-      MultiBody.Visualizers.Torus torus1(ro=0.2)
+      MultiBody.Visualizers.Torus torus1(r=0.2)
         annotation (Placement(transformation(extent={{-20,20},{0,40}})));
       MultiBody.Visualizers.Torus torus2(
-        ro=0.2,
+        r=0.2,
         opening=0.78539816339745,
         startAngle=-2.3561944901923,
         stopAngle=2.3561944901923)

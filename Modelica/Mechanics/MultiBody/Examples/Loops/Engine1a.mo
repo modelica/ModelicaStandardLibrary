@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Engine1a "Model of one cylinder engine"
   extends Modelica.Icons.Example;
-  extends Utilities.Engine1bBase(inertia(phi(start=0), w(start=10)));
+  extends Utilities.Engine1Base;
   Modelica.Mechanics.MultiBody.Joints.Revolute b1(
     n={1,0,0},
     cylinderLength=0.02,
@@ -66,8 +66,7 @@ well-formed.
 </p>
 <p>
 An animation of this example is shown in the figure below.
-</p>
-
+</p><p>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
-</html>"));
+</p></html>"));
 end Engine1a;
