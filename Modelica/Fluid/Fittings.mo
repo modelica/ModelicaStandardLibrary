@@ -105,8 +105,7 @@ The details of the model are described in the
       extends Modelica.Fluid.Interfaces.PartialPressureLoss;
 
       parameter
-        Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry
-                                                                                geometry
+        Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry geometry
         "Geometry of thick edged orifice"
           annotation (Placement(transformation(extent={{-20,0},{0,20}})),
           choices(
@@ -792,15 +791,15 @@ of the modeller.
       SI.Diameter D_Re "Diameter used to compute Re" annotation(Dialog);
       Boolean zeta1_at_a = true
           "dp = zeta1*(if zeta1_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
-                                                                        annotation(Dialog);
+          annotation(Dialog);
       Boolean zeta2_at_a = false
           "dp = -zeta2*(if zeta2_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
-                                                                         annotation(Dialog);
+          annotation(Dialog);
       Boolean zetaLaminarKnown = false
           "= true, if zeta = c0/Re in laminar region" annotation(Dialog);
       Real c0 = 1
           "zeta = c0/Re; dp = zeta*rho_Re*v_Re^2/2, Re=v_Re*D_Re*rho_Re/mu_Re)"
-                                                                                        annotation(Dialog(enable=zetaLaminarKnown));
+          annotation(Dialog(enable=zetaLaminarKnown));
 
        encapsulated function wallFriction
           "Return pressure loss data due to friction in a straight pipe with walls of nonuniform roughness (not useful for smooth pipes, since zeta is no function of Re)"
@@ -1137,7 +1136,7 @@ Loss factor for mass flow rate from port_a to port_b
 </p>
 <blockquote><pre>
 zeta = [(1-A0/A1) + 0.707*(1-A0/A1)^0.375]^2*(A1/A0)^2
-       for Re(A0) >= 1e5,  independent of alpha
+       for Re(A0) &ge; 1e5,  independent of alpha
 </pre></blockquote>
 <p>
 Loss factor for mass flow rate from port_b to port_a
@@ -1149,10 +1148,10 @@ zeta = k*(1 - A0/A1)^0.75 + (1 - A0/A1)^2 + 2*sqrt(k*(1-A0/A1)^0.375) + (1- A0/A
             (there is a typing error in the formula in diagram 4-13, the above
              equation corresponds to table (a) in diagram 4-12)
        LD = L/D0
-       for Re(A0) >= 1e4, 40 deg &le; alpha &le; 60 deg
+       for Re(A0) &ge; 1e4, 40 deg &le; alpha &le; 60 deg
                           for other values of alpha, k is given as table
                           in diagram 3-7 (this is not yet included in the function)
-</pre
+</pre></blockquote>
 </html>"));
        end sharpEdgedOrifice;
 

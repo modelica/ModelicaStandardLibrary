@@ -2807,8 +2807,7 @@ der(x2) = b*x1 + a*x2;
           k2 = (a^2 - b^2) / (b*ku)
              = (a^2 - b^2) / (a^2 + b^2)
              = (1 - (b/a)^2) / (1 + (b/a)^2)
-
-pre></blockquote>
+</pre></blockquote>
 <p>
 This representation has the following transfer function:
 </p>
@@ -2822,7 +2821,7 @@ This representation has the following transfer function:
       = (r+s-r)/(s-r)*u
       = s/(s-r)*u
 
-  comparing coefficients with
+// comparing coefficients with
     y = s/(s + cr)*u  ->  r = -cr      // r is the real eigenvalue
 
 // complex conjugate poles
@@ -2845,15 +2844,15 @@ This representation has the following transfer function:
          (s^2 - 2*a*s + a^2 + b^2)*u
        = s^2 / (s^2 - 2*a*s + a^2 + b^2)*u
 
-  comparing coefficients with
+// comparing coefficients with
     y = s^2/(s^2 + c1*s + c0)*u  ->  a = -c1/2
                                      b = sqrt(c0 - a^2)
 
-  comparing with eigenvalue representation:
+// comparing with eigenvalue representation:
     (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
-  shows that:
-    a: real part of eigenvalue
-    b: imaginary part of eigenvalue
+// shows that:
+//   a: real part of eigenvalue
+//   b: imaginary part of eigenvalue
 </pre></blockquote>
 
 </html>"));
