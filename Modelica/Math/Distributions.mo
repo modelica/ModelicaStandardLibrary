@@ -1835,7 +1835,7 @@ cdf_max = Distributions.XXX.cumulative(u_max,...);
 
 // Truncated distributions
 </pre></blockquote>
-
+<blockquote>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><strong><em>Function</em></strong></th><th><strong><em>Transformation</em></strong></th></tr>
   <tr><td>density(u,u_min,u_max,...)</td>
@@ -1852,7 +1852,6 @@ cdf_max = Distributions.XXX.cumulative(u_max,...);
   </tr>
 </table>
 </blockquote>
-
 <p>
 For an example of a truncated distribution, see the following
 plot of the probability density function of a normal distribution
