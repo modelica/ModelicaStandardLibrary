@@ -568,7 +568,7 @@ Modelica code in the HTML documentation.
 <li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code>
      and <code>&lt;/code&gt;</code> should to be used, e.g.,<br>
      <code><strong>parameter</strong> Modelica.SIunits.Time tStart &quot;Start time&quot;</code></li>
-<li> Write multi or single line code segments as quoted preformatted text, i.e. embedded within
+<li> Write multi or single line code segments as quoted preformatted text, i.e., embedded within
      <code>&lt;blockquote&gt;&lt;pre&gt;</code> and <code>&lt;/pre&gt;&lt;/blockquote&gt;</code> tags.</li>
 <li> Multi line or single line code shall not be additionally indented.</li>
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
