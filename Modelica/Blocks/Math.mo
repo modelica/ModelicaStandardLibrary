@@ -2843,7 +2843,7 @@ y_im = u_abs * sin( u_arg )
   initial equation
     t0 = time;
     x = x0;
-    y = 0;
+    y_last = 0;
   equation
     der(x) = u;
     when sample(t0 + 1/f, 1/f) then
