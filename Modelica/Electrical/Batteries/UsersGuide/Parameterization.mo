@@ -9,10 +9,10 @@ The parameters of a stack built from <code>Np*Ns</code> cells are calculated as 
 </p>
 <table>
 <tr><td>Description</td>             <td>Cell</td>         <td>Stack</td></tr>
-<tr><td>Nominal OCV</td>             <td><code>OCVmax</td> <td><code>OCVmax*Ns</code></td></tr>
-<tr><td>End of discharge voltage</td><td><code>OCVmmin</td><td><code>OCVmin*Ns</code></td></tr>
-<tr><td>Capacity</td>                <td><code>Qnom</td>   <td><code>Qnom*Np</code></td></tr>
-<tr><td>Inner resistance</td>        <td><code>Ri</td>     <td><code>Ri*Ns/Np</code></td></tr>
+<tr><td>Nominal OCV</td>             <td><code>OCVmax</code></td> <td><code>OCVmax*Ns</code></td></tr>
+<tr><td>End of discharge voltage</td><td><code>OCVmmin</code></td><td><code>OCVmin*Ns</code></td></tr>
+<tr><td>Capacity</td>                <td><code>Qnom</code></td>   <td><code>Qnom*Np</code></td></tr>
+<tr><td>Inner resistance</td>        <td><code>Ri</code></td>     <td><code>Ri*Ns/Np</code></td></tr>
 </table>
 <h4>Cell parameters</h4>
 <p>
@@ -49,17 +49,17 @@ Temperature dependency of the resistors is assumed to be the same as inner resis
 </p>
 <h4>Typical parameters of a Li-Ion cell</h4>
 <table>
-<tr><td>End of charge voltage</td>   <td><code> </td>      <td>4.2 V</td></tr>
-<tr><td>Nominal voltage</td>         <td><code> </td>      <td>3.6 V</td></tr>
-<tr><td>End of discharge voltage</td><td><code>OCVmmin</td><td>2.5 V</td></tr>
+<tr><td>End of charge voltage</td>   <td>&nbsp;</td>              <td>4.2 V</td></tr>
+<tr><td>Nominal voltage</td>         <td>&nbsp;</td>              <td>3.6 V</td></tr>
+<tr><td>End of discharge voltage</td><td><code>OCVmmin</code></td><td>2.5 V</td></tr>
 </table>
 <p>
 Capacity (i.e. nominal charge) <code>Qnom</code>, inner resistance <code>Ri</code> and short-circuit current <code>Isc</code> depend on the cell size.<br>
 Typical (estimated) values for a certain cell size are, as an example:
 </p>
 <table>
-<tr><td>Capacity</td>             <td><code>Qnom</td><td>5 A.h</td></tr>
-<tr><td>Inner resistance</td>     <td><code>Ri</td>  <td>3 m&Omega;</td></tr>
+<tr><td>Capacity</td>             <td><code>Qnom</code></td><td>5 A.h</td></tr>
+<tr><td>Inner resistance</td>     <td><code>Ri</code></td>  <td>3 m&Omega;</td></tr>
 </table>
 <p>
 Self-discharge rate is typically 1%/month.
