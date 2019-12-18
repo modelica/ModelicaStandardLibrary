@@ -2850,7 +2850,7 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
 <li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
@@ -2873,7 +2873,7 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
 <li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2954,7 +2954,7 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
 <li><em>April 2009</em> by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
