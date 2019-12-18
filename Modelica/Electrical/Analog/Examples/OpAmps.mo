@@ -643,7 +643,7 @@ In case this resistance is high, the amplifier's common is floating with respect
       annotation (Line(points={{50,-40},{60,-40}}, color={0,0,255}));
     annotation (Documentation(info="<html>
 <p>This is an analog control circuit with operational amplifiers.</p>
-<p>Compare the analog solution with the block circuit, e.g. <code>firstOrder2B.y</code> and <code>firstOrder2A.v2</code>.
+<p>Compare the analog solution with the block circuit, e.g. <code>firstOrder2B.y</code> and <code>firstOrder2A.v2</code>.</p>
 </html>"),
       experiment(
         StartTime=0,

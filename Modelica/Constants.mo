@@ -72,7 +72,7 @@ dependent constants and constants from nature. The latter constants
 <a href= \"https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf\">https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf</a>, 2017.
 </dd>
 </dl>
-<p>BIPM is Bureau International des Poids et Mesures (they publish the SI-standard).<p>
+<p>BIPM is Bureau International des Poids et Mesures (they publish the SI-standard).</p>
 <p>CODATA is the Committee on Data for Science and Technology.</p>
 
 <dl>

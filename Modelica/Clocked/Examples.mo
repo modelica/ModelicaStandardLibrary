@@ -1429,6 +1429,7 @@ well as in the following figure:
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Controller.png\" alt=\"ControlledMixingUnit_Controller.png\">
 </p>
 
+<p>
 It consists of the filter discussed above. The input to the filter is the reference
 concentration which is filtered by the low pass filter. The output of the filter
 is used as input to the concentration c in the inverse plant model.
@@ -1653,6 +1654,7 @@ the state present when the condition changed last time from beeing non-satisfied
 to beeing satisfied, i.e., the state when the clock last ticked.
 </p><p>
 <em>This example model is based on the following references:</em>
+</p>
 <dl>
 <dt>Crossley, P.R. and Cook, J. (1991):</dt>
 <dd> <strong>A nonlinear engine model for drivetrain system development</strong>.
@@ -1661,7 +1663,7 @@ to beeing satisfied, i.e., the state when the clock last ticked.
 <dd><strong>Engine Timing Model with Closed Loop Control</strong>.
     The <code>EngineThrottleControl</code> example uses the same parameter values as the <code>sldemo_enginewc.mdl</code> demo model which is shipped with the Simulink&reg; software developed by The MathWorks, Inc.
     Hence, the simulation results of these models can be compared conveniently.<br>&nbsp;</dd>
-</dl></p>
+</dl>
 </html>"));
     end EngineThrottleControl;
 

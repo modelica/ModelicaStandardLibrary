@@ -113,13 +113,12 @@ The triac goes in blocking condition when the current falls to zero.
 </p>
 <p>
 This behaviour is simulated by the two firing gates <code>fire1</code> and <code>fire2</code>:
+</p>
 <ul>
 <li><code>fire1=false</code> and <code>fire2=false</code>: gate current = 0, stay in blocking condition</li>
 <li><code>fire1=true </code> and <code>fire2=false</code>: gate current &gt; 0, fire <code>thyristor1</code></li>
 <li><code>fire1=false</code> and <code>fire2=true </code>: gate current &lt; 0, fire <code>thyristor2</code></li>
 <li><code>fire1=true </code> and <code>fire2=true </code>: forbidden</li>
 </ul>
-</p>
-</p>
 </html>"));
 end SinglePhaseTriac;
