@@ -22,7 +22,7 @@ Otherwise, the OCV versus SOC table has to be specified: 1st column = SOC values
 </p>
 <p>
 The size of the array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a> defines the count of used RC-elements as well as the parameters of these. 
-The sum of the resistances <code>rcData.R</code> must not exceed the total inner resistance <cde>Ri</code>.
+The sum of the resistances <code>rcData.R</code> must not exceed the total inner resistance <code>Ri</code>.
 </p>
 </html>"),
     Icon(graphics={
