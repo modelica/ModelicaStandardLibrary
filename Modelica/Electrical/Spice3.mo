@@ -2670,6 +2670,7 @@ VALUE -&gt; gain
 <dl>
 <dt>
 <strong>Main Authors:</strong>
+</dt>
 <dd>
 Christoph Clau&szlig;
     &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
