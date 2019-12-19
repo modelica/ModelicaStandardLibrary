@@ -730,8 +730,8 @@ the last point of the parametrization coincide in this case.
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
-<tr><td>ri</td><td>Inner radius of torus [m]</td></tr>
-<tr><td>ro</td><td>Outer radius of torus (=width/2) [m]</td></tr>
+<tr><td>ri</td><td>Major radius (distance from center of torus to center of tube) [m]</td></tr>
+<tr><td>ro</td><td>Minor radius (radius of tube) [m]</td></tr>
 <tr><td>opening</td><td>Opening angle of torus [rad]</td></tr>
 <tr><td>startAngle</td><td>Start angle of torus slice [rad]</td></tr>
 <tr><td>stopAngle</td><td>End angle of torus slice [rad]</td></tr>
@@ -741,8 +741,8 @@ the last point of the parametrization coincide in this case.
 <tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
 <tr><td>transparency</td><td>Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Discretization</td></tr>
-<tr><td>n_ri</td><td>Number of points along ri</td></tr>
-<tr><td>n_ro</td><td>Number of points along ro</td></tr>
+<tr><td>n_ri</td><td>Number of points along major radius ri</td></tr>
+<tr><td>n_ro</td><td>Number of points along minor radius ro</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -779,7 +779,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
 <tr><td>rTire</td><td>Radius of the tire [m]</td></tr>
 <tr><td>rRim</td><td>Radius of the rim [m]</td></tr>
 <tr><td>width</td><td>Width of the tire [m]</td></tr>
-<tr><td>rCurvature</td><td>Radius of the curvature of the tire [m]</td></tr>
+<tr><td>rCurvature</td><td>Radius of the tire&#39;s cross section [m]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">Material properties</td></tr>
 <tr><td>color</td><td>Color of tire</td></tr>
 <tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
@@ -931,7 +931,7 @@ so that the rectangle is rotated about the z-axis of frame_a.
 <tr><td>frame_a</td><td>Coordinate system in which visualization data is resolved</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Thu Jan 24 11:19:53 2019.
+<a href="http://www.3ds.com/">Automatically generated</a> Thu Dec 19 17:20:07 2019.
 </address>
 </body>
 </html>

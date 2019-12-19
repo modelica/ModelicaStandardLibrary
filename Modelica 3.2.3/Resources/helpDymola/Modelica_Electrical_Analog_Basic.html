@@ -94,7 +94,7 @@ pre {white-space: pre; overflow-x : hidden;}
 <td>Ideal linear electrical inductor</td>
 </tr>
 <tr>
-<td><img src="Modelica.Electrical.Analo588bf5426cfb3ec3uctorS.png" alt="Modelica.Electrical.Analog.Basic.SaturatingInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.SaturatingInductor"
+<td><img src="Modelica.Electrical.Analoce85c3da518b1f4ductorS.png" alt="Modelica.Electrical.Analog.Basic.SaturatingInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.SaturatingInductor"
 >SaturatingInductor</a>
 </td>
 <td>Simple model of an inductor with saturation</td>
@@ -382,7 +382,7 @@ pre {white-space: pre; overflow-x : hidden;}
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE SaturatingInductor<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Electrical.Analo588bf5426cfb3ec3uctorI.png" alt="Modelica.Electrical.Analog.Basic.SaturatingInductor" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Electrical.Analoce85c3da518b1f4ductorI.png" alt="Modelica.Electrical.Analog.Basic.SaturatingInductor" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Electrical.Analog.Basic.SaturatingInductor"></a><a href="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
 >Modelica.Electrical.Analog.Basic</a>.SaturatingInductor</h2>
 <p>
@@ -390,13 +390,76 @@ pre {white-space: pre; overflow-x : hidden;}
 </p>
 <h3>Information</h3>
 
-<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
-<ul>
-<li>Inom...nominal current</li>
-<li>Lnom...nominal inductance at nominal current</li>
-<li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
-<li>Linf...inductance at large currents; Linf has to be less than Lnom</li>
-</ul>
+<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e.,
+the value of the inductance depends on the current flowing through the inductor (<strong>Fig.&nbsp;1</strong>).
+The inductance decreases as current increases. Note, that hysteresis is not taken into account.
+</p>
+
+<p>
+The approximation of the flux linkage is based on the <code>atan</code> function with an additional linear term,
+as shown in <strong>Fig.&nbsp;2</strong>:</p>
+
+<pre>
+Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar)
+L = Psi/i = Linf + (Lzer - Linf)*atan(i/Ipar)/(i/Ipar)
+</pre>
+
+<p>
+This approximation is with good performance and easy to adjust to a given characteristic with only four parameters (<strong>Tab.&nbsp;1</strong>).
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Tab.&nbsp;1:</strong> Characteristic parameters of the saturating inductor model</caption>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>Inom</code>.</td>
+    <td>Nominal current</td>
+  </tr>
+  <tr>
+    <td><code>Lnom</code></td>
+    <td>Nominal inductance at nominal current</td>
+  </tr>
+  <tr>
+    <td><code>Lzer</code></td>
+    <td>Inductance near current = 0; <code>Lzer</code> has to be greater than <code>Lnom</code></td>
+  </tr>
+  <tr>
+    <td><code>Linf</code></td>
+    <td>Inductance at large currents; <code>Linf</code> has to be less than <code>Lnom</code></td>
+  </tr>
+</table>
+
+<p>
+The parameter <code>Ipar</code> is calculated internally from the relationship:</p>
+<pre>
+Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
+</pre>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></caption>
+  <tr>
+    <td>
+      <img src="../Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i.png" alt="Lact vs. i">
+    </td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Fig.&nbsp;2:</strong> Actual flux linkage <code>Psi</code> versus current <code>i</code></caption>
+  <tr>
+    <td>
+      <img src="../Images/Electrical/Analog/Basic/SaturatingInductor_Psi_i.png" alt="Psi vs. i">
+    </td>
+  </tr>
+</table>
+
+<p>The flux slope in <strong>Fig.&nbsp;2</strong> is equal to <code>Lzer</code> for small currents.
+The limit of the flux slope is <code>Linf</code> as the current <code>i</code> approaches infinity.
+The nominal flux is indicated by the product of the nominal inductance <code>Lnom</code> and the nominal current <code>Inom</code>.
+</p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
 >Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
@@ -404,6 +467,7 @@ pre {white-space: pre; overflow-x : hidden;}
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>Inom</td><td>Nominal current [A]</td></tr>
+<tr><td colspan=2><img src="../Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i_tight.png"></td></tr>
 <tr><td>Lnom</td><td>Nominal inductance at Nominal current [H]</td></tr>
 <tr><td>Lzer</td><td>Inductance near current=0 [H]</td></tr>
 <tr><td>Linf</td><td>Inductance at large currents [H]</td></tr>
@@ -1051,7 +1115,7 @@ Bear in mind that separating physical components and connecting them via adaptor
 <tr><td>pin_n</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Thu Jan 24 11:19:46 2019.
+<a href="http://www.3ds.com/">Automatically generated</a> Thu Dec 19 17:19:54 2019.
 </address>
 </body>
 </html>
