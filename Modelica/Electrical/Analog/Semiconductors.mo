@@ -1082,6 +1082,7 @@ Christoph Clau&szlig;
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden
+</dd>
 </dl>
 </html>"), Icon(graphics={
           Line(points={{-20,0},{-90,0}}),

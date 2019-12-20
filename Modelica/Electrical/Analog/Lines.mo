@@ -594,8 +594,9 @@ package Lines
 <p>
 The capacitances are calculated with: C=c*length/N.
 <br>The resistances are calculated with: R=r*length/(N+1).
-<br>For all capacitors and resistors the values of each segment are the same except for the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the ULine becomes temperature sensitive</p>
-<p>due to their resistors which resistances are calculated by <code>R_actual= R*(1 + alpha*(heatPort.T - T_ref)).</code></p>
+<br>For all capacitors and resistors the values of each segment are the same except for the first and last resistor, that only has the half of the above calculated value.
+</p>
+<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the ULine becomes temperature sensitive due to their resistors which resistances are calculated by <code>R_actual= R*(1 + alpha*(heatPort.T - T_ref))</code>.</p>
 <p>Note, this is different compared with the lumped line model of SPICE.</p>
 <p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
 </html>",      revisions="<html>
