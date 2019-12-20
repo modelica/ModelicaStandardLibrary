@@ -334,7 +334,8 @@ rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
           d=d, T=T, R_s=R_s, delta=0, tau=0, f=0, fdelta=0,
           fdeltadelta=0, ftau=0, ftautau=0, fdeltatau=0);
         state.p := saturationPressure(T);
-        state.h := 1/(dl/dv + 1)*(dewEnthalpy(sat) - bubbleEnthalpy(sat)) + bubbleEnthalpy(sat);
+        state.h := (dl*dv/d*(dewEnthalpy(sat) - bubbleEnthalpy(sat))
+                  - dv*dewEnthalpy(sat) + dl*bubbleEnthalpy(sat))/(dl - dv);
         state.phase := 2;
       else
         f := f_R134a(d=d, T=T);
@@ -345,7 +346,7 @@ rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
       state.T := T;
       state.d := d;
       annotation (Documentation(revisions="<html>
-<p>2019-12-17  Stefan Wischhusen: Two-phase calculation corrected.</p>
+<p>2019-12-20  Francesco Casella and Stefan Wischhusen: Two-phase calculation corrected.</p>
 <p>2012-08-01  Stefan Wischhusen: Corrected passing-error of inputs.</p>
 </html>", info="<html>
 <p>Although the medium package is explicit for pressure and specific enthalpy, this function may be used in order to calculate the thermodynamic state record used as input by many functions. It will calculate the missing states:</p>
