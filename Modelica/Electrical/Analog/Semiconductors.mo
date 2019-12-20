@@ -161,11 +161,11 @@ The thermal power is calculated by <em>i*v</em>.
    revisions="<html>
 <ul>
 <li><em>November 2015 </em>
-by Stefan Vorkoetter<br>implemented dynamic temperature dependency</br></li>
+by Stefan Vorkoetter<br>implemented dynamic temperature dependency<br></li>
 <li><em>November 2015</em>
-by Kristin Majetta<br> defined parameter Vt based on fixed temperature</br></li>
+by Kristin Majetta<br> defined parameter Vt based on fixed temperature<br></li>
 <li><em>June 2014</em>
-by Stefan Vorkoetter, Kristin Majetta, and Christoph Clauss<br>implemented</br></li>
+by Stefan Vorkoetter, Kristin Majetta, and Christoph Clauss<br>implemented<br></li>
 <li><em>October 2011</em>
 Stefan Vorkoetter - new model proposed.</li>
 </ul>
