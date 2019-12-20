@@ -1135,7 +1135,7 @@ The lengths along the flow path <code><strong>pathLengths[m]</strong></code> are
        by Francesco Casella: restructured after 45th Design Meeting.</li>
 <li><em>Nov. 20-21, 2002</em>
        by Hilding Elmqvist, Mike Tiller, Allan Watson, John Batteh, Chuck Newman,
-       Jonas Eborn: Improved at the 32nd Modelica Design Meeting.
+       Jonas Eborn: Improved at the 32nd Modelica Design Meeting.</li>
 <li><em>Nov. 11, 2002</em>
        by Hilding Elmqvist, Martin Otter: improved version.</li>
 <li><em>Nov. 6, 2002</em>

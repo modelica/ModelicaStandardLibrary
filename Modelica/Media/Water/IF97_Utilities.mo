@@ -8402,6 +8402,6 @@ public
       SE-22370 Lund, Sweden<br>
       email: hubertus@modelon.se
       </address>
-      </html>", revisions="<h4>Intermediate release notes during development</h4>
-<p>Currently the Events/noEvents switch is only implemented for p-h states. Only after testing that implementation, it will be extended to dT.</p>"));
+      </html>", revisions="<html><h4>Intermediate release notes during development</h4>
+<p>Currently the Events/noEvents switch is only implemented for p-h states. Only after testing that implementation, it will be extended to dT.</p></html>"));
 end IF97_Utilities;

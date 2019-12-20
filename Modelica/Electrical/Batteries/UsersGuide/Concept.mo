@@ -25,7 +25,7 @@ The resistance can be specified as linearly dependent on temperature.
 If <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellRCStack\">CellRCStack</a> instead of
 <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">CellStack</a> is chosen,
 RC-elements are connected in series to model the transient behaviour of the battery.<br>
-Both models can be used for a single cell <code>Ns = Np = 1</code> as well as a stack built from identical cells.<nr>
+Both models can be used for a single cell <code>Ns = Np = 1</code> as well as a stack built from identical cells.<br>
 Note that the total inner resistance <code>Ri</code> is the sum of the resistance of resistor <code>r0</code> and the sum of the resistances of the resistors of the RC-elements.
 </p>
 <p>

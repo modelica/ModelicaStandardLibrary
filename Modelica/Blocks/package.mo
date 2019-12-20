@@ -1375,9 +1375,9 @@ The sin-cos-encoder provides four tracks:
 </p>
 <ul>
 <li>cosine</li>
-<li>minus sine<li>
+<li>minus sine</li>
 <li>sine</li>
-<li>minus cosine<li>
+<li>minus cosine</li>
 </ul>
 <p>
 All four tracks have the same amplitude and the same offset &gt; amplitude. Offset is used to detect loss of a track. 

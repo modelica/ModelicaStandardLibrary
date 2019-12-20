@@ -592,7 +592,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
 This is an ideal semiconductor which is<br><br>
 <strong>open </strong>(off), if it is reversed biased (voltage drop less than 0)<br>
 <strong>closed</strong> (on), if it is conducting (current > 0).<br>
-<br/>
+<br>
 This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
 with zero resistance and zero conductance is not possible.

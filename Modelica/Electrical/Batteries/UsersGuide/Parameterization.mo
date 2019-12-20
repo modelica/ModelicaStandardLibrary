@@ -4,7 +4,9 @@ class Parameterization "Parameterization of battery models"
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 A <strong>stack</strong> is built from <code>Ns*Np</code> <strong>identical cells</strong>,
-where <code>Np</code> describes the number of parallel connected cells and <code>Ns</code> the number of series connected cells.<p>
+where <code>Np</code> describes the number of parallel connected cells and <code>Ns</code> the number of series connected cells.
+</p>
+<p>
 The parameters of a stack built from <code>Np*Ns</code> cells are calculated as follows:
 </p>
 <table>

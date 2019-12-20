@@ -125,7 +125,6 @@ whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist (refe
     </td>
   </tr>
 </table>
-</p>
 <p>
 Therefore, using the <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a> component, 
 the alternative has to be specified by the parameter kPolygon.

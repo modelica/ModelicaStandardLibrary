@@ -881,6 +881,7 @@ simple example.
     <li>flow sensors based on Interfaces.PartialTwoPort</li>
     <li>adapted docu to stream connectors, i.e., less need for two port sensors</li>
     </ul>
+    </li>
 <li><em>4 Dec 2008</em>
     by Michael Wetter<br>
        included sensors for trace substance</li>

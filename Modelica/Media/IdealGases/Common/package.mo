@@ -1055,8 +1055,7 @@ alcohols and acids.<br>
 Values of kappa for a few such materials:
 </p>
 
-<table style=\"text-align: left; width: 302px; height: 200px;\" border=\"1\"
-cellspacing=\"0\" cellpadding=\"2\">
+<table style=\"text-align: left; width: 302px; height: 200px;\" border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tbody>
 <tr>
 <td style=\"vertical-align: top;\">Compound<br>
