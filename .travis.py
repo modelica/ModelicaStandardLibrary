@@ -18,10 +18,13 @@ import sys
 void_tags = ('area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'menuitem', 'meta', 'param', 'source', 'track', 'wbr')
 
 # See https://haacked.com/archive/2004/10/25/usingregularexpressionstomatchhtml.aspx/
-pattern = re.compile(r'</?\w+((\s+\w+(\s*=\s*(?:\\"(.|\n)*?\\"|\'(.|\n)*?\'|[^\'">\s]+))?)+\s*|\s*)/?>')
+pattern = re.compile(r'</?\w+((\s+\w+(\s*=\s*(?:\\"(.|\n)*?\\"|\'(.|\n)*?\'|[^\'">\s]+))?)+\s*|\s*)/?>', re.IGNORECASE)
 
 def _checkHTMLFile(fileName):
-    errors = []
+    found_b = []
+    found_i = []
+    found_mismatch = []
+    found_case = []
     with open(fileName) as file:
         stack = []
         i = 1
@@ -32,6 +35,13 @@ def _checkHTMLFile(fileName):
                 tag = tag.strip('< >')
                 tag = tag.split(' ')[0]
                 # print(i, tag, stack)
+                if bool(stack):
+                    if tag.lower() in ('b', '/b'):
+                        found_b.append((i, tag))
+                    elif tag.lower() in ('i', '/i'):
+                        found_i.append((i, tag))
+                    if tag != tag.lower():
+                        found_case.append((i, tag))
                 if tag == 'html':
                     if bool(stack):
                         error = True
@@ -51,18 +61,26 @@ def _checkHTMLFile(fileName):
                     else:
                         error = True
                 if error:
-                    errors.append((i, tag))
+                    found_mismatch.append((i, tag))
             i = i + 1
+        if bool(stack):
+            found_mismatch.append((i, '/html'))
 
     # Debug print
-    for i, tag in errors:
+    for i, tag in found_mismatch:
         print('HTML tag "{2}" mismatch in file "{0}":{1}'.format(fileName, i, tag))
+    for i, tag in found_b:
+        print('HTML tag "{2}" misuse in file "{0}":{1}. Use "strong" tag.'.format(fileName, i, tag))
+    for i, tag in found_i:
+        print('HTML tag "{2}" misuse in file "{0}":{1}. Use "em" tag.'.format(fileName, i, tag))
+    for i, tag in found_case:
+        print('HTML tag "{2}" misspelling in file "{0}":{1}. Use lower case.'.format(fileName, i, tag))
 
-    return len(errors)
+    return len(found_mismatch) + len(found_b) + len(found_i) + len(found_case)
 
 def _checkHTMLDirectory(dir):
     errorCount = 0
-    for subdir, dirs, files in os.walk(dir):
+    for subdir, _, files in os.walk(dir):
         for file in files:
             if os.path.splitext(file)[1] == '.mo':
                 fileName = os.path.join(subdir, file)
