@@ -582,7 +582,7 @@ Returns the full path name of a file or directory \"name\".
 </html>"));
 end fullPathName;
 
-impure function splitPathName
+function splitPathName
     "Split path name in directory, file name kernel, file name extension"
   extends Modelica.Icons.Function;
   input String pathName "Absolute or relative file or directory name";
