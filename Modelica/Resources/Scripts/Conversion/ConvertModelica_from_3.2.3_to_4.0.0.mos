@@ -1,6 +1,8 @@
 // Convert from Modelica 3.2.3 to Modelica 4.0.0
 
 // Change references to classes that are removed from Modelica Standard Library
+convertClass("Modelica.UsersGuide.ParameterDefaults",
+              "Modelica.UsersGuide.Conventions.ModelicaCode.ParameterDefaults")
 convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP",
               "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re")
 convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_MFLOW",
