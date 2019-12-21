@@ -324,15 +324,29 @@ and will interpret it in the same way. Short Overview:
 </p>
 
 <ul>
-<li>About <a  >557 issues (including pull requests)</a>
-    have been addressed for this release.</li>
-<li><strong>94</strong> component models and blocks, <strong>36</strong> example models and <strong>9</strong> functions are newly included.</li>
-<li>The license has been changed to BSD 3-clause, visit: <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
+<li>This version of the Modelica package is <strong>fully compatible</strong> to Modelica Specification <strong>3.2 revision 2</strong>.<br>&nbsp;</li>
+<li>About <strong>570</strong> issues (including pull requests) have been addressed for this release.
+    <ul>
+    <li><strong>Version 3.2.3</strong> with respect to 3.2.2:
+        <ul>
+        <li>About <a href="../Documentation/Version-3.2.3/ResolvedGitHubIssues.html">557 issues (including pull requests)</a> have been addressed for this release.</li>
+        <li><strong>94</strong> component models and blocks, <strong>36</strong> example models and <strong>9</strong> functions are newly included.</li>
+        <li>The license has been changed to BSD 3-clause, visit: <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.<br>&nbsp;</li>
+        </ul>
+    </li>
+    <li><strong>Version 3.2.3 Build 2</strong> with respect to 3.2.3:<br>
+        About <a href="../Documentation/Version-3.2.3+build.2/ResolvedGitHubIssues.html">5 issues (including pull requests)</a>
+        have been addressed for this maintenance release.<br>&nbsp;</li>
+    <li><strong>Version 3.2.3 Build 3</strong> with respect to 3.2.3 Build 2:<br>
+        About <a href="../Documentation/Version-3.2.3+build.3/ResolvedGitHubIssues.html">8 issues (including pull requests)</a>
+        have been addressed for this maintenance release.<br>&nbsp;</li>
+    </ul>
+    </li>
 </ul>
 
 <p>
 The exact difference between package Modelica version 3.2.3 and version 3.2.2 is
-summarized in a <a  >comparison table</a>.
+summarized in a <a href="../Documentation/Version-3.2.3/DifferencesTo322.html">comparison table</a>.
 </p>
 
 <p><br>
@@ -591,6 +605,9 @@ The following <font color="blue"><strong>existing components</strong></font> hav
 <tr><td colspan="2"><strong>Modelica.Blocks</strong></td></tr>
 <tr><td>Interfaces.PartialNoise<br>Noise.UniformNoise<br>Noise.NormalNoise<br>Noise.TruncatedNormalNoise<br>Noise.BandLimitedWhiteNoise</td>
     <td>As a side-effect of the corrected computation in Modelica.Math.Random.Utilities.impureRandomInteger the <code>localSeed</code> parameter is computed differently if <code>useAutomaticLocalSeed</code> is set to true.</td></tr>
+<tr><td colspan="2"><strong>Modelica.ComplexBlocks.Routing</strong></td></tr>
+<tr><td>ComplexPassThrough</td>
+    <td>Fixed the connector types from Real to Complex</td></tr>
 <tr><td colspan="2"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>World</td>
     <td>Added new parameter <code>animateGround</code> for optional ground plane visualization.<br>
@@ -660,12 +677,12 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
 <li> About <strong>240</strong> tickets have been fixed in this release and the previous maintenance releases:
      <ul>
      <li> <strong>Version 3.2.1 Build.3</strong> (July 30, 2015) with respect to 3.2.1 Build.2 (August 14, 2013):<br>
-          About <a  >103 tickets</a>
+          About <a href="../Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html">103 tickets</a>
           have been fixed for this maintenance release.<br>&nbsp;</li>
 
      <li> <strong>Version 3.2.1 Build.4</strong> (September 30, 2015) with respect to 3.2.1 Build.3 (July 30, 2015):
           <ul>
-            <li> About <a  >10 tickets</a>
+            <li> About <a href="../Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html">10 tickets</a>
                  have been fixed for this maintenance release. Critical tickets:</li>
 
             <li> Ticket <a href="https://trac.modelica.org/Modelica/ticket/1768">1768</a>
@@ -709,14 +726,14 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
           </ul>
      </li>
      <li> <strong>Version 3.2.2 Build.2</strong> (March 16, 2016) with respect to 3.2.1 Build.4 (September 30, 2015):<br>
-          About <a  >130 tickets</a>
+          About <a href="../Documentation/Version-3.2.2/ResolvedTracTickets.html">130 tickets</a>
           have been fixed for this release.<br>
           The ModelicaStandardTables object library (.lib, .dll, .a, .so, depending on tool) has
           been split into the libraries <strong>ModelicaStandardTables</strong>, <strong>ModelicaMatIO</strong>, <strong>zlib</strong> and the new
           object library <strong>ModelicaIO</strong> has been added.<br>
           For a <strong>tool vendor</strong> this can be a non-backwards compatible change if the same object libraries have been used in the past
           for different releases of package Modelica.
-          In <a  >Resources/C-Sources/readme.txt</a>
+          In <a href="../C-Sources/readme.txt">Resources/C-Sources/readme.txt</a>
           the issue is explained in detail and how to resolve it.
           For a <strong>user</strong> this might be a non-backwards compatible change if he/she implemented an
           own external C interface function to one of the functions in the ModelicaStandardTables,
@@ -745,8 +762,8 @@ The exact difference between package Modelica version 3.2.2 and version 3.2.1 is
 summarized in the following two comparison tables:
 </p>
 <ul>
-<li><a  >Difference 3.2.2 to 3.2.1 Build 4</a>,</li>
-<li><a  >Difference 3.2.1 Build 4 to 3.2.1 Build 2</a>.</li>
+<li><a href="../Documentation/Version-3.2.2/Differences322To321Build4.html">Difference 3.2.2 to 3.2.1 Build 4</a>,</li>
+<li><a href="../Documentation/Version-3.2.2/Differences321Build4toBuild2.html">Difference 3.2.1 Build 4 to 3.2.1 Build 2</a>.</li>
 </ul>
 
 <p>
@@ -1095,7 +1112,7 @@ and will interpret it in the same way. Short Overview:
      without relying on tool heuristics).
      </li>
 
-<li> About <a  >400 tickets</a>
+<li> About <a href="../Documentation/Version-3.2.1/ResolvedTracTickets.html">400 tickets</a>
      have been fixed for this release, and
      especially all compliance issues and all relevant defect issues.
      </li>
@@ -1211,12 +1228,12 @@ The new open source tables have been tested by T. Beutlich (ITI):
 <p>
 The exact difference between package Modelica version 3.2 and version 3.2.1 is
 summarized in a
-<a  >comparison table</a>.
+<a href="../Documentation/Version-3.2.1/DifferencesTo32.html">comparison table</a>.
 </p>
 
 <p>
 About <strong>400</strong> trac tickets have been fixed for this release. An overview is given
-<a  >here</a>.
+<a href="../Documentation/Version-3.2.1/ResolvedTracTickets.html">here</a>.
 Clicking on a ticket gives all information about it.
 </p>
 
@@ -2207,7 +2224,7 @@ that can lead to wrong simulation results):
                       (a detailed description is provided in ticket
                       <a href="https://trac.modelica.org/Modelica/ticket/108">#108</a>
                       and in the
-                      <a  >attachment</a>
+                      <a href="../Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf">attachment</a>
                       of this ticket).</td></tr>
 
 <tr><td> Gearbox</td>
@@ -4028,7 +4045,7 @@ the following exceptions:
 An overview of the differences between version 2.2.2 and the previous
 version 2.2.1 is given below. The exact differences (but without
 differences in the documentation) are available in
-<a  >Differences-Modelica-221-222.html</a>.
+<a href="../Documentation/Differences-Modelica-221-222.html">Differences-Modelica-221-222.html</a>.
 This comparison file was generated automatically with Dymola's
 ModelManagement.compare function.
 </p>
@@ -6007,7 +6024,7 @@ First official release of the library.
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
 >Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Thu Jan 24 11:19:44 2019.
+<a href="http://www.3ds.com/">Automatically generated</a> Thu Dec 19 17:19:50 2019.
 </address>
 </body>
 </html>
