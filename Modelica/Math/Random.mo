@@ -212,7 +212,7 @@ and the returned state is the one from the last iteration.
 </html>"));
       end initialState;
 
-      impure function random
+      pure function random
         "Returns a uniform random number with the xorshift64* algorithm"
         extends Modelica.Icons.Function;
         input Integer stateIn[nState]
@@ -385,7 +385,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </html>"));
       end initialState;
 
-      impure function random
+      pure function random
         "Returns a uniform random number with the xorshift128+ algorithm"
         extends Modelica.Icons.Function;
         input Integer stateIn[nState]
@@ -562,7 +562,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </html>"));
       end initialState;
 
-      impure function random
+      pure function random
         "Returns a uniform random number with the xorshift1024* algorithm"
         extends Modelica.Icons.Function;
         input Integer stateIn[nState]
