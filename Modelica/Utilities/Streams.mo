@@ -117,7 +117,7 @@ separated by LF or CR-LF.
 </html>"));
   end countLines;
 
-  impure function error "Print error message and cancel all actions - in case of an unrecoverable error"
+  pure function error "Print error message and cancel all actions - in case of an unrecoverable error"
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
     external "C" ModelicaError(string) annotation(Library="ModelicaExternalC");
