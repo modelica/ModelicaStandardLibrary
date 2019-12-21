@@ -4,7 +4,7 @@ package Sources "Define fixed or prescribed boundary conditions"
   model FixedBoundary "Boundary source component"
     import Modelica.Media.Interfaces.Choices.IndependentVariables;
     extends Sources.BaseClasses.PartialSource;
-    parameter Boolean use_p=true "select p or d"
+    parameter Boolean use_p=true "Select p or d"
       annotation (Evaluate = true,
                   Dialog(group = "Boundary pressure or boundary density"));
     parameter Medium.AbsolutePressure p=Medium.p_default "Boundary pressure"
@@ -18,7 +18,7 @@ package Sources "Define fixed or prescribed boundary conditions"
       "Boundary density"
       annotation (Dialog(group = "Boundary pressure or boundary density",
                          enable=not use_p));
-    parameter Boolean use_T=true "select T or h"
+    parameter Boolean use_T=true "Select T or h"
       annotation (Evaluate = true,
                   Dialog(group = "Boundary temperature or boundary specific enthalpy"));
     parameter Medium.Temperature T = Medium.T_default "Boundary temperature"
