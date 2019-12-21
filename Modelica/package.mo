@@ -1421,16 +1421,14 @@ constants of a model that might be changed before simulation starts.
 Example:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
 <strong>model</strong> SpringDamper
 <strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
 <strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
 <strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
 ...
 <strong>end</strong> SpringDamper;
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 In Modelica it is possible to define a default value of a parameter in
@@ -1474,8 +1472,7 @@ uses two approaches to define default parameters, as demonstrated with the
 following example:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
 <strong>model</strong> SpringDamper
 <strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
 <strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
@@ -1485,8 +1482,7 @@ following example:
 
 SpringDamper sp1;              // warning for \"c\" and \"d\"
 SpringDamper sp2(c=1e4, d=0);  // fine, no warning
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 Both definition forms, using a \"start\" value (for \"c\" and \"d\") and providing
