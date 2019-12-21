@@ -488,12 +488,13 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
   model Test18_usertab "Test utilizing the usertab.c interface"
     extends Modelica.Icons.Example;
     extends TestDer(t_new(tableOnFile=true, tableName="TestTable_2D"));
+    parameter Real dummy(fixed=false) "Dummy parameter";
     Modelica.Blocks.Sources.Ramp ramp(height=2, duration=1)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Ramp ramp1(duration=1, height=6)
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   protected
-    encapsulated function getUsertab
+    encapsulated impure function getUsertab
       import Modelica;
       extends Modelica.Icons.Function;
       input Real dummy_u;
@@ -506,9 +507,8 @@ double mydummyfunc(double dummy_in) {
 }
 ");
     end getUsertab;
-  public
-    Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
-      annotation (Placement(transformation(extent={{-20,-40},{10,-20}})));
+  initial equation
+    dummy = getUsertab(t_new.y);
   equation
     connect(ramp1.y, t_new.u2) annotation (Line(
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));

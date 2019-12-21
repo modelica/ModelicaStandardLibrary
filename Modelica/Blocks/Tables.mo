@@ -1262,23 +1262,21 @@ that can be used as a template for own developments. While &quot;usertab.c&quot;
 &quot;usertab.h&quot; needs to adapted for the own needs.</p>
 <p>In order to work it is necessary that the compiler pulls in the &quot;usertab.c&quot; file. Different Modelica tools might provide different mechanisms to do so.
 Please consult the respective documentation/support for your Modelica tool.</p>
-<p>A possible (though a bit &quot;hackish&quot;) Modelica standard conformant approach is to pull in the required files by utilizing a &quot;dummy&quot;-function that uses the Modelica external function
-interface to pull in the required &quot;usertab.c&quot;. An example how this can be done is given below.</p>
+<p>A possible (though slightly makeshift) approach is to pull in the required files by utilizing a &quot;dummy&quot;-function that uses the Modelica external function
+interface to include the required &quot;usertab.c&quot;. An example how this can be done is given below.</p>
 <blockquote><pre>
-model Test25_usertab \"Test utilizing the usertab.c interface\"
+model ExampleCTable \"Example utilizing the usertab.c interface\"
   extends Modelica.Icons.Example;
-public
-  Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
-    annotation (Placement(transformation(extent={{-40,-34},{-10,-14}})));
-  Modelica.Blocks.Tables.CombiTable1Dv t_new(tableOnFile=true, tableName=\"TestTable_1D_a\")
+  parameter Real dummy(fixed=false) \"Dummy parameter\";
+  Modelica.Blocks.Tables.CombiTable1Dv table(tableOnFile=true, tableName=\"TestTable_1D_a\")
     annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   Modelica.Blocks.Sources.ContinuousClock clock
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
 protected
-  encapsulated function getUsertab
+  encapsulated impure function getUsertab \"External dummy function to include \\\"usertab.c\\\"\"
     input Real dummy_u[:];
     output Real dummy_y;
-    external \"C\" dummy_y=  mydummyfunc(dummy_u);
+    external \"C\" dummy_y = mydummyfunc(dummy_u);
     annotation(IncludeDirectory=\"modelica://Modelica/Resources/Data/Tables\",
            Include = \"#include \"usertab.c\"
 double mydummyfunc(double* dummy_in) {
@@ -1286,11 +1284,12 @@ double mydummyfunc(double* dummy_in) {
 }
 \");
   end getUsertab;
+initial equation
+  dummy = getUsertab(table.y);
 equation
-  connect(clock.y,t_new. u[1]) annotation (Line(
-      points={{-59,10},{-42,10}}, color={0,0,127}));
-  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"3.2.2\")));
-end Test25_usertab;
+  connect(clock.y, table.u[1]) annotation (Line(points={{-59,10},{-42,10}}, color={0,0,127}));
+  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"4.0.0\")));
+end ExampleCTable;
 </pre></blockquote>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={
