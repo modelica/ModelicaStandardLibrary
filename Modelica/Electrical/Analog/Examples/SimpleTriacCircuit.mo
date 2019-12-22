@@ -23,9 +23,12 @@ model SimpleTriacCircuit "Simple triac test circuit"
         extent={{-13,-13},{11,11}},
         rotation=270,
         origin={1,23})));
-  Modelica.Electrical.Analog.Sources.PulseCurrent pulseCurrent(
+  Sources.TrapezoidCurrent                        trapezoidCurrent(
     I=0.005,
-    width=10,
+    rising=0.000001,
+    width=0.000005,
+    falling=0.000001,
+    nperiod=-1,
     startTime=0.00002,
     period=0.00005)
                 annotation (Placement(transformation(
@@ -45,13 +48,13 @@ equation
   connect(V.n, ground.p) annotation (Line(
       points={{60,-20},{60,-40},{0,-40}}, color={0,0,255}));
   connect(simpleTriac.p, ground.p) annotation (Line(
-      points={{0,11.52},{0,-40}}, color={0,0,255}));
+      points={{0,12},{0,-40}},    color={0,0,255}));
   connect(simpleTriac.n, L.p) annotation (Line(
       points={{0,36},{0,60},{20,60}}, color={0,0,255}));
-  connect(pulseCurrent.n, simpleTriac.g) annotation (Line(
-      points={{-40,0},{-40,40},{-11.52,40},{-11.52,31.44}}, color={0,0,255}));
-  connect(pulseCurrent.p, ground.p) annotation (Line(
-      points={{-40,-20},{-40,-40},{0,-40}}, color={0,0,255}));
+  connect(trapezoidCurrent.n, simpleTriac.g) annotation (Line(points={{-40,0},{
+          -40,40},{-12,40},{-12,36}}, color={0,0,255}));
+  connect(trapezoidCurrent.p, ground.p)
+    annotation (Line(points={{-40,-20},{-40,-40},{0,-40}}, color={0,0,255}));
   annotation (experiment(
       StopTime=0.001,
       Interval=5e-7,
