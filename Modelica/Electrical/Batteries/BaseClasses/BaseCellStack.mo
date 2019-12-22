@@ -1,8 +1,8 @@
 within Modelica.Electrical.Batteries.BaseClasses;
 partial model BaseCellStack
   "Battery with open-circuit voltage dependent on state of charge, self-discharge and inner resistance"
-  parameter Integer Ns=1 "Number of serial connected cells";
-  parameter Integer Np=1 "Number of parallel connected cells";
+  parameter Integer Ns(final min=1)=1 "Number of serial connected cells";
+  parameter Integer Np(final min=1)=1 "Number of parallel connected cells";
   replaceable parameter ParameterRecords.CellData cellData "Cell parameters"
     annotation (Placement(transformation(extent={{-10,60},{10,80}})));
   parameter Real SOCtolerance=1e-9 "Tolerance to detect depleted of overcharged battery"
@@ -48,16 +48,11 @@ partial model BaseCellStack
   extends Modelica.Electrical.Analog.Interfaces.PartialConditionalHeatPort;
 equation
   assert(cellData.OCVmax > cellData.OCVmin, "Specify 0 <= OCVmin < OCVmax");
-  assert(cellData.SOCmax > cellData.SOCmin,
-    "Specify 0 <= SOCmin < SOCmax <= 1");
-  assert(cellData.OCV_SOC[1, 1] >= 0,
-    "Specify OCV(SOC) table with SOCmin >= 0");
-  assert(cellData.OCV_SOC[end, 1] <= 1,
-    "Specify OCV(SOC) table with SOCmax <= 1");
-  assert(cellData.OCV_SOC[1, 2] >= 0,
-    "Specify OCV(SOC)/OCVmax table with  OCVmin/OCVmax >= 0");
-  assert(cellData.OCV_SOC[end, 2] >= 1,
-    "Specify OCV(SOC)/OCVmax table with max.OCV/OCVmax <= 1");
+  assert(cellData.SOCmax > cellData.SOCmin, "Specify 0 <= SOCmin < SOCmax <= 1");
+  assert(cellData.OCV_SOC[1, 1] >= 0, "Specify OCV(SOC) table with SOCmin >= 0");
+  assert(cellData.OCV_SOC[end, 1] <= 1,  "Specify OCV(SOC) table with SOCmax <= 1");
+  assert(cellData.OCV_SOC[1, 2] >= 0, "Specify OCV(SOC)/OCVmax table with  OCVmin/OCVmax >= 0");
+  assert(cellData.OCV_SOC[end, 2] >= 1, "Specify OCV(SOC)/OCVmax table with max.OCV/OCVmax <= 1");
   assert(SOC < cellData.SOCmax + SOCtolerance, "Battery overcharged!");
   assert(SOC > cellData.SOCmin - SOCtolerance, "Battery exhausted!");
   connect(gainV.y, ocv.v)
