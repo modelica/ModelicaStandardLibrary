@@ -3,6 +3,7 @@ model CellRCStack
   "Battery with open-circuit voltage dependent on state of charge, self-discharge, inner resistance and a series of RC-elements"
   extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.R0/Np), redeclare
       ParameterRecords.TransientData.CellData cellData);
+  extends Icons.TransientRC;
   Modelica.Electrical.Analog.Basic.Resistor resistor[cellData.nRC](
     final R=Ns*cellData.rcData.R/Np,
     each final T_ref=cellData.T_ref,
@@ -33,28 +34,7 @@ equation
     annotation (Line(points={{50,-20},{50,0},{100,0}},color={0,0,255}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
-        Line(
-          points={{-60,-4},{-50,-4}},
-          color={238,46,47}),
-        Line(
-          points={{-6,26},{-50,26},{-50,-24},{-24,-24}},
-          color={238,46,47}),
-        Line(
-          points={{-6,16},{-6,36}},
-          color={238,46,47}),
-        Line(
-          points={{6,16},{6,36}},
-          color={238,46,47}),
-        Line(
-          points={{6,26},{50,26},{50,-24},{24,-24}},
-          color={238,46,47}),
-        Line(
-          points={{50,-4},{60,-4}},
-          color={238,46,47}),
-        Rectangle(
-          extent={{-24,-34},{24,-14}},
-          lineColor={238,46,47})}),
+            100}})),
     Documentation(info="<html>
 <p>
 Extends the model <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">CellStack</a> by a series of RC-elements, describing the transient behaviour of the battery.
@@ -67,8 +47,8 @@ For details, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.C
 </p>
 <h4>Note:</h4>
 <p>
-Parameter record array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a> contained in
-parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a> has to be specified.
+Parameter record array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">rcData</a> contained in
+parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">cellData</a> has to be specified.
 </p>
 <p>
 The total inner resistance is the sum of the resistance of resistor <code>r0</code> and the sum of the resistances of the resistors of the RC-elements.

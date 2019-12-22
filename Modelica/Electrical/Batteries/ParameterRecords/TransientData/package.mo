@@ -1,7 +1,8 @@
 within Modelica.Electrical.Batteries.ParameterRecords;
 package TransientData "Parameter records for transient battery models"
-  extends Icons.RecordsPackage;
+  extends Modelica.Icons.RecordsPackage;
 
+  extends Icons.TransientRC;
 
   annotation (                  Documentation(info="<html>
 <p>
@@ -15,26 +16,5 @@ Do not forget to add the <code>annotation(defaultComponentPrefixes=\"parameter\"
 <p>
 Record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">RCData</a> is used in record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">CellData</a>.
 </p>
-</html>"), Icon(graphics={
-        Line(
-          points={{-60,-6},{-50,-6}},
-          color={238,46,47}),
-        Line(
-          points={{-6,24},{-50,24},{-50,-26},{-24,-26}},
-          color={238,46,47}),
-        Line(
-          points={{-6,14},{-6,34}},
-          color={238,46,47}),
-        Line(
-          points={{6,14},{6,34}},
-          color={238,46,47}),
-        Line(
-          points={{6,24},{50,24},{50,-26},{24,-26}},
-          color={238,46,47}),
-        Line(
-          points={{50,-6},{60,-6}},
-          color={238,46,47}),
-        Rectangle(
-          extent={{-24,-36},{24,-16}},
-          lineColor={238,46,47})}));
+</html>"));
 end TransientData;
