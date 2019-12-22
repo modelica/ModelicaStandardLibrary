@@ -23,8 +23,8 @@ partial model BaseCellStack
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-80,30})));
-  Modelica.Blocks.Tables.CombiTable1Ds ocv_soc(table=if cellData.useLinearSOCDependency
-    then cellData.LinearOCV_SOC else cellData.OCV_SOC,
+  Modelica.Blocks.Tables.CombiTable1Ds ocv_soc(
+    final table=cellData.OCV_SOC_internal,
     final smoothness=cellData.smoothness,
     extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
     annotation (Placement(transformation(extent={{-70,40},{-50,60}})));

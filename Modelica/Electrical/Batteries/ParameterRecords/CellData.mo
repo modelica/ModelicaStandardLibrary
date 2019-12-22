@@ -14,14 +14,15 @@ record CellData "Parameters of a battery cell"
     annotation(Dialog(group="OCV versus SOC"));
   parameter Real SOCmin(final min=0)=0 "Min. state of charge"
     annotation(Dialog(group="OCV versus SOC"));
-  final parameter Real LinearOCV_SOC[2,2]=[SOCmin,OCVmin/OCVmax; SOCmax,1]
-    "Linear SOC dependent OV"
-    annotation(Dialog(group="OCV versus SOC"));
   parameter Real OCV_SOC[:,2]=[SOCmin,OCVmin/OCVmax; SOCmax,1] "OCV/OCVmax versus SOC table"
     annotation(Dialog(group="OCV versus SOC", enable=not useLinearSOCDependency));
   parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
     "Smoothness of table interpolation"
     annotation(Dialog(group="OCV versus SOC", enable=not useLinearSOCDependency));
+  final parameter Real OCV_SOC_internal[:,2]=
+    if useLinearSOCDependency then [SOCmin,OCVmin/OCVmax; SOCmax,1] else OCV_SOC
+    "OCV/OCVmax versus SOC used internal"
+    annotation(Dialog(group="OCV versus SOC"));
   parameter Modelica.SIunits.Resistance Ri "Total inner resistance (= OCVmax/Isc)";
   parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance at T_ref";
