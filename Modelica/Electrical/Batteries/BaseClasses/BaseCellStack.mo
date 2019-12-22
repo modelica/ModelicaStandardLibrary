@@ -5,11 +5,11 @@ partial model BaseCellStack
   parameter Integer Np=1 "Number of parallel connected cells";
   replaceable parameter ParameterRecords.CellData cellData "Cell parameters"
     annotation (Placement(transformation(extent={{-10,60},{10,80}})));
-  Modelica.SIunits.Current i = p.i "Current into the battery";
-  Modelica.SIunits.Power power = v*i "Power to the battery";
   parameter Real SOCtolerance=1e-9 "Tolerance to detect depleted of overcharged battery"
     annotation(Dialog(tab="Advanced"));
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
+  Modelica.SIunits.Current i = p.i "Current into the battery";
+  Modelica.SIunits.Power power = v*i "Power to the battery";
   output Real SOC(start=cellData.SOCmax) = limIntegrator.y "State of charge"
     annotation (Dialog(showStartAttribute=true));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
