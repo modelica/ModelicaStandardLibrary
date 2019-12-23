@@ -3,7 +3,8 @@ record CellData "Parameters of a transient battery cell"
   extends Modelica.Electrical.Batteries.ParameterRecords.CellData(
     R0=Ri - sum(rcData.R));
   extends Icons.TransientRC;
-  parameter RCData rcData[:] "Parameter of optional RC-elements"
+  parameter RCData rcData[:]=
+    {Batteries.ParameterRecords.TransientData.RCData(R=0, C=0)} "Parameter of optional RC-elements"
     annotation (Dialog(group="RC-elements"),
       Placement(transformation(extent={{-10,0},{10,20}})));
   final parameter Integer nRC=size(rcData, 1) "Number of RC-elements"
