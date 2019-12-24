@@ -1,6 +1,7 @@
 within Modelica.Electrical.Batteries.Examples;
 model CCCV_Stack
   "Charge a stack with constant current - constant voltage characteristic"
+  import Batteries;
   extends Modelica.Icons.Example;
   parameter Modelica.Electrical.Batteries.ParameterRecords.ExampleData cellDataOriginal(
     Qnom=18000,
@@ -43,9 +44,9 @@ model CCCV_Stack
   Modelica.Electrical.Batteries.Utilities.BusTranscription busTranscription(
       Np=stackData.Np, Ns=stackData.Ns)
     annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
-  Modelica.Thermal.HeatTransfer.Components.ThermalCollectorMatrix
-    thermalCollectorMatrix(Ns=stackData.Ns, Np=stackData.Np) annotation (
-      Placement(transformation(
+  Thermal.HeatTransfer.Components.ThermalCollectorMatrix
+                                             thermalCollectorMatrix(Ns=
+        stackData.Ns, Np=stackData.Np) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={40,20})));
