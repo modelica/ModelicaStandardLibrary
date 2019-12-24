@@ -1,6 +1,7 @@
 within Modelica.Electrical.Batteries.ParameterRecords;
 record ExampleData "Example parameters of a battery cell"
   extends CellData(
+    CellType="Example data",
     useLinearSOCDependency=false,
     OCVmax=4.2,
     OCVmin=2.5,

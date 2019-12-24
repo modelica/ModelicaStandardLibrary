@@ -45,7 +45,7 @@ These are specified by an array of parameter records <a href=\"modelica://Modeli
 <li><code>C</code> .. Capacitance of RC-element</li>
 </ul>
 <p>
-The size of the array of parameter records <code>rcData</code> determines the count of RC-elements instantiated.<br>
+The size of the array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a> has to be defined as parameter <code>nRC</code>. 
 The parameters of these RC-elements are results of sophisticated measurements, e.g. cell impedance spectroscopy.<br>
 Temperature dependency of the resistors is assumed to be the same as inner resistance <code>Ri</code>.
 </p>

@@ -1,6 +1,7 @@
 within Modelica.Electrical.Batteries.BaseClasses;
 partial model BaseCellStack
   "Battery with open-circuit voltage dependent on state of charge, self-discharge and inner resistance"
+  extends Modelica.Electrical.Batteries.Icons.BatteryIcon(final displaySOC=SOC);
   parameter Integer Ns(final min=1)=1 "Number of serial connected cells";
   parameter Integer Np(final min=1)=1 "Number of parallel connected cells";
   replaceable parameter ParameterRecords.CellData cellData "Cell parameters"
@@ -80,26 +81,7 @@ equation
           0,-10}},              color={191,0,0}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
-        Text(
-          extent={{-150,70},{150,110}},
-          textColor={0,0,255},
-          textString="%name"),
-        Rectangle(
-          extent={{-90,60},{90,-60}},
-          lineColor={0,0,255},
-          radius=10),
-        Rectangle(
-          extent=DynamicSelect({{70,-40},{-70,40}},{{70,-40},{70-140*SOC,40}}),
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-90,30},{-100,30},{-110,10},{-110,-10},{-100,-30},{-90,-30},{
-              -90,30}},
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid)}),
+            100}})),
     Documentation(info="<html>
 <p>
 The battery is modeled by open-circuit voltage (OCV) dependent on state of charge (SOC), a self-discharge component and an inner resistance.<br>

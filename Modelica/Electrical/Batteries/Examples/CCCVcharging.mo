@@ -7,6 +7,7 @@ model CCCVcharging
     useLinearSOCDependency=false,
     Ri=cellData.OCVmax/1200,
     Idis=0.001,
+    nRC=2,
     rcData={Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(
         R=0.2*cellData.Ri, C=60/(0.2*cellData.Ri)),
         Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(R=

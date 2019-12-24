@@ -1,7 +1,7 @@
 within Modelica.Electrical.Batteries.ParameterRecords.TransientData;
 record RCData "Parameters of RC-elements"
-  extends Modelica.Icons.Record;
-  extends Icons.TransientRC;
+  extends Modelica.Electrical.Batteries.Icons.TransientCellRecord(
+    CellType="RC elements");
   parameter Modelica.SIunits.Resistance R "Resistance of RC-element";
   parameter Modelica.SIunits.Capacitance C "Capacitance of RC-element (=T/R)";
   annotation(defaultComponentPrefixes="parameter", defaultComponentName="rcData",

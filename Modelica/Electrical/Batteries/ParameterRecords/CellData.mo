@@ -1,6 +1,6 @@
 within Modelica.Electrical.Batteries.ParameterRecords;
 record CellData "Parameters of a battery cell"
-  extends Modelica.Icons.Record;
+  extends Modelica.Electrical.Batteries.Icons.BaseCellRecord;
   parameter Modelica.SIunits.ElectricCharge Qnom(displayUnit="A.h")
     "Nominal (maximum) charge";
   parameter Boolean useLinearSOCDependency=true
