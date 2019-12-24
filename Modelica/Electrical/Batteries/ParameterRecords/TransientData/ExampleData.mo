@@ -12,8 +12,11 @@ record ExampleData "Example parameters of a battery cell"
         0.774; 0.20,0.786; 0.25,0.795; 0.30,0.804; 0.35,0.811; 0.40,0.818; 0.45,
         0.826; 0.50,0.835; 0.55,0.843; 0.60,0.855; 0.65,0.871; 0.70,0.888; 0.75,
         0.905; 0.80,0.926; 0.85,0.943; 0.90,0.964; 0.95,0.980; 1.00,1.00],
-    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative);
-
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+    nRC=2,
+    rcData={
+      Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(R=0.2*Ri, C=60/(0.2*Ri)),
+      Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(R=0.1*Ri, C=10/(0.1*Ri))});
   annotation(defaultComponentPrefixes="parameter", Documentation(info="<html>
   <p>This is an example for an OCV versus SOC characteristic</p>
 </html>"));

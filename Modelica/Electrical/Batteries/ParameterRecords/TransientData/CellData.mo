@@ -6,7 +6,7 @@ record CellData "Parameters of a transient battery cell"
   parameter Integer nRC=1 "Number of RC-elements"
     annotation (Dialog(group="RC-elements"), Evaluate=true);
   parameter RCData rcData[nRC]=
-    {Batteries.ParameterRecords.TransientData.RCData(R=0, C=0)} "Parameters of RC-elements"
+    {Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(R=0, C=0)} "Parameters of RC-elements"
     annotation (Dialog(group="RC-elements"),
       Placement(transformation(extent={{-10,0},{10,20}})));
   annotation(defaultComponentPrefixes="parameter", Documentation(info="<html>

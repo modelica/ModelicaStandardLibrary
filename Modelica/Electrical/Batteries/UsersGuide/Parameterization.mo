@@ -3,11 +3,11 @@ class Parameterization "Parameterization of battery models"
   extends Modelica.Icons.Information;
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
-A <strong>stack</strong> is built from <code>Ns*Np</code> <strong>identical cells</strong>,
+A <strong>stack</strong> from <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks\">BatteryStacks</a> is built from <code>Ns*Np</code> <strong>identical cells</strong>,
 where <code>Np</code> describes the number of parallel connected cells and <code>Ns</code> the number of series connected cells.
 </p>
 <p>
-The parameters of a stack built from <code>Np*Ns</code> cells are calculated as follows:
+The parameters of a stack built from <code>Np*Ns</code> identical cells are calculated as follows:
 </p>
 <table>
 <tr><td>Description</td>             <td>Cell</td>         <td>Stack</td></tr>
@@ -38,7 +38,7 @@ Linear temperature dependency of inner resistance can be specified by reference 
 <p>
 The parameter record for one cell of a transient battery model <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">cellData</a>
 extends from the <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">basic cellData</a> record, and adds the parameters of the additional RC-elements.
-These are specified by an array of parameter records <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a>:
+These are specified by an array of parameter records <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">rcData</a>:
 </p>
 <ul>
 <li><code>R</code> .. Resistance of RC-element</li>
@@ -65,6 +65,17 @@ Typical (estimated) values for a certain cell size are, as an example:
 </table>
 <p>
 Self-discharge rate is typically 1%/month.
+</p>
+<h4>Parameters of stacks built from a matrix of <code>Ns</code> x <code>Np</code> cells:</h4>
+<p>
+A <strong>stack</strong> from <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacksWithSensors\">BatteryStacksWithSensors</a> is built from <code>Ns*Np</code> cells
+arranged in a matrix, where <code>Np</code> describes the number of parallel connected cells and <code>Ns</code> the number of series connected cells. 
+The parameters of such a stack are summarized in the parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.StackData\">stackData</a>. 
+Here the matrix of <code>Ns</code> x <code>Np</code> cell parameters records is compiled.
+The parameters of <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">original cell data</a> are propagated to all cells except those 
+whose indices are specified in the array <code>kDegraded[:,2]</code>. For these degraded cells the parameters of  
+<a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">degraded cell data</a> are propagated.<br>
+<strong>Note:</strong> Any members of the parameter array <code>kDegraded[:,2]</code> outside the range <code>1&le;kDegraded[:,1]&le;Ns</code> and <code>1&le;kDegraded[:,2]&le;Np</code> are ignored.
 </p>
 </html>"));
 end Parameterization;

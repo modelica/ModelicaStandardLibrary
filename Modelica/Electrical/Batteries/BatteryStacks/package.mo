@@ -2,7 +2,6 @@ within Modelica.Electrical.Batteries;
 package BatteryStacks "Battery stacks built from cells"
   extends Modelica.Icons.Package;
 
-
   annotation (Documentation(info="<html>
 <p>Battery models, either used for single cells or for stacks built from identical cells</p>
 </html>"),
