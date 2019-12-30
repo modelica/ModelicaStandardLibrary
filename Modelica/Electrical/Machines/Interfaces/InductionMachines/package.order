@@ -1,0 +1,13 @@
+PartialThermalPortInductionMachines
+PartialThermalAmbientInductionMachines
+PartialPowerBalanceInductionMachines
+ThermalPortIMC
+PowerBalanceIMC
+ThermalPortIMS
+PowerBalanceIMS
+ThermalPortSMPM
+PowerBalanceSMPM
+ThermalPortSMEE
+PowerBalanceSMEE
+ThermalPortSMR
+PowerBalanceSMR
