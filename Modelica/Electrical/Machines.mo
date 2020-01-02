@@ -12686,7 +12686,7 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
               transformation(extent={{-110,90},{-90,110}})));
         Machines.Interfaces.SpacePhasor spacePhasor_b annotation (Placement(
               transformation(extent={{90,90},{110,110}})));
-        Modelica.Blocks.Interfaces.RealInput angle annotation (Placement(
+        Modelica.Blocks.Interfaces.RealInput angle(unit="rad") annotation (Placement(
               transformation(
               origin={0,-120},
               extent={{-20,-20},{20,20}},
@@ -14159,7 +14159,7 @@ where <code>RRef</code> is the value (e.g. resistance) at the reference temperat
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-50,30})));
-        Modelica.Blocks.Interfaces.RealInput TRotorWinding if
+        Modelica.Blocks.Interfaces.RealInput TRotorWinding(unit="K") if
           useTemperatureInputs "Temperature of squirrel cage" annotation (
             Placement(transformation(
               extent={{-20,-20},{20,20}},
@@ -14210,7 +14210,7 @@ Additionally, all losses = heat flows are recorded.
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-50,30})));
-        Modelica.Blocks.Interfaces.RealInput TRotorWinding if
+        Modelica.Blocks.Interfaces.RealInput TRotorWinding(unit="K") if
           useTemperatureInputs "Temperature of rotor windings" annotation (
             Placement(transformation(
               extent={{-20,-20},{20,20}},
@@ -14287,7 +14287,7 @@ Thermal parts for induction machines
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-20,30})));
-        Modelica.Blocks.Interfaces.RealInput TRotorWinding if (
+        Modelica.Blocks.Interfaces.RealInput TRotorWinding(unit="K") if (
           useTemperatureInputs and useDamperCage)
           "Temperature of damper cage (optional)" annotation (Placement(
               transformation(
@@ -14313,7 +14313,7 @@ Thermal parts for induction machines
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-50,-10})));
-        Modelica.Blocks.Interfaces.RealInput TPermanentMagnet if
+        Modelica.Blocks.Interfaces.RealInput TPermanentMagnet(unit="K") if
           useTemperatureInputs "Temperature of permanent magnet" annotation (
             Placement(transformation(
               extent={{-20,-20},{20,20}},
@@ -14374,7 +14374,7 @@ Additionally, all losses = heat flows are recorded.
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-20,30})));
-        Modelica.Blocks.Interfaces.RealInput TRotorWinding if (
+        Modelica.Blocks.Interfaces.RealInput TRotorWinding(unit="K") if (
           useTemperatureInputs and useDamperCage)
           "Temperature of damper cage (optional)" annotation (Placement(
               transformation(
@@ -14392,7 +14392,7 @@ Additionally, all losses = heat flows are recorded.
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-50,30})));
-        Modelica.Blocks.Interfaces.RealInput TExcitation if
+        Modelica.Blocks.Interfaces.RealInput TExcitation(unit="K") if
           useTemperatureInputs "Temperature of excitation" annotation (
             Placement(transformation(
               extent={{-20,-20},{20,20}},
@@ -14457,7 +14457,7 @@ Additionally, all losses = heat flows are recorded.
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-20,30})));
-        Modelica.Blocks.Interfaces.RealInput TRotorWinding if (
+        Modelica.Blocks.Interfaces.RealInput TRotorWinding(unit="K") if (
           useTemperatureInputs and useDamperCage)
           "Temperature of damper cage (optional)" annotation (Placement(
               transformation(
@@ -14516,7 +14516,7 @@ Thermal parts for synchronous machines
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-20,-10})));
-        Modelica.Blocks.Interfaces.RealInput TPermanentMagnet if
+        Modelica.Blocks.Interfaces.RealInput TPermanentMagnet(unit="K") if
           useTemperatureInputs "Temperature of permanent magnet" annotation (
             Placement(transformation(
               extent={{-20,-20},{20,20}},
@@ -14563,7 +14563,7 @@ Additionally, all losses = heat flows are recorded.
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-20,-10})));
-        Modelica.Blocks.Interfaces.RealInput TExcitation if
+        Modelica.Blocks.Interfaces.RealInput TExcitation(unit="K") if
           useTemperatureInputs "Temperature of (shunt) excitation" annotation (
             Placement(transformation(
               extent={{-20,-20},{20,20}},
@@ -14609,7 +14609,7 @@ Additionally, all losses = heat flows are recorded.
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-50,-10})));
-        Modelica.Blocks.Interfaces.RealInput T_se if useTemperatureInputs
+        Modelica.Blocks.Interfaces.RealInput T_se(unit="K") if useTemperatureInputs
           "Temperature of series excitation" annotation (Placement(
               transformation(
               extent={{-20,-20},{20,20}},
@@ -14664,7 +14664,7 @@ Additionally, all losses = heat flows are recorded.
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-20,-10})));
-        Modelica.Blocks.Interfaces.RealInput T_e if useTemperatureInputs
+        Modelica.Blocks.Interfaces.RealInput T_e(unit="K") if useTemperatureInputs
           "Temperature of (shunt) excitation" annotation (Placement(
               transformation(
               extent={{-20,-20},{20,20}},
@@ -14683,7 +14683,7 @@ Additionally, all losses = heat flows are recorded.
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-50,-10})));
-        Modelica.Blocks.Interfaces.RealInput T_se if useTemperatureInputs
+        Modelica.Blocks.Interfaces.RealInput T_se(unit="K") if useTemperatureInputs
           "Temperature of series excitation" annotation (Placement(
               transformation(
               extent={{-20,-20},{20,20}},
@@ -14752,7 +14752,7 @@ Thermal parts for DC machines
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-80,-10})));
-      Modelica.Blocks.Interfaces.RealInput TPrimary if useTemperatureInputs
+      Modelica.Blocks.Interfaces.RealInput TPrimary(unit="K") if useTemperatureInputs
         "Temperature of primary windings" annotation (Placement(transformation(
             extent={{-20,-20},{20,20}},
             rotation=90,
@@ -14770,7 +14770,7 @@ Thermal parts for DC machines
             extent={{-10,10},{10,-10}},
             rotation=90,
             origin={80,-10})));
-      Modelica.Blocks.Interfaces.RealInput TSecondary if useTemperatureInputs
+      Modelica.Blocks.Interfaces.RealInput TSecondary(unit="K") if useTemperatureInputs
         "Temperature of secondary windings" annotation (Placement(
             transformation(
             extent={{-20,20},{20,-20}},
@@ -15388,7 +15388,7 @@ Partial thermal port for induction machines
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={80,30})));
-        Modelica.Blocks.Interfaces.RealInput TStatorWinding if
+        Modelica.Blocks.Interfaces.RealInput TStatorWinding(unit="K") if
           useTemperatureInputs "Temperature of stator windings" annotation (
             Placement(transformation(
               extent={{-20,-20},{20,20}},
@@ -15866,7 +15866,7 @@ Partial thermal port for DC machines
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={80,30})));
-        Modelica.Blocks.Interfaces.RealInput TArmature if useTemperatureInputs
+        Modelica.Blocks.Interfaces.RealInput TArmature(unit="K") if useTemperatureInputs
           "Temperature of armature" annotation (Placement(transformation(
               extent={{-20,-20},{20,20}},
               rotation=90,
@@ -17318,13 +17318,13 @@ The correction by factor &radic;2 is done automatically.
       Modelica.Blocks.Interfaces.RealInput iq "Reference of q-current"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
       Modelica.Blocks.Interfaces.RealInput phi(unit="rad") "Rotor angle"
-                                                           annotation (Placement(
+        annotation (Placement(
             transformation(
             origin={60,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
-      Modelica.Blocks.Interfaces.RealInput iActual[m]
-        "Measured three-phase currents"               annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput iActual[m](each unit="A")
+        "Measured three-phase currents" annotation (Placement(
             transformation(
             origin={-60,-120},
             extent={{20,-20},{-20,20}},

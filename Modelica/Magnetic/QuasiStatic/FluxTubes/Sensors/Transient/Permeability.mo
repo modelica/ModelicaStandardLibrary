@@ -7,17 +7,17 @@ model Permeability
   parameter Modelica.SIunits.Length l
   "Length associated with magnetic potential difference";
 
-  Modelica.Blocks.Interfaces.RealInput Phi "Magnetic flux"
+  Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux"
                     annotation (Placement(
         transformation(extent={{-140,40},{-100,80}})));
-  Modelica.Blocks.Interfaces.RealInput V_m
-  "Magnetic potential difference"   annotation (
+  Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
+  "Magnetic potential difference" annotation (
       Placement(transformation(extent={{-140,-80},
             {-100,-40}})));
-  Modelica.Blocks.Interfaces.RealOutput mu "Absolute permeability"
+  Modelica.Blocks.Interfaces.RealOutput mu(unit="H/m") "Absolute permeability"
                    annotation (Placement(
         transformation(extent={{100,50},{120,70}})));
-  Modelica.Blocks.Interfaces.RealOutput mur "Relative Permeability"
+  Modelica.Blocks.Interfaces.RealOutput mur(unit="1") "Relative permeability"
                             annotation (Placement(
         transformation(extent={{100,-70},{120,-50}})));
 

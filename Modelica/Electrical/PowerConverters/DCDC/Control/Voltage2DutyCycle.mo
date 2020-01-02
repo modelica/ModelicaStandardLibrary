@@ -28,7 +28,7 @@ block Voltage2DutyCycle "Linearly transforms voltage to duty cycle"
     "Constant voltage limit"
     annotation (Placement(transformation(extent={{40,70},{20,90}})));
 protected
-  Modelica.Blocks.Interfaces.RealInput vLimInt "Internal voltage limit"
+  Modelica.Blocks.Interfaces.RealInput vLimInt(unit="V") "Internal voltage limit"
     annotation (Placement(transformation(
         extent={{-4,-4},{4,4}},
         rotation=180,

@@ -436,12 +436,12 @@ package Sources "Time-dependent and controlled voltage and current sources"
           rotation=270,
           origin={-60,120})));
   protected
-    Blocks.Interfaces.RealInput V_internal "Amplitude" annotation (Placement(
+    Blocks.Interfaces.RealInput V_internal(unit="V") "Amplitude" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=270,
           origin={60,80})));
-    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+    Blocks.Interfaces.RealInput f_internal(unit="Hz") "Frequency" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=270,
@@ -532,12 +532,12 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
           rotation=270,
           origin={-60,120})));
   protected
-    Blocks.Interfaces.RealInput V_internal "Amplitude" annotation (Placement(
+    Blocks.Interfaces.RealInput V_internal(unit="V") "Amplitude" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=270,
           origin={60,80})));
-    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+    Blocks.Interfaces.RealInput f_internal(unit="Hz") "Frequency" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=270,
@@ -1683,12 +1683,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       annotation (Placement(transformation(extent={{20,70},{40,90}})));
     Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
       annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
-    Blocks.Interfaces.RealInput I_internal "Amplitude" annotation (Placement(
+    Blocks.Interfaces.RealInput I_internal(unit="A") "Amplitude" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=270,
           origin={60,80})));
-    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+    Blocks.Interfaces.RealInput f_internal(unit="Hz") "Frequency" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=270,
@@ -1779,12 +1779,12 @@ and that the parameter <code>startTime</code> is omitted since the current can b
       annotation (Placement(transformation(extent={{20,70},{40,90}})));
     Blocks.Sources.Constant f_constant(final k=constantFrequency) if useConstantFrequency
       annotation (Placement(transformation(extent={{-20,70},{-40,90}})));
-    Blocks.Interfaces.RealInput I_internal "Amplitude" annotation (Placement(
+    Blocks.Interfaces.RealInput I_internal(unit="A") "Amplitude" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=270,
           origin={60,80})));
-    Blocks.Interfaces.RealInput f_internal "Frequency" annotation (Placement(
+    Blocks.Interfaces.RealInput f_internal(unit="Hz") "Frequency" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
           rotation=270,

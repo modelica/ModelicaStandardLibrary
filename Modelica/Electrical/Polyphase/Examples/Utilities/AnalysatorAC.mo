@@ -13,23 +13,23 @@ model AnalysatorAC "Analyze AC voltage, current and power"
   Interfaces.NegativePlug plug_nv(final m=m)
     "Negative polyphase electrical plug with m pins" annotation (Placement(transformation(
           extent={{-10,-110},{10,-90}})));
-  Modelica.Blocks.Interfaces.RealOutput pTotal "Total power, mean"  annotation (
+  Modelica.Blocks.Interfaces.RealOutput pTotal(unit="W") "Total power, mean"  annotation (
      Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={110,-60})));
-  Modelica.Blocks.Interfaces.RealOutput iFeed[m]
+  Modelica.Blocks.Interfaces.RealOutput iFeed[m](each unit="A")
     "RMS feed currents, first harmonic" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-60,-110})));
-  Modelica.Blocks.Interfaces.RealOutput vLL1[m]
+  Modelica.Blocks.Interfaces.RealOutput vLL1[m](each unit="V")
     "RMS voltages line-to-line, first harmonic" annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-110,-60})));
-  Modelica.Blocks.Interfaces.RealOutput vLN[m]
+  Modelica.Blocks.Interfaces.RealOutput vLN[m](each unit="V")
     "RMS voltages line-to-neutral, first harmonic" annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
@@ -88,7 +88,7 @@ equation
           -60},{-110,-60}}, color={0,0,127}));
   connect(voltageSensor.v, voltageLine2Line.u)
     annotation (Line(points={{-59,30},{-50,30},{-50,-18}}, color={0,0,127}));
-  connect(multiSensorAC.powerTotal,powerTotal. u)
+  connect(multiSensorAC.powerTotal,powerTotal.u)
     annotation (Line(points={{11,-6},{50,-6},{50,-18}}, color={0,0,127}));
   connect(powerTotal.y, pTotal)
     annotation (Line(points={{50,-41},{50,-60},{110,-60}}, color={0,0,127}));
