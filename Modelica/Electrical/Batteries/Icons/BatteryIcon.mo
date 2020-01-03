@@ -19,7 +19,7 @@ model BatteryIcon "Icon for cells and stacks"
           textString="%name"),
         Rectangle(
           extent={{90,40},{110,-40}},
-          lineColor={28,108,200},
+          lineColor={0,0,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Rectangle(
