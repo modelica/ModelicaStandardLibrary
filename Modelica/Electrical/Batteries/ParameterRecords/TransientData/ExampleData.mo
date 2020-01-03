@@ -1,5 +1,5 @@
 within Modelica.Electrical.Batteries.ParameterRecords.TransientData;
-record ExampleData "Example parameters of a battery cell"
+record ExampleData "Example parameters of a transient battery cell"
   extends Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData(
     CellType="Example data",
     useLinearSOCDependency=false,

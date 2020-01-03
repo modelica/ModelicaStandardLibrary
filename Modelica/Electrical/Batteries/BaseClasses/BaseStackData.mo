@@ -1,5 +1,5 @@
 within Modelica.Electrical.Batteries.BaseClasses;
-record BaseStackData "Parameters for stacks"
+record BaseStackData "Parameters for stacks including degradation"
   extends Modelica.Electrical.Batteries.Icons.BaseStackRecord;
   import Modelica.Math.BooleanVectors.anyTrue;
   parameter Integer Ns(final min=1) "Number of series connected cells";
