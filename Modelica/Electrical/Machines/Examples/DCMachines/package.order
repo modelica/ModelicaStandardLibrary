@@ -7,3 +7,4 @@ DCPM_Temperature
 DCPM_Cooling
 DCPM_QuasiStatic
 DCPM_withLosses
+DC_CompareCharacteristics
