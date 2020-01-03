@@ -197,8 +197,8 @@ record DcBrakeSettings "Setting for DC current braking"
 Lets the user choose the layout, and determines the necessary DC current for DC current braking of an induction machine.
 </p>
 <p>
-The icon shows the four layout variants. 
-Phases with half the current are depicted with half the line thickness, 
+The icon shows the four layout variants.
+Phases with half the current are depicted with half the line thickness,
 phases with zero current are depicted with dashed line.
 </p>
 </html>"));

@@ -165,12 +165,12 @@ equation
   annotation (experiment(Interval=0.001, Tolerance=1e-06),              Documentation(
         info="<html>
 <p>
-The voltages induced by the permanent magnets of the synchronous machine is shortened over the inductance and resistance of the stator winding 
+The voltages induced by the permanent magnets of the synchronous machine is shortened over the inductance and resistance of the stator winding
 and the (optional) external braking resistors. The currents driven by these voltages cause a braking torque.
 </p>
 <p>
-The external braking resistor is implemented with three stages which get shortened at different points during braking. 
-Note that the first (smallest) stage is not shortened, which ensures a minimum damping to avoid oscillations of angular velocity around zero. 
+The external braking resistor is implemented with three stages which get shortened at different points during braking.
+Note that the first (smallest) stage is not shortened, which ensures a minimum damping to avoid oscillations of angular velocity around zero.
 The total braking resistance (sum of all stages) has to be adapted to the angular velocity at which braking starts.
 </p>
 <p>

@@ -110,8 +110,8 @@ equation
       Interval=0.001,
       Tolerance=1e-06), Documentation(info="<html>
 <p>
-The stator windings of an induction machine are fed by a DC current, causing a stationary current space phasor. 
-Since the rotor is turning, voltage is induced in the rotor cage which in turn drives rotor currents. 
+The stator windings of an induction machine are fed by a DC current, causing a stationary current space phasor.
+Since the rotor is turning, voltage is induced in the rotor cage which in turn drives rotor currents.
 This creates a braking torque.
 </p>
 <p>
@@ -122,7 +122,7 @@ Choose a layout and plot tauElectrical and tauShaft versus wMechanical.
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <td>[Fischer2017]</td>
-      <td>R. Fischer, 
+      <td>R. Fischer,
          Elektrische Maschinen, 17<sup>th</sup> ed., chapter 5.3.3.,
         <em>Hanser</em>,
         ISBN 978-3-446-45218-3, 2017.</td>

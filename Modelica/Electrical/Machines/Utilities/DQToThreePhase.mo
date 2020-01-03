@@ -71,7 +71,7 @@ Using the given rotor position (input <code>phi</code>), the correct three-phase
 They can be used to feed a current source which in turn feeds an induction machine.
 </p>
 <p>
-Inputs <code>d</code> and <code>q</code> can be given either as peak values (<code>useRMS=false</code>) or as RMS (<code>useRMS=true</code>). 
+Inputs <code>d</code> and <code>q</code> can be given either as peak values (<code>useRMS=false</code>) or as RMS (<code>useRMS=true</code>).
 The correction by factor &radic;2 is done automatically.
 </p>
 </html>"));

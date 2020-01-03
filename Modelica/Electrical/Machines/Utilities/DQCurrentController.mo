@@ -121,8 +121,8 @@ Two PI-controllers determine the necessary d- and q- voltages, which are transfo
 They can be used to feed a voltage source which in turn feeds a permanent magnet synchronous machine.
 </p>
 <p>
-Inputs <code>d</code> and <code>q</code> can be given either as peak values (<code>useRMS=false</code>) or as RMS (<code>useRMS=true</code>). 
-The correction by factor &radic;2 is done automatically. 
+Inputs <code>d</code> and <code>q</code> can be given either as peak values (<code>useRMS=false</code>) or as RMS (<code>useRMS=true</code>).
+The correction by factor &radic;2 is done automatically.
 The measured currents <code>iActual[m]</code> are assumed to be instantaneous values.
 </p>
 <p>
