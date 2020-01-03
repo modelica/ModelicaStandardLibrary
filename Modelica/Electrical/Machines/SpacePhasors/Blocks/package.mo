@@ -2,12 +2,6 @@ within Modelica.Electrical.Machines.SpacePhasors;
 package Blocks "Blocks for space phasor transformation"
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>

@@ -10,8 +10,8 @@ model Core "Model of core losses"
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
       useHeatPort=false);
   Machines.Interfaces.SpacePhasor spacePhasor annotation (Placement(
-        transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent
-          ={{-110,-10},{-90,10}})));
+        transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent=
+           {{-110,-10},{-90,10}})));
   input Modelica.SIunits.AngularVelocity w
     "Remagnetization angular velocity" annotation (Dialog(group="Losses"));
   Modelica.SIunits.Conductance Gc "Variable core loss conductance";

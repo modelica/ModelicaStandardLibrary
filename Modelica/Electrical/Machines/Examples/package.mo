@@ -2,9 +2,6 @@ within Modelica.Electrical.Machines;
 package Examples "Test examples"
   extends Modelica.Icons.ExamplesPackage;
 
-
-
-
   annotation (Documentation(info="<html>
 This package contains test examples of electric machines.
 </html>",

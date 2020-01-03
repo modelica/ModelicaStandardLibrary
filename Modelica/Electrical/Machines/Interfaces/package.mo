@@ -2,14 +2,6 @@ within Modelica.Electrical.Machines;
 package Interfaces "SpacePhasor connector and PartialMachines"
   extends Modelica.Icons.InterfacesPackage;
 
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 This package contains the space phasor connector and partial models for machine models.
 </html>",

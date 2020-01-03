@@ -2,10 +2,6 @@ within Modelica.Electrical.Machines;
 package BasicMachines "Basic machine models"
   extends Modelica.Icons.Package;
 
-
-
-
-
   annotation (Documentation(info="<html>
 This package contains components for modeling electrical machines, specially three-phase induction machines, based on space phasor theory:
 <ul>

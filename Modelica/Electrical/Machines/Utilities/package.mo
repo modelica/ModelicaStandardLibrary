@@ -2,20 +2,6 @@ within Modelica.Electrical.Machines;
 package Utilities "Library with auxiliary models for testing"
   extends Modelica.Icons.UtilitiesPackage;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 This package contains utility components for testing examples.
 </html>",

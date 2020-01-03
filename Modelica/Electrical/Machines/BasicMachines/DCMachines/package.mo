@@ -2,7 +2,6 @@ within Modelica.Electrical.Machines.BasicMachines;
 package DCMachines "Models of DC machines"
   extends Modelica.Icons.VariantsPackage;
 
-
   annotation (Documentation(info="<html>
 This package contains models of DC machines:
 <ul>

@@ -100,8 +100,8 @@ partial model PartialBasicInductionMachine
     final useHeatPort=true,
     final m=m) annotation (Placement(transformation(extent={{90,70},{70,90}})));
   replaceable
-    Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines thermalPort(final m=m)
-    if useThermalPort
+    Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines thermalPort(final m=m) if
+       useThermalPort
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
   replaceable
     Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines

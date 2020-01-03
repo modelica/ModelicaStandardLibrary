@@ -2,8 +2,6 @@ within Modelica.Electrical.Machines.Losses;
 package DCMachines "Loss models for DC machines"
   extends Modelica.Icons.VariantsPackage;
 
-
-
   annotation (Documentation(info="<html>
 This package contains loss models used for DC machine models.
 </html>",

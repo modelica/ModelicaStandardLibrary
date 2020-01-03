@@ -73,10 +73,8 @@ model IMC_Transformer
     L2sigma=transformerData.L2sigma,
     T1Ref=293.15,
     alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     T2Ref=293.15,
     alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     T1Operational=293.15,
     T2Operational=293.15) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

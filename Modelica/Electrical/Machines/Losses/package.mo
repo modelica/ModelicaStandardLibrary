@@ -2,12 +2,6 @@ within Modelica.Electrical.Machines;
 package Losses "Loss models for electric machines"
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 This package contains loss models and their parameter records used for machine models.
 </html>",

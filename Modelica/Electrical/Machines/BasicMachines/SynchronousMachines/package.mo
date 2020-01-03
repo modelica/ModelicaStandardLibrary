@@ -2,7 +2,6 @@ within Modelica.Electrical.Machines.BasicMachines;
 package SynchronousMachines "Models of synchronous machines"
   extends Modelica.Icons.VariantsPackage;
 
-
   annotation (Documentation(info="<html>
 This package contains models of synchronous machines, based on space phasor theory:
 <ul>

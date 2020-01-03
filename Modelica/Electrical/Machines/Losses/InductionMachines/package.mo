@@ -2,8 +2,6 @@ within Modelica.Electrical.Machines.Losses;
 package InductionMachines "Loss models for induction machines"
   extends Modelica.Icons.VariantsPackage;
 
-
-
   annotation (Documentation(info="<html>
 This package contains loss models used for induction machine models.
 </html>",

@@ -69,11 +69,9 @@ model SMEE_Rectifier
     TsSpecification=293.15,
     TsRef=293.15,
     alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     TrSpecification=293.15,
     TrRef=293.15,
     alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     TeSpecification=293.15,
     TeRef=293.15,
     alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)

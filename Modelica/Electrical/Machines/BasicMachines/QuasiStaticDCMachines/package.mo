@@ -2,7 +2,6 @@ within Modelica.Electrical.Machines.BasicMachines;
 package QuasiStaticDCMachines "Models of quasi-static DC machines"
   extends Modelica.Icons.VariantsPackage;
 
-
   annotation (Documentation(info="<html>
 <p>
 This package contains quasi-static models of DC machines;

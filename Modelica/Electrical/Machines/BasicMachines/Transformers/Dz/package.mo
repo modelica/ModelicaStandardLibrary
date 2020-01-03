@@ -2,10 +2,6 @@ within Modelica.Electrical.Machines.BasicMachines.Transformers;
 package Dz "Transformers: primary D / secondary zig-zag"
   extends Modelica.Icons.VariantsPackage;
 
-
-
-
-
   annotation (Documentation(info="<html>
 This package contains transformers primary D connected / secondary d connected in all possible vector groups.
 </html>",

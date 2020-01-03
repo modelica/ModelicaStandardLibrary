@@ -139,8 +139,7 @@ public
     Lm=66.4/(2*pi*fNominal),
     Lrsigma=2.31/(2*pi*fNominal),
     Rr=0.42,
-    alpha20r(displayUnit="1/K")=Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium)
-                                                                                                   "Induction machine data"
+    alpha20r(displayUnit="1/K")=Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium)   "Induction machine data"
     annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
 
 initial equation

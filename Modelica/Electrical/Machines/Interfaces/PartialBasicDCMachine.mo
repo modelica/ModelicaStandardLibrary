@@ -67,8 +67,8 @@ partial model PartialBasicDCMachine "Partial model for DC machine"
     final alpha=Machines.Thermal.convertAlpha(alpha20a, TaRef),
     final useHeatPort=true) annotation (Placement(transformation(extent={{60,50},{40,
             70}})));
-  Machines.BasicMachines.Components.InductorDC la(final L=La, final quasiStatic
-      =quasiStatic)
+  Machines.BasicMachines.Components.InductorDC la(final L=La, final quasiStatic=
+       quasiStatic)
     annotation (Placement(transformation(extent={{30,50},{10,70}})));
   Machines.Losses.DCMachines.Brush brush(final brushParameters=brushParameters,
       final useHeatPort=true) annotation (Placement(transformation(

@@ -2,11 +2,6 @@ within Modelica.Electrical.Machines;
 package Sensors "Sensors for machine modelling"
   extends Modelica.Icons.SensorsPackage;
 
-
-
-
-
-
   annotation (Documentation(info="<html>
 This package contains sensors that are useful when modelling machines.
 </html>",

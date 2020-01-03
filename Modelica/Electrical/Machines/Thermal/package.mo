@@ -2,12 +2,6 @@ within Modelica.Electrical.Machines;
 package Thermal "Library with models for connecting thermal models"
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
   annotation (Icon(graphics={Ellipse(
           extent={{-65,-63},{65,63}},
           lineColor={191,0,0},

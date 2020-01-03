@@ -104,11 +104,8 @@ model SMEE_DOL
     Td0Subtransient=0.006963029,
     Tq0Subtransient=0.123345081,
     alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     TsSpecification=293.15,
     TsRef=293.15,
     TrSpecification=293.15,

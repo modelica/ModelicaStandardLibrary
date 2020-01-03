@@ -89,10 +89,8 @@ model Rectifier6pulse "6-pulse rectifier with 1 transformer"
     L2sigma=transformerData1.L2sigma,
     T1Ref=293.15,
     alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     T2Ref=293.15,
     alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     T1Operational=293.15,
     T2Operational=293.15)
     annotation (Placement(transformation(extent={{-50,30},{-30,50}})));

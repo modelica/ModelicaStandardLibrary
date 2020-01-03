@@ -2,11 +2,6 @@ within Modelica.Electrical.Machines.SpacePhasors;
 package Functions "Functions for space phasor transformation"
   extends Modelica.Icons.FunctionsPackage;
 
-
-
-
-
-
   annotation (Documentation(info="<html>
 This package contains space phasor transformation functions for use in calculations:
 <ul>
