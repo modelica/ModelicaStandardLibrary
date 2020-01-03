@@ -2,7 +2,6 @@ within Modelica.Electrical.Machines;
 package SpacePhasors "Library with space phasor-models"
   extends Modelica.Icons.Package;
 
-
   annotation (Documentation(info="<html>
 <p>
 This package contains components, blocks and functions to utilize space phasor theory.
