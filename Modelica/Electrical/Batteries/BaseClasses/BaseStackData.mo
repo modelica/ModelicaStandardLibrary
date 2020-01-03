@@ -15,5 +15,7 @@ record BaseStackData "Parameters for stacks"
       cellDataDegraded else cellDataOriginal for kp in 1:Np} for ks in 1:Ns}
     "Matrix of cell data"
     annotation(Dialog(group="Result", enable=false), Placement(transformation(extent={{-10,-30},{10,-10}})));
-  annotation(defaultComponentPrefixes="parameter");
+  annotation(defaultComponentPrefixes="parameter", Documentation(info="<html>
+  <p>This record contains the base cell data definition of original and degraded cell data.</p>
+</html>"));
 end BaseStackData;
