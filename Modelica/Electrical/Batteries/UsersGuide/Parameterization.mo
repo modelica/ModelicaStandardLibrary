@@ -30,7 +30,6 @@ Self-discharge is specified as discharge current <code>Idis</code> at <code>SOC 
 If self-discharge should be neglected, set <code>Idis=0</code>.
 </p>
 <p>
-The inner resistance <code>Ri</code> is either calculated from short circuit current <code>Isc</code>, or specified explicitly.
 Linear temperature dependency of inner resistance can be specified by reference temperature <code>T_ref</code> and temperature coefficient <code>alpha</code>: <br>
 <code>R = R_ref*(1 + alpha*(T - T_ref))</code>.
 </p>
