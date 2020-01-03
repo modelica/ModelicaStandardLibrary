@@ -4,7 +4,7 @@ record BaseStackData "Parameters for stacks"
   import Modelica.Math.BooleanVectors.anyTrue;
   parameter Integer Ns(final min=1) "Number of series connected cells";
   parameter Integer Np(final min=1) "Number of parallel connected cells";
-  parameter Integer kDegraded[:,2]={{0,0}} "Indices of degraded cell";
+  parameter Integer kDegraded[:,2]={{0,0}} "Indices of degraded cell [series index, parallel index]";
   replaceable parameter Modelica.Electrical.Batteries.ParameterRecords.CellData cellDataOriginal
     "Original cell data"
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
