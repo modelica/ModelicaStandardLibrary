@@ -184,7 +184,7 @@ equation
     Documentation(info="<html>
 <p>
 Test example: Compare characteristic of DC motors<br>
-The motors are started at nominal speed, then load is ramped down. Simulate for 6 seconds and plot <code>dcxx.wMechanical</code> (motor speed) versus <code>dcxx.tauElectrical</code> (mtoor torque). 
+The motors are started at nominal speed, then load is ramped down. Simulate for 6 seconds and plot <code>dcxx.wMechanical</code> (motor speed) versus <code>dcxx.tauElectrical</code> (motor torque). 
 Default machine parameters are used.
 </p>
 <p>
