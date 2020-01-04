@@ -183,14 +183,14 @@ equation
     experiment(StopTime=6, Interval=0.001),
     Documentation(info="<html>
 <p>
-Test example: Compare characteristic of DC motors<br>
-The motors are started at nominal speed, then load is ramped down. Simulate for 6 seconds and plot <code>dcxx.wMechanical</code> (motor speed) versus <code>dcxx.tauElectrical</code> (motor torque). 
+<strong>Test example: Compare characteristic of DC motors</strong><br>
+The motors are started at nominal speed, then load is ramped down. Simulate for 6 seconds and plot <code>dcxx.wMechanical</code> (motor speed) versus <code>dcxx.tauElectrical</code> (motor torque).
 Default machine parameters are used.
 </p>
 <p>
-Note that the characteristics of permanent magnet and electrical excited dc machine (at nominal excitation) is identical, 
-but speed of the series excited dc machine rises when load torque is lowered. 
-Dynamic increase of speed is determined by the sum of inertias. 
+Note that the characteristics of permanent magnet and electrical excited dc machine (at nominal excitation) is identical,
+but speed of the series excited dc machine rises when load torque is lowered.
+Dynamic increase of speed is determined by the sum of inertias.
 Load torque of the series excited is not lowered to zero, otherwise speed would rise infinitely.
 </p>
 </html>"));
