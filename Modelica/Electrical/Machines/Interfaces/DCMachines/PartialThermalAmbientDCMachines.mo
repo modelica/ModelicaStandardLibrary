@@ -44,7 +44,7 @@ model PartialThermalAmbientDCMachines
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={80,30})));
-  Modelica.Blocks.Interfaces.RealInput TArmature if useTemperatureInputs
+  Modelica.Blocks.Interfaces.RealInput TArmature(unit="K") if useTemperatureInputs
     "Temperature of armature" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,

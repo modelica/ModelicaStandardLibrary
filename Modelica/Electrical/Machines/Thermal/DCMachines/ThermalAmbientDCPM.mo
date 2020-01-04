@@ -23,7 +23,7 @@ model ThermalAmbientDCPM
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,-10})));
-  Modelica.Blocks.Interfaces.RealInput TPermanentMagnet if
+  Modelica.Blocks.Interfaces.RealInput TPermanentMagnet(unit="K") if
     useTemperatureInputs "Temperature of permanent magnet" annotation (
       Placement(transformation(
         extent={{-20,-20},{20,20}},

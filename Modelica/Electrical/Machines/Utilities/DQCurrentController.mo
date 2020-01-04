@@ -24,13 +24,13 @@ model DQCurrentController
   Modelica.Blocks.Interfaces.RealInput iq "Reference of q-current"
     annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
   Modelica.Blocks.Interfaces.RealInput phi(unit="rad") "Rotor angle"
-                                                       annotation (Placement(
+    annotation (Placement(
         transformation(
         origin={60,-120},
         extent={{20,-20},{-20,20}},
         rotation=270)));
-  Modelica.Blocks.Interfaces.RealInput iActual[m]
-    "Measured three-phase currents"               annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput iActual[m](each unit="A")
+    "Measured three-phase currents" annotation (Placement(
         transformation(
         origin={-60,-120},
         extent={{20,-20},{-20,20}},

@@ -29,7 +29,7 @@ model ThermalAmbientDCCE
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,-10})));
-  Modelica.Blocks.Interfaces.RealInput T_e if useTemperatureInputs
+  Modelica.Blocks.Interfaces.RealInput T_e(unit="K") if useTemperatureInputs
     "Temperature of (shunt) excitation" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
@@ -48,7 +48,7 @@ model ThermalAmbientDCCE
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-50,-10})));
-  Modelica.Blocks.Interfaces.RealInput T_se if useTemperatureInputs
+  Modelica.Blocks.Interfaces.RealInput T_se(unit="K") if useTemperatureInputs
     "Temperature of series excitation" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},

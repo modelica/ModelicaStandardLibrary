@@ -10,7 +10,7 @@ public
     annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
   Machines.Interfaces.SpacePhasor spacePhasor_b
     annotation (Placement(transformation(extent={{90,90},{110,110}})));
-  Modelica.Blocks.Interfaces.RealInput angle annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput angle(unit="rad") annotation (Placement(
         transformation(
         origin={0,-120},
         extent={{-20,-20},{20,20}},

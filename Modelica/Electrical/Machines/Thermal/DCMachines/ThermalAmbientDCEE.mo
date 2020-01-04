@@ -23,7 +23,7 @@ model ThermalAmbientDCEE
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,-10})));
-  Modelica.Blocks.Interfaces.RealInput TExcitation if
+  Modelica.Blocks.Interfaces.RealInput TExcitation(unit="K") if
     useTemperatureInputs "Temperature of (shunt) excitation" annotation (
       Placement(transformation(
         extent={{-20,-20},{20,20}},

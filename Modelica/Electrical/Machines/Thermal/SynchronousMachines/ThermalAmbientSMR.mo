@@ -21,7 +21,7 @@ model ThermalAmbientSMR
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,30})));
-  Modelica.Blocks.Interfaces.RealInput TRotorWinding if (
+  Modelica.Blocks.Interfaces.RealInput TRotorWinding(unit="K") if (
     useTemperatureInputs and useDamperCage)
     "Temperature of damper cage (optional)" annotation (Placement(
         transformation(

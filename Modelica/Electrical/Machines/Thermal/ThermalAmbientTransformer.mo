@@ -32,7 +32,7 @@ model ThermalAmbientTransformer "Thermal ambient for transformers"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-80,-10})));
-  Modelica.Blocks.Interfaces.RealInput TPrimary if useTemperatureInputs
+  Modelica.Blocks.Interfaces.RealInput TPrimary(unit="K") if useTemperatureInputs
     "Temperature of primary windings" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
@@ -50,7 +50,7 @@ model ThermalAmbientTransformer "Thermal ambient for transformers"
         extent={{-10,10},{10,-10}},
         rotation=90,
         origin={80,-10})));
-  Modelica.Blocks.Interfaces.RealInput TSecondary if useTemperatureInputs
+  Modelica.Blocks.Interfaces.RealInput TSecondary(unit="K") if useTemperatureInputs
     "Temperature of secondary windings" annotation (Placement(
         transformation(
         extent={{-20,20},{20,-20}},

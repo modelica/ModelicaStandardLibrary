@@ -27,7 +27,7 @@ model ThermalAmbientSMPM
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,30})));
-  Modelica.Blocks.Interfaces.RealInput TRotorWinding if (
+  Modelica.Blocks.Interfaces.RealInput TRotorWinding(unit="K") if (
     useTemperatureInputs and useDamperCage)
     "Temperature of damper cage (optional)" annotation (Placement(
         transformation(
@@ -53,7 +53,7 @@ model ThermalAmbientSMPM
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-50,-10})));
-  Modelica.Blocks.Interfaces.RealInput TPermanentMagnet if
+  Modelica.Blocks.Interfaces.RealInput TPermanentMagnet(unit="K") if
     useTemperatureInputs "Temperature of permanent magnet" annotation (
       Placement(transformation(
         extent={{-20,-20},{20,20}},

@@ -56,7 +56,7 @@ model PartialThermalAmbientInductionMachines
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={80,30})));
-  Modelica.Blocks.Interfaces.RealInput TStatorWinding if
+  Modelica.Blocks.Interfaces.RealInput TStatorWinding(unit="K") if
     useTemperatureInputs "Temperature of stator windings" annotation (
       Placement(transformation(
         extent={{-20,-20},{20,20}},

@@ -19,7 +19,7 @@ model ThermalAmbientIMC
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-50,30})));
-  Modelica.Blocks.Interfaces.RealInput TRotorWinding if
+  Modelica.Blocks.Interfaces.RealInput TRotorWinding(unit="K") if
     useTemperatureInputs "Temperature of squirrel cage" annotation (
       Placement(transformation(
         extent={{-20,-20},{20,20}},
