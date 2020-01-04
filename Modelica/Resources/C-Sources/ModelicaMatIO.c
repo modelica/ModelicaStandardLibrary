@@ -65,7 +65,16 @@
 #endif
 #include <stdarg.h>
 #include "ModelicaUtilities.h"
+
+#if !defined(__BORLANDC__) && !defined(__LCC__) && !(defined(_MSC_VER) && _MSC_VER < 1400)
+#define HAVE_SAFE_MATH 1
+#if !defined(PSNIP_SAFE_FORCE_PORTABLE) && defined(_MSC_VER) && _MSC_VER < 1600
+#define PSNIP_SAFE_FORCE_PORTABLE
+#endif
 #include "safe-math.h"
+#else
+#undef HAVE_SAFE_MATH
+#endif
 
 /* -------------------------------
  * ---------- endian.c
@@ -3921,15 +3930,19 @@ ClassType2DataType(enum matio_classes class_type)
  * @param nelems Number of elements
  * @retval 0 on success
  */
-int SafeMulDims(const matvar_t *matvar, size_t* nelems)
+static int SafeMulDims(const matvar_t *matvar, size_t* nelems)
 {
     int i;
 
     for ( i = 0; i < matvar->rank; i++ ) {
+#if defined(HAVE_SAFE_MATH)
         if ( !psnip_safe_size_mul(nelems, *nelems, matvar->dims[i]) ) {
             *nelems = 0;
             return 1;
         }
+#else
+        *nelems *= matvar->dims[i];
+#endif
     }
 
     return 0;
@@ -3942,13 +3955,16 @@ int SafeMulDims(const matvar_t *matvar, size_t* nelems)
  * @param b Second operand
  * @retval 0 on success
  */
-int SafeMul(size_t* res, size_t a, size_t b)
+static int SafeMul(size_t* res, size_t a, size_t b)
 {
+#if defined(HAVE_SAFE_MATH)
     if ( !psnip_safe_size_mul(res, a, b) ) {
         *res = 0;
         return 1;
     }
-
+#else
+    *res = a*b;
+#endif
     return 0;
 }
 
@@ -3959,13 +3975,16 @@ int SafeMul(size_t* res, size_t a, size_t b)
  * @param b Second operand
  * @retval 0 on success
  */
-int SafeAdd(size_t* res, size_t a, size_t b)
+static int SafeAdd(size_t* res, size_t a, size_t b)
 {
+#if defined(HAVE_SAFE_MATH)
     if ( !psnip_safe_size_add(res, a, b) ) {
         *res = 0;
         return 1;
     }
-
+#else
+    *res = a+b;
+#endif
     return 0;
 }
 
@@ -11579,7 +11598,7 @@ Mat_VarReadData5(mat_t *mat,matvar_t *matvar,void *data,
  * @param edge number of elements to read
  * @retval 0 on success
  */
-int
+static int
 Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,int start,
                       int stride,int edge)
 {
