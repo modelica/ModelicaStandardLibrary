@@ -6,7 +6,7 @@ Copyright (C) 2019, Modelica Association and contributors
 All rights reserved.
 
 Check Modelica HTML documentation for tag validity
-python .travis.py checkHTML fileOrDirectory
+python .travis.py [check_function] [path]
 '''
 
 import re
@@ -20,12 +20,12 @@ void_tags = ('area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen
 # See https://haacked.com/archive/2004/10/25/usingregularexpressionstomatchhtml.aspx/
 pattern = re.compile(r'</?\w+((\s+\w+(\s*=\s*(?:\\"(.|\n)*?\\"|\'(.|\n)*?\'|[^\'">\s]+))?)+\s*|\s*)/?>', re.IGNORECASE)
 
-def _checkHTMLFile(fileName):
+def _checkHTMLFile(file_name):
     found_b = []
     found_i = []
     found_mismatch = []
     found_case = []
-    with open(fileName) as file:
+    with open(file_name) as file:
         stack = []
         i = 1
         for line in file:
@@ -68,24 +68,24 @@ def _checkHTMLFile(fileName):
 
     # Debug print
     for i, tag in found_mismatch:
-        print('HTML tag "{2}" mismatch in file "{0}":{1}'.format(fileName, i, tag))
+        print('HTML tag "{2}" mismatch in file "{0}":{1}'.format(file_name, i, tag))
     for i, tag in found_b:
-        print('HTML tag "{2}" misuse in file "{0}":{1}. Use "strong" tag.'.format(fileName, i, tag))
+        print('HTML tag "{2}" misuse in file "{0}":{1}. Use "strong" tag.'.format(file_name, i, tag))
     for i, tag in found_i:
-        print('HTML tag "{2}" misuse in file "{0}":{1}. Use "em" tag.'.format(fileName, i, tag))
+        print('HTML tag "{2}" misuse in file "{0}":{1}. Use "em" tag.'.format(file_name, i, tag))
     for i, tag in found_case:
-        print('HTML tag "{2}" misspelling in file "{0}":{1}. Use lower case.'.format(fileName, i, tag))
+        print('HTML tag "{2}" misspelling in file "{0}":{1}. Use lower case.'.format(file_name, i, tag))
 
     return len(found_mismatch) + len(found_b) + len(found_i) + len(found_case)
 
 def _checkHTMLDirectory(dir):
-    errorCount = 0
+    error_count = 0
     for subdir, _, files in os.walk(dir):
         for file in files:
             if os.path.splitext(file)[1] == '.mo':
-                fileName = os.path.join(subdir, file)
-                errorCount = errorCount + _checkHTMLFile(fileName)
-    return errorCount
+                file_name = os.path.join(subdir, file)
+                error_count = error_count + _checkHTMLFile(file_name)
+    return error_count
 
 def checkHTML(path):
     if os.path.isdir(path):
@@ -96,11 +96,22 @@ def checkHTML(path):
         return 1
 
 if __name__ == '__main__':
-    if len(sys.argv) == 3:
+    module_dir, _ = os.path.split(__file__)
+    if len(sys.argv) == 1:
+        function = 'checkHTML'
+        path = os.path.realpath(module_dir)
+    elif len(sys.argv) == 2:
+        function = sys.argv[1]
+        path = os.path.realpath(module_dir)
+    elif len(sys.argv) > 2:
         function = sys.argv[1]
         path = sys.argv[2]
-        errorCount = globals()[function](path)
-    else:
-        errorCount = 1
 
-    sys.exit(errorCount)
+    try:
+        check_function = globals()[function]
+        error_count = check_function(path)
+    except KeyError:
+        print('Invalid check function "{0}" called. Only "checkHTML" is implemented.'.format(function))
+        error_count = 1
+
+    sys.exit(error_count)
