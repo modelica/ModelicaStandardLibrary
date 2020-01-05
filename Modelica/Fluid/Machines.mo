@@ -311,6 +311,8 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
         "Guess value of m_flow = port_a.m_flow"
       annotation(Dialog(tab = "Initialization"));
+    parameter Boolean checkValveClosedInit = false "= true if the check valve is closed at initialization"
+      annotation(Dialog(tab = "Initialization"));
     final parameter SI.VolumeFlowRate V_flow_single_init = m_flow_start/rho_nominal/nParallel
         "Used for simplified initialization model";
     final parameter SI.Position delta_head_init = flowCharacteristic(V_flow_single_init*1.1)-flowCharacteristic(V_flow_single_init)
@@ -431,11 +433,15 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     else
       // Flow characteristics when check valve is open
       // The simplified model uses an approximation of the tangent to the head curve in the initialization point
+      // or the zero-flow vertical axis in case the system is initialized with the check valve closed
       head = homotopy(if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
                                else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,
-                      N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/(0.1*V_flow_single_init) else 0)));
+                      if not checkValveClosedInit then 
+                        N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/(0.1*V_flow_single_init) else 0))
+                      else
+                        N/N_nominal*flowCharacteristic(0) - s*unitHead);
       V_flow_single = homotopy(if s > 0 then s*unitMassFlowRate/rho else 0,
-                               s*unitMassFlowRate/rho_nominal);
+                               if not checkValveClosedInit then s*unitMassFlowRate/rho_nominal else 0);
     end if;
     // Power consumption
     if use_powerCharacteristic then
