@@ -2587,7 +2587,8 @@ It must be noted that the relationship of both axis variables is not right-angle
       ddph_b2 = density_derp_h(bubble2);
       dTp = saturationTemperature_derp(p);
       dTp2 = (1/dew.d - 1/bubble.d)/max(s_d - s_b, 1e-6);
-      annotation (Documentation(info="<html></html>"));
+      annotation (Documentation(info="<html>
+</html>"));
     end ExtendedProperties;
 
     model TestTwoPhaseStates "Test the TwoPhaseWater model"

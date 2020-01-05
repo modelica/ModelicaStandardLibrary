@@ -48,8 +48,6 @@ The following values are possible:<br>&nbsp;
 <tr><td valign=\"top\">ns</td>
     <td valign=\"top\">nano seconds (= 1/(1000*1000*1000) seconds)</td></tr>
 </table>
-<p>
-</p>
 </html>"));
 annotation (Documentation(info="<html>
 <p>

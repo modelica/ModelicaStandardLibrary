@@ -67,12 +67,11 @@ equation
               -150,-120},{150,-160}}, textString = "%name", textColor = {0, 0, 255})}),
     Documentation(info="<html>
 <p>
-Transforms the input voltage signal into a duty cycle:
+Transforms the input voltage signal into a duty cycle:</p>
 <ul>
 <li><code>reciprocal = false and useBipolarVoltage = false: v/VLim = dutyCycle</code></li>
 <li><code>reciprocal = false and useBipolarVoltage = true : v/VLim = 2*dutyCycle - 1</code></li>
 <li><code>reciprocal = true:                                v/VLim = 1/(1 - dutyCycle)</code></li>
 </ul>
-</p>
 </html>"));
 end Voltage2DutyCycle;

@@ -1950,11 +1950,11 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBase
 </html>"));
       end Pulse;
     annotation (Documentation(info="<html>
-<p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide </p>
-<p><ol>
+<p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide</p>
+<ol>
 <li>a <strong>clocked</strong> output signal and</li>
 <li>are parametrized in terms of <strong>clock ticks</strong> rather than simulation time.</li>
-</ol></p>
+</ol>
 </html>"));
   end TickBasedSources;
 

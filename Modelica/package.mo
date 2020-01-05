@@ -2130,23 +2130,23 @@ design of sensors apply:
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
 <li>For a sensor with a single output signal the SI unit shall be placed withing the sensor,
-    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong></li>
+    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong>
     <ul>
-    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be</li>
+    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be
         <ul>
         <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
-        </ul>
+        </ul></li>
 
     <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be 
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
-    </ul>
+    </ul></li>
 <li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
-    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong></li>
+    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong>
     <ul>
     <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
     <li>Text width: 40 units (or 30 units, minimum 20 units, if required)</li>
-    </ul>
+    </ul></li>
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2366,7 +2366,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -2376,7 +2376,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -2415,7 +2415,7 @@ that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>

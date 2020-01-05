@@ -1594,13 +1594,13 @@ Obviously, the concentration follows reasonably well the desired one. By using a
 This example shows how to model a non-periodic synchronous sampled data systems
 with the <code>Modelica.Clocked library</code>. This is demonstrated at hand
 of a closed-loop throttle control synchronized to the crankshaft angle of an
-internal combustion engine. This system has the following properties:
+internal combustion engine. This system has the following properties:</p>
 <ul>
 <li> The engine speed is regulated with a throttle actuator.</li>
 <li> Controller execution is synchronized with the engine crankshaft angle.</li>
 <li> The influence of disturbances, such as a change in load torque, is reduced.</li>
 </ul>
-</p><p>
+<p>
 The complete system is shown in the figure below (diagram-layer):
 </p>
 <img
