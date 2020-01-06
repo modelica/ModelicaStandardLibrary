@@ -1,0 +1,128 @@
+CI:
+  - .github/**/*
+  - .travis.*
+  - CONTRIBUTING.md
+
+"L: Blocks":
+  - Modelica/Blocks/*
+
+"L: C-Sources":
+  - Modelica/Resources/C-Sources/**/*
+
+"L: Clocked":
+ - Modelica/Clocked/*
+
+"L: Complex*":
+  - Complex.mo
+  - Modelica/ComplexBlocks.mo
+  - Modelica/ComplexMath.mo
+
+"L: Constants":
+  - Modelica/Constants.mo
+
+"L: Electrical.Analog":
+  - Modelica/Electrical/Analog/**/*
+
+"L: Electrical.Batteries":
+  - Modelica/Electrical/Batteries/**/*
+
+"L: Electrical.Digital":
+  - Modelica/Electrical/Digital.mo
+
+"L: Electrical.Machines":
+  - Modelica/Electrical/Machines.mo
+
+"L: Electrical.Polyphase":
+  - Modelica/Electrical/Polyphase/**/*
+
+"L: Electrical.PowerConverters":
+  - Modelica/Electrical/PowerConverters/**/*
+
+"L: Electrical.QuasiStatic":
+  - Modelica/Electrical/QuasiStatic/**/*
+
+"L: Electrical.Spice3":
+  - Modelica/Electrical/Spice3.mo
+
+"L: Fluid.Dissipation":
+  - Modelica/Fluid/Dissipation.mo
+
+"L: Fluid":
+  - Modelica/Fluid/Fittings.mo
+  - Modelica/Fluid/Interfaces.mo
+  - Modelica/Fluid/Machines.mo
+  - Modelica/Fluid/package.mo
+  - Modelica/Fluid/package.order
+  - Modelica/Fluid/Pipes.mo
+  - Modelica/Fluid/Sensors.mo
+  - Modelica/Fluid/Sources.mo
+  - Modelica/Fluid/System.mo
+  - Modelica/Fluid/Types.mo
+  - Modelica/Fluid/Utilities.mo
+  - Modelica/Fluid/Valves.mo
+  - Modelica/Fluid/Vessels.mo
+
+"L: Icons":
+  - Modelica/Icons.mo
+
+"L: Magnetic.FluxTubes":
+  - Modelica/Magnetic/FluxTubes/**/*
+
+"L: Magnetic.FundamentalWave":
+  - Modelica/Magnetic/FundamentalWave/**/*
+
+"L: Magnetic.QuasiStatic":
+  - Modelica/Magnetic/QuasiStatic/**/*
+
+"L: Math":
+  - Modelica/Math/*
+
+"L: Mechanics.MultiBody":
+  - Modelica/Mechanics/MultiBody/**/*
+
+"L: Mechanics.Rotational":
+  - Modelica/Mechanics/Rotational.mo
+
+"L: Mechanics.Translational":
+  - Modelica/Mechanics/Translational.mo
+
+"L: Media":
+  - Modelica/Media/**/*
+
+"L: ModelicaReference":
+  - ModelicaReference/**/*
+
+"L: ModelicaServices":
+  - ModelicaServices/**/*
+
+"L: ModelicaTest":
+  - ModelicaTest/**/*
+  - ModelicaTestConversion4.mo
+  - ModelicaTestOverdetermined.mo
+
+"L: ObsoleteModelica":
+  - ObsoleteModelica4.mo
+
+"L: Resources":
+  - Modelica/Resources/BuildProjects/**/*
+  - Modelica/Resources/Data/**/*
+  - Modelica/Resources/Documentation/**/*
+  - Modelica/Resources/Images/**/*
+  - Modelica/Resources/Library/**/*
+  - Modelica/Resources/ReleaseNotes/**/*
+  - Modelica/Resources/Scripts/**/*
+
+"L: SIunits":
+  - Modelica/SIunits.mo
+
+"L: StateGraph":
+  - Modelica/StateGraph.mo
+
+"L: Thermal.FluidHeatFlow":
+  - Modelica/Thermal/FluidHeatFlow/**/*
+
+"L: Thermal.HeatTransfer":
+  - Modelica/Thermal/HeatTransfer/**/*
+
+"L: Utilities":
+  - Modelica/Utilities/*
