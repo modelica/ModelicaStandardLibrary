@@ -5,13 +5,15 @@
 # to native line endings on checkout.
 *.c text
 *.h text
+*.htm* text
+*.md text
 *.mo text
 *.mos text
 *.order text
+*.py text
+*.yml text
 .gitattributes text
 .gitignore text
-*.md text
-*.htm* text
 .mailmap text
 
 # git archive keyword substitions for the main package files
@@ -29,4 +31,5 @@ ObsoleteModelica4.mo export-subst
 CONTRIBUTING.md export-ignore
 .mailmap export-ignore
 .travis.mos export-ignore
+.travis.py export-ignore
 .travis.yml export-ignore
