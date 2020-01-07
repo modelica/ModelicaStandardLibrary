@@ -3,11 +3,6 @@ language: generic
 git:
   depth: 5
 
-addons:
-  apt:
-    packages:
-      - xsltproc
-
 services:
   - docker
 
