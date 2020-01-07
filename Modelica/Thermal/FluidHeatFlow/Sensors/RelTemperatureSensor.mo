@@ -1,14 +1,19 @@
 within Modelica.Thermal.FluidHeatFlow.Sensors;
 model RelTemperatureSensor "Temperature difference sensor"
 
-  extends FluidHeatFlow.Interfaces.RelativeSensor(y(unit="K")
-      "Temperature difference as output signal");
+  extends FluidHeatFlow.Interfaces.RelativeSensorBase;
+  Modelica.Blocks.Interfaces.RealOutput y(unit="K")
+    "Temperature difference as output signal"
+	annotation (absoluteValue = false, Placement(transformation(
+        origin={0,-110},
+        extent={{10,-10},{-10,10}},
+        rotation=90)));
 equation
   medium.cp*y = flowPort_a.h - flowPort_b.h;
   annotation (
     Documentation(info="<html>
 <p>The RelTemperatureSensor measures the temperature difference between flowPort_a and flowPort_b.</p>
-<p>Thermodynamic equations are defined by Interfaces.RelativeSensor.</p>
+<p>Thermodynamic equations are defined by <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensorBase\">Interfaces.RelativeSensorBase</a>.</p>
 <p>
 <strong>Note:</strong> Connected flowPorts have the same temperature (mixing temperature)!
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.

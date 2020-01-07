@@ -1,9 +1,9 @@
 within Modelica.Thermal.HeatTransfer.Sensors;
 model ConditionalFixedHeatFlowSensor
-  "HeatFlowSensor, conditional fixed Temperature"
+  "HeatFlowSensor, conditional fixed temperature"
   extends Modelica.Icons.RoundSensor;
   parameter Boolean useFixedTemperature(start=false)
-    "Fixed Temperature if true"
+    "Fixed temperature if true"
     annotation(Evaluate=true);
   HeatTransfer.Interfaces.HeatPort_a port_a
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
