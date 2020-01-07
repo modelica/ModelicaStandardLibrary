@@ -27,7 +27,7 @@ model DC_CompareCharacteristics
         extent={{-10,-10},{10,10}})));
   parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData
     dcpmData "Parameters of permanent magnet dc machine"
-    annotation (Placement(transformation(extent={{-30,30},{-10,50}})));
+    annotation (Placement(transformation(extent={{-30,24},{-10,44}})));
   Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_PermanentMagnet
     dcpm(
     TaOperational=dcpmData.TaNominal,
@@ -55,7 +55,7 @@ model DC_CompareCharacteristics
     annotation (Placement(transformation(extent={{50,50},{30,70}})));
   parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.DcElectricalExcitedData
     dceeData "Parameters of electrical excited dc machine"
-    annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
+    annotation (Placement(transformation(extent={{-30,-36},{-10,-16}})));
   Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_ElectricalExcited
     dcee(
     TaOperational=dceeData.TaNominal,
@@ -91,7 +91,7 @@ model DC_CompareCharacteristics
     annotation (Placement(transformation(extent={{50,-10},{30,10}})));
   parameter Modelica.Electrical.Machines.Utilities.ParameterRecords.DcSeriesExcitedData
     dcseData "Parameters of series excited dc machine"
-    annotation (Placement(transformation(extent={{-30,-90},{-10,-70}})));
+    annotation (Placement(transformation(extent={{-30,-96},{-10,-76}})));
   Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_SeriesExcited
     dcse(
     TaOperational=dcseData.TaNominal,
