@@ -24,8 +24,6 @@ ModelicaTestOverdetermined.mo export-subst
 ObsoleteModelica4.mo export-subst
 
 # list of files that git archive should ignore
-.github/labeler.yml export-ignore
-.github/workflows/label.yml export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
 CONTRIBUTING.md export-ignore
