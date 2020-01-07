@@ -3,20 +3,14 @@ model IncompressibleFluidNetwork
   "Multi-way connections of pipes and incompressible medium model"
   extends Modelica.Icons.Example;
 
-  parameter Types.ModelStructure pipeModelStructure = Modelica.Fluid.Types.ModelStructure.av_vb;
-  //parameter Types.ModelStructure pipeModelStructure = Modelica.Fluid.Types.ModelStructure.a_v_b;
+  parameter Types.ModelStructure pipeModelStructure = Modelica.Fluid.Types.ModelStructure.av_vb "Model structure in distributed pipe model";
 
   replaceable package Medium =
       Modelica.Media.Incompressible.Examples.Glycol47
     constrainedby Modelica.Media.Interfaces.PartialMedium;
 
-  //replaceable package Medium =
-  //    Modelica.Media.Water.StandardWaterOnePhase
-  //  constrainedby Modelica.Media.Interfaces.PartialMedium;
-
   import Modelica.Fluid.Types.Dynamics;
-  parameter Dynamics systemMassDynamics = if Medium.singleState then Dynamics.SteadyState else Dynamics.SteadyStateInitial;
-  parameter Boolean filteredValveOpening = not Medium.singleState;
+  parameter Dynamics systemMassDynamics = if Medium.singleState then Dynamics.SteadyState else Dynamics.SteadyStateInitial "Formulation of mass balances";
 
   Sources.Boundary_pT source(nPorts=1,
     redeclare package Medium = Medium,

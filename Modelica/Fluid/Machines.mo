@@ -159,9 +159,9 @@ package Machines
 
     // exemplary characteristics
     final parameter SI.VolumeFlowRate V_flow_op = m_flow_nominal/rho_nominal
-      "operational volume flow rate according to nominal values";
+      "Operational volume flow rate according to nominal values";
     final parameter SI.Position head_op = (p_b_nominal-p_a_nominal)/(rho_nominal*g)
-      "operational pump head according to nominal values";
+      "Operational pump head according to nominal values";
 
     Modelica.Blocks.Interfaces.RealInput m_flow_set(unit="kg/s") if use_m_flow_set
       "Prescribed mass flow rate"
@@ -383,7 +383,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       annotation (Placement(transformation(extent={{30,-70},{50,-50}})));
 
     // Variables
-    final parameter SI.Acceleration g=system.g;
+    final parameter SI.Acceleration g=system.g "Constant gravity acceleration";
     Medium.Density rho = medium.d;
     SI.Pressure dp_pump = port_b.p - port_a.p "Pressure change";
     SI.Position head = dp_pump/(rho*g) "Pump head";

@@ -195,7 +195,7 @@ The details of the model are described in the
       Medium.Density d_a
         "Density at port_a when fluid is flowing from port_a to port_b";
       Medium.Density d_b
-        "If allowFlowReversal=true then Density at port_b when fluid is flowing from port_b to port_a else d_a";
+        "If allowFlowReversal=true then density at port_b when fluid is flowing from port_b to port_a else d_a";
 
     equation
       // Isenthalpic state transformation (no storage and no loss of energy)
