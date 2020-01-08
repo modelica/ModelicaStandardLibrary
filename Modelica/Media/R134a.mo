@@ -333,7 +333,7 @@ rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
         f := Modelica.Media.Common.HelmholtzDerivs(
           d=d, T=T, R_s=R_s, delta=0, tau=0, f=0, fdelta=0,
           fdeltadelta=0, ftau=0, ftautau=0, fdeltatau=0);
-        state.p := saturationPressure(T);
+        state.p := saturationPressure_sat(sat);
         state.h := (dl*dv/d*(dewEnthalpy(sat) - bubbleEnthalpy(sat))
                   - dv*dewEnthalpy(sat) + dl*bubbleEnthalpy(sat))/(dl - dv);
         state.phase := 2;
