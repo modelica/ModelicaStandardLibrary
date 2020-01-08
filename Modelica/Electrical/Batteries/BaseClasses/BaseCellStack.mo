@@ -80,8 +80,6 @@ equation
   connect(internalHeatPort, r0.heatPort) annotation (Line(points={{0,-80},{
           0,-10}},              color={191,0,0}));
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}})),
     Documentation(info="<html>
 <p>
 The battery is modeled by open-circuit voltage (OCV) dependent on state of charge (SOC), a self-discharge component and an inner resistance.<br>

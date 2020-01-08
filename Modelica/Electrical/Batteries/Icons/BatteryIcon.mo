@@ -26,6 +26,5 @@ model BatteryIcon "Icon for cells and stacks"
           extent={{90,40},{110,-40}},
           lineColor={28,108,200},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
-          preserveAspectRatio=false)));
+          fillPattern=FillPattern.Solid)}));
 end BatteryIcon;

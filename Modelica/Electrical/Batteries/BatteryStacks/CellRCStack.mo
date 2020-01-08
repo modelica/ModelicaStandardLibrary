@@ -33,8 +33,6 @@ equation
   connect(resistor[cellData.nRC].n, n)
     annotation (Line(points={{50,-20},{50,0},{100,0}},color={0,0,255}));
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}})),
     Documentation(info="<html>
 <p>
 Extends the model <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">CellStack</a> by a series of RC-elements, describing the transient behaviour of the battery.

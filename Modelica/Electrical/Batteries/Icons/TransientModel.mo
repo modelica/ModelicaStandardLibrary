@@ -23,6 +23,5 @@ class TransientModel "Indicates transient model"
         Line(
           origin={-6,15},
           points={{0,21},{0,-11}},
-          color={255,215,136})}),                                   Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
+          color={255,215,136})}));
 end TransientModel;
