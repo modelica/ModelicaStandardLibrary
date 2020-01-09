@@ -4,9 +4,9 @@ block Impedance "Calculate complex impedance"
   import Modelica.Constants.pi;
   import Modelica.ComplexMath.'sum';
   parameter Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData cellData "Transient cell data";
-  Blocks.Interfaces.RealInput f "Frequency"
+  Blocks.Interfaces.RealInput f(unit="Hz") "Frequency"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  ComplexBlocks.Interfaces.ComplexOutput z "Complex impedance"
+  ComplexBlocks.Interfaces.ComplexOutput z(re(unit="Ohm"), im(unit="Ohm")) "Complex impedance"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 equation
   z = Complex(cellData.R0, 0) + 'sum'({1/Complex(1/cellData.rcData[k].R, 2*pi*f*cellData.rcData[k].C) for k in 1:cellData.nRC});
