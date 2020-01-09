@@ -50,10 +50,10 @@ partial model BaseCellStack
 equation
   assert(cellData.OCVmax > cellData.OCVmin, "Specify 0 <= OCVmin < OCVmax");
   assert(cellData.SOCmax > cellData.SOCmin, "Specify 0 <= SOCmin < SOCmax <= 1");
-  assert(cellData.OCV_SOC[1, 1] >= 0, "Specify OCV(SOC) table with min.SOC >= 0");
-  assert(cellData.OCV_SOC[end, 1] <= 1,  "Specify OCV(SOC) table with max.SOC <= 1");
-  assert(cellData.OCV_SOC[1, 2] >= 0, "Specify OCV(SOC) table with min.OCV/OCVmax >= 0");
-  assert(cellData.OCV_SOC[end, 2] <= 1, "Specify OCV(SOC) table with max.OCV/OCVmax <= 1");
+  assert(cellData.OCV_SOC[1, 1] >= 0, "Specify OCV(SOC) table with minimum SOC >= 0");
+  assert(cellData.OCV_SOC[end, 1] <= 1,  "Specify OCV(SOC) table with maximum SOC <= 1");
+  assert(cellData.OCV_SOC[1, 2] >= 0, "Specify OCV(SOC) table with minimum OCV/OCVmax >= 0");
+  assert(cellData.OCV_SOC[end, 2] <= 1, "Specify OCV(SOC) table with maximum OCV/OCVmax <= 1");
   assert(SOC < cellData.SOCmax + SOCtolerance, "Battery overcharged!");
   assert(SOC > cellData.SOCmin - SOCtolerance, "Battery exhausted!");
   connect(gainV.y, ocv.v)

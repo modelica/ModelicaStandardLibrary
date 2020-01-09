@@ -10,9 +10,9 @@ record CellData "Parameters of a battery cell"
     annotation(Dialog(group="OCV versus SOC"));
   parameter Modelica.SIunits.Voltage OCVmin(final min=0, start=0) "OCV at SOC = SOCmin"
     annotation(Dialog(group="OCV versus SOC", enable=useLinearSOCDependency));
-  parameter Real SOCmax(final max=1)=1 "Max. state of charge"
+  parameter Real SOCmax(final max=1)=1 "Maximum state of charge"
     annotation(Dialog(group="OCV versus SOC"));
-  parameter Real SOCmin(final min=0)=0 "Min. state of charge"
+  parameter Real SOCmin(final min=0)=0 "Minimum state of charge"
     annotation(Dialog(group="OCV versus SOC"));
   parameter Real OCV_SOC[:,2]=[SOCmin,OCVmin/OCVmax; SOCmax,1] "OCV/OCVmax versus SOC table"
     annotation(Dialog(group="OCV versus SOC", enable=not useLinearSOCDependency));
