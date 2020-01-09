@@ -328,19 +328,27 @@ Example:
 
     algorithm
       R := R134aData.data.R;
-      f := f_R134a(d=d, T=T);
-      state.p := d*R*T*f.delta*f.fdelta;
-      state.h := R*T*(f.tau*f.ftau + f.delta*f.fdelta);
-      sat.psat := state.p;
-      state.T := T;
-      state.d := d;
-      sat.Tsat := state.T;
+      sat := setSat_T(T);
       dl := bubbleDensity(sat);
       dv := dewDensity(sat);
-      state.phase := if ((state.d < dl) or (state.d > dv) or (state.p >
-        R134aData.data.FPCRIT)) then 1 else 2;
-
+      if d < dl and d > dv and T < R134aData.data.FTCRIT then
+        f := Modelica.Media.Common.HelmholtzDerivs(
+          d=d, T=T, R=R, delta=0, tau=0, f=0, fdelta=0,
+          fdeltadelta=0, ftau=0, ftautau=0, fdeltatau=0);
+        state.p := saturationPressure_sat(sat);
+        state.h := (dl*dv/d*(dewEnthalpy(sat) - bubbleEnthalpy(sat))
+                  - dv*dewEnthalpy(sat) + dl*bubbleEnthalpy(sat))/(dl - dv);
+        state.phase := 2;
+      else
+        f := f_R134a(d=d, T=T);
+        state.p := d*R*T*f.delta*f.fdelta;
+        state.h := R*T*(f.tau*f.ftau + f.delta*f.fdelta);
+        state.phase := 1;
+      end if;
+      state.T := T;
+      state.d := d;
       annotation (Documentation(revisions="<html>
+<p>2019-12-20  Francesco Casella and Stefan Wischhusen: Two-phase calculation corrected.</p>
 <p>2012-08-01  Stefan Wischhusen: Corrected passing-error of inputs.</p>
 </html>", info="<html>
 <p>Although the medium package is explicit for pressure and specific enthalpy, this function may be used in order to calculate the thermodynamic state record used as input by many functions. It will calculate the missing states:</p>
