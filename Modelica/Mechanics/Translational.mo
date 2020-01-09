@@ -3574,7 +3574,7 @@ is not taken into account.
         final useSupport=true,
         final f_nominal=-Cd*A*rho*vRef^2/2,
         final ForceDirection=false,
-        final v_nominal=vRef)
+        final v_nominal=vRef) "Drag resistance"
         annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
       RollingResistance fRoll(
         final fWeight=m*g,
@@ -3583,11 +3583,13 @@ is not taken into account.
         final useInclinationInput=useInclinationInput,
         final inclinationConstant=inclinationConstant,
         final reg=Modelica.Blocks.Types.Regularization.Linear,
-        final v0=vReg) annotation (Placement(transformation(
+        final v0=vReg) "Rolling resistance"
+        annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={60,0})));
-      Sources.Force fGrav annotation (Placement(transformation(
+      Sources.Force fGrav "Inclination resistance"
+        annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={60,30})));
@@ -3730,10 +3732,20 @@ the vehicle can be initialized using these variables.
 
 <h4>Mass and inertia</h4>
 <p>
-Both the translational vehicle mass and the rotational inertias (e.g. the wheels) are accelerated when the vehicle is accelerated. 
-The rotational inertia&nbsp;<code>J</code> can be expressed as an equivalent additional mass <code>mEq&nbsp;=&nbsp;J/R<sup>2</sup></code>, 
-where&nbsp;<code>R</code> is the wheel radius, but only the vehicle mass influences rolling resistance and inclination resistance. 
-The vehicle mass includes e.g. transported load, passengers and/or driver. 
+Both the translational vehicle mass and the rotational inertias (e.g. the wheels)
+are accelerated when the vehicle is accelerated.
+This nature is usually put into account for fundamental vehicle analyses
+done either in the rotational or translational domain, e.g. when analysing
+vehicle&apos;s driveline. 
+Then, the vehicle mass&nbsp;<code>m</code> can be expressed as an additional
+equivalent inertia <code>J_eq&nbsp;=&nbsp;m&nbsp;*&nbsp;R<sup>2</sup></code> or
+vice versa rotational inertia&nbsp;<code>J</code> as an additional
+equivalent mass <code>m_eq&nbsp;=&nbsp;J/R<sup>2</sup></code>, 
+where&nbsp;<code>R</code> is the wheel radius.
+Since this model introduces rolling resistance and inclination resistance as well
+where just the vehicle mass plays a&nbsp;role,
+the approach of equivalent mass/inertia would lead to incorrect simulation results
+and shall therefore not be applied here.
 </p>
 
 <h4>Drag resistance</h4>
