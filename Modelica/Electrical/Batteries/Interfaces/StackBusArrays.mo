@@ -1,8 +1,8 @@
 within Modelica.Electrical.Batteries.Interfaces;
 expandable connector StackBusArrays "Measurement signal bus for a stack, arranged as matrices"
   extends Modelica.Icons.SignalBus;
-  parameter Integer Ns=1 "Number of series connected cells";
-  parameter Integer Np=1 "Number of parallel connected cells";
+  parameter Integer Ns(final min = 1) = 1 "Number of series connected cells";
+  parameter Integer Np(final min = 1) = 1 "Number of parallel connected cells";
   Modelica.SIunits.Voltage v[Ns, Np] "Cell voltages";
   Modelica.SIunits.Current i[Ns, Np] "Cell currents";
   Real soc[Ns, Np] "States of charge of cells";

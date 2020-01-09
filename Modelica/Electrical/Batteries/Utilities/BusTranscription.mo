@@ -1,8 +1,8 @@
 within Modelica.Electrical.Batteries.Utilities;
 block BusTranscription "Transcribe bus signals"
   extends Modelica.Blocks.Icons.Block;
-  parameter Integer Ns=1 "Number of series connected cells";
-  parameter Integer Np=1 "Number of parallel connected cells";
+  parameter Integer Ns(final min = 1) = 1 "Number of series connected cells";
+  parameter Integer Np(final min = 1) = 1 "Number of parallel connected cells";
   Modelica.Electrical.Batteries.Interfaces.StackBus stackBus(Np=Np, Ns=Ns)
     "Stack bus" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
