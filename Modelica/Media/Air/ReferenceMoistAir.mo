@@ -1834,11 +1834,11 @@ package ReferenceMoistAir
       end rho_pT_der;
 
       function visc_dT = Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.visc_dTp(
-        p=0, phase=0, final checkLimits=false)
+        final p=0, final phase=0, final checkLimits=false)
         "Dynamic viscosity eta(d,T), industrial formulation";
 
       function cond_dT = Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp(
-        p=0, phase=0, final industrialMethod=true, final checkLimits=false)
+        final p=0, final phase=0, final industrialMethod=true, final checkLimits=false)
         "Thermal conductivity lam(d,T), industrial formulation";
 
       function h_pT_der "Derivative function of h_pT for region 2"
