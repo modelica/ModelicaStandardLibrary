@@ -5422,7 +5422,7 @@ to the above list of assumptions</li>
       output Temperature T "Saturation temperature";
     end saturationTemperature;
 
-    replaceable function saturationPressure_sat "Return saturation temperature"
+    replaceable function saturationPressure_sat "Return saturation pressure"
       extends Modelica.Icons.Function;
       input SaturationProperties sat "Saturation property record";
       output AbsolutePressure p "Saturation pressure";
