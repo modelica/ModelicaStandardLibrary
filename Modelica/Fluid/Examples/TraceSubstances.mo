@@ -229,9 +229,9 @@ this mass flow rate should be kept small. Thus, in the source model, we set the
 CO2 concentration to <code>C={100} kg/kg</code>, and scaled the mass flow rate using
 </p>
 
-<pre>
-  m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
-</pre>
+<blockquote><pre>
+m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
+</pre></blockquote>
 
 <p>
 where <code>nPeo</code> is the number of people in the room.

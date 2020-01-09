@@ -60,7 +60,7 @@ circular ring pipe).
 </html>", revisions="<html>
 <ul>
 <li>
-January 6, 2015 by Alexander T&auml;schner:<br/>
+January 6, 2015 by Alexander T&auml;schner:<br>
 First implementation.
 </li>
 </ul>

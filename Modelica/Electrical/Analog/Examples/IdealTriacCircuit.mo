@@ -30,7 +30,7 @@ equation
   connect(idealTriac.p, ground.p) annotation (Line(
       points={{32.52,33},{42,33},{42,-20},{-2,-20}}, color={0,0,255}));
   connect(idealTriac.fire1, booleanPulse.y) annotation (Line(
-      points={{11.2,21.04},{0,21.04},{0,8},{-5.2,8}}, color={255,0,255}));
+      points={{6,18.18},{0,18.18},{0,8},{-5.2,8}},    color={255,0,255}));
   annotation (experiment(StopTime=2),
     Documentation(revisions="<html>
 <ul>

@@ -18,7 +18,7 @@ class References "References"
 
   <tr>
     <td>[<a href=\"https://www.springer.com/us/book/9783540151609\">Hoefer1985</a>]</td>
-    <td>E. E. E. Hoefer, H. Nielinger, <em>SPICE: Analyseprogramm f&uuml;r elektronische Schaltungen<em>,
+    <td>E. E. E. Hoefer, H. Nielinger, <em>SPICE: Analyseprogramm f&uuml;r elektronische Schaltungen</em>,
         Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985</td>
   </tr>
 

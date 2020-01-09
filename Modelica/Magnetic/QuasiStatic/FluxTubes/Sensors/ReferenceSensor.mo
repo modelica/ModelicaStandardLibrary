@@ -1,11 +1,11 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors;
 model ReferenceSensor "Sensor of reference angle gamma"
   extends FluxTubes.Interfaces.AbsoluteSensor;
-  Modelica.Blocks.Interfaces.RealOutput y "Reference angle" annotation (
+  Modelica.Blocks.Interfaces.RealOutput y(unit="rad") "Reference angle" annotation (
       Placement(transformation(extent={{100,-10},{120,10}})));
 equation
   y = port.reference.gamma;
-  annotation (                 Diagram(coordinateSystem(preserveAspectRatio=false)),
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>This sensor determines the reference angle of the connected quasi-static magnetic system.
 The integral of the angular frequency of the quasi-static magnetic system is equal to the reference angle.

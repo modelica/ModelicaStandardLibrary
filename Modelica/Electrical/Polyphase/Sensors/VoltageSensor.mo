@@ -6,7 +6,7 @@ model VoltageSensor "Polyphase voltage sensor"
         transformation(extent={{-110,-10},{-90,10}})));
   Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
         transformation(extent={{90,-10},{110,10}})));
-  Modelica.Blocks.Interfaces.RealOutput v[m]
+  Modelica.Blocks.Interfaces.RealOutput v[m](each unit="V")
     "Voltage between pin p and n (= p.v - n.v) as output signal"
     annotation (Placement(transformation(
         origin={0,-110},

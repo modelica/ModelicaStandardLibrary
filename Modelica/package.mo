@@ -161,14 +161,14 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td>
- <pre>
- A = [1,2,3;
-   3,4,5;
-   2,1,4];
- b = {10,22,12};
- x = Matrices.solve(A,b);
- Matrices.eigenValues(A);
- </pre>
+ <blockquote><pre>
+A = [1,2,3;
+     3,4,5;
+     2,1,4];
+b = {10,22,12};
+x = Matrices.solve(A,b);
+Matrices.eigenValues(A);
+ </pre></blockquote>
  </td>
  <td>
  <a href=\"modelica://Modelica.Math\">Math</a>,
@@ -373,15 +373,13 @@ As a result, it is, e.g., possible, to collect elementary connectors together.
 For example, an electrical plug consisting of two electrical pins can be defined as:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
 <strong>connector</strong> Plug
    <strong>import</strong> Modelica.Electrical.Analog.Interfaces;
    Interfaces.PositivePin phase;
    Interfaces.NegativePin ground;
 <strong>end</strong> Plug;
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 With one connect(..) equation, either two plugs can be connected
@@ -420,48 +418,48 @@ The Modelica connection semantics is sketched at hand
 of an example: Three connectors c1, c2, c3 with the definition
 </p>
 
-<pre>
+<blockquote><pre>
 <strong>connector</strong> Demo
   Real        p;  // potential variable
   <strong>flow</strong>   Real f;  // flow variable
   <strong>stream</strong> Real s;  // stream variable
 <strong>end</strong> Demo;
-</pre>
+</pre></blockquote>
 
 <p>
 are connected together with
 </p>
 
-<pre>
-   <strong>connect</strong>(c1,c2);
-   <strong>connect</strong>(c1,c3);
-</pre>
+<blockquote><pre>
+<strong>connect</strong>(c1,c2);
+<strong>connect</strong>(c1,c3);
+</pre></blockquote>
 
 <p>
 then this leads to the following equations:
 </p>
 
-<pre>
-  // Potential variables are identical
-  c1.p = c2.p;
-  c1.p = c3.p;
+<blockquote><pre>
+// Potential variables are identical
+c1.p = c2.p;
+c1.p = c3.p;
 
-  // The sum of the flow variables is zero
-  0 = c1.f + c2.f + c3.f;
+// The sum of the flow variables is zero
+0 = c1.f + c2.f + c3.f;
 
-  /* The sum of the product of flow variables and upstream stream variables is zero
-     (this implicit set of equations is explicitly solved when generating code;
-     the \"&lt;undefined&gt;\" parts are defined in such a way that
-     inStream(..) is continuous).
-  */
-  0 = c1.f*(<strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> c1.s) +
-      c2.f*(<strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> c2.s) +
-      c3.f*(<strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> c3.s);
+/* The sum of the product of flow variables and upstream stream variables is zero
+   (this implicit set of equations is explicitly solved when generating code;
+   the \"&lt;undefined&gt;\" parts are defined in such a way that
+   inStream(..) is continuous).
+*/
+0 = c1.f*(<strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> c1.s) +
+    c2.f*(<strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> c2.s) +
+    c3.f*(<strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> c3.s);
 
-  <strong>inStream</strong>(c1.s) = <strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
-  <strong>inStream</strong>(c2.s) = <strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
-  <strong>inStream</strong>(c3.s) = <strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
-</pre>
+<strong>inStream</strong>(c1.s) = <strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+<strong>inStream</strong>(c2.s) = <strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+<strong>inStream</strong>(c3.s) = <strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+</pre></blockquote>
 
 </html>"));
 end Connectors;
@@ -498,12 +496,13 @@ For more complex case scenarios, an unordered list should be used. In this case 
 
 <h5>Example 2</h5>
 
-<pre>
+<blockquote><pre>
 &lt;ul&gt;
   &lt;li&gt; If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model.
        Cage parameters must be specified in this case.&lt;/li&gt;
   &lt;li&gt; If &lt;code&gt;useCage == false&lt;/code&gt;, the damper cage is omitted.&lt;/li&gt;
-&lt;/ul&gt;</pre>
+&lt;/ul&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
@@ -519,7 +518,7 @@ In a more equation oriented case, additional equations or code segments can be a
 
 <h5>Example 3</h5>
 
-<pre>
+<blockquote><pre>
 &lt;ul&gt;
   &lt;li&gt;if &lt;code&gt;usePolar == true&lt;/code&gt;, assign magnitude and angle to output &lt;br&gt;
   &lt;!-- insert graphical representation of equations --&gt;
@@ -531,7 +530,8 @@ In a more equation oriented case, additional equations or code segments can be a
   y[i,1] = a[i] &lt;br&gt;
   y[i,2] = b[i]
   &lt;/li&gt;
-&lt;/ul&gt;</pre>
+&lt;/ul&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
@@ -565,11 +565,12 @@ Modelica code in the HTML documentation.
 </p>
 
 <ol>
-<li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
-     should to be used, e.g.,<br>
+<li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code>
+     and <code>&lt;/code&gt;</code> should to be used, e.g.,<br>
      <code><strong>parameter</strong> Modelica.SIunits.Time tStart &quot;Start time&quot;</code></li>
-<li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
-<li> Multi line or single line code shall not be indented.</li>
+<li> Write multi or single line code segments as quoted preformatted text, i.e., embedded within
+     <code>&lt;blockquote&gt;&lt;pre&gt;</code> and <code>&lt;/pre&gt;&lt;/blockquote&gt;</code> tags.</li>
+<li> Multi line or single line code shall not be additionally indented.</li>
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
 <li> In code segments use bold to emphasize Modelica keywords.</li>
 </ol>
@@ -578,36 +579,37 @@ Modelica code in the HTML documentation.
 
 <h5>Example 1</h5>
 
-<pre>
-&lt;pre&gt;
+<blockquote><pre>
+&lt;blockquote&gt;&lt;pre&gt;
 &lt;strong&gt;connector&lt;/strong&gt; Frame
    ...
    &lt;strong&gt;flow&lt;/strong&gt; SI.Force f[3] &lt;strong&gt;annotation&lt;/strong&gt;(unassignedMessage=&quot;...&quot;);
 &lt;strong&gt;end&lt;/strong&gt; Frame;
-&lt;/pre&gt;</pre>
+&lt;/pre&gt;&lt;/blockquote&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
-<pre>
+<blockquote><pre>
 <strong>connector</strong> Frame
    ...
    <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=&quot;...&quot;);
 <strong>end</strong> Frame;
-</pre>
+</pre></blockquote>
 
 <h5>Example 2</h5>
 
-<pre>
-&lt;pre&gt;
+<blockquote><pre>
+&lt;blockquote&gt;&lt;pre&gt;
 &lt;strong&gt;parameter&lt;/strong&gt; Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
-&lt;/pre&gt;
-</pre>
+&lt;/pre&gt;&lt;/blockquote&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
-<pre>
+<blockquote><pre>
 <strong>parameter</strong> Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
-</pre>
+</pre></blockquote>
 </html>"));
         end Code;
 
@@ -634,11 +636,11 @@ or<br>
  src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
  alt=\"y=a_1+a_2\"><br>
 In an <code>alt</code> tag the original equation should be stored, e.g.,</p>
-<pre>
+<blockquote><pre>
 &lt;img
 &nbsp;src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
 &nbsp;alt=&quot;y=a_1+a_2&quot;&gt;
-</pre>
+</pre></blockquote>
 
 <p>
 If one wants to refer to particular variables and parameters in the documentation text, either a
@@ -658,7 +660,7 @@ Vector and array indices should be typeset as subscripts using the
 
 <p>For numbering equations a one row table with two columns should be used. The equation number should be placed in the right column:</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;10&quot; cellpadding=&quot;2&quot;&gt;
   &lt;tr&gt;
     &lt;td&gt;&lt;img
@@ -667,7 +669,7 @@ Vector and array indices should be typeset as subscripts using the
     &lt;td&gt;(1)&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 
 <p>appears as:</p>
 
@@ -713,16 +715,16 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <a href=\"modelica://Modelica.Blocks\">Blocks</a> package.
 </p>
 
-<pre>
+<blockquote><pre>
 &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
      alt=&quot;PID_controller.png&quot;&gt;
-</pre>
+</pre></blockquote>
 
 <h5>Example 2</h5>
 
 <p>This is a simple example of a technical figure with caption.</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
   &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
@@ -732,7 +734,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 
 <h5>Example 3</h5>
 
@@ -740,7 +742,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <p>The figure name and enumeration should look like this: <strong>Fig. 1:</strong></p>
 <p>Figures have to be enumerated manually.</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
   &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
@@ -750,7 +752,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 </html>"));
         end Figures;
 
@@ -771,21 +773,23 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <h5>Example 1</h5>
 
-<pre>
+<blockquote><pre>
 &lt;a href=&quot;modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&quot;&gt;
-         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
+         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;
+</pre></blockquote>
 <p>appears as</p>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
 
 <h5>Example 2</h5>
 
-<pre>
+<blockquote><pre>
 &lt;p&gt;
   The feeder cables are connected to an
   &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
-&lt;/p&gt;</pre>
+&lt;/p&gt;
+</pre></blockquote>
 <p>appears as</p>
 <p>
   The feeder cables are connected to an
@@ -814,12 +818,12 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <p>This is a simple example of an enumerated (ordered) list</p>
 
-<pre>
+<blockquote><pre>
 &lt;ol&gt;
   &lt;li&gt;item 1&lt;/li&gt;
   &lt;li&gt;item 2&lt;/li&gt;
 &lt;/ol&gt;
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <ol>
   <li>item 1</li>
@@ -830,12 +834,12 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <p>This is a simple example of an unnumbered list.</p>
 
-<pre>
+<blockquote><pre>
 &lt;ul&gt;
   &lt;li&gt;item 1&lt;/li&gt;
   &lt;li&gt;item 2&lt;/li&gt;
 &lt;/ul&gt;
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <ul>
   <li>item 1</li>
@@ -858,13 +862,14 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <h5>Example 1</h5>
 
-<pre>
+<blockquote><pre>
 &lt;p&gt;
 More details about electric machine modeling
 can be found in [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
 and
 [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
-&lt;/p&gt;</pre>
+&lt;/p&gt;
+</pre></blockquote>
 <p>appears as</p>
 <p>
 More details about electric machine modeling
@@ -893,7 +898,7 @@ and
 
 <p>This is a simple example of a table.</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
   &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
@@ -909,7 +914,7 @@ and
     &lt;td&gt;Entry 4&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Caption starts with a capital letter</caption>
@@ -933,7 +938,7 @@ and
 has to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>. The table name
 and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to be enumerated manually.</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
   &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Tab 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
@@ -949,7 +954,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
     &lt;td&gt;Entry 4&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Tab. 2:</strong> Caption starts with a capital letter</caption>
@@ -1052,33 +1057,33 @@ These sections should appear in the listed order. The only exceptions are hierar
 This is an example of a single note.
 </p>
 
-<pre>
+<blockquote><pre>
 &lt;h5&gt;Note&lt;/h5&gt;
 &lt;p&gt;This is the note.&lt;/p&gt;
-</pre>
+</pre></blockquote>
 
 <h5>Example 2</h5>
 <p>
 This is an example of a very simple structure.
 </p>
 
-<pre>
+<blockquote><pre>
 &lt;h5&gt;Notes&lt;/h5&gt;
 &lt;p&gt;This is the first note.&lt;/p&gt;
 &lt;p&gt;This is the second note.&lt;/p&gt;
-</pre>
+</pre></blockquote>
 
 <h5>Example 3</h5>
 <p>
 This example shows a more complex structure with enumeration.
 </p>
 
-<pre>
+<blockquote><pre>
 &lt;h5&gt;Note 1&lt;/h5&gt;
 ...
 &lt;h5&gt;Note 2&lt;/h5&gt;
 ...
-</pre>
+</pre></blockquote>
 
 <h4>Automatically created documentation</h4>
 
@@ -1109,11 +1114,11 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     <th>Not to be used</th>
   </tr>
   <tr>
-    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-13-54\">cut-off frequency</a></td>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-13-54\">cut-off frequency</a></td>
     <td>cut off frequency, cutoff frequency, cut-off-frequency, cutoff-frequency</td>
   </tr>
   <tr>
-    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-11-09\">electromagnetic</a></td>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-09\">electromagnetic</a></td>
     <td>electro magnetic, electro-magnetic</td>
   </tr>
   <tr>
@@ -1145,7 +1150,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
   </tr>
   <tr>
-    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=141-02-10\">star point</a></td>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=141-02-10\">star point</a></td>
     <td>star-point, starpoint</td>
   </tr>
   <tr>
@@ -1400,12 +1405,101 @@ For Boolean parameters, the description string should start with &quot;= true, &
 </html>"));
       end Naming;
 
+    class ParameterDefaults "Parameter defaults"
+      extends Modelica.Icons.Information;
+
+     annotation (Documentation(info="<html>
+
+<p>
+In this section the convention is summarized how default parameters are
+handled in the Modelica Standard Library (since version 3.0).
+</p>
+
+<p>
+Many models in this library have parameter declarations to define
+constants of a model that might be changed before simulation starts.
+Example:
+</p>
+
+<blockquote><pre>
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
+...
+<strong>end</strong> SpringDamper;
+</pre></blockquote>
+
+<p>
+In Modelica it is possible to define a default value of a parameter in
+the parameter declaration. In the example above, this is performed for
+all parameters. Providing default values for all parameters can lead to
+errors that are difficult to detect, since a modeler may have forgotten
+to provide a meaningful value (the model simulates but gives wrong
+results due to wrong parameter values). In general the following basic
+situations are present:
+</p>
+
+<ol>
+<li> The parameter value could be anything (e.g., a spring constant or
+  a resistance value) and therefore the user should provide a value in
+  all cases. A Modelica translator should warn, if no value is provided.
+</li>
+
+<li> The parameter value is not changed in &gt; 95 % of the cases
+  (e.g., initialization or visualization parameters, or parameter phi_rel0
+  in the example above). In this case a default parameter value should be
+  provided, in order that the model or function can be conveniently
+  used by a modeler.
+</li>
+
+<li> A modeler would like to quickly utilize a model, e.g.,
+  <ul>
+  <li> to automatically check that the model still translates and/or simulates
+    (after some changes in the library),</li>
+  <li> to make a quick demo of a library by drag-and-drop of components,</li>
+  <li> to implement a simple test model in order to get a better understanding
+    of the desired component.</li>
+  </ul>
+  In all these cases, it would be not practical, if the modeler would
+  have to provide explicit values for all parameters first.
+  </li>
+</ol>
+
+<p>
+To handle the conflicting goals of (1) and (3), the Modelica Standard Library
+uses two approaches to define default parameters, as demonstrated with the
+following example:
+</p>
+
+<blockquote><pre>
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
+...
+<strong>end</strong> SpringDamper;
+
+SpringDamper sp1;              // warning for \"c\" and \"d\"
+SpringDamper sp2(c=1e4, d=0);  // fine, no warning
+</pre></blockquote>
+
+<p>
+Both definition forms, using a \"start\" value (for \"c\" and \"d\") and providing
+a declaration equation (for \"phi_rel0\"), are valid Modelica and define the value
+of the parameter. By convention, it is expected that Modelica translators will
+trigger a warning message for parameters that are <strong>not</strong> defined by a declaration
+equation, by a modifier equation or in an initial equation/algorithm section.
+A Modelica translator might have options to change this behavior, especially,
+that no messages are printed in such cases and/or that an error is triggered
+instead of a warning.
+</p>
+
+</html>"));
+    end ParameterDefaults;
       annotation (Documentation(info="<html>
 
-<p>In this section the
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified.
-Additional
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Format\">format</a> guidelines are provided.</p>
+<p>In this section guidelines on creating Modelica code are provided.</p>
 
 </html>"));
     end ModelicaCode;
@@ -1452,7 +1546,7 @@ This class summarizes general information about the implementation which is not 
 
 <h4>Example</h4>
 
-<pre>
+<blockquote><pre>
 &lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
   &lt;tr&gt;
     &lt;td&gt;[Gao2008]&lt;/td&gt;
@@ -1500,7 +1594,7 @@ This class summarizes general information about the implementation which is not 
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 
 <p>appears as</p>
 
@@ -1566,7 +1660,7 @@ This class summarizes contact information of the contributing persons.
 
 <h4>Example</h4>
 
-<pre>
+<blockquote><pre>
 &lt;p&gt;
 Library officers responsible for the maintenance and for the
 organization of the development of this library are listed in
@@ -1617,7 +1711,7 @@ is highly appreciated.
 &lt;/p&gt;
 
 OR whatever
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <p>
 Library officers responsible for the maintenance and for the
@@ -1674,7 +1768,7 @@ The authors would like to thank following persons for their support ...
 
 <h5>Example</h5>
 
-<pre>
+<blockquote><pre>
 &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
     &lt;tr&gt;
       &lt;th&gt;Version&lt;/th&gt;
@@ -1695,7 +1789,8 @@ The authors would like to thank following persons for their support ...
       &lt;td&gt;A. Haumer&lt;/td&gt;
       &lt;td&gt;Initial version&lt;/td&gt;
     &lt;/tr&gt;
-&lt;/table&gt;</pre>
+&lt;/table&gt;
+</pre></blockquote>
 
 <p>This code appears then as in the \"Revisions\" section below.</p>
 
@@ -1795,6 +1890,11 @@ In the Modelica Standard Library the following color schemes apply:</p>
     <td>Modelica.ComplexBlocks</td>
     <td>{85,170,255}</td>
     <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Clocked</td>
+    <td>{95,95,95}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleClocked.png\"></td>
   </tr>
   <tr>
     <td>Modelica.StateGraph</td>
@@ -2030,23 +2130,23 @@ design of sensors apply:
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
 <li>For a sensor with a single output signal the SI unit shall be placed withing the sensor,
-    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong></li>
+    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong>
     <ul>
-    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be</li>
+    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be
         <ul>
         <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
-        </ul>
+        </ul></li>
 
     <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be 
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
-    </ul>
+    </ul></li>
 <li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
-    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong></li>
+    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong>
     <ul>
     <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
     <li>Text width: 40 units (or 30 units, minimum 20 units, if required)</li>
-    </ul>
+    </ul></li>
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2110,103 +2210,6 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
 </ol>
 </html>"));
   end Conventions;
-
-class ParameterDefaults "Parameter defaults"
-  extends Modelica.Icons.Information;
-
- annotation (Documentation(info="<html>
-
-<p>
-In this section the convention is summarized how default parameters are
-handled in the Modelica Standard Library (since version 3.0).
-</p>
-
-<p>
-Many models in this library have parameter declarations to define
-constants of a model that might be changed before simulation starts.
-Example:
-</p>
-
-<blockquote>
-<pre>
-<strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
-...
-<strong>end</strong> SpringDamper;
-</pre>
-</blockquote>
-
-<p>
-In Modelica it is possible to define a default value of a parameter in
-the parameter declaration. In the example above, this is performed for
-all parameters. Providing default values for all parameters can lead to
-errors that are difficult to detect, since a modeler may have forgotten
-to provide a meaningful value (the model simulates but gives wrong
-results due to wrong parameter values). In general the following basic
-situations are present:
-</p>
-
-<ol>
-<li> The parameter value could be anything (e.g., a spring constant or
-  a resistance value) and therefore the user should provide a value in
-  all cases. A Modelica translator should warn, if no value is provided.
-</li>
-
-<li> The parameter value is not changed in &gt; 95 % of the cases
-  (e.g., initialization or visualization parameters, or parameter phi_rel0
-  in the example above). In this case a default parameter value should be
-  provided, in order that the model or function can be conveniently
-  used by a modeler.
-</li>
-
-<li> A modeler would like to quickly utilize a model, e.g.,
-  <ul>
-  <li> to automatically check that the model still translates and/or simulates
-    (after some changes in the library),</li>
-  <li> to make a quick demo of a library by drag-and-drop of components,</li>
-  <li> to implement a simple test model in order to get a better understanding
-    of the desired component.</li>
-  </ul>
-  In all these cases, it would be not practical, if the modeler would
-  have to provide explicit values for all parameters first.
-  </li>
-</ol>
-
-<p>
-To handle the conflicting goals of (1) and (3), the Modelica Standard Library
-uses two approaches to define default parameters, as demonstrated with the
-following example:
-</p>
-
-<blockquote>
-<pre>
-<strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
-...
-<strong>end</strong> SpringDamper;
-
-SpringDamper sp1;              // warning for \"c\" and \"d\"
-SpringDamper sp2(c=1e4, d=0);  // fine, no warning
-</pre>
-</blockquote>
-
-<p>
-Both definition forms, using a \"start\" value (for \"c\" and \"d\") and providing
-a declaration equation (for \"phi_rel0\"), are valid Modelica and define the value
-of the parameter. By convention, it is expected that Modelica translators will
-trigger a warning message for parameters that are <strong>not</strong> defined by a declaration
-equation, by a modifier equation or in an initial equation/algorithm section.
-A Modelica translator might have options to change this behavior, especially,
-that no messages are printed in such cases and/or that an error is triggered
-instead of a warning.
-</p>
-
-</html>"));
-end ParameterDefaults;
 
 package ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
@@ -2292,17 +2295,19 @@ There are some special guidelines for changes to the maintenance branch.
      \"versionBuild\" number needs to be incremented by one. At the same time the \"dateModified\" field
      needs to be updated.<br>
      Example:
-         <pre>  annotation(version      = \"3.2.3\",
-             versionDate  = \"2019-01-23\",
-             versionBuild = 2,
-             dateModified = \"2019-01-23 07:40:19Z\",
-             revisionId   = \"$F&#8203;ormat:%h %ci$\")</pre>
+         <blockquote><pre>
+annotation(version      = \"3.2.3\",
+           versionDate  = \"2019-01-23\",
+           versionBuild = 2,
+           dateModified = \"2019-01-23 07:40:19Z\",
+           revisionId   = \"$F&#8203;ormat:%h %ci$\")
+         </pre></blockquote>
      The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits.<br>
      Example:
      <blockquote>
         Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
         expand the above \"revisionId\" place holder to something like:
-        <pre>revisionId = \"c04e23a0d 2019-01-23 12:00:00 +0200$\"</pre>
+        <blockquote><pre>revisionId = \"c04e23a0d 2019-01-23 12:00:00 +0200$\"</pre></blockquote>
      </blockquote>
      </li>
 </ul>
@@ -2361,7 +2366,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -2371,7 +2376,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -2410,7 +2415,7 @@ that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -4314,9 +4319,7 @@ units are wrong or errors in documentation):
 </table>
 
 <p><br>
-The following
-<a href=\"http://trac.modelica.org/Modelica\">trac tickets</a>
-have been fixed:
+The following trac tickets have been fixed:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
@@ -5397,7 +5400,7 @@ The following changes are present for the whole library:
 
 <li> Nearly all parameters defined in the Modelica Standard Library had been
          defined with a default equation, e.g.,
-         <pre>   <strong>parameter</strong> Modelica.SIunits.Resistance R=1; </pre>
+         <blockquote><pre><strong>parameter</strong> Modelica.SIunits.Resistance R=1; </pre></blockquote>
          Physical parameters, such as a resistance, mass, gear ratio, do not have a meaningful
          default and in nearly all cases, the user of the corresponding component has to
          provide values for such parameters. If the user forgets this, a tool
@@ -5407,7 +5410,7 @@ The following changes are present for the whole library:
          parameter declarations in the Modelica Standard Library have been changed, so
          that the previous default becomes a start value. For example, the above
          declaration is changed to:
-         <pre>   <strong>parameter</strong> Modelica.SIunits.Resistance R(start=1);  </pre>
+         <blockquote><pre><strong>parameter</strong> Modelica.SIunits.Resistance R(start=1);  </pre></blockquote>
          This is a backward compatible change and completely equivalent from the perspective
          of the Modelica language. It is, however, advised that tools will print a warning
          or optionally an error message, if the start value of a parameter is defined, but
@@ -7858,34 +7861,37 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 </p>
 <p>Implemented avoiding algorithm section, which would lead to expensive function calls.</p>
 <p><em>Modelica.Blocks.Sources.Step</em></p>
-<pre>
+<blockquote><pre>
 block Step \"Generate step signals of type Real\"
         parameter Real height[:]={1} \"Heights of steps\";
 <strong> // parameter Real offset[:]={0} \"Offsets of output signals\";
 // parameter SIunits.Time startTime[:]={0} \"Output = offset for time < startTime\";
 // extends Interfaces.MO          (final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));
         extends Interfaces.SignalSource(final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));</strong>
-</pre>
+</pre></blockquote>
 <p><em>Modelica.Blocks.Sources.Exponentials</em></p>
 <p>Replaced usage of built-in function <code>exp</code> by Modelica.Math.exp.</p>
 <p><em>Modelica.Blocks.Sources.TimeTable</em></p>
 <p>Interface definition changed from</p>
-<pre>    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
-</pre>
+<blockquote><pre>
+parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
+</pre></blockquote>
 <p>to</p>
-<pre>    parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
-</pre>
+<blockquote><pre>
+parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
+</pre></blockquote>
 <p>Did the same for subfunction <em>getInterpolationCoefficients</em>.</p>
 <p>Bug in <em>getInterpolationCoefficients</em> for startTime <> 0 fixed:</p>
-<pre>        ...
-                end if;
-          end if;
-          <strong>// Take into account startTime \"a*(time - startTime) + b\"
-          b := b - a*startTime;</strong>
-        end getInterpolationCoefficients;
-</pre>
+<blockquote><pre>
+...
+        end if;
+  end if;
+  <strong>// Take into account startTime \"a*(time - startTime) + b\"
+  b := b - a*startTime;</strong>
+end getInterpolationCoefficients;
+</pre></blockquote>
 <p><em>Modelica.Blocks.Sources.BooleanStep</em></p>
-<pre>
+<blockquote><pre>
 block BooleanStep \"Generate step signals of type Boolean\"
         parameter SIunits.Time startTime[:]={0} \"Time instants of steps\";
         <strong>parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime, 1)) \"Output before startTime\";</strong>
@@ -7896,7 +7902,7 @@ equation
           outPort.signal[i] = if time >= startTime[i] then not startValue[i] else startValue[i];</strong>
         end for;
 end BooleanStep;
-</pre>
+</pre></blockquote>
 <p>
 <em>Modelica.Electrical.Analog</em></p>
 <p>Corrected table of values and default for Beta by dividing them by 1000
@@ -7971,12 +7977,12 @@ annotation (Documentation(info="<html>
         <li>New subpackage Modelica.Mechanics.<strong>Translational</strong></li>
         <li>Changes to Modelica.Mechanics.<strong>Rotational</strong>:<br>
            New elements:
-<pre>
+<blockquote><pre>
 IdealGearR2T    Ideal gear transforming rotational in translational motion.
 Position        Forced movement of a flange with a reference angle
                                    given as input signal
 RelativeStates  Definition of relative state variables
-</pre>
+</pre></blockquote>
 </li>
         <li>Changes to Modelica.<strong>SIunits</strong>:<br>
           Introduced new types:<br>
@@ -7994,14 +8000,14 @@ RelativeStates  Definition of relative state variables
         <li>Changes to Modelica.<strong>Blocks.Interfaces</strong>:<br>
            Introduced a replaceable signal type into
            Blocks.Interfaces.RealInput/RealOutput:
-<pre>
+<blockquote><pre>
 replaceable type SignalType = Real
-</pre>
+</pre></blockquote>
            in order that the type of the signal of an input/output block
            can be changed to a physical type, for example:
-<pre>
+<blockquote><pre>
 Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
-</pre>
+</pre></blockquote>
 </li>
 </ul>
 <hr>
@@ -8239,7 +8245,7 @@ of the Modelica package (many more people have contributed to the design):
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td><strong>Marcus Baur</strong></td>
-   <td>Institute of System Dynamics and Control<br>
+   <td>previously at:<br>Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
    <td>Complex<br>
@@ -8329,7 +8335,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Hans-Dieter Joos</strong></td>
-   <td>Institute of System Dynamics and Control<br>
+   <td>previously at:<br>Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
    <td>Modelica.Math.Matrices</td>
@@ -8389,7 +8395,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Katrin Pr&ouml;l&szlig;</strong></td>
-   <td>Modelon Deutschland GmbH, Hamburg, Germany<br>
+   <td>previously at:<br>Modelon Deutschland GmbH, Hamburg, Germany<br>
      until 2008:<br>
      Department of Technical Thermodynamics,<br>
      Technical University Hamburg-Harburg,<br>Germany</td>
@@ -8665,7 +8671,7 @@ This version of the Modelica Standard Library consists of
 </ul>
 <p>
 that are directly usable (= number of public, non-partial, non-internal and non-obsolete classes). It is fully compliant
-to <a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Specification Version 3.2 Revision 2</a>
+to <a href=\"https://modelica.org/documents/ModelicaSpec34.pdf\">Modelica Specification version 3.4</a>
 and it has been tested with Modelica tools from different vendors.
 </p>
 

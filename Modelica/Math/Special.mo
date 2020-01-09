@@ -79,9 +79,9 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 
 <h4>Example</h4>
 <blockquote><pre>
-  erf(0)    // = 0
-  erf(10)   // = 1
-  erf(0.5)  // = 0.520499877813047
+erf(0)    // = 0
+erf(10)   // = 1
+erf(0.5)  // = 0.520499877813047
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -163,9 +163,9 @@ see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
 
 <h4>Example</h4>
 <blockquote><pre>
-  erfc(0)    // = 1
-  erfc(10)   // = 0
-  erfc(0.5)  // = 0.4795001221869534
+erfc(0)    // = 1
+erfc(10)   // = 0
+erfc(0.5)  // = 0.4795001221869534
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -248,10 +248,10 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 
 <h4>Example</h4>
 <blockquote><pre>
-  erfInv(0)            // = 0
-  erfInv(0.5)          // = 0.4769362762044699
-  erfInv(0.999999)     // = 3.458910737275499
-  erfInv(0.9999999999) // = 4.572824958544925
+erfInv(0)            // = 0
+erfInv(0.5)          // = 0.4769362762044699
+erfInv(0.999999)     // = 3.458910737275499
+erfInv(0.9999999999) // = 4.572824958544925
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -340,9 +340,9 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 
 <h4>Example</h4>
 <blockquote><pre>
-  erfcInv(1)         // = 0
-  erfcInv(0.5)       // = 0.4769362762044699
-  erfInv(1.999999)   // = -3.4589107372909473
+erfcInv(1)         // = 0
+erfcInv(0.5)       // = 0.4769362762044699
+erfInv(1.999999)   // = -3.4589107372909473
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -421,8 +421,8 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Sinc_function\">Wik
 
 <h4>Example</h4>
 <blockquote><pre>
-  sinc(0)   // = 1
-  sinc(3)   // = 0.0470400026866224
+sinc(0)   // = 1
+sinc(3)   // = 0.0470400026866224
 </pre></blockquote>
 </html>"));
   end sinc;

@@ -29,12 +29,11 @@ package Constants
   // (name, value, description from https://www.bipm.org/en/CGPM/db/26/1/, effective from May 20, 2019)
   // The values for c, q, h, k, N_A are exact and part of the basis of the SI-system
   // Note that the elementary charge uses the common alternate name q since e was taken.
-  // The values for F, R, sigma, mue_0, epsilson_0 are also exact.
-  // Note that T_zero is not exact, instead the triple point of water is 273.16 K.
+  // The values for F, R, sigma, mue_0, epsilson_0, T_zero are also exact.
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
-  final constant Real G(final unit="m3/(kg.s2)") = 6.67408e-11
+  final constant Real G(final unit="m3/(kg.s2)") = 6.67430e-11
     "Newtonian constant of gravitation";
   final constant SI.ElectricCharge q = 1.602176634e-19 "Elementary charge";
   final constant SI.FaradayConstant F = q*N_A
@@ -63,17 +62,17 @@ dependent constants and constants from nature. The latter constants
 </p>
 <dl>
 <dt>Michael Stock, Richard Davis, Estefan&iacute;a de Mirand&eacute;s and Martin J T Milton:</dt>
-<dd><b>The revision of the SI-the result of three decades of progress in metrology</b> in Metrologia, Volume 56, Number 2.
+<dd><strong>The revision of the SI-the result of three decades of progress in metrology</strong> in Metrologia, Volume 56, Number 2.
 <a href= \"https://iopscience.iop.org/article/10.1088/1681-7575/ab0013/pdf\">https://iopscience.iop.org/article/10.1088/1681-7575/ab0013/pdf</a>, 2019.
 </dd>
 </dl>
 <dl>
 <dt>D B Newell, F Cabiati, J Fischer, K Fujii, S G Karshenboim, H S Margolis , E de Mirand&eacute;s, P J Mohr, F Nez, K Pachucki, T J Quinn, B N Taylor, M Wang, B M Wood and Z Zhang:</dt>
-<dd><b>The CODATA 2017 values of h, e, k, and NA for the revision of the SI</b> in Metrologia, Volume 55, Number 1.
+<dd><strong>The CODATA 2017 values of h, e, k, and NA for the revision of the SI</strong> in Metrologia, Volume 55, Number 1.
 <a href= \"https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf\">https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf</a>, 2017.
 </dd>
 </dl>
-<p>BIPM is Bureau International des Poids et Mesures (they publish the SI-standard).<p>
+<p>BIPM is Bureau International des Poids et Mesures (they publish the SI-standard).</p>
 <p>CODATA is the Committee on Data for Science and Technology.</p>
 
 <dl>
@@ -91,6 +90,9 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
+<li><em>Dec 4, 2019</em>
+       by Thomas Beutlich:<br>
+       Constant G updated according to 2018 CODATA value.</li>
 <li><em>Mar 25, 2019</em>
        by Hans Olsson:<br>
        Constants updated according to 2017 CODATA values and new SI-standard.</li>

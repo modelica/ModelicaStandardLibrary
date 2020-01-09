@@ -8,7 +8,7 @@ model PressureIncrease "Enforces constant pressure increase"
   parameter Modelica.SIunits.Pressure constantPressureIncrease(start=1)
     "Pressure increase"
     annotation(Dialog(enable=not usePressureIncreaseInput));
-  Modelica.Blocks.Interfaces.RealInput pressureIncrease=internalPressureIncrease if usePressureIncreaseInput
+  Modelica.Blocks.Interfaces.RealInput pressureIncrease(unit="Pa")=internalPressureIncrease if usePressureIncreaseInput
     annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},

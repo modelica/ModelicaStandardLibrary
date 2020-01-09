@@ -1,7 +1,8 @@
 within Modelica.Electrical.Batteries.BatteryStacks;
 model CellRCStack
   "Battery with open-circuit voltage dependent on state of charge, self-discharge, inner resistance and a series of RC-elements"
-  extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.R0/Np));
+  extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.R0/Np), redeclare
+      ParameterRecords.TransientData.CellData cellData);
   Modelica.Electrical.Analog.Basic.Resistor resistor[cellData.nRC](
     final R=Ns*cellData.rcData.R/Np,
     each final T_ref=cellData.T_ref,
@@ -33,34 +34,27 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
+        Line(
+          points={{-60,-4},{-50,-4}},
+          color={238,46,47}),
+        Line(
+          points={{-6,26},{-50,26},{-50,-24},{-24,-24}},
+          color={238,46,47}),
+        Line(
+          points={{-6,16},{-6,36}},
+          color={238,46,47}),
+        Line(
+          points={{6,16},{6,36}},
+          color={238,46,47}),
+        Line(
+          points={{6,26},{50,26},{50,-24},{24,-24}},
+          color={238,46,47}),
+        Line(
+          points={{50,-4},{60,-4}},
+          color={238,46,47}),
         Rectangle(
-          extent={{-20,-20},{20,-6}},
-          lineColor={238,46,47},
-          lineThickness=0.5),
-        Line(
-          points={{-6,0},{-6,20}},
-          color={238,46,47},
-          thickness=0.5),
-        Line(
-          points={{6,0},{6,20}},
-          color={238,46,47},
-          thickness=0.5),
-        Line(
-          points={{-6,10},{-32,10},{-32,-14},{-20,-14}},
-          color={238,46,47},
-          thickness=0.5),
-        Line(
-          points={{6,10},{32,10},{32,-14},{20,-14}},
-          color={238,46,47},
-          thickness=0.5),
-        Line(
-          points={{-40,0},{-32,0}},
-          color={238,46,47},
-          thickness=0.5),
-        Line(
-          points={{32,0},{40,0}},
-          color={238,46,47},
-          thickness=0.5)}),
+          extent={{-24,-34},{24,-14}},
+          lineColor={238,46,47})}),
     Documentation(info="<html>
 <p>
 Extends the model <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">CellStack</a> by a series of RC-elements, describing the transient behaviour of the battery.

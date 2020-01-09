@@ -180,7 +180,7 @@ package FileSystem
   end removeFile;
 
   function copyFile
-      "Copy existing file (C functions 'fopen', 'getc', 'putc', 'fclose')"
+      "Copy existing file (C functions 'fopen', 'fread', 'fwrite', 'fclose')"
     extends Modelica.Icons.Function;
     input String fromName "Name of file to be copied";
     input String toName "Name of copy of file";

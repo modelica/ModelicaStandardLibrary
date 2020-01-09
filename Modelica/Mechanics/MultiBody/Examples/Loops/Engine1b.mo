@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Engine1b
   "Model of one cylinder engine with gas force and preparation for assembly joint JointRRP"
   extends Modelica.Icons.Example;
-  extends Utilities.Engine1bBase(inertia(w(start=0)));
+  extends Utilities.Engine1bBase;
   Modelica.Mechanics.MultiBody.Joints.Revolute b1(
     n={1,0,0},
     cylinderLength=0.02,
@@ -28,11 +28,6 @@ model Engine1b
         origin={50,40},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Utilities.GasForce2 gasForce(d=0.1, L=0.35)
-    annotation (Placement(transformation(
-        origin={90,80},
-        extent={{10,-10},{-10,10}},
-        rotation=90)));
 equation
   connect(cylinder.frame_b, rod3.frame_a) annotation (Line(
       points={{50,70},{50,50}},
@@ -42,9 +37,14 @@ equation
       points={{-70,50},{-70,94},{50,94},{50,90}},
       color={95,95,95},
       thickness=0.5));
-  connect(gasForce.flange_a, cylinder.support) annotation (Line(points={{90,90},{60,90},{60,84},{56,84}},
-                                                      color={0,127,0}));
-  connect(cylinder.axis, gasForce.flange_b) annotation (Line(points={{56,72},{60,72},{60,70},{90,70}}, color={0,127,0}));
+  connect(gasForce.flange_a, cylinder.support)
+    annotation (Line(
+      points={{90,90},{74,90},{74,84},{56,84}},
+      color={0,127,0}));
+  connect(gasForce.flange_b, cylinder.axis)
+    annotation (Line(
+      points={{90,70},{74,70},{74,72},{56,72}},
+      color={0,127,0}));
   connect(piston.frame_a, cylinder.frame_b) annotation (Line(
       points={{90,50},{90,60},{50,60},{50,70}},
       color={95,95,95},
@@ -102,8 +102,7 @@ not numerically as in this model (Engine1b).
 </p>
 <p>
 An animation of this example is shown in the figure below.
-</p>
-
+</p><p>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
-</html>"));
+</p></html>"));
 end Engine1b;

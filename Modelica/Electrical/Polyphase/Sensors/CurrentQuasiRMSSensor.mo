@@ -4,7 +4,7 @@ model CurrentQuasiRMSSensor
   extends Modelica.Icons.RoundSensor;
   extends Polyphase.Interfaces.TwoPlug;
   parameter Integer m(min=1) = 3 "Number of phases";
-  Modelica.Blocks.Interfaces.RealOutput I
+  Modelica.Blocks.Interfaces.RealOutput I(unit="A")
     "Continuous quasi average RMS of current" annotation (Placement(
         transformation(
         origin={0,-100},
@@ -50,8 +50,8 @@ equation
 <p>
 This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a polyphase current system, representing an equivalent RMS current vector <code>I</code> or phasor. If the current waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
-<pre>
- I = sqrt(sum(i[k]^2 for k in 1:m)/m)
-</pre>
+<blockquote><pre>
+I = sqrt(sum(i[k]^2 for k in 1:m)/m)
+</pre></blockquote>
 </html>"));
 end CurrentQuasiRMSSensor;

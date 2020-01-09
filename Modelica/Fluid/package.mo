@@ -22,9 +22,7 @@ Instead, the goal is that the Modelica.Fluid library provides
 a <strong>reasonable set of components</strong> and that it <strong>demonstrates</strong>
 how to implement components of a fluid flow library in Modelica,
 in particular to cope with difficult issues such as connector
-design, reversing flow and initialization. It is planned to
-include more components in the future. User proposals are
-welcome.
+design, reversing flow and initialization.
 </p>
 <p>
 This library has the following main features:
@@ -143,36 +141,38 @@ model has to be used in the connection point.
 For a single substance medium, the connector definition in
 Modelica.Fluid.Interfaces.FluidPort reduces to
 </p>
-<pre>
-  <strong>connector</strong> FluidPort
-     <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
-              \"Medium model of the fluid\";
-     <strong>flow</strong> Medium.MassFlowRate m_flow;
-              \"Mass flow rate from the connection point into the component\";
-     Medium.AbsolutePressure p
-              \"Thermodynamic pressure in the connection point\";
-     <strong>stream</strong> Medium.SpecificEnthalpy h_outflow
-               \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
-  <strong>end</strong> FluidPort;
-</pre>
+<blockquote><pre>
+<strong>connector</strong> FluidPort
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
+           \"Medium model of the fluid\";
+  <strong>flow</strong> Medium.MassFlowRate m_flow;
+           \"Mass flow rate from the connection point into the component\";
+  Medium.AbsolutePressure p
+           \"Thermodynamic pressure in the connection point\";
+  <strong>stream</strong> Medium.SpecificEnthalpy h_outflow
+            \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
+<strong>end</strong> FluidPort;
+</pre></blockquote>
 <p>
 The first statement defines the Medium flowing through the connector.
 In a medium, medium specific types such as \"Medium.AbsolutePressure\"
 are defined that contain medium specific values for the min, max and
 nominal attributes. Furthermore, Medium.MassFlowRate is defined as:
 </p>
-<pre>
-   <strong>type</strong> MassFlowRate =
-      Modelica.SIunits.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
-</pre>
+<blockquote><pre>
+<strong>type</strong> MassFlowRate =
+   Modelica.SIunits.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
+</pre></blockquote>
 <p>
-With the current library design, it is necessary to explicitly select the medium
+Generally, with the current library design, it is necessary to explicitly select the medium
 model for each component in a circuit. This model is then propagated to the ports,
 and a Modelica translator will check that the quantity and unit attributes
 of connected interfaces are identical. Therefore, an error occurs,
-if connected FluidPorts do not have a medium with the same medium name.
-In the future, automatic propagation of fluid models through the ports will be
-introduced, but this still not possible with Modelica 3.0.
+if connected FluidPorts do not have a medium with the same medium name.<br>
+Automatic propagation of fluid models through the ports is not directly possible with the
+Modelica 3.4 specification, but might be supported by the Modelica tool. For example,
+in Dymola the option <code>Advanced.MediaPropagation</code>=<code>1</code> can be set
+to apply automatic propagation of media models in a circuit.
 </p>
 <p>
 The thermodynamic pressure is an <em>effort</em> variable, which means that the connection
@@ -190,7 +190,7 @@ flowing out of the connector, regardless of the actual direction of the flow. Th
 avoiding singularities when the mass flow goes through zero. The stream properties for the
 other flow direction can be inquired with the built-in operator inStream(..), while the
 value of the stream variable corresponding to the actual flow direction can be inquired
-through the built-in operator actualStream(..).
+through the built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch15.html#stream-operator-actualstream\">actualStream(..)</a>.
 </p>
 <p>
 The actual equations corresponding to these operators are introduced and solved automatically
@@ -221,7 +221,7 @@ one is a rigid adiabatic volume mixing two flows, where the kinetic and gravitat
 terms in the energy balance are neglected for simplicity.
 </p>
 
-<pre>
+<blockquote><pre>
 model MixingVolume \"Volume that mixes two flows\"
   replaceable package Medium = Modelica.Media.Interfaces.PartialPureSubstance;
   FluidPort port_a, port_b;
@@ -245,7 +245,7 @@ equation
   der(U) = port_a.m_flow*actualStream(port_a.h_outflow) +
            port_b.m_flow*actualStream(port_b.h_outflow);
 end MixingVolume;
-</pre>
+</pre></blockquote>
 
 <p>
 The second example is the model of a component describing a lumped pressure loss
@@ -253,7 +253,7 @@ between two ports, with no energy storage and no heat transfer. An isenthalpic
 transformation is assumed (changes in kinetic and potential energy between
 inlet and outlet are neglected)
 </p>
-<pre>
+<blockquote><pre>
 model PressureLoss \"Pressure loss component\"
   replaceable package Medium=Modelica.Media.Interfaces.PartialPureSubstance;
   FluidPort port_a, port_b:
@@ -274,7 +274,7 @@ equation
   // (Regularized) Momentum balance
   port_a.m_flow = f(port_a.p, port_b.p, d_a, d_b);
 end PressureLoss;
-</pre>
+</pre></blockquote>
 
 <p>
 If many such components are connected in series between two models with storage, the
@@ -295,7 +295,7 @@ initialization, steady vs. dynamic modelling, heat transfer from the outside, et
 Modelica.Fluid can handle models where the fluid contains multiple substances, so that its
 composition can be characterized by mass fraction vectors.
 </p>
-<pre>
+<blockquote><pre>
 <strong>connector</strong> FluidPort
    <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
       \"Medium model of the fluid\";
@@ -310,7 +310,7 @@ composition can be characterized by mass fraction vectors.
    <strong>stream</strong> Medium.ExtraProperty C_outflow[Medium.nC]
        \"Properties c_i/m close to the connection point if m_flow &lt; 0\";
   <strong>end</strong> FluidPort;
-</pre>
+</pre></blockquote>
 The mass fraction vectors Xi and C are also stream quantities, as they are carried by the mass
 flow rate. The corresponding connection equations are sum(m_flow*Xi) and sum(m_flow*C), which correspond to mass balances for the single substances. The vector Xi contains the mass fractions
 of the main components of the fluid, and is used together with p and h to determine the
@@ -324,13 +324,13 @@ models (e.g., adding CO<sub>2</sub> traces to Moist Air for air conditioning mod
 Summing up, when two or more ports of the type FluidPort are connected, the following
 equations are generated by the tool:
 </p>
-<pre>
+<blockquote><pre>
 sum(port_j.m_flow) = 0;               // Total Mass balance
 port_j = port_k;                      // Momentum balance
 sum(port_j.m_flow*h_connection) = 0;  // Energy balance
 sum(port_j.m_flow*Xi_connection) = 0; // Single component mass balances
 sum(port_j.m_flow*C_connection) = 0;  // Trace components mass balances
-</pre>
+</pre></blockquote>
 <p>
 It is <strong>very important</strong> to bear in mind that
 </p>
@@ -455,53 +455,54 @@ In the Modelica.Fluid library, such a situation is handled
 with the following code fragment
 (from Interfaces.PartialTwoPortTransport):
 </p>
-<pre>    <strong>replaceable package</strong> Medium =
-                   Modelica.Media.Interfaces.PartialMedium
-                   <strong>annotation</strong>(choicesAllMatching = <strong>true</strong>);
+<blockquote><pre>
+  <strong>replaceable package</strong> Medium =
+                 Modelica.Media.Interfaces.PartialMedium
+                 <strong>annotation</strong>(choicesAllMatching = <strong>true</strong>);
 
-    Interfaces.FluidPort_a port_a(<strong>redeclare package</strong> Medium = Medium);
-    Interfaces.FluidPort_b port_b(<strong>redeclare package</strong> Medium = Medium);
+  Interfaces.FluidPort_a port_a(<strong>redeclare package</strong> Medium = Medium);
+  Interfaces.FluidPort_b port_b(<strong>redeclare package</strong> Medium = Medium);
 
-    Medium.ThermodynamicState port_a_state_inflow
-                    \"Medium state close to port_a for inflowing mass flow\";
-    Medium.ThermodynamicState port_b_state_inflow
-                    \"Medium state close to port_b for inflowing mass flow\";
+  Medium.ThermodynamicState port_a_state_inflow
+                  \"Medium state close to port_a for inflowing mass flow\";
+  Medium.ThermodynamicState port_b_state_inflow
+                  \"Medium state close to port_b for inflowing mass flow\";
 
-  <strong>equation</strong>
-    // Isenthalpic state transformation (no storage and no loss of energy)
-    port_a.h_outflow  = <strong>inStream</strong>(port_b.h_outflow);
-    port_b.h_outflow  = <strong>inStream</strong>(port_a.h_outflow);
+<strong>equation</strong>
+  // Isenthalpic state transformation (no storage and no loss of energy)
+  port_a.h_outflow  = <strong>inStream</strong>(port_b.h_outflow);
+  port_b.h_outflow  = <strong>inStream</strong>(port_a.h_outflow);
 
-    port_a.Xi_outflow = <strong>inStream</strong>(port_b.Xi_outflow);
-    port_b.Xi_outflow = <strong>inStream</strong>(port_a.Xi_outflow);
+  port_a.Xi_outflow = <strong>inStream</strong>(port_b.Xi_outflow);
+  port_b.Xi_outflow = <strong>inStream</strong>(port_a.Xi_outflow);
 
-    // Mass balance
-    port_a.m_flow + port_b.m_flow = 0;
+  // Mass balance
+  port_a.m_flow + port_b.m_flow = 0;
 
-    // Medium states for inflowing medium
-    port_a_state_inflow = Medium.setState_phX(port_a.p, port_b.h_outflow, port_b.Xi_outflow);
-    port_b_state_inflow = Medium.setState_phX(port_b.p, port_a.h_outflow, port_a.Xi_outflow);
+  // Medium states for inflowing medium
+  port_a_state_inflow = Medium.setState_phX(port_a.p, port_b.h_outflow, port_b.Xi_outflow);
+  port_b_state_inflow = Medium.setState_phX(port_b.p, port_a.h_outflow, port_a.Xi_outflow);
 
-    // Densities close to the parts when mass flows in to the respective port
-    port_a_rho_inflow = Medium.density(port_a_state_inflow);
-    port_b_rho_inflow = Medium.density(port_b_state_inflow);
+  // Densities close to the parts when mass flows in to the respective port
+  port_a_rho_inflow = Medium.density(port_a_state_inflow);
+  port_b_rho_inflow = Medium.density(port_b_state_inflow);
 
-    // Pressure drop correlation (k_ab, k_ba are the loss factors for the two flow
-    // directions; e.g., for a circular device: k = 8*zeta/(pi*diameter)^2)^2)
-    m_flow = Utilities.regRoot2(port_a.p - port_b.p, dp_small,
-                                port_a_rho_inflow/k1, port_b_rho_inflow/k2);
-</pre>
+  // Pressure drop correlation (k_ab, k_ba are the loss factors for the two flow
+  // directions; e.g., for a circular device: k = 8*zeta/(pi*diameter)^2)^2)
+  m_flow = Utilities.regRoot2(port_a.p - port_b.p, dp_small,
+                              port_a_rho_inflow/k1, port_b_rho_inflow/k2);
+</pre></blockquote>
 <p>
 The medium states for inflowing media can be used to compute density and dynamic
 viscosity which in turn can be use to formulate the pressure drop equation.
 The standard pressure drop equation
 </p>
 
-<pre>
-   dp = port_a - port_b;
-   m_flow = sqrt(2/(zeta*diameter))*if dp >= 0 then  sqrt(dp)
-                                               else -sqrt(-dp)
-</pre>
+<blockquote><pre>
+dp = port_a - port_b;
+m_flow = sqrt(2/(zeta*diameter))*if dp >= 0 then  sqrt(dp)
+                                            else -sqrt(-dp)
+</pre></blockquote>
 
 <p>
 cannot be used, since the function has an infinite derivative at dp=0.
@@ -559,8 +560,9 @@ demonstrate what problems occur and how to regularize the characteristics:
 In several empirical formulae, expressions of the following form
 are present, e.g., for turbulent flow in a pipe:
 </p>
-<pre>   y = <strong>if</strong> x &lt; 0 <strong>then</strong> -<strong>sqrt</strong>( <strong>abs</strong>(x) ) <strong>else</strong> <strong>sqrt</strong>(x)
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> x &lt; 0 <strong>then</strong> -<strong>sqrt</strong>( <strong>abs</strong>(x) ) <strong>else</strong> <strong>sqrt</strong>(x)
+</pre></blockquote>
 <p>
 A plot of this characteristic is shown in the next figure:
 </p>
@@ -588,8 +590,9 @@ Since this results in an imaginary number, an error occurs.
 It would be possible to fix this, by using the <strong>noEvent</strong>() operator
 to explicitly switch of an event:
 </p>
-<pre>   y = <strong>if</strong> <strong>noEvent</strong>(x &lt; 0) <strong>then</strong> -<strong>sqrt</strong>( <strong>abs</strong>(x) ) <strong>else</strong> <strong>sqrt</strong>(x)
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> <strong>noEvent</strong>(x &lt; 0) <strong>then</strong> -<strong>sqrt</strong>( <strong>abs</strong>(x) ) <strong>else</strong> <strong>sqrt</strong>(x)
+</pre></blockquote>
 <p>
 Still, it is highly likely that good integrators will not work well
 around x=0, because they will recognize that the derivative changes very
@@ -604,8 +607,9 @@ such critical functions are provided in sublibrary Modelica.Fluid.Utilities.
 The above sqrt() type function is computed by function <strong>Utilities.regRoot</strong>().
 This function is defined as:
 </p>
-<pre>     y := x/(x*x+delta*delta)^0.25;
-</pre>
+<blockquote><pre>
+y := x/(x*x+delta*delta)^0.25;
+</pre></blockquote>
 <p>
 where \"delta\" is the size of the small region around zero where the
 sqrt() function is approximated by another function. The plot of the
@@ -639,7 +643,7 @@ numerically well-posed description.
 For pipes with circular cross section the pressure drop is computed as:
 </p>
 
-<pre>
+<blockquote><pre>
    dp = &lambda;(Re,&Delta;)*(L/D)*&rho;*v*|v|/2
       = &lambda;(Re,&Delta;)*8*L/(&pi;^2*D^5*&rho;)*m_flow*|m_flow|
       = &lambda;2(Re,&Delta;)*k2*sign(m_flow);
@@ -651,7 +655,7 @@ with
    A      = &pi;*(D/2)^2
    &lambda;2     = &lambda;*Re^2
    k2     = L*&mu;^2/(2*D^3*&rho;)
-</pre>
+</pre></blockquote>
 
 <p>
 where
@@ -709,7 +713,9 @@ The pressure loss characteristic is divided into three regions:
      assumptions of steady flow, constant pressure gradient and constant
      density and viscosity (= Hagen-Poiseuille flow) leading to &lambda;2 = 64*Re.
      Therefore:
-     <pre> dp = 128*&mu;*L/(&pi;*D^4*&rho;)*m_flow </pre><br>&nbsp;
+     <blockquote><pre>
+dp = 128*&mu;*L/(&pi;*D^4*&rho;)*m_flow
+     </pre></blockquote><br>&nbsp;
 </li>
 
 <li> <strong>Region 3</strong>:
@@ -719,10 +725,10 @@ The pressure loss characteristic is divided into three regions:
      is assumed to be known, &lambda;2 = |dp|/k2. The
      Colebrook-White equation
      <em>[Colebrook 1939; Idelchik 1994, p. 83, eq. (2-9)]</em>:
-     <pre>1/sqrt(&lambda;) = -2*lg( 2.51/(Re*sqrt(&lambda;)) + 0.27*&Delta;) </pre>
+     <blockquote><pre>1/sqrt(&lambda;) = -2*lg( 2.51/(Re*sqrt(&lambda;)) + 0.27*&Delta;)</pre></blockquote>
      gives an implicit relationship between Re and &lambda;.
      Inserting &lambda;2 = &lambda;*Re^2 allows to solve this equation analytically
-     for Re: <pre>Re = -2*sqrt(&lambda;2)*lg(2.51/sqrt(&lambda;2) + 0.27*&Delta;)</pre>
+     for Re: <blockquote><pre>Re = -2*sqrt(&lambda;2)*lg(2.51/sqrt(&lambda;2) + 0.27*&Delta;)</pre></blockquote>
      Finally, the mass flow rate m_flow is computed from Re via
      m_flow = Re*&pi;*D*&mu;/4*sign(dp).
      These are the <strong>red</strong> curves in the diagrams above.<br>
@@ -731,7 +737,9 @@ The pressure loss characteristic is divided into three regions:
      approximation of the inverse of the Colebrook-White equation
      <em>[Swamee and Jain 1976;
      Miller 1990, p. 191, eq.(8.4)]</em> adapted to &lambda;2:
-     <pre> &lambda;2 = 0.25*(Re/lg(&Delta;/3.7 + 5.74/Re^0.9))^2 </pre>
+     <blockquote><pre>
+&lambda;2 = 0.25*(Re/lg(&Delta;/3.7 + 5.74/Re^0.9))^2
+     </pre></blockquote>
      The pressure drop is then computed as dp = k2*&lambda;2*sign(m_flow).
      These are the <strong>blue</strong> curves in the diagrams above.<br>&nbsp;</li>
 
@@ -744,7 +752,7 @@ The pressure loss characteristic is divided into three regions:
      relative roughness. A laminar flow at Re=2000 is only reached for smooth pipes.
      The deviation Reynolds number Re1 is computed according to
      <em>[Samoilenko 1968; Idelchik 1994, p. 81, sect. 2.1.21]</em> as:
-     <pre>Re1 = 745*e^(if &Delta; &le; 0.0065 then 1 else 0.0065/&Delta;)</pre>
+     <blockquote><pre>Re1 = 745*e^(if &Delta; &le; 0.0065 then 1 else 0.0065/&Delta;)</pre></blockquote>
      These are the <strong>blue</strong> curves in the diagrams above.<br>
      Between Re1=Re1(&delta;/D) and Re2=4000,
      &lambda;2 is approximated by a cubic
@@ -798,9 +806,9 @@ The effect of gas compressibility in a wide region can be taken into
 account by the following formula derived by Voronin
 <em>[Voronin 1959; Idelchik 1994, p. 97, sect. 2.1.81]</em>:
 </p>
-<pre>
-  &lambda;_comp = &lambda;*(1 + (&kappa;-1)/2 * Ma^2)^(-0.47)
-</pre>
+<blockquote><pre>
+&lambda;_comp = &lambda;*(1 + (&kappa;-1)/2 * Ma^2)^(-0.47)
+</pre></blockquote>
 <p>
 where &kappa; is the isentropic coefficient
 (for ideal gases, &kappa; is the ratio of specific heat capacities cp/cv).
@@ -821,10 +829,10 @@ In the \"Advanced menu\" it is possible via parameter
 \"from_dp\" to define in which form the
 pressure drop equation is actually evaluated (<strong>default</strong> is from_dp = <strong>true</strong>):
 </p>
-<pre>
-   from_dp = <strong>true</strong>:   m_flow = f1(dp)
-           = <strong>false</strong>:  dp     = f2(m_flow)
-</pre>
+<blockquote><pre>
+from_dp = <strong>true</strong>:   m_flow = f1(dp)
+        = <strong>false</strong>:  dp     = f2(m_flow)
+</pre></blockquote>
 <p>
 \"from_dp\" can be useful to avoid nonlinear systems of equations
 in cases where the inverse pressure loss function is needed.
@@ -887,9 +895,9 @@ is given. The reason for this definition is the following:
 The basic equation for valves is:
 </p>
 
-<pre>
-  q = Av*sqrt(dp/rho)
-</pre>
+<blockquote><pre>
+q = Av*sqrt(dp/rho)
+</pre></blockquote>
 
 <p>
 In SI units, [q] is m3/s, [dp] is Pascal, [rho] is [kg/m3], and Av is an area, thus [Av] = m2. Basically, the equation stems from Bernoulli's law. Av is roughly 1.4 times the area of the valve throat. Now, usually valves aren't so big that their throat area is of the order of magnitude of square meters - depending on the applications it is from a few square millimeters to a few square centimeters. Therefore, in the common engineering practice, the following equations are used:
@@ -899,17 +907,17 @@ In SI units, [q] is m3/s, [dp] is Pascal, [rho] is [kg/m3], and Av is an area, t
 Europe:
 </p>
 
-<pre>
-  q = Kv sqrt(dp/(rho/rho0)) , with [q] = m3/h, [dp] = bar
-</pre>
+<blockquote><pre>
+q = Kv sqrt(dp/(rho/rho0)) , with [q] = m3/h, [dp] = bar
+</pre></blockquote>
 
 <p>
 US:
 </p>
 
-<pre>
-  q = Cv sqrt(dp/(rho/rho0)) , with [q] = USG/min, [dp] = psi
-</pre>
+<blockquote><pre>
+q = Cv sqrt(dp/(rho/rho0)) , with [q] = USG/min, [dp] = psi
+</pre></blockquote>
 
 <p>
 In both cases rho0 is the density of cold water at 4 &deg;C, 999 kg/m3. Note that these equations use relative, not absolute densities.

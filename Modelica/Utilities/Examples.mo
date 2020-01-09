@@ -31,25 +31,25 @@ function.
 <p>
 The following operations are supported (pi=3.14.. is a predefined constant):
 </p>
-<pre>
-   +, -
-   *, /
-   (expression)
-   sin(expression)
-   cos(expression)
-   tan(expression)
-   sqrt(expression)
-   asin(expression)
-   acos(expression)
-   atan(expression)
-   exp(expression)
-   log(expression)
-   pi
-</pre>
+<blockquote><pre>
++, -
+*, /
+(expression)
+sin(expression)
+cos(expression)
+tan(expression)
+sqrt(expression)
+asin(expression)
+acos(expression)
+atan(expression)
+exp(expression)
+log(expression)
+pi
+</pre></blockquote>
 <h4>Example</h4>
 <blockquote><pre>
-  calculator(\"2+3*(4-1)\");  // returns 11
-  calculator(\"sin(pi/6)\");  // returns 0.5
+calculator(\"2+3*(4-1)\");  // returns 11
+calculator(\"sin(pi/6)\");  // returns 0.5
 </pre></blockquote>
 </html>"));
   end calculator;
@@ -217,21 +217,21 @@ implement the corresponding part of the grammar.
 <p>
 The following operations are supported (pi=3.14.. is a predefined constant):
 </p>
-<pre>
-   +, -
-   *, /
-   (expression)
-   sin(expression)
-   cos(expression)
-   tan(expression)
-   sqrt(expression)
-   asin(expression)
-   acos(expression)
-   atan(expression)
-   exp(expression)
-   log(expression)
-   pi
-</pre>
+<blockquote><pre>
++, -
+*, /
+(expression)
+sin(expression)
+cos(expression)
+tan(expression)
+sqrt(expression)
+asin(expression)
+acos(expression)
+atan(expression)
+exp(expression)
+log(expression)
+pi
+</pre></blockquote>
 <p>
 The optional argument \"startIndex\" defines at which position
 scanning of the expression starts.
@@ -245,33 +245,33 @@ the error occurred.
 <p>
 This function parses the following grammar
 </p>
-<pre>
-  expression: [ add_op ] term { add_op term }
-  add_op    : \"+\" | \"-\"
-  term      : primary { mul_op primary }
-  mul_op    : \"*\" | \"/\"
-  primary   : UNSIGNED_NUMBER
-              | pi
-              | ( expression )
-              | functionName( expression )
-  function  :   sin
-              | cos
-              | tan
-              | sqrt
-              | asin
-              | acos
-              | atan
-              | exp
-              | log
-</pre>
+<blockquote><pre>
+expression: [ add_op ] term { add_op term }
+add_op    : \"+\" | \"-\"
+term      : primary { mul_op primary }
+mul_op    : \"*\" | \"/\"
+primary   : UNSIGNED_NUMBER
+            | pi
+            | ( expression )
+            | functionName( expression )
+function  :   sin
+            | cos
+            | tan
+            | sqrt
+            | asin
+            | acos
+            | atan
+            | exp
+            | log
+</pre></blockquote>
 <p>
 Note, in Examples.readRealParameter it is shown, how the expression
 function can be used as part of another scan operation.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  expression(\"2+3*(4-1)\");  // returns 11
-  expression(\"sin(pi/6)\");  // returns 0.5
+expression(\"2+3*(4-1)\");  // returns 11
+expression(\"sin(pi/6)\");  // returns 0.5
 </pre></blockquote>
 </html>"));
   end expression;

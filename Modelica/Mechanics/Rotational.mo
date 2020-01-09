@@ -956,16 +956,18 @@ in the housing on one side via component Fixed.</p>
 <p>This drive train contains a frictional <strong>clutch</strong> and a <strong>brake</strong>.
 Simulate the system for 1 second using the following initial
 values (defined already in the model):</p>
-<pre>   inertia1.w =  90 (or brake.w)
-   inertia2.w =  90
-   inertia3.w = 100
-</pre>
+<blockquote><pre>
+inertia1.w =  90 (or brake.w)
+inertia2.w =  90
+inertia3.w = 100
+</pre></blockquote>
 <p>Plot the output signals</p>
-<pre>   tMotor      Torque of motor
-   tClutch     Torque in clutch
-   tBrake      Torque in brake
-   tSpring     Torque in spring
-</pre>
+<blockquote><pre>
+tMotor      Torque of motor
+tClutch     Torque in clutch
+tBrake      Torque in brake
+tSpring     Torque in spring
+</pre></blockquote>
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>
 
@@ -1147,14 +1149,14 @@ The friction in the gear will take all modes
 <p>
 You may plot:
 </p>
-<pre>
+<blockquote><pre>
 Inertia1.w,
 Inertia2.w : angular velocities of inertias
 powerLoss  : power lost in the gear
 gear.mode  :  1 = forward rolling
               0 = stuck (w=0)
              -1 = backward rolling
-</pre>
+</pre></blockquote>
 </html>"), experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo1;
 
@@ -1230,7 +1232,7 @@ in all modes (forward and backward rolling, as well as stuck).
 <p>
 You may plot:
 </p>
-<pre>
+<blockquote><pre>
 Inertia1.w,
 Inertia2.w          : angular velocities of inertias
 powerLoss           : power lost in the gear
@@ -1240,7 +1242,7 @@ bearingFriction.mode:  1 = forward rolling
 gear.mode           :  1 = forward rolling
                        0 = stuck (w=0)
                       -1 = backward rolling
-</pre>
+</pre></blockquote>
 <p>Note: This combination of LossyGear and BearingFriction is not recommended to use,
 as component LossyGear includes the functionality of component BearingFriction
 (only <em>peak</em> not supported).</p>
@@ -2934,14 +2936,14 @@ the contact torque is basically computed with a linear
 spring/damper characteristic:
 </p>
 
-<pre>
-   desiredContactTorque = c*phi_contact + d*<strong>der</strong>(phi_contact)
+<blockquote><pre>
+desiredContactTorque = c*phi_contact + d*<strong>der</strong>(phi_contact)
 
-            phi_contact = phi_rel - phi_rel0 - b/2 <strong>if</strong> phi_rel - phi_rel0 &gt;  b/2
-                        = phi_rel - phi_rel0 + b/2 <strong>if</strong> phi_rel - phi_rel0 &lt; -b/2
+         phi_contact = phi_rel - phi_rel0 - b/2 <strong>if</strong> phi_rel - phi_rel0 &gt;  b/2
+                     = phi_rel - phi_rel0 + b/2 <strong>if</strong> phi_rel - phi_rel0 &lt; -b/2
 
-            phi_rel     = flange_b.phi - flange_a.phi;
-</pre>
+         phi_rel     = flange_b.phi - flange_a.phi;
+</pre></blockquote>
 
 <p>
 This torque characteristic leads to the following difficulties:
@@ -2967,18 +2969,18 @@ approach is used in the ElastoBacklash model, to fix both problems by slight cha
 to the linear spring/damper characteristic:
 </p>
 
-<pre>
-    // Torque characteristic when phi_rel > phi_rel0
-    <strong>if</strong> phi_rel - phi_rel0 &lt; b/2 <strong>then</strong>
-       tau_c = 0;          // spring torque
-       tau_d = 0;          // damper torque
-       flange_b.tau = 0;
-    <strong>else</strong>
-       tau_c = c*(phi_rel - phi_rel0);    // spring torque
-       tau_d = d*<strong>der</strong>(phi_rel);            // damper torque
-       flange_b.tau = <strong>if</strong> tau_c + tau_d &le; 0 <strong>then</strong> 0 <strong>else</strong> tau_c + <strong>min</strong>( tau_c, tau_d );
-    <strong>end if</strong>;
-</pre>
+<blockquote><pre>
+// Torque characteristic when phi_rel > phi_rel0
+<strong>if</strong> phi_rel - phi_rel0 &lt; b/2 <strong>then</strong>
+   tau_c = 0;          // spring torque
+   tau_d = 0;          // damper torque
+   flange_b.tau = 0;
+<strong>else</strong>
+   tau_c = c*(phi_rel - phi_rel0);    // spring torque
+   tau_d = d*<strong>der</strong>(phi_rel);            // damper torque
+   flange_b.tau = <strong>if</strong> tau_c + tau_d &le; 0 <strong>then</strong> 0 <strong>else</strong> tau_c + <strong>min</strong>( tau_c, tau_d );
+<strong>end if</strong>;
+</pre></blockquote>
 
 <p>
 Note, when sticking would occur (tau_c + tau_d &le; 0), then the contact torque
@@ -3236,14 +3238,14 @@ the contact torque is basically computed with a linear
 spring/damper characteristic:
 </p>
 
-<pre>
-   desiredContactTorque = c*phi_contact + d*<strong>der</strong>(phi_contact)
+<blockquote><pre>
+desiredContactTorque = c*phi_contact + d*<strong>der</strong>(phi_contact)
 
-            phi_contact = phi_rel - phi_rel0 - b/2 <strong>if</strong> phi_rel - phi_rel0 &gt;  b/2
-                        = phi_rel - phi_rel0 + b/2 <strong>if</strong> phi_rel - phi_rel0 &lt; -b/2
+         phi_contact = phi_rel - phi_rel0 - b/2 <strong>if</strong> phi_rel - phi_rel0 &gt;  b/2
+                     = phi_rel - phi_rel0 + b/2 <strong>if</strong> phi_rel - phi_rel0 &lt; -b/2
 
-            phi_rel     = flange_b.phi - flange_a.phi;
-</pre>
+         phi_rel     = flange_b.phi - flange_a.phi;
+</pre></blockquote>
 
 <p>
 This torque characteristic leads to the following difficulty:
@@ -3261,18 +3263,18 @@ approach is used in the ElastoBacklash2 model, by slightly changing
 the linear spring/damper characteristic to:
 </p>
 
-<pre>
-    // Torque characteristic when phi_rel > phi_rel0
-    <strong>if</strong> phi_rel - phi_rel0 &lt; b/2 <strong>then</strong>
-       tau_c = 0;          // spring torque
-       tau_d = 0;          // damper torque
-       flange_b.tau = 0;
-    <strong>else</strong>
-       tau_c = c*(phi_rel - phi_rel0);    // spring torque
-       tau_d = d*<strong>der</strong>(phi_rel);            // damper torque
-       flange_b.tau = <strong>if</strong> tau_c + tau_d &le; 0 <strong>then</strong> 0 <strong>else</strong> tau_c + tau_d;
-    <strong>end if</strong>;
-</pre>
+<blockquote><pre>
+// Torque characteristic when phi_rel > phi_rel0
+<strong>if</strong> phi_rel - phi_rel0 &lt; b/2 <strong>then</strong>
+   tau_c = 0;          // spring torque
+   tau_d = 0;          // damper torque
+   flange_b.tau = 0;
+<strong>else</strong>
+   tau_c = c*(phi_rel - phi_rel0);    // spring torque
+   tau_d = d*<strong>der</strong>(phi_rel);            // damper torque
+   flange_b.tau = <strong>if</strong> tau_c + tau_d &le; 0 <strong>then</strong> 0 <strong>else</strong> tau_c + tau_d;
+<strong>end if</strong>;
+</pre></blockquote>
 
 <p>
 Note, when sticking would occur (tau_c + tau_d &le; 0), then the contact torque
@@ -3455,20 +3457,20 @@ The positive sliding friction torque \"tau\" has to be defined
 by table \"tau_pos\" as function of the absolute angular velocity \"w\".
 E.g.
 </p>
-<pre>
-       w | tau
-      ---+-----
-       0 |   0
-       1 |   2
-       2 |   5
-       3 |   8
-</pre>
+<blockquote><pre>
+ w | tau
+---+-----
+ 0 |   0
+ 1 |   2
+ 2 |   5
+ 3 |   8
+</pre></blockquote>
 <p>
 gives the following table:
 </p>
-<pre>
-   tau_pos = [0, 0; 1, 2; 2, 5; 3, 8];
-</pre>
+<blockquote><pre>
+tau_pos = [0, 0; 1, 2; 2, 5; 3, 8];
+</pre></blockquote>
 <p>
 Currently, only linear interpolation in the table is supported.
 Outside of the table, extrapolation through the last
@@ -3492,9 +3494,9 @@ the absolute acceleration shall be zero.  The elements begin
 to slide when the friction torque exceeds a threshold value,
 called the maximum static friction torque, computed via:
 </p>
-<pre>
-   maximum_static_friction = <strong>peak</strong> * sliding_friction(w=0)  (<strong>peak</strong> >= 1)
-</pre>
+<blockquote><pre>
+maximum_static_friction = <strong>peak</strong> * sliding_friction(w=0)  (<strong>peak</strong> >= 1)
+</pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
@@ -3704,9 +3706,9 @@ the normal force \"fn\", and of a geometry constant \"cgeo\" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
-<pre>
-        frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w) * <strong>fn</strong>
-</pre>
+<blockquote><pre>
+frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w) * <strong>fn</strong>
+</pre></blockquote>
 <p>
    Typical values of coefficients of friction <strong>mu</strong>:
 </p>
@@ -3720,9 +3722,9 @@ distributions:
    the geometry constant is calculated in the following way under the
    assumption of a uniform rate of wear at the interfaces:
 </p>
-<pre>
-         <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
-</pre>
+<blockquote><pre>
+<strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
+</pre></blockquote>
 <p>
     The positive part of the friction characteristic <strong>mu</strong>(w),
     w >= 0, is defined via table mu_pos (first column = w,
@@ -3738,9 +3740,9 @@ distributions:
    to slide when the friction torque exceeds a threshold value,
    called the  maximum static friction torque, computed via:
 </p>
-<pre>
-       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
-</pre>
+<blockquote><pre>
+frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+</pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
@@ -3861,9 +3863,9 @@ the normal force \"fn\", and of a geometry constant \"cgeo\" which takes into
 account the geometry of the device and the assumptions on the friction
 distributions:
 </p>
-<pre>
-        frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong>fn</strong>
-</pre>
+<blockquote><pre>
+frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong>fn</strong>
+</pre></blockquote>
 <p>
    Typical values of coefficients of friction <strong>mu</strong>:
 </p>
@@ -3877,9 +3879,9 @@ distributions:
    the geometry constant is calculated in the following way under the
    assumption of a uniform rate of wear at the interfaces:
 </p>
-<pre>
-         <strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
-</pre>
+<blockquote><pre>
+<strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
+</pre></blockquote>
 <p>
     The positive part of the friction characteristic <strong>mu</strong>(w_rel),
     w_rel >= 0, is defined via table mu_pos (first column = w_rel,
@@ -3895,9 +3897,9 @@ distributions:
    to slide when the friction torque exceeds a threshold value,
    called the  maximum static friction torque, computed via:
 </p>
-<pre>
-       frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w_rel=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
-</pre>
+<blockquote><pre>
+frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w_rel=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+</pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
@@ -4618,9 +4620,9 @@ sun teeth zs. For example, if there are 100 ring teeth and
 50 sun teeth then ratio = zr/zs = 2. The number of planet teeth
 zp has to fulfill the following relationship:
 </p>
-<pre>
-   <strong>zp := (zr - zs) / 2</strong>
-</pre>
+<blockquote><pre>
+<strong>zp := (zr - zs) / 2</strong>
+</pre></blockquote>
 <p>
 Therefore, in the above example zp = 25 is required.
 </p>
@@ -4959,9 +4961,9 @@ connected with corresponding elements.
 This component defines the kinematic constraint:
 </p>
 
-<pre>
-  (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
-</pre>
+<blockquote><pre>
+(flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
+</pre></blockquote>
 </html>"), Icon(
         coordinateSystem(preserveAspectRatio=true,
           extent={{-100.0,-100.0},{100.0,100.0}}),
@@ -5096,9 +5098,9 @@ A simple kinematic model of a rolling wheel which has no inertia and
 no rolling resistance. This component defines the kinematic constraint:
 </p>
 
-<pre>
-   (flangeR.phi - internalSupportR.phi) * radius = (flangeT.s - internalSupportT.s);
-</pre>
+<blockquote><pre>
+(flangeR.phi - internalSupportR.phi) * radius = (flangeT.s - internalSupportT.s);
+</pre></blockquote>
 </html>"));
     end IdealRollingWheel;
 
@@ -5438,10 +5440,10 @@ in the User's Guide of the Rotational library.
 Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
 according to the input signal u
 </p>
-<pre>
-    u[1]: angle of flange
-    u[2]: angular velocity of flange
-</pre>
+<blockquote><pre>
+u[1]: angle of flange
+u[2]: angular velocity of flange
+</pre></blockquote>
 <p>
 The user has to guarantee that the input signals are consistent to each other,
 i.e., that u[2] is the derivative of u[1].
@@ -5509,10 +5511,10 @@ blocks of the block library Modelica.Blocks.Sources.
 Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
 according to the input signals:
 </p>
-<pre>
-    u[1]: angle of flange
-    u[2]: angular velocity of flange
-</pre>
+<blockquote><pre>
+u[1]: angle of flange
+u[2]: angular velocity of flange
+</pre></blockquote>
 <p>
 The user has to guarantee that the input signals are consistent to each other,
 i.e., that u[2] is the derivative of u[1].
@@ -5655,9 +5657,9 @@ torque as output signal. Note, the input signals must be consistent to each othe
         "Torque to drive the flange"
         annotation (Placement(transformation(extent={{60,-110},{20,-70}}), iconTransformation(extent={{40,-90},{20,-70}})));
     protected
-      Modelica.Blocks.Interfaces.RealInput w_internal
+      Modelica.Blocks.Interfaces.RealInput w_internal(unit="rad/s")
         "Needed to connect to conditional connector w";
-      Modelica.Blocks.Interfaces.RealInput a_internal
+      Modelica.Blocks.Interfaces.RealInput a_internal(unit="rad/s2")
         "Needed to connect to conditional connector a";
     equation
       connect(w, w_internal);
@@ -6473,11 +6475,11 @@ blocks of the block library Modelica.Blocks.Sources.
 Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with a predefined motion
 according to the input signals:
 </p>
-<pre>
-    u[1]: angle of flange
-    u[2]: angular velocity of flange
-    u[3]: angular acceleration of flange
-</pre>
+<blockquote><pre>
+u[1]: angle of flange
+u[2]: angular velocity of flange
+u[3]: angular acceleration of flange
+</pre></blockquote>
 <p>
 The user has to guarantee that the input signals are consistent to each other,
 i.e., that u[2] is the derivative of u[1] and that

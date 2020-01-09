@@ -4,9 +4,12 @@ model HeatFlowSensor "Heat flow rate sensor"
   Modelica.Blocks.Interfaces.RealOutput Q_flow(unit="W")
     "Heat flow from port_a to port_b as output signal" annotation (Placement(
         transformation(
-        origin={0,-100},
+        origin={0,-110},
         extent={{-10,-10},{10,10}},
-        rotation=270)));
+        rotation=270), iconTransformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={0,-110})));
   Interfaces.HeatPort_a port_a annotation (Placement(transformation(extent={{
             -110,-10},{-90,10}})));
   Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
@@ -22,7 +25,7 @@ equation
             100,100}}), graphics={
         Line(points={{-70,0},{-90,0}}, color={191,0,0}),
         Line(points={{70,0},{90,0}}, color={191,0,0}),
-        Line(points={{0,-70},{0,-90}}, color={0,0,127}),
+        Line(points={{0,-70},{0,-100}},color={0,0,127}),
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",

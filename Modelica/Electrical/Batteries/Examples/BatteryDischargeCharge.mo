@@ -13,12 +13,8 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
     Qnom=18000,
     OCVmax=4.2,
     OCVmin=2.5,
-    Isc=1200,
-    rcData={Modelica.Electrical.Batteries.ParameterRecords.RCData(
-            R=0,
-            T=0,
-            C=0)})
-              annotation (Placement(transformation(extent={{60,20},{80,40}})));
+    Ri=cellData1.OCVmax/1200)
+    annotation (Placement(transformation(extent={{60,20},{80,40}})));
   BatteryStacks.CellStack battery1(
     Ns=10,
     Np=2,
@@ -39,15 +35,15 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
     annotation (Placement(transformation(extent={{10,70},{30,90}})));
   Modelica.Blocks.Continuous.Integrator energy1(u(unit="W"), y(unit="J"))
     annotation (Placement(transformation(extent={{60,50},{80,70}})));
-  parameter ParameterRecords.ExampleData cellData2(
+  parameter ParameterRecords.TransientData.ExampleData cellData2(
     Qnom=18000,
     useLinearSOCDependency=false,
+    Ri=cellData2.OCVmax/1200,
     Idis=0.1,
-    Isc=1200,
-    rcData={Modelica.Electrical.Batteries.ParameterRecords.RCData(R=0.2*
-        cellData2.Ri, T=60),
-        Modelica.Electrical.Batteries.ParameterRecords.RCData(R=0.1*
-        cellData2.Ri, T=10)})
+    rcData={Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(
+        R=0.2*cellData2.Ri, C=60/(0.2*cellData2.Ri)),
+        Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(R=
+        0.1*cellData2.Ri, C=10/(0.1*cellData2.Ri))})
     annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
   BatteryStacks.CellRCStack battery2(
     Ns=10,
@@ -128,7 +124,7 @@ In the end, the batteries are in no-load condition to reveal self-discharge effe
 Note that self-discharge of <code>battery2</code> is set to an unrealistic high value, to show self-discharge within a rather short time span.<br>
 The parameters of the RC-elements of <code>battery2</code> are set to estimated values, just to demonstrate the effects.
 </p>
-<p>Simulate and plot terminal voltage <code>battery1.v</code> and <code>battery2.v</code> as well as state of charge <code>battery1.SOC</code> and <code>battery2.SOC</code>.<p>
+<p>Simulate and plot terminal voltage <code>battery1.v</code> and <code>battery2.v</code> as well as state of charge <code>battery1.SOC</code> and <code>battery2.SOC</code>.</p>
 <p>
 Plotting <code>energy1.y</code> and <code>energy2.y</code>, it is remarkable that first energy is delivered by the battery,
 but then due to the losses more energy is consumed to recharge the battery.

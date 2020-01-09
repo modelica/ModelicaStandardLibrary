@@ -59,6 +59,7 @@ equation
 is discharged with 5 current pulses of 240 A for 10 seconds, and breaks between the pulses of 10 seconds.
 Subsequently, the supercap is charged again with 5 current pulses of 240 A for 10 seconds, and breaks between the pulses of 10 seconds.
 In the end, the supercap is in no-load condition to reveal self-discharge effects.
+</p>
 <p>
 Note that self-discharge is set to an unrealistic high value, to show self-discharge within a rather short time span.<br>
 The other parameters of the supercap is set to estimated but realistic values:
@@ -69,7 +70,7 @@ The other parameters of the supercap is set to estimated but realistic values:
 <li><code>Qnom = C*Vnom = 24,000 As</code></li>
 <li><code>Ri = 2 m&Omega;</code></li>
 </ul>
-<p>Simulate and plot terminal voltage <code>supercap.v</code>.<p>
+<p>Simulate and plot terminal voltage <code>supercap.v</code>.</p>
 <p>
 Plotting <code>energy.y</code>, it is remarkable that first energy is delivered by the supercap,
 but then due to the losses more energy is consumed to recharge the supercap.

@@ -6,8 +6,8 @@ model CurrentSensor "Polyphase current sensor"
         transformation(extent={{-110,-10},{-90,10}})));
   Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
         transformation(extent={{90,-10},{110,10}})));
-  Modelica.Blocks.Interfaces.RealOutput i[m]
-    "current in the branch from p to n as output signal" annotation (
+  Modelica.Blocks.Interfaces.RealOutput i[m](each unit="A")
+    "Current in the branch from p to n as output signal" annotation (
       Placement(transformation(
         origin={0,-110},
         extent={{10,-10},{-10,10}},

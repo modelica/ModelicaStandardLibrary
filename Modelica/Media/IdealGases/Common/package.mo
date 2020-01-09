@@ -486,9 +486,9 @@ Only density is a function of T and p. All other quantities
 are solely a function of T. The properties
 are valid in the range:
 </p>
-<pre>
-   200 K &le; T &le; 6000 K
-</pre>
+<blockquote><pre>
+200 K &le; T &le; 6000 K
+</pre></blockquote>
 <p>
 The following quantities are always computed:
 </p>
@@ -513,42 +513,42 @@ Note, dynamic viscosity and thermal conductivity are only provided
 for gases that use a data record from Modelica.Media.IdealGases.FluidData.
 Currently these are the following gases:
 </p>
-<pre>
-  Ar
-  C2H2_vinylidene
-  C2H4
-  C2H5OH
-  C2H6
-  C3H6_propylene
-  C3H7OH
-  C3H8
-  C4H8_1_butene
-  C4H9OH
-  C4H10_n_butane
-  C5H10_1_pentene
-  C5H12_n_pentane
-  C6H6
-  C6H12_1_hexene
-  C6H14_n_heptane
-  C7H14_1_heptene
-  C8H10_ethylbenz
-  CH3OH
-  CH4
-  CL2
-  CO
-  CO2
-  F2
-  H2
-  H2O
-  He
-  N2
-  N2O
-  NH3
-  NO
-  O2
-  SO2
-  SO3
-</pre>
+<blockquote><pre>
+Ar
+C2H2_vinylidene
+C2H4
+C2H5OH
+C2H6
+C3H6_propylene
+C3H7OH
+C3H8
+C4H8_1_butene
+C4H9OH
+C4H10_n_butane
+C5H10_1_pentene
+C5H12_n_pentane
+C6H6
+C6H12_1_hexene
+C6H14_n_heptane
+C7H14_1_heptene
+C8H10_ethylbenz
+CH3OH
+CH4
+CL2
+CO
+CO2
+F2
+H2
+H2O
+He
+N2
+N2O
+NH3
+NO
+O2
+SO2
+SO3
+</pre></blockquote>
 <p>
 <strong>Sources for model and literature:</strong><br>
 Original Data: Computer program for calculation of complex chemical
@@ -1055,8 +1055,7 @@ alcohols and acids.<br>
 Values of kappa for a few such materials:
 </p>
 
-<table style=\"text-align: left; width: 302px; height: 200px;\" border=\"1\"
-cellspacing=\"0\" cellpadding=\"2\">
+<table style=\"text-align: left; width: 302px; height: 200px;\" border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tbody>
 <tr>
 <td style=\"vertical-align: top;\">Compound<br>
@@ -1369,5 +1368,6 @@ It has been developed by Hubertus Tummescheit.
 </p>
 </html>"));
 end MixtureGasNasa;
-annotation (Documentation(info="<html></html>"));
+annotation (Documentation(info="<html>
+</html>"));
 end Common;

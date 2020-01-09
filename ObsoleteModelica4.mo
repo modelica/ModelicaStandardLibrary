@@ -1305,27 +1305,27 @@ complicated (this method is from Hans Olsson, Dassault Syst&egrave;mes AB). A us
 provide a package in the following way:
 </p>
 
-<pre>
-  <strong>package</strong> MyNonLinearSolver
-    <strong>extends</strong> OneNonLinearEquation;
+<blockquote><pre>
+<strong>package</strong> MyNonLinearSolver
+  <strong>extends</strong> OneNonLinearEquation;
 
-    <strong>redeclare record extends</strong> Data
-      // Define data to be passed to user function
-      ...
-    <strong>end</strong> Data;
+  <strong>redeclare record extends</strong> Data
+    // Define data to be passed to user function
+    ...
+  <strong>end</strong> Data;
 
-    <strong>redeclare function extends</strong> f_nonlinear
-    <strong>algorithm</strong>
-       // Compute the non-linear equation: y = f(x, Data)
-    <strong>end</strong> f_nonlinear;
+  <strong>redeclare function extends</strong> f_nonlinear
+  <strong>algorithm</strong>
+     // Compute the non-linear equation: y = f(x, Data)
+  <strong>end</strong> f_nonlinear;
 
-    // Dummy definition that had to be present for older version of Dymola
-    <strong>redeclare function extends</strong> solve
-    <strong>end</strong> solve;
-  <strong>end</strong> MyNonLinearSolver;
+  // Dummy definition that had to be present for older version of Dymola
+  <strong>redeclare function extends</strong> solve
+  <strong>end</strong> solve;
+<strong>end</strong> MyNonLinearSolver;
 
-  x_zero = MyNonLinearSolver.solve(y_zero, x_min, x_max, data=data);
-</pre>
+x_zero = MyNonLinearSolver.solve(y_zero, x_min, x_max, data=data);
+</pre></blockquote>
 </html>"));
       end OneNonLinearEquation;
     end Common;
@@ -1334,6 +1334,7 @@ provide a package in the following way:
   package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
     extends Modelica.Icons.Package;
     package Vectors "Library of functions operating on vectors"
+      extends Modelica.Icons.Package;
       package Utilities "Utility functions that should not be directly utilized by the user"
         extends Modelica.Icons.UtilitiesPackage;
         function householderVector "Calculate a normalized householder vector to reflect vector a onto vector b"
@@ -1464,10 +1465,10 @@ where <strong>Q</strong> is an orthogonal matrix, i.e.
 </blockquote>
 <h4>Example</h4>
 <blockquote><pre>
-  a = {2, -4, -2, -1};
-  u = {0.837, -0.478, -0.239, -0.119};
+a = {2, -4, -2, -1};
+u = {0.837, -0.478, -0.239, -0.119};
 
-  <strong>householderReflection</strong>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
+<strong>householderReflection</strong>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
 </pre></blockquote>
 <h4>See also</h4>
 <a href=\"modelica://ObsoleteModelica4.Math.Vectors.Utilities.householderVector\">Utilities.householderVector</a><br>
@@ -2394,8 +2395,8 @@ This transformation is widely used for transforming non-symmetric matrices to a 
   package Magnetic "Library of magnetic models"
     extends Modelica.Icons.Package;
     package FundamentalWave "Library for magnetic fundamental wave effects in electric machines"
-
-      package BasicMachines "Machine components and modelsElectric machine models based on FundamentalWave package"
+      extends Modelica.Icons.Package;
+      package BasicMachines "Basic machine components and models"
         extends Modelica.Icons.Package;
         package Components "Components specially for electric machines"
           extends Modelica.Icons.Package;

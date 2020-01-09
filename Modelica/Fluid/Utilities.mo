@@ -288,9 +288,9 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
 <p>
 Approximates the function
 </p>
-<pre>
-   y = <strong>if</strong> x &ge; 0 <strong>then</strong> <strong>sqrt</strong>(k1*x) <strong>else</strong> -<strong>sqrt</strong>(k2*<strong>abs</strong>(x)), with k1, k2 &ge; 0
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> x &ge; 0 <strong>then</strong> <strong>sqrt</strong>(k1*x) <strong>else</strong> -<strong>sqrt</strong>(k2*<strong>abs</strong>(x)), with k1, k2 &ge; 0
+</pre></blockquote>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
 the function is described by two polynomials of third order
@@ -435,9 +435,9 @@ k1=1, k2=3 is shown in the next figure:</p>
 <p>
 Approximates the function
 </p>
-<pre>
-   y = <strong>if</strong> x &ge; 0 <strong>then</strong> k1*x*x <strong>else</strong> -k2*x*x, with k1, k2 > 0
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> x &ge; 0 <strong>then</strong> k1*x*x <strong>else</strong> -k2*x*x, with k1, k2 > 0
+</pre></blockquote>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
 the function is described by two polynomials of third order
@@ -521,18 +521,18 @@ k1=1, k2=3 is shown in the next figure:
 <p>
 This function is used to approximate the equation
 </p>
-<pre>
-    y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
+</pre></blockquote>
 
 <p>
 by a smooth characteristic, so that the expression is continuous and differentiable:
 </p>
 
-<pre>
-   y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
-                 <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
-</pre>
+<blockquote><pre>
+y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
+              <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
+</pre></blockquote>
 
 <p>
 In the region -x_small &lt; x &lt; x_small a 2nd order polynomial is used
@@ -724,9 +724,9 @@ for a smooth transition from y1 to y2.
 
     annotation (smoothOrder=1, Documentation(revisions="<html>
 <ul>
-<li><em>May 2008</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>Designed and implemented.</li>
-<li><em>February 2011</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the inflection point of the cubic S0 was at +/- infinity, the test criteria of <em>[Gasparo and Morandi, 1991]</em> result in division by zero. This case is handled properly now.</li>
-<li><em>March 2013</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the arguments prescribed a degenerate case with points <code>(x0,y0)</code> and <code>(x1,y1)</code> on horizontal line, then return value <code>c</code> was undefined. This was corrected. Furthermore, an additional term was included for the computation of <code>y</code> in this case to assist automatic differentiation.</li>
+<li><em>May 2008</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>Designed and implemented.</li>
+<li><em>February 2011</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>If the inflection point of the cubic S0 was at +/- infinity, the test criteria of <em>[Gasparo and Morandi, 1991]</em> result in division by zero. This case is handled properly now.</li>
+<li><em>March 2013</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>If the arguments prescribed a degenerate case with points <code>(x0,y0)</code> and <code>(x1,y1)</code> on horizontal line, then return value <code>c</code> was undefined. This was corrected. Furthermore, an additional term was included for the computation of <code>y</code> in this case to assist automatic differentiation.</li>
 </ul>
 </html>",   info="<html>
 <p>

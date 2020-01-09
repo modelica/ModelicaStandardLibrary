@@ -592,7 +592,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
 This is an ideal semiconductor which is<br><br>
 <strong>open </strong>(off), if it is reversed biased (voltage drop less than 0)<br>
 <strong>closed</strong> (on), if it is conducting (current > 0).<br>
-<br/>
+<br>
 This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
 with zero resistance and zero conductance is not possible.
@@ -811,7 +811,7 @@ When the Boolean variable <code>off</code> signals to open the switch, a voltage
 This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
-<pre>
+<blockquote><pre>
      | voltage
 Vmax |      +-----
      |     /
@@ -819,7 +819,7 @@ Vmax |      +-----
 V0   |   +
      |   |
      +---+-------- time
-</pre>
+</pre></blockquote>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
 Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated

@@ -16,7 +16,7 @@ class References "References"
     <tr>
       <td>[Keil2012]</td>
       <td>Peter Keil and Andreas Jossen,
-        <em>Aufbau und Parametrierung von Batteriemodellen</em></a>,
+        <em>Aufbau und Parametrierung von Batteriemodellen</em>,
         19. Design&amp;Eelektronik-Entwicklerforum Batterien &amp; Ladekonzepte 2012, M&uuml;nchen, Germany</td>
     </tr>
 

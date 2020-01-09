@@ -4,22 +4,21 @@ class Parameterization "Parameterization of battery models"
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 A <strong>stack</strong> is built from <code>Ns*Np</code> <strong>identical cells</strong>,
-where <code>Np</code> describes the number of parallel connected cells and <code>Ns</code> the number of series connected cells.<p>
+where <code>Np</code> describes the number of parallel connected cells and <code>Ns</code> the number of series connected cells.
+</p>
+<p>
 The parameters of a stack built from <code>Np*Ns</code> cells are calculated as follows:
 </p>
 <table>
 <tr><td>Description</td>             <td>Cell</td>         <td>Stack</td></tr>
-<tr><td>Nominal OCV</td>             <td><code>OCVmax</td> <td><code>OCVmax*Ns</code></td></tr>
-<tr><td>End of discharge voltage</td><td><code>OCVmmin</td><td><code>OCVmin*Ns</code></td></tr>
-<tr><td>Capacity</td>                <td><code>Qnom</td>   <td><code>Qnom*Np</code></td></tr>
-<tr><td>Inner resistance</td>        <td><code>Ri</td>     <td><code>Ri*Ns/Np</code></td></tr>
-<tr><td>Short-circuit current</td>   <td><code>Isc</td>    <td><code>Isc*Np</code></td></tr>
+<tr><td>Nominal OCV</td>             <td><code>OCVmax</code></td> <td><code>OCVmax*Ns</code></td></tr>
+<tr><td>End of discharge voltage</td><td><code>OCVmmin</code></td><td><code>OCVmin*Ns</code></td></tr>
+<tr><td>Capacity</td>                <td><code>Qnom</code></td>   <td><code>Qnom*Np</code></td></tr>
+<tr><td>Inner resistance</td>        <td><code>Ri</code></td>     <td><code>Ri*Ns/Np</code></td></tr>
 </table>
-<p>
-The parameters of one cell are summarized n the parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a>.
-</p>
 <h4>Cell parameters</h4>
 <p>
+The parameters of one cell are summarized in the parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a>.
 Dependency of OCV on SOC can be chosen either linear (<code>useLinearSOCDependency=true</code>) or based on a look-up table.<br>
 By default, a linear OCV versus SOC characteristic is defined (like a capacitor), i.e. <code>OCV_SOC[:,2]=[SOCmin,OCVmin/OCVmax; SOCmax,1]</code>.<br>
 The OCV versus SOC table has to be specified with 1st column = SOC values in ascending order, 2nd column = corresponding OCV values with respect to OCVmax.<br>
@@ -35,13 +34,15 @@ The inner resistance <code>Ri</code> is either calculated from short circuit cur
 Linear temperature dependency of inner resistance can be specified by reference temperature <code>T_ref</code> and temperature coefficient <code>alpha</code>: <br>
 <code>R = R_ref*(1 + alpha*(T - T_ref))</code>.
 </p>
+<h4>Transient parameters</h4>
 <p>
-The parameters of optionally used RC-elements are specified by an array of parameter records <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a>:
+The parameter record for one cell of a transient battery model <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">cellData</a> 
+extends from the <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">basic cellData</a> record, and adds the parameters of the additional RC-elements. 
+These are specified by an array of parameter records <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a>:
 </p>
 <ul>
 <li><code>R</code> .. Resistance of RC-element</li>
-<li><code>T</code> .. Time constant of RC-element; if <code>C</code> is specified, <code>T</code> can be neglected</li>
-<li><code>C</code> .. Capacitance of RC-element; either specified explicitly or calculated from <code>T</code> and <code>R</code></li>
+<li><code>C</code> .. Capacitance of RC-element</li>
 </ul>
 <p>
 The size of the array of parameter records <code>rcData</code> determines the count of RC-elements instantiated.<br>
@@ -50,18 +51,17 @@ Temperature dependency of the resistors is assumed to be the same as inner resis
 </p>
 <h4>Typical parameters of a Li-Ion cell</h4>
 <table>
-<tr><td>End of charge voltage</td>   <td><code> </td>      <td>4.2 V</td></tr>
-<tr><td>Nominal voltage</td>         <td><code> </td>      <td>3.6 V</td></tr>
-<tr><td>End of discharge voltage</td><td><code>OCVmmin</td><td>2.5 V</td></tr>
+<tr><td>End of charge voltage</td>   <td>&nbsp;</td>              <td>4.2 V</td></tr>
+<tr><td>Nominal voltage</td>         <td>&nbsp;</td>              <td>3.6 V</td></tr>
+<tr><td>End of discharge voltage</td><td><code>OCVmmin</code></td><td>2.5 V</td></tr>
 </table>
 <p>
 Capacity (i.e. nominal charge) <code>Qnom</code>, inner resistance <code>Ri</code> and short-circuit current <code>Isc</code> depend on the cell size.<br>
 Typical (estimated) values for a certain cell size are, as an example:
 </p>
 <table>
-<tr><td>Capacity</td>             <td><code>Qnom</td><td>5 A.h</td></tr>
-<tr><td>Inner resistance</td>     <td><code>Ri</td>  <td>3 m&Omega;</td></tr>
-<tr><td>Short-circuit current</td><td><code>Isc</td> <td>1.2 kA</td></tr>
+<tr><td>Capacity</td>             <td><code>Qnom</code></td><td>5 A.h</td></tr>
+<tr><td>Inner resistance</td>     <td><code>Ri</code></td>  <td>3 m&Omega;</td></tr>
 </table>
 <p>
 Self-discharge rate is typically 1%/month.

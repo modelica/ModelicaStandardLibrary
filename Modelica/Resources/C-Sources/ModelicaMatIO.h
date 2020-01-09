@@ -67,7 +67,7 @@
 
 /* Have MAT int64 / uint64 */
 #if defined(_WIN32)
-#if defined(__WATCOMC__) || defined(__MINGW32__) || defined(__CYGWIN__)
+#if defined(__WATCOMC__) || defined(__MINGW32__) || defined(__CYGWIN__) || defined(__BORLANDC__)
 #define HAVE_MATIO_INT64_T 1
 #define HAVE_MATIO_UINT64_T 1
 #elif defined(_MSC_VER) && _MSC_VER > 1300
@@ -121,7 +121,7 @@ typedef uint8_t mat_uint8_t;
 #define mat_int16_t short
 #define mat_int32_t int
 #if defined(HAVE_MATIO_INT64_T)
-#if defined(_MSC_VER) && _MSC_VER < 1300
+#if defined(__BORLANDC__) || (defined(_MSC_VER) && _MSC_VER < 1300)
 #define mat_int64_t __int64
 #else
 #define mat_int64_t long long
@@ -131,7 +131,7 @@ typedef uint8_t mat_uint8_t;
 #define mat_uint16_t unsigned short
 #define mat_uint32_t unsigned
 #if defined(HAVE_MATIO_UINT64_T)
-#if defined(_MSC_VER) && _MSC_VER < 1300
+#if defined(__BORLANDC__) || (defined(_MSC_VER) && _MSC_VER < 1300)
 #define mat_uint64_t unsigned __int64
 #else
 #define mat_uint64_t unsigned long long

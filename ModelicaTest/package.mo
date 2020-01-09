@@ -1,5 +1,5 @@
 within ;
-package ModelicaTest "Library to test components of package Modelica - Version 3.2.3"
+package ModelicaTest "Library to test components of package Modelica - Version 4.0.0-dev"
 extends Modelica.Icons.Package;
 
 function testAllFunctions "Runs all test cases for functions"
@@ -74,9 +74,9 @@ way:
 
 <li> Models that are added to this library should have the annotation
      (with an appropriate StopTime):
-     <pre>
+     <blockquote><pre>
          <strong>annotation</strong>(experiment(StopTime=1.1));
-     </pre>
+     </pre></blockquote>
      This gives the tool vendors the possibility to automatically identify
      the models that shall be simulated and, e.g., that shall be used in an automatic
      regression test.</li>

@@ -1685,6 +1685,45 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2653jointSet;
+
+      model Issue3177torus "Conversion test for #3177 - Visualizers.Torus"
+        extends Modelica.Icons.Example;
+
+        inner Modelica.Mechanics.MultiBody.World world;
+        Modelica.Mechanics.MultiBody.Visualizers.Torus torus(
+          ri=0.5,
+          ro=0.1,
+          n_ri=40,
+          n_ro=20);
+      equation
+        connect(world.frame_b, torus.frame_a);
+
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3177\">#3177</a>.
+</p>
+</html>"));
+      end Issue3177torus;
+
+      model Issue3177torusSurface "Conversion test for #3177 - Visualizers.Advanced.SurfaceCharacteristics.torus"
+        extends Modelica.Icons.Example;
+
+        Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
+          redeclare function surfaceCharacteristic =
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
+              ri=0.6,
+              ro=0.2,
+              opening=0),
+              nu=10,
+              nv=10);
+
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3177\">#3177</a>.
+</p>
+</html>"));
+
+      end Issue3177torusSurface;
     end MultiBody;
 
     package Rotational

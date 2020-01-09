@@ -66,11 +66,11 @@ This blocks computes output <strong>y</strong> as
 <em>integral</em> of the input <strong>u</strong> multiplied with
 the gain <em>k</em>:
 </p>
-<pre>
-         k
-     y = - u
-         s
-</pre>
+<blockquote><pre>
+    k
+y = - u
+    s
+</pre></blockquote>
 
 <p>
 It might be difficult to initialize the integrator in steady state.
@@ -334,11 +334,11 @@ This blocks defines the transfer function between the
 input u and the output y
 as <em>approximated derivative</em>:
 </p>
-<pre>
-             k * s
-     y = ------------ * u
-            T * s + 1
-</pre>
+<blockquote><pre>
+        k * s
+y = ------------ * u
+       T * s + 1
+</pre></blockquote>
 <p>
 If you would like to be able to change easily between different
 transfer functions (FirstOrder, SecondOrder, ... ) by changing
@@ -416,11 +416,11 @@ If k=0, the block reduces to y=0.
 This blocks defines the transfer function between the input u
 and the output y as <em>first order</em> system:
 </p>
-<pre>
-               k
-     y = ------------ * u
-            T * s + 1
-</pre>
+<blockquote><pre>
+          k
+y = ------------ * u
+       T * s + 1
+</pre></blockquote>
 <p>
 If you would like to be able to change easily between different
 transfer functions (FirstOrder, SecondOrder, ... ) by changing
@@ -428,14 +428,14 @@ parameters, use the general block <strong>TransferFunction</strong> instead
 and model a first order SISO system with parameters<br>
 b = {k}, a = {T, 1}.
 </p>
-<pre>
+<blockquote><pre>
 Example:
    parameter: k = 0.3, T = 0.4
    results in:
              0.3
       y = ----------- * u
           0.4 s + 1.0
-</pre>
+</pre></blockquote>
 
 </html>"), Icon(
     coordinateSystem(preserveAspectRatio=true,
@@ -511,11 +511,11 @@ Example:
 This blocks defines the transfer function between the input u and
 the output y as <em>second order</em> system:
 </p>
-<pre>
-                             k
-     y = ---------------------------------------- * u
-            ( s / w )^2 + 2*D*( s / w ) + 1
-</pre>
+<blockquote><pre>
+                    k
+y = --------------------------------- * u
+     ( s / w )^2 + 2*D*( s / w ) + 1
+</pre></blockquote>
 <p>
 If you would like to be able to change easily between different
 transfer functions (FirstOrder, SecondOrder, ... ) by changing
@@ -523,7 +523,7 @@ parameters, use the general model class <strong>TransferFunction</strong>
 instead and model a second order SISO system with parameters<br>
 b = {k}, a = {1/w^2, 2*D/w, 1}.
 </p>
-<pre>
+<blockquote><pre>
 Example:
 
    parameter: k =  0.3,  w = 0.5,  D = 0.4
@@ -531,7 +531,7 @@ Example:
                   0.3
       y = ------------------- * u
           4.0 s^2 + 1.6 s + 1
-</pre>
+</pre></blockquote>
 
 </html>"), Icon(
         coordinateSystem(preserveAspectRatio=true,
@@ -632,14 +632,14 @@ Example:
 This blocks defines the transfer function between the input u and
 the output y as <em>PI</em> system:
 </p>
-<pre>
-                 1
-   y = k * (1 + ---) * u
-                T*s
-           T*s + 1
-     = k * ------- * u
+<blockquote><pre>
+              1
+y = k * (1 + ---) * u
              T*s
-</pre>
+        T*s + 1
+  = k * ------- * u
+          T*s
+</pre></blockquote>
 <p>
 If you would like to be able to change easily between different
 transfer functions (FirstOrder, SecondOrder, ... ) by changing
@@ -647,7 +647,7 @@ parameters, use the general model class <strong>TransferFunction</strong>
 instead and model a PI SISO system with parameters<br>
 b = {k*T, k}, a = {T, 0}.
 </p>
-<pre>
+<blockquote><pre>
 Example:
 
    parameter: k = 0.3,  T = 0.4
@@ -656,7 +656,7 @@ Example:
                0.4 s + 1
       y = 0.3 ----------- * u
                  0.4 s
-</pre>
+</pre></blockquote>
 
 <p>
 It might be difficult to initialize the PI component in steady state
@@ -845,9 +845,9 @@ cases difficulties might occur. The reason is the
 equation of the integrator:
 </p>
 
-<pre>
-   <strong>der</strong>(y) = k*u;
-</pre>
+<blockquote><pre>
+<strong>der</strong>(y) = k*u;
+</pre></blockquote>
 
 <p>
 The steady state equation \"der(x)=0\" leads to the condition that the input u to the
@@ -1197,9 +1197,9 @@ cases difficulties might occur. The reason is the
 equation of the integrator:
 </p>
 
-<pre>
-   <strong>der</strong>(y) = k*u;
-</pre>
+<blockquote><pre>
+<strong>der</strong>(y) = k*u;
+</pre></blockquote>
 
 <p>
 The steady state equation \"der(x)=0\" leads to the condition that the input u to the
@@ -1289,11 +1289,11 @@ This block defines the transfer function between the input
 u and the output y
 as (nb = dimension of b, na = dimension of a):
 </p>
-<pre>
-           b[1]*s^[nb-1] + b[2]*s^[nb-2] + ... + b[nb]
-   y(s) = --------------------------------------------- * u(s)
-           a[1]*s^[na-1] + a[2]*s^[na-2] + ... + a[na]
-</pre>
+<blockquote><pre>
+        b[1]*s^[nb-1] + b[2]*s^[nb-2] + ... + b[nb]
+y(s) = --------------------------------------------- * u(s)
+        a[1]*s^[na-1] + a[2]*s^[na-2] + ... + a[na]
+</pre></blockquote>
 <p>
 State variables <strong>x</strong> are defined according to <strong>controller canonical</strong>
 form. Internally, vector <strong>x</strong> is scaled to improve the numerics (the states in versions before version 3.0 of the Modelica Standard Library have been not scaled). This scaling is
@@ -1306,17 +1306,17 @@ Initial values of the states <strong>x</strong> can be set via parameter <strong
 <p>
 Example:
 </p>
-<pre>
-     TransferFunction g(b = {2,4}, a = {1,3});
-</pre>
+<blockquote><pre>
+TransferFunction g(b = {2,4}, a = {1,3});
+</pre></blockquote>
 <p>
 results in the following transfer function:
 </p>
-<pre>
-        2*s + 4
-   y = --------- * u
-         s + 3
-</pre>
+<blockquote><pre>
+     2*s + 4
+y = --------- * u
+      s + 3
+</pre></blockquote>
 </html>"),
       Icon(
           coordinateSystem(preserveAspectRatio=true,
@@ -1390,29 +1390,29 @@ The State Space block defines the relation
 between the input u and the output
 y in state space form:
 </p>
-<pre>
-
-    der(x) = A * x + B * u
-        y  = C * x + D * u
-</pre>
+<blockquote><pre>
+der(x) = A * x + B * u
+    y  = C * x + D * u
+</pre></blockquote>
 <p>
 The input is a vector of length nu, the output is a vector
 of length ny and nx is the number of states. Accordingly
 </p>
-<pre>
-        A has the dimension: A(nx,nx),
-        B has the dimension: B(nx,nu),
-        C has the dimension: C(ny,nx),
-        D has the dimension: D(ny,nu)
-</pre>
+<blockquote><pre>
+A has the dimension: A(nx,nx),
+B has the dimension: B(nx,nu),
+C has the dimension: C(ny,nx),
+D has the dimension: D(ny,nu)
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-     parameter: A = [0.12, 2;3, 1.5]
-     parameter: B = [2, 7;3, 1]
-     parameter: C = [0.1, 2]
-     parameter: D = zeros(ny,nu)
+<blockquote><pre>
+parameter: A = [0.12, 2;3, 1.5]
+parameter: B = [2, 7;3, 1]
+parameter: C = [0.1, 2]
+parameter: D = zeros(ny,nu)
+
 results in the following equations:
   [der(x[1])]   [0.12  2.00] [x[1]]   [2.0  7.0] [u[1]]
   [         ] = [          ]*[    ] + [        ]*[    ]
@@ -1420,7 +1420,7 @@ results in the following equations:
                              [x[1]]            [u[1]]
        y[1]   = [0.1  2.0] * [    ] + [0  0] * [    ]
                              [x[2]]            [u[2]]
-</pre>
+</pre></blockquote>
 </html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}),
@@ -1765,14 +1765,14 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
 The critical damping filter is defined as
 </p>
 
-<pre>
-    &alpha; = <strong>if</strong> normalized <strong>then</strong> <strong>sqrt</strong>(2^(1/n) - 1) <strong>else</strong> 1 // frequency correction factor
-    &omega; = 2*&pi;*f/&alpha;
-              1
-    y = ------------- * u
-         (s/w + 1)^n
+<blockquote><pre>
+&alpha; = <strong>if</strong> normalized <strong>then</strong> <strong>sqrt</strong>(2^(1/n) - 1) <strong>else</strong> 1 // frequency correction factor
+&omega; = 2*&pi;*f/&alpha;
+          1
+y = ------------- * u
+     (s/w + 1)^n
 
-</pre>
+</pre></blockquote>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNormalized.png\"
@@ -2105,13 +2105,12 @@ The filters are implemented in the following, reliable way:
 
 <li> The resulting first and second order transfer functions are implemented in
      state space form, using the \"eigen value\" representation of a transfer function:
-     <pre>
-
-  // second order block with eigen values: a +/- jb
-  <strong>der</strong>(x1) = a*x1 - b*x2 + (a^2 + b^2)/b*u;
-  <strong>der</strong>(x2) = b*x1 + a*x2;
-       y  = x2;
-     </pre>
+     <blockquote><pre>
+// second order block with eigen values: a +/- jb
+<strong>der</strong>(x1) = a*x1 - b*x2 + (a^2 + b^2)/b*u;
+<strong>der</strong>(x2) = b*x1 + a*x2;
+     y  = x2;
+     </pre></blockquote>
      The dc-gain from the input to the output of this block is one and the selected
      states are in the order of the input (if \"u\" is in the order of \"one\", then the
      states are also in the order of \"one\"). In the \"Advanced\" tab, a \"nominal\" value for
@@ -2685,22 +2684,22 @@ The development of this block was partially funded by BMBF within the
 The goal is to implement the filter in the following form:
 </p>
 
-<pre>
-  // real pole:
-   der(x) = r*x - r*u
-       y  = x
+<blockquote><pre>
+// real pole:
+ der(x) = r*x - r*u
+     y  = x
 
-  // complex conjugate poles:
-  der(x1) = a*x1 - b*x2 + ku*u;
-  der(x2) = b*x1 + a*x2;
-       y  = x2;
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = x2;
 
-            ku = (a^2 + b^2)/b
-</pre>
+          ku = (a^2 + b^2)/b
+</pre></blockquote>
 <p>
 This representation has the following transfer function:
 </p>
-<pre>
+<blockquote><pre>
 // real pole:
     s*y = r*y - r*u
   or
@@ -2740,7 +2739,7 @@ This representation has the following transfer function:
     y(s=0) = x2(s=0) = 1
              x1(s=0) = -ku*a/(a^2 + b^2)*u
                      = -(a/b)*u
-</pre>
+</pre></blockquote>
 
 </html>"));
       end lowPass;
@@ -2793,27 +2792,26 @@ This representation has the following transfer function:
 The goal is to implement the filter in the following form:
 </p>
 
-<pre>
-  // real pole:
-   der(x) = r*x - r*u
-       y  = -x + u
+<blockquote><pre>
+// real pole:
+ der(x) = r*x - r*u
+     y  = -x + u
 
-  // complex conjugate poles:
-  der(x1) = a*x1 - b*x2 + ku*u;
-  der(x2) = b*x1 + a*x2;
-       y  = k1*x1 + k2*x2 + u;
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = k1*x1 + k2*x2 + u;
 
-            ku = (a^2 + b^2)/b
-            k1 = 2*a/ku
-            k2 = (a^2 - b^2) / (b*ku)
-               = (a^2 - b^2) / (a^2 + b^2)
-               = (1 - (b/a)^2) / (1 + (b/a)^2)
-
-</pre>
+          ku = (a^2 + b^2)/b
+          k1 = 2*a/ku
+          k2 = (a^2 - b^2) / (b*ku)
+             = (a^2 - b^2) / (a^2 + b^2)
+             = (1 - (b/a)^2) / (1 + (b/a)^2)
+</pre></blockquote>
 <p>
 This representation has the following transfer function:
 </p>
-<pre>
+<blockquote><pre>
 // real pole:
     s*x = r*x - r*u
   or
@@ -2823,7 +2821,7 @@ This representation has the following transfer function:
       = (r+s-r)/(s-r)*u
       = s/(s-r)*u
 
-  comparing coefficients with
+// comparing coefficients with
     y = s/(s + cr)*u  ->  r = -cr      // r is the real eigenvalue
 
 // complex conjugate poles
@@ -2846,16 +2844,16 @@ This representation has the following transfer function:
          (s^2 - 2*a*s + a^2 + b^2)*u
        = s^2 / (s^2 - 2*a*s + a^2 + b^2)*u
 
-  comparing coefficients with
+// comparing coefficients with
     y = s^2/(s^2 + c1*s + c0)*u  ->  a = -c1/2
                                      b = sqrt(c0 - a^2)
 
-  comparing with eigenvalue representation:
+// comparing with eigenvalue representation:
     (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
-  shows that:
-    a: real part of eigenvalue
-    b: imaginary part of eigenvalue
-</pre>
+// shows that:
+//   a: real part of eigenvalue
+//   b: imaginary part of eigenvalue
+</pre></blockquote>
 
 </html>"));
       end highPass;
@@ -2911,20 +2909,20 @@ This representation has the following transfer function:
 The goal is to implement the filter in the following form:
 </p>
 
-<pre>
-  // complex conjugate poles:
-  der(x1) = a*x1 - b*x2 + ku*u;
-  der(x2) = b*x1 + a*x2;
-       y  = k1*x1 + k2*x2;
+<blockquote><pre>
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = k1*x1 + k2*x2;
 
-            ku = (a^2 + b^2)/b
-            k1 = cn/ku
-            k2 = cn*a/(b*ku)
-</pre>
+          ku = (a^2 + b^2)/b
+          k1 = cn/ku
+          k2 = cn*a/(b*ku)
+</pre></blockquote>
 <p>
 This representation has the following transfer function:
 </p>
-<pre>
+<blockquote><pre>
 // complex conjugate poles
     s*x2 =  a*x2 + b*x1
     s*x1 = -b*x2 + a*x1 + ku*u
@@ -2951,7 +2949,7 @@ This representation has the following transfer function:
   shows that:
     a: real part of eigenvalue
     b: imaginary part of eigenvalue
-</pre>
+</pre></blockquote>
 
 </html>"));
       end bandPass;
@@ -3007,20 +3005,20 @@ This representation has the following transfer function:
 The goal is to implement the filter in the following form:
 </p>
 
-<pre>
-  // complex conjugate poles:
-  der(x1) = a*x1 - b*x2 + ku*u;
-  der(x2) = b*x1 + a*x2;
-       y  = k1*x1 + k2*x2 + u;
+<blockquote><pre>
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = k1*x1 + k2*x2 + u;
 
-            ku = (a^2 + b^2)/b
-            k1 = 2*a/ku
-            k2 = (c0 + a^2 - b^2)/(b*ku)
-</pre>
+          ku = (a^2 + b^2)/b
+          k1 = 2*a/ku
+          k2 = (c0 + a^2 - b^2)/(b*ku)
+</pre></blockquote>
 <p>
 This representation has the following transfer function:
 </p>
-<pre>
+<blockquote><pre>
 // complex conjugate poles
     s*x2 =  a*x2 + b*x1
     s*x1 = -b*x2 + a*x1 + ku*u
@@ -3047,7 +3045,7 @@ This representation has the following transfer function:
   shows that:
     a: real part of eigenvalue
     b: imaginary part of eigenvalue
-</pre>
+</pre></blockquote>
 
 </html>"));
       end bandStop;
@@ -4020,8 +4018,7 @@ This representation has the following transfer function:
         Bn(0)
 H(p) = -------
         Bn(p)
- </pre>
-</blockquote>
+</pre></blockquote>
 <p>with the denominator polynomial</p>
 <blockquote><pre>
          n             n  (2n - k)!       p^k
@@ -4033,7 +4030,7 @@ Bn(p) = sum c_k*p^k = sum ----------- * -------   (1)
                (2n)!     1
 Bn(0) = c_0 = ------- * ---- .                    (2)
                 n!      2^n
- </pre></blockquote>
+</pre></blockquote>
 <p>Although the coefficients c_k are integer numbers, it is not advisable to use the
 polynomials in an unfactorized form because the coefficients are fast growing with order
 n (c_0 is approximately 0.3e24 and 0.8e59 for order n=20 and order n=40
@@ -4080,7 +4077,9 @@ Bn(p) = sum w0^k*c_k*(p/w0)^k
 <p>of the normalized transfer function H'(p'). There exist n/2 of conjugate complex
 pairs of zeros (beta +-j*gamma) if n is even and one additional real zero (alpha) if n is
 odd. Finally, the coefficients a, b1_k, b2_k of the polynomials</p>
-<blockquote><pre> a*p + 1,  n is odd </pre></blockquote>
+<blockquote><pre>
+a*p + 1,  n is odd
+</pre></blockquote>
 <p>and</p>
 <blockquote><pre>
 b2_k*p^2 + b1_k*p + 1,   k = 1,... div(n,2)
@@ -4547,28 +4546,28 @@ function. The solver function is a direct mapping of the Algol 60 procedure
 A band pass with bandwidth \"w\" is determined from a low pass
 </p>
 
-<pre>
-  1/(p^2 + a*p + b)
-</pre>
+<blockquote><pre>
+1/(p^2 + a*p + b)
+</pre></blockquote>
 
 <p>
 with the transformation
 </p>
 
-<pre>
-  new(p) = (p + 1/p)/w
-</pre>
+<blockquote><pre>
+new(p) = (p + 1/p)/w
+</pre></blockquote>
 
 <p>
 This results in the following derivation:
 </p>
 
-<pre>
-  1/(p^2 + a*p + b) -> 1/( (p+1/p)^2/w^2 + a*(p + 1/p)/w + b )
-                     = 1 /( ( p^2 + 1/p^2 + 2)/w^2 + (p + 1/p)*a/w + b )
-                     = w^2*p^2 / (p^4 + 2*p^2 + 1 + (p^3 + p)a*w + b*w^2*p^2)
-                     = w^2*p^2 / (p^4 + a*w*p^3 + (2+b*w^2)*p^2 + a*w*p + 1)
-</pre>
+<blockquote><pre>
+1/(p^2 + a*p + b) -> 1/( (p+1/p)^2/w^2 + a*(p + 1/p)/w + b )
+                   = 1 /( ( p^2 + 1/p^2 + 2)/w^2 + (p + 1/p)*a/w + b )
+                   = w^2*p^2 / (p^4 + 2*p^2 + 1 + (p^3 + p)a*w + b*w^2*p^2)
+                   = w^2*p^2 / (p^4 + a*w*p^3 + (2+b*w^2)*p^2 + a*w*p + 1)
+</pre></blockquote>
 
 <p>
 This 4th order transfer function shall be split in to two transfer functions of order 2 each
@@ -4576,38 +4575,38 @@ for numerical reasons. With the following formulation, the fourth order
 polynomial can be represented (with the unknowns \"c\" and \"alpha\"):
 </p>
 
-<pre>
-  g(p) = w^2*p^2 / ( (p*alpha)^2 + c*(p*alpha) + 1) * ( (p/alpha)^2 + c*(p/alpha) + 1)
-       = w^2*p^2 / ( p^4 + c*(alpha + 1/alpha)*p^3 + (alpha^2 + 1/alpha^2 + c^2)*p^2
-                                                   + c*(alpha + 1/alpha)*p + 1 )
-</pre>
+<blockquote><pre>
+g(p) = w^2*p^2 / ( (p*alpha)^2 + c*(p*alpha) + 1) * ( (p/alpha)^2 + c*(p/alpha) + 1)
+     = w^2*p^2 / ( p^4 + c*(alpha + 1/alpha)*p^3 + (alpha^2 + 1/alpha^2 + c^2)*p^2
+                                                 + c*(alpha + 1/alpha)*p + 1 )
+</pre></blockquote>
 
 <p>
 Comparison of coefficients:
 </p>
 
-<pre>
-  c*(alpha + 1/alpha) = a*w           -> c = a*w / (alpha + 1/alpha)
-  alpha^2 + 1/alpha^2 + c^2 = 2+b*w^2 -> equation to determine alpha
+<blockquote><pre>
+c*(alpha + 1/alpha) = a*w           -> c = a*w / (alpha + 1/alpha)
+alpha^2 + 1/alpha^2 + c^2 = 2+b*w^2 -> equation to determine alpha
 
-  alpha^4 + 1 + a^2*w^2*alpha^4/(1+alpha^2)^2 = (2+b*w^2)*alpha^2
-    or z = alpha^2
-  z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1 = 0
-</pre>
+alpha^4 + 1 + a^2*w^2*alpha^4/(1+alpha^2)^2 = (2+b*w^2)*alpha^2
+  or z = alpha^2
+z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1 = 0
+</pre></blockquote>
 
 <p>
 Therefore the last equation has to be solved for \"z\" (basically, this means to compute
 a real zero of a fourth order polynomial):
 </p>
 
-<pre>
-   solve: 0 = f(z)  = z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1  for \"z\"
-              f(0)  = 1  &gt; 0
-              f(1)  = 1 + a^2*w^2/4 - (2+b*w^2) + 1
-                    = (a^2/4 - b)*w^2  &lt; 0
-                    // since b - a^2/4 > 0 requirement for complex conjugate poles
-   -> 0 &lt; z &lt; 1
-</pre>
+<blockquote><pre>
+solve: 0 = f(z)  = z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1  for \"z\"
+           f(0)  = 1  &gt; 0
+           f(1)  = 1 + a^2*w^2/4 - (2+b*w^2) + 1
+                 = (a^2/4 - b)*w^2  &lt; 0
+                 // since b - a^2/4 > 0 requirement for complex conjugate poles
+-> 0 &lt; z &lt; 1
+</pre></blockquote>
 
 <p>
 This function computes the solution of this equation and returns \"alpha = sqrt(z)\";
@@ -4678,12 +4677,12 @@ for a block that contains an integrator
 This is due to the basic equation of an integrator:
 </p>
 
-<pre>
-  <strong>initial equation</strong>
-     <strong>der</strong>(y) = 0;   // Init.SteadyState
-  <strong>equation</strong>
-     <strong>der</strong>(y) = k*u;
-</pre>
+<blockquote><pre>
+<strong>initial equation</strong>
+   <strong>der</strong>(y) = 0;   // Init.SteadyState
+<strong>equation</strong>
+   <strong>der</strong>(y) = k*u;
+</pre></blockquote>
 
 <p>
 The steady state equation leads to the condition that the input to the

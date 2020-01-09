@@ -69,12 +69,12 @@ Note, for any vector norm the following inequality holds:
 
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2, -4, -2, -1};
-  <strong>norm</strong>(v,1);    // = 9
-  <strong>norm</strong>(v,2);    // = 5
-  <strong>norm</strong>(v);      // = 5
-  <strong>norm</strong>(v,10.5); // = 4.00052597412635
-  <strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
+v = {2, -4, -2, -1};
+<strong>norm</strong>(v,1);    // = 9
+<strong>norm</strong>(v,2);    // = 5
+<strong>norm</strong>(v);      // = 5
+<strong>norm</strong>(v,10.5); // = 4.00052597412635
+<strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -111,8 +111,8 @@ not the case with function norm(..).
 
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2, -4, -2, -1};
-  <strong>length</strong>(v);  // = 5
+v = {2, -4, -2, -1};
+<strong>length</strong>(v);  // = 5
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -167,8 +167,8 @@ possible.
 
 <h4>Example</h4>
 <blockquote><pre>
-  <strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
-  <strong>normalize</strong>({0,0,0});  // = {0,0,0}
+<strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+<strong>normalize</strong>({0,0,0});  // = {0,0,0}
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -188,11 +188,16 @@ algorithm
   result := {v[end-i+1] for i in 1:size(v,1)};
 annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
-<blockquote><pre>Vectors.<strong>reverse</strong>(v);</pre></blockquote>
+<blockquote><pre>
+Vectors.<strong>reverse</strong>(v);
+</pre></blockquote>
 <h4>Description</h4>
 The function call &quot;<code>Vectors.<strong>reverse</strong>(v)</code>&quot; returns the complex vector elements in reverse order.
+
 <h4>Example</h4>
-<blockquote><pre>  <strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}</pre></blockquote>
+<blockquote><pre>
+<strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}
+</pre></blockquote>
 </html>"));
 end reverse;
 
@@ -308,9 +313,9 @@ to the original vector are given, such that sorted_v = v[indices].
 
 <h4>Example</h4>
 <blockquote><pre>
-  (v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
-       -> v2 = {-1, 2, 3, 6, 8}
-          i2 = {1, 5, 3, 4, 2}
+(v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+    -> v2 = {-1, 2, 3, 6, 8}
+       i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
 
 </html>"));

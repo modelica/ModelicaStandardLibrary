@@ -8,7 +8,7 @@ model VolumeFlow "Enforces constant volume flow"
   parameter Modelica.SIunits.VolumeFlowRate constantVolumeFlow(start=1)
     "Volume flow rate"
     annotation(Dialog(enable=not useVolumeFlowInput));
-  Modelica.Blocks.Interfaces.RealInput volumeFlow=internalVolumeFlow if useVolumeFlowInput
+  Modelica.Blocks.Interfaces.RealInput volumeFlow(unit="m3/s")=internalVolumeFlow if useVolumeFlowInput
     annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,

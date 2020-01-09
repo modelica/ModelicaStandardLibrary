@@ -1,4 +1,3 @@
-/* ::::: https://trac.modelica.org/Modelica/chrome/common/css/trac.css ::::: */
 
 html { overflow-y: scroll; }
 body { background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(0, 0, 0); margin: 10px; padding: 0px; }
@@ -94,9 +93,6 @@ table.listing tbody tr.odd { background-color: rgb(247, 247, 247); }
 table.listing tbody tr:hover { background: none repeat scroll 0% 0% rgb(238, 238, 221) ! important; }
 @media screen {
 }
-/* ::::: https://trac.modelica.org/Modelica/chrome/common/css/report.css ::::: */
-
-/* ::::: https://trac.modelica.org/Modelica/chrome/common/css/code.css ::::: */
 
 h1 .numrows, h2 .numrows { margin-left: 1em; color: rgb(153, 153, 153); font-size: 65%; font-weight: normal; }
 h2.report-result { background: none repeat scroll 0% 0% rgb(247, 247, 247); border-bottom: 1px solid rgb(215, 215, 215); margin: 2em 0px 0px; padding: 0.2em 0.4em; box-shadow: 1px 1px 0.5em 0px rgb(204, 204, 204); border-radius: 0.1em 0.1em 0.1em 0.1em; }
@@ -160,21 +156,10 @@ table.tickets tbody tr.even.prio5 { background: none repeat scroll 0% 0% rgb(221
 #batchmod_form th { text-align: right; white-space: nowrap; font-size: 11px; }
 #batchmod_help { float: right; color: rgb(153, 153, 153); margin: 0.3em 1em; }
 #batchmod_help :link, #batchmod_help :visited { cursor: help; }
-/* ::::: https://trac.modelica.org/Modelica/chrome/common/css/jquery-ui/jquery-ui.css ::::: */
 
 button.ui-button::-moz-focus-inner { border: 0px none; padding: 0px; }
-/* ::::: https://trac.modelica.org/Modelica/chrome/common/css/jquery-ui-addons.css ::::: */
-
-/* ::::: https://trac.modelica.org/Modelica/chrome/tracwysiwyg/wysiwyg.css ::::: */
-
-/* ::::: https://trac.modelica.org/Modelica/chrome/wikiextras/css/phrases.css ::::: */
-
-/* ::::: https://trac.modelica.org/Modelica/chrome/wikiextras/css/boxes.css ::::: */
 
 #attachments, .buttons { clear: both; }
-/* ::::: https://trac.modelica.org/Modelica/chrome/wikiextras/css/boxes-300.css ::::: */
-
-/* ::::: https://trac.modelica.org/Modelica/chrome/wikiextras/css/boxes-narrow-toc.css ::::: */
 
 #modtable { border-spacing: 0px; width: 100%; }
 #modleft { border-width: medium 1px medium medium; border-style: none solid none none; border-color: -moz-use-text-color rgb(187, 187, 187) -moz-use-text-color -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; background: none repeat scroll 0% 0% rgb(238, 238, 238); width: 10%; }

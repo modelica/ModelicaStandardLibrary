@@ -411,9 +411,9 @@ system of equation is solved and therefore initialization always works.
 To be precise, the following trivial non-linear equation is actually solved
 for rodLength:
 </p>
-<pre>
+<blockquote><pre>
    rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
-</pre>
+</pre></blockquote>
 </html>"));
     end SphericalAndUniversal;
 
@@ -7455,7 +7455,7 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5));
       annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
-<p><br/>Dymola ignores the flag and uses bodies variables as states.</p>
+<p><br>Dymola ignores the flag and uses bodies variables as states.</p>
 </html>"));
     end FreeBodiesEnforceStatesFalse;
 
@@ -10247,10 +10247,10 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
       MultiBody.Parts.FixedTranslation fixedTranslation(
           animation=false, r={2,0,0})
         annotation (Placement(transformation(extent={{-26,50},{-6,70}})));
-      MultiBody.Visualizers.Torus torus1(ro=0.2)
+      MultiBody.Visualizers.Torus torus1(r=0.2)
         annotation (Placement(transformation(extent={{-20,20},{0,40}})));
       MultiBody.Visualizers.Torus torus2(
-        ro=0.2,
+        r=0.2,
         opening=0.78539816339745,
         startAngle=-2.3561944901923,
         stopAngle=2.3561944901923)
