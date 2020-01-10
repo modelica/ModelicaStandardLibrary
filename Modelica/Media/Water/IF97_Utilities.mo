@@ -1640,7 +1640,7 @@ package IF97_Utilities
           String(p) + " Pa <= " + String(triple.ptriple) +
           " Pa (triple point pressure)");
         assert(p <= 100.0e6, "IF97 medium function g1: the input pressure (= "
-           + String(p) + " Pa) is higher than 100 Mpa");
+           + String(p) + " Pa) is higher than 100 MPa");
         assert(T >= 273.15, "IF97 medium function g1: the temperature (= " +
           String(T) + " K) is lower than 273.15 K!");
         g.p := p;
@@ -1785,6 +1785,7 @@ package IF97_Utilities
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
         input SI.Temperature T "Temperature (K)";
+        input Boolean checkLimits=true "Check if inputs p,T are in region of validity";
         output Modelica.Media.Common.GibbsDerivs g
           "Dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       protected
@@ -1794,16 +1795,18 @@ package IF97_Utilities
         g.p := p;
         g.T := T;
         g.R_s := data.RH2O;
-        assert(p > 0.0,
-          "IF97 medium function g2 called with too low pressure\n" + "p = " +
-          String(p) + " Pa <=  0.0 Pa");
-        assert(p <= 100.0e6, "IF97 medium function g2: the input pressure (= "
-           + String(p) + " Pa) is higher than 100 Mpa");
-        assert(T >= 273.15, "IF97 medium function g2: the temperature (= " +
-          String(T) + " K) is lower than 273.15 K!");
-        assert(T <= 1073.15,
-          "IF97 medium function g2: the input temperature (= " + String(T) +
-          " K) is higher than the limit of 1073.15 K");
+        if checkLimits then
+          assert(p > 0.0,
+            "IF97 medium function g2 called with too low pressure\n" + "p = " +
+            String(p) + " Pa <= 0.0 Pa");
+          assert(p <= 100.0e6, "IF97 medium function g2: the input pressure (= "
+             + String(p) + " Pa) is higher than 100 MPa");
+          assert(T >= 273.15, "IF97 medium function g2: the temperature (= " +
+            String(T) + " K) is lower than 273.15 K!");
+          assert(T <= 1073.15,
+            "IF97 medium function g2: the input temperature (= " + String(T) +
+            " K) is higher than the limit of 1073.15 K");
+        end if;
         g.pi := p/data.PSTAR2;
         g.tau := data.TSTAR2/T;
         tau2 := -0.5 + g.tau;
@@ -2002,7 +2005,7 @@ package IF97_Utilities
           "p = " + String(p) + " Pa <=  0.0 Pa");
         assert(p <= 100.0e6,
           "IF97 medium function g2metastable: the input pressure (= " + String(
-          p) + " Pa) is higher than 100 Mpa");
+          p) + " Pa) is higher than 100 MPa");
         assert(T >= 273.15,
           "IF97 medium function g2metastable: the temperature (= " + String(T)
            + " K) is lower than 273.15 K!");
@@ -2238,7 +2241,7 @@ package IF97_Utilities
           "IF97 medium function g5 called with too low pressure\n" + "p = " +
           String(p) + " Pa <=  0.0 Pa");
         assert(p <= data.PLIMIT5, "IF97 medium function g5: input pressure (= "
-           + String(p) + " Pa) is higher than 10 Mpa in region 5");
+           + String(p) + " Pa) is higher than 10 MPa in region 5");
         assert(T <= 2273.15, "IF97 medium function g5: input temperature (= "
            + String(T) + " K) is higher than limit of 2273.15K in region 5");
         g.p := p;
@@ -2327,7 +2330,7 @@ package IF97_Utilities
           " Pa (triple point pressure)");
         assert(p <= 100.0e6,
           "IF97 medium function g1pitau: the input pressure (= " + String(p) +
-          " Pa) is higher than 100 Mpa");
+          " Pa) is higher than 100 MPa");
         assert(T >= 273.15, "IF97 medium function g1pitau: the temperature (= "
            + String(T) + " K) is lower than 273.15 K!");
         pi := p/data.PSTAR1;
@@ -2412,7 +2415,7 @@ package IF97_Utilities
           " Pa (triple point pressure)");
         assert(p <= 100.0e6,
           "IF97 medium function g2pitau: the input pressure (= " + String(p) +
-          " Pa) is higher than 100 Mpa");
+          " Pa) is higher than 100 MPa");
         assert(T >= 273.15, "IF97 medium function g2pitau: the temperature (= "
            + String(T) + " K) is lower than 273.15 K!");
         assert(T <= 1073.15,
@@ -2506,7 +2509,7 @@ package IF97_Utilities
           " Pa (triple point pressure)");
         assert(p <= data.PLIMIT5,
           "IF97 medium function g5pitau: input pressure (= " + String(p) +
-          " Pa) is higher than 10 Mpa in region 5");
+          " Pa) is higher than 10 MPa in region 5");
         assert(T <= 2273.15,
           "IF97 medium function g5pitau: input temperature (= " + String(T) +
           " K) is higher than limit of 2273.15 K in region 5");
@@ -3849,7 +3852,8 @@ Ordinary Water Substance<br>
         input SI.Temperature T "Temperature (K)";
         input SI.Pressure p "Pressure (only needed for region of validity)";
         input Integer phase=0
-          "2 for two-phase, 1 for one-phase, 0 if not known";
+          "2 for two-phase, 1 for one-phase, 0 if not known (unused)";
+        input Boolean checkLimits=true "Check if inputs d,T,P are in region of validity";
         output SI.DynamicViscosity eta "Dynamic viscosity";
       protected
         constant Real n0=1.0 "Viscosity coefficient";
@@ -3913,7 +3917,6 @@ Ordinary Water Substance<br>
         Real tfun "Auxiliary variable";
         Real rhofun "Auxiliary variable";
         Real Tc=T - 273.15 "Celsius temperature for region check";
-        //      Integer region "Region of IF97";
       algorithm
         //      if phase == 0 then
         //        region := BaseIF97.Regions.region_dT(d,T,0);
@@ -3923,16 +3926,18 @@ Ordinary Water Substance<br>
         //      end if;
         // assert(phase <> 2, "Viscosity can not be computed for two-phase states");
         delta := d/rhostar;
-        assert(d > triple.dvtriple,
-          "IF97 medium function visc_dTp for viscosity called with too low density\n"
-           + "d = " + String(d) + " <= " + String(triple.dvtriple) +
-          " (triple point density)");
-        assert((p <= 500e6 and (Tc >= 0.0 and Tc <= 150)) or (p <= 350e6 and (
-          Tc > 150.0 and Tc <= 600)) or (p <= 300e6 and (Tc > 600.0 and Tc <=
-          900)),
-          "IF97 medium function visc_dTp: viscosity computed outside the range\n"
-           + "of validity of the IF97 formulation: p = " + String(p) +
-          " Pa, Tc = " + String(Tc) + " K");
+        if checkLimits then
+          assert(d > triple.dvtriple,
+            "IF97 medium function visc_dTp for viscosity called with too low density\n"
+             + "d = " + String(d) + " <= " + String(triple.dvtriple) +
+            " (triple point density)");
+          assert((p <= 500e6 and (Tc >= 0.0 and Tc <= 150)) or (p <= 350e6 and (
+            Tc > 150.0 and Tc <= 600)) or (p <= 300e6 and (Tc > 600.0 and Tc <=
+            900)),
+            "IF97 medium function visc_dTp: viscosity computed outside the range\n"
+             + "of validity of the IF97 formulation: p = " + String(p) +
+            " Pa, Tc = " + String(Tc) + " K");
+        end if;
         deltam1 := delta - 1.0;
         tau := tstar/T;
         taum1 := tau - 1.0;
@@ -3964,6 +3969,7 @@ Ordinary Water Substance<br>
           "2 for two-phase, 1 for one-phase, 0 if not known";
         input Boolean industrialMethod=true
           "If true, the industrial method is used, otherwise the scientific one";
+        input Boolean checkLimits=true "Check if inputs d,T,P are in region of validity";
         output SI.ThermalConductivity lambda "Thermal conductivity";
       protected
         Integer region(min=1, max=5) "IF97 region, valid values:1,2,3, and 5";
@@ -4051,19 +4057,20 @@ Ordinary Water Substance<br>
         Real lambdaREL0
           "Function, part of the interpolating equation of the thermal conductivity";
       algorithm
-        // region := BaseIF97.Regions.region_dT(d,T,phase);
         // simplified region check, assuming that calling arguments are legal
         //  assert(phase <> 2,
         //   "ThermalConductivity can not be called with 2-phase inputs!");
-        assert(d > triple.dvtriple,
-          "IF97 medium function cond_dTp called with too low density\n" +
-          "d = " + String(d) + " <= " + String(triple.dvtriple) +
-          " (triple point density)");
-        assert((p <= 100e6 and (Tc >= 0.0 and Tc <= 500)) or (p <= 70e6 and (Tc
-           > 500.0 and Tc <= 650)) or (p <= 40e6 and (Tc > 650.0 and Tc <= 800)),
-          "IF97 medium function cond_dTp: thermal conductivity computed outside the range\n"
-           + "of validity of the IF97 formulation: p = " + String(p) +
-          " Pa, Tc = " + String(Tc) + " K");
+        if checkLimits then
+          assert(d > triple.dvtriple,
+            "IF97 medium function cond_dTp called with too low density\n" +
+            "d = " + String(d) + " <= " + String(triple.dvtriple) +
+            " (triple point density)");
+          assert((p <= 100e6 and (Tc >= 0.0 and Tc <= 500)) or (p <= 70e6 and (Tc
+             > 500.0 and Tc <= 650)) or (p <= 40e6 and (Tc > 650.0 and Tc <= 800)),
+            "IF97 medium function cond_dTp: thermal conductivity computed outside the range\n"
+             + "of validity of the IF97 formulation: p = " + String(p) +
+            " Pa, Tc = " + String(Tc) + " K");
+        end if;
         if industrialMethod == true then
           deltaTREL := abs(TREL - 1) + C[4];
           Q := 2 + C[5]/deltaTREL^(3/5);
@@ -5510,7 +5517,7 @@ Ordinary Water Substance<br>
         pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
         assert(pro.p <= 100.0e6,
           "IF97 medium function waterR3_dT: the input pressure (= " + String(
-          pro.p) + " Pa) is higher than 100 Mpa");
+          pro.p) + " Pa) is higher than 100 MPa");
       end waterR3_dT;
 
       function waterR5_pT "Standard properties for region 5, (p,T) as inputs"
