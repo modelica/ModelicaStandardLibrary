@@ -896,7 +896,6 @@ Define schematic animation of diagram layer
 
 <h4>Examples</h4>
 
-<blockquote>
 <p>
 The level of a tank is animated by a rectangle expanding in vertical direction and its color depending on a variable overflow:
 </p>
@@ -2449,7 +2448,7 @@ or arrays.
 <h4>Syntax</h4>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td colspan=\"3\"><strong>Arithmetic Operators (operate on Real, Integer scalars or arrays)</strong></td>
+  <tr><td colspan=\"3\"><strong>Arithmetic Operators (operate on Real, Integer scalars or arrays)</strong></td></tr>
   <tr><td><em>Operators</em></td>
       <td><em>Example</em></td>
       <td><em>Description</em></td>
@@ -2494,7 +2493,7 @@ or arrays.
 &nbsp;
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td colspan=\"3\"><strong>Relational Operators (operate on Real, Integer, Boolean, String scalars)</strong></td>
+  <tr><td colspan=\"3\"><strong>Relational Operators (operate on Real, Integer, Boolean, String scalars)</strong></td></tr>
   <tr><td><em>Operators</em></td>
       <td><em>Example</em></td>
       <td><em>Description</em></td>
@@ -2522,7 +2521,7 @@ or arrays.
 &nbsp;
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td colspan=\"3\"><strong>Boolean Operators (operate on scalars or element-wise on arrays)</strong></td>
+  <tr><td colspan=\"3\"><strong>Boolean Operators (operate on scalars or element-wise on arrays)</strong></td></tr>
   <tr><td><em>Operators</em></td>
       <td><em>Example</em></td>
       <td><em>Description</em></td>
@@ -2541,7 +2540,7 @@ or arrays.
 &nbsp;
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td colspan=\"3\"><strong>Other Operators</strong></td>
+  <tr><td colspan=\"3\"><strong>Other Operators</strong></td></tr>
   <tr><td><em>Operators</em></td>
       <td><em>Example</em></td>
       <td><em>Description</em></td>
@@ -2610,7 +2609,7 @@ or arrays.
       <td><code>+&nbsp;&nbsp;-&nbsp;&nbsp;+<em>expr</em>&nbsp;&nbsp;-<em>expr</em><br>
                 .+&nbsp;&nbsp;.-</code></td>
       <td><code>a+b, a-b, +a, -a<br>
-                [1,2;3,4].+[2,3;5,6]</code</td>
+                [1,2;3,4].+[2,3;5,6]</code></td>
     </tr>
     <tr>
       <td>relational</td>
@@ -2635,7 +2634,7 @@ or arrays.
     <tr>
       <td>logical or<</td>
       <td><code>or</code></td>
-      <td><code>b1 or b2</code</td>
+      <td><code>b1 or b2</code></td>
     </tr>
     <tr>
       <td>array range</td>
@@ -2780,7 +2779,7 @@ rules:
 <li>All arguments must be type compatible expressions giving the type of the elements. The data type of the result array is the maximally expanded type of the arguments. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
 <li>Each application of this constructor function adds a one-sized dimension to the left in the result compared to the dimensions of the argument arrays, i.e., <code>ndims(array(A,B,C)) = ndims(A) + 1 = ndims(B) + 1, ...</code></li>
 <li><code>{A, B, C, ...}</code> is a shorthand notation for <code>array(A, B, C, ...)</code>.</li>
-<li>There must be at least one argument [i.e., <code>array()</code> or <code>{}</code> are not defined].
+<li>There must be at least one argument [i.e., <code>array()</code> or <code>{}</code> are not defined].</li>
 </ul>
 </html>"));
   end 'array()';
@@ -3113,12 +3112,12 @@ statement in the equation part of a class. The <strong>connect</strong>
 construct takes two references to connectors, each of which is
 either of the following forms:</p>
 
-<UL>
-  <LI>c1.c2. ... .cn, where c1 is a connector of the class, n&ge;1
-      and ci+1 is a connector element of ci for i=1:(n-1).</LI>
-  <LI>m.c, where m is a non-connector element in the class and c is
-      a connector element of m.</LI>
-</UL>
+<ul>
+  <li>c1.c2. ... .cn, where c1 is a connector of the class, n&ge;1
+      and ci+1 is a connector element of ci for i=1:(n-1).</li>
+  <li>m.c, where m is a non-connector element in the class and c is
+      a connector element of m.</li>
+</ul>
 
 <p>There may optionally be array subscripts on any of the components;
 the array subscripts shall be parameter expressions. If the connect
@@ -3128,10 +3127,10 @@ connected as a pair of scalar connectors.</p>
 
 <p>The two main tasks are to:</p>
 
-<UL>
-  <LI>Build connection sets from <strong>connect </strong>statements.</LI>
-  <LI>Generate equations for the complete model.</LI>
-</UL>
+<ul>
+  <li>Build connection sets from <strong>connect </strong>statements.</li>
+  <li>Generate equations for the complete model.</li>
+</ul>
 
 <p>Definitions:</p>
 
@@ -3263,7 +3262,7 @@ b = rooted(A.R);  // deprecated
 <p>
 If the operator <code>Connections.rooted(A.R)</code> is used, or the equivalent <em>but deprecated</em> operator <code>rooted(A.R)</code>, then there must be exactly one statement <code>Connections.branch(A.R,B.R)</code> involving <code>A.R</code> (the argument of <code>Connections.rooted</code> must be the first argument of <code>Connections.branch</code>).
 In that case <code>Connections.rooted(A.R)</code> returns <em>true</em>, if <code>A.R</code> is closer to the root of the spanning tree than <code>B.R</code>; otherwise <em>false</em> is returned.
-
+</p>
 <h4>Examples</h4>
 <p>
 This operator can be used to avoid equation systems by providing analytic inverses, see <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.FixedRotation\">Modelica.Mechanics.MultiBody.Parts.FixedRotation</a>.
@@ -3733,6 +3732,7 @@ Note that the homotopy operator <strong>shall not</strong> be used to combine un
 </pre></blockquote>
 <p>
 The initial equation is expanded into
+</p>
 <blockquote><pre>
 0 = lambda*der(x) + (1-lambda)*(x-x0)
 </pre></blockquote>
@@ -4254,9 +4254,9 @@ Refer to left limit
 <h4>Syntax</h4>
 <blockquote><pre><strong>pre</strong>(y)</pre></blockquote>
 <h4>Description</h4>
-<p>Returns the &quot;left limit&quot; y(t<SUP>pre</SUP>)
+<p>Returns the &quot;left limit&quot; y(t<sup>pre</sup>)
 of variable y(t) at a time instant t. At an event instant,
-y(t<SUP>pre</SUP>) is the value of y after the last event
+y(t<sup>pre</sup>) is the value of y after the last event
 iteration at time instant t. The
 <strong>pre</strong> operator can be applied if the following three
 conditions are fulfilled simultaneously:</p>
@@ -4813,7 +4813,7 @@ with
        = \"E\": Exponential notation using an upper case E<br>
        = \"f\": Fixed point notation<br>
        = \"g\": Either \"e\" or \"f\"<br>
-       = \"G\": Same as \"g\", but with upper case E</td></tr></table>
+       = \"G\": Same as \"g\", but with upper case E</td></tr></table></td></tr>
 </table>
 <h4>Examples</h4>
 <blockquote><pre>
@@ -5389,7 +5389,7 @@ The local number of unknowns of DynamicVolume is:
 <ul>
 <li> 4+2*nXi (inside the port connector), plus</li>
 <li> 2+nXi (variables U, M and MXi), plus</li>
-<li> 2+nXi (the input variables in the connectors of the medium model)
+<li> 2+nXi (the input variables in the connectors of the medium model)</li>
 </ul>
 
 <p>
@@ -5579,10 +5579,10 @@ class is instantiated with a new environment and the
 partially instantiated parent of the extends clause. The new
 environment is the result of merging</p>
 
-<OL>
-  <LI>arguments of all parent environments that match names in the instantiated base class</LI>
-  <LI>the optional class modification of the extends clause</LI>
-</OL>
+<ol>
+  <li>arguments of all parent environments that match names in the instantiated base class</li>
+  <li>the optional class modification of the extends clause</li>
+</ol>
 
 <p>in that order.</p>
 
@@ -5591,15 +5591,15 @@ of the instantiated parent class.</p>
 
 <p>The declaration elements of the instantiated base class shall either</p>
 
-<UL>
-  <LI>not already exist in the partially instantiated parent class
-      <em>[i.e., have different names]</em>.</LI>
-  <LI>be exactly identical to any element of the instantiated parent
+<ul>
+  <li>not already exist in the partially instantiated parent class
+      <em>[i.e., have different names]</em>.</li>
+  <li>be exactly identical to any element of the instantiated parent
       class with the same name and the same level of protection
       (<strong>public</strong> or <strong>protected</strong>) and same contents. In this
       case, one of the elements is ignored (since they are identical
-      it does not matter which one).</LI>
-</UL>
+      it does not matter which one).</li>
+</ul>
 
 <p>Otherwise the model is incorrect.</p>
 
@@ -6790,14 +6790,14 @@ clause are activated when the scalar or any one of the elements of the vector
 expression becomes true. When-clauses in equation sections are allowed, provided
 the equations within the when-clause have one of the following forms:</p>
 
-<UL>
-  <LI>v = expr;</LI>
-  <LI> (out1, out2, out3, ...) = function_call(in1, in2, ...);</LI>
-  <LI>operators <strong>assert</strong>(), <strong>terminate</strong>(), <strong>reinit</strong>()</LI>
-  <LI><strong>For</strong> and <strong>if</strong>-clause if the equations within the <strong>for</strong> and <strong>if</strong>-clauses satisfy these requirements.</LI>
-  <LI>In an equation section, the different branches of when/elsewhen must have the same set of component references on the left-hand side.</LI>
-  <LI>In an equation section, the branches of an if-then-else clause inside when-clauses must have the same set of component references on the left-hand side, unless the if-then-else have exclusively parameter expressions as switching conditions.</LI>
-</UL>
+<ul>
+  <li>v = expr;</li>
+  <li> (out1, out2, out3, ...) = function_call(in1, in2, ...);</li>
+  <li>operators <strong>assert</strong>(), <strong>terminate</strong>(), <strong>reinit</strong>()</li>
+  <li><strong>For</strong> and <strong>if</strong>-clause if the equations within the <strong>for</strong> and <strong>if</strong>-clauses satisfy these requirements.</li>
+  <li>In an equation section, the different branches of when/elsewhen must have the same set of component references on the left-hand side.</li>
+  <li>In an equation section, the branches of an if-then-else clause inside when-clauses must have the same set of component references on the left-hand side, unless the if-then-else have exclusively parameter expressions as switching conditions.</li>
+</ul>
 
 <p>A when clause shall not be used within a function class.</p>
 
@@ -6959,14 +6959,14 @@ Repeat statements as long as a condition is fulfilled
 The while-clause corresponds to while-statements in programming languages,
 and is formally defined as follows</p>
 
-<OL>
-  <LI>The expression of the while clause is evaluated.</LI>
-  <LI>If the expression of the while-clause is false, the execution
-      continues after the while-clause.</LI>
-  <LI>If the expression of the while-clause is true, the entire body of
+<ol>
+  <li>The expression of the while clause is evaluated.</li>
+  <li>If the expression of the while-clause is false, the execution
+      continues after the while-clause.</li>
+  <li>If the expression of the while-clause is true, the entire body of
       the while clause is executed (except if a break statement or return
-      statement is executed), and then execution proceeds at step 1.</LI>
-</OL>
+      statement is executed), and then execution proceeds at step 1.</li>
+</ol>
 
 </html>"));
 end 'while';
@@ -6977,7 +6977,7 @@ class Contact "Contact"
 
   annotation (Documentation(info="<html>
 <dl>
-<dt><strong>Library Officers:</strong>
+<dt><strong>Library Officers:</strong></dt>
 <dd><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a> and <a href=\"https://github.com/HansOlsson\">Hans Olsson</a></dd>
 </dl>
 <p><strong>Acknowledgements:</strong></p>
@@ -7187,7 +7187,7 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
           Connections.rooted()<br>
           rooted() with deprecation notice</li>
      <li> <a href=\"https://github.com/modelica/ModelicaSpecification/issues/1048\">#1048</a>: GenerateEvents annotation removed in Modelica 3.2 rev2</li>
-     </ul>
+     </ul></li>
 </ul>
      </td>
      </tr>
@@ -7202,7 +7202,7 @@ Copyright &copy; 2003-2019, Modelica Association and contributors
       <td><a href=\"https://github.com/modelica/ModelicaStandardLibrary/commit/13f826a01b70f8d7b7616b4bfe00413563ed6c40\">r4256</a></td>
       <td>2010-10-06</td>
       <td><a href=\"https://github.com/dietmarw\">Dietmar Winkler</a></td>
-      <td>Removed 'uses' annotation and added icons so it can be used with multiple versions of the MSL (closes ticket <a href=\https://github.com/modelica/ModelicaStandardLibrary/issues/425\">#425</a>)</td>
+      <td>Removed 'uses' annotation and added icons so it can be used with multiple versions of the MSL (closes ticket <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/425\">#425</a>)</td>
     </tr>
     <tr>
       <td><a href=\"https://github.com/modelica/ModelicaStandardLibrary/commit/da0b65b3f79cf097ab5314904158006c9b02d0b0\">r4218</a></td>

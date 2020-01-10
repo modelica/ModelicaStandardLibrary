@@ -2587,7 +2587,8 @@ It must be noted that the relationship of both axis variables is not right-angle
       ddph_b2 = density_derp_h(bubble2);
       dTp = saturationTemperature_derp(p);
       dTp2 = (1/dew.d - 1/bubble.d)/max(s_d - s_b, 1e-6);
-      annotation (Documentation(info="<html></html>"));
+      annotation (Documentation(info="<html>
+</html>"));
     end ExtendedProperties;
 
     model TestTwoPhaseStates "Test the TwoPhaseWater model"
@@ -5421,7 +5422,7 @@ to the above list of assumptions</li>
       output Temperature T "Saturation temperature";
     end saturationTemperature;
 
-    replaceable function saturationPressure_sat "Return saturation temperature"
+    replaceable function saturationPressure_sat "Return saturation pressure"
       extends Modelica.Icons.Function;
       input SaturationProperties sat "Saturation property record";
       output AbsolutePressure p "Saturation pressure";
@@ -8491,12 +8492,12 @@ Copyright &copy; 1998-2019, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>
-<li><em>February 01, 2017</em> by Thomas Beutlich:<br/>
+<li><em>February 01, 2017</em> by Thomas Beutlich:<br>
     Fixed data errors of the NASA Glenn coefficients in some ideal gases (CH2, CH3, CH3OOH, C2CL2, C2CL4, C2CL6, C2HCL, C2HCL3, CH2CO_ketene, O_CH_2O, HO_CO_2OH, CH2BrminusCOOH, C2H3CL, CH2CLminusCOOH, HO2, HO2minus, OD, ODminus), see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1922\">#1922</a></li>
-<li><em>May 16, 2013</em> by Stefan Wischhusen (XRG Simulation):<br/>
+<li><em>May 16, 2013</em> by Stefan Wischhusen (XRG Simulation):<br>
     Added new media models Air.ReferenceMoistAir, Air.ReferenceAir, R134a.</li>
-<li><em>May 25, 2011</em> by Francesco Casella:<br/>Added min/max attributes to Water, TableBased, MixtureGasNasa, SimpleAir and MoistAir local types.</li>
-<li><em>May 25, 2011</em> by Stefan Wischhusen:<br/>Added individual settings for polynomial fittings of properties.</li>
+<li><em>May 25, 2011</em> by Francesco Casella:<br>Added min/max attributes to Water, TableBased, MixtureGasNasa, SimpleAir and MoistAir local types.</li>
+<li><em>May 25, 2011</em> by Stefan Wischhusen:<br>Added individual settings for polynomial fittings of properties.</li>
 </ul>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),

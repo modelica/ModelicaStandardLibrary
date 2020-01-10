@@ -208,7 +208,7 @@ synchronous languages [Benveniste2003]:</em>
       \"A Multi-Periodic Synchronous Data-Flow Language,\"
       In <em>11th IEEE High Assurance Systems Engineering Symposium (HASE'08)</em>,
       pp. 251-260, Nanjing, China, Dec. 3-5, 2008.
-      <a href=\"http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=4708883&contentType=Conference+Publications\">Download</a>.</td>
+      <a href=\"http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&amp;arnumber=4708883&amp;contentType=Conference+Publications\">Download</a>.</td>
   </tr>
   <tr>
     <td>[Pouzet2006]</td>

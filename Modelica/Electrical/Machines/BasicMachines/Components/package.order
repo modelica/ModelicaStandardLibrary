@@ -1,0 +1,15 @@
+PartialAirGap
+AirGapS
+AirGapR
+Inductor
+SquirrelCage
+DamperCage
+ElectricalExcitation
+PermanentMagnet
+PermanentMagnetWithLosses
+InductorDC
+PartialAirGapDC
+AirGapDC
+CompoundDCExcitation
+PartialCore
+IdealCore

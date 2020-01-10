@@ -6,17 +6,17 @@ model AnalysatorDC "Analyze DC voltage, current and power"
   parameter Modelica.SIunits.Frequency f=50 "Mains frequency";
   Analog.Interfaces.NegativePin nv "Negative electrical pin"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-  Modelica.Blocks.Interfaces.RealOutput pDC "Mean power" annotation (
+  Modelica.Blocks.Interfaces.RealOutput pDC(unit="W") "Mean power" annotation (
       Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=0,
         origin={-110,-60})));
-  Modelica.Blocks.Interfaces.RealOutput iMean "Mean current" annotation (
+  Modelica.Blocks.Interfaces.RealOutput iMean(unit="A") "Mean current" annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-60,-110})));
-  Modelica.Blocks.Interfaces.RealOutput vMean "Mean voltage" annotation (
+  Modelica.Blocks.Interfaces.RealOutput vMean(unit="V") "Mean voltage" annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

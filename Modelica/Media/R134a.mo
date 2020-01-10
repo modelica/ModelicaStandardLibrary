@@ -22,9 +22,9 @@ package R134a "R134a: Medium model for R134a"
         "Isobaric expansion coefficient";
       Modelica.SIunits.IsentropicExponent gamma "Isentropic exponent";
       Modelica.SIunits.DerPressureByTemperature pt
-        "Derivative of pressure wrt temperature";
+        "Derivative of pressure w.r.t. temperature";
       Modelica.SIunits.DerPressureByDensity pd
-        "Derivative of pressure wrt density";
+        "Derivative of pressure w.r.t. density";
 
     end PhaseBoundaryProperties;
 
@@ -39,8 +39,8 @@ package R134a "R134a: Medium model for R134a"
       Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
       Modelica.SIunits.SpecificHeatCapacity cv
         "Specific heat capacity at constant volume";
-      Real pt "Derivative of pressure wrt temperature";
-      Real pd "Derivative of pressure wrt density";
+      Real pt "Derivative of pressure w.r.t. temperature";
+      Real pd "Derivative of pressure w.r.t. density";
       Real dpT "dp/dT derivative of saturation curve";
 
     end InverseDerivatives_rhoT;
@@ -326,19 +326,27 @@ rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
 
     algorithm
       R_s := R134aData.data.R_s;
-      f := f_R134a(d=d, T=T);
-      state.p := d*R_s*T*f.delta*f.fdelta;
-      state.h := R_s*T*(f.tau*f.ftau + f.delta*f.fdelta);
-      sat.psat := state.p;
-      state.T := T;
-      state.d := d;
-      sat.Tsat := state.T;
+      sat := setSat_T(T);
       dl := bubbleDensity(sat);
       dv := dewDensity(sat);
-      state.phase := if ((state.d < dl) or (state.d > dv) or (state.p >
-        R134aData.data.FPCRIT)) then 1 else 2;
-
+      if d < dl and d > dv and T < R134aData.data.FTCRIT then
+        f := Modelica.Media.Common.HelmholtzDerivs(
+          d=d, T=T, R_s=R_s, delta=0, tau=0, f=0, fdelta=0,
+          fdeltadelta=0, ftau=0, ftautau=0, fdeltatau=0);
+        state.p := saturationPressure_sat(sat);
+        state.h := (dl*dv/d*(dewEnthalpy(sat) - bubbleEnthalpy(sat))
+                  - dv*dewEnthalpy(sat) + dl*bubbleEnthalpy(sat))/(dl - dv);
+        state.phase := 2;
+      else
+        f := f_R134a(d=d, T=T);
+        state.p := d*R_s*T*f.delta*f.fdelta;
+        state.h := R_s*T*(f.tau*f.ftau + f.delta*f.fdelta);
+        state.phase := 1;
+      end if;
+      state.T := T;
+      state.d := d;
       annotation (Documentation(revisions="<html>
+<p>2019-12-20  Francesco Casella and Stefan Wischhusen: Two-phase calculation corrected.</p>
 <p>2012-08-01  Stefan Wischhusen: Corrected passing-error of inputs.</p>
 </html>", info="<html>
 <p>Although the medium package is explicit for pressure and specific enthalpy, this function may be used in order to calculate the thermodynamic state record used as input by many functions. It will calculate the missing states:</p>
@@ -750,7 +758,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end saturationTemperature_der_p;
 
     redeclare function extends bubbleDensity
-      "Density of liquid phase w.r.t saturation pressure | use setSat_p function for input"
+      "Density of liquid phase w.r.t. saturation pressure | use setSat_p function for input"
 
     protected
       constant Real dl_coef[:, :]=R134aData.dlcoef
@@ -781,7 +789,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end bubbleDensity;
 
     redeclare function extends dBubbleDensity_dPressure
-      "Derivative of liquid density in two-phase region w.r.t pressure"
+      "Derivative of liquid density in two-phase region w.r.t. pressure"
 
     protected
       constant Real dl_coef[:, :]=R134aData.dlcoef
@@ -809,14 +817,14 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleDensity_dPressure;
 
     function dBubbleDensity_dPressure_der_sat
-      "Time derivative of liquid density in two-phase region w.r.t pressure"
+      "Time derivative of liquid density in two-phase region w.r.t. pressure"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
         "Saturation properties | pressure is used for interpolation";
       input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_ddldp
-        "Time derivative of liquid density in two-phase region w.r.t pressure";
+        "Time derivative of liquid density in two-phase region w.r.t. pressure";
     protected
       constant Real dl_coef[:, :]=R134aData.dlcoef
         "Coefficients of cubic spline for d_liq(p)";
@@ -843,7 +851,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleDensity_dPressure_der_sat;
 
     redeclare function extends dewDensity
-      "Density of vapor phase w.r.t saturation pressure | use setSat_p function for input"
+      "Density of vapor phase w.r.t. saturation pressure | use setSat_p function for input"
 
     protected
       constant Real dv_coef[:, :]=R134aData.dvcoef
@@ -873,7 +881,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dewDensity;
 
     redeclare function extends dDewDensity_dPressure
-      "Derivative of vapor density in two-phase region w.r.t pressure"
+      "Derivative of vapor density in two-phase region w.r.t. pressure"
 
     protected
       constant Real dv_coef[:, :]=R134aData.dvcoef
@@ -901,14 +909,14 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewDensity_dPressure;
 
     function dDewDensity_dPressure_der_sat
-      "Time derivative of vapor density in two-phase region w.r.t pressure"
+      "Time derivative of vapor density in two-phase region w.r.t. pressure"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
         "Saturation properties | pressure is used for interpolation";
       input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_ddvdp
-        "Time derivative of vapor density in two-phase region w.r.t pressure";
+        "Time derivative of vapor density in two-phase region w.r.t. pressure";
     protected
       constant Real dv_coef[:, :]=R134aData.dvcoef
         "Coefficients of cubic spline for d_vap(p)";
@@ -935,7 +943,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewDensity_dPressure_der_sat;
 
     redeclare function extends bubbleEnthalpy
-      "Specific enthalpy of liquid phase w.r.t saturation pressure | use setSat_p function for input"
+      "Specific enthalpy of liquid phase w.r.t. saturation pressure | use setSat_p function for input"
 
     protected
       constant Real hl_coef[:, :]=R134aData.hlcoef
@@ -966,7 +974,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end bubbleEnthalpy;
 
     redeclare function extends dBubbleEnthalpy_dPressure
-      "Derivative of liquid specific enthalpy in two-phase region w.r.t pressure"
+      "Derivative of liquid specific enthalpy in two-phase region w.r.t. pressure"
 
     protected
       constant Real hl_coef[:, :]=R134aData.hlcoef
@@ -994,14 +1002,14 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleEnthalpy_dPressure;
 
     function dBubbleEnthalpy_dPressure_der_sat
-      "Time derivative of liquid specific enthalpy in two-phase region w.r.t pressure"
+      "Time derivative of liquid specific enthalpy in two-phase region w.r.t. pressure"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
         "Saturation properties | pressure is used for interpolation";
       input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_dhldp
-        "Time derivative of liquid specific enthalpy in two-phase region w.r.t pressure";
+        "Time derivative of liquid specific enthalpy in two-phase region w.r.t. pressure";
     protected
       constant Real hl_coef[:, :]=R134aData.hlcoef
         "Coefficients of cubic spline for h_liq(p)";
@@ -1028,7 +1036,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleEnthalpy_dPressure_der_sat;
 
     redeclare function extends dewEnthalpy
-      "Specific enthalpy of vapor phase w.r.t saturation pressure | use setSat_p function for input"
+      "Specific enthalpy of vapor phase w.r.t. saturation pressure | use setSat_p function for input"
 
     protected
       constant Real hv_coef[:, :]=R134aData.hvcoef
@@ -1059,7 +1067,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dewEnthalpy;
 
     redeclare function extends dDewEnthalpy_dPressure
-      "Derivative of vapor specific enthalpy in two-phase region w.r.t pressure"
+      "Derivative of vapor specific enthalpy in two-phase region w.r.t. pressure"
 
     protected
       constant Real hv_coef[:, :]=R134aData.hvcoef
@@ -1087,14 +1095,14 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewEnthalpy_dPressure;
 
     function dDewEnthalpy_dPressure_der_sat
-      "Time derivative of vapor specific enthalpy in two-phase region w.r.t pressure"
+      "Time derivative of vapor specific enthalpy in two-phase region w.r.t. pressure"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
         "Saturation properties | pressure is used for interpolation";
       input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_dhvdp
-        "Derivative of vapor specific enthalpy in two-phase region w.r.t pressure";
+        "Derivative of vapor specific enthalpy in two-phase region w.r.t. pressure";
     protected
       constant Real hv_coef[:, :]=R134aData.hvcoef
         "Coefficients of cubic spline for h_vap(p)";
@@ -1121,7 +1129,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewEnthalpy_dPressure_der_sat;
 
     redeclare function extends dewEntropy
-      "Specific entropy of vapor phase w.r.t saturation pressure | use setSat_p function for input"
+      "Specific entropy of vapor phase w.r.t. saturation pressure | use setSat_p function for input"
 
     protected
       constant Real sv_coef[:, :]=R134aData.svcoef
@@ -1151,13 +1159,13 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dewEntropy;
 
     function dDewEntropy_dPressure
-      "Derivative of vapor specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
+      "Derivative of vapor specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
         "Saturation properties | pressure is used for interpolation";
       output Real dsvdp
-        "Derivative of vapor specific entropy in two-phase region w.r.t pressure";
+        "Derivative of vapor specific entropy in two-phase region w.r.t. pressure";
     protected
       constant Real sv_coef[:, :]=R134aData.svcoef
         "Coefficients of cubic spline for s_vap(p)";
@@ -1184,14 +1192,14 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewEntropy_dPressure;
 
     function dDewEntropy_dPressure_der_sat
-      "Time derivative of vapor specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
+      "Time derivative of vapor specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
         "Saturation properties | pressure is used for interpolation";
       input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_dsvdp
-        "Derivative of vapor specific entropy in two-phase region w.r.t pressure";
+        "Derivative of vapor specific entropy in two-phase region w.r.t. pressure";
     protected
       constant Real sv_coef[:, :]=R134aData.svcoef
         "Coefficients of cubic spline for s_liq(p)";
@@ -1218,7 +1226,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewEntropy_dPressure_der_sat;
 
     redeclare function extends bubbleEntropy
-      "Specific entropy of liquid phase w.r.t saturation pressure | use setSat_p function for input"
+      "Specific entropy of liquid phase w.r.t. saturation pressure | use setSat_p function for input"
     protected
       constant Real sl_coef[:, :]=R134aData.slcoef
         "Coefficients of cubic spline for s_liq(p)";
@@ -1248,12 +1256,12 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end bubbleEntropy;
 
     function dBubbleEntropy_dPressure
-      "Derivative of liquid specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
+      "Derivative of liquid specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input"
       extends Modelica.Icons.Function;
       input SaturationProperties sat
         "Saturation properties | pressure is used for interpolation";
       output Real dsldp
-        "Derivative of liquid specific entropy in two-phase region w.r.t pressure";
+        "Derivative of liquid specific entropy in two-phase region w.r.t. pressure";
     protected
       constant Real sl_coef[:, :]=R134aData.slcoef
         "Coefficients of cubic spline for s_liq(p)";
@@ -1280,13 +1288,13 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleEntropy_dPressure;
 
     function dBubbleEntropy_dPressure_der_sat
-      "Time derivative of liquid specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
+      "Time derivative of liquid specific entropy in two-phase region w.r.t. pressure | use setState_phX function for input"
       extends Modelica.Icons.Function;
       input SaturationProperties sat
         "Saturation properties | pressure is used for interpolation";
       input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_dsldp
-        "Derivative of liquid specific entropy in two-phase region w.r.t pressure";
+        "Derivative of liquid specific entropy in two-phase region w.r.t. pressure";
     protected
       constant Real sl_coef[:, :]=R134aData.slcoef
         "Coefficients of cubic spline for s_liq(p)";

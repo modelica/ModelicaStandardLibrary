@@ -4536,7 +4536,7 @@ The values val... are given by parameters.</p>
       <td>Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> <td>1</td> </tr>
   <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>2</td> </tr>
   <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>NC</td> <td>3</td> </tr>
   <tr><td>*</td> <td>1-Trns</td> <td>0</td>  <td>DataIn</td> <td>3</td> </tr>
@@ -4554,7 +4554,7 @@ The values val... are given by parameters.</p>
       <td>Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> <td>1</td> </tr>
   <tr><td>*</td> <td>*</td> <td>0</td>  <td>0</td> <td>2</td> </tr>
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>NC</td> <td>3</td> </tr>
   <tr><td>*</td> <td>1-Trns</td> <td>1</td>  <td>DataIn</td> <td>3</td> </tr>
@@ -4692,7 +4692,7 @@ Clock transition definitions:
       <td><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> </tr>
   <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> </tr>
   <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>NC</td> </tr>
   <tr><td>*</td> <td>1-Trns</td> <td>0</td>  <td>DataIn</td> </tr>
@@ -4739,7 +4739,7 @@ Clock transition definitions:
       <td><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> </tr>
   <tr><td>*</td> <td>*</td> <td>0</td>  <td>0</td> </tr>
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>NC</td> </tr>
   <tr><td>*</td> <td>1-Trns</td> <td>1</td>  <td>DataIn</td> </tr>
@@ -5350,7 +5350,7 @@ Clock transition definitions:
       <td>Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> <td>1</td> </tr>
   <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>2</td> </tr>
   <tr><td>*</td> <td>0</td> <td>0</td>  <td>NC</td> <td>3</td> </tr>
   <tr><td>*</td> <td>1</td> <td>0</td>  <td>DataIn</td> <td>3</td> </tr>
@@ -5501,7 +5501,7 @@ NC = no change
       <td><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> </tr>
   <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> </tr>
   <tr><td>*</td> <td>0</td> <td>0</td>  <td>NC</td> </tr>
   <tr><td>*</td> <td>1</td> <td>0</td>  <td>DataIn</td> </tr>

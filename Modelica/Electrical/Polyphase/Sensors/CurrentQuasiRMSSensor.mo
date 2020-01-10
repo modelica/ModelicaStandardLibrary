@@ -4,7 +4,7 @@ model CurrentQuasiRMSSensor
   extends Modelica.Icons.RoundSensor;
   extends Polyphase.Interfaces.TwoPlug;
   parameter Integer m(min=1) = 3 "Number of phases";
-  Modelica.Blocks.Interfaces.RealOutput I
+  Modelica.Blocks.Interfaces.RealOutput I(unit="A")
     "Continuous quasi average RMS of current" annotation (Placement(
         transformation(
         origin={0,-100},

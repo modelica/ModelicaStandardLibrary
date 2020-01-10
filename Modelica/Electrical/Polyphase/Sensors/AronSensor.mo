@@ -7,7 +7,7 @@ model AronSensor "Three-phase Aron sensor for active power"
         transformation(extent={{-110,-10},{-90,10}})));
   Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
         transformation(extent={{90,-10},{110,10}})));
-  Modelica.Blocks.Interfaces.RealOutput power "Active power" annotation (
+  Modelica.Blocks.Interfaces.RealOutput power(unit="W") "Active power" annotation (
       Placement(transformation(
         origin={0,-110},
         extent={{10,-10},{-10,10}},

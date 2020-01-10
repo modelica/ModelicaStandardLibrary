@@ -1723,215 +1723,24 @@ package ReferenceMoistAir
       end V6_der;
     end ReactionIndices;
 
-    package IF97_new "Workaround for IF97"
+    package IF97_new "Workaround for IF97 avoiding the region validity checks for region 2"
       extends Modelica.Icons.BasesPackage;
 
       final constant MolarMass molarMass=0.018015257;
 
-      function g2 "Gibbs function for region 2: g(p,T)"
-        extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature (K)";
-        output Modelica.Media.Common.GibbsDerivs g
-          "Dimensionless Gibbs function and derivatives w.r.t. pi and tau";
-      protected
-        Real tau2 "Dimensionless temperature";
-        Real[55] o "Vector of auxiliary variables";
-      algorithm
-        g.p := p;
-        g.T := T;
-        g.R_s := Modelica.Media.Water.IF97_Utilities.BaseIF97.data.RH2O;
-        g.pi := p/Modelica.Media.Water.IF97_Utilities.BaseIF97.data.PSTAR2;
-        g.tau := Modelica.Media.Water.IF97_Utilities.BaseIF97.data.TSTAR2/T;
-        tau2 := -0.5 + g.tau;
-        o[1] := tau2*tau2;
-        o[2] := o[1]*tau2;
-        o[3] := -0.050325278727930*o[2];
-        o[4] := -0.057581259083432 + o[3];
-        o[5] := o[4]*tau2;
-        o[6] := -0.045996013696365 + o[5];
-        o[7] := o[6]*tau2;
-        o[8] := -0.0178348622923580 + o[7];
-        o[9] := o[8]*tau2;
-        o[10] := o[1]*o[1];
-        o[11] := o[10]*o[10];
-        o[12] := o[11]*o[11];
-        o[13] := o[10]*o[11]*o[12]*tau2;
-        o[14] := o[1]*o[10]*tau2;
-        o[15] := o[10]*o[11]*tau2;
-        o[16] := o[1]*o[12]*tau2;
-        o[17] := o[1]*o[11]*tau2;
-        o[18] := o[1]*o[10]*o[11];
-        o[19] := o[10]*o[11]*o[12];
-        o[20] := o[1]*o[10];
-        o[21] := g.pi*g.pi;
-        o[22] := o[21]*o[21];
-        o[23] := o[21]*o[22];
-        o[24] := o[10]*o[12]*tau2;
-        o[25] := o[12]*o[12];
-        o[26] := o[11]*o[12]*o[25]*tau2;
-        o[27] := o[10]*o[12];
-        o[28] := o[1]*o[10]*o[11]*tau2;
-        o[29] := o[10]*o[12]*o[25]*tau2;
-        o[30] := o[1]*o[10]*o[25]*tau2;
-        o[31] := o[1]*o[11]*o[12];
-        o[32] := o[1]*o[12];
-        o[33] := g.tau*g.tau;
-        o[34] := o[33]*o[33];
-        o[35] := -0.000053349095828174*o[13];
-        o[36] := -0.087594591301146 + o[35];
-        o[37] := o[2]*o[36];
-        o[38] := -0.0078785554486710 + o[37];
-        o[39] := o[1]*o[38];
-        o[40] := -0.00037897975032630 + o[39];
-        o[41] := o[40]*tau2;
-        o[42] := -0.000066065283340406 + o[41];
-        o[43] := o[42]*tau2;
-        o[44] := 5.7870447262208e-6*tau2;
-        o[45] := -0.301951672367580*o[2];
-        o[46] := -0.172743777250296 + o[45];
-        o[47] := o[46]*tau2;
-        o[48] := -0.091992027392730 + o[47];
-        o[49] := o[48]*tau2;
-        o[50] := o[1]*o[11];
-        o[51] := o[10]*o[11];
-        o[52] := o[11]*o[12]*o[25];
-        o[53] := o[10]*o[12]*o[25];
-        o[54] := o[1]*o[10]*o[25];
-        o[55] := o[11]*o[12]*tau2;
-
-        g.g := g.pi*(-0.00177317424732130 + o[9] + g.pi*(tau2*(-0.000033032641670203
-           + (-0.000189489875163150 + o[1]*(-0.0039392777243355 + (-0.043797295650573
-           - 0.0000266745479140870*o[13])*o[2]))*tau2) + g.pi*(
-          2.04817376923090e-8 + (4.3870667284435e-7 + o[1]*(-0.000032277677238570
-           + (-0.00150339245421480 - 0.040668253562649*o[13])*o[2]))*tau2 + g.pi
-          *(g.pi*(2.29220763376610e-6*o[14] + g.pi*((-1.67147664510610e-11 + o[
-          15]*(-0.00211714723213550 - 23.8957419341040*o[16]))*o[2] + g.pi*(-5.9059564324270e-18
-           + o[17]*(-1.26218088991010e-6 - 0.038946842435739*o[18]) + g.pi*(o[
-          11]*(1.12562113604590e-11 - 8.2311340897998*o[19]) + g.pi*(
-          1.98097128020880e-8*o[15] + g.pi*(o[10]*(1.04069652101740e-19 + (-1.02347470959290e-13
-           - 1.00181793795110e-9*o[10])*o[20]) + o[23]*(o[13]*(-8.0882908646985e-11
-           + 0.106930318794090*o[24]) + o[21]*(-0.33662250574171*o[26] + o[21]*
-          (o[27]*(8.9185845355421e-25 + (3.06293168762320e-13 -
-          4.2002467698208e-6*o[15])*o[28]) + g.pi*(-5.9056029685639e-26*o[24]
-           + g.pi*(3.7826947613457e-6*o[29] + g.pi*(-1.27686089346810e-15*o[30]
-           + o[31]*(7.3087610595061e-29 + o[18]*(5.5414715350778e-17 -
-          9.4369707241210e-7*o[32]))*g.pi)))))))))))) + tau2*(-7.8847309559367e-10
-           + (1.27907178522850e-8 + 4.8225372718507e-7*tau2)*tau2))))) + (-0.0056087911830200
-           + g.tau*(0.071452738814550 + g.tau*(-0.40710498239280 + g.tau*(
-          1.42408197144400 + g.tau*(-4.3839511194500 + g.tau*(-9.6927686002170
-           + g.tau*(10.0866556801800 + (-0.284086326077200 + 0.0212684635330700
-          *g.tau)*g.tau) + Modelica.Math.log(g.pi)))))))/(o[34]*g.tau);
-
-        g.gpi := (1.00000000000000 + g.pi*(-0.00177317424732130 + o[9] + g.pi*(
-          o[43] + g.pi*(6.1445213076927e-8 + (1.31612001853305e-6 + o[1]*(-0.000096833031715710
-           + (-0.0045101773626444 - 0.122004760687947*o[13])*o[2]))*tau2 + g.pi
-          *(g.pi*(0.0000114610381688305*o[14] + g.pi*((-1.00288598706366e-10 +
-          o[15]*(-0.0127028833928130 - 143.374451604624*o[16]))*o[2] + g.pi*(-4.1341695026989e-17
-           + o[17]*(-8.8352662293707e-6 - 0.272627897050173*o[18]) + g.pi*(o[11]
-          *(9.0049690883672e-11 - 65.849072718398*o[19]) + g.pi*(
-          1.78287415218792e-7*o[15] + g.pi*(o[10]*(1.04069652101740e-18 + (-1.02347470959290e-12
-           - 1.00181793795110e-8*o[10])*o[20]) + o[23]*(o[13]*(-1.29412653835176e-9
-           + 1.71088510070544*o[24]) + o[21]*(-6.0592051033508*o[26] + o[21]*(o[
-          27]*(1.78371690710842e-23 + (6.1258633752464e-12 -
-          0.000084004935396416*o[15])*o[28]) + g.pi*(-1.24017662339842e-24*o[24]
-           + g.pi*(0.000083219284749605*o[29] + g.pi*(-2.93678005497663e-14*o[
-          30] + o[31]*(1.75410265428146e-27 + o[18]*(1.32995316841867e-15 -
-          0.0000226487297378904*o[32]))*g.pi)))))))))))) + tau2*(-3.15389238237468e-9
-           + (5.1162871409140e-8 + 1.92901490874028e-6*tau2)*tau2))))))/g.pi;
-
-        g.gpipi := (-1.00000000000000 + o[21]*(o[43] + g.pi*(
-          1.22890426153854e-7 + (2.63224003706610e-6 + o[1]*(-0.000193666063431420
-           + (-0.0090203547252888 - 0.244009521375894*o[13])*o[2]))*tau2 + g.pi
-          *(g.pi*(0.000045844152675322*o[14] + g.pi*((-5.0144299353183e-10 + o[
-          15]*(-0.063514416964065 - 716.87225802312*o[16]))*o[2] + g.pi*(-2.48050170161934e-16
-           + o[17]*(-0.000053011597376224 - 1.63576738230104*o[18]) + g.pi*(o[
-          11]*(6.3034783618570e-10 - 460.94350902879*o[19]) + g.pi*(
-          1.42629932175034e-6*o[15] + g.pi*(o[10]*(9.3662686891566e-18 + (-9.2112723863361e-12
-           - 9.0163614415599e-8*o[10])*o[20]) + o[23]*(o[13]*(-1.94118980752764e-8
-           + 25.6632765105816*o[24]) + o[21]*(-103.006486756963*o[26] + o[21]*(
-          o[27]*(3.3890621235060e-22 + (1.16391404129682e-10 -
-          0.00159609377253190*o[15])*o[28]) + g.pi*(-2.48035324679684e-23*o[24]
-           + g.pi*(0.00174760497974171*o[29] + g.pi*(-6.4609161209486e-13*o[30]
-           + o[31]*(4.0344361048474e-26 + o[18]*(3.05889228736295e-14 -
-          0.00052092078397148*o[32]))*g.pi)))))))))))) + tau2*(-9.4616771471240e-9
-           + (1.53488614227420e-7 + o[44])*tau2)))))/o[21];
-
-        g.gtau := (0.0280439559151000 + g.tau*(-0.285810955258200 + g.tau*(
-          1.22131494717840 + g.tau*(-2.84816394288800 + g.tau*(4.3839511194500
-           + o[33]*(10.0866556801800 + (-0.56817265215440 + 0.063805390599210*g.tau)
-          *g.tau))))))/(o[33]*o[34]) + g.pi*(-0.0178348622923580 + o[49] + g.pi
-          *(-0.000033032641670203 + (-0.00037897975032630 + o[1]*(-0.0157571108973420
-           + (-0.306581069554011 - 0.00096028372490713*o[13])*o[2]))*tau2 + g.pi
-          *(4.3870667284435e-7 + o[1]*(-0.000096833031715710 + (-0.0090203547252888
-           - 1.42338887469272*o[13])*o[2]) + g.pi*(-7.8847309559367e-10 + g.pi*
-          (0.0000160454534363627*o[20] + g.pi*(o[1]*(-5.0144299353183e-11 + o[
-          15]*(-0.033874355714168 - 836.35096769364*o[16])) + g.pi*((-0.0000138839897890111
-           - 0.97367106089347*o[18])*o[50] + g.pi*(o[14]*(9.0049690883672e-11
-           - 296.320827232793*o[19]) + g.pi*(2.57526266427144e-7*o[51] + g.pi*(
-          o[2]*(4.1627860840696e-19 + (-1.02347470959290e-12 -
-          1.40254511313154e-8*o[10])*o[20]) + o[23]*(o[19]*(-2.34560435076256e-9
-           + 5.3465159397045*o[24]) + o[21]*(-19.1874828272775*o[52] + o[21]*(o[
-          16]*(1.78371690710842e-23 + (1.07202609066812e-11 -
-          0.000201611844951398*o[15])*o[28]) + g.pi*(-1.24017662339842e-24*o[27]
-           + g.pi*(0.000200482822351322*o[53] + g.pi*(-4.9797574845256e-14*o[54]
-           + (1.90027787547159e-27 + o[18]*(2.21658861403112e-15 -
-          0.000054734430199902*o[32]))*o[55]*g.pi)))))))))))) + (
-          2.55814357045700e-8 + 1.44676118155521e-6*tau2)*tau2))));
-
-        g.gtautau := (-0.168263735490600 + g.tau*(1.42905477629100 + g.tau*(-4.8852597887136
-           + g.tau*(8.5444918286640 + g.tau*(-8.7679022389000 + o[33]*(-0.56817265215440
-           + 0.127610781198420*g.tau)*g.tau)))))/(o[33]*o[34]*g.tau) + g.pi*(-0.091992027392730
-           + (-0.34548755450059 - 1.50975836183790*o[2])*tau2 + g.pi*(-0.00037897975032630
-           + o[1]*(-0.047271332692026 + (-1.83948641732407 - 0.033609930371750*
-          o[13])*o[2]) + g.pi*((-0.000193666063431420 + (-0.045101773626444 -
-          48.395221739552*o[13])*o[2])*tau2 + g.pi*(2.55814357045700e-8 +
-          2.89352236311042e-6*tau2 + g.pi*(0.000096272720618176*o[10]*tau2 + g.pi
-          *((-1.00288598706366e-10 + o[15]*(-0.50811533571252 -
-          28435.9329015838*o[16]))*tau2 + g.pi*(o[11]*(-0.000138839897890111 -
-          23.3681054614434*o[18])*tau2 + g.pi*((6.3034783618570e-10 -
-          10371.2289531477*o[19])*o[20] + g.pi*(3.09031519712573e-6*o[17] + g.pi
-          *(o[1]*(1.24883582522088e-18 + (-9.2112723863361e-12 -
-          1.82330864707100e-7*o[10])*o[20]) + o[23]*(o[1]*o[11]*o[12]*(-6.5676921821352e-8
-           + 261.979281045521*o[24])*tau2 + o[21]*(-1074.49903832754*o[1]*o[10]
-          *o[12]*o[25]*tau2 + o[21]*((3.3890621235060e-22 + (
-          3.6448887082716e-10 - 0.0094757567127157*o[15])*o[28])*o[32] + g.pi*(
-          -2.48035324679684e-23*o[16] + g.pi*(0.0104251067622687*o[1]*o[12]*o[
-          25]*tau2 + g.pi*(o[11]*o[12]*(4.7506946886790e-26 + o[18]*(
-          8.6446955947214e-14 - 0.00311986252139440*o[32]))*g.pi -
-          1.89230784411972e-12*o[10]*o[25]*tau2))))))))))))))));
-
-        g.gtaupi := -0.0178348622923580 + o[49] + g.pi*(-0.000066065283340406
-           + (-0.00075795950065260 + o[1]*(-0.0315142217946840 + (-0.61316213910802
-           - 0.00192056744981426*o[13])*o[2]))*tau2 + g.pi*(1.31612001853305e-6
-           + o[1]*(-0.000290499095147130 + (-0.0270610641758664 -
-          4.2701666240781*o[13])*o[2]) + g.pi*(-3.15389238237468e-9 + g.pi*(
-          0.000080227267181813*o[20] + g.pi*(o[1]*(-3.00865796119098e-10 + o[15]
-          *(-0.203246134285008 - 5018.1058061618*o[16])) + g.pi*((-0.000097187928523078
-           - 6.8156974262543*o[18])*o[50] + g.pi*(o[14]*(7.2039752706938e-10 -
-          2370.56661786234*o[19]) + g.pi*(2.31773639784430e-6*o[51] + g.pi*(o[2]
-          *(4.1627860840696e-18 + (-1.02347470959290e-11 - 1.40254511313154e-7*
-          o[10])*o[20]) + o[23]*(o[19]*(-3.7529669612201e-8 + 85.544255035272*o[
-          24]) + o[21]*(-345.37469089099*o[52] + o[21]*(o[16]*(
-          3.5674338142168e-22 + (2.14405218133624e-10 - 0.0040322368990280*o[15])
-          *o[28]) + g.pi*(-2.60437090913668e-23*o[27] + g.pi*(
-          0.0044106220917291*o[53] + g.pi*(-1.14534422144089e-12*o[54] + (
-          4.5606669011318e-26 + o[18]*(5.3198126736747e-14 -
-          0.00131362632479764*o[32]))*o[55]*g.pi)))))))))))) + (
-          1.02325742818280e-7 + o[44])*tau2)));
-      end g2;
+      function g2 = Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2(
+        final checkLimits=false)
+        "Gibbs function for region 2: g(p,T)";
 
       function h_pT "Specific enthalpy as function or pressure and temperature"
         extends Modelica.Icons.Function;
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature";
         input Integer region=0
-          "If 0, region is unknown, otherwise known and this input";
+          "If 0, region is unknown, otherwise known and this input (unused)";
         output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
-
       protected
         Modelica.Media.Common.GibbsDerivs g;
-
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
         h := g.R_s*T*g.tau*g.gtau;
@@ -1941,69 +1750,60 @@ package ReferenceMoistAir
           LateInline=true);
       end h_pT;
 
-      function s_pT "Temperature as function of pressure and temperature"
+      function s_pT "Temperature as function of pressure and temperature for region 2"
         extends Modelica.Icons.Function;
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature";
         input Integer region=0
-          "If 0, region is unknown, otherwise known and this input";
+          "If 0, region is unknown, otherwise known and this input (unused)";
         output Modelica.SIunits.SpecificEntropy s "Specific entropy";
-
       protected
         Modelica.Media.Common.GibbsDerivs g;
-
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
         s := g.R_s*(g.tau*g.gtau - g.g);
       end s_pT;
 
       function cp_pT
-        "Specific heat capacity at constant pressure as function of pressure and temperature"
-
+        "Specific heat capacity at constant pressure as function of pressure and temperature for region 2"
         extends Modelica.Icons.Function;
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature";
         input Integer region=0
-          "If 0, region is unknown, otherwise known and this input";
+          "If 0, region is unknown, otherwise known and this input (unsued)";
         output Modelica.SIunits.SpecificHeatCapacity cp
           "Specific heat capacity";
-
       protected
         Modelica.Media.Common.GibbsDerivs g;
-
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
         cp := -g.R_s*g.tau*g.tau*g.gtautau;
       end cp_pT;
 
       function cv_pT
-        "Specific heat capacity at constant volume as function of pressure and temperature"
+        "Specific heat capacity at constant volume as function of pressure and temperature for region 2"
         extends Modelica.Icons.Function;
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature";
         input Integer region=0
-          "If 0, region is unknown, otherwise known and this input";
+          "If 0, region is unknown, otherwise known and this input (unused)";
         output Modelica.SIunits.SpecificHeatCapacity cv
           "Specific heat capacity";
-
       protected
         Modelica.Media.Common.GibbsDerivs g;
-
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
         cv := g.R_s*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi -
           g.tau*g.gtaupi)/g.gpipi));
       end cv_pT;
 
-      function rho_pT "Density as function or pressure and temperature"
+      function rho_pT "Density as function or pressure and temperature for region 2"
         extends Modelica.Icons.Function;
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature";
         output Modelica.SIunits.Density rho "Density";
-
       protected
         Modelica.Media.Common.GibbsDerivs g;
-
       algorithm
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
         rho := p/(g.R_s*T*g.pi*g.gpi);
@@ -2013,7 +1813,7 @@ package ReferenceMoistAir
           LateInline=true);
       end rho_pT;
 
-      function rho_pT_der "Derivative function of rho_pT"
+      function rho_pT_der "Derivative function of rho_pT for region 2"
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
         input SI.Temperature T "Temperature";
@@ -2033,210 +1833,20 @@ package ReferenceMoistAir
         rho_der := (-d^2*vp)*p_der + (-d^2*vt)*T_der;
       end rho_pT_der;
 
-      function visc_dT "Dynamic viscosity eta(d,T), industrial formulation"
-        extends Modelica.Icons.Function;
-        input SI.Density d "Density";
-        input SI.Temperature T "Temperature (K)";
-        output SI.DynamicViscosity eta "Dynamic viscosity";
-      protected
-        constant Real n0=1.0 "Viscosity coefficient";
-        constant Real n1=0.978197 "Viscosity coefficient";
-        constant Real n2=0.579829 "Viscosity coefficient";
-        constant Real n3=-0.202354 "Viscosity coefficient";
-        constant Real[42] nn=array(
-                  0.5132047,
-                  0.3205656,
-                  0.0,
-                  0.0,
-                  -0.7782567,
-                  0.1885447,
-                  0.2151778,
-                  0.7317883,
-                  1.241044,
-                  1.476783,
-                  0.0,
-                  0.0,
-                  -0.2818107,
-                  -1.070786,
-                  -1.263184,
-                  0.0,
-                  0.0,
-                  0.0,
-                  0.1778064,
-                  0.460504,
-                  0.2340379,
-                  -0.4924179,
-                  0.0,
-                  0.0,
-                  -0.0417661,
-                  0.0,
-                  0.0,
-                  0.1600435,
-                  0.0,
-                  0.0,
-                  0.0,
-                  -0.01578386,
-                  0.0,
-                  0.0,
-                  0.0,
-                  0.0,
-                  0.0,
-                  0.0,
-                  0.0,
-                  -0.003629481,
-                  0.0,
-                  0.0) "Viscosity coefficients";
-        constant SI.Density rhostar=317.763 "Scaling density";
-        constant SI.DynamicViscosity etastar=55.071e-6 "Scaling viscosity";
-        constant SI.Temperature tstar=647.226 "Scaling temperature";
-        Integer i "Auxiliary variable";
-        Integer j "Auxiliary variable";
-        Real delta "Dimensionless density";
-        Real deltam1 "Dimensionless density";
-        Real tau "Dimensionless temperature";
-        Real taum1 "Dimensionless temperature";
-        Real Psi0 "Auxiliary variable";
-        Real Psi1 "Auxiliary variable";
-        Real tfun "Auxiliary variable";
-        Real rhofun "Auxiliary variable";
-      algorithm
-        delta := d/rhostar;
-        deltam1 := delta - 1.0;
-        tau := tstar/T;
-        taum1 := tau - 1.0;
-        Psi0 := 1/(n0 + (n1 + (n2 + n3*tau)*tau)*tau)/(tau^0.5);
-        Psi1 := 0.0;
-        tfun := 1.0;
-        for i in 1:6 loop
-          if (i <> 1) then
-            tfun := tfun*taum1;
-          end if;
-          rhofun := 1.;
-          for j in 0:6 loop
-            if (j <> 0) then
-              rhofun := rhofun*deltam1;
-            end if;
-            Psi1 := Psi1 + nn[i + j*6]*tfun*rhofun;
-          end for;
-        end for;
-        eta := etastar*Psi0*Modelica.Math.exp(delta*Psi1);
-      end visc_dT;
+      function visc_dT = Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.visc_dTp(
+        final p=0, final phase=0, final checkLimits=false)
+        "Dynamic viscosity eta(d,T), industrial formulation";
 
-      function cond_dT "Thermal conductivity"
-        extends Modelica.Icons.Function;
-        input SI.Density d "Density";
-        input SI.Temperature T "Temperature (K)";
-        output SI.ThermalConductivity lambda "Thermal conductivity";
-      protected
-        Integer region(min=1, max=5) "IF97 region, valid values:1,2,3, and 5";
-        constant Real n0=1.0 "Conductivity coefficient";
-        constant Real n1=6.978267 "Conductivity coefficient";
-        constant Real n2=2.599096 "Conductivity coefficient";
-        constant Real n3=-0.998254 "Conductivity coefficient";
-        constant Real[30] nn=array(
-                  1.3293046,
-                  1.7018363,
-                  5.2246158,
-                  8.7127675,
-                  -1.8525999,
-                  -0.40452437,
-                  -2.2156845,
-                  -10.124111,
-                  -9.5000611,
-                  0.9340469,
-                  0.2440949,
-                  1.6511057,
-                  4.9874687,
-                  4.3786606,
-                  0.0,
-                  0.018660751,
-                  -0.76736002,
-                  -0.27297694,
-                  -0.91783782,
-                  0.0,
-                  -0.12961068,
-                  0.37283344,
-                  -0.43083393,
-                  0.0,
-                  0.0,
-                  0.044809953,
-                  -0.1120316,
-                  0.13333849,
-                  0.0,
-                  0.0) "Conductivity coefficient";
-        constant SI.ThermalConductivity lamstar=0.4945 "Scaling conductivity";
-        constant SI.Density rhostar=317.763 "Scaling density";
-        constant SI.Temperature tstar=647.226 "Scaling temperature";
-        constant SI.Pressure pstar=22.115e6 "Scaling pressure";
-        constant SI.DynamicViscosity etastar=55.071e-6 "Scaling viscosity";
-        Integer i "Auxiliary variable";
-        Integer j "Auxiliary variable";
-        Real delta "Dimensionless density";
-        Real tau "Dimensionless temperature";
-        Real deltam1 "Dimensionless density";
-        Real taum1 "Dimensionless temperature";
-        Real Lam0 "Part of thermal conductivity";
-        Real Lam1 "Part of thermal conductivity";
-        Real Lam2 "Part of thermal conductivity";
-        Real tfun "Auxiliary variable";
-        Real rhofun "Auxiliary variable";
-        Real dpitau "Auxiliary variable";
-        Real ddelpi "Auxiliary variable";
-        Real d2 "Auxiliary variable";
-        Modelica.Media.Common.GibbsDerivs g
-          "Dimensionless Gibbs function and derivatives w.r.t. pi and tau";
-        Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
-        Real Tc=T - 273.15 "Celsius temperature for region check";
-        Real Chi "Symmetrized compressibility";
-        // slightly different variables for industrial use
-        constant SI.Density rhostar2=317.7 "Reference density";
-        constant SI.Temperature Tstar2=647.25 "Reference temperature";
-        constant SI.ThermalConductivity lambdastar=1
-          "Reference thermal conductivity";
-        parameter Real TREL=T/Tstar2 "Relative temperature";
-        parameter Real rhoREL=d/rhostar2 "Relative density";
-        Real lambdaREL "Relative thermal conductivity";
-        Real deltaTREL "Relative temperature increment";
-        constant Real[:] C={0.642857,-4.11717,-6.17937,0.00308976,0.0822994,
-            10.0932};
-        constant Real[:] dpar={0.0701309,0.0118520,0.00169937,-1.0200};
-        constant Real[:] b={-0.397070,0.400302,1.060000};
-        constant Real[:] B={-0.171587,2.392190};
-        constant Real[:] a={0.0102811,0.0299621,0.0156146,-0.00422464};
-        Real Q;
-        Real S;
-        Real lambdaREL2
-          "Function, part of the interpolating equation of the thermal conductivity";
-        Real lambdaREL1
-          "Function, part of the interpolating equation of the thermal conductivity";
-        Real lambdaREL0
-          "Function, part of the interpolating equation of the thermal conductivity";
-      algorithm
-        deltaTREL := abs(TREL - 1) + C[4];
-        Q := 2 + C[5]/deltaTREL^(3/5);
-        if TREL >= 1 then
-          S := 1/deltaTREL;
-        else
-          S := C[6]/deltaTREL^(3/5);
-        end if;
-        lambdaREL2 := (dpar[1]/TREL^10 + dpar[2])*rhoREL^(9/5)*
-          Modelica.Math.exp(C[1]*(1 - rhoREL^(14/5))) + dpar[3]*S*rhoREL^Q*
-          Modelica.Math.exp((Q/(1 + Q))*(1 - rhoREL^(1 + Q))) + dpar[4]*
-          Modelica.Math.exp(C[2]*TREL^(3/2) + C[3]/rhoREL^5);
-        lambdaREL1 := b[1] + b[2]*rhoREL + b[3]*Modelica.Math.exp(B[1]*(rhoREL
-           + B[2])^2);
-        lambdaREL0 := TREL^(1/2)*sum(a[i]*TREL^(i - 1) for i in 1:4);
-        lambdaREL := lambdaREL0 + lambdaREL1 + lambdaREL2;
-        lambda := lambdaREL*lambdastar;
-      end cond_dT;
+      function cond_dT = Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp(
+        final p=0, final phase=0, final industrialMethod=true, final checkLimits=false)
+        "Thermal conductivity lam(d,T), industrial formulation";
 
-      function h_pT_der "Derivative function of h_pT"
+      function h_pT_der "Derivative function of h_pT for region 2"
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
         input SI.Temperature T "Temperature";
         input Integer region=0
-          "If 0, region is unknown, otherwise known and this input";
+          "If 0, region is unknown, otherwise known and this input (unused)";
         input Real p_der "Derivative of pressure";
         input Real T_der "Derivative of temperature";
         output Real h_der "Derivative of specific enthalpy";
@@ -2244,15 +1854,23 @@ package ReferenceMoistAir
         Modelica.Media.Common.GibbsDerivs g;
         SI.Density rho;
         Real vt;
-
       algorithm
-        //region 2
         g := Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.g2(p, T);
         vt := g.R_s/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
         rho := max(p/(g.R_s*T*g.pi*g.gpi), 1e-9);
         h_der := (1/rho - T*vt)*p_der - g.R_s*g.tau*g.tau*g.gtautau*T_der;
-
       end h_pT_der;
+  annotation (Documentation(info="<html>
+<p>
+This is a makeshift package avoiding the region validity checks of the IF97 utility functions
+<a href=\"Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2\">BaseIF97.Basic.g2</a>,
+<a href=\"Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp\">BaseIF97.Transport.cond_dTp</a> and
+<a href=\"Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.visc_dTp\">BaseIF97.Transport.visc_dTp</a>
+for region 2.
+</p>
+</html>", revisions="<html>
+2020-01-08 Thomas Beutlich: Avoid code duplication of functions g2, cond_dT and visc_dTp by introduction of short-class functions.
+</html>"));
     end IF97_new;
 
     package Water95_Utilities
@@ -2924,7 +2542,7 @@ package ReferenceMoistAir
         //v_ws is the molar volume of saturated water
         v_ws := if (T >= 273.16) then Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.molarMass
           /Modelica.Media.Water.IF97_Utilities.rho_pT(p, T) else Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.MM
-		  /Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(p, T);
+          /Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(p, T);
 
         //beta_H is Henry's law constant
         beta_H := Modelica.Media.Air.ReferenceMoistAir.Utilities.beta_H(p, T);

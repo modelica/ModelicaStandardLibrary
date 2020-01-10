@@ -147,7 +147,7 @@ connect(p_out, n2);
 <li>V_exp, I_exp</li>
 <li>V_pulse, I_pulse</li>
 <li>V_pwl, I_pwl</li>
-<li>V_sffm, I_sffm<br/><strong><br/></strong></li>
+<li>V_sffm, I_sffm<br><strong><br></strong></li>
 </ul>
 </html>"));
   end NamingPrinciple;
@@ -202,24 +202,24 @@ connect(p_out, n2);
 </ul>
 </html>", revisions="<html>
 <ul>
-<li><em>15th March 2012 by Kristin Majetta</em><br/>SPICE3 benchmark RTL Inverter</li>
-<li><em>14th March 2012 by Kristin Majetta</em><br/>SPICE3 benchmark Mosfet characterisation</li>
-<li><em>14th March 2012 by Kristin Majetta</em><br/>SPICE3 benchmark Differential Pair added</li>
-<li><em>12th March 2012 by Kristin Majetta</em><br/>BJT model improved</li>
-<li><em>09th March 2012 by Kristin Majetta</em><br/>MOS Level 2 model added</li>
-<li><em>24th February 2012 by Kristin Majetta</em><br/>JFET model added</li>
-<li><em>23rd February 2012 by Kristin Majetta</em><br/>Semiconductor Capacitor added</li>
-<li><em>21st February 2012</em> by Kristin Majetta<br/>CoupledInductors (K) added</li>
-<li><em>March 2010</em> by Kristin Majetta<br/>Guidelines applied, User&#39;s Guide added</li>
-<li><em>February 2010</em> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
-<li><em>September 2009</em> by Kristin Majetta <br/>Bipolar transistor implemented</li>
-<li><em>August 2009</em> by Jonathan Kress <br/>default values in sources improved</li>
-<li><em>August 2009</em> by Kristin Majetta <br/>Bipolar transistor started</li>
-<li><em>April 2009</em> by Kristin Majetta <br/>Semiconductor Resistor implemented</li>
-<li><em>March 2009</em> by Kristin Majetta <br/>DIODE implemented</li>
-<li><em>25th February 2009</em> by Kristin Majetta <br/>MOS Level 2 implemented</li>
-<li><em>15th October 2008</em> by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
-<li><em>April, 2008</em> by Sandra Boehme <br/>initially implemented<br/></li>
+<li><em>15th March 2012 by Kristin Majetta</em><br>SPICE3 benchmark RTL Inverter</li>
+<li><em>14th March 2012 by Kristin Majetta</em><br>SPICE3 benchmark Mosfet characterisation</li>
+<li><em>14th March 2012 by Kristin Majetta</em><br>SPICE3 benchmark Differential Pair added</li>
+<li><em>12th March 2012 by Kristin Majetta</em><br>BJT model improved</li>
+<li><em>09th March 2012 by Kristin Majetta</em><br>MOS Level 2 model added</li>
+<li><em>24th February 2012 by Kristin Majetta</em><br>JFET model added</li>
+<li><em>23rd February 2012 by Kristin Majetta</em><br>Semiconductor Capacitor added</li>
+<li><em>21st February 2012</em> by Kristin Majetta<br>CoupledInductors (K) added</li>
+<li><em>March 2010</em> by Kristin Majetta<br>Guidelines applied, User&#39;s Guide added</li>
+<li><em>February 2010</em> by Kristin Majetta<br>Spice3 library added to MSL and examples revised</li>
+<li><em>September 2009</em> by Kristin Majetta <br>Bipolar transistor implemented</li>
+<li><em>August 2009</em> by Jonathan Kress <br>default values in sources improved</li>
+<li><em>August 2009</em> by Kristin Majetta <br>Bipolar transistor started</li>
+<li><em>April 2009</em> by Kristin Majetta <br>Semiconductor Resistor implemented</li>
+<li><em>March 2009</em> by Kristin Majetta <br>DIODE implemented</li>
+<li><em>25th February 2009</em> by Kristin Majetta <br>MOS Level 2 implemented</li>
+<li><em>15th October 2008</em> by Kristin Majetta <br>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
+<li><em>April, 2008</em> by Sandra Boehme <br>initially implemented<br></li>
 </ul>
 </html>"));
 
@@ -1279,7 +1279,7 @@ Zeunerstra&szlig;e 38<br />
           points={{-10,50},{-10,-6},{-44,-6}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>This model is a simple JFET cascode circuit. The J2 gate variation (v_sin.p.v) is transformed to the J2 drain variation (J2.D.v).</p>
-<p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
+<p><br>Simulate until 0.2s, and display the mentioned voltages.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>Aug. 2011</em> by Kristin Majetta initially implemented</li>
@@ -1359,20 +1359,20 @@ is amplified. To comprehend this behavior the user is recommended to simulate fr
 amplified output voltage.</p>
 <p>Original SPICE3 netlist of the Differential pair:</p>
 <blockquote><pre>
-SIMPLE DIFFERENTIAL PAIR<br/>
-VCC 7 0 12<br/>
-VEE 8 0 -12<br/>
-VIN 1 0 AC 1<br/>
-RS1 1 2 1K<br/>
-RS2 6 0 1K<br/>
-Q1 3 2 4 MOD1<br/>
-Q2 5 6 4 MOD1<br/>
-RC1 7 3 10K<br/>
-RC2 7 5 10K<br/>
-RE 4 8 10K<br/>
-.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br/>
-.TF V(5) VIN<br/>
-.AC DEC 10 1 100MEG<br/>
+SIMPLE DIFFERENTIAL PAIR<br>
+VCC 7 0 12<br>
+VEE 8 0 -12<br>
+VIN 1 0 AC 1<br>
+RS1 1 2 1K<br>
+RS2 6 0 1K<br>
+Q1 3 2 4 MOD1<br>
+Q2 5 6 4 MOD1<br>
+RC1 7 3 10K<br>
+RC2 7 5 10K<br>
+RE 4 8 10K<br>
+.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br>
+.TF V(5) VIN<br>
+.AC DEC 10 1 100MEG<br>
 .END
 </pre></blockquote>
 <p>In the Modelica representation the tiny capacity CJC was set to 1e-9F to get a higher numerical
@@ -1425,14 +1425,14 @@ operating voltage. The user is recommended to simulate from t=0 to t=1e-7s and o
 It can be seen that the current is increasing with increasing gate voltage which means the conductivity of the transistor is increasing. The opposite case occurs for decreasing gate voltage.</p>
 <p>Original SPICE3 netlist of the MOSFET characterization circuit:</p>
 <blockquote><pre>
-MOS OUTPUT CHARACTERISTICS<br/>
-.OPTIONS NODE NOPAGE<br/>
-VDS 3 0<br/>
-VGS 2 0<br/>
-M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
+MOS OUTPUT CHARACTERISTICS<br>
+.OPTIONS NODE NOPAGE<br>
+VDS 3 0<br>
+VGS 2 0<br>
+M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br>
 *VIDS MEASURES ID, WE COULD HAVE USED VDS, BUT IT WOULD BE NEGATIVE VIDS 3 1
-.MODEL MOD1 NMOS VTO=-2 NSUB=1.0E15 UO=550<br/>
-.DC VDS 0 10 .5 VGS 0 5 1<br/>
+.MODEL MOD1 NMOS VTO=-2 NSUB=1.0E15 UO=550<br>
+.DC VDS 0 10 .5 VGS 0 5 1<br>
 .END
 </pre></blockquote>
 </html>"));
@@ -1480,15 +1480,15 @@ has low potential and the other way round. To comprehend this behaviour the user
 and the output voltage (Q1.C.v)</p>
 <p>Original SPICE3 netlist of the RTL inverter:</p>
 <blockquote><pre>
-SIMPLE RTL INVERTER<br/>
-VCC 4 0 5<br/>
-VIN 1 0 PULSE 0 5 2NS 2NS 2NS 30NS<br/>
-RB 1 2 10K<br/>
-Q1 3 2 0 Q1<br/>
-RC 3 4 1K<br/>
-.MODEL Q1 NPN BF 20 RB 100 TF .1NS CJC 2PF<br/>
-.DC VIN 0 5 0.1<br/>
-.TRAN 1NS 100NS<br/>
+SIMPLE RTL INVERTER<br>
+VCC 4 0 5<br>
+VIN 1 0 PULSE 0 5 2NS 2NS 2NS 30NS<br>
+RB 1 2 10K<br>
+Q1 3 2 0 Q1<br>
+RC 3 4 1K<br>
+.MODEL Q1 NPN BF 20 RB 100 TF .1NS CJC 2PF<br>
+.DC VIN 0 5 0.1<br>
+.TRAN 1NS 100NS<br>
 .END
 </pre></blockquote>
 </html>"));
@@ -2670,6 +2670,7 @@ VALUE -&gt; gain
 <dl>
 <dt>
 <strong>Main Authors:</strong>
+</dt>
 <dd>
 Christoph Clau&szlig;
     &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
@@ -2701,7 +2702,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end M_PMOS;
@@ -2721,7 +2722,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end M_NMOS;
@@ -2750,7 +2751,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end M_NMOS2;
@@ -2770,7 +2771,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end M_PMOS2;
@@ -2801,7 +2802,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2824,7 +2825,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2849,8 +2850,8 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2872,8 +2873,8 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -2905,7 +2906,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>Nov. 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Nov. 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2929,7 +2930,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>April 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>April 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end R_Resistor;
@@ -2953,8 +2954,8 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
-<li><em>April 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
+<li><em>April 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end C_Capacitor;
@@ -3743,7 +3744,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 <p><strong>Note:</strong> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <strong>all</strong> parameters of the source.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>August 2009 </em>default values improved by Jonathan Kress<br/></li>
+<li><em>August 2009 </em>default values improved by Jonathan Kress<br></li>
 <li><em>October 2008</em> by Christoph Clauss initially implemented.</li>
 </ul>
 </html>"));
@@ -3959,7 +3960,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre></blockquote>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end E_VCV_POLY;
@@ -4062,7 +4063,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre></blockquote>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end G_VCC_POLY;
@@ -4181,7 +4182,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre></blockquote>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end H_CCV_POLY;
@@ -4296,7 +4297,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre></blockquote>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end F_CCC_POLY;
@@ -4566,7 +4567,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -4822,7 +4823,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>January 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>January 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -4994,7 +4995,7 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
 <ul>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end BJT2;
@@ -5163,7 +5164,7 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for modeling the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -5293,7 +5294,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>Nov. 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Nov. 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
    end DIODE;
@@ -5482,7 +5483,7 @@ on the model behaviour.
 </ul>
 </html>", info="<html>
 <p>Semiconductor capacitance model</p>
-<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p><br>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end C_SEMI;
 
@@ -5496,7 +5497,7 @@ on the model behaviour.
       parameter SI.Length  NARROW=0 "Narrowing due to side etching";
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for semiconductor capacitance model</p>
-<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p><br>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardC;
 

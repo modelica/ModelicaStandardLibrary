@@ -1429,6 +1429,7 @@ well as in the following figure:
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Controller.png\" alt=\"ControlledMixingUnit_Controller.png\">
 </p>
 
+<p>
 It consists of the filter discussed above. The input to the filter is the reference
 concentration which is filtered by the low pass filter. The output of the filter
 is used as input to the concentration c in the inverse plant model.
@@ -1593,22 +1594,19 @@ Obviously, the concentration follows reasonably well the desired one. By using a
 This example shows how to model a non-periodic synchronous sampled data systems
 with the <code>Modelica.Clocked library</code>. This is demonstrated at hand
 of a closed-loop throttle control synchronized to the crankshaft angle of an
-internal combustion engine. This system has the following properties:
+internal combustion engine. This system has the following properties:</p>
 <ul>
 <li> The engine speed is regulated with a throttle actuator.</li>
 <li> Controller execution is synchronized with the engine crankshaft angle.</li>
 <li> The influence of disturbances, such as a change in load torque, is reduced.</li>
 </ul>
-</p><p>
+<p>
 The complete system is shown in the figure below (diagram-layer):
-</p><p>
-<figure>
+</p>
 <img
   src=\"modelica://Modelica/Resources/Images/Clocked/Examples/EngineThrottleControl_Model.png\"
   alt=\"EngineThrottleControl_Model.png\">
-<figcaption></figcaption>
-</figure>
-</p><p>
+<p>
 Block <code>speedControl</code> is the discrete control system. The boundaries
 of this controller are defined by <code>sample1</code>, <code>sample2</code> and
 <code>hold</code>. The sampling is done in terms of sensors within the engine
@@ -1618,27 +1616,21 @@ as clocked outputs that in turn are used to trigger the external controller. The
 controller therefore is automatically executed every half-rotation of the engine's
 crankshaft in sync with the engine's internal throttle-cycle. The following diagram
 illustrates the engine's respective internal setup:
-</p><p>
-<figure>
+</p>
 <img
   src=\"modelica://Modelica/Resources/Images/Clocked/Examples/Engine_Model.png\"
   alt=\"Engine_Model.png\">
-<figcaption></figcaption>
-</figure>
-</p><p>
+<p>
 The <code>crankshaftPositionEvent</code>-clock is the event-clock synchronizing the
 engine's internal throttle-cycle and external control. It produces a clock tick for
 every half-rotation and is implemented as
 <a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock\">RotationalClock</a>.
 </p><p>The following diagram illustrates the logic of such a rotational clock:
-</p><p>
-<figure>
+</p>
 <img
   src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalClock_Model.png\"
   alt=\"RotationalClock_Model.png\">
-<figcaption></figcaption>
-</figure>
-</p><p>
+<p>
 It bookeeps the angular of the last time a rotation has been
 recognized (<code>angular_offset</code>). Given
 <code>angular_offset</code>, the event-condition for rotations is:
@@ -1653,6 +1645,7 @@ the state present when the condition changed last time from beeing non-satisfied
 to beeing satisfied, i.e., the state when the clock last ticked.
 </p><p>
 <em>This example model is based on the following references:</em>
+</p>
 <dl>
 <dt>Crossley, P.R. and Cook, J. (1991):</dt>
 <dd> <strong>A nonlinear engine model for drivetrain system development</strong>.
@@ -1661,7 +1654,7 @@ to beeing satisfied, i.e., the state when the clock last ticked.
 <dd><strong>Engine Timing Model with Closed Loop Control</strong>.
     The <code>EngineThrottleControl</code> example uses the same parameter values as the <code>sldemo_enginewc.mdl</code> demo model which is shipped with the Simulink&reg; software developed by The MathWorks, Inc.
     Hence, the simulation results of these models can be compared conveniently.<br>&nbsp;</dd>
-</dl></p>
+</dl>
 </html>"));
     end EngineThrottleControl;
 

@@ -7,7 +7,7 @@ model ReactivePowerSensor "Three-phase sensor for reactive power"
         transformation(extent={{-110,-10},{-90,10}})));
   Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
         transformation(extent={{90,-10},{110,10}})));
-  Modelica.Blocks.Interfaces.RealOutput reactivePower "reactive power"
+  Modelica.Blocks.Interfaces.RealOutput reactivePower(unit="var") "Reactive power"
     annotation (Placement(transformation(
         origin={0,-110},
         extent={{10,-10},{-10,10}},
@@ -86,7 +86,7 @@ equation
 Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a three-phase system.
 </p>
 <p>
-<p>For more information see [<a href=\"Modelica.Electrical.Polyphase.UsersGuide.References\">M&uuml;hl2017</a>].</p>
+For more information see [<a href=\"Modelica.Electrical.Polyphase.UsersGuide.References\">M&uuml;hl2017</a>].
 </p>
 </html>"));
 end ReactivePowerSensor;

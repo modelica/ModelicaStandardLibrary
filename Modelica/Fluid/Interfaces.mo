@@ -1097,11 +1097,11 @@ The lengths along the flow path <code><strong>pathLengths[m]</strong></code> are
     Medium.Density d_a
       "Density at port_a when fluid is flowing from port_a to port_b";
     Medium.Density d_b
-      "If allowFlowReversal=true then Density at port_b when fluid is flowing from port_b to port_a else d_a";
+      "If allowFlowReversal=true then density at port_b when fluid is flowing from port_b to port_a else d_a";
     Medium.DynamicViscosity eta_a
       "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
     Medium.DynamicViscosity eta_b
-      "If allowFlowReversal=true then Dynamic viscosity at port_b when fluid is flowing from port_b to port_a else eta_a";
+      "If allowFlowReversal=true then dynamic viscosity at port_b when fluid is flowing from port_b to port_a else eta_a";
   equation
     // Isenthalpic state transformation (no storage and no loss of energy)
     port_a.h_outflow = inStream(port_b.h_outflow);
@@ -1135,7 +1135,7 @@ The lengths along the flow path <code><strong>pathLengths[m]</strong></code> are
        by Francesco Casella: restructured after 45th Design Meeting.</li>
 <li><em>Nov. 20-21, 2002</em>
        by Hilding Elmqvist, Mike Tiller, Allan Watson, John Batteh, Chuck Newman,
-       Jonas Eborn: Improved at the 32nd Modelica Design Meeting.
+       Jonas Eborn: Improved at the 32nd Modelica Design Meeting.</li>
 <li><em>Nov. 11, 2002</em>
        by Hilding Elmqvist, Martin Otter: improved version.</li>
 <li><em>Nov. 6, 2002</em>

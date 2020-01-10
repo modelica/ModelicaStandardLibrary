@@ -1,0 +1,12 @@
+SMR_DOL
+SMR_Inverter
+SMPM_NoLoad
+SMPM_Inverter
+SMPM_CurrentSource
+SMPM_VoltageSource
+SMPM_Braking
+SMPM_ResistiveBraking
+SMEE_DOL
+SMEE_Generator
+SMEE_LoadDump
+SMEE_Rectifier

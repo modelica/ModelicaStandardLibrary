@@ -5,7 +5,7 @@ model VoltageQuasiRMSSensor
   extends Polyphase.Interfaces.TwoPlug;
   parameter Integer m(min=1) = 3 "Number of phases";
 
-  Modelica.Blocks.Interfaces.RealOutput V "Continuous quasi RMS of voltage"
+  Modelica.Blocks.Interfaces.RealOutput V(unit="V") "Continuous quasi RMS of voltage"
     annotation (Placement(transformation(
         origin={-2,-110},
         extent={{-10,-10},{10,10}},

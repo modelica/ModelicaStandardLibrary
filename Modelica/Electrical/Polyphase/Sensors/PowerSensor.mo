@@ -10,7 +10,7 @@ model PowerSensor "Polyphase instantaneous power sensor"
     annotation (Placement(transformation(extent={{-10,90},{10,110}})));
   Polyphase.Interfaces.NegativePlug nv(final m=m) "Negative plug, voltage path"
     annotation (Placement(transformation(extent={{-10,-90},{10,-110}})));
-  Modelica.Blocks.Interfaces.RealOutput power annotation (Placement(
+  Modelica.Blocks.Interfaces.RealOutput power(unit="W") annotation (Placement(
         transformation(
         origin={-100,-110},
         extent={{10,-10},{-10,10}},

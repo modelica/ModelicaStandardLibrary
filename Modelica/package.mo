@@ -1114,11 +1114,11 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     <th>Not to be used</th>
   </tr>
   <tr>
-    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-13-54\">cut-off frequency</a></td>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-13-54\">cut-off frequency</a></td>
     <td>cut off frequency, cutoff frequency, cut-off-frequency, cutoff-frequency</td>
   </tr>
   <tr>
-    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-11-09\">electromagnetic</a></td>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-09\">electromagnetic</a></td>
     <td>electro magnetic, electro-magnetic</td>
   </tr>
   <tr>
@@ -1150,7 +1150,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
   </tr>
   <tr>
-    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=141-02-10\">star point</a></td>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=141-02-10\">star point</a></td>
     <td>star-point, starpoint</td>
   </tr>
   <tr>
@@ -1405,12 +1405,101 @@ For Boolean parameters, the description string should start with &quot;= true, &
 </html>"));
       end Naming;
 
+    class ParameterDefaults "Parameter defaults"
+      extends Modelica.Icons.Information;
+
+     annotation (Documentation(info="<html>
+
+<p>
+In this section the convention is summarized how default parameters are
+handled in the Modelica Standard Library (since version 3.0).
+</p>
+
+<p>
+Many models in this library have parameter declarations to define
+constants of a model that might be changed before simulation starts.
+Example:
+</p>
+
+<blockquote><pre>
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
+...
+<strong>end</strong> SpringDamper;
+</pre></blockquote>
+
+<p>
+In Modelica it is possible to define a default value of a parameter in
+the parameter declaration. In the example above, this is performed for
+all parameters. Providing default values for all parameters can lead to
+errors that are difficult to detect, since a modeler may have forgotten
+to provide a meaningful value (the model simulates but gives wrong
+results due to wrong parameter values). In general the following basic
+situations are present:
+</p>
+
+<ol>
+<li> The parameter value could be anything (e.g., a spring constant or
+  a resistance value) and therefore the user should provide a value in
+  all cases. A Modelica translator should warn, if no value is provided.
+</li>
+
+<li> The parameter value is not changed in &gt; 95 % of the cases
+  (e.g., initialization or visualization parameters, or parameter phi_rel0
+  in the example above). In this case a default parameter value should be
+  provided, in order that the model or function can be conveniently
+  used by a modeler.
+</li>
+
+<li> A modeler would like to quickly utilize a model, e.g.,
+  <ul>
+  <li> to automatically check that the model still translates and/or simulates
+    (after some changes in the library),</li>
+  <li> to make a quick demo of a library by drag-and-drop of components,</li>
+  <li> to implement a simple test model in order to get a better understanding
+    of the desired component.</li>
+  </ul>
+  In all these cases, it would be not practical, if the modeler would
+  have to provide explicit values for all parameters first.
+  </li>
+</ol>
+
+<p>
+To handle the conflicting goals of (1) and (3), the Modelica Standard Library
+uses two approaches to define default parameters, as demonstrated with the
+following example:
+</p>
+
+<blockquote><pre>
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
+...
+<strong>end</strong> SpringDamper;
+
+SpringDamper sp1;              // warning for \"c\" and \"d\"
+SpringDamper sp2(c=1e4, d=0);  // fine, no warning
+</pre></blockquote>
+
+<p>
+Both definition forms, using a \"start\" value (for \"c\" and \"d\") and providing
+a declaration equation (for \"phi_rel0\"), are valid Modelica and define the value
+of the parameter. By convention, it is expected that Modelica translators will
+trigger a warning message for parameters that are <strong>not</strong> defined by a declaration
+equation, by a modifier equation or in an initial equation/algorithm section.
+A Modelica translator might have options to change this behavior, especially,
+that no messages are printed in such cases and/or that an error is triggered
+instead of a warning.
+</p>
+
+</html>"));
+    end ParameterDefaults;
       annotation (Documentation(info="<html>
 
-<p>In this section the
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified.
-Additional
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Format\">format</a> guidelines are provided.</p>
+<p>In this section guidelines on creating Modelica code are provided.</p>
 
 </html>"));
     end ModelicaCode;
@@ -2041,23 +2130,23 @@ design of sensors apply:
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
 <li>For a sensor with a single output signal the SI unit shall be placed withing the sensor,
-    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong></li>
+    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong>
     <ul>
-    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be</li>
+    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be
         <ul>
         <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
-        </ul>
+        </ul></li>
 
     <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be 
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
-    </ul>
+    </ul></li>
 <li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
-    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong></li>
+    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong>
     <ul>
     <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
     <li>Text width: 40 units (or 30 units, minimum 20 units, if required)</li>
-    </ul>
+    </ul></li>
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2121,99 +2210,6 @@ Graphical illustrations shall not be added in the diagram layer, but can be adde
 </ol>
 </html>"));
   end Conventions;
-
-class ParameterDefaults "Parameter defaults"
-  extends Modelica.Icons.Information;
-
- annotation (Documentation(info="<html>
-
-<p>
-In this section the convention is summarized how default parameters are
-handled in the Modelica Standard Library (since version 3.0).
-</p>
-
-<p>
-Many models in this library have parameter declarations to define
-constants of a model that might be changed before simulation starts.
-Example:
-</p>
-
-<blockquote><pre>
-<strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
-...
-<strong>end</strong> SpringDamper;
-</pre></blockquote>
-
-<p>
-In Modelica it is possible to define a default value of a parameter in
-the parameter declaration. In the example above, this is performed for
-all parameters. Providing default values for all parameters can lead to
-errors that are difficult to detect, since a modeler may have forgotten
-to provide a meaningful value (the model simulates but gives wrong
-results due to wrong parameter values). In general the following basic
-situations are present:
-</p>
-
-<ol>
-<li> The parameter value could be anything (e.g., a spring constant or
-  a resistance value) and therefore the user should provide a value in
-  all cases. A Modelica translator should warn, if no value is provided.
-</li>
-
-<li> The parameter value is not changed in &gt; 95 % of the cases
-  (e.g., initialization or visualization parameters, or parameter phi_rel0
-  in the example above). In this case a default parameter value should be
-  provided, in order that the model or function can be conveniently
-  used by a modeler.
-</li>
-
-<li> A modeler would like to quickly utilize a model, e.g.,
-  <ul>
-  <li> to automatically check that the model still translates and/or simulates
-    (after some changes in the library),</li>
-  <li> to make a quick demo of a library by drag-and-drop of components,</li>
-  <li> to implement a simple test model in order to get a better understanding
-    of the desired component.</li>
-  </ul>
-  In all these cases, it would be not practical, if the modeler would
-  have to provide explicit values for all parameters first.
-  </li>
-</ol>
-
-<p>
-To handle the conflicting goals of (1) and (3), the Modelica Standard Library
-uses two approaches to define default parameters, as demonstrated with the
-following example:
-</p>
-
-<blockquote><pre>
-<strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
-...
-<strong>end</strong> SpringDamper;
-
-SpringDamper sp1;              // warning for \"c\" and \"d\"
-SpringDamper sp2(c=1e4, d=0);  // fine, no warning
-</pre></blockquote>
-
-<p>
-Both definition forms, using a \"start\" value (for \"c\" and \"d\") and providing
-a declaration equation (for \"phi_rel0\"), are valid Modelica and define the value
-of the parameter. By convention, it is expected that Modelica translators will
-trigger a warning message for parameters that are <strong>not</strong> defined by a declaration
-equation, by a modifier equation or in an initial equation/algorithm section.
-A Modelica translator might have options to change this behavior, especially,
-that no messages are printed in such cases and/or that an error is triggered
-instead of a warning.
-</p>
-
-</html>"));
-end ParameterDefaults;
 
 package ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
@@ -2370,7 +2366,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -2380,7 +2376,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -2419,7 +2415,7 @@ that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>

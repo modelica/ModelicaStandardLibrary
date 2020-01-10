@@ -29,7 +29,10 @@ package Constants
   // (name, value, description from https://www.bipm.org/en/CGPM/db/26/1/, effective from May 20, 2019)
   // The values for c, q, h, k, N_A are exact and part of the basis of the SI-system
   // Note that the elementary charge uses the common alternate name q since e was taken.
-  // The values for F, R, sigma, mue_0, epsilson_0, T_zero are also exact.
+  // The values for F, R, sigma, T_zero, epsilon_0 are also exact.
+  // The value for mu_0 can now be expressed as 2*alpha*h/(q^2*c), 
+  // where alpha is the experimental fine-structure constant,
+  // and the value is from https://physics.nist.gov/cuu/pdf/wall_2018.pdf
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
@@ -48,7 +51,7 @@ package Constants
     "Stefan-Boltzmann constant ";
   final constant Real N_A(final unit="1/mol") = 6.02214076e23
     "Avogadro constant";
-  final constant Real mu_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
+  final constant Real mu_0(final unit="N/A2") = 4*pi*1.00000000055e-7 "Magnetic constant";
   final constant Real epsilon_0(final unit="F/m") = 1/(mu_0*c*c)
     "Electric constant";
   final constant NonSI.Temperature_degC T_zero=-273.15
@@ -72,7 +75,7 @@ dependent constants and constants from nature. The latter constants
 <a href= \"https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf\">https://iopscience.iop.org/article/10.1088/1681-7575/aa950a/pdf</a>, 2017.
 </dd>
 </dl>
-<p>BIPM is Bureau International des Poids et Mesures (they publish the SI-standard).<p>
+<p>BIPM is Bureau International des Poids et Mesures (they publish the SI-standard).</p>
 <p>CODATA is the Committee on Data for Science and Technology.</p>
 
 <dl>

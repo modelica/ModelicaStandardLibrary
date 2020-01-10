@@ -844,9 +844,9 @@ results in the following equations:
 
   block Feedback "Output difference between commanded and feedback input"
 
-    Interfaces.RealInput u1 annotation (Placement(transformation(extent={{-100,
+    Interfaces.RealInput u1 "Commanded input" annotation (Placement(transformation(extent={{-100,
               -20},{-60,20}})));
-    Interfaces.RealInput u2 annotation (Placement(transformation(
+    Interfaces.RealInput u2 "Feedback input" annotation (Placement(transformation(
           origin={0,-80},
           extent={{-20,-20},{20,20}},
           rotation=90)));
@@ -2839,16 +2839,18 @@ y_im = u_abs * sin( u_arg )
   protected
     parameter Modelica.SIunits.Time t0(fixed=false) "Start time of simulation";
     Real x "Integrator state";
+    discrete Real y_last "Last sampled mean value";
   initial equation
     t0 = time;
     x = x0;
-    y = 0;
+    y_last = 0;
   equation
     der(x) = u;
     when sample(t0 + 1/f, 1/f) then
-      y = if not yGreaterOrEqualZero then f*pre(x) else max(0.0, f*pre(x));
+      y_last = if not yGreaterOrEqualZero then f*pre(x) else max(0.0, f*pre(x));
       reinit(x, 0);
     end when;
+    y = y_last;
     annotation (Documentation(info="<html>
 <p>
 This block calculates the mean of the input signal u over the given period 1/f:
@@ -3213,9 +3215,9 @@ This block is demonstrated in the examples
     extends Modelica.Blocks.Icons.Block;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     parameter Integer k(start=1) "Order of harmonic";
-        parameter Boolean useConjugateComplex=false
+    parameter Boolean useConjugateComplex=false
       "Gives conjugate complex result if true"
-          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Real x0Cos=0 "Start value of cos integrator state";
     parameter Real x0Sin=0 "Start value of sin integrator state";
     Sources.Cosine      sin1(
@@ -3490,26 +3492,21 @@ so one can plot the result directly as frequency lines.
             thickness=0.5)}));
   end RealFFT;
 
-  block Pythagoras "Determines the hypotenuse or leg of a right triangle"
+  block Pythagoras "Determine the hypotenuse or leg of a right triangle"
     extends Interfaces.SI2SO;
-    parameter Boolean u1IsHypotenuse = false "If true, u1 is the hypotenuse and y is one leg";
-    Interfaces.BooleanOutput valid  "Is true, if y is a valid result" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+    parameter Boolean u1IsHypotenuse = false "= true, if u1 is the hypotenuse and y is one leg";
+    Interfaces.BooleanOutput valid "= true, if y is a valid result" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   protected
     Real y2 "Square of y";
   equation
     if not u1IsHypotenuse then
-      y2 = u1^2+u2^2;
+      y2 = u1^2 + u2^2;
       y = sqrt(y2);
       valid = true;
     else
-      y2 = u1^2-u2^2;
-      if y2>=0 then
-        y=sqrt(y2);
-        valid = true;
-      else
-        y=0;
-        valid = false;
-      end if;
+      y2 = u1^2 - u2^2;
+      valid = y2 >= 0;
+      y = if noEvent(y2 >= 0) then sqrt(y2) else 0;
     end if;
 
     annotation (Icon(graphics={
@@ -3539,12 +3536,12 @@ if the boolean parameter <code>u1IsHyotenuse = false</code>.
 In this case the two inputs <code>u1</code> and
 <code>u2</code> are interpreted as the legs of a right triangle
 and the boolean output <code>valid</code> is always equal to
-<code>true</code>. </p>
+<code>true</code>.</p>
 
 <p>If <code>u1IsHyotenuse = true</code>, input <code>u1</code> is interpreted as hypotenuse and <code>u2</code>
 is one of the two legs of a right triangle.
 Then, the other of the two legs of the right triangle is the output, determined by
- <code>y = sqrt(u1^2 - u2^2)</code>, if <code>u1^2 - u2^2 &ge; 0</code>; in this case the
+<code>y = sqrt(u1^2 - u2^2)</code>, if <code>u1^2 - u2^2 &ge; 0</code>; in this case the
 boolean output <code>valid</code> is equal to <code>true</code>. In case of <code>u1^2 - u2^2 &lt; 0</code>, the
 output <code>y = 0</code> and <code>valid</code> is set to <code>false</code>.</p>
 </html>"));

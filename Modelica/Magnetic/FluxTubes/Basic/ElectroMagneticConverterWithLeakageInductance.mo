@@ -114,35 +114,9 @@ equation
                                          color={0,0,255}),
         Line(points={{-30,-100},{-90,-100}},
                                            color={0,0,255}),
-        Line(
-          points={{0,80},{-100,80}},
-          color={0,0,255},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{-100,80},{-100,-80}},
-          color={0,0,255},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{0,-80},{-100,-80}},
-          color={0,0,255},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{100,80},{0,80}},
-          color={255,127,0},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{100,-80},{0,-80}},
-          color={255,127,0},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{100,80},{100,-80}},
-          color={255,127,0},
-          pattern=LinePattern.Dash),
         Ellipse(extent={{-4,-34},{64,34}}, lineColor={255,127,0}),
-        Line(points={{30,-100},{30,-34}},color={255,127,0}),
-        Line(points={{18,0},{42,0}}, color={255,127,0}),
-        Line(points={{42,10},{42,-12}}, color={255,127,0}),
-        Line(points={{30,34},{30,100}},color={255,127,0}),
+        Line(points={{30,-100},{30,0}},  color={255,127,0}),
+        Line(points={{30,0},{30,100}}, color={255,127,0}),
         Line(points={{30,100},{90,100}},color={255,127,0}),
         Line(points={{30,-100},{90,-100}},
                                          color={255,127,0}),
@@ -150,20 +124,6 @@ equation
           extent={{-150,150},{150,110}},
           textColor={0,0,255},
           textString="%name"),
-        Line(points={{18,10},{18,-12}}, color={255,127,0}),
-        Line(points={{-110,30},{-110,-30}},
-                                          color={0,0,255}),
-        Polygon(
-          points={{-110,-30},{-104,-10},{-116,-10},{-110,-30}},
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid),
-        Line(points={{110,32},{110,-28}}, color={255,128,0}),
-        Polygon(
-          points={{110,-28},{116,-8},{104,-8},{110,-28}},
-          lineColor={255,128,0},
-          fillColor={255,128,0},
-          fillPattern=FillPattern.Solid),
         Rectangle(
           extent={{72,28},{88,-24}},
           lineColor={255,128,0},

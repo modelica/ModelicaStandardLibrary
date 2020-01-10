@@ -124,7 +124,7 @@ In the end, the batteries are in no-load condition to reveal self-discharge effe
 Note that self-discharge of <code>battery2</code> is set to an unrealistic high value, to show self-discharge within a rather short time span.<br>
 The parameters of the RC-elements of <code>battery2</code> are set to estimated values, just to demonstrate the effects.
 </p>
-<p>Simulate and plot terminal voltage <code>battery1.v</code> and <code>battery2.v</code> as well as state of charge <code>battery1.SOC</code> and <code>battery2.SOC</code>.<p>
+<p>Simulate and plot terminal voltage <code>battery1.v</code> and <code>battery2.v</code> as well as state of charge <code>battery1.SOC</code> and <code>battery2.SOC</code>.</p>
 <p>
 Plotting <code>energy1.y</code> and <code>energy2.y</code>, it is remarkable that first energy is delivered by the battery,
 but then due to the losses more energy is consumed to recharge the battery.

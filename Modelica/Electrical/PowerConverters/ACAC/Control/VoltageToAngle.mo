@@ -19,8 +19,8 @@ block VoltageToAngle "Reference voltage to firing angle converter"
   Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=1, final uMin=0)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(final table=
-    if voltage2Angle ==PowerConverters.Types.Voltage2AngleType.Lin                      then Lin
-    elseif voltage2Angle ==PowerConverters.Types.Voltage2AngleType.H01                      then H01
+    if voltage2Angle ==PowerConverters.Types.Voltage2AngleType.Lin then Lin
+    elseif voltage2Angle ==PowerConverters.Types.Voltage2AngleType.H01 then H01
     else RMS, final extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Blocks.Math.Gain gain_alpha(final k=pi)

@@ -118,7 +118,7 @@ or other flow models without storage, are directly connected.
       final vs = vs,
       final use_k = use_HeatTransfer) "Heat transfer model"
         annotation (Placement(transformation(extent={{-45,20},{-23,42}})));
-    final parameter Real[n] dxs = lengths/sum(lengths);
+    final parameter Real[n] dxs = lengths/sum(lengths) "Normalized lengths";
   equation
     Qb_flows = heatTransfer.Q_flows;
     // Wb_flow = v*A*dpdx + v*F_fric
@@ -231,7 +231,7 @@ or other flow models without storage, are directly connected.
       parameter SI.Length length "Length"
         annotation(Dialog(tab="General", group="Geometry"));
       parameter Boolean isCircular=true
-        "= true if cross sectional area is circular"
+        "= true, if cross sectional area is circular"
         annotation (Evaluate, Dialog(tab="General", group="Geometry"));
       parameter SI.Diameter diameter "Diameter of circular pipe"
         annotation(Dialog(group="Geometry", enable=isCircular));
@@ -244,7 +244,7 @@ or other flow models without storage, are directly connected.
       parameter Modelica.Fluid.Types.Roughness roughness=2.5e-5
         "Average height of surface asperities (default: smooth steel pipe)"
           annotation(Dialog(group="Geometry"));
-      final parameter SI.Volume V=crossArea*length*nParallel "volume size";
+      final parameter SI.Volume V=crossArea*length*nParallel "Volume size";
 
       // Static head
       parameter SI.Length height_ab=0 "Height(port_b) - Height(port_a)"
@@ -295,11 +295,11 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
       parameter Real nParallel(min=1)=1
         "Number of identical parallel flow devices"
         annotation(Dialog(group="Geometry"));
-      parameter SI.Length[n] lengths "lengths of flow segments"
+      parameter SI.Length[n] lengths "Lengths of flow segments"
         annotation(Dialog(group="Geometry"));
-      parameter SI.Area[n] crossAreas "cross flow areas of flow segments"
+      parameter SI.Area[n] crossAreas "Cross flow areas of flow segments"
         annotation(Dialog(group="Geometry"));
-      parameter SI.Length[n] dimensions "hydraulic diameters of flow segments"
+      parameter SI.Length[n] dimensions "Hydraulic diameters of flow segments"
         annotation(Dialog(group="Geometry"));
       parameter Modelica.Fluid.Types.Roughness[n] roughnesses
         "Average heights of surface asperities"
@@ -332,9 +332,9 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         "= true to lump pressure states together"
         annotation(Dialog(tab="Advanced"),Evaluate=true);
       final parameter Integer nFM=if useLumpedPressure then nFMLumped else nFMDistributed
-        "number of flow models in flowModel";
-      final parameter Integer nFMDistributed=if modelStructure==Types.ModelStructure.a_v_b then n+1 else if (modelStructure==Types.ModelStructure.a_vb or modelStructure==Types.ModelStructure.av_b) then n else n-1;
-      final parameter Integer nFMLumped=if modelStructure==Types.ModelStructure.a_v_b then 2 else 1;
+        "Number of flow models in flowModel";
+      final parameter Integer nFMDistributed=if modelStructure==Types.ModelStructure.a_v_b then n+1 else if (modelStructure==Types.ModelStructure.a_vb or modelStructure==Types.ModelStructure.av_b) then n else n-1 "Number of distributed flow models";
+      final parameter Integer nFMLumped=if modelStructure==Types.ModelStructure.a_v_b then 2 else 1 "Number of lumped flow models";
       final parameter Integer iLumped=integer(n/2)+1
         "Index of control volume with representative state if useLumpedPressure"
         annotation(Evaluate=true);
@@ -344,11 +344,11 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         "= true to take port properties for flow models from internal control volumes"
         annotation(Dialog(tab="Advanced"),Evaluate=true);
       Medium.ThermodynamicState state_a
-        "state defined by volume outside port_a";
+        "State defined by volume outside port_a";
       Medium.ThermodynamicState state_b
-        "state defined by volume outside port_b";
+        "State defined by volume outside port_b";
       Medium.ThermodynamicState[nFM+1] statesFM
-        "state vector for flowModel model";
+        "State vector for flowModel model";
 
       // Pressure loss model
       replaceable model FlowModel =
@@ -389,7 +389,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         "Enthalpy flow rates of fluid across segment boundaries";
 
       SI.Velocity[n] vs = {0.5*(m_flows[i] + m_flows[i+1])/mediums[i].d/crossAreas[i] for i in 1:n}/nParallel
-        "mean velocities in flow segments";
+        "Mean velocities in flow segments";
 
       // Model structure dependent flow geometry
     protected
@@ -923,7 +923,7 @@ This also allows for taking into account friction losses with respect to the act
 
             // Geometry parameters and inputs
             parameter Real nParallel
-          "number of identical parallel flow devices"
+          "Number of identical parallel flow devices"
                annotation(Dialog(tab="Internal interface",enable=false,group="Geometry"));
 
             input SI.Area[n] crossAreas
@@ -943,7 +943,7 @@ This also allows for taking into account friction losses with respect to the act
 
             // Assumptions
             parameter Boolean allowFlowReversal=system.allowFlowReversal
-          "= true to allow flow reversal, false restricts to design direction (states[1] -> states[n+1])"
+		  "= true, if flow reversal is enabled, otherwise restrict flow to design direction (states[1] -> states[n+1])"
               annotation(Dialog(tab="Internal interface",enable=false,group="Assumptions"), Evaluate=true);
             parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
           "Formulation of momentum balance"
@@ -984,7 +984,7 @@ This also allows for taking into account friction losses with respect to the act
 
             // Variables
             Modelica.SIunits.Pressure[n-1] dps_fg(each start = (p_a_start - p_b_start)/(n-1))
-          "pressure drop between states";
+          "Pressure drop between states";
 
             // Reynolds Number
             parameter SI.ReynoldsNumber Re_turbulent = 4000
@@ -1157,17 +1157,17 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
               annotation(Dialog(enable=from_dp and WallFriction.use_dp_small));
             final parameter Boolean constantPressureLossCoefficient=
                use_rho_nominal and (use_mu_nominal or not WallFriction.use_mu)
-          "= true if the pressure loss does not depend on fluid states"
+          "= true, if the pressure loss does not depend on fluid states"
                annotation(Evaluate=true);
             final parameter Boolean continuousFlowReversal=
                (not useUpstreamScheme)
                or constantPressureLossCoefficient
                or not allowFlowReversal
-          "= true if the pressure loss is continuous around zero flow"
+          "= true, if the pressure loss is continuous around zero flow"
                annotation(Evaluate=true);
 
             SI.Length[n-1] diameters = 0.5*(dimensions[1:n-1] + dimensions[2:n])
-          "mean diameters between segments";
+          "Mean diameters between segments";
             SI.AbsolutePressure dp_fric_nominal=
               sum(WallFriction.pressureLoss_m_flow(
                              m_flow_nominal/nParallel,
@@ -1181,7 +1181,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              m_flow_small/nParallel,
                              Res_turbulent_internal))
-          "pressure loss for nominal conditions";
+          "Pressure loss for nominal conditions";
 
           initial equation
             // initialize dp_small from flow model
@@ -1341,8 +1341,8 @@ simulation and/or might give a more robust simulation.
           "pathLengths resulting from nominal pressure loss and geometry";
             SI.ReynoldsNumber[n-1] Res_turbulent_nominal
           "Re_turbulent resulting from nominal turbulent flow and geometry";
-            Real[n-1] ks_inv "coefficient for quadratic flow";
-            Real[n-1] zetas "coefficient for quadratic flow";
+            Real[n-1] ks_inv "Coefficient for quadratic flow";
+            Real[n-1] zetas "Coefficient for quadratic flow";
 
             // Reynolds Number
             Medium.AbsolutePressure[n-1] dps_fg_turbulent(each min=0)=
@@ -1538,14 +1538,14 @@ b has the same sign of the change of density.</p>
   package HeatTransfer "Heat transfer for flow models"
     extends Modelica.Icons.Package;
     partial model PartialFlowHeatTransfer
-        "base class for any pipe heat transfer correlation"
+        "Base class for any pipe heat transfer correlation"
       extends Modelica.Fluid.Interfaces.PartialHeatTransfer;
 
       // Additional inputs provided to flow heat transfer model
       input SI.Velocity[n] vs "Mean velocities of fluid flow in segments";
 
       // Geometry parameters and inputs for flow heat transfer
-      parameter Real nParallel "number of identical parallel flow devices"
+      parameter Real nParallel "Number of identical parallel flow devices"
          annotation(Dialog(tab="Internal interface",enable=false,group="Geometry"));
       input SI.Length[n] lengths "Lengths along flow path";
       input SI.Length[n] dimensions
@@ -1585,7 +1585,7 @@ Ideal heat transfer without thermal resistance.
     model ConstantFlowHeatTransfer
         "ConstantHeatTransfer: Constant heat transfer coefficient"
       extends PartialFlowHeatTransfer;
-      parameter SI.CoefficientOfHeatTransfer alpha0 "heat transfer coefficient";
+      parameter SI.CoefficientOfHeatTransfer alpha0 "Heat transfer coefficient";
     equation
       Q_flows = {alpha0*surfaceAreas[i]*(heatPorts[i].T - Ts[i])*nParallel for i in 1:n};
       annotation(Documentation(info="<html>
@@ -1599,9 +1599,9 @@ Simple heat transfer correlation with constant heat transfer coefficient, used a
         "Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow"
       extends PartialFlowHeatTransfer;
       parameter SI.CoefficientOfHeatTransfer alpha0=100
-          "guess value for heat transfer coefficients";
+          "Guess value for heat transfer coefficients";
       SI.CoefficientOfHeatTransfer[n] alphas(each start=alpha0)
-          "CoefficientOfHeatTransfer";
+          "Heat transfer coefficient";
       Real[n] Res "Reynolds numbers";
       Real[n] Prs "Prandtl numbers";
       Real[n] Nus "Nusselt numbers";

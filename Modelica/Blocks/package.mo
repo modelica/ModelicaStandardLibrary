@@ -1375,9 +1375,9 @@ The sin-cos-encoder provides four tracks:
 </p>
 <ul>
 <li>cosine</li>
-<li>minus sine<li>
+<li>minus sine</li>
 <li>sine</li>
-<li>minus cosine<li>
+<li>minus cosine</li>
 </ul>
 <p>
 All four tracks have the same amplitude and the same offset &gt; amplitude. Offset is used to detect loss of a track. 
@@ -2571,7 +2571,7 @@ random number generator. This block is used in the example
           Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
             "Right flange of shaft"
             annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-          Modelica.Blocks.Interfaces.RealOutput phi
+          Modelica.Blocks.Interfaces.RealOutput phi(unit="rad")
             "Absolute angle of flange as output signal" annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},

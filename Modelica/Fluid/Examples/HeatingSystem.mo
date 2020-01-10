@@ -45,7 +45,7 @@ model HeatingSystem "Simple model of a heating system"
     dp_nominal=10000)
     annotation (Placement(transformation(extent={{60,-80},{40,-60}})));
 protected
-  Modelica.Blocks.Interfaces.RealOutput m_flow
+  Modelica.Blocks.Interfaces.RealOutput m_flow(unit="kg/s")
     annotation (Placement(transformation(extent={{-6,34},{6,46}})));
 public
   Sensors.MassFlowRate sensor_m_flow(redeclare package Medium = Medium)
@@ -101,9 +101,9 @@ public
     annotation (Placement(transformation(extent={{20,-80},{0,-60}})));
 
 protected
-  Modelica.Blocks.Interfaces.RealOutput T_forward
+  Modelica.Blocks.Interfaces.RealOutput T_forward(unit="K")
     annotation (Placement(transformation(extent={{74,34},{86,46}})));
-  Modelica.Blocks.Interfaces.RealOutput T_return
+  Modelica.Blocks.Interfaces.RealOutput T_return(unit="K")
     annotation (Placement(transformation(extent={{-46,-56},{-58,-44}})));
 public
   Modelica.Fluid.Sensors.Temperature sensor_T_forward(redeclare package Medium
@@ -113,7 +113,7 @@ public
       = Medium)
     annotation (Placement(transformation(extent={{-20,-60},{-40,-40}})));
 protected
-  Modelica.Blocks.Interfaces.RealOutput tankLevel
+  Modelica.Blocks.Interfaces.RealOutput tankLevel(unit="m")
                                  annotation (Placement(transformation(extent={{-56,34},
             {-44,46}})));
 public

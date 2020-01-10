@@ -52,7 +52,6 @@ Furthermore:
 <p>
 <em>Copyright &copy; 2012-2019, Modelica Association and contributors.</em>
 </p>
-<p>
 </html>",
 revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>

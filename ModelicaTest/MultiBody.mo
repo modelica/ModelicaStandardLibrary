@@ -7455,7 +7455,7 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5));
       annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
-<p><br/>Dymola ignores the flag and uses bodies variables as states.</p>
+<p><br>Dymola ignores the flag and uses bodies variables as states.</p>
 </html>"));
     end FreeBodiesEnforceStatesFalse;
 

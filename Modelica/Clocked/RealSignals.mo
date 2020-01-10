@@ -2552,13 +2552,14 @@ as output.
 <em>Random</em> generates a sequence of uniform distributed
 pseudo-random numbers. The algorithm is a variant of the
 multiplicative congruential algorithm, known as the
-Wichmann-Hill generator:
+Wichmann-Hill generator:</p>
 <blockquote><pre>
 x(k) = (a1*x(k-1)) mod m1
 y(k) = (a2*y(k-1)) mod m2
 z(k) = (a3*z(k-1)) mod m3
 U(k) = (x(k)/m1 + y(k)/m2 + z(k)/m3) mod 1
 </pre></blockquote>
+<p>
 This generates pseudo-random numbers U(k) uniformly distributed
 in the interval (0,1). There are many forms of generators depending
 on the parameters m (prime numbers) and a. The sequence needs an
@@ -4435,10 +4436,10 @@ The Real output y is a sine signal. The signal is defined in terms of clock tick
         end Sine;
     annotation (Documentation(info="<html>
 <p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide </p>
-<p><ol>
+<ol>
 <li>a <strong>clocked</strong> output signal and</li>
 <li>are parametrized in terms of <strong>clock ticks</strong> rather than simulation time.</li>
-</ol></p>
+</ol>
 </html>"));
   end TickBasedSources;
 
