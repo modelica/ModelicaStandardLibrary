@@ -136,10 +136,10 @@ to initialize the angle and the angular acceleration of \"inertia1\".
 In the following figure, results of a typical simulation are shown:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/PID_controller.png\"
      alt=\"PID_controller.png\"><br>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller2.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/PID_controller2.png\"
      alt=\"PID_controller2.png\">
 
 <p>
@@ -231,7 +231,7 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
 2 Hz resulting in the following outputs:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Filter1.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Filter1.png\"
      alt=\"Filter1.png\">
 </html>"));
   end Filter;
@@ -320,7 +320,7 @@ the results of a simulation of this example model
 (riseTime = 2 s, fac=3, 4, and 5):
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/FilterWithRiseTime.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/FilterWithRiseTime.png\"
      alt=\"FilterWithRiseTime.png\">
 
 <p>
@@ -515,7 +515,7 @@ Modelica model. The basic construction mechanism is explained at hand
 of this example:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/InverseModelSchematic.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/InverseModelSchematic.png\"
      alt=\"InverseModelSchematic.png\">
 
 <p>
@@ -539,7 +539,7 @@ is zero. The higher the cut-off frequency of the filter, the closer is the
 agreement. A typical simulation result is shown in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/InverseModel.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/InverseModel.png\"
      alt=\"InverseModel.png\">
 </html>"), experiment(StopTime=1.0));
   end InverseModel;
@@ -1021,7 +1021,7 @@ to use a \"signal bus\" concept also in a Modelica model. This is demonstrated
 at hand of this model (Modelica.Blocks.Examples.BusUsage):
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/BusUsage.png\"
      alt=\"BusUsage.png\">
 
 <ul>
@@ -1066,7 +1066,7 @@ is constructed by the variables connected to instances of this connector.
 For example, if \"sine.y\" is connected to the \"controlBus\", a pop-up menu may appear:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage2.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/BusUsage2.png\"
      alt=\"BusUsage2.png\">
 
 <p>
@@ -1104,7 +1104,7 @@ Consequently, when connecting now from \"sine.y\" to \"controlBus\", the menu
 looks differently:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage3.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/BusUsage3.png\"
      alt=\"BusUsage3.png\">
 
 <p>
