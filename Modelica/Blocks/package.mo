@@ -1,6 +1,7 @@
 within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
   import SI = Modelica.SIunits;
+
   extends Modelica.Icons.Package;
 
 package Examples
@@ -1456,7 +1457,7 @@ The result of a simulation is shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoise.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -1547,7 +1548,7 @@ diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/AutomaticSeed1.png\">
 </blockquote>
 
 <p>
@@ -1557,7 +1558,7 @@ Again, different noise is generated, see next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/AutomaticSeed2.png\">
 </blockquote>
 
 <p>
@@ -1625,7 +1626,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Distributions.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/Distributions.png\">
 </blockquote>
 
 <p>
@@ -1728,7 +1729,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoiseProperties1.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoiseProperties1.png\"/>
 </blockquote>
 
 <p>
@@ -1832,7 +1833,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/NormalNoiseProperties1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/NormalNoiseProperties1.png\">
 </blockquote>
 
 <p>
@@ -1906,7 +1907,7 @@ inputs:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Densities.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/Densities.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -1949,7 +1950,7 @@ generator. Simulation results are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ImpureGenerator.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/ImpureGenerator.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -2039,7 +2040,7 @@ This example models an actuator with a noisy sensor (which is in the motor compo
 
 <blockquote>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ActuatorNoiseDiagram.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/ActuatorNoiseDiagram.png\"/>
 </p></blockquote>
 
 <p>
@@ -2061,7 +2062,7 @@ on the position of the actuator. The effect of the noise can be seen in the moto
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ActuatorNoise.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/ActuatorNoise.png\"/>
 </p></blockquote>
 
 <p>
@@ -2139,7 +2140,7 @@ The turbulence model of the Dryden form is defined by the power spectral density
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
 </p></blockquote>
 
 <p>
@@ -2160,7 +2161,7 @@ Using spectral factorization and a fixed airspeed V of the aircraft, a concrete 
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
 </p></blockquote>
 
 <p>
@@ -2183,7 +2184,7 @@ This is done automatically in the
 
 <blockquote>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/DrydenContinuousTurbulence.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/DrydenContinuousTurbulence.png\"/>
 </p></blockquote>
 
 <h4>
@@ -2967,6 +2968,7 @@ usage of package blocks.
 </p>
 </html>"));
 end Examples;
+
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(
         origin={0.0,35.1488},
