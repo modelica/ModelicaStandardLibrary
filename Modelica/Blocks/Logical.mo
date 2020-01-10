@@ -990,7 +990,7 @@ network built with package Logical is shown in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/LogicalNetwork1.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/LogicalNetwork1.png\"
      alt=\"LogicalNetwork1.png\">
 </p>
 
