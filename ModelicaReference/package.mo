@@ -1633,7 +1633,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See Modelica Language Specification for further details.</p>
+<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>
@@ -1677,7 +1677,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See Modelica Language Specification for further details.</p>
+<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 
@@ -1722,7 +1722,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See Modelica Language Specification for further details.</p>
+<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>The keyword connector is used to define connectors, which are used
@@ -2105,7 +2105,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See Modelica Language Specification for further details.</p>
+<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 
@@ -2290,7 +2290,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See Modelica Language Specification for further details.</p>
+<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>
@@ -2332,7 +2332,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See Modelica Language Specification for further details.</p>
+<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>May only contain declarations of classes and constants.
@@ -2378,7 +2378,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See Modelica Language Specification for further details.</p>
+<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 
@@ -2416,7 +2416,7 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
 
-<p>See Modelica Language Specification for further details.</p>
+<p>See <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a> for further details.</p>
 
 <h4>Description</h4>
 <p>The keyword type is used to define types, which may only be extensions to the predefined types, enumerations, array of type, or classes extending from type.
@@ -3090,20 +3090,7 @@ Connect objects
 
 <h4>Syntax</h4>
 
-<blockquote><pre>equation_clause :
-  [ <strong>initial</strong> ] <strong>equation</strong> { equation \";\" | annotation  \";\" }
-
-equation :
-  ( simple_expression \"=\" expression
-    | conditional_equation_e
-    | for_clause_e
-    | connect_clause
-    | when_clause_e
-    | IDENT function_call )
-  comment
-
-connect_clause :
-  <strong>connect</strong> \"(\" component_reference \",\" component_reference \")\"</pre></blockquote>
+<p>See section on <code>connect_clause</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -5471,12 +5458,7 @@ Break lookup in hierarchy
 
 <h4>Syntax</h4>
 
-<blockquote><pre>class_definition :
-   [ <strong>encapsulated</strong> ]
-   [ <strong>partial</strong> ]
-   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
-     <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier</pre></blockquote>
+<p>See section on <code>class_definition</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -5533,43 +5515,7 @@ classes A and B defined above,</p>
 
 <h4>Syntax</h4>
 
-<blockquote><pre>class_definition :
-   [ <strong>encapsulated</strong> ]
-   [ <strong>partial</strong> ]
-   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
-     <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier
-
-class_specifier :
-   string_comment composition <strong>end</strong> IDENT
-   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment
-
-composition  :
-   element_list
-   { <strong>public</strong> element_list |
-     <strong>protected</strong> element_list |
-     equation_clause |
-     algorithm_clause
-   }
-   [ <strong>external</strong> [ language_specification ]
-              [ external_function_call ] [ annotation \";\" ]
-              [ annotation  \";\" ] ]
-
-element_list :
-   { element \";\" | annotation  \";\" }
-
-element :
-   import_clause |
-   extends_clause |
-   [ <strong>final</strong> ]
-   [ <strong>inner</strong> | <strong>outer</strong> ]
-   ( ( class_definition | component_clause) |
-     <strong>replaceable</strong> ( class_definition | component_clause)
-        [constraining_clause comment])
-
-extends_clause :
-   <strong>extends</strong> name [ class_modification ]</pre></blockquote>
+<p>See section on <code>extends_clause</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -5823,50 +5769,7 @@ a.p.i + b.p.i + c.p.i = 0;</pre></blockquote>
 
 <h4>Syntax</h4>
 
-<blockquote><pre>class_definition :
-   [ <strong>encapsulated</strong> ]
-   [ <strong>partial</strong> ]
-   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
-     <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier
-
-class_specifier :
-   string_comment composition <strong>end</strong> IDENT
-   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment
-
-base_prefix :
-   type_prefix
-
-composition  :
-   element_list
-   { <strong>public</strong> element_list |
-     <strong>protected</strong> element_list |
-     equation_clause |
-     algorithm_clause
-   }
-   [ <strong>external</strong> [ language_specification ]
-              [ external_function_call ] [ annotation \";\" ]
-              [ annotation  \";\" ] ]
-
-element_list :
-   { element \";\" | annotation  \";\" }
-
-element :
-   import_clause |
-   extends_clause |
-   [ <strong>final</strong> ]
-   [ <strong>inner</strong> | <strong>outer</strong> ]
-   ( ( class_definition | component_clause) |
-     <strong>replaceable</strong> ( class_definition | component_clause)
-        [constraining_clause comment])
-
-component_clause:
-   type_prefix type_specifier [ array_subscripts ] component_list
-
-type_prefix :
-   [ <strong>flow</strong> | <strong>stream</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre></blockquote>
+<p>See section on <code>type_prefix</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6087,43 +5990,8 @@ Import classes
 
 <h4>Syntax</h4>
 
-<blockquote><pre>class_definition :
-   [ <strong>encapsulated</strong> ]
-   [ <strong>partial</strong> ]
-   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
-     <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier
+<p>See section on <code>import_clause</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
-class_specifier :
-   string_comment composition <strong>end</strong> IDENT
-   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment
-
-composition  :
-   element_list
-   { <strong>public</strong> element_list |
-     <strong>protected</strong> element_list |
-     equation_clause |
-     algorithm_clause
-   }
-   [ <strong>external</strong> [ language_specification ]
-              [ external_function_call ] [ annotation \";\" ]
-              [ annotation  \";\" ] ]
-
-element_list :
-   { element \";\" | annotation  \";\" }
-
-element :
-   import_clause |
-   extends_clause |
-   [ <strong>final</strong> ]
-   [ <strong>inner</strong> | <strong>outer</strong> ]
-   ( ( class_definition | component_clause) |
-     <strong>replaceable</strong> ( class_definition | component_clause)
-        [constraining_clause comment])
-
-import_clause :
-   <strong>import</strong> ( IDENT \"=\" name | name [\".\" \"*\"] ) comment</pre></blockquote>
 <h4>Description</h4>
 
 <p>Using import statements extends the static name lookup to additional import names.
@@ -6164,50 +6032,7 @@ Define causality and/or block diagram connection semantic
 
 <h4>Syntax</h4>
 
-<blockquote><pre>class_definition :
-   [ <strong>encapsulated</strong> ]
-   [ <strong>partial</strong> ]
-   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
-     <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier
-
-class_specifier :
-   string_comment composition <strong>end</strong> IDENT
-   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment
-
-base_prefix :
-   type_prefix
-
-composition  :
-   element_list
-   { <strong>public</strong> element_list |
-     <strong>protected</strong> element_list |
-     equation_clause |
-     algorithm_clause
-   }
-   [ <strong>external</strong> [ language_specification ]
-              [ external_function_call ] [ annotation \";\" ]
-              [ annotation  \";\" ] ]
-
-element_list :
-   { element \";\" | annotation  \";\" }
-
-element :
-   import_clause |
-   extends_clause |
-   [ <strong>final</strong> ]
-   [ <strong>inner</strong> | <strong>outer</strong> ]
-   ( ( class_definition | component_clause) |
-     <strong>replaceable</strong> ( class_definition | component_clause)
-        [constraining_clause comment])
-
-component_clause:
-   type_prefix type_specifier [ array_subscripts ] component_list
-
-type_prefix :
-   [ <strong>flow</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre></blockquote>
+<p>See section on <code>type_prefix</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6292,50 +6117,7 @@ Define causality and/or block diagram connection semantic
 
 <h4>Syntax</h4>
 
-<blockquote><pre>class_definition :
-   [ <strong>encapsulated</strong> ]
-   [ <strong>partial</strong> ]
-   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
-     <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier
-
-class_specifier :
-   string_comment composition <strong>end</strong> IDENT
-   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment
-
-base_prefix :
-   type_prefix
-
-composition  :
-   element_list
-   { <strong>public</strong> element_list |
-     <strong>protected</strong> element_list |
-     equation_clause |
-     algorithm_clause
-   }
-   [ <strong>external</strong> [ language_specification ]
-              [ external_function_call ] [ annotation \";\" ]
-              [ annotation  \";\" ] ]
-
-element_list :
-   { element \";\" | annotation  \";\" }
-
-element :
-   import_clause |
-   extends_clause |
-   [ <strong>final</strong> ]
-   [ <strong>inner</strong> | <strong>outer</strong> ]
-   ( ( class_definition | component_clause) |
-     <strong>replaceable</strong> ( class_definition | component_clause)
-        [constraining_clause comment])
-
-component_clause:
-   type_prefix type_specifier [ array_subscripts ] component_list
-
-type_prefix :
-   [ <strong>flow</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre></blockquote>
+<p>See section on <code>type_prefix</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6433,17 +6215,7 @@ Prohibit instantiation of components of the class
 
 <h4>Syntax</h4>
 
-<blockquote><pre>class_definition :
-   [ <strong>encapsulated</strong> ]
-   [ <strong>partial</strong> ]
-   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
-     <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier
-
-class_specifier :
-   string_comment composition <strong>end</strong> IDENT
-   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment</pre></blockquote>
+<p>See section on <code>class_definition</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
@@ -6553,50 +6325,7 @@ operators inside the components provide the \"ideal mixing\" equations:
 
 <h4>Syntax</h4>
 
-<blockquote><pre>class_definition :
-   [ <strong>encapsulated</strong> ]
-   [ <strong>partial</strong> ]
-   ( <strong>class</strong> | <strong>model</strong> | <strong>record</strong> | <strong>block</strong> | <strong>connector</strong> | <strong>type</strong> |
-     <strong>package</strong> | <strong>function</strong> )
-   IDENT class_specifier
-
-class_specifier :
-   string_comment composition <strong>end</strong> IDENT
-   | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
-   | \"=\" <strong>enumeration</strong> \"(\" ( [enum_list] | \":\" ) \")\" comment
-
-base_prefix :
-   type_prefix
-
-composition  :
-   element_list
-   { <strong>public</strong> element_list |
-     <strong>protected</strong> element_list |
-     equation_clause |
-     algorithm_clause
-   }
-   [ <strong>external</strong> [ language_specification ]
-              [ external_function_call ] [ annotation \";\" ]
-              [ annotation  \";\" ] ]
-
-element_list :
-   { element \";\" | annotation  \";\" }
-
-element :
-   import_clause |
-   extends_clause |
-   [ <strong>final</strong> ]
-   [ <strong>inner</strong> | <strong>outer</strong> ]
-   ( ( class_definition | component_clause) |
-     <strong>replaceable</strong> ( class_definition | component_clause)
-        [constraining_clause comment])
-
-component_clause:
-   type_prefix type_specifier [ array_subscripts ] component_list
-
-type_prefix :
-   [ <strong>flow</strong> | <strong>stream</strong> ]
-   [ <strong>discrete</strong> | <strong>parameter</strong> | <strong>constant</strong> ] [ <strong>input</strong> | <strong>output</strong> ]</pre></blockquote>
+<p>See section on <code>type_prefix</code> in the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica Grammar</a>.</p>
 
 <h4>Description</h4>
 
