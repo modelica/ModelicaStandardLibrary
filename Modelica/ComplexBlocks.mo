@@ -1327,10 +1327,9 @@ An error occurs if the elements of the input <code>u</code> is zero.
     block RealToComplex "Converts Cartesian representation to complex"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
       Blocks.Interfaces.RealInput re annotation (Placement(transformation(
-              extent={{-130,40},{-90,80}}), iconTransformation(extent={{-140,40},
-                {-100,80}})));
+              extent={{-140,40},{-100,80}}),iconTransformation(extent={{-140,40},{-100,80}})));
       Blocks.Interfaces.RealInput im annotation (Placement(transformation(
-              extent={{-130,-80},{-90,-40}}), iconTransformation(extent={{-140,
+              extent={{-140,-80},{-100,-40}}),iconTransformation(extent={{-140,
                 -80},{-100,-40}})));
     equation
       y = Complex(re, im);
@@ -1356,10 +1355,10 @@ An error occurs if the elements of the input <code>u</code> is zero.
     block PolarToComplex "Converts polar representation to complex"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
       Blocks.Interfaces.RealInput len annotation (Placement(transformation(
-              extent={{-130,40},{-90,80}}), iconTransformation(extent={{-140,40},
+              extent={{-140,40},{-100,80}}),iconTransformation(extent={{-140,40},
                 {-100,80}})));
       Blocks.Interfaces.RealInput phi(unit="rad") annotation (Placement(transformation(
-              extent={{-130,-80},{-90,-40}}), iconTransformation(extent={{-140,
+              extent={{-140,-80},{-100,-40}}),iconTransformation(extent={{-140,
                 -80},{-100,-40}})));
     equation
       y = Complex(len*cos(phi), len*sin(phi));
