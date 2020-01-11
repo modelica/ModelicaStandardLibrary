@@ -6,10 +6,7 @@ equation
   port_p.V_m = Complex(0, 0);
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}), graphics={Line(points={{0,100},{0,50}}, color={255,128,0}),
-          Line(points={{-60,50},{60,50}}, color={255,128,0}),Line(
-          points={{-40,30},{40,30}}, color={255,128,0}),Line(points={{-20,
-          10},{20,10}}, color={255,128,0})}),
+            {100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={
         Line(points={{0,100},{0,50}}, color={255,128,0}),
