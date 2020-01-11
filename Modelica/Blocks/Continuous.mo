@@ -517,41 +517,7 @@ Example:
           textString="w=%w")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Text(
-            extent={{-60,60},{60,14}},
-            textString="k"),
-          Text(
-            extent={{-60,8},{-32,-20}},
-            textString="s"),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255}),
-          Line(points={{-50,14},{50,14}}),
-          Line(points={{-54,-20},{-38,-20}}),
-          Text(
-            extent={{-52,-26},{-36,-48}},
-            textString="w"),
-          Line(points={{-50,2},{-56,-8},{-56,-28},{-52,-46}}),
-          Line(points={{-40,2},{-34,-10},{-34,-30},{-38,-46}}),
-          Text(
-            extent={{-34,8},{-22,-10}},
-            textString="2"),
-          Text(
-            extent={{-34,-6},{6,-36}},
-            textString="+2D"),
-          Text(
-            extent={{2,8},{30,-20}},
-            textString="s"),
-          Line(points={{8,-20},{24,-20}}),
-          Text(
-            extent={{10,-26},{26,-48}},
-            textString="w"),
-          Line(points={{12,2},{6,-8},{6,-28},{10,-46}}),
-          Line(points={{22,2},{28,-10},{28,-30},{24,-46}}),
-          Text(
-            extent={{30,2},{58,-42}},
-            textString="+1")}));
+          extent={{-100,-100},{100,100}})));
   end SecondOrder;
 
   block PI "Proportional-Integral controller"
@@ -964,18 +930,9 @@ to compute u by an algebraic equation.
                       color={0,0,127}));
     connect(gainTrack.y, addI.u3) annotation (Line(points={{-21,-70},{-88,-70},{-88,
             -58},{-82,-58}},     color={0,0,127}));
-    connect(u_m, addP.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}},
-        color={0,0,127},
-        thickness=0.5));
-    connect(u_m, addD.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}},
-        color={0,0,127},
-        thickness=0.5));
-    connect(u_m, addI.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}},
-        color={0,0,127},
-        thickness=0.5));
+    connect(u_m, addP.u2) annotation (Line(points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}}, color={0,0,127}));
+    connect(u_m, addD.u2) annotation (Line(points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}}, color={0,0,127}));
+    connect(u_m, addI.u2) annotation (Line(points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}}, color={0,0,127}));
     connect(Dzero.y, addPID.u2) annotation (Line(points={{-29.5,25},{-24,25},{-24,
             0},{-12,0}},    color={0,0,127}));
     connect(Izero.y, addPID.u3) annotation (Line(points={{-10.5,-50},{-20,-50},{-20,
