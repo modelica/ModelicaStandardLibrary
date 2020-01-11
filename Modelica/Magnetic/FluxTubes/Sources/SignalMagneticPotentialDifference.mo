@@ -6,7 +6,7 @@ model SignalMagneticPotentialDifference
   Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
     "Magnetic potential difference"
     annotation (Placement(transformation(
-        origin={0,90},
+        origin={0,110},
         extent={{10,-10},{-10,10}},
         rotation=90), iconTransformation(
         extent={{10,-10},{-10,10}},
