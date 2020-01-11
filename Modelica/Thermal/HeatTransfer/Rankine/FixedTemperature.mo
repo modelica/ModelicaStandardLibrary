@@ -28,22 +28,5 @@ This model defines a fixed temperature T at its port in degree Rankine,
 </p>
 </html>"),
        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}}), graphics={
-        Rectangle(
-          extent={{-100,100},{100,-100}},
-          pattern=LinePattern.None,
-          fillColor={159,159,223},
-          fillPattern=FillPattern.Backward),
-        Line(
-          points={{-42,0},{66,0}},
-          color={191,0,0},
-          thickness=0.5),
-        Text(
-          extent={{0,0},{-100,-100}},
-          textString="degRk"),
-        Polygon(
-          points={{52,-20},{52,20},{90,0},{52,-20}},
-          lineColor={191,0,0},
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid)}));
+            {100,100}})));
 end FixedTemperature;
