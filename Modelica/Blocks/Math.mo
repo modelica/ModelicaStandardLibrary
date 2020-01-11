@@ -577,14 +577,7 @@ y = k * u;
             textString="%name",
             textColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Polygon(
-              points={{-100,-100},{-100,100},{100,0},{-100,-100}},
-              lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{-76,38},{0,-34}},
-              textString="k",
-              textColor={0,0,255})}));
+              100,100}})));
   end Gain;
 
   block MatrixGain
@@ -624,14 +617,7 @@ results in the following equations:
             textColor={160,160,164},
             textString="*K")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Rectangle(
-              extent={{-100,-100},{100,100}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{-90,-60},{90,60}},
-              textColor={160,160,164},
-              textString="*K")}));
+              100,100}})));
   end MatrixGain;
 
   block MultiSum "Sum of Reals: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]"
@@ -834,12 +820,7 @@ results in the following equations:
               100}}), graphics={Line(
             points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Rectangle(
-              extent={{-100,-100},{100,100}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(
-              points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}));
+              100,100}})));
   end Sum;
 
   block Feedback "Output difference between commanded and feedback input"
