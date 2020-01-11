@@ -14,11 +14,6 @@ model Crossing "Crossing of two branches"
     "Negative port_n2 connected with port_n1"
     annotation (Placement(transformation(extent={{90,90},{110,110}})));
 
-equation
-  connect(port_p1, port_p2) annotation (Line(
-      points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}}, color={255,128,0}));
-  connect(port_n1, port_n2) annotation (Line(
-      points={{-100,-100},{-100,0},{100,0},{100,100}}, color={255,128,0}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
       Line(
