@@ -2263,19 +2263,18 @@ The general <a href=\"https://guides.github.com/activities/forking/\">contributi
 <li>Fork the repository to your account by
    <a href=\"https://help.github.com/articles/fork-a-repo/\">using the Fork button</a> of the GitHub repository site.</li>
 <li>Clone the forked repository to your computer. Make sure to checkout the maintenance branch if the bug fix is going to get merged to the maintenance branch.</li>
-<li>Create a new topic branch and give it a meaningful name,
-   like, e.g., \"issue2161-fix-formula\".</li>
-<li>Do your code changes and commit them, one change per commit.
-   Single commits can be copied to other branches.
+<li>Create a new topic branch and give it a meaningful name, like, e.g., \"issue2161-fix-formula\".</li>
+<li>Do your code changes and commit them, one change per commit.<br>
+   Single commits can be copied to other branches.<br>
    Multiple commits can be squashed into one, but splitting is difficult.</li>
 <li>Once you are done, push your topic branch to your forked repository.</li>
-<li>Go to the upstream <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">https://github.com/modelica/ModelicaStandardLibrary.git</a> repository and submit a
-   <a href=\"https://help.github.com/articles/about-pull-requests/\">Pull Request</a> (PR).
-   If the PR is related to a certain issue, reference it by its number like this: #2161.
-   Once a pull request is opened, you can discuss and
-   <a href=\"https://help.github.com/articles/about-pull-request-reviews/\">review</a>
-   the potential changes with collaborators and add follow-up commits before
-   the changes are merged into the repository.</li>
+<li>Go to the upstream <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">https://github.com/modelica/ModelicaStandardLibrary.git</a> repository and submit a <a href=\"https://help.github.com/articles/about-pull-requests/\">Pull Request</a> (PR).
+   <ul>
+   <li>If the PR is related to a certain issue, reference it by its number like this: #2161.</li>
+   <li>Once a pull request is opened, you can discuss and <a href=\"https://help.github.com/articles/about-pull-request-reviews/\">review</a> the potential changes with collaborators and add follow-up commits before the changes are merged into the repository.</li>
+   <li>If you have not already signed the Modelica Association Contributor License Agreement (CLA) you need to do so one-time.<br>
+   You can sign the CLA electronically using the CLA Assistant service and your GitHub account. There is no need to scan and send any documents by mail.</li>
+   </ul></li>
 <li>Update your branch with the requested changes. If necessary, merge the latest
    \"master\" branch into your topic branch and solve all merge conflicts in your topic branch.</li>
 </ol>

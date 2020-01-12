@@ -21,10 +21,12 @@ The [workflow for outside collaborators](https://guides.github.com/activities/fo
 5. Once you are done, push your branch to your fork.
 6. Go to the upstream ModelicaStandardLibrary repository and submit a
    [Pull Request](https://help.github.com/articles/about-pull-requests/) (PR).
-   If the PR is related to a certain issue, reference it by its number like this: #2161.
-   Once a pull request is opened, you can discuss and
+   * If the PR is related to a certain issue, reference it by its number like this: #2161.
+   * Once a pull request is opened, you can discuss and
    [review](https://help.github.com/articles/about-pull-request-reviews/)
    the potential changes with collaborators and add follow-up commits before
    the changes are merged into the repository.
+   * If you have not already signed the Modelica Association Contributor License Agreement (CLA) you need to do so one-time.
+   You can sign the CLA electronically using the CLA Assistant service and your GitHub account. There is no need to scan and send any documents by mail.
 7. Update your branch with the requested changes. If necessary, merge the latest
    master into your branch and solve all merge conflicts in your branch.
