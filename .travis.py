@@ -122,6 +122,7 @@ def tidyHTML(file_name):
                 tag = match.group(0)
                 tag = tag.strip('< >')
                 tag = tag.split(' ')[0]
+                tag = tag.lower()
                 if tag == 'html':
                     # Fill with empty lines to get matching line numbers from HTML Tidy
                     doc = ['\n']*(i - 1)
