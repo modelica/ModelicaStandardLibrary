@@ -40,6 +40,7 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
     useLinearSOCDependency=false,
     Ri=cellData2.OCVmax/1200,
     Idis=0.1,
+    nRC=2,
     rcData={Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(
         R=0.2*cellData2.Ri, C=60/(0.2*cellData2.Ri)),
         Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(R=
