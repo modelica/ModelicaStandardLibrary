@@ -127,14 +127,14 @@ The thermal power is calculated by <em>i*v</em>.
     Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
-        -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
+        //Lower half of reverse biased region including breakdown.
+         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
+        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        iVdMax + (vd - VdMax) * diVdMax);
-        //Lower half of reverse biased region including breakdown.
-        //Upper half of reverse biased region, and forward biased region before conduction.
         //Forward biased region after conduction
+        iVdMax + (vd - VdMax) * diVdMax);
 
     v = vd + id * Rs;
     i = id + v*Gp;
