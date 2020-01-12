@@ -173,13 +173,13 @@ as well as DC values per subsystem (rectifier) and total (load):
           fillPattern=FillPattern.Solid,
           radius=5),                      Text(
           extent={{-24,10},{36,-10}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.None,
           textString="rectifiers[mSystems]"),
         Text(
           extent={{-58,10},{58,-10}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid,
           origin={50,0},

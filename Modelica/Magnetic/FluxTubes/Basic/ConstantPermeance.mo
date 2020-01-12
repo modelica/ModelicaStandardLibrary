@@ -13,7 +13,7 @@ equation
       extent={{-100,-100},{100,100}}), graphics={
         Text(
           extent={{-150,-40},{150,-80}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="G_m=%G_m")}),
                                 Documentation(info="<html>
 <p>
