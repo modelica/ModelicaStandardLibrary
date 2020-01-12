@@ -19,6 +19,9 @@ from tidylib import tidy_document
 # See https://html.spec.whatwg.org/#void-elements
 void_tags = ('area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'menuitem', 'meta', 'param', 'source', 'track', 'wbr')
 
+# Tags that should not be used
+avoidable_tags = ('b', 'i', 'h1', 'h2', 'h3', 'figure', 'figcaption')
+
 # See https://haacked.com/archive/2004/10/25/usingregularexpressionstomatchhtml.aspx/
 pattern = re.compile(r'</?\w+((\s+\w+(\s*=\s*(?:\\"(.|\n)*?\\"|\'(.|\n)*?\'|[^\'">\s]+))?)+\s*|\s*)/?>', re.IGNORECASE)
 
@@ -33,12 +36,11 @@ def checkHTML(file_name):
     Check each HTML documentation found in file_name for
     - unclosed tags
     - tag case sensitivity
-    - use of <strong> and <em> tags
+    - use of avoidable tags
 
     Known issue: Multi-line HTML tags are erroneously detected as error
     """
-    found_b = []
-    found_i = []
+    found_invalid = []
     found_mismatch = []
     found_case = []
     with open(file_name) as file:
@@ -50,10 +52,8 @@ def checkHTML(file_name):
                 tag = tag.strip('< >')
                 tag = tag.split(' ')[0]
                 if bool(stack):
-                    if tag.lower() in ('b', '/b'):
-                        found_b.append((i, tag))
-                    elif tag.lower() in ('i', '/i'):
-                        found_i.append((i, tag))
+                    if tag.lower() in avoidable_tags:
+                        found_invalid.append((i, tag))
                     if tag != tag.lower():
                         found_case.append((i, tag))
                 if tag == 'html':
@@ -83,14 +83,12 @@ def checkHTML(file_name):
     # Debug print
     for i, tag in found_mismatch:
         print('File "{0}": line {1} - Warning: HTML tag "{2}" mismatch'.format(file_name, i, tag))
-    for i, tag in found_b:
-        print('File "{0}": line {1} - Warning: HTML tag "{2}" misuse. Use "strong" tag.'.format(file_name, i, tag))
-    for i, tag in found_i:
-        print('File "{0}": line {1} - Warning: HTML tag "{2}" misuse. Use "em" tag.'.format(file_name, i, tag))
+    for i, tag in found_invalid:
+        print('File "{0}": line {1} - Warning: HTML tag "{2}" misuse.'.format(file_name, i, tag))
     for i, tag in found_case:
         print('File "{0}": line {1} - Warning: HTML tag "{2}" misspelling. Use lower case.'.format(file_name, i, tag))
 
-    return len(found_mismatch) + len(found_b) + len(found_i) + len(found_case)
+    return len(found_mismatch) + len(found_invalid) + len(found_case)
 
 def _tidyHTML(doc):
     body = ''.join(doc)
