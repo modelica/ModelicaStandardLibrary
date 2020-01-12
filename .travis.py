@@ -109,16 +109,14 @@ def _tidyHTML(doc):
 def tidyHTML(file_name):
     """
     Run HTML Tidy on each HTML documentation found in file_name
-
-    Known issue: Single line HTML documentation is erroneously detected as error
     """
     errors = []
     with open(file_name) as file:
-        in_doc = False
+        in_line = 0
         doc = []
         i = 1
         for line in file:
-            if in_doc:
+            if in_line > 0:
                 doc.append(line)
             for match in pattern.finditer(line):
                 tag = match.group(0)
@@ -128,13 +126,19 @@ def tidyHTML(file_name):
                     # Fill with empty lines to get matching line numbers from HTML Tidy
                     doc = ['\n']*(i - 1)
                     doc.append(line[match.span()[1]:])
-                    in_doc = True
+                    in_line = i
                 elif tag == '/html':
-                    del doc[-1]
-                    doc.append(line[:match.span()[0]])
+                    if in_line != i:
+                        del doc[-1]
+                        cont = line[:match.span()[0]]
+                    else:
+                        # Single line
+                        cont = doc.pop()
+                        cont = cont[:(match.span()[0] - len(line))]
+                    doc.append(cont)
                     # Call HTML Tidy
                     errors = errors + _tidyHTML(doc)
-                    in_doc = False
+                    in_line = 0
             i = i + 1
 
     # Debug print
