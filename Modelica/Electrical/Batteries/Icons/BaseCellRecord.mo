@@ -3,7 +3,7 @@ partial record BaseCellRecord "Indicates base cell data"
   constant String CellType="Cell Data" "Indicates cell type";
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Text(
-          lineColor={0,0,255},
+          textColor={0,0,255},
           extent={{-150,60},{150,100}},
           textString="%name"),
         Rectangle(
@@ -26,7 +26,7 @@ partial record BaseCellRecord "Indicates base cell data"
           color={64,64,64}),
         Text(
           extent={{-100,-70},{100,-90}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="%CellType")}),
                                Documentation(info="<html>
 <p>
