@@ -5396,11 +5396,7 @@ flange is the same. It is used to built up springs, dampers etc.
 </p>
 
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Polygon(
-                  points={{50,-90},{20,-80},{20,-100},{50,-90}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-60,-90},{20,-90}})}));
+                {100,100}})));
     end PartialCompliant;
 
     partial model PartialCompliantWithRelativeStates
