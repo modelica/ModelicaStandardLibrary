@@ -6255,25 +6255,7 @@ blocks of Modelica.Blocks.Sources.
           smooth=Smooth.Bezier)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Text(
-              extent={{14,86},{82,73}},
-              textColor={128,128,128},
-              textString="rotation axis"),
-            Polygon(
-              points={{10,80},{-10,85},{-10,75},{10,80}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-80,80},{-9,80}}, color={128,128,128}),
-            Line(
-              points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},
-                  {76,14},{80,10}},
-              thickness=0.5,
-              smooth=Smooth.Bezier),
-            Polygon(
-              points={{86,0},{66,58},{38,28},{86,0}},
-              fillPattern=FillPattern.Solid)}));
+            extent={{-100,-100},{100,100}})));
     end Torque;
 
     model Torque2 "Input signal acting as torque on two flanges"
@@ -6317,33 +6299,7 @@ blocks of Modelica.Blocks.Sources.
           fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Text(
-              extent={{15,-71},{83,-84}},
-              textColor={128,128,128},
-              textString="rotation axis"),
-            Polygon(
-              points={{11,-77},{-9,-72},{-9,-82},{11,-77}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-79,-77},{-8,-77}}, color={128,128,128}),
-            Line(
-              points={{-75,20},{-71,23},{-66,26},{-61,28},{-57,29},{-51,30},{-42,
-                  30},{-36,29},{-32,28},{-27,26},{-22,23},{-18,20},{-14,15},{-11,
-                  9}},
-              thickness=0.5, smooth=Smooth.Bezier),
-            Polygon(
-              points={{-79,24},{-70,17},{-90,0},{-79,24}},
-              lineThickness=0.5,
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{73,20},{69,23},{64,26},{59,28},{55,29},{49,30},{40,30},{
-                  34,29},{30,28},{25,26},{20,23},{16,20},{12,15},{9,9}},
-              thickness=0.5, smooth=Smooth.Bezier),
-            Polygon(
-              points={{88,0},{77,24},{68,17},{88,0}},
-              fillPattern=FillPattern.Solid)}));
+            extent={{-100,-100},{100,100}})));
     end Torque2;
 
     model LinearSpeedDependentTorque "Linear dependency of torque versus speed"
