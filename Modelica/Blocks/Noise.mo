@@ -529,7 +529,7 @@ In the next diagram, a simulation result is shown for samplePeriod=0.02 s and un
 y_min=-1, y_max=3:
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoise.png\">
 </blockquote>
 
 <h4>Advanced tab: General settings</h4>
