@@ -3057,7 +3057,7 @@ Christoph Clau&szlig;
               textColor={0,0,255},
               textString="%name")}),  Documentation(info="<html>
 <p>Damped sinusoidal source</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.<br></li>
@@ -3113,7 +3113,7 @@ Christoph Clau&szlig;
               textString="%name")}),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.- it should be set all the parameters definitely<br>- normally, there exist differences between Dymola and Spice, because TSTEP and TSTOP are not available.<br></li>
@@ -3245,7 +3245,7 @@ Christoph Clau&szlig;
 <td><p>1</p></td>
 </tr>
 </table>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3357,7 +3357,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="%name")}),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
-<h4>Attention:</h4>
+<h4>Attention</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3440,7 +3440,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="%name")}),
         Documentation(info="<html>
 <p>Damped sinusoidal source</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3491,7 +3491,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="%name")}),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3620,7 +3620,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <td><p>1</p></td>
 </tr>
 </table>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3730,7 +3730,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               textString="%name")}),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>

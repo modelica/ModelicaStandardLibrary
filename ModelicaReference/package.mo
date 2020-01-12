@@ -472,7 +472,7 @@ This can be recommended by having  <code><strong>annotation</strong> choicesAllM
   ...
   <strong>end</strong> Modelica;
 </pre></blockquote>
-<h5>Related annotations:</h5>
+<h5>Related annotations</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
@@ -1266,7 +1266,7 @@ The preferredView annotation defines the default view when selecting the class. 
              <em>revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;</em>);
   ...
   <strong>end</strong> Modelica;</pre></blockquote>
-<h5>Related annotations:</h5>
+<h5>Related annotations</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
@@ -1399,7 +1399,7 @@ Defines that classes within this top-level class uses a specific version of anot
      The annotations uses and conversion may contain several different sub-entries.</li>
 </ul>
 
-<h5>Related annotations:</h5>
+<h5>Related annotations</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
@@ -1510,7 +1510,7 @@ of the following ways in a directory given in the MODELICAPATH:
 <p>
 This allows a tool to access multiple versions of the same package.
 </p>
-<h5>Related annotations:</h5>
+<h5>Related annotations</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
@@ -1553,7 +1553,7 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
   ...
   <strong>end</strong> Modelica;
 </pre></blockquote>
-<h5>Related annotations:</h5>
+<h5>Related annotations</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
@@ -1584,7 +1584,7 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
              revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;);
   ...
   <strong>end</strong> Modelica;</pre></blockquote>
-<h5>Related annotations:</h5>
+<h5>Related annotations</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>

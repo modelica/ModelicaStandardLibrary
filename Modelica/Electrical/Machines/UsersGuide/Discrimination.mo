@@ -44,7 +44,7 @@ class Discrimination "Discrimination of Machine models"
    </tbody>
   </table>
 
-  <h4>Note:</h4>
+  <h4>Note</h4>
   <ul>
   <li>Transient and quasiStatic models are parameter compatible.</li>
   <li>Induction machine models limited to three phases and with arbitrary number of phases are parameter compatible.</li>

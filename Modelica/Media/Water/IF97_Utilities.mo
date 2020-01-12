@@ -8324,7 +8324,7 @@ public
   end dynamicIsentropicEnthalpy;
 
   annotation (Documentation(info="<html>
-      <h4>Package description:</h4>
+      <h4>Package description</h4>
       <p>This package provides high accuracy physical properties for water according
       to the IAPWS/IF97 standard. It has been part of the ThermoFluid Modelica library and been extended,
       reorganized and documented to become part of the Modelica Standard library.</p>

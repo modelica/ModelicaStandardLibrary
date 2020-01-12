@@ -45,7 +45,7 @@ equation
 Delta (polygon) connection of a polyphase circuit consisting of multiple base systems (see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>).
 </p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <p>
 If kPolygon&lt;1 or kPolygon&gt;(mBasic - 1)/2, kPolygon is replaced by the value 1 without further warning.<br>
 In case of m=2, kPolygon=1 is the only valid choice.

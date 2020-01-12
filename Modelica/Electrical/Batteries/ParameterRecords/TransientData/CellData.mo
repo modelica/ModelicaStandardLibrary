@@ -17,7 +17,7 @@ record CellData "Parameters of a transient battery cell"
 <li>Inner resistance; can be calculated from OCVmax / short-circuit current (at OCVmax)</li>
 <li>Array of records <code>rcData</code> for battery models comprising RC-elements</li>
 </ul>
-<h4>Note:</h4>
+<h4>Note</h4>
 <p>
 If <code>useLinearSOCDependency=true</code>, the OCV versus SOC table is built up internally from <code>OCVmax, OCVmin, SOCmax, SOCmin</code>.<br>
 Otherwise, the OCV versus SOC table has to be specified: 1st column = SOC values in ascending order, 2nd column = corresponding OCV values with respect to OCVmax.

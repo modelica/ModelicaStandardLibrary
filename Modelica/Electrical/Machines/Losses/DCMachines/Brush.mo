@@ -43,7 +43,7 @@ Model of voltage drop and losses of carbon brushes. For currents between <code>-
                 alt=\"brush.png\"> </td> </tr>
   <tr><td> <strong> Fig. 1: </strong>Model of voltage drop of carbon brushes</td> </tr>
 </table>
-<h4>Note:</h4>
+<h4>Note</h4>
 <p>
 The voltage drop <code>v</code> is the total voltage drop of all series connected brushes.
 </p>

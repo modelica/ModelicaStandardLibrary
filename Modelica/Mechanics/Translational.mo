@@ -3698,7 +3698,7 @@ in the lossPower due to the discontinuously changing kinetic energy of the mass
 </p>
 
 </html>", revisions="<html>
-<h4>Release Notes:</h4>
+<h4>Release Notes</h4>
 <ul>
 <li><em>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</em></li>
 <li><em>July 14, 2001 by P. Beater, assert on initialization added, diagram modified</em></li>

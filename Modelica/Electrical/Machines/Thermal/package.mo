@@ -30,7 +30,7 @@ They are modeled as <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resist
 <blockquote><pre>
 ROperational = RRef * (1 + alphaRef * (TOperational - TRef))
 </pre></blockquote>
-<h5>Parameters:</h5>
+<h5>Parameters</h5>
 <ul>
 <li>Resistance <code>RRef</code> at reference temperature</li>
 <li>Reference temperature <code>TRef</code></li>

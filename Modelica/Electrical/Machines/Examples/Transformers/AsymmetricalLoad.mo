@@ -83,7 +83,7 @@ equation
   connect(earth.n, groundT.p) annotation (Line(points={{-10,-50},{-10,-50},
           {-10,-60}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<h4>Asymmetrical (single-phase) load:</h4>
+<h4>Asymmetrical (single-phase) load</h4>
 <p>
 You may choose different connections.
 </p>

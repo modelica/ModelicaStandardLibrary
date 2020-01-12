@@ -642,7 +642,7 @@ As a result, both the simulation of the PadeDelay block, and especially
 its linearization becomes more reliable.
 </p>
 
-<h5>Literature:</h5>
+<h5>Literature</h5>
 <p>Otto Foellinger: Regelungstechnik, 8. Auflage,
 chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 </p>

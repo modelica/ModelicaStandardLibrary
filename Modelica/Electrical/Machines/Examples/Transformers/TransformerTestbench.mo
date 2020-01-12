@@ -133,7 +133,7 @@ equation
   connect(deltaL.plug_p, voltageRMSSensorL.plug_n) annotation (Line(
       points={{60,-10},{60,-30}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<h4>Transformer test bench:</h4>
+<h4>Transformer test bench</h4>
 <p>
 You may choose different connections as well as vary the load (even not symmetrical).
 </p>

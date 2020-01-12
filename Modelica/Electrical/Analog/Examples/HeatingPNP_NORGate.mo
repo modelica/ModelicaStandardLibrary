@@ -187,7 +187,7 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
 <p>They are different from zero if the transistor is conducting.</p>
 </html>",
    revisions="<html>
-<h4>Release Notes:</h4>
+<h4>Release Notes</h4>
 <ul>
 <li><em>May 02, 2018</em> by Kristin Majetta and Christoph Clauss<br>realized<br></li>
 </ul>

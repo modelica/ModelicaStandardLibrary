@@ -4521,7 +4521,7 @@ e.g., chattering occurs when using the
 Modelica.Mechanics.Rotational.GearEfficiency model.
 </p>
 
-<h4>Acknowledgement:</h4>
+<h4>Acknowledgement</h4>
 <ul>
 <li> The essential idea to model efficiency
      in this way is from Christoph Pelchen, ZF Friedrichshafen.</li>
