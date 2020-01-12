@@ -25,8 +25,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}})),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-96,0},{-50,0}},
-            color={0,0,255}), Line(points={{-109,20},{-84,
+              100,100}}), graphics={
+                              Line(points={{-109,20},{-84,
             20}}, color={160,160,164}),Polygon(
               points={{-94,23},{-84,20},{-94,17},{-94,23}},
               lineColor={160,160,164},
@@ -150,6 +150,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
 </ul>
 </html>", info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/StepVoltage.png\"
+     alt=\"StepVoltage.png\">
+</p>
 </html>"));
   end StepVoltage;
 
@@ -238,6 +242,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
 </ul>
 </html>", info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/RampVoltage.png\"
+     alt=\"RampVoltage.png\">
+</p>
 </html>"));
   end RampVoltage;
 
@@ -320,6 +328,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
 </ul>
 </html>", info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/SineVoltage.png\"
+     alt=\"SineVoltage.png\">
+</p>
 </html>"));
 
   end SineVoltage;
@@ -406,6 +418,10 @@ package Sources "Time-dependent and controlled voltage and current sources"
 </ul>
 </html>", info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/CosineVoltage.png\"
+     alt=\"CosineVoltage.png\">
+</p>
 </html>"));
 
   end CosineVoltage;
@@ -705,6 +721,10 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
 </ul>
 </html>", info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/ExpSineVoltage.png\"
+     alt=\"ExpSineVoltage.png\">
+</p>
 </html>"));
   end ExpSineVoltage;
 
@@ -806,6 +826,10 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
 </ul>
 </html>", info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/ExponentialsVoltage.png\"
+     alt=\"ExponentialsVoltage.png\">
+</p>
 </html>"));
   end ExponentialsVoltage;
 
@@ -925,6 +949,10 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
 </ul>
 </html>", info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/PulseVoltage.png\"
+     alt=\"PulseVoltage.png\">
+</p>
 </html>"));
   end PulseVoltage;
 
@@ -1018,6 +1046,10 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
 </ul>
 </html>", info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/SawToothVoltage.png\"
+     alt=\"SawToothVoltage.png\">
+</p>
 </html>"));
   end SawToothVoltage;
 
@@ -1167,6 +1199,10 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
 </ul>
 </html>", info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/TrapezoidVoltage.png\"
+     alt=\"TrapezoidVoltage.png\">
+</p>
 </html>"));
   end TrapezoidVoltage;
 
@@ -1256,6 +1292,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation).
 </pre></blockquote>
 <p><br>  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/TableVoltage.png\"
+     alt=\"TableVoltage.png\">
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -1391,6 +1431,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>", info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/StepCurrent.png\"
+     alt=\"StepCurrent.png\">
+</p>
 </html>"));
   end StepCurrent;
 
@@ -1479,6 +1523,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>", info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/RampCurrent.png\"
+     alt=\"RampCurrent.png\">
+</p>
 </html>"));
   end RampCurrent;
 
@@ -1561,6 +1609,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>", info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/SineCurrent.png\"
+     alt=\"SineCurrent.png\">
+</p>
 </html>"));
 
   end SineCurrent;
@@ -1649,6 +1701,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>", info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/CosineCurrent.png\"
+     alt=\"CosineCurrent.png\">
+</p>
 </html>"));
 
   end CosineCurrent;
@@ -1948,6 +2004,10 @@ and that the parameter <code>startTime</code> is omitted since the current can b
 </ul>
 </html>", info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/ExpSineCurrent.png\"
+     alt=\"ExpSineCurrent.png\">
+</p>
 </html>"));
   end ExpSineCurrent;
 
@@ -2036,6 +2096,10 @@ and that the parameter <code>startTime</code> is omitted since the current can b
 </ul>
 </html>", info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/ExponentialsCurrent.png\"
+     alt=\"ExponentialsCurrent.png\">
+</p>
 </html>"));
   end ExponentialsCurrent;
 
@@ -2249,6 +2313,10 @@ and that the parameter <code>startTime</code> is omitted since the current can b
 </ul>
 </html>", info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/SawToothCurrent.png\"
+     alt=\"SawToothCurrent.png\">
+</p>
 </html>"));
   end SawToothCurrent;
 
@@ -2398,6 +2466,10 @@ and that the parameter <code>startTime</code> is omitted since the current can b
 </ul>
 </html>", info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/TrapezoidCurrent.png\"
+     alt=\"TrapezoidCurrent.png\">
+</p>
 </html>"));
   end TrapezoidCurrent;
 
@@ -2487,6 +2559,10 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation).
 </pre></blockquote>
 <p><br> Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/TableCurrent.png\"
+     alt=\"TableCurrent.png\">
+</p>
 </html>", revisions="<html>
 <ul>
 <li><em> 1998   </em>
