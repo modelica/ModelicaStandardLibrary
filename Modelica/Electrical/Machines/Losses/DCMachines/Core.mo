@@ -50,7 +50,7 @@ For the voltage and angular velocity range with respect to Fig.&nbsp;1,
 the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
 </p>
 
-<table border=0 cellspacing=0 cellpadding=1>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
   <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"
                 alt=\"corelossesVw.png\"> </td>
   </tr>
@@ -58,7 +58,7 @@ the dependency of total core losses on the parameter <code>ratioHysteresis</code
   </tr>
 </table>
 
-<table border=0 cellspacing=0 cellpadding=1>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
   <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"
                 alt=\"corelossesPcw.png\"> </td>
   </tr>

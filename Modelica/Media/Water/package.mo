@@ -904,7 +904,7 @@ independent variables of the model:
 <p>
 The following quantities are always computed:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Variable</strong></td>
       <td><strong>Unit</strong></td>
       <td><strong>Description</strong></td></tr>
@@ -1095,7 +1095,7 @@ from different functions if one of the functions is called often but can be opti
 <p>
 The following quantities are always computed in Medium.BaseProperties:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Variable</strong></td>
       <td><strong>Unit</strong></td>
       <td><strong>Description</strong></td></tr>
@@ -1120,7 +1120,7 @@ In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the following functions:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Function call</strong></td>
       <td><strong>Unit</strong></td>
       <td><strong>Description</strong></td></tr>
@@ -1187,7 +1187,7 @@ set starting from either the saturation pressure or the saturation temperature.
 With reference to a model defining a pressure p, a temperature T, and a
 SaturationProperties record sat, the following functions are provided:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Function call</strong></td>
       <td><strong>Unit</strong></td>
       <td><strong>Description</strong></td></tr>

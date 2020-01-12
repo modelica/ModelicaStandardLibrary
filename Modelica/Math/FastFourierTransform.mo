@@ -64,7 +64,7 @@ package FastFourierTransform
 
       annotation (experiment(StopTime=6), preferredView="text",
         Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -166,7 +166,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
 
       annotation (experiment(StopTime=6), preferredView="text",
         Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -184,7 +184,7 @@ with the only difference that just the amplitudes of the FFT are stored on file 
 </html>"));
     end RealFFT2;
     annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -232,7 +232,7 @@ with the only difference that just the amplitudes of the FFT are stored on file 
     print("    Number of frequency points = " + String(nf) + " (= " + String(ns) + "/2+1)");
     print("    Simulation time            = " + String(T) + " s");
     annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -321,7 +321,7 @@ results in the following output:
         ns :=ns + 2;
      end while;
     annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -446,7 +446,7 @@ ns = 5760
     end for;
 
   annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -645,7 +645,7 @@ See detailed example model:
       external "C" info = ModelicaFFT_kiss_fftr(u, size(u,1), work, size(work,1), amplitudes, phases)
                    annotation(Library="ModelicaExternalC");
       annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -748,7 +748,7 @@ used in this function.
 
       success :=ns1 <= 1;
       annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -780,7 +780,7 @@ If this is not possible, success = false, and e2, e3, e5 are dummy values.
 </html>"));
     end prime235Factorization;
   annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -839,7 +839,7 @@ resulting in:
 </dl>
 </html>",
       revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>

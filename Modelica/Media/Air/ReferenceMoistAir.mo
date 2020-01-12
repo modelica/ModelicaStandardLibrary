@@ -3970,7 +3970,7 @@ The functions provided by this package shall be used inside of the restricted li
 <p>
 The package MoistAir can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information). The package defines two boolean constants <strong>useEnhancementFactor</strong> and <strong>useDissociation</strong>, which give the user fine grained control of the calculations.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr>
 <td><strong>Constant</strong></td>
 <td><strong>Default Value</strong></td>

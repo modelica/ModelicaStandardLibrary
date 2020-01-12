@@ -1392,7 +1392,7 @@ Integer type that can have the following values
 (to be selected via choices menu):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.Init.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>GuessValues</td>
     <td>GuessValues -- Guess values (not fixed) for p, T or h, X, C</td></tr>

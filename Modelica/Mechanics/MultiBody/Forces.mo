@@ -96,7 +96,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force in world frame (= default)</td></tr>
@@ -233,7 +233,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input torque in world frame (= default)</td></tr>
@@ -466,7 +466,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force and torque in world frame (= default)</td></tr>
@@ -659,7 +659,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force in world frame</td></tr>
@@ -846,7 +846,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input torque in world frame</td></tr>
@@ -1100,7 +1100,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force/torque in world frame</td></tr>
@@ -2560,7 +2560,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force in world frame</td></tr>
@@ -2686,7 +2686,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input torque in world frame</td></tr>
@@ -2786,7 +2786,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force in world frame (= default)</td></tr>
@@ -2894,7 +2894,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input torque in world frame (= default)</td></tr>
@@ -2958,7 +2958,7 @@ values from the outside in order that the model remains balanced
 This function defines the standard gravity fields for the World object.
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong><em>gravityType</em></strong></td>
     <td><strong><em>gravity [m/s2]</em></strong></td>
     <td><strong><em>description</em></strong></td></tr>
@@ -2990,7 +2990,7 @@ This package contains components that exert forces and torques
 between two frame connectors, e.g., between two parts.
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldForce\">WorldForce</a></td>
       <td> External force acting at the frame to which this component

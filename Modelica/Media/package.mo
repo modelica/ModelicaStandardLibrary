@@ -38,7 +38,7 @@ equations</strong> for the following <strong>5+nXi variables</strong> that are d
 the medium model (nXi is the number of independent mass fractions, see
 explanation below):
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Variable</strong></td>
       <td><strong>Unit</strong></td>
       <td><strong>Description</strong></td></tr>
@@ -93,7 +93,7 @@ Basic definition of medium</a> for further details on ThermodynamicState). The s
 accept either X or Xi (see explanation below) and will decide internally which of these two compositions
 is provided by the user. The four fundamental setState_XXX functions are provided in PartialMedium
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Function</strong></td>
       <td><strong>Description</strong></td>
       <td><strong>Short-form for<br>single component medium</strong></td></tr>
@@ -479,7 +479,7 @@ form:
 Medium.ThermodynamicState state;
 </pre></blockquote>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Function call</strong></td>
       <td><strong>Unit</strong></td>
       <td><strong>Description</strong></td></tr>
@@ -549,7 +549,7 @@ temperature(setState_phX(p,h,X))
 The following functions are predefined in PartialMedium (other functions can be added in the actual
 medium implementation package if they are useful)
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td>Medium.specificEnthalpy_pTX(p,T,X)</td>
       <td>J/kg</td>
       <td>Specific enthalpy at p, T, X </td></tr>
@@ -626,7 +626,7 @@ if a medium is declared as:
 <p>
 then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Type</strong></td>
       <td><strong>Name</strong></td>
       <td><strong>Description</strong></td></tr>
@@ -690,7 +690,7 @@ then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
 The record FluidConstants that is defined in PartialMedium contains the following elements
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Type</strong></td>
       <td><strong>Name</strong></td>
       <td><strong>Description</strong></td></tr>
@@ -720,7 +720,7 @@ The record FluidConstants that is defined in PartialMedium contains the followin
 PartialTwoPhaseMedium or PartialMixtureMedium) and may contain some or all of the following
 elements</p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td>Temperature</td>
       <td>criticalTemperature</td>
       <td>critical temperature</td></tr>
@@ -835,7 +835,7 @@ functionalities are provided, which apply only to potentially two-phase media.
 <p>
 The following additional medium <strong>constants</strong> are provided:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Type</strong></td>
       <td><strong>Name</strong></td>
       <td><strong>Description</strong></td></tr>
@@ -917,7 +917,7 @@ as shown in the following example.
 <p>With reference to a model defining a pressure p, a temperature T, and a
 SaturationProperties record sat, the following functions are provided:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Function call</strong></td>
       <td><strong>Unit</strong></td>
       <td><strong>Description</strong></td></tr>
@@ -979,7 +979,7 @@ plane, just inside or outside the saturation dome. In this case, it is possible
 to obtain an instance of a ThermodynamicState state vector, and then use it
 to call the additional functions already defined for one-phase media.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Function call</strong></td>
       <td><strong>Description</strong></td></tr>
   <tr><td>Medium.setBubbleState(sat, phase)</td>
@@ -4051,7 +4051,7 @@ The BaseProperties model contains the following <strong>7+nXi variables</strong>
 (nXi is the number of independent mass fractions defined in package
 PartialMedium):
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Variable</strong></td>
       <td><strong>Unit</strong></td>
       <td><strong>Description</strong></td></tr>

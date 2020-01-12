@@ -113,7 +113,7 @@ The sizes of any of the above components are specified by the
 <strong>length</strong>, <strong>width</strong> and <strong>height</strong> variables.
 Via variable <strong>extra</strong> additional data can be defined:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
   <td>\"cylinder\"</td>
@@ -353,7 +353,7 @@ The sizes of any of the above components are specified by the
 <strong>length</strong>, <strong>width</strong> and <strong>height</strong> variables.
 Via variable <strong>extra</strong> additional data can be defined:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
   <td>\"cylinder\"</td>
@@ -2171,7 +2171,7 @@ The sizes of any of the above components are specified by the
 <strong>length</strong>, <strong>width</strong> and <strong>height</strong> variables.
 Via variable <strong>extra</strong> additional data can be defined:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
   <td>\"cylinder\"</td>
@@ -2621,7 +2621,7 @@ equations (in this case, the models of the Visualizers package cannot be used,
 since they all have frame connectors).
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
       <td>Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.Advanced.Arrow\">
@@ -2895,7 +2895,7 @@ Package <strong>Visualizers</strong> contains components to visualize
 animation features of the MultiBody library.
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">FixedShape</a><br>
              <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape2\">FixedShape2</a></td>
       <td>Visualizing an elementary shape with dynamically varying shape attributes.

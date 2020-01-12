@@ -197,7 +197,7 @@ which are defined in sublibrary
 <a href=\"modelica://Modelica.Mechanics.Translational.Interfaces\">Interfaces</a>:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">List of common base classes for 1-dimensional translational components</caption>
   <tr><th>Name</th><th>Description</th></tr>
   <tr>

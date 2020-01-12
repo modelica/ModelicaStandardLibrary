@@ -814,7 +814,7 @@ Based on the setting of initType, the integrator (I) and derivative (D)
 blocks inside the PID controller are initialized according to the following table:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>initType</strong></td>
       <td><strong>I.initType</strong></td>
       <td><strong>D.initType</strong></td></tr>
@@ -1166,7 +1166,7 @@ Based on the setting of initType, the integrator (I) and derivative (D)
 blocks inside the PID controller are initialized according to the following table:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>initType</strong></td>
       <td><strong>I.initType</strong></td>
       <td><strong>D.initType</strong></td></tr>
@@ -4631,7 +4631,7 @@ values of initType are defined in
 <a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Name</strong></td>
       <td><strong>Description</strong></td></tr>
 

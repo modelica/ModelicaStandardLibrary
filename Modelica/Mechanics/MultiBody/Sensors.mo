@@ -360,7 +360,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 a vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vectors in world frame</td></tr>
@@ -819,7 +819,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 a vector is resolved (before differentiation):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vectors in world frame</td></tr>
@@ -1000,7 +1000,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1131,7 +1131,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the velocity vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1320,7 +1320,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1422,7 +1422,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1553,7 +1553,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the velocity vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1759,7 +1759,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2001,7 +2001,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the force vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2117,7 +2117,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the torque vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2283,7 +2283,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the two vectors are resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2763,7 +2763,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined in which frame
 the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2844,7 +2844,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2929,7 +2929,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined in which frame
 the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -3020,7 +3020,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -3170,7 +3170,7 @@ Via parameters <strong>frame_r_in</strong> and <strong>frame_r_out</strong> it i
 defined in which frame the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -3264,7 +3264,7 @@ Via parameters <strong>frame_r_in</strong> and <strong>frame_r_out</strong> it i
 defined in which frame the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -3476,7 +3476,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined in which frame
 the force vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -3561,7 +3561,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined in which frame
 the torque vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>

@@ -2028,7 +2028,7 @@ Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, res_ori, phi;
 Real[6]     res_equal;
 Real        L, angle;
 </pre></blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><strong>Orientation Q;</strong></td>
       <td>New type defining a quaternion object that describes<br>
@@ -3440,7 +3440,7 @@ Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
 Real[6]     res_equal;
 Real        L, angle;
 </pre></blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><strong>Orientation T;</strong></td>
       <td>New type defining an orientation object that describes<br>
@@ -3750,7 +3750,7 @@ Real[3]     v1, v2, w1, w2, n_x, n_y, n_z, e, e_x, res_ori, phi;
 Real[6]     res_equal;
 Real        L, angle;
 </pre></blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><strong>Orientation R;</strong></td>
       <td>New type defining an orientation object that describes<br>
