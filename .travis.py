@@ -20,7 +20,7 @@ from tidylib import tidy_document
 void_tags = ('area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'menuitem', 'meta', 'param', 'source', 'track', 'wbr')
 
 # Tags that should not be used
-avoidable_tags = ('b', 'i', 'h1', 'h2', 'h3', 'figure', 'figcaption')
+avoidable_tags = ('b', 'i', 'h1', 'h2', 'h3', 'h6', 'figure', 'figcaption')
 
 # See https://haacked.com/archive/2004/10/25/usingregularexpressionstomatchhtml.aspx/
 pattern = re.compile(r'</?\w+((\s+\w+(\s*=\s*(?:\\"(.|\n)*?\\"|\'(.|\n)*?\'|[^\'">\s]+))?)+\s*|\s*)/?>', re.IGNORECASE)
