@@ -793,14 +793,14 @@ handled properly.</p>
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}})),
       Documentation(info="<html>
-<p>When the Boolean input <srong>u</strong> becomes <strong>true</strong>, the timer starts
+<p>When the Boolean input <strong>u</strong> becomes <strong>true</strong>, the timer starts
 and the output <strong>y</strong> is the time that has elapsed since <strong>u</strong> became <strong>true</strong>.
 When the input becomes <strong>false</strong>, the timer stops and the output is reset to zero.
 </p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/Timer.png\"
-     alt=\"Timer.png\"> 
+     alt=\"Timer.png\">
 </p>
 
 </html>"));
