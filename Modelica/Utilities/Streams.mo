@@ -284,7 +284,7 @@ Parameter <strong>format</strong> defines the format in which the values are sto
 The following formats are supported:<br>&nbsp;
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td>format = </td><td>Type of format</td></tr>
 <tr><td>\"4\"  </td><td>MATLAB MAT version v4</td></tr>
 <tr><td>\"6\"  </td><td>MATLAB MAT version v6</td></tr>
@@ -332,7 +332,7 @@ does not allow to display formatted text.
 <p>
 In the table below an example call to every function is given:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Utilities.Streams.print\">print</a>(string)<br>
           <a href=\"modelica://Modelica.Utilities.Streams.print\">print</a>(string,fileName)</td>

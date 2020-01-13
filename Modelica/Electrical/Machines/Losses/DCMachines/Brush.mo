@@ -38,7 +38,7 @@ Model of voltage drop and losses of carbon brushes. For currents between <code>-
  For negative currents less or equal than <code>-ILinear</code> the voltage drop equals <code>-V</code>.
 </p>
 
-<table border=0 cellspacing=0 cellpadding=1>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
   <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/brush.png\"
                 alt=\"brush.png\"> </td> </tr>
   <tr><td> <strong> Fig. 1: </strong>Model of voltage drop of carbon brushes</td> </tr>

@@ -21,7 +21,7 @@ Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
 As a short summary:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td colspan=\"2\" align=\"center\"><strong>Type of pipe</strong></td>
       <td align=\"center\">Roughness</td></tr>
 
@@ -78,7 +78,7 @@ Enumeration to define the formulation of balance equations
 (to be selected via choices menu):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Dynamics.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>DynamicFreeInitial</td><td>Dynamic balance, Initial guess value</td></tr>
 
@@ -95,7 +95,7 @@ respectively. The exact meaning for the three balance equations is stated in the
 tables:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"3\"><strong>Mass balance</strong> </td></tr>
 <tr><td><strong>Dynamics.</strong></td>
     <td><strong>Balance equation</strong></td>
@@ -124,7 +124,7 @@ tables:
 
 &nbsp;<br>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"3\"><strong>Energy balance</strong> </td></tr>
 <tr><td><strong>Dynamics.</strong></td>
     <td><strong>Balance equation</strong></td>
@@ -149,7 +149,7 @@ tables:
 
 &nbsp;<br>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"3\"><strong>Momentum balance</strong> </td></tr>
 <tr><td><strong>Dynamics.</strong></td>
     <td><strong>Balance equation</strong></td>
@@ -199,7 +199,7 @@ Enumeration to define the choice of valve flow coefficient
 (to be selected via choices menu):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>CvTypes.</strong></th>
     <th><strong>Meaning</strong></th></tr>
 
@@ -237,7 +237,7 @@ Enumeration to define the assumptions on the model for the
 direction of fluid flow at a port (to be selected via choices menu):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>PortFlowDirection.</strong></th>
     <th><strong>Meaning</strong></th></tr>
 
@@ -272,7 +272,7 @@ Enumeration to define the discretization structure of
 distributed pipe models according to the staggered grid scheme:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>ModelStructure.</strong></th>
     <th><strong>Meaning</strong></th></tr>
 

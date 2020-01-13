@@ -179,7 +179,7 @@ second argument \"p\", any other p-norm can be computed:
 Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>1-norm</strong></td>
       <td>= sum(abs(v))</td>
       <td><strong>norm</strong>(v,1)</td>
@@ -1439,7 +1439,7 @@ more convenient to just use the function
 </p>
 <p>
 The optional third (Integer) output argument has the following meaning:</p>
-<table border=0 cellspacing=0 cellpadding=2>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td>info = 0:</td>
       <td>successful exit</td></tr>
   <tr><td>info &gt; 0:</td>
@@ -3139,7 +3139,7 @@ This function computes the exponential e<sup><strong>A</strong>T</sup> of matrix
 </p>
 <blockquote><pre>
                        (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
-<font size=4> <strong>&Phi;</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
+<font size=\"4\"> <strong>&Phi;</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
                          2!       3!
 </pre></blockquote>
 

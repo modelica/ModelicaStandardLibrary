@@ -104,7 +104,7 @@ tauLinear = tauRef*(wLinear/wRef) ^ power_w
 in the range <code> -wLinear &le; w &le; wLinear</code> with <code>wLinear = 0.001 * wRef</code>. The relationship of torque
 and angular velocity is depicted in Fig. 1
 </p>
-<table border=0 cellspacing=0 cellpadding=1>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
   <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/frictiontorque.png\"
                 alt=\"frictiontorque.png\"> </td>
   </tr>

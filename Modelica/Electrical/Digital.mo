@@ -2115,7 +2115,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
               annotation (Documentation(info="<html>
 <p><strong>Code Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Meaning</strong></td>
   </tr>
@@ -2141,7 +2141,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           annotation (Documentation(info="<html>
 <p><strong>Code Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Meaning</strong></td>
   </tr>
@@ -2167,7 +2167,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
 
 <p><strong>Strength Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Strength</strong></td>
       <td><strong>Output conversion to</strong></td>
   </tr>
@@ -3584,7 +3584,7 @@ To specify <em>setval</em>, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>
@@ -3657,7 +3657,7 @@ at the time <em>stepTime</em>.
 To specify the logic value parameters, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>
@@ -3732,7 +3732,7 @@ timepoints in the <em>t</em> table.<br>The initial value is specified by <em>y0<
 To specify the logic value parameters, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>
@@ -3829,7 +3829,7 @@ the number of periods is unlimited.
 To specify the logic value parameters, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>
@@ -4528,7 +4528,7 @@ The values val... are given by parameters.</p>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities</p>
 <p><strong>Truth Table for high active reset:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -4546,7 +4546,7 @@ The values val... are given by parameters.</p>
 
 <p><strong>Truth Table for low active reset:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -4685,7 +4685,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -4732,7 +4732,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -4952,7 +4952,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table for high active set and reset</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -4977,7 +4977,7 @@ Clock transition definitions:
 
 <p><strong>Truth Table for low active set and reset </strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -5140,7 +5140,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -5201,7 +5201,7 @@ Clock transition definitions:
 
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -5342,7 +5342,7 @@ Clock transition definitions:
 <p> Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
 <p><strong>Truth Table for high active reset:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5361,7 +5361,7 @@ Clock transition definitions:
 
 <p><strong>Truth Table for low active reset:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5494,7 +5494,7 @@ NC = no change
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5582,7 +5582,7 @@ NC = no change
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5761,7 +5761,7 @@ NC = no change
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table for high active set and reset</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5787,7 +5787,7 @@ NC = no change
 
 <p><strong>Truth Table for low active set and reset </strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5943,7 +5943,7 @@ NC = no change
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -6043,7 +6043,7 @@ NC = no change
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -6160,7 +6160,7 @@ NC = no change
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6242,7 +6242,7 @@ UX: if dataIn == U then U else X
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6324,7 +6324,7 @@ Strength Reduced: 0 -> L, 1 -> H, X -> W
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6406,7 +6406,7 @@ UX: if dataIn == U then U else X
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6484,7 +6484,7 @@ UX: if dataIn == U then U else X
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut*</strong></td>
@@ -6563,7 +6563,7 @@ DataOut*: Strength map for DataOut according to tristate table Buf3sTable
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut*</strong></td>
@@ -6647,7 +6647,7 @@ DataOut*: Strength map for DataOut according to tristate table Buf3slTable
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut*</strong></td>
@@ -6731,7 +6731,7 @@ DataOut*: Strength map for DataOut according to tristate table Buf3sTable
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut*</strong></td>
@@ -6851,7 +6851,7 @@ Wires n input signals in one output signal, without delay.
 Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
 </p>
 <p><strong>Truth Table for high active read enable RE:</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>RE</strong></td>
       <td><strong>Addr</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6862,7 +6862,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   <tr><td>X</td>  <td>*</td>              <td>X over all</td>  </tr>
 </table>
 <p><strong>Truth Table for high active write enable WE:</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>WE</strong></td>
       <td><strong>Addr</strong></td>
       <td><strong>Memory</strong></td>
@@ -6948,7 +6948,7 @@ Firstly Write is carried out, then Read.</strong></p>
 Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
 </p>
 <p><strong>Truth Table for high active read enable RE:</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>RE</strong></td>
       <td><strong>Addr</strong></td>
       <td><strong>DataOut</strong></td>
@@ -7148,7 +7148,7 @@ for both setting of input and interpreting the output values.
 
 <p><strong>Code Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>

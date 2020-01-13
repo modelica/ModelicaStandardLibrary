@@ -229,7 +229,7 @@ which are defined in sublibrary Interfaces:
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces\">Interfaces</a>:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">List of common base classes for 1-dimensional rotational components</caption>
   <tr><th>Name</th><th>Description</th></tr>
   <tr>
@@ -4432,7 +4432,7 @@ flow direction. They are defined by parameter <strong>lossTable[:,5]
 meaning:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tbody>
     <tr>
       <td>|w_a|</td>
@@ -4459,7 +4459,7 @@ meaning:
 </table>
 
 <p>with</p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tbody>
     <tr>
       <td>|w_a|</td>

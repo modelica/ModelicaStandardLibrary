@@ -26,7 +26,7 @@ avoidable_tags = ('b', 'i', 'h1', 'h2', 'h3', 'h6', 'figure', 'figcaption')
 pattern = re.compile(r'</?\w+((\s+\w+(\s*=\s*(?:\\"(.|\n)*?\\"|\'(.|\n)*?\'|[^\'">\s]+))?)+\s*|\s*)/?>', re.IGNORECASE)
 
 # HTML Tidy IDs to be ignored
-ignore_ids = ('MISSING_ATTRIBUTE', 'MISMATCHED_ATTRIBUTE_WARN', 'REMOVED_HTML5', 'MISSING_QUOTEMARK_OPEN')
+ignore_ids = ('MISSING_ATTRIBUTE', 'MISMATCHED_ATTRIBUTE_WARN', 'REMOVED_HTML5')
 
 # HTML Tidy options
 tidy_options = {'doctype': 'omit', 'show-body-only': 1, 'show-warnings': 1, 'show-info': 1, 'mute-id': 1}

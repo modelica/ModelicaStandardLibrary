@@ -907,7 +907,7 @@ be estimated. In <em>[Idelchik 1994, pp. 105-109,
 Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
 As a short summary:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Smooth pipes</strong></td>
       <td>Drawn brass, copper, aluminium, glass, etc.</td>
       <td>&delta; = 0.0025 mm</td>
@@ -1174,7 +1174,7 @@ The following equations are used:
    = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
      Re = |v|*D*&rho;/&mu;
 </pre></blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong>flow type</strong></td>
     <td><strong>&zeta;</strong> = </td>
     <td><strong>flow region</strong></td></tr>
@@ -1646,7 +1646,7 @@ The following equations are used:
    = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
      Re = |v|*D*&rho;/&mu;
 </pre></blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong>flow type</strong></td>
     <td><strong>&zeta;</strong> = </td>
     <td><strong>flow region</strong></td></tr>
@@ -1901,7 +1901,7 @@ The following equations are used:
    = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
      Re = |v|*D*&rho;/&mu;
 </pre></blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong>flow type</strong></td>
     <td><strong>&zeta;</strong> = </td>
     <td><strong>flow region</strong></td></tr>

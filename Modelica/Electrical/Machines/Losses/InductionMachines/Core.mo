@@ -77,7 +77,7 @@ The current implementation has thus the drawback over a model that considers <co
 <li>overestimation of the losses in the field weakening region (<code>w</code> &gt; <code>wRef</code>)</li>
 </ul>
 
-<table border=0 cellspacing=0 cellpadding=1>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
   <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"
                 alt=\"corelossesVw.png\"> </td>
   </tr>
@@ -85,7 +85,7 @@ The current implementation has thus the drawback over a model that considers <co
   </tr>
 </table>
 
-<table border=0 cellspacing=0 cellpadding=1>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"1\">
   <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"
                 alt=\"corelossesPcw.png\"> </td>
   </tr>

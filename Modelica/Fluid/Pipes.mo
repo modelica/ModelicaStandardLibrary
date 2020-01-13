@@ -1393,7 +1393,7 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
 <p>
 <strong>Optional Variables if show_Res</strong>
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Type</strong></th><th><strong>Name</strong></th><th><strong>Description</strong></th></tr>
 <tr><td>ReynoldsNumber</td><td>Res[n]</td>
     <td>Reynolds numbers of pipe flow per flow segment</td></tr>
@@ -1697,7 +1697,7 @@ a measure of the relationship between inertial forces (v&rho;) and viscous force
 <p>
 The following table gives examples for the characteristic dimension D and the velocity v for different fluid flow devices:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Device Type</strong></th><th><strong>Characteristic Dimension D</strong></th><th><strong>Velocity v</strong></th></tr>
 <tr><td>Circular Pipe</td><td>diameter</td>
     <td>m_flow/&rho;/crossArea</td></tr>

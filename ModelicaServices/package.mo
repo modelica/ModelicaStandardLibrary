@@ -76,7 +76,7 @@ First version of the ModelicaServices library.
       annotation (Documentation(info="<html>
 <h5>Main Author:</h5>
 
-<table border=0 cellspacing=0 cellpadding=2>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr>
 <td>
 <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
