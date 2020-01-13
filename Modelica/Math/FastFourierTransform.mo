@@ -100,7 +100,7 @@ A plot of the resulting FFT is shown in the next image:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/FFT1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/FastFourierTransform/FFT1.png\">
 </blockquote>
 
 <p>
@@ -810,7 +810,7 @@ resulting in:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/FFT1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/FastFourierTransform/FFT1.png\">
 </blockquote>
 
 
