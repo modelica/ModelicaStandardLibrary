@@ -120,7 +120,7 @@ equation
     annotation (Line(points={{-30,-10},{-30,-20}}, color={255,127,0}));
   connect(magFluxSensor.port_p, magneticGround.port)
     annotation (Line(points={{-30,-40},{-30,-50}}, color={255,127,0}));
-  connect(leakage.port_n, airGap.port_n) annotation (Line(points={{-1.77636e-15,
+  connect(leakage.port_n, airGap.port_n) annotation (Line(points={{0,
           -10},{0,-10},{0,-40},{30,-40}}, color={255,127,0}));
   connect(measuringCoil.port_p, leakage.port_p)
     annotation (Line(points={{30,10},{1.77636e-15,10}}, color={255,127,0}));
