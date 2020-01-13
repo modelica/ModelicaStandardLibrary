@@ -5,9 +5,9 @@ class Discrimination "Discrimination of Machine models"
   <table>
   <thead>
   <tr>
-  <th align=\"left\">Machine type</th>
-  <th align=\"left\">Transient models</th>
-  <th align=\"left\">QuasiStatic models</th>
+  <th style=\"text-align:left\">Machine type</th>
+  <th style=\"text-align:left\">Transient models</th>
+  <th style=\"text-align:left\">QuasiStatic models</th>
   </tr>
   </thead>
   <tbody>

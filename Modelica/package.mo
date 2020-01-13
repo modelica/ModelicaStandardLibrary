@@ -726,7 +726,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
-  &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption style=&quot;caption-side:bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
       &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
@@ -744,7 +744,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
-  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption style=&quot;caption-side:bottom&quot;&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
       &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
@@ -900,7 +900,7 @@ and
 
 <blockquote><pre>
 &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
-  &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption style=&quot;caption-side:bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
@@ -917,7 +917,7 @@ and
 </pre></blockquote>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Caption starts with a capital letter</caption>
+  <caption style=\"caption-side:bottom\">Caption starts with a capital letter</caption>
   <tr>
     <th><strong>Head 1</strong></th>
     <th><strong>Head 2</strong></th>
@@ -940,7 +940,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
 
 <blockquote><pre>
 &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
-  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Tab 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption style=&quot;caption-side:bottom&quot;&gt;&lt;strong&gt;Tab 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
@@ -957,7 +957,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
 </pre></blockquote>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Tab. 2:</strong> Caption starts with a capital letter</caption>
+  <caption style=\"caption-side:bottom\"><strong>Tab. 2:</strong> Caption starts with a capital letter</caption>
   <tr>
     <th>Head 1</th>
     <th>Head 2</th>
@@ -1108,7 +1108,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
-  <caption align=\"bottom\">List of electrical term spellings</caption>
+  <caption style=\"caption-side:bottom\">List of electrical term spellings</caption>
   <tr>
     <th>To be used</th>
     <th>Not to be used</th>
@@ -1170,7 +1170,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
-  <caption align=\"bottom\">List of magnetic term spellings</caption>
+  <caption style=\"caption-side:bottom\">List of magnetic term spellings</caption>
   <tr>
     <th>To be used</th>
     <th>Not to be used</th>
@@ -1256,7 +1256,7 @@ For Boolean parameters, the description string should start with &quot;= true, &
 <p>In the following table typical variable names are listed. This list should be completed.</p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
-   <caption align=\"bottom\">Variables and names</caption>
+   <caption style=\"caption-side:bottom\">Variables and names</caption>
    <tr>
       <th>Variable</th>
       <th>Quantity</th>
@@ -1875,7 +1875,7 @@ The authors would like to thank following persons for their support ...
 In the Modelica Standard Library the following color schemes apply:</p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Color schemes applied to particular libraries</caption>
+  <caption style=\"caption-side:bottom\">Color schemes applied to particular libraries</caption>
   <tr>
     <th>Package</th>
     <th>Color RGB code</th>
@@ -2024,7 +2024,7 @@ In the Modelica Standard Library the following color schemes apply:</p>
 and the most significant parameter can be displayed within the vertical Diagram range of the icon.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</caption>
+  <caption style=\"caption-side:bottom\"><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</caption>
   <tr>
     <td> (a)
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
@@ -2051,7 +2051,7 @@ shall be 10 units below the upper icon boundary, see <strong>Fig.&nbsp;1</strong
 the component name shall be placed above the icon with vertical 10 units of space between icon and lower text box, see <strong>Fig.&nbsp;2</strong>.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 2</strong>: Block component name</caption>
+  <caption style=\"caption-side:bottom\"><strong>Fig. 2</strong>: Block component name</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
@@ -2066,7 +2066,7 @@ shall be avoided to keep the design straight, see <strong>Fig.&nbsp;4</strong>. 
 the line shall be interrupted such that this line does not interfere with component name.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 3</strong>: Component name between actual icon and connector</caption>
+  <caption style=\"caption-side:bottom\"><strong>Fig. 3</strong>: Component name between actual icon and connector</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
@@ -2078,7 +2078,7 @@ the line shall be interrupted such that this line does not interfere with compon
 <p>In some cases, if there is not alternative, the component name has to be placed below the actual icon, see. <strong>Fig.&nbsp;4</strong>.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 4</strong>: Component name below actual icon</caption>
+  <caption style=\"caption-side:bottom\"><strong>Fig. 4</strong>: Component name below actual icon</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
@@ -2108,7 +2108,7 @@ Preferred connector locations are:</p>
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</caption>
+  <caption style=\"caption-side:bottom\"><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
@@ -2150,7 +2150,7 @@ design of sensors apply:
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</caption>
+  <caption style=\"caption-side:bottom\"><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</caption>
   <tr>
     <td> (a)
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
@@ -2164,7 +2164,7 @@ design of sensors apply:
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 7</strong>: Rectangular sensor </caption>
+  <caption style=\"caption-side:bottom\"><strong>Fig. 7</strong>: Rectangular sensor </caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
@@ -2174,7 +2174,7 @@ design of sensors apply:
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
+  <caption style=\"caption-side:bottom\"><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
@@ -8092,148 +8092,148 @@ class Contact "Contact"
 </tr>
 
 <tr>
-<td align=\"left\">UsersGuide</td>
-<td align=\"left\">Christian Kral, Jakub Tobolar</td>
+<td style=\"text-align:left\">UsersGuide</td>
+<td style=\"text-align:left\">Christian Kral, Jakub Tobolar</td>
 </tr>
 <tr>
-<td align=\"left\">Blocks</td>
-<td align=\"left\">Martin Otter, Anton Haumer</td>
+<td style=\"text-align:left\">Blocks</td>
+<td style=\"text-align:left\">Martin Otter, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\">ComplexBlocks</td>
-<td align=\"left\">Anton Haumer, Christian Kral</td>
+<td style=\"text-align:left\">ComplexBlocks</td>
+<td style=\"text-align:left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Blocks.Tables</td>
-<td align=\"left\">Thomas Beutlich, Martin Otter, Anton Haumer</td>
+<td style=\"text-align:left\">Blocks.Tables</td>
+<td style=\"text-align:left\">Thomas Beutlich, Martin Otter, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\">StateGraph</td>
-<td align=\"left\">Martin Otter, Hans Olsson</td>
+<td style=\"text-align:left\">StateGraph</td>
+<td style=\"text-align:left\">Martin Otter, Hans Olsson</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.Analog</td>
-<td align=\"left\">Christoph Clauss, Kristin Majetta, Christian Kral</td>
+<td style=\"text-align:left\">Electrical.Analog</td>
+<td style=\"text-align:left\">Christoph Clauss, Kristin Majetta, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.Digital</td>
-<td align=\"left\">Christoph Clauss, Kristin Majetta</td>
+<td style=\"text-align:left\">Electrical.Digital</td>
+<td style=\"text-align:left\">Christoph Clauss, Kristin Majetta</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.Machines</td>
-<td align=\"left\">Anton Haumer, Christian Kral</td>
+<td style=\"text-align:left\">Electrical.Machines</td>
+<td style=\"text-align:left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.Polyphase</td>
-<td align=\"left\">Anton Haumer, Christian Kral</td>
+<td style=\"text-align:left\">Electrical.Polyphase</td>
+<td style=\"text-align:left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.PowerConverters</td>
-<td align=\"left\">Christian Kral, Anton Haumer</td>
+<td style=\"text-align:left\">Electrical.PowerConverters</td>
+<td style=\"text-align:left\">Christian Kral, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.QuasiStatic</td>
-<td align=\"left\">Anton Haumer, Christian Kral</td>
+<td style=\"text-align:left\">Electrical.QuasiStatic</td>
+<td style=\"text-align:left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Electrical.Spice3</td>
-<td align=\"left\">Christoph Clauss, Kristin Majetta, Joe Riel</td>
+<td style=\"text-align:left\">Electrical.Spice3</td>
+<td style=\"text-align:left\">Christoph Clauss, Kristin Majetta, Joe Riel</td>
 </tr>
 <tr>
-<td align=\"left\">Magnetic.FluxTubes</td>
-<td align=\"left\">Thomas B&ouml;drich, Johannes Ziske</td>
+<td style=\"text-align:left\">Magnetic.FluxTubes</td>
+<td style=\"text-align:left\">Thomas B&ouml;drich, Johannes Ziske</td>
 </tr>
 <tr>
-<td align=\"left\">Magnetic.FundamentalWave</td>
-<td align=\"left\">Christian Kral, Anton Haumer</td>
+<td style=\"text-align:left\">Magnetic.FundamentalWave</td>
+<td style=\"text-align:left\">Christian Kral, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\">Magnetic.QuasiStatic</td>
-<td align=\"left\">Christian Kral, Anton Haumer</td>
+<td style=\"text-align:left\">Magnetic.QuasiStatic</td>
+<td style=\"text-align:left\">Christian Kral, Anton Haumer</td>
 </tr>
 <tr>
-<td align=\"left\">Mechanics.MultiBody</td>
-<td align=\"left\">Jakub Tobolar, Martin Otter</td>
+<td style=\"text-align:left\">Mechanics.MultiBody</td>
+<td style=\"text-align:left\">Jakub Tobolar, Martin Otter</td>
 </tr>
 <tr>
-<td align=\"left\">Mechanics.Rotational</td>
-<td align=\"left\">Jakub Tobolar, Martin Otter, Anton Haumer, Christian Kral</td>
+<td style=\"text-align:left\">Mechanics.Rotational</td>
+<td style=\"text-align:left\">Jakub Tobolar, Martin Otter, Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Mechanics.Translational</td>
-<td align=\"left\">Anton Haumer, Jakub Tobolar, Martin Otter, Christian Kral</td>
+<td style=\"text-align:left\">Mechanics.Translational</td>
+<td style=\"text-align:left\">Anton Haumer, Jakub Tobolar, Martin Otter, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Fluid</td>
-<td align=\"left\">R&uuml;diger Franke, Francesco Casella, Hubertus Tummescheit</td>
+<td style=\"text-align:left\">Fluid</td>
+<td style=\"text-align:left\">R&uuml;diger Franke, Francesco Casella, Hubertus Tummescheit</td>
 </tr>
 <tr>
-<td align=\"left\">Fluid.Dissipation</td>
-<td align=\"left\">Stefan Wischhusen, Francesco Casella</td>
+<td style=\"text-align:left\">Fluid.Dissipation</td>
+<td style=\"text-align:left\">Stefan Wischhusen, Francesco Casella</td>
 </tr>
 <tr>
-<td align=\"left\">Media</td>
-<td align=\"left\">Hubertus Tummescheit, Francesco Casella, R&uuml;diger Franke</td>
+<td style=\"text-align:left\">Media</td>
+<td style=\"text-align:left\">Hubertus Tummescheit, Francesco Casella, R&uuml;diger Franke</td>
 </tr>
 <tr>
-<td align=\"left\">Thermal.FluidHeatFlow</td>
-<td align=\"left\">Anton Haumer, Christian Kral</td>
+<td style=\"text-align:left\">Thermal.FluidHeatFlow</td>
+<td style=\"text-align:left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Thermal.HeatTransfer</td>
-<td align=\"left\">Anton Haumer, Christian Kral</td>
+<td style=\"text-align:left\">Thermal.HeatTransfer</td>
+<td style=\"text-align:left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Math</td>
-<td align=\"left\">Martin Otter, Hans Olsson</td>
+<td style=\"text-align:left\">Math</td>
+<td style=\"text-align:left\">Martin Otter, Hans Olsson</td>
 </tr>
 <tr>
-<td align=\"left\">ComplexMath</td>
-<td align=\"left\">Anton Haumer, Martin Otter, Christian Kral</td>
+<td style=\"text-align:left\">ComplexMath</td>
+<td style=\"text-align:left\">Anton Haumer, Martin Otter, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Utilities</td>
-<td align=\"left\">Martin Otter, Hans Olsson, Dag Br&uuml;ck</td>
+<td style=\"text-align:left\">Utilities</td>
+<td style=\"text-align:left\">Martin Otter, Hans Olsson, Dag Br&uuml;ck</td>
 </tr>
 <tr>
-<td align=\"left\">Constants</td>
-<td align=\"left\">Martin Otter, Hans Olsson</td>
+<td style=\"text-align:left\">Constants</td>
+<td style=\"text-align:left\">Martin Otter, Hans Olsson</td>
 </tr>
 <tr>
-<td align=\"left\">Icons</td>
-<td align=\"left\">Christian Kral, Jakub Tobolar</td>
+<td style=\"text-align:left\">Icons</td>
+<td style=\"text-align:left\">Christian Kral, Jakub Tobolar</td>
 </tr>
 <tr>
-<td align=\"left\">SIunits</td>
-<td align=\"left\">Martin Otter, Christian Kral</td>
+<td style=\"text-align:left\">SIunits</td>
+<td style=\"text-align:left\">Martin Otter, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">C-Sources</td>
-<td align=\"left\">Thomas Beutlich, Hans Olsson, Martin Sj&ouml;lund</td>
+<td style=\"text-align:left\">C-Sources</td>
+<td style=\"text-align:left\">Thomas Beutlich, Hans Olsson, Martin Sj&ouml;lund</td>
 </tr>
 <tr>
-<td align=\"left\">Reference</td>
-<td align=\"left\">Dietmar Winkler, Hans Olsson</td>
+<td style=\"text-align:left\">Reference</td>
+<td style=\"text-align:left\">Dietmar Winkler, Hans Olsson</td>
 </tr>
 <tr>
-<td align=\"left\">Services</td>
-<td align=\"left\">Hans Olsson, Martin Otter</td>
+<td style=\"text-align:left\">Services</td>
+<td style=\"text-align:left\">Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
-<td align=\"left\">Complex</td>
-<td align=\"left\">Anton Haumer, Christian Kral</td>
+<td style=\"text-align:left\">Complex</td>
+<td style=\"text-align:left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
-<td align=\"left\">Test</td>
-<td align=\"left\">Leo Gall, Martin Otter</td>
+<td style=\"text-align:left\">Test</td>
+<td style=\"text-align:left\">Leo Gall, Martin Otter</td>
 </tr>
 <tr>
-<td align=\"left\">TestOverdetermined</td>
-<td align=\"left\">Leo Gall, Martin Otter</td>
+<td style=\"text-align:left\">TestOverdetermined</td>
+<td style=\"text-align:left\">Leo Gall, Martin Otter</td>
 </tr>
 <tr>
-<td align=\"left\">ObsoleteModelica3</td>
-<td align=\"left\">Hans Olsson, Martin Otter</td>
+<td style=\"text-align:left\">ObsoleteModelica3</td>
+<td style=\"text-align:left\">Hans Olsson, Martin Otter</td>
 </tr>
 </table>
 

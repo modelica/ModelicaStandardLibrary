@@ -442,7 +442,7 @@ package Lines
 </blockquote>
 
 <p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
-<p align=\"center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code></p>
+<p style=\"text-align:center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code></p>
 <p>In the picture of the segment can be seen, that a single segment is asymmetric. Connecting such asymmetric segments in a series forces also an asymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:</p>
 
 <blockquote>

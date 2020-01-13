@@ -46,7 +46,7 @@ density(0,-1,1) // = 0.5
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -117,7 +117,7 @@ cumulative(0,-1,1) // = 0.5
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -196,7 +196,7 @@ quantile(0.5,-1,1) // = 0
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -247,7 +247,7 @@ For more details of this distribution see
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -311,7 +311,7 @@ density(3,1,0.5) // = 0.00026766045152977074
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -382,7 +382,7 @@ cumulative(0,1,0.5)  // = 0.15865525393145707
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -466,7 +466,7 @@ quantile(0.5,1,0.5) // = 1
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -527,7 +527,7 @@ For more details of this distribution see
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -610,7 +610,7 @@ density(0.5,-1.5,1.5,1,0.9) // = 0.5365495585520803
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -702,7 +702,7 @@ cumulative(0.5,-1.5,1.5,1,0.9)  // = 0.4046868865634537
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -802,7 +802,7 @@ quantile(0.5,0,1,0.5,0.9) // = 0.5
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -874,7 +874,7 @@ of truncated distributions, see
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -947,7 +947,7 @@ density(1,0.5,2) // = 0.14652511110987343
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1027,7 +1027,7 @@ cumulative(0.5,0.5,1) // = 0.6321205588285577
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1106,7 +1106,7 @@ quantile(0.5,1,0.5) // = 0.41627730557884884
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1162,7 +1162,7 @@ For more details of this distribution see
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1245,7 +1245,7 @@ density(0.5,0,0.8,0.5,2) // = 1.5948036466479143
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1336,7 +1336,7 @@ cumulative(0.5,0,0.8,0.5,2) // = 0.6850805314988328
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1437,7 +1437,7 @@ quantile(0.5,0,1,0.5,0.9) // = 0.256951787882498
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1506,7 +1506,7 @@ of truncated distributions, see
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1540,7 +1540,7 @@ arguments of the probability density functions.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1571,7 +1571,7 @@ arguments of the cumulative distribution functions.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1603,7 +1603,7 @@ arguments of the quantile functions.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1634,7 +1634,7 @@ arguments of the probability density functions of truncated distributions.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1665,7 +1665,7 @@ arguments of the cumulative distribution functions for a truncated distribution.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1696,7 +1696,7 @@ arguments of the quantile functions for truncated distributions.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1722,7 +1722,7 @@ truncated distribution functions.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1863,7 +1863,7 @@ compared with its truncated distribution:
 </blockquote>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>

@@ -526,7 +526,7 @@ with parallel axes and of 2 or 1 prismatic joint with axes that are orthogonal
 to the revolute joints can be treated analytically. The currently supported
 combinations are listed in the table below.
 </p>
-<div align=\"left\">
+<div style=\"text-align:left\">
     <table border=\"1\" cellspacing=\"0\" cellpadding=\"0\">
       <tr>
         <td colspan=\"2\"> <strong>3-dimensional Loops:</strong></td>

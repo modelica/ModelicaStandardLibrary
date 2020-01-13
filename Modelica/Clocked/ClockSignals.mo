@@ -719,8 +719,8 @@ then sub-samples the resulting clock signal with a factor of 3:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SubSample_Result.png\" alt=\"SubSample_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -850,8 +850,8 @@ then super-samples the resulting clock with a factor of 3:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SuperSample_Result.png\" alt=\"SuperSample_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -965,8 +965,8 @@ then shifts it with shiftCounter = 4 and resolution = 3:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/ShiftSample_Result.png\" alt=\"ShiftSample_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>

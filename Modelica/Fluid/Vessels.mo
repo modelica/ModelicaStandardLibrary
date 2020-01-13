@@ -557,9 +557,9 @@ If a <strong>straight pipe with constant cross section is mounted into a vessel 
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Pressure loss coefficients for outlets, entrance at a distance from wall</caption>
+  <caption style=\"caption-side:bottom\">Pressure loss coefficients for outlets, entrance at a distance from wall</caption>
   <tr>
-    <td></td> <td>   </td><th colspan=\"5\" align=\"center\"> b / D_hyd  </th>
+    <td></td> <td>   </td><th colspan=\"5\" style=\"text-align:center\"> b / D_hyd  </th>
   </tr>
   <tr>
     <td></td> <td>   </td><th> 0.000 </th><th> 0.005 </th><th> 0.020 </th><th> 0.100 </th><th> 0.500-&#8734; </th>
@@ -586,9 +586,9 @@ If a <strong>straight pipe with a circular bellmouth inlet (collector) without b
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Pressure loss coefficients for outlets, bellmouth flush with wall</caption>
+  <caption style=\"caption-side:bottom\">Pressure loss coefficients for outlets, bellmouth flush with wall</caption>
   <tr>
-    <td></td> <th colspan=\"6\" align=\"center\"> r / D_hyd  </th>
+    <td></td> <th colspan=\"6\" style=\"text-align:center\"> r / D_hyd  </th>
   </tr>
   <tr>
     <td></td> <th> 0.01 </th><th> 0.03 </th><th> 0.05 </th><th> 0.08 </th><th> 0.16 </th><th>&ge;0.20</th>
@@ -603,9 +603,9 @@ If a <strong>straight pipe with a circular bellmouth inlet (collector) without b
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Pressure loss coefficients for outlets, bellmouth at a distance of wall</caption>
+  <caption style=\"caption-side:bottom\">Pressure loss coefficients for outlets, bellmouth at a distance of wall</caption>
   <tr>
-    <td></td> <th colspan=\"6\" align=\"center\"> r / D_hyd  </th>
+    <td></td> <th colspan=\"6\" style=\"text-align:center\"> r / D_hyd  </th>
   </tr>
   <tr>
     <td></td> <th> 0.01 </th><th> 0.03 </th><th> 0.05 </th><th> 0.08 </th><th> 0.16 </th><th>&ge;0.20</th>
@@ -622,9 +622,9 @@ If a <strong>straight pipe with constant circular cross section is mounted flush
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
+  <caption style=\"caption-side:bottom\">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
   <tr>
-    <td></td> <th colspan=\"6\" align=\"center\"> m  </th>
+    <td></td> <th colspan=\"6\" style=\"text-align:center\"> m  </th>
   </tr>
   <tr>
     <td></td> <th> 1.0 </th><th> 2.0 </th><th> 3.0 </th><th> 4.0 </th><th> 7.0 </th><th>9.0</th>
@@ -639,9 +639,9 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
+  <caption style=\"caption-side:bottom\">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
   <tr>
-    <td></td> <th colspan=\"6\" align=\"center\"> A_port / A_vessel  </th>
+    <td></td> <th colspan=\"6\" style=\"text-align:center\"> A_port / A_vessel  </th>
   </tr>
   <tr>
     <td></td> <th> 0.0 </th><th> 0.1 </th><th> 0.2 </th><th> 0.4 </th><th> 0.6 </th><th>0.8</th>

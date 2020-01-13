@@ -71,7 +71,7 @@ with a sample period of 0.05 s. Simulations results are shown in the figure belo
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -96,7 +96,7 @@ This package contains examples demonstrating the usage of the functions in packa
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -193,7 +193,7 @@ and the returned state is the one from the last iteration.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -258,7 +258,7 @@ same random number r is returned.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -285,7 +285,7 @@ For an overview, comparison with other random number generators, and links to ar
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -366,7 +366,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -431,7 +431,7 @@ same random number r is returned.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -459,7 +459,7 @@ other random number generators, and links to articles, see
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -543,7 +543,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -608,7 +608,7 @@ same random number r is returned.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -635,7 +635,7 @@ For an overview, comparison with other random number generators, and links to ar
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -824,7 +824,7 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -887,7 +887,7 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 
       annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -976,7 +976,7 @@ This function should be only called once during initialization.
 <p>This function is impure!</p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1037,7 +1037,7 @@ path is provided.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1129,7 +1129,7 @@ random number generator to fill the internal state vector with 64 bit random num
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1203,7 +1203,7 @@ is returned, so the function is impure.
 <p>This function is impure!</p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1266,7 +1266,7 @@ is returned, so the function is impure.
 <p>This function is impure!</p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 <tr><td>June 2, 2017</td><td>Correct probabilities - especially for small ranges, by Hans Olsson, <a href=\"https://www.3ds.com\">Dassault Syst&egrave;mes</a></td></tr>
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1292,7 +1292,7 @@ that are usually of no interest for the user
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1347,7 +1347,7 @@ package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>

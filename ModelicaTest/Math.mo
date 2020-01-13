@@ -909,7 +909,7 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Documentation(info="<html>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -994,7 +994,7 @@ extends Modelica.Icons.ExamplesPackage;
        ok :=true;
       annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1079,7 +1079,7 @@ extends Modelica.Icons.ExamplesPackage;
        ok :=true;
       annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1177,7 +1177,7 @@ extends Modelica.Icons.ExamplesPackage;
        ok :=true;
       annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1338,7 +1338,7 @@ Implementation is according to Abramowitz and Stegun
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1411,7 +1411,7 @@ The relative error is less than 1e-9.
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1440,7 +1440,7 @@ The relative error is less than 1e-9.
         annotation (Inline=true, Documentation(info="<html>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1491,7 +1491,7 @@ For more details of this distribution see
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1530,7 +1530,7 @@ For more details of this distribution see
         end if;
         annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1568,7 +1568,7 @@ For more details of this distribution see
         end if;
         annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1588,7 +1588,7 @@ For more details of this distribution see
       end derTwoSided;
       annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>

@@ -22,8 +22,8 @@ As a short summary:
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <tr><td colspan=\"2\" align=\"center\"><strong>Type of pipe</strong></td>
-      <td align=\"center\">Roughness</td></tr>
+  <tr><td colspan=\"2\" style=\"text-align:center\"><strong>Type of pipe</strong></td>
+      <td style=\"text-align:center\">Roughness</td></tr>
 
   <tr><td><strong>Smooth pipes</strong></td>
       <td>Drawn brass, copper, aluminium, glass, etc.</td>

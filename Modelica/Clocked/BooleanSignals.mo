@@ -1004,9 +1004,9 @@ the following blocks are provided:<br>&nbsp;
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"3\">
-<tr><th align=\"left\"><strong>Boundary Type</strong></th>
-    <th align=\"left\"><strong>Block Name</strong></th>
-    <th align=\"left\"><strong>Description</strong></th></tr>
+<tr><th style=\"text-align:left\"><strong>Boundary Type</strong></th>
+    <th style=\"text-align:left\"><strong>Block Name</strong></th>
+    <th style=\"text-align:left\"><strong>Description</strong></th></tr>
 
 <tr><td valign=\"top\" rowspan=\"3\">continuous-time &rarr; clocked</td>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Sample\">Sample</a></td>

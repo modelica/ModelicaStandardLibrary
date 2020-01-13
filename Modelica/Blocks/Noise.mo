@@ -58,7 +58,7 @@ into your model and specify the seed.
             textString="fixedSeed =")}),
       Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -197,7 +197,7 @@ is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -258,7 +258,7 @@ is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -346,7 +346,7 @@ is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -672,7 +672,7 @@ distributions are given in the documentation of package
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>

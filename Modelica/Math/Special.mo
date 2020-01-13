@@ -92,7 +92,7 @@ erf(0.5)  // = 0.520499877813047
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -176,7 +176,7 @@ erfc(0.5)  // = 0.4795001221869534
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -262,7 +262,7 @@ erfInv(0.9999999999) // = 4.572824958544925
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -353,7 +353,7 @@ erfInv(1.999999)   // = -3.4589107372909473
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -382,7 +382,7 @@ erfInv(1.999999)   // = -3.4589107372909473
 
     annotation (Inline=true, Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -447,7 +447,7 @@ Evaluate a polynomial using Horner's scheme.
 </p>
 </html>",  revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -567,7 +567,7 @@ Utility function in order to compute part of erf(..) and erfc(..).
 </p>
 </html>",  revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -822,7 +822,7 @@ Utility function in order to compute erfInv(..) and erfcInv(..).
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -848,7 +848,7 @@ by the user.
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -875,7 +875,7 @@ cannot be expressed analytically.
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>

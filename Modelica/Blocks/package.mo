@@ -336,35 +336,35 @@ reached with different precisions. This is summarized in the following table:
    <td>Percentage of step value reached after rise time</td>
 </tr>
 <tr>
-   <td align=\"center\">1</td>
-   <td align=\"center\">3</td>
-   <td align=\"center\">95.1 %</td>
+   <td style=\"text-align:center\">1</td>
+   <td style=\"text-align:center\">3</td>
+   <td style=\"text-align:center\">95.1 %</td>
 </tr>
 <tr>
-   <td align=\"center\">1</td>
-   <td align=\"center\">4</td>
-   <td align=\"center\">98.2 %</td>
+   <td style=\"text-align:center\">1</td>
+   <td style=\"text-align:center\">4</td>
+   <td style=\"text-align:center\">98.2 %</td>
 </tr>
 <tr>
-   <td align=\"center\">1</td>
-   <td align=\"center\">5</td>
-   <td align=\"center\">99.3 %</td>
+   <td style=\"text-align:center\">1</td>
+   <td style=\"text-align:center\">5</td>
+   <td style=\"text-align:center\">99.3 %</td>
 </tr>
 
 <tr>
-   <td align=\"center\">2</td>
-   <td align=\"center\">3</td>
-   <td align=\"center\">94.7 %</td>
+   <td style=\"text-align:center\">2</td>
+   <td style=\"text-align:center\">3</td>
+   <td style=\"text-align:center\">94.7 %</td>
 </tr>
 <tr>
-   <td align=\"center\">2</td>
-   <td align=\"center\">4</td>
-   <td align=\"center\">98.6 %</td>
+   <td style=\"text-align:center\">2</td>
+   <td style=\"text-align:center\">4</td>
+   <td style=\"text-align:center\">98.6 %</td>
 </tr>
 <tr>
-   <td align=\"center\">2</td>
-   <td align=\"center\">5</td>
-   <td align=\"center\">99.6 %</td>
+   <td style=\"text-align:center\">2</td>
+   <td style=\"text-align:center\">5</td>
+   <td style=\"text-align:center\">99.6 %</td>
 </tr>
 </table></blockquote>
 
@@ -1461,7 +1461,7 @@ The result of a simulation is shown in the next diagram:
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1567,7 +1567,7 @@ manualSeed2 will produce exactly the same noise.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1635,7 +1635,7 @@ truncated normal distribution has more values centered around the mean value 1.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1740,7 +1740,7 @@ distribution have good statistical properties.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1844,7 +1844,7 @@ distribution have good statistical properties.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1911,7 +1911,7 @@ inputs:
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -1954,7 +1954,7 @@ generator. Simulation results are shown in the next figure:
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2071,7 +2071,7 @@ enableNoise = false in the globalSeed component.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2253,7 +2253,7 @@ This block is demonstrated in the example
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2324,7 +2324,7 @@ This block is demonstrated in the example
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2396,7 +2396,7 @@ This block is demonstrated in the example
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2437,7 +2437,7 @@ random number generator. This block is used in the example
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2670,7 +2670,7 @@ actuator example
 </p>
 </html>",         revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2751,7 +2751,7 @@ actuator example
                   textString="PI")}),
             Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2778,7 +2778,7 @@ actuator example
         end Controller;
       annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2808,7 +2808,7 @@ This package contains utility models that are used for the examples.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
@@ -2834,7 +2834,7 @@ to utilize the blocks from sublibrary
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>

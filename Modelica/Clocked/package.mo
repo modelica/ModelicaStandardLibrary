@@ -55,7 +55,7 @@ Furthermore:
 </html>",
 revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+<tr><th>Date</th> <th style=\"text-align:left\">Description</th></tr>
 
 <tr><td> Aug. 28, 2012 </td>
     <td>

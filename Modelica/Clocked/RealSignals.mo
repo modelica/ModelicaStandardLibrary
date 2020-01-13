@@ -61,8 +61,8 @@ samples a sine signal with a periodic clock of 20 ms period:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/Sample1_Result.png\" alt=\"Sample1_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 
@@ -81,8 +81,8 @@ step signal:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/Sample2_Result.png\" alt=\"Sample2_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 
@@ -101,13 +101,13 @@ delay of one sample period that breaks the algebraic loop:
     <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/Sample3_Model.png\" alt=\"Sample3_Model.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model<br></td>
+    <td style=\"text-align:center\">model<br></td>
    </tr>
 <tr><td></td>
     <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/Sample3_Result.png\" alt=\"Sample3_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 
@@ -188,8 +188,8 @@ samples a sine signal with a periodic clock of 20 ms period:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SampleClocked_Result.png\" alt=\"SampleClocked_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result<br></td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result<br></td>
    </tr>
 </table>
 </html>"));
@@ -264,8 +264,8 @@ signals are sampled with a periodic clock of 20 ms period:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SampleVectorizedAndClocked_Result.png\" alt=\"SampleVectorizedAndClocked_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result<br></td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result<br></td>
    </tr>
 </table>
 </html>"));
@@ -442,8 +442,8 @@ samples a sine signal with a periodic clock of 20 ms period, and adds the follow
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SampleWithADeffects_Result.png\" alt=\"SampleWithADeffects_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 
@@ -525,8 +525,8 @@ to -1.0 (= the value of parameter hold.y_start).<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/Hold_Result.png\" alt=\"Hold_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 &nbsp;
@@ -716,8 +716,8 @@ the following effects are added to the hold block:</p>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects1_Result.png\" alt=\"HoldWithDAeffects1_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 
@@ -741,8 +741,8 @@ from above:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/HoldWithDAeffects2_Result.png\" alt=\"HoldWithDAeffects2_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -876,8 +876,8 @@ then sub-samples the resulting clocked signal with a factor of 3:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SubSample_Result.png\" alt=\"SubSample_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -1021,8 +1021,8 @@ then super-samples the resulting clocked signal with a factor of 3:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SuperSample_Result.png\" alt=\"SuperSample_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -1172,8 +1172,8 @@ and interpolates the result linearly:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SuperSampleInterpolated_Result.png\" alt=\"SuperSampleInterpolated_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -1308,8 +1308,8 @@ then shifts it with shiftCounter = 4 and resolution = 3:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/ShiftSample_Result.png\" alt=\"ShiftSample_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -1451,8 +1451,8 @@ shift-samples it with shiftCounter = 4 and resolution = 3 and then back-samples 
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/BackSample_Result.png\" alt=\"BackSample_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -1552,8 +1552,8 @@ shows a discrete counter. In order to execute the counter with a sample period o
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClock_Result.png\" alt=\"AssignClock_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -1679,8 +1679,8 @@ shows two discrete counters. In order to execute the counters with a sample peri
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClockVectorized_Result.png\" alt=\"AssignClockVectorized_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -1835,8 +1835,8 @@ then upsamples the resulting clocked signal with a factor of 3:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UpSample1_Result.png\" alt=\"UpSample1_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -1859,19 +1859,19 @@ and applies varies filters on this signal:<br>
     <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UpSample2_Model.png\" alt=\"UpSample2_Model.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model<br></td>
+    <td style=\"text-align:center\">model<br></td>
    </tr>
 <tr><td></td>
     <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UpSample2_Result1.png\" alt=\"UpSample2_Result1.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">simulation result 1<br></td>
+    <td style=\"text-align:center\">simulation result 1<br></td>
    </tr>
 <tr><td></td>
     <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UpSample2_Result2.png\" alt=\"UpSample2_Result2.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">simulation result 2</td>
+    <td style=\"text-align:center\">simulation result 2</td>
    </tr>
 </table>
 
@@ -1962,8 +1962,8 @@ samples a sine signal with a periodic clock of 20 ms period. After that a contin
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClockToTriggerHold_Result.png\" alt=\"AssignClockToTriggerHold_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
@@ -2036,8 +2036,8 @@ samples a sine signal with a periodic clock of 20 ms period. After that a Boolea
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/AssignClockToSquareWaveHold_Result.png\" alt=\"AssignClockToSquareWaveHold_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 </html>"));
@@ -2139,8 +2139,8 @@ noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UniformNoise_Result.png\" alt=\"UniformNoise_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 </html>"),  Icon(graphics={
@@ -2299,8 +2299,8 @@ noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/UniformNoiseXorshift64star_Result.png\" alt=\"UniformNoiseXorshift64star_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 </html>"),  Icon(graphics={
@@ -2663,9 +2663,9 @@ the following blocks are provided:<br>&nbsp;
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"3\">
-<tr><th align=\"left\"><strong>Boundary Type</strong></th>
-    <th align=\"left\"><strong>Block Name</strong></th>
-    <th align=\"left\"><strong>Description</strong></th></tr>
+<tr><th style=\"text-align:left\"><strong>Boundary Type</strong></th>
+    <th style=\"text-align:left\"><strong>Block Name</strong></th>
+    <th style=\"text-align:left\"><strong>Description</strong></th></tr>
 
 <tr><td valign=\"top\" rowspan=\"4\">continuous-time &rarr; clocked</td>
       <td><a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Sample</a></td>
@@ -2952,8 +2952,8 @@ shows how a sample sine signal is delayed.
                         <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/FractionalDelay_Result.png\" alt=\"FractionalDelay_Result.png\"></td>
     </tr>
 <tr><td></td>
-    <td align=\"center\">model</td>
-    <td align=\"center\">simulation result</td>
+    <td style=\"text-align:center\">model</td>
+    <td style=\"text-align:center\">simulation result</td>
    </tr>
 </table>
 <p>
