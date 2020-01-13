@@ -123,7 +123,7 @@ equation
   connect(leakage.port_n, airGap.port_n) annotation (Line(points={{0,
           -10},{0,-10},{0,-40},{30,-40}}, color={255,127,0}));
   connect(measuringCoil.port_p, leakage.port_p)
-    annotation (Line(points={{30,10},{1.77636e-15,10}}, color={255,127,0}));
+    annotation (Line(points={{30,10},{0,10}}, color={255,127,0}));
   connect(leakage.R_mUsefulTot, usefulReluctance.y)
     annotation (Line(points={{12,0},{20,0},{20,-9}}, color={0,0,127}));
   annotation (Documentation(info="<html>
