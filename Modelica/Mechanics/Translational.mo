@@ -38,7 +38,7 @@ systems are available in the simulation tool, the simulation of
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive1.png\" alt=\"drive1\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive1.png\" alt=\"drive1\">
 </div>
 
 <p>
@@ -69,8 +69,8 @@ together, see figure below.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections1.png\" alt=\"driveConnections1\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections2.png\" alt=\"driveConnections2\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveConnections1.png\" alt=\"driveConnections1\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveConnections2.png\" alt=\"driveConnections2\"><br>
 </div>
 </html>"));
 
@@ -121,7 +121,7 @@ If it is disabled, it needs not be connected.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing.png\" alt=\"bearing\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/bearing.png\" alt=\"bearing\">
 </div>
 
 <p>
@@ -132,7 +132,7 @@ identical results.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing2.png\" alt=\"bearing2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/bearing2.png\" alt=\"bearing2\">
 </div>
 </html>"));
 
@@ -152,7 +152,7 @@ at hand of the following figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive2.png\" alt=\"drive2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive2.png\" alt=\"drive2\">
 </div>
 
 <p>
@@ -169,7 +169,7 @@ vector direction displayed according to this rule:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive3.png\" alt=\"drive3\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive3.png\" alt=\"drive3\">
 </div>
 <p>
 The cut-force <code>mass2.flange_a.f</code>
@@ -270,7 +270,7 @@ for a mass component:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveAxis.png\" alt=\"driveAxis\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveAxis.png\" alt=\"driveAxis\">
 </div>
 
 <p>
@@ -285,7 +285,7 @@ component. But this is not the case, as shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/masses.png\" alt=\"masses\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/masses.png\" alt=\"masses\">
 </div>
 
 <p>
