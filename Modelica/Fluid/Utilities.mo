@@ -61,7 +61,7 @@ is negative. It must be positive.
 <p>
 This function approximates sqrt(abs(x))*sgn(x), such that the derivative is finite and smooth in x=0.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
 <tr><td>y = regRoot(x)</td><td>y ~= sqrt(abs(x))*sgn(x)</td><td>abs(x) &gt;&gt;delta</td></tr>
 <tr><td>y = regRoot(x)</td><td>y ~= x/sqrt(delta)</td><td>abs(x) &lt;&lt; delta</td></tr>
@@ -112,7 +112,7 @@ With the default value of delta=0.01, the difference between sqrt(x) and regRoot
 <p>
 This function approximates x^2*sgn(x), such that the derivative is non-zero in x=0.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
 <tr><td>y = regSquare(x)</td><td>y ~= x^2*sgn(x)</td><td>abs(x) &gt;&gt;delta</td></tr>
 <tr><td>y = regSquare(x)</td><td>y ~= x*delta</td><td>abs(x) &lt;&lt; delta</td></tr>
@@ -144,7 +144,7 @@ With the default value of delta=0.01, the difference between x^2 and regSquare(x
 <p>
 This function approximates abs(x)^a*sign(x), such that the derivative is positive, finite and smooth in x=0.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
 <tr><td>y = regPow(x)</td><td>y ~= abs(x)^a*sgn(x)</td><td>abs(x) &gt;&gt;delta</td></tr>
 <tr><td>y = regPow(x)</td><td>y ~= x*delta^(a-1)</td><td>abs(x) &lt;&lt; delta</td></tr>

@@ -10,7 +10,6 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ![ModelicaLibraries](Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png)
 
-
 ## Current release
 
 [Modelica Standard Library v3.2.3+build.3 (2019-09-21)](https://github.com/modelica/ModelicaStandardLibrary/releases/tag/v3.2.3+build.3)
@@ -24,7 +23,12 @@ Browse the [Releases](https://github.com/modelica/ModelicaStandardLibrary/releas
 This Modelica package is free software and the use is completely at your own risk;
 it can be redistributed and/or modified under the terms of the [3-Clause BSD License](LICENSE).
 
+## Status
+
+[![CI checks](https://travis-ci.org/modelica/ModelicaStandardLibrary.svg?branch=master)](https://travis-ci.org/modelica/ModelicaStandardLibrary) [![CLA assistant](https://cla-assistant.io/readme/badge/modelica/ModelicaStandardLibrary)](https://cla-assistant.io/modelica/ModelicaStandardLibrary)
+
 ## Development and contribution
+
 The development is organised by the [Modelica Association Project - Libraries (MAP-LIB)](https://www.modelica.org/projects).
 See also the [contribution guide](CONTRIBUTING.md) and the [MAP-LIB Project Rules](https://github.com/modelica/MAP-LIB_ProjectRules) for more information.
 

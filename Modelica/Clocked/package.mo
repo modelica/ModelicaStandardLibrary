@@ -54,12 +54,12 @@ Furthermore:
 </p>
 </html>",
 revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Aug. 28, 2012 </td>
     <td>
-    <table border=0>
+    <table border=\"0\">
     <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Clocked/dlr_logo.png\" alt=\"dlr_logo.png\">
     </td><td valign=\"bottom\">

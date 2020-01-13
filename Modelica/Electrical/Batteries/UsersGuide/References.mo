@@ -46,7 +46,7 @@ class References "References"
       <td>[Schmidt2013]</td>
       <td>Jan Philipp Schmidt,
         <em>Verfahren zur Charakterisierung und Modellierung von Lithium-Ionen Zellen</em>,
-        PhD thesis, Karlsruher Institut f&uuml; Technologie, 2013</td>
+        PhD thesis, Karlsruher Institut f&uuml;r Technologie, 2013</td>
     </tr>
 </table>
 </html>"));

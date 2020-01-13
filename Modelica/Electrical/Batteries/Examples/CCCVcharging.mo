@@ -7,6 +7,7 @@ model CCCVcharging
     useLinearSOCDependency=false,
     Ri=cellData.OCVmax/1200,
     Idis=0.001,
+    nRC=2,
     rcData={Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(
         R=0.2*cellData.Ri, C=60/(0.2*cellData.Ri)),
         Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(R=
@@ -19,8 +20,7 @@ model CCCVcharging
     useHeatPort=false,
     SOC(fixed=true, start=0.1)) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
   Modelica.Electrical.Analog.Sensors.PowerSensor powerSensor

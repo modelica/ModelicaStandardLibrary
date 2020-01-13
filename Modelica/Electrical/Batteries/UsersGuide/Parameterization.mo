@@ -36,8 +36,8 @@ Linear temperature dependency of inner resistance can be specified by reference 
 </p>
 <h4>Transient parameters</h4>
 <p>
-The parameter record for one cell of a transient battery model <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">cellData</a> 
-extends from the <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">basic cellData</a> record, and adds the parameters of the additional RC-elements. 
+The parameter record for one cell of a transient battery model <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">cellData</a>
+extends from the <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">basic cellData</a> record, and adds the parameters of the additional RC-elements.
 These are specified by an array of parameter records <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a>:
 </p>
 <ul>
@@ -45,7 +45,7 @@ These are specified by an array of parameter records <a href=\"modelica://Modeli
 <li><code>C</code> .. Capacitance of RC-element</li>
 </ul>
 <p>
-The size of the array of parameter records <code>rcData</code> determines the count of RC-elements instantiated.<br>
+The size of the array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a> has to be defined as parameter <code>nRC</code>.
 The parameters of these RC-elements are results of sophisticated measurements, e.g. cell impedance spectroscopy.<br>
 Temperature dependency of the resistors is assumed to be the same as inner resistance <code>Ri</code>.
 </p>

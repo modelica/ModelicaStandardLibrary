@@ -57,13 +57,13 @@ into your model and specify the seed.
             textColor={255,0,0},
             textString="fixedSeed =")}),
       Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -91,7 +91,7 @@ hierarchical level. The following options can be selected:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Icon</th>
     <th>Description</th></tr>
 
@@ -196,13 +196,13 @@ model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.Globa
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -257,13 +257,13 @@ model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.Globa
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -345,13 +345,13 @@ model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.Globa
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -506,7 +506,7 @@ When using a noise block of this package, at a minimum the following parameters 
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Parameter</th>
     <th>Description</th></tr>
 
@@ -529,7 +529,7 @@ In the next diagram, a simulation result is shown for samplePeriod=0.02 s and un
 y_min=-1, y_max=3:
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoise.png\">
 </blockquote>
 
 <h4>Advanced tab: General settings</h4>
@@ -539,7 +539,7 @@ as shown in the next table:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Parameter</th>
     <th>Description</th></tr>
 
@@ -564,7 +564,7 @@ the desired situation. For this purpose the following parameters can be defined:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Parameter</th>
     <th>Description</th></tr>
 
@@ -671,13 +671,13 @@ distributions are given in the documentation of package
 <a href=\"modelica://Modelica.Math.Distributions\">Math.Distributions</a>.
 </p>
 </html>", revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">

@@ -814,7 +814,7 @@ Based on the setting of initType, the integrator (I) and derivative (D)
 blocks inside the PID controller are initialized according to the following table:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>initType</strong></td>
       <td><strong>I.initType</strong></td>
       <td><strong>D.initType</strong></td></tr>
@@ -1166,7 +1166,7 @@ Based on the setting of initType, the integrator (I) and derivative (D)
 blocks inside the PID controller are initialized according to the following table:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>initType</strong></td>
       <td><strong>I.initType</strong></td>
       <td><strong>D.initType</strong></td></tr>
@@ -1635,7 +1635,7 @@ different orders are shown in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Butterworth.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/Butterworth.png\"
      alt=\"Butterworth.png\">
 </p>
 
@@ -1775,12 +1775,12 @@ y = ------------- * u
 </pre></blockquote>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNormalized.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNormalized.png\"
      alt=\"CriticalDampingNormalized.png\">
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNonNormalized.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNonNormalized.png\"
      alt=\"CriticalDampingNonNormalized.png\">
 </p>
 
@@ -2020,7 +2020,7 @@ are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/LowPassOrder4Filters.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/LowPassOrder4Filters.png\"
      alt=\"LowPassOrder4Filters.png\">
 </blockquote>
 
@@ -2030,7 +2030,7 @@ starting from a steady state initial filter with initial input = 0.2:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/LowPassOrder4FiltersStepResponse.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/LowPassOrder4FiltersStepResponse.png\"
      alt=\"LowPassOrder4FiltersStepResponse.png\">
 </blockquote>
 
@@ -2051,7 +2051,7 @@ are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/HighPassOrder4Filters.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/HighPassOrder4Filters.png\"
      alt=\"HighPassOrder4Filters.png\">
 </blockquote>
 
@@ -2060,7 +2060,7 @@ The corresponding step responses of these high pass filters are
 shown in the next figure:
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/HighPassOrder4FiltersStepResponse.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/HighPassOrder4FiltersStepResponse.png\"
      alt=\"HighPassOrder4FiltersStepResponse.png\">
 </blockquote>
 
@@ -2081,12 +2081,12 @@ CriticalDamping filters of order 1,2,3:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNormalized.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNormalized.png\"
      alt=\"CriticalDampingNormalized.png\">
 </blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNonNormalized.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNonNormalized.png\"
      alt=\"CriticalDampingNonNormalized.png\">
 </blockquote>
 
@@ -4631,7 +4631,7 @@ values of initType are defined in
 <a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Name</strong></td>
       <td><strong>Description</strong></td></tr>
 

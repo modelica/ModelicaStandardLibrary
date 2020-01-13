@@ -2982,7 +2982,7 @@ more complicated structures. For example, a part may be built up of
 a \"Body\" and of several \"FixedTranslation\" components.
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed</a></td>
       <td>Frame fixed in world frame at a given position.

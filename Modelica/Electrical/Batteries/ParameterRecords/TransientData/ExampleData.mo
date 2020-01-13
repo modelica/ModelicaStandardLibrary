@@ -1,6 +1,7 @@
 within Modelica.Electrical.Batteries.ParameterRecords.TransientData;
 record ExampleData "Example parameters of a battery cell"
   extends Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData(
+    CellType="Example data",
     useLinearSOCDependency=false,
     OCVmax=4.2,
     OCVmin=2.5,
@@ -12,6 +13,7 @@ record ExampleData "Example parameters of a battery cell"
         0.826; 0.50,0.835; 0.55,0.843; 0.60,0.855; 0.65,0.871; 0.70,0.888; 0.75,
         0.905; 0.80,0.926; 0.85,0.943; 0.90,0.964; 0.95,0.980; 1.00,1.00],
     smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative);
+
   annotation(defaultComponentPrefixes="parameter", Documentation(info="<html>
   <p>This is an example for an OCV versus SOC characteristic</p>
 </html>"));

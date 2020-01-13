@@ -368,7 +368,7 @@ For one-dimensional flow
 along the coordinate \"x\", the following partial differential
 equations hold
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td> Mass balance</td>
       <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/massBalance.png\"
                 alt=\"massBalance.png\"></td>
@@ -406,7 +406,7 @@ the momentum balance with \"v\" and subtracting it
 from the energy balance 1 above. This results in
 the \"energy balance 2\":
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td> Energy balance 2</td>
       <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance2.png\"
                 alt=\"energyBalance2.png\"></td>
@@ -772,7 +772,7 @@ be estimated. In <em>[Idelchik 1994, pp. 105-109,
 Table 2-5; Miller 1990, p. 190, Table 8-1]</em> many examples are given.
 As a short summary:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Smooth pipes</strong></td>
       <td>Drawn brass, copper, aluminium, glass, etc.</td>
       <td>&delta; = 0.0025 mm</td>

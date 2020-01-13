@@ -13146,6 +13146,6 @@ Harburger Schlossstra&szlig;e 6-12<br>
 21079 Hamburg<br>
 Germany<br>
 <br>
-<a href=mailto:info@xrg-simulation.de>info@xrg-simulation.de</a> </html>"));
+<a href=\"mailto:info@xrg-simulation.de\">info@xrg-simulation.de</a> </html>"));
 
 end Dissipation;

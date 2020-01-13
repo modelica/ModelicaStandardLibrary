@@ -65,7 +65,7 @@ and at the poles (geodeticLatitude=90). For example, after 10 s of simulation ti
 the rotation angle of the pendulum, rev.phi, has the following values:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong><em>latitude [deg]</em></strong></td>
     <td><strong><em>rev.phi [rad]</em></strong></td></tr>
 <tr><td> = 0</td>

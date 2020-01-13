@@ -6786,7 +6786,7 @@ The assembly joints in this package are named <strong>JointXYZ</strong> where
 <strong>XYZ</strong> are the first letters of the elementary joints used in the
 component, in particular:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>P</strong></td><td>Prismatic joint</td></tr>
   <tr><td><strong>R</strong></td><td>Revolute joint</td></tr>
   <tr><td><strong>S</strong></td><td>Spherical joint</td></tr>
@@ -6799,7 +6799,7 @@ of a universal, a spherical and a revolute joint.
 <p> This package contains the following models:
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a></td>
       <td> Universal - prismatic - spherical joint aggregation<br>
@@ -8612,7 +8612,7 @@ of equations occurring in these joint aggregations are analytically
 solved, i.e., robustly and efficiently).
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Prismatic\">Prismatic</a></td>
       <td>Prismatic joint and actuated prismatic joint

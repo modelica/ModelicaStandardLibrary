@@ -1,4 +1,4 @@
-﻿within Modelica.Clocked;
+within Modelica.Clocked;
 package Examples
   "Library of examples to demonstrate the usage of package Modelica.Clocked"
   extends Modelica.Icons.ExamplesPackage;
@@ -1583,7 +1583,7 @@ Obviously, the concentration follows reasonably well the desired one. By using a
               lineColor = {0,0,255}),
             Text(
               extent = {{100,60},{150,40}},
-              lineColor = {0,0,255},
+              textColor = {0,0,255},
               textString = "Load torque")}),
         Icon(coordinateSystem(
           preserveAspectRatio = true,

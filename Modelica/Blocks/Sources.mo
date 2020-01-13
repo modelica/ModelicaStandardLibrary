@@ -3642,7 +3642,7 @@ All Real source signals (with the exception of the Constant source)
 have at least the following two parameters:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>offset</strong></td>
       <td>Value which is added to the signal</td>
   </tr>

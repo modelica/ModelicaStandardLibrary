@@ -474,13 +474,13 @@ hashString(\"this is a test\")     // =  1827717433
 hashString(\"Controller.noise1\")  // = -1025762750
 </pre></blockquote>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -572,7 +572,7 @@ Function <strong>scanToken</strong> scans the string starting at index
 index directly after the token. The returned token is a record
 that holds the type of the token and the value of the token:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td>token.tokenType</td>
       <td>Type of the token, see below</td></tr>
   <tr><td>token.real</td>
@@ -591,7 +591,7 @@ with constants) that can have the following values:
 <blockquote><pre>
 import T = Modelica.Utilities.Types.TokenType;
 </pre></blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td>T.RealToken</td>
       <td>Modelica Real literal (e.g., 1.23e-4)</td></tr>
   <tr><td>T.IntegerToken</td>
@@ -1349,7 +1349,7 @@ Package <strong>Strings</strong> contains functions to manipulate strings.
 In the table below an example
 call to every function is given using the <strong>default</strong> options.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Function</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td>len = <a href=\"modelica://Modelica.Utilities.Strings.length\">length</a>(string)</td>
       <td>Returns length of string</td></tr>

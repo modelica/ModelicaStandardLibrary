@@ -712,7 +712,7 @@ generates a periodic clock of 20 ms period, and
 then sub-samples the resulting clock signal with a factor of 3:<br>
 </p>
 
-<table border=0 cellspacing=0 cellpadding=2>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
     <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SubSample_Model.png\" alt=\"SubSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
@@ -843,7 +843,7 @@ generates a periodic clock of 20 ms period, and
 then super-samples the resulting clock with a factor of 3:<br>
 </p>
 
-<table border=0 cellspacing=0 cellpadding=2>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
     <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/SuperSample_Model.png\" alt=\"SuperSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
@@ -958,7 +958,7 @@ generates a periodic clock of 20 ms period, and
 then shifts it with shiftCounter = 4 and resolution = 3:<br>
 </p>
 
-<table border=0 cellspacing=0 cellpadding=2>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
     <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/ClockSignals/ShiftSample_Model.png\" alt=\"ShiftSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;

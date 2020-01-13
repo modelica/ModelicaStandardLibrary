@@ -1,6 +1,7 @@
 within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
   import SI = Modelica.SIunits;
+
   extends Modelica.Icons.Package;
 
 package Examples
@@ -135,10 +136,10 @@ to initialize the angle and the angular acceleration of \"inertia1\".
 In the following figure, results of a typical simulation are shown:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/PID_controller.png\"
      alt=\"PID_controller.png\"><br>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller2.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/PID_controller2.png\"
      alt=\"PID_controller2.png\">
 
 <p>
@@ -230,7 +231,7 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
 2 Hz resulting in the following outputs:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Filter1.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Filter1.png\"
      alt=\"Filter1.png\">
 </html>"));
   end Filter;
@@ -319,7 +320,7 @@ the results of a simulation of this example model
 (riseTime = 2 s, fac=3, 4, and 5):
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/FilterWithRiseTime.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/FilterWithRiseTime.png\"
      alt=\"FilterWithRiseTime.png\">
 
 <p>
@@ -328,7 +329,7 @@ shall reach the value of 1 after 1+2=3 s. Depending on the factor \"fac\" this i
 reached with different precisions. This is summarized in the following table:
 </p>
 
-<blockquote><table border=1 cellspacing=0 cellpadding=2>
+<blockquote><table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr>
    <td>Filter order</td>
    <td>Factor fac</td>
@@ -514,7 +515,7 @@ Modelica model. The basic construction mechanism is explained at hand
 of this example:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/InverseModelSchematic.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/InverseModelSchematic.png\"
      alt=\"InverseModelSchematic.png\">
 
 <p>
@@ -538,7 +539,7 @@ is zero. The higher the cut-off frequency of the filter, the closer is the
 agreement. A typical simulation result is shown in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/InverseModel.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/InverseModel.png\"
      alt=\"InverseModel.png\">
 </html>"), experiment(StopTime=1.0));
   end InverseModel;
@@ -1020,7 +1021,7 @@ to use a \"signal bus\" concept also in a Modelica model. This is demonstrated
 at hand of this model (Modelica.Blocks.Examples.BusUsage):
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/BusUsage.png\"
      alt=\"BusUsage.png\">
 
 <ul>
@@ -1065,7 +1066,7 @@ is constructed by the variables connected to instances of this connector.
 For example, if \"sine.y\" is connected to the \"controlBus\", a pop-up menu may appear:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage2.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/BusUsage2.png\"
      alt=\"BusUsage2.png\">
 
 <p>
@@ -1103,7 +1104,7 @@ Consequently, when connecting now from \"sine.y\" to \"controlBus\", the menu
 looks differently:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage3.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/BusUsage3.png\"
      alt=\"BusUsage3.png\">
 
 <p>
@@ -1456,16 +1457,16 @@ The result of a simulation is shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoise.png\">
 </blockquote>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1547,7 +1548,7 @@ diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/AutomaticSeed1.png\">
 </blockquote>
 
 <p>
@@ -1557,7 +1558,7 @@ Again, different noise is generated, see next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/AutomaticSeed2.png\">
 </blockquote>
 
 <p>
@@ -1565,13 +1566,13 @@ Try to set fixedLocalSeed = 1 in block manualSeed2. As a result, the blocks manu
 manualSeed2 will produce exactly the same noise.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1625,7 +1626,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Distributions.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/Distributions.png\">
 </blockquote>
 
 <p>
@@ -1633,13 +1634,13 @@ As can be seen, uniform noise is distributed evenly between -1 and 3, and
 truncated normal distribution has more values centered around the mean value 1.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1728,7 +1729,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoiseProperties1.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoiseProperties1.png\"/>
 </blockquote>
 
 <p>
@@ -1738,13 +1739,13 @@ This demonstrates that the random number generator and the mapping to a uniform
 distribution have good statistical properties.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1832,7 +1833,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/NormalNoiseProperties1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/NormalNoiseProperties1.png\">
 </blockquote>
 
 <p>
@@ -1842,13 +1843,13 @@ This demonstrates that the random number generator and the mapping to a normal
 distribution have good statistical properties.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1906,16 +1907,16 @@ inputs:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Densities.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/Densities.png\">
 </blockquote>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1949,16 +1950,16 @@ generator. Simulation results are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ImpureGenerator.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/ImpureGenerator.png\">
 </blockquote>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2039,7 +2040,7 @@ This example models an actuator with a noisy sensor (which is in the motor compo
 
 <blockquote>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ActuatorNoiseDiagram.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/ActuatorNoiseDiagram.png\"/>
 </p></blockquote>
 
 <p>
@@ -2061,7 +2062,7 @@ on the position of the actuator. The effect of the noise can be seen in the moto
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ActuatorNoise.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/ActuatorNoise.png\"/>
 </p></blockquote>
 
 <p>
@@ -2069,13 +2070,13 @@ Note, the noise in all components can be easily switched off by setting paramete
 enableNoise = false in the globalSeed component.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2139,7 +2140,7 @@ The turbulence model of the Dryden form is defined by the power spectral density
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
 </p></blockquote>
 
 <p>
@@ -2160,7 +2161,7 @@ Using spectral factorization and a fixed airspeed V of the aircraft, a concrete 
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
 </p></blockquote>
 
 <p>
@@ -2183,7 +2184,7 @@ This is done automatically in the
 
 <blockquote>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/DrydenContinuousTurbulence.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/DrydenContinuousTurbulence.png\"/>
 </p></blockquote>
 
 <h4>
@@ -2251,13 +2252,13 @@ This block is demonstrated in the example
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
 </p>
 </html>",       revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2322,13 +2323,13 @@ This block is demonstrated in the example
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
 </p>
 </html>",       revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2394,13 +2395,13 @@ This block is demonstrated in the example
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
 </p>
 </html>",       revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2435,13 +2436,13 @@ random number generator. This block is used in the example
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ImpureGenerator\">Examples.NoiseExamples.ImpureGenerator</a>.
 </p>
 </html>",       revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2668,13 +2669,13 @@ This motor is used in the
 actuator example
 </p>
 </html>",         revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2749,13 +2750,13 @@ actuator example
                   textColor={0,0,255},
                   textString="PI")}),
             Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2776,13 +2777,13 @@ actuator example
 </html>"));
         end Controller;
       annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2806,13 +2807,13 @@ actuator example
 This package contains utility models that are used for the examples.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2832,13 +2833,13 @@ to utilize the blocks from sublibrary
 <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -2967,6 +2968,7 @@ usage of package blocks.
 </p>
 </html>"));
 end Examples;
+
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(
         origin={0.0,35.1488},

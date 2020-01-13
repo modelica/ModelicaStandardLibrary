@@ -14,7 +14,7 @@ equation
         Text(
           extent={{-150,-40},{150,-80}},
           textString="R_m=%R_m",
-          lineColor={0,0,0})}), Documentation(info="<html>
+          textColor={0,0,0})}), Documentation(info="<html>
 <p>
 This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
 </p>

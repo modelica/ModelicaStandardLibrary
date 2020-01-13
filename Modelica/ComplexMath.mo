@@ -46,7 +46,7 @@ second argument \"p\", any other p-norm can be computed:
 Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>1-norm</strong></td>
       <td>= sum(abs(v))</td>
       <td><strong>norm</strong>(v,1)</td>

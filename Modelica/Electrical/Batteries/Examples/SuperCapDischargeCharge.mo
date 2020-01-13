@@ -23,8 +23,7 @@ model SuperCapDischargeCharge "Discharge and charge idealized supercap"
   Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent
     annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
-        rotation=90,
-        origin={0,0})));
+        rotation=90)));
   Modelica.Electrical.Analog.Sensors.PowerSensor powerSensor
     annotation (Placement(transformation(extent={{10,30},{30,50}})));
   Modelica.Blocks.Continuous.Integrator energy(u(unit="W"), y(unit="J"))

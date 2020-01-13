@@ -5972,12 +5972,12 @@ documented in <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/
 dynamic simulations. Input variables for calculating the properties are
 only implemented for a limited number of variable pairs which make sense as dynamic states: (p,h), (p,T), (p,s) and (d,T).
 </p>
-<hr size=3 width=\"70%\">
+<hr size=\"3\" width=\"70%\">
 <h4><a name=\"regions\">1. Structure and Regions of IAPWS-IF97</a></h4>
 <p>The IAPWS Industrial Formulation 1997 consists of
 a set of equations for different regions which cover the following range
 of validity:</p>
-<table border=0 cellpadding=4>
+<table border=\"0\" cellpadding=\"4\">
 <tr>
 <td>273,15 K &lt; <em>T</em> &lt; 1073,15 K</td>
 <td><em>p</em> &lt; 100 MPa</td>
@@ -6044,7 +6044,7 @@ I., &#352;ifner, O., Takaishi, Y., Tanishita, I., Tr&uuml;benbach, J., and Willk
 Th.</em> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
 of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (2000), 150 - 182.
 </p>
-<hr size=3 width=\"90%\">
+<hr size=\"3\" width=\"90%\">
 <h4>2. Calculable Properties      </h4>
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
        <tbody>
@@ -6270,7 +6270,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         <p>The high-level calls to steam properties are grouped into records comprising both the properties of general interest
         and the entries to the thermodynamic Jacobian. If additional properties are
         needed the low level functions in BaseIF97 provide more choice.</p>
-        <hr size=3 width=\"90%\">
+        <hr size=\"3\" width=\"90%\">
         <h4>Additional functions</h4>
         <ul>
         <li>Function <strong>boundaryvals_p</strong> computes the temperature and the specific enthalpy and

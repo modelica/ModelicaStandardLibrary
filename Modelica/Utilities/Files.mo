@@ -775,7 +775,7 @@ character is also the escape character in Modelica and C Strings.
 <p>
 In the table below an example call to every function is given:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Utilities.Files.list\">list</a>(name)</td>
       <td> List content of file or of directory.</td>

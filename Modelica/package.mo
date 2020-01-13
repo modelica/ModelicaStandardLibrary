@@ -14,7 +14,7 @@ The Modelica Standard Library consists of the following
 main sub-libraries:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Library Components</th> <th>Description</th></tr>
 
 <tr><td>
@@ -79,7 +79,7 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
  </td>
 </tr>
 
-<tr><td width=100>
+<tr><td width=\"100\">
  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-MultiBody1.png\"><br>
  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-MultiBody2.png\">
  </td>
@@ -201,7 +201,7 @@ The following elementary connectors are defined
 variables is explained in section \"Connector Equations\" below):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=1>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"1\">
 <tr><td><strong>domain</strong></td>
    <td><strong>potential<br>variables</strong></td>
    <td><strong>flow<br>variables</strong></td>
@@ -2263,19 +2263,18 @@ The general <a href=\"https://guides.github.com/activities/forking/\">contributi
 <li>Fork the repository to your account by
    <a href=\"https://help.github.com/articles/fork-a-repo/\">using the Fork button</a> of the GitHub repository site.</li>
 <li>Clone the forked repository to your computer. Make sure to checkout the maintenance branch if the bug fix is going to get merged to the maintenance branch.</li>
-<li>Create a new topic branch and give it a meaningful name,
-   like, e.g., \"issue2161-fix-formula\".</li>
-<li>Do your code changes and commit them, one change per commit.
-   Single commits can be copied to other branches.
+<li>Create a new topic branch and give it a meaningful name, like, e.g., \"issue2161-fix-formula\".</li>
+<li>Do your code changes and commit them, one change per commit.<br>
+   Single commits can be copied to other branches.<br>
    Multiple commits can be squashed into one, but splitting is difficult.</li>
 <li>Once you are done, push your topic branch to your forked repository.</li>
-<li>Go to the upstream <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">https://github.com/modelica/ModelicaStandardLibrary.git</a> repository and submit a
-   <a href=\"https://help.github.com/articles/about-pull-requests/\">Pull Request</a> (PR).
-   If the PR is related to a certain issue, reference it by its number like this: #2161.
-   Once a pull request is opened, you can discuss and
-   <a href=\"https://help.github.com/articles/about-pull-request-reviews/\">review</a>
-   the potential changes with collaborators and add follow-up commits before
-   the changes are merged into the repository.</li>
+<li>Go to the upstream <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">https://github.com/modelica/ModelicaStandardLibrary.git</a> repository and submit a <a href=\"https://help.github.com/articles/about-pull-requests/\">Pull Request</a> (PR).
+   <ul>
+   <li>If the PR is related to a certain issue, reference it by its number like this: #2161.</li>
+   <li>Once a pull request is opened, you can discuss and <a href=\"https://help.github.com/articles/about-pull-request-reviews/\">review</a> the potential changes with collaborators and add follow-up commits before the changes are merged into the repository.</li>
+   <li>If you have not already signed the Modelica Association Contributor License Agreement (CLA) you need to do so one-time.<br>
+   You can sign the CLA electronically using the CLA Assistant service and your GitHub account. There is no need to scan and send any documents by mail.</li>
+   </ul></li>
 <li>Update your branch with the requested changes. If necessary, merge the latest
    \"master\" branch into your topic branch and solve all merge conflicts in your topic branch.</li>
 </ol>
@@ -2355,7 +2354,7 @@ summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td> </td>
     <td>
     </td></tr>
@@ -2365,7 +2364,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 The following <font color=\"blue\"><strong>new components</strong></font> have been added to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
@@ -2375,7 +2374,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>improved</strong></font> in a <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
@@ -2385,7 +2384,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
 <tr><td>Nonlinear.Limiter<br>Nonlinear.VariableLimiter<br>Continuous.LimPID</td>
     <td>The superfluous parameter <code>limitsAtInit</code> has been removed.</td></tr>
@@ -2414,7 +2413,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
@@ -2451,7 +2450,7 @@ summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes\">Modelica.Magnetic.QuasiStatic.FluxTubes</a></td>
     <td>
     This library provides models for the investigation of quasi-static electromagnetic devices with lumped magnetic networks
@@ -2471,7 +2470,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
 <tr><td width=\"150\">FlowToPotentialAdaptor<br>PotentialToFlowAdaptor</td>
     <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
@@ -2610,7 +2609,7 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <font color=\"blue\"><strong>removed</strong></font> in a future release:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
 <tr><td>SendReal<br>SendBoolean<br>SendInteger<br>ReceiveReal<br>ReceiveBoolean<br>ReceiveInteger</td>
     <td>Use expandable connectors instead.</td></tr>
@@ -2675,7 +2674,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Continuous</strong></td></tr>
 <tr><td>Integrator<br>LimIntegrator</td>
     <td>Added optional reset and set value inputs.</td></tr>
@@ -2695,7 +2694,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
 <tr><td>Interfaces.PartialNoise<br>Noise.UniformNoise<br>Noise.NormalNoise<br>Noise.TruncatedNormalNoise<br>Noise.BandLimitedWhiteNoise</td>
     <td>As a side-effect of the corrected computation in Modelica.Math.Random.Utilities.impureRandomInteger the <code>localSeed</code> parameter is computed differently if <code>useAutomaticLocalSeed</code> is set to true.</td></tr>
@@ -2717,7 +2716,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>TimeTable</td>
     <td>The derivative of the <code>TimeTable</code> output could no longer be determined. This has been corrected.</td></tr>
@@ -2909,7 +2908,7 @@ The following Modelica packages have been tested that they work together with th
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Electrical.PowerConverters\">Modelica.Electrical.PowerConverters</a></td>
     <td>
     This library offers models for rectifiers, inverters and DC/DC-converters.<br>
@@ -2987,7 +2986,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Examples</strong></td></tr>
 <tr><td width=\"150\">NoiseExamples</td>
     <td> Several examples to demonstrate the usage of the blocks in the
@@ -3133,7 +3132,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Electrical.Analog.Semiconductors.</strong></td></tr>
 <tr><td> HeatingDiode </td>
           <td> Removed protected variable k \"Boltzmann's constant\".<br>
@@ -3305,7 +3304,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Logical.</strong></td></tr>
 <tr><td width=\"150\"> RSFlipFlop</td>
     <td> Basic RS flip flop</td></tr>
@@ -3554,7 +3553,7 @@ We highly appreciate this funding.
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Complex\">Complex</a></td>
     <td>
     This is a top-level record outside of the Modelica Standard Library.
@@ -3644,7 +3643,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.UsersGuide</strong></td></tr>
 <tr><td> Conventions
                       </td>
@@ -4134,7 +4133,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources.</strong></td></tr>
 <tr><td> Pulse<br>
                       SawTooth </td>
@@ -4236,7 +4235,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Delay.</strong></td></tr>
 <tr><td> InertialDelaySensitive </td>
     <td> In order to decide whether the rising delay (tLH) or
@@ -4301,7 +4300,7 @@ The following <font color=\"red\"><strong>uncritical errors</strong></font> have
 that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.LAPACK</strong></td></tr>
 <tr><td> dgesv_vec<br>
                         dgesv<br>
@@ -4322,7 +4321,7 @@ units are wrong or errors in documentation):
 The following trac tickets have been fixed:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica</strong></td></tr>
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/155\">#155</a></td>
@@ -4761,7 +4760,7 @@ the following new language elements (compared to Modelica Specification 3.0):
 <p>
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Fluid\">Modelica.Fluid</a></td>
     <td>
      Components to model 1-dim. thermo-fluid flow in networks of vessels, pipes,
@@ -4796,7 +4795,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td> versionBuild<br>versionDate<br>dateModified<br>revisionId </td>
     <td> New annotations from Modelica 3.1 for version handling added.</td></tr>
@@ -4938,7 +4937,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td> Blocks<br>Mechanics<br>StateGraph </td>
     <td> Provided missing parameter values for examples
@@ -4993,7 +4992,7 @@ The following <font color=\"red\"><strong>uncritical errors</strong></font> have
 that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td> Many models</td>
     <td> Removed wrong usages of annotations fillColor and fillPattern
@@ -5066,7 +5065,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Electrical.Analog.Basic.</strong></td></tr>
 <tr><td>M_Transformer</td>
           <td> Transformer, with the possibility to
@@ -5117,7 +5116,7 @@ have been <font color=\"blue\"><strong>changed</strong></font> (in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Interfaces.</strong></td></tr>
 <tr><td> PartialFriction </td>
           <td> Improvement of friction model so that in certain situations
@@ -5173,7 +5172,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Forces</strong></td></tr>
 <tr><td> WorldTorque </td>
           <td> Parameter \"ResolveInFrame\" was not propagated and therefore
@@ -5250,7 +5249,7 @@ that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation
 units are wrong or errors in documentation):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Math.</strong></td></tr>
 <tr><td> InverseBlockConstraint </td>
           <td> Changed annotation preserveAspectRatio from true to false.</td>
@@ -5426,7 +5425,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries (note, the na
 are the new sublibrary names that are introduced in version 3.0):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Examples.</strong></td></tr>
 <tr><td>InverseModel</td>
           <td> Demonstrates the construction of an inverse model.</td></tr>
@@ -5503,7 +5502,7 @@ of previous versions to the new version. Therefore, conversion
 should be automatic):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Continuous.</strong></td></tr>
 <tr><td> CriticalDamping </td>
           <td> New parameter \"normalized\" to define whether filter is provided
@@ -5860,7 +5859,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td> <strong>Modelica.*</strong> </td>
           <td> Parameter declarations, input and output function arguments without description
                                                 strings improved<br> by providing meaningful description texts.
@@ -5935,7 +5934,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Electrical.Analog.Examples.</strong></td></tr>
 <tr><td> CauerLowPassSC </td>
           <td> Wrong calculation of Capacitor1 both in Rn and Rp corrected
@@ -5994,7 +5993,7 @@ that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation
 units are wrong or errors in documentation):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Tables.</strong></td></tr>
 <tr><td> CombiTable2D</td>
           <td> Documentation improved.</td>
@@ -6086,7 +6085,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Logical.</strong></td></tr>
 <tr><td> TerminateSimulation</td>
           <td> Terminate a simulation by a given condition.</td>
@@ -6309,7 +6308,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font>
 have been <font color=\"blue\"><strong>improved</strong></font>:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Examples.</strong></td></tr>
 <tr><td> BusUsage</td>
           <td> Example changed from the \"old\" to the \"new\" bus concept with
@@ -6622,7 +6621,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td> ElectricalExcitation</td>
           <td> Excitation voltage ve is calculated as
@@ -6733,7 +6732,7 @@ that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation
 units are wrong or errors in documentation):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.</strong></td></tr>
 <tr><td> Examples</td>
           <td> Corrected typos in description texts of bus example models.
@@ -7080,7 +7079,7 @@ The following major improvements have been made:
 The following <strong>new components</strong> have been added to <strong>existing</strong> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Examples.</strong></td></tr>
 <tr><td> PID_Controller</td>
           <td> Example to demonstrate the usage of the
@@ -7194,7 +7193,7 @@ The following <strong>new components</strong> have been added to <strong>existin
 The following <strong>components</strong> have been improved:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td> UsersGuide</td>
           <td> User's Guide and package description of Modelica Standard Library improved.</td></tr>
@@ -7357,7 +7356,7 @@ The following <strong>components</strong> have been improved:
 The following <strong>errors</strong> have been fixed:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables.</strong></td></tr>
 <tr><td>CombiTable1D<br>
                   CombiTable1Ds<br>
@@ -7419,7 +7418,7 @@ Version 2.2 is backward compatible to version 2.1.
 The following <strong>new libraries</strong> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Media\">Modelica.Media</a></td>
           <td> Property models of liquids and gases, especially
                    <ul>
@@ -7515,7 +7514,7 @@ before automatic conversion is performed.
 <p>
 The following <strong>new libraries</strong> have been added:
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Electrical.Digital\">Modelica.Electrical.Digital</a></td>
           <td>Digital electrical components based on 2-,3-,4-, and 9-valued logic<br>
                   according to the VHDL standard</td></tr>
@@ -7545,7 +7544,7 @@ have been improved and added as <strong>new libraries</strong>
 (models using the previous libraries are automatically converted
 to the new sublibraries inside package Modelica):
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Blocks.Discrete\">Modelica.Blocks.Discrete</a></td>
           <td> Discrete input/output blocks with fixed sample period<br>
                    (from ModelicaAdditions.Blocks.Discrete)</td></tr>
@@ -7576,7 +7575,7 @@ powerful libraries (MultiBody, StateGraph).
 <p>
 The following <strong>new components</strong> have been added to <strong>existing</strong> libraries.
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Logical.</strong></td></tr>
 <tr><td>Pre</td>
           <td>y = pre(u): Breaks algebraic loops by an infinitesimal small<br>
@@ -7632,7 +7631,7 @@ The following <strong>new components</strong> have been added to <strong>existin
 <p>
 The following <strong>bugs</strong> have been <strong>corrected</strong>:
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Forces.</strong></td></tr>
 <tr><td>LineForceWithMass<br>
                   Spring</td>
@@ -7681,7 +7680,7 @@ class Version_1_6 "Version 1.6 (June 21, 2004)"
 <p>
 <strong>New components</strong>
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic.</strong></td></tr>
 <tr><td>SaturatingInductor</td>
           <td>Simple model of an inductor with saturation</td></tr>
@@ -7734,7 +7733,7 @@ that the approximation of these ideal elements is improved
 with not much computational effort.</p>
 <p> In the Modelica.SIunits library, the following changes
         have been made:</p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td>Inductance</td>
           <td>min=0 removed</td></tr>
 <tr><td>SelfInductance</td>
@@ -7760,7 +7759,7 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 <p>
 <strong>New components</strong>
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.</strong></td></tr>
 <tr><td>Continuous.Der</td><td>Derivative of input (= analytic differentiations)</td></tr>
 <tr><td><strong><em>Examples</em></strong></td><td>Demonstration examples of the components of this package</td></tr>
@@ -8028,7 +8027,7 @@ This is especially important for maintenance (bug fix) releases where the
 main version number is not changed.
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>January 23, 2019</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_2\">Version 3.2.2</a></td><td>April 3, 2016</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_1\">Version 3.2.1</a></td><td>August 14, 2013</td></tr>
@@ -8087,7 +8086,7 @@ class Contact "Contact"
 <p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <strong>library officers</strong> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
 <p>As of April 1st, 2019, the following library officers are assigned:</p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong>Sublibraries</strong> </td>
    <td><strong>Library officers</strong></td>
 </tr>
@@ -8243,7 +8242,7 @@ The following people have directly contributed to the implementation
 of the Modelica package (many more people have contributed to the design):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong>Marcus Baur</strong></td>
    <td>previously at:<br>Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center,<br>
@@ -8503,7 +8502,7 @@ the overall library. Some of the main sublibraries have their own
 User's Guides that can be accessed by the following links:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr>
   <td><a href=\"modelica://Modelica.ComplexBlocks.UsersGuide\">ComplexBlocks</a></td>
   <td>Library of basic input/output control blocks with Complex signals</td>
