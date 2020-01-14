@@ -159,6 +159,7 @@ Note that there is a leakage flux path present. Therefore the total magnetic flu
 <li>the useful flux through the airgap and</li>
 <li>the leakage flux through the leakage element.</li>
 </ul>
+<p>
 However, the magnetic voltage across the airgap and the leakage model are equal. 
 The ratio of the useful flux over the flux in the core is equal to 0.9. 
 In the core the magnetic flux is the same in every element as they are connected in series. 
