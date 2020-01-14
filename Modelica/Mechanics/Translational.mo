@@ -38,7 +38,7 @@ systems are available in the simulation tool, the simulation of
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive1.png\" alt=\"drive1\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive1.png\" alt=\"drive1\">
 </div>
 
 <p>
@@ -69,8 +69,8 @@ together, see figure below.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections1.png\" alt=\"driveConnections1\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections2.png\" alt=\"driveConnections2\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveConnections1.png\" alt=\"driveConnections1\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveConnections2.png\" alt=\"driveConnections2\"><br>
 </div>
 </html>"));
 
@@ -121,7 +121,7 @@ If it is disabled, it needs not be connected.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing.png\" alt=\"bearing\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/bearing.png\" alt=\"bearing\">
 </div>
 
 <p>
@@ -132,7 +132,7 @@ identical results.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing2.png\" alt=\"bearing2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/bearing2.png\" alt=\"bearing2\">
 </div>
 </html>"));
 
@@ -152,7 +152,7 @@ at hand of the following figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive2.png\" alt=\"drive2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive2.png\" alt=\"drive2\">
 </div>
 
 <p>
@@ -169,7 +169,7 @@ vector direction displayed according to this rule:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive3.png\" alt=\"drive3\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/drive3.png\" alt=\"drive3\">
 </div>
 <p>
 The cut-force <code>mass2.flange_a.f</code>
@@ -270,7 +270,7 @@ for a mass component:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveAxis.png\" alt=\"driveAxis\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/driveAxis.png\" alt=\"driveAxis\">
 </div>
 
 <p>
@@ -285,7 +285,7 @@ component. But this is not the case, as shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/masses.png\" alt=\"masses\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/UsersGuide/masses.png\" alt=\"masses\">
 </div>
 
 <p>
@@ -660,9 +660,8 @@ combination). In this case the system is not at rest.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/InitialConditions.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/InitialConditions.png\" alt=\"Initial conditions\">
 </blockquote>
-
 </html>"),
         experiment(StopTime=5.0, Interval=0.001),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -1377,9 +1376,9 @@ Drawing of spool.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad3.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad4.png\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad1.png\" alt=\"Preload 1\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad3.png\" alt=\"Preload 3\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad4.png\" alt=\"Preload 4\"><br>
 </p>
 
 <p>
@@ -1387,11 +1386,10 @@ Simulate for 100&nbsp;s and plot the spool position <code>spool.s</code>
 as a function of working force <code>force.f</code>.
 For positive force, the spool moves in positive direction - in figure below
 the start value <code>spool.s.start</code> influences the offset.
-.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad2.png\" alt=\"Preload 2\">
 </p>
 </html>"),
         experiment(StopTime=100, Interval=0.1));
@@ -2927,7 +2925,7 @@ where the different effects are visualized:
 </ol>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/ElastoGap1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/ElastoGap.png\" alt=\"Elasto gap\">
 </p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -4140,7 +4138,7 @@ f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
 </pre></blockquote>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Stribeck.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/Stribeck.png\" alt=\"Stribeck friction\">
 </p>
 
 <p>
@@ -4370,7 +4368,7 @@ An example is given in the next figure
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/relativeStates2.png\" alt=\"relativeStates2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/relativeStates.png\" alt=\"Relative states\">
 </p>
 
 <p>

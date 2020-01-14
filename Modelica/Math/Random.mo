@@ -67,7 +67,7 @@ with a sample period of 0.05 s. Simulations results are shown in the figure belo
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Random/GenerateRandomNumbers.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Random/Examples/GenerateRandomNumbers.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
