@@ -4,7 +4,7 @@ model PotentialSensor "Polyphase potential sensor"
   parameter Integer m(final min=1) = 3 "Number of phases";
   Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));
-  Modelica.Blocks.Interfaces.RealOutput phi[m](unit="V")
+  Modelica.Blocks.Interfaces.RealOutput phi[m](each unit="V")
     "Absolute voltage potential as output signal" annotation (Placement(
         transformation(extent={{100,-10},{120,10}})));
   Modelica.Electrical.Analog.Sensors.PotentialSensor potentialSensor[m]

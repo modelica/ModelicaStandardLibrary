@@ -18,7 +18,7 @@ model DiodeCenterTap2mPulse "2*m pulse diode rectifier with center tap"
     final Ron=fill(RonDiode, m),
     final Goff=fill(GoffDiode, m),
     final Vknee=fill(VkneeDiode, m),
-    each final useHeatPort=useHeatPort)
+    final useHeatPort=useHeatPort)
     "Diodes connected to positive DC potential" annotation (Placement(
         transformation(
         origin={-10,60},
@@ -29,7 +29,7 @@ model DiodeCenterTap2mPulse "2*m pulse diode rectifier with center tap"
     final Ron=fill(RonDiode, m),
     final Goff=fill(GoffDiode, m),
     final Vknee=fill(VkneeDiode, m),
-    each final useHeatPort=useHeatPort)
+    final useHeatPort=useHeatPort)
     "Diodes connected to negative DC potential" annotation (Placement(
         transformation(
         origin={-10,-60},
