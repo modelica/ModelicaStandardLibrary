@@ -125,9 +125,14 @@ The reason could be that
 
   partial model TwoPin "Component with two electrical pins"
     SI.Voltage v "Voltage drop of the two pins (= p.v - n.v)";
+
+    PositivePin p "Positive electrical pin"
+      annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+    NegativePin n "Negative electrical pin"
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   equation
     v = p.v - n.v;
-    annotation(
+    annotation (
       Diagram(coordinateSystem(initialScale = 0.1)),
       Documentation(revisions = "<html>
 <ul>
