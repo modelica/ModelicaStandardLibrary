@@ -660,9 +660,8 @@ combination). In this case the system is not at rest.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/InitialConditions.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/InitialConditions.png\" alt=\"Initial conditions\">
 </blockquote>
-
 </html>"),
         experiment(StopTime=5.0, Interval=0.001),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -1377,9 +1376,9 @@ Drawing of spool.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad3.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad4.png\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad1.png\" alt=\"Preload 1\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad3.png\" alt=\"Preload 3\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad4.png\" alt=\"Preload 4\"><br>
 </p>
 
 <p>
@@ -1387,11 +1386,10 @@ Simulate for 100&nbsp;s and plot the spool position <code>spool.s</code>
 as a function of working force <code>force.f</code>.
 For positive force, the spool moves in positive direction - in figure below
 the start value <code>spool.s.start</code> influences the offset.
-.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad2.png\" alt=\"Preload 2\">
 </p>
 </html>"),
         experiment(StopTime=100, Interval=0.1));
@@ -2927,7 +2925,7 @@ where the different effects are visualized:
 </ol>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/ElastoGap1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/ElastoGap.png\" alt=\"Elasto gap\">
 </p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -4140,7 +4138,7 @@ f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
 </pre></blockquote>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Stribeck.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/Stribeck.png\" alt=\"Stribeck friction\">
 </p>
 
 <p>
@@ -4370,7 +4368,7 @@ An example is given in the next figure
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/relativeStates2.png\" alt=\"relativeStates2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/relativeStates.png\" alt=\"Relative states\">
 </p>
 
 <p>
