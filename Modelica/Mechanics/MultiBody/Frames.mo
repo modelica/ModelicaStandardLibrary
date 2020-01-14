@@ -3076,9 +3076,10 @@ Optionally, residues are returned as well if <code>withResidues=true</code>.
         "Orientation object to rotate frame 1 into frame 2";
     protected
       Real e_x[3](each final unit="1")=if length(n_x) < 1e-10 then {1,0,0} else normalize(n_x);
-      Real n_z_aux[3](each final unit="1")=cross(e_x, n_y);
-      Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then n_y
-             else (if abs(e_x[1]) > 1.0e-6 then {0,1,0} else {1,0,0});
+      Real e_y[3](each final unit="1")=if length(n_y) < 1e-10 then {0,1,0} else normalize(n_y);
+      Real n_z_aux[3](each final unit="1")=cross(e_x, e_y);
+      Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then e_y
+             else if abs(e_x[1]) > 1.0e-6 then {0,1,0} else {1,0,0};
       Real e_z_aux[3](each final unit="1")=cross(e_x, n_y_aux);
       Real e_z[3](each final unit="1")=normalize(e_z_aux);
     algorithm
@@ -3129,9 +3130,10 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
         "Orientation object to rotate frame 1 into frame 2";
     protected
       Real e_x[3](each final unit="1")=if length(n_x) < 1e-10 then {1,0,0} else normalize(n_x);
-      Real n_y_aux[3](each final unit="1")=cross(n_z, e_x);
-      Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then n_z
-             else (if abs(e_x[1]) > 1.0e-6 then {0,0,1} else {1,0,0});
+      Real e_z[3](each final unit="1")=if length(n_z) < 1e-10 then {0,0,1} else normalize(n_z);
+      Real n_y_aux[3](each final unit="1")=cross(e_z, e_x);
+      Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then e_z
+             else if abs(e_x[1]) > 1.0e-6 then {0,0,1} else {1,0,0};
       Real e_y_aux[3](each final unit="1")=cross(n_z_aux, e_x);
       Real e_y[3](each final unit="1")=normalize(e_y_aux);
     algorithm
