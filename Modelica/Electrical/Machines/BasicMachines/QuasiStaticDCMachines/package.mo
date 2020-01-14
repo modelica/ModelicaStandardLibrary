@@ -9,7 +9,7 @@ these models are fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines\">transient machine models of DC machines</a>;
 the only difference is that electrical transients are neglected.
 </p>
-<h4>Please note</h4>
+<h4>Note</h4>
 <p>
 Quasi-static DC machine models are basically different from quasi-static induction machine models:
 Quasi-static DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
