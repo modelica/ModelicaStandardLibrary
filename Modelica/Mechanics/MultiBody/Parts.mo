@@ -1241,7 +1241,7 @@ e.g., shapeType=\"cone\":
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" alt=\"Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"Visualizers.FixedShape\">
 </p>
 
 <p>
@@ -3056,7 +3056,7 @@ Components <strong>Fixed</strong>, <strong>FixedTranslation</strong>, <strong>Fi
 and <strong>BodyShape</strong> are visualized according to parameter
 <strong>shapeType</strong>, that may have the following values (e.g., shapeType = \"box\"):<br>&nbsp;<br>
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" alt=\"model Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"model Visualizers.FixedShape\">
 <p>
 All the details of the visualization shape parameters are
 given in
