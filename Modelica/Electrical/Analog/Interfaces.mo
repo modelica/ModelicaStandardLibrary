@@ -470,7 +470,9 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
   partial model VoltageSource "Interface for voltage sources"
     extends Modelica.Electrical.Analog.Icons.VoltageSource;
     extends OnePort;
-
+    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
+        final offset = offset, final startTime=startTime) annotation (Placement(
+          transformation(extent={{70,69},{91,89}})));
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
   equation
@@ -493,6 +495,10 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
   partial model CurrentSource "Interface for current sources"
     extends Modelica.Electrical.Analog.Icons.CurrentSource;
     extends OnePort;
+    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
+        final offset = offset, final startTime=startTime) annotation (Placement(
+          transformation(extent={{70,69},{91,89}})));
+
     parameter SI.Current offset=0 "Current offset";
     parameter SI.Time startTime=0 "Time offset";
   equation
