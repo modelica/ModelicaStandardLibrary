@@ -2,7 +2,9 @@ within Modelica.Thermal.HeatTransfer.Rankine;
 model TemperatureSensor "Absolute temperature sensor in degRankine"
 
   Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
-        transformation(extent={{90,-10},{110,10}})));
+    transformation(extent={{90,-10},{110,10}})));
+  Interfaces.HeatPort_a port annotation (Placement(
+    transformation(extent={{-110,-10},{-90,10}})));
 equation
   T = Modelica.SIunits.Conversions.to_degRk(port.T);
   port.Q_flow = 0;
