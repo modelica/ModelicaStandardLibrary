@@ -643,21 +643,21 @@ This is discussed in the description of package
     constant SI.Time unitTime=1 annotation(HideResult=true);
 
     Blocks.Math.Gain P(k=1) "Proportional part of PID controller"
-      annotation (Placement(transformation(extent={{-60,70},{-40,90}})));
+      annotation (Placement(transformation(extent={{-60,60},{-20,100}})));
     Blocks.Continuous.Integrator I(k=unitTime/Ti, y_start=xi_start,
       initType=if initType==Init.SteadyState then
                   Init.SteadyState else
                if initType==Init.InitialState then
                   Init.InitialState else Init.NoInit)
       "Integral part of PID controller"
-      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+      annotation (Placement(transformation(extent={{-60,-20},{-20,20}})));
     Blocks.Continuous.Derivative D(k=Td/unitTime, T=max([Td/Nd, 100*Modelica.
           Constants.eps]), x_start=xd_start,
       initType=if initType==Init.SteadyState or
                   initType==Init.InitialOutput then Init.SteadyState else
                if initType==Init.InitialState then Init.InitialState else
                   Init.NoInit) "Derivative part of PID controller"
-      annotation (Placement(transformation(extent={{-60,-90},{-40,-70}})));
+      annotation (Placement(transformation(extent={{-60,-100},{-20,-60}})));
     Blocks.Math.Gain Gain(k=k) "Gain of PID controller"
       annotation (Placement(transformation(extent={{60,-10},{80,10}})));
     Blocks.Math.Add3 Add annotation (Placement(transformation(extent={{20,-10},
@@ -668,15 +668,15 @@ This is discussed in the description of package
     end if;
 
   equation
-    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-62,80}}, color={0,0,127}));
+    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}}, color={0,0,127}));
     connect(u, I.u)
-      annotation (Line(points={{-120,0},{-62,0}}, color={0,0,127}));
-    connect(u, D.u) annotation (Line(points={{-120,0},{-80,0},{-80,-80},{-62,-80}},
+      annotation (Line(points={{-120,0},{-64,0}}, color={0,0,127}));
+    connect(u, D.u) annotation (Line(points={{-120,0},{-80,0},{-80,-80},{-64,-80}},
                    color={0,0,127}));
-    connect(P.y, Add.u1) annotation (Line(points={{-39,80},{0,80},{0,8},{18,8}}, color={0,0,127}));
+    connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}}, color={0,0,127}));
     connect(I.y, Add.u2)
-      annotation (Line(points={{-39,0},{18,0}}, color={0,0,127}));
-    connect(D.y, Add.u3) annotation (Line(points={{-39,-80},{0,-80},{0,-8},{18,-8}},
+      annotation (Line(points={{-18,0},{18,0}}, color={0,0,127}));
+    connect(D.y, Add.u3) annotation (Line(points={{-18,-80},{0,-80},{0,-8},{18,-8}},
                   color={0,0,127}));
     connect(Add.y, Gain.u)
       annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
