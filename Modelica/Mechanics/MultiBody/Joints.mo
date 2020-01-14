@@ -4091,7 +4091,7 @@ are not part of the default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUPS.png\" alt=\"model Joints.Assemblies.JointUPS\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUPS.png\" alt=\"model Joints.Assemblies.JointUPS\">
 </p>
 
 <p>
@@ -4699,7 +4699,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUSR.png\" alt=\"model Joints.Assemblies.JointUSR\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSR.png\" alt=\"model Joints.Assemblies.JointUSR\">
 </p>
 
 <p>
@@ -5181,7 +5181,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUSP.png\" alt=\"model Joints.Assemblies.JointUSP\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSP.png\" alt=\"model Joints.Assemblies.JointUSP\">
 </p>
 
 <p>
@@ -5661,7 +5661,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointSSR.png\" alt=\"model Joints.Assemblies.JointSSR\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSR.png\" alt=\"model Joints.Assemblies.JointSSR\">
 </p>
 
 <p>
@@ -6004,7 +6004,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointSSP.png\" alt=\"model Joints.Assemblies.JointSSP\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSP.png\" alt=\"model Joints.Assemblies.JointSSP\">
 </p>
 
 <p>
@@ -6324,7 +6324,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointRRR.png\" alt=\"model Joints.Assemblies.JointRRR\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRR.png\" alt=\"model Joints.Assemblies.JointRRR\">
 </p>
 
 <p>
@@ -6644,7 +6644,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointRRP.png\" alt=\"model Joints.Assemblies.JointRRP\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRP.png\" alt=\"model Joints.Assemblies.JointRRP\">
 </p>
 
 <p>
@@ -6803,41 +6803,41 @@ of a universal, a spherical and a revolute joint.
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a></td>
       <td> Universal - prismatic - spherical joint aggregation<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUPS.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUPS.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR\">JointUSR</a></td>
       <td> Universal - spherical - revolute joint aggregation<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUSR.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSR.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP\">JointUSP</a></td>
       <td> Universal - spherical - prismatic joint aggregation<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUSP.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSP.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR\">JointSSR</a></td>
       <td> Spherical - spherical - revolute joint aggregation
            with an optional mass point at the rod connecting
            the two spherical joints<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointSSR.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSR.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">JointSSP</a></td>
       <td> Spherical - spherical - prismatic joint aggregation
            with an optional mass point at the rod connecting
            the two spherical joints<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointSSP.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSP.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR\">JointRRR</a></td>
       <td> Revolute - revolute - revolute joint aggregation for planar loops<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointRRR.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRR.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP\">JointRRP</a></td>
       <td> Revolute - revolute - prismatic joint aggregation for planar loops<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointRRP.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRP.png\">
       </td>
   </tr>
 </table>
