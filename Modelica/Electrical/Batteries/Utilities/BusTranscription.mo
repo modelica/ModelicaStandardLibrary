@@ -34,9 +34,9 @@ equation
           -0.1},{100.1,-0.1}}, color={0,0,127}));
   connect(gainSOC.y, stackBusArrays.soc) annotation (Line(points={{13,20},{40,20},
           {40,-0.1},{100.1,-0.1}}, color={0,0,127}));
-  connect(gainP.y, stackBusArrays.p) annotation (Line(points={{13,-20},{40,-20},
+  connect(gainP.y, stackBusArrays.power) annotation (Line(points={{13,-20},{40,-20},
           {40,-0.1},{100.1,-0.1}}, color={0,0,127}));
-  connect(gainLosses.y, stackBusArrays.losses) annotation (Line(points={{13,-50},
+  connect(gainLosses.y, stackBusArrays.lossPower) annotation (Line(points={{13,-50},
           {60,-50},{60,-0.1},{100.1,-0.1}}, color={0,0,127}));
   connect(gainT.y, stackBusArrays.T) annotation (Line(points={{13,-80},{80,-80},
           {80,-0.1},{100.1,-0.1}}, color={0,0,127}));
@@ -46,9 +46,9 @@ equation
           -60,50},{-60,0.1},{-100.1,0.1}}, color={0,0,127}));
   connect(gainSOC.u, stackBus.cellBus.soc) annotation (Line(points={{-10,20},
           {-40,20},{-40,0.1},{-100.1,0.1}}, color={0,0,127}));
-  connect(gainP.u, stackBus.cellBus.p) annotation (Line(points={{-10,-20},
+  connect(gainP.u, stackBus.cellBus.power) annotation (Line(points={{-10,-20},
           {-40,-20},{-40,0.1},{-100.1,0.1}}, color={0,0,127}));
-  connect(gainLosses.u, stackBus.cellBus.losses) annotation (Line(points={
+  connect(gainLosses.u, stackBus.cellBus.lossPower) annotation (Line(points={
           {-10,-50},{-60,-50},{-60,0.1},{-100.1,0.1}}, color={0,0,127}));
   connect(gainT.u, stackBus.cellBus.T) annotation (Line(points={{-10,-80},
           {-80,-80},{-80,0.1},{-100.1,0.1}}, color={0,0,127}));

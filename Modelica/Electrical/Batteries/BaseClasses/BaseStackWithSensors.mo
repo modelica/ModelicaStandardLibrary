@@ -38,7 +38,7 @@ partial model BaseStackWithSensors "Partial stack with sensors"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-70,-50})));
-  Modelica.Blocks.Sources.RealExpression lossesTotal(y=sum(stackBus.cellBus.losses))
+  Modelica.Blocks.Sources.RealExpression lossesTotal(y=sum(stackBus.cellBus.lossPower))
     annotation (Placement(transformation(extent={{-20,-70},{-40,-50}})));
   Modelica.Blocks.Sources.RealExpression temperatureTotal(y=sum(stackBus.cellBus.T)/(stackData.Ns*stackData.Np))
     annotation (Placement(transformation(extent={{-20,-50},{-40,-30}})));
@@ -86,16 +86,17 @@ equation
     annotation (Line(points={{100,0},{20,0},{20,-20},{-60,-20},{-60,-10}}, color={0,0,255}));
   connect(multiSensor.i, batteryBus.i) annotation (Line(points={{-66,-11},{-66,-20},
           {-80,-20},{-80,-79.95},{-59.95,-79.95}}, color={0,0,127}));
-  connect(multiSensor.power, batteryBus.p) annotation (Line(points={{-71,-6},{-80,
-          -6},{-80,-79.95},{-59.95,-79.95}}, color={0,0,127}));
+  connect(multiSensor.power, batteryBus.power) annotation (Line(points={{-71,-6},
+          {-80,-6},{-80,-79.95},{-59.95,-79.95}},
+                                             color={0,0,127}));
   connect(multiSensor.v, batteryBus.v) annotation (Line(points={{-54,-11},{-54,-46},
           {-54,-79.95},{-59.95,-79.95}}, color={0,0,127}));
   connect(socTotal.y, batteryBus.soc) annotation (Line(points={{-70,-61},{-70,-79.95},
           {-59.95,-79.95}}, color={0,0,127}));
   connect(temperatureTotal.y, batteryBus.T) annotation (Line(points={{-41,-40},{
           -54,-40},{-54,-79.95},{-59.95,-79.95}}, color={0,0,127}));
-  connect(lossesTotal.y, batteryBus.losses) annotation (Line(points={{-41,-60},{
-          -54,-60},{-54,-79.95},{-59.95,-79.95}}, color={0,0,127}));
+  connect(lossesTotal.y, batteryBus.lossPower) annotation (Line(points={{-41,-60},
+          {-54,-60},{-54,-79.95},{-59.95,-79.95}},color={0,0,127}));
   connect(cell.heatPort, heatPort)
     annotation (Line(points={{0,-10},{0,-100}}, color={191,0,0}));
   annotation (Icon(graphics={  Ellipse(

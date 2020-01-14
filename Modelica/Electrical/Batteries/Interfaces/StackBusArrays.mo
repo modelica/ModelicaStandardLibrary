@@ -7,7 +7,7 @@ expandable connector StackBusArrays "Measurement signal bus for a stack, arrange
   Modelica.SIunits.Current i[Ns, Np] "Cell currents";
   Real soc[Ns, Np] "States of charge of cells";
   Modelica.SIunits.Power power[Ns, Np] "Cells powers";
-  Modelica.SIunits.Power losses[Ns, Np] "Cells losses";
+  Modelica.SIunits.Power lossPower[Ns, Np] "Cells losses";
   Modelica.SIunits.Temperature T[Ns, Np] "Cells temperatures";
   annotation (Documentation(info="<html>
 <p>

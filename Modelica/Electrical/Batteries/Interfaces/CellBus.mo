@@ -5,7 +5,7 @@ expandable connector CellBus "Measurement signal bus for a single cell"
   Modelica.SIunits.Current i "Cell current";
   Real soc "State of charge of cell";
   Modelica.SIunits.Power power "Cell power";
-  Modelica.SIunits.Power losses "Cell losses";
+  Modelica.SIunits.Power lossPower "Cell losses";
   Modelica.SIunits.Temperature T "Cell temperature";
   annotation (Documentation(info="<html>
 <p>
