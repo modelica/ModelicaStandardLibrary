@@ -4,7 +4,9 @@ model LeakageWithCoefficient
   extends BaseClasses.Leakage;
   import Modelica.Constants.eps;
   parameter SI.CouplingCoefficient c_usefulFlux(final min=eps, final max=1-eps, start=0.7)
-    "Ratio useful flux/(leakage flux + useful flux) = useful flux/total flux";
+    "Ratio useful flux/(leakage flux + useful flux) = useful flux/total flux"
+    annotation (Dialog(groupImage=
+          "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Basic/LeakageWithCoefficient.png"));
   Blocks.Interfaces.RealInput R_mUsefulTot(quantity="Reluctance", unit="H-1")
     annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
