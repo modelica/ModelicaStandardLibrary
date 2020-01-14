@@ -141,7 +141,7 @@ Magnetic field strength times length of the flux line gives magnetic potential d
 The sum of all magnetic potential differences is covered by the mmf of the exciting coil.
 </p>
 <p>
-Using the values shown in section Parameters, the results can be validated easily by analytic calculations:
+Using the parameter values, the results can be validated by analytic calculations:
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>element   </th><th>cross section</th><th>length       </th><th>rel. permeability </th><th>B                   </th><th>H                                    </th><th>mmf              </th></tr>
