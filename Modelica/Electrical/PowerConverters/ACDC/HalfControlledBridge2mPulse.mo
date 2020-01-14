@@ -33,7 +33,7 @@ model HalfControlledBridge2mPulse
     final Ron=fill(RonThyristor, m),
     final Goff=fill(GoffThyristor, m),
     final Vknee=fill(VkneeThyristor, m),
-    each final useHeatPort=useHeatPort,
+    final useHeatPort=useHeatPort,
     final idealThyristor(off(start=offStart_p, fixed=fill(true, m))))
     "Thyristors connected to positive DC potential" annotation (Placement(
         transformation(
@@ -45,7 +45,7 @@ model HalfControlledBridge2mPulse
     final Ron=fill(RonDiode, m),
     final Goff=fill(GoffDiode, m),
     final Vknee=fill(VkneeDiode, m),
-    each final useHeatPort=useHeatPort)
+    final useHeatPort=useHeatPort)
     "Diodes connected to negative DC potential" annotation (Placement(
         transformation(
         origin={0,-40},

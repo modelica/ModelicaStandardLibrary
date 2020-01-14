@@ -26,7 +26,7 @@ model ThyristorCenterTap2mPulse
     final Ron=fill(RonThyristor, m),
     final Goff=fill(GoffThyristor, m),
     final Vknee=fill(VkneeThyristor, m),
-    each final useHeatPort=useHeatPort,
+    final useHeatPort=useHeatPort,
     final idealThyristor(off(start=offStart_p, fixed=fill(true, m))))
     "Thyristors conducting positive plug AC potentials" annotation (
       Placement(transformation(
@@ -38,7 +38,7 @@ model ThyristorCenterTap2mPulse
     final Ron=fill(RonThyristor, m),
     final Goff=fill(GoffThyristor, m),
     final Vknee=fill(VkneeThyristor, m),
-    each final useHeatPort=useHeatPort,
+    final useHeatPort=useHeatPort,
     final idealThyristor(off(start=offStart_n, fixed=fill(true, m))))
     "Thyristors conducting negative plug AC potentials" annotation (
       Placement(transformation(
