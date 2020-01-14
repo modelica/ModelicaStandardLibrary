@@ -154,6 +154,7 @@ Using the parameter values, the results can be validated by analytic calculation
 </table>
 <p>
 Note that there is a leakage flux path present. Therefore the total magnetic flux of in core splits into 
+</p>
 <ul>
 <li>the useful flux through the airgap and</li>
 <li>the leakage flux through the leakage element.</li>
