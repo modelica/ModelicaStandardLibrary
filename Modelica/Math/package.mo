@@ -2346,7 +2346,7 @@ which based on the <code>balance</code> function from EISPACK.
 </p>
 
 </html>", revisions="<html>
-<h4>Release Notes:</h4>
+<h4>Release Notes</h4>
 <ul>
 <li><em>July 5, 2002</em>
        by H. D. Joos and Nico Walther<br>
@@ -3151,7 +3151,7 @@ to compute the solution of a linear system of differential equations</p>
 der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   ->   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
 </pre></blockquote>
 
-<h4>Algorithmic details:</h4>
+<h4>Algorithmic details</h4>
 
 <p>The algorithm is taken from</p>
 <dl>

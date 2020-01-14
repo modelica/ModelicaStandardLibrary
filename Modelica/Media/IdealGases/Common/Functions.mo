@@ -236,7 +236,7 @@ transform the formula to SI units:
       1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
 </ul>
 
-<h4>References:</h4>
+<h4>References</h4>
 <p>
 [1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, \"The Properties of Gases and Liquids\" 5th Ed. Mc Graw Hill.
 </p>

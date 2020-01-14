@@ -69,7 +69,7 @@ This is a simple model of a supercapacitor, comprising:
 <li>a series resistance</li>
 <li>a self-discharge conductor</li>
 </ul>
-<h4>Note:</h4>
+<h4>Note</h4>
 <p>
 There is no limit included against too high charging and too low discharging or even charging in the opposite direction.
 </p>

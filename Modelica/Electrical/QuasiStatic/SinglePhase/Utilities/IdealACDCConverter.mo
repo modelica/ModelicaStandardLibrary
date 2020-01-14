@@ -68,7 +68,7 @@ This is an ideal AC DC converter, based on a power balance between QS circuit an
 The parameter <em>conversionFactor</em> defines the ratio between averaged DC voltage and QS rms voltage.
 Furthermore, reactive power at the QS side is set to 0.
 </p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <p>
 Of course no voltage or current ripple is present, neither at the QS side nor at the DC side.
 At the QS side, only base harmonics of voltage and current are taken into account.

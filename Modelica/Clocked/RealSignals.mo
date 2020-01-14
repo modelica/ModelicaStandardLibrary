@@ -2612,7 +2612,7 @@ distributions on the real line:
 ------------------------------
     normal (Gaussian) 2 versions
 </pre></blockquote>
-<h4>Reference Literature:</h4>
+<h4>Reference Literature</h4>
 <ul>
 <li>function random: Wichmann, B. A. & Hill, I. D. (1982), Algorithm AS 183:
   <br>

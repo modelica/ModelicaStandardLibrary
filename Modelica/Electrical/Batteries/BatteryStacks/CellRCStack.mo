@@ -43,7 +43,7 @@ This model can be used for a single cell <code>Ns = Np = 1</code> as well as a s
 <p>
 For details, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
 </p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <p>
 Parameter record array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">rcData</a> contained in
 parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData\">cellData</a> has to be specified.
