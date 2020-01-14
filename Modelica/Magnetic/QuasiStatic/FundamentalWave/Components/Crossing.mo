@@ -9,6 +9,11 @@ model Crossing "Crossing of connections"
     annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
   Interfaces.NegativeMagneticPort port_n2 "Connected with port_n1"
     annotation (Placement(transformation(extent={{90,90},{110,110}})));
+equation
+  connect(port_p1, port_p2) annotation (Line(
+      points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}}, color={255,170,85}));
+  connect(port_n2, port_n1) annotation (Line(
+      points={{100,100},{100,0},{-100,0},{-100,-100}}, color={255,170,85}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={Text(
