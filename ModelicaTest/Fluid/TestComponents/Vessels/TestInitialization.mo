@@ -53,7 +53,7 @@ equation
                        experiment(StopTime=1, Tolerance=1e-6),
     Documentation(info="<html>
 <h4>Original intention</h4>
-<p><br>Ticket #63: Medium SimpleAir was missing stateSelect.prefer on pressure p. This led to the bad state m without start value and resulted in a division by zero. Work-around: Use Medium MoistAir.</p>
+<p>Ticket #63: Medium SimpleAir was missing stateSelect.prefer on pressure p. This led to the bad state m without start value and resulted in a division by zero. Work-around: Use Medium MoistAir.</p>
 <h4>New intention</h4>
 <p>Ticket #1222 (TestInitialization does not initialize): The model uses StaticPipe models connected to a ClosedVolume with port models. This results in algebraic loops for the pressures between the pipes and the volume. The use of homotopy in its current form results in additional nonlinear equation systems.</p>
 <p>Ticket #736 (Use of m_flow_small, m_flow_turbulent and dp_small): The model is motivated by air conditioning that is characterized by relatively small mass flow rates and very small pressure drops. The overall pressure drop is 10 Pa from source to sink. This pressure drop is almost completely taken by the tank outlet towards pipe2 under steady conditions. The pipes have a pressure drop between about 5 Pa and 1e-2 Pa each during the transient simulation. The mass flow rate starts at about 0.2 kg/s and reaches a steady value at about 6e-3 kg/s.</p>
