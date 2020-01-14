@@ -4,7 +4,7 @@ model VariableReluctance "Variable reluctance"
   extends Interfaces.TwoPorts;
   extends Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Reluctance;
 
-  Blocks.Interfaces.RealInput          R_m(quantity="Reluctance", unit="H-1") "Magnetic reluctance"
+  Blocks.Interfaces.RealInput R_m(quantity="Reluctance", unit="H-1") "Magnetic reluctance"
     annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
