@@ -17,7 +17,7 @@ equation
       extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
-This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
+The reluctance of this model is controlled by a real signal input. 
 </p>
-</html>", revisions=""));
+</html>"));
 end VariableReluctance;

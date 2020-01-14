@@ -15,10 +15,9 @@ equation
   annotation (defaultComponentName="permeance", Icon(coordinateSystem(
       preserveAspectRatio=false,
       extent={{-100,-100},{100,100}})),
-                                Documentation(info="<html>
+      Documentation(info="<html>
 <p>
 The permeance of this model is controlled by a real signal input. 
 </p>
-</html>",
-      revisions=""));
+</html>"));
 end VariablePermeance;
