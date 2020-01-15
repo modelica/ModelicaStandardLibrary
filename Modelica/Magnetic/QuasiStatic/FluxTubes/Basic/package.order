@@ -2,6 +2,8 @@ Ground
 ElectroMagneticConverter
 ConstantReluctance
 ConstantPermeance
+VariableReluctance
+VariablePermeance
 LeakageWithCoefficient
 EddyCurrent
 Idle
