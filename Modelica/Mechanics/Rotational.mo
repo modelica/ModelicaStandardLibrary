@@ -39,7 +39,7 @@ systems are available in the simulation tool, the simulation of
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive1.png\" alt=\"drive1\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive1.png\" alt=\"drive1\">
 </div>
 
 <p>
@@ -72,8 +72,8 @@ together, see figure below.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections1.png\" alt=\"driveConnections1\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections2.png\" alt=\"driveConnections2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections1.png\" alt=\"driveConnections1\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections2.png\" alt=\"driveConnections2\">
 </div>
 </html>"));
 
@@ -126,7 +126,7 @@ the ground via spring-damper-systems (cf. example
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing.png\" alt=\"bearing\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/bearing1.png\" alt=\"bearing1\">
 </div>
 
 <p>
@@ -137,7 +137,7 @@ identical results.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing2.png\" alt=\"bearing2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/bearing2.png\" alt=\"bearing2\">
 </div>
 </html>"));
 
@@ -157,7 +157,7 @@ at hand of the following figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive2.png\" alt=\"drive2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive2.png\" alt=\"drive2\">
 </div>
 
 <p>
@@ -181,7 +181,7 @@ vector direction displayed according to this rule:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive3.png\" alt=\"drive3\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive3.png\" alt=\"drive3\">
 </div>
 <p>
 The cut-torques <code>J2.flange_a.tau</code>, <code>J4.flange_a.tau</code> and <code>J6.flange_b.tau</code>
@@ -194,7 +194,7 @@ cases are shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive4.png\" alt=\"drive4\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/drive4.png\" alt=\"drive4\">
 </div>
 
 <p>
@@ -303,7 +303,7 @@ for an inertia component and a planetary gearbox:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveAxis.png\" alt=\"driveAxis\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveAxis.png\" alt=\"driveAxis\">
 </div>
 
 <p>
@@ -321,7 +321,7 @@ component. But this is not the case, as shown in the next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/inertias.png\" alt=\"inertias\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/inertias.png\" alt=\"inertias\">
 </div>
 
 <p>
@@ -395,7 +395,7 @@ Coulomb friction elements such as
 when the elements become stuck:
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections3.png\" alt=\"driveConnections3\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections3.png\" alt=\"driveConnections3\">
 </div>
 <p>
 In the figure above, two typical situations are shown: In the upper part of
@@ -3008,7 +3008,7 @@ where the different effects are visualized:
 </ol>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/elastoBacklash1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/Components/elastoBacklash.png\" alt=\"Results of simulation with the ElastoBacklash model\">
 </p>
 
 <p>
@@ -4521,7 +4521,7 @@ e.g., chattering occurs when using the
 Modelica.Mechanics.Rotational.GearEfficiency model.
 </p>
 
-<h4>Acknowledgement:</h4>
+<h4>Acknowledgement</h4>
 <ul>
 <li> The essential idea to model efficiency
      in this way is from Christoph Pelchen, ZF Friedrichshafen.</li>
@@ -5309,7 +5309,7 @@ An example is given in the next figure
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/relativeStates.png\" alt=\"relativeStates\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/Components/relativeStates.png\" alt=\"Model with relative states\">
 </p>
 
 <p>

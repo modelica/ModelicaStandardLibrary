@@ -89,7 +89,7 @@ All losses are dissipated to the optional <code>heatPort</code>.
 <p>
 For details, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Concept\">concept</a> and <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.Parameterization\">parameterization</a>.
 </p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <p>
 SOC &gt; SOCmax and SOC &lt; SOCmin triggers an error.
 </p>

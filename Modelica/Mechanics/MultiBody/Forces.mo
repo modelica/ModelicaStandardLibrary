@@ -1816,7 +1816,7 @@ is displayed in the figure below.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithTwoMassesDiagram.png\">
 </p>
 
 <p>

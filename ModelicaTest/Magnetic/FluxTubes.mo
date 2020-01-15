@@ -1,4 +1,4 @@
-within ModelicaTest;
+within ModelicaTest.Magnetic;
 package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
   extends Modelica.Icons.ExamplesPackage;
 
@@ -69,11 +69,11 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
     connect(stepVoltage.p, conductor.p) annotation (Line(
         points={{-80,80},{-70,80}}, color={0,0,255}));
     connect(conductor.n, converter.p) annotation (Line(
-        points={{-50,80},{-40,80},{-40,76}}, color={0,0,255}));
+        points={{-50,80},{-40,80},{-40,80}}, color={0,0,255}));
     connect(converter.n, stepVoltage.n) annotation (Line(
-        points={{-40,64},{-40,60},{-80,60}}, color={0,0,255}));
+        points={{-40,60},{-40,60},{-80,60}}, color={0,0,255}));
     connect(converter.port_p, leakageWithCoefficient.port_p) annotation (Line(
-        points={{-20,76},{-20,80},{0,80}}, color={255,127,0}));
+        points={{-20,80},{-20,80},{0,80}}, color={255,127,0}));
     connect(leakageWithCoefficient.port_p, constantReluctance.port_p) annotation (
        Line(
         points={{0,80},{20,80}}, color={255,127,0}));
@@ -81,7 +81,7 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
        Line(
         points={{20,60},{0,60}}, color={255,127,0}));
     connect(leakageWithCoefficient.port_n, converter.port_n) annotation (Line(
-        points={{0,60},{-20,60},{-20,64}}, color={255,127,0}));
+        points={{0,60},{-20,60},{-20,60}}, color={255,127,0}));
     connect(ground3.p, stepVoltage1.n) annotation (Line(
         points={{-80,-10},{-80,0}}, color={0,0,255}));
     connect(stepVoltage1.p, conductor1.p) annotation (Line(
@@ -89,19 +89,20 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
     connect(ground2.port, constantReluctance.port_n) annotation (Line(
         points={{20,50},{20,60}}, color={255,127,0}));
     connect(converter1.port_p, eddyCurrent.port_p) annotation (Line(
-        points={{-20,16},{-20,20},{-10,20}}, color={255,127,0}));
+        points={{-20,20},{-20,20},{-10,20}}, color={255,127,0}));
     connect(conductor1.n, converter1.p) annotation (Line(
-        points={{-50,20},{-40,20},{-40,16}}, color={0,0,255}));
+        points={{-50,20},{-40,20},{-40,20}}, color={0,0,255}));
     connect(converter1.n, stepVoltage1.n) annotation (Line(
-        points={{-40,4},{-40,0},{-80,0}}, color={0,0,255}));
+        points={{-40,0.2},{-40,0},{-80,0}},
+                                          color={0,0,255}));
     connect(ground.port, converter1.port_n) annotation (Line(
-        points={{-20,-10},{-20,4}}, color={255,127,0}));
+        points={{-20,-10},{-20,0}}, color={255,127,0}));
     connect(eddyCurrent.port_n, crossing.port_n2) annotation (Line(
         points={{10,20},{20,20}}, color={255,127,0}));
     connect(crossing.port_p2, short.port_p) annotation (Line(
         points={{40,20},{50,20}}, color={255,127,0}));
     connect(crossing.port_p1, converter1.port_n) annotation (Line(
-        points={{20,0},{-20,0},{-20,4}}, color={255,127,0}));
+        points={{20,0},{-20,0},{-20,0}}, color={255,127,0}));
     connect(constantPermeance.port_p, short.port_n) annotation (Line(
         points={{80,20},{70,20}}, color={255,127,0}));
     connect(constantPermeance.port_n, crossing.port_n1) annotation (Line(
@@ -684,4 +685,39 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
             0}));
     annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005));
   end Sensors;
+
+  model VariableComponents "Test of reluctance and permeance model with signal inputs"
+    extends Modelica.Icons.Example;
+    Modelica.Magnetic.FluxTubes.Basic.VariableReluctance reluctance annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={40,0})));
+    Modelica.Magnetic.FluxTubes.Basic.VariablePermeance permeance annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=270,
+          origin={20,0})));
+    Modelica.Magnetic.FluxTubes.Basic.Ground ground annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
+    Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticFlux magFluxSource(Phi=1) annotation (Placement(transformation(
+          extent={{10,-10},{-10,10}},
+          rotation=270,
+          origin={-40,0})));
+    Modelica.Blocks.Sources.Ramp rampPermeance(
+      height=1,
+      duration=0.3,
+      offset=0,
+      startTime=0.6) annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+    Modelica.Blocks.Sources.Ramp rampReluctance(
+      height=1,
+      duration=0.3,
+      offset=0,
+      startTime=0.1) annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+  equation
+    connect(ground.port, permeance.port_n) annotation (Line(points={{0,-30},{20,-30},{20,-10}}, color={255,127,0}));
+    connect(reluctance.port_n, permeance.port_n) annotation (Line(points={{40,-10},{40,-30},{20,-30},{20,-10}}, color={255,127,0}));
+    connect(rampPermeance.y, permeance.G_m) annotation (Line(points={{1,0},{8,0}}, color={0,0,127}));
+    connect(reluctance.R_m, rampReluctance.y) annotation (Line(points={{52,-2.22045e-15},{56,-2.22045e-15},{56,0},{59,0}}, color={0,0,127}));
+    connect(magFluxSource.port_n, permeance.port_p) annotation (Line(points={{-40,10},{-40,30},{20,30},{20,10}}, color={255,127,0}));
+    connect(reluctance.port_p, permeance.port_p) annotation (Line(points={{40,10},{40,30},{20,30},{20,10}}, color={255,127,0}));
+    connect(ground.port, magFluxSource.port_p) annotation (Line(points={{0,-30},{-40,-30},{-40,-10}}, color={255,127,0}));
+  end VariableComponents;
 end FluxTubes;

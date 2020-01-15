@@ -8,7 +8,7 @@ model QuadraticCoreAirgap "Educational example: iron core with airgap"
 parameter Integer N=500 "Number of turns of exciting coil";
   parameter Modelica.SIunits.Current I=1.5 "Maximum exciting current";
   Basic.ElectroMagneticConverter excitingCoil(N=N)
-    annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
   Shapes.FixedShape.Cuboid leftLeg(
     nonLinearPermeability=false,
     mu_rConst=mu_r,
@@ -17,7 +17,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
     b=a)                           annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-20,30})));
+        origin={-30,30})));
   Shapes.FixedShape.Cuboid upperYoke(
     nonLinearPermeability=false,
     mu_rConst=mu_r,
@@ -35,7 +35,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
     b=a)                           annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={20,30})));
+        origin={30,30})));
   Shapes.FixedShape.Cuboid airGap(
     nonLinearPermeability=false,
     mu_rConst=1,
@@ -44,9 +44,9 @@ parameter Integer N=500 "Number of turns of exciting coil";
     b=a) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={20,-30})));
+        origin={30,-30})));
   Basic.ElectroMagneticConverter measuringCoil(N=1)
-    annotation (Placement(transformation(extent={{40,-10},{20,10}})));
+    annotation (Placement(transformation(extent={{50,-10},{30,10}})));
   Shapes.FixedShape.Cuboid lowerYoke(
     nonLinearPermeability=false,
     mu_rConst=mu_r,
@@ -57,9 +57,9 @@ parameter Integer N=500 "Number of turns of exciting coil";
         rotation=0,
         origin={0,-50})));
   Basic.Ground magneticGround
-    annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
+    annotation (Placement(transformation(extent={{-40,-70},{-20,-50}})));
   Electrical.Analog.Basic.Ground electricGround1
-    annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));
+    annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
   Electrical.Analog.Sources.RampCurrent rampCurrent(
     I=I,
     duration=0.015,
@@ -67,49 +67,65 @@ parameter Integer N=500 "Number of turns of exciting coil";
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-60,0})));
+        origin={-70,0})));
   Sensors.MagneticFluxSensor magFluxSensor annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
-        origin={-20,-30})));
+        origin={-30,-30})));
   Electrical.Analog.Basic.Ground electricGround2
-    annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
+    annotation (Placement(transformation(extent={{50,-30},{70,-10}})));
   Electrical.Analog.Sensors.VoltageSensor voltageSensor annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
-        origin={60,0})));
+        origin={70,0})));
+  Basic.LeakageWithCoefficient leakage(c_usefulFlux=0.9) annotation (Placement(
+        transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={0,0})));
+  Blocks.Sources.RealExpression usefulReluctance(y=1/airGap.G_m) annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={20,-20})));
 equation
   connect(excitingCoil.port_p, leftLeg.port_p)
-    annotation (Line(points={{-20,10},{-20,20}}, color={255,127,0}));
+    annotation (Line(points={{-30,10},{-30,20}}, color={255,127,0}));
   connect(leftLeg.port_n, upperYoke.port_p)
-    annotation (Line(points={{-20,40},{-20,50},{-10,50}}, color={255,127,0}));
+    annotation (Line(points={{-30,40},{-30,50},{-10,50}}, color={255,127,0}));
   connect(upperYoke.port_n, rightLeg.port_p)
-    annotation (Line(points={{10,50},{20,50},{20,40}}, color={255,127,0}));
+    annotation (Line(points={{10,50},{30,50},{30,40}}, color={255,127,0}));
   connect(rightLeg.port_n, measuringCoil.port_p)
-    annotation (Line(points={{20,20},{20,10}}, color={255,127,0}));
+    annotation (Line(points={{30,20},{30,10}}, color={255,127,0}));
   connect(measuringCoil.port_n, airGap.port_p)
-    annotation (Line(points={{20,-10},{20,-20}}, color={255,127,0}));
+    annotation (Line(points={{30,-10},{30,-20}}, color={255,127,0}));
   connect(lowerYoke.port_p, airGap.port_n)
-    annotation (Line(points={{10,-50},{20,-50},{20,-40}}, color={255,127,0}));
+    annotation (Line(points={{10,-50},{30,-50},{30,-40}}, color={255,127,0}));
   connect(lowerYoke.port_n, magneticGround.port)
-    annotation (Line(points={{-10,-50},{-20,-50}}, color={255,127,0}));
+    annotation (Line(points={{-10,-50},{-30,-50}}, color={255,127,0}));
   connect(electricGround1.p, excitingCoil.n)
-    annotation (Line(points={{-50,-10},{-40,-10}}, color={0,0,255}));
-  connect(rampCurrent.p, electricGround1.p)
     annotation (Line(points={{-60,-10},{-50,-10}}, color={0,0,255}));
+  connect(rampCurrent.p, electricGround1.p)
+    annotation (Line(points={{-70,-10},{-60,-10}}, color={0,0,255}));
   connect(rampCurrent.n, excitingCoil.p)
-    annotation (Line(points={{-60,10},{-40,10}}, color={0,0,255}));
+    annotation (Line(points={{-70,10},{-50,10}}, color={0,0,255}));
   connect(measuringCoil.n, electricGround2.p)
-    annotation (Line(points={{40,-10},{50,-10}}, color={0,0,255}));
-  connect(measuringCoil.p, voltageSensor.p)
-    annotation (Line(points={{40,10},{60,10}}, color={0,0,255}));
-  connect(electricGround2.p, voltageSensor.n)
     annotation (Line(points={{50,-10},{60,-10}}, color={0,0,255}));
+  connect(measuringCoil.p, voltageSensor.p)
+    annotation (Line(points={{50,10},{70,10}}, color={0,0,255}));
+  connect(electricGround2.p, voltageSensor.n)
+    annotation (Line(points={{60,-10},{70,-10}}, color={0,0,255}));
   connect(excitingCoil.port_n, magFluxSensor.port_n)
-    annotation (Line(points={{-20,-10},{-20,-20}}, color={255,127,0}));
+    annotation (Line(points={{-30,-10},{-30,-20}}, color={255,127,0}));
   connect(magFluxSensor.port_p, magneticGround.port)
-    annotation (Line(points={{-20,-40},{-20,-50}}, color={255,127,0}));
+    annotation (Line(points={{-30,-40},{-30,-50}}, color={255,127,0}));
+  connect(leakage.port_n, airGap.port_n) annotation (Line(points={{0,
+          -10},{0,-10},{0,-40},{30,-40}}, color={255,127,0}));
+  connect(measuringCoil.port_p, leakage.port_p)
+    annotation (Line(points={{30,10},{0,10}}, color={255,127,0}));
+  connect(leakage.R_mUsefulTot, usefulReluctance.y)
+    annotation (Line(points={{12,0},{20,0},{20,-9}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <p>
 Educational example of a magnetic circuit containing an iron core and an airgap:

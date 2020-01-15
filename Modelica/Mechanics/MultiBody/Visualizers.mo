@@ -67,7 +67,7 @@ parameter <strong>shapeType</strong> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" alt=\"model Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape\">
 </p>
 
 <p>
@@ -306,7 +306,7 @@ parameter <strong>shapeType</strong> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" alt=\"model Visualizers.FixedShape2\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape2\">
 </p>
 
 <p>&nbsp;<br>
@@ -409,7 +409,7 @@ vector&nbsp;<strong>r</strong>.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" alt=\"Parts.FixedTranslation\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/FixedTranslation.png\" alt=\"Parts.FixedTranslation\">
 </p>
 </html>"));
   end FixedShape2;
@@ -609,7 +609,7 @@ labels. A typical example is shown in the following figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedFrame.png\" alt=\"model Visualizers.FixedFrame\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedFrame.png\" alt=\"model Visualizers.FixedFrame\">
 </p>
 
 <p>
@@ -1323,7 +1323,7 @@ Image of the \"jet\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/jet.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/jet.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -1363,7 +1363,7 @@ Image of the \"hot\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/hot.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/hot.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -1399,7 +1399,7 @@ Image of the \"gray\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/gray.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/gray.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -1435,7 +1435,7 @@ Image of the \"spring\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/spring.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/spring.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -1471,7 +1471,7 @@ Image of the \"summer\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/summer.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/summer.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -1507,7 +1507,7 @@ Image of the \"autumn\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/autumn.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/autumn.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -1543,7 +1543,7 @@ Image of the \"winter\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/winter.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/winter.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -1562,7 +1562,7 @@ respective function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/ColorMaps.png\">
 </blockquote>
 </html>"));
     end ColorMaps;
@@ -1727,7 +1727,7 @@ generated file was loaded in Inkscape and exported in \"png\" format:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/jet.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/jet.png\">
 </blockquote>
 
 <p>
@@ -2049,7 +2049,7 @@ visualized at the defined location (see variables below).
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
 </p>
 
 <p>
@@ -2124,7 +2124,7 @@ parameter <strong>shapeType</strong> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" alt=\"model Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape\">
 </p>
 
 <p>&nbsp;<br>
@@ -2282,7 +2282,7 @@ An example of a parameterized surface with color coding is shown in the next fig
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Surface.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/Surface.png\">
 </blockquote>
 
 <p>
@@ -2629,19 +2629,19 @@ since they all have frame connectors).
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
       <td>Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
       <td>Visualizing an elementary object with variable size.
       The following shape types are supported:<br>&nbsp;<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" alt=\"model Visualizers.Advanced.Shape\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"model Visualizers.Advanced.Shape\">
       </td>
   </tr>
 
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a></td>
       <td>Visualizing a moveable parameterized surface:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Surface_small.png\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/Surface_small.png\">
       </td>
   </tr>
 
@@ -2745,7 +2745,7 @@ is represented by a cylinder. This allows to define simple shaped
 3-dimensional characters. An example is shown in the
 following figure:<br>&nbsp;
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedLines.png\" alt=\"model Visualizers.Internal.FixedLines\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Internal/FixedLines.png\" alt=\"model Visualizers.Internal.FixedLines\">
 <p>&nbsp;<br>
 The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for parameter <strong>lines</strong>
@@ -2857,7 +2857,7 @@ is represented by a cylinder. This allows, e.g., to define simple shaped
 it is more convenient to use model <strong>Visualizers.Internal.FixedLines</strong>.
 An example for dynamic lines is shown in the following figure:<br>&nbsp;
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedLines.png\" alt=\"model Visualizers.Internal.FixedLines\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Internal/FixedLines.png\" alt=\"model Visualizers.Internal.FixedLines\">
 <p>&nbsp;<br>
 The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for input variable <strong>lines</strong>
@@ -2902,13 +2902,13 @@ animation features of the MultiBody library.
       FixedShape has one connector frame_a, whereas FixedShape2 has additionally
           a frame_b for easier connection to further visual objects.
           The following shape types are supported:<br>&nbsp;<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" alt=\"model Visualizers.FixedShape\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"model Visualizers.FixedShape\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedFrame\">FixedFrame</a></td>
       <td>Visualizing a coordinate system including axes labels with fixed sizes:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedFrame2.png\"
-       alt=\"model Visualizers.FixedFrame\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedFrame_small.png\"
+       alt=\"model Visualizers.FixedFrame2\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">FixedArrow</a>,<br>

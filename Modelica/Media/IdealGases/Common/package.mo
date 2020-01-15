@@ -28,7 +28,7 @@ ideal gas equations according to:
 <p>
 The equations have the following structure:
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Media/IdealGases/singleEquations.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/IdealGases/Common/singleEquations.png\">
 <p>
 The polynomials for h(T) and s0(T) are derived via integration from the one for cp(T)  and contain the integration constants b1, b2 that define the reference specific enthalpy and entropy. For entropy differences the reference pressure p0 is arbitrary, but not for absolute entropies. It is chosen as 1 standard atmosphere (101325 Pa).
 </p>
@@ -434,7 +434,7 @@ transform the formula to SI units:
       1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
 </ul>
 
-<h4>References:</h4>
+<h4>References</h4>
 <p>
 [1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, \"The Properties of Gases and Liquids\" 5th Ed. Mc Graw Hill.
 </p>

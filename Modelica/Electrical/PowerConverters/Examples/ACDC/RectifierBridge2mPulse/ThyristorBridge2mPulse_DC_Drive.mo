@@ -26,8 +26,8 @@ model ThyristorBridge2mPulse_DC_Drive
   output Modelica.SIunits.Torque tau=dcpm.tauShaft;
   Modelica.Electrical.Polyphase.Sources.SineVoltage sinevoltage(
     m=m,
-    each final V=fill(sqrt(2)*Vrms, m),
-    each f=fill(f, m)) annotation (Placement(transformation(
+    final V=fill(sqrt(2)*Vrms, m),
+    f=fill(f, m)) annotation (Placement(transformation(
         origin={-80,0},
         extent={{-10,-10},{10,10}},
         rotation=-90)));

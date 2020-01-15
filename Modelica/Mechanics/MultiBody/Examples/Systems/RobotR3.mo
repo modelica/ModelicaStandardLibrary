@@ -333,7 +333,7 @@ For current settings, the termination condition should indeed be fulfilled right
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png\" alt=\"model Examples.Systems.RobotR3.FullRobot\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/RobotR3/r3_fullRobot.png\" alt=\"model Examples.Systems.RobotR3.FullRobot\">
 </p>
 </html>"));
   end FullRobot;
@@ -1743,7 +1743,7 @@ This model contains the mechanical components of the r3 robot
               textString="%name",
               textColor={0,0,255}),
             Bitmap(extent={{-130,-195},{195,195}},
-              fileName="modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png"),
+              fileName="modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/RobotR3/robot_kr15.png"),
             Text(
               extent={{-190,-130},{-130,-170}},
               textString="1"),
@@ -1787,7 +1787,7 @@ Furthermore, it is shown how CAD data can be used
 for animation.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png\"
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/RobotR3/robot_kr15.png\"
 alt=\"model Examples.Systems.RobotR3\">
 
 <p>
