@@ -3,7 +3,8 @@ model GeneralLeakage "Magnetic circuit with generic leakage mode"
   extends Modelica.Icons.Example;
   Basic.ConstantReluctance constantReluctance(R_m=1E-5)
     annotation (Placement(transformation(extent={{0,50},{20,70}})));
-  Basic.LeakageWithCoefficient leakageWithCoefficient(R_mUsefulTot=1E-5)
+  Basic.LeakageWithCoefficient leakageWithCoefficient(c_usefulFlux=0.7,
+                                                      R_mUsefulTot=1E-5)
     annotation (Placement(transformation(extent={{20,10},{0,30}})));
   Basic.EddyCurrent eddyCurrent(useConductance=true, G=10000) annotation (
       Placement(transformation(
