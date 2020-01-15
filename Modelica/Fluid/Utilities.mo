@@ -314,14 +314,14 @@ Typical screenshots for two different configurations
 are shown below. The first one with k1=k2=1:
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regRoot2_a.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regRoot2_a.png\"
      alt=\"regRoot2_a.png\">
 </p>
 <p>
 and the second one with k1=1 and k2=3:
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regRoot2_b.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regRoot2_b.png\"
       alt=\"regRoot2_b.png\">
 </p>
 
@@ -329,7 +329,7 @@ and the second one with k1=1 and k2=3:
 The (smooth) derivative of the function with
 k1=1, k2=3 is shown in the next figure:</p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regRoot2_c.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regRoot2_c.png\"
      alt=\"regRoot2_c.png\">
 </p>
 
@@ -463,7 +463,7 @@ such that
 A typical screenshot for k1=1, k2=3 is shown in the next figure:
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regSquare2_b.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regSquare2_b.png\"
      alt=\"regSquare2_b.png\">
 </p>
 
@@ -473,7 +473,7 @@ k1=1, k2=3 is shown in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regSquare2_c.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regSquare2_c.png\"
      alt=\"regSquare2_b.png\">
 </p>
 
@@ -760,14 +760,14 @@ Typical screenshots for two different configurations
 are shown below. The first one illustrates five different settings of <code>xi</code> and <code>yid</code>:
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regFun3_a.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regFun3_a.png\"
       alt=\"regFun3_a.png\">
 </p>
 <p>
 The second graph shows the continuous derivative of this regularization function:
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regFun3_b.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regFun3_b.png\"
      alt=\"regFun3_a.png\">
 </p>
 
