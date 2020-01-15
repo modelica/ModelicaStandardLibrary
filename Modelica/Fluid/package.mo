@@ -124,7 +124,7 @@ one point as shown in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/MixingConnections.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/ComponentDefinition/MixingConnections.png\"
      alt=\"MixingConnections.png\">
 </p>
 
@@ -370,19 +370,19 @@ equations hold
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td> Mass balance</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/massBalance.png\"
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/ComponentDefinition/massBalance.png\"
                 alt=\"massBalance.png\"></td>
   </tr>
   <tr><td> Momentum balance</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/momentumBalance.png\"
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/ComponentDefinition/momentumBalance.png\"
                 alt=\"momentumBalance.png\"></td>
   </tr>
   <tr><td> Energy balance 1</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance1.png\"
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/ComponentDefinition/energyBalance1.png\"
                 alt=\"energyBalance1.png\"></td>
   </tr>
   <tr><td> Pipe friction</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/pipeFriction.png\"
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/ComponentDefinition/pipeFriction.png\"
                 alt=\"pipeFriction.png\"></td>
   </tr>
   <tr><td></td>
@@ -408,7 +408,7 @@ the \"energy balance 2\":
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td> Energy balance 2</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance2.png\"
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/ComponentDefinition/energyBalance2.png\"
                 alt=\"energyBalance2.png\"></td>
   </tr>
 </table>
@@ -568,7 +568,7 @@ A plot of this characteristic is shown in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/sqrt.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/ComponentDefinition/sqrt.png\"
      alt=\"sqrt.png\">
 </p>
 
@@ -1694,6 +1694,7 @@ substance medium with one or more phases might be used.
 </p>
 </html>"));
 end UsersGuide;
+
 annotation (Icon(graphics={
         Polygon(points={{-70,26},{68,-44},{68,26},{2,-10},{-70,-42},{-70,26}}),
         Line(points={{2,42},{2,-10}}),
@@ -1718,7 +1719,7 @@ a simple heating system with a closed flow cycle. By just changing one configura
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/HeatingSystem.png\" border=\"1\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/HeatingSystem.png\" border=\"1\"
      alt=\"HeatingSystem.png\">
 </p>
 

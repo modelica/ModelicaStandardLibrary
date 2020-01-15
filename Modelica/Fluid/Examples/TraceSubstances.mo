@@ -71,7 +71,7 @@ This scales the residual equations that are used by the solver to the right orde
 of magnitude.
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/RoomCO2.png\" border=\"1\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/TraceSubstances/RoomCO2.png\" border=\"1\"
      alt=\"RoomCO2.png\">
 </p>
 </html>"),
@@ -244,7 +244,7 @@ This scales the residual equations that are used by the solver to the right orde
 of magnitude.
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/TraceSubstances/RoomCO2WithControls.png\" border=\"1\"
      alt=\"RoomCO2WithControls.png\">
 </p>
 </html>"));
