@@ -1,4 +1,4 @@
-within Modelica.Fluid;
+﻿within Modelica.Fluid;
 package Dissipation
   "Functions for convective heat transfer and pressure loss characteristics"
     extends Modelica.Icons.BasesPackage;
@@ -6216,7 +6216,7 @@ You can perform an inverse calculation from <strong>kc_evenGapLaminar_KC</strong
 
 <h4>Geometry</h4>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"pic_gap\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/Channel/pic_gap.png\" alt=\"pic_gap\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -6302,7 +6302,7 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar.png\" alt=\"fig_channel_kc_evenGapLamina\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/Channel/fig_channel_kc_evenGapLaminar.png\" alt=\"fig_channel_kc_evenGapLamina\"/>
 </p>
 
 <h4>References</h4>
@@ -6386,7 +6386,7 @@ The verification for all targets is shown in the following figure w.r.t. the ref
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall.png\" alt=\"fig_channel_kc_evenGapOverall\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/Channel/fig_channel_kc_evenGapOverall.png\" alt=\"fig_channel_kc_evenGapOverall\"/>
 </p>
 
 <h4>References</h4>
@@ -6435,7 +6435,7 @@ You can perform an inverse calculation from <strong>kc_evenGapTurbulent_KC</stro
 
 <h4>Geometry</h4>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"pic_gap\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/Channel/pic_gap.png\" alt=\"pic_gap\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -6495,7 +6495,7 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
 </ul>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapTurbulent.png\" alt=\"fig_channel_kc_evenGapTurbulent\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/Channel/fig_channel_kc_evenGapTurbulent.png\" alt=\"fig_channel_kc_evenGapTurbulent\"/>
 </p>
 
 <h4>References</h4>
@@ -6597,7 +6597,7 @@ The mean Nusselt number <strong> Nu </strong> representing the mean convective h
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T1.png\" alt=\"fig_kc_approxForcedConvection_T1\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/General/fig_kc_approxForcedConvection_T1.png\" alt=\"fig_kc_approxForcedConvection_T1\"/>
 </p>
 
 <p>
@@ -6605,7 +6605,7 @@ The mean Nusselt number <strong> Nu </strong> representing the mean convective h
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T2.png\" alt=\"fig_kc_approxForcedConvection_T2\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/General/fig_kc_approxForcedConvection_T2.png\" alt=\"fig_kc_approxForcedConvection_T2\"/>
 </p>
 
 <p>
@@ -6613,7 +6613,7 @@ The mean Nusselt number <strong> Nu </strong> representing the mean convective h
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png\" alt=\"fig_kc_approxForcedConvection_T3\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/General/fig_kc_approxForcedConvection_T3.png\" alt=\"fig_kc_approxForcedConvection_T3\"/>
 </p>
 
 <p>
@@ -6663,7 +6663,7 @@ You can perform an inverse calculation from <strong>kc_flatTube_KC</strong>, whe
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/pic_flatTube.png\" width=\"850\" alt=\"pic_flatTube\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/HeatExchanger/pic_flatTube.png\" width=\"850\" alt=\"pic_flatTube\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -6712,7 +6712,7 @@ The mean Nusselt number <strong> Nu </strong> representing the mean convective h
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/fig_flatTube_kc.png\" alt=\"fig_flatTube_kc\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/HeatExchanger/fig_flatTube_kc.png\" alt=\"fig_flatTube_kc\"/>
 </p>
 
 <h4>References</h4>
@@ -6759,7 +6759,7 @@ You can perform an inverse calculation from <strong>kc_roundTube_KC</strong>, wh
 
 <h4>Geometry </h4>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/pic_roundTube.png\" width=\"850\" alt=\"pic_roundTube\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/HeatExchanger/pic_roundTube.png\" width=\"850\" alt=\"pic_roundTube\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -6798,7 +6798,7 @@ The mean Nusselt number <strong> Nu </strong> representing the mean convective h
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/fig_roundTube_kc.png\" alt=\"fig_roundTube_kc\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/HeatExchanger/fig_roundTube_kc.png\" alt=\"fig_roundTube_kc\"/>
 </p>
 
 <h4>References</h4>
@@ -6862,7 +6862,7 @@ centrifugal forces.
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\" alt=\"pic_helicalPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/HelicalPipe/pic_helicalPipe.png\" alt=\"pic_helicalPipe\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -6961,7 +6961,7 @@ The mean Nusselt number <strong> Nu </strong> representing the mean convective h
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_laminar.png\" alt=\"fig_helicalPipe_kc_laminar\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/HelicalPipe/fig_helicalPipe_kc_laminar.png\" alt=\"fig_helicalPipe_kc_laminar\"/>
 </p>
 
 <p>The convective heat transfer of a helical pipe is enhanced compared
@@ -7017,7 +7017,7 @@ The mean Nusselt number <strong> Nu </strong> representing the mean convective h
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_overall.png\" alt=\"fig_helicalPipe_kc_overall\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/HelicalPipe/fig_helicalPipe_kc_overall.png\" alt=\"fig_helicalPipe_kc_overall\"/>
 </p>
 
 <p>
@@ -7066,7 +7066,7 @@ The critical Reynolds number <strong> Re_crit </strong> in a helical pipe depend
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\" alt=\"pic_helicalPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/HelicalPipe/pic_helicalPipe.png\" alt=\"pic_helicalPipe\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -7116,7 +7116,7 @@ The mean Nusselt number <strong> Nu </strong> representing the mean convective h
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_turbulent.png\" alt=\"fig_helicalPipe_kc_turbulent\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/HelicalPipe/fig_helicalPipe_kc_turbulent.png\" alt=\"fig_helicalPipe_kc_turbulent\"/>
 </p>
 
 <p>
