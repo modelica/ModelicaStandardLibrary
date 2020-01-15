@@ -684,7 +684,7 @@ see \"blue\" curve in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\" alt=\"PipeFriction1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\" alt=\"PipeFriction1\">
 </p>
 
 <p>
@@ -699,7 +699,7 @@ used in Modelica.Fluid:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction2.png\" alt=\"PipeFriction2\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction2.png\" alt=\"PipeFriction2\">
 </p>
 
 <p>

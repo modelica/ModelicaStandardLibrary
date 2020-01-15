@@ -1485,7 +1485,7 @@ solving a non-linear equation.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
 </p>
 
@@ -1496,7 +1496,7 @@ shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-a.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-a.png\"
      alt=\"PipeFrictionStaticHead_case-a.png\">
 </p>
 
@@ -1505,7 +1505,7 @@ In the case illustrated second, the change of elevation with the path from a to
 b has the same sign of the change of density.</p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-b.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-b.png\"
      alt=\"PipeFrictionStaticHead_case-b.png\">
 </p>
 </html>"), Diagram(coordinateSystem(
@@ -3326,7 +3326,7 @@ solving a non-linear equation.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
 </p>
 
@@ -3337,7 +3337,7 @@ shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-a.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-a.png\"
      alt=\"PipeFrictionStaticHead_case-a.png\">
 </p>
 
@@ -3346,7 +3346,7 @@ In the case illustrated second, the change of elevation with the path from a to
 b has the same sign of the change of density.</p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-b.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFrictionStaticHead_case-b.png\"
      alt=\"PipeFrictionStaticHead_case-b.png\">
 </p>
 
@@ -3485,7 +3485,7 @@ in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
 </p>
 
@@ -3547,7 +3547,7 @@ in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
 </p>
 
