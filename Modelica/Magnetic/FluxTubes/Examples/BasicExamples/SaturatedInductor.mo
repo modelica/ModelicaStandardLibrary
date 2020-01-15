@@ -26,7 +26,7 @@ model SaturatedInductor "Inductor with saturation in the ferromagnetic core"
   Shapes.FixedShape.Cuboid r_mAirPar(
     a=0.025,
     b=0.025,
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=1,
     l=0.0001)
     "Reluctance of small parasitic air gap (ferromagnetic core packeted from single sheets)"
@@ -35,7 +35,7 @@ model SaturatedInductor "Inductor with saturation in the ferromagnetic core"
     mu_rConst=1000,
     a=0.025,
     b=0.025,
-    nonLinearPermeability=true,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     l=4*0.065,
     material=
         Material.SoftMagnetic.ElectricSheet.M350_50A(),
@@ -81,7 +81,7 @@ r_mFe.B vs. r_mFe.H       // magnetisation curve B(H); hysteresis neglected
 </pre></blockquote>
 
 <p>
-The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g., selection of one of the electric sheets in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient initial design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
+The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (magneticCharacteristic set to Linear and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g., selection of one of the electric sheets in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">Material.SoftMagnetic</a> with magneticCharacteristic set to ApproximationRo00). This enables for convenient initial design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
 </p>
 
 <h4>Note</h4>

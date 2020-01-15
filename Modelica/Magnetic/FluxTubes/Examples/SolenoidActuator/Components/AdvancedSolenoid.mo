@@ -75,7 +75,7 @@ public
     final l=l_yoke/2 - t_poleBot/2,
     final r_i=r_yokeIn,
     final r_o=r_yokeOut,
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material)
     "Permeance of first half of yoke's hollow cylindric section"
     annotation (Placement(transformation(extent={{-50,70},{-30,90}})));
@@ -85,7 +85,7 @@ public
     final l=l_yoke - (t_yokeBot + t_poleBot)/2 - l_pole - (x_max +
         x_min)/2,
     final r_o=r_arm,
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material) "Permeance of ferromagnetic armature"
     annotation (Placement(transformation(
         origin={10,30},
@@ -108,7 +108,7 @@ public
     final l=t_yokeBot,
     final r_i=r_arm + t_airPar,
     final r_o=r_yokeIn,
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material)
     "Permeance of bottom side of ferromagnetic yoke" annotation (
       Placement(transformation(
@@ -120,7 +120,7 @@ public
     final l=t_yokeBot,
     final r_i=r_arm,
     final r_o=r_arm + t_airPar,
-    final nonLinearPermeability=false,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     final mu_rConst=1)
     "Permeance of parasitic radial air gap due to slide guiding"
     annotation (Placement(transformation(
@@ -131,7 +131,7 @@ public
     final l=t_poleBot,
     final r_i=r_arm,
     final r_o=r_yokeIn,
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material) "Permeance of bottom side of pole"
     annotation (Placement(transformation(
         origin={-78,56},
@@ -141,7 +141,7 @@ public
   FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFePole(
     final l=l_pole,
     final r_o=r_arm,
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material,
     r_i=0) "Permeance of ferromagnetic pole" annotation (Placement(
         transformation(
@@ -189,7 +189,7 @@ public
     final r_i=r_arm,
     final r_o=r_yokeIn,
     final l=l_yoke/4,
-    final nonLinearPermeability=false)
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear)
     "Permeance of radial leakage flux tube between armature side and yoke side"
     annotation (Placement(transformation(
         origin={0,56},
@@ -199,7 +199,7 @@ public
     final l=l_yoke/2 - t_yokeBot/2,
     final r_i=r_yokeIn,
     r_o=r_yokeOut,
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material)
     "Permeance of second half of yoke's hollow cylindric section"
     annotation (Placement(transformation(extent={{20,70},{40,90}})));

@@ -10,7 +10,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
   Basic.ElectroMagneticConverter excitingCoil(N=N)
     annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
   Shapes.FixedShape.Cuboid leftLeg(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=mu_r,
     l=l - a,
     a=a,
@@ -19,7 +19,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
         rotation=90,
         origin={-30,30})));
   Shapes.FixedShape.Cuboid upperYoke(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=mu_r,
     l=l - a,
     a=a,
@@ -28,7 +28,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
         rotation=0,
         origin={0,50})));
   Shapes.FixedShape.Cuboid rightLeg(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=mu_r,
     l=l - a - delta,
     a=a,
@@ -37,7 +37,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
         rotation=270,
         origin={30,30})));
   Shapes.FixedShape.Cuboid airGap(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=1,
     l=delta,
     a=a,
@@ -48,7 +48,7 @@ parameter Integer N=500 "Number of turns of exciting coil";
   Basic.ElectroMagneticConverter measuringCoil(N=1)
     annotation (Placement(transformation(extent={{50,-10},{30,10}})));
   Shapes.FixedShape.Cuboid lowerYoke(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=mu_r,
     l=l - a,
     a=a,

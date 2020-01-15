@@ -228,7 +228,7 @@ protected
     alpha=alpha1,
     T_ref=293.15) annotation (Placement(transformation(extent={{80,50},{100,70}})));
   Shapes.FixedShape.Cuboid leakage(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=1,
     l=l2,
     a=a,

@@ -63,7 +63,7 @@ public
     "Coil resistance" annotation (Placement(transformation(extent={{-70,
             -30},{-50,-10}})));
   FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFeYokeSide(
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material,
     final l=l_yoke - (t_poleBot + t_yokeBot)/2,
     final r_i=r_yokeIn,
@@ -72,7 +72,7 @@ public
     annotation (Placement(transformation(extent={{-10,80},{10,100}})));
 
   FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFeArm(
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material,
     final l=l_yoke - (t_yokeBot + t_poleBot)/2 - l_pole - (x_max +
         x_min)/2,
@@ -96,7 +96,7 @@ public
         extent={{-10,10},{10,-10}},
         rotation=180)));
   FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux g_mFeYokeBot(
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material,
     final l=t_yokeBot,
     final r_i=r_arm + t_airPar,
@@ -108,7 +108,7 @@ public
         rotation=90)));
 
   FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux g_mAirPar(
-    final nonLinearPermeability=false,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     final mu_rConst=1,
     final l=t_yokeBot,
     final r_i=r_arm,
@@ -122,7 +122,7 @@ public
     final l=t_poleBot,
     final r_i=r_arm,
     final r_o=r_yokeIn,
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material) "Permeance of bottom side of pole"
     annotation (Placement(transformation(
         origin={-72,80},
@@ -130,7 +130,7 @@ public
         rotation=90)));
 
   FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFePole(
-    final nonLinearPermeability=true,
+    final materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00,
     final material=material,
     final l=l_pole,
     final r_i=0,

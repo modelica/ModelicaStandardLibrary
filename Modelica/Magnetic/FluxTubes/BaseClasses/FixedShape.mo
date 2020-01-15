@@ -1,20 +1,19 @@
 within Modelica.Magnetic.FluxTubes.BaseClasses;
 partial model FixedShape "Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics"
-
   extends Interfaces.TwoPorts;
+  import Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic;
 
-  parameter Boolean nonLinearPermeability=true
-    "= true, if non-linear rel. permeability is used, otherwise constant rel. permeability"
+  parameter MaterialCharacteristic materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00
+    "Define the characteristic oth the soft-magnetic material"
     annotation (Dialog(group="Material"), Evaluate=true);
   parameter SI.RelativePermeability mu_rConst=1
-    "Constant relative permeability; used if nonLinearPermeability = false"
-    annotation (Dialog(group="Material", enable=not nonLinearPermeability));
-
+    "Constant relative permeability; used if materialCharacteristic = Linear"
+    annotation (Dialog(group="Material", enable=materialCharacteristic==MaterialCharacteristic.Linear));
   parameter FluxTubes.Material.SoftMagnetic.BaseData material=
       Material.SoftMagnetic.BaseData()
-    "Ferromagnetic material characteristics; used if nonLinearPermeability = true"
-    annotation (choicesAllMatching=true, Dialog(group="Material", enable=
-          nonLinearPermeability));
+    "Ferromagnetic material characteristics; used if materialCharacteristic = ApproximationRo00"
+    annotation (choicesAllMatching=true,
+      Dialog(group="Material", enable=materialCharacteristic==MaterialCharacteristic.ApproximationRo00));
 
   SI.Reluctance R_m "Magnetic reluctance";
   SI.Permeance G_m "Magnetic permeance";
@@ -29,9 +28,8 @@ protected
 
 equation
   B_N = abs(B/material.B_myMax);
-  mu_r = if nonLinearPermeability then
-    1 + (material.mu_i - 1 + material.c_a*B_N)/(1 + material.c_b*B_N + B_N^material.n) else mu_rConst;
-
+  mu_r = if materialCharacteristic==MaterialCharacteristic.Linear then mu_rConst else
+    1 + (material.mu_i - 1 + material.c_a*B_N)/(1 + material.c_b*B_N + B_N^material.n);
   R_m = 1/G_m;
   V_m = Phi*R_m;
   B = Phi/A;

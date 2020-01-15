@@ -15,7 +15,7 @@ model ToroidalCoreQuadraticCrossSection
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Shapes.FixedShape.HollowCylinderCircumferentialFlux
                            core(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=mu_r,
     l=l,
     r_i=r_i,
@@ -25,7 +25,7 @@ model ToroidalCoreQuadraticCrossSection
         rotation=0,
         origin={0,30})));
   Shapes.FixedShape.HollowCylinderCircumferentialFlux  airGap(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=1,
     l=l,
     r_i=r_i,

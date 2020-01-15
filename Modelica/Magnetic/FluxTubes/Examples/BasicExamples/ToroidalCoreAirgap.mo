@@ -12,7 +12,7 @@ model ToroidalCoreAirgap "Educational example: iron core with airgap"
   Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter excitingCoil(N=N)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Shapes.FixedShape.Toroid core(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=mu_r,
     r=r,
     d=d,
@@ -21,7 +21,7 @@ model ToroidalCoreAirgap "Educational example: iron core with airgap"
         rotation=0,
         origin={0,30})));
   Shapes.FixedShape.Toroid                             airGap(
-    nonLinearPermeability=false,
+    materialCharacteristic=Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear,
     mu_rConst=1,
     r=r,
     d=d,
