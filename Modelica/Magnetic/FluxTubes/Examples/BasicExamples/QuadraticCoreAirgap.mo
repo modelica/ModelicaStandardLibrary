@@ -5,7 +5,8 @@ model QuadraticCoreAirgap "Educational example: iron core with airgap"
   parameter Modelica.SIunits.Length a=0.01 "Side length of square cross section";
   parameter Real mu_r=1000 "Relative permeability of core";
   parameter Modelica.SIunits.Length delta=0.001 "Length of airgap";
-parameter Integer N=500 "Number of turns of exciting coil";
+  parameter Real sigma=0.1 "Leakage coefficient";
+  parameter Integer N=500 "Number of turns of exciting coil";
   parameter Modelica.SIunits.Current I=1.5 "Maximum exciting current";
   Basic.ElectroMagneticConverter excitingCoil(N=N)
     annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
@@ -79,7 +80,8 @@ parameter Integer N=500 "Number of turns of exciting coil";
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={70,0})));
-  Basic.LeakageWithCoefficient leakage(c_usefulFlux=0.9) annotation (Placement(
+  Basic.LeakageWithCoefficient leakage(c_usefulFlux=1 - sigma)
+                                                         annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -161,7 +163,7 @@ Note that there is a leakage flux path present. Therefore the total magnetic flu
 </ul>
 <p>
 However, the magnetic voltage across the airgap and the leakage model are equal. 
-The ratio of the useful flux over the flux in the core is equal to 0.9. 
+The ratio of the useful flux over the flux in the core is equal to <code>1 - &sigma;</code>. 
 In the core the magnetic flux is the same in every element as they are connected in series. 
 For the calculation of the length of flux lines inside the core, a medium flux line (dashed line) is used.
 </p>
