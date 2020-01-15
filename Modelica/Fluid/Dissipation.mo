@@ -5771,7 +5771,7 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_horizontal.png\" alt=\"pic_twoPhaseFlowRegimes_horizontal\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/PressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_horizontal.png\" alt=\"pic_twoPhaseFlowRegimes_horizontal\"/>
 </p>
 
 <p>
@@ -5779,7 +5779,7 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_vertical.png\" alt=\"pic_twoPhaseFlowRegimes_vertical\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/PressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_vertical.png\" alt=\"pic_twoPhaseFlowRegimes_vertical\"/>
 </p>
 
 <p>
@@ -12351,7 +12351,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
                       100,100}},
-                    fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/icon_bend.png")}));
+                    fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/PressureLoss/bend/icon_bend.png")}));
         end Bend_i;
 
         partial model Channel_i "Icon for channel"
@@ -12360,7 +12360,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
                       100,100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/icon_channel.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/PressureLoss/channel/icon_channel.png")}));
         end Channel_i;
 
         partial model General_i "Icon for general pressure drop"
@@ -12369,7 +12369,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
                       100,100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/icon_general.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/PressureLoss/general/icon_general.png")}));
         end General_i;
 
         partial model HeatExchanger_i
@@ -12377,7 +12377,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Bitmap(extent={{-100,-100},{100,100}},
                   fileName=
-                  "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/heatExchanger/icon_heatExchanger.png")}));
+                  "modelica://Modelica/Resources/Images/Fluid/Dissipation/PressureLoss/heatExchanger/icon_heatExchanger.png")}));
         end HeatExchanger_i;
 
         partial model Orifice_i "Icon for orifice"
@@ -12386,7 +12386,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
                       100,100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/icon_orifice.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/PressureLoss/orifice/icon_orifice.png")}));
         end Orifice_i;
 
         partial model StraightPipe_i "Icon for straight pipe"
@@ -12395,7 +12395,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
                       100,100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/icon_straightPipe.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/PressureLoss/StraightPipe/icon_straightPipe.png")}));
         end StraightPipe_i;
 
         partial model Valve_i "Icon for valve"
@@ -12403,7 +12403,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
                       100,100}},
-                    fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/icon_valve.png")}));
+                    fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/PressureLoss/valve/icon_valve.png")}));
         end Valve_i;
       end PressureLoss;
 
