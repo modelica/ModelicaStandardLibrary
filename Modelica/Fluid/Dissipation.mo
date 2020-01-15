@@ -7174,7 +7174,7 @@ You can perform an inverse calculation from <strong>kc_laminar_KC</strong>, wher
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\" alt=\"pic_plate\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/Plate/pic_plate.png\" alt=\"pic_plate\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -7214,7 +7214,7 @@ The mean Nusselt number <strong> Nu </strong> in the laminar regime representing
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_laminar.png\" width=\"600\" alt=\"fig_plate_kc_laminar\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/Plate/fig_plate_kc_laminar.png\" width=\"600\" alt=\"fig_plate_kc_laminar\"/>
 </p>
 
 <p>
@@ -7273,7 +7273,7 @@ The mean Nusselt number <strong> Nu = sqrt(Nu_lam^2 + Nu_turb^2) </strong> repre
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_overall.png\" alt=\"fig_plate_kc_overall\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/Plate/fig_plate_kc_overall.png\" alt=\"fig_plate_kc_overall\"/>
 </p>
 
 <h4>References</h4>
@@ -7317,7 +7317,7 @@ You can perform an inverse calculation from <strong>kc_turbulent_KC</strong>, wh
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\" alt=\"pic_plate\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/Plate/pic_plate.png\" alt=\"pic_plate\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -7359,7 +7359,7 @@ The mean Nusselt number in turbulent regime <strong> Nu </strong> representing t
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_turbulent.png\" alt=\"fig_plate_kc_turbulent\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/HeatTransfer/Plate/fig_plate_kc_turbulent.png\" alt=\"fig_plate_kc_turbulent\"/>
 </p>
 
 
@@ -7411,7 +7411,7 @@ You can perform an inverse calculation from <strong>kc_laminar_KC</strong>, wher
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -7479,7 +7479,7 @@ This verification has been done with the fluid properties of Water (Prandtl numb
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar.png\" alt=\"fig_straightPipe_kc_laminar\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/StraightPipe/fig_straightPipe_kc_laminar.png\" alt=\"fig_straightPipe_kc_laminar\"/>
 </p>
 
 <h4>References</h4>
@@ -7544,7 +7544,7 @@ The following verification considers pressure loss influence (roughness =2).
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall.png\" alt=\"fig_straightPipe_kc_overall\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/StraightPipe/fig_straightPipe_kc_overall.png\" alt=\"fig_straightPipe_kc_overall\"/>
 </p>
 
 <h4>References</h4>
@@ -7594,7 +7594,7 @@ You can perform an inverse calculation from <strong>kc_turbulent_KC</strong>, wh
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -7663,7 +7663,7 @@ The mean Nusselt number <strong> Nu </strong> representing the mean convective h
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_turbulent.png\" alt=\"fig_straightPipe_kc_turbulent\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/StraightPipe/fig_straightPipe_kc_turbulent.png\" alt=\"fig_straightPipe_kc_turbulent\"/>
 </p>
 
 <p>
@@ -7701,7 +7701,7 @@ Calculation of local <strong>two phase</strong> heat transfer coefficient <stron
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -7787,7 +7787,7 @@ Here the validation of the two phase heat transfer coefficient is shown for boil
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_4.png\" alt=\"fig_kc_twoPhaseOverall\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/StraightPipe/fig_kc_twoPhaseOverall_KC_4.png\" alt=\"fig_kc_twoPhaseOverall\"/>
 </p>
 
 <p>The two phase heat transfer coefficient (<strong>kc_2ph </strong>) w.r.t. <em>Gungor/Winterton</em> is shown in dependence of the mass flow rate quality (<strong>x_flow </strong>) for different mass flow rate densities (<strong>mdot_A </strong>). The validation has been done with measurement results from <em>Kattan/Thome</em> for R134a as medium.</p>
@@ -7801,7 +7801,7 @@ Here the validation of the two phase heat transfer coefficient is shown for cond
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_2.png\" alt=\"fig_kc_twoPhaseOverall\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/StraightPipe/fig_kc_twoPhaseOverall_KC_2.png\" alt=\"fig_kc_twoPhaseOverall\"/>
 </p>
 
 <p>The two phase heat transfer coefficient (<strong>kc_2ph </strong>) w.r.t. <em>Shah</em> is shown in dependence of the mass flow rate quality (<strong>x_flow </strong>) for different mass flow rate densities (<strong>mdot_A </strong>). The validation has been done with measurement results from <em>Dobson/Chato</em> for R134a as medium.</p>
@@ -7850,7 +7850,7 @@ This function shall be used inside of the restricted limits according to the ref
 
 <h4>Geometry</h4>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_circularBend.png\" alt=\"pic_circularBend\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Bend/pic_circularBend.png\" alt=\"pic_circularBend\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -7994,20 +7994,20 @@ Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
 <p>The pressure loss coefficient <strong>zeta_TOT </strong>of a curved bend in dependence of the Reynolds number <strong>Re </strong>for different relative curvature radii <strong>R_0/d_hyd </strong>and different angles of turning <strong>delta </strong>is shown in the figures below.</p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOW\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOW\"/>
 </p>
 
 <p>There are deviations of the pressure loss coefficient <strong>zeta_TOT</strong> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <strong>zeta_TOT </strong>for the same geometry can be adjusted via varying the average height of surface asperities <strong>K</strong> for calibration.</p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii:</p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD\"/>
 </p>
 
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:</p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD\"/>
 </p>
 
 <p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility.</p>
@@ -8054,7 +8054,7 @@ This function shall be used inside of the restricted limits according to the ref
 <h4>Geometry</h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_edgedBend.png\" alt=\"pic_edgedBend\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Bend/pic_edgedBend.png\" alt=\"pic_edgedBend\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -8183,7 +8183,7 @@ The pressure loss coefficient <strong> zeta_TOT </strong> of a edged bend in dep
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\" alt=\"fig_bend_dp_edgedOverall_ZETAvsRE\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\" alt=\"fig_bend_dp_edgedOverall_ZETAvsRE\"/>
 </p>
 
 <p>
@@ -8212,7 +8212,7 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\" alt=\"fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\" alt=\"fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta\"/>
 </p>
 
 <p>
@@ -8223,7 +8223,7 @@ The mass flow rate in dependence of the pressure loss of water is shown for diff
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png\" alt=\"fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png\" alt=\"fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta\"/>
 </p>
 
 <h4>References</h4>
@@ -8270,7 +8270,7 @@ This function shall be used inside of the restricted limits according to the ref
 <h4>Geometry</h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/pic-pLchannel.png\" alt=\"pic-pLchannel\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Channel/pic-pLchannel.png\" alt=\"pic-pLchannel\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -8334,7 +8334,7 @@ The Darcy friction factor (<strong>lambda_FRI</strong>) of a channel with differ
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/fig_channel_dp_internalFlowOverall_lambdaVsRe.png\" alt=\"fig_channel_dp_internalFlowOverall_lambdaVsRe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Channel/fig_channel_dp_internalFlowOverall_lambdaVsRe.png\" alt=\"fig_channel_dp_internalFlowOverall_lambdaVsRe\"/>
 </p>
 
 <p>
@@ -8479,7 +8479,7 @@ The mass flow rate <strong>m_flow</strong> for different coefficients <strong> K
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_idealGas_MFLOWvsDP.png\" alt=\"fig_general_dp_idealGas_MFLOWvsDP\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/General/fig_general_dp_idealGas_MFLOWvsDP.png\" alt=\"fig_general_dp_idealGas_MFLOWvsDP\"/>
 </p>
 
 <p>
@@ -8579,7 +8579,7 @@ The generic pressure loss <strong> DP </strong> in dependence of the mass flow r
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_DPvsMFLOW.png\" alt=\"fig_general_dp_nominalDensityViscosity_DPvsMFLOW\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/General/fig_general_dp_nominalDensityViscosity_DPvsMFLOW.png\" alt=\"fig_general_dp_nominalDensityViscosity_DPvsMFLOW\"/>
 </p>
 
 <p>
@@ -8590,7 +8590,7 @@ The generic mass flow rate <strong> M_FLOW </strong> in dependence of the pressu
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_MFLOWvsDP.png\" alt=\"fig_general_dp_nominalDensityViscosity_MFLOWvsDP\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/General/fig_general_dp_nominalDensityViscosity_MFLOWvsDP.png\" alt=\"fig_general_dp_nominalDensityViscosity_MFLOWvsDP\"/>
 </p>
 
 <h4>References</h4>
@@ -8728,7 +8728,7 @@ The generic mass flow rate <strong> M_FLOW </strong> in dependence of the pressu
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP.png\" alt=\"fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/General/fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP.png\" alt=\"fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP\"/>
 </p>
 
 <p>
@@ -8785,7 +8785,7 @@ The mass flow rate <strong> M_FLOW </strong> in dependence of the pressure loss 
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_MFLOWvsDP.png\" alt=\"fig_general_dp_pressureLossCoefficient_MFLOWvsDP\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/General/fig_general_dp_pressureLossCoefficient_MFLOWvsDP.png\" alt=\"fig_general_dp_pressureLossCoefficient_MFLOWvsDP\"/>
 </p>
 
 <p>
@@ -8845,7 +8845,7 @@ The generic pressure loss <strong>dp</strong> for different coefficients <strong
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\" alt=\"fig_general_dp_volumeFlowRate_MFLOWvsDP\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/General/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\" alt=\"fig_general_dp_volumeFlowRate_MFLOWvsDP\"/>
 </p>
 
 <p>
@@ -8892,7 +8892,7 @@ This function shall be used within the restricted limits according to the refere
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_suddenChangeSection.png\" alt=\"pic_suddenChangeSection\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Orifice/pic_suddenChangeSection.png\" alt=\"pic_suddenChangeSection\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -8945,7 +8945,7 @@ The local resistance coefficient <strong> zeta_LOC </strong> of a sudden expansi
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_suddenChangeExpansion.png\" alt=\"fig_orifice_suddenChangeExpansion\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Orifice/fig_orifice_suddenChangeExpansion.png\" alt=\"fig_orifice_suddenChangeExpansion\"/>
 </p>
 
 <p>
@@ -8953,7 +8953,7 @@ The local resistance coefficient <strong> zeta_LOC </strong> of a sudden contrac
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\" alt=\"fig_orifice_suddenChangeContraction\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Orifice/fig_orifice_suddenChangeContraction.png\" alt=\"fig_orifice_suddenChangeContraction\"/>
 </p>
 
 <h4>References</h4>
@@ -8988,7 +8988,7 @@ This function shall be used within the restricted limits according to the refere
 <h4>Geometry</h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_thickEdged.png\" alt=\"pic_thickEdged\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Orifice/pic_thickEdged.png\" alt=\"pic_thickEdged\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -9047,7 +9047,7 @@ The pressure loss coefficient <strong> zeta_TOT </strong> of a thick edged orifi
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGTH.png\" alt=\"fig_orifice_thickEdgedOverall_ZETAvsLENGTH\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGTH.png\" alt=\"fig_orifice_thickEdgedOverall_ZETAvsLENGTH\"/>
 </p>
 
 <p>
@@ -9058,7 +9058,7 @@ The pressure loss <strong> DP </strong> of an thick edged orifice in dependence 
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\" alt=\"fig_orifice_thickEdgedOverall_DPvsMFLOW\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\" alt=\"fig_orifice_thickEdgedOverall_DPvsMFLOW\"/>
 </p>
 
 <p>
@@ -9066,7 +9066,7 @@ The pressure loss <strong> DP </strong> of an thick edged orifice in dependence 
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\" alt=\"fig_orifice_thickEdgedOverall_MFLOWvsDP\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\" alt=\"fig_orifice_thickEdgedOverall_MFLOWvsDP\"/>
 </p>
 
 <h4>References</h4>
@@ -9106,7 +9106,7 @@ This function shall be used inside of the restricted limits according to the ref
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -9161,7 +9161,7 @@ The Darcy friction factor <strong>lambda_FRI</strong> in dependence of Reynolds 
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png\" alt=\"fig_straightPipe_laminar_lambdavsRe_ver\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png\" alt=\"fig_straightPipe_laminar_lambdavsRe_ver\"/>
 </p>
 
 <p>
@@ -9169,7 +9169,7 @@ The pressure loss <strong>dp</strong> for the laminar regime in dependence of th
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_laminar_DPvsMFLOW.png\" alt=\"fig_straightPipe_dp_laminar_DPvsMFLOW\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/fig_straightPipe_dp_laminar_DPvsMFLOW.png\" alt=\"fig_straightPipe_dp_laminar_DPvsMFLOW\"/>
 </p>
 
 <p>
@@ -9214,7 +9214,7 @@ This function shall be used within the restricted limits according to the refere
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -9311,7 +9311,7 @@ The Darcy friction factor <strong>lambda_FRI</strong> in dependence of Reynolds 
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png\" alt=\"fig_straightPipe_dp_overall_lambdavsRe_ver\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png\" alt=\"fig_straightPipe_dp_overall_lambdavsRe_ver\"/>
 </p>
 
 <p>
@@ -9319,7 +9319,7 @@ The pressure loss <strong>dp</strong> for the turbulent regime in dependence of 
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_DPvsMFLOW.png\" alt=\"fig_straightPipe_dp_overall_DPvsMFLOW\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/fig_straightPipe_dp_overall_DPvsMFLOW.png\" alt=\"fig_straightPipe_dp_overall_DPvsMFLOW\"/>
 </p>
 
 <p>
@@ -9327,7 +9327,7 @@ And the mass flow rate <strong>m_flow</strong> for the turbulent regime in depen
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_MFLOWvsDP.png\" alt=\"fig_straightPipe_dp_overall_MFLOWvsDP\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/fig_straightPipe_dp_overall_MFLOWvsDP.png\" alt=\"fig_straightPipe_dp_overall_MFLOWvsDP\"/>
 </p>
 
 <h4>References</h4>
@@ -9370,7 +9370,7 @@ This function shall be used within the restricted limits according to the refere
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -9445,7 +9445,7 @@ The Darcy friction factor <strong>lambda_FRI</strong> in dependence of Reynolds 
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_turbulent.png\" alt=\"fig_straightPipe_turbulent\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/fig_straightPipe_turbulent.png\" alt=\"fig_straightPipe_turbulent\"/>
 </p>
 
 <p>
@@ -9490,7 +9490,7 @@ This function shall be used within the restricted limits according to the refere
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 </p>
 
 <h4>Calculation</h4>
@@ -9674,7 +9674,7 @@ The two phase pressure loss for a horizontal pipe calculated by the correlation 
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_1.png\" alt=\"fig_dp_twoPhaseOverall_1\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/fig_dp_twoPhaseOverall_1.png\" alt=\"fig_dp_twoPhaseOverall_1\"/>
 </p>
 
 <p>
@@ -9682,7 +9682,7 @@ The two phase pressure loss for a horizontal pipe calculated by the correlation 
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_4.png\" alt=\"fig_dp_twoPhaseOverall_4\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/StraightPipe/fig_dp_twoPhaseOverall_4.png\" alt=\"fig_dp_twoPhaseOverall_4\"/>
 </p>
 
 <h4>References</h4>
@@ -9798,7 +9798,7 @@ The pressure loss coefficient (<strong>zeta_TOT</strong>) of a valve with differ
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\" alt=\"fig_valve_dp_severalGeometryOverall_zetaVsOpening\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\" alt=\"fig_valve_dp_severalGeometryOverall_zetaVsOpening\">
 </p>
 
 <p>
@@ -9811,7 +9811,7 @@ The mass flow rate of different valves at a constant opening of 50% in dependenc
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_MFLOWvsDP.png\" alt=\"fig_valve_dp_severalGeometryOverall_MFLOWvsDP\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SharedDocumentation/PressureLoss/Valve/fig_valve_dp_severalGeometryOverall_MFLOWvsDP.png\" alt=\"fig_valve_dp_severalGeometryOverall_MFLOWvsDP\"/>
 </p>
 
 <h4>References</h4>
@@ -10918,7 +10918,7 @@ within &infin; > y > -1/e.  The relative deviation of this approximation for Lam
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/LambertW_deviation.png\" alt=\"LambertW_deviation\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/Functions/General/LambertW_deviation.png\" alt=\"LambertW_deviation\"/>
 </p>
 
 <p>
@@ -11074,7 +11074,7 @@ For |x| &gt; 1 both functions return identical results.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SmoothPower.png\" alt=\"SmoothPower\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/Functions/General/SmoothPower.png\" alt=\"SmoothPower\"/>
 </p>
 
 <h4>References</h4>
@@ -11160,7 +11160,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 </ul>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/Stepsmoother.png\" alt=\"Stepsmoother\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/Functions/General/Stepsmoother.png\" alt=\"Stepsmoother\"/>
 </p>
 
 <h4>References</h4>
