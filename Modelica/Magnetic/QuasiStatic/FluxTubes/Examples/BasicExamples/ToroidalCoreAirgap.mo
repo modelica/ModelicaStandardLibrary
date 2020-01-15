@@ -112,9 +112,7 @@ For calculation of the length of flux lines, a flux line in the middle of the to
 <p>
 Additionally, a measuring coil is placed in the airgap. 
 Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction). 
-Since current is given as a linear-time dependent ramp, the induced voltages during that ramp are constant and otherwise zero. 
-Note that usage of nonlinear magnetic material would change that result due the nonlinear relationship between magnetic field strength and flux density.
-</p>
+Since the quasi static current and therefore flux follow a time dependent ramp, the quasi static induced voltages follow a ramp as well. </p>
 <p>
 Note the proper usage of electric and magnetic grounds to define zero potential.
 </p>

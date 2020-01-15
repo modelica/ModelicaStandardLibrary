@@ -164,7 +164,7 @@ For the calculation of the length of flux lines inside the core, a medium flux l
 <p>
 Additionally, a measuring coil is placed in the airgap. 
 Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction). 
-Since the quasi static current and therefore flux follow a time dependent ramp, the quasi static induced voltages follows a ramp as well. 
+Since the quasi static current and therefore flux follow a time dependent ramp, the quasi static induced voltages follow a ramp as well. 
 </p>
 <p>
 Note the proper usage of electric and magnetic grounds to define zero potential.
