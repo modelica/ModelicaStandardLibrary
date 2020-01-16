@@ -89,29 +89,29 @@ equation
 Educational example of a magnetic circuit containing a toroidal iron core with rectangular cross section and an airgap:
 </p>
 <p>
-A current ramp is applied in positive electric direction through the exciting coil, causing a rising magnetomotive force (mmf) in positive magnetic direction of the electromagnetic converter.  
-The mmf in turn causes a magnetic flux through the circuit in the direction indicated by the flux sensor. 
+A current ramp is applied in positive electric direction through the exciting coil, causing a rising magnetomotive force (mmf) in positive magnetic direction of the electromagnetic converter.
+The mmf in turn causes a magnetic flux through the circuit in the direction indicated by the flux sensor.
 From that magnetic flux, flux density can be calculated in every element of the magnetic circuit. Flux density is used to derive magnetic field strength.
-Magnetic field strength times length of the flux line gives magnetic potential difference of each element. 
+Magnetic field strength times length of the flux line gives magnetic potential difference of each element.
 The sum of all magnetic potential differences is covered by the mmf of the exciting coil.
 </p>
 <p>
 Using the values shown in section Parameters, the results can be validated easily by analytic calculations:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border="1" cellspacing="0" cellpadding="2">
 <tr><th>element   </th><th>cross section</th><th>length                         </th><th>rel. permeability </th><th>B                   </th><th>H                                    </th><th>mmf              </th></tr>
 <tr><td>core      </td><td>(r_o - r_i)*l</td><td>(r_o + r_i)/2*alfa             </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
 <tr><td>airgap    </td><td>(r_o - r_i)*l</td><td>delta=(r_o + r_i)/2*(2*pi-alfa)</td><td>1</td><td>flux / cross section</td><td>B/(&mu;<sub>0</sub>)</td><td>H*delta         </td></tr>
 <tr><td>total     </td><td>             </td><td>                               </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
 </table>
 <p>
-Note that since no leakage is present, the magnetic flux is the same in every element - they are connected in series. 
+Note that since no leakage is present, the magnetic flux is the same in every element - they are connected in series.
 For calculation of the length of flux lines, a medium flux line is used.
 </p>
 <p>
-Additionally, a measuring coil is placed in the airgap. 
-Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction). 
-Since the quasi static current and therefore flux follow a time dependent ramp, the quasi static induced voltages follow a ramp as well. 
+Additionally, a measuring coil is placed in the airgap.
+Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction).
+Since the quasi static current and therefore flux follow a time dependent ramp, the quasi static induced voltages follow a ramp as well.
 </p>
 <p>
 Note the proper usage of electric and magnetic grounds to define zero potential.
