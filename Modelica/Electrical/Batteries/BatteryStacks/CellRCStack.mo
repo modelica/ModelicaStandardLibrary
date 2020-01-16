@@ -1,13 +1,13 @@
 within Modelica.Electrical.Batteries.BatteryStacks;
 model CellRCStack
   "Battery with open-circuit voltage dependent on state of charge, self-discharge, inner resistance and a series of RC-elements"
-  extends BaseClasses.BaseCellStack(r0(final R=Ns*cellData.R0/Np),
-    redeclare ParameterRecords.TransientData.CellData cellData);
+  extends Modelica.Electrical.Batteries.BaseClasses.BaseCellStack(r0(final R=Ns*cellData.R0/Np),
+    redeclare Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData cellData);
   extends Modelica.Electrical.Batteries.Icons.TransientModel;
   Modelica.Electrical.Analog.Basic.Resistor resistor[cellData.nRC](
     final R=Ns*cellData.rcData.R/Np,
-    each final T_ref=cellData.T_ref,
-    each final alpha=cellData.alpha,
+    final T_ref=cellData.rcData.T_ref,
+    final alpha=cellData.rcData.alpha,
     each final useHeatPort=true)
     annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
   Modelica.Electrical.Analog.Basic.Capacitor capacitor[cellData.nRC](each v(

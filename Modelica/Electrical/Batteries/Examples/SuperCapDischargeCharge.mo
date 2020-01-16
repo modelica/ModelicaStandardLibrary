@@ -1,7 +1,7 @@
 within Modelica.Electrical.Batteries.Examples;
 model SuperCapDischargeCharge "Discharge and charge idealized supercap"
   extends Modelica.Icons.Example;
-  Utilities.PulseSeries pulseSeries(
+  Modelica.Electrical.Batteries.Utilities.PulseSeries pulseSeries(
     n1=5,
     T1=10,
     Tp1=10,
@@ -9,7 +9,7 @@ model SuperCapDischargeCharge "Discharge and charge idealized supercap"
     Tp=10,
     startTime=10)
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-  BatteryStacks.SuperCap superCap(
+  Modelica.Electrical.Batteries.BatteryStacks.SuperCap superCap(
     Vnom=48,
     C=500,
     Rs=0.002,
