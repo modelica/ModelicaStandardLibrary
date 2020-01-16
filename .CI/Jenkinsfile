@@ -32,7 +32,7 @@ pipeline {
           }
           steps {
             sh 'hostname'
-            sh 'omc .travis.mos'
+            sh 'omc ./.CI/.travis.mos'
           }
         }
         stage('moparser parsing') {

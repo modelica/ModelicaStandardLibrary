@@ -31,8 +31,6 @@ ObsoleteModelica4.mo export-subst
 .gitignore export-ignore
 CONTRIBUTING.md export-ignore
 .mailmap export-ignore
-.travis.mos export-ignore
-.travis.py export-ignore
 .travis.yml export-ignore
 *.ipe export-ignore
 Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx export-ignore
