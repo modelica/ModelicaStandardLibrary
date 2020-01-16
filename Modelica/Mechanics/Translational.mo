@@ -2527,30 +2527,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
               fillPattern=FillPattern.Solid,
               fontSize=0)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-100,0},{-55,0}}, color={0,127,0}),
-              Line(points={{55,0},{100,0}}, color={0,127,0}),Rectangle(
-                  extent={{-55,-30},{55,30}},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Polygon(
-                  points={{50,-90},{20,-80},{20,-100},{50,-90}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-60,-90},{20,-90}}),Line(points={{-100,-29},{-100,-61}}),
-              Line(points={{100,-61},{100,-28}}),Line(points={{-98,
-              -60},{98,-60}}),Polygon(
-                  points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}},
-                  fillPattern=FillPattern.Solid),Polygon(
-                  points={{100,-60},{95,-61},{95,-59},{100,-60}},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-44,-41},{51,-57}},
-                  textString="Length L",
-                  textColor={0,0,255}),Line(points={{0,30},{0,53}}),
-              Line(points={{-72,40},{1,40}}),Polygon(
-                  points={{-7,42},{-7,38},{-1,40},{-7,42}},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-61,53},{-9,42}},
-                  textString="Position s",
-                  textColor={0,0,255})}));
+                {100,100}})));
     end Mass;
 
     model Rod "Rod without inertia"
@@ -2582,25 +2559,7 @@ A translational rod <strong>without inertia</strong> and two rigidly connected f
                   extent={{-150,-30},{150,-60}},
                   textString="L=%L")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-100,0},{-55,0}}, color={0,127,0}),
-              Line(points={{54,0},{100,0}}, color={0,127,0}),Polygon(
-                  points={{50,-90},{20,-80},{20,-100},{50,-90}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-60,-90},{20,-90}}),Rectangle(
-                  extent={{-55,3},{53,-4}},
-                  lineColor={160,160,164},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,-29},{-100,
-              -61}}),Line(points={{100,-61},{100,-28}}),
-              Line(points={{-98,-60},{98,-60}}),Polygon(
-                  points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}},
-                  fillPattern=FillPattern.Solid),Polygon(
-                  points={{100,-60},{95,-61},{95,-59},{100,-60}},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-44,-41},{51,-57}},
-                  textString="Length L",
-                  textColor={0,0,255})}));
+                {100,100}})));
     end Rod;
 
     model Spring "Linear 1D translational spring"
@@ -2639,17 +2598,7 @@ a coupling of the sliding mass with the housing via a spring.
               extent={{-150,-45},{150,-75}},
               textString="c=%c")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-100,0},{-100,65}}, color=
-              {128,128,128}),Line(points={{100,0},{100,65}}, color={128,128,128}),
-              Line(points={{-100,60},{100,60}}, color={128,128,128}),Polygon(
-                  points={{90,63},{100,60},{90,57},{90,63}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-56,66},{36,81}},
-                  textColor={0,0,255},
-                  textString="s_rel"),Line(points={{-86,0},{-60,0},{-44,-30},{-16,
-              30},{14,-30},{44,30},{60,0},{84,0}})}));
+                {100,100}})));
     end Spring;
 
     model Damper "Linear 1D translational damper"
@@ -2693,21 +2642,7 @@ between two sliding masses.
                   pattern=LinePattern.Dot),
                                     Line(points={{60,-30},{-60,-30},{-60,30},{60,30}}, color={0,127,0})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-90,0},{-60,0}}),
-              Line(points={{-60,-30},{-60,30}}),Line(
-              points={{-60,-30},{60,-30}}),Line(points={{-60,30},
-              {60,30}}),Rectangle(
-                  extent={{-60,30},{30,-30}},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{30,0},{90,0}}),Line(points={{-50,60},{50,60}}, color={128,128,128}),
-              Polygon(
-                  points={{50,63},{60,60},{50,57},{50,63}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-58,68},{42,78}},
-                  textColor={128,128,128},
-                  textString="der(s_rel)")}));
+                {100,100}})));
     end Damper;
 
     model SpringDamper "Linear 1D translational spring and damper in parallel"
@@ -2770,26 +2705,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
               fillPattern=FillPattern.Solid,
               lineColor={0,127,0}), Line(points={{70,-90},{-50,-90},{-50,-50},{70,-50}}, color={0,127,0})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(
-                  points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,
-                32},{80,32}},
-                  thickness=0.5),Line(points={{-100,31},{-100,96}}, color={128,128,128}),
-              Line(points={{100,29},{100,94}}, color={128,128,128}),
-              Line(points={{-98,82},{100,82}}, color={128,128,128}),Polygon(
-                  points={{90,85},{100,82},{90,79},{90,85}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-63,83},{46,103}},
-                  textColor={0,0,255},
-                  textString="s_rel"),Rectangle(
-                  extent={{-52,-28},{38,-72}},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-51,-72},{69,-72}}),Line(points={{-52,-28},{68,-28}}),
-              Line(points={{38,-50},{80,-50}}),Line(points={{-80,
-              -50},{-52,-50}}),Line(points={{-80,32},{-80,-50}}),Line(points={{80,32},{80,-50}}),
-              Line(points={{-90,0},{-80,0}}),Line(points={{90,0},
-              {80,0}})}));
+                {100,100}})));
     end SpringDamper;
 
     model ElastoGap "1D translational spring damper combination with gap"
@@ -2929,28 +2845,7 @@ where the different effects are visualized:
 </p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-100,0},{-50,0}}, color={0,127,0}),
-              Line(
-                  points={{-48,34},{-48,-46}},
-                  thickness=1),Line(points={{8,40},{8,2}}),Line(
-              points={{-2,0},{38,0},{38,44},{-2,44}}),Line(
-              points={{38,22},{72,22}}),Line(
-                  points={{-12,-38},{-12,20}},
-                  thickness=1),Line(points={{-12,22},{8,22}}),
-              Line(points={{-12,-38},{-2,-38}}),Line(points={{72,
-              0},{100,0}}, color={0,127,0}),Line(points={{72,22},{72,-42}}),Line(points={{-2,-38},{10,-28},{22,-48},{38,-28},{
-              50,-48},{64,-28},{72,-40}}),Rectangle(
-                  extent={{8,44},{38,0}},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-64,-80},{64,-64}},
-                  textColor={0,0,255},
-                  textString="s_rel"),Line(points={{-100,-29},{-100,-61}}),Line(points={{100,-61},{100,-28}}),
-              Line(points={{-98,-60},{98,-60}}),Polygon(
-                  points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}},
-                  fillPattern=FillPattern.Solid),Polygon(
-                  points={{100,-60},{95,-61},{95,-59},{100,-60}},
-                  fillPattern=FillPattern.Solid)}),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-98,0},{-48,0}}, color={0,127,0}),
               Line(
@@ -4264,72 +4159,7 @@ between the stops.</em></li>
               fillColor={160,215,160},
               fillPattern=FillPattern.Solid,
               lineColor={0,127,0})}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-          graphics={
-            Polygon(
-              points={{50,-75},{20,-65},{20,-85},{50,-75}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-60,-75},{20,-75}}),
-            Rectangle(
-              extent={{-30,26},{35,-9}},
-              fillPattern=FillPattern.Sphere,
-              fillColor={255,255,255}),
-            Line(points={{-90,0},{-30,0}}, color={0,127,0}),
-            Line(points={{35,0},{90,0}}, color={0,127,0}),
-            Rectangle(
-              extent={{-68,-14},{76,-29}},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-119,43},{-111,17}},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-111,43},{-111,50}}),
-            Line(points={{-151,49},{-113,49}}),
-            Text(
-              extent={{-149,51},{-126,60}},
-              textString="s min",
-              textColor={0,0,255}),
-            Polygon(
-              points={{-121,52},{-111,49},{-121,46},{-121,52}},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{124,42},{132,17}},
-              fillPattern=FillPattern.Solid),
-            Line(points={{124,39},{124,87}}),
-            Line(points={{-19,78},{121,78}}),
-            Text(
-              extent={{-17,83},{6,92}},
-              textString="s max",
-              textColor={0,0,255}),
-            Polygon(
-              points={{114,81},{124,78},{114,75},{114,81}},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{5,26},{5,63}}),
-            Line(
-              points={{-77,58},{-1,58}}),
-            Text(
-              extent={{-75,60},{-38,71}},
-              textString="Position s",
-              textColor={0,0,255}),
-            Polygon(
-              points={{-5,61},{5,58},{-5,55},{-5,61}},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,-10},{-100,-60}}),
-            Line(points={{100,-10},{100,-60}}),
-            Polygon(
-              points={{90,-47},{100,-50},{90,-53},{90,-47}},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-90,-47},{-90,-53},{-100,-50},{-90,-47}},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,-50},{92,-50}}),
-            Text(
-              extent={{-11,-46},{26,-36}},
-              textString="Length L",
-              textColor={0,0,255})}));
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})));
     end MassWithStopAndFriction;
 
     model RelativeStates "Definition of relative state variables"
@@ -4398,41 +4228,7 @@ velocity of model mass1 or of model mass2 as state variables.
               textString="%name",
               textColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={
-            Line(
-              points={{-100,0},{100,0}},
-              pattern=LinePattern.Dash,
-              color={0,127,0}),
-            Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={52,219,218},
-              fillColor={52,219,218},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-40,40},{40,-40}},
-              textString="S",
-              textColor={0,0,255}),
-            Line(points={{-100,-10},{-100,-80}},
-              color={160,160,164}),
-            Line(points={{100,-10},{100,-80}}, color={
-              160,160,164}),
-            Polygon(
-                  points={{80,-65},{80,-55},{100,-60},{80,-65}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,-60},{80,-60}},
-              color={160,160,164}),Text(
-                  extent={{-30,-70},{30,-90}},
-                  textString="v_rel",
-                  textColor={0,0,255}),Line(points={{-76,80},{-5,80}}, color={
-              128,128,128}),Polygon(
-                  points={{14,80},{-6,85},{-6,75},{14,80}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{18,87},{86,74}},
-                  textColor={128,128,128},
-                  textString="moving direction")}));
+                {100,100}})));
     end RelativeStates;
 
     model GeneralForceToPositionAdaptor
@@ -5904,11 +5700,7 @@ flange is the same. It is used to built up springs, dampers etc.
 </p>
 
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Polygon(
-                  points={{50,-90},{20,-80},{20,-100},{50,-90}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-60,-90},{20,-90}})}));
+                {100,100}})));
     end PartialCompliant;
 
     partial model PartialCompliantWithRelativeStates

@@ -44,28 +44,7 @@ equation
           fillColor={191,0,0},
           fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}}), graphics={
-        Text(
-          extent={{-100,40},{0,-36}},
-          textString="Q_flow=const."),
-        Line(
-          points={{-48,-20},{60,-20}},
-          color={191,0,0},
-          thickness=0.5),
-        Line(
-          points={{-48,20},{60,20}},
-          color={191,0,0},
-          thickness=0.5),
-        Polygon(
-          points={{60,0},{60,40},{90,20},{60,0}},
-          lineColor={191,0,0},
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{60,-40},{60,0},{90,-20},{60,-40}},
-          lineColor={191,0,0},
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid)}),
+            {100,100}})),
     Documentation(info="<html>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"

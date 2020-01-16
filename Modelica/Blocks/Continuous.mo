@@ -124,17 +124,7 @@ port has a rising edge.
               textString="reset")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255}),
-          Text(
-            extent={{-36,60},{32,2}},
-            textString="k"),
-          Text(
-            extent={{-32,0},{36,-58}},
-            textString="s"),
-          Line(points={{-46,0},{46,0}})}));
+          extent={{-100,-100},{100,100}})));
   end Integrator;
 
   block LimIntegrator "Integrator with limited value of the output and optional reset"
@@ -276,20 +266,7 @@ port has a rising edge.
             textString="reset")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Text(
-            extent={{-54,46},{-4,-48}},
-            textString="lim"),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255}),
-          Text(
-            extent={{-8,60},{60,2}},
-            textString="k"),
-          Text(
-            extent={{-8,-2},{60,-60}},
-            textString="s"),
-          Line(points={{4,0},{46,0}})}));
+          extent={{-100,-100},{100,100}})));
   end LimIntegrator;
 
   block Derivative "Approximated derivative block"
@@ -377,17 +354,7 @@ If k=0, the block reduces to y=0.
       textString="k=%k")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-54,52},{50,10}},
-            textString="k s"),
-          Text(
-            extent={{-54,-6},{52,-52}},
-            textString="T s + 1"),
-          Line(points={{-50,0},{50,0}}),
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end Derivative;
 
   block FirstOrder "First order transfer function block (= 1 pole)"
@@ -464,17 +431,7 @@ Example:
       textString="T=%T")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Text(
-            extent={{-48,52},{50,8}},
-            textString="k"),
-          Text(
-            extent={{-54,-6},{56,-56}},
-            textString="T s + 1"),
-          Line(points={{-50,0},{50,0}}),
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end FirstOrder;
 
   block SecondOrder "Second order transfer function block (= 2 poles)"
@@ -560,41 +517,7 @@ Example:
           textString="w=%w")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Text(
-            extent={{-60,60},{60,14}},
-            textString="k"),
-          Text(
-            extent={{-60,8},{-32,-20}},
-            textString="s"),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255}),
-          Line(points={{-50,14},{50,14}}),
-          Line(points={{-54,-20},{-38,-20}}),
-          Text(
-            extent={{-52,-26},{-36,-48}},
-            textString="w"),
-          Line(points={{-50,2},{-56,-8},{-56,-28},{-52,-46}}),
-          Line(points={{-40,2},{-34,-10},{-34,-30},{-38,-46}}),
-          Text(
-            extent={{-34,8},{-22,-10}},
-            textString="2"),
-          Text(
-            extent={{-34,-6},{6,-36}},
-            textString="+2D"),
-          Text(
-            extent={{2,8},{30,-20}},
-            textString="s"),
-          Line(points={{8,-20},{24,-20}}),
-          Text(
-            extent={{10,-26},{26,-48}},
-            textString="w"),
-          Line(points={{12,2},{6,-8},{6,-28},{10,-46}}),
-          Line(points={{22,2},{28,-10},{28,-30},{24,-46}}),
-          Text(
-            extent={{30,2},{58,-42}},
-            textString="+1")}));
+          extent={{-100,-100},{100,100}})));
   end SecondOrder;
 
   block PI "Proportional-Integral controller"
@@ -690,20 +613,7 @@ This is discussed in the description of package
             textString="T=%T")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Text(
-            extent={{-68,24},{-24,-18}},
-            textString="k"),
-          Text(
-            extent={{-32,48},{60,0}},
-            textString="T s + 1"),
-          Text(
-            extent={{-30,-8},{52,-40}},
-            textString="T s"),
-          Line(points={{-24,0},{54,0}}),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{62,0},{100,0}}, color={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end PI;
 
   block PID "PID-controller in additive description form"
@@ -761,13 +671,13 @@ This is discussed in the description of package
     connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}}, color={0,0,127}));
     connect(u, I.u)
       annotation (Line(points={{-120,0},{-64,0}}, color={0,0,127}));
-    connect(u, D.u) annotation (Line(points={{-120,0},{-80,0},{-80,-80},{-64,
-            -80}}, color={0,0,127}));
+    connect(u, D.u) annotation (Line(points={{-120,0},{-80,0},{-80,-80},{-64,-80}},
+                   color={0,0,127}));
     connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}}, color={0,0,127}));
     connect(I.y, Add.u2)
       annotation (Line(points={{-18,0},{18,0}}, color={0,0,127}));
-    connect(D.y, Add.u3) annotation (Line(points={{-18,-80},{0,-80},{0,-8},{18,
-            -8}}, color={0,0,127}));
+    connect(D.y, Add.u3) annotation (Line(points={{-18,-80},{0,-80},{0,-8},{18,-8}},
+                  color={0,0,127}));
     connect(Add.y, Gain.u)
       annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
     connect(Gain.y, y)
@@ -1020,18 +930,9 @@ to compute u by an algebraic equation.
                       color={0,0,127}));
     connect(gainTrack.y, addI.u3) annotation (Line(points={{-21,-70},{-88,-70},{-88,
             -58},{-82,-58}},     color={0,0,127}));
-    connect(u_m, addP.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}},
-        color={0,0,127},
-        thickness=0.5));
-    connect(u_m, addD.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}},
-        color={0,0,127},
-        thickness=0.5));
-    connect(u_m, addI.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}},
-        color={0,0,127},
-        thickness=0.5));
+    connect(u_m, addP.u2) annotation (Line(points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}}, color={0,0,127}));
+    connect(u_m, addD.u2) annotation (Line(points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}}, color={0,0,127}));
+    connect(u_m, addI.u2) annotation (Line(points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}}, color={0,0,127}));
     connect(Dzero.y, addPID.u2) annotation (Line(points={{-29.5,25},{-24,25},{-24,
             0},{-12,0}},    color={0,0,127}));
     connect(Izero.y, addPID.u3) annotation (Line(points={{-10.5,-50},{-20,-50},{-20,
@@ -1332,17 +1233,7 @@ y = --------- * u
           textString="a(s)")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{40,0},{-40,0}}),
-          Text(
-            extent={{-55,55},{55,5}},
-            textString="b(s)"),
-          Text(
-            extent={{-55,-5},{55,-55}},
-            textString="a(s)"),
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end TransferFunction;
 
   block StateSpace "Linear state space system"
@@ -1443,16 +1334,7 @@ results in the following equations:
         color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Text(
-            extent={{-60,40},{60,0}},
-            textString="sx=Ax+Bu"),
-          Text(
-            extent={{-60,0},{60,-40}},
-            textString=" y=Cx+Du"),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end StateSpace;
 
   block Der "Derivative of input (= analytic differentiations)"
@@ -1611,17 +1493,7 @@ the model.
               extent={{-2.0,48.0},{94.0,94.0}},
               textString="%n")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{40,0},{-40,0}}),
-          Text(
-            extent={{-55,55},{55,5}},
-            textString="1"),
-          Text(
-            extent={{-55,-5},{55,-55}},
-            textString="a(s)"),
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 This block defines the transfer function between the input u
@@ -1719,20 +1591,7 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
           Text(extent={{8.0,-146.0},{8.0,-106.0}},
             textString="f=%f")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{40,0},{-40,0}}),
-          Text(
-            extent={{-55,55},{55,5}},
-            textString="1"),
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255}),
-          Text(
-            extent={{-54,-6},{44,-56}},
-            textString="(s/w + 1)"),
-          Text(
-            extent={{38,-10},{58,-30}},
-            textString="n")}),
+              100,100}})),
       Documentation(info="<html>
 <p>This block defines the transfer function between the
 input u and the output y

@@ -110,31 +110,5 @@ where
 </pre></blockquote>
 </html>"),
        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}), graphics={
-        Rectangle(
-          extent={{-90,80},{-56,-80}},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Backward),
-        Line(
-          points={{-56,80},{-56,-80}},
-          thickness=1),
-        Line(
-          points={{50,80},{50,-80}},
-          thickness=1),
-        Rectangle(
-          extent={{50,80},{90,-80}},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Backward),
-        Line(points={{-40,10},{40,10}}, color={191,0,0}),
-        Line(points={{-40,10},{-30,16}}, color={191,0,0}),
-        Line(points={{-40,10},{-30,4}}, color={191,0,0}),
-        Line(points={{-40,-10},{40,-10}}, color={191,0,0}),
-        Line(points={{30,-16},{40,-10}}, color={191,0,0}),
-        Line(points={{30,-4},{40,-10}}, color={191,0,0}),
-        Line(points={{-40,-30},{40,-30}}, color={191,0,0}),
-        Line(points={{-40,-30},{-30,-24}}, color={191,0,0}),
-        Line(points={{-40,-30},{-30,-36}}, color={191,0,0}),
-        Line(points={{-40,30},{40,30}}, color={191,0,0}),
-        Line(points={{30,24},{40,30}}, color={191,0,0}),
-        Line(points={{30,36},{40,30}}, color={191,0,0})}));
+            100,100}})));
 end BodyRadiation;

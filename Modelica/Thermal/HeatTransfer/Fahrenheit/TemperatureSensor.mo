@@ -9,35 +9,6 @@ equation
   T = Modelica.SIunits.Conversions.to_degF(port.T);
   port.Q_flow = 0;
   annotation (
-    Diagram(graphics={
-        Ellipse(
-          extent={{-20,-98},{20,-60}},
-          lineThickness=0.5,
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-12,40},{12,-68}},
-          lineColor={191,0,0},
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid),
-        Line(points={{12,0},{90,0}}, color={0,0,255}),
-        Line(points={{-94,0},{-12,0}}, color={191,0,0}),
-        Polygon(
-          points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
-              {12,80},{12,40},{-12,40}},
-          lineThickness=0.5),
-        Line(
-          points={{-12,40},{-12,-64}},
-          thickness=0.5),
-        Line(
-          points={{12,40},{12,-64}},
-          thickness=0.5),
-        Line(points={{-40,-20},{-12,-20}}),
-        Line(points={{-40,20},{-12,20}}),
-        Line(points={{-40,60},{-12,60}}),
-        Text(
-          extent={{102,-22},{60,-74}},
-          textString="degF")}),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
         Ellipse(

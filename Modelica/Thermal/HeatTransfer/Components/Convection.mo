@@ -118,33 +118,7 @@ and the equation for h holds, provided
 </html>"),
        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={
-        Rectangle(
-          extent={{-90,80},{-60,-80}},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Backward),
         Line(points={{100,0},{100,0}}, color={0,127,255}),
         Line(points={{100,0},{100,0}}, color={0,127,255}),
-        Line(points={{100,0},{100,0}}, color={0,127,255}),
-        Text(
-          extent={{-40,40},{80,20}},
-          textColor={255,0,0},
-          textString="Q_flow"),
-        Line(points={{-60,20},{76,20}}, color={191,0,0}),
-        Line(points={{-60,-20},{76,-20}}, color={191,0,0}),
-        Line(points={{-34,80},{-34,-80}}, color={0,127,255}),
-        Line(points={{6,80},{6,-80}}, color={0,127,255}),
-        Line(points={{40,80},{40,-80}}, color={0,127,255}),
-        Line(points={{76,80},{76,-80}}, color={0,127,255}),
-        Line(points={{-34,-80},{-44,-60}}, color={0,127,255}),
-        Line(points={{-34,-80},{-24,-60}}, color={0,127,255}),
-        Line(points={{6,-80},{-4,-60}}, color={0,127,255}),
-        Line(points={{6,-80},{16,-60}}, color={0,127,255}),
-        Line(points={{40,-80},{30,-60}}, color={0,127,255}),
-        Line(points={{40,-80},{50,-60}}, color={0,127,255}),
-        Line(points={{76,-80},{66,-60}}, color={0,127,255}),
-        Line(points={{76,-80},{86,-60}}, color={0,127,255}),
-        Line(points={{56,-30},{76,-20}}, color={191,0,0}),
-        Line(points={{56,-10},{76,-20}}, color={191,0,0}),
-        Line(points={{56,10},{76,20}}, color={191,0,0}),
-        Line(points={{56,30},{76,20}}, color={191,0,0})}));
+        Line(points={{100,0},{100,0}}, color={0,127,255})}));
 end Convection;

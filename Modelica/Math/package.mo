@@ -1,6 +1,7 @@
 within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
   import SI = Modelica.SIunits;
+
   extends Modelica.Icons.Package;
 
 package Vectors "Library of functions operating on vectors"
@@ -10948,16 +10949,7 @@ package Icons "Icons for Math"
             textString="%name",
             textColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={95,95,95}),
-            Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),Line(
-            points={{-80,-90},{-80,84}}, color={95,95,95}),Text(
-                extent={{-75,104},{-55,84}},
-                textColor={95,95,95},
-                textString="y"),Polygon(
-                points={{-80,98},{-86,82},{-74,82},{-80,98}},
-                lineColor={95,95,95},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid)}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Icon for a mathematical function, consisting of an y-axis on the left side.
@@ -10986,16 +10978,6 @@ It is expected, that an x-axis is added and a plot of the function.
             extent={{-150,150},{150,110}},
             textString="%name",
             textColor={0,0,255})}),
-      Diagram(graphics={Line(points={{0,80},{-8,80}}, color={95,95,95}),Line(
-            points={{0,-80},{-8,-80}}, color={95,95,95}),Line(points={{0,-90},{
-            0,84}}, color={95,95,95}),Text(
-                extent={{5,104},{25,84}},
-                textColor={95,95,95},
-                textString="y"),Polygon(
-                points={{0,98},{-6,82},{6,82},{0,98}},
-                lineColor={95,95,95},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 Icon for a mathematical function, consisting of an y-axis in the middle.
@@ -11078,35 +11060,7 @@ external "builtin" y = sin(u);
           textString="sin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{100,0},{84,6},{84,-6},{100,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,74.6},
-            {-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,59.4},{-14.9,
-            44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,-64.2},{29.3,-73.1},
-            {35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},{57.5,-61.9},{63.9,
-            -47.2},{72,-24.8},{80,0}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-105,72},{-85,88}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{70,25},{90,5}},
-            textString="2*pi",
-            textColor={0,0,255}),Text(
-            extent={{-103,-72},{-83,-88}},
-            textString="-1",
-            textColor={0,0,255}),Text(
-            extent={{82,-6},{102,-26}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-80,80},{-28,80}},
-            color={175,175,175}),Line(
-            points={{-80,-80},{50,-80}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
@@ -11146,33 +11100,7 @@ external "builtin" y = cos(u);
           textString="cos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Text(
-            extent={{-103,72},{-83,88}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{-103,-72},{-83,-88}},
-            textString="-1",
-            textColor={0,0,255}),Text(
-            extent={{70,25},{90,5}},
-            textString="2*pi",
-            textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,80},{-74.4,78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},
-            {-48.6,26.6},{-29.3,-32.5},{-22.1,-51.7},{-15.7,-65.3},{-10.1,-73.8},
-            {-4.42,-78.8},{1.21,-79.9},{6.83,-77.1},{12.5,-70.6},{18.1,-60.6},{
-            24.5,-45.7},{32.6,-23},{50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,
-            73.4},{75.2,78.6},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{78,-6},{98,-26}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-80,-80},{18,-80}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
@@ -11211,34 +11139,7 @@ external "builtin" y = tan(u);
           textString="tan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Text(
-            extent={{-37,-72},{-17,-88}},
-            textString="-5.8",
-            textColor={0,0,255}),Text(
-            extent={{-33,86},{-13,70}},
-            textString=" 5.8",
-            textColor={0,0,255}),Text(
-            extent={{68,-13},{88,-33}},
-            textString="1.4",
-            textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,-40.9},
-            {-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,-1.07},
-            {33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,39.1},{73.6,
-            47.4},{76,56.1},{77.6,63.8},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{82,22},{102,2}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{86,80}},
-            color={175,175,175}),Line(
-            points={{80,88},{80,-16}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
@@ -11277,36 +11178,7 @@ external "builtin" y = asin(u);
           textString="asin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Text(
-            extent={{-40,-72},{-15,-88}},
-            textString="-pi/2",
-            textColor={0,0,255}),Text(
-            extent={{-38,88},{-13,72}},
-            textString=" pi/2",
-            textColor={0,0,255}),Text(
-            extent={{68,-9},{88,-29}},
-            textString="+1",
-            textColor={0,0,255}),Text(
-            extent={{-90,21},{-70,1}},
-            textString="-1",
-            textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-79.2,-72.8},{-77.6,-67.5},{-73.6,-59.4},{-66.3,
-            -49.8},{-53.5,-37.3},{-30.2,-19.7},{37.4,24.8},{57.5,40.8},{68.7,
-            52.7},{75.2,62.2},{77.6,67.5},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{82,24},{102,4}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{86,80}},
-            color={175,175,175}),Line(
-            points={{80,86},{80,-10}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = asin(u), with -1 &le; u &le; +1:
@@ -11344,33 +11216,7 @@ external "builtin" y = acos(u);
           textString="acos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80},{84,-80}}, color={95,95,95}),
-          Polygon(
-            points={{98,-80},{82,-74},{82,-86},{98,-80}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,80},{-79.2,72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,49.8},
-            {-53.5,37.3},{-30.2,19.7},{37.4,-24.8},{57.5,-40.8},{68.7,-52.7},{
-            75.2,-62.2},{77.6,-67.5},{80,-80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-30,88},{-5,72}},
-            textString=" pi",
-            textColor={0,0,255}),Text(
-            extent={{-94,-57},{-74,-77}},
-            textString="-1",
-            textColor={0,0,255}),Text(
-            extent={{60,-81},{80,-101}},
-            textString="+1",
-            textColor={0,0,255}),Text(
-            extent={{82,-56},{102,-76}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-2,80},{84,80}},
-            color={175,175,175}),Line(
-            points={{80,82},{80,-86}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = acos(u), with -1 &le; u &le; +1:
@@ -11409,29 +11255,7 @@ external "builtin" y = atan(u);
           textString="atan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{96,0},{80,6},{80,-6},{96,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-52.7,-75.2},{-37.4,-69.7},{-26.9,-63},{-19.7,-55.2},
-            {-14.1,-45.8},{-10.1,-36.4},{-6.03,-23.9},{-1.21,-5.06},{5.23,21},{
-            9.25,34.1},{13.3,44.2},{18.1,52.9},{24.5,60.8},{33.4,67.6},{47,73.6},
-            {65,77},{80,78}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-34,87},{-14,74}},
-            textString="pi/2",
-            textColor={0,0,255}),Text(
-            extent={{-32,-71},{-12,-91}},
-            textString="-pi/2",
-            textColor={0,0,255}),Text(
-            extent={{84,-4},{104,-24}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-2,80},{84,80}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
@@ -11474,45 +11298,7 @@ external "builtin" y = atan2(u1, u2);
           textString="atan2")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{96,0},{80,6},{80,-6},{96,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{0,-80},{8.93,-67.2},{17.1,-59.3},{27.3,-53.6},{42.1,-49.4},
-            {69.9,-45.8},{80,-45.1}},
-            color={0,0,255},
-            thickness=0.5),Line(
-            points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{-10.3,
-            -14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,30},{
-            62.1,33.5},{80,34.9}},
-            color={0,0,255},
-            thickness=0.5),Line(
-            points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
-            65.8},{-1.82,77.2},{0,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-32,89},{-10,74}},
-            textString="pi",
-            textColor={0,0,255}),Text(
-            extent={{-32,-72},{-4,-88}},
-            textString="-pi",
-            textColor={0,0,255}),Text(
-            extent={{0,55},{20,42}},
-            textString="pi/2",
-            textColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
-          Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
-            extent={{0,-23},{20,-42}},
-            textString="-pi/2",
-            textColor={0,0,255}),Text(
-            extent={{62,-4},{94,-26}},
-            textColor={95,95,95},
-            textString="u1, u2"),Line(
-            points={{-88,40},{86,40}},
-            color={175,175,175}),Line(
-            points={{-86,-40},{86,-40}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
@@ -11577,39 +11363,7 @@ algorithm
           textString="atan3")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-86},{84,-86}}, color={95,95,95}),
-          Polygon(
-            points={{98,-86},{82,-80},{82,-92},{98,-86}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{0,-80},{8.93,-67.2},{17.1,-59.3},{27.3,-53.6},{42.1,-49.4},
-            {69.9,-45.8},{80,-45.1}},
-            color={0,0,255},
-            thickness=0.5),Line(
-            points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{-10.3,
-            -14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,30},{
-            62.1,33.5},{80,34.9}},
-            color={0,0,255},
-            thickness=0.5),Line(
-            points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
-            65.8},{-1.82,77.2},{0,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-56,82},{-12,72}},
-            textString="(2*N-1)*pi",
-            textColor={0,0,255}),Text(
-            extent={{-52,-72},{-10,-88}},
-            textString="(2*N-3)*pi",
-            textColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
-          Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
-            extent={{38,-68},{78,-84}},
-            textColor={95,95,95},
-            textString="u1, u2, y0"),Line(
-            points={{-84,40},{88,40}},
-            color={175,175,175}),Line(
-            points={{-84,-40},{88,-40}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = <strong>atan3</strong>(u1,u2,y0) such that
@@ -11659,37 +11413,7 @@ external "builtin" y = sinh(u);
           textString="sinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,-28.1},
-            {-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{24.5,4.57},
-            {39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,47.4},{74.4,
-            60.4},{78.4,73.8},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-31,72},{-11,88}},
-            textString="27",
-            textColor={0,0,255}),Text(
-            extent={{-35,-88},{-15,-72}},
-            textString="-27",
-            textColor={0,0,255}),Text(
-            extent={{68,-7},{88,-27}},
-            textString="4",
-            textColor={0,0,255}),Text(
-            extent={{-98,21},{-78,1}},
-            textString="-4",
-            textColor={0,0,255}),Text(
-            extent={{80,26},{100,6}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{86,80}},
-            color={175,175,175}),Line(
-            points={{80,84},{80,-6}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
@@ -11730,35 +11454,7 @@ external "builtin" y = cosh(u);
           textString="cosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-84.083},{84,-84.083}}, color=
-           {95,95,95}),Polygon(
-            points={{98,-84.083},{82,-78.083},{82,-90.083},{98,-84.083}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,80},{-77.6,61.1},{-74.4,39.3},{-71.2,20.7},{-67.1,1.29},
-            {-63.1,-14.6},{-58.3,-29.8},{-52.7,-43.5},{-46.2,-55.1},{-39,-64.3},
-            {-30.2,-71.7},{-18.9,-77.1},{-4.42,-79.9},{10.9,-79.1},{23.7,-75.2},
-            {34.2,-68.7},{42.2,-60.6},{48.6,-51.2},{54.3,-40},{59.1,-27.5},{
-            63.1,-14.6},{67.1,1.29},{71.2,20.7},{74.4,39.3},{77.6,61.1},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-31,72},{-11,88}},
-            textString="27",
-            textColor={0,0,255}),Text(
-            extent={{64,-83},{84,-103}},
-            textString="4",
-            textColor={0,0,255}),Text(
-            extent={{-94,-63},{-74,-83}},
-            textString="-4",
-            textColor={0,0,255}),Text(
-            extent={{80,-60},{100,-80}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{88,80}},
-            color={175,175,175}),Line(
-            points={{80,84},{80,-90}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
@@ -11797,29 +11493,7 @@ external "builtin" y = tanh(u);
           textString="tanh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{96,0},{80,6},{80,-6},{96,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80.5},{-47.8,-79.2},{-35.8,-76.2},{-27.7,-71.1},{-22.1,
-            -64.7},{-17.3,-56.4},{-12.5,-44.8},{-7.64,-29.7},{-1.21,-5.32},{
-            6.83,25.8},{11.7,41.5},{16.5,53.7},{21.3,62.6},{26.9,69.4},{34.2,
-            74.5},{45.4,77.9},{72,79.4},{80,79.5}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-29,72},{-9,88}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{3,-72},{23,-88}},
-            textString="-1",
-            textColor={0,0,255}),Text(
-            extent={{82,-2},{102,-22}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{88,80}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
@@ -11858,36 +11532,7 @@ algorithm
           textString="asinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-56.7,-68.4},{-39.8,-56.8},{-26.9,-44.7},{-17.3,
-            -32.4},{-9.25,-19},{9.25,19},{17.3,32.4},{26.9,44.7},{39.8,56.8},{
-            56.7,68.4},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-31,72},{-11,88}},
-            textString="2.31",
-            textColor={0,0,255}),Text(
-            extent={{-35,-88},{-15,-72}},
-            textString="-2.31",
-            textColor={0,0,255}),Text(
-            extent={{72,-13},{92,-33}},
-            textString="5",
-            textColor={0,0,255}),Text(
-            extent={{-96,21},{-76,1}},
-            textString="-5",
-            textColor={0,0,255}),Text(
-            extent={{80,22},{100,2}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{88,80}},
-            color={175,175,175}),Line(
-            points={{80,86},{80,-12}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 The function returns the area hyperbolic sine of its
@@ -11931,36 +11576,7 @@ algorithm
           textString="arcosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-70},{84,-70}}, color={95,95,95}),
-          Polygon(
-            points={{100,-70},{84,-64},{84,-76},{100,-70}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-60,-70},{-59.2,-56},{-58.4,-50.3},{-56.8,-42.2},{-54.4,-33.4},
-            {-50.4,-22.4},{-43.9,-9.3},{-35.1,4.35},{-23,18.8},{-6.9,33.8},{
-            13.97,49.2},{41.3,65},{75.9,80.8},{100,90}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-80,66},{-58,78}},
-            textString="2.29",
-            textColor={0,0,255}),Text(
-            extent={{-73,-86},{-50,-70}},
-            textString="1.0",
-            textColor={0,0,255}),Text(
-            extent={{64,-77},{84,-92}},
-            textString="5",
-            textColor={0,0,255}),Text(
-            extent={{-96,-55},{-76,-70}},
-            textString="0",
-            textColor={0,0,255}),Text(
-            extent={{74,-44},{94,-64}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-80,80},{100,80}},
-            color={175,175,175}),Line(
-            points={{74,-78},{74,88}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns the area hyperbolic cosine of its
@@ -12010,36 +11626,7 @@ external "builtin" y = exp(u);
           textString="exp")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80.3976},{84,-80.3976}},
-          color={95,95,95}),Polygon(
-            points={{98,-80.3976},{82,-74.3976},{82,-86.3976},{98,-80.3976}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-31,-77.9},{-6.03,-74},{10.9,-68.4},{23.7,-61},{
-            34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{67.1,
-            18.6},{72,38.2},{76,57.6},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-31,72},{-11,88}},
-            textString="20",
-            textColor={0,0,255}),Text(
-            extent={{-92,-81},{-72,-101}},
-            textString="-3",
-            textColor={0,0,255}),Text(
-            extent={{66,-81},{86,-101}},
-            textString="3",
-            textColor={0,0,255}),Text(
-            extent={{2,-69},{22,-89}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{78,-54},{98,-74}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{88,80}},
-            color={175,175,175}),Line(
-            points={{80,84},{80,-84}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
@@ -12077,36 +11664,7 @@ external "builtin" y = log(u);
           textString="log")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{100,0},{84,6},{84,-6},{100,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-78,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
-            {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},{-45,
-            38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-105,72},{-85,88}},
-            textString="3",
-            textColor={0,0,255}),Text(
-            extent={{60,-3},{80,-23}},
-            textString="20",
-            textColor={0,0,255}),Text(
-            extent={{-78,-7},{-58,-27}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{84,26},{104,6}},
-            textColor={95,95,95},
-            textString="u"),Text(
-            extent={{-100,9},{-80,-11}},
-            textString="0",
-            textColor={0,0,255}),Line(
-            points={{-80,80},{84,80}},
-            color={175,175,175}),Line(
-            points={{82,82},{82,-6}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = log(10) (the natural logarithm of u),
@@ -12145,36 +11703,7 @@ external "builtin" y = log10(u);
           textString="log10")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-77.8,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
-            {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},{-45,
-            38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{66,-13},{86,-33}},
-            textString="20",
-            textColor={0,0,255}),Text(
-            extent={{-78,-1},{-58,-21}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{-83,62},{-63,78}},
-            textString=" 1.3",
-            textColor={0,0,255}),Text(
-            extent={{80,24},{100,4}},
-            textColor={95,95,95},
-            textString="u"),Text(
-            extent={{-100,9},{-80,-11}},
-            textString="0",
-            textColor={0,0,255}),Line(
-            points={{-80,80},{86,80}},
-            color={175,175,175}),Line(
-            points={{80,92},{80,-12}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = log10(u),

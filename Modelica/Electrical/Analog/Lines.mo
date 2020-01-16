@@ -689,11 +689,7 @@ The capacitances are calculated with: C=c*length/N.
           Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}),graphics={
-                                      Text(
-              extent={{-100,100},{100,70}},
-              textString="TLine1",
-              textColor={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end TLine1;
 
   model TLine2
@@ -756,11 +752,7 @@ The capacitances are calculated with: C=c*length/N.
           Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-                                           Text(
-              extent={{-100,100},{100,70}},
-              textString="TLine2",
-              textColor={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end TLine2;
 
   model TLine3
@@ -820,11 +812,7 @@ The capacitances are calculated with: C=c*length/N.
           Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-                                           Text(
-              extent={{-100,100},{100,70}},
-              textString="TLine3",
-              textColor={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end TLine3;
   annotation (Documentation(info="<html>
 <p>This package contains lossy and lossless segmented transmission lines, and LC distributed line models. The line models do not yet possess a conditional heating port.</p>

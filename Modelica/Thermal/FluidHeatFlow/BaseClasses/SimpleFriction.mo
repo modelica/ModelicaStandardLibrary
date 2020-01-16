@@ -45,44 +45,15 @@ Definition of relationship between pressure drop and volume flow rate:
 <li>-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent, i.e., quadratic dependency of pressure drop on volume flow.</li>
 </ul>
 <p>
+<img src=\"modelica://Modelica/Resources/Images/Thermal/FluidHeatFlow/BaseClasses/SimpleFriction.png\"
+     alt=\"SimpleFriction.png\">
+</p>
+<p>
 Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar.
 Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).
 See also sketch at diagram layer.
 </p>
 </html>"),
   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}}), graphics={
-        Line(points={{-80,0},{80,0}}, color={0,0,255}),
-        Line(points={{0,80},{0,-80}}, color={0,0,255}),
-        Line(points={{-40,-20},{40,20}}, color={0,0,255}),
-        Line(points={{40,20},{60,40},{70,60},{74,80}}, color={0,0,255}),
-        Line(points={{-40,-20},{-60,-40},{-70,-60},{-74,-80}}, color={0,0,255}),
-        Line(points={{40,20},{40,0}}, color={0,0,255}),
-        Line(points={{60,40},{60,0}}, color={0,0,255}),
-        Line(points={{40,20},{0,20}}, color={0,0,255}),
-        Line(points={{60,40},{0,40}}, color={0,0,255}),
-        Text(
-          extent={{18,0},{48,-20}},
-          textColor={0,0,255},
-          textString="V_flowLaminar"),
-        Text(
-          extent={{50,0},{80,-20}},
-          textColor={0,0,255},
-          textString="V_flowNominal"),
-        Text(
-          extent={{-30,30},{-4,10}},
-          textColor={0,0,255},
-          textString="dpLaminar"),
-        Text(
-          extent={{-30,50},{-4,30}},
-          textColor={0,0,255},
-          textString="dpNominal"),
-        Text(
-          extent={{0,20},{30,0}},
-          textColor={0,0,255},
-          textString="dp ~ V_flow"),
-        Text(
-          extent={{30,60},{60,40}},
-          textColor={0,0,255},
-          textString="dp ~ V_flow^2")}));
+            {100,100}})));
 end SimpleFriction;

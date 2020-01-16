@@ -23,20 +23,5 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
         textString="%name")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}}), graphics={Line(
-              points={{-60,50},{60,50}},
-              color={255,170,85}),
-                             Line(
-              points={{-40,30},{40,30}},
-              color={255,170,85}),
-                             Line(
-              points={{-20,10},{20,10}},
-              color={255,170,85}),
-                             Line(
-              points={{0,100},{0,50}},
-              color={255,170,85}),
-                             Text(
-              extent={{-40,-40},{40,20}},
-              textColor={0,0,255},
-              textString="port.V_m = 0")}));
+        extent={{-100,-100},{100,100}})));
 end Ground;

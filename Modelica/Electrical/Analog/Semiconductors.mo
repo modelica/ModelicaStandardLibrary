@@ -20,7 +20,7 @@ package Semiconductors
 
     SI.Voltage vt_t "Temperature voltage";
     SI.Current id "Diode current";
-    protected
+  protected
     SI.Temperature htemp "Auxiliary temperature";
     Real aux;
     Real auxp;
@@ -128,7 +128,7 @@ The thermal power is calculated by <em>i*v</em>.
     id = smooth(1,
       if vd < -Bv / 2 then
         //Lower half of reverse biased region including breakdown.
-        -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
+         -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
         //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt_applied)) - 1)
@@ -288,7 +288,7 @@ i  =  Ids ( e      - 1) - Ibv ( e                  ).
           Real beta_t;
           Real vt_t;
           Real k2_t;
-        equation
+  equation
     assert(L + dL > 0, "NMOS: Effective length must be positive");
     assert(W + dW > 0, "NMOS: Effective width must be positive");
     assert(T_heatPort > 0,"NMOS: Temperature must be positive");
@@ -409,7 +409,7 @@ m       m      A/V^2        V       -      -        m        m
           Real beta_t;
           Real vt_t;
           Real k2_t;
-        equation
+  equation
     assert(L + dL > 0, "PMOS: Effective length must be positive");
     assert(W + dW > 0, "PMOS: Effective width must be positive");
     assert(T_heatPort > 0,"PMOS: Temperature must be positive");
@@ -545,7 +545,7 @@ m       m      A/V^2       V     -      -       m        m
     if UIC then
       vcs = IC;
     end if;
-        equation
+  equation
           assert(T_heatPort > 0,"Temperature must be positive");
           vbc = B.v - C.v;
           vbe = B.v - E.v;
@@ -680,7 +680,7 @@ Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc    
     if UIC then
       vcs = IC;
     end if;
-        equation
+  equation
           assert(T_heatPort > 0,"Temperature must be positive");
           vcb = C.v - B.v;
           veb = E.v - B.v;
@@ -857,6 +857,10 @@ public
      Documentation(info="<html>
 <p>This is a simple thyristor model with three pins: Anode, Cathode and Gate. There are three operating modes:conducting, blocking and reverse breakthrough.
 <br>As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH). But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode. The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate. If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM.</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Semiconductors/Thyristor.png\"
+     alt=\"Thyristor.png\">
+</p>
 <p>The dV/dt switch on is not taken into account in this model. The gate circuit is not influenced by the main circuit.</p>
 </html>",
     revisions=
@@ -886,69 +890,7 @@ public
             textColor={0,0,255})}),
      Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-80,0},{80,0}}, color={128,128,128}),
-          Polygon(
-            points={{70,4},{80,0},{70,-4},{70,4}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,80},{0,-80}}, color={128,128,128}),
-          Polygon(
-            points={{-4,70},{0,80},{4,70},{-4,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{5,81},{15,71}},
-            textColor={128,128,128},
-            textString="i"),
-          Text(
-            extent={{70,-10},{80,-20}},
-            textColor={128,128,128},
-            textString="v"),
-          Line(
-            points={{20,9},{20,0}},
-            color={128,128,128},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{25,64},{45,54}},
-            textColor={128,128,128},
-            textString="Ron"),
-          Line(
-            points={{14,20},{25,73}},
-            thickness=0.5),
-          Line(
-            points={{-57,-11},{55,9}},
-            thickness=0.5),
-          Line(
-            points={{-57,-11},{-59,-13},{-60,-18},{-63,-65}},
-            thickness=0.5),
-          Text(
-            extent={{-67,11},{-47,1}},
-            textColor={128,128,128},
-            textString="VRRM"),
-          Text(
-            extent={{44,-2},{64,-12}},
-            textColor={128,128,128},
-            textString="VDRM"),
-          Line(
-            points={{-57,1},{-57,-1}}),
-          Line(
-            points={{54,1},{54,-1}}),
-          Line(
-            points={{55,9},{54,11},{50,13},{17,17},{15,18},{14,20}},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-28,-9},{-8,-19}},
-            textColor={128,128,128},
-            textString="Roff"),
-          Line(
-            points={{2,20},{-2,20}}),
-          Text(
-            extent={{-14,23},{-2,16}},
-            textColor={128,128,128},
-            textString="IH")}));
+          extent={{-100,-100},{100,100}})));
   end Thyristor;
 
   model SimpleTriac "Simple triac, based on Semiconductors.Thyristor model"

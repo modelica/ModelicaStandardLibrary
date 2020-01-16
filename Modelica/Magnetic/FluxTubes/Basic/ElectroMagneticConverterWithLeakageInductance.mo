@@ -66,43 +66,38 @@ equation
     Diagram(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
-        Polygon(
-          points={{-134,63},{-124,60},{-134,57},{-134,63}},
+        grid={2,2}), graphics={                    Polygon(
+              points={{-136,103},{-126,100},{-136,97},{-136,103}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),Line(points={{-152,100},{-127,100}},
+                color={160,160,164}),
+                                Line(points={{-152,-100},{-127,-100}}, color={160,160,164}),
+                         Polygon(
+          points={{-142,-97},{-152,-100},{-142,-103},{-142,-97}},
           lineColor={160,160,164},
           fillColor={160,160,164},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-150,60},{-125,60}}, color={160,160,164}),
-        Polygon(
-          points={{141,-57},{151,-60},{141,-63},{141,-57}},
-          lineColor={160,160,164},
-          fillColor={160,160,164},
-          fillPattern=FillPattern.Solid),
-        Line(points={{125,-60},{150,-60}}, color={160,160,164}),
-        Text(
-          extent={{128,-56},{144,-41}},
-          textColor={160,160,164},
-          textString="Phi"),
-        Text(
-          extent={{128,64},{145,79}},
-          textString="Phi"),
-        Line(points={{-150,-59},{-125,-59}}, color={160,160,164}),
-        Polygon(
-          points={{-140,-56},{-150,-59},{-140,-62},{-140,-56}},
-          lineColor={160,160,164},
-          fillColor={160,160,164},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-141,-56},{-124,-41}},
-          textColor={160,160,164},
-          textString="i"),
-        Text(
-          extent={{-150,63},{-133,78}},
-          textColor={160,160,164},
-          textString="i"),
-        Line(points={{124,61},{149,61}}, color={160,160,164}),
-        Polygon(
-          points={{134,64},{124,61},{134,58},{134,64}},
+          fillPattern=FillPattern.Solid),    Text(
+              extent={{-143,-96},{-126,-81}},
+              textColor={160,160,164},
+              textString="i"),Text(
+              extent={{-152,103},{-135,118}},
+              textColor={160,160,164},
+              textString="i"),       Polygon(
+              points={{143,-97},{153,-100},{143,-103},{143,-97}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),Line(points={{127,-100},{152,-100}},
+          color={160,160,164}),Text(
+              extent={{130,-96},{146,-81}},
+              textColor={160,160,164},
+              textString="Phi"),Text(
+              extent={{130,102},{147,117}},
+          textString="Phi",
+          lineColor={160,160,164}),
+                              Line(points={{126,100},{151,100}}, color={160,160,164}),
+          Polygon(
+          points={{136,103},{126,100},{136,97},{136,103}},
           lineColor={160,160,164},
           fillColor={160,160,164},
           fillPattern=FillPattern.Solid)}),

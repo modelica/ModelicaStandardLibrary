@@ -31,20 +31,7 @@ package Discrete
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Ellipse(
-            extent={{-25,-10},{-45,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,-10},{25,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}),
-          Line(points={{45,0},{100,0}}, color={0,0,255}),
-          Line(points={{-35,0},{30,35}}, color={0,0,255})}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Samples the continues input signal with a sampling rate defined
@@ -164,25 +151,7 @@ the output y is identical to parameter yStart.
         textString="z")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Text(
-            extent={{-160,10},{-140,-10}},
-            textString="u",
-            textColor={0,0,255}),
-          Text(
-            extent={{115,10},{135,-10}},
-            textString="y",
-            textColor={0,0,255}),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255}),
-          Line(points={{40,0},{-40,0}}),
-          Text(
-            extent={{-55,55},{55,5}},
-            textString="1"),
-          Text(
-            extent={{-55,-5},{55,-55}},
-            textString="z")}));
+          extent={{-100,-100},{100,100}})));
   end UnitDelay;
 
   block TransferFunction "Discrete Transfer Function block"
@@ -271,19 +240,7 @@ y = --------- * u
         textString="a(z)")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(
-            points={{40,0},{-44,0}},
-            thickness=0.5),
-          Text(
-            extent={{-54,54},{54,4}},
-            textString="b(z)"),
-          Text(
-            extent={{-54,-6},{56,-56}},
-            textString="a(z)"),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end TransferFunction;
 
   block StateSpace "Discrete State Space block"
@@ -366,16 +323,7 @@ results in the following equations:
             textColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Text(
-            extent={{-54,50},{52,-10}},
-            textString="zx=Ax+Bu"),
-          Text(
-            extent={{-56,14},{54,-50}},
-            textString="  y=Cx+Du"),
-          Line(points={{-102,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end StateSpace;
 
   block TriggeredSampler "Triggered sampling of continuous signals"
@@ -421,21 +369,7 @@ results in the following equations:
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Ellipse(
-            extent={{-25,-10},{-45,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,-10},{25,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}),
-          Line(points={{45,0},{100,0}}, color={0,0,255}),
-          Line(points={{-35,0},{28,-48}}, color={0,0,255}),
-          Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input
@@ -493,21 +427,7 @@ the initial value defined via parameter <strong>y0</strong>.
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Ellipse(
-            extent={{-25,-10},{-45,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,-10},{25,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}),
-          Line(points={{45,0},{100,0}}, color={0,0,255}),
-          Line(points={{-35,0},{28,-48}}, color={0,0,255}),
-          Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input

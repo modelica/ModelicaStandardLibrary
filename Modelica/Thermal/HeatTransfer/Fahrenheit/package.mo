@@ -1,6 +1,7 @@
 within Modelica.Thermal.HeatTransfer;
 package Fahrenheit "Components with Fahrenheit input and/or output"
   extends Modelica.Icons.VariantsPackage;
+
   annotation (Documentation(info="<html>
 <p>
 The components of this package are provided for the convenience of

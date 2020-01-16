@@ -65,31 +65,5 @@ in order to simulate temperature dependent losses (which are given with respect 
 </p>
 </html>"),
        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}}), graphics={
-        Line(
-          points={{-60,-20},{68,-20}},
-          color={191,0,0},
-          thickness=0.5),
-        Line(
-          points={{-60,20},{68,20}},
-          color={191,0,0},
-          thickness=0.5),
-        Line(
-          points={{-80,0},{-60,-20}},
-          color={191,0,0},
-          thickness=0.5),
-        Line(
-          points={{-80,0},{-60,20}},
-          color={191,0,0},
-          thickness=0.5),
-        Polygon(
-          points={{60,0},{60,40},{90,20},{60,0}},
-          lineColor={191,0,0},
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{60,-40},{60,0},{90,-20},{60,-40}},
-          lineColor={191,0,0},
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid)}));
+            {100,100}})));
 end PrescribedHeatFlow;
