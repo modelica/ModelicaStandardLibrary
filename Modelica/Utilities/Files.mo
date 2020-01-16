@@ -659,8 +659,7 @@ algorithm
        name :=pathName;
      end if;
    end if;
-  annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (directory, name, extension) = Files.<strong>splitPathName</strong>(pathName);
