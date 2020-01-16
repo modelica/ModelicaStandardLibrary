@@ -95,6 +95,18 @@ convertClass("Modelica.Math.Vectors.Utilities.householderReflection",
               "ObsoleteModelica4.Math.Vectors.Utilities.householderReflection")
 convertClass("Modelica.Math.Vectors.Utilities.householderVector",
               "ObsoleteModelica4.Math.Vectors.Utilities.householderVector")
+convertClass("Modelica.ComplexMath.'abs'",
+              "Modelica.ComplexMath.abs")
+convertClass("Modelica.ComplexMath.'sqrt'",
+              "Modelica.ComplexMath.sqrt")
+convertClass("Modelica.ComplexMath.'max'",
+              "Modelica.ComplexMath.max")
+convertClass("Modelica.ComplexMath.'min'",
+              "Modelica.ComplexMath.min")
+convertClass("Modelica.ComplexMath.'sum'",
+              "Modelica.ComplexMath.sum")
+convertClass("Modelica.ComplexMath.'product'",
+              "Modelica.ComplexMath.product")
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
               "Modelica.Electrical.Analog.Basic.Resistor");
 convertClass("Modelica.Electrical.Analog.Semiconductors.HeatingDiode",

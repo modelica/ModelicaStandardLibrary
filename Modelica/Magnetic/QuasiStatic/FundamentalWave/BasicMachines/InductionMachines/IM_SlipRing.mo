@@ -76,14 +76,14 @@ model IM_SlipRing "Induction machine with slip ring rotor"
     annotation (Dialog(tab="Losses"));
   output Modelica.SIunits.ComplexVoltage vr[mr]=plug_rp.pin.v - plug_rn.pin.v
     "Complex rotor voltage";
-  Modelica.SIunits.Voltage abs_vr[mr]=Modelica.ComplexMath.'abs'(vr)
+  Modelica.SIunits.Voltage abs_vr[mr]=Modelica.ComplexMath.abs(vr)
     "Magnitude of complex rotor voltage";
   Modelica.SIunits.Angle arg_vr[mr]=Modelica.ComplexMath.arg(vr)
     "Argument of complex rotor voltage";
 
   output Modelica.SIunits.ComplexCurrent ir[mr]=plug_rp.pin.i
     "Complex rotor current";
-  Modelica.SIunits.Current abs_ir[mr]=Modelica.ComplexMath.'abs'(ir)
+  Modelica.SIunits.Current abs_ir[mr]=Modelica.ComplexMath.abs(ir)
     "Magnitude of complex rotor current";
   Modelica.SIunits.Angle arg_ir[mr]=Modelica.ComplexMath.arg(ir)
     "Argument of complex rotor current";
@@ -98,7 +98,7 @@ model IM_SlipRing "Induction machine with slip ring rotor"
     "Reactive rotor power";
   Modelica.SIunits.ReactivePower Qr_total=sum(Qr)
     "Total reactive rotor power";
-  Modelica.SIunits.ApparentPower Sr[mr]={Modelica.ComplexMath.'abs'(vr[k]
+  Modelica.SIunits.ApparentPower Sr[mr]={Modelica.ComplexMath.abs(vr[k]
       *Modelica.ComplexMath.conj(ir[k])) for k in 1:mr}
     "Magnitude of complex rotor apparent power";
   Modelica.SIunits.ApparentPower Sr_total=sqrt(Pr_total^2 + Qr_total^2)

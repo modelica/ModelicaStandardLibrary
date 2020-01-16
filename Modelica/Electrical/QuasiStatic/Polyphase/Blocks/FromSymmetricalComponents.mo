@@ -2,13 +2,13 @@ within Modelica.Electrical.QuasiStatic.Polyphase.Blocks;
 block FromSymmetricalComponents
   "Creates quasi-static phasors from symmetrical components"
   extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m,final useConjugateInput=fill(false,m));
-  import Modelica.ComplexMath.'abs';
+  import Modelica.ComplexMath.abs;
   import Modelica.ComplexMath.arg;
   parameter Integer m=3 "Number of phases";
-  output Real abs_u[m] = 'abs'(u) "Absolute of input";
+  output Real abs_u[m] = abs(u) "Absolute of input";
   output Modelica.SIunits.Angle arg_u[m](displayUnit="deg") = arg(u)
     "Argument of input";
-  output Real abs_y[m] = 'abs'(y) "Absolute of output";
+  output Real abs_y[m] = abs(y) "Absolute of output";
   output Modelica.SIunits.Angle arg_y[m](displayUnit="deg") = arg(y)
     "Argument of output";
 protected

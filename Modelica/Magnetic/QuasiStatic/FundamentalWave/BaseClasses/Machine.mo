@@ -85,14 +85,14 @@ partial model Machine "Base model of machines"
   // Stator voltages and currents
   output Modelica.SIunits.ComplexVoltage vs[m]=plug_sp.pin.v - plug_sn.pin.v
     "Complex stator voltage";
-  Modelica.SIunits.Voltage abs_vs[m]=Modelica.ComplexMath.'abs'(vs)
+  Modelica.SIunits.Voltage abs_vs[m]=Modelica.ComplexMath.abs(vs)
     "Magnitude of complex stator voltage";
   Modelica.SIunits.Angle arg_vs[m]=Modelica.ComplexMath.arg(vs)
     "Argument of complex stator voltage";
 
   output Modelica.SIunits.ComplexCurrent is[m]=plug_sp.pin.i
     "Complex stator current";
-  Modelica.SIunits.Current abs_is[m]=Modelica.ComplexMath.'abs'(is)
+  Modelica.SIunits.Current abs_is[m]=Modelica.ComplexMath.abs(is)
     "Magnitude of complex stator current";
   Modelica.SIunits.Angle arg_is[m]=Modelica.ComplexMath.arg(is)
     "Argument of complex stator current";
@@ -107,7 +107,7 @@ partial model Machine "Base model of machines"
     "Reactive stator power";
   Modelica.SIunits.ReactivePower Qs_total=sum(Qs)
     "Total reactive stator power";
-  Modelica.SIunits.ApparentPower Ss[m]={Modelica.ComplexMath.'abs'(vs[k]*
+  Modelica.SIunits.ApparentPower Ss[m]={Modelica.ComplexMath.abs(vs[k]*
       Modelica.ComplexMath.conj(is[k])) for k in 1:m}
     "Magnitude of complex stator apparent power";
   Modelica.SIunits.ApparentPower Ss_total=sqrt(Ps_total^2 + Qs_total^2)

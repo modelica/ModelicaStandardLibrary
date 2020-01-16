@@ -1904,6 +1904,28 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     end Issue3002_householder;
   end Math;
 
+  package ComplexMath
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue883 "Conversion test for #883"
+      extends Modelica.Icons.Example;
+      import Modelica.ComplexMath.'abs';
+      parameter Complex c1 = Complex(sqrt(2)/2, sqrt(2)/2);
+      parameter Complex c2 = Complex(-sqrt(2)/2, -sqrt(2)/2);
+      Real r = 'abs'(c1);
+      Complex c3 = Modelica.ComplexMath.'sqrt'(c1);
+      Complex c4 = Modelica.ComplexMath.'max'({c1, c2});
+      Complex c5 = Modelica.ComplexMath.'min'({c1, c2});
+      Complex c6 = Modelica.ComplexMath.'sum'({c1, c2});
+      Complex c7 = Modelica.ComplexMath.'product'({c1, c2});
+      Real n = Modelica.ComplexMath.Vectors.norm({c1, c2});
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/883\">#883</a>.
+</p>
+</html>"));
+    end Issue883;
+  end ComplexMath;
+
   package Media
     extends Modelica.Icons.ExamplesPackage;
     model Issue2491 "Conversion test for #2491"

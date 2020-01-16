@@ -53,9 +53,9 @@ equation
 This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a>
 value of a polyphase current system, by averaging the phase RMS current phasors <code>i</code>.
 </p>
-<blockquote><pre>
-I = sum({'abs'(i[k]) for k in 1:m})/m
-</pre></blockquote>
+<pre>
+  I = sum({abs(i[k]) for k in 1:m})/m
+</pre>
 
 <h4>See also</h4>
 

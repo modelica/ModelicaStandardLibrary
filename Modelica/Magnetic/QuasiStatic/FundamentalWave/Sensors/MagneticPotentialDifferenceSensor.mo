@@ -10,7 +10,7 @@ model MagneticPotentialDifferenceSensor
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Modelica.SIunits.MagneticPotentialDifference abs_V_m=
-      Modelica.ComplexMath.'abs'(V_m)
+      Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
   Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";

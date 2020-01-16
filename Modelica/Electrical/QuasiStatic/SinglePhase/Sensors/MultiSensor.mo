@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model MultiSensor "Sensor to measure current, voltage and power"
   extends Modelica.Icons.RoundSensor;
   import Modelica.ComplexMath.conj;
-  import Modelica.ComplexMath.'abs';
+  import Modelica.ComplexMath.abs;
   import Modelica.ComplexMath.arg;
   QuasiStatic.SinglePhase.Interfaces.PositivePin pc
     "Positive pin, current path"
@@ -43,11 +43,11 @@ model MultiSensor "Sensor to measure current, voltage and power"
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-110,-60})));
-  output Modelica.SIunits.Current abs_i='abs'(i) "Absolute of complex current";
+  output Modelica.SIunits.Current abs_i=abs(i) "Absolute of complex current";
   output Modelica.SIunits.Angle arg_i=arg(i) "Argument of complex current";
-  output Modelica.SIunits.Voltage abs_v='abs'(v) "Absolute of complex voltage";
+  output Modelica.SIunits.Voltage abs_v=abs(v) "Absolute of complex voltage";
   output Modelica.SIunits.Angle arg_v=arg(v) "Argument of complex voltage";
-  output Modelica.SIunits.ApparentPower abs_apparentPower='abs'(apparentPower) "Absolute of complex apparent power";
+  output Modelica.SIunits.ApparentPower abs_apparentPower=abs(apparentPower) "Absolute of complex apparent power";
   output Modelica.SIunits.Angle arg_apparentPower=arg(apparentPower) "Argument of complex apparent power";
 equation
   Connections.branch(pc.reference, nc.reference);
