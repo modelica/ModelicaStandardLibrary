@@ -138,7 +138,7 @@ The sum of all magnetic potential differences is covered by the mmf of the excit
 <p>
 Using the parameter values, the results can be validated by analytic calculations:
 </p>
-<table border="1" cellspacing="0" cellpadding="2">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>element   </th><th>cross section</th><th>length       </th><th>rel. permeability </th><th>B                   </th><th>H                                    </th><th>mmf              </th></tr>
 <tr><td>left leg  </td><td>a*a          </td><td>l - a        </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
 <tr><td>upper yoke</td><td>a*a          </td><td>l - a        </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
