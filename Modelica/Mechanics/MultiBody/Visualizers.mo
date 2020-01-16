@@ -2086,11 +2086,13 @@ library (will be replaced by a color editor).
 <p>
 Model <strong>Vector</strong> defines a&nbsp;vector that is dynamically
 visualized at the defined location (see variables below).
-The difference compared to Arrow is that the vector-length does not represent
+The vector-length does not represent
 a&nbsp;physical length, but a&nbsp;different 3-dimensional quantity
-(such as force, torque, speed, &hellip;).
+(such as force, torque, speed, &hellip;), except for <strong>RelativePosition</strong>.
 
 That allows the vectors of similar quantities to be scaled appropriately during post-processing.
+This is usefu, even for <strong>RelativePosition</strong> and in that case to disable or
+exaggerate the relative positions.
 </p>
 
 <p>

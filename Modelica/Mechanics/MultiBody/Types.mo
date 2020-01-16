@@ -350,7 +350,8 @@ type VectorQuantity = enumeration(
       Velocity,
       Acceleration,
       AngularVelocity,
-      AngularAcceleration);
+      AngularAcceleration,
+	  RelativePosition);
 
   package Defaults "Default settings of the MultiBody library via constants"
     extends Modelica.Icons.Package;
