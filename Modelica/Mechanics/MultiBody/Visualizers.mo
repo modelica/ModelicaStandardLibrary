@@ -2119,20 +2119,67 @@ used in the MultiBody library together with a&nbsp;color editor.
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
-            Rectangle(
-              extent={{-100,28},{20,-28}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
             Polygon(
               points={{20,60},{100,0},{20,-60},{20,60}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
+              fillColor={60,120,180},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None),
             Text(
               extent={{-150,105},{150,65}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-100,-28},{20,28}},
+              fillColor={60,120,180},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None,
+              lineColor={0,0,0}),
+            Rectangle(
+              extent={{-100,-8},{20,-20}},
+              fillColor={46,94,140},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None,
+              lineColor={0,0,0}),
+            Rectangle(
+              extent={{-100,-20},{20,-28}},
+              fillColor={26,53,80},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None,
+              lineColor={0,0,0}),
+            Polygon(
+              points={{20,-20},{100,0},{20,-48},{20,-20}},
+              fillColor={46,93,140},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None,
+              lineColor={0,0,0}),
+            Polygon(
+              points={{20,-60},{100,0},{20,-48},{20,-60}},
+              fillColor={26,53,80},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None,
+              lineColor={0,0,0}),
+            Rectangle(
+              extent={{-100,26},{20,4}},
+              fillColor={73,147,220},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None),
+            Rectangle(
+              extent={{-100,22},{20,14}},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None),
+            Polygon(
+              points={{20,56},{100,0},{20,18},{20,56}},
+              fillColor={72,149,220},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None,
+              lineColor={0,0,0}),
+            Polygon(
+              points={{20,48},{100,0},{20,36},{20,48}},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None,
+              lineColor={0,0,0})}));
     end Vector;
     
     model Shape
