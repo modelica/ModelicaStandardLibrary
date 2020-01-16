@@ -1058,6 +1058,64 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue496;
+
+      model Issue3323 "Conversion test for #3323"
+        extends Modelica.Icons.Example;
+        Modelica.Magnetic.FluxTubes.Basic.Ground ground
+          annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+        Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube generic1(
+            nonLinearPermeability=true)
+          annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
+        Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube generic2(
+            nonLinearPermeability=false)
+          annotation (Placement(transformation(extent={{10,40},{30,60}})));
+        Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid cuboid1(
+            nonLinearPermeability=true)
+          annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
+        Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid cuboid2(
+            nonLinearPermeability=false)
+          annotation (Placement(transformation(extent={{10,20},{30,40}})));
+        Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
+          cylinder1(nonLinearPermeability=true)
+          annotation (Placement(transformation(extent={{-30,0},{-10,20}})));
+        Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
+          cylinder2(nonLinearPermeability=false)
+          annotation (Placement(transformation(extent={{10,0},{30,20}})));
+        Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
+          cylinder3(nonLinearPermeability=true)
+          annotation (Placement(transformation(extent={{-30,-20},{-10,0}})));
+        Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
+          cylinder4(nonLinearPermeability=false)
+          annotation (Placement(transformation(extent={{10,-20},{30,0}})));
+      equation
+        connect(generic1.port_p, cuboid1.port_p)
+          annotation (Line(points={{-30,50},{-30,30}}, color={255,127,0}));
+        connect(cuboid1.port_p, cylinder1.port_p)
+          annotation (Line(points={{-30,30},{-30,10}}, color={255,127,0}));
+        connect(cylinder1.port_p, cylinder3.port_p)
+          annotation (Line(points={{-30,10},{-30,-10}}, color={255,127,0}));
+        connect(generic2.port_n, cuboid2.port_n)
+          annotation (Line(points={{30,50},{30,30}}, color={255,127,0}));
+        connect(cuboid2.port_n, cylinder2.port_n)
+          annotation (Line(points={{30,30},{30,10}}, color={255,127,0}));
+        connect(cylinder2.port_n, cylinder4.port_n)
+          annotation (Line(points={{30,10},{30,-10}}, color={255,127,0}));
+        connect(cylinder4.port_n, ground.port)
+          annotation (Line(points={{30,-10},{30,-20}}, color={255,127,0}));
+        connect(cylinder3.port_n, cylinder4.port_p)
+          annotation (Line(points={{-10,-10},{10,-10}}, color={255,127,0}));
+        connect(cylinder1.port_n, cylinder2.port_p)
+          annotation (Line(points={{-10,10},{10,10}}, color={255,127,0}));
+        connect(cuboid1.port_n, cuboid2.port_p)
+          annotation (Line(points={{-10,30},{10,30}}, color={255,127,0}));
+        connect(generic1.port_n, generic2.port_p) annotation (Line(points={{-10,
+                50},{0,50},{0,50},{10,50}}, color={255,127,0}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3323\">#3323</a>.
+</p>
+</html>"));
+      end Issue3323;
     end FluxTubes;
 
     package FundamentalWave
@@ -1710,7 +1768,8 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
         Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
           redeclare function surfaceCharacteristic =
-            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
+              (
               ri=0.6,
               ro=0.2,
               opening=0),
@@ -1893,7 +1952,8 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
     model Issue3002_householder "Conversion test for #3002"
       extends Modelica.Icons.Example;
       function f1 = Modelica.Math.Matrices.Utilities.householderReflection;
-      function f2 = Modelica.Math.Matrices.Utilities.householderSimilarityTransformation;
+      function f2 =
+          Modelica.Math.Matrices.Utilities.householderSimilarityTransformation;
       function f3 = Modelica.Math.Vectors.Utilities.householderReflection;
       function f4 = Modelica.Math.Vectors.Utilities.householderVector;
     annotation(experiment(StopTime=1), Documentation(info="<html>

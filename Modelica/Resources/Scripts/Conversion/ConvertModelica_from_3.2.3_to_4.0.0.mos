@@ -313,6 +313,19 @@ convertElement({"Modelica.Electrical.Machines.Utilities.VoltageController"},
 convertElement({"Modelica.Electrical.Machines.Utilities.VoltageController"},
                 "iq_rms", "iq");
 
+convertElement({"Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube",
+                "Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid",
+                "Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux",
+                "Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux",
+                "Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape"},
+                "nonLinearPermeability", "materialCharacteristic");
+convertModifiers({"Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube",
+                  "Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid",
+                  "Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux",
+                  "Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux",
+                  "Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape"},
+                  {"nonLinearPermeability"}, {"materialCharacteristic=if %nonLinearPermeability% then Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.ApproximationRo00 else Modelica.Magnetic.FluxTubes.Types.MaterialCharacteristic.Linear"}, true);
+
 convertElement("Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity",
                 "tansformAbsoluteVector", "transformAbsoluteVector");
 convertElement("Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity",
