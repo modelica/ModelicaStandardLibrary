@@ -361,7 +361,7 @@ Example:
 parameter Medium.Density d = 4;
 parameter Medium.Temperature T = 298;
 
-Medium.SpecficEntropy s;
+Medium.SpecificEntropy s;
 
 <strong>equation</strong>
 
@@ -408,9 +408,9 @@ Example:
 </p>
 <blockquote><pre>
 parameter Medium.AbsolutePressure p = 3e5;
-parameter Medium.SpecficEntropy s = 1.7e3;
+parameter Medium.SpecificEntropy s = 1.7e3;
 
-Medium.SpecficEnthalpy h;
+Medium.SpecificEnthalpy h;
 
 <strong>equation</strong>
 
