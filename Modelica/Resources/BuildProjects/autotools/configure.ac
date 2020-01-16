@@ -12,7 +12,15 @@ AC_PROG_MAKE_SET
 LT_INIT([disable-static])
 AC_SUBST(LIBZLIB)
 AC_SUBST(LIBHDF5)
+AC_SUBST(LIBMATH)
 dnl Check for HDF5, etc
+
+LIBS_BEFORE="$LIBS"
+LIBS=""
+AC_SEARCH_LIBS([atan2], [m], [LIBMATH="$LIBS"], [
+  AC_MSG_ERROR([unable to find the atan2() function])
+])
+LIBS="$LIBS_BEFORE"
 
 AC_DEFUN([C_FLAG_CHECK_AND_ADD],
 [dnl
