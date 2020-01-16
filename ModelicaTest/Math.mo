@@ -614,7 +614,6 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Function;
     import Modelica.Math.Vectors;
     import Modelica.Math.Polynomials;
-    import Modelica.Math.Vectors.Utilities;
     import Modelica.Utilities.Streams;
 
   //  input String logFile = "ModelicaTestLog.txt" "Filename where the log is stored";
