@@ -41,8 +41,5 @@ in the User's Guide of the Rotational library.
     Line(visible=useHeatPort,
       points={{-100,-100},{-100,-40},{-20,-40},{-20,0}},
       color={191,0,0},
-      pattern=LinePattern.Dot)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})));
+      pattern=LinePattern.Dot)}));
 end Damper;

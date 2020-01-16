@@ -107,8 +107,6 @@ equation
       points={{-80,40},{-80,70},{-90,70}},
                                   color={0,127,0}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 When designing hydraulic valves it is often necessary to hold the spool in

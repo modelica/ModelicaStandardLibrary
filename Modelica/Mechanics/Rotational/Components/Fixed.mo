@@ -31,8 +31,5 @@ at an angle phi0 in the <strong>housing</strong>. May be used:
      angle to the housing.</li>
 </ul>
 
-</html>"),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})));
+</html>"));
 end Fixed;

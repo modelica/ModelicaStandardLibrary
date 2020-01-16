@@ -57,7 +57,5 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
           extent={{-50,-50},{40,-90}},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
-          lineColor={0,127,0}), Line(points={{70,-90},{-50,-90},{-50,-50},{70,-50}}, color={0,127,0})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+          lineColor={0,127,0}), Line(points={{70,-90},{-50,-90},{-50,-50},{70,-50}}, color={0,127,0})}));
 end SpringDamper;

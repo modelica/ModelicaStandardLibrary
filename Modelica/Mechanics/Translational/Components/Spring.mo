@@ -33,7 +33,5 @@ a coupling of the sliding mass with the housing via a spring.
               60,0},{100,0}}, color={0,127,0}),
         Text(
           extent={{-150,-45},{150,-75}},
-          textString="c=%c")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+          textString="c=%c")}));
 end Spring;

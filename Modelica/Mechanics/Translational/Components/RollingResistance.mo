@@ -19,12 +19,10 @@ model RollingResistance "Resistance of a rolling wheel"
   Blocks.Interfaces.RealInput inclination = inclination_internal if useInclinationInput
     "Inclination=tan(angle)"
     annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-        rotation=0,
         origin={-120,60})));
   Blocks.Interfaces.RealInput cr = Cr_internal if useCrInput
     "Rolling resistance coefficient"
     annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-        rotation=0,
         origin={-120,-60})));
 protected
   Real Cr_internal "Rolling resistance coefficient";
@@ -76,21 +74,18 @@ equation
           lineColor={0,127,0},
           fillColor={160,215,160},
           fillPattern=FillPattern.Solid,
-          origin={0,0},
           rotation=90),
         Rectangle(
           extent={{-2,40},{2,-40}},
           lineColor={0,127,0},
           fillColor={160,215,160},
           fillPattern=FillPattern.Solid,
-          origin={0,0},
           rotation=135),
         Rectangle(
           extent={{-2,40},{2,-40}},
           lineColor={0,127,0},
           fillColor={160,215,160},
           fillPattern=FillPattern.Solid,
-          origin={0,0},
           rotation=45),
         Ellipse(extent={{-10,10},{10,-10}},
           lineColor={0,127,0},

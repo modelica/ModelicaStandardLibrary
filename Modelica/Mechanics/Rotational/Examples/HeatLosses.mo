@@ -165,6 +165,5 @@ is present in variable convection.fluid.
 </p>
 </html>"),
     experiment(StopTime=1.0, Interval=0.0001),
-    Diagram(coordinateSystem(extent={{-140,-100},{140,100}})),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
+    Diagram(coordinateSystem(extent={{-140,-100},{140,100}})));
 end HeatLosses;

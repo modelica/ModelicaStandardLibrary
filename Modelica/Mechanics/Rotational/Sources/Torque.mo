@@ -39,8 +39,5 @@ blocks of Modelica.Blocks.Sources.
       thickness=0.5),
     Line(
       points={{-50,-40},{-38,-24},{-18,-12},{0,-10},{18,-12},{38,-24},{50,-40}},
-      smooth=Smooth.Bezier)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})));
+      smooth=Smooth.Bezier)}));
 end Torque;

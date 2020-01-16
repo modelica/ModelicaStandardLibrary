@@ -25,8 +25,5 @@ a coupling of the element with the housing via a spring.
       textColor={0,0,255}),
     Text(extent={{-150,-40},{150,-80}},
       textString="c=%c"),
-    Line(points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,0}})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})));
+    Line(points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,0}})}));
 end Spring;
