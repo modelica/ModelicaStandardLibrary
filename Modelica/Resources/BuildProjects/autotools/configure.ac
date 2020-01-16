@@ -22,7 +22,7 @@ AC_DEFUN([C_FLAG_CHECK_AND_ADD],
   CFLAGS="-Werror $1"
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([])],
     [AC_MSG_RESULT([yes])],
-    [AC_MSG_ERROR([no]) ; CFLAGS="$ac_saved_cflags"]
+    [AC_MSG_RESULT([no]) ; CFLAGS="$ac_saved_cflags"]
   )
   AC_LANG_POP([C])
 ])
