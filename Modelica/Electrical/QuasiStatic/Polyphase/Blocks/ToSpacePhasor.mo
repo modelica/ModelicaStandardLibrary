@@ -4,6 +4,8 @@ block ToSpacePhasor "Conversion: m phase -> space phasor"
   // import Modelica.ComplexMath.j;
   // import Modelica.ComplexMath.exp;
   // import Modelica.ComplexMath.sum;
+  // The import of sum goes along with the original complex equation:
+  // c = sqrt(2)/m*sum({u[k]*exp(j*phi[k]) for k in 1:m});
   parameter Integer m(min=1) = 3 "Number of phases";
   Modelica.ComplexBlocks.Interfaces.ComplexInput u[m]
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
