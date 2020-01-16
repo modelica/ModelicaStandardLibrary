@@ -1,0 +1,225 @@
+pipeline {
+  agent none
+  environment {
+    LC_ALL = 'C.UTF-8'
+  }
+  parameters {
+    booleanParam(name: 'EXTRA_COMPILERS', defaultValue: false, description: 'Compile and test additional compiler and CPPFLAGS combinations')
+  }
+  stages {
+    stage('abort running builds') {
+      /* If this is a change request, cancel previous builds if you push a new commit */
+      when {
+        changeRequest()
+      }
+      steps {
+        script {
+          def buildNumber = env.BUILD_NUMBER as int
+          if (buildNumber > 1) milestone(buildNumber - 1)
+          milestone(buildNumber)
+        }
+      }
+    }
+    stage('Checks') {
+      parallel {
+        stage('OpenModelica parsing') {
+          agent {
+            docker {
+              image 'openmodelica/openmodelica:v1.12.0-minimal'
+              label 'linux'
+              alwaysPull true
+            }
+          }
+          steps {
+            sh 'hostname'
+            sh 'omc .travis.mos'
+          }
+        }
+        stage('moparser parsing') {
+          agent {
+            docker {
+              image 'modelicastandardlibrary/moparser:3.4'
+              label 'linux'
+              alwaysPull true
+            }
+          }
+          steps {
+            sh 'hostname'
+            sh 'moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo'
+          }
+        }
+        stage('UTF-8 checks') {
+          agent {
+            docker {
+              image 'ubuntu:bionic'
+              label 'linux'
+              alwaysPull true
+            }
+          }
+          steps {
+            sh 'hostname'
+            sh "! find . -name '*.mo' -exec bash -c 'iconv -o /dev/null -f utf8 -t utf8 \"{}\" |& sed \"s,^,{}: ,\"' ';' | grep '.'"
+          }
+        }
+      }
+    }
+    stage('C-Sources') {
+      parallel {
+        stage('amd64') {
+          agent {
+            docker {
+              image 'modelicastandardlibrary/build-deps:amd64-20190514'
+              label 'linux'
+              alwaysPull true
+            }
+          }
+          environment {
+            LIBDIR = "linux64"
+          }
+          steps {
+            sh 'hostname'
+            allAutotools()
+            makefile("clang-7", true)
+          }
+        }
+        stage('i386') {
+          agent {
+            docker {
+              image 'modelicastandardlibrary/build-deps:i386-20190514'
+              label 'linux'
+              alwaysPull true
+            }
+          }
+          environment {
+            LIBDIR = "linux32"
+          }
+          steps {
+            sh 'hostname'
+            allAutotools()
+            makefile("clang-7", true)
+          }
+        }
+        stage('armhf') {
+          agent {
+            docker {
+              image 'modelicastandardlibrary/build-deps:amd64-20190514'
+              label 'linux'
+              alwaysPull true
+            }
+          }
+          environment {
+            LIBDIR = "armhf"
+          }
+          steps {
+            sh 'hostname'
+            autotools("arm-linux-gnueabi-gcc", "", "--host=arm-linux-gnueabi --enable-static --enable-shared --enable-static-zlib --disable-hdf5", "", false)
+            autotools("arm-linux-gnueabi-gcc", "", "--host=arm-linux-gnueabi --enable-shared --disable-static --enable-hdf5", "nostatic", false)
+            makefile("arm-linux-gnueabi-gcc", false)
+          }
+        }
+        stage('msyscross') {
+          agent {
+            docker {
+              image 'modelicastandardlibrary/build-deps:amd64-20190514'
+              label 'linux'
+              alwaysPull true
+            }
+          }
+          environment {
+            LIBDIR = "windows"
+          }
+          steps {
+            sh 'hostname'
+            autotools("x86_64-w64-mingw32-gcc", "", "--host=x86_64-w64-mingw32 --enable-static --disable-shared --enable-static-zlib --disable-hdf5", "", false)
+            makefile("x86_64-w64-mingw32-gcc", false)
+            autotools("i686-w64-mingw32-gcc", "", "--host=i686-w64-mingw32 --enable-static --disable-shared --enable-static-zlib --disable-hdf5", "", false)
+            makefile("i686-w64-mingw32-gcc", false)
+          }
+        }
+        stage('osxcross') {
+          agent {
+            docker {
+              image 'docker.openmodelica.org/osxcross-omsimulator:v2.0'
+              label 'linux'
+              alwaysPull true
+            }
+          }
+          environment {
+            LIBDIR = "darwin64"
+          }
+          steps {
+            sh 'hostname'
+            autotools("x86_64-apple-darwin15-cc", "", "--host=x86_64-apple-darwin15 --enable-static --enable-shared --enable-static-zlib --disable-hdf5", "", false)
+            autotools("x86_64-apple-darwin15-cc", "", "--host=x86_64-apple-darwin15 --enable-shared --disable-static --enable-hdf5", "nostatic", false)
+            makefile("x86_64-apple-darwin15-cc", false)
+          }
+        }
+      }
+    }
+  }
+}
+
+def allAutotools() {
+  if (params.EXTRA_COMPILERS) {
+    for (String CC in ["gcc-4.8", "gcc-5", "gcc-6", "gcc-7", "gcc-8", "clang-3.9", "clang-4.0", "clang-5.0", "clang-6.0", "clang-7"]) {
+      autotools(CC, "", "--enable-static --enable-shared --enable-static-zlib --disable-hdf5", "", true)
+    }
+  }
+  for (String CPPFLAGS in (params.EXTRA_COMPILERS ? ["-DNO_FILE_SYSTEM", "-DTABLE_SHARE", "-DNO_LOCALE", "-DNO_MUTEX"] : [""])) {
+    autotools("gcc-8", CPPFLAGS, "--enable-static --enable-shared --enable-static-zlib --disable-hdf5", "", true)
+    autotools("clang-7", CPPFLAGS, "--enable-shared --disable-static --enable-hdf5", "nostatic", true)
+  }
+}
+
+def autotools(CC, CPPFLAGS, config, nostatic, dotest) {
+  sh label: "Build $CC $CPPFLAGS", script: """
+  export CC=$CC
+  export CPPFLAGS=$CPPFLAGS
+  export CFLAGS="-Os -fPIC"
+  rm -rf Modelica/Resources/Library/*
+  mkdir -p Modelica/Resources/Library/\$LIBDIR
+  cd Modelica/Resources/BuildProjects/autotools
+  git clean -fdx .
+  ./autogen.sh
+  ./configure --libdir="\$PWD/../../Library/\$LIBDIR" $config
+  make --output-sync -j${numPhysicalCPU()}
+  make install
+  """
+  if (dotest) {
+    sh label: "Test $CC", script: """
+    export CC=$CC
+    cd .CI/Test
+    ./test.sh $nostatic
+    """
+  }
+}
+
+def makefile(CC, dotest) {
+  sh label: "Build makefile $CC", script: """
+  export CC=$CC
+  rm -rf Modelica/Resources/Library/*
+  mkdir -p "Modelica/Resources/Library/$LIBDIR"
+  cd Modelica/Resources/BuildProjects/gcc
+  make --output-sync -j${numPhysicalCPU()} TARGETDIR="$LIBDIR"
+  """
+  sh label: "Test $CC", script: """
+  export CC=$CC
+  cd .CI/Test
+  ${dotest ? "./test.sh onlystatic" : ""}
+  """
+}
+
+def numPhysicalCPU() {
+  def uname = sh script: 'uname', returnStdout: true
+  if (uname.startsWith("Darwin")) {
+    return sh (
+      script: 'sysctl hw.physicalcpu_max | cut -d" " -f2',
+      returnStdout: true
+    ).trim().toInteger() ?: 1
+  } else {
+    return sh (
+      script: 'lscpu -p | egrep -v "^#" | sort -u -t, -k 2,4 | wc -l',
+      returnStdout: true
+    ).trim().toInteger() ?: 1
+  }
+}
