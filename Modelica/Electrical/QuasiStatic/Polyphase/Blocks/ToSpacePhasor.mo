@@ -1,9 +1,9 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Blocks;
 block ToSpacePhasor "Conversion: m phase -> space phasor"
   extends Modelica.Blocks.Icons.Block;
-  import Modelica.ComplexMath.j;
-  import Modelica.ComplexMath.exp;
-  import Modelica.ComplexMath.sum;
+  // import Modelica.ComplexMath.j;
+  // import Modelica.ComplexMath.exp;
+  // import Modelica.ComplexMath.sum;
   parameter Integer m(min=1) = 3 "Number of phases";
   Modelica.ComplexBlocks.Interfaces.ComplexInput u[m]
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
