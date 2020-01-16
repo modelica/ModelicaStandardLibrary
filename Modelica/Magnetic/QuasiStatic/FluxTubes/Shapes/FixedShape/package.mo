@@ -1,5 +1,5 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes;
-package FixedShape "Flux tubes with fixed shape during simulation and linear or non-linear material characteristics"
+package FixedShape "Flux tubes with fixed shape during simulation and linear material characteristics"
   extends Modelica.Icons.VariantsPackage;
   annotation (Documentation(info="<html>
 <p>

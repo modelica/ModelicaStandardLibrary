@@ -1,6 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape;
 model Cuboid
-"Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics"
+"Flux tube with rectangular cross-section; fixed shape; linear material characteristics"
 
   extends BaseClasses.FixedShape;
   extends Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Cuboid;
