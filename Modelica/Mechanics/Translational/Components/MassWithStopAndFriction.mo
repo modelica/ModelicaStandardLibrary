@@ -320,6 +320,5 @@ between the stops.</em></li>
           extent={{-70,-46},{70,-70}},
           fillColor={160,215,160},
           fillPattern=FillPattern.Solid,
-          lineColor={0,127,0})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})));
+          lineColor={0,127,0})}));
 end MassWithStopAndFriction;

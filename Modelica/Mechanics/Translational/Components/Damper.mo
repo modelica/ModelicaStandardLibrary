@@ -38,7 +38,5 @@ between two sliding masses.
               points={{-100,-100},{-100,-20},{-14,-20}},
               color={191,0,0},
               pattern=LinePattern.Dot),
-                                Line(points={{60,-30},{-60,-30},{-60,30},{60,30}}, color={0,127,0})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+                                Line(points={{60,-30},{-60,-30},{-60,30},{60,30}}, color={0,127,0})}));
 end Damper;

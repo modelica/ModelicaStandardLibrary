@@ -50,7 +50,5 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
           textString="m=%m",
           fillColor={110,221,110},
           fillPattern=FillPattern.Solid,
-          fontSize=0)}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+          fontSize=0)}));
 end Mass;

@@ -46,12 +46,10 @@ public
     final v0=vReg) "Rolling resistance"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={60,0})));
   Sources.Force fGrav "Inclination resistance"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={60,30})));
   Modelica.Mechanics.Translational.Interfaces.Flange_b flangeT "Translational flange"
     annotation (Placement(transformation(extent={{90,10},{110,-10}})));
@@ -84,21 +82,18 @@ public
         origin={60,-60})));
   Blocks.Math.Gain gravForceGain(final k=-m*g) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={20,30})));
 protected
   Modelica.Blocks.Sources.Constant constInclination(k=inclinationConstant) if not useInclinationInput
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={-80,-90})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={-80,-90})));
   Modelica.Blocks.Sources.Constant constWindSpeed(k=vWindConstant) if not useWindInput
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0, origin={40,-90})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={40,-90})));
 public
   Blocks.Math.Atan atan annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-40,30})));
   Blocks.Math.Sin sin annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-10,30})));
 
 equation
@@ -169,7 +164,6 @@ equation
       fillColor={255,255,255}),
     Ellipse(extent={{-44,-40},{-32,-52}},lineColor={0,127,0}, fillPattern=FillPattern.Solid,
       fillColor={255,255,255})}),
-    Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>
 This is a simple model of a&nbsp;ground vehicle, comprising the mass, the aerodynamic drag, the rolling resistance and

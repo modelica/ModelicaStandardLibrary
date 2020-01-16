@@ -222,8 +222,5 @@ in the User's Guide of the Rotational library.
         Text(
           extent={{20,48},{80,10}},
           textColor={95,95,95},
-          textString="2")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})));
+          textString="2")}));
 end ElastoBacklash2;

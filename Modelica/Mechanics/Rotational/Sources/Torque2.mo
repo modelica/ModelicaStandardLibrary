@@ -37,8 +37,5 @@ blocks of Modelica.Blocks.Sources.
     Line(points={{74,20},{70,23},{65,26},{60,28},{56,29},{50,30},{41,30},{35,29},{31,28},{26,26},{21,23},{17,20},{13,15},{10,9}},
       thickness=0.5, smooth=Smooth.Bezier),
     Polygon(points={{89,0},{78,24},{69,17},{89,0}},
-      fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})));
+      fillPattern=FillPattern.Solid)}));
 end Torque2;

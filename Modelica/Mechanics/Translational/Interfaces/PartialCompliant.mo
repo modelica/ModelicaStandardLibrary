@@ -20,7 +20,5 @@ flanges are not included. The absolute value of the force at the left and the ri
 flange is the same. It is used to built up springs, dampers etc.
 </p>
 
-</html>"),
-       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+</html>"));
 end PartialCompliant;

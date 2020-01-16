@@ -63,7 +63,5 @@ velocity of model mass1 or of model mass2 as state variables.
         Text(
           extent={{-150,90},{150,50}},
           textString="%name",
-          textColor={0,0,255})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+          textColor={0,0,255})}));
 end RelativeStates;

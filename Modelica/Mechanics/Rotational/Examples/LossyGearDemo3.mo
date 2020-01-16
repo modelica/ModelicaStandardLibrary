@@ -42,7 +42,6 @@ equation
   connect(step1.y, torque2.tau) annotation (Line(
       points={{79,10},{74.5,10},{74.5,10},{70,10}}, color={0,0,127}));
   annotation (
-    Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This example demonstrates a situation where the driving side of the

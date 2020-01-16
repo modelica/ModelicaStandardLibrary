@@ -26,7 +26,5 @@ A translational rod <strong>without inertia</strong> and two rigidly connected f
               textString="%name",
               textColor={0,0,255}),Text(
               extent={{-150,-30},{150,-60}},
-              textString="L=%L")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+              textString="L=%L")}));
 end Rod;
