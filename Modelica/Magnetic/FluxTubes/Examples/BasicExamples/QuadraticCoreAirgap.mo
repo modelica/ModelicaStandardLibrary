@@ -5,7 +5,8 @@ model QuadraticCoreAirgap "Educational example: iron core with airgap"
   parameter Modelica.SIunits.Length a=0.01 "Side length of square cross section";
   parameter Real mu_r=1000 "Relative permeability of core";
   parameter Modelica.SIunits.Length delta=0.001 "Length of airgap";
-parameter Integer N=500 "Number of turns of exciting coil";
+  parameter Real sigma=0.1 "Leakage coefficient";
+  parameter Integer N=500 "Number of turns of exciting coil";
   parameter Modelica.SIunits.Current I=1.5 "Maximum exciting current";
   Basic.ElectroMagneticConverter excitingCoil(N=N)
     annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
@@ -79,7 +80,8 @@ parameter Integer N=500 "Number of turns of exciting coil";
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={70,0})));
-  Basic.LeakageWithCoefficient leakage(c_usefulFlux=0.9) annotation (Placement(
+  Basic.LeakageWithCoefficient leakage(c_usefulFlux=1 - sigma)
+                                                         annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -141,20 +143,29 @@ Magnetic field strength times length of the flux line gives magnetic potential d
 The sum of all magnetic potential differences is covered by the mmf of the exciting coil.
 </p>
 <p>
-Using the values shown in section Parameters, the results can be validated easily by analytic calculations:
+Using the parameter values, the results can be validated by analytic calculations:
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>element   </th><th>cross section</th><th>length       </th><th>rel. permeability </th><th>B                   </th><th>H                                    </th><th>mmf              </th></tr>
 <tr><td>left leg  </td><td>a*a          </td><td>l - a        </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
 <tr><td>upper yoke</td><td>a*a          </td><td>l - a        </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
 <tr><td>right leg </td><td>a*a          </td><td>l - a - delta</td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
-<tr><td>airgap    </td><td>a*a          </td><td>delta        </td><td>1                 </td><td>flux / cross section</td><td>B/&mu;<sub>0</sub>                   </td><td>H*length         </td></tr>
+<tr><td>airgap    </td><td>a*a          </td><td>delta        </td><td>1                 </td><td>useful flux / cross section</td><td>B/&mu;<sub>0</sub>            </td><td>H*length         </td></tr>
 <tr><td>lower yoke</td><td>a*a          </td><td>l - a        </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
 <tr><td>total     </td><td>             </td><td>             </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
 </table>
 <p>
-Note that since no leakage is present, the magnetic flux is the same in every element - they are connected in series. 
-For calculation of the length of flux lines, a medium flux line (dashed line) is used.
+Note that there is a leakage flux path present. Therefore the total magnetic flux of in core splits into 
+</p>
+<ul>
+<li>the useful flux through the airgap and</li>
+<li>the leakage flux through the leakage element.</li>
+</ul>
+<p>
+However, the magnetic voltage across the airgap and the leakage model are equal. 
+The ratio of the useful flux over the flux in the core is equal to <code>1 - &sigma;</code>. 
+In the core the magnetic flux is the same in every element as they are connected in series. 
+For the calculation of the length of flux lines inside the core, a medium flux line (dashed line) is used.
 </p>
 <p>
 Additionally, a measuring coil is placed in the airgap. 
