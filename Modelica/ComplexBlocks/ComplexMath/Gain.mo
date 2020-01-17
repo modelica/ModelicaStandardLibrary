@@ -34,7 +34,5 @@ y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
               textString="k=%k"),Text(
               extent={{-150,140},{150,100}},
               textString="%name",
-              textColor={0,0,255})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+              textColor={0,0,255})}));
 end Gain;

@@ -22,8 +22,6 @@ equation
                            Text(
               extent={{-150,-150},{150,-110}},
               textString="startTime=%startTime")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 The Complex output y is a step signal (of real and imaginary part):

@@ -23,8 +23,6 @@ equation
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the

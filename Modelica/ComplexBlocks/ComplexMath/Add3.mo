@@ -64,7 +64,5 @@ y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
             Text(extent={{-98,-50},{5,-90}}, textString="%k3"),
             Text(extent={{10,40},{90,-40}},
           textColor={85,170,255},
-          textString="+")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+          textString="+")}));
 end Add3;
