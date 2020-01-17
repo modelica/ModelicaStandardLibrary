@@ -1,6 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape;
 model GenericFluxTube
-"Flux tube with fixed cross-section and length; linear material characteristics"
+"Flux tube with fixed cross-section, fixed length and linear material characteristics"
 
   extends BaseClasses.FixedShape;
   extends Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Reluctance;
