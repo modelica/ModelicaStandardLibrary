@@ -3,7 +3,7 @@ model FixedTemperature
   "Fixed temperature boundary condition in degFahrenheit"
   extends HeatTransfer.Icons.FixedTemperature;
   parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degF T
-    "Fixed Temperature at the port";
+    "Fixed temperature at the port";
   Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
             90,-10},{110,10}})));
 equation
