@@ -1094,7 +1094,7 @@ contains utility blocks that are used as building blocks for user-relevant block
             textString = "change()")}),
         Documentation(info="<html><p>
 This block is a synchronous version of
-<a href=\"Modelica.Blocks.Math.BooleanChange\">Modelica.Blocks.Math.BooleanChange</a>.
+<a href=\"modelica://Modelica.Blocks.Math.BooleanChange\">Modelica.Blocks.Math.BooleanChange</a>.
 It uses <code>previous</code> instead of the implicit <code>pre</code> of
 <code>change</code> to set the Boolean output <code>y</code> to
 <code>true</code> when the boolean input <code>u</code> changed. Thus, it's
@@ -1448,7 +1448,7 @@ The Boolean output y is a step signal:
 
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep</a>.
+See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep</a>.
 <br>
 </p>
 </html>"));
@@ -1616,7 +1616,7 @@ The Boolean output y is a pulse signal:
 </p>
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse</a>.
+See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse</a>.
 <br>
 </p>
 </html>"));
@@ -1624,13 +1624,13 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBase
     annotation (Documentation(info="<html>
 <p>
 This package provides <strong>source</strong> components akin to the blocks provided in
-<a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference
+<a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference
 that they provide a <strong>clocked</strong> output signal.
 </p>
 <p>
 As an effect it is not necessary to use an intermediate Sample block if the output signal
 is connected to a system that requires a clocked input signal. Therefore, it it can be slightly more convenient
-to use the blocks provided in this package than to use the blocks offered by <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>
+to use the blocks provided in this package than to use the blocks offered by <a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>
 (since one does not need to add an additional Sample block for the transition from a continuous time signal to a clocked signal).
 </p>
 </html>"));
@@ -1775,7 +1775,7 @@ The Boolean output y is a step signal. The signal is defined in terms of clock t
 
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep</a>.
+See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep</a>.
 </p>
 </html>"));
     end Step;
@@ -1945,12 +1945,12 @@ The Boolean output y is a pulse signal:
 </p>
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse</a>.
+See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse</a>.
 </p>
 </html>"));
       end Pulse;
     annotation (Documentation(info="<html>
-<p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide</p>
+<p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide</p>
 <ol>
 <li>a <strong>clocked</strong> output signal and</li>
 <li>are parametrized in terms of <strong>clock ticks</strong> rather than simulation time.</li>

@@ -32,10 +32,7 @@ for <strong>Modelica_Synchronous</strong> is still valid, in particular:
 </p>
 <ul>
 <li> <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pdf\">Modelica_Synchronous.pdf</a>
-     is a slide set that provides an overview of the Library
-     (the pdf file was generated from the
-      <a href=\"modelica://Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx\">PowerPoint presentation</a>).
-      </li>
+     is a slide set that provides an overview of the Library.</li>
 <li><a href=\"https://www.doi.org/10.3384/ecp1207627\">A Library for Synchronous Control Systems in Modelica</a> is the corresponding paper.</li>
 </ul>
 <p>

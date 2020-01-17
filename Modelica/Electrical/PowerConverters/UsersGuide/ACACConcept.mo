@@ -7,7 +7,7 @@ class ACACConcept "AC/AC converter concept"
 
 <ul>
 <li>Single-phase dimmer with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triac</a></li>
-<li>Polyphase induction machine soft starter with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.PolyPhaseTriac\">triac</a></li>
+<li>Polyphase induction machine soft starter with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac\">triac</a></li>
 </ul>
 
 <h4>Control</h4>
