@@ -4579,7 +4579,7 @@ extends Modelica.Icons.ExamplesPackage;
           //bend variables
           parameter Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2
               /4 "Circular cross sectional area of bend";
-          parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg delta[3]=
+          parameter Modelica.SIunits.Angle delta[3]=
               {30,45,90}*Modelica.Constants.pi/180 "Angle of turning";
           parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
           parameter Modelica.SIunits.Length K=0
@@ -4772,7 +4772,7 @@ extends Modelica.Icons.ExamplesPackage;
           //bend variables
           parameter Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2
               /4 "Circular cross sectional area of bend";
-          parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg delta[4]=
+          parameter Modelica.SIunits.Angle delta[4]=
               {30,45,90,180}*Modelica.Constants.pi/180 "Angle of turning";
           parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
           parameter Modelica.SIunits.Length K=2e-5
