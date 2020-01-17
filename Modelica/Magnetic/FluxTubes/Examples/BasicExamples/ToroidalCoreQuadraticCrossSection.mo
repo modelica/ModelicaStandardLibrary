@@ -8,7 +8,7 @@ model ToroidalCoreQuadraticCrossSection
   parameter Modelica.SIunits.Length l=0.01 "Length of rectangular cross section";
   parameter Modelica.SIunits.RelativePermeability mu_r=1000 "Relative permeability of core";
   parameter Modelica.SIunits.Length delta=0.001 "Length of airgap";
-  parameter Modelica.SIunits.Angle alfa=(1 - delta/(2*pi*(r_o + r_i)/2))*2*pi "Section angle of toroidal core";
+  parameter Modelica.SIunits.Angle alpha=(1 - delta/(2*pi*(r_o + r_i)/2))*2*pi "Section angle of toroidal core";
   parameter Integer N=500 "Number of exciting coil turns";
   parameter Modelica.SIunits.Current I=1.5 "Maximum exciting current";
   Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter excitingCoil(N=N)
@@ -20,7 +20,7 @@ model ToroidalCoreQuadraticCrossSection
     l=l,
     r_i=r_i,
     r_o=r_o,
-    alfa=alfa) annotation (Placement(transformation(
+    alpha=alpha) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=0,
         origin={0,30})));
@@ -30,7 +30,7 @@ model ToroidalCoreQuadraticCrossSection
     l=l,
     r_i=r_i,
     r_o=r_o,
-    alfa=2*pi - alfa)
+    alpha=2*pi - alpha)
          annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
@@ -102,8 +102,8 @@ Using the values shown in section Parameters, the results can be validated easil
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>element   </th><th>cross section</th><th>length                         </th><th>rel. permeability </th><th>B                   </th><th>H                                    </th><th>mmf              </th></tr>
-<tr><td>core      </td><td>(r_o - r_i)*l</td><td>(r_o + r_i)/2*alfa             </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
-<tr><td>airgap    </td><td>(r_o - r_i)*l</td><td>delta=(r_o + r_i)/2*(2*pi-alfa)</td><td>1</td><td>flux / cross section</td><td>B/(&mu;<sub>0</sub>)</td><td>H*delta         </td></tr>
+<tr><td>core      </td><td>(r_o - r_i)*l</td><td>(r_o + r_i)/2*alpha             </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
+<tr><td>airgap    </td><td>(r_o - r_i)*l</td><td>delta=(r_o + r_i)/2*(2*pi-alpha)</td><td>1</td><td>flux / cross section</td><td>B/(&mu;<sub>0</sub>)</td><td>H*delta         </td></tr>
 <tr><td>total     </td><td>             </td><td>                               </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
 </table>
 <p>
