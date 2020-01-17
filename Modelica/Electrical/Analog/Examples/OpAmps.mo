@@ -1702,7 +1702,7 @@ Summarizes parameters for:
   end OpAmpCircuits;
   annotation (Documentation(info="<html>
 <p>This package contains application examples of the components provided in the package
-<a href=\"Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits\">OpAmpCircuits</a>.
+<a href=\"modelica://Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits\">OpAmpCircuits</a>.
 </p>
 </html>"));
 end OpAmps;

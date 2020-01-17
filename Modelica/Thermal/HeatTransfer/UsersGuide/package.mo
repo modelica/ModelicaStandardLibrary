@@ -67,6 +67,6 @@ the Modelica design group is discussing a general scheme to describe material pr
 </p>
 <p>
 For technical details in the design of this library, see 
-[<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Tiller2001</a>].</p>
+[<a href=\"modelica://Modelica.Thermal.HeatTransfer.UsersGuide.References\">Tiller2001</a>].</p>
 </html>"));
 end UsersGuide;

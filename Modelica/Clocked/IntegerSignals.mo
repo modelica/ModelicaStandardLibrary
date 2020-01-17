@@ -1054,7 +1054,7 @@ contains utility blocks that are used as building blocks for user-relevant block
             textString = "change()")}),
         Documentation(info="<html><p>
 This block is a synchronous version of
-<a href=\"Modelica.Blocks.Math.IntegerChange\">Modelica.Blocks.Math.IntegerChange</a>.
+<a href=\"modelica://Modelica.Blocks.Math.IntegerChange\">Modelica.Blocks.Math.IntegerChange</a>.
 It uses <code>previous</code> instead of the implicit <code>pre</code> of
 <code>change</code> to set the Boolean output <code>y</code> to
 <code>true</code> when the integer input <code>u</code> changed. Thus, it's
@@ -1340,7 +1340,7 @@ The Integer output y is a step signal:
 
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.IntgerSignals.TimeBasedStep</a>.
+See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.IntegerSignals.TimeBasedStep\">Modelica.Clocked.Examples.Elementary.IntgerSignals.TimeBasedStep</a>.
 <br>
 </p>
 </html>"));
@@ -1349,13 +1349,13 @@ See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TimeBase
     annotation (Documentation(info="<html>
 <p>
 This package provides <strong>source</strong> components akin to the blocks provided in
-<a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference
+<a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference
 that they provide a <strong>clocked</strong> output signal.
 </p>
 <p>
 As an effect it is not necessary to use an intermediate Sample block if the output signal
 is connected to a system that requires a clocked input signal. Therefore, it it can be slightly more convenient
-to use the blocks provided in this package than to use the blocks offered by <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>
+to use the blocks provided in this package than to use the blocks offered by <a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>
 (since one does not need to add an additional Sample block for the transition from a continuous time signal to a clocked signal).
 </p>
 </html>"));
@@ -1518,13 +1518,13 @@ The Integer output y is a step signal. The signal is defined in terms of clock t
 
 <h4>Example</h4>
 <p>
-See model <a href=\"Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBasedStep\">Modelica.Clocked.Examples.Elementary.IntgerSignals.TickBasedStep</a>.
+See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBasedStep\">Modelica.Clocked.Examples.Elementary.IntgerSignals.TickBasedStep</a>.
 <br>
 </p>
 </html>"));
     end Step;
     annotation (Documentation(info="<html>
-<p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide </p>
+<p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide </p>
 <ol>
 <li>a <strong>clocked</strong> output signal and</li>
 <li>are parametrized in terms of <strong>clock ticks</strong> rather than simulation time.</li>

@@ -111,7 +111,7 @@ package Lines
 <p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the OLine becomes temperature sensitive due to their resistors which resistances are calculated by <code>R_actual = R*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G/(1 + alpha*(heatPort.T - T_ref)).</code></p>
 <p>Note, this is different to the lumped line model of SPICE.</p>
 
-<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
+<p><strong>References:</strong> [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
 </html>",      revisions="<html>
 <ul>
 <li><em> 2016   </em>
@@ -598,7 +598,7 @@ The capacitances are calculated with: C=c*length/N.
 </p>
 <p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the ULine becomes temperature sensitive due to their resistors which resistances are calculated by <code>R_actual= R*(1 + alpha*(heatPort.T - T_ref))</code>.</p>
 <p>Note, this is different compared with the lumped line model of SPICE.</p>
-<p><strong>References:</strong> [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
+<p><strong>References:</strong> [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
 </html>",      revisions="<html>
 <dl>
 <dt><em>2016</em></dt>
@@ -649,11 +649,11 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (defaultComponentName="line",
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
+<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
 
 <p><strong>References:</strong> 
-   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
-   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
+   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
 </html>",      revisions="<html>
 <ul>
 <li><em> 1998   </em>
@@ -714,10 +714,10 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (defaultComponentName="line",
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
+<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
 <p><strong>References:</strong> 
-   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
-   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
+   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
 </html>",      revisions="<html>
 <dl>
 <dt><em>1998</em></dt>
@@ -773,10 +773,10 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (defaultComponentName="line",
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
+<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
 <p><strong>References:</strong> 
-   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
-   [<a href=\"Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
+   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
 </html>",      revisions="<html>
 <ul>
 <li><em> 1998   </em>

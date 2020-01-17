@@ -81,6 +81,6 @@ and therefore all currents between these two parts are <em>i</em><sub>1</sub>, <
 <p>In this way, we can just sum up the power from two wattmeters to get the three-phase power.</p>
 <p>Note, that this formula does not work if there are additional current paths between the left and right parts of our circuits, e.g., if both have grounds (and current flows through it).</p>
 <p>For more information on why power flowing in a circuit between two subcircuits is the sum of products of voltages times currents, the voltages being measured to an arbitrary reference potential, see 
-[<a href=\"Modelica.Electrical.Polyphase.UsersGuide.References\">Ceraolo2014</a>, par. 3.8.1].</p>
+[<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.References\">Ceraolo2014</a>, par. 3.8.1].</p>
 </html>"));
 end AronSensor;

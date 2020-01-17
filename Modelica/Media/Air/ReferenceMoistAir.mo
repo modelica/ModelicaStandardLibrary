@@ -1863,9 +1863,9 @@ package ReferenceMoistAir
   annotation (Documentation(info="<html>
 <p>
 This is a makeshift package avoiding the region validity checks of the IF97 utility functions
-<a href=\"Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2\">BaseIF97.Basic.g2</a>,
-<a href=\"Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp\">BaseIF97.Transport.cond_dTp</a> and
-<a href=\"Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.visc_dTp\">BaseIF97.Transport.visc_dTp</a>
+<a href=\"modelica://Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2\">BaseIF97.Basic.g2</a>,
+<a href=\"modelica://Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp\">BaseIF97.Transport.cond_dTp</a> and
+<a href=\"modelica://Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.visc_dTp\">BaseIF97.Transport.visc_dTp</a>
 for region 2.
 </p>
 </html>", revisions="<html>

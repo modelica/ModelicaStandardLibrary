@@ -85,7 +85,7 @@ from properties of the fluid flowing over the solid. Examples:
 </p>
 <p>
 <strong>Machines cooled by air</strong> (empirical, very rough approximation according
-to [<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Fischer2017</a>, p. 452]:
+to [<a href=\"modelica://Modelica.Thermal.HeatTransfer.UsersGuide.References\">Fischer2017</a>, p. 452]:
 </p>
 <blockquote><pre>
 h = 7.8*v^0.78 [W/(m2.K)] (forced convection)
@@ -96,7 +96,7 @@ where
 <p><strong>Laminar</strong> flow with constant velocity of a fluid along a
 <strong>flat plate</strong> where the heat flow rate from the plate
 to the fluid (= solid.Q_flow) is kept constant
-(according to [<a href=\"Modelica.Thermal.HeatTransfer.UsersGuide.References\">Holman2010</a>, p.265]):
+(according to [<a href=\"modelica://Modelica.Thermal.HeatTransfer.UsersGuide.References\">Holman2010</a>, p.265]):
 </p>
 <blockquote><pre>
 h  = Nu*k/x;

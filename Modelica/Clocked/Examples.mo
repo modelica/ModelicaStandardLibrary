@@ -1,4 +1,4 @@
-within Modelica.Clocked;
+﻿within Modelica.Clocked;
 package Examples
   "Library of examples to demonstrate the usage of package Modelica.Clocked"
   extends Modelica.Icons.ExamplesPackage;
@@ -1408,7 +1408,7 @@ has to differentiate the model, but this requires the
 <strong>second derivative</strong> of the external input c_ref and this derivative
 is not available. The conclusion is that a low pass filter of at
 least second order has to be connected between c_ref and c, for example
-<a href=\"modelica:Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>. Only filter types should be used that do not have \"vibrations\" in the time domain for
+<a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>. Only filter types should be used that do not have \"vibrations\" in the time domain for
 a step input. Therefore, parameter <strong>analogFilter</strong> of the component should be
 selected as <strong>CriticalDamping</strong> (= only real poles), or
 <strong>Bessel</strong> (= nearly no vibrations, but steeper frequency response as
@@ -2523,7 +2523,7 @@ See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.Contro
 input u and the output y
 as an n-th order filter with <em>critical damping</em>
 characteristics and cut-off frequency f. It is
-a slightly simplified version of the <a href=\"Modelica.Blocks.Continuous.CriticalDamping\">Modelica.Blocks.Continuous.CriticalDamping</a> block.
+a slightly simplified version of the <a href=\"modelica://Modelica.Blocks.Continuous.CriticalDamping\">Modelica.Blocks.Continuous.CriticalDamping</a> block.
 It doesn't provide the same initialization capabilities as the continuous block, since the initialization of
 clocked partitions is currently performed differently to the continuous time partitions.
 </p>
@@ -2581,7 +2581,7 @@ simplified realistic applications.
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.ClockSignals.Sampler.SubSample\">Modelica.Clocked.ClockSignals.Sampler.SubSample</a>.
+<a href=\"modelica://Modelica.Clocked.ClockSignals.Sampler.SubSample\">Modelica.Clocked.ClockSignals.Sampler.SubSample</a>.
 </p>
 </html>"));
       end SubSample;
@@ -2619,7 +2619,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.ClockSignals.Sampler.SuperSample\">Modelica.Clocked.ClockSignals.Sampler.SuperSample</a>.
+<a href=\"modelica://Modelica.Clocked.ClockSignals.Sampler.SuperSample\">Modelica.Clocked.ClockSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
       end SuperSample;
@@ -2657,7 +2657,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.ClockSignals.Sampler.ShiftSample\">Modelica.Clocked.ClockSignals.Sampler.ShiftSample</a>.
+<a href=\"modelica://Modelica.Clocked.ClockSignals.Sampler.ShiftSample\">Modelica.Clocked.ClockSignals.Sampler.ShiftSample</a>.
 </p>
 </html>"));
       end ShiftSample;
@@ -2861,7 +2861,7 @@ sub-library.
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Sample\">Modelica.Clocked.RealSignals.Sampler.Sample</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Modelica.Clocked.RealSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample1;
@@ -2895,7 +2895,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Sample\">Modelica.Clocked.RealSignals.Sampler.Sample</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Modelica.Clocked.RealSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample2;
@@ -2948,7 +2948,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Sample\">Modelica.Clocked.RealSignals.Sampler.Sample</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Sample\">Modelica.Clocked.RealSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample3;
@@ -2980,7 +2980,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.SampleClocked\">Modelica.Clocked.RealSignals.Sampler.SampleClocked</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleClocked\">Modelica.Clocked.RealSignals.Sampler.SampleClocked</a>.
 </p>
 </html>"));
       end SampleClocked;
@@ -3019,7 +3019,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked</a>.
 </p>
 </html>"));
       end SampleVectorizedAndClocked;
@@ -3064,7 +3064,7 @@ Example used to generate a figure for the documentation of block
           Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects\">Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects\">Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects</a>.
 </p>
 </html>"));
       end SampleWithADeffects;
@@ -3107,7 +3107,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Hold\">Modelica.Clocked.RealSignals.Sampler.Hold</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Hold\">Modelica.Clocked.RealSignals.Sampler.Hold</a>.
 </p>
 </html>"));
       end Hold;
@@ -3158,7 +3158,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects\">Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects\">Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects</a>.
 </p>
 </html>"));
       end HoldWithDAeffects1;
@@ -3209,7 +3209,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects\">Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects\">Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects</a>.
 </p>
 </html>"));
       end HoldWithDAeffects2;
@@ -3247,7 +3247,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.SubSample\">Modelica.Clocked.RealSignals.Sampler.SubSample</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SubSample\">Modelica.Clocked.RealSignals.Sampler.SubSample</a>.
 </p>
 </html>"));
       end SubSample;
@@ -3286,7 +3286,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.SuperSample\">Modelica.Clocked.RealSignals.Sampler.SuperSample</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSample\">Modelica.Clocked.RealSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
       end SuperSample;
@@ -3326,7 +3326,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated</a>.
 </p>
 </html>"));
       end SuperSampleInterpolated;
@@ -3364,7 +3364,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.ShiftSample\">Modelica.Clocked.RealSignals.Sampler.ShiftSample</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.ShiftSample\">Modelica.Clocked.RealSignals.Sampler.ShiftSample</a>.
 </p>
 </html>"));
       end ShiftSample;
@@ -3410,7 +3410,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.BackSample\">Modelica.Clocked.RealSignals.Sampler.BackSample</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.BackSample\">Modelica.Clocked.RealSignals.Sampler.BackSample</a>.
 </p>
 </html>"));
       end BackSample;
@@ -3452,7 +3452,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.AssignClock\">Modelica.Clocked.RealSignals.Sampler.AssignClock</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.AssignClock\">Modelica.Clocked.RealSignals.Sampler.AssignClock</a>.
 </p>
 </html>"));
       end AssignClock;
@@ -3514,7 +3514,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized</a>.
 </p>
 </html>"));
       end AssignClockVectorized;
@@ -3565,7 +3565,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
       end UpSample1;
@@ -3623,7 +3623,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
       end UpSample2;
@@ -3670,7 +3670,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold\">Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold\">Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold</a>.
 </p>
 </html>"));
       end AssignClockToTriggerHold;
@@ -3709,7 +3709,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold\">Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold\">Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold</a>.
 </p>
 </html>"));
       end AssignClockToSquareWaveHold;
@@ -3745,7 +3745,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise\">Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise\">Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise</a>.
 </p>
 </html>"));
       end UniformNoise;
@@ -3781,7 +3781,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star\">Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star\">Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star</a>.
 </p>
 </html>"));
       end UniformNoiseXorshift64star;
@@ -3820,7 +3820,7 @@ Example used to generate a figure for the documentation of block
         Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay\">Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay\">Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay</a>.
 </p>
 </html>"));
       end FractionalDelay;
@@ -3850,7 +3850,7 @@ Example used to generate a figure for the documentation of block
                 {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.RealSignals.TimeBasedSources.Step\">Modelica.Clocked.RealSignals.TimeBasedSources.Step</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.TimeBasedSources.Step\">Modelica.Clocked.RealSignals.TimeBasedSources.Step</a>.
 </p>
 </html>"));
       end TimeBasedStep;
@@ -3879,7 +3879,7 @@ Example for block
                 {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
       end TickBasedStep;
@@ -3909,7 +3909,7 @@ Example for block
                 {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.RealSignals.TimeBasedSources.Sine\">Modelica.Clocked.RealSignals.TimeBasedSources.Sine</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.TimeBasedSources.Sine\">Modelica.Clocked.RealSignals.TimeBasedSources.Sine</a>.
 </p>
 </html>"));
       end TimeBasedSine;
@@ -3946,7 +3946,7 @@ Example for block
                 {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
       end TickBasedSine;
@@ -3976,7 +3976,7 @@ Example for block
                 {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.RealSignals.TimeBasedSources.Ramp\">Modelica.Clocked.RealSignals.TimeBasedSources.Ramp</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.TimeBasedSources.Ramp\">Modelica.Clocked.RealSignals.TimeBasedSources.Ramp</a>.
 </p>
 </html>"));
       end TimeBasedRamp;
@@ -4009,7 +4009,7 @@ Example for block
                 {{-100,-100},{100,100}})), experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.RealSignals.TickBasedSources.Ramp\">Modelica.Clocked.RealSignals.TickBasedSources.Ramp</a>.
+<a href=\"modelica://Modelica.Clocked.RealSignals.TickBasedSources.Ramp\">Modelica.Clocked.RealSignals.TickBasedSources.Ramp</a>.
 </p>
 </html>"));
       end TickBasedRamp;
@@ -4056,7 +4056,7 @@ sub-library.
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.Sample\">Modelica.Clocked.IntegerSignals.Sampler.Sample</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.Sample\">Modelica.Clocked.IntegerSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample1;
@@ -4116,7 +4116,7 @@ Elementary example for the documentation of block
           Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.Sample\">Modelica.Clocked.IntegerSignals.Sampler.Sample</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.Sample\">Modelica.Clocked.IntegerSignals.Sampler.Sample</a>.
 </p>
 </html>"),Icon(coordinateSystem(
               preserveAspectRatio=false,
@@ -4150,7 +4150,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.SampleClocked\">Modelica.Clocked.IntegerSignals.Sampler.SampleClocked</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.SampleClocked\">Modelica.Clocked.IntegerSignals.Sampler.SampleClocked</a>.
 </p>
 </html>"));
       end SampleClocked;
@@ -4188,7 +4188,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.IntegerSignals.Sampler.SampleVectorizedAndClocked</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.IntegerSignals.Sampler.SampleVectorizedAndClocked</a>.
 </p>
 </html>"));
       end SampleVectorizedAndClocked;
@@ -4230,7 +4230,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.Hold\">Modelica.Clocked.IntegerSignals.Sampler.Hold</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.Hold\">Modelica.Clocked.IntegerSignals.Sampler.Hold</a>.
 </p>
 </html>"));
       end Hold;
@@ -4267,7 +4267,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.SubSample\">Modelica.Clocked.IntegerSignals.Sampler.SubSample</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.SubSample\">Modelica.Clocked.IntegerSignals.Sampler.SubSample</a>.
 </p>
 </html>"));
       end SubSample;
@@ -4304,7 +4304,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.SuperSample\">Modelica.Clocked.IntegerSignals.Sampler.SuperSample</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.SuperSample\">Modelica.Clocked.IntegerSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
       end SuperSample;
@@ -4341,7 +4341,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.ShiftSample\">Modelica.Clocked.IntegerSignals.Sampler.ShiftSample</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.ShiftSample\">Modelica.Clocked.IntegerSignals.Sampler.ShiftSample</a>.
 </p>
 </html>"));
       end ShiftSample;
@@ -4386,7 +4386,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.BackSample\">Modelica.Clocked.IntegerSignals.Sampler.BackSample</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.BackSample\">Modelica.Clocked.IntegerSignals.Sampler.BackSample</a>.
 </p>
 </html>"));
       end BackSample;
@@ -4429,7 +4429,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.AssignClock\">Modelica.Clocked.IntegerSignals.Sampler.AssignClock</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.AssignClock\">Modelica.Clocked.IntegerSignals.Sampler.AssignClock</a>.
 </p>
 </html>"));
       end AssignClock;
@@ -4493,7 +4493,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.IntegerSignals.Sampler.AssignClockVectorized</a>.
 </p>
 </html>"));
       end AssignClockVectorized;
@@ -4543,7 +4543,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.IntegerSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
       end UpSample;
@@ -4576,7 +4576,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.IntegerSignals.TimeBasedSources.Step\">Modelica.Clocked.IntegerSignals.TimeBasedSources.Step</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.TimeBasedSources.Step\">Modelica.Clocked.IntegerSignals.TimeBasedSources.Step</a>.
 </p>
 </html>"));
       end TimeBasedStep;
@@ -4609,7 +4609,7 @@ Example for block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.IntegerSignals.TickBasedSources.Step\">Modelica.Clocked.IntegerSignals.TickBasedSources.Step</a>.
+<a href=\"modelica://Modelica.Clocked.IntegerSignals.TickBasedSources.Step\">Modelica.Clocked.IntegerSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
       end TickBasedStep;
@@ -4656,7 +4656,7 @@ sub-library.
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
 </p>
 </html>"));
       end Sample1;
@@ -4715,7 +4715,7 @@ Elementary example for the documentation of block
           Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
 </p>
 </html>"),Icon(coordinateSystem(
               preserveAspectRatio=false,
@@ -4749,7 +4749,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.SampleClocked\">Modelica.Clocked.BooleanSignals.Sampler.SampleClocked</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SampleClocked\">Modelica.Clocked.BooleanSignals.Sampler.SampleClocked</a>.
 </p>
 </html>"));
       end SampleClocked;
@@ -4787,7 +4787,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked\">Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked</a>.
 </p>
 </html>"));
       end SampleVectorizedAndClocked;
@@ -4828,7 +4828,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.Hold\">Modelica.Clocked.BooleanSignals.Sampler.Hold</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Hold\">Modelica.Clocked.BooleanSignals.Sampler.Hold</a>.
 </p>
 </html>"));
       end Hold;
@@ -4864,7 +4864,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.SubSample\">Modelica.Clocked.BooleanSignals.Sampler.SubSample</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SubSample\">Modelica.Clocked.BooleanSignals.Sampler.SubSample</a>.
 </p>
 </html>"));
       end SubSample;
@@ -4900,7 +4900,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.SuperSample\">Modelica.Clocked.BooleanSignals.Sampler.SuperSample</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.SuperSample\">Modelica.Clocked.BooleanSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
       end SuperSample;
@@ -4936,7 +4936,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.ShiftSample\">Modelica.Clocked.BooleanSignals.Sampler.ShiftSample</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.ShiftSample\">Modelica.Clocked.BooleanSignals.Sampler.ShiftSample</a>.
 </p>
 </html>"));
       end ShiftSample;
@@ -4980,7 +4980,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.BackSample\">Modelica.Clocked.BooleanSignals.Sampler.BackSample</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.BackSample\">Modelica.Clocked.BooleanSignals.Sampler.BackSample</a>.
 </p>
 </html>"));
       end BackSample;
@@ -5022,7 +5022,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.AssignClock\">Modelica.Clocked.BooleanSignals.Sampler.AssignClock</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.AssignClock\">Modelica.Clocked.BooleanSignals.Sampler.AssignClock</a>.
 </p>
 </html>"));
       end AssignClock;
@@ -5085,7 +5085,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized\">Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized</a>.
 </p>
 </html>"));
       end AssignClockVectorized;
@@ -5134,7 +5134,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample\">Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample</a>.
 </p>
 </html>"));
       end UpSample;
@@ -5165,7 +5165,7 @@ Elementary example for the documentation of block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.BooleanSignals.TimeBasedSources.Step\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Step</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.TimeBasedSources.Step\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Step</a>.
 </p>
 </html>"));
       end TimeBasedStep;
@@ -5196,7 +5196,7 @@ Example for block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.BooleanSignals.TickBasedSources.Step\">Modelica.Clocked.BooleanSignals.TickBasedSources.Step</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.TickBasedSources.Step\">Modelica.Clocked.BooleanSignals.TickBasedSources.Step</a>.
 </p>
 </html>"));
       end TickBasedStep;
@@ -5229,7 +5229,7 @@ Example for block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse\">Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse</a>.
 </p>
 </html>"));
       end TimeBasedPulse;
@@ -5262,7 +5262,7 @@ Example for block
         Documentation(info="<html>
 <p>
 Example for block
-<a href=\"Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse\">Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse</a>.
+<a href=\"modelica://Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse\">Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse</a>.
 </p>
 </html>"));
       end TickBasedPulse;

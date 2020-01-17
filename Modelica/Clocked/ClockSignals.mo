@@ -707,7 +707,7 @@ The clock y is factor-times slower than the clock u. The first activation of clo
 
 <p>
 The following
-<a href=\"Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample\">example</a>
+<a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample\">example</a>
 generates a periodic clock of 20 ms period, and
 then sub-samples the resulting clock signal with a factor of 3:<br>
 </p>
@@ -838,7 +838,7 @@ Clock y is factor-times faster than clock u. The first activation of clock y coi
 
 <p>
 The following
-<a href=\"Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample\">example</a>
+<a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample\">example</a>
 generates a periodic clock of 20 ms period, and
 then super-samples the resulting clock with a factor of 3:<br>
 </p>
@@ -953,7 +953,7 @@ and clock y starts at the second clock tick of cBase.
 
 <p>
 The following
-<a href=\"Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample\">example</a>
+<a href=\"modelica://Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample\">example</a>
 generates a periodic clock of 20 ms period, and
 then shifts it with shiftCounter = 4 and resolution = 3:<br>
 </p>
