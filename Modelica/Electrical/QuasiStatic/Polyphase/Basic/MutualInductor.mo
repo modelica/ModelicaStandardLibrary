@@ -10,8 +10,8 @@ initial equation
   end if;
 equation
   assert(sum(abs(L - transpose(L))) < epsilon*sum(abs(L)),"Mutual inductance matrix is not symmetric");
-  for j in 1:m loop
-    v[j] = sum(j*omega*L[j, k]*i[k] for k in 1:m);
+  for l in 1:m loop
+    v[l] = sum(j*omega*L[l, k]*i[k] for k in 1:m);
   end for;
   annotation (defaultComponentName="inductor", Documentation(info="<html>
 <p>
