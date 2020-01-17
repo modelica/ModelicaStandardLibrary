@@ -1,6 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape;
 model HollowCylinderRadialFlux
-"Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics"
+"Hollow cylinder with radial flux of fixed shape and linear material characteristics"
 
   extends BaseClasses.FixedShape;
   extends Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.HollowCylinderRadialFlux;
