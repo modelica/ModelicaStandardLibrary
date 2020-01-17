@@ -33,5 +33,6 @@ CONTRIBUTING.md export-ignore
 .mailmap export-ignore
 .travis.yml export-ignore
 *.ipe export-ignore
+Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx export-ignore
 Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.ppt export-ignore
 Modelica/Resources/Documentation/Mechanics/Figure_PlanarLoopAnalytic.ppt export-ignore
