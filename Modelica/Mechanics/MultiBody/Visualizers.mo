@@ -2091,7 +2091,7 @@ a&nbsp;physical length, but a&nbsp;different 3-dimensional quantity
 (such as force, torque, speed, &hellip;), except for <strong>RelativePosition</strong>.
 
 That allows the vectors of similar quantities to be scaled appropriately during post-processing.
-This is usefu, even for <strong>RelativePosition</strong> and in that case to disable or
+This is useful, even for <strong>RelativePosition</strong> and in that case to disable or
 exaggerate the relative positions.
 </p>
 
