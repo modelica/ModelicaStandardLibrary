@@ -63,7 +63,5 @@ y = Modelica.ComplexMath.conj(u1) - u2
               textColor={0,0,255}),                       Text(
               extent={{20,-20},{100,-100}},
           textColor={85,170,255},
-          textString="-")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+          textString="-")}));
 end Feedback;

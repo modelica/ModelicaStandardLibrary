@@ -29,7 +29,5 @@ y = u1Inernal * u2Internal;
                                Line(points={{-15,-25.99},{15,
           25.99}}, color={85,170,255}),
                    Ellipse(extent={{-50,50},{50,-50}},
-          lineColor={85,170,255})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+          lineColor={85,170,255})}));
 end Product;

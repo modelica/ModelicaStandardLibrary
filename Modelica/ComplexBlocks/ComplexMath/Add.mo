@@ -41,7 +41,5 @@ y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2
             Line(points={{50,0},{100,0}}, color={85,170,255}),
             Text(extent={{-40,40},{40,-40}},
           textColor={85,170,255},
-          textString="+")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+          textString="+")}));
 end Add;

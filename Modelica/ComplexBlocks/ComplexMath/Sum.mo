@@ -31,7 +31,5 @@ results in the following equations:
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={Line(
               points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}}, color={85,
-              170,255})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+              170,255})}));
 end Sum;

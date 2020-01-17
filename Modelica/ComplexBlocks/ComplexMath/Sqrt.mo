@@ -25,8 +25,6 @@ equation
               extent={{-8,-4},{64,-52}},
               textColor={192,192,192},
               textString="sqrt")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>

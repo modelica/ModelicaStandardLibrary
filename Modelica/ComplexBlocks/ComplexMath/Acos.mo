@@ -23,8 +23,6 @@ equation
               extent={{-86,-14},{-14,-62}},
               textColor={192,192,192},
               textString="acos")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the

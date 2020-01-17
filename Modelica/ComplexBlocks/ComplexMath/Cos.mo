@@ -24,8 +24,6 @@ equation
               extent={{-36,82},{36,34}},
               textColor={192,192,192},
               textString="cos")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>

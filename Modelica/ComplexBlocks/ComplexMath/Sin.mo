@@ -25,8 +25,6 @@ equation
               extent={{12,84},{84,36}},
               textColor={192,192,192},
               textString="sin")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>

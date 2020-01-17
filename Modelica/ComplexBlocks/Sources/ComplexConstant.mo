@@ -22,8 +22,6 @@ equation
               {85,170,255}),                                               Text(
               extent={{-150,-150},{150,-110}},
               textString="k=%k")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 The Complex output y is a constant signal:

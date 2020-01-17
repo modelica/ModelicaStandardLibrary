@@ -97,9 +97,6 @@ equation
             fillColor={85,170,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127})}),
-    Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>Extract signals from the input connector and transfer them
 to the output connector.</p>
