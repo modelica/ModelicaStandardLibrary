@@ -43,5 +43,7 @@ This sensor can be used to measure the complex voltage.
         Text(
           extent={{-150,130},{150,90}},
           textString="%name",
-          textColor={0,0,255})}));
+          textColor={0,0,255}),
+        Line(points={{-100,0},{-70,0}}, color={85,170,255}),
+        Line(points={{70,0},{100,0}},   color={85,170,255})}));
 end VoltageSensor;
