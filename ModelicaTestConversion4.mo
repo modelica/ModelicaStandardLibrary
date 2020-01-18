@@ -2298,5 +2298,18 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue2944;
   end SIunits;
-  annotation(uses(Modelica(version="3.2.3")));
+  annotation(uses(Modelica(version="3.2.3")), Documentation(info="<html>
+<p>
+This library provides models and functions to test the MSL v4.0.0 conversion script \"ConvertModelica_from_3.2.3_to_4.0.0.mos\"
+for conversion of Modelica libraries using MSL v3.x.y to MSL v4.0.0. These models are not meant to be meaningful otherwise.
+</p>
+
+<p>
+Copyright &copy; 2019-2020, Modelica Association and contributors
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+</html>"));
 end ModelicaTestConversion4;

@@ -2684,7 +2684,7 @@ marked in the icon layer with a red box.
 </p>
 
 <p>
-Copyright &copy; 2019, Modelica Association and contributors
+Copyright &copy; 2019-2020, Modelica Association and contributors
 </p>
 
 <p>
