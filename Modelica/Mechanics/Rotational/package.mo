@@ -45,7 +45,7 @@ positive if heat is flowing out of the heatPort). For an example, see
 </p>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 </html>", revisions=""), Icon(
     coordinateSystem(preserveAspectRatio=true,

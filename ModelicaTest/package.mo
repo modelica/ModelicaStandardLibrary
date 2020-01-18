@@ -83,7 +83,7 @@ way:
 </ul>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 
 <p>

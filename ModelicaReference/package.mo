@@ -7109,7 +7109,7 @@ It is based on the
 </p>
 
 <p>
-Copyright &copy; 2003-2019, Modelica Association and contributors
+Copyright &copy; 2003-2020, Modelica Association and contributors
 </p>
 
 <p>
