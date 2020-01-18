@@ -1,12 +1,12 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model PotentialSensor "Potential sensor"
   extends Interfaces.AbsoluteSensor;
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput y
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput v "Complex potential"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.abs(y) "Magnitude of complex potential";
-  Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex potential";
+  Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.abs(v) "Magnitude of complex potential";
+  Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(v) "Argument of complex potential";
 equation
-  y = pin.v;
+  v = pin.v;
   annotation (Documentation(info="<html>
 
 <p>
