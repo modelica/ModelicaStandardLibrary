@@ -81,7 +81,7 @@ equation
   connect(trapezoid.y, voltageToAngle.vRef)
     annotation (Line(points={{-49,-70},{-30,-70},{-30,-52}}, color={0,0,127}));
   connect(multiSensor.power, meanPower.u) annotation (Line(points={{9,
-          34},{2.22045e-15,34},{2.22045e-15,22}}, color={0,0,127}));
+          34},{0,34},{0,22}}, color={0,0,127}));
   connect(ground.p, multiSensor.nv) annotation (Line(points={{-80,-20},
           {20,-20},{20,30}}, color={0,0,255}));
   connect(multiSensor.i, iRMS.u) annotation (Line(points={{14,29},{14,
@@ -95,9 +95,5 @@ equation
   annotation (Documentation(
         info="<html>
 <p>Dimmer example template including supply and sensors; load is not yet included</p>
-</html>"),
-   experiment(
-      StopTime=8,
-      Interval=0.0001,
-      Tolerance=1e-06));
+</html>"));
 end Dimmer;
