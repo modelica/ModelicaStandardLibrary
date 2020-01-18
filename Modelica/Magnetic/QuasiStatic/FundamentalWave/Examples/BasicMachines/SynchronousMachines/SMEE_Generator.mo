@@ -18,7 +18,7 @@ model SMEE_Generator
   Modelica.SIunits.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
 
   output Modelica.SIunits.Power Ptr=powerSensor.power "Transient power";
-  output Modelica.SIunits.Power Pqs=powerSensorQS.y.re "QS power";
+  output Modelica.SIunits.Power Pqs=powerSensorQS.apparentPower.re "QS power";
   Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
      Placement(transformation(extent={{-50,-30},{-70,-10}})));
   Modelica.Electrical.Analog.Basic.Ground grounde annotation (Placement(
