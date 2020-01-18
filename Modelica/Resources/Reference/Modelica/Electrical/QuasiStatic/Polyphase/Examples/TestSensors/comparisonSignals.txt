@@ -1,0 +1,2 @@
+time
+resistor.plug_p.reference.gamma

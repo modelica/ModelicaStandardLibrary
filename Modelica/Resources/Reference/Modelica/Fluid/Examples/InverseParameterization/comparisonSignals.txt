@@ -1,0 +1,7 @@
+time
+sink.ports[1].m_flow
+sink1.ports[1].m_flow
+sink2.ports[1].m_flow
+pipe1.flowModel.dps_fg_turbulent[1]
+pipe1.flowModel.pathLengths_nominal[1]
+pipe2.flowModel.pathLengths_nominal[1]

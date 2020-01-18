@@ -1,0 +1,3 @@
+time
+inertiaLoad.w
+speedSensor.flange.phi

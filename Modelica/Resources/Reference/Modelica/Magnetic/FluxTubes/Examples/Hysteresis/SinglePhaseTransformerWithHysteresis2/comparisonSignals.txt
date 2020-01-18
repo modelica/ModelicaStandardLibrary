@@ -1,0 +1,6 @@
+time
+tr.Core.B
+tr.Core.Hstat
+tr.Core.MagRel
+tr.Wp.i
+tr.Ws.i

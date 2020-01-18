@@ -1,0 +1,11 @@
+time
+axis.controller.PI.x
+axis.gear.spring.phi_rel
+axis.gear.spring.w_rel
+axis.initializeFlange.phi_flange
+axis.initializeFlange.w_flange
+axis.motor.C.v
+axis.motor.La.i
+axis.gear.bearingFriction.mode
+axis.gear.bearingFriction.startBackward
+axis.gear.bearingFriction.startForward

@@ -1,0 +1,7 @@
+time
+suddenExpansion1.dp
+suddenExpansion1.m_flow
+suddenExpansion1.port_b_T
+suddenExpansion2.dp
+suddenExpansion2.m_flow
+suddenExpansion2.port_b_T

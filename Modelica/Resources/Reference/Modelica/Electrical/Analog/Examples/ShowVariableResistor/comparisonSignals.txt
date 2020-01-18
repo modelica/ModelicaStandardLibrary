@@ -1,0 +1,3 @@
+time
+VariableResistor.i
+R2.i

@@ -1,0 +1,9 @@
+time
+Ptr
+Pqs
+smee.excitation.electroMagneticConverter.Phi.re
+smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+smee.stator.strayReluctance.port_p.Phi.im
+smee.stator.strayReluctance.port_p.Phi.re
+smeeQS.short.port_p.reference.gamma

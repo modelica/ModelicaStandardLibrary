@@ -1,0 +1,8 @@
+time
+smee.excitation.electroMagneticConverter.Phi.re
+smee.inertiaRotor.phi
+smee.inertiaRotor.w
+smee.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smee.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im

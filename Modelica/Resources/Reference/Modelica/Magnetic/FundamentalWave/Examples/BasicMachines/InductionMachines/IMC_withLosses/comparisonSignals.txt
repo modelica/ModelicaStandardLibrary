@@ -1,0 +1,15 @@
+time
+PI.x
+aimc.airGap.V_mrr.im
+aimc.airGap.V_mrr.re
+aimc.airGap.V_msr.im
+aimc.airGap.V_msr.re
+aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+aimc.stator.core.Phi.im
+aimc.stator.core.Phi.re
+aimc.stator.strayReluctance.port_p.Phi.im
+aimc.stator.strayReluctance.port_p.Phi.re
+aimc.stator.zeroInductor.i0
+loadInertia.w
+powerSensor.flange_a.phi

@@ -1,0 +1,8 @@
+time
+inertiaLoad.phi
+inertiaLoad.w
+inertiaLoadQS.phi
+inertiaLoadQS.w
+currentController.y[1]
+currentController.y[2]
+currentController.y[3]

@@ -1,0 +1,10 @@
+time
+advancedSolenoid.armature.stopper_xMax.v_rel
+advancedSolenoid.c_par1.v
+advancedSolenoid.c_par2.v
+advancedSolenoid.coil1.Phi
+advancedSolenoid.coil2.Phi
+advancedSolenoid.x
+simpleSolenoid.armature.stopper_xMax.v_rel
+simpleSolenoid.coil.Phi
+simpleSolenoid.x

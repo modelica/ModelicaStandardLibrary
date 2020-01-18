@@ -1,0 +1,6 @@
+time
+Core.B
+Core.Hstat
+Core.MagRel
+WindingPrim.i
+WindingSec.i

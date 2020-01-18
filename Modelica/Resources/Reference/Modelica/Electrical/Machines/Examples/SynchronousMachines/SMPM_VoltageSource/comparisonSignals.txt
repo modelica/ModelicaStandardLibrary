@@ -1,0 +1,7 @@
+time
+inertiaLoad.phi
+inertiaLoad.w
+smpm.idq_sr[1]
+smpm.idq_sr[2]
+voltageController.PI_d.x
+voltageController.PI_q.x

@@ -1,0 +1,13 @@
+time
+PreisachEverett.J
+PreisachEverett.MagRel
+PreisachEverett.beta
+PreisachEverett.v
+PreisachEverett.x
+TellinenSoft.B
+TellinenSoft.MagRel
+TellinenTable.B
+TellinenTable.MagRel
+W1.i
+W2.i
+W3.i

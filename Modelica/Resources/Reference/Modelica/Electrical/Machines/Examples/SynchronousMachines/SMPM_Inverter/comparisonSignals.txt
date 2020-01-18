@@ -1,0 +1,8 @@
+time
+loadInertia.phi
+loadInertia.w
+smpm.idq_dr[1]
+smpm.idq_rr[2]
+smpm.idq_sr[1]
+smpm.idq_sr[2]
+vfController.x

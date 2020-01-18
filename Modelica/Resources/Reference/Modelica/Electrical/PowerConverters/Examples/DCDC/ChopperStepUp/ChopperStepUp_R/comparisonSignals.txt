@@ -1,0 +1,5 @@
+time
+capacitor.v
+inductorSource.i
+meanCurrent.x
+meanVoltage.x
