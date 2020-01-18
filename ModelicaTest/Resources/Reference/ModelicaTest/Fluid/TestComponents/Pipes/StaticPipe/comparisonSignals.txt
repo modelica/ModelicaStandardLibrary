@@ -1,0 +1,5 @@
+time
+pipe1.port_a.p
+pipe1.port_b.p
+pipe1.port_b.m_flow
+pipe1.port_b.h_outflow

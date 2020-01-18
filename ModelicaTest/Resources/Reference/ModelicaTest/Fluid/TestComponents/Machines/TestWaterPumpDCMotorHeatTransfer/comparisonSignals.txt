@@ -1,0 +1,5 @@
+time
+housing.T
+motor.inertiaRotor.phi
+motor.inertiaRotor.w
+motor.la.i

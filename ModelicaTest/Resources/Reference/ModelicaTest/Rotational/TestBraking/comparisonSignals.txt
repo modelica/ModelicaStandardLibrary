@@ -1,0 +1,9 @@
+time
+inertia1.phi
+inertia1.w
+inertia2.phi
+inertia2.w
+inertia3.phi
+inertia3.w
+inertia4.phi
+inertia4.w

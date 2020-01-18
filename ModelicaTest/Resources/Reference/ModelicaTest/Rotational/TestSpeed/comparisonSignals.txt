@@ -1,0 +1,7 @@
+time
+speed1.phi
+speed1.w
+speed2.phi
+speed3.s
+speed3.v
+speed4.s

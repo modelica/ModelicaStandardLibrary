@@ -1,0 +1,14 @@
+time
+ramp.y
+boundary.ports[1].m_flow
+boundary.ports[1].p
+boundary.ports[1].h_outflow
+sensor.port_b.m_flow
+sensor.port_b.p
+sensor.port_b.h_outflow
+fitting1.port_b.m_flow
+fitting1.port_b.p
+fitting1.port_b.h_outflow
+fitting2.port_b.m_flow
+fitting2.port_b.p
+fitting2.port_b.h_outflow

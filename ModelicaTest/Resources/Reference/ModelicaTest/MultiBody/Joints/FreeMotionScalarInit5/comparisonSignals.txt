@@ -1,0 +1,13 @@
+time
+freeMotionScalarInit1.r_rel_a_1
+freeMotionScalarInit1.r_rel_a_2
+freeMotionScalarInit1.r_rel_a_3
+freeMotionScalarInit1.v_rel_a_1
+freeMotionScalarInit1.v_rel_a_2
+freeMotionScalarInit1.v_rel_a_3
+freeMotionScalarInit2.angle_1
+freeMotionScalarInit2.angle_2
+freeMotionScalarInit2.angle_3
+freeMotionScalarInit2.angle_d_1
+freeMotionScalarInit2.angle_d_2
+freeMotionScalarInit2.angle_d_3

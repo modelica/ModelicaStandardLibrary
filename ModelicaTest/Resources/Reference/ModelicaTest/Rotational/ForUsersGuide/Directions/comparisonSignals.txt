@@ -1,0 +1,7 @@
+time
+J2.phi
+J2.w
+J3.phi
+J3.w
+J5.phi
+J5.w

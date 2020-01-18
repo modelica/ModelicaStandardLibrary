@@ -1,0 +1,7 @@
+time
+cutForceAndTorque.force[3]
+cutForceAndTorque.torque[3]
+cutForceAndTorque.force[2]
+cutForceAndTorque.torque[2]
+cutForceAndTorque.force[1]
+cutForceAndTorque.torque[1]
