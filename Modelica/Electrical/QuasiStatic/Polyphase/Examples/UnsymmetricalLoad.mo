@@ -8,7 +8,7 @@ model UnsymmetricalLoad "Unsymmetrical three-phase load"
     "with neutral, inverse component";
   output Modelica.SIunits.Current i1_0=symmetricalComponents_1.abs_y[3]
     "with neutral, zero component";
-  output Modelica.SIunits.Current i1_n=abs(currentSensorN.y)
+  output Modelica.SIunits.Current i1_n=abs(currentSensorN.i)
     "with neutral, neutral current";
   output Modelica.SIunits.Current i2_d=symmetricalComponents_2.abs_y[1]
     "w/o neutral, direct component";
@@ -16,7 +16,7 @@ model UnsymmetricalLoad "Unsymmetrical three-phase load"
     "w/o neutral, inverse component";
   output Modelica.SIunits.Current i2_0=symmetricalComponents_2.abs_y[3]
     "w/o neutral, zero component";
-  output Modelica.SIunits.Voltage v2_n=abs(voltageSensorN.y)
+  output Modelica.SIunits.Voltage v2_n=abs(voltageSensorN.v)
     "w/o neutral, neutral voltage";
 
   Sources.VoltageSource voltageSource1(
@@ -168,9 +168,9 @@ equation
     annotation (Line(points={{80,-60},{80,-80},{70,-80}}, color={85,170,255}));
   connect(voltageSensorN.pin_n, ground2.pin) annotation (Line(points={{50,-80},{
           -10,-80},{-70,-80}}, color={85,170,255}));
-  connect(currentSensor1.y, symmetricalComponents_1.u)
+  connect(currentSensor1.i, symmetricalComponents_1.u)
     annotation (Line(points={{-50,79},{-50,62}}, color={85,170,255}));
-  connect(currentSensor2.y, symmetricalComponents_2.u) annotation (Line(points={
+  connect(currentSensor2.i, symmetricalComponents_2.u) annotation (Line(points={
           {-50,-21},{-50,-29.5},{-50,-38}}, color={85,170,255}));
   annotation (Documentation(info="<html>
 <p>
