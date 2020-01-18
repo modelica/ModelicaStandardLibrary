@@ -11,8 +11,7 @@ model PowerSensor "Power sensor"
         transformation(extent={{-10,90},{10,110}})));
   Interfaces.NegativePlug voltageN(final m=m) annotation (Placement(
         transformation(extent={{-10,-110},{10,-90}})));
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
-        transformation(
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput apparentPower "Total apparent power as complex output signal" annotation (Placement(transformation(
         origin={-100,-110},
         extent={{-10,-10},{10,10}},
         rotation=270), iconTransformation(
@@ -41,10 +40,8 @@ model PowerSensor "Power sensor"
         extent={{-10,-10},{10,10}},
         rotation=270)));
 
-  Modelica.SIunits.ApparentPower abs_y=Modelica.ComplexMath.abs(y)
-    "Magnitude of complex apparent power";
-  Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y)
-    "Argument of complex apparent power";
+  Modelica.SIunits.ApparentPower abs_y=Modelica.ComplexMath.abs(apparentPower) "Magnitude of complex apparent power";
+  Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(apparentPower) "Argument of complex apparent power";
 
 equation
   connect(plugToPinsCurrentP.plug_p, currentP) annotation (Line(points={{-72,
@@ -64,9 +61,8 @@ equation
         points={{0,10},{0,10},{0,68},{0,68}}, color={85,170,255}));
   connect(powerSensor.voltageN, plugToPinsVoltageN.pin_n) annotation (Line(
         points={{0,-10},{0,-10},{0,-68},{0,-68}}, color={85,170,255}));
-  connect(powerSensor.y, sum.u) annotation (Line(points={{-10,-11},{-10,-40},{-80,-40},{-80,-58}}, color={85,170,255}));
-  connect(sum.y, y)
-    annotation (Line(points={{-80,-81},{-80,-90},{-100,-90},{-100,-110}}, color={85,170,255}));
+  connect(powerSensor.apparentPower, sum.u) annotation (Line(points={{-10,-11},{-10,-40},{-80,-40},{-80,-58}}, color={85,170,255}));
+  connect(sum.y, apparentPower) annotation (Line(points={{-80,-81},{-80,-90},{-100,-90},{-100,-110}}, color={85,170,255}));
   annotation (
     Icon(graphics={
         Line(points={{0,100},{0,70}}, color={85,170,255}),

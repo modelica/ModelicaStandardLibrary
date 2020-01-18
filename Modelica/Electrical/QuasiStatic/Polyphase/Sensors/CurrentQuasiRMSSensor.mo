@@ -27,13 +27,11 @@ equation
       points={{-68,0},{-10,0}}, color={85,170,255}));
   connect(currentSensor.pin_n, plugToPins_n.pin_n) annotation (Line(
       points={{10,0},{68,0}}, color={85,170,255}));
-  connect(currentSensor.y, quasiRMS.u) annotation (Line(
+  connect(currentSensor.i, quasiRMS.u) annotation (Line(
       points={{0,-11},{0,-38}}, color={85,170,255}));
   annotation (defaultComponentName="currentRMSSensor",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={
-        Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-        Line(points={{70,0},{90,0}}, color={0,0,255}),
         Line(points={{0,-70},{0,-100}}, color={85,170,255}),
         Text(
           extent={{150,-100},{-150,-70}},
@@ -45,7 +43,9 @@ equation
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="A")}),
+          textString="A"),
+        Line(points={{70,0},{90,0}}, color={85,170,255}),
+        Line(points={{-70,0},{-90,0}}, color={85,170,255})}),
     Documentation(revisions="<html>
 </html>",
       info="<html>

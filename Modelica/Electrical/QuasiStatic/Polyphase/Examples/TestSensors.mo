@@ -136,8 +136,7 @@ equation
     annotation (Line(points={{-20,-80},{-20,-90}}, color={85,170,255}));
   connect(sineVoltage.plug_n, star.plug_p)
     annotation (Line(points={{-20,-40},{-20,-60}},color={85,170,255}));
-  connect(powerSensor.y, complexToReal.u)
-    annotation (Line(points={{31,20},{38,20}}, color={85,170,255}));
+  connect(powerSensor.apparentPower, complexToReal.u) annotation (Line(points={{31,20},{38,20}}, color={85,170,255}));
   connect(complexToReal.re, feedbackP.u1) annotation (Line(points={{62,14},{70,14},
           {70,0},{82,0}},   color={0,0,127}));
   connect(feedbackI.u2, constI.y)

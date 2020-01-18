@@ -7,12 +7,9 @@ model VoltageQuasiRMSSensor
   Modelica.Blocks.Interfaces.RealOutput V
     "Continuous quasi average RMS of current" annotation (Placement(
         transformation(
-        origin={0,-100},
+        origin={0,-110},
         extent={{-10,-10},{10,10}},
-        rotation=270), iconTransformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,-110})));
+        rotation=270)));
   SinglePhase.Sensors.VoltageSensor voltageSensor[m] annotation (Placement(
         transformation(extent={{-10,-10},{10,10}})));
   QuasiStatic.Polyphase.Blocks.QuasiRMS quasiRMS(final m=m) annotation (
@@ -22,12 +19,12 @@ model VoltageQuasiRMSSensor
         origin={0,-50})));
 equation
   connect(quasiRMS.y, V) annotation (Line(
-      points={{0,-61},{0,-100}}, color={0,0,127}));
+      points={{0,-61},{0,-110}}, color={0,0,127}));
   connect(plugToPins_p.pin_p, voltageSensor.pin_p) annotation (Line(
       points={{-68,0},{-10,0}}, color={85,170,255}));
   connect(voltageSensor.pin_n, plugToPins_n.pin_n) annotation (Line(
       points={{10,0},{68,0}}, color={85,170,255}));
-  connect(voltageSensor.y, quasiRMS.u) annotation (Line(
+  connect(voltageSensor.v, quasiRMS.u) annotation (Line(
       points={{0,-11},{0,-38}}, color={85,170,255}));
   annotation (defaultComponentName="voltageRMSSensor",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -35,9 +32,7 @@ equation
         Text(
           extent={{150,-100},{-150,-70}},
           textString="m=%m"),
-        Line(points={{-90,0},{-70,0}}, color={0,0,255}),
         Line(points={{0,-70},{0,-100}}, color={85,170,255}),
-        Line(points={{70,0},{90,0}}, color={0,0,255}),
         Text(
           textColor={0,0,255},
           extent={{-150,80},{150,120}},
@@ -45,7 +40,9 @@ equation
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="V")}),
+          textString="V"),
+        Line(points={{70,0},{90,0}}, color={85,170,255}),
+        Line(points={{-70,0},{-90,0}}, color={85,170,255})}),
     Documentation(revisions="<html>
 </html>",
       info="<html>

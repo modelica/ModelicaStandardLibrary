@@ -1,6 +1,7 @@
 within Modelica.Electrical.QuasiStatic;
 package Polyphase "Polyphase AC components"
   extends Modelica.Icons.Package;
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={
         Ellipse(

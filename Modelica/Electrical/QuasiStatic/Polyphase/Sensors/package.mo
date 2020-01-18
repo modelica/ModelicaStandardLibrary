@@ -1,6 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Polyphase;
 package Sensors "AC polyphase sensors"
   extends Modelica.Icons.SensorsPackage;
+
   annotation (Documentation(info="<html>
 <p>This package hosts sensors for quasi-static polyphase circuits.
 Quasi-static theory can be found in the
