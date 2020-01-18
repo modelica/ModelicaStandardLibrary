@@ -79,7 +79,7 @@ equation
           -32},{-54,-32},{-54,-22}}, color={0,0,127}));
   connect(I.y, polarToComplex.len) annotation (Line(
       points={{-80,-39},{-80,-32},{-66,-32},{-66,-22}}, color={0,0,127}));
-  connect(voltageSensor.y, complexToPolar.u) annotation (Line(
+  connect(voltageSensor.v, complexToPolar.u) annotation (Line(
       points={{61,20},{68,20}}, color={85,170,255}));
   annotation (Documentation(info="<html>
 <p>

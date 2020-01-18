@@ -64,7 +64,7 @@ equation
           30},{-66,30},{-66,22}}, color={0,0,127}));
   connect(V.y, polarToComplex.len) annotation (Line(
       points={{-40,39},{-40,30},{-54,30},{-54,22}}, color={0,0,127}));
-  connect(currentSensor.y, complexToPolar.u) annotation (Line(
+  connect(currentSensor.i, complexToPolar.u) annotation (Line(
       points={{-10,11},{-10,18}}, color={85,170,255}));
   annotation (Documentation(info="<html>
 <p>
