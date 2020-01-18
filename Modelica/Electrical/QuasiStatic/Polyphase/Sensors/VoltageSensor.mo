@@ -48,5 +48,9 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
           textString="V"),
         Line(points={{0,-100},{0,-80},{0,-70}},    color={85,170,255}),
         Line(points={{-70,0},{-90,0}}, color={85,170,255}),
-        Line(points={{70,0},{90,0}}, color={85,170,255})}));
+        Line(points={{70,0},{90,0}}, color={85,170,255}),
+        Text(
+          extent={{-150,130},{150,90}},
+          textString="%name",
+          textColor={0,0,255})}));
 end VoltageSensor;

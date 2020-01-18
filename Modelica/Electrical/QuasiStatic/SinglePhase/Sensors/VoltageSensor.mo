@@ -39,5 +39,9 @@ This sensor can be used to measure the complex voltage.
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="V")}));
+          textString="V"),
+        Text(
+          extent={{-150,130},{150,90}},
+          textString="%name",
+          textColor={0,0,255})}));
 end VoltageSensor;
