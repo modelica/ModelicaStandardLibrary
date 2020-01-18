@@ -12,8 +12,7 @@ model PowerSensor "Power sensor"
           extent={{-10,-110},{10,-90}})));
   output Modelica.SIunits.ComplexCurrent i;
   output Modelica.SIunits.ComplexVoltage v;
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput apparentPower(re(unit = "W"), im(unit="var")) annotation (Placement(
-        transformation(
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput apparentPower(re(unit="W"), im(unit="var")) "Complex apparent power = active power + j * reactive power" annotation (Placement(transformation(
         origin={-100,-110},
         extent={{-10,-10},{10,10}},
         rotation=270), iconTransformation(

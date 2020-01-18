@@ -4,12 +4,12 @@ model VoltageSensor "Voltage sensor"
   extends Modelica.Icons.RoundSensor;
   Modelica.ComplexBlocks.Interfaces.ComplexOutput v(re(unit = "V"), im(unit = "V")) "Complex voltage" annotation (Placement(
         transformation(
-        origin={-100,-110},
+        origin={0,-110},
         extent={{-10,-10},{10,10}},
         rotation=270), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-100,-110})));
+        origin={0,-110})));
   Modelica.SIunits.Voltage abs_v=Modelica.ComplexMath.abs(v) "Magnitude of complex voltage";
   Modelica.SIunits.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex voltage";
   Modelica.SIunits.ComplexCurrent i "Complex current";
@@ -17,6 +17,7 @@ equation
   v = pin_p.v - pin_n.v;
   i = pin_p.i;
   i = Complex(0,0);
+  Complex(0,0) = pin_p.i + pin_n.i "Current balance";
   annotation (Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex voltage.

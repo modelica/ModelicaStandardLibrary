@@ -4,17 +4,18 @@ model CurrentSensor "Current sensor"
   extends Modelica.Icons.RoundSensor;
   Modelica.ComplexBlocks.Interfaces.ComplexOutput i(re(unit = "A"), im(unit = "A")) "Complex current" annotation (Placement(
         transformation(
-        origin={-100,-110},
+        origin={0,-110},
         extent={{-10,-10},{10,10}},
         rotation=270), iconTransformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-100,-110})));
+        origin={0,-110})));
   Modelica.SIunits.Voltage abs_i=Modelica.ComplexMath.abs(i) "Magnitude of complex current";
   Modelica.SIunits.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex current";
   Modelica.SIunits.ComplexVoltage v "Complex voltage";
 equation
   i = pin_p.i;
+  Complex(0,0) = pin_p.i + pin_n.i "Current balance";
   v = pin_p.v - pin_n.v;
   v = Complex(0,0);
   annotation (Documentation(info="<html>
