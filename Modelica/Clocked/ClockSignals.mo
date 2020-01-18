@@ -44,7 +44,6 @@ package ClockSignals "Library of blocks for clocked signals"
               extent={{-150,-160},{150,-200}},
               textColor={0,0,0},
               textString="%solverMethod")}),
-        Diagram,
         Documentation(info="<html>
 <p>
 This component generates a periodic clock that starts ticking when
@@ -137,7 +136,6 @@ For an example, see
               extent={{-150,-160},{150,-200}},
               textColor={0,0,0},
               textString="%solverMethod")}),
-        Diagram,
         Documentation(info="<html>
 <p>
 This component generates a periodic clock that starts ticking when
@@ -198,7 +196,6 @@ For an example, see
               extent={{-150,-110},{150,-150}},
               textColor={0,0,0},
               textString="%solverMethod")}),
-        Diagram,
         Documentation(info="<html>
 <p>
 This component generates a clock signal triggered by a continuous-time
@@ -1158,7 +1155,6 @@ a different icon as <code>ClockInput</code> connector.
               extent={{-150,150},{150,110}},
               textString="%name",
               textColor={0,0,255})}),
-        Diagram,
         Documentation(info="<html>
 
 </html>"));
