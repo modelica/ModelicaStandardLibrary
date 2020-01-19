@@ -14,7 +14,7 @@ model ShowImpedance "Show complex cell impedance"
 equation
   connect(logSweep.y, impedance.f)
     annotation (Line(points={{-29,0},{-12,0}}, color={0,0,127}));
-  annotation (experiment(Interval=0.0001), Documentation(info="<html>
+  annotation (experiment(Interval=0.0001, StopTime=1), Documentation(info="<html>
 <p>
 Plot <code>impedance.z.im</code> versus <code>impedance.z.re</code>
 </p>
