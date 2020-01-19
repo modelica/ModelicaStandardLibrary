@@ -7,8 +7,8 @@ imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Ph
 imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
 imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
 imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
-imc.stator.strayReluctance.port_p.Phi.im
-imc.stator.strayReluctance.port_p.Phi.re
+imc.stator.port_p.V_m.im
+imc.stator.port_p.V_m.re
 imc.stator.zeroInductor.i0
 imcQS.rotorCage.port_p.reference.gamma
 loadInertia.phi

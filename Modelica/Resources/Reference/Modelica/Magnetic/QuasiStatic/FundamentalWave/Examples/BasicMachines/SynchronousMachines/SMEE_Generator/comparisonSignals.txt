@@ -1,9 +1,10 @@
 time
-Ptr
-Pqs
+constantSpeed.phi
+constantSpeedQS.phi
 smee.excitation.electroMagneticConverter.Phi.re
 smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
 smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
-smee.stator.strayReluctance.port_p.Phi.im
-smee.stator.strayReluctance.port_p.Phi.re
+smee.stator.stray.port_p.Phi.im
+smee.stator.stray.port_p.Phi.re
+smee.stator.zeroInductor.i0
 smeeQS.short.port_p.reference.gamma
