@@ -74,7 +74,7 @@ equation
     annotation (Line(points={{-40,-70},{-10,-70}}, color={0,0,255}));
   connect(ramp.y, cosineVoltage.f) annotation (Line(points={{-69,0},{-60,0},{
           -60,-44},{-52,-44}}, color={0,0,127}));
-  annotation (experiment(Interval=0.0001), Documentation(info="<html>
+  annotation (experiment(StopTime=1.0, Interval=0.0001), Documentation(info="<html>
 <p>
 This model demonstrates the transient behaviour of a series resonant circuit:
 A sine or cosine voltage with variable frequency and constant amplitude is applied to a series connection of L, C and R. 
