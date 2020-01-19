@@ -7,8 +7,7 @@ model AronSensor "Three-phase Aron sensor for active power"
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-  Modelica.Blocks.Interfaces.RealOutput power(unit="W") "Active power" annotation (
-      Placement(transformation(
+  Modelica.Blocks.Interfaces.RealOutput activePower(unit="W") "Active power" annotation (Placement(transformation(
         origin={0,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
@@ -35,8 +34,7 @@ model AronSensor "Three-phase Aron sensor for active power"
         rotation=270,
         origin={0,-22})));
 equation
-  connect(add.y, power)
-    annotation (Line(points={{0,-81},{0,-110}}, color={0,0,127}));
+  connect(add.y, activePower) annotation (Line(points={{0,-81},{0,-110}}, color={0,0,127}));
   connect(plug_p, plugToPins_p.plug_p)
     annotation (Line(points={{-100,0},{-72,0}}, color={85,170,255}));
   connect(plugToPins_n.plug_n, plug_n)
