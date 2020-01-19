@@ -7,5 +7,5 @@ smeeE.idq_sr[1]
 smeeE.idq_sr[2]
 smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
 smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
-smeeM.stator.strayReluctance.port_p.Phi.im
-smeeM.stator.strayReluctance.port_p.Phi.re
+smeeM.stator.stray.port_p.Phi.im
+smeeM.stator.stray.port_p.Phi.re

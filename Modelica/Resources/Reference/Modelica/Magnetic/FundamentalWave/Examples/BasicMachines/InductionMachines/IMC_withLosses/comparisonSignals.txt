@@ -8,8 +8,8 @@ aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].P
 aimc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
 aimc.stator.core.Phi.im
 aimc.stator.core.Phi.re
-aimc.stator.strayReluctance.port_p.Phi.im
-aimc.stator.strayReluctance.port_p.Phi.re
+aimc.stator.port_p.V_m.im
+aimc.stator.port_p.V_m.re
 aimc.stator.zeroInductor.i0
 loadInertia.w
 powerSensor.flange_a.phi

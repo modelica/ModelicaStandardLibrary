@@ -4,10 +4,10 @@ aimcE.idq_rr[1]
 aimcE.idq_rr[2]
 aimcE.idq_sr[1]
 aimcE.idq_sr[2]
+aimcM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+aimcM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
 aimcM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
 aimcM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
-aimcM.stator.strayReluctance.port_p.Phi.im
-aimcM.stator.strayReluctance.port_p.Phi.re
 aimcM.stator.zeroInductor.i0
 loadInertiaE.phi
 loadInertiaE.w

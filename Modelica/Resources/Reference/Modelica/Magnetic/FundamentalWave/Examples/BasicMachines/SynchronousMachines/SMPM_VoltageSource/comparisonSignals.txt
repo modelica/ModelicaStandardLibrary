@@ -3,5 +3,5 @@ inertiaLoad.phi
 inertiaLoad.w
 smpm.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
 smpm.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
-voltageController.PI_d.x
-voltageController.PI_q.x
+currentController.PI_d.x
+currentController.PI_q.x

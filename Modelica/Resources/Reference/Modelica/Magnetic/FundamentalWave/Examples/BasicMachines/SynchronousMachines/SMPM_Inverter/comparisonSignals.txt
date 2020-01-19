@@ -7,8 +7,8 @@ smpmE.idq_dr[1]
 smpmE.idq_rr[2]
 smpmE.idq_sr[1]
 smpmE.idq_sr[2]
+smpmM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smpmM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
 smpmM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
 smpmM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
-smpmM.stator.strayReluctance.port_p.Phi.im
-smpmM.stator.strayReluctance.port_p.Phi.re
 vfController.x
