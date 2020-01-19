@@ -804,7 +804,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue3022SinglePhase;
 
-      model Issue3022Polyphase "Conversion test for #3022"
+      model Issue3022MultiPhase "Conversion test for #3022"
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of phases";
         import Modelica.Constants.pi;
@@ -993,7 +993,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3022\">#3022</a>.
 </p>
 </html>"));
-      end Issue3022Polyphase;
+      end Issue3022MultiPhase;
     end QuasiStatic;
 
     package Machines
