@@ -1279,7 +1279,7 @@ theoretical calculations:</p>
             {-20,4},{-12,4}}, color={0,0,127}));
     connect(frequency.y, cosFM.f) annotation (Line(points={{-29,-40},{-20,-40},{-20,
             -76},{-12,-76}}, color={0,0,127}));
-    annotation (experiment(Interval=0.0001), Documentation(info="<html>
+    annotation (experiment(StopTime=1.0, Interval=0.0001), Documentation(info="<html>
 <p>
 This example demonstrates amplitude modulation (AM) and frequency modulation (FM).
 </p>
@@ -1406,7 +1406,7 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
       phase=Modelica.Constants.pi/2,
       damping=5)
       annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
-    annotation (experiment(Interval=0.0001), Documentation(info="<html>
+    annotation (experiment(StopTime=1.0, Interval=0.0001), Documentation(info="<html>
 <p>
 Compare the sinc signal and an exponentially damped sine.
 </p>
