@@ -162,7 +162,7 @@ equation
           {-40,-12}},                color={255,0,255}));
   connect(booleanStep2.y, booleanReplicator2.u) annotation (Line(points={{-10,-19},
           {-10,-14}},                color={255,0,255}));
-  annotation (experiment(Interval=0.001, Tolerance=1e-06),              Documentation(
+  annotation (experiment(StopTime=1.0, Interval=0.001, Tolerance=1e-06),              Documentation(
         info="<html>
 <p>
 The voltages induced by the permanent magnets of the synchronous machine is shortened over the inductance and resistance of the stator winding
