@@ -1,4 +1,4 @@
 time
-c.v
-opAmp.out.v
-opAmp.out.i
+derivative.c.v
+derivative.opAmp.out.v
+derivative.opAmp.out.i

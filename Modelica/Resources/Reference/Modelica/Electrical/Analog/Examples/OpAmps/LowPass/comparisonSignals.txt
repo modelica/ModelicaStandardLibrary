@@ -1,4 +1,4 @@
 time
-c.v
-opAmp.out.v
-opAmp.out.i
+firstOrder.c.v
+firstOrder.opAmp.out.v
+firstOrder.opAmp.out.i

@@ -1,3 +1,3 @@
 time
-opAmp.out.v
-opAmp.out.i
+buffer.opAmp.out.v
+buffer.opAmp.out.i

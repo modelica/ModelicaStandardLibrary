@@ -1,4 +1,4 @@
 time
-c.v
-opAmp.out.v
-opAmp.out.i
+integrator.c.v
+integrator.opAmp.out.v
+integrator.opAmp.out.i
