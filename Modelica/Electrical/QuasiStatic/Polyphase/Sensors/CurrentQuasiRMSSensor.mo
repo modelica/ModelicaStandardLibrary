@@ -1,8 +1,8 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Sensors;
 model CurrentQuasiRMSSensor
   "Continuous quasi current RMS sensor for polyphase system"
-  extends Modelica.Icons.RoundSensor;
-  extends QuasiStatic.Polyphase.Interfaces.TwoPlug;
+  extends Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary;
+
   parameter Integer m(min=1) = 3 "Number of phases";
   Modelica.Blocks.Interfaces.RealOutput I(unit="A")
     "Continuous quasi average RMS of current" annotation (Placement(
@@ -20,6 +20,8 @@ model CurrentQuasiRMSSensor
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-50})));
+  Modelica.SIunits.ComplexVoltage v[m] = plug_p.pin.v - plug_n.pin.v "Complex voltage";
+  Modelica.SIunits.ComplexCurrent i[m] = plug_p.pin.i "Complex current";
 equation
   connect(quasiRMS.y, I) annotation (Line(
       points={{0,-61},{0,-100}}, color={0,0,127}));
@@ -36,10 +38,6 @@ equation
         Text(
           extent={{150,-100},{-150,-70}},
           textString="m=%m"),
-        Text(
-          textColor={0,0,255},
-          extent={{-150,80},{150,120}},
-          textString="%name"),
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},

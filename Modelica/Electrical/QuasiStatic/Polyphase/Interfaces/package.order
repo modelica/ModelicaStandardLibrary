@@ -5,6 +5,7 @@ TwoPlugElementary
 TwoPlug
 OnePort
 AbsoluteSensor
+RelativeSensorElementary
 RelativeSensor
 Source
 ReferenceSource

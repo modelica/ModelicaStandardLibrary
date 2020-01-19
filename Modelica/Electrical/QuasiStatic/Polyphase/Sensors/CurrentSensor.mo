@@ -1,7 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Sensors;
 model CurrentSensor "Current Sensor"
-  extends Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlugElementary;
-  extends Modelica.Icons.RoundSensor;
+  extends Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary;
 
   QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor[m]
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

@@ -1,7 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Sensors;
 model VoltageSensor "Voltage sensor"
-  extends Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlugElementary;
-  extends Modelica.Icons.RoundSensor;
+  extends Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary;
 
   QuasiStatic.SinglePhase.Sensors.VoltageSensor voltageSensor[m]
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -9,7 +8,6 @@ model VoltageSensor "Voltage sensor"
     "Magnitude of complex voltage";
   Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
     "Argument of complex voltage";
-
   ComplexBlocks.Interfaces.ComplexOutput v[m](redeclare each final SIunits.Voltage re, redeclare each final SIunits.Voltage im) "Voltage as complex output signal"
     annotation (Placement(transformation(
         origin={0,-110},
@@ -48,9 +46,5 @@ This sensor can be used to measure <em>m</em> complex voltages, using <em>m</em>
           textString="V"),
         Line(points={{0,-100},{0,-80},{0,-70}},    color={85,170,255}),
         Line(points={{-70,0},{-90,0}}, color={85,170,255}),
-        Line(points={{70,0},{90,0}}, color={85,170,255}),
-        Text(
-          extent={{-150,130},{150,90}},
-          textString="%name",
-          textColor={0,0,255})}));
+        Line(points={{70,0},{90,0}}, color={85,170,255})}));
 end VoltageSensor;
