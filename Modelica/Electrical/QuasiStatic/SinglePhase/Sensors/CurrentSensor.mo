@@ -1,7 +1,6 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model CurrentSensor "Current sensor"
-  extends Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary;
-  extends Modelica.Icons.RoundSensor;
+  extends Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary;
   Modelica.ComplexBlocks.Interfaces.ComplexOutput i(re(unit = "A"), im(unit = "A")) "Complex current" annotation (Placement(
         transformation(
         origin={0,-110},
@@ -15,7 +14,6 @@ model CurrentSensor "Current sensor"
   Modelica.SIunits.ComplexVoltage v "Complex voltage";
 equation
   i = pin_p.i;
-  Complex(0,0) = pin_p.i + pin_n.i "Current balance";
   v = pin_p.v - pin_n.v;
   v = Complex(0,0);
   annotation (Documentation(info="<html>
@@ -40,9 +38,5 @@ This sensor can be used to measure the complex current.
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
           textString="A"),
-        Text(
-          extent={{-150,130},{150,90}},
-          textString="%name",
-          textColor={0,0,255}),
-        Line(points={{-100,0},{100,0}}, color={85,170,255})}));
+        Line(points={{-70,0},{70,0}},   color={85,170,255})}));
 end CurrentSensor;
