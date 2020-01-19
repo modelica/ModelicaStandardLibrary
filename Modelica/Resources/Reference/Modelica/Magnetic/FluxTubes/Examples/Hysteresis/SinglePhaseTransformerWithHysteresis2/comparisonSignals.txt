@@ -1,6 +1,6 @@
 time
-tr.Core.B
-tr.Core.Hstat
-tr.Core.MagRel
-tr.Wp.i
-tr.Ws.i
+transformer.core.B
+transformer.core.MagRel
+transformer.core.Hstat
+transformer.winding1.i
+transformer.winding2.i

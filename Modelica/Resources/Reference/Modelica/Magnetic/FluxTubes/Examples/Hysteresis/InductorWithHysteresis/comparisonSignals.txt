@@ -1,5 +1,5 @@
 time
-Core.B
-Core.Hstat
-Core.MagRel
-Winding.i
+core.B
+core.Hstat
+core.MagRel
+winding.i
