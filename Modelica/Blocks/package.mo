@@ -1367,7 +1367,7 @@ This example demonstrates amplitude modulation (AM) and frequency modulation (FM
       annotation (Line(points={{-11,50},{0,50},{0,30},{8,30}}, color={0,0,127}));
     connect(feedbackSin.y, toPolar.u[2]) annotation (Line(points={{-11,-20},{0,-20},
             {0,30},{8,30}}, color={0,0,127}));
-    annotation (experiment(Interval=5e-05, Tolerance=1e-05), Documentation(info="<html>
+    annotation (experiment(StopTime=1.0, Interval=5e-05, Tolerance=1e-05), Documentation(info="<html>
 <p>
 This examples demonstrates robust evaluation of a sin-cos-encoder.
 </p>
