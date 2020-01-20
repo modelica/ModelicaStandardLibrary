@@ -1122,7 +1122,7 @@ just potential signals. The user might still add different signal names.
       f_max=2000,
       f_res=5,
       resultFileName="rectifier6pulseFFTresult.mat")
-                                               annotation (Placement(
+    annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -1130,13 +1130,23 @@ just potential signals. The user might still add different signal names.
   equation
     connect(currentSensor.i[1], realFFT.u)
       annotation (Line(points={{-70,-11},{-70,-18}}, color={0,0,127}));
-    annotation (experiment(StopTime=2.5, Interval=0.0001),
+    annotation (experiment(StopTime=0.25, Interval=0.0001),
       Documentation(info="<html>
 <p>
 This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse\">6-pulse rectifier example</a>,
 calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
 </p>
 <p>
+Sampling starts after the initial transients are settled - waiting for <code>2 periods = 0.04 s</code>. 
+Choosing a maximum frequency <code>f_max=2000 Hz</code>, a frequency resolution <code>f_res=5 Hz</code> and the default oversampling factor <code>f_max_factor=5</code>, 
+we have to acquire <code>n = 2*f_max/f_res*f_max_factor = 4000</code> sampling intervals. 
+The resulting sampling interval is <code>samplePeriod = 1/(n*f_res) = 0.05 ms</code>. 
+Thus, we have to sample for a period of <code>n*samplePeriod = 1/f_res = 0.2 s</code>.
+</p>
+<p>
+The resultfile rectifier6pulseFFTresult.mat can be used to plot amplitudes versus frequencies. 
+Note that for each frequency 3 rows exits: one with amplitude zero, one with the calculated amplitude, one with apmplitude zero. 
+Thus, easily the second column (amplitude) can be plotted versus the first column (frequency). 
 As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>, 13<sup>th</sup>, 17<sup>th</sup>, 19<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
 </p>
 </html>"));
@@ -1157,13 +1167,23 @@ As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>, 13
   equation
     connect(currentSensor.i[1], realFFT.u) annotation (Line(points={{-70,-11},{
             -70,-14.5},{-70,-18}}, color={0,0,127}));
-    annotation (experiment(StopTime=2.5, Interval=0.0001),
+    annotation (experiment(StopTime=0.25, Interval=0.0001),
       Documentation(info="<html>
 <p>
 This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse\">12-pulse rectifier example</a>,
 calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
 </p>
 <p>
+Sampling starts after the initial transients are settled - waiting for <code>2 periods = 0.04 s</code>. 
+Choosing a maximum frequency <code>f_max=2000 Hz</code>, a frequency resolution <code>f_res=5 Hz</code> and the default oversampling factor <code>f_max_factor=5</code>, 
+we have to acquire <code>n = 2*f_max/f_res*f_max_factor = 4000</code> sampling intervals. 
+The resulting sampling interval is <code>samplePeriod = 1/(n*f_res) = 0.05 ms</code>. 
+Thus, we have to sample for a period of <code>n*samplePeriod = 1/f_res = 0.2 s</code>.
+</p>
+<p>
+The resultfile rectifier6pulseFFTresult.mat can be used to plot amplitudes versus frequencies. 
+Note that for each frequency 3 rows exits: one with amplitude zero, one with the calculated amplitude, one with apmplitude zero. 
+Thus, easily the second column (amplitude) can be plotted versus the first column (frequency). 
 As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
 </p>
 </html>"));
