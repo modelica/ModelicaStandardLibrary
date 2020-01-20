@@ -3,9 +3,9 @@ partial model BaseStackWithSensors "Partial stack with sensors"
   extends Modelica.Electrical.Batteries.Icons.BatteryIcon(final displaySOC=SOC);
   replaceable parameter BaseStackData stackData
     annotation (Placement(transformation(extent={{-10,40},{10,60}})));
-  parameter Boolean AllParallelConnections=true "Use all parallel connections?";
+  parameter Boolean useAllParallelConnections=true "= true, if all parallel connections are used";
   parameter Real SOC0[stackData.Ns, stackData.Np]=fill(0.1, stackData.Ns, stackData.Np) "Initial SOC";
-  parameter Real SOCtolerance=1e-9 "SOC tolerance for detection of depletec or overharged cell"
+  parameter Real SOCtolerance=1e-9 "SOC tolerance for detection of depleted or overcharged cell"
     annotation(Dialog(tab="Advanced"));
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
   output Modelica.SIunits.Current i = p.i "Current into the stack";
@@ -56,7 +56,7 @@ equation
       points={{-6,-8},{-6,-14},{60,-14},{60,-44},{60.1,-44},{60.1,-79.9}},
       color={255,204,51},
       thickness=0.5));
-  if AllParallelConnections then
+  if useAllParallelConnections then
     for ks in 1:stackData.Ns loop
       for kp in 1:stackData.Np-1 loop
         connect(cell[ks, kp].p, cell[ks, kp + 1].p);
