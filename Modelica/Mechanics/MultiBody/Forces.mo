@@ -188,8 +188,6 @@ This leads to the following animation
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
     Visualizers.Advanced.Arrow arrow(
       diameter=diameter,
       color=color,
