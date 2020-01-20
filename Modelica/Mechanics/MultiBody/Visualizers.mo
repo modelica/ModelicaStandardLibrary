@@ -654,7 +654,7 @@ parameter menu.
       r_value=n*length,
 	  quantity=quantity,
 	  pushing=pushing,
-      r=frame_a.r_0+Modelica.Mechanics.MultiBody.Frames.TransformationMatrices(frame_a.R, r_tail),
+      r=frame_a.r_0+Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1(frame_a.R.T, r_tail),
       R=frame_a.R) if world.enableAnimation and animation;
   equation
     frame_a.f = zeros(3);

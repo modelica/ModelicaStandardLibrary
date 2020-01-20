@@ -33,16 +33,15 @@ package Forces "Components that exert forces and/or torques between frames"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
     Visualizers.Advanced.Arrow arrow(
       diameter=diameter,
       color=color,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
+	  pushing=true,
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+	  r_head=frame_b.f) if world.enableAnimation and animation;
 
   public
     Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
@@ -191,14 +190,15 @@ This leads to the following animation
   protected
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m
       "Torque mapped from Nm to m for animation";
-    Visualizers.Advanced.DoubleArrow arrow(
+    Visualizers.Advanced.Arrow arrow(
       diameter=diameter,
       color=color,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+	  pushing=true,
+	  r_head=frame_b.t) if world.enableAnimation and animation;
   public
     Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -361,26 +361,24 @@ This leads to the following animation
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
     Visualizers.Advanced.Arrow forceArrow(
       diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.DoubleArrow torqueArrow(
+      r_head=frame_b.f,
+	  pushing=true) if world.enableAnimation and animation;
+    Visualizers.Advanced.Arrow torqueArrow(
       diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
+      r_head=frame_b.t,
+	  pushing=true) if world.enableAnimation and animation;
   public
     Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{18,-50},{38,-70}})));
@@ -570,16 +568,15 @@ This leads to the following animation
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
     Visualizers.Advanced.Arrow forceArrow(
       diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
+      r_head=frame_b.f,
+	  pushing=true) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
       lengthDirection = to_unit1(basicForce.r_0),
@@ -756,16 +753,15 @@ clarity this is not shown in the animation):
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
-    Visualizers.Advanced.DoubleArrow torqueArrow(
+    Visualizers.Advanced.Arrow torqueArrow(
       diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+      pushing=true,
+      r_head=frame_b.t) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
       lengthDirection = to_unit1(basicTorque.r_0),
@@ -962,26 +958,24 @@ clarity this is not shown in the animation):
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
     Visualizers.Advanced.Arrow forceArrow(
       diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.DoubleArrow torqueArrow(
+      pushing=true,
+      r_head=frame_b.f) if world.enableAnimation and animation;
+    Visualizers.Advanced.Arrow torqueArrow(
       diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
+      pushing=true,
+      r_head=frame_b.t) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
       lengthDirection = to_unit1(basicForce.r_0),

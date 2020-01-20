@@ -1867,8 +1867,6 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow)";
-    parameter Boolean vectorAnimation=false
-      "= true, if animation vector shall be enabled";
     parameter Boolean positiveSign=true
       "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
 
@@ -1887,24 +1885,16 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
 
   protected
-    SI.Position f_in_m[3]=frame_a.f*(if positiveSign then +1 else -1)/N_to_m
-      "Force mapped from N to m for animation";
     Visualizers.Advanced.Arrow forceArrow(
       diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
-
-    Visualizers.Advanced.Vector forceVector(
-      color=forceColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
-      r_value=-frame_a.f*(if positiveSign then +1 else -1)) if world.enableAnimation and vectorAnimation;
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+      pushing=true,
+      r_head=frame_a.f*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
+	  
     Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
           positiveSign)
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
@@ -1993,8 +1983,6 @@ with negative sign at frame_a.
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow)";
-    parameter Boolean vectorAnimation=false
-      "= true, if animation vector shall be enabled";
     parameter Boolean positiveSign=true
       "= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)";
     input Real Nm_to_m(unit="N.m/m") = 1000
@@ -2012,23 +2000,15 @@ with negative sign at frame_a.
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
 
   protected
-    SI.Position t_in_m[3]=frame_a.t*(if positiveSign then +1 else -1)/Nm_to_m
-      "Torque mapped from Nm to m for animation";
-    Visualizers.Advanced.DoubleArrow torqueArrow(
+    Visualizers.Advanced.Arrow torqueArrow(
       diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.Vector torqueVector(
-      color=torqueColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
-      r_value=-frame_a.t*(if positiveSign then +1 else -1)) if world.enableAnimation and vectorAnimation;
+      pushing=true,
+      r_head=frame_a.t*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
     Internal.BasicCutTorque cutTorque(resolveInFrame=resolveInFrame, positiveSign=
          positiveSign)
       annotation (Placement(transformation(extent={{-62,-10},{-42,10}})));
@@ -2162,30 +2142,18 @@ with negative sign at frame_a.
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.Vector forceVector(
-      color=forceColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
-      r_value=-frame_a.f*(if positiveSign then +1 else -1)) if world.enableAnimation and vectorAnimation;
-    Visualizers.Advanced.DoubleArrow torqueArrow(
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+	  pushing=true,
+      r_head=frame_a.f*csign) if world.enableAnimation and animation;
+    Visualizers.Advanced.Arrow torqueArrow(
       diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
+	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
-    Visualizers.Advanced.Vector torqueVector(
-      color=torqueColor,
-      specularCoefficient=specularCoefficient,
-      R=frame_b.R,
-      r=frame_b.r_0,
-      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
-      r_value=-frame_a.t*(if positiveSign then +1 else -1)) if world.enableAnimation and vectorAnimation;
+	  pushing=true,
+      r_head=frame_a.t*csign) if world.enableAnimation and animation;
     Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
           positiveSign)
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
