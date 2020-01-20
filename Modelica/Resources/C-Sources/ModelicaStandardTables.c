@@ -33,9 +33,10 @@
    in the Modelica Standard Library:
 
       Modelica.Blocks.Sources.CombiTimeTable
-      Modelica.Blocks.Tables.CombiTable1D
       Modelica.Blocks.Tables.CombiTable1Ds
-      Modelica.Blocks.Tables.CombiTable2D
+      Modelica.Blocks.Tables.CombiTable1Dv
+      Modelica.Blocks.Tables.CombiTable2Ds
+      Modelica.Blocks.Tables.CombiTable2Dv
 
    Release Notes:
       Nov. 01, 2019: by Thomas Beutlich
