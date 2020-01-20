@@ -642,38 +642,17 @@ parameter menu.
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
+	input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition 
+       "The kind of physical quantity represented by the vector"	  
+      annotation (Dialog(group="if animation = true", enable=animation));
   protected
-    SI.Length headLength=min(length, diameter*Types.Defaults.
-        ArrowHeadLengthFraction);
-    SI.Length headWidth=diameter*Types.Defaults.
-        ArrowHeadWidthFraction;
-    SI.Length lineLength=max(0, length - headLength);
-    Visualizers.Advanced.Shape arrowLine(
-      shapeType="cylinder",
-      length=lineLength,
-      width=diameter,
-      height=diameter,
-      lengthDirection=n,
-      widthDirection={0,1,0},
+    Visualizers.Advanced.Vector arrowLine(
       color=color,
       specularCoefficient=specularCoefficient,
-      r_shape=r_tail,
-      r=frame_a.r_0,
+      r_value=n*length,
+	  quantity=quantity,
+      r=frame_a.r_0+Modelica.Mechanics.MultiBody.Frames.TransformationMatrices(frame_a.R, r_tail),
       R=frame_a.R) if world.enableAnimation and animation;
-    Visualizers.Advanced.Shape arrowHead(
-      shapeType="cone",
-      length=headLength,
-      width=headWidth,
-      height=headWidth,
-      lengthDirection=n,
-      widthDirection={0,1,0},
-      color=color,
-      specularCoefficient=specularCoefficient,
-      r_shape=r_tail + Modelica.Math.Vectors.normalize(
-                                        n)*lineLength,
-      r=frame_a.r_0,
-      R=frame_a.R) if world.enableAnimation and animation;
-
   equation
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
@@ -717,6 +696,12 @@ and color can vary dynamically by
 providing appropriate expressions in the input fields of the
 parameter menu.
 </p>
+<p>
+The <strong>quantity</strong> parameter defines what the vector represents, allowing
+tools to scale e.g. forces and torques differently in a consistent way.
+For the default value <strong>RelativePosition</strong> the obvious scaling is 1 and the relative position is shown
+as is.
+</p>
 </html>"));
   end FixedArrow;
 
@@ -739,9 +724,12 @@ parameter menu.
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-
-    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Length", each final unit="m")
-      "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
+    input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition 
+          "The kind of physical quantity represented by the vector"	  
+       annotation(Dialog(group="if animation = true", enable=animation));
+		  
+    Modelica.Blocks.Interfaces.RealInput r_head[3]
+      "Vector resolved in frame_a"
       annotation (Placement(transformation(
           origin={0,-120},
           extent={{-20,-20},{20,20}},
@@ -755,6 +743,7 @@ parameter menu.
       r_head=r_head,
       diameter=diameter,
       color=color,
+	  quantity=quantity,
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
   equation
     frame_a.f = zeros(3);
@@ -782,13 +771,19 @@ parameter menu.
 <p>
 Model <strong>SignalArrow</strong> defines an arrow that is dynamically visualized
 at the location where its frame_a is attached. The
-position vector from the tail to the head of the arrow,
+vector from the tail to the head of the arrow,
 resolved in frame_a, is defined via the signal vector of
 the connector <strong>r_head</strong> (Real r_head[3]):<br>&nbsp;
 </p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.SignalArrow\">
+</p>
+<p>
+The <strong>quantity</strong> parameter defines what the vector represents, allowing
+tools to scale e.g. forces and torques differently in a consistent way.
+For the default value <strong>RelativePosition</strong> the obvious scaling is 1 and the relative position is shown
+as is.
 </p>
 <p>
 The tail of the arrow is defined with parameter <strong>r_tail</strong>
@@ -1850,53 +1845,28 @@ This definition is also available as type
         "Position vector from origin of world frame to origin of arrow frame, resolved in world frame" annotation(Dialog);
       input SI.Position r_tail[3]={0,0,0}
         "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame" annotation(Dialog);
-      input SI.Position r_head[3]={0,0,0}
-        "Position vector from arrow tail to the head of the arrow, resolved in arrow frame" annotation(Dialog);
+      input Real r_head[3]={0,0,0}
+        "Vector from arrow tail to the head of the arrow, resolved in arrow frame" annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
         "Color of arrow" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-                                                                                                            annotation(Dialog);
+		annotation(Dialog);
+      input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition 
+          "The kind of physical quantity represented by the vector"	  
+    	  annotation(Dialog);
 
     protected
       outer Modelica.Mechanics.MultiBody.World world;
-      SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
-      Real e_x[3](each final unit="1", start={1,0,0}) = noEvent(if length < 1e-10 then {1,0,0} else r_head/length);
-      Real rxvisobj[3](each final unit="1") = transpose(R.T)*e_x
-        "X-axis unit vector of shape, resolved in world frame"
-          annotation (HideResult=true);
-      SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
-        "Position vector from world frame to shape frame, resolved in world frame"
-          annotation (HideResult=true);
-      SI.Length arrowLength = noEvent(max(0, length - diameter*Types.Defaults.ArrowHeadLengthFraction))
-          annotation(HideResult=true);
-      Visualizers.Advanced.Shape arrowLine(
-        length=arrowLength,
-        width=diameter,
-        height=diameter,
-        lengthDirection = to_unit1(r_head),
-        widthDirection={0,1,0},
-        shapeType="cylinder",
+      SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail);
+      Visualizers.Advanced.Vector arrowLine(
+        r_value=r_head,
         color=color,
         specularCoefficient=specularCoefficient,
-        r_shape=r_tail,
-        r=r,
-        R=R) if world.enableAnimation;
-      Visualizers.Advanced.Shape arrowHead(
-        length=noEvent(max(0, min(length, diameter*Types.Defaults.
-            ArrowHeadLengthFraction))),
-        width=noEvent(max(0, diameter*MultiBody.Types.Defaults.
-            ArrowHeadWidthFraction)),
-        height=noEvent(max(0, diameter*MultiBody.Types.Defaults.
-            ArrowHeadWidthFraction)),
-        lengthDirection = to_unit1(r_head),
-        widthDirection={0,1,0},
-        shapeType="cone",
-        color=color,
-        specularCoefficient=specularCoefficient,
-        r=rvisobj + rxvisobj*arrowLength,
+        r=rvisobj,
+		quantity=quantity,
         R=R) if world.enableAnimation;
 
       annotation (
@@ -1904,6 +1874,8 @@ This definition is also available as type
 <p>
 Model <strong>Arrow</strong> defines an arrow that is dynamically
 visualized at the defined location (see variables below).
+If you want an arrow representing something that is not a relative position, use
+<a href=\"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a> instead.
 </p>
 
 <p>
@@ -1918,7 +1890,7 @@ modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
 <pre>
-    Visualizers.Advanced.Arrow arrow(diameter = sin(time));
+    Visualizers.Advanced.Arrow arrow(r_head = {sin(time),cos(time},0});
 </pre>
 
 <p>
