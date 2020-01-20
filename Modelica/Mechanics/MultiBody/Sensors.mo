@@ -2132,10 +2132,6 @@ with negative sign at frame_a.
 
   protected
     parameter Integer csign=if positiveSign then +1 else -1;
-    SI.Position f_in_m[3]=frame_a.f*csign/N_to_m
-      "Force mapped from N to m for animation";
-    SI.Position t_in_m[3]=frame_a.t*csign/Nm_to_m
-      "Torque mapped from Nm to m for animation";
     Visualizers.Advanced.Arrow forceArrow(
       diameter=forceDiameter,
       color=forceColor,
